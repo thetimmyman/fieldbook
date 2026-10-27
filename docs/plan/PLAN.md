@@ -13,6 +13,10 @@ This is the execution plan for Fieldbook (AD-21 in [ADR 0001](../decisions/0001-
 
 **Line forms.** An item is `- <slug>: <one line>`. A step for the owner ends `(owner)` and a step for the lead ends `(lead)`; these have no card file. Every slug here is the name of a card file, written or still to be written, or of one that a merged pull request deleted when the card closed. A `later-` slug is the exception: it is a row of the Later table in [AD-24](../decisions/0001-foundation.md#ad-24-what-is-not-built-yet-later), it has no card file until the lead writes one, and Codex skips the line because step 1 needs a card file. The `later-` lines follow the owner's four groups: group 1 (the whole knowledge base) under P6 after `release-1-0-0`, group 2 (pricing, estimating and the rate book) under P7, groups 3 and 4 (estimate at completion and earned value, then the rest) under P8. The cards of P4, P5 and P6 are drafts in `docs/cards/drafts/`; a draft moves to `docs/cards/` by one `git mv` when the phase before it ends. A P4 to P8 line in this file names a draft or is a one-line item with no file.
 
+**`workspace-skeleton` is the one item with no card file and no deleting commit.** It was built
+before card files existed, so it counts as merged for every precondition, and the plan lint
+exempts it. Its line stays for the record, and nothing waits on it.
+
 **Readiness.** A green `just check` shows that the code works; it is not readiness. Authorisation is IT's ([intake artifact 17](../intake/README.md#the-17-artifacts)).
 
 **Merging (D-5).** Codex merges `auto` cards on a green `ci-ok`, including CI and test cards that touch no permissions or secrets. Commits carry the agent author "Codex (agent)". A card marked `Review: owner` waits for the owner. The owner reads the week's merged work in the weekly review; nothing waits for it.
