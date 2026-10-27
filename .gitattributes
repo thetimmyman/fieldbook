@@ -1,0 +1,4 @@
+* text=auto eol=lf
+
+# Originals are byte-exact: no line-ending conversion, no textual diff.
+corpus/sources/public/** binary

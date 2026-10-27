@@ -1,0 +1,213 @@
+# Fieldbook policy file: a synthetic example for IT to start from.
+#
+# Every code, name, address and path in this file is made up. Copy the file,
+# replace the values, delete the line "example = true" from your copy, and test
+# the copy with
+#
+#     fieldbook policy check FILE
+#
+# Fieldbook will not load this file as it stands: "example = true" makes it
+# invalid, so a half-edited copy can never take effect by accident.
+#
+# The real file is installed at %ProgramData%\Fieldbook\policy.toml, in a folder
+# that only IT can write. It never goes into a repository or into the data
+# folder. Fieldbook reads it and never writes it.
+#
+# The guide is docs/intake/policy.md. Every key is described in
+# docs/reference/policy.md. A key or table that is not in that reference makes
+# the whole file invalid, and an invalid file closes every destination.
+
+policy_schema = 1
+example = true
+
+# The company's own counter. Raise it with every change. Fieldbook records the
+# highest revision it has loaded, and a file with a lower one closes every
+# destination. A roll-back is a new revision that carries the old content.
+revision = 1
+
+
+# Labels. Use opaque codes of two to four letters, a hyphen and four digits: the
+# id is written to the audit journal, and the title is not. A banner is printed
+# on pages, exports and prints of labelled content. A restricted label may be
+# held only by a store whose row names "readers". The built-in labels (public,
+# unlabelled, marked, owner-supplied) are not defined here.
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms under an NDA (example)"
+banner = "NP-0007: restricted to the named counterparty"
+restricted = true
+
+[[label]]
+id = "bid-0003"
+title = "Bid cost build (example)"
+banner = "BID-0003: proposal sensitive"
+
+[[label]]
+id = "ctl-0002"
+title = "Export-controlled technical data (example)"
+banner = "CTL-0002: controlled, do not move"
+# ctl-0002 is in no "holds" list and in no "allow" list below. A file that
+# carries it is refused at intake and goes to no destination.
+
+
+# Text that marks a file. A file that contains the text gets the labels. The
+# match is literal, 3 to 80 characters, compared without regard to case.
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+
+# Company data sources. The id is the system id in systems.toml. "root" binds the
+# id to a folder tree: a stream whose folder lies outside it is refused (FB0835),
+# so repointing a source cannot change what its items are labelled. The default
+# labels are added to everything the source delivers, so start broad and narrow
+# with rules.
+
+[[source]]
+id = "finance-exports"
+root = 'C:\Example\FinanceExports'
+default = ["bid-0003"]
+
+# An item whose key starts with the prefix also gets these labels.
+[[source.rule]]
+prefix = "suppliers/"
+labels = ["np-0007"]
+
+# The source's own classification text, mapped to labels. A native value with
+# no row here gives the item the label "marked", which nothing allows.
+[[source.map]]
+native = "Restricted"
+labels = ["np-0007"]
+
+# A folder that IT knows holds only public documents. This is the only way
+# company-side text becomes "public": the row says so for a folder inside root.
+[[source]]
+id = "public-notices"
+root = 'C:\Example\PublicNotices'
+default = ["public"]
+
+
+# What each store may hold. A write that carries a label outside "holds" is
+# refused (FB0412). "default" is the label set of a note the owner writes there.
+# "readers" is a Windows group: a person who is not in it cannot open the store.
+# "changers" is the group that may run "label add" on its items.
+# "hold = true" prevents changes to held items.
+# Inbox, staging and queue use destination-store admission. State needs its own
+# holds for logs, asked rows, retained calls and eligible derived sites. Restricted
+# State labels need readers; stores with readers do not produce static sites.
+# Before any policy is loaded, a laptop that has a company store holds "marked"
+# in "overlay", "working" and "state". A loaded policy replaces that: a store
+# holds "marked" only if its row lists it, and a store with no row holds public
+# and unlabelled text only ("state" also holds owner-supplied). The rows below
+# do not list "marked", so with a copy of this file loaded the laptop takes in no
+# new marked file, and "fieldbook check" reports the ones it already holds
+# (FB0412).
+
+[[store]]
+id = "overlay"
+holds = ["public", "unlabelled", "np-0007", "bid-0003"]
+default = ["bid-0003"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+changers = 'EXAMPLE\Fieldbook-Label-Owners'
+
+[[store]]
+id = "working"
+holds = ["public", "unlabelled"]
+
+
+# Where labels may go. A destination with no row receives nothing. unlabelled
+# and marked are never valid in "allow". owner-supplied is the text a person
+# types or pastes into one request.
+
+# A pack file that the owner carries to an assistant that IT approved.
+[[destination]]
+kind = "handoff"
+allow = ["public", "owner-supplied"]
+ref = "CHG-EXAMPLE-0001"
+
+# An HTTPS endpoint. Both this row and the owner's settings.toml must name it,
+# and the url must equal the endpoint's base_url there. The row applies through
+# the "expires" date. keep_calls_days_max = 0 allows no call records. This row
+# allows public text only.
+[[destination]]
+kind = "model"
+name = "example-gateway"
+url = "https://ai-gateway.example/v1"
+allow = ["public"]
+expires = 2027-06-30
+keep_calls_days_max = 0
+ref = "CHG-EXAMPLE-0002"
+
+# A wider model row, for after the company has reviewed the operator's contract
+# (retention, training, location). Remove the leading "# " to use it. A model row
+# that allows any non-public label needs the [audit] table below to name a sink
+# and "max_unshipped_hours": the call is refused when the last audit export is
+# older than that, because a journal that never leaves the laptop is not
+# evidence of what left it. IT can turn that requirement off in the same table.
+#
+# [[destination]]
+# kind = "model"
+# name = "example-gateway"
+# url = "https://ai-gateway.example/v1"
+# allow = ["public", "owner-supplied", "bid-0003"]
+# expires = 2027-06-30
+# keep_calls_days_max = 0
+# ref = "CHG-EXAMPLE-0003"
+
+# Results returned over fieldbook mcp. Version 1 serves public text only: any
+# program that can start the server sends what it receives to a model nobody
+# approved. "clients" lists the SHA-256 (lowercase hex) of each approved client's
+# name alone. A refused session prints its hash on the
+# terminal. Leave "clients" out to allow any client. This value is a placeholder.
+[[destination]]
+kind = "mcp"
+allow = ["public"]
+clients = ["0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"]
+
+# The chat page on the loopback address.
+[[destination]]
+kind = "bridge"
+allow = ["public"]
+
+# Any file the program writes outside the data folder. The prefix is matched on
+# whole path components, after links are resolved.
+# A restore into a folder outside the data folder is such a write; a restore
+# into a folder inside it is a store write and needs no row.
+[[destination]]
+kind = "export"
+allow = ["public", "bid-0003"]
+paths = ['C:\Example\Exports']
+
+# A backup target. A snapshot that holds a label outside "allow" is refused. A
+# network share is valid; a folder that a sync client watches is valid only when
+# a row names it here.
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied", "np-0007", "bid-0003"]
+paths = ['\\fileserver.example\backups\fieldbook']
+
+# Whether a page shows a print form, and with what banner.
+[[destination]]
+kind = "print"
+allow = ["public", "owner-supplied"]
+
+# Whether a page shows its copy controls.
+[[destination]]
+kind = "clipboard"
+allow = ["public"]
+
+
+# The folder that fieldbook audit export writes the journal's own lines to, and
+# how old the last export may be before a model call with a non-public label is
+# refused. The journal holds label ids and counts and no company text. The
+# folder should be one that IT collects from and that the owner cannot rewrite.
+[audit]
+sink = 'C:\Example\FieldbookAudit'
+max_unshipped_hours = 24
+# Whether a model call with a non-public label needs a recent export. true is the
+# default, so leave this line out to keep it. false turns it off: such a call no
+# longer waits for an export, a model row then needs no sink and no limit, and
+# "max_unshipped_hours" has no effect.
+# require_fresh_export = true

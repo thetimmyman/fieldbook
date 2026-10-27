@@ -1,0 +1,42 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "xtask"]
+
+[workspace.package]
+# The tool version. The pre-release value is 0.0.0; `just release X.Y.Z` sets it.
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.99"
+license = "LicenseRef-Proprietary"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "deny", priority = -1 }
+cast_possible_truncation = "deny"
+cast_sign_loss = "deny"
+cast_possible_wrap = "deny"
+float_cmp = "deny"
+needless_pass_by_value = "deny"
+semicolon_if_nothing_returned = "deny"
+implicit_clone = "deny"
+manual_let_else = "deny"
+redundant_else = "deny"
+match_same_arms = "deny"
+allow_attributes = "deny"
+allow_attributes_without_reason = "deny"
+unwrap_used = "deny"
+expect_used = "deny"
+print_stdout = "deny"
+print_stderr = "deny"
+dbg_macro = "deny"
+
+[profile.release]
+codegen-units = 1
+overflow-checks = true   # [J]
+
+[profile.dist]           # used only by release.yml
+inherits = "release"
+lto = true

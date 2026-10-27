@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Runs before each push: the full check, then the personal denylist.
+# `just setup` enables this hook. Never use --no-verify.
+set -euo pipefail
+cd "$(git rev-parse --show-toplevel)"
+
+push_updates="$(mktemp)"
+trap 'rm -f "$push_updates"' EXIT
+cat > "$push_updates"
+
+just check
+
+# The denylist is a file outside the repository; the step runs on the owner's machine only.
+if [ -n "${FIELDBOOK_DENYLIST:-}" ]; then
+    cargo xtask denylist "$FIELDBOOK_DENYLIST" --updates "$push_updates"
+else
+    echo "denylist: FIELDBOOK_DENYLIST is not set, so this local step is skipped"
+fi

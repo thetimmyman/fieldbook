@@ -1,0 +1,14 @@
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+disallowed-types = [
+  "std::fs::File", "std::fs::OpenOptions", "std::process::Command",
+  "std::net::TcpStream", "std::net::TcpListener", "std::net::UdpSocket",
+  "std::collections::HashMap", "std::collections::HashSet",
+]
+disallowed-methods = [
+  "std::fs::read", "std::fs::read_to_string", "std::fs::write", "std::fs::read_dir",
+  "std::fs::create_dir_all", "std::fs::remove_file", "std::fs::rename",
+  "std::env::var", "std::env::vars", "std::env::args", "std::env::current_dir",
+  "std::time::SystemTime::now", "std::time::Instant::now", "std::process::exit",
+  "rust_decimal::Decimal::round", "rust_decimal::Decimal::round_dp",
+]

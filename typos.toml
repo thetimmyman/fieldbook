@@ -1,0 +1,21 @@
+[files]
+# Originals and their extracted text are byte-exact data: never "fix" them.
+# The lockfile is generated.
+extend-exclude = ["corpus/sources/**", "Cargo.lock"]
+
+[default.extend-words]
+# The crate name flate2.
+flate = "flate"
+# Codes in corpus.toml: the "fnd" area (foundation) and the "CPY" page type (company profile).
+fnd = "fnd"
+cpy = "cpy"
+# A deliberate misspelling in the known-bad schema examples.
+titel = "titel"
+# "CAFÉ" in the tokenizer golden file splits at the escape.
+caf = "caf"
+# "MIS Builder", an accounting report tool named in docs/reference/dependencies.md.
+mis = "mis"
+# "withh", a regex fragment (withholding, withheld) in the search script of docs/design/mockup/index.html.
+withh = "withh"
+# "addres", the data hook of the add-results region in docs/design/mockup/index.html.
+addres = "addres"

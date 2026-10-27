@@ -1,0 +1,58 @@
+# cargo-deny policy (AD-06). Pull requests run `cargo deny check bans licenses sources`;
+# advisories run weekly and before each release, because they need the network.
+
+[graph]
+targets = ["x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+
+[licenses]
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "Unicode-3.0",
+    "Unlicense",
+]
+# Licences are allowed before the first crate needs them, so the list is the policy.
+unused-allowed-license = "allow"
+
+# Workspace crates are `LicenseRef-Proprietary` with `publish = false`.
+[licenses.private]
+ignore = true
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+# Path dependencies between workspace crates carry no version.
+allow-wildcard-paths = true
+deny = [
+    # C builds. `cc` may enter at R2, through `embed-resource` alone.
+    { crate = "cc", wrappers = ["embed-resource"] },
+    { crate = "cmake" },
+    { crate = "bindgen" },
+    { crate = "pkg-config" },
+    { crate = "openssl-sys" },
+    { crate = "libsqlite3-sys" },
+    # Network access and async runtimes: reopen only through an owner-reviewed gate card,
+    # the AI gate for the model client and the connector gate for a company data source
+    # client (ADR 0004 section 8). Each admits named crates only; the failure guarded is an
+    # unreviewed outbound path. The `cc` wrapper rule above is unchanged.
+    { crate = "tokio" },
+    { crate = "reqwest" },
+    { crate = "hyper" },
+    { crate = "ureq" },
+    { crate = "curl" },
+    { crate = "native-tls" },
+    { crate = "rustls" },
+]
+
+[advisories]
+yanked = "deny"

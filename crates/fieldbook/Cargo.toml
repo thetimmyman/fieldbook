@@ -1,0 +1,16 @@
+[package]
+name = "fieldbook"
+description = "The fieldbook command-line program. The only shipped crate that does I/O."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+fieldbook-calc = { path = "../fieldbook-calc" }
+fieldbook-core = { path = "../fieldbook-core" }
+fieldbook-render = { path = "../fieldbook-render" }
+
+[lints]
+workspace = true

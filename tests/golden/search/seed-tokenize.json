@@ -1,0 +1,256 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-s-001",
+      "side": "query",
+      "input": "252.204\u20107012 252.215\u20117002 52.215\u20132 15.404\u20141 31.205\u22126",
+      "tokens": ["252.204-7012", "252.215-7002", "52.215-2", "15.404-1", "31.205-6"],
+      "note": "Five clause numbers, each with a different dash: U+2010, U+2011, U+2013, U+2014 and U+2212 all fold to a hyphen"
+    },
+    {
+      "id": "tok-s-002",
+      "side": "query",
+      "input": "31.205\u20126 52.215\u20152 15.404\u20161 9904.401\uff0d40",
+      "tokens": ["31.205-6", "52.215-2", "15.404", "1", "9904.401-40"],
+      "note": "U+2012 and U+2015 fold, and so does the fullwidth hyphen-minus through NFKC; U+2016 is just outside the range, so it separates"
+    },
+    {
+      "id": "tok-s-003",
+      "side": "query",
+      "input": "\ufb01le \uff11\uff12\uff13",
+      "tokens": ["file", "123"],
+      "note": "NFKC turns a ligature into letters and fullwidth digits into ASCII digits"
+    },
+    {
+      "id": "tok-s-004",
+      "side": "query",
+      "input": "x\u00b2 cm\u00b3",
+      "tokens": ["x2", "cm3"],
+      "note": "NFKC turns superscript digits into digits, so each is part of its word"
+    },
+    {
+      "id": "tok-s-005",
+      "side": "index",
+      "input": "Cafe\u0301 CAF\u00c9 \u00c9T\u00c9",
+      "tokens": ["caf\u00e9", "caf\u00e9", "\u00e9t\u00e9"],
+      "note": "NFKC composes e plus a combining accent; a non-ASCII capital is lowercased; accents are kept"
+    },
+    {
+      "id": "tok-s-006",
+      "side": "index",
+      "input": "con\u00adtractor",
+      "tokens": ["contractor"],
+      "note": "A soft hyphen is deleted, so the word stays whole"
+    },
+    {"id": "tok-s-007", "side": "query", "input": "", "tokens": [], "note": "Empty input gives no tokens"},
+    {
+      "id": "tok-s-008",
+      "side": "index",
+      "input": "  \t\u00a0\n ",
+      "tokens": [],
+      "note": "Whitespace only, including a no-break space (NFKC makes it a space), gives no tokens"
+    },
+    {
+      "id": "tok-s-009",
+      "side": "index",
+      "input": "Hello, world! (Test) [ok] \"quoted\"; yes?",
+      "tokens": ["hello", "world", "test", "ok", "quoted", "yes"],
+      "note": "Punctuation, brackets and quotation marks separate words; case is folded"
+    },
+    {
+      "id": "tok-s-010",
+      "side": "index",
+      "input": "contractor\u2019s contractor's O&M cost-type",
+      "tokens": ["contractor", "s", "contractor", "s", "o", "m", "cost", "type"],
+      "note": "Both apostrophes, the ampersand and a hyphen in a compound separate words"
+    },
+    {"id": "tok-s-011", "side": "index", "input": "material_weakness", "tokens": ["material", "weakness"], "note": "An underscore separates words"},
+    {
+      "id": "tok-s-012",
+      "side": "query",
+      "input": "$1,000,000.50 and 7.5%",
+      "tokens": ["1000000.50", "and", "7.5"],
+      "note": "Thousands separators are removed from a number; $ and % separate"
+    },
+    {
+      "id": "tok-s-013",
+      "side": "index",
+      "input": "1,23 1,2345 1,000",
+      "tokens": ["1", "23", "1", "2345", "1000"],
+      "note": "A comma is a thousands separator only before exactly three digits that are not followed by a digit"
+    },
+    {
+      "id": "tok-s-014",
+      "side": "index",
+      "input": "3.14159 15th 1.5x",
+      "tokens": ["3.14159", "15th", "1", "5x"],
+      "note": "A decimal followed by a letter does not take the number shape; the word shape takes 1 and then 5x"
+    },
+    {
+      "id": "tok-s-015",
+      "side": "index",
+      "input": "1.250 1.25 abc123 123abc",
+      "tokens": ["1.250", "1.25", "abc123", "123abc"],
+      "note": "A three-digit fraction has the clause shape and gets no ancestors or alias; letters and digits together form one word"
+    },
+    {
+      "id": "tok-s-016",
+      "side": "query",
+      "input": "pp. 14\u201315",
+      "tokens": ["pp", "14", "15"],
+      "note": "A dash between two numbers separates them; the dot after pp is punctuation"
+    },
+    {
+      "id": "tok-s-017",
+      "side": "query",
+      "input": "S-0042-v2 S-0042 CL-CMP-0011 Q-027 XC-14 252.215-7002",
+      "tokens": ["s-0042-v2", "s-0042", "cl-cmp-0011", "q-027", "xc-14", "252.215-7002"],
+      "note": "Each of the six identifier shapes stays whole"
+    },
+    {
+      "id": "tok-s-018",
+      "side": "query",
+      "input": "[@S-0042-v2, p. 14]",
+      "tokens": ["s-0042-v2", "p", "14"],
+      "note": "A citation as typed: the key stays whole, the rest separates"
+    },
+    {
+      "id": "tok-s-019",
+      "side": "query",
+      "input": "15.404-1(a)(4) 15.404(a) 252.204-7012(b)(2)",
+      "tokens": ["15.404-1(a)(4)", "15.404(a)", "252.204-7012(b)(2)"],
+      "note": "Paragraph groups stay part of the clause number"
+    },
+    {
+      "id": "tok-s-020",
+      "side": "query",
+      "input": "15.404-1(abcde)",
+      "tokens": ["15.404-1", "abcde"],
+      "note": "A paragraph group holds at most four characters; a longer group ends the clause number"
+    },
+    {
+      "id": "tok-s-021",
+      "side": "query",
+      "input": "15.404-1(a)(4",
+      "tokens": ["15.404-1(a)", "4"],
+      "note": "An unbalanced parenthesis ends the clause number at the last complete group"
+    },
+    {
+      "id": "tok-s-022",
+      "side": "query",
+      "input": "CL-CMP-0011x S-0042x",
+      "tokens": ["cl", "cmp", "0011x", "s", "0042x"],
+      "note": "A claim id or source id followed by a letter fails the boundary, so the parts become words"
+    },
+    {
+      "id": "tok-s-023",
+      "side": "query",
+      "input": "252.204-7012a",
+      "tokens": ["252.204", "7012a"],
+      "note": "The clause shape fails the boundary and is not retried shorter; the number shape takes 252.204 and the suffix becomes a word"
+    },
+    {
+      "id": "tok-s-024",
+      "side": "query",
+      "input": "XC-5 Q-1234",
+      "tokens": ["xc-5", "q", "1234"],
+      "note": "Near misses: xc-5 has the conflict shape, q-1234 has four digits and is not a question id"
+    },
+    {
+      "id": "tok-s-025",
+      "side": "query",
+      "input": "cl-cmpx-0011",
+      "tokens": ["cl", "cmpx", "0011"],
+      "note": "Near miss: four letters in the area, so not a claim id"
+    },
+    {"id": "tok-s-026", "side": "query", "input": "s-004", "tokens": ["s", "004"], "note": "Near miss: three digits, so not a source id"},
+    {
+      "id": "tok-s-027",
+      "side": "index",
+      "input": "ts-0042 xs-0042-v2",
+      "tokens": ["ts", "0042", "xs", "0042", "v2"],
+      "note": "An identifier cannot start inside a word, so ts-0042 and xs-0042-v2 are plain words and numbers"
+    },
+    {
+      "id": "tok-s-028",
+      "side": "index",
+      "input": "FAR 15.404-1(a)(4)",
+      "tokens": ["far", "15.404-1(a)(4)", "15.404-1(a)", "15.404-1", "15.404"],
+      "note": "Ancestors from the longest to the shortest, ending at the part and section; no alias because the suffix has one digit"
+    },
+    {"id": "tok-s-029", "side": "index", "input": "15.404", "tokens": ["15.404"], "note": "A part and section alone has no ancestors"},
+    {
+      "id": "tok-s-030",
+      "side": "index",
+      "input": "252.204-7012(b)(2)",
+      "tokens": ["252.204-7012(b)(2)", "252.204-7012(b)", "252.204-7012", "252.204", "7012"],
+      "note": "Ancestors, then the four-digit suffix as the alias"
+    },
+    {
+      "id": "tok-s-031",
+      "side": "index",
+      "input": "52.215-21 52.215-70123",
+      "tokens": ["52.215-21", "52.215", "52.215-70123", "52.215"],
+      "note": "A suffix of two digits or of five digits gets no alias"
+    },
+    {"id": "tok-s-032", "side": "index", "input": "15.404(a)", "tokens": ["15.404(a)", "15.404"], "note": "A paragraph group with no hyphen suffix"},
+    {
+      "id": "tok-s-033",
+      "side": "index",
+      "input": "[@S-0042-v2, p. 14]",
+      "tokens": ["s-0042-v2", "s-0042", "p", "14"],
+      "note": "A source version also emits its source id"
+    },
+    {
+      "id": "tok-s-034",
+      "side": "index",
+      "input": "CL-CMP-0011 Q-027 XC-14",
+      "tokens": ["cl-cmp-0011", "q-027", "xc-14"],
+      "note": "Claim, question and conflict ids have no extras"
+    },
+    {
+      "id": "tok-s-035",
+      "side": "index",
+      "input": "Flow down 252.204-7012 and 252.204-7012.",
+      "tokens": ["flow", "down", "252.204-7012", "252.204", "7012", "and", "252.204-7012", "252.204", "7012"],
+      "note": "A repeated clause number repeats its extras; the index side keeps duplicates"
+    },
+    {
+      "id": "tok-s-036",
+      "side": "query",
+      "input": "cost cost Cost",
+      "tokens": ["cost"],
+      "note": "Duplicates are removed after case folding, keeping the first"
+    },
+    {
+      "id": "tok-s-037",
+      "side": "query",
+      "input": "alpha alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike",
+      "tokens": ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima"],
+      "note": "Duplicates are removed first, then the first 12 tokens are kept; mike is dropped"
+    },
+    {
+      "id": "tok-s-038",
+      "side": "query",
+      "input": "DFARS 252.204\u20137012 (Safeguarding)",
+      "tokens": ["dfars", "252.204-7012", "safeguarding"],
+      "note": "The query side emits no ancestors and no alias"
+    },
+    {
+      "id": "tok-s-039",
+      "side": "query",
+      "input": "  \tFAR 15.404-1(a)(4)\n ",
+      "tokens": ["far", "15.404-1(a)(4)"],
+      "note": "Surrounding whitespace is ignored"
+    },
+    {
+      "id": "tok-s-040",
+      "side": "query",
+      "input": "DFARS 7012",
+      "tokens": ["dfars", "7012"],
+      "note": "A bare four-digit number is an ordinary number token on the query side"
+    }
+  ]
+}

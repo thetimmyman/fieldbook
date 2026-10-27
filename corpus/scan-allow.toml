@@ -1,0 +1,9 @@
+# Allowances for the marking scan (FB0400). The file holds none in version 1.
+# Add one only for a public document that prints a marking in its own text, such as a regulation that quotes a banner.
+# This file belongs to the public Corpus only. A company store reads a marking as a label and has no allowance file.
+# An allowance is keyed by the SHA-256 of the file that holds the match. Editing that file changes the hash and ends the allowance.
+#
+# [[allow]]
+# sha256 = "<64 lowercase hex characters>"
+# match = "<the matched text, exactly as the scan reports it>"
+# reason = "<why this public text may stay>"

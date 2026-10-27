@@ -1,0 +1,6 @@
+# gitleaks configuration (AD-18). The default rules apply; nothing is allowlisted.
+# A false positive is handled by an entry here that names the file and states why.
+title = "Fieldbook"
+
+[extend]
+useDefault = true

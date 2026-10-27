@@ -1,0 +1,11 @@
+# Build outputs. `out/` holds the generated edition and its zips; it is never committed.
+target/
+out/
+# Agent tools keep their state outside the product; Serena's project folder is never committed.
+.serena/
+# The state folder (journal, queue, asked log, backups) and the intake drop folder hold local data; neither is ever committed.
+.fieldbook/
+inbox/
+# A snapshot test writes its proposed value next to the snapshot; the author reads it and renames it by hand.
+*.snap.new
+.*.pending-snap

@@ -1,0 +1,86 @@
+# windows-facts
+
+- **Runs where:** home, CI Linux, CI Windows
+- **Schema impact:** none
+- **Review:** owner
+
+## Outcome
+
+The program reads the Windows facts that its rules rest on through one small leaf crate, `fieldbook-win`: the known folders, the logon account, group membership, the number of interactive logons, the place of a folder (a reparse point, a sync root or a network drive), the writers of a file or folder, and the not-indexed mark. `crates/fieldbook/src/io/win.rs` is the one file that calls the crate. The `windows` job of `ci.yml` runs the tests of every shipped crate on `windows-2025` for each pull request that changes code.
+
+## Why
+
+- Several rules need a fact that the standard library cannot give, and PL-03 in [controls.md](../controls.md) rules out an environment variable for it: the machine's policy folder and the local data folder (the known-folder call), the principal and the group of a role (the logon token), the Bridge's count of interactive logons (HG-14), the place test of a folder (GD-01 and DR-01) and the writers of the policy file (PL-01).
+- This card adds the only first-party `unsafe` code: one file, `crates/fieldbook-win/src/sys.rs`. One audited file is smaller than any rule that lets it spread, so the owner reads this card. Every other crate keeps `unsafe_code = "forbid"` ([AD-05](../decisions/0001-foundation.md#ad-05-crate-layout-and-enforcement), CD-01).
+- `windows-sys` is the only dependency, under `cfg(windows)`: raw bindings with no build script and no C, whose only dependency is `windows-link`. [dependencies.md](../reference/dependencies.md) has its row and the new counts.
+- The `windows` job is built here and not in `audit-journal`, because this is the first card with Windows code ([AD-08](../decisions/0001-foundation.md#ad-08-ci-design) has the job's row). Each later card that needs a fact adds only its `World` method.
+
+## Scope
+
+- Files: `crates/fieldbook-win/{Cargo.toml,src/lib.rs,src/sys.rs,tests/windows.rs,tests/off_windows.rs,tests/lints.rs}`, `crates/fieldbook/src/io/win.rs`.
+- Registration lines: the `windows-sys` entry of `[workspace.dependencies]` in the root `Cargo.toml`; the `fieldbook-win` line in `crates/fieldbook/Cargo.toml`; `pub mod win;` in `crates/fieldbook/src/io/mod.rs`; the "Allowed dependencies" sentence of the crate comment in `crates/fieldbook/src/lib.rs`; one test in `crates/fieldbook/tests/layers.rs`; `SHIPPED`, the Rule 1 comment and the tests of `xtask/src/graph.rs`; the job `windows` and its entry in `needs` of `ci-ok` in `.github/workflows/ci.yml`; the `windows-sys` row of `docs/reference/dependencies.md`, which must carry the pin of step 1.
+- Docs to update: [dependencies.md](../reference/dependencies.md) (see Registration lines). No `CHANGELOG.md` line: the owner sees nothing new.
+
+## Out of scope
+
+- Any method of `World`. The card that needs a fact adds the `World` method, its `Disk` body (one line that calls `io/win.rs`) and its test double: `audit-journal` (`principal`), `policy-load` (`program_data` and `writers`, and the rule for Linux in `writers`), `backup-snapshot` (`place`), `chat-bridge` (`interactive_logons`), `r2-state-and-journal` (`local_app_data`, and `Groups` for `Disk`) and `r2-company-ids` (`mark_not_indexed`).
+- What a fact means for a rule: the place test is `labels::placement` (`core-labels`), the writer check is `policy-load`, and the logon rule is `chat-bridge`. This card reads the facts and judges nothing.
+- A sync client that registers no sync root, and a folder that a rule must refuse for its contents. The place test reports what the operating system says about the folder.
+
+## Preconditions
+
+- Cards merged: `check-command`, `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `day1-dependencies` (`[workspace.dependencies]`, `cargo xtask deps --check` and `just lock-verify`) and `core-labels` (`PlaceFacts`).
+
+## Steps
+
+1. The crate and its pin, by the recipe [Adding a crate, a tool or an action](README.md#adding-a-crate-a-tool-or-an-action). `crates/fieldbook-win/Cargo.toml` takes its package fields from the workspace like the other crates and depends on no workspace crate. It holds `[target.'cfg(windows)'.dependencies]` with `windows-sys = { workspace = true }` and `[dev-dependencies]` with `tempfile = { workspace = true }`. It has its own `[lints.rust]` and `[lints.clippy]` tables, copied from `[workspace.lints.rust]` and `[workspace.lints.clippy]` of the root manifest, with `unsafe_code = "deny"` where the workspace says `"forbid"`. The root manifest gets, in `[workspace.dependencies]`, `windows-sys = { version = "0.61.2", default-features = false, features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Authorization", "Win32_Storage_FileSystem", "Win32_Storage_CloudFilters", "Win32_System_Com", "Win32_System_RemoteDesktop", "Win32_System_Threading", "Win32_UI_Shell"] }`. The pin is 0.61.2, released 2025-10-06, the newest release at least 14 days old when this card was written; it has no build script and so brings no C. `crates/fieldbook/Cargo.toml` gains `fieldbook-win = { path = "../fieldbook-win" }`. Make the `windows-sys` row of `dependencies.md` agree with the pin, run `just lock`, and run `cargo xtask deps --check`. A call that needs a feature outside the list adds it to the list and to the row, and the pull request says which.
+2. `src/lib.rs`, in safe Rust and documented: `Folder { ProgramData, LocalAppData }`, `WriterKind { Administrators, System, Other, Unknown }`, `Place { reparse, sync_root, network }` (three `bool`s), `WinError { call: &'static str, code: u32 }` (the system call that failed and its error code), and the functions `known_folder(Folder) -> Result<PathBuf, WinError>`, `principal() -> Result<String, WinError>` (`DOMAIN\name` from the process token), `in_group(&str) -> Result<bool, WinError>`, `interactive_logons() -> Result<u32, WinError>`, `place(&Path) -> Result<Place, WinError>`, `writers(&Path) -> Result<Vec<WriterKind>, WinError>` and `mark_not_indexed(&Path) -> Result<(), WinError>`. Off Windows every function returns `Err(WinError { call: "not windows", code: 0 })`, so the crate builds and its tests run on Linux and nothing off Windows can mistake a missing answer for a real one. The crate comment says what the crate is for and that only `fieldbook` may depend on it.
+3. CI, by the recipe [Adding a CI job](README.md#adding-a-ci-job), so that the Windows code has somewhere to compile (it builds only on Windows, so push the branch after this step and read the job's log as you write step 4). In `.github/workflows/ci.yml`: a job `windows` with `runs-on: windows-2025`, `timeout-minutes: 30`, `needs: [changes]`, the pinned checkout, `rustup toolchain install`, the pinned rust-cache, `taiki-e/install-action` for `cargo-nextest` at the pin that the `rust` job uses, and `cargo nextest run --workspace --exclude xtask --locked`. Every step after checkout carries `if: needs.changes.outputs.code == 'true'`. Add `windows` to `needs` of `ci-ok`. The AD-08 table already has the `windows` row.
+4. `src/sys.rs`, declared `#[cfg(windows)] mod sys;`. Its first line is `#![expect(unsafe_code, reason = "Windows system calls")]`. It holds every system call, one function for each function of step 2, and each `unsafe` block has a `// SAFETY:` comment that says why its pointers and lengths are valid. It frees what the system allocates (`CoTaskMemFree`, `WTSFreeMemory`, `LocalFree`) and closes every handle it opens. The calls:
+   - `known_folder`: `SHGetKnownFolderPath` with `FOLDERID_ProgramData` or `FOLDERID_LocalAppData`. It reads no environment variable.
+   - `principal`: `OpenProcessToken`, `GetTokenInformation` (`TokenUser`) and `LookupAccountSidW`.
+   - `in_group`: convert a string SID with `ConvertStringSidToSidW` and release its allocation with `LocalFree`; otherwise resolve the account name with `LookupAccountNameW`. Then call `CheckTokenMembership`. An invalid SID or unresolved name is `Err`, not `false`.
+   - `interactive_logons`: `WTSEnumerateSessionsW`. A session counts when it is active or disconnected and `WTSQuerySessionInformationW` gives it a user name.
+   - `place`: for the path, or for its nearest existing ancestor when it does not exist yet. `reparse` is true when the folder or any folder above it is a reparse point (`GetFileAttributesW`: a junction, a link or a mount). `sync_root` is true when `CfGetSyncRootInfoByPath` finds a registered sync root above it; its answer "not under a sync root" is `false` and any other failure is an `Err`. `network` is true for `Component::Prefix` of kind `Prefix::UNC` or `Prefix::VerbatimUNC`, without touching the network. `Prefix::Disk` and `Prefix::VerbatimDisk` use `GetDriveTypeW` on the drive root. Other prefixes or no prefix use `GetVolumePathNameW` then `GetDriveTypeW`.
+   - `writers`: `GetNamedSecurityInfoW` for the DACL and the owner. Each allow entry that grants a write right (write data, append, delete, change permissions, take ownership, or generic write or all) gives one kind: the Administrators group is `Administrators`, the local system account is `System`, any other account is `Other`, and an entry it cannot read is `Unknown`. The owner counts as a writer unless it is the Administrators group or the system account, and a missing DACL (everyone may write) is `Other`. Deny entries are not read, so the list can be longer than the truth and never shorter. An `Err` means only that the call itself failed: a file that only administrators can write gives `Ok`.
+   - `mark_not_indexed`: `GetFileAttributesW`, then `SetFileAttributesW` with `FILE_ATTRIBUTE_NOT_CONTENT_INDEXED` (`0x2000`) added and every other attribute kept.
+5. `crates/fieldbook/src/io/win.rs`, declared by `pub mod win;` in `io/mod.rs`. It is the only file of the repository that names `fieldbook_win`, and it turns each answer into what the program uses: `program_data()` and `local_app_data()` give `Option<PathBuf>`, `principal()` gives `Option<String>`, `in_group(&str)` gives `Option<bool>` (the `None` that `Groups::in_group` of `core-policy` means: the token cannot be read), `interactive_logons()` gives `Option<u32>`, `writers(&Path)` gives `Option<Vec<WriterKind>>` (with `pub use fieldbook_win::WriterKind`), `mark_not_indexed(&Path)` gives `bool`, and `place(&Path)` gives the `PlaceFacts` of `core-labels`. An `Err` is `None` or `false` in all of them except `place`: off Windows every fact of `place` is false, and when the call fails on Windows every fact is true, so a folder the program cannot judge is refused and not trusted (the pure function `facts(Result<Place, WinError>) -> PlaceFacts` does this). The functions are `pub`, so they are not dead code before the cards of Out of scope call them.
+6. `xtask/src/graph.rs`. `SHIPPED` gets `("fieldbook-win", &[])` and the `fieldbook` row gains `"fieldbook-win"`, so no other crate may depend on it and it depends on no workspace crate. The Rule 1 comment says five shipped crates. In `mod tests`: `MEMBERS` gets `"fieldbook-win"`; `GOOD` gets `("fieldbook", "fieldbook-win", None)`; `a_fifth_workspace_crate_is_rejected` is renamed `a_sixth_workspace_crate_is_rejected`; and the new `a_core_crate_may_not_depend_on_fieldbook_win` adds, in turn, an edge from `fieldbook-calc`, `fieldbook-core` and `fieldbook-render` to `fieldbook-win`, each giving one violation.
+7. Tests. In `crates/fieldbook-win/tests/windows.rs` (`#![cfg(windows)]`): `known_folders_are_absolute_existing_folders`, `the_principal_is_a_domain_and_a_name`, `in_group_knows_everyone_and_not_a_missing_group`, `interactive_logons_gives_a_count` (prints it), `a_plain_temporary_folder_has_no_place_facts` (and a folder that does not exist yet below it gets the same answer), `a_junction_is_a_reparse_point` (made with `cmd /C mklink /J`, with `#![expect(clippy::disallowed_types, reason = "the test makes a junction")]`), `a_unc_path_is_a_network_path` (synthetic UNC text, no contact), `a_verbatim_local_path_is_not_a_network_path` (a canonical local temporary folder), `a_verbatim_unc_path_is_a_network_path` (synthetic UNC text, no contact), `the_hosts_file_is_written_by_administrators_and_system_only` (`C:\Windows\System32\drivers\etc\hosts` lists no `Other` or `Unknown`), `a_file_the_user_can_write_lists_an_other_writer` and `mark_not_indexed_sets_the_flag` (read back with `MetadataExt::file_attributes`, the directory flag kept). In `crates/fieldbook-win/tests/off_windows.rs` (`#![cfg(not(windows))]`): `every_function_is_an_error_off_windows`. In `crates/fieldbook-win/tests/lints.rs` (`#![expect(clippy::disallowed_methods, reason = "the test reads the source tree")]`): `lints_match_workspace_except_unsafe` (the two lint tables of the crate equal the workspace tables line by line, with `unsafe_code = "deny"` as the one difference), `unsafe_scan_ignores_comments_and_strings_and_finds_a_block` (the scan removes comments, string literals and raw strings, then looks for the word `unsafe`), `unsafe_only_in_sys_rs` (the scan over `src` and `tests` of every crate in `crates/` and of `xtask`, fixture folders left out, finds the word only in `crates/fieldbook-win/src/sys.rs`, and finds `#![expect(unsafe_code` only there) and `every_unsafe_block_has_a_safety_comment`. In `io/win.rs`, `mod tests`: `an_unreadable_place_is_all_true`, and under `#[cfg(not(windows))]` `off_windows_no_fact_is_known`. In `crates/fieldbook/tests/layers.rs`: `fieldbook_win_is_named_only_in_io_win` (a scan of `crates/fieldbook/src`, with the same `expect` as the scan above).
+8. Mark the tests that carry a control row of the controls table with the line `// control: <ID>` directly above the test, as `controls_have_tests` reads it: CD-01 on `unsafe_only_in_sys_rs` and DP-03 on `a_core_crate_may_not_depend_on_fieldbook_win`.
+
+9. In `crates/fieldbook-win/tests/windows.rs`, add `in_group_accepts_a_sid_string` (S-1-1-0), `in_group_rejects_a_malformed_sid` and `in_group_accepts_an_account_name`. Removing string-SID conversion must fail `in_group_accepts_a_sid_string`.
+
+## Acceptance
+
+```sh
+cargo nextest run --locked -p fieldbook-win
+cargo nextest run --locked -p fieldbook io::win::
+cargo nextest run --locked -p fieldbook --test layers
+cargo nextest run --locked -p xtask graph::
+cargo xtask deps --check
+just lock-verify
+cargo deny --locked check bans licenses sources
+gh run list --workflow ci.yml --branch card/windows-facts --limit 1
+just check
+```
+
+Expected: the tests pass on Linux; `deps --check`, `lock-verify` and `cargo deny` exit 0, and the lock holds `windows-sys` 0.61.2 and `windows-link` and no `cc`; the pull request's `ci.yml` run is `completed success`, its job `windows` is green and its log lists the tests of `crates/fieldbook-win/tests/windows.rs` as passed; `just check` exits 0.
+
+## Negative control
+
+On the branch, put an `unsafe` block in `crates/fieldbook/src/io/win.rs`: `just check` must fail on the `forbid` lint. Put one in `crates/fieldbook-win/src/lib.rs`: it must fail on the `deny` lint and `unsafe_only_in_sys_rs` must name the file. Restore both. Change `unsafe_code = "deny"` to `"forbid"` in the crate's `[lints.rust]`: `lints_match_workspace_except_unsafe` must fail. Restore it. Add a path dependency on `fieldbook-win` to `crates/fieldbook-core/Cargo.toml`: `cargo nextest run --locked -p xtask graph::this_workspace_obeys_the_layering` must fail. Restore it. Remove `windows` from `needs` of `ci-ok`: `ci_ok_needs_every_job` must fail. Restore it. Name `fieldbook_win` in any other file of `crates/fieldbook/src`: `fieldbook_win_is_named_only_in_io_win` must fail. Restore it. Then make `sys::mark_not_indexed` return `Ok(())` without the call, push, and read the `windows` job: `mark_not_indexed_sets_the_flag` must fail. Restore it.
+
+Treat every two-backslash prefix as network: `a_verbatim_local_path_is_not_a_network_path` must fail. Restore it.
+
+Remove string-SID conversion in `sys::in_group`: `in_group_accepts_a_sid_string` must fail. Restore it.
+
+## Rollback
+
+Revert the merge commit. `fieldbook-win`, the pin, the `windows` job and its entry in `needs` of `ci-ok` go with it, and `just lock` removes the two crates from the lock. The cards that call `io/win.rs` (`audit-journal`, `policy-load`, `backup-snapshot`, `chat-bridge`, `r2-state-and-journal` and `r2-company-ids`) are reverted first, because they have no Windows facts without it, and `transfer-and-windows-drill` too, because it adds its steps to the `windows` job.
+
+## BLOCKED
+
+- A Windows call cannot give its fact on `windows-2025` (an `Err` with a code, or an answer the test shows is wrong): write `BLOCKED: windows call <name> <code>` and stop. Do not read an environment variable instead, do not guess the answer and do not skip the `windows` job.
+- `cargo deny`, `deps --check` or `lock-verify` rejects `windows-sys` (a licence, a build script, `cc` in the graph, or a pin that differs from its row): write `BLOCKED: windows-sys <what>` and stop. The owner decides.
+- The `windows` job needs more than the 30 minutes: write `BLOCKED: windows job too slow` with the time and stop.

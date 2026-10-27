@@ -1,0 +1,105 @@
+FIELDBOOK TRANSFER STATEMENT
+Edition {edition}. Tool version {tool_version}. Source commit {commit}.
+Source date (UTC): {source_date}. Schema version {schema_version}.
+
+This statement ships inside the edition. The edition build fills in the
+figures below from the files being packed, so they are counted, not typed.
+
+1. WHAT THIS IS
+
+Fieldbook is a library of public finance and government-contracting reference
+material for one reader. It is a set of static files: web pages, style sheets,
+JavaScript, CSV registers, Excel workbooks, text and public documents. You open
+them from local disk in Microsoft Edge and Microsoft Excel. This is Tier 0:
+files only.
+A later, separate request may bring a signed program that runs on the company
+laptop as part of the company's own systems. If IT approves it, that program
+keeps the company's records in a store under the data folder, never in an
+edition, and sends text to an AI endpoint only as a policy file written by IT
+allows. Editions stay public. Nothing in this edition does any of that.
+
+2. WHAT IS IN THE TWO ZIP FILES
+
+  fieldbook-edition-{edition_number}.zip    {n_files_edition} files
+  fieldbook-originals-{edition_number}.zip  {n_files_originals} files
+
+Count by file type, both zips together:
+
+  HTML pages            {n_html}
+  JavaScript            {n_js}
+  CSS                   {n_css}
+  CSV                   {n_csv}
+  Excel workbooks       {n_xlsx}
+  Markdown and TOML     {n_md_toml}
+  Text                  {n_txt}
+  PDF                   {n_pdf}
+  Other                 {n_other}
+
+{n_js} JavaScript files, executed only by the browser; no Windows Script Host,
+macro or executable content.
+
+The edition build refuses to pack an executable, library, script, shortcut or
+macro-enabled workbook, a link to a remote address in any asset, or an HTML or
+SVG original outside the site. HTML and SVG originals are shipped as .txt
+files, with the same bytes, so Edge shows them as text and runs nothing. The
+workbooks contain no macros and no links to other files or addresses. The
+registers workbook contains no formulas. Any workbook that does contain
+formulas says so on its Read-me sheet.
+
+3. WHAT THESE FILES NEVER DO
+
+They install nothing. They add no program, service, driver, scheduled task,
+startup entry, registry key or shortcut. They need no administrator rights.
+The files in this edition make no network request: {n_pages_checked} pages and
+{n_text_originals_checked} text-renamed originals were loaded in Microsoft Edge
+{edge_version} with the network log recorded, and {n_nonlocal_requests} requests
+were not to a local file. The test covers this edition and the interactions it
+tried, and no more.
+The result is in intake\network-silence-summary.txt; intake\network-silence.md
+says how to read it.
+
+4. WHAT IS IN THEM
+
+Public sources and synthetic examples only. Every number in an example is marked
+synthetic. There is no company, customer, personal or employee information, and
+no controlled unclassified or export-controlled material. If you find any,
+stop using the edition and tell the contact in section 7.
+
+The content counts are: {n_pages} pages, {n_sources} source versions,
+{n_claims} claims, {n_questions} open questions. The Corpus fingerprint is
+{corpus_fingerprint}.
+
+The fillable workbooks in templates\ are blank apart from synthetic example rows.
+Copy one into working\ before you type anything in it. Fieldbook never reads
+what you type there, and nothing in these files sends it anywhere.
+
+5. HOW TO CHECK WHAT YOU RECEIVED
+
+The two zip files are not signed. Their SHA-256 hashes are not inside them. They
+reach you separately, by the route your IT department settled, so a change to a
+zip in transit shows up as a different hash. Steps are in intake\integrity-guide.md.
+Inside each zip, a file named SHA256SUMS lists every file and its hash.
+
+Extract both zips into %LOCALAPPDATA%\Fieldbook\ (README.txt shows how). Do not
+remove the Mark-of-the-Web from the zips or from the files. Leave Windows and
+Excel to treat the files as downloaded files.
+
+6. AI
+
+Tool versions before 0.2.0 contain no artificial-intelligence model and contact
+none. An optional step builds a block of public text that you copy into an
+assistant your IT department has approved, and then checks the citations in the
+answer. You do the copying. From version 0.2.0 the AI build can also send that
+block to an endpoint your IT department has approved in its policy file, only when you run the
+command for it, after writing a line to its audit log. Which build is installed
+on this laptop is your IT department's decision. Nothing in the checks, the
+search, the calculations or the editions uses a model. See
+intake\ai-development-statement.md.
+
+7. CONTACT
+
+{security_contact}
+
+8. REMOVAL
+
+Delete the folder %LOCALAPPDATA%\Fieldbook\ under the retention procedure. Clear Fieldbook page storage separately through IT’s browser-clearing procedure. Folder deletion does not clear browser data; neither step promises secure erasure.

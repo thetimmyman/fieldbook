@@ -1,0 +1,122 @@
+# Corpus manifest. The tool reads the areas, the views and the settings from here; none of them is code.
+# schema_version is frozen by ADR 0002. Changing it needs a migration (docs/reference/corpus-format.md).
+schema_version = 1
+
+# Settings for the Handoff assistant features that arrive at Day 30.
+[assistant]
+# Character budget of one context pack. Whole blocks only; what does not fit is listed as left out.
+pack_budget_chars = 12000
+
+# Areas, in display order.
+#   code      lowercase three letters; the prefix of every page id and the area of every register row
+#   slug      folder under corpus/pages/
+#   name      short display name
+#   summary   one line for the area header
+#   subareas  the only folders allowed under the area folder
+[[area]]
+code = "fnd"
+slug = "foundation"
+name = "Foundation"
+summary = "Evidence, vocabulary, questions and the method for onboarding"
+subareas = ["evidence", "glossary", "questions", "fixtures", "systems", "onboarding"]
+
+[[area]]
+code = "mkt"
+slug = "market"
+name = "Markets"
+summary = "Market, programs, industrial base and public data feeds"
+subareas = ["taxonomy", "feeds", "ledgers", "company", "peers", "programs"]
+
+[[area]]
+code = "est"
+slug = "estimating"
+name = "Estimating"
+summary = "Estimating, pricing, proposals and the estimating system"
+subareas = ["pricing", "wbs-analogy", "estimating-system", "escalation"]
+
+[[area]]
+code = "sup"
+slug = "supply-chain"
+name = "Supply chain"
+summary = "Supply-chain information and sourcing evidence"
+subareas = ["sourcing-evidence", "procure-to-pay", "supplier-identity"]
+
+[[area]]
+code = "rte"
+slug = "indirect-rates"
+name = "Indirect rates"
+summary = "Indirect rates and manufacturing cost structure"
+subareas = ["pools-bases", "rate-lifecycle", "absorption", "variance"]
+
+[[area]]
+code = "prg"
+slug = "program-finance"
+name = "Program finance"
+summary = "Baseline, estimate at completion and earned value"
+subareas = ["baseline", "eac", "evms", "risk-opportunity"]
+
+[[area]]
+code = "fpa"
+slug = "fpa"
+name = "FP&A"
+summary = "Planning, forecasting, backlog to revenue and reporting"
+subareas = ["planning-chain", "backlog", "kpi", "forecast-vintage"]
+
+[[area]]
+code = "ctf"
+slug = "contract-finance"
+name = "Contract finance"
+summary = "Funding, billing, payment and cash on contracts"
+subareas = ["funding", "billing-payment", "financing", "cash"]
+
+[[area]]
+code = "cmp"
+slug = "compliance"
+name = "Compliance"
+summary = "Government-contract compliance and accounting controls"
+subareas = ["regulatory-framework", "cas-allowability", "business-systems", "audit-retention", "trade-cyber"]
+
+[[area]]
+code = "cls"
+slug = "close-revrec"
+name = "Close and revenue"
+summary = "Close, revenue recognition, inventory, work in process and group reporting"
+subareas = ["close", "revenue", "inventory-wip", "fixed-assets", "group-bridge"]
+
+[[area]]
+code = "mna"
+slug = "mna"
+name = "M&A"
+summary = "Mergers, acquisitions and corporate development"
+subareas = ["screening", "valuation", "deal-gates", "diligence"]
+
+[[area]]
+code = "opm"
+slug = "operating-model"
+name = "Operating model"
+summary = "Finance operating model and decision governance"
+subareas = ["decision-rights", "cadence", "corrective-action", "talent"]
+
+[[area]]
+code = "ind"
+slug = "industrialization"
+name = "Industrialization"
+summary = "Capital investment, capacity and production ramp"
+subareas = ["capacity", "ramp", "investment-case", "cash-returns"]
+
+# Views: filters over the pages of one area. A view is not an area: it owns no pages, ids or folders.
+# The reader shows the eyebrow "View over MKT" (the filter's area code in capitals).
+[[view]]
+code = "CPY"
+name = "Company profile"
+filter = { area = "mkt", subarea = "company" }
+
+[[view]]
+code = "CPT"
+name = "Competitors"
+filter = { area = "mkt", subarea = "peers" }
+
+[[view]]
+code = "PGM"
+name = "Programs"
+filter = { area = "mkt", subarea = "programs" }

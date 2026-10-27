@@ -1,0 +1,309 @@
+{
+  "kind": "citation",
+  "version": 1,
+  "cases": [
+    {
+      "id": "cit-s-001",
+      "mode": "strict",
+      "input": "[@S-0042-v2, p. 14]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "p. 14"}}
+        ]
+      },
+      "note": "Source version with a page"
+    },
+    {
+      "id": "cit-s-002",
+      "mode": "strict",
+      "input": "[@S-0042-v2, pp. 14-15]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "pp. 14-15"}}
+        ]
+      },
+      "note": "Source version with a page range"
+    },
+    {
+      "id": "cit-s-003",
+      "mode": "strict",
+      "input": "[@S-0107-v1, sec. (e)(1)]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0107-v1", "key_kind": "version", "locator": {"kind": "text_section", "text": "sec. (e)(1)"}}
+        ]
+      },
+      "note": "Section locator; the label may hold parentheses"
+    },
+    {
+      "id": "cit-s-004",
+      "mode": "strict",
+      "input": "[@S-0107-v1, \u00a7 15.404-1]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0107-v1", "key_kind": "version", "locator": {"kind": "text_section", "text": "\u00a7 15.404-1"}}
+        ]
+      },
+      "note": "Section locator with the section sign; the label may hold a hyphen"
+    },
+    {
+      "id": "cit-s-005",
+      "mode": "strict",
+      "input": "[@S-0107-v1, para. 3]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0107-v1", "key_kind": "version", "locator": {"kind": "text_section", "text": "para. 3"}}
+        ]
+      },
+      "note": "Paragraph locator"
+    },
+    {
+      "id": "cit-s-006",
+      "mode": "strict",
+      "input": "[@S-0200-v1, sheet Rates!B2:D9]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0200-v1", "key_kind": "version", "locator": {"kind": "sheet_cells", "text": "sheet Rates!B2:D9"}}
+        ]
+      },
+      "note": "Sheet and range"
+    },
+    {
+      "id": "cit-s-007",
+      "mode": "strict",
+      "input": "[@S-0300-v1, rec 48213]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0300-v1", "key_kind": "version", "locator": {"kind": "record_key", "text": "rec 48213"}}
+        ]
+      },
+      "note": "Record key"
+    },
+    {
+      "id": "cit-s-008",
+      "mode": "strict",
+      "input": "[@S-0042-v2]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": null}
+        ]
+      },
+      "note": "Source version with no locator; the lexer reads it, and check decides where it is allowed"
+    },
+    {
+      "id": "cit-s-009",
+      "mode": "strict",
+      "input": "[@CL-CMP-0011]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "CL-CMP-0011", "key_kind": "claim", "locator": null}
+        ]
+      },
+      "note": "Claim key"
+    },
+    {
+      "id": "cit-s-010",
+      "mode": "strict",
+      "input": "[@Q-027]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "Q-027", "key_kind": "question", "locator": null}
+        ]
+      },
+      "note": "Question key"
+    },
+    {
+      "id": "cit-s-011",
+      "mode": "strict",
+      "input": "[@XC-14]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "XC-14", "key_kind": "conflict", "locator": null}
+        ]
+      },
+      "note": "Conflict key"
+    },
+    {
+      "id": "cit-s-012",
+      "mode": "strict",
+      "input": "[@CL-CMP-0011; @S-0042-v2, pp. 14-15]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "CL-CMP-0011", "key_kind": "claim", "locator": null},
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "pp. 14-15"}}
+        ]
+      },
+      "note": "Two citations in one pair of brackets, separated by a semicolon and one space"
+    },
+    {
+      "id": "cit-s-013",
+      "mode": "strict",
+      "input": "See [@CL-CMP-0011; @Q-027] and [@XC-123].",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {"key": "CL-CMP-0011", "key_kind": "claim", "locator": null},
+          {"key": "Q-027", "key_kind": "question", "locator": null},
+          {"key": "XC-123", "key_kind": "conflict", "locator": null}
+        ]
+      },
+      "note": "Two bracket pairs with text between them are fine; the list holds every citation in order; a conflict key may have three digits"
+    },
+    {"id": "cit-s-014", "mode": "strict", "input": "[@S-42]", "expect": {"ok": false, "code": "FB0300"}, "note": "A key that is not an id"},
+    {"id": "cit-s-015", "mode": "strict", "input": "[]", "expect": {"ok": false, "code": "FB0300"}, "note": "Empty brackets"},
+    {"id": "cit-s-016", "mode": "strict", "input": "[@CL-CMP-0011", "expect": {"ok": false, "code": "FB0300"}, "note": "Unbalanced brackets"},
+    {
+      "id": "cit-s-017",
+      "mode": "strict",
+      "input": "[@XC-5]",
+      "expect": {"ok": false, "code": "FB0300"},
+      "note": "A conflict id needs two or more digits"
+    },
+    {
+      "id": "cit-s-018",
+      "mode": "strict",
+      "input": "[S-0042-v2 p.14]",
+      "expect": {"ok": false, "code": "FB0301"},
+      "note": "No at sign, no comma, no space after p.: readable but not canonical"
+    },
+    {
+      "id": "cit-s-019",
+      "mode": "strict",
+      "input": "[@CL-CMP-0011][@CL-CMP-0012]",
+      "expect": {"ok": false, "code": "FB0302"},
+      "note": "Two citations touch as ][@"
+    },
+    {
+      "id": "cit-s-020",
+      "mode": "strict",
+      "input": "[@CL-CMP-0011, p. 3]",
+      "expect": {"ok": false, "code": "FB0305"},
+      "note": "A claim key takes no locator"
+    },
+    {
+      "id": "cit-s-021",
+      "mode": "strict",
+      "input": "[@XC-14, sec. 2]",
+      "expect": {"ok": false, "code": "FB0305"},
+      "note": "A conflict key takes no locator"
+    },
+    {
+      "id": "cit-s-022",
+      "mode": "tolerant",
+      "input": "[@CL-CMP-0011; @S-0042-v2, pp. 14-15]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@CL-CMP-0011; @S-0042-v2, pp. 14-15]",
+        "cites": [
+          {"key": "CL-CMP-0011", "key_kind": "claim", "locator": null, "non_canonical": false},
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "pp. 14-15"}, "non_canonical": false}
+        ]
+      },
+      "note": "A canonical citation is accepted and is not flagged"
+    },
+    {
+      "id": "cit-s-023",
+      "mode": "tolerant",
+      "input": "[CL-CMP-0011]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@CL-CMP-0011]",
+        "cites": [
+          {"key": "CL-CMP-0011", "key_kind": "claim", "locator": null, "non_canonical": true}
+        ]
+      },
+      "note": "Missing at sign"
+    },
+    {
+      "id": "cit-s-024",
+      "mode": "tolerant",
+      "input": "[@S-0042-v2 p. 14]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@S-0042-v2, p. 14]",
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "p. 14"}, "non_canonical": true}
+        ]
+      },
+      "note": "Missing comma"
+    },
+    {
+      "id": "cit-s-025",
+      "mode": "tolerant",
+      "input": "[@S-0042-v2, pp. 14\u201315]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@S-0042-v2, pp. 14-15]",
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "pp. 14-15"}, "non_canonical": true}
+        ]
+      },
+      "note": "En dash in a page range becomes a hyphen"
+    },
+    {
+      "id": "cit-s-026",
+      "mode": "tolerant",
+      "input": "[@S-0042-v2, p.14]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@S-0042-v2, p. 14]",
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "p. 14"}, "non_canonical": true}
+        ]
+      },
+      "note": "No space after p."
+    },
+    {
+      "id": "cit-s-027",
+      "mode": "tolerant",
+      "input": "[@S-0107-v1, \u00a715.404-1]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@S-0107-v1, \u00a7 15.404-1]",
+        "cites": [
+          {"key": "S-0107-v1", "key_kind": "version", "locator": {"kind": "text_section", "text": "\u00a7 15.404-1"}, "non_canonical": true}
+        ]
+      },
+      "note": "No space after the section sign"
+    },
+    {
+      "id": "cit-s-028",
+      "mode": "tolerant",
+      "input": "[S-0042-v2 p.14]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@S-0042-v2, p. 14]",
+        "cites": [
+          {"key": "S-0042-v2", "key_kind": "version", "locator": {"kind": "pdf_page_box", "text": "p. 14"}, "non_canonical": true}
+        ]
+      },
+      "note": "Three deviations at once; the flag is still one per citation"
+    },
+    {
+      "id": "cit-s-029",
+      "mode": "tolerant",
+      "input": "[S-0042@v2 p.14]",
+      "expect": {"ok": false, "cites": []},
+      "note": "A rejected form: the tolerant reader does not accept it"
+    },
+    {
+      "id": "cit-s-030",
+      "mode": "tolerant",
+      "input": "{CL-CMP-0012}",
+      "expect": {"ok": false, "cites": []},
+      "note": "A rejected form: braces are not a citation"
+    }
+  ]
+}
