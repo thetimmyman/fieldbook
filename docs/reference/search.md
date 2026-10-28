@@ -347,7 +347,7 @@ window.FB_INDEX = {"v":1,"docs":[...],"terms":[...],"post":[...]};
 
 | Key | Content |
 |---|---|
-| `v` | The index format, `1`. `search.js` refuses any other value and shows the no-JS fallback |
+| `v` | The index format, `1`. `search.js` refuses any other value, disables index use and shows the static ID-list fallback with `Search is unavailable for this index version. Use the ID list.`; scripts remain running |
 | `docs` | One array per unit in natural id order. The position is the unit number. Each is `[id, kind, title, parent, snippet, status, as_of, effective_from, verified_on, exact_key]`, all strings. exact_key is the unmodified NFC origin_key for company source/record units and empty otherwise; compare it before tokenization |
 | `terms` | Every distinct term, in UTF-16 code-unit order |
 | `post` | Parallel to `terms`. Each entry is a flat array `[unit, impact, unit, impact, ...]` of integers, units ascending |
