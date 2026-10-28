@@ -25,7 +25,7 @@ git -C "$D/clone" checkout --quiet <the commit to be tagged>
 cd "$D/clone" && just doctor && just edition
 ```
 
-Expected: exit code 0, and `out/dist/` holds `fieldbook-edition-NNN.zip`, `fieldbook-originals-NNN.zip` and `SHA256SUMS`. The allowlist (AD-18) passes.
+Expected: exit code 0, and `out/dist/` holds `fieldbook-edition-NNN.zip`, `fieldbook-originals-NNN.zip`, `SHA256SUMS`, `corpus-support.toml` and `corpus-support.sha256`. The allowlist (AD-18) passes.
 
 If `just edition` fails, its message names the cause (see [release.md](release.md), edition step 3). If `just doctor` fails, install what it names with `just setup`.
 
@@ -33,9 +33,10 @@ If `just edition` fails, its message names the cause (see [release.md](release.m
 
 ```sh
 (cd out/dist && sha256sum -c SHA256SUMS)
+(cd out/dist && sha256sum -c corpus-support.sha256)
 ```
 
-Expected: two `OK` lines. If a line fails the build wrote the list wrongly; open a card.
+Expected: two `OK` lines, then `corpus-support.toml: OK`. If a line fails the build wrote the list wrongly; open a card.
 
 ### Step 3. Extract both zips into a path with spaces
 
@@ -125,7 +126,7 @@ cargo xtask harness
 cargo xtask edition
 ```
 
-Expected: exit code 0 from each command, and `out\dist\` holds the two zips and `SHA256SUMS`. The first two commands are what `just site` and `just browser` run on Linux (the runner has no `just`). The harness writes `out\harness\network-silence-summary.txt`, which `edition` reads and refuses to build without. Failure handling is the same as in drill 1, step 1.
+Expected: exit code 0 from each command, and `out\dist\` holds the two zips, `SHA256SUMS`, `corpus-support.toml` and `corpus-support.sha256`. The first two commands are what `just site` and `just browser` run on Linux (the runner has no `just`). The harness writes `out\harness\network-silence-summary.txt`, which `edition` reads and refuses to build without. Failure handling is the same as in drill 1, step 1.
 
 ### Step 2. Check the zips with the owner's command
 
@@ -136,7 +137,14 @@ $dist = 'out\dist'
 foreach ($n in (Get-ChildItem "$dist\fieldbook-*.zip").Name) { $want = ((Get-Content "$dist\SHA256SUMS" | Select-String -SimpleMatch $n).Line -split ' ')[0]; "$n " + ((Get-FileHash -Algorithm SHA256 -LiteralPath "$dist\$n").Hash -eq $want) }
 ```
 
-Expected: two lines, `fieldbook-edition-<N>.zip True` and `fieldbook-originals-<N>.zip True`. A `False` means the documented command and the real `SHA256SUMS` format disagree; fix whichever is wrong.
+Expected: two lines, `fieldbook-edition-<N>.zip True` and `fieldbook-originals-<N>.zip True`. Then check the support sidecar:
+
+```powershell
+$want = ((Get-Content "$dist\corpus-support.sha256" | Select-Object -First 1) -split ' ')[0]
+"support catalogue " + ((Get-FileHash -Algorithm SHA256 -LiteralPath "$dist\corpus-support.toml").Hash -eq $want)
+```
+
+Expected: `support catalogue True`. A `False` means the documented command and the real support sidecar disagree; fix whichever is wrong. These are packaging-consistency checks and claim no public provenance.
 
 ### Step 3. Extract into a path with spaces
 
@@ -281,10 +289,12 @@ Run it in your own checkout on a clean tree, not in a fresh clone: the journal a
 
 ```sh
 fieldbook audit verify
+S="$(cut -d' ' -f1 out/dist/corpus-support.sha256)"
+fieldbook backup verify --raw . --support-catalogue out/dist/corpus-support.toml --expect-support-sha256 "$S"
 D="$(mktemp -d -t 'field book drill.XXXXXX')"; mkdir "$D/target" "$D/fault"
 ```
 
-Expected: `journal ok`, the event count and the first 12 characters of the head; exit code 0. A `FB0800` or `FB0801` line means the chain is broken at the line it names. Run `fieldbook audit verify --repair`: it moves the whole journal, unchanged, into a folder `journal.broken-<seq>` beside it, starts a new chain, prints an `FB0804` warning that names the folder, and exits 1. Then run `fieldbook audit verify` again, which must print `journal ok`, and open a card that names the first bad line, because something changed the file. Keep the folder; nothing is deleted. A schema-valid broken chain can be backed up when all snapshot labels and target permissions allow it; before repair that snapshot records `journal_state = "broken"` and exits 1. Schema-invalid journal or retained repair bytes contribute unlabelled. Under the home floor, backup refuses those bytes with FB0901/exit 2 and creates no snapshot, including after repair. `FB0803` (an unfinished write) or `FB0804` (a torn last line) are warnings: run the verb that was interrupted again, then repeat this step.
+Expected: `journal ok`, the event count and the first 12 characters of the head; exit code 0. Then `raw copy consistent` and `public support catalogue verified: ` with 12 hex characters, from the catalogue and separately delivered digest that Drill 1 or release step 3 left in `out/dist`; if those files are absent, run `just edition` first, because the digest is an independent input and is never read from the copy it describes. A `FB0800` or `FB0801` line means the chain is broken at the line it names. Run `fieldbook audit verify --repair`: it moves the whole journal, unchanged, into a folder `journal.broken-<seq>` beside it, starts a new chain, prints an `FB0804` warning that names the folder, and exits 1. Then run `fieldbook audit verify` again, which must print `journal ok`, and open a card that names the first bad line, because something changed the file. Keep the folder; nothing is deleted. A schema-valid broken chain can be backed up when all snapshot labels and target permissions allow it; before repair that snapshot records `journal_state = "broken"` and exits 1. Schema-invalid journal or retained repair bytes contribute unlabelled. Under the home floor, backup refuses those bytes with FB0901/exit 2 and creates no snapshot, including after repair. `FB0803` (an unfinished write) or `FB0804` (a torn last line) are warnings: run the verb that was interrupted again, then repeat this step.
 
 ### Step 2. Make a snapshot outside the working copy
 
@@ -356,11 +366,12 @@ Expected: `journal ok`, the event count and the head. Note the head and event co
 ### Step 2. Back up to the target
 
 ```powershell
+fieldbook backup verify --raw "$env:LOCALAPPDATA\Fieldbook" --support-catalogue "$env:LOCALAPPDATA\Fieldbook\edition\evidence\corpus-support.toml" --expect-support-sha256 '<the digest retained from corpus-support.sha256>'
 fieldbook backup --target it
 fieldbook backup verify --target it
 ```
 
-Expected: `backup N written`, then `snapshot N verified`. The target `it` is the one `settings.toml` names for IT's answer to IT-26 (or the same-disk folder, if IT has not answered). A synced path prints `FB0813`; declare the target synced in `settings.toml` only if IT agrees.
+Expected: `raw copy consistent`, then `public support catalogue verified: ` with 12 hex characters, then `backup N written`, then `snapshot N verified`. The optional verification is the owner-import step: it supplies the separately delivered digest explicitly, once, and never reads it from the extracted edition or from the catalogue's own folder. A failure names FB0811 or FB0810 and grants nothing; stop and keep the pair. The target `it` is the one `settings.toml` names for IT's answer to IT-26 (or the same-disk folder, if IT has not answered). A synced path prints `FB0813`; declare the target synced in `settings.toml` only if IT agrees.
 
 ### Step 3. Run the restore drill
 
@@ -392,7 +403,7 @@ In a second PowerShell window, run:
 fieldbook-ai.exe chat --site "$env:LOCALAPPDATA\Fieldbook\edition"
 ```
 
-Expected: the window prints the address of the chat page, on 127.0.0.1, then `chat: listening on 127.0.0.1 only; type q and press Enter to stop`, and keeps running. `--site` names the folder where the transfer extracted the edition, which is the site the page is served from. Write down whether Windows or endpoint protection showed any prompt about the listener, and what it said. If a prompt offers access wider than this computer, decline it and note that. Open the address in Edge and check that the Assistant page loads. Then type `q` and press Enter in that window. The window prints `chat: stopped after N calls` and returns to the prompt. Close the window only after that line appears: a window closed earlier leaves a start event with no stop event.
+Expected: the window prints the address of the chat page, on 127.0.0.1, then `chat: listening on 127.0.0.1 only; type q and press Enter to stop`, and keeps running. `--site` names the extracted Site whose required native assets are verified and retained. `GET /` serves the compiled, content-free chat shell; Corpus and company content arrives only through authenticated API routes. Write down whether Windows or endpoint protection showed any prompt about the listener, and what it said. If a prompt offers access wider than this computer, decline it and note that. Open the address in Edge and check that the Assistant page loads. Then type `q` and press Enter in that window. The window prints `chat: stopped after N calls` and returns to the prompt. Close the window only after that line appears: a window closed earlier leaves a start event with no stop event.
 
 Back in the first window:
 
@@ -418,7 +429,7 @@ Ask IT to restore its copy of `%LOCALAPPDATA%\Fieldbook\` into a scratch folder,
 fieldbook backup verify --raw "<scratch folder>"
 ```
 
-Expected: `raw copy consistent`. It checks the journal chain, the originals against their hashes and the extractions. A fault names the file; it is a finding for IT's backup, not for Fieldbook. Skip this step if IT does not copy the folder.
+Expected: `raw copy consistent`. It checks the journal chain, the originals against their hashes and the extractions. A fault names the file; it is a finding for IT's backup, not for Fieldbook. This is a generic integrity check: it uses no support catalogue or expected digest, claims no public provenance and grants no recovery or delivery fact. Skip this step if IT does not copy the folder.
 
 ### Step 8. Record at home
 

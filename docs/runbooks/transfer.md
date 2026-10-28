@@ -5,7 +5,7 @@ How an edition reaches the laptop, and how to put the previous one back. The own
 Four rules hold for every step:
 
 1. **Approved channel only.** Files move by the channel IT approved for this purpose (IT-9), and by no other route. If IT has not answered, nothing moves.
-2. **Hashes travel separately.** The zips come through the channel. `SHA256SUMS` comes by the out-of-band route IT-9 settled. A hash list that arrived inside a zip proves nothing.
+2. **Hashes travel separately.** The zips come through the channel. `SHA256SUMS` comes by the out-of-band route IT-9 settled, and `corpus-support.sha256` comes by that same separate route. A hash list or support digest that arrived inside a zip proves nothing.
 3. **The Mark-of-the-Web stays.** Nothing here removes it.
 4. **Nothing returns.** No file, screenshot, text or note is carried from the laptop to home or to GitHub, because the laptop holds the owner's working files and, once the program is installed, company data, and the home side and the repositories must never hold any. Company data that arrives in the company store from the company's own data sources (`sync`, from R2) is a different flow: it stays inside the company.
 
@@ -24,7 +24,7 @@ The edition zip carries a `README.txt` with the short form of the laptop steps. 
 
 ### Step 1. Confirm the channel
 
-Check that you hold IT's written answer to IT-9: the channel, its size limit, and the route for `SHA256SUMS`.
+Check that you hold IT's written answer to IT-9: the channel, its size limit, and the route for `SHA256SUMS` and `corpus-support.sha256`.
 
 Expected: all three are written down. If any is missing, stop. Ask IT; do not send anything.
 
@@ -34,15 +34,16 @@ From the folder holding the files fetched in [release.md](release.md) (edition s
 
 ```sh
 sha256sum -c SHA256SUMS
+sha256sum -c corpus-support.sha256
 ```
 
-Expected: `fieldbook-edition-NNN.zip: OK` and `fieldbook-originals-NNN.zip: OK`.
+Expected: `fieldbook-edition-NNN.zip: OK`, `fieldbook-originals-NNN.zip: OK` and `corpus-support.toml: OK`.
 
 If a line fails, do not send. Fetch the files again. If it still fails, open a card with the run id.
 
 ### Step 3. Send
 
-Send the two zips through the channel. Send `SHA256SUMS` by the out-of-band route, as a separate delivery.
+Send the two zips through the channel. Send `SHA256SUMS` by the out-of-band route, as a separate delivery, and send `corpus-support.sha256` with it. The catalogue itself travels inside the edition zip at `edition/evidence/corpus-support.toml`; the separate digest is what anchors those bytes. Neither file is proof of public provenance by itself.
 
 If the edition zip is above the channel's size limit, stop and open a card. If the originals zip is above half the limit, stop and open a card for `later-split-originals`; do not split an archive by hand. The limit is question IT-25 in the [intake questions](../intake/it-questions.md); 500 MB per zip is assumed until IT answers, so half is 250 MB. `just edition` prints each zip's size in whole megabytes, one line for each zip (`ls -l` shows bytes), so compare those numbers with the limit. The card names both sizes and the limit.
 
@@ -72,7 +73,7 @@ Expected: no Fieldbook file is open in Excel.
 
 ### Step 6. Stage the new pair
 
-Follow steps 1 to 3 of the [Edition update recipe](#edition-update-recipe). Extract both trees into the fresh stage and verify them before moving the installed edition. A missing originals zip is valid only when the manifest identifies the unchanged originals set and that exact set is copied into staging and verified.
+Follow steps 1 to 3 of the [Edition update recipe](#edition-update-recipe). Extract both trees into the fresh stage and verify them before moving the installed edition, including the extracted `edition\evidence\corpus-support.toml` against the separately delivered digest. A missing originals zip is valid only when the manifest identifies the unchanged originals set and that exact set is copied into staging and verified.
 
 ### Step 7. Switch and verify
 
@@ -112,11 +113,20 @@ foreach ($dir in 'edition','originals') { Get-Content "$dest\$dir\SHA256SUMS" | 
 
 Expected: no output. A `MISMATCH` line names a file that differs from its recorded hash. Do not use the edition: follow Rollback below, then open a card that names the file; the edition is rebuilt at home. Check originals even when their contents did not change.
 
+Then check the extracted support catalogue against the separately delivered digest:
+
+```powershell
+$want = (Get-Content '<the folder the channel and the separate route used>\corpus-support.sha256' | Select-Object -First 1) -split ' ' | Select-Object -First 1
+"support catalogue " + ((Get-FileHash -Algorithm SHA256 -LiteralPath "$dest\edition\evidence\corpus-support.toml").Hash -eq $want)
+```
+
+Expected: `support catalogue True`. `False` means the catalogue bytes are not the ones whose digest arrived separately; do not use them for verification and follow Rollback. This check shows byte equality only. It does not show that any file is public, admitted or verified as a claim.
+
 Then run the laptop checks in [restore-drill.md](restore-drill.md#drill-3-the-owners-laptop-drill-e1).
 
 ### Step 11. Keep the rollback pair
 
-Keep the previous verified edition and originals together, including their matching zips, published hash list and transfer evidence, after the new pair passes step 10. Follow step 6 of the [Edition update recipe](#edition-update-recipe). A successful update does not delete its rollback pair. On the first transfer there is no prior pair.
+Keep the previous verified edition and originals together, including their matching zips, published hash list, separately delivered `corpus-support.sha256` and transfer evidence, after the new pair passes step 10. Follow step 6 of the [Edition update recipe](#edition-update-recipe). A successful update does not delete its rollback pair. On the first transfer there is no prior pair.
 
 Exception: a held source version. When you quarantine a source version at home, delete every edition zip and originals zip in the delivery folder that contains it, and any retained pair if it holds that version. Replace the extracted `originals\` with the one from the replacement originals zip (step 7), so that no extracted original of the version stays. A quarantined version ships only its register row, its hash and the reason, so the replacement edition carries no text of it. Work from the replacement edition and do not roll back to a copy that holds the version. [release.md](release.md#put-a-source-version-on-hold-after-issue) says how to issue the replacement.
 
@@ -170,6 +180,20 @@ If the local previous pair is unavailable, retrieve the exact previous pair and 
 
 Do not roll back to a pair that contains a quarantined source version (step 11).
 
+## Support evidence and optional verification
+
+The edition carries `evidence/corpus-support.toml`, the data-only catalogue of the public support files used to build it. Its digest, `corpus-support.sha256`, arrives separately with `SHA256SUMS`. Keep both with the accepted pair so that a later program can check the exact catalogue bytes without trusting a copy that sits beside them.
+
+At Tier 0 no program runs and no further verification is possible: the pair, the published digest and the catalogue bytes are retained as evidence, and step 10's byte check is the whole check.
+
+When the program is installed, import the digest explicitly, once, before the first backup. Do not let the program look for it beside the data or derive it from the extracted tree.
+
+```powershell
+fieldbook backup verify --raw "$env:LOCALAPPDATA\Fieldbook" --support-catalogue "$env:LOCALAPPDATA\Fieldbook\edition\evidence\corpus-support.toml" --expect-support-sha256 '<the digest from the retained corpus-support.sha256>'
+```
+
+Expected: `raw copy consistent` and then `public support catalogue verified: ` with 12 hex characters. A failure grants nothing and names FB0811 or FB0810; keep the pair and do not back up over it. A plain `backup verify --raw` without the two flags stays an integrity check only and claims no public provenance; it may pass while a later outward backup correctly refuses unresolved support labels. This import is not a new channel, key or permission: the digest is the same separately delivered value.
+
 ## Nothing returns
 
 Nothing on the laptop goes back. If reading on the laptop shows that public content is wrong, the owner writes the correction again at home from the public source, as a normal content change. Questions, notes, decisions, working files and every company record stay on the laptop, in `working\` and in the company store, and are never carried home or to GitHub. This rule is a control IT relies on (invariant 1 in ADR 0001).
@@ -182,7 +206,7 @@ Nothing on the laptop goes back. If reading on the laptop shows that public cont
 3. Open the staged edition's index and a stored original, and check the edition identifier. If verification fails, remove staging only; the current pair remains usable.
 4. Use a versioned rollback folder containing `edition/` and `originals/`. Move both current trees into it, then move both staged trees to the fixed installed paths. Keep a small switch record naming the old/new edition identifiers and each completed move. If interrupted between moves, use that record and the verified manifests to finish the new pair or put both old trees back; never merge trees or overwrite an unidentified tree. Readers remain closed until one complete pair verifies.
 5. Verify both installed manifests and the About number before reopening the edition. An original absent from the new manifest must be absent from the installed originals. A failed check restores the previous pair.
-6. Retain that complete previous pair locally and in the independent archive after success. Remove an older rollback pair only after a later accepted update and its recovery copy are verified, keeping the current and previous supported pairs. A quarantined source version is the exception: remove every retained pair containing it and record that it cannot be used for rollback.
+6. Retain that complete previous pair locally and in the independent archive after success. Retain the separately delivered `corpus-support.sha256` with it and verify it names the extracted `edition\evidence\corpus-support.toml`; it is evidence of bytes, not of public provenance. Remove an older rollback pair only after a later accepted update and its recovery copy are verified, keeping the current and previous supported pairs. A quarantined source version is the exception: remove every retained pair containing it and record that it cannot be used for rollback.
 7. To roll back, verify the retained old pair, close readers, move the current pair aside together and restore both old trees to the installed paths. Use the same switch record for interruption recovery and verify both manifests again. If the local old pair is incomplete, stage the exact archived pair instead. Never roll back only one tree.
 <!-- edition-update:end -->
 
