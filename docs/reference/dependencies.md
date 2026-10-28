@@ -12,7 +12,7 @@ Words used here: a **direct shipped crate** is a crate named in `[dependencies]`
 
 ## Bootstrap providers
 
-`day1-dependencies` adds the complete DEPS checker without changing a manifest or lock. `day1-dependencies-2` adds actual isolated offline replay over immutable bounded fixtures, still without changing production manifests, lock or replay configuration. `day1-dependencies-3` captures the production bundle, adopts the initial dependency set and activates the complete just/CI replay gate. A consumer needing initial crates, the workspace path edge or the lock recipes waits for part three. DP-02 checking belongs to the first part; DP-04 production activation belongs to the third. No declarations-only part merges before full replay works.
+`day1-dependencies` provides strict policy-input facts and source locations, with no CLI or partial policy gate. `day1-dependencies-checks` owns the single complete DEPS-1 to DEPS-5 command, graph measurements, baseline row 0 and DP-02. `day1-dependencies-2` adds actual isolated offline replay over immutable bounded fixtures, still without changing production manifests, lock or replay configuration. `day1-dependencies-3` captures the production bundle, adopts the initial dependency set and activates the complete just/CI replay gate and DP-04. Consumers needing initial crates, the workspace path edge or lock recipes wait for `day1-dependencies-3`. No declarations-only part merges before full replay works. Each implementation must still meet the card-size rule; a measured further split preserves the final complete checker and gate.
 
 ## Policy
 
@@ -335,7 +335,7 @@ Each of these is small, has a test, and removes a review line for IT.
 
 ## Measurements
 
-Card `workspace-skeleton` adds row 0 after the first `just lock`, and each `lock-refresh` card adds the next row. The card `net-stack-spike` adds the first AI-profile row, and the card `core-policy` adds one silent-profile row when it adds `object`. A row gives one profile, so a refresh adds one row for the silent build and one for the AI build. The counts follow [Counting crates](#counting-crates). The rows are not edited afterwards.
+Card `day1-dependencies-checks` adds measured baseline row 0 without changing the lock. Card `day1-dependencies-3` retains that row and adds expanded-graph row 1 after its first recorded `just lock`; each later `lock-refresh` card adds the next row. The card `net-stack-spike` adds the first AI-profile row, and the card `core-policy` adds one silent-profile row when it adds `object`. A row gives one profile, so a refresh adds one row for the silent build and one for the AI build. The counts follow [Counting crates](#counting-crates). The rows are not edited afterwards.
 
 | Lock refresh | Profile | Features | Direct runtime crates | Transitive crates | Notes |
 |---|---|---|---|---|---|

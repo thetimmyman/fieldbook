@@ -31,7 +31,7 @@
 
 ## Preconditions
 
-- Cards merged: `core-labels` and `core-policy` (the label, policy, egress and authorisation modules of the gate set), `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `scheduled-workflow` (`scheduled.yml`) and `day1-dependencies` (`cargo xtask deps --check`, which compares the pins of `.config/tools.toml` with `dependencies.md` and the workflows).
+- Cards merged: `core-labels` and `core-policy` (the label, policy, egress and authorisation modules of the gate set), `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `scheduled-workflow` (`scheduled.yml`) and `day1-dependencies-checks` (`cargo xtask deps --check`, which compares the pins of `.config/tools.toml` with `dependencies.md` and the workflows).
 
 ## Steps
 
