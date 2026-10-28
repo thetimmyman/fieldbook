@@ -31,6 +31,8 @@ Words used here: a **direct shipped crate** is a crate named in `[dependencies]`
 
 ### Counting crates
 
+The silent direct budget is 14 only when both `calamine` and `zip` are active direct normal dependencies of shipped crates in the silent profile; otherwise it is 12. The AI direct budget is 17. The checker derives this stage from the shipped normal-edge graph, not tracker status, catalog rows, lockfile presence, xtask or dev/build edges. A single reader dependency does not select the higher silent ceiling. The existing DEPS-3 fault test exercises each budget and transitive-cap boundary.
+
 The transitive count is the number of distinct crate-and-version pairs in the normal dependency graph of the whole workspace, `xtask` included, minus the workspace's own crates. It is counted once per profile, on the two graph targets of `deny.toml`. `cargo xtask deps --check` makes that count from `cargo metadata` (DEPS-3). The command below counts the same graph for all targets, which is a superset; its figure is reported next to the capped one and is not capped:
 
 ```sh
@@ -49,9 +51,11 @@ The version in the tables is therefore the floor. The lock resolves the newest r
 
 `deny.toml` bans these crates. The aim is to let IT be told, and to check, that no crate in the build graph compiles C code, that the silent build's graph holds no network crate, and that the only network crates in the AI build are the wrapped ones named below. Only the card `net-stack-spike` edits `deny.toml`.
 
+Today the file and the matching `BANNED` list in `xtask/src/graph.rs` hold one unconditional set of thirteen crates, and `native-tls`, `ureq` and `rustls` are banned outright with the rest. The rows below that say *planned* describe the change that `net-stack-spike` would make in its own pull request; they are not today's state, and nothing here changes `deny.toml`, the graph check, the tool pins or the bootstrap.
+
 | Banned | Why |
 |---|---|
-| `cc` | Drives a C compiler. Allowed only as a dependency of `embed-resource`, through a `wrappers` entry. The first R2 lock card records here what `cc` is used for |
+| `cc` | Drives a C compiler. Banned today; allowed only as a dependency of `embed-resource`, through a `wrappers` entry, which is a planned change owned by the first R2 lock card, which records here what `cc` is used for |
 | `cmake` | Builds C and C++ libraries |
 | `bindgen` | Generates bindings to C libraries and needs libclang |
 | `pkg-config` | Finds system C libraries, so the build would depend on the host |
@@ -59,12 +63,12 @@ The version in the tables is therefore the floor. The lock resolves the newest r
 | `libsqlite3-sys` | Compiles or binds C SQLite |
 | `tokio` | An async runtime. A blocking client and a hand-written loopback listener are enough (AD-01) |
 | `reqwest`, `hyper`, `curl` | HTTP clients and servers with an async runtime or C |
-| `native-tls` | Binds OpenSSL on Linux. Allowed only if the spike falls back to schannel on Windows |
-| `ring`, `aws-lc-rs`, `aws-lc-sys`, `openssl` | TLS providers that build C or assembly through `cc` or CMake |
-| `ureq` | Wrapped: allowed only as a dependency of `fieldbook`, under the feature `net` (and `net-pull` once its card exists). It is the one HTTPS client: the model gate and, later, a `Pull` adapter over HTTPS through `GuardedPull` use it. A second client, or another feature that reaches it, needs a card whose Review is `owner`, a row here and an edit to `deny.toml` by the network-stack card |
-| `rustls` | Wrapped: allowed only through `ureq`, `rustls-graviola`, `rustls-platform-verifier` and `fieldbook` |
+| `native-tls` | Binds OpenSSL on Linux. Banned unconditionally today. The planned change would keep the ban as the default and allow it only if the spike falls back to schannel on Windows; that is `net-stack-spike`'s decision, not a current exemption |
+| `ring`, `aws-lc-rs`, `aws-lc-sys`, `openssl` | Planned: TLS providers that would build C or assembly through `cc` or CMake, added to the ban when that stack arrives |
+| `ureq` | Planned: wrapped, allowed only as a dependency of `fieldbook`, under the feature `net` (and `net-pull` once its card exists). It would be the one HTTPS client: the model gate and, later, a `Pull` adapter over HTTPS through `GuardedPull` use it. A second client, or another feature that reaches it, needs a card whose Review is `owner`, a row here and an edit to `deny.toml` by the network-stack card |
+| `rustls` | Planned: wrapped, allowed only through `ureq`, `rustls-graviola`, `rustls-platform-verifier` and `fieldbook` |
 
-A model endpoint needs TLS. The proposed stack uses rustls with the pure-Rust graviola provider and the operating system's trust store; the spike must confirm its build graph. `ureq` and `rustls` are wrapped rather than banned, and provider build tools remain banned or narrowly wrapped. `cc` is wrapped to `embed-resource`. Nothing else reopens these bans except a new card with `Review: owner`.
+A model endpoint needs TLS. The proposed stack uses rustls with the pure-Rust graviola provider and the operating system's trust store; the spike must confirm its build graph, and until it lands the thirteen-entry ban stands unchanged.
 
 Features that bring C code into the build graph are off: never enable `rust_xlsxwriter`'s `zlib` feature, which turns on a C zlib through `zip`.
 

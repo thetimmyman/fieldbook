@@ -103,7 +103,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - docs-checks: card and plan lint, link check, `just new-card`
 - check-files: FB0120 to FB0125, files, layout, normal form and paths
 - check-registers: FB0200 to FB0203, register files, CSV syntax and keys
-- check-register-cells: FB0204 to FB0206 and FB0210, cell and cross-column rules
+- check-register-cells: FB0114, FB0204 to FB0206 and FB0210, cell and cross-column rules
 - check-claim-cells: FB0306 and FB0307, locator and quote of consequential claims
 - check-register-links: FB0207, FB0208, FB0211 and FB0214, references, supersession, original hashes
 - check-promotion: FB0209, FB0213, FB0220 to FB0222 and FB0230, promotion and dates
@@ -271,7 +271,7 @@ Exit: see [Gates](../decisions/0001-foundation.md#gates) (R2), after IT approves
 - r2-overlay: `init --overlay`, `build --overlay` and the overlay CSV bridge
 - Write `tests/golden/search/seed-ranked-company.json`, 4 company-shape ranked cases, from the contract, before `r2-company-ids` (lead)
 - r2-company-ids: `store.toml` and `init --overlay --writer`, the id families with six to ten digits, the company index and `--store`, FB0416 and FB0417
-- r2-org-intake: `supplied@1`, `staged@1` and `overlay-add@1` on the laptop, company proposals under labels
+- r2-org-intake: `supplied@1` and `overlay-add@1`, with `staged@1` wired for the laptop; company proposals under labels
 - Write `tests/golden/sync/{dry-run.txt,first-run.txt,full-run.txt}` for `sync-mini`, from the contract, before `r2-pull-and-sync` (lead)
 - r2-pull-and-sync: `systems.toml`, the `Pull` port with `file-drop@1`, `sync` and its proposals, FB0215, FB0216 and FB0830 to FB0834
 - Write `tests/golden/records/{dry-run.txt,sync.txt}` and `tests/golden/queue/show-new_record_batch.txt` for `records-mini`, and three `field` cases in `tests/golden/citations/citations-company.json` (a valid `field` citation, one with a column in capitals, one with no column), from the contract, before `r2-records` (lead)

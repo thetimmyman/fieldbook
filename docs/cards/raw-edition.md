@@ -10,13 +10,13 @@
 
 ## Why
 
-- The floor delivery needs an executable recipe when renderer or browser work is deferred.
+- The floor delivery needs an executable recipe when renderer or browser work is deferred; the owner-run steps and the home gate are in [the release runbook](../runbooks/release.md#r1-the-home-gate-before-the-first-tags).
 
 ## Scope
 
 - Files: `xtask/src/{edition_raw.rs,raw_release.rs}` (tests in each `mod tests`), `.github/workflows/raw-edition.yml`.
-- Registration lines: `xtask/src/main.rs` (edition-raw); shared allowlist Raw profile required paths; `xtask/src/main.rs` (raw-edition-check and Raw archive provider); `docs/runbooks/release.md` (raw tag and archive path); `release-baseline.toml` (owner-reviewed baseline advancement); `edition-release.toml` (owner-selected delivery kind).
-- Docs to update: release and transfer runbooks; intake README and raw text variants.
+- Registration lines: `xtask/src/main.rs` (edition-raw); shared allowlist Raw profile required paths; `xtask/src/main.rs` (raw-edition-check and Raw archive provider); `docs/runbooks/release.md` (raw tag and archive path); `docs/runbooks/transfer.md` (the raw-delivery paragraphs of its transfer steps); `docs/intake/README.md` (the raw-delivery paragraph only); `release-baseline.toml` (owner-reviewed baseline advancement); `edition-release.toml` (owner-selected delivery kind).
+- Docs to update: `docs/runbooks/release.md`, `docs/runbooks/transfer.md` and `docs/intake/README.md` for the paragraphs those registration lines bound. The fixed raw intake variant text (`README.txt` and `TRANSFER-STATEMENT.txt`) is generated inside this card's `xtask/src/edition_raw.rs` into the archive, so it is edited there and in its tests, not in an existing intake source. Only if a variant has to change an existing intake source does it name that exact file, which is `docs/intake/transfer-statement.txt` when the transfer statement itself changes; no raw-variant path is invented.
 
 ## Out of scope
 

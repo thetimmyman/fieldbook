@@ -19,7 +19,7 @@
 
 - Files: `crates/fieldbook-core/src/pipeline/rules.rs`, `crates/fieldbook-core/src/check/{mod.rs,pipeline.rs,files.rs}`, `crates/fieldbook-core/tests/{rules.rs,contract_rules.rs}`, `tests/fixtures/corpus-mini/corpus/pipeline/rules.toml` (new, synthetic), `tests/fixtures/corpus-rule-fault/` (a copy of `corpus-mini` whose rules file has a rule with no example), `tests/fixtures/ports/classifier/rules@1/`, `tests/known-bad/FB0826.toml`, `tests/known-bad/pending.toml` (the FB0826 row is deleted), `CHANGELOG.md`.
 - Registration lines: the `rules@1` row in `ADAPTERS` (`crates/fieldbook/src/adapters/registry.rs`), the `pub mod rules;` line in `crates/fieldbook-core/src/pipeline/mod.rs`; and `docs/reference/corpus-format.md` (the file table row of `pipeline/rules.toml`).
-- Docs to update: `docs/reference/corpus-format.md`, in the file table row of `pipeline/rules.toml`: the five keys of a rule and the sentence that a rule which does not reproduce its example is FB0826; `docs/reference/ports.md` through `cargo xtask docs`; `CHANGELOG.md` (`- Added: check replays each intake rule on its own example.`).
+- Docs to update: `docs/reference/corpus-format.md`, in the file table row of `pipeline/rules.toml`: the five keys of a rule and the sentence that a rule which does not reproduce its example is FB0826, and the FB0826 row of the 08 catalogue, expanded to its full trigger set (unreadable rules, a repeated id, a missing `example` or `expect`, a `set` value outside the vocabulary and a result that differs from `expect`); `docs/reference/ports.md` through `cargo xtask docs`; `CHANGELOG.md` (`- Added: check replays each intake rule on its own example.`).
 
 ## Out of scope
 

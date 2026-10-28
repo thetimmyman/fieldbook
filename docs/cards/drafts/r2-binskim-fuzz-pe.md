@@ -10,7 +10,7 @@ The exact R2 executable builds have auditable dependency metadata, binary-analys
 
 ## Why
 
-- Evidence for a different executable does not establish the properties of the delivered build. A parser panic or unexpected import must fail the evidence gate before signing and delivery.
+- Evidence for a different executable does not establish the properties of the delivered build; the delivered bytes are the ones the archive, the checksums and [the R2 release steps](../../runbooks/release.md#r2-what-changes-for-v100) bind. A parser panic or unexpected import must fail the evidence gate before signing and delivery.
 
 ## Scope
 

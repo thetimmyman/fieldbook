@@ -10,7 +10,7 @@ Raw and rendered editions share one public file selection, fingerprint, checksum
 
 ## Why
 
-- The raw delivery path must be available before any renderer or browser harness.
+- The raw delivery path must be available before any renderer or browser harness; the edition's fixed values and release order are in [Scope and versioning](../reference/corpus-format.md#scope-and-versioning) and [the release runbook](../runbooks/release.md).
 - Owner review covers the release gate: this card owns tag validation and archive/release dispatch helpers, as well as the shared public payload used by release packaging.
 
 ## Scope

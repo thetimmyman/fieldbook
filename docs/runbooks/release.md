@@ -115,6 +115,8 @@ gh run list --workflow release.yml --limit 1
 gh run watch <run-id> --exit-status
 ```
 
+The `gh` CLI and its authentication are an external prerequisite of this step: `just setup` and `just doctor` neither install nor authenticate it, so an unauthenticated `gh` is not evidence of anything and is not made to look like one. Without `gh`, the equivalent is the repository's Actions page in a browser: open `release.yml` at the exact tag and commit that was pushed, record the run identity and its result, and inspect the run's required artifacts there.
+
 Expected: the run succeeds, and the repository's Actions page lists it under `release.yml` with the same run id. Its `tag-check` job refuses a tag that is not on `main` or whose version differs from the workspace version. Its `binary` job rebuilds with the `dist` profile and uploads one artifact named `fieldbook-vX.Y.Z-linux` (`X.Y.Z` is the workspace version in `Cargo.toml`, which `tag-check` has proved equal to the tag) holding the Linux binary and its `SHA256SUMS`. Its `edition` job shows as skipped, because the tag is not an `edition-` tag. `release.yml` also runs on a pull request that changes the workflow and when started by hand from the Actions page. In those runs `tag-check` and `edition` show as skipped and `binary` builds and uploads the artifact under the same name, from the workspace version; a skipped job there is not a failure, and nothing is released, because no tag exists. Treat a build uploaded by such a run as a trial and never hand it to anyone.
 
 If the `tag-check` job fails, delete the tag as in step 5 and start again from step 4. If it fails anywhere else, open a card with the run id; do not retag the same version over a failed run that uploaded files.
@@ -180,6 +182,8 @@ Expected: the push succeeds and `release.yml` starts. Failure handling is as in 
 gh run list --workflow release.yml --limit 1
 gh run watch <run-id> --exit-status
 ```
+
+As in the tool step 6, `gh` and its authentication are external prerequisites that `just setup` and `just doctor` do not supply; without them, use the Actions page for the exact tag and commit, record the run identity and result, and inspect the required artifacts there.
 
 Expected: success. The `tag-check` job refuses a tag that is not on `main` or whose number differs from the newest `corpus/changes.md` heading. The `edition` job builds the site, runs the Edge harness (Edge is preinstalled on the runner image), which writes the network-silence summary, builds the edition on Linux and uploads one artifact named `edition-NNN` with the two zips and `SHA256SUMS`, and its log has one line for each zip with its size in whole megabytes (compare them with the channel limit, as in the transfer runbook, step 3). The `binary` job shows as skipped on an edition tag. The `edition` job runs only on an `edition-` tag: it needs the `## edition-NNN` heading, which a pull request does not have, so a trial run on a pull request or by hand does not build an edition. On release tags the `windows` job also runs its full run, which includes the Windows drill (from E1).
 

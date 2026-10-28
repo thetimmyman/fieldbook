@@ -10,7 +10,7 @@ A tag-approved unsigned release becomes a verified signed package with checksums
 
 ## Why
 
-- Signing changes bytes. Checksums made before signing cannot describe the delivered executable.
+- Signing changes bytes. Checksums made before signing cannot describe the delivered executable; the ordered release and intake contract is in [the R2 release steps](../../runbooks/release.md#r2-what-changes-for-v100).
 - A failed signing or checksum step must prevent intake assembly; the completed release still needs the durable archive before delivery.
 
 ## Scope
