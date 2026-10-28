@@ -49,7 +49,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | `#projects`, `#projects/<id>`: ProjectPosition, EacHistory | Company store | §2 Routes, §5 | later (R2 or later) |
 | `#audit` | R2 overlay (audit requests) | §2 Routes | later (R2) |
 | `#modules`: Ladder, ModuleCard | `modules.csv` | §2 Routes, §5 | later (Release 3) |
-| `#feeds`: Dots | `feeds.csv` with the first admitted feed | §2 Routes, §5 | later |
+| `#feeds`: Dots | `sources.csv` origin rows of the public `Pull` stream `later-feeds` | §2 Routes, §5 | later |
 | `#cycles`: DayStrip | Not built (cycle is not an object) | §2 Routes | none |
 | `#states` | Not built | §6, §11 | none: the reference for every card's states |
 | Base components: Button, Chip, Field, Panel, Eyebrow, Segmented, Box, Kbd, Dialog | Component rules in `assets/app.css`, used by every template | §5 (the first ten rows), §6 | `build-frame`. Later cards reuse them and add a variant only by a §5 change |
