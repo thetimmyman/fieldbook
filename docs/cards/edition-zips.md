@@ -18,7 +18,7 @@
 
 ## Scope
 
-- Files: `xtask/src/{main.rs,edition.rs}` (the tests are in `mod tests` of `edition.rs`), `xtask/Cargo.toml` and `Cargo.lock` (only xtask's `dependencies` list: the `zip` edge from `day1-dependencies` and a path edge to `fieldbook-core` for hashing), `justfile`, `docs/intake/edition-readme.txt` (new: the short laptop steps from [transfer.md](../runbooks/transfer.md), and the backup paragraph of step 2), `CHANGELOG.md`.
+- Files: `xtask/src/{main.rs,edition.rs}` (the tests are in `mod tests` of `edition.rs`), `xtask/Cargo.toml` and `Cargo.lock` (only xtask's `dependencies` list: the `zip` edge from `day1-dependencies-3` and a path edge to `fieldbook-core` for hashing), `justfile`, `docs/intake/edition-readme.txt` (new: the short laptop steps from [transfer.md](../runbooks/transfer.md), and the backup paragraph of step 2), `CHANGELOG.md`.
 - Registration lines: the Commands line of `AGENTS.md` (`just edition`); the `Needs` line of Drill 1 in `docs/runbooks/restore-drill.md`; `tests/known-bad/elsewhere.toml`, whose FB0601, FB0602 and FB0608 rows get their `test` key in step 7 (`check-known-bad` wrote the rows).; `xtask/src/allowlist.rs` (Site-profile required paths); shared manifest and zip helpers are consumed unchanged; `docs/intake/README.md` (security-contact input); `SECURITY.md` (packaging input).
 - Docs to update: `AGENTS.md` (Commands: `just edition`), `docs/runbooks/restore-drill.md` (Drill 1 needs Microsoft Edge, because `just edition` runs the Edge harness), the justfile header comment (drop `edition` from the recipes still to come), `CHANGELOG.md` (`- Added: just edition builds the edition and originals zips.` under `## Unreleased`).
 

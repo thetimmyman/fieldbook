@@ -11,7 +11,7 @@
 ## Why
 
 - The files, the CSV copy rules and the workbook rules are [Excel copies of the registers](../reference/corpus-format.md#excel-copies-of-the-registers). The workbook is [AD-13](../decisions/0001-foundation.md#ad-13-spreadsheet-outputs); its place in the edition zip is [Repository layout](../decisions/0001-foundation.md#repository-layout).
-- Controls XL-01 (a workbook that is only data) and DT-01 (byte-identical output) are in the [control register](../controls.md). `rust_xlsxwriter` and the `zip` dev edge are pinned in [dependencies.md](../reference/dependencies.md) and declared by `day1-dependencies`; this card adds no crate.
+- Controls XL-01 (a workbook that is only data) and DT-01 (byte-identical output) are in the [control register](../controls.md). `rust_xlsxwriter` and the `zip` dev edge are pinned in [dependencies.md](../reference/dependencies.md) and declared by `day1-dependencies-3`; this card adds no crate.
 - Design: the [MAP.md](../design/MAP.md) rows `#claims`, `#questions`, `#glossary`, `#sources` (the workbook and CSV half) and `#templates` (the `data/registers.xlsx` link in TemplatesList). [HANDOFF.md](../design/HANDOFF.md) section 5 Components (TemplatesList, RegisterTable). No token group: the change adds links, not styles.
 
 ## Scope

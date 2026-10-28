@@ -16,7 +16,7 @@
 
 ## Scope
 
-- Files: `crates/fieldbook/src/{lib.rs,cli.rs}`, `crates/fieldbook/src/io/{mod.rs,tree.rs}`, `crates/fieldbook-core/src/report.rs`, `crates/fieldbook/tests/{cli.rs,chips.rs,json_reports.rs}`, `tests/golden/json/check.json`, `CHANGELOG.md`. The manifest already holds the `clap`, `serde_json`, `insta` and `tempfile` edges from `day1-dependencies`.
+- Files: `crates/fieldbook/src/{lib.rs,cli.rs}`, `crates/fieldbook/src/io/{mod.rs,tree.rs}`, `crates/fieldbook-core/src/report.rs`, `crates/fieldbook/tests/{cli.rs,chips.rs,json_reports.rs}`, `tests/golden/json/check.json`, `CHANGELOG.md`. The manifest already holds the `clap`, `serde_json`, `insta` and `tempfile` edges from `day1-dependencies-3`.
 - Registration lines: the `pub mod report;` line in `crates/fieldbook-core/src/lib.rs`; the Commands line of `AGENTS.md`; the quick start line about `fieldbook check` in `README.md`.
 - Docs to update: `AGENTS.md` (Commands: say that `fieldbook check` is available), `README.md` (the quick start line about `fieldbook check`), `CHANGELOG.md` (`- Added: the check command.` under `## Unreleased`).
 

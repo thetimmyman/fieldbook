@@ -29,7 +29,7 @@
 
 ## Preconditions
 
-- Cards merged: `day1-dependencies` (including xtask’s path dependency on fieldbook-core).
+- Cards merged: `day1-dependencies-3` (including xtask’s path dependency on fieldbook-core).
 
 ## Steps
 
