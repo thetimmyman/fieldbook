@@ -2,7 +2,48 @@
 
 ## Scope and period
 
-`WorkScope { entity: String, project: Option<String>, object: Option<String> }` uses store-qualified stable ids. A project must belong to its entity and a work object to that scope. `Period { calendar: String, id: String, start: CivilDate, end: CivilDate }` has inclusive bounds and belongs to an entity. `RecordScope { Global, Work(WorkScope) }` distinguishes reference tables from scoped work. `RecordWrite { type_name, version_id, scope: RecordScope, period: Option<Period>, row: RecordRow }` is the context checked before every append. A type declares `scope` column names for entity and optional project/object, and an optional `period` reference column; an unscoped reference table declares `scope = "global"`. Only an explicit `scope = "global"` type declaration produces Global. A missing type scope declaration is FB0240; missing required row scope is FB0241, never an implicit global write. Load plans, observation serialization and their hash inputs carry RecordScope. Canonical TOML is `scope = { kind = "global" }` or `scope = { kind = "work", entity = "...", project = "...", object = "..." }`, omitting absent optional work fields and rejecting fields on global. Global has no entity-owned period; supplying one is FB0241. Hash the discriminator and typed fields through the existing canonical plan encoder.
+`WorkScope { entity: String, project: Option<String>, object: Option<String> }` uses store-qualified stable record ids. In these financial-work contracts, the spelling `overlay:CM-000001` means the existing `ItemRef { store: Overlay, id: "CM-000001" }`; a version reference has the same spelling with a versioned id, for example `overlay:CM-000040-v1`. The store is a `StoreId` and the id must parse as the required existing id type. This spelling introduces no new ref-column kind: an ordinary `ref` cell keeps its existing version-id form and resolves in its owning store.
+
+`RecordScope { Global, Work(WorkScope) }` distinguishes reference tables from scoped work. A project must belong to its entity and an object to the declared entity/project. A type's scope is a column mapping, for example `scope = { entity = "entity" }`, or the explicit word `"global"`. These are type declarations, not serialized scope values. A serialized value in a load, observation or issue manifest is `scope = { kind = "global" }` or `scope = { kind = "work", entity = "overlay:CM-000001", project = "overlay:CM-000002", object = "overlay:CM-000003" }`; absent optional work fields are omitted and global rejects work fields. A system's display-text scope remains text. A stream's financial scope is the serialized value, never the type-column mapping. Missing type scope is FB0240; missing or inconsistent row ownership is FB0241. No parser guesses one context from another's shape.
+
+`Period { version: ItemRef, calendar: String, id: String, start: CivilDate, end: CivilDate }` is a resolved named financial period, including the immutable record version that supplies it. Its bounds are inclusive and `start` must not exceed `end`. A normal record type named `period` supplies `entity` (a ref to `entity`), `calendar` (text), `period_id` (text), `start` (date) and `end` (date), all required. Its type scope maps `entity`. Its business identity is the stable entity id plus `calendar`/`period_id`, and retained versions of one named period belong to one logical record; a different entity-record metadata version is not a different entity. This contract does not change the generic CSV key-joining rule. The `version` field must resolve to a version of that type in the coherent read generation. The period record's entity must resolve to the same stable entity as `WorkScope.entity`; all four supplied value fields must equal that version's `calendar`, `period_id`, `start` and `end`. The ids are opaque identifiers: a display month does not supply bounds. A correction creates a new period record version; no live-calendar lookup changes an existing binding.
+
+A type's optional `period` key names one existing column of kind `ref` with `to = "period"`. Resolve that row's cell and construct `Period` from that exact version. Stream metadata, load plans and observation/issue manifests retain the resolved value and version. If a stream supplies period metadata, the same strict table shown below is required and checked against that exact version; it must agree with a row's period when the type declares one. Global forbids a period. Missing or malformed type mappings are FB0240; wrong type, unresolved version, inconsistent dates or cross-entity values are FB0241. All period/version inputs participate in effective labels, plan hashing and acceptance replanning.
+
+`RecordWrite` keeps `period: Option<Period>`, and `ObservationWrite` keeps the same type. This is distinct from `fieldbook-calc`'s `EffectivePeriod`, which is an inclusive effective-date interval and may have an open end. Do not replace either type with the other.
+
+Synthetic wire example (the ids are invented):
+
+```toml
+scope = { kind = "work", entity = "overlay:CM-000001" }
+period = { version = "overlay:CM-000040-v1", calendar = "fiscal", id = "P09", start = "2025-09-01", end = "2025-09-30" }
+```
+
+Type declaration example:
+
+```toml
+scope = { entity = "entity" }
+period = "accounting_period"
+
+[[type.column]]
+name = "accounting_period"
+kind = "ref"
+to = "period"
+required = true
+```
+
+Period TOML is a strict value table, with exactly `version`, `calendar`, `id`, `start` and `end`, printed in that order; dates are quoted full `CivilDate` strings. Unknown or duplicate keys refuse. Absence is omission of the `period` field, never an empty table. Its canonical bytes reuse the `S(x)` framing defined for [Stored calculation runs](#stored-calculation-runs). `None` is the exact UTF-8 string `period none\n`. `Some` is the following sequence, with one LF after each record. `S(version)` is the canonical store-qualified version spelling. Canonical date strings are `YYYY-MM-DD`. Feed these exact bytes as the named period value to the existing canonical plan encoder; do not hash TOML or debug output. Changing only the bound version changes the hash even when its displayed dates agree.
+
+```text
+period 1
+version S(version)
+calendar S(calendar)
+id S(id)
+start S(start)
+end S(end)
+```
+
+This adds one necessary field to the already-planned `Period` value. It does not add a new period port or calculation module. Resolve it before the append/observation lock check, and retain the same value during replanning. Preserve existing backdated/intersecting-date lock behavior.
 
 `Locks::check(&RecordWrite) -> Result<(), LockRefusal>` and `Locks::check_observation(&ObservationWrite) -> Result<(), LockRefusal>` tests all applicable entity, project and object scopes. An entity lock includes its projects; a project lock does not lock another project. A period lock blocks intersecting effective dates and writes explicitly naming that period, including backdated rows. `NoLocks` is only for stores with no lock records; the real append path loads `StoreLocks` as soon as those records exist. `ObservationWrite { scope: RecordScope, period: Option<Period>, as_of: PartialDate }` is checked through RecordRegister::plan_append for every observation in BatchEvidence, even with writes = []. Global writes and observations still invoke the shared lock checker; unrelated entity/project/object locks do not apply to them. Unknown or unreadable lock state refuses every append, including Global and observation-only batches. A reopen record names the lock, exact scope, reason and approval; only its authorized committed form releases that lock. The next issue retains the old lock/reopen history.
 
@@ -53,9 +94,87 @@ A type revision is immutable. `[[type]]` has `name` and `revision` (default 1); 
 
 ## Approval and issue
 
-The common record types are `approval`, `period_lock`, `reopen` and `issued_snapshot`. An approval names scope, target VersionIds, method id/version, evidence hashes, decision and rationale. A lock names scope and period and the approval that authorized it. A reopen names its lock and a new approval and reason. An issued snapshot names sorted VersionIds, run hashes, observation ids, method versions and approval versions; its canonical manifest hash is its identity. All references resolve within one read generation, labels derive from all inputs, and the whole write is atomic to readers. UI authorization uses policy roles; the module never treats a typed actor string as proof of independent approval.
+The common control records are `approval`, `period_lock`, `reopen` and `issued_snapshot`. They use ordinary `types.toml` records and the existing ref/list kinds. An approval has one or more distinct target `VersionId`s, represented by its required `targets` list; each list item is a store-qualified source or record version and the record-specific validator resolves every target. A generic list remains text unless this common record's validator gives it that role. `source_ref` remains evidence lineage and is not a substitute for approval targets.
 
-Before delivery, the snapshot and its complete closure must be in a verified independent recovery copy. A restore verifies every referenced hash and can render the issued work without consulting newer records. A correction makes a new snapshot with a supersedes reference.
+An approval also has a required `method` ref, `evidence_hashes` list, `decision` and `rationale`. The method ref points to an exact ordinary method-definition record version. A module owns that record's definition and prerequisites through the existing type recipe; this adds no interpreter or generic method-execution port. The synthetic foundation fixtures define a method type with required `method_id` text and definition provenance through `source_ref`. A mathematical method may name an existing `CALC_FNS` id/version, which must resolve; an approval or reopening procedure need not pretend to be a calculation. The method record `VersionId`, not a mutable title or latest method, is the approval's method version. Each `evidence_hashes` item is a full lowercase SHA-256 and must match an actual retained evidence, run or original in the declared approval's dependency closure. The decision and rationale are retained record values; a typed decision or actor string never establishes independent authorization. A required authorization still follows the existing policy/source and module rules.
+
+A `period_lock` names its `RecordScope` and exact `Period` plus a required approval ref to the authorizing approval version. It does not point to an arbitrary priced row as its lock subject. A `reopen` names the exact `period_lock` version, the same scope and period, a new authorizing approval version and a nonempty reason. An effective approved reopen releases only that lock and preserves its history. Ordinary holds and version approvals retain their covered-version references. Missing, inconsistent or unresolved common-control fields refuse with FB0241; ordinary malformed type declarations remain FB0240. No new verification or adoption status is introduced.
+
+### Issued snapshot carrier and canonical identity
+
+An `issued_snapshot` is an ordinary immutable record with a required `manifest_sha256` text column containing exactly 64 lowercase hex digits. Its manifest is `snapshots/<manifest_sha256>.toml` in the same company store. The directory is a known labelled content kind, not derived State, an original, a public Corpus file or a text-free control. The row's scope and period must equal the manifest's. A corrective issue creates a new record version and a new manifest; its ordinary `supersedes` identifies the prior issued record and the manifest's optional `supersedes` is that prior record's manifest hash. They must agree. The manifest never includes the new `issued_snapshot` record or its own bytes in its dependency closure, avoiding a self-hash. Existing predecessors remain retained; dangling predecessors and cycles refuse.
+
+`IssuedManifest` is strict schema 1. Its required fields are `issued_schema = 1`, `scope`, `targets`, `versions`, `runs`, `observations`, `files`, `methods` and `approvals`. `period` and `supersedes` are optional. `targets` is the nonempty set of exact source/record versions being issued. `versions` is the complete source/record version closure of those targets, selected observations, period, methods and approvals through their persisted input references; it is never a latest/as-of search. A method or approval list entry must also occur in `versions` and resolve to its corresponding record type. These lists are sets: parsing accepts their presentation order but rejects duplicate identities; canonicalization and the writer sort them as specified below. Unknown or duplicate fields, wrong namespaces and missing closure members refuse.
+
+Field shapes (all examples are synthetic; hash literals here illustrate the wire shape and are not a valid delivered issue):
+
+```toml
+issued_schema = 1
+scope = { kind = "work", entity = "overlay:CM-000001" }
+period = { version = "overlay:CM-000040-v1", calendar = "fiscal", id = "P09", start = "2025-09-01", end = "2025-09-30" }
+targets = ["overlay:CM-000050-v1"]
+methods = ["overlay:CM-000030-v2"]
+approvals = ["overlay:CM-000060-v1"]
+supersedes = "1111111111111111111111111111111111111111111111111111111111111111"
+
+[[versions]]
+ref = "overlay:CM-000050-v1"
+kind = "record"
+sha256 = "2222222222222222222222222222222222222222222222222222222222222222"
+
+[[runs]]
+store = "overlay"
+sha256 = "3333333333333333333333333333333333333333333333333333333333333333"
+
+[[observations]]
+store = "overlay"
+system = "finance-exports"
+stream = "commitments"
+source_version = "SO-000020-v1"
+sha256 = "4444444444444444444444444444444444444444444444444444444444444444"
+
+[[files]]
+store = "overlay"
+path = "evidence/CM-000050-v1.toml"
+sha256 = "5555555555555555555555555555555555555555555555555555555555555555"
+```
+
+The complete example in a future executable fixture must contain every referenced version and real matching producer-built hash; the shortened example above deliberately does not claim closure validation.
+
+A `versions` entry has `ref`, `kind` (`source` or `record`) and `sha256`. A source binding is the registered byte-exact original hash; its original must be available in the retained closure. A record binding hashes only that exact version's canonical row and immutable type revision, never the whole appendable CSV or `types.toml`. Use the existing canonical plan encoder with the ordered named values `kind="record-version-1"`, `type`, `revision`, parsed immutable type definition and the ordered `(header, canonical stored cell)` pairs for that row. This includes the original handling cell; current effective labels still come from the ledger and input graph. Retaining a new row or type later cannot change that binding. Add a literal canonical binding vector; do not derive its expected bytes with the function under test.
+
+A `runs` entry is `store` plus the full canonical `StoredRun` hash. An `observations` entry identifies its exact store/system/stream/source-version manifest and pins that immutable file's full hash. `files` contains the exact-path/full-hash auxiliary evidence and extraction files needed by those inputs: per-field evidence and the referenced source versions' extraction metadata and text. Paths are canonical store-relative paths, must be known evidence/extraction paths belonging to this closure, and reject traversal, links, undeclared files and duplicates. Original bytes, runs and observation manifests are already bound by their typed entries and are not duplicated here. Type definitions and rows use the immutable version projection above, avoiding hashes of appendable containers. No site, index, journal, settings or arbitrary path is admitted by this list.
+
+The resolver loads all inputs in one coherent read generation, checks every typed reference, hash and locator and recomputes the complete declared closure. For inputs newly created by this same transaction it may read only the exact validated planned rows and `BatchEvidence` overlaid on that generation, not arbitrary uncommitted files. Acceptance recreates and validates that planned view. Missing, ambiguous, cyclic, malformed or mismatched inputs refuse before planning an issue. It uses exact record/type/method/approval versions, stored runs and selected observation manifests, never newer records or an inferred observation. Ordinary existing source/run/evidence failures retain their existing diagnostic codes; malformed issue structure or a missing or mismatched issue binding is FB0241. Required method/approval prerequisites still apply; an empty list is not proof they were met. An issue record or copied manifest cannot confer authority or lower a label.
+
+Register/Admit plans the new manifest, issue record and any newly supplied evidence, runs or observations as one existing `WriteSet`. Under the same coherent lease it validates the entire closure, resolves all effective labels, performs store admission and lock checks, and binds every planned path and hash before begin. The existing committed generation marker remains last; readers never observe a manifest without its issue record or the reverse. Matching existing content-addressed bytes may be reused; a hash-path collision refuses rather than overwrites. The write's affected list includes the changed issue/control record `VersionId`s in existing `audit::RecordRef` form. Journal events contain no manifest text, rationale or paths: the existing hashed-file list and affected ids suffice.
+
+Model, `check`, `effective_item` and `rests_on` recognize the manifest, its typed references and auxiliary bindings. Effective issue labels union the issue's own labels with the current effective labels of every dependency, including period/method/approval inputs; an unresolved dependency stays unresolved and never grants public provenance. Backup recognizes the manifest as labelled content and retains its company-held closure through existing root copying. It never treats it as a stray file or text-free control. If the closure also uses Corpus inputs, the independent recovery set must retain the exact public edition/originals pair that supplies them, through the existing verified release archive; a company-store-only backup does not establish that those public inputs were copied. Nothing company-owned returns to the public archive or home side. Restore verifies the manifest identity, exact row/type projections, file hashes, stored runs and complete closure before reopening the issue. Later record appends, type revisions, runs or observations cannot substitute for a selected version. Delivery still requires the complete closure in a verified independent recovery copy under the existing recovery gate; same-disk backup alone remains insufficient.
+
+Canonical identity uses UTF-8 `S(x)` and `N` from [Stored calculation runs](#stored-calculation-runs). Fixed tags and separators are ASCII and every record ends in LF. Lists sort by their typed identity tuples in UTF-8 byte order: qualified ref; `(store, hash)`; `(store, system, stream, source_version)`; `(store, path)`. Identity duplicates refuse even when hashes agree. The optional scope fields encode the empty string when absent, and global encodes all three as empty. Empty predecessor encodes no predecessor. Period bytes are exactly [Scope and period](#scope-and-period)'s value encoding, inside `S`. TOML key order, quoting, comments and presentation array order do not define identity; parse, validate and emit the canonical sequence below.
+
+```text
+issued 1
+scope S(kind) S(entity) S(project) S(object)
+period S(period_canonical_bytes)
+supersedes S(previous_manifest_hash_or_empty)
+targets N(count)
+target S(qualified_version)
+versions N(count)
+version S(qualified_version) S(kind) S(sha256)
+runs N(count)
+run S(store) S(full_run_hash)
+observations N(count)
+observation S(store) S(system) S(stream) S(source_version) S(sha256)
+files N(count)
+file S(store) S(relative_path) S(sha256)
+methods N(count)
+method S(qualified_version)
+approvals N(count)
+approval S(qualified_version)
+```
+
+Repeat each singular record exactly its preceding count; the canonical empty list consists only of its plural count record. Hash exactly these canonical bytes with SHA-256. The full lowercase result must equal the filename and `issued_snapshot.manifest_sha256`. There is no hash field inside the hashed manifest and no self-reference. The serializer emits the validated arrays in canonical order, but the hash is never a TOML serialization hash. `S` and `N` helpers are shared with existing canonical encodings, not a second generic serialization framework.
 
 ## Foundation fixtures
 
