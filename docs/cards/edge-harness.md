@@ -17,7 +17,7 @@
 
 ## Scope
 
-- Files: `xtask/src/{main.rs,harness.rs}`, `xtask/harness/{selftest.js,negative.html}`, `xtask/tests/fixtures/harness/{netlog-file-page-https.json,netlog-browser-own.json,dom-with-violation.html,dom-without-selftest.html,edge-version.txt}` (new, synthetic), `xtask/Cargo.toml` (path edges to `fieldbook-core` and `fieldbook-render`), `Cargo.lock` (only xtask's `dependencies` list), `.github/workflows/ci.yml`, `justfile`.
+- Files: `xtask/src/{main.rs,harness.rs}`, `xtask/harness/{selftest.js,negative.html}`, `xtask/tests/fixtures/harness/{netlog-file-page-https.json,netlog-browser-own.json,dom-with-violation.html,dom-without-selftest.html,edge-version.txt}` (new, synthetic), `xtask/Cargo.toml` (path edges to `fieldbook-core` and `fieldbook-render`), `Cargo.lock`, `.config/tools.toml` (the `[lock]` replay record only), `.config/lock-inputs/` (only artifacts generated for this dependency change), `.github/workflows/ci.yml`, `justfile`.
 - Registration lines: the Commands line of `AGENTS.md` (`just browser` and `cargo xtask harness`).
 - Docs to update: `AGENTS.md` (Commands: `just browser` and `cargo xtask harness`), the `justfile` header comment (`browser` has arrived).
 
@@ -34,7 +34,7 @@
 
 ## Steps
 
-1. `harness.rs`: `cargo xtask harness [--edition DIR]`; `DIR` defaults to `out/edition`, and the renderable `.txt` originals are read from the `originals` folder beside it (`out/originals` by default; `build` writes both). Find Edge (`microsoft-edge` on Linux, `msedge.exe` on Windows); if none, exit 3 with "Edge not found". The finder is `pub(crate) fn find_edge() -> Result<PathBuf, String>` (its error is the text `Edge not found`), and the AD-08 flags are `pub(crate) const EDGE_FLAGS: [&str; 6]` (`--headless=new`, `--disable-background-networking`, `--disable-component-update`, `--disable-sync`, `--no-default-browser-check` and `--disable-features=OptimizationHints,MediaRouter`), both in `xtask/src/harness.rs`, for later drill steps. Copy the edition to `out/harness/edition/` and add one `<script src>` for `selftest.js` as the first child of `<head>` in each copied page. The edition itself is never changed.
+1. `harness.rs`: `cargo xtask harness [--edition DIR]`; `DIR` defaults to `out/edition`, and the renderable `.txt` originals are read from the `originals` folder beside it (`out/originals` by default; `build` writes both). Find Edge (`microsoft-edge` on Linux, `msedge.exe` on Windows); if none, exit 3 with "Edge not found". The finder is `pub(crate) fn find_edge() -> Result<PathBuf, String>` (its error is the text `Edge not found`), and the AD-08 flags are `pub(crate) const EDGE_FLAGS: [&str; 6]` (`--headless=new`, `--disable-background-networking`, `--disable-component-update`, `--disable-sync`, `--no-default-browser-check` and `--disable-features=OptimizationHints,MediaRouter`), both in `xtask/src/harness.rs`, for later drill steps. Copy the edition to `out/harness/edition/` and add one `<script src>` for `selftest.js` as the first child of `<head>` in each copied page. The edition itself is never changed. The path edges change the manifest: follow the shared dependency recipe, run `just lock`, review the complete lock and replay diff, and commit `Cargo.lock`, `.config/tools.toml` and `.config/lock-inputs/` together; retain `cargo xtask deps --check` and `cargo deny check`. The pull request records this Scope expansion before the card's last commit.
 2. Run `--dump-dom --log-net-log=<file>` with exactly the flags of `EDGE_FLAGS` (step 1), once per page and once per renderable `.txt` original. Never pass `--allow-file-access-from-files`. Run pages one at a time, each with a limit of 60 seconds; a page that is not done in that time fails the run and is named.
 3. `selftest.js` is synchronous. It listens for `securitypolicyviolation` and, at `load`, writes the violations and `performance.getEntriesByType("resource")` into one `<pre id="fb-selftest">` as JSON of this shape: `{"violations": [{"directive": "script-src", "blocked": "https://example.invalid/x.js"}], "resources": [{"name": "file:///.../app.css", "initiator": "link"}]}`, where `directive` and `blocked` are strings from the event and `name` and `initiator` are strings from the resource entry. The harness reads it from the dumped DOM. A page with any violation, or a missing selftest result, fails.
 4. Parse the net-log. Count requests whose initiator is a `file:` page and whose URL is not `file:`. Ignore the browser's own traffic. Any such request fails and names the page and URL.
@@ -47,6 +47,7 @@
 ```sh
 cargo nextest run --locked -p xtask harness::
 just site && just browser
+just lock-verify
 just check
 ```
 

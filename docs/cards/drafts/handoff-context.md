@@ -56,7 +56,7 @@
 
 15. In the binary integration suite for `context`, `context_waits_for_a_complete_generation` pauses a two-file writer between files and calls the real handler. It waits and sees one complete generation, or refuses on timeout; no mixed content appears. A crashed pending transaction is refused until recovery.
 
-16. In the successful context test, select `ai.pack` by kind and ticket; assert the later `ask` event separately. Do not infer operation counts from an unfiltered journal tail.
+16. In the successful context test, capture the pre-run journal sequence in the isolated fixture, select the single subsequent `ai.pack`, and assert the later `ask` event separately using `asked_via = context`. Allow initialization and policy/settings observations without counting them as operation events. Do not infer operation counts from an unfiltered journal tail, and do not add a ticket field.
 
 ## Acceptance
 

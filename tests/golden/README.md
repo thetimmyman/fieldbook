@@ -111,7 +111,8 @@ The rules are in [Tokenizer](../../docs/reference/search.md#tokenizer).
       "id": "CL-CMP-0011",
       "kind": "claim",
       "fields": {"id": "CL-CMP-0011", "title": "", "headings": "", "claim": "The contracting officer may withhold 5 percent of payments", "body": ""},
-      "display": {"title": "CL-CMP-0011", "parent": "", "snippet": "", "status": "unchecked", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""}
+      "display": {"title": "CL-CMP-0011", "parent": "", "snippet": "", "status": "unchecked", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
     }
   ],
   "glossary": [{"label": "independent cost estimate", "aliases": ["ice"]}],
@@ -132,9 +133,10 @@ The index is built from the file's `units` and `glossary`, so a case does not de
 | Field | Type | Meaning |
 |---|---|---|
 | `units[].id` | string | The unit id as written (`CL-CMP-0011`, `cmp-withholding#the-rule`) |
-| `units[].kind` | string | The unit kind: `page`, `clause`, `source`, `claim`, `question`, `conflict` or `term` |
+| `units[].kind` | string | The unit kind: `page`, `clause`, `source`, `claim`, `question`, `conflict`, `term`, `record` or `text`, matching `UNIT_KINDS` |
 | `units[].fields` | object | Five strings, `id`, `title`, `headings`, `claim` and `body`. Each is text; the builder lexes it with the index-side tokenizer. An empty string is an empty field |
 | `units[].display` | object | Seven strings that are stored and not searched: `title`, `parent`, `snippet`, `status`, `as_of`, `effective_from`, `verified_on` |
+| `units[].exact_key` | string, optional | The unmodified NFC origin key, or `""` when the unit has none (the default). Compared with the folded query before tokenization, so `quote-a` and `quote a` stay distinct |
 | `glossary[]` | objects | `label` (string) and `aliases` (array of strings): the synonym sets |
 | `cases[].query` | string | The text typed |
 | `cases[].expect` | array of strings | The complete result list, as unit ids in rank order, up to 10. `[]` for no results |

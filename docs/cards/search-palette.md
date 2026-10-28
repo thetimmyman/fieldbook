@@ -43,7 +43,7 @@ Every page has the SearchTrigger and the CommandPalette, which `/` and Ctrl K op
 
 9. Use the search-js exports load, rank(index, text, limit) and render(ordered_hits, text, container). The palette selects eligible id-prefix hits first in natural order, deduplicates ranked fallback and limits the combined list to eight; the render helper preserves that explicit order. A title-only hit remains reachable.
 
-10. Exercise the real shared search.js exports in the palette browser tests: `load()`, `rank(index, text, limit)` and `render(ordered_hits, text, container)`. Assert prefix-first ordering, duplicate suppression and query highlighting. Restoring the swapped render arguments must fail this integration case.
+10. Exercise the real shared search.js exports in the palette browser tests with its actual controller: `load()`, `rank(index, text, limit)` and `render(ordered_hits, text, container)`. Name the `shortcuts.js` integration cases `palette_one_character_prefix_first`, `palette_duplicates_appear_once`, `palette_caps_at_eight`, `palette_absent_link_enter_does_not_navigate`, `palette_linked_result_enter_navigates` and `palette_final_search_row`. Assert prefix-first ordering, duplicate suppression, the eight-result cap, query highlighting, the non-navigating absent-link row, linked-result navigation and the final Search row. Restoring the swapped render arguments must fail this integration case.
 
 ## Acceptance
 

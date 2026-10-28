@@ -315,8 +315,10 @@ Queries over these units:
 | `withhold` | `CL-CMP-0011`: 1, 863; `cmp-withholding`: 1, 429; section: 1, 182 | `withhold` is exact in unit 0. `withholding` matches as a prefix at half impact (858 / 2 and 364 / 2) |
 | `payment withholding` | `cmp-withholding`: 2, 2091; section: 1, 364 | Two matched tokens first |
 | `cmp-withholding` | `cmp-withholding`: 2, 2456; section: 1, 364 | Exact class first |
-| `cmp-withholding#the-rule` | the section first, with no scores | The exact class needs no scores |
+| `cmp-withholding#the-rule` | the section first: 3, 1641 | The exact class is first, and it retains the ordinary token scores (`withholding` 364, `the` 414, `rule` 863) |
 | `the rule` | section: 2, 1277; `CL-CMP-0011`: 1, 414 | |
+
+The exact class is a sort key, not a score reset. `cmp-withholding#the-rule` matches three query tokens and reports 3, 1641. The page lead matches `cmp` and `withholding` (2, 2456): its sum is higher but it matches fewer tokens. This example does not isolate exact-class precedence. To see a zero-score exact unit, give an exact-ID unit whose searchable fields contain none of the query tokens beside a scored competitor: the exact unit still sorts first with 0, 0.
 
 ## The company index
 
@@ -441,7 +443,8 @@ Ranked file. The index is built from `units`, so a case does not depend on the C
       "id": "CL-CMP-0011",
       "kind": "claim",
       "fields": { "id": "CL-CMP-0011", "title": "", "headings": "", "claim": "The contracting officer may withhold 5 percent of payments", "body": "" },
-      "display": { "title": "CL-CMP-0011", "parent": "", "snippet": "", "status": "unchecked", "as_of": "2025-11-01", "effective_from": "", "verified_on": "" }
+      "display": { "title": "CL-CMP-0011", "parent": "", "snippet": "", "status": "unchecked", "as_of": "2025-11-01", "effective_from": "", "verified_on": "" },
+      "exact_key": ""
     }
   ],
   "glossary": [ { "label": "independent cost estimate", "aliases": ["ice"] } ],
@@ -457,7 +460,7 @@ Ranked file. The index is built from `units`, so a case does not depend on the C
 }
 ```
 
-`expect` is the complete result list in order, up to 10. `scores` is optional and gives the summed impacts in the same order. `impacts` is optional and pins individual postings. A case with no results has `"expect": []`.
+`expect` is the complete result list in order, up to 10. `scores` is optional and gives the summed impacts in the same order. `impacts` is optional and pins individual postings. A unit may carry `exact_key`, the unmodified NFC origin key; it defaults to `""` and is compared with the folded query before tokenization. A case with no results has `"expect": []`.
 
 How each side runs a ranked file:
 - **Rust** builds the index from `units` and `glossary`, runs `query` and compares.

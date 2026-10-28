@@ -11,6 +11,7 @@ The site receives a deterministic public search index from the pure ranking prov
 ## Why
 
 - CLI search and regression must remain available when site delivery is deferred.
+- Owner review is retained for the public-only delivered index and its label-withholding boundary; acceptance must inspect the actual delivered data and its leak controls.
 - Design: use the existing Search row of [MAP.md](../design/MAP.md) and the site-index contract in [search.md](../reference/search.md#the-site-index); this card changes data serialization only, with no token groups.
 
 ## Scope
@@ -31,7 +32,7 @@ The site receives a deterministic public search index from the pure ranking prov
 
 1. Implement `search_index::write(&Index) -> String` from the reference: compact JSON with fixed key order between `window.FB_INDEX = ` and `;`. Render from the public view, insert in Site and register its planned path. The existing delivery pipeline writes it; the size lint still rejects more than 3 MB.
 
-2. Tests cover prefix/version, 160-code-point snippets, UTF-16 term order, equal bytes across builds, absence of nonpublic units and label IDs, and no quarantined unit or canary text. Run planned-path equality. The pure ranker and the general index shape remain unchanged.
+2. Name `edition_index_holds_public_units_only` and `held_version_not_in_index` in `crates/fieldbook-render/tests/search_index.rs`; the former proves public-only selection and absence of label IDs, and the latter proves quarantined units and their canaries are absent. Tests also cover prefix/version, 160-code-point snippets, UTF-16 term order, equal bytes across builds, absence of nonpublic units and label IDs, and no quarantined unit or canary text. Run planned-path equality. The pure ranker and the general index shape remain unchanged.
 
 3. Add `build_search_index_uses_the_permitted_view` through build-page’s real render/delivery harness. Require successful delivery, reopen assets/search-index.js and assert permitted IDs, snippets and postings are present while forbidden and quarantined IDs, text and unique terms are absent. Resolve postings through the delivered unit table; do not search for numeric unit IDs as text. Extend the existing edition SURFACES assertion.
 

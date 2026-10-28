@@ -136,7 +136,7 @@ locator  = "p. " , digits
 
 **Strict writer, tolerant reader.**
 - The writer (everything in `corpus/`, and every citation the tool prints) uses only the canonical form above. `check` rejects anything else in the Corpus (FB0301).
-- The tolerant reader is for pasted answers only (Day 30, `cite-check`). It also accepts a missing `@`, a missing comma, Unicode dashes, `p.14` and `§15.404-1`, and reports each of them as "non-canonical".
+- The tolerant reader is for pasted answers only (Day 30, `cite-check`). It also accepts a missing `@`, a missing comma, Unicode dashes, `p.14` and `§15.404-1`, and reports each of them as "non-canonical". It also reads `[@<area>-note-<nnn>]` as an answer-only reference: the form is never a Corpus citation, `check` keeps rejecting it with FB0300, and `cite-check` preserves its normal precedence: absent is `broken`, visible but outside a supplied context is `outside_context`, and visible in-context (or checked without a context) is `weak`.
 - One lexer in `fieldbook-core` reads both. The JavaScript port in `assist.js` (Day 30) is held to it by shared goldens.
 - `pulldown-cmark` reads `[@A][@B]` as a reference link. Put the citations inside one pair of brackets, or leave text between them. `check` flags `][@` (FB0302).
 - **Citation attempt.** A pair of square brackets in a page body is read as a citation when it is empty, holds an `@`, or starts with the shape of a key, such as `S-42` or `CL-CMP-1`. Other brackets are prose. Code spans and fenced code are not read. FB0300 reports an attempt whose brackets are unbalanced or empty or whose key is not an id.
