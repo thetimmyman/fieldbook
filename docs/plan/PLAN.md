@@ -81,6 +81,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), ending Day −6: every P1 card in this file merged; `check --strict` clean on the lead's first content; pages render. Content pull requests merge from here.
 
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
+- hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
 - day1-dependencies: declare every Day-1 crate once and resolve the lock with `just lock`
 - core-types-and-strings: frozen strings, `hex::lower`, schema-version constants, `strings::js()`, `cargo xtask docs`
 - calc-day1: the decimal grammar, `Money`, `Value<T>`, `RoundingPolicy`, checked operations, `Unit`, the civil and partial date, the period and the duration, and the seeded `Rng` with its one-copy test
