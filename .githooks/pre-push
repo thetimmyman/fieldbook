@@ -8,6 +8,12 @@ push_updates="$(mktemp)"
 trap 'rm -f "$push_updates"' EXIT
 cat > "$push_updates"
 
+# Git exports this repository's context to hooks. Checks also use scratch repos.
+local_git_env="$(git rev-parse --local-env-vars)"
+for name in $local_git_env; do
+    unset "$name"
+done
+
 just check
 
 # The denylist is a file outside the repository; the step runs on the owner's machine only.
