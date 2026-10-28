@@ -63,6 +63,7 @@ The shared types of the AI layer, the one adapter table and the two walls around
 cargo nextest run --locked -p fieldbook-core --test ports
 cargo nextest run --locked -p fieldbook --test adapters --test determinism
 cargo nextest run --locked -p xtask scans:: ports_doc::
+cargo nextest run --locked -p xtask --run-ignored only contract_extractor_pdftotext_layout_1
 cargo xtask scans
 cargo xtask docs --check
 cargo nextest run --locked -p fieldbook-core --test schema_json
@@ -71,7 +72,7 @@ cargo nextest run --locked -p xtask --test compat
 just check
 ```
 
-Expected: the tests pass; `scans` prints `scans: ok`; `docs --check` prints `docs: up to date`; `just check` exits 0. `ports.md` lists six rows.
+Expected: the tests pass; `scans` prints `scans: ok`; `docs --check` prints `docs: up to date`; the Poppler run selects exactly one test and passes when Poppler is available (zero selected tests is not success); `just check` exits 0. `ports.md` lists six rows.
 
 ## Negative control
 

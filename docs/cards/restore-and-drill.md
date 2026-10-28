@@ -63,6 +63,8 @@
 
 17. Backup-dependent process cases, including Windows backup/list/verify/restore chips, use disposable build-checkout corpus copies and assert snapshot creation succeeds before subsequent checks. Other chips keep their appropriate synthetic fixtures, sample IDs and confirmed-add variant. Synthetic restore handler tests retain TestWorld’s injected catalogue. Add `drill_refuses_stale_manifest_digest` separately from `drill_fails_on_a_wrong_fingerprint`; every mutation starts with a clean writer-built snapshot.
 
+18. For a drill and an eligible in-root `--to` restore that writes as State, after snapshot verification and before `begin_restore`, destination creation, reset or copying, call `labels::admit` with the snapshot labels and the current effective State StoreRule (the applicable floor until policy loading exists). Refuse with FB0412/exit 1, one `refuse` event whose reason is `store`, no `restore.begin`, and no change to an existing drill canary; journal failure remains exit 3. This admission adds no export token and leaves the placement and export checks intact. Add real-handler `drill_refuses_labels_not_held_by_state`, `drill_admits_permitted_state_labels` and `restore_to_state_checks_admission` tests outside Git using writer-built, identity-valid snapshots. Verify an existing drill canary is byte-identical on refusal; cleanup applies only after a drill starts.
+
 ## Acceptance
 
 ```sh
@@ -88,6 +90,8 @@ Bypass the label filter at the restore export handler: `real_outputs_keep_permit
 Bypass the drill placement guard: `drill_refuses_company_labels_under_git_before_copy` must fail. Restore it.
 
 Bypass only the --to Git placement check: `restore_to_refuses_company_labels_under_git_before_copy` must fail. Restore it.
+
+Bypass State admission before drill or eligible in-root restore: `drill_refuses_labels_not_held_by_state` and `restore_to_state_checks_admission` must fail. Restore it.
 
 ## Rollback
 

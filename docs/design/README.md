@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 15) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 16) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 15
+## Current revision 16
+
+Section 5 names each component's mockup root selector in one table, so a class the mockup gives to a component is read from that mapping instead of from the component's name; the mockup's selectors are unchanged and utility, descendant and variant classes are excluded. A `p.` or `pp.` citation of a version whose shipped original is a PDF links to that original at `#page=<first page>`, and a page range at its first page; every other locator kind keeps its `s/` anchor, and a held version stays plain text with its escaped hold reason. Tokens, component geometry and the revision 15 layouts are unchanged: no layout family moved, so the existing study is reused. Source checks and the browser render are recorded separately in section 13 of `HANDOFF.md`.
+
+## Revision 15 (historical)
 
 Purpose summaries and search snippets follow their separate source contracts; About metadata comes from edition-manifest. Assistant and drawer Stop invoke the same adapter cancellation method. The existing chat layout study is reused because no visible layout changes. Assistant copying checks complete payloads against independent clipboard permission and uses the existing dialog for selectable manual fallback. Home admission chips carry public confirmation; record results have no broken page link. The shared frame shows the selected public or company store context and effective labels, including permitted local marked content. About shows the compiled profile and posture. Assistant search stays destination-filtered; Stop discards the whole reply. Pricing landings follow P7, and desk commands and backup verification states match their reports. Existing tokens, compact tables and component geometry remain. Earlier notes are history; operative rules are in HANDOFF.md.
 

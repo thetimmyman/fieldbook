@@ -1,6 +1,8 @@
 # Handoff spec: Fieldbook, the finance-role workbench
 
-Design handoff, revision 15. Mockup: [mockup/index.html](mockup/index.html). It is a clickable prototype of the whole application, with sample content drawn from public sources and synthetic figures. Every id, status and figure in it is illustrative.
+Design handoff, revision 16. Mockup: [mockup/index.html](mockup/index.html). It is a clickable prototype of the whole application, with sample content drawn from public sources and synthetic figures. Every id, status and figure in it is illustrative.
+
+**Revision 16 — fix round 12.** Section 5 now carries an explicit component-to-root-selector mapping, so a class the mockup gives to a component is read from that table and not derived from the component's name; every existing selector (`.btn`, `.chain`, `.pipe`) and the native `kbd` element stay as they are, and utility, descendant and variant classes are excluded. A `p.` or `pp.` citation of a version whose shipped original is a PDF links to that original at `#page=<first page>`, a range at its first page; every other locator kind keeps its `s/<version-id>.html` anchor, and a held version stays plain text with its escaped hold reason. No layout family, token or component geometry changes; the revision 15 layouts are reused. The source check and the browser render are recorded separately in section 13.
 
 **Revision 15 — fix round 11.** Purpose first-sentence summaries feed area lists and popovers; search snippets follow the separate first-paragraph rule. About metadata comes from edition-manifest. Assistant and drawer Stop invoke the shared adapter cancellation method, retaining the question and suppressing late completion; Bridge cancellation uses its existing authenticated route. Company rendering has local view metadata and no public edition manifest. Desk page writes enforce State admission before replacement. The compact chat layout and its existing study are reused because tokens, geometry and visible controls do not change. Source checks and unavailable browser verification are recorded separately.
 
@@ -730,7 +732,7 @@ The props are the data each component needs. Names match the mockup's classes so
 | `RichText` | — | Markdown AST | Renders the inline token kinds below. | Static | Semantic HTML: headings, lists, blockquotes, tables with captions. |
 | `TermLink` | — | termId, label | Dotted underline, `cursor: help`. Popover on hover (350ms delay) or focus. Click opens the glossary entry. | Hover or focus shows the popover. | A link; while open, the popover is `role="tooltip"` and the link's `aria-describedby` points to it. Never on touch. |
 | `PageLink` | — | pageId, label | A `--border-w` underline in the link colour, `--border-w-strong` on hover, offset `--space-0-5`. Popover preview. | Hover (2px underline), focus, popover. | A link; the underline is its non-colour cue (WCAG 1.4.1). |
-| `CitationChip` | ok, meta-only | versionId, locator | Outside prose: the evidence rail, source drawer, registers, the assumption Source column and search results. Mono `--text-2xs`, `--target-min` tall. Reads as key plus locator, `S-0042-v2, p. 14`, and links to the `s/<version-id>.html` anchor; with JS it opens the Source drawer at the locator. A metadata-only source shows a lock and the warn colour. | Ok, metadata-only (warn with a lock), hover, focus. | A link named by key plus locator. |
+| `CitationChip` | ok, meta-only | versionId, locator | Outside prose: the evidence rail, source drawer, registers, the assumption Source column and search results. Mono `--text-2xs`, `--target-min` tall. Reads as key plus locator, `S-0042-v2, p. 14`. Its link follows the locator kind (corpus-format, Locator kinds): a `p.`/`pp.` citation of a version whose shipped original is a PDF links to that original at `#page=<first page>` (section 12); every other locator kind links to the version's `s/<version-id>.html` anchor. With JS it opens the Source drawer at the locator. A metadata-only source shows a lock and the warn colour and keeps its `s/` link. A held version is plain text with its escaped hold reason (section 11), never a chip that links. | Ok, metadata-only (warn with a lock), hover, focus. | A link named by key plus locator. |
 | `CitationMarker` | — | n, citation | In prose only. A numbered marker linking to row n of the page's Sources part (claim, source version, locator, quote). With JS, hover or focus previews the row. Print shows a footnote. Without JS it is a plain anchor. | Hover or focus previews the row. | A link to its Sources row; its name gives the number and the source key. |
 | `RefChip` | question, conflict | id | Q and XC references: a neutral chip with the id, linking to `questions.html#Q-025` or `conflicts.html#XC-14`. No verification colour. | Hover, focus. | A link named by the id. |
 | `ClaimMark` | ok, bad, warn, info, none | claimId | A 20px pill: the status icon plus the id without its `CL-` prefix (`CMP-0012`). Used on evidence cards, Sources rows and registers, not in prose. Clicking it scrolls to and flashes the matching evidence card. Its accessible name has the full id and the status. | Per status; hover; focus; its card flashes when activated. | Name has the full id and the status, as the notes say. |
@@ -809,6 +811,130 @@ The props are the data each component needs. Names match the mockup's classes so
 | `Unavailable` | — | thing, until, why | Dashed panel with a lock: "<Thing> is not available until <release or trigger>." and one line of why. Stands in for any chart or tile whose data has not landed (NG-15). | Static | The lock is `aria-hidden`; the sentence says what and until when. |
 | `PlanTimeline` | start set, unset | windows[], tests[], progress[] | Rows on one shared day axis: Window, Proof test (a diamond at each window's end) and Progress (done in `--chart-1`, in progress in `--chart-neutral`). With a start date, a dashed accent line marks today and the header says "Day N of 90 · the line marks today"; without one it says "Set a start date to mark today". Text masks the line where they cross. | Start set, unset. | Rows are text; the today line is `aria-hidden` and the header says the day. |
 
+### Root selectors in the mockup
+
+The mockup gives each component one root selector, or the native element it uses where it gives the component no class. A `Root` cell may name more than one root, separated by `, `. `—` means the mockup gives that component no root of its own; the reason is listed after the table. A class that is not a root here is a utility, descendant or variant class (`.sm`, `.panel-h`, `.chip.ok`) and is never read as a component root. This table changes no class in the mockup. The component names are the first cells of the table above, in that order.
+
+| Component | Root |
+|---|---|
+| `Button` | `.btn` |
+| `Chip` | `.chip` |
+| `Field` | `.field` |
+| `Panel` | `.panel` |
+| `Eyebrow` | `.eyebrow` |
+| `Segmented` | `.seg` |
+| `Box` | `.box` |
+| `Skeleton` | `.skel` |
+| `Kbd` | `kbd` |
+| `Dialog` | `.mini-dlg` |
+| `AppShell` | `.app` |
+| `Sidebar` | `.sidebar` |
+| `SectionTabs` | `.sections` |
+| `SectionSwitch` | `.sec-switch` |
+| `ContextNav` | `.nav-group` |
+| `CrumbsRow` | `.crumbs-row` |
+| `BuildChip` | `.build-chip` |
+| `NavItem` | — |
+| `TopBar` | `.topbar` |
+| `DayChip` | `.day-chip` |
+| `SearchTrigger` | `.searchbox` |
+| `CommandPalette` | `.palette` |
+| `AreaIndex` / `AreaTile` | `.area-index`, `.area-tile` |
+| `NextUpRow` | `.row` |
+| `ThreeUp` | `.three-up` |
+| `ReuseItem` | `.tu-item` |
+| `ChangeItem` | — |
+| `StatStrip` | `.stats` |
+| `KeyFigures` | `.figs` |
+| `ReadinessGates` | `.gates` |
+| `PageHeader` | `.h-page` |
+| `MetaRow` | `.meta-row` |
+| `PageActions` | `.page-actions` |
+| `WordingToggle` | — |
+| `RichText` | `.prose` |
+| `TermLink` | `.term` |
+| `PageLink` | `.plink` |
+| `CitationChip` | `.cite` |
+| `CitationMarker` | `.cite-n` |
+| `RefChip` | — |
+| `ClaimMark` | `.claim-mark` |
+| `PreciseBlock` | `.precise` |
+| `ConflictBox` | `.conflict` |
+| `CalcTable` | `.calc` |
+| `EvidenceRail` / `EvidenceCard` | `.rail`, `.ev-item` |
+| `AnswerMeta` | `.ans-meta` |
+| `Excerpt` | `.excerpt` |
+| `SourcesBlock` | `.cite-list` |
+| `ChangeNote` | `.change` |
+| `TemplatesList` | — |
+| `CommandChip` | `.cmd` |
+| `StatusChip` | — |
+| `Banner` | `.banner` |
+| `AskDrawer` | `.drawer` |
+| `AdapterStatus` | `.adapter` |
+| `ContextPanel` | `.ctx-panel` |
+| `ContextItem` | `.ctx-item` |
+| `ContextMeter` | `.ctx-meter` |
+| `ContextBar` | `.ctx-bar` |
+| `ThreadNote` | `.tnote` |
+| `CheckedAnswer` | `.checked-answer` |
+| `CiteCheckChip` | `.cc` |
+| `SourceDrawer` | — |
+| `LocatorView` | `.locator-view` |
+| `Popover` | `.pop` |
+| `SelectionToolbar` | `.sel-bar` |
+| `Toast` | `.toast` |
+| `BriefSheet` | `.sheet` |
+| `StageTrack` | `.stage-track` |
+| `ImportReport` | — |
+| `ActivityLog` | — |
+| `BackupStatus` | — |
+| `RegisterTable` | `.table-wrap` |
+| `Hero` | `.hero` |
+| `Composer` | `.composer` |
+| `Starter` | `.starter` |
+| `ThreadList` / `ThreadPick` | `.thread-nav`, `.thread-pick` |
+| `Message` | `.msg` |
+| `ReadFold` | — |
+| `Fold` | `.fold` |
+| `VerdictChips` | — |
+| `AnswerActions` | `.ans-actions` |
+| `RelatedPanel` | — |
+| `Switch` | `.switch` |
+| `ShortcutsDialog` | — |
+| `WorkspaceHeader` / `Tabs` | `.ws-head`, `.tabs` |
+| `ProcessDetails` | `.proc` |
+| `Ladder` | `.ladder` |
+| `ModuleCard` | — |
+| `DpSummary` | `.dp-sum` |
+| `Bridge` | `.bridge` |
+| `Sensitivity` | `.sens` |
+| `OptionsCompare` | `.opts` |
+| `Trace` | `.trace` |
+| `DayStrip` | `.day-strip` |
+| `Dots` | `.dots` |
+| `CapLadder` | `.cap-ladder` |
+| `Timeline` | `.tl` |
+| `CompareMatrix` | `.cmp-matrix` |
+| `AppMap` | `.appmap` |
+| `LifecycleChain` | `.chain` |
+| `BidPipeline` | `.pipe` |
+| `ProgramsTable` | — |
+| `EstimatePointer` | — |
+| `OriginTag` | `.og` |
+| `ProjectPosition` | — |
+| `EacHistory` | — |
+| `ChartPanel` | `.chart` |
+| `LineChart` | `.plot` |
+| `BarList` | `.hbars` |
+| `CoverageBar` | `.cover` |
+| `ChartFoot` | `.chart-foot` |
+| `TableFold` | — |
+| `Unavailable` | `.unavail` |
+| `PlanTimeline` | `.tl90` |
+
+The rows with no root of their own: `NavItem` (the mockup styles the link inside `nav.nav`), `ChangeItem` (a `.chg` row of `ReuseItem`), `WordingToggle` (a `Segmented`), `RefChip` (a neutral `CitationChip`), `TemplatesList` (rows in a `RegisterTable`), `StatusChip` (a `Chip`), `SourceDrawer` (the `AskDrawer` shell), `ImportReport`, `ActivityLog` and `BackupStatus` (a desk page: `PageHeader`, `Panel` and `RegisterTable`), `ReadFold` and `TableFold` (a `Fold`), `VerdictChips` (chips in a `Message` header), `RelatedPanel` (a `ContextNav` group), `ShortcutsDialog` (a `Dialog`), `ModuleCard` (a `RegisterTable` row), `ProgramsTable`, `ProjectPosition` and `EacHistory` (a `RegisterTable`), and `EstimatePointer` (a plain `<dl>`).
+
 ### Charts
 
 A chart appears only where a sourced public series or a calc-core result exists; elsewhere a sentence or a table does the job. The research mockups asked for graphics; these rules keep them honest.
@@ -866,7 +992,7 @@ Numbers in prose cite claims. Each claim citation becomes a numbered `CitationMa
 | Palette | No results | "Not established in the library." with **Ask** and the `fieldbook new question --confirm-public --area <a> "…"` command (At home), above the "Search for <text>" row. Never "No results". |
 | Term or page link | Hover 350ms or focus | Popover. It hides 150ms after the pointer leaves, unless the pointer moves into the popover. |
 | Citation marker | Click or Enter | Moves to its row in the page's Sources part. With JS, hover or focus previews the row. Without JS it is a plain anchor. |
-| Citation chip | Click or Enter | Opens `s/<version-id>.html` at the locator anchor. With JS the Source drawer opens there instead, with focus on its Close button. |
+| Citation chip | Click or Enter | Opens the citation's link: a `p.`/`pp.` citation of a version whose shipped original is a PDF opens the original at `#page=<first page>`; any other locator kind opens the version's `s/<version-id>.html` anchor. A metadata-only source keeps its `s/` link and its lock. A held version is plain text with its hold reason and has nothing to open. With JS the Source drawer opens there instead, with focus on its Close button. |
 | Claim mark | Click | The rail card scrolls into view and shows a `--focus-w` focus-colour ring for `--dur-flash`. Under reduced motion the scroll is instant and the ring still shows, because it does not move. |
 | Wording toggle | Plain + precise | Precise blocks appear under their plain paragraphs. The live region announces the change. |
 | Ask button / `.` | — | Opens Ask. On a reader page the scope defaults to that page, and the scope chip shows its title; otherwise it keeps the last scope. |
@@ -1156,6 +1282,7 @@ This is `fieldbook cite-check` (`fieldbook-core::assist::cite_check`) with an in
 | **Source changed on disk** (hash mismatch) | Bad banner. Citations to it are paused until `fieldbook check` passes and the original is restored or re-versioned. |
 | **Metadata-only source** (licence) | Lock chip. The drawer says to open your licensed copy at the locator. No excerpt is shown. |
 | **Superseded version cited** | Warn banner in the drawer naming the current version. Claims that cite the old version show as stale. |
+| **Held version cited** | A version whose `lifecycle` is `quarantined` has no `s/` page and no shipped original, so its citation stays plain text with the escaped source-row `note` as the hold reason beside it. It is never a link, and the reason is words, never colour or an icon alone. |
 | **Review date passed** | Warn banner on the page; `review_by` is computed. The page stays fully readable and shows `fieldbook verify <claim-id> --on YYYY-MM-DD` (the owner, At home) for each claim due. |
 | **A change is needed** | No write buttons. Each action shows its command in a `CommandChip` with its tag; Copy toasts "Command copied. Run it in a terminal." If the clipboard is refused, the command text stays selectable. |
 | **Object not landed** | Its command is replaced by its landing line, for example "Bids arrive with the ORG overlay, Release 2 or later." |
@@ -1211,7 +1338,7 @@ This is `fieldbook cite-check` (`fieldbook-core::assist::cite_check`) with an in
 - **Sections:** the route-to-section map lives in one place in `app.js` and in the build's page metadata, so a page renders its section tab and sidebar group with scripts blocked.
 - **Strings:** `assets/strings.js` is generated from `fieldbook-core::strings`. Components never retype a frozen string (section 0).
 - **Computed fields:** `review_by` and `claims` are computed by the build, never typed in front matter.
-- **Links:** directory links name `index.html`. Originals link to the sibling `originals/` folder (`originals/S-0042-v2.pdf#page=14`), with the locator text beside the link; otherwise a citation links to its `s/` page and anchor. External URLs are text with a copy button (D-20).
+- **Links:** directory links name `index.html`. A located citation of a version whose stored original is a PDF links to that original in the sibling `originals/` folder at `#page=<first page>` (`originals/S-0042-v2.pdf#page=14`), with the locator text beside the link; a page range uses its first page. Every other locator kind, and a version with no shipped original, links to its `s/` page and anchor. The `originals/` folder is not a `Site` key and no planned path names it, so a link to an original never depends on the site's path list. A held version is plain text with its hold reason. External URLs are text with a copy button (D-20).
 - **Header:** script computes the edition's age from `edition.toml`; without JS the header shows the build date. Without SOURCE_DATE_EPOCH, pages say "unreleased build".
 - **Clipboard:** every context, Add-and-ask-again and draft-note copy uses one complete-payload check: all labels must be public and within separate clipboard permission, with the current policy hash and inclusive UTC expiry. Typed questions and retained typed history stay owner-supplied; pasted text is scanned for markings. The build supplies separate Handoff and clipboard availability, sets and expiry from one snapshot; Edition permission supplies neither. Refusal or browser failure opens the existing dialog titled "Select text for manual handoff", with a labelled read-only textarea containing the full text, focused and selected, and Close returning focus to the trigger. There is no clipboard write or success toast on refusal. The control remains available to reach manual text. Successful clipboard serialization says "Some records were omitted." without a count. No static page fetches a refreshed policy. CommandChip text remains selectable when browser copying fails.
 - **No browser dialogs:** no `alert`, `confirm` or `window.print`. Print uses the browser's own command plus the print stylesheet.
@@ -1233,6 +1360,7 @@ This is `fieldbook cite-check` (`fieldbook-core::assist::cite_check`) with an in
 - **Revision 8 (four):** section tabs with a contextual sidebar, against one sidebar with collapsible groups; then an area overview with the three-up row and charts, and DP-002 with key figures, gates, sensitivity and options. Tabs were chosen: about forty always-visible links become six tabs and a sidebar of 3 to 17, and the grouped sidebar needs two toggles to reach a sibling section on a phone.
 - **Revision 9:** no new study. No layout family changes: values snap to the token scale, and the audit fixes are colour, state and accessibility changes inside the revision 8 layouts.
 - **Revision 10 (two):** the context in a live panel beside the chat, against the context folded into the thread as an editable card with a count chip in the composer. The panel was chosen: in the folded version the context is never beside the answer it produced, so an outside-context flag or a mid-conversation edit means scrolling back to the card. The panel keeps the thread notes, and below 1040px of main width and in the drawer it becomes a sheet one tap from the composer. The checks below were run fresh.
+- **Revision 16:** no new study, and no layout family changes. The change is a contract correction inside the revision 8 to 15 layouts: the section 5 table now names each component's existing mockup root, and a located citation names its link target by locator kind. No component moves, resizes or gains a variant, so a study of an alternative layout would compare nothing that changed; the revision 15 mockup bytes are unchanged.
 
 **How the checks run.** Open `docs/design/mockup/index.html` from disk, or serve `docs/design/mockup/` with any static file server, in a Chromium browser. Two scripts run in the page's console:
 - a crawler that starts from Today, follows each internal `#` link (in-page anchors such as citation marks excluded), and records any route whose main region shows "undefined", "NaN", "[object" or the not-found view, any script error, and any document wider than the viewport. Chrome ignores history updates beyond about 200 in 10 seconds, so the crawler pauses for 10 seconds after every 120 and records any route whose address did not take;
@@ -1251,6 +1379,8 @@ The crawl runs at 1024px and again with the viewport at 375 × 812. The contrast
 | Chat | Revision 11 replaces the earlier streaming evidence. Offline mockup contract checks cover complete-answer rendering, cancellation, request budget, history, pins, company permissions and citation facts. Browser visual verification remains pending because this environment blocks the local browser path. Earlier checks do not establish these changed paths. Revision 15 source checks cover the shared Stop-to-adapter invocation and late completion; browser rendering and interaction remain unverified. |
 | Adapter states | Pass. From the states gallery: No model here shows Copy context pack as the composer's primary button and the paste area, and a pasted answer is checked (an unverified one shows "Do not use this answer."); Connecting disables Send and says why; Error shows the reason and Try again, and Send retries. |
 | Context sheet and drawer | Pass. At 1024px the Assistant page shows the Context bar, and the sheet opens with focus on its heading, keeps focus inside, applies pin and remove, and Esc returns focus to the bar. Over the drawer, Esc closes the sheet and keeps the drawer. Below 1280px the drawer is modal. At 375 × 812 the drawer header fits: the scope chip ends in an ellipsis and "Open in Assistant" shows its icon only. |
+| Root selectors | Pass. A source check read the section 5 mapping against `mockup/index.html`: every component of section 5 has one row, every declared class is carried by the mockup's stylesheet, the declared `kbd` element is carried by its markup, and no selector is declared twice. The mockup is byte-identical to revision 15. |
+| Mockup render | A headless Chromium render of the unchanged mockup at 1280px, on Today and on the withholding reader page, shows the revision 15 layout: the three-up row, the Sources list and its citation chips. This is a browser render of this package's mockup, not of a built site, and it does not re-run the crawl or contrast checks below. |
 
 **Checks from revisions 5 to 9, not re-run on this revision:** on the withholding page, claim and source citations share one numbering in reading order, and a claim marker scrolls to its evidence card without changing the route; a contradicted claim checks as weak; an answer whose citations are only broken or weak shows "Do not use this answer.", one verified citation lifts it, and an answer that only abstains is allowed; with no start date, Today offers "Set your start date" and the Day chip hides; the theme choice survives a reload. The phone drawer passed open, page choice, Esc and scrim, with focus and `aria-expanded` checked on each. In the palette, empty input lists "Latest pages", "est" lists at most 8 rows and then "Search for “est”", and an unmatched query shows the abstention phrase above that row. A reader page at 1024px has the same layout before and after the token pass.
 

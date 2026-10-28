@@ -31,7 +31,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | Id list (no mockup route) | `ids.html` | §2 Routes | `build-registers` |
 | `#frame/public`, `#frame/company`, `#frame/company-marked` | Shared frame preview only | §3 Frame; BuildChip, Sidebar and effective-label banner | `build-frame`; company context: `r2-overlay` |
 | About (no mockup route) | `about.html` | §2 Routes | `build-about` (compiled profile/posture, no live adapter probe); edition metadata from `edition-manifest` |
-| Changes (no mockup route) | `changes.html` | §2 Routes | later (`edition-002`) |
+| Changes (no mockup route) | `changes.html` | §2 Routes | `changes-page` (`edition-002`) |
 | `#desk/import`: ImportReport | state/pages/import.html | Desk pages: ImportReport, ActivityLog and BackupStatus | `status-command`; AddReport from `add-folder-mode` |
 | `#desk/activity`: ActivityLog | state/pages/activity.html | Desk pages: ImportReport, ActivityLog and BackupStatus | `status-command`; show and verify reports from `audit-journal` |
 | `#desk/backup`: BackupStatus | state/pages/backup.html | Desk pages: ImportReport, ActivityLog and BackupStatus | `status-command`; BackupList from `backup-snapshot` |

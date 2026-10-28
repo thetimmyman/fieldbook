@@ -43,9 +43,9 @@
 
 9. Add ordinary non-seed cases with unequal-scoring versions sharing an unversioned ID or `origin_key`. Exact-class results use natural ID order alone; other results retain matched-count, summed-impact and natural-ID order. Share expected ranks between Rust, browser and CLI tests. Restoring score-first order inside the exact class must fail.
 
-10. The real exported API is exercised by `ordered_hits_render_without_reranking`: a one-character ID-prefix-only hit precedes ranked fallback, duplicate IDs appear once and the palette caps at eight. A separately passed permitted index cannot expose a unit from the ordinary site index.
+10. The real exported API is exercised by `ordered_hits_render_without_reranking`: a supplied hit list renders in exactly that order, and a separately passed permitted index cannot expose a unit from the ordinary site index. Keep absent-link rendering checks here. Do not implement palette selection inside `render`; the palette's one-character prefix case, deduplication, eight-hit cap and non-navigating Enter belong to its own controller tests in `search-palette`.
 
-11. The shared result renderer and palette treat an absent link as non-navigating; Enter on such a row keeps it visible and the address unchanged. Keep the final Search for row and normal linked-result keyboard behavior. Future record views supply their link through UNIT_KINDS, not a renderer special case.
+11. The shared result renderer treats an absent link as non-navigating: a rendered row without a link keeps its text and metadata and has no href. The palette controller, not `render`, owns Enter, the eight-hit cap, deduplication and the final Search for row; its `shortcuts.js` cases cover linked-result keyboard navigation and the non-navigating absent-link row. Future record views supply their link through UNIT_KINDS, not a renderer special case.
 
 ## Acceptance
 
