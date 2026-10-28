@@ -41,7 +41,7 @@
 
 8. `delivered_binder_filters_articles` runs the real edition handler and reads the delivered binder: permitted article canaries appear, forbidden ones do not. Register the binder surface; omission wording has no numeric count because it is an edition payload, even when printable.
 
-9. Add `day-one.html` to the Site `REQUIRED_FILES` in `xtask/src/edition.rs`, after the paths that card already requires and without adding it to the Raw profile’s requirements. The provider already exists through quote-match -> extract-and-locators -> release-workflow -> edition-zips, so this adds no prerequisite. Add `edition::tests::missing_binder_is_fb0601` in that module: stage a healthy Site payload, delete `day-one.html`, then require FB0601 naming it. Raw editions do not gain a binder requirement.
+9. Add `day-one.html` to the Site `REQUIRED_FILES` in `xtask/src/edition.rs`, after the paths that card already requires and without adding it to the Raw profile’s requirements. The provider already exists through quote-match -> extract-and-locators -> release-workflow -> edition-zips, so this adds no prerequisite. Add `edition::tests::missing_binder_is_fb0601` in that module: first validate a healthy synthetic Raw-profile stage with no `day-one.html` and require success, using the shared profile/allowlist helper without a Raw-packager prerequisite; then stage a healthy Site payload, delete only `day-one.html`, and require FB0601 naming it. Raw editions do not gain a binder requirement.
 
 ## Acceptance
 
@@ -61,7 +61,7 @@ cargo nextest run --locked -p fieldbook --test leak_outputs
 just check
 ```
 
-Expected: both test runs pass; `just site` exits 0; `grep -c` prints `1`; the guarded lines exit 0; `print-count` prints `pages: 2`, an FB0607 line and `exit 1`; the literal test passes; `edition::tests::missing_binder_is_fb0601` passes after staging a healthy Site payload that lacks only the binder; `just check` exits 0.
+Expected: both test runs pass; `just site` exits 0; `grep -c` prints `1`; the guarded lines exit 0; `print-count` prints `pages: 2`, an FB0607 line and `exit 1`; the literal test passes; `edition::tests::missing_binder_is_fb0601` passes for a healthy Raw-profile stage without the binder, then refuses the healthy Site stage after deleting only the binder; `just check` exits 0.
 
 ## Negative control
 

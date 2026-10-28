@@ -403,7 +403,7 @@ In a second PowerShell window, run:
 fieldbook-ai.exe chat --site "$env:LOCALAPPDATA\Fieldbook\edition"
 ```
 
-Expected: the window prints the address of the chat page, on 127.0.0.1, then `chat: listening on 127.0.0.1 only; type q and press Enter to stop`, and keeps running. `--site` names the folder where the transfer extracted the edition, which is the site the page is served from. Write down whether Windows or endpoint protection showed any prompt about the listener, and what it said. If a prompt offers access wider than this computer, decline it and note that. Open the address in Edge and check that the Assistant page loads. Then type `q` and press Enter in that window. The window prints `chat: stopped after N calls` and returns to the prompt. Close the window only after that line appears: a window closed earlier leaves a start event with no stop event.
+Expected: the window prints the address of the chat page, on 127.0.0.1, then `chat: listening on 127.0.0.1 only; type q and press Enter to stop`, and keeps running. `--site` names the extracted Site whose required native assets are verified and retained. `GET /` serves the compiled, content-free chat shell; Corpus and company content arrives only through authenticated API routes. Write down whether Windows or endpoint protection showed any prompt about the listener, and what it said. If a prompt offers access wider than this computer, decline it and note that. Open the address in Edge and check that the Assistant page loads. Then type `q` and press Enter in that window. The window prints `chat: stopped after N calls` and returns to the prompt. Close the window only after that line appears: a window closed earlier leaves a start event with no stop event.
 
 Back in the first window:
 

@@ -72,7 +72,7 @@ cargo nextest run --locked -p fieldbook-core --test restore
 cargo nextest run --locked -p fieldbook --test restore --test drill4
 just edition
 cargo build -q --locked -p fieldbook && B="$PWD/target/debug/fieldbook" && T="$(mktemp -d)" && cp -R corpus "$T/corpus" && mkdir "$T/target" && D="$(cut -d' ' -f1 out/dist/corpus-support.sha256)" && CAT="$PWD/out/dist/corpus-support.toml"
-(cd "$T" && export FIELDBOOK_STATE="$T/.fieldbook" && "$B" audit verify && "$B" backup verify --raw "$T" --support-catalogue "$CAT" --expect-support-sha256 "$D" && "$B" backup --to "$T/target" && "$B" restore --snapshot 1 --from "$T/target" --drill > "$T/drill.out"; echo "exit $?"; tail -n 1 "$T/drill.out")
+(cd "$T" && export FIELDBOOK_STATE="$T/.fieldbook" && "$B" build --out "$T/out" >/dev/null && "$B" audit verify && "$B" backup verify --raw "$T" --support-catalogue "$CAT" --expect-support-sha256 "$D" && "$B" backup --to "$T/target" && "$B" restore --snapshot 1 --from "$T/target" --drill > "$T/drill.out"; echo "exit $?"; tail -n 1 "$T/drill.out")
 (cd "$T" && export FIELDBOOK_STATE="$T/.fieldbook" && "$B" restore --snapshot 1 --from "$T/target" --to "$T/restored" && diff -rq corpus "$T/restored/corpus" && echo "corpus identical"; "$B" restore --snapshot 1 --from "$T/target" --to "$T/restored"; echo "exit $?")
 cargo nextest run --locked -p fieldbook --test restore restore_with_an_unlabelled_snapshot_is_fb0901_and_exits_2
 cargo xtask docs --check
