@@ -417,7 +417,7 @@ Every type has a row here and a template, `corpus/templates/<type>.md`. A test, 
 | `calc` | Eight | A calculation `fieldbook-calc` can check | `Worked example` has a line `Fixture: <case id>`, such as `Fixture: CALC-01`. `check` verifies the form; a repository test verifies that the case exists (`calc-cases`) | A calculation table with a pass or fail footer |
 | `checklist` | Eight | Tasks to run through | `How it works` holds only task items (`- [ ] text`) and `###` group headings. Plans use relative days ("Day 1 to Day 30"); a `YYYY-MM-DD` date in `How it works` is an error | Numbered steps and a timeline |
 | `template` | Eight | A fill-in form shown as text | `The rule` holds a fenced `text` block with the blank form. A line `Workbook: templates/<name>.xlsx` may point to the fillable copy (E1) | Nothing |
-| `brief` | Six | A one-page decision paper | `Evidence` is a list in which every item cites a claim or a source version. `Unknowns` is a list in which every item cites a question or says `Not established.` About 400 words at most, so that it prints on one page (FB0138). A word is a run of characters between spaces in the text and code of the body; headings count and front matter does not | The print layout |
+| `brief` | Six | A one-page decision paper | `Evidence` is a list in which every item cites a claim or a source version. `Unknowns` is a list in which every item cites a question or says `Not established.` About 400 words at most, so that it prints on one page (FB0138). A word is a run of characters between whitespace in the text and code of the body; headings count and front matter does not | The print layout |
 
 To add a page type, follow "Adding a page type" in [docs/cards/README.md](../cards/README.md#adding-a-page-type).
 
@@ -543,8 +543,8 @@ Ids sort byte by byte, which is also numeric order because their digits have fix
 **CSV rules, all five** (RFC 4180).
 - UTF-8 without a byte-order mark, LF line endings, Unicode NFC. A header row read by name. Rows sorted as above.
 - `check` is tolerant on read: it strips a byte-order mark, accepts CRLF and says "save as CSV UTF-8" for any other encoding (FB0202). `fmt` rewrites the file in normal form. Excel saves a BOM and CRLF, so run `fieldbook fmt` after an edit in Excel.
-- A cell is quoted only when it holds a comma, a double quote or a line break; a double quote inside a cell is doubled. `fmt` applies this.
-- A cell is one line. A line break inside a cell is an error (FB0201).
+- For valid single-line Corpus register cells, a cell is quoted only when it holds a comma or a double quote; a double quote inside a cell is doubled. `fmt` applies this.
+- A writable Corpus register cell is one line. A line break inside a cell is an error (FB0201); company-record cells follow their separate rules below.
 - An empty cell is empty. Do not write `n/a`, `none`, `-` or `unknown`; each column below says what empty means.
 - A **list** column holds values separated by `|`, with no spaces around it. A `|` is not allowed in any other cell of a register (FB0204). In a company-store record file a `|` in a text cell is literal.
 - Dates are ISO 8601: `YYYY-MM-DD`. A **pdate** column also accepts `YYYY-MM` and `YYYY`, and the tool never fills in the missing parts. Booleans are `true` and `false`. Decimals follow the grammar `^-?(0|[1-9][0-9]*)(\.[0-9]+)?$` (FB0500).
@@ -848,7 +848,7 @@ The state fields sit beside them and answer other questions: `applicability` (do
 | | `class_deviation` | A DoD class deviation, with its number in `citation_rfo` |
 | | `proposed_rule` | A proposed rule, with the FAR case or docket in `citation_rfo` |
 | | `federal_register_notice`, `statute` | A notice, or a statute |
-| `unit` | A currency code of three capital letters from ISO 4217, such as `USD`; or `percent`, `basis_points`, `days`, `business_days`, `weeks`, `months`, `years`, `hours`, `count`, `ratio`, `each`, `per_100`, `per_1000` or `per_dozen` | The unit of `value`. The words other than currencies are the variants of `Unit` in `fieldbook-calc`, and a conversion exists only inside one basis family. The test `unit_words_match_the_reference` compares them with this cell and with the time words of the number-unit lint (FB0309). `fieldbook-calc` takes `USD` until the first non-USD source brings exchange rates |
+| `unit` | A currency code of three capital letters from ISO 4217, such as `USD`; or `percent`, `basis_points`, `days`, `business_days`, `weeks`, `months`, `years`, `hours`, `count`, `ratio`, `each`, `per_100`, `per_1000` or `per_dozen` | The unit of `value`. The words other than currencies are the variants of `Unit` in `fieldbook-calc`, and a conversion exists only inside one basis family. The test `unit_words_match_the_reference` compares them with this cell and with the time words of the number-unit lint (FB0309). `fieldbook-calc` takes `USD` until the first non-USD source brings exchange rates. ISO 4217 remains the intended currency meaning; automated format validation checks three ASCII capital letters, without checking ISO-list membership |
 | `evidence_grade` | `E` | An official public benchmark |
 | | `F` | An industry secondary source |
 | | `G` | Management judgment. `note` begins with the literal `replace by ` followed by non-whitespace date or event text |
@@ -1111,6 +1111,7 @@ Every date is an ISO 8601 calendar date, `YYYY-MM-DD`. There are no times and no
 
 - A claim's `review_by` is the later known value of its `as_of` and its `verified_on`, plus the interval of its `volatility`; if both are absent, `review_by` is unknown. Date comparisons use known dates only, including the oldest cited date for FB0118.
 - A page's `review_by` is its `as_of` plus the interval of its volatility: the page's `volatility` field, else the most volatile class among the claims it cites, else `V3`.
+- For a known base date, a computed `review_by` past `9999-12-31` saturates at that date. This rule does not fill missing date parts or change the calculation core's checked `add_days` behavior.
 - Four findings depend on today's date: a page or claim `as_of` later than today (FB0116, FB0220) and a page or claim `review_by` that has passed (FB0117, FB0221). They are warnings, and they never fail `check`, not even under `--strict`: a commit that passes today must not fail next month. `status` lists them as next actions.
 
 ### Supersession
@@ -1264,7 +1265,7 @@ Every check has a code: `FB` and four digits. A code never changes meaning and i
 
 | Code | Severity | Check | Known-bad example |
 |---|---|---|---|
-| FB0100 | error | `corpus.toml` is missing or unreadable, an area or view is malformed (unknown key, repeated `code` or `slug`, a view filter that names no area or subarea), or `schema_version` is newer than the tool supports; in a company store also, `store.toml` is missing, has an unknown key, a `writer` outside 0 to 9999 or a `store_uid` that is not a version 4 UUID | `schema_version = 9` |
+| FB0100 | error | `corpus.toml` is missing or is not decodable TOML, an area or view is malformed (unknown key, repeated `code` or `slug`, a view filter that names no area or subarea), or `schema_version` is newer than the tool supports; in a company store also, `store.toml` is missing, has an unknown key, a `writer` outside 0 to 9999 or a `store_uid` that is not a version 4 UUID. A physical read failure is not this finding: the file reader exits 3 with the path | `schema_version = 9` |
 | FB0101 | error | A page has no front matter, or the `+++` fences are missing or unbalanced | A first line of `---` |
 | FB0102 | error | The front matter is not valid TOML for the schema: a syntax error, an unknown field, or a value of the wrong type | `titel = "…"`, or `stage = "3"` |
 | FB0103 | error | A required front-matter field is missing | No `as_of` |
@@ -1388,7 +1389,7 @@ Raised by `fieldbook-calc` and its tests (`calc-day1`, `calc-cases`). `check` ra
 
 | Code | Severity | Check | Known-bad example |
 |---|---|---|---|
-| FB0500 | error | A decimal does not follow the decimal grammar: a thousands separator, an exponent, a currency sign, a leading zero, a trailing dot | `1,000.00` |
+| FB0500 | error | A decimal does not follow the decimal grammar (a thousands separator, an exponent, a currency sign, a leading zero or a trailing dot), or a rounding-policy scale is outside its permitted range | `1,000.00` |
 | FB0501 | error | A result is outside the range the calculation type holds | A product of two very large amounts |
 | FB0502 | error | A calculation mixes currencies or units, or a money value has no currency | `USD` added to `EUR` |
 | FB0503 | error | A calculation case gives a result that differs from its expected value | `CALC-01` expects 1230.50 and gets 1230.49 |
@@ -1456,7 +1457,7 @@ Raised by `audit verify`, `audit export`, `backup verify`, `restore`, `add`, `qu
 | FB0822 | error | An accept, reject, label change or typed public act is refused. An accept or reject: no terminal, or the declared role is not owner or lead. A label change: the program has no interactive console on both input and output, the typed confirmation does not name the number of items, the logon token is not in the store's `changers` group, or the label asked for is `public`, `unlabelled`, `marked` or `owner-supplied`. On the laptop preset the `role` word is ignored for a label change. A typed public act (`PublicAct::typed`) is refused when its confirmation is missing (a library check: home `add` or `new` without `--confirm-public` is FB0410) or the machine has a company store. On the laptop preset, a logon token that cannot be read. A denial by the `Authz` port is FB0807 | `queue accept` with standard input from a file; `label add` from a script |
 | FB0823 | warning | A model suggestion was dropped: a value outside the vocabulary, or a quote or id not found | A suggested `source_kind` that is not in the vocabulary |
 | FB0825 | warning | A proposal has no extraction, so its quotes cannot be checked | A proposal for a PDF with no text layer |
-| FB0826 | error | A rule in `corpus/pipeline/rules.toml` does not reproduce its own `example`, or has none. Raised by `check` | A rule with no `example` |
+| FB0826 | error | A rule in `corpus/pipeline/rules.toml` cannot be read, has a repeated `id`, has no `example` or no `expect`, has a `set` value outside the vocabulary, or does not reproduce its own `example`. Raised by `check` | A rule with no `example` |
 | FB0830 | error | `systems.toml` is invalid (an unknown key, including one in a stream `row` table, a secret-like key, a stream with no `versioning`, a repeated id, a `load` that names no type or a type with no `key`, a `currency` without `load`), or `sync` names something the layout cannot use | A stream with no `versioning` |
 | FB0831 | warning | A pulled item, or a row of a loaded file, is not proposed: `older` (a version, or a record row, older than the one held), `duplicate` (the bytes are held under another key) or `unmatched` (the name does not fit the stream's template). `sync` prints it | A revision that predates the held version |
 | FB0832 | warning | A cursor is unreadable or newer than the listing. The stream is listed again from the start | A cursor file with a bad line |
@@ -1513,7 +1514,7 @@ Raised at run time by `ask`, `decide`, `ai test`, `mcp`, `chat` and the adapters
 
 ### Known-bad files
 
-For ranges 08 and 09 each code has `tests/known-bad/<CODE>.toml` with the fields `verb`, `args`, `state` and `expect`. `state` is a folder under `tests/fixtures/`, for instance `state-mini`, and `expect` is the code and the exit status. The harness runs the verb against a copy of that folder. A code that needs an endpoint runs against `ScriptedHttp`, and a code that needs a socket runs against a loopback test server in `xtask`. A code that no verb of the binary raises (a scripted index, a planted adapter, a page script) has `code` and `in_process = "<crate>/<test file>/<test name>"` in place of `verb`, `args`, `state` and `expect`; `tests/known_bad_pointers.rs` requires the named test to exist. A code that needs an endpoint may name `http = "http.toml"`, a file inside the case's fixture tree that scripts the endpoint, and the harness then runs the verb in process over `ScriptedHttp`. The test `every_code_has_a_known_bad_file` fails on a code of this catalogue with no file.
+For ranges 08 and 09 each code has `tests/known-bad/<CODE>.toml` with the fields `verb`, `args`, `state` and `expect`. `state` is a folder under `tests/fixtures/`, for instance `state-mini`, and `expect` is the code and the exit status. The harness runs the verb against a copy of that folder passed as `--state`. When the verb also finds the Corpus by walking up from the working directory, such as `add`, the harness runs it in a separate temporary copy of `tests/fixtures/corpus-mini`, so the case never runs in, or writes to, the real Corpus. A code that needs an endpoint runs against `ScriptedHttp`, and a code that needs a socket runs against a loopback test server in `xtask`. A code that no verb of the binary raises (a scripted index, a planted adapter, a page script) has `code` and `in_process = "<crate>/<test file>/<test name>"` in place of `verb`, `args`, `state` and `expect`; `tests/known_bad_pointers.rs` requires the named test to exist. A code that needs an endpoint may name `http = "http.toml"`, a file inside the case's fixture tree that scripts the endpoint, and the harness then runs the verb in process over `ScriptedHttp`. The test `every_code_has_a_known_bad_file` fails on a code of this catalogue with no file.
 
 To add a check code, follow "Adding a check code" in [docs/cards/README.md](../cards/README.md#adding-a-check-code).
 

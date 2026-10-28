@@ -121,12 +121,10 @@ Expected: success. The steps below are what the job does, in order, as PowerShel
 ### Step 1. Build the zips
 
 ```powershell
-cargo run --locked -p fieldbook -- build --out out
-cargo xtask harness
 cargo xtask edition
 ```
 
-Expected: exit code 0 from each command, and `out\dist\` holds the two zips, `SHA256SUMS`, `corpus-support.toml` and `corpus-support.sha256`. The first two commands are what `just site` and `just browser` run on Linux (the runner has no `just`). The harness writes `out\harness\network-silence-summary.txt`, which `edition` reads and refuses to build without. Failure handling is the same as in drill 1, step 1.
+Expected: exit code 0, and `out\dist\` holds the two zips, `SHA256SUMS`, `corpus-support.toml` and `corpus-support.sha256`. The command owns the stamped build, the harness that writes `out\harness\network-silence-summary.txt` and the packaging, in that order, so a separate site build or harness invocation is not a step of its own. `just edition` runs the same command at home; the runner has no `just`. Failure handling is the same as in drill 1, step 1.
 
 ### Step 2. Check the zips with the owner's command
 

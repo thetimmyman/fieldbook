@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 16) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 17) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 16
+## Current revision 17
+
+Stale summaries now read as the source contracts already say: the chip rule names the verbs of the AD-17 table, and its R2 examples are `fieldbook build --overlay` and `fieldbook sync`, tagged as whole commands; the `#feeds` landing is the public `Pull` stream `later-feeds`, whose snapshots are `sources.csv` origin rows; the sample brief id carries the area code `mkt`; the browser-storage summaries name the reference-only named context packs that ADR 0001's AD-15 storage rule already permits; `SourcesBlock` states the two numbered-row variants the build already has, a claim citation and a direct source-version citation; search names its unsupported index version state instead of the scripts-blocked line; and `PageActions` keeps Copy context pack on ORG pages under the complete-payload check and separate clipboard permission, with the selectable manual text as the fallback. The mockup changes only two sample command payloads, the command tag rule, and one containing-block property on the existing table wrapper, so tokens, component geometry and the existing layouts are unchanged and the existing study is reused. This revision's own evidence is the prototype check in section 13 of `HANDOFF.md`: copy buttons by pointer and keyboard at two widths in both themes, the blocked-copy feedback from a clipboard replaced in memory, the tag boundaries, page, body and `#main` scroll widths against their client widths with the wide table scrolling only inside its own wrapper, and no request outside the page. No Rust, Windows, print or full assistant check is claimed, and the earlier prose-only receipts stay historical.
+
+## Revision 16 (historical)
 
 Section 5 names each component's mockup root selector in one table, so a class the mockup gives to a component is read from that mapping instead of from the component's name; the mockup's selectors are unchanged and utility, descendant and variant classes are excluded. A `p.` or `pp.` citation of a version whose shipped original is a PDF links to that original at `#page=<first page>`, and a page range at its first page; every other locator kind keeps its `s/` anchor, and a held version stays plain text with its escaped hold reason. Tokens, component geometry and the revision 15 layouts are unchanged: no layout family moved, so the existing study is reused. Source checks and the browser render are recorded separately in section 13 of `HANDOFF.md`.
 

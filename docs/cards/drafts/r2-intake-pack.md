@@ -10,7 +10,7 @@ cargo xtask intake assembles and verifies a separately manifested companion cont
 
 ## Why
 
-- IT must review evidence for the bytes it receives. A placeholder or evidence from another build can otherwise appear complete.
+- IT must review evidence for the bytes it receives ([the intake question set](../../intake/README.md)); [R2 step 5](../../runbooks/release.md#r2-step-5-hand-over-to-it-owner) is where the pack changes hands. A placeholder or evidence from another build can otherwise appear complete.
 
 ## Scope
 

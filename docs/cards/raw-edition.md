@@ -10,13 +10,13 @@
 
 ## Why
 
-- The floor delivery needs an executable recipe when renderer or browser work is deferred.
+- The floor delivery needs an executable recipe when renderer or browser work is deferred; the owner-run steps and the home gate are in [the release runbook](../runbooks/release.md#r1-the-home-gate-before-the-first-tags).
 
 ## Scope
 
 - Files: `xtask/src/{edition_raw.rs,raw_release.rs}` (tests in each `mod tests`), `.github/workflows/raw-edition.yml`.
-- Registration lines: `xtask/src/main.rs` (edition-raw); shared allowlist Raw profile required path `evidence/corpus-support.toml` in `xtask/src/allowlist.rs`; `xtask/src/main.rs` (raw-edition-check and Raw archive provider); `docs/runbooks/release.md` (raw tag, archive path and support evidence list); `release-baseline.toml` (owner-reviewed baseline advancement); `edition-release.toml` (owner-selected delivery kind); `.github/workflows/raw-edition.yml` (the artifact list gains the two support sidecar files).
-- Docs to update: release and transfer runbooks; intake README and raw text variants (the support-evidence paragraph).
+- Registration lines: `xtask/src/main.rs` (edition-raw); shared allowlist Raw profile required path `evidence/corpus-support.toml` in `xtask/src/allowlist.rs`; `xtask/src/main.rs` (raw-edition-check and Raw archive provider); `docs/runbooks/release.md` (raw tag, archive path and support evidence list); `docs/runbooks/transfer.md` (the raw-delivery paragraphs of its transfer steps); `docs/intake/README.md` (the raw-delivery paragraph only); `release-baseline.toml` (owner-reviewed baseline advancement); `edition-release.toml` (owner-selected delivery kind); `.github/workflows/raw-edition.yml` (the artifact list gains the two support sidecar files).
+- Docs to update: `docs/runbooks/release.md` (the raw tag, archive path and support evidence list), `docs/runbooks/transfer.md` (the support-digest and retention paragraphs) and `docs/intake/README.md` (the raw-delivery and support-evidence paragraphs) for the paragraphs those registration lines bound. The fixed raw intake variant text (`README.txt` and `TRANSFER-STATEMENT.txt`) is generated inside this card's `xtask/src/edition_raw.rs` into the archive, so it is edited there and in its tests, not in an existing intake source, and it gains the support-evidence paragraph there. Only if a variant has to change an existing intake source does it name that exact file, which is `docs/intake/transfer-statement.txt` when the transfer statement itself changes; no raw-variant path is invented.
 
 ## Out of scope
 

@@ -180,7 +180,9 @@ main{flex:1;min-width:0;padding-block:var(--space-6) var(--space-10);padding-lef
 .area-tile .foot{display:flex;justify-content:space-between;font-size:var(--text-2xs);color:var(--color-muted);font-variant-numeric:tabular-nums}
 
 /* tables */
-.table-wrap{overflow-x:auto;border:var(--border-w) solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface)}
+/* A wrap scrolls its own table sideways, so it is also that table's containing block: an absolutely positioned visually hidden hint
+   (.sr-only) inside a wide table then sits in the wrap's scroll area and scrolls with it, instead of widening the page sideways. */
+.table-wrap{position:relative;overflow-x:auto;border:var(--border-w) solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface)}
 table{width:100%;border-collapse:collapse;font-size:var(--text-dense)}
 caption{text-align:left;padding:var(--space-3) var(--space-4);font-weight:var(--weight-semibold);color:var(--color-fg)}
 th,td{text-align:left;padding:var(--space-2) var(--space-3);border-top:var(--border-w) solid var(--color-border);vertical-align:top}
@@ -1373,7 +1375,7 @@ D.procedures=[
 D.templates=[
  {id:'TP-01',name:'Decision package, one page',areas:['*'],use:'DP-001, DP-002',file:'templates/decision-package.xlsx',land:'Day 30, after S2'},
  {id:'TP-02',name:'Assumption register',areas:['*'],use:'12 rows across 2 packages',file:'templates/assumption-register.xlsx',land:'E1'},
- {id:'TP-03',name:'Stakeholder brief',areas:['CPY','*'],use:'Program-finance lead brief',cmd:'fieldbook new page --confirm-public cpy-contracts-lead-brief --type brief'},
+ {id:'TP-03',name:'Stakeholder brief',areas:['CPY','*'],use:'Program-finance lead brief',cmd:'fieldbook new page --confirm-public mkt-contracts-lead-brief --type brief'},
  {id:'TP-04',name:'Allowability memo',areas:['CMP'],use:'Not used yet',cmd:'fieldbook new page --confirm-public cmp-allowability-brief --type brief'},
  {id:'TP-05',name:'EAC bridge',areas:['PRG'],use:'Synthetic program',land:'ORG overlay, Release 2 or later (Q-002)'},
  {id:'TP-06',name:'Price change bridge (v1 to v2)',areas:['EST'],use:'DP-002',land:'A sheet in templates/decision-package.xlsx (Day 30, after S2)'},
@@ -1526,9 +1528,10 @@ function flash(el){el.classList.remove('flash');void el.offsetWidth;el.classList
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),2600)}
 function say(msg){$('#sr').textContent=msg}
 /* Writes are fieldbook CLI verbs (AD-17). The browser shows the command to copy; it never writes, and the CLI never touches the clipboard.
-   Before Release 2 every command runs at home; export and build --overlay are Release 2 laptop commands. No < or > in a chip: it must paste
-   unchanged into cmd and PowerShell. Work with no verb shows a landing line saying when it arrives (AD-09). */
-const cmdTag=c=>/^fieldbook (export|build --overlay)/.test(c)?'R2 · laptop':'At home';
+   Before Release 2 every command runs at home; build --overlay and sync are the Release 2 laptop commands, matched as whole words so a longer
+   word never takes the tag. No < or > in a chip: it must paste unchanged into cmd and PowerShell. Work with no verb shows a landing line saying
+   when it arrives (AD-09). */
+const cmdTag=c=>/^fieldbook (?:build --overlay|sync)\b/.test(c)?'R2 · laptop':'At home';
 const land=t=>`<p class="land">${icon('clock')}<span>${esc(t)}</span></p>`;
 const cmd=(c,label)=>`<span class="cmd-wrap"><span class="cmd" role="group" aria-label="${esc((label||'Command to run in a terminal')+' · '+cmdTag(c))}"><span class="cmd-tag">${cmdTag(c)}</span><code>${esc(c)}</code><button class="btn ghost sm" data-copy-cmd="${esc(c)}" aria-label="Copy command: ${esc(c)}">${icon('copy')}Copy</button></span></span>`;
 async function copy(text,ok){try{await navigator.clipboard.writeText(text);toast(ok)}catch(e){toast('Copy blocked here. In the build this copies to the clipboard.')}}
@@ -1636,7 +1639,7 @@ V.conflicts=()=>{const f=state.xcFilter||'all';const ids=Object.keys(D.conflicts
 V.templates=()=>`<div class="page-w" style="max-width:1100px"><div class="h-page"><div><h1>Briefs &amp; templates</h1><p>One-page briefs built from the library, plus the Excel templates and day-one binder that ship beside it. Templates open in Excel. Nothing here writes back to the library.</p></div></div>
  <section class="panel"><div class="panel-h"><h2>Briefs</h2><span class="meta">One page first · prints on US Letter</span></div><div class="panel-b rows">
   <div class="row"><span class="n accent">${icon('file')}</span><div><h3><a href="#brief-prg-lead">First meeting: program-finance lead</a></h3><p>Ranked questions and the artifact matrix are ready. Two claims in it are still unchecked.</p><div class="sub">Stakeholder role template · 6 of 9 fields filled</div></div><div class="chips"><span class="chip warn">${icon('clock')}Due Day 14</span></div></div>
-  <div class="row"><span class="n">${icon('file')}</span><div><h3>First meeting: contracts lead</h3><p>Starts from the same template. Q-027 and Q-028 lead the question list.</p><div class="sub">Stakeholder role template · not started</div></div><div class="chips">${cmd('fieldbook new page --confirm-public cpy-contracts-lead-brief --type brief','Start this brief (Day 30)')}</div></div>
+  <div class="row"><span class="n">${icon('file')}</span><div><h3>First meeting: contracts lead</h3><p>Starts from the same template. Q-027 and Q-028 lead the question list.</p><div class="sub">Stakeholder role template · not started</div></div><div class="chips">${cmd('fieldbook new page --confirm-public mkt-contracts-lead-brief --type brief','Start this brief (Day 30)')}</div></div>
  </div></section>
  <section class="panel" style="margin-top:var(--space-4)"><div class="panel-h"><h2>Excel templates</h2><span class="meta">Synthetic sample rows only</span></div>
   <div class="table-wrap" style="border:0;border-radius:0"><table><caption class="sr-only">Excel templates</caption><thead><tr><th scope="col">Template</th><th scope="col">What it holds</th><th scope="col" class="hide-sm">File</th><th scope="col"><span class="sr-only">Open</span></th></tr></thead><tbody>

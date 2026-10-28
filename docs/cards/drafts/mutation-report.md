@@ -59,7 +59,7 @@ gh run list --workflow scheduled.yml --branch card/mutation-report --limit 1
 just check
 ```
 
-Expected: the unit tests pass; `cargo xtask doctor` prints an `ok    cargo-mutants` line and `exit 0`; `--changed-since HEAD` prints `mutants: no gate file changed` and exits 0; the full gate prints `mutants: gate ok, N caught, K skipped` with N above 0 and exits 0; `--report` prints one line for each file of `crates/fieldbook-calc/src/` and then `mutants: report` and exits 0; the ignored test passes; the pull request's `scheduled.yml` run is `completed success` with the job `mutants` green and the artifact `mutants-report` attached, and its `ci.yml` run has the job `mutants` green; `just check` exits 0.
+Expected: the unit tests pass; `cargo xtask doctor` prints an `ok    cargo-mutants` line and `exit 0`; `--changed-since HEAD` prints `mutants: no gate file changed` and exits 0; the full gate prints `mutants: gate ok, N caught, K skipped` with N above 0 and exits 0; `--report` prints one line for each file of `crates/fieldbook-calc/src/` and then `mutants: report` and exits 0; the ignored test passes; the pull request's `scheduled.yml` run is `completed success` with the job `mutants` green and the artifact `mutants-report` attached, and its `ci.yml` run has the job `mutants` green; `just check` exits 0. The `gh run list` line above is evidence only when the `gh` CLI is installed and authenticated: `just doctor` checks the tool pins and is not `gh` authentication. Without it, use the Actions page for the exact branch and commit, record the run identity and result, and inspect the required artifacts there. A successful hosted run is required either way before the card is complete.
 
 ## Negative control
 

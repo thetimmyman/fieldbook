@@ -17,8 +17,8 @@
 
 ## Scope
 
-- Files: `crates/fieldbook-render/templates/source.html`, `crates/fieldbook-render/templates/parts/unavailable.html`, `crates/fieldbook-render/src/{lib.rs,source.rs}`, `crates/fieldbook-render/assets/app.css`, `crates/fieldbook-render/tests/source.rs`, `crates/fieldbook/src/build.rs`, `crates/fieldbook/tests/build.rs`, `CHANGELOG.md`.
-- Registration lines: `crates/fieldbook-render/src/site.rs` (this card's paths in `planned_paths` and its calls and `Site` inserts in `render` only); `crates/fieldbook-render/src/links.rs` (retain lifecycle eligibility before source-page fallback); `crates/fieldbook-render/src/{page.rs,cite.rs}` and `crates/fieldbook-render/templates/page.html` (the located-citation link target and held citation rendering); `crates/fieldbook-render/tests/page.rs` (held reason cases); `crates/fieldbook/tests/leak_outputs.rs` (source-page and originals assertions on the existing edition SURFACES row)
+- Files: `crates/fieldbook-render/templates/source.html`, `crates/fieldbook-render/templates/parts/unavailable.html`, `crates/fieldbook-render/src/{lib.rs,source.rs,cite.rs}`, `crates/fieldbook-render/assets/app.css`, `crates/fieldbook-render/tests/source.rs`, `crates/fieldbook/src/build.rs`, `crates/fieldbook/tests/build.rs`, `CHANGELOG.md`.
+- Registration lines: `crates/fieldbook-render/src/site.rs` (this card's paths in `planned_paths` and its calls and `Site` inserts in `render` only); `crates/fieldbook-render/src/links.rs` (retain lifecycle eligibility before source-page fallback); `crates/fieldbook-render/src/page.rs` and `crates/fieldbook-render/templates/page.html` (the located-citation link target and held citation rendering); `crates/fieldbook-render/tests/page.rs` (held reason cases); `crates/fieldbook/tests/leak_outputs.rs` (source-page and originals assertions on the existing edition SURFACES row)
 - Docs to update: `CHANGELOG.md` (`- Added: source pages and the originals folder.` under `## Unreleased`).
 
 ## Out of scope
