@@ -33,7 +33,7 @@
 
 ## Preconditions
 
-- Cards merged: `core-labels`, `audit-journal`, `check-run`, `add-new-and-edition` (it makes `io/atomic.rs`), `day1-dependencies` (`[workspace.dependencies]`, `cargo xtask deps --check` and `just lock-verify`) and `windows-facts` (the `windows` job).
+- Cards merged: `core-labels`, `audit-journal`, `check-run`, `add-new-and-edition` (it makes `io/atomic.rs`), `day1-dependencies-3` (`[workspace.dependencies]`, `cargo xtask deps --check` and `just lock-verify`) and `windows-facts` (the `windows` job).
 
 ## Steps
 

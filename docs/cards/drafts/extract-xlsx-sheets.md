@@ -44,7 +44,7 @@ A workbook can be extracted, cited and checked without saving it as CSV first. `
 
 ## Preconditions
 
-- Cards merged: `extract-csv-rows` (`TableMeta` with its `Default`, `Values`, `values_only_note`, the windows and the `rec` arithmetic, FB0311 and the source-page label that step 9 moves), `add-folder-mode` (`TEXT_TYPES`), `extract-and-locators` (`SELECT_TYPES` and the test `text_types_equal_the_extractor_list`), `pipeline-ports` (the `Extractor` shape and `extractor_contract`), `quote-match-and-anchors` (the normalisation, `check::quotes::match_claim` and `quote::locator_resolves`), `handoff-cite-check` (`cite_facts`, `LocatorFacts` and `TableFact`), `calc-day1` (the seeded generator `tests/support/rng.rs` that steps 2, 3 and 4 include), `corpus-mini-fixture` (the `TODAY` file of the fixture that step 8 reads) and `day1-dependencies` (the tables and the checks that step 1 uses).
+- Cards merged: `extract-csv-rows` (`TableMeta` with its `Default`, `Values`, `values_only_note`, the windows and the `rec` arithmetic, FB0311 and the source-page label that step 9 moves), `add-folder-mode` (`TEXT_TYPES`), `extract-and-locators` (`SELECT_TYPES` and the test `text_types_equal_the_extractor_list`), `pipeline-ports` (the `Extractor` shape and `extractor_contract`), `quote-match-and-anchors` (the normalisation, `check::quotes::match_claim` and `quote::locator_resolves`), `handoff-cite-check` (`cite_facts`, `LocatorFacts` and `TableFact`), `calc-day1` (the seeded generator `tests/support/rng.rs` that steps 2, 3 and 4 include), `corpus-mini-fixture` (the `TODAY` file of the fixture that step 8 reads) and `day1-dependencies-3` (the tables and the checks that step 1 uses).
 
 ## Steps
 

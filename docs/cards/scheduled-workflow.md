@@ -34,7 +34,7 @@
 
 ## Preconditions
 
-- Cards merged: `day1-dependencies` (the `lock-verify` recipe), `calc-day1` (the calc crate the lint controls plant into), `scale-fixture` (`cargo xtask scale`), `edition-zips` (`cargo xtask edition`), `edge-harness` (`cargo xtask harness` writes the network-silence summary that `cargo xtask edition` needs).
+- Cards merged: `day1-dependencies-3` (the `lock-verify` recipe), `calc-day1` (the calc crate the lint controls plant into), `scale-fixture` (`cargo xtask scale`), `edition-zips` (`cargo xtask edition`), `edge-harness` (`cargo xtask harness` writes the network-silence summary that `cargo xtask edition` needs).
 - May run beside the critical path, including `search-js`, `search-palette` and `guard-statuses`: its paths are disjoint from theirs.
 
 ## Steps

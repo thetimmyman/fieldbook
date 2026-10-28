@@ -82,7 +82,9 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
-- day1-dependencies: declare every Day-1 crate once and resolve the lock with `just lock`
+- day1-dependencies: the complete dependency-policy checker on the unchanged skeleton
+- day1-dependencies-2: actual isolated offline resolution replay from immutable bounded bundles
+- day1-dependencies-3: bounded capture, initial Day-1 dependency adoption and full lock/replay activation
 - core-types-and-strings: frozen strings, `hex::lower`, schema-version constants, `strings::js()`, `cargo xtask docs`
 - calc-day1: the decimal grammar, `Money`, `Value<T>`, `RoundingPolicy`, checked operations, `Unit`, the civil and partial date, the period and the duration, and the seeded `Rng` with its one-copy test
 - core-ids-and-dates: every identifier form and the `FAMILIES` table, next-id allocation, and the dates of `fieldbook-calc` re-exported

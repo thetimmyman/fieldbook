@@ -29,7 +29,7 @@ The program reads the Windows facts that its rules rest on through one small lea
 
 ## Preconditions
 
-- Cards merged: `check-command`, `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `day1-dependencies` (`[workspace.dependencies]`, `cargo xtask deps --check` and `just lock-verify`) and `core-labels` (`PlaceFacts`).
+- Cards merged: `check-command`, `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `day1-dependencies-3` (`[workspace.dependencies]`, `cargo xtask deps --check` and `just lock-verify`) and `core-labels` (`PlaceFacts`).
 
 ## Steps
 
