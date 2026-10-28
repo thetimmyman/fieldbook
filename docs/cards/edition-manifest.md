@@ -6,7 +6,7 @@
 
 ## Outcome
 
-Raw and rendered editions share one public file selection, fingerprint, checksum, allowlist and deterministic ZIP implementation.
+Raw and rendered editions share one public file selection, fingerprint, checksum, allowlist, data-only public support catalogue and deterministic ZIP implementation.
 
 ## Why
 
@@ -16,7 +16,7 @@ Raw and rendered editions share one public file selection, fingerprint, checksum
 ## Scope
 
 - Files: `crates/fieldbook-core/src/manifest.rs`, `xtask/src/{allowlist.rs,zipdet.rs}` (helper tests stay in each module’s `mod tests`), `crates/fieldbook-core/src/edition.rs`.
-- Registration lines: module declarations in core and xtask; `crates/fieldbook-core/src/lib.rs` (edition and manifest modules); `xtask/src/main.rs` (helper modules); `docs/cards/README.md` (packaging recipe); `xtask/src/edition_release.rs` (mode descriptor, tag and archive helpers, provider dispatch and tests); `xtask/src/main.rs` (archive-release, verify-archive and edition-impact); `docs/runbooks/release.md` (shared schemas).
+- Registration lines: module declarations in core and xtask; `crates/fieldbook-core/src/lib.rs` (edition and manifest modules); `xtask/src/main.rs` (helper modules); `docs/cards/README.md` (packaging recipe); `docs/reference/audit-contract.md` (the new `## Public support verification` section, this card’s clause only); `docs/runbooks/release.md` (the support evidence schema and artifact list, this card’s entries only); `xtask/src/edition_release.rs` (mode descriptor, tag and archive helpers, provider dispatch and tests); `xtask/src/main.rs` (archive-release, verify-archive and edition-impact); `docs/runbooks/release.md` (shared schemas).
 - Docs to update: packaging recipe in the cards README.
 
 ## Out of scope
@@ -47,6 +47,10 @@ Raw and rendered editions share one public file selection, fingerprint, checksum
 
 9. Define `RenderContext::Public(EditionInfo)` alongside BuildInfo. Its public constructor keeps EditionInfo’s complete public-view/heading validation. Renderers and wrappers carry this context without deriving another metadata value; the company-store card later adds its company variant and view-derived metadata. Public planned paths include edition.toml. Test public context serialization against the same metadata vector.
 
+10. Extend `crates/fieldbook-core/src/manifest.rs` with the data-only public support catalogue defined by [Public support verification](../reference/audit-contract.md#public-support-verification): the supported role and path registrations (the exact root files, the registered page and workbook CSV templates, `eval/regression.toml` and optional `pipeline/rules.toml`), canonical relative-path validation, a strict schema 1 parser and deterministic serializer/selection. Reuse the existing SHA-256, path and manifest helpers and the actual schema/template/layout registrations. The helper is pure: no I/O, no backup or renderer import, no dependency, and no bytes or edition-specific hashes from `corpus/` in a constant. It selects every present recognized support file from one validated public generation and refuses an unsupported or ambiguous registration. Bound input to 1 MiB and 4096 entries; enforce the exact byte rules, sorted paths, duplicate/unknown-key/path refusal, traversal/link/collision refusal and exact-byte hashing before parsing. Both packaging producers consume this one helper; its existing public selection remains the producer of the payload, and this card does not stage it. A content update therefore refreshes the catalogue as data without rebuilding or replacing the executable.
+
+   Tests in `mod tests` of `manifest.rs`: `support_catalogue_literal_bytes_and_hash` (the literal vector above, 194 bytes, its independently known digest, fixed writer bytes, sorted entries, raw-byte hash and a changed comment producing a different digest; the expected literal is not calculated with the encoder under test), `support_catalogue_is_strict_and_complete` (all landed roles, optional absent rules, unknown/duplicate/traversal/link/colliding paths, malformed hashes and both input bounds refuse; no source bytes occur in the output) and `support_catalogue_never_panics_on_200_seeded_inputs` (the shared `tests/support/rng.rs` generator at file level, 200 byte strings plus the valid vector with each byte flipped and once deleted through the strict parser; a value or a typed error, never a panic). Later support producers extend this registration/coverage test under the backup-kind recipe.
+
 ## Acceptance
 
 ```sh
@@ -69,6 +73,8 @@ Drop a shipped file from metadata or mark an incomplete build released: `edition
 Allow a mismatched tag/mode, skip reopened archive verification or treat a missing previous pair as the first delivery: the corresponding edition_release:: test must fail. Infer impact from a retained row or supersedes text: the edition-impact fixture must fail. Restore each.
 
 Replace the retained tool binding with the intervening edition binding: the mixed-stream lifecycle tests must fail. Restore it.
+
+Hash a parsed map or reserialized TOML instead of the exact catalogue bytes, or let a comment change leave the digest unchanged: `support_catalogue_literal_bytes_and_hash` must fail. Restore it. Accept an unknown role, a duplicate or traversing path, or an entry beyond the byte or file-count bound: `support_catalogue_is_strict_and_complete` must fail. Restore it. Put the current support bytes or an edition hash in a constant: `one_executable_accepts_two_supported_editions` must fail. Restore it.
 
 ## Rollback
 
