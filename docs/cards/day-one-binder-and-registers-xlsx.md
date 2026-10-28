@@ -17,7 +17,7 @@
 ## Scope
 
 - Files: `crates/fieldbook-render/templates/{day-one.html,index.html}`, `crates/fieldbook-render/src/{lib.rs,day_one.rs,home.rs}`, `crates/fieldbook-render/assets/app.css`, `crates/fieldbook-render/tests/print.rs`, `crates/fieldbook/src/build.rs`, `xtask/src/{main.rs,print_count.rs}`, `xtask/tests/print_count.rs`, `xtask/tests/fixtures/synthetic-one-page.pdf` (new, synthetic), `CHANGELOG.md`.
-- Registration lines: the Commands line of `AGENTS.md` (`cargo xtask print-count`); `tests/known-bad/elsewhere.toml`, whose FB0607 row gets its `test` key in step 6 (`check-known-bad` wrote the row); `crates/fieldbook-render/src/site.rs` (`planned_paths` entries, this card's paths only: `day-one.html`).; `crates/fieldbook-render/src/site.rs` (binder render call, Site insertion and planned path); `crates/fieldbook/tests/leak_outputs.rs` (binder surface).
+- Registration lines: the Commands line of `AGENTS.md` (`cargo xtask print-count`); `tests/known-bad/elsewhere.toml`, whose FB0607 row gets its `test` key in step 6 (`check-known-bad` wrote the row); `crates/fieldbook-render/src/site.rs` (`planned_paths` entries, this card's paths only: `day-one.html`).; `crates/fieldbook-render/src/site.rs` (binder render call, Site insertion and planned path); `xtask/src/edition.rs` (the `day-one.html` entry in Site `REQUIRED_FILES` and its module-local test, this card’s entries only); `crates/fieldbook/tests/leak_outputs.rs` (binder surface).
 - Docs to update: `AGENTS.md` (Commands: `cargo xtask print-count`), `CHANGELOG.md` (`- Added: the day-one binder and print styles.` under `## Unreleased`).
 
 ## Out of scope
@@ -41,6 +41,8 @@
 
 8. `delivered_binder_filters_articles` runs the real edition handler and reads the delivered binder: permitted article canaries appear, forbidden ones do not. Register the binder surface; omission wording has no numeric count because it is an edition payload, even when printable.
 
+9. Add `day-one.html` to the Site `REQUIRED_FILES` in `xtask/src/edition.rs`, after the paths that card already requires and without adding it to the Raw profile’s requirements. The provider already exists through quote-match -> extract-and-locators -> release-workflow -> edition-zips, so this adds no prerequisite. Add `edition::tests::missing_binder_is_fb0601` in that module: first validate a healthy synthetic Raw-profile stage with no `day-one.html` and require success, using the shared profile/allowlist helper without a Raw-packager prerequisite; then stage a healthy Site payload, delete only `day-one.html`, and require FB0601 naming it. Raw editions do not gain a binder requirement.
+
 ## Acceptance
 
 ```sh
@@ -53,12 +55,13 @@ grep -c '@page' crates/fieldbook-render/assets/app.css
 cargo xtask print-count xtask/tests/fixtures/synthetic-two-pages.pdf; echo "exit $?"
 ! git diff origin/main -- crates/fieldbook-render/assets/app.css | grep -E '^\+.*(--[a-z0-9-]+ *:|#[0-9a-fA-F]{3,8}\b)'
 cargo nextest run --locked -p xtask literals::
+cargo nextest run --locked -p xtask edition::tests::missing_binder_is_fb0601
 cargo nextest run --locked -p fieldbook-render planned_paths_equal_the_site_keys
 cargo nextest run --locked -p fieldbook --test leak_outputs
 just check
 ```
 
-Expected: both test runs pass; `just site` exits 0; `grep -c` prints `1`; the guarded lines exit 0; `print-count` prints `pages: 2`, an FB0607 line and `exit 1`; the literal test passes; `just check` exits 0.
+Expected: both test runs pass; `just site` exits 0; `grep -c` prints `1`; the guarded lines exit 0; `print-count` prints `pages: 2`, an FB0607 line and `exit 1`; the literal test passes; `edition::tests::missing_binder_is_fb0601` passes for a healthy Raw-profile stage without the binder, then refuses the healthy Site stage after deleting only the binder; `just check` exits 0.
 
 ## Negative control
 
@@ -67,6 +70,8 @@ In `print_count.rs`, change the limit from one page to two. `cargo nextest run -
 Remove the binder insertion while retaining its planned path: `planned_paths_equal_the_site_keys` must fail. Restore it.
 
 Render the binder from the unrestricted model: `delivered_binder_filters_articles` must fail. Restore it.
+
+Bypass the Site required-file check, or add the binder to the Raw requirements: `edition::tests::missing_binder_is_fb0601` must fail. Restore it. Require a new source or prerequisite for the binder: the existing quote-match -> extract-and-locators -> release-workflow -> edition-zips chain must show no new edge. Restore it.
 
 ## Rollback
 

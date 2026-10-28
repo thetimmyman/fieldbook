@@ -280,9 +280,9 @@ Drift check: `methods_only_grow` fails when a line of `methods.txt` is missing f
 
 ### Adding or changing a backup target
 
-Edit `[[backup.target]]` in `settings.toml` (with a policy loaded, a snapshot that holds any label but `public` also needs a `backup` row of the company's policy whose `paths` contain the target; the owner cannot add that row), then run `fieldbook backup --dry-run`, `backup`, `backup verify` and `restore --snapshot <n> --drill`. If IT's tool copies the data folder, run `backup verify --raw` on its restored copy. Drift check: the drill itself, FB0812 and FB0813 at `backup`, and FB0814 in `status` when no verified backup is recent.
+Edit `[[backup.target]]` in `settings.toml` (with a policy loaded, a snapshot that holds any label but `public` also needs a `backup` row of the company's policy whose `paths` contain the target; the owner cannot add that row), then run `fieldbook backup --dry-run`, `backup`, `backup verify` and `restore --snapshot <n> --drill`. If IT's tool copies the data folder, run `backup verify --raw` on its restored copy. On a checkout that carries the public support catalogue, verify its separately delivered digest through the optional raw flags before the first backup; without that provenance, support files stay unlabelled and the floor refuses them. Drift check: the drill itself, FB0812 and FB0813 at `backup`, and FB0814 in `status` when no verified backup is recent.
 
-For a text-bearing Corpus support file, register its exact path and embedded public bytes in SUPPORT_FILES when its producer lands, and extend the catalogue coverage test. Never classify by suffix. Completed public-write evidence may update its proven hash; a changed byte outside that write needs public provenance again.
+For a text-bearing Corpus support file, register its exact recognized role and path through the supported-path inputs in `manifest.rs` when its producer lands, and extend the catalogue registration/coverage test. Never classify by suffix, and never add its bytes or current hash to code. The catalogue is generated as data for each packaging run; completed public-write evidence may update its proven hash, and a changed byte outside that write needs public provenance again. A content update refreshes the catalogue without rebuilding or replacing the executable.
 
 ### Adding a check code
 
