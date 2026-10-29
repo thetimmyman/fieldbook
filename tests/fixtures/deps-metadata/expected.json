@@ -1,0 +1,104 @@
+{
+  "members": [
+    "opaque-workspace"
+  ],
+  "packages": [
+    {
+      "id": "opaque-external",
+      "name": "fieldbook",
+      "version": "1.0.0",
+      "features": {
+        "net": [
+          "dep:outside"
+        ]
+      },
+      "declarations": []
+    },
+    {
+      "id": "opaque-library",
+      "name": "outside",
+      "version": "1.2.3",
+      "features": {},
+      "declarations": []
+    },
+    {
+      "id": "opaque-workspace",
+      "name": "fieldbook",
+      "version": "0.1.0",
+      "features": {},
+      "declarations": [
+        [
+          "outside",
+          "^1.2.3",
+          "normal",
+          null
+        ],
+        [
+          "outside",
+          "1.2.3",
+          "dev",
+          "cfg(windows)"
+        ],
+        [
+          "outside",
+          "~1.2",
+          "build",
+          null
+        ],
+        [
+          "fieldbook",
+          "1.0.0",
+          "normal",
+          null
+        ],
+        [
+          "outside",
+          "99.0.0",
+          "normal",
+          "cfg(any())"
+        ]
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "opaque-external",
+      "edges": []
+    },
+    {
+      "id": "opaque-library",
+      "edges": []
+    },
+    {
+      "id": "opaque-workspace",
+      "edges": [
+        {
+          "package": "opaque-library",
+          "kinds": [
+            [
+              "normal",
+              null
+            ],
+            [
+              "dev",
+              "cfg(windows)"
+            ],
+            [
+              "build",
+              null
+            ]
+          ]
+        },
+        {
+          "package": "opaque-external",
+          "kinds": [
+            [
+              "normal",
+              null
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,56 +6,51 @@
 
 ## Outcome
 
-`cargo xtask deps --check` reports DEPS-1 to DEPS-5 through its real command interface on the current workspace, without changing a manifest or lock. `day1-dependencies-2` supplies actual offline replay; `day1-dependencies-3` supplies bounded capture, initial declarations and production activation. Consumers of the initial declarations and recipes wait for `day1-dependencies-3`.
+`deps_metadata::decode(bytes)` supplies complete strict Cargo format-1 declaration/resolve facts through read-only collections. It validates shapes and identity joins before construction, preserving every declaration and resolved edge kind/target. It performs no measurement, policy comparison or command. `day1-dependencies-checks-2` retains the collector and the entire DEPS-1 to DEPS-5 command, baseline row 0, DP-02 and gate.
 
 ## Why
 
-- This is the complete checker part of the original card under [Size and splitting](README.md#size-and-splitting). The full [dependency policy](../reference/dependencies.md) is retained; the first manifest change still requires complete cooldown and replay gates.
-- The test interface is the built xtask command in a temporary synthetic workspace. Cargo parses Cargo semantics; the checker does not grow a second general TOML parser or inspect its compile-time checkout instead of the invocation workspace.
+The measured collector plus its tests and atomic coordination exceeds 600 lines. Decoding/validating Cargo's complete facts is a real seam before target/profile measurement and policy. This first part keeps the original slug; the remaining complete outcome and every enabled-handler control stay in the second part.
 
 ## Scope
 
-- Files: `xtask/src/deps.rs`, `xtask/tests/deps.rs`, `justfile` (add the checker after the existing dependency-policy checks).
-- Registration lines: `xtask/src/main.rs` (module, command, usage and cwd selection for this command, plus removal of both input-provider unused-code expectations when full fact consumption makes them unnecessary); `xtask/src/deps_inputs.rs` (only the complete aggregate interface integration; module expectations live in main); `docs/reference/dependencies.md` (checker contract and Measurements row 0); `docs/controls.md` (DP-02 checker/test ownership); `AGENTS.md` (one Commands line).
-- Docs to update: [dependencies.md](../reference/dependencies.md), DP-02 in `docs/controls.md`, one Commands line in `AGENTS.md`.
+- Files: `xtask/src/deps_metadata.rs` (decoder and module-local tests), `tests/fixtures/deps-metadata/` (immutable public/synthetic inputs and literal expectations), `docs/cards/day1-dependencies-checks-2.md` (complete remainder).
+- Registration lines: `xtask/src/main.rs` (module and temporary unused-code expectation only); `docs/cards/day1-dependencies-2.md` (complete-checker prerequisite), `docs/cards/day1-dependencies-3.md` (checker/baseline provider names), `docs/cards/docs-checks.md` (control-test provider), `docs/cards/drafts/mutation-report.md` (complete-checker prerequisite), `docs/plan/PLAN.md` (the two split rows), `docs/reference/dependencies.md` (decoder/final-provider contract and row-0 provider), and `docs/controls.md` (DP-02 provider cell only).
+- Docs to update: the enduring decoder/provider contract in `docs/reference/dependencies.md`.
 
 ## Out of scope
 
-- Manifest, lock, crate, feature or pin changes; registry access; capture/replay; CI permissions; shipped behavior; Corpus and seed files.
-- Activating `just lock` or `just lock-verify`. No manifest change is admitted before the complete part-three gate exists.
+Cargo graph collection, a DEPS command, policy/budget decisions, a measurements row, DP-02 completion, just/CI activation, replay/capture, dependencies/manifests/lock, Corpus, seeds and shipped behavior.
 
 ## Preconditions
 
-- Cards merged: `day1-dependencies-inputs` (the complete aggregate, including `day1-dependencies` reference facts).
+- Cards merged: `workspace-skeleton`.
 
 ## Steps
 
-1. Use only existing `serde_json` and std. Implement `cargo xtask deps --check` against the invocation workspace, not `proc::repo_root()` compiled into the binary. Read `cargo metadata --locked --offline` for both graph targets, default features and `net` when that feature exists. Cargo supplies dependency requirements and normal-edge graphs. Count distinct external crate/version pairs, excluding workspace packages and dev/build-only paths; `xtask` counts toward the transitive cap but never the shipped direct budget. Keep the uncapped all-target report separate.
-2. Reuse the complete strict `deps_inputs` aggregate from `day1-dependencies-inputs`; never bypass it with the reference-only provider or add a second reader. Propagate its malformed/unsupported-input errors as exit 2 with relative source locations. Cargo remains the semantic parser for dependencies. An absent workspace-dependencies table is valid on the skeleton; later unused workspace pins must still match their rows. Consume every Cargo fact without silent `filter_map` skips; workflow enumeration must propagate entry errors. The tools reader must remain compatible with the documented replay record shapes.
-3. Expose no partial `deps --check` command: its only clean exit must mean all five checks ran for every applicable target/profile. Print one `DEPS-n <name>: <what is wrong>` line per finding. DEPS-1 requires a row with the same name and pin for every direct dependency, including a bare member pin before workspace inheritance; DEPS-2 compares every workspace pin; DEPS-3 enforces profile/target direct budgets and transitive caps; DEPS-4 compares each exact 40-hex workflow action SHA with its row; DEPS-5 compares each documented tool pin, including Rust and the lock resolver. Exit 0 clean, 1 findings, 2 for unsupported/unreadable input or failed metadata. Cargo-deny retains bans, licenses and source checks.
-4. Tests in `xtask/tests/deps.rs` invoke `env!("CARGO_BIN_EXE_xtask")` in temporary synthetic workspaces. Write `deps_clean_workspace_passes`, `deps_reports_deps_1` through `deps_reports_deps_5`, `deps_uses_the_invocation_workspace`, `deps_rejects_duplicate_or_unsupported_input` and `deps_rejects_failed_metadata`. DEPS-1 covers both a missing row and a mismatched member pin. `deps_reports_deps_3` tests literal direct-budget boundaries 12/13 before workbook reader edges, 14/15 after them and 17/18 for the AI profile, plus transitive-cap boundaries 80/81 and 100/101. Catalog rows, lock entries, xtask edges and dev/build-only `zip` cannot select the higher silent ceiling; a single workbook dependency cannot select it either. Assert literal documented exits, code and relevant names. A fault in the invocation workspace must not be masked by a clean build checkout.
-5. `deps_counts_normal_target_profile_graph` uses Cargo-process fixtures that distinguish normal/dev/build edges, workspace/external packages, optional net and Linux/Windows edges. The same command consumes those fixtures; retain real-Cargo clean/failure cases. This is the Cargo process seam, not a shipped I/O interface or a mock of checker internals. Independent expected counts must fail if xtask is excluded from transitives, counted as shipped, or a target/profile is skipped.
-6. Add the checker after the two cargo-deny lines in step 4 of `just check`. Measure the current graph and write only row 0; part three owns expanded-graph row 1. This part owns DP-02's no-row negative. Production replay activation and DP-04 remain with part three.
+1. Use existing serde_json and std. Decode Cargo format-version 1 bytes, never a Cargo manifest or cfg expression. Require the documented field shapes; package IDs stay opaque nonempty strings. Preserve feature lists, all declared requirements/kinds/nullable targets and every resolved edge kind/nullable target. Do not turn absent or malformed required fields into defaults.
+2. Validate unique workspace/package/node identities, every member and node owner, and each resolved edge's package and node. Join each edge kind/target to a matching declaration by target package name, kind and literal target. Do not match the edge's extern alias, evaluate cfg or version requirements, or require inactive declarations to have resolved edges.
+3. Only the decoder constructs Metadata; expose its collections read-only. Generic workspace-package selection uses member IDs, ignores external namesakes, returns None when absent and refuses ambiguous member names. No project-name or nonempty-workspace policy is introduced.
+4. Module tests assert complete independent literal facts, each independently malformed shape/join, selector behavior, byte/single-byte robustness and interoperability with actual Linux/Windows Cargo output. The real-Cargo case is compatibility evidence, not an independent graph-count oracle. Keep executable setup/assertions/mutations counted; no temp deletion or private stand-in parser.
+5. Compile normally with one narrowly justified temporary unused-code expectation until real measurement consumes the facts. Redirect every complete-checker consumer to the remaining card; it must decode every actual metadata response, including the applicability query, and keep all required command tests before its first enabled clean result.
 
 ## Acceptance
 
 ```sh
-cargo nextest run --locked -p xtask --test deps
-cargo xtask deps --check
-git diff --exit-code -- Cargo.toml Cargo.lock crates/fieldbook/Cargo.toml crates/fieldbook-core/Cargo.toml crates/fieldbook-calc/Cargo.toml crates/fieldbook-render/Cargo.toml crates/fieldbook-win/Cargo.toml xtask/Cargo.toml
+cargo nextest run --locked -p xtask deps_metadata
 just check
 ```
 
-Expected: real and synthetic command cases prove the documented behavior; manifests/lock are unchanged; row 0 is the actual baseline. No new dependency or registry access is needed.
+Expected: complete validated facts or an error, with no command/gate or manifest/lock change.
 
 ## Negative control
 
-Skip each DEPS check in turn: its named fault case must fail. Use the build checkout instead of invocation cwd: `deps_uses_the_invocation_workspace` must fail. Accept a duplicate tool key: `deps_rejects_duplicate_or_unsupported_input` must fail. Count dev edges or skip a target/profile: `deps_counts_normal_target_profile_graph` must fail. Restore every plant.
+Skip a duplicate or a package/node/declaration join, default an absent kind, drop an edge kind/target or a declaration, select an external namesake, or accept a malformed required shape: its named producing-interface case must fail. Restore every plant.
 
 ## Rollback
 
-Revert the merge commit. The existing manifests and lock remain unchanged; the other two parts cannot become eligible without this checker.
+Revert the merge commit. No policy gate was activated; the complete checker remains ineligible.
 
 ## BLOCKED
 
-The current metadata cannot be read, a required shape cannot be consumed unambiguously, or full DEPS behavior needs a dependency before replay exists. Report the exact input; do not weaken the check or bootstrap it with a manifest change.
+A required Cargo shape cannot be retained unambiguously, the actual complete diff exceeds 600 counted lines, or a dependency/partial policy gate is needed. Preserve the source and split only a complete demonstrated capability; never weaken the decoder or enabled tail.

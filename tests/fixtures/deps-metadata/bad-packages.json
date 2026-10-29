@@ -1,0 +1,50 @@
+{
+  "workspace_members": [
+    "opaque-workspace"
+  ],
+  "packages": {},
+  "resolve": {
+    "nodes": [
+      {
+        "id": "opaque-workspace",
+        "deps": [
+          {
+            "pkg": "opaque-library",
+            "dep_kinds": [
+              {
+                "kind": null,
+                "target": null
+              },
+              {
+                "kind": "dev",
+                "target": "cfg(windows)"
+              },
+              {
+                "kind": "build",
+                "target": null
+              }
+            ]
+          },
+          {
+            "pkg": "opaque-external",
+            "dep_kinds": [
+              {
+                "kind": null,
+                "target": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "opaque-external",
+        "deps": []
+      },
+      {
+        "id": "opaque-library",
+        "deps": []
+      }
+    ]
+  },
+  "version": 1
+}

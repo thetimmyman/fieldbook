@@ -1,0 +1,186 @@
+[
+  [
+    "not-json.json",
+    "cargo metadata:"
+  ],
+  [
+    "missing-members.json",
+    "workspace_members"
+  ],
+  [
+    "bad-members.json",
+    "workspace_members"
+  ],
+  [
+    "nontext-member.json",
+    "member id"
+  ],
+  [
+    "duplicate-member.json",
+    "duplicate member"
+  ],
+  [
+    "missing-packages.json",
+    "packages"
+  ],
+  [
+    "bad-packages.json",
+    "packages"
+  ],
+  [
+    "missing-features.json",
+    "features"
+  ],
+  [
+    "bad-features.json",
+    "features"
+  ],
+  [
+    "bad-feature-list.json",
+    "feature"
+  ],
+  [
+    "bad-feature-item.json",
+    "feature"
+  ],
+  [
+    "missing-declarations.json",
+    "dependencies"
+  ],
+  [
+    "bad-declarations.json",
+    "dependencies"
+  ],
+  [
+    "missing-declaration-kind.json",
+    "dependency kind"
+  ],
+  [
+    "bad-declaration-kind.json",
+    "dependency kind"
+  ],
+  [
+    "unknown-declaration-kind.json",
+    "dependency kind"
+  ],
+  [
+    "missing-declaration-target.json",
+    "target"
+  ],
+  [
+    "bad-declaration-target.json",
+    "target"
+  ],
+  [
+    "missing-resolve.json",
+    "resolve"
+  ],
+  [
+    "missing-nodes.json",
+    "nodes"
+  ],
+  [
+    "bad-nodes.json",
+    "nodes"
+  ],
+  [
+    "missing-deps.json",
+    "deps"
+  ],
+  [
+    "bad-deps.json",
+    "deps"
+  ],
+  [
+    "missing-kinds.json",
+    "dep_kinds"
+  ],
+  [
+    "bad-kinds.json",
+    "dep_kinds"
+  ],
+  [
+    "empty-kinds.json",
+    "edge has no kinds"
+  ],
+  [
+    "missing-edge-kind.json",
+    "dependency kind"
+  ],
+  [
+    "bad-edge-kind.json",
+    "dependency kind"
+  ],
+  [
+    "unknown-edge-kind.json",
+    "dependency kind"
+  ],
+  [
+    "bad-edge-target.json",
+    "target"
+  ],
+  [
+    "missing-edge-target.json",
+    "target"
+  ],
+  [
+    "duplicate-package.json",
+    "duplicate package"
+  ],
+  [
+    "duplicate-node.json",
+    "duplicate node"
+  ],
+  [
+    "unresolved-node.json",
+    "unresolved node"
+  ],
+  [
+    "unresolved-edge-package.json",
+    "unresolved edge"
+  ],
+  [
+    "unresolved-edge-node.json",
+    "unresolved edge"
+  ],
+  [
+    "unresolved-member-package.json",
+    "unresolved member"
+  ],
+  [
+    "unresolved-member-node.json",
+    "unresolved member"
+  ],
+  [
+    "bad-package-id.json",
+    "id"
+  ],
+  [
+    "bad-requirement.json",
+    "req"
+  ],
+  [
+    "unmatched-edge-declaration.json",
+    "matching declaration"
+  ],
+  [
+    "unmatched-edge-target.json",
+    "matching declaration"
+  ],
+  [
+    "missing-format.json",
+    "format version"
+  ],
+  [
+    "future-format.json",
+    "format version"
+  ],
+  [
+    "float-format.json",
+    "format version"
+  ],
+  [
+    "boolean-format.json",
+    "format version"
+  ]
+]
