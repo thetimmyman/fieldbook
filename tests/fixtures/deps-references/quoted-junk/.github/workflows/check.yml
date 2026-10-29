@@ -1,0 +1,5 @@
+# Synthetic workflow with a policy-invalid literal tag.
+jobs:
+  check:
+    steps:
+      - uses: "example/action@tag" trailing

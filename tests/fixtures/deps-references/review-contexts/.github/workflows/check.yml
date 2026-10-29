@@ -1,0 +1,7 @@
+name: Cache uses rust-cache
+jobs:
+  uses:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo uses
+      - uses: example/action@tag

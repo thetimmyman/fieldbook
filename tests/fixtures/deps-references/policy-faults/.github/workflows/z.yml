@@ -1,0 +1,5 @@
+jobs:
+  check:
+    steps:
+      - name: synthetic
+        uses: docker://sample:9#suffix

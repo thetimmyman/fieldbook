@@ -1,0 +1,6 @@
+jobs:
+  build:
+    steps:
+      -   env:
+            X: 1
+          uses: example/action@tag

@@ -1,0 +1,65 @@
+{
+  "rows": [
+    [
+      "docs/reference/dependencies.md",
+      6,
+      "Pins",
+      "sample-crate",
+      [
+        "`sample-crate` (optional)",
+        "1.2.3 (2026-01-01)",
+        "default",
+        "core",
+        "MIT",
+        "1.85"
+      ]
+    ],
+    [
+      "docs/reference/dependencies.md",
+      11,
+      "Test-only and dev-only crates",
+      "sample-test",
+      [
+        "`sample-test`",
+        "2.0.0",
+        "default",
+        "dev-dependency",
+        "MIT",
+        "1.85",
+        "Synthetic fixture",
+        "Synthetic maintainer"
+      ]
+    ],
+    [
+      "docs/reference/dependencies.md",
+      16,
+      "Developer tools",
+      "sample tool",
+      [
+        "sample tool (optional)",
+        "9.0.0",
+        "Now",
+        "Synthetic pin"
+      ]
+    ],
+    [
+      "docs/reference/dependencies.md",
+      21,
+      "CI actions",
+      "example/action",
+      [
+        "`example/action`",
+        "v1.0.0",
+        "`bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`",
+        "Deliberate mismatch"
+      ]
+    ]
+  ],
+  "workflows": [
+    [
+      ".github/workflows/check.yml",
+      7,
+      "example/action@tag"
+    ]
+  ]
+}
