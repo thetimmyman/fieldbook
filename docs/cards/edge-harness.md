@@ -17,7 +17,7 @@
 
 ## Scope
 
-- Files: `xtask/src/{main.rs,harness.rs}`, `xtask/harness/{selftest.js,negative.html}`, `xtask/tests/fixtures/harness/{netlog-file-page-https.json,netlog-browser-own.json,dom-with-violation.html,dom-without-selftest.html,dom-nested-with-violation.html,dom-nested-without-selftest.html,edge-version.txt}` (new, synthetic), `xtask/Cargo.toml` (path edges to `fieldbook-core` and `fieldbook-render`), `Cargo.lock`, `.config/tools.toml` (the `[lock]` replay record only), `.github/workflows/ci.yml`, `justfile`.
+- Files: `xtask/src/{main.rs,harness.rs}`, `xtask/harness/{selftest.js,negative.html}`, `xtask/tests/fixtures/harness/{netlog-file-page-https.json,netlog-browser-own.json,dom-with-violation.html,dom-without-selftest.html,dom-nested-with-violation.html,dom-nested-without-selftest.html,edge-version.txt}` (new, synthetic), `xtask/Cargo.toml` (path edges to `fieldbook-core` and `fieldbook-render`), `Cargo.lock`, `.github/workflows/ci.yml`, `justfile`.
 - Registration lines: the Commands line of `AGENTS.md` (`just browser` and `cargo xtask harness`).
 - Docs to update: `AGENTS.md` (Commands: `just browser` and `cargo xtask harness`), the `justfile` header comment (`browser` has arrived).
 
