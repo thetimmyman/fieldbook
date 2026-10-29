@@ -82,6 +82,8 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
+- kb-foundation-guard: exact authority and source-free foundation transitions; GS-01 remains active
+- kb-foundation-content: the pinned draft onboarding page, 32 open questions and 51 pending definitions
 - day1-dependencies: complete catalog/workflow reference facts with source locations, without a policy gate
 - day1-dependencies-inputs: workspace/tool/replay configuration and the complete strict input aggregate
 - day1-dependencies-checks: strict Cargo metadata shapes, identities and complete declaration/edge facts

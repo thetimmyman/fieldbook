@@ -59,6 +59,7 @@ mod deps_references;
 #[cfg(test)]
 mod graph;
 mod guard;
+mod guard_foundation;
 mod proc;
 mod tools;
 
