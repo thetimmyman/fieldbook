@@ -148,6 +148,8 @@ mod tests {
                 }
             };
             git(&dir, &["init", "--quiet", "-b", "main"]).expect("git init");
+            git(&dir, &["config", "user.name", "Synthetic role"]).expect("local name");
+            git(&dir, &["config", "user.email", "agent@noreply.invalid"]).expect("local email");
             Self(dir)
         }
 
