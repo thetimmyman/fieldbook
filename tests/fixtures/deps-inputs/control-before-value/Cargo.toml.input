@@ -1,0 +1,7 @@
+# Synthetic workspace.
+[workspace]
+resolver = "3"
+members = ["units/*", "automation"]
+
+[workspace.package]
+version = "0.0.0"

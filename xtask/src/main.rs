@@ -26,6 +26,14 @@ mod denylist;
     not(test),
     expect(
         dead_code,
+        reason = "the complete dependency checker consumes these configuration facts"
+    )
+)]
+mod deps_inputs;
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
         reason = "the full dependency-input consumer registers this producer"
     )
 )]

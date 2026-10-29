@@ -1,0 +1,7 @@
+[workspace]
+[package]
+description = """"
+[workspace.dependencies]
+phantom = "1.2.3"
+[package.metadata]
+""""
