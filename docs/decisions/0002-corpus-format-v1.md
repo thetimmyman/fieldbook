@@ -1,6 +1,6 @@
 # ADR 0002 Corpus format v1
 
-Status: Proposed (the owner accepts at F0)
+Status: Accepted (F0)
 
 ## Context
 

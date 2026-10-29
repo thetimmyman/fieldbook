@@ -1,6 +1,6 @@
 # ADR 0004 The company boundary
 
-Status: Proposed (the owner accepts at F0, with ADR 0002)
+Status: Accepted (F0)
 
 Reference documents: [the policy file](../reference/policy.md), [the company store](../reference/company-store.md), [search: the company index](../reference/search.md#the-company-index) and [handling and labels](../reference/corpus-format.md#handling-and-labels).
 

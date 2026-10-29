@@ -1,6 +1,6 @@
 # ADR 0001 Foundation
 
-Status: Proposed (the owner accepts at F0)
+Status: Accepted (F0)
 
 ## Context
 
