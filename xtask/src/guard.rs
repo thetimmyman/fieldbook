@@ -1,50 +1,55 @@
-//! `guard-statuses`, first form: the path rule (AD-21).
+//! `guard-statuses`: the content rule (GS-02, AD-21).
 //!
-//! GS-01 keeps protected paths blocked except the exact reviewed foundation
-//! transitions. Agent protected merges fail closed against every parent. General
-//! field-level upkeep belongs to the later `guard-statuses` card (GS-02).
+//! An agent may change the Corpus: add originals, sources, claims, questions and
+//! pages. It may not certify its own work: raise a claim's `verification`,
+//! `applicability` or `adoption`, set `verified_on` or `verified_by_role`, keep a
+//! check through an evidence edit, set a page `stable`, change an existing seed
+//! golden, add a seed golden beside the code it checks, or edit, remove or mark
+//! critical a regression case. Nor may it rewrite or delete a byte-exact original.
+//! Merges are judged against every parent.
 
-use crate::guard_foundation::{allows, git, is_protected};
+use crate::guard_fields::{REGRESSION, entry, git, is_seed, judge};
 use std::path::Path;
 
-/// The author name the agent commits under.
-pub const AGENT_AUTHOR: &str = "Codex (agent)";
+/// A commit is the agent's when its author name ends in "(agent)" or it carries a
+/// `Co-authored-by` trailer, which is how an assistant marks a commit it made in
+/// the owner's checkout. This stops mistakes, not a determined actor.
+fn is_agent(author: &str, coauthors: &str) -> bool {
+    author.ends_with("(agent)") || !coauthors.trim().is_empty()
+}
 
-/// A commit by the agent author and the paths it changes.
+/// An agent commit and the paths it changes against any parent.
 struct Commit {
     sha: String,
     paths: Vec<String>,
     parents: Vec<String>,
 }
 
-/// The commits in `base..head` by the agent author. An empty or all-zero `base`
+/// The commits in `base..head` that are the agent's. An empty or all-zero `base`
 /// (the first push of a branch) means every commit reachable from `head`.
-fn agent_commits(repo: &Path, base: &str, head: &str) -> Result<(usize, Vec<Commit>), String> {
-    for rev in [base, head] {
-        if rev.starts_with('-') {
-            return Err(format!("`{rev}` is not a revision"));
-        }
-    }
-    let range = if base.chars().all(|c| c == '0') {
-        head.to_owned()
-    } else {
-        format!("{base}..{head}")
-    };
+fn agent_commits(repo: &Path, range: &str) -> Result<(usize, Vec<Commit>), String> {
     let log = git(
         repo,
-        &["log", "-z", "--format=%H%x1f%an%x1f%P", &range, "--"],
+        &[
+            "log",
+            "-z",
+            "--format=%H%x1f%an%x1f%P%x1f%(trailers:key=Co-authored-by,valueonly,separator=%x1e)",
+            range,
+            "--",
+        ],
     )?;
     let mut total = 0;
     let mut found = Vec::new();
     for record in log.split('\0').filter(|record| !record.is_empty()) {
         total += 1;
         let fields: Vec<_> = record.split('\u{1f}').collect();
-        let [sha, author, parents] = fields.as_slice() else {
+        let [sha, author, parents, coauthors] = fields.as_slice() else {
             return Err("unreadable git log output".to_owned());
         };
-        if *author != AGENT_AUTHOR {
+        if !is_agent(author, coauthors) {
             continue;
         }
+        let sha = sha.trim();
         let parents: Vec<String> = parents.split_whitespace().map(str::to_owned).collect();
         let mut paths = std::collections::BTreeSet::new();
         let comparisons: Vec<Vec<&str>> = if parents.is_empty() {
@@ -52,7 +57,7 @@ fn agent_commits(repo: &Path, base: &str, head: &str) -> Result<(usize, Vec<Comm
         } else {
             parents
                 .iter()
-                .map(|parent| vec![parent.as_str(), *sha])
+                .map(|parent| vec![parent.as_str(), sha])
                 .collect()
         };
         for comparison in comparisons {
@@ -66,16 +71,15 @@ fn agent_commits(repo: &Path, base: &str, head: &str) -> Result<(usize, Vec<Comm
             ];
             args.extend(comparison);
             args.push("--");
-            let files = git(repo, &args)?;
             paths.extend(
-                files
+                git(repo, &args)?
                     .split('\0')
                     .filter(|path| !path.is_empty())
                     .map(str::to_owned),
             );
         }
         found.push(Commit {
-            sha: (*sha).to_owned(),
+            sha: sha.to_owned(),
             paths: paths.into_iter().collect(),
             parents,
         });
@@ -83,20 +87,40 @@ fn agent_commits(repo: &Path, base: &str, head: &str) -> Result<(usize, Vec<Comm
     Ok((total, found))
 }
 
-/// One finding per protected path that an agent commit touches.
-fn findings(repo: &Path, commits: &[Commit]) -> Result<Vec<String>, String> {
+/// The findings for the agent's commits. A new seed golden must arrive in a range
+/// that changes nothing outside `tests/golden/`, so that it is written before, and
+/// apart from, the code it checks.
+fn findings(
+    repo: &Path,
+    range_paths: &[String],
+    commits: &[Commit],
+) -> Result<Vec<String>, String> {
     let mut problems = Vec::new();
     for commit in commits {
-        if commit.parents.len() == 1
-            && allows(repo, &commit.parents[0], &commit.sha, &commit.paths)?
-        {
-            continue;
-        }
-        for path in commit.paths.iter().filter(|path| is_protected(path)) {
-            problems.push(format!(
-                "commit {} by \"{AGENT_AUTHOR}\" touches {path}",
-                commit.sha.get(..12).unwrap_or(&commit.sha)
-            ));
+        let sha = commit.sha.get(..12).unwrap_or(&commit.sha);
+        for path in &commit.paths {
+            let after = entry(repo, &commit.sha, path)?;
+            let mut before = Vec::new();
+            for parent in &commit.parents {
+                before.push(entry(repo, parent, path)?);
+            }
+            if before.is_empty() {
+                before.push(None);
+            }
+            if before.contains(&after) {
+                continue;
+            }
+            let verdict = judge(repo, sha, path, &before, after.as_ref())?;
+            problems.extend(verdict.problems);
+            if verdict.new_seed
+                && let Some(other) = range_paths
+                    .iter()
+                    .find(|other| !is_seed(other) && !other.starts_with("tests/golden/"))
+            {
+                problems.push(format!(
+                    "{sha} {path}: a new seed golden lands in a pull request of its own, not beside {other}"
+                ));
+            }
         }
     }
     Ok(problems)
@@ -104,29 +128,64 @@ fn findings(repo: &Path, commits: &[Commit]) -> Result<Vec<String>, String> {
 
 /// Check `base..head` in `repo`. Prints the findings; true when there are none.
 pub fn command(repo: &Path, base: &str, head: &str) -> Result<bool, String> {
-    let (total, commits) = agent_commits(repo, base, head)?;
-    let problems = findings(repo, &commits)?;
+    for rev in [base, head] {
+        if rev.starts_with('-') {
+            return Err(format!("`{rev}` is not a revision"));
+        }
+    }
+    let first_push = base.chars().all(|c| c == '0');
+    let range = if first_push {
+        head.to_owned()
+    } else {
+        format!("{base}..{head}")
+    };
+    let (total, commits) = agent_commits(repo, &range)?;
+    let listing = if first_push {
+        git(repo, &["ls-tree", "-r", "-z", "--name-only", head, "--"])?
+    } else {
+        git(
+            repo,
+            &[
+                "diff",
+                "--name-only",
+                "--no-renames",
+                "-z",
+                base,
+                head,
+                "--",
+            ],
+        )?
+    };
+    let range_paths: Vec<String> = listing
+        .split('\0')
+        .filter(|path| !path.is_empty())
+        .map(str::to_owned)
+        .collect();
+    let problems = findings(repo, &range_paths, &commits)?;
     for problem in &problems {
         println!("guard-statuses: {problem}");
     }
     if problems.is_empty() {
         println!(
-            "guard-statuses: ok ({total} commits checked, {} by the agent author)",
+            "guard-statuses: ok ({total} commits checked, {} by an agent)",
             commits.len()
         );
         return Ok(true);
     }
     println!(
-        "help: content, statuses and seed goldens are changed by the owner or the lead, not by the agent"
+        "help: only the owner certifies a claim or a stable page; an agent never weakens a seed golden or {REGRESSION}"
     );
     Ok(false)
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{AGENT_AUTHOR, command, is_protected};
-    use crate::guard_foundation::git;
+    use super::{command, is_agent};
+    use crate::guard_fields::git;
     use std::path::{Path, PathBuf};
+
+    /// The author name Codex commits under.
+    const AGENT_AUTHOR: &str = "Codex (agent)";
 
     /// A git repository in an atomically claimed directory; never pre-deleted.
     struct Scratch(PathBuf);
@@ -153,7 +212,6 @@ mod tests {
             Self(dir)
         }
 
-        /// Commit `files` (path, text) as `author`; returns the new commit's id.
         fn write(&self, files: &[(&str, &str)]) {
             for (path, text) in files {
                 let full = self.0.join(path);
@@ -162,10 +220,11 @@ mod tests {
             }
         }
 
-        fn commit(&self, author: &str, files: &[(&str, &str)]) -> String {
+        /// Commit `files` (path, text) as `author` with `message`; returns the commit id.
+        fn commit_with(&self, author: &str, message: &str, files: &[(&str, &str)]) -> String {
             self.write(files);
             let identity = format!("user.name={author}");
-            let base = [
+            let mut args = vec![
                 "-c",
                 &identity,
                 "-c",
@@ -176,13 +235,16 @@ mod tests {
                 "core.hooksPath=/dev/null",
             ];
             git(&self.0, &["add", "--all"]).expect("git add");
-            let mut args = base.to_vec();
-            args.extend(["commit", "--quiet", "--message", "change"]);
+            args.extend(["commit", "--quiet", "--allow-empty", "--message", message]);
             git(&self.0, &args).expect("git commit");
             git(&self.0, &["rev-parse", "HEAD"])
                 .expect("rev-parse")
                 .trim()
                 .to_owned()
+        }
+
+        fn commit(&self, author: &str, files: &[(&str, &str)]) -> String {
+            self.commit_with(author, "change", files)
         }
     }
 
@@ -190,64 +252,375 @@ mod tests {
         command(repo, base, head).expect("the guard runs")
     }
 
-    #[test]
-    fn protected_paths_are_corpus_and_seed_files() {
-        for path in [
-            "corpus/pages/a.md",
-            "corpus/registers/claims.csv",
-            "tests/golden/search/seed-rank.json",
-            "seed-1.json",
-        ] {
-            assert!(is_protected(path), "{path}");
-        }
-        for path in [
-            "crates/fieldbook/src/main.rs",
-            "docs/corpus.md",
-            "tests/golden/search/rank-001.json",
-            "tests/fixtures/corpus-mini/a.md",
-            "xtask/seed.rs",
-        ] {
-            assert!(!is_protected(path), "{path}");
-        }
+    const CLAIMS: &str = "corpus/registers/claims.csv";
+    const HEADER: &str = "claim_id,statement,value,unit,source_id,version,locator_kind,locator,quote,drafted_by,verification,applicability,adoption,verified_on,verified_by_role,note";
+    const CHECKED: [(&str, &str); 3] = [
+        ("verification", "primary_source_supported"),
+        ("verified_on", "2026-01-05"),
+        ("verified_by_role", "owner"),
+    ];
+    const ASSISTED: &str =
+        "change\n\nCo-Authored-By: Synthetic Assistant <assistant@noreply.invalid>";
+
+    /// One synthetic claim row: entry values unless `changes` names a column.
+    fn claim(id: &str, changes: &[(&str, &str)]) -> String {
+        let defaults = [
+            ("claim_id", id),
+            ("statement", "A synthetic rule applies above 10 units."),
+            ("value", "10"),
+            ("unit", "USD"),
+            ("source_id", "S-0001"),
+            ("version", "1"),
+            ("locator_kind", "text_section"),
+            ("locator", "sec. 1"),
+            ("quote", "applies above 10 units, as \"stated\""),
+            ("drafted_by", "codex"),
+            ("verification", "unchecked"),
+            ("applicability", "pending_company_confirmation"),
+            ("adoption", "proposed"),
+            ("verified_on", ""),
+            ("verified_by_role", ""),
+            ("note", ""),
+        ];
+        defaults
+            .iter()
+            .map(|(column, default)| {
+                let value = changes
+                    .iter()
+                    .find(|(name, _)| name == column)
+                    .map_or(*default, |(_, value)| *value);
+                if value.contains([',', '"']) {
+                    format!("\"{}\"", value.replace('"', "\"\""))
+                } else {
+                    value.to_owned()
+                }
+            })
+            .collect::<Vec<_>>()
+            .join(",")
     }
 
-    // control: GS-01
+    fn register(rows: &[String]) -> String {
+        format!("{HEADER}\n{}\n", rows.join("\n"))
+    }
+
+    fn page(status: &str) -> String {
+        format!("+++\nid = \"syn-a\"\nstatus = \"{status}\"\n+++\n\n## Purpose\n\nSynthetic.\n")
+    }
+
+    /// A repository whose owner commit holds one checked claim and one entry claim.
+    fn checked_base(label: &str) -> (Scratch, String) {
+        let repo = Scratch::new(label);
+        let rows = [claim("CL-SYN-0001", &CHECKED), claim("CL-SYN-0002", &[])];
+        let base = repo.commit("Owner", &[(CLAIMS, &register(&rows))]);
+        (repo, base)
+    }
+
     #[test]
-    fn an_agent_commit_touching_the_corpus_or_a_seed_file_fails() {
-        let repo = Scratch::new("guard-fails");
+    fn an_agent_is_the_agent_author_or_a_commit_with_a_co_author() {
+        assert!(is_agent(AGENT_AUTHOR, ""));
+        assert!(is_agent("Another (agent)", ""));
+        assert!(is_agent(
+            "Owner",
+            "Synthetic Assistant <assistant@noreply.invalid>"
+        ));
+        assert!(!is_agent("Owner", "\n"));
+    }
+
+    #[test]
+    fn an_agent_may_add_originals_sources_claims_and_pages() {
+        let repo = Scratch::new("upkeep");
         let base = repo.commit("Owner", &[("README.md", "start")]);
-        let code = repo.commit(AGENT_AUTHOR, &[("crates/a.rs", "fn a() {}")]);
-        assert!(passes(&repo.0, &base, &code));
-
-        let corpus = repo.commit(AGENT_AUTHOR, &[("corpus/pages/cmp/a.md", "text")]);
-        assert!(!passes(&repo.0, &base, &corpus));
-        assert!(passes(&repo.0, &corpus, &corpus), "an empty range is clean");
-
-        let seed = repo.commit(
+        let head = repo.commit(
             AGENT_AUTHOR,
-            &[("tests/golden/search/seed-rank.json", "[]")],
-        );
-        assert!(!passes(&repo.0, &corpus, &seed));
-    }
-
-    #[test]
-    fn other_authors_may_touch_the_corpus() {
-        let repo = Scratch::new("guard-others");
-        let base = repo.commit("Owner", &[("README.md", "start")]);
-        let content = repo.commit(
-            "Lead",
             &[
-                ("corpus/pages/cmp/a.md", "text"),
-                ("tests/golden/seed-a.json", "[]"),
+                ("corpus/sources/public/S-0001-v1.txt", "synthetic original"),
+                (
+                    "corpus/registers/sources.csv",
+                    "source_id,version\nS-0001,1\n",
+                ),
+                (CLAIMS, &register(&[claim("CL-SYN-0001", &[])])),
+                ("corpus/pages/syn/syn-a.md", &page("draft")),
+                ("corpus/AGENTS.md", "rules"),
             ],
         );
-        assert!(passes(&repo.0, &base, &content));
+        assert!(passes(&repo.0, &base, &head));
+        let edit = repo.commit_with(
+            "Owner",
+            ASSISTED,
+            &[("corpus/pages/syn/syn-a.md", &page("reviewed"))],
+        );
+        assert!(passes(&repo.0, &head, &edit));
+    }
+
+    // control: GS-02
+    #[test]
+    fn an_agent_setting_verified_by_role_fails() {
+        let (repo, base) = checked_base("verified-by-role");
+        let rows = [
+            claim("CL-SYN-0001", &CHECKED),
+            claim("CL-SYN-0002", &[("verified_by_role", "owner")]),
+        ];
+        let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+        assert!(!passes(&repo.0, &base, &head));
+    }
+
+    #[test]
+    fn an_agent_raising_any_graded_field_or_the_check_date_fails() {
+        for change in [
+            ("verification", "primary_source_supported"),
+            ("applicability", "general_reference"),
+            ("adoption", "prototype_reviewed"),
+            ("verified_on", "2026-01-06"),
+        ] {
+            let (repo, base) = checked_base("raise");
+            let rows = [
+                claim("CL-SYN-0001", &CHECKED),
+                claim("CL-SYN-0002", &[change]),
+            ];
+            let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+            assert!(!passes(&repo.0, &base, &head), "{change:?}");
+        }
+    }
+
+    #[test]
+    fn an_agent_adding_a_raised_row_fails() {
+        for change in [
+            ("verification", "primary_source_supported"),
+            ("applicability", "general_reference"),
+            ("adoption", "prototype_reviewed"),
+            ("verified_on", "2026-01-06"),
+            ("verified_by_role", "lead"),
+        ] {
+            let (repo, base) = checked_base("raised-row");
+            let rows = [
+                claim("CL-SYN-0001", &CHECKED),
+                claim("CL-SYN-0002", &[]),
+                claim("CL-SYN-0003", &[change]),
+            ];
+            let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+            assert!(!passes(&repo.0, &base, &head), "{change:?}");
+        }
+    }
+
+    #[test]
+    fn an_assistant_commit_under_the_owner_name_cannot_certify() {
+        let (repo, base) = checked_base("assisted");
+        let rows = [
+            claim("CL-SYN-0001", &CHECKED),
+            claim("CL-SYN-0002", &CHECKED),
+        ];
+        let head = repo.commit_with("Owner", ASSISTED, &[(CLAIMS, &register(&rows))]);
+        assert!(!passes(&repo.0, &base, &head));
+    }
+
+    #[test]
+    fn the_owner_may_certify_and_an_agent_may_reset() {
+        let (repo, base) = checked_base("owner-raise");
+        let rows = [
+            claim("CL-SYN-0001", &CHECKED),
+            claim("CL-SYN-0002", &CHECKED),
+        ];
+        let owner = repo.commit("Owner", &[(CLAIMS, &register(&rows))]);
+        assert!(passes(&repo.0, &base, &owner));
+        let rows = [claim("CL-SYN-0001", &[]), claim("CL-SYN-0002", &CHECKED)];
+        let reset = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+        assert!(passes(&repo.0, &owner, &reset));
+        let rows = [claim("CL-SYN-0002", &CHECKED)];
+        let deleted = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+        assert!(passes(&repo.0, &reset, &deleted), "a deleted row passes");
+    }
+
+    // control: GS-02
+    #[test]
+    fn statement_edit_on_verified_claim_fails() {
+        for (field, value) in [
+            ("statement", "A synthetic rule applies above 20 units."),
+            ("value", "20"),
+            ("unit", "EUR"),
+            ("source_id", "S-0002"),
+            ("version", "2"),
+            ("locator_kind", "pdf_page_box"),
+            ("locator", "sec. 2"),
+            ("quote", "applies above 20 units"),
+        ] {
+            let (repo, base) = checked_base("evidence");
+            let mut edited = CHECKED.to_vec();
+            edited.push((field, value));
+            let rows = [claim("CL-SYN-0001", &edited), claim("CL-SYN-0002", &[])];
+            let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+            assert!(!passes(&repo.0, &base, &head), "{field}");
+        }
+    }
+
+    #[test]
+    fn the_same_edit_with_a_reset_passes_and_an_unchecked_claim_is_free() {
+        let (repo, base) = checked_base("evidence-reset");
+        let statement = ("statement", "A synthetic rule applies above 20 units.");
+        let rows = [
+            claim("CL-SYN-0001", &[statement]),
+            claim("CL-SYN-0002", &[statement]),
+        ];
+        let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+        assert!(passes(&repo.0, &base, &head));
+        let (repo, base) = checked_base("evidence-half-reset");
+        let half = [("verified_on", "2026-01-05"), statement];
+        let rows = [claim("CL-SYN-0001", &half), claim("CL-SYN-0002", &[])];
+        let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+        assert!(
+            !passes(&repo.0, &base, &head),
+            "the verified fields stay set"
+        );
+    }
+
+    #[test]
+    fn a_register_that_does_not_parse_cannot_be_judged() {
+        let (repo, base) = checked_base("unparsed");
+        let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, "claim_id,statement\n\"open\n")]);
+        assert!(!passes(&repo.0, &base, &head));
+        let gone = repo.commit(
+            "Owner",
+            &[(CLAIMS, &register(&[claim("CL-SYN-0001", &[])]))],
+        );
+        git(&repo.0, &["rm", "-q", CLAIMS]).unwrap();
+        let deleted = repo.commit(AGENT_AUTHOR, &[]);
+        assert!(
+            passes(&repo.0, &gone, &deleted),
+            "a deleted register passes"
+        );
+    }
+
+    // control: GS-02
+    #[test]
+    fn an_agent_setting_a_page_stable_fails() {
+        let repo = Scratch::new("stable");
+        let path = "corpus/pages/syn/syn-a.md";
+        let base = repo.commit("Owner", &[(path, &page("reviewed"))]);
+        let head = repo.commit(AGENT_AUTHOR, &[(path, &page("stable"))]);
+        assert!(!passes(&repo.0, &base, &head));
+        let owner = repo.commit("Owner", &[(path, &page("stable"))]);
+        let edit = repo.commit(
+            AGENT_AUTHOR,
+            &[(path, &format!("{}A typo fixed.\n", page("stable")))],
+        );
+        assert!(passes(&repo.0, &owner, &edit), "a page already stable");
+    }
+
+    #[test]
+    fn an_existing_seed_golden_is_never_changed_by_an_agent() {
+        let seed = "tests/golden/search/seed-rank.json";
+        for remove in [false, true] {
+            let repo = Scratch::new("seed");
+            let base = repo.commit("Owner", &[(seed, "[]")]);
+            if remove {
+                git(&repo.0, &["rm", "-q", seed]).unwrap();
+            }
+            let files: &[(&str, &str)] = if remove { &[] } else { &[(seed, "[1]")] };
+            let head = repo.commit(AGENT_AUTHOR, files);
+            assert!(!passes(&repo.0, &base, &head), "remove: {remove}");
+        }
+    }
+
+    #[test]
+    fn a_new_seed_golden_lands_apart_from_code() {
+        let repo = Scratch::new("new-seed");
+        let base = repo.commit("Owner", &[("README.md", "start")]);
+        let seed = repo.commit(
+            AGENT_AUTHOR,
+            &[
+                ("tests/golden/search/seed-ranked.json", "[]"),
+                ("tests/golden/search/rank-001.json", "[]"),
+            ],
+        );
+        assert!(passes(&repo.0, &base, &seed));
+        let code = repo.commit(AGENT_AUTHOR, &[("crates/a.rs", "fn a() {}")]);
+        assert!(!passes(&repo.0, &base, &code), "seed and code in one range");
+        assert!(passes(&repo.0, &seed, &code));
+    }
+
+    #[test]
+    fn an_original_is_added_but_never_rewritten_or_deleted() {
+        let path = "corpus/sources/public/S-0001-v1.pdf";
+        for remove in [false, true] {
+            let repo = Scratch::new("original");
+            let base = repo.commit("Owner", &[(path, "synthetic original")]);
+            if remove {
+                git(&repo.0, &["rm", "-q", path]).unwrap();
+            }
+            let files: &[(&str, &str)] = if remove { &[] } else { &[(path, "rewritten")] };
+            let head = repo.commit(AGENT_AUTHOR, files);
+            assert!(!passes(&repo.0, &base, &head), "remove: {remove}");
+            let next = repo.commit(
+                AGENT_AUTHOR,
+                &[("corpus/sources/public/S-0001-v2.pdf", "next version")],
+            );
+            assert!(passes(&repo.0, &head, &next));
+        }
+    }
+
+    #[test]
+    fn regression_cases_are_only_appended_and_never_marked_critical() {
+        let path = "corpus/eval/regression.toml";
+        let case = "[[case]]\nid = \"RG-001\"\nquery = \"synthetic\"\n";
+        let more = format!("{case}\n[[case]]\nid = \"RG-002\"\nquery = \"other\"\n");
+        let marked = format!("{more}critical = true\n");
+        for (after, allowed) in [
+            (more.as_str(), true),
+            ("[[case]]\nid = \"RG-002\"\n", false),
+            (marked.as_str(), false),
+        ] {
+            let repo = Scratch::new("regression");
+            let base = repo.commit("Owner", &[(path, case)]);
+            let head = repo.commit(AGENT_AUTHOR, &[(path, after)]);
+            assert_eq!(passes(&repo.0, &base, &head), allowed, "{after}");
+        }
+        let repo = Scratch::new("regression-deleted");
+        let base = repo.commit("Owner", &[(path, case)]);
+        git(&repo.0, &["rm", "-q", path]).unwrap();
+        let head = repo.commit(AGENT_AUTHOR, &[]);
+        assert!(!passes(&repo.0, &base, &head));
+    }
+
+    #[test]
+    fn agent_merge_keeps_owner_status_and_refuses_a_resolution_that_raises() {
+        for (resolution, allowed) in [("owner", true), ("raised", false)] {
+            let (repo, base) = checked_base("merge");
+            git(&repo.0, &["checkout", "-q", "-b", "agent"]).unwrap();
+            let rows = [
+                claim("CL-SYN-0001", &CHECKED),
+                claim("CL-SYN-0002", &[]),
+                claim("CL-SYN-0003", &[]),
+            ];
+            repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+            git(&repo.0, &["checkout", "-q", "main"]).unwrap();
+            let rows = [
+                claim("CL-SYN-0001", &CHECKED),
+                claim("CL-SYN-0002", &CHECKED),
+            ];
+            repo.commit("Owner", &[(CLAIMS, &register(&rows))]);
+            git(&repo.0, &["checkout", "-q", "agent"]).unwrap();
+            let _ = git(&repo.0, &["merge", "--no-ff", "--no-commit", "main"]);
+            let third = if resolution == "owner" {
+                &[][..]
+            } else {
+                &CHECKED[..]
+            };
+            let rows = [
+                claim("CL-SYN-0001", &CHECKED),
+                claim("CL-SYN-0002", &CHECKED),
+                claim("CL-SYN-0003", third),
+            ];
+            let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
+            assert_eq!(passes(&repo.0, &base, &head), allowed, "{resolution}");
+        }
     }
 
     #[test]
     fn a_first_push_checks_every_commit() {
         let repo = Scratch::new("guard-first");
-        repo.commit(AGENT_AUTHOR, &[("corpus/a.md", "text")]);
+        repo.commit(
+            AGENT_AUTHOR,
+            &[(CLAIMS, &register(&[claim("CL-SYN-0001", &CHECKED)]))],
+        );
         let head = repo.commit("Owner", &[("README.md", "start")]);
         let zeros = "0".repeat(40);
         assert!(!passes(&repo.0, &zeros, &head));
@@ -261,218 +634,14 @@ mod tests {
         assert!(command(&repo.0, "--all", &head).is_err());
     }
 
-    const FOUNDATION: [(&str, &str); 3] = [
-        (
-            "corpus/registers/questions.csv",
-            include_str!("../../tests/fixtures/foundation/questions.csv"),
-        ),
-        (
-            "corpus/registers/glossary.csv",
-            include_str!("../../tests/fixtures/foundation/glossary.csv"),
-        ),
-        (
-            "corpus/pages/foundation/onboarding/fnd-onboarding-plan.md",
-            include_str!("../../tests/fixtures/foundation/onboarding.md"),
-        ),
-    ];
-
-    fn foundation_base() -> (Scratch, String) {
-        let repo = Scratch::new("foundation");
-        let questions = FOUNDATION[0].1.split_inclusive('\n').next().unwrap();
-        let glossary = FOUNDATION[1].1.split_inclusive('\n').next().unwrap();
-        let base = repo.commit(
-            "Owner",
-            &[(FOUNDATION[0].0, questions), (FOUNDATION[1].0, glossary)],
-        );
-        (repo, base)
-    }
-
     #[test]
-    fn exact_foundation_transition_passes() {
-        let (repo, base) = foundation_base();
-        let head = repo.commit(AGENT_AUTHOR, &FOUNDATION);
-        assert!(passes(&repo.0, &base, &head));
-    }
-
-    #[test]
-    fn exact_authority_bootstrap_passes() {
-        let repo = Scratch::new("authority");
-        let path = "corpus/AGENTS.md";
-        let base = repo.commit(
-            "Owner",
-            &[(
-                path,
-                include_str!("../../tests/fixtures/foundation/authority-before.md"),
-            )],
-        );
-        let head = repo.commit(
-            AGENT_AUTHOR,
-            &[
-                (
-                    path,
-                    include_str!("../../tests/fixtures/foundation/authority-after.md"),
-                ),
-                ("AGENTS.md", "explicit temporary authority"),
-            ],
-        );
-        assert!(passes(&repo.0, &base, &head));
-    }
-
-    #[test]
-    fn agent_merge_checks_protected_differences_against_every_parent() {
-        for (path, allowed) in [("corpus/a.md", false), ("docs/a.md", true)] {
-            let repo = Scratch::new("merge");
-            let base = repo.commit("Owner", &[("README.md", "start")]);
-            git(&repo.0, &["checkout", "-q", "-b", "other"]).unwrap();
-            repo.commit("Owner", &[("docs/other.md", "other")]);
-            git(&repo.0, &["checkout", "-q", "main"]).unwrap();
-            repo.commit("Lead", &[(path, "inherited from first parent")]);
-            git(&repo.0, &["merge", "--no-ff", "--no-commit", "other"]).unwrap();
-            let head = repo.commit(AGENT_AUTHOR, &[]);
-            assert_eq!(passes(&repo.0, &base, &head), allowed, "{path}");
-        }
-    }
-
-    #[test]
-    fn changed_fields_bytes_and_partial_foundation_are_refused() {
-        for (index, changed) in [
-            (0, FOUNDATION[0].1.replace(",open,,,", ",open,answer,,")),
-            (
-                1,
-                FOUNDATION[1].1.replace(
-                    ",,pending_company_calibration,",
-                    ",S-0010-v1,pending_company_calibration,",
-                ),
-            ),
-            (
-                2,
-                FOUNDATION[2]
-                    .1
-                    .replace("status = \"draft\"", "status = \"stable\""),
-            ),
-            (2, format!("{} ", FOUNDATION[2].1)),
-        ] {
-            assert_ne!(changed, FOUNDATION[index].1);
-            let (repo, base) = foundation_base();
-            let mut files = FOUNDATION;
-            files[index].1 = &changed;
-            let head = repo.commit(AGENT_AUTHOR, &files);
-            assert!(!passes(&repo.0, &base, &head));
-        }
-        let (repo, base) = foundation_base();
-        let head = repo.commit(AGENT_AUTHOR, &FOUNDATION[..2]);
-        assert!(!passes(&repo.0, &base, &head));
-    }
-
-    #[test]
-    fn drift_later_edits_and_extra_paths_are_refused() {
-        let (repo, _) = foundation_base();
-        let drift = format!(
-            "{}\n",
-            FOUNDATION[0].1.split_inclusive('\n').next().unwrap()
-        );
-        let base = repo.commit("Owner", &[(FOUNDATION[0].0, &drift)]);
-        let head = repo.commit(AGENT_AUTHOR, &FOUNDATION);
-        assert!(!passes(&repo.0, &base, &head));
-        let (repo, base) = foundation_base();
-        let first = repo.commit(AGENT_AUTHOR, &FOUNDATION);
-        assert!(passes(&repo.0, &base, &first));
-        let later = repo.commit(AGENT_AUTHOR, &[(FOUNDATION[2].0, "later draft")]);
-        assert!(!passes(&repo.0, &first, &later));
-        let (repo, base) = foundation_base();
-        let mut files = FOUNDATION.to_vec();
-        files.push(("docs/extra.md", "not the three-file transition"));
-        let head = repo.commit(AGENT_AUTHOR, &files);
-        assert!(!passes(&repo.0, &base, &head));
-    }
-
-    #[test]
-    fn protected_additions_deletions_and_renames_stay_blocked() {
-        for path in [
-            "corpus/registers/claims.csv",
-            "corpus/registers/sources.csv",
-            "corpus/sources/public/S-0001-v1.txt",
-            "corpus/eval/regression.toml",
-            "tests/golden/seed-new.json",
-        ] {
-            let (repo, base) = foundation_base();
-            let head = repo.commit(AGENT_AUTHOR, &[(path, "synthetic refused change")]);
-            assert!(!passes(&repo.0, &base, &head), "{path}");
-        }
-        for operation in ["rm", "mv"] {
-            let (repo, base) = foundation_base();
-            let mut args = vec![operation, FOUNDATION[0].0];
-            if operation == "mv" {
-                args.push("questions.csv");
-            }
-            git(&repo.0, &args).unwrap();
-            let head = repo.commit(AGENT_AUTHOR, &[]);
-            assert!(!passes(&repo.0, &base, &head));
-        }
-    }
-
-    #[cfg(unix)]
-    #[test]
-    fn regular_modes_are_required_on_both_sides() {
-        use std::os::unix::fs::{PermissionsExt, symlink};
-        for variant in ["before", "after", "symlink"] {
-            let (repo, mut base) = foundation_base();
-            if variant == "before" {
-                std::fs::set_permissions(
-                    repo.0.join(FOUNDATION[0].0),
-                    std::fs::Permissions::from_mode(0o755),
-                )
-                .unwrap();
-                base = repo.commit("Owner", &[]);
-            }
-            repo.write(&FOUNDATION);
-            if variant == "before" {
-                std::fs::set_permissions(
-                    repo.0.join(FOUNDATION[0].0),
-                    std::fs::Permissions::from_mode(0o644),
-                )
-                .unwrap();
-            } else if variant == "after" {
-                std::fs::set_permissions(
-                    repo.0.join(FOUNDATION[2].0),
-                    std::fs::Permissions::from_mode(0o755),
-                )
-                .unwrap();
-            } else {
-                std::fs::remove_file(repo.0.join(FOUNDATION[2].0)).unwrap();
-                symlink(FOUNDATION[2].1, repo.0.join(FOUNDATION[2].0)).unwrap();
-            }
-            let head = repo.commit(AGENT_AUTHOR, &[]);
-            assert!(!passes(&repo.0, &base, &head), "{variant}");
-        }
-    }
-
-    #[test]
-    fn authority_amendment_is_exact_and_the_only_protected_change() {
-        let path = "corpus/AGENTS.md";
-        let before = include_str!("../../tests/fixtures/foundation/authority-before.md");
-        let after = include_str!("../../tests/fixtures/foundation/authority-after.md");
-        for (old, new, extra) in [
-            (before.to_owned(), format!("{after} "), false),
-            (format!("{before} "), after.to_owned(), false),
-            (before.to_owned(), after.to_owned(), true),
-        ] {
-            let repo = Scratch::new("authority-refused");
-            let base = repo.commit("Owner", &[(path, &old)]);
-            let mut files = vec![(path, new.as_str())];
-            if extra {
-                files.push(("corpus/other.md", "not authorized"));
-            }
-            let head = repo.commit(AGENT_AUTHOR, &files);
-            assert!(!passes(&repo.0, &base, &head));
-        }
-    }
-
-    #[test]
-    fn replacement_refs_cannot_hide_a_protected_commit() {
-        let repo = Scratch::new("replace");
-        let base = repo.commit("Owner", &[("README.md", "start")]);
-        let bad = repo.commit(AGENT_AUTHOR, &[("corpus/a.md", "blocked")]);
+    fn replacement_refs_cannot_hide_a_raise() {
+        let (repo, base) = checked_base("replace");
+        let rows = [
+            claim("CL-SYN-0001", &CHECKED),
+            claim("CL-SYN-0002", &CHECKED),
+        ];
+        let bad = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
         git(&repo.0, &["checkout", "-q", "-b", "replacement", &base]).unwrap();
         let clean = repo.commit("Owner", &[("docs/a.md", "unprotected")]);
         git(&repo.0, &["replace", &bad, &clean]).unwrap();
