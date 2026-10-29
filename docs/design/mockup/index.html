@@ -442,6 +442,13 @@ main{container-type:inline-size}
   /* In-body action chrome hides too. A citation, a source key, a status word, a selected version or a command's text is
      evidence, not action chrome, so it stays. */
   [data-chat],button[data-day-open],button[data-copy-cmd],button[data-copy-ai],button[data-copy-link],.tu-item.chg>a.btn{display:none!important}
+  /* A composer, a prompt group, a view's tab strip and a reader's previous/next only act on a screen, so they are inert
+     on paper and the paper keeps the heading, the record content and every citation instead. A suggested-question panel is
+     that prompt group alone, so the panel goes with it rather than printing an action box with nothing under it. */
+  .composer,.starters,.tabs,nav[aria-label="Curriculum"],section.panel:has(> .panel-b.starters){display:none!important}
+  /* The trace keeps its numbered steps and every word. Its connector is a positioned decoration, not text: it escapes its
+     own fragment and paints through the footer band, so it is suppressed on paper. */
+  .trace li::after{display:none!important}
   /* Tables print whole at the reading size: cells wrap at word and token boundaries, and the narrow-only hides return,
      so no column is cropped by an inert scroller and no word, status or figure breaks inside itself. */
   .table-wrap{overflow:visible;border:0;border-radius:0}
@@ -459,7 +466,6 @@ main{container-type:inline-size}
   table[data-print-records] td::before{content:attr(data-label);display:block;font-size:var(--text-2xs);letter-spacing:.04em;text-transform:uppercase;color:var(--color-muted)}
   table[data-print-records] td[data-wide]{grid-column:1/-1}
   .toolbar :is(.seg,.filter){display:none!important}
-  .tabs{overflow:visible;background:none}
   .sheet{border:0;box-shadow:none}
   /* A chart prints its values open; the screen keeps its own collapse (the script opens these only while printing). */
   details[data-chart-values]:not([open])>:not(summary){display:block!important}
