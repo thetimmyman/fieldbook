@@ -73,4 +73,4 @@ Revert the merge commit. The five codes go back to `pending.toml`, and the model
 
 ## BLOCKED
 
-The lead's committed pages raise one of these codes: write the code, the file and the line and stop. Codex may not edit `corpus/` before `guard-statuses`.
+The lead's committed pages raise one of these codes: write the code, the file and the line and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.

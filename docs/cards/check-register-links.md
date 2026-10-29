@@ -64,5 +64,5 @@ Revert the merge commit. The four codes go back to `pending.toml`, and the fixtu
 
 ## BLOCKED
 
-- The lead's committed registers or originals raise one of these codes: write the code and the row and stop. Codex may not edit `corpus/` before `guard-statuses`.
+- The lead's committed registers or originals raise one of these codes: write the code and the row and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.
 - An original in the real Corpus would have to be rewritten to pass. Originals are byte-exact: write the version id and stop.

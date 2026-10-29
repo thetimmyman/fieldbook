@@ -65,4 +65,4 @@ Revert the merge commit. The ten new codes go back to `pending.toml`, and the mo
 
 ## BLOCKED
 
-The lead's committed pages raise an error code of this card: write the code, the file and the line and stop. Codex may not edit `corpus/` before `guard-statuses`.
+The lead's committed pages raise an error code of this card: write the code, the file and the line and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.

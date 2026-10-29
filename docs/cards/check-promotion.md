@@ -70,5 +70,5 @@ Revert the merge commit. The six codes go back to `pending.toml`, and strict fin
 
 ## BLOCKED
 
-- The lead's committed claims or questions raise an error code of this card under `--strict`: write the code and the row and stop. Codex may not edit `corpus/` before `guard-statuses`, and never edits a status.
+- The lead's committed claims or questions raise an error code of this card under `--strict`: write the code and the row and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue; no agent edits a status.
 - A promotion condition cannot be read from the row without a rule the reference does not give: write the condition and stop (status gate).

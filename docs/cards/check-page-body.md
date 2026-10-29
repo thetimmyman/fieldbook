@@ -71,5 +71,5 @@ Revert the merge commit. The four codes go back to `pending.toml`.
 
 ## BLOCKED
 
-- The lead's committed pages raise FB0134 or FB0135: write the code, the file and the line and stop. Codex may not edit `corpus/` before `guard-statuses`.
+- The lead's committed pages raise FB0134 or FB0135: write the code, the file and the line and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.
 - A rule of the Page types table cannot be read as a test without a choice the reference does not make: write the type and the rule and stop.
