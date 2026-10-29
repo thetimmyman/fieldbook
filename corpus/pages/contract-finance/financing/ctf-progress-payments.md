@@ -33,13 +33,13 @@ The customary progress payment rate on DoD contracts is 80 percent for large bus
 
 ## How it works
 
-Progress payments based on costs are contract financing paid as costs are incurred on fixed-price work, before delivery. The contractor bills the customary rate times the costs incurred, and the payments are liquidated as deliveries are invoiced. The contract's progress payments clause states the rate that applies; a rate above the customary rate is an unusual financing case and needs approval.
+Progress payments based on costs are contract financing paid as costs are incurred on fixed-price work, before delivery. Each request is the customary rate times the total costs incurred to date, less all progress payments already received, and the payments are liquidated as deliveries are invoiced. The contract's progress payments clause states the rate that applies; a rate above the customary rate is an unusual financing case and needs approval.
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A large business has incurred 1,000,000 of allowable costs on a fixed-price DoD contract. At an 80 percent rate it may request 800,000. A small business with the same costs at a 90 percent rate may request 900,000.
+A large business has incurred 1,000,000 of allowable costs on a fixed-price DoD contract and has received no progress payments yet. At an 80 percent rate its first request is 800,000. If it had already received 600,000, the next request would be 200,000. A small business with the same costs and no prior payments at a 90 percent rate may request 900,000.
 
 ## Never confuse
 

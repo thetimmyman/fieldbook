@@ -28,7 +28,7 @@ Shows when a DoD contract needs an earned value management system, when that sys
 | Text status | Deviation text [@CL-PRG-0001] |
 | Applies to | DoD cost or incentive contracts and subcontracts, from 2026-08-05 [@CL-PRG-0001] |
 
-For DoD cost or incentive contracts and subcontracts of $50 million or more, the earned value management system must comply with the EIA-748 guidelines [@CL-PRG-0001]. At $100 million or more, the contractor must have a system the cognizant agency has determined compliant [@CL-PRG-0002]. The requirement does not apply to contracts primarily for software or to contracts awarded to nontraditional defense contractors, and the head of the contracting activity may waive the second exemption [@CL-PRG-0003].
+For DoD cost or incentive contracts and subcontracts of $50 million or more, the earned value management system must comply with the EIA-748 guidelines [@CL-PRG-0001]. At $100 million or more, the contractor must have a system the cognizant agency has determined compliant [@CL-PRG-0002]. The requirement does not apply to contracts primarily for software or to contracts awarded to nontraditional defense contractors, [@CL-PRG-0003]. The head of the contracting activity may waive only the nontraditional-contractor exemption, in writing [@CL-PRG-0004].
 
 ## How it works
 
