@@ -131,9 +131,9 @@ Before local packaging, set `FIELDBOOK_SECURITY_CONTACT` in the invoking environ
 
 `just edition` arrives with the card `edition-zips` and `release.yml` with the card `release-workflow`. Editions follow the cadence in ADR 0001 (D-17): when content changes, no more often than every two weeks until E1, then as the transfer channel allows.
 
-### Step 1. Merge the content (lead or Codex; owner reviews)
+### Step 1. Merge the content (lead or an agent)
 
-Every content change reaches `main` by pull request with the owner's review. Codex does upkeep only (AD-21); it never imports content and never raises a status or moves a version's `lifecycle` back to `active`.
+Every content change reaches `main` by pull request on a green `ci-ok`. Agents add sources and draft claims, quotes and pages at entry values; no agent raises a status or moves a version's `lifecycle` back to `active` (GS-02, AD-21). The owner verifies claims and reads the week's merged work.
 
 ### Step 2. Write the edition's notes (lead or Codex; owner reviews)
 

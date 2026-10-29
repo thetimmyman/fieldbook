@@ -67,5 +67,5 @@ Revert the merge commit. The six codes go back to `pending.toml`, and `check` no
 
 ## BLOCKED
 
-- The lead's committed Corpus raises one of these codes: write the code and the file and stop. Codex may not edit `corpus/` before `guard-statuses`.
+- The lead's committed Corpus raises one of these codes: write the code and the file and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.
 - The layout table and the real Corpus disagree, for example about a file the table does not list: write the path and stop.
