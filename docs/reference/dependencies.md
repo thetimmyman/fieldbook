@@ -147,7 +147,9 @@ The following retained contract belongs solely to `later-lock-replay` (AD-24). I
 
 `just lock-verify` uses an empty temporary checkout and isolated Cargo cache, installs only the recorded snapshot inputs and exact resolver, and replays the recorded generate-lockfile command offline followed by the ordered precise updates offline. It never seeds the run with the candidate Cargo.lock, uses today's registry, or chooses a mode by trying flags again. Publish-time uses the recorded cutoff; fallback uses its retained initial candidates and downgrade list. Residual young entries retain the existing fallback table rule. Compare the resulting lock byte for byte and check the cutoff is at least 14 days before HEAD's committer time. Missing replay inputs/resolver refuse, never silently re-resolve. A fresh resolution captures a fresh snapshot; PR and weekly checks use the identical replay command. This is dependency automation in xtask, not a product network path.
 
-### The monthly lock refresh A `lock-refresh` card runs once a month. It is `auto` when the checks below pass, and the owner reads it in the week's merged work. The card:
+### The monthly lock refresh
+
+A `lock-refresh` card runs once a month. It is `auto` when the checks below pass, and the owner reads it in the week's merged work. The card:
 
 1. Runs `just lock` and reads the `Cargo.lock` diff: new crates, jumps in major or minor version, and any new direct crate. A direct crate that is not in this document stops the card.
 2. Runs both locked cargo-deny shapes, advisories and standard committed-lock builds/tests, then obtains renewed exact-source MAX/JEV review under [Review evidence](#review-evidence).
