@@ -24,6 +24,11 @@
 mod denylist;
 #[cfg_attr(
     not(test),
+    expect(dead_code, reason = "the checker consumes budgets next")
+)]
+mod deps_budget;
+#[cfg_attr(
+    not(test),
     expect(dead_code, reason = "the complete checker consumes graph measurements")
 )]
 mod deps_graph;
