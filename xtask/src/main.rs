@@ -52,6 +52,14 @@ mod deps_metadata;
     not(test),
     expect(
         dead_code,
+        reason = "the complete command consumes the catalog evaluation next"
+    )
+)]
+mod deps_policy;
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
         reason = "the full dependency-input consumer registers this producer"
     )
 )]

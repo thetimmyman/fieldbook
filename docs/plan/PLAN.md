@@ -90,7 +90,8 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day1-dependencies-checks: strict Cargo metadata shapes, identities and complete declaration/edge facts
 - day1-dependencies-checks-2: complete target/profile measurement and raw declaration pin facts
 - day1-dependencies-checks-3: complete profile budgets and measurement reports
-- day1-dependencies-checks-4: all policy checks, complete command, baseline and gate
+- day1-dependencies-checks-4: complete pure catalog-policy evaluation over measured facts
+- day1-dependencies-checks-4-2: complete dependency-policy command, process controls and gate
 - day1-dependencies-2: actual isolated offline resolution replay from immutable bounded bundles
 - day1-dependencies-3: bounded capture, initial Day-1 dependency adoption and full lock/replay activation
 - core-types-and-strings-2: complete frozen words/chips, `strings::js()`, docs generation and the literal control

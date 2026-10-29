@@ -1,0 +1,4 @@
+[workspace]
+members = []
+[workspace.dependencies]
+alpha = "1.0.0"
