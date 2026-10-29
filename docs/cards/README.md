@@ -300,12 +300,12 @@ Drift checks: `every_code_has_a_known_bad_file` (ranges 08 and 09) and `every_co
 
 1. Add the row to `docs/reference/dependencies.md`: name, exact pin, licence, "Used for", and the review sentence. For an action, the 40-hex commit; for a tool, a pin in `.config/tools.toml` and a row.
 2. Declare a crate once in `[workspace.dependencies]`. A member manifest then adds only a line such as `serde_json = { workspace = true }`.
-3. Run `just lock` for any manifest or resolution-input change, even when every crate is already in the lock, so the replay record binds the new inputs. The card is `auto` when `cargo xtask deps --check`, `cargo deny check` and `just lock-verify` pass.
+3. Run the existing `just lock` for a manifest/resolution-input change, review and commit the lock diff, and follow [Review evidence](../reference/dependencies.md#review-evidence): actual committed-lock Cargo builds, both cargo-deny shapes, and exact-source MAX/JEV pin/profile/release-age review. A valid nightly-only `[lock]` stays valid; do not require a new helper or record.
 4. A crate past the 15th direct crate of the AI build needs a card whose Review is `owner`.
 5. A network crate changes `deny.toml` and is the card `net-stack-spike`; no other card edits `deny.toml`.
 6. A tool that `just doctor` checks (a row of `TOOLS` in `xtask/src/tools.rs`) is installed by the `rust` job of `.github/workflows/ci.yml` before the step `Check the tools`, either in the `tool:` line of the `taiki-e/install-action` step or in its own step.
 
-Drift check: `cargo xtask deps --check` (DEPS-1 to DEPS-5), `cargo deny check` and `just lock-verify`.
+Present checks: committed-lock Cargo and cargo-deny, with required review evidence. Complete DEPS drift controls are deferred to `later-dependency-checks` and bounded replay to `later-lock-replay`; no automated negative is claimed passed.
 
 ### Adding a CI job
 
@@ -467,7 +467,7 @@ A split is one atomic graph change: assign each provided interface and control t
 
 ## Dependencies and the lock file
 
-A dependency or a lock refresh is not a gate. A card that adds one is `auto` when `cargo xtask deps --check`, `cargo deny check` and `just lock-verify` pass and the row in [dependencies.md](../reference/dependencies.md) is in the same pull request. A crate past the 15th direct crate of the AI build needs a card whose Review is `owner`. The steps are in "Adding a crate, a tool or an action".
+A dependency or a lock refresh is not a gate. It is `auto` only with its row plus the actual committed-lock Cargo/cargo-deny and exact-source MAX/JEV evidence in [Review evidence](../reference/dependencies.md#review-evidence). Security/cooldown and licence exceptions retain owner review. A crate past the 15th direct crate of the AI build needs a card whose Review is `owner`. The steps are in "Adding a crate, a tool or an action".
 
 ## Closing a card
 

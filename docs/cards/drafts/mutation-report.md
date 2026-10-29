@@ -13,7 +13,7 @@
 - The code that decides what leaves a store is written by an agent, and its tests are written by the same agent. A mutation run is a check from outside that: it changes the code in small ways (a `true` for a comparison, a missing `!`) and asks whether any test notices ([ADR 0004, Consequences](../../decisions/0004-company-boundary.md#consequences); control EG-01 in [controls.md](../../controls.md)).
 - A surviving mutant is a place where the code can change and no test fails. In `egress::check` that is a refusal that nothing proves.
 - Some mutants change no behaviour (for example, a different but equal loop bound). Zero survivors is not reachable on real code without a way to say so. The skip file is that way, and it has three rules: each entry names the mutant without line numbers (`file`, `function` and `replacement`), carries one line saying why behaviour is unchanged, and is reviewed by the owner like the policy crates. An entry that matches no mutant is stale and fails the gate, so the file cannot grow quietly.
-- `cargo-mutants` is already listed in [dependencies.md](../../reference/dependencies.md#developer-tools) at a pinned version, due in P5 for the gate and at Day 90 for the report. This card adds the pin to the `[cargo]` table of `.config/tools.toml` (installed with `cargo install --locked`, and in CI at the same version by `taiki-e/install-action`), so that `cargo xtask doctor` and `cargo xtask deps --check` see it. It adds no crate to the program.
+- `cargo-mutants` is already listed in [dependencies.md](../../reference/dependencies.md#developer-tools) at a pinned version, due in P5 for the gate and at Day 90 for the report. This card adds the pin to the `[cargo]` table of `.config/tools.toml` (installed with `cargo install --locked`, and in CI at the same version by `taiki-e/install-action`), so that `cargo xtask doctor` checks its installation and exact-source dependency review compares the pin. It adds no crate to the program.
 - The `outcomes.json` that the tool writes is the only interface to it, and its shape can change with a version. The fixture is a verbatim copy of a real file, and the ignored test `outcomes_fixture_matches_the_pinned_tool` runs the tool over a demo crate every week and compares, so a bump of the pin that changes the shape fails the weekly job and not a pull request.
 - A full run mutates every function of the gate set and runs the tests for each, which is too slow for a pull request. The pull request runs only the mutants on the lines it changed (`cargo mutants --in-diff`), which is what its author can act on. The cost: a test deleted without touching a gate file, and a skip entry that has gone stale, show in the weekly run and not in the pull request. The week is the delay.
 
@@ -31,7 +31,7 @@
 
 ## Preconditions
 
-- Cards merged: `core-labels` and `core-policy` (the label, policy, egress and authorisation modules of the gate set), `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `scheduled-workflow` (`scheduled.yml`) and `day1-dependencies-checks-4` (`cargo xtask deps --check`, which compares the pins of `.config/tools.toml` with `dependencies.md` and the workflows).
+- Cards merged: `core-labels` and `core-policy` (the label, policy, egress and authorisation modules of the gate set), `check-ci-and-docs` (the job `changes`, `ci-ok` and `ci_ok_needs_every_job`), `scheduled-workflow` (`scheduled.yml`) and `day1-dependencies-3` (the shared committed-lock Cargo/cargo-deny and exact-source MAX/JEV pin review recipe).
 
 ## Steps
 
@@ -60,6 +60,8 @@ just check
 ```
 
 Expected: the unit tests pass; `cargo xtask doctor` prints an `ok    cargo-mutants` line and `exit 0`; `--changed-since HEAD` prints `mutants: no gate file changed` and exits 0; the full gate prints `mutants: gate ok, N caught, K skipped` with N above 0 and exits 0; `--report` prints one line for each file of `crates/fieldbook-calc/src/` and then `mutants: report` and exits 0; the ignored test passes; the pull request's `scheduled.yml` run is `completed success` with the job `mutants` green and the artifact `mutants-report` attached, and its `ci.yml` run has the job `mutants` green; `just check` exits 0. The `gh run list` line above is evidence only when the `gh` CLI is installed and authenticated: `just doctor` checks the tool pins and is not `gh` authentication. Without it, use the Actions page for the exact branch and commit, record the run identity and result, and inspect the required artifacts there. A successful hosted run is required either way before the card is complete.
+
+Dependency acceptance also requires the actual committed-lock Cargo/cargo-deny and exact-source MAX/JEV pin/profile/release-age evidence of the shared dependency recipe; no deferred command is assumed present.
 
 ## Negative control
 
