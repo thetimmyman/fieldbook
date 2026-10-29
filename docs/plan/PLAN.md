@@ -82,7 +82,8 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
-- day1-dependencies: strict policy inputs with source locations, without a partial command or gate
+- day1-dependency-references: complete bounded catalog/workflow-reference facts with source locations
+- day1-dependencies: composed workspace/tool/replay and reference facts, without a partial command or gate
 - day1-dependencies-checks: the complete dependency-policy command, graph measurements and gate
 - day1-dependencies-2: actual isolated offline resolution replay from immutable bounded bundles
 - day1-dependencies-3: bounded capture, initial Day-1 dependency adoption and full lock/replay activation
