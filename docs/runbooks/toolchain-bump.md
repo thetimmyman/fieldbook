@@ -59,13 +59,13 @@ Expected: `rustc 1.NN.P (...)`. If rustup cannot find the version, the point rel
 just doctor
 ```
 
-Expected: exit code 0, with the toolchain reported at exactly the new pin and every other tool at or above its minimum. If a tool fails its minimum, that is a separate card; do not change unrelated tool pins in `.config/tools.toml` here; its replay record must follow changed resolution inputs.
+Expected: exit code 0, with the toolchain reported at exactly the new pin and every other tool at or above its minimum. If a tool fails its minimum, that is a separate card; do not change unrelated tool pins in `.config/tools.toml` here.
 
-## Step 6. Refresh replay inputs and run the full check (Codex)
+## Step 6. Refresh the lock and run the full check (Codex)
 
 ```sh
 just lock
-just lock-verify
+cargo build --workspace --locked
 just check
 ```
 
@@ -77,15 +77,15 @@ Expected: exit code 0. New releases often make new lints fire or change formatti
 
 If the fixes pass about 400 changed lines, stop and ask the owner.
 
-## Step 7. Review and stage the replay changes (Codex)
+## Step 7. Review and stage the lock changes (Codex)
 
-Review Cargo.lock and the replay record/snapshot changes under the dependency recipe. Manifest or resolution-configuration changes require refresh even when dependencies stay the same. Stage new inputs explicitly:
+Review the `Cargo.lock` diff and actual resolver/cutoff/release evidence under [Review evidence](../reference/dependencies.md#review-evidence). A manifest or resolution-configuration change requires `just lock` even when dependencies stay the same. Stage new inputs explicitly:
 
 ```sh
-git add Cargo.toml Cargo.lock .config/tools.toml .config/lock-inputs/ rust-toolchain.toml
+git add Cargo.toml Cargo.lock rust-toolchain.toml
 ```
 
-Expected: stale replay inputs fail verification after the manifest edit; the refreshed inputs pass. Preserve the manual treatment of registry-dependent controls. Unrelated tool pins belong to a separate card.
+Expected: standard Cargo accepts the committed lock after resolution; exact-source MAX/JEV review accepts the actual pins, profile budgets and release-age evidence. No historical replay is asserted. Unrelated tool pins belong to a separate card.
 
 ## Step 8. Re-check lints and hardening flags (Codex)
 
@@ -136,7 +136,8 @@ Replaces the nightly in `just lock` (AD-06).
 1. Run the old recipe and keep its result:
 
    ```sh
-   just lock && cp Cargo.lock /tmp/Cargo.lock.nightly
+   scratch="$(mktemp -d)"
+   just lock && cp Cargo.lock "$scratch/Cargo.lock.nightly"
    ```
 
 2. In `.cargo/config.toml` add:
@@ -147,14 +148,14 @@ Replaces the nightly in `just lock` (AD-06).
    ```
 
 3. Change the `lock` recipe in the `justfile` to run `cargo generate-lockfile` on the pinned toolchain, with no nightly and no `-Z` flag.
-4. Migrate resolution, recorded-cutoff verification and weekly provisioning together. Keep the lock verifier nightly pin in `.config/tools.toml`, `just setup`, `just doctor` and the scheduled job until the replacement can replay the same recorded cutoff after time advances. Update `dependencies.md` and scheduled-workflow together. The independent fuzz pin remains.
+4. Verify the new setting against actual resolved-package release dates and retain the old lock/output for comparison. Keep the nightly resolver pin until this resolution-only migration passes; there is no present custom verifier or recorded-cutoff equality requirement. Reconcile tools/setup/doctor documentation if the resolver pin is removed. The independent fuzz pin remains.
 5. Run the new recipe and compare:
 
    ```sh
-   just lock && diff Cargo.lock /tmp/Cargo.lock.nightly
+   just lock && diff Cargo.lock "$scratch/Cargo.lock.nightly"
    ```
 
-Expected: replay at the identical recorded cutoff gives no lock difference, including after time advances. An altered lock is refused and the cutoff-age check remains. A rolling 14-day threshold alone is not a verifier replacement. If entries younger than 14 days appear, the key was not honoured: check its spelling against the Cargo book for the pinned version, and keep the nightly recipe until it is.
+Expected: inspect any lock difference, then obtain exact-source MAX/JEV pin/profile/release-age review and passing committed-lock Cargo/cargo-deny checks. This migrates cooldown resolution, not a historical replay verifier. If entries younger than 14 days appear, the key was not honoured: check its spelling against the Cargo book for the pinned version, and keep the nightly recipe until it is.
 
 ### From 1.101: `trim-paths` replaces the path remaps
 
@@ -181,10 +182,10 @@ The pull request description carries all of this; the card's work item gets one 
 | Pin before and after | `git diff` of `rust-toolchain.toml` |
 | Release date of the minor and the cutoff date | Step 2 output |
 | `just doctor` passes at the new pin | Step 5 |
-| Reviewed lock/replay changes and successful replay verification | Steps 6 and 7 |
+| Reviewed committed lock, actual Cargo/cargo-deny outputs and MAX/JEV pin/profile/release-age evidence | Steps 6 and 7 |
 | Lint and flag re-checks, with any fixes | Step 8 |
 | Full Windows run id, green | Step 9 |
 | `just check @ <pr-head-sha> (PR #N, ci-ok run <id>) -> pass` | The pull request |
 | For 1.100 or 1.101: the lockfile diff or the exe hash match | The replacement section above |
 
-The lock resolver migration follows [the recorded replay contract](../reference/dependencies.md#the-cooldown). Preserve replay of the prior mode and its retained security approvals until a fresh resolution records the replacement resolver and bounded inputs; elapsed time alone never changes an existing lock verification.
+The resolver migration follows [Review evidence](../reference/dependencies.md#review-evidence). Retain owner-approved security exceptions and exact updates in the evidence; the valid nightly-only `[lock]` needs no replay record. Complete replay/bootstrap remains deferred.

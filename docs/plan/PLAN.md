@@ -21,7 +21,7 @@ exempts it. Its line stays for the record, and nothing waits on it.
 
 **Merging (D-5).** Codex merges `auto` cards on a green `ci-ok`, including CI and test cards that touch no permissions or secrets. Commits carry the agent author "Codex (agent)". A card marked `Review: owner` waits for the owner. The owner reads the week's merged work in the weekly review; nothing waits for it.
 
-**The three owner gates** (AD-21). The release gate: tags, releases, signing, CI permissions, secrets, the network rows of `deny.toml`, anything under `crates/fieldbook/src/io/net*`, anything in `crates/fieldbook-win`, the label, policy and egress modules of `fieldbook-core` with their leak matrix, and the IT-facing statements in `docs/intake/` and `SECURITY.md`. The status gate: verifying a consequential claim, and accepting a page as `stable`. The format gate: a Corpus format change after the freeze, which needs an accepted ADR 0002 amendment first. A card that touches a gate is `Review: owner`, and so is a card whose Acceptance needs the owner at the laptop; its Why says which. A dependency or a lock refresh is not on the list: it is `auto` when `cargo xtask deps --check`, `cargo deny check` and `just lock-verify` pass and the row in [dependencies.md](../reference/dependencies.md) is in the same pull request. A crate past the 15th direct crate of the AI build needs a card whose Review is `owner`.
+**The three owner gates** (AD-21). The release gate: tags, releases, signing, CI permissions, secrets, the network rows of `deny.toml`, anything under `crates/fieldbook/src/io/net*`, anything in `crates/fieldbook-win`, the label, policy and egress modules of `fieldbook-core` with their leak matrix, and the IT-facing statements in `docs/intake/` and `SECURITY.md`. The status gate: verifying a consequential claim, and accepting a page as `stable`. The format gate: a Corpus format change after the freeze, which needs an accepted ADR 0002 amendment first. A card that touches a gate is `Review: owner`, and so is a card whose Acceptance needs the owner at the laptop; its Why says which. A dependency or a lock refresh is not on the list: it is `auto` with passing committed-lock Cargo/cargo-deny and required exact-source MAX/JEV pin/profile/release-age review, with the dependency row in the same pull request. Security/cooldown and licence exceptions retain owner review. A crate past the 15th direct crate of the AI build needs a card whose Review is `owner`.
 
 **Flow.** Take the first card whose Preconditions have merged. A card's Preconditions name another card only when it uses what that card builds. Cards in flight share no path in their Scope; `docs-checks` fails two cards whose Scope overlaps with no precondition path between them. The shared paths are this file, `CHANGELOG.md`, `crates/fieldbook/src/check/mod.rs` and the other registration files that many cards extend by a line (the list is in [Size and splitting](../cards/README.md#size-and-splitting)): rebase onto `main` before the last commit and keep both sides of a conflict. The lead sets how many cards run at once; start at four and raise it while the queue is deep.
 
@@ -82,6 +82,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
+- product-first-delivery: standard-Cargo dependency work order with actual review evidence; complete custom automation deferred
 - kb-foundation-guard: exact authority and source-free foundation transitions; GS-01 remains active
 - kb-foundation-content: the pinned draft onboarding page, 32 open questions and 51 pending definitions
 - core-types-and-strings: standard-library hexadecimal rendering and schema-version lookup
@@ -90,9 +91,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day1-dependencies-checks: strict Cargo metadata shapes, identities and complete declaration/edge facts
 - day1-dependencies-checks-2: complete target/profile measurement and raw declaration pin facts
 - day1-dependencies-checks-3: complete profile budgets and measurement reports
-- day1-dependencies-checks-4: all policy checks, complete command, baseline and gate
-- day1-dependencies-2: actual isolated offline resolution replay from immutable bounded bundles
-- day1-dependencies-3: bounded capture, initial Day-1 dependency adoption and full lock/replay activation
+- day1-dependencies-3: initial crate adoption with committed-lock Cargo/cargo-deny and exact-source MAX/JEV pin/profile/release-age evidence
 - core-types-and-strings-2: complete frozen words/chips, `strings::js()`, docs generation and the literal control
 - calc-day1: the decimal grammar, `Money`, `Value<T>`, `RoundingPolicy`, checked operations, `Unit`, the civil and partial date, the period and the duration, and the seeded `Rng` with its one-copy test
 - core-ids-and-dates: every identifier form and the `FAMILIES` table, next-id allocation, and the dates of `fieldbook-calc` re-exported
@@ -319,7 +318,9 @@ Exit: set by the owner when P8 starts. P8 follows P7 in use: estimate at complet
 
 - Write the P8 cards from ADR 0005 and the AD-24 triggers (lead)
 - later-finance-eac-evm: estimate at completion and earned value (group 3)
-- The rows of group 4 of AD-24, one at a time, by their triggers (lead)
+- later-dependency-checks: complete DEPS command and all process controls, only when its AD-24 trigger is met
+- later-lock-replay: complete bounded capture/bootstrap/offline replay, only when its AD-24 trigger is met
+- The other rows of group 4 of AD-24, one at a time, by their triggers (lead)
 
 ## Any time
 

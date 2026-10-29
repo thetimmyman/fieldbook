@@ -62,16 +62,16 @@ On a branch named for the card (for example `card/release-0-2-0`):
 just release 0.2.0
 ```
 
-What it does, in order: it refuses to run on `main`, on a dirty tree, with a version that is not higher than the workspace version, or with nothing under `## Unreleased` in `CHANGELOG.md`; it runs `just check`; it sets the workspace version in `Cargo.toml` and the matching entries in `Cargo.lock`; it turns `## Unreleased` into `## 0.2.0` (no date; the tag carries the time) and opens a new empty `## Unreleased` above it. It then runs `just lock`, reviews resolution under the dependency recipe, runs `just lock-verify` and `just check` on the resulting tree. It does not commit, tag or push.
+What it does, in order: it refuses to run on `main`, on a dirty tree, with a version that is not higher than the workspace version, or with nothing under `## Unreleased` in `CHANGELOG.md`; it runs `just check`; it sets the workspace version in `Cargo.toml` and the matching entries in `Cargo.lock`; it turns `## Unreleased` into `## 0.2.0` (no date; the tag carries the time) and opens a new empty `## Unreleased` above it. It then runs `just lock`, committed-lock Cargo/cargo-deny checks and `just check` on the resulting tree. The resulting exact source/lock and actual pin/profile/release-age evidence require MAX/JEV review under [Review evidence](../reference/dependencies.md#review-evidence); the command cannot supply that approval. It does not commit, tag or push.
 
-Expected: exit code 0, and `git status --short` lists the release files (`Cargo.toml`, `Cargo.lock`, `CHANGELOG.md`) and only the replay updates under `.config/tools.toml` and `.config/lock-inputs/`. Review the full dependency/replay diff before staging.
+Expected: exit code 0, and `git status --short` lists the release files (`Cargo.toml`, `Cargo.lock`, `CHANGELOG.md`) with the refreshed committed lock. Review the full dependency diff before staging.
 
 If it fails: it prints the first refusal. An empty `## Unreleased` means the cards since the last release left no changelog lines; write them from the merged cards' titles, have the owner review them, then rerun.
 
 ### Step 2. Open the pull request (Codex)
 
 ```sh
-git add Cargo.toml Cargo.lock CHANGELOG.md .config/tools.toml .config/lock-inputs/
+git add Cargo.toml Cargo.lock CHANGELOG.md
 git commit -m "release: 0.2.0"
 git push -u origin HEAD
 ```
@@ -82,7 +82,7 @@ If `ci-ok` is red, fix the cause in the same branch. Do not edit the version by 
 
 ### Step 3. Merge (owner)
 
-Review the complete release and replay-input diff, including newly retained files, then merge when `ci-ok` is green.
+Review the complete release and lock diff then merge when `ci-ok` is green.
 
 Expected: `main` now holds the release commit.
 

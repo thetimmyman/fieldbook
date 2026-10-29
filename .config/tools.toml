@@ -4,8 +4,8 @@
 # workflow installs the same versions (a test fails if the two disagree). Rust itself
 # is pinned in rust-toolchain.toml. A tool joins when its output falls due, and each
 # bump is its own card, adopted once the release is 14 days old. The card is `auto`
-# when `cargo xtask deps --check`, `cargo deny check` and `just lock-verify` pass and
-# the tool's row in docs/reference/dependencies.md is in the same pull request.
+# with the committed-lock Cargo/cargo-deny and exact-source review evidence in
+# docs/reference/dependencies.md. Complete custom checks/replay are deferred.
 
 # Installed with `cargo install --locked NAME@VERSION`.
 [cargo]
@@ -27,8 +27,8 @@ linux-x64-sha256 = "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f24
 version = "26.10.0"
 
 # Resolves Cargo.lock under the 14-day cooldown. It never builds (AD-06). `just lock`
-# also writes the cutoff it used here as `cutoff = "<UTC timestamp>"`, and
-# `just lock-verify` re-resolves at that cutoff and fails if Cargo.lock differs or the
-# cutoff is less than 14 days older than the head commit.
+# currently resolves only; record actual cutoff/release evidence in the review.
+# This valid nightly-only table needs no replay record for initial adoption.
+# Full capture/record/replay belongs to later-lock-replay, not a present verifier.
 [lock]
 nightly = "nightly-2026-10-08"
