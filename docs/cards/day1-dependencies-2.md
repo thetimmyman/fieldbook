@@ -25,7 +25,7 @@ The offline lock verifier performs actual Cargo re-resolution from a recorded bo
 
 ## Preconditions
 
-- Cards merged: `day1-dependencies-checks-2`.
+- Cards merged: `day1-dependencies-checks-3`.
 
 ## Steps
 

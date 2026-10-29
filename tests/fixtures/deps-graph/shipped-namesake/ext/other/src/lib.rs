@@ -1,0 +1,1 @@
+//! external namesake fixture crate.

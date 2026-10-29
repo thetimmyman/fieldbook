@@ -1,0 +1,6 @@
+transitive [calamine@0.1.0 zip@0.1.0]
+all [calamine@0.1.0 zip@0.1.0]
+shipped [calamine zip]
+normal [calamine zip]
+dev []
+build []

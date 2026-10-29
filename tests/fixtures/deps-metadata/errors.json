@@ -182,5 +182,25 @@
   [
     "boolean-format.json",
     "format version"
+  ],
+  [
+    "missing-manifest.json",
+    "invalid manifest_path"
+  ],
+  [
+    "bad-manifest.json",
+    "invalid manifest_path"
+  ],
+  [
+    "empty-manifest.json",
+    "invalid manifest_path"
+  ],
+  [
+    "bad-path.json",
+    "invalid path"
+  ],
+  [
+    "empty-path.json",
+    "invalid path"
   ]
 ]

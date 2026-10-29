@@ -85,7 +85,8 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day1-dependencies: complete catalog/workflow reference facts with source locations, without a policy gate
 - day1-dependencies-inputs: workspace/tool/replay configuration and the complete strict input aggregate
 - day1-dependencies-checks: strict Cargo metadata shapes, identities and complete declaration/edge facts
-- day1-dependencies-checks-2: target/profile measurement, all policy checks, complete command, baseline and gate
+- day1-dependencies-checks-2: complete target/profile measurement and raw declaration pin facts
+- day1-dependencies-checks-3: all policy checks, complete command, baseline and gate
 - day1-dependencies-2: actual isolated offline resolution replay from immutable bounded bundles
 - day1-dependencies-3: bounded capture, initial Day-1 dependency adoption and full lock/replay activation
 - core-types-and-strings: frozen strings, `hex::lower`, schema-version constants, `strings::js()`, `cargo xtask docs`

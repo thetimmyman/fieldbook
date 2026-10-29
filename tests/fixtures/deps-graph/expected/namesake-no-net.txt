@@ -1,0 +1,6 @@
+transitive [fieldbook@1.0.0 shared@0.1.0]
+all [fieldbook@1.0.0 shared@0.1.0]
+shipped [fieldbook shared]
+normal [fieldbook shared]
+dev []
+build []

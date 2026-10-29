@@ -1,0 +1,6 @@
+transitive [alpha@0.1.0]
+all [alpha@0.1.0]
+shipped [alpha]
+normal [alpha]
+dev []
+build []

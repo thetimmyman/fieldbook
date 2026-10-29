@@ -1,0 +1,8 @@
+[package]
+name = "fieldbook"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+calamine = { path = "../../ext/calamine", version = "0.1.0" }
+namesake = { package = "fieldbook", path = "../../ext/other", version = "1.0.0" }

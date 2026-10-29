@@ -24,6 +24,11 @@
 mod denylist;
 #[cfg_attr(
     not(test),
+    expect(dead_code, reason = "the complete checker consumes graph measurements")
+)]
+mod deps_graph;
+#[cfg_attr(
+    not(test),
     expect(
         dead_code,
         reason = "the complete dependency checker consumes these configuration facts"
