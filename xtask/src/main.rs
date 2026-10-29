@@ -34,6 +34,14 @@ mod deps_inputs;
     not(test),
     expect(
         dead_code,
+        reason = "the graph measurement consumer follows this metadata producer"
+    )
+)]
+mod deps_metadata;
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
         reason = "the full dependency-input consumer registers this producer"
     )
 )]

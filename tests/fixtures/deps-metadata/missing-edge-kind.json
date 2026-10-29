@@ -1,0 +1,100 @@
+{
+  "workspace_members": [
+    "opaque-workspace"
+  ],
+  "packages": [
+    {
+      "id": "opaque-workspace",
+      "name": "fieldbook",
+      "version": "0.1.0",
+      "features": {},
+      "dependencies": [
+        {
+          "name": "outside",
+          "req": "^1.2.3",
+          "kind": null,
+          "target": null
+        },
+        {
+          "name": "outside",
+          "req": "1.2.3",
+          "kind": "dev",
+          "target": "cfg(windows)"
+        },
+        {
+          "name": "outside",
+          "req": "~1.2",
+          "kind": "build",
+          "target": null
+        },
+        {
+          "name": "fieldbook",
+          "req": "1.0.0",
+          "kind": null,
+          "target": null
+        }
+      ]
+    },
+    {
+      "id": "opaque-external",
+      "name": "fieldbook",
+      "version": "1.0.0",
+      "features": {
+        "net": [
+          "dep:outside"
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "id": "opaque-library",
+      "name": "outside",
+      "version": "1.2.3",
+      "features": {},
+      "dependencies": []
+    }
+  ],
+  "resolve": {
+    "nodes": [
+      {
+        "id": "opaque-workspace",
+        "deps": [
+          {
+            "pkg": "opaque-library",
+            "dep_kinds": [
+              {
+                "target": null
+              },
+              {
+                "kind": "dev",
+                "target": "cfg(windows)"
+              },
+              {
+                "kind": "build",
+                "target": null
+              }
+            ]
+          },
+          {
+            "pkg": "opaque-external",
+            "dep_kinds": [
+              {
+                "kind": null,
+                "target": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "opaque-external",
+        "deps": []
+      },
+      {
+        "id": "opaque-library",
+        "deps": []
+      }
+    ]
+  },
+  "version": 1
+}
