@@ -1,0 +1,6 @@
+# Synthetic unknown reference context.
+jobs:
+  check:
+    mystery:
+      value:
+        uses: example/action@tag

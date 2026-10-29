@@ -1,0 +1,5 @@
+# Synthetic unsupported indentless sequence.
+jobs:
+  check:
+    steps:
+    - uses: example/action@tag

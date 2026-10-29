@@ -22,6 +22,14 @@
 )]
 
 mod denylist;
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the full dependency-input consumer registers this producer"
+    )
+)]
+mod deps_references;
 #[cfg(test)]
 mod graph;
 mod guard;

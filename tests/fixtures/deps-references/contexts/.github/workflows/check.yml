@@ -1,0 +1,27 @@
+# Synthetic scalar and data contexts.
+name: "uses: title-data"
+env:
+  uses: root-data
+jobs:
+  reusable:
+    uses: example/workflow@tag#suffix
+  check:
+    strategy:
+      matrix:
+        uses: matrix-data
+    steps:
+      - run: |
+          uses: literal-data
+          uses: more-literal-data
+
+        uses: "./local-action" # actual sibling
+      - run: >-
+          uses: folded-data
+        env:
+          uses: environment-data
+      - name: 'uses: display-data'
+        uses: 'docker://sample:1#literal'
+        with:
+          uses: input-data
+      - uses: example/action@tag # comment
+      - uses: example/action@tag
