@@ -332,6 +332,7 @@ textarea.input:focus,input.input:focus{outline:var(--focus-w) solid var(--color-
 .pal-filters button{height:var(--control-h-sm);border-radius:var(--radius-pill);border:var(--border-w) solid var(--color-border);background:var(--color-surface);padding:0 var(--space-2-5);font-size:var(--text-xs);cursor:pointer;color:var(--color-muted)}
 .pal-filters button[aria-pressed="true"]{background:var(--color-accent-soft);color:var(--color-accent);border-color:transparent;font-weight:var(--weight-semibold)}
 .pal-res{overflow:auto;padding:var(--space-2) 0}
+.pal-note{overflow:auto}
 .pal-group{padding:var(--space-2) var(--space-4) var(--space-0-5);font-size:var(--text-2xs);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-caps-wide);text-transform:uppercase;color:var(--color-muted)}
 .pal-opt{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-3);padding:var(--space-2) var(--space-4);cursor:pointer;align-items:start}
 .pal-opt[aria-selected="true"]{background:var(--color-accent-soft)}
@@ -418,10 +419,62 @@ main{container-type:inline-size}
   .kv dt{margin-top:var(--space-1-5)}
 }
 @media (prefers-reduced-motion:reduce){:root{--dur-fast:0ms; --dur-med:0ms; --dur-pulse:0ms}}
+/* The paper carries its own identity line. Paper is one real table whose tfoot holds that line, so the browser repeats
+   the footer and reserves its band on every page; on screen the frame is absent and the live main is the page (section 12). */
+.print-frame{display:none}
+/* AD-12: Letter with no page margin. The sheet is the page, so the frame must not keep a viewport height or a flex fill. */
+@page{size:Letter;margin:0}
 @media print{
-  .sidebar,.topbar,.crumbs-row,.drawer,.scrim,.page-actions,.rail,.toast,.sel-bar{display:none!important}
+  html,body{height:auto}
+  /* AD-12: Letter with zero @page margin means the paper needs its own body inset, or the text starts at the paper edge.
+     The bottom edge is the real tfoot footer band's own padding: any positive body padding-bottom adds an empty
+     trailing fragment on a full page (measured: decision package, css-defaults), so it is the one side left at 0. */
+  body{margin:0;padding:var(--space-6) var(--space-6) 0}
+  .app{display:block;min-height:0}
+  .shell{display:block}
+  main{flex:none;padding:0 0 calc(var(--space-8) + var(--space-2))}
+  .shell .crumbs-row:not([hidden])+main{padding-top:0}
+  .sidebar,.topbar,.crumbs-row,.drawer,.scrim,.mini-dlg,.palette,.pop,.page-actions,.rail,.toast,.sel-bar{display:none!important}
   :root{--color-bg:#ffffff; --shadow-raise:none; --shadow-pop:none}
-  main{padding:0} .reader{display:block} .precise{display:block}
+  .reader{display:block} .precise{display:block}
+  /* A header hides its controls, never its status words, its selected version or its evidence identity. */
+  .h-page .actions>:is(button,a,.seg,.cmd-wrap),.ws-head .actions>:is(button,a,.seg,.cmd-wrap){display:none!important}
+  /* In-body action chrome hides too. A citation, a source key, a status word, a selected version or a command's text is
+     evidence, not action chrome, so it stays. */
+  [data-chat],button[data-day-open],button[data-copy-cmd],button[data-copy-ai],button[data-copy-link],.tu-item.chg>a.btn{display:none!important}
+  /* Tables print whole at the reading size: cells wrap at word and token boundaries, and the narrow-only hides return,
+     so no column is cropped by an inert scroller and no word, status or figure breaks inside itself. */
+  .table-wrap{overflow:visible;border:0;border-radius:0}
+  .table-wrap :is(th,td){min-width:0!important}
+  .table-wrap :is(th,td) :is(.chip,.cite,.claim-mark){white-space:normal;height:auto}
+  .table-wrap td{overflow-wrap:break-word}
+  thead th{white-space:normal}
+  .hide-sm{display:table-cell!important}
+  /* A wide register prints as one labelled record per row: every field keeps its label, its own width and its row, and a
+     record is not split across a page or a footer band. */
+  table[data-print-records],table[data-print-records] tbody{display:block}
+  table[data-print-records] thead{display:none}
+  table[data-print-records] tr{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:var(--space-1) var(--space-3);padding:var(--space-2) 0;border-top:var(--border-w) solid var(--color-border);break-inside:avoid}
+  table[data-print-records] td{display:block;border:0;padding:0;overflow-wrap:break-word}
+  table[data-print-records] td::before{content:attr(data-label);display:block;font-size:var(--text-2xs);letter-spacing:.04em;text-transform:uppercase;color:var(--color-muted)}
+  table[data-print-records] td[data-wide]{grid-column:1/-1}
+  .toolbar :is(.seg,.filter){display:none!important}
+  .tabs{overflow:visible;background:none}
+  .sheet{border:0;box-shadow:none}
+  /* A chart prints its values open; the screen keeps its own collapse (the script opens these only while printing). */
+  details[data-chart-values]:not([open])>:not(summary){display:block!important}
+  details[data-chart-values]:not([open])>summary::before{transform:rotate(45deg)}
+  details[data-chart-values]::details-content{content-visibility:visible}
+  /* The frame stands in for the live main only once the script has built its rows; with no rows the page still prints.
+     The direct-child resets take the frame's own table decoration off the data tables nested inside it. */
+  html[data-print-frame="1"] #main{display:none}
+  html[data-print-frame="1"] .print-frame{display:block}
+  .print-frame-t{width:100%;border-collapse:collapse;table-layout:fixed}
+  /* The frame stands where main stood, so it carries main's inline-size containment and the narrow-width rules that
+     the paper has always been laid out with still resolve inside the frame. */
+  .print-frame{container-type:inline-size}
+  .print-frame-t>tbody>tr>td{border:0;padding:0;vertical-align:top;overflow-wrap:break-word}
+  .print-frame-t>tfoot>tr>td{border:0;border-top:var(--border-w) solid var(--color-border);padding:var(--space-1-5) var(--space-6);vertical-align:top;color:var(--color-muted);font-size:var(--text-2xs);line-height:var(--leading-snug);overflow-wrap:break-word}
 }
 @media (forced-colors:active){:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{
   --color-bg:Canvas; --color-surface:Canvas; --color-surface-2:Canvas; --color-fg:CanvasText; --color-muted:CanvasText;
@@ -1058,6 +1111,8 @@ svg .now{stroke:var(--color-accent);stroke-width:2;stroke-dasharray:4 3;vector-e
     </header>
     <nav class="crumbs crumbs-row" id="crumbs" aria-label="Breadcrumb" hidden></nav>
     <main id="main" tabindex="-1"></main>
+    <!-- Print frame: pagination layout only, so it is presentational and inert, and it exists just for paper. -->
+    <div class="print-frame" id="printFrame" inert aria-hidden="true"><table class="print-frame-t" role="presentation"><tbody id="printRows"></tbody><tfoot><tr><td id="printFoot"></td></tr></tfoot></table></div>
   </div>
 </div>
 
@@ -1092,6 +1147,7 @@ svg .now{stroke:var(--color-accent);stroke-width:2;stroke-dasharray:4 3;vector-e
       <kbd>Esc</kbd></div>
     <div class="pal-filters" id="palFilters" role="group" aria-label="Filter results"></div>
     <div class="pal-res" id="palRes" role="listbox" aria-label="Results"></div>
+    <div class="pal-note" id="palNote"></div>
     <div class="pal-foot"><span><kbd>↑</kbd> <kbd>↓</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>Shift</kbd>+<kbd>Enter</kbd> ask with this</span><span>Exact search · no model · 4 ms</span></div>
   </div>
 </div>
@@ -1494,14 +1550,17 @@ let START=store.get('fieldbook.start')||null;
 const TODAY=new Date();TODAY.setHours(0,0,0,0);
 const daysSince=iso=>Math.round((TODAY-new Date(iso+'T00:00:00'))/864e5);
 const ageText=iso=>{const n=daysSince(iso);return n<=0?'today':n===1?'1 day ago':n<60?n+' days ago':n<730?Math.round(n/30.4)+' months ago':Math.round(n/365)+' years ago'};
-const dayLabel=()=>{if(!START)return '';const n=daysSince(START)+1;return n>=1?`Day ${n} of ${BUILD.horizon}`:''};
+/* One validity rule for the stored start date. An unparsable value is unavailable for display, so the
+   existing set-date control returns; this check reads the stored bytes and never rewrites them. */
+const startDate=()=>{if(!START)return null;const d=new Date(START+'T00:00:00');return isNaN(d.getTime())?null:START};
+const dayLabel=()=>{const s=startDate();if(!s)return '';const n=daysSince(s)+1;return n>=1?`Day ${n} of ${BUILD.horizon}`:''};
 const verifiedHtml=c=>c.verified_on?`<span>Verified <time datetime="${c.verified_on}">${c.verified_on}</time> <span class="age">(${ageText(c.verified_on)})</span> · ${esc(c.verified_by_role)}${c.note?' · '+esc(c.note):''}</span>`:'<span class="unver">Never verified</span>';
 const excerptFor=raw=>{const p=parseCite(raw);const s=p&&D.sources[p.id];const t=s&&p.loc&&s.locators[p.loc];return t?t.replace(/^\([a-z0-9]+\)(\([0-9a-z]+\))*\s*|^§[\d.]+\s*/,'').replace(/^…\s*/,'').slice(0,150)+(t.length>150?'…':''):null};
 const effectiveFor=raw=>{const p=parseCite(raw);const s=p&&D.sources[p.id];if(!s)return '';return s.effective==='n/a'?'No effective date':(p.v<s.v?`v${p.v} superseded`:`Effective ${s.effective}`)};
 const lastVerified=claims=>claims.filter(c=>c&&c.verified_on).map(c=>c.verified_on).sort().pop();
 /* Answer metadata (NFR-U-01): citation, effective date and last-verified age on every answer surface. */
 const ansMeta=c=>`<div class="ans-meta">${c.src!=='—'?`<button class="cite" data-cite="${esc(c.src)}">${esc(c.src)}</button><span>${effectiveFor(c.src)}</span>`:'<span>No source yet</span>'}${verifiedHtml(c)}</div>`;
-let state={singleKeys:store.get('fieldbook.singleKeys')!=='off',precise:false,srcFromAsk:false,palFilter:'all'};
+let state={singleKeys:store.get('fieldbook.singleKeys')!=='off',precise:false,srcFromAsk:false,palFilter:'all',claimSort:'id',claimDir:1};
 
 /* Reader pages number their source citations; the Sources part lists them. Without JS each marker is a plain anchor to its entry. */
 let CITE=null;
@@ -1620,12 +1679,17 @@ V.learn=()=>{const cur=D.stages[2];return `<div class="page-w" style="max-width:
   <p class="note" style="margin-top:var(--space-3)">Company gates for this stage: Q-005, Q-008, Q-016, Q-020, Q-024. Public pages are complete now; company-specific pages wait for answers.</p></div></section>
  </div></div>`};
 
-V.claims=()=>{const f=state.claimFilter||'all';const rows=D.claims.filter(c=>f==='all'||c.ver===f);
+/* The four sortable claims headers really sort: the active column and direction drive both the rendered
+   order and aria-sort, so the arrow never advertises an order the table is not in. */
+V.claims=()=>{const f=state.claimFilter||'all';
+ const key=c=>state.claimSort==='ver'?c.ver:state.claimSort==='asOf'?c.asOf:state.claimSort==='verified'?(c.verified_on||''):c.id;
+ const rows=D.claims.filter(c=>f==='all'||c.ver===f).slice().sort((a,b)=>{const x=key(a),y=key(b);const d=x===y?natCmp(a.id,b.id):(x<y?-1:1);return d*state.claimDir});
+ const th=(k,label)=>`<th scope="col"${state.claimSort===k?` aria-sort="${state.claimDir>0?'ascending':'descending'}"`:''}><button data-sort="${k}">${label} <span aria-hidden="true">↕</span></button></th>`;
  return `<div class="page-w"><div class="h-page"><div><h1>Claims</h1><p>Every load-bearing statement, with three statuses that never collapse into one. Supported is not the same as applicable.</p></div><div class="actions">${land('Every build writes data/claims.csv and data/registers.xlsx.')}</div></div>
  <div class="toolbar"><div class="seg" role="group" aria-label="Filter by verification">${[['all','All'],['unchecked','Unchecked'],['primary_source_supported','Supported'],['contradicted','Contradicted'],['stale','Stale'],['unresolved','Unresolved']].map(([k,l])=>`<button aria-pressed="${f===k}" data-cf="${k}">${l}</button>`).join('')}</div>
   <select class="filter" aria-label="Area"><option>All areas</option>${D.areas.map(a=>`<option>${a.code} · ${esc(a.name)}</option>`).join('')}</select><span class="meta" style="margin-left:auto">${rows.length} shown · 186 in the library</span></div>
- ${rows.length?`<div class="table-wrap"><table><caption class="sr-only">Claims register</caption><thead><tr><th scope="col" aria-sort="ascending"><button>Id <span aria-hidden="true">↕</span></button></th><th scope="col">Claim</th><th scope="col"><button>Verification <span aria-hidden="true">↕</span></button></th><th scope="col">Applicability</th><th scope="col">Adoption</th><th scope="col">Origin</th><th scope="col"><button>As of <span aria-hidden="true">↕</span></button></th><th scope="col"><button>Verified <span aria-hidden="true">↕</span></button></th><th scope="col">Source</th></tr></thead><tbody>
- ${rows.map(c=>`<tr><td class="mono" style="font-size:var(--text-xs);white-space:nowrap">${c.id}</td><td style="min-width:260px"><a href="#page-${c.page}" style="color:var(--color-fg)">${esc(c.text)}</a>${c.conflict?`<div class="meta" style="font-size:var(--text-xs)">Conflict <a href="#conflicts-${c.conflict}">${c.conflict}</a></div>`:''}</td><td>${verChip(c.ver)}</td><td>${appChip(c.app)}</td><td>${adoptChip(c.adopt)}</td><td>${c.origin}</td><td class="num">${c.asOf}</td><td class="num" style="white-space:nowrap">${c.verified_on?`<time datetime="${c.verified_on}">${c.verified_on}</time><div class="meta" style="font-size:var(--text-xs)">${ageText(c.verified_on)} · ${esc(c.verified_by_role)}</div>`:'<span class="meta">Never</span>'}</td><td>${c.src!=='—'?`<button class="cite" data-cite="${esc(c.src)}">${esc(c.src)}</button>`:'<span class="meta">None</span>'}</td></tr>`).join('')}
+ ${rows.length?`<div class="table-wrap"><table data-print-records><caption class="sr-only">Claims register</caption><thead><tr>${th('id','Id')}<th scope="col">Claim</th>${th('ver','Verification')}<th scope="col">Applicability</th><th scope="col">Adoption</th><th scope="col">Origin</th>${th('asOf','As of')}${th('verified','Verified')}<th scope="col">Source</th></tr></thead><tbody>
+ ${rows.map(c=>`<tr><td class="mono" data-label="Id" style="font-size:var(--text-xs);white-space:nowrap">${c.id}</td><td data-label="Claim" data-wide style="min-width:260px"><a href="#page-${c.page}" style="color:var(--color-fg)">${esc(c.text)}</a>${c.conflict?`<div class="meta" style="font-size:var(--text-xs)">Conflict <a href="#conflicts-${c.conflict}">${c.conflict}</a></div>`:''}</td><td data-label="Verification">${verChip(c.ver)}</td><td data-label="Applicability">${appChip(c.app)}</td><td data-label="Adoption">${adoptChip(c.adopt)}</td><td data-label="Origin">${c.origin}</td><td class="num" data-label="As of">${c.asOf}</td><td class="num" data-label="Verified" style="white-space:nowrap">${c.verified_on?`<time datetime="${c.verified_on}">${c.verified_on}</time><div class="meta" style="font-size:var(--text-xs)">${ageText(c.verified_on)} · ${esc(c.verified_by_role)}</div>`:'<span class="meta">Never</span>'}</td><td data-label="Source">${c.src!=='—'?`<button class="cite" data-cite="${esc(c.src)}">${esc(c.src)}</button>`:'<span class="meta">None</span>'}</td></tr>`).join('')}
  </tbody></table></div>`:`<div class="panel" style="padding:var(--space-6)"><b>No claims with that status.</b><p class="meta" style="margin-top:var(--space-1)">An empty filter means none are recorded, not that none exist.</p></div>`}</div>`};
 
 V.questions=()=>`<div class="page-w"><div class="h-page"><div><h1>Company questions</h1><p>What only the company can answer, who to ask, and what each answer unlocks. Pages that depend on an open question say so.</p></div></div>
@@ -1690,7 +1754,7 @@ V.states=()=>`<div class="page-w"><div class="h-page"><div><h1>States gallery</h
   ${stateCard('Change · command to run','The browser never writes to the library',`<p class="note" style="margin:0">Every change is a command you copy and run. The page shows it; it has no write buttons.</p>${cmd('fieldbook new question --confirm-public --area prg "Who approves the monthly EAC?"','Add to company questions')}<p class="note" style="margin:0">Day 1 verbs: new, add, check, fmt, build, search, status, verify. The CLI never touches the clipboard.</p>`)}
   ${stateCard('Assistant · model connection','One line under the chat title. The prototype switches it here; builds show the real state',`<div class="seg ad-seg" role="group" aria-label="Model connection">${[['connected','Connected'],['none','No model here'],['connecting','Connecting'],['error','Error']].map(([k,l])=>`<button aria-pressed="${chat.mode===k}" data-chat="adapter" data-mode="${k}">${l}</button>`).join('')}</div><p class="adapter">${adapterLine(null,true)}</p><div class="chips"><button class="switch" data-chat="cap" data-cap="keep" aria-pressed="${chat.caps.keep}"><i></i>Keeps threads</button><button class="switch" data-chat="cap" data-cap="save" aria-pressed="${chat.caps.save}"><i></i>Saves notes</button></div>`)}
   ${stateCard('Ask · citation outside the context','The source exists, but this answer did not read it',(()=>{const r=citeCheck('The clause applies only to contracts subject to CAS [@S-0107-v1, (b)]. Pricing of FFP awards is covered in [@S-0042-v2, (a)(1)].',{read:new Set(['S-0107'])});return `<div class="summary-row">${verdictChips(r)}</div><div class="checked-answer">${r.html}</div><div class="ans-actions"><button class="btn sm" data-toast="In a thread this adds S-0042 to the context and asks the same question again.">${icon('layers')}Add S-0042 and ask again</button></div>`})())}
-  ${stateCard('Context · near and over the limit','ContextMeter past 90% and past 100% of what the model can read',`${meterHtml('meterNear',11200,'near')}<p class="ctx-warn">${icon('alert')}<span>Near the limit. Drop the items marked “Drop to fit”, or pin what must stay.</span></p>${meterHtml('meterOver',12900,'over')}<p class="ctx-warn bad">${icon('x')}<span>The context is larger than ${chat.model} can read. Remove 2 items.</span></p><div><button class="btn primary sm" disabled>${icon('arrow')}Send</button></div>`)}
+  ${stateCard('Context · near and over the limit','ContextMeter past 90% and past 100% of what the model can read',`${meterHtml('meterNear',11200,'near')}<p class="ctx-warn">${icon('alert')}<span>Near the limit. Drop the items marked “Drop to fit”, or pin what must stay.</span></p>${meterHtml('meterOver',12900,'over')}<p class="ctx-warn bad" id="spec-over-warn">${icon('x')}<span>The context is larger than ${chat.model} can read. Remove 2 items.</span></p><div><button class="btn primary sm" disabled aria-describedby="spec-over-warn">${icon('arrow')}Send</button></div>`)}
   ${stateCard('Ask · every citation failed','Cite-check result',`<div class="summary-row"><span class="chip bad">${icon('x')}0 of 3 verified</span><span class="chip warn">2 uncited sentences</span></div><p class="note">Do not use this answer. Ask again with a smaller scope, or search the clause directly.</p>`)}
   ${stateCard('Handling · blocked save','marked and untagged content',`<div class="banner bad" style="margin:0">${icon('lock')}<div><b>Not saved: no handling tag.</b> Choose the destination store and its permitted labels. Marked material needs store admission and remains local under floor B.</div></div>`)}
   ${stateCard('Index · loading','Only shown after 300 ms',`<div class="skel" style="width:70%"></div><div class="skel" style="width:90%"></div><div class="skel" style="width:55%"></div>`)}
@@ -1751,7 +1815,7 @@ function rerenderMain(top){const y=scrollY;route.first=true;route();if(!top)wind
    Each thread keeps its messages and its own context; each answer keeps a snapshot of the items it read. */
 const chat={mode:'connected',model:'Model at home',budget:12000,allowCompany:false,policyHash:'synthetic-policy-v1',clipboardPermission:{policy_hash:'synthetic-policy-v1',available:true,allowed:['public'],expires:null},reason:'timed out',caps:{keep:true,save:true},threads:{},order:[],n:0,ord:0,
  drawerTh:null,sheetTh:null,sheetFrom:null,sheetBar:null,timer:null,live:null,outOpen:{},focusAfter:null,
- packs:[{name:'Withholding basics',view_fingerprint:'synthetic-public-v1',ids:['cmp-withholding','CL-CMP-0012','S-0107']},{name:'Competitor watch',view_fingerprint:'synthetic-public-v1',ids:['competitor-a','S-0450','S-0412']}]};
+ packs:[{name:'Withholding basics',view_fingerprint:'synthetic-public-v1',ids:['cmp-withholding','CL-CMP-0012','S-0107']},{name:'Competitor watch',view_fingerprint:'synthetic-public-v1',ids:['competitor-a','S-0450','S-0412']},{name:'Owner debrief (company view)',view_fingerprint:'synthetic-company-v1',ids:['cmp-withholding','ORG-1']}]};
 const STREAM_MS=380;
 const fmtN=n=>n.toLocaleString('en-US');
 const keyOf=x=>x.id+(x.v?'-v'+x.v:'');
@@ -1879,7 +1943,8 @@ function requestBudget(t,question){
  const total=scalarCount(text),reason=unavailable.length?'Pinned item unavailable: '+unavailable.map(keyOf).join(', '):total>chat.budget?'Complete request exceeds the character limit.':'';
  return {text,total,limit:chat.budget,sendable:!reason,reason,history:kept.join('\n\n'),omitted};
 }
-const level=t=>{const b=requestBudget(t);return !b.sendable?'over':b.total>b.limit*.9?'near':'ok'};
+/* Near and over are numeric facts about total against limit; an unavailable pin blocks sending without being an excess of characters. */
+const level=t=>{const b=requestBudget(t);return b.total>b.limit?'over':b.total>b.limit*.9?'near':'ok'};
 function dropSet(t,lim){let n=requestBudget(t).total;const out=[];[...t.items].filter(x=>x.st!=='pinned').sort((a,b)=>b.words-a.words).forEach(x=>{if(n>lim){out.push(keyOf(x));n-=scalarCount(x.text||x.label)}});return out}
 function ctxPin(t,key){const x=t.items.find(y=>keyOf(y)===key);if(!x)return;if(x.st==='pinned'){x.st=x.prev||'picked';noteChange(t,'You unpinned '+key)}else{x.prev=x.st;x.st='pinned';noteChange(t,'You pinned '+key)}sortItems(t)}
 function ctxRemove(t,key){const i=t.items.findIndex(y=>keyOf(y)===key);if(i<0)return null;const [x]=t.items.splice(i,1);t.out.unshift({...x,reason:'You removed it'});noteChange(t,'You removed '+key);const nx=t.items[i]||t.items[i-1];return nx?keyOf(nx):null}
@@ -1901,7 +1966,7 @@ function adapterLine(t,bare){
  if(m==='error')return `${icon('alert')}<b>The model did not answer: ${chat.reason}.</b>${bare?'':'<button class="btn sm" data-chat="retry">Try again</button>'}`;
  return `<span class="ad-dot ok" aria-hidden="true"></span><b>${chat.model}</b><span> · connected</span>`;
 }
-function resChips(r){return `<span class="chip ok">${icon('check')}${r.ok} verified</span>${r.bad?`<span class="chip bad">${icon('x')}${r.bad} broken</span>`:''}${r.out?`<span class="chip warn">${icon('layers')}${r.out} outside context</span>`:''}${r.sup?`<span class="chip warn">${icon('clock')}${r.sup} superseded</span>`:''}${r.weak?`<span class="chip warn">${icon('alert')}${r.weak} weak</span>`:''}${r.unc?`<span class="chip warn">${r.unc} uncited</span>`:''}${r.abst?`<span class="chip info">${r.abst} abstention${r.abst>1?'s':''}</span>`:''}${r.nonc?`<span class="chip warn">${r.nonc} non-canonical</span>`:''}`}
+function resChips(r){return `<span class="chip ok">${icon('check')}${r.ok} verified</span>${r.bad?`<span class="chip bad">${icon('x')}${r.bad} broken</span>`:''}${r.out?`<span class="chip warn">${icon('layers')}${r.out} outside context</span>`:''}${r.sup?`<span class="chip warn">${icon('clock')}${r.sup} superseded</span>`:''}${r.weak?`<span class="chip warn">${icon('alert')}${r.weak} weak</span>`:''}${r.unchecked_locator?`<span class="chip warn">${icon('alert')}${r.unchecked_locator} unchecked locator</span>`:''}${r.unchecked_quote?`<span class="chip warn">${icon('alert')}${r.unchecked_quote} unchecked quote</span>`:''}${r.quote_mismatch?`<span class="chip bad">${icon('x')}${r.quote_mismatch} quote mismatch</span>`:''}${r.unc?`<span class="chip warn">${r.unc} uncited</span>`:''}${r.abst?`<span class="chip info">${r.abst} abstention${r.abst>1?'s':''}</span>`:''}${r.nonc?`<span class="chip warn">${r.nonc} non-canonical</span>`:''}`}
 const reviewN=r=>r.bad+r.out+r.sup+r.weak+r.unchecked_locator+r.unchecked_quote+r.quote_mismatch+r.unc+r.nonc;
 function verdictChips(r){const n=reviewN(r);return `<span class="chip ok">${icon('check')}${r.ok} verified</span>${n?`<span class="chip warn">${icon('alert')}${n} to review</span>`:''}${r.abst?`<span class="chip info">${r.abst} abstention${r.abst>1?'s':''}</span>`:''}`}
 function checkLine(r){return [[r.ok,'verified'],[r.bad,'broken'],[r.out,'outside context'],[r.sup,'superseded'],[r.weak,'weak'],[r.unchecked_locator,'unchecked locator'],[r.unchecked_quote,'unchecked quote'],[r.quote_mismatch,'quote mismatch'],[r.unc,'uncited'],[r.abst,r.abst>1?'abstentions':'abstention'],[r.nonc,'non-canonical']].filter(x=>x[0]).map(x=>x[0]+' '+x[1]).join(', ')||'no citations'}
@@ -1936,8 +2001,8 @@ function chatFoot(t,s,taId,ph){
 }
 function sendHtml(t,s){
  if(chat.live&&chat.live.t===t)return `<button class="btn sm" data-chat="stop">${icon('x')}Stop</button>`;
- if(chat.mode==='none')return `<button class="btn primary sm" data-chat="copy"${!t||!requestBudget(t).sendable?' disabled':''}>${icon('copy')}Copy context pack</button>`;
- const dis=chat.mode==='connecting'||level(t)==='over'||!!chat.live;
+ if(chat.mode==='none')return `<button class="btn primary sm" data-chat="copy" data-copy-trigger="composer"${!t||!requestBudget(t).sendable?' disabled':''}>${icon('copy')}Copy context pack</button>`;
+ const dis=chat.mode==='connecting'||!requestBudget(t).sendable||!!chat.live;
  return `<button class="btn primary sm" data-chat="send" aria-describedby="line-${s}"${dis?' disabled':''}>${icon('arrow')}Send</button>`;
 }
 function lineHtml(t){
@@ -1960,7 +2025,8 @@ function ctxListHtml(t,s){
   <div class="ci-a"><button class="btn ghost icon-btn sm" data-chat="pin" data-key="${k}" aria-pressed="${pin}" aria-label="Pin ${k}" title="${pin?'Unpin':'Pin'}">${icon('pin')}</button><button class="btn ghost icon-btn sm" data-chat="rm" data-key="${k}" aria-label="Remove ${k}" title="Remove">${icon('x')}</button></div></li>`};
  const outRow=x=>`<li class="ctx-item out"><div><div class="ci-h"><span class="ci-st">${x.k}</span>${x.org?'':`<span class="mono">${esc(keyOf(x))}</span>`}${x.flag?`<span class="chip warn">${x.flag}</span>`:''}</div><div class="ci-t">${esc(x.label)}</div><div class="ci-why">${esc(x.reason)}</div></div><div class="ci-a">${x.org?`<span class="chip">${icon('lock')}Never sent</span>`:`<button class="btn sm" data-chat="addback" data-key="${keyOf(x)}" aria-label="Add back ${keyOf(x)}">Add back</button>`}</div></li>`;
  return meterHtml('meter-'+s,w,lv)
-  +(lv==='over'?`<p class="ctx-warn bad">${icon('x')}<span>${esc(requestBudget(t).reason)}</span></p>`:lv==='near'?`<p class="ctx-warn">${icon('alert')}<span>Near the limit. Drop the items marked “Drop to fit”, or pin what must stay.</span></p>`:'')
+  +(budget.sendable?(lv==='near'?`<p class="ctx-warn">${icon('alert')}<span>Near the limit. Drop the items marked “Drop to fit”, or pin what must stay.</span></p>`:'')
+   :`<p class="ctx-warn${lv==='over'?' bad':''}">${icon(lv==='over'?'x':'alert')}<span>${esc(budget.reason)}</span></p>`)
   +`<details class="fold"><summary>History · ${budget.omitted} turns omitted</summary><pre>${esc(budget.history||'No completed turns.')}</pre></details><ul class="ctx-items" aria-label="Items in the context">${t.items.map(row).join('')}</ul>`
   +`<details class="fold" data-fold="out"${chat.outOpen[s]?' open':''}><summary><b>Left out</b><span class="fold-d">${t.out.length}</span></summary><div class="fold-b"><ul class="ctx-items">${t.out.map(outRow).join('')||'<li class="note">Nothing left out.</li>'}</ul></div></details>`;
 }
@@ -1979,7 +2045,7 @@ function ctxPanelHtml(s,head){
  <div class="ctx-list" data-r="ctxlist"></div>
  <div class="ctx-add"><label class="eyebrow" for="ctxAdd-${s}">Add from the library</label><input class="input" type="search" id="ctxAdd-${s}" data-ctx-search placeholder="Clause, term, page or id" autocomplete="off"><div data-r="addres" aria-live="polite"></div></div>
  <div class="ctx-packs" data-r="packs"></div>
- <div><button class="btn sm" data-chat="copy"${!t||!requestBudget(t).sendable?' disabled':''}>${icon('copy')}Copy context pack</button></div>`;
+ <div><button class="btn sm" data-chat="copy" data-copy-trigger="panel"${!t||!requestBudget(t).sendable?' disabled':''}>${icon('copy')}Copy context pack</button></div>`;
 }
 /* Paint writes only what changed, and replaces a message only when its version moves, so open folds stay open. */
 function setHtml(el,h){if(el&&el._h!==h){el.innerHTML=h;el._h=h}}
@@ -2057,6 +2123,13 @@ V.assistant=()=>{
 };
 function heroComposer(){return `<div class="composer"><label class="sr-only" for="heroQ">Question for the assistant</label><textarea id="heroQ" rows="2" placeholder="Ask about a clause, a figure in a decision, a process or a competitor…"></textarea>
  <div class="composer-bar"><label class="sr-only" for="sc-hero">Scope</label><select class="sel" id="sc-hero">${scopeOpts('library')}</select><span class="spacer"></span><button class="btn primary sm" data-chat="hero">${icon('arrow')}${chat.mode==='none'?'Ask':'Send'}</button></div></div>`}
+/* A refusal returns focus to the control that asked for the copy, re-resolved on the repainted surface,
+   never to the surface's first copy button. */
+function copyTrigger(s,kind){
+ const b=document.querySelector(`[data-surface="${s}"] [data-copy-trigger="${kind||'composer'}"]`);
+ if(b&&!b.disabled)return b;
+ return document.querySelector(`[data-surface="${s}"] .chat-foot textarea,[data-surface="${s}"] [data-ctx-search]`)||b;
+}
 /* Every chat control, wherever it sits. The surface (page, drawer or sheet) decides which thread it acts on. */
 function chatAct(a,el){
  const root=el.closest('[data-surface]'),s=root?root.dataset.surface:'page',t=threadOf(s);
@@ -2070,7 +2143,7 @@ function chatAct(a,el){
  case 'copy':{const q=box&&box.value.trim();if(q){const mode=chat.mode;chat.mode='none';const ok=ask(t,q);chat.mode=mode;if(!ok)return paint();box.value='';t.draft=''}
   if(!t.started){toast('Type a question first. The context fills when you ask.');return box&&box.focus()}
   if(!requestBudget(t).sendable){toast(requestBudget(t).reason||'Clipboard destination is not permitted.');return paint()}
-  paint();return copyChatPayload(t,clipboardText(t),false,chat.mode==='none'?'Context pack copied. Paste it into your assistant, then paste its answer here.':'Context pack copied.',foot,()=>document.querySelector(`[data-surface="${s}"] [data-chat="copy"]`))}
+  paint();return copyChatPayload(t,clipboardText(t),false,chat.mode==='none'?'Context pack copied. Paste it into your assistant, then paste its answer here.':'Context pack copied.',foot,()=>copyTrigger(s,el.dataset.copyTrigger))}
  case 'check':case 'sample':{const pa=foot.querySelector('[data-paste]'),txt=a==='check'?pa.value.trim():'';
   if(a==='check'&&!txt){toast('Paste an answer first.');return pa.focus()}
   if(!t.started){const q=box.value.trim();if(!q){toast('Type your question and copy the context pack first.');return box.focus()}ask(t,q);box.value=''}
@@ -2130,7 +2203,7 @@ function threeUp(c){
 const dot=(x,y)=>`<line class="ring" x1="${x}" y1="${y}" x2="${x}" y2="${y}"/><line class="dot" x1="${x}" y1="${y}" x2="${x}" y2="${y}"/>`;
 const chartFoot=(src,asOf,ogs)=>`<div class="chart-foot">${src||''}<span class="meta">As of ${asOf}</span>${ogs}</div>`;
 function tableFold(cap,head,rows,num){num=num||head.map((h,i)=>i>0);
- return `<details class="fold"><summary><b>Table</b><span class="fold-d">${rows.length} rows</span></summary><div class="table-wrap"><table><caption class="sr-only">${cap}</caption><thead><tr>${head.map((h,i)=>`<th scope="col"${num[i]?' class="r"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((v,i)=>`<td${num[i]?' class="num"':''}>${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div></details>`}
+ return `<details class="fold" data-chart-values><summary><b>Table</b><span class="fold-d">${rows.length} rows</span></summary><div class="table-wrap"><table><caption class="sr-only">${cap}</caption><thead><tr>${head.map((h,i)=>`<th scope="col"${num[i]?' class="r"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((v,i)=>`<td${num[i]?' class="num"':''}>${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div></details>`}
 /* One HTML row per bar: label, an SVG track holding one rect, value. Labels never collide, even at 375px. */
 function hbarRow(label,x0,x1,cls,tip,val,mid){return `<div class="hb-row"><div class="hb-l">${label}</div><svg class="track" viewBox="0 0 100 10" preserveAspectRatio="none" focusable="false" aria-hidden="true">${mid!=null?`<line class="mid" x1="${mid}" x2="${mid}" y1="-3" y2="13"/>`:''}${x1>x0?`<rect class="${cls}" x="${x0}" y="1" width="${Math.max(+(x1-x0).toFixed(2),.8)}" height="8"><title>${tip}</title></rect>`:''}</svg><div class="hb-v">${val}</div></div>`}
 function lineChart(o){const {pts,lo,hi,dp}=o,n=pts.length,w=100/(n-1),X=i=>+(i*w).toFixed(2),Y=v=>+((hi-v)/(hi-lo)*100).toFixed(2),[ll,lv]=pts[n-1];
@@ -2200,7 +2273,7 @@ V.today=()=>{
  <div class="grid split">
   <div class="grid" style="align-content:start">
   <section class="panel" aria-labelledby="hNext"><div class="panel-h"><h2 id="hNext">Next up</h2><span class="meta">Ordered by what unblocks the most</span></div><div class="panel-b rows">
-   ${START?'':`<div class="row"><span class="n accent">${icon('clock')}</span><div><h3>Set your start date</h3><p>The Day N of ${BUILD.horizon} chip counts from it. It stays in this browser and never enters the library.</p></div><div class="chips"><button class="btn sm" data-day-open>Set your start date</button></div></div>`}
+   ${startDate()?'':`<div class="row"><span class="n accent">${icon('clock')}</span><div><h3>Set your start date</h3><p>The Day N of ${BUILD.horizon} chip counts from it. It stays in this browser and never enters the library.</p></div><div class="chips"><button class="btn sm" data-day-open>Set your start date</button></div></div>`}
    <div class="row"><span class="n accent">1</span><div><h3><a href="#decision-dp-002">Confirm the overhead rate behind DP-002</a></h3><p>124% is low confidence (evidence D). It moves the unit price by 15.38.</p><div class="sub">Ask the cost-accounting lead · ${qLink('Q-008')}</div></div><div class="chips"><span class="chip info">${icon('q')}Blocks a decision</span></div></div>
    <div class="row"><span class="n accent">2</span><div><h3><a href="#brief-prg-lead">Brief: first meeting with the program-finance lead</a></h3><p>Ranked questions are ready, including who signs off the EAC (XC-43).</p><div class="sub">Briefs · 6 of 9 fields filled</div></div><div class="chips"><span class="chip warn">${icon('clock')}Day 14</span></div></div>
    <div class="row"><span class="n">3</span><div><h3><a href="#plan">Map 8 more duties for the Day 30 proof test</a></h3><p>Owner, system of record, calendar and first deliverable for each.</p><div class="sub">90-day plan · ON-01, ON-03, ON-05</div></div><div class="chips"><span class="chip">4 of 12</span></div></div>
@@ -2521,8 +2594,8 @@ V.decision=id=>{
    <div><div class="meta" style="font-size:var(--text-xs);margin-bottom:var(--space-0-5)">Record approval; v2 freezes and later changes start v3</div>${land('Approval is recorded in the ORG overlay at Release 2.')}</div>
    <div><div class="meta" style="font-size:var(--text-xs);margin-bottom:var(--space-0-5)">Print the one-pager with footnotes for company use (ORG · laptop overlay, Release 2). It never leaves the company zone.</div>${cmd('fieldbook build --overlay','Build the ORG overlay, then print DP-002 from Edge')}</div></div></section>
   </div></div>
-  <section class="panel" style="margin-top:var(--space-4)" aria-labelledby="hAs"><div class="panel-h"><h2 id="hAs">Assumptions</h2><a class="meta" href="#assumptions">Register</a></div><div class="panel-b"><div class="table-wrap"><table><caption class="sr-only">Assumptions in DP-002</caption><thead><tr><th scope="col">Assumption</th><th scope="col" class="hide-sm">Owner</th><th scope="col">Source</th><th scope="col">Confidence</th><th scope="col" class="hide-sm">Moves</th><th scope="col" class="hide-sm">Revisit when</th><th scope="col" class="hide-sm">Status</th></tr></thead><tbody>
-   ${as.map(x=>`<tr><td><span class="chip id">${x.id}</span> ${esc(x.text)}${x.q?` <span class="meta" style="font-size:var(--text-xs)">waits on</span> ${qLink(x.q)}`:''}</td><td class="hide-sm">${esc(x.owner)}</td><td>${asSrc(x)}</td><td>${confChip(x.conf)} <span class="meta" style="font-size:var(--text-xs)">ev ${x.ev}</span></td><td class="hide-sm">${x.effect}</td><td class="hide-sm">${esc(x.trigger)}</td><td class="hide-sm">${asStatus(x.status)}</td></tr>`).join('')}
+  <section class="panel" style="margin-top:var(--space-4)" aria-labelledby="hAs"><div class="panel-h"><h2 id="hAs">Assumptions</h2><a class="meta" href="#assumptions">Register</a></div><div class="panel-b"><div class="table-wrap"><table data-print-records><caption class="sr-only">Assumptions in DP-002</caption><thead><tr><th scope="col">Assumption</th><th scope="col" class="hide-sm">Owner</th><th scope="col">Source</th><th scope="col">Confidence</th><th scope="col" class="hide-sm">Moves</th><th scope="col" class="hide-sm">Revisit when</th><th scope="col" class="hide-sm">Status</th></tr></thead><tbody>
+   ${as.map(x=>`<tr><td data-label="Assumption" data-wide><span class="chip id">${x.id}</span> ${esc(x.text)}${x.q?` <span class="meta" style="font-size:var(--text-xs)">waits on</span> ${qLink(x.q)}`:''}</td><td class="hide-sm" data-label="Owner">${esc(x.owner)}</td><td data-label="Source">${asSrc(x)}</td><td data-label="Confidence">${confChip(x.conf)} <span class="meta" style="font-size:var(--text-xs)">ev ${x.ev}</span></td><td class="hide-sm" data-label="Moves">${x.effect}</td><td class="hide-sm" data-label="Revisit when">${esc(x.trigger)}</td><td class="hide-sm" data-label="Status">${asStatus(x.status)}</td></tr>`).join('')}
    </tbody></table></div></div></section>
  </div>`;
 };
@@ -2541,7 +2614,7 @@ const ONS=[['ON-01','Written role map','part'],['ON-02','One working session wit
 V.plan=()=>{
  const mapped=DUTIES.filter(d=>d[1]==='cccc').length;
  const onTick=s=>s==='ok'?tick('c','Done'):s==='part'?tick('h','In progress'):s==='no'?tick('u','Not started'):s.startsWith('Q-')?`<span class="tick no">${icon('lock')}Waits on ${s}</span>`:`<span class="tick part">${icon('circle')}${s}</span>`;
- return `<div class="page-w"><div class="h-page"><div>${dayLabel()?`<div class="eyebrow">${dayLabel()}</div>`:''}<h1>90-day plan</h1><p>Relative days only. Each window ends with a proof test; the tool shows evidence for it, never a score.</p>${land('In v1 this is the 30/60/90 checklist, a Corpus page of type checklist, linked from Today and the day-one list. It has no route of its own.')}</div><div class="actions"><button class="btn sm" data-day-open>${icon('clock')}${START?'Change start date':'Set start date'}</button></div></div>
+ return `<div class="page-w"><div class="h-page"><div>${dayLabel()?`<div class="eyebrow">${dayLabel()}</div>`:''}<h1>90-day plan</h1><p>Relative days only. Each window ends with a proof test; the tool shows evidence for it, never a score.</p>${land('In v1 this is the 30/60/90 checklist, a Corpus page of type checklist, linked from Today and the day-one list. It has no route of its own.')}</div><div class="actions"><button class="btn sm" data-day-open>${icon('clock')}${startDate()?'Change start date':'Set start date'}</button></div></div>
  ${planTimeline()}
  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
   <section class="panel"><div class="panel-h"><h2>Days 1–30 · learn and map</h2><span class="meta">${mapped} of 12 duties</span></div><div class="panel-b"><div class="box" style="font-size:var(--text-sm);margin-bottom:var(--space-2-5)"><b>Proof test D30.</b> For each of the twelve duties, name the owner, system of record, calendar and first deliverable, and say which duties are not yours.</div><div class="rows">${ONS.map(o=>`<div class="row" style="grid-template-columns:1fr auto;padding:var(--space-1-5) 0"><div><span class="chip id">${o[0]}</span> <span style="font-size:var(--text-dense)">${o[1]}</span></div>${onTick(o[2])}</div>`).join('')}</div></div></section>
@@ -2636,7 +2709,11 @@ document.addEventListener('keydown',e=>{if(e.key!=='Enter'||!(e.ctrlKey||e.metaK
  if(el.matches&&el.matches('.chat-foot .composer textarea')){e.preventDefault();e.stopImmediatePropagation();const b=el.closest('.chat-foot').querySelector('[data-r="send"] [data-chat="send"],[data-r="send"] [data-chat="copy"]');if(b&&!b.disabled)b.click()}});
 
 /* ======================= router ======================= */
-const TITLES={today:'Today',browse:'Browse library',learn:'Learn path',claims:'Claims',questions:'Company questions',glossary:'Glossary',sources:'Sources',brief:'Brief',states:'States gallery',conflicts:'Conflicts',templates:'Briefs & templates',assistant:'Assistant',bids:'Bids & proposals',estimates:'Estimates',projects:'Projects',decisions:'Decisions',assumptions:'Assumptions',plan:'90-day plan',discovery:'Discovery',cycles:'Cycles',audit:'Audit & requests',modules:'Modules',feeds:'Feeds',map:'App map',areas:'Area workspaces'};
+const TITLES={today:'Today',browse:'Browse library',learn:'Learn path',claims:'Claims',questions:'Company questions',glossary:'Glossary',sources:'Sources',brief:'Brief',states:'States gallery',conflicts:'Conflicts',templates:'Briefs & templates',assistant:'Assistant',bids:'Bids & proposals',estimates:'Estimates',projects:'Projects',decisions:'Decisions',assumptions:'Assumptions',plan:'90-day plan',discovery:'Discovery',cycles:'Cycles',audit:'Audit & requests',modules:'Modules',feeds:'Feeds',map:'App map',areas:'Area workspaces',queue:'Proposal queue'};
+/* The print footer names the selected sample edition, the page as the build names it, and the check line (section 12).
+   The edition is illustrative here; a real build takes it from edition.toml. */
+const PRINT_EDITION='edition-007 · sample';
+function printPageId(h){return h.startsWith('page-')?h.slice(5):h.startsWith('brief')?'brief-prg-lead':h}
 const SECTIONS=[['today','Today','#today','home'],['assistant','Assistant','#assistant','chat'],['work','Work','#bids','briefcase'],['plan','Plan','#plan','target'],['areas','Areas','#areas','grid'],['library','Library','#browse','book']];
 const QUEUE_SAMPLE=[{id:'P-0001',kind:'New source',state:'Waiting',why:'Original and extraction match'},{id:'P-0002',kind:'New version',state:'Stale',why:'Propose it again.'},{id:'P-0003',kind:'Note',state:'Refused',why:'Unverified origin · FB0917'},{id:'P-0006',kind:'New source',state:'Accepted',why:'Recorded acceptance'}];
 V.queue=()=>`<div class="page-w"><div class="h-page"><div><h1>Proposal queue</h1><p>Review here. Accept or reject in the terminal.</p></div></div><section class="panel"><div class="panel-h"><h2>Waiting, then completed</h2></div><div class="panel-b"><div class="table-wrap"><table><caption>Proposals · synthetic sample</caption><thead><tr><th>Proposal</th><th>Kind</th><th>State</th><th>Pre-check</th></tr></thead><tbody>${QUEUE_SAMPLE.map(p=>`<tr><td><a href="#queue/${p.id}">${p.id}</a></td><td>${p.kind}</td><td><span class="chip ${p.state==='Refused'?'bad':p.state==='Stale'?'warn':''}">${p.state}</span></td><td>${p.why}</td></tr>`).join('')}</tbody></table></div>${QUEUE_SAMPLE.length?'':'<p>No proposals waiting.</p>'}</div></section></div>`;
@@ -2667,7 +2744,7 @@ function route(){
  if(h.startsWith('frame/')){const kind=h.split('/')[1];html=V.frame(kind);nav='states';title='Frame states'}
  else if(h==='areas'||h==='browse'){html=V.today();nav='today';title='Today';focusId='areas'}
  else if(h.startsWith('desk/')){const [,kind,mode]=h.split('/');html=V.desk(kind,mode);nav='states';title=DESK_SAMPLE[kind]?.title||'Desk';crumb=[[null,title]]}
- else if(h.startsWith('queue/')){html=V.queueDetail(h.split('/')[1]);nav='queue';title='Proposal detail'}
+ else if(h.startsWith('queue/')){const id=h.split('/')[1],found=QUEUE_SAMPLE.some(p=>p.id===id);html=V.queueDetail(id);nav='queue';if(found)title='Proposal detail';else crumb=[[null,'Not found']]}
  else if(h.startsWith('page-')){const id=h.slice(5);html=V.page(id);const p=pageBy(id);if(p){const a=areaBy(p.area);crumb=[[`#area-${a.code.toLowerCase()}`,a.name],[null,p.title]];title=p.title;nav='area-'+a.code.toLowerCase()}}
  else if(h.startsWith('area-')){const [code,tab]=h.slice(5).split('/');html=V.area(code,tab);const a=areaBy(code.toUpperCase());const tl=a&&tab&&(tabsFor(a.code).find(t=>t[0]===tab)||[])[1];crumb=a?(tl?[[`#area-${code}`,a.name],[null,tl]]:[[null,a.name]]):[[null,'Unknown']];title=a&&(tl?a.name+' · '+tl:a.name);nav='area-'+code}
  else if(h.startsWith('assistant')){let id=h.split('/')[1];if(id==='new'){id=newThread('library').id;history.replaceState(null,'','#assistant/'+id)}
@@ -2690,6 +2767,7 @@ function route(){
  const cur=$(`[data-nav="${nav}"]`);if(cur)cur.setAttribute('aria-current','page');
  $$('#sections a').forEach(a=>a.dataset.sec===sec?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));showSec(sec);paint();
  document.title=(title?title+' · ':'')+'Fieldbook';
+ $('#printFoot').textContent='Fieldbook · '+PRINT_EDITION+' · '+printPageId(h)+' · Check the current edition';
  closeNav();
  if(!route.first){$('#main').focus({preventScroll:true});window.scrollTo(0,0)}route.first=false;
  say('Opened '+(title||'page'));
@@ -2701,7 +2779,7 @@ route.first=true;
 /* ======================= search palette ======================= */
 function searchIndex(){
  const out=[];
- Object.entries({...D.pageStubs,...D.pages}).forEach(([id,p])=>{const cl=(p.claims||[]).map(claimBy),lv=lastVerified(cl);out.push({kind:'Pages',id,title:p.title,text:(p.keys?p.keys+' · ':'')+p.lede.replace(/\{\{[a-z]+:[^|}]+\|([^}]+)\}\}/g,'$1'),href:'#page-'+id,m:`<span>${esc(areaBy(p.area).name)} · ${p.type}</span><span>As of ${p.asOf}</span>${cl.length?`<span>${cl.filter(c=>c.ver==='primary_source_supported').length} of ${cl.length} claims supported</span>`:''}${lv?`<span>Last verified <time datetime="${lv}">${lv}</time> <span class="age">(${ageText(lv)})</span></span>`:''}`,icon:'file',status:p.status})});
+ Object.entries({...D.pageStubs,...D.pages}).forEach(([id,p])=>{const cl=(p.claims||[]).map(claimBy),lv=lastVerified(cl);out.push({kind:'Pages',id,title:p.title,text:(p.keys?p.keys+' · ':'')+p.lede.replace(/\{\{[a-z]+:[^|}]+\|([^}]+)\}\}/g,'$1'),href:'#page-'+id,asOf:p.asOf,m:`<span>${esc(areaBy(p.area).name)} · ${p.type}</span><span>As of ${p.asOf}</span>${cl.length?`<span>${cl.filter(c=>c.ver==='primary_source_supported').length} of ${cl.length} claims supported</span>`:''}${lv?`<span>Last verified <time datetime="${lv}">${lv}</time> <span class="age">(${ageText(lv)})</span></span>`:''}`,icon:'file',status:p.status})});
  Object.entries(D.sources).forEach(([id,s])=>{const lv=lastVerified(D.claims.filter(c=>parseCite(c.src)&&parseCite(c.src).id===id));out.push({kind:'Sources',id,title:s.title,text:`${s.publisher} · ${s.edition}`,href:null,cite:`${id}@v${s.v}`,m:`<span>${esc(s.authority)} · tier ${s.tier}</span><span>${s.effective==='n/a'?'No effective date':'Effective '+s.effective}</span>${lv?`<span>Last verified <time datetime="${lv}">${lv}</time> <span class="age">(${ageText(lv)})</span></span>`:'<span class="unver">Never verified</span>'}`,icon:'layers'})});
  D.claims.forEach(c=>{const ex=c.src!=='—'&&excerptFor(c.src);out.push({kind:'Claims',id:c.id,title:c.text,text:ex?'“'+ex+'”':'No stored excerpt',keys:c.src,href:'#page-'+c.page,m:`${c.src!=='—'?`<span class="mono">${esc(c.src)}</span><span>${effectiveFor(c.src)}</span>`:'<span>No source yet</span>'}${verifiedHtml(c)}`,icon:'check',ver:c.ver})});
  Object.entries(D.conflicts).forEach(([id,x])=>out.push({kind:'Conflicts',id,title:x.topic,text:x.resolution,href:'#conflicts-'+id,m:`<span>${x.area}</span><span>${x.status==='resolved'?'Resolved '+x.resolved_on:'Unresolved · waits on '+x.question_id}</span>`,icon:'alert'}));
@@ -2723,17 +2801,32 @@ function searchIndex(){
 const IDX=searchIndex();
 let palSel=0,palItems=[];
 function norm(s){return s.toLowerCase().replace(/[‐-―]/g,'-')}
+/* The documented natural-id order over the folded id: digit runs compare as numbers, so cmp-2 sorts before cmp-10;
+   runs equal as numbers tie on their written length and the comparison continues, and an id that runs out first sorts first. */
+function natCmp(a,b){const runs=s=>String(s).toLowerCase().replace(/[‐-―]/g,'-').match(/\d+|\D+/g)||[];const ax=runs(a),bx=runs(b);
+ for(let i=0;i<Math.min(ax.length,bx.length);i++){const x=ax[i],y=bx[i],nx=/^\d/.test(x),ny=/^\d/.test(y);if(x===y)continue;
+  if(nx!==ny)return nx?-1:1;
+  if(nx){const n=Number(x),m=Number(y);if(n!==m)return n-m;if(x.length!==y.length)return x.length-y.length}
+  else return x<y?-1:1}
+ return ax.length-bx.length}
 function hl(text,q){if(!q)return esc(text);const i=norm(text).indexOf(norm(q));if(i<0)return esc(text);return esc(text.slice(0,i))+'<mark>'+esc(text.slice(i,i+q.length))+'</mark>'+esc(text.slice(i+q.length))}
 function renderPal(){
  const q=$('#palInput').value.trim();const f=state.palFilter;
+ /* A query with no search token (empty, spaces or punctuation only) is the documented empty query, not an
+    absent record: it shows the latest pages and offers no Search-for row. */
+ const terms=[...new Set(norm(q).split(/[^a-z0-9.-]+/).filter(w=>/[a-z0-9]/.test(w)))];
  const kinds=['all','Pages','Work','Processes','Clauses','Claims','Conflicts','Terms','Questions','Sources'];
  $('#palFilters').innerHTML=kinds.map(k=>`<button aria-pressed="${f===k}" data-pf="${k}">${k==='all'?'All':k}</button>`).join('');
  let items=IDX.filter(it=>f==='all'||it.kind===f||(f==='Clauses'&&/\d{3}\.\d{3}-\d{4}|\d{2}\.\d{3}-\d/.test(it.title)));
- if(q){const nq=norm(q);items=items.map(it=>{const idHit=norm(it.id)===nq||norm(it.id).startsWith(nq);const t=norm(it.title).includes(nq),x=norm(it.text+' '+(it.keys||'')).includes(nq);return {...it,score:idHit?3:t?2:x?1:0,exact:idHit||/^\d/.test(q)&&norm(it.title).includes(nq)}}).filter(it=>it.score>0).sort((a,b)=>b.score-a.score)}
- else items=items.filter(it=>it.kind==='Pages').slice(0,6).map(it=>({...it,recent:true}));
- palItems=items.slice(0,8);if(q)palItems.push({search:true,title:q});palSel=Math.min(palSel,Math.max(0,palItems.length-1));
+ if(terms.length){
+  items=items.map(it=>{const id=norm(it.id),title=norm(it.title),body=norm(it.text+' '+(it.keys||''));const hits=terms.filter(w=>id.includes(w)||title.includes(w)||body.includes(w)).length;
+   return {...it,terms:hits,score:id===norm(q)?4:id.startsWith(norm(q))?3:title.includes(norm(q))?2:body.includes(norm(q))?1:0,exact:id===norm(q)}}).filter(it=>it.terms>0).sort((a,b)=>b.terms-a.terms||b.score-a.score||natCmp(a.id,b.id))}
+ else items=items.filter(it=>it.kind==='Pages'&&it.asOf&&it.asOf!=='unknown').slice().sort((a,b)=>a.asOf===b.asOf?natCmp(a.id,b.id):(a.asOf<b.asOf?1:-1)).slice(0,6).map(it=>({...it,recent:true}));
+ palItems=items.slice(0,8);if(terms.length)palItems.push({search:true,title:q});palSel=Math.min(palSel,Math.max(0,palItems.length-1));
  const searchRow=it=>`<div class="pal-opt" role="option" id="po-${palItems.length-1}" aria-selected="${palItems.length-1===palSel}" data-i="${palItems.length-1}"><span class="ic">${icon('search')}</span><span style="min-width:0"><span class="t">Search for “${esc(it.title)}”</span></span><span></span></div>`;
- if(!items.length&&q){$('#palRes').innerHTML=`<div class="not-est" role="option" aria-selected="false"><b>Not established in the library.</b><p class="note">No page, claim, term or source matches “${esc(q)}”. That means the library has no record, not that none exists.</p><div class="chips"><button class="btn sm primary" data-pal-ask>${icon('spark')}Ask</button>${cmd('fieldbook new question --confirm-public --area fnd "'+q.replace(/["<>]/g,'')+'"','Add to company questions')}</div></div>`+searchRow(palItems[palItems.length-1]);$('#palInput').setAttribute('aria-activedescendant','po-'+palSel);return}
+ $('#palNote').innerHTML='';
+ if(!items.length&&terms.length){/* The no-record panel and its actions are informational; they live outside the listbox's option model, which holds only the Search-for row. */
+  $('#palNote').innerHTML=`<div class="not-est"><b>Not established in the library.</b><p class="note">No page, claim, term or source matches “${esc(q)}”. That means the library has no record, not that none exists.</p><div class="chips"><button class="btn sm primary" data-pal-ask>${icon('spark')}Ask</button>${cmd('fieldbook new question --confirm-public --area fnd "'+q.replace(/["<>]/g,'')+'"','Add to company questions')}</div></div>`;$('#palRes').innerHTML=searchRow(palItems[palItems.length-1]);$('#palInput').setAttribute('aria-activedescendant','po-'+palSel);return}
  let lastKind='',html='';
  palItems.forEach((it,i)=>{if(it.search){html+=searchRow(it);return}const k=it.recent?'Latest pages':it.kind;if(k!==lastKind){html+=`<div class="pal-group" role="presentation">${k}</div>`;lastKind=k}
   html+=`<div class="pal-opt" role="option" id="po-${i}" aria-selected="${i===palSel}" data-i="${i}"><span class="ic">${icon(it.icon)}</span><span style="min-width:0"><span class="t">${hl(it.title,q)}</span><div class="x">${hl(it.text,q)}</div>${it.m?`<div class="m">${it.m}</div>`:''}</span><span class="chips" style="justify-content:flex-end">${it.exact?'<span class="chip accent">Exact match</span>':''}${it.ver?verChip(it.ver):''}<span class="chip id">${esc(it.id)}</span></span></div>`});
@@ -2754,18 +2847,19 @@ const SAMPLE=`As far as the library shows, probably not. The business-systems cl
 /* read: the ids the answer read (null in the gallery, where nothing is outside); upto: sentences streamed so far. */
 function citeCheck(text,o){
  const read=o&&o.read,all=sentencesOf(text),sents=o&&o.upto!=null?all.slice(0,o.upto):all;
+ let at=0;
  const r={ok:0,bad:0,out:0,sup:0,weak:0,unchecked_locator:0,unchecked_quote:0,quote_mismatch:0,unresolved:0,unc:0,abst:0,nonc:0,outIds:[]};
- r.html=sents.map(s=>{
-  const cites=[...s.matchAll(/\[([^\]]+)\]/g)];
+ r.html=sents.map(s=>{const cites=[...s.matchAll(/\[([^\]]+)\]/g)];
   const isAbst=/not established in the library/i.test(s);
   let body=esc(s);
-  cites.forEach(m=>{const out=m[1].split(';').map(x=>x.trim()).filter(Boolean).map(raw=>{const c=checkRef(raw,read);
+  cites.forEach(m=>{const before=text.slice(0,at+m.index);const out=m[1].split(';').map(x=>x.trim()).filter(Boolean).map(raw=>{const c=checkRef(raw,read,quotedBefore(before));
     if(c.st==='ok')r.ok++;else if(c.st==='broken'||c.st==='loc')r.bad++;else if(c.st==='out'){r.out++;r.outIds.push(c.id)}else if(c.st==='sup')r.sup++;else if(c.st==='weak')r.weak++;else if(['unchecked_locator','unchecked_quote','quote_mismatch'].includes(c.st))r[c.st]++;if(c.unresolved||['broken','loc','unchecked_locator','unchecked_quote','quote_mismatch'].includes(c.st))r.unresolved++;if(!c.canon)r.nonc++;
     const why=c.why+(c.canon?'':' Non-canonical form; write it as [@S-0042-v2, p. 14].');const cl=`cc ${c.cls}${c.canon?'':' nc'}`;
     return c.href?`<a class="${cl}" href="${c.href}" ${c.pv?`data-pv="${c.pv}"`:''} title="${esc(why)}" aria-label="${esc(c.label)}: ${esc(why)}">${icon(c.ic)}${esc(c.label)}</a>`
      :`<button class="${cl}" ${c.claim?`data-claim="${c.claim}"`:`data-cite="${esc(c.label)}"`} title="${esc(why)}" aria-label="${esc(c.label)}: ${esc(why)}">${icon(c.ic)}${esc(c.label)}</button>`}).join(' ');
    body=body.replace(esc(m[0]),out)});
   let cls='';if(isAbst){cls='abstain';r.abst++}else if(!cites.length&&s.trim()){cls='uncited';r.unc++}
+  at+=s.length;
   return `<span class="sent ${cls}" ${cls==='uncited'?'title="No citation. Add one or remove the sentence."':cls==='abstain'?'title="Abstention: allowed"':''}>${body}</span>`}).join('');
  r.total=r.ok+r.bad+r.out+r.sup+r.weak+r.unchecked_locator+r.unchecked_quote+r.quote_mismatch;r.failed=r.unresolved>0||(!r.ok&&(r.total>0||r.unc>0));
  return r;
@@ -2788,16 +2882,52 @@ function checkRefBase(raw,read){
  if(src.tier==='D')return {st:'weak',cls:'warn',ic:'alert',label,canon:c,why:'Weak: tier D source, not primary evidence'};
  return {st:'ok',cls:'ok',ic:'check',label,canon:c,why:'Source, version and locator found'};
 }
+/* citation-check.md: a quotation of at least six words directly before a citation is that citation's quotation.
+   The prototype has no complete permitted text at a locator, so an applicable quote is Unchecked, never Verified. */
+function quotedBefore(text){
+ const m=/[“"]([^”"]*)[”"]\s*$/.exec(text||'');
+ return !!m&&m[1].trim().split(/\s+/).filter(Boolean).length>=6;
+}
 function citationFacts(f){
  const unresolved=f.exists!==true||(f.locatorRequired&&f.locator!=='match')||(f.quoteRequired&&f.quote!=='match');
  const status=!f.exists?'broken':f.locator==='mismatch'?'loc':f.outside?'out':f.superseded?'sup':f.weak?'weak':f.locatorRequired&&f.locator!=='match'?'unchecked_locator':f.quoteRequired&&f.quote==='unavailable'?'unchecked_quote':f.quoteRequired&&f.quote!=='match'?'quote_mismatch':'ok';
  return {status,unresolved};
 }
-function checkRef(raw,read){const base=checkRefBase(raw,read);if(base.st==='neutral'||base.claim)return base;const p=parseCite(raw),src=p&&D.sources[p.id];if(!src)return base;
- const facts={exists:src.versions.includes(p.v),locatorRequired:!!p.loc,locator:p.loc?(Object.keys(src.locators).length?(src.locators[p.loc]?'match':'mismatch'):'unavailable'):'match',quoteRequired:!!src.quoteRequired,quote:src.quoteFact||'unavailable',outside:!!(read&&!read.has(p.id)),superseded:p.v<src.v,weak:src.tier==='D'};
- const checked=citationFacts(facts),names={unchecked_locator:'Unchecked locator',unchecked_quote:'Unchecked quote',quote_mismatch:'Quote mismatch'};
- if(names[checked.status])return {...base,st:checked.status,cls:checked.status==='quote_mismatch'?'bad':'warn',ic:'alert',why:names[checked.status],unresolved:checked.unresolved};
- return {...base,st:checked.status,unresolved:checked.unresolved};}
+/* A record or sheet locator is proved only by that table's own bounds (corpus-format, Locator kinds).
+   Unrelated section labels are not table facts, so an unlisted record stays unavailable, never a mismatch. */
+const TABLE_LOC=/^(?:rec|sheet)\b/i;
+function locatorFact(src,loc){
+ if(!loc)return 'match';
+ if(!TABLE_LOC.test(loc))return Object.keys(src.locators).length?(src.locators[loc]?'match':'mismatch'):'unavailable';
+ const t=src.tables;if(!t||t.rows==null)return 'unavailable';
+ const rec=/^rec\s+(\d+)$/i.exec(loc);
+ if(rec)return Number(rec[1])>=1&&Number(rec[1])<=Number(t.rows)?'match':'mismatch';
+ const sheet=/^sheet\s+([^!]+)/i.exec(loc);
+ return sheet&&t.sheets&&t.sheets[sheet[1].trim()]?'match':sheet?'mismatch':'unavailable';
+}
+/* The presentation follows the final fact verdict, never the pre-fact guess: a version that does not exist is bad and says so,
+   and an unchecked locator or quote carries a warn reason. */
+const SHOW_CITE={
+ broken:['bad','x','No such source version in the library'],
+ loc:['bad','x','Broken locator: not found in the source'],
+ out:['warn','layers','Outside context: not among the items this answer read.'],
+ sup:['warn','clock','The cited version is superseded'],
+ weak:['warn','alert','Weak: tier D source, not primary evidence'],
+ unchecked_locator:['warn','alert','Unchecked locator'],
+ unchecked_quote:['warn','alert','Unchecked quote: no complete permitted text to compare'],
+ quote_mismatch:['bad','alert','Quote mismatch'],
+ ok:['ok','check','Source, version and locator found']};
+function checkRef(raw,read,quote){const base=checkRefBase(raw,read);if(base.st==='neutral')return base;
+ /* citation-check.md resolves a claim's own quotation through the claim's evidence reference: a supported claim is not
+    proof that the answer quotation matches it. The primary status keeps its precedence, so outside context and a weak
+    claim are not overridden, and an applicable quotation with no complete permitted text stays Unchecked. */
+ if(base.claim){const q=citationFacts({exists:true,locatorRequired:false,locator:'match',quoteRequired:!!quote,quote:quote?'unavailable':'match',outside:base.st==='out',superseded:false,weak:base.st==='weak'});
+  if(q.status===base.st)return base;const [qc,qi,qw]=SHOW_CITE[q.status]||SHOW_CITE.ok;
+  return {...base,st:q.status,cls:qc,ic:qi,why:qw,unresolved:q.unresolved}}
+ const p=parseCite(raw),src=p&&D.sources[p.id];if(!src)return base;
+ const facts={exists:src.versions.includes(p.v),locatorRequired:!!p.loc,locator:locatorFact(src,p.loc),quoteRequired:!!quote,quote:quote?'unavailable':'match',outside:!!(read&&!read.has(p.id)),superseded:p.v<src.v,weak:src.tier==='D'};
+ const checked=citationFacts(facts),[cls,ic,why]=SHOW_CITE[checked.status]||SHOW_CITE.ok;
+ return {...base,st:checked.status,cls,ic,why:checked.status==='sup'?`v${p.v} is superseded by v${src.v}`:why,unresolved:checked.unresolved};}
 const refusal=r=>r.failed?`<div class="banner bad">${icon('x')}<div><b>Do not use this answer.</b> ${r.ok?'Some citation facts remain unresolved':'Nothing in it verifies against the library'}${r.bad?`, and ${r.bad===1?'one citation does':r.bad+' citations do'} not resolve`:''}. Fix the citations, or ask again with a narrower question.</div></div>`:'';
 /* The drawer is the same chat in a narrower frame: the thread above, the composer and the context bar below. */
 function renderAsk(prefill){
@@ -2915,6 +3045,9 @@ document.addEventListener('keyup',e=>{if(e.key==='Shift'||e.shiftKey&&/^(Arrow|H
 /* ======================= events ======================= */
 document.addEventListener('click',e=>{
  const t=e.target.closest('button,a,[data-i]');if(!t)return;
+ if(t.classList.contains('skip')){/* The skip link is local navigation: focus the page's own main and keep the current route. */
+  e.preventDefault();const m=$('#main');if(m){m.scrollIntoView({block:'start'});m.focus({preventScroll:true})}return say('Main content')}
+ if(t.dataset.toc){e.preventDefault();return readerJump(t)}
  if(t.id==='dayBtn'||t.dataset.dayOpen!==undefined)return openDay();
  if(t.dataset.keys!==undefined)return openKeys();
  if(t.dataset.dlgClose!==undefined)return closeDlg();
@@ -2936,6 +3069,7 @@ document.addEventListener('click',e=>{
  if(t.dataset.toast){e.preventDefault();return toast(t.dataset.toast)}
  if(t.dataset.claimGo){const c=claimBy(t.dataset.claimGo);location.hash='#page-'+c.page;return}
  if(t.dataset.cf){state.claimFilter=t.dataset.cf;$('#main').innerHTML=V.claims();return}
+ if(t.dataset.sort){const k=t.dataset.sort;if(state.claimSort===k)state.claimDir=-state.claimDir;else{state.claimSort=k;state.claimDir=1}const m=$('#main');m.innerHTML=V.claims();const nb=m.querySelector('[data-sort="'+k+'"]');if(nb)nb.focus();return}
  if(t.dataset.xf){state.xcFilter=t.dataset.xf;$('#main').innerHTML=V.conflicts();return}
  if(t.dataset.pf){state.palFilter=t.dataset.pf;palSel=0;renderPal();$('#palInput').focus();return}
  if(t.closest('#palRes')&&t.dataset.i!==undefined)return choosePal(+t.dataset.i,e.shiftKey);
@@ -2977,6 +3111,14 @@ document.addEventListener('keydown',e=>{
  if(e.key==='p'&&$('#reader')){$$('[data-precise]')[state.precise?0:1].click()}
 });
 function setupToc(){const links=$$('[data-toc]');if(!links.length)return;const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.dataset.toc===en.target.id))}})},{rootMargin:'-80px 0px -70% 0px'});links.forEach(l=>{const t=document.getElementById(l.dataset.toc);t&&io.observe(t)})}
+/* The rail's "On this page" list is local navigation inside the open reader: it scrolls to its section and keeps the route. */
+function readerJump(link){
+ const target=document.getElementById(link.dataset.toc);
+ if(!target)return say('That section is not on this page.');
+ target.scrollIntoView({block:'start'});
+ $$('[data-toc]').forEach(l=>l.classList.toggle('on',l===link));
+ say(target.textContent+' section');
+}
 
 /* Small dialogs: keyboard shortcuts (?) and the start date behind the Day chip. */
 let dlgReturn=null;
@@ -2987,6 +3129,21 @@ function keysHtml(){const k=[['/ or Ctrl K','Search'],['.','Ask'],['?','This lis
  <button class="switch" data-keys-toggle aria-pressed="${state.singleKeys}"><i></i>Single-key shortcuts</button>
  <p class="note" style="margin:0">Turn them off if they clash with a screen reader or another tool. Ctrl K, Ctrl Enter and Esc always work.${state.keysNotSaved?' <b>Not remembered in this browser.</b>':''}</p>`}
 function openKeys(){openDlg('Keyboard shortcuts',keysHtml())}
+/* A chart prints its value table open and the screen keeps its own collapse, restored when printing ends (section 12). */
+addEventListener('beforeprint',()=>{$$('details[data-chart-values]').forEach(d=>{d.dataset.wasOpen=d.open?'1':'0';d.open=true});buildPrintFrame()});
+addEventListener('afterprint',()=>{$$('details[data-chart-values]').forEach(d=>{if(d.dataset.wasOpen!==undefined){d.open=d.dataset.wasOpen==='1';delete d.dataset.wasOpen}});clearPrintFrame()});
+/* Paper is one real table: its tfoot carries the identity and check line and its rows are the natural blocks of the page
+   the reader is looking at. The rows are read from the live main, so there is one content model, and printing copies that
+   content into the frame and removes the frame again: route, version, sort, dialogs, folds and focus are never touched.
+   Layout wrappers are unwrapped so no reader, dashboard or decision section becomes one tall row; real blocks stay whole. */
+const PRINT_LAYOUT='.page-w,.grid,.split,.rows,.stack,.cols,.tiles,.items,.list,.prose,.reader,.reader-main,.asst';
+/* Only an element the document itself marks hidden is left out. Everything else is copied and the page's own print
+   rules decide what shows, so a block that the paper reveals (the precise wording, a chart value table) keeps printing. */
+function printUnits(root,out){for(const el of root.children){if(el.hidden)continue;if(el.matches(PRINT_LAYOUT))printUnits(el,out);else out.push(el)}return out}
+/* A copy keeps the content and drops every id, so the frame adds no duplicate id and no second addressable control. */
+function printCopy(el){const c=el.cloneNode(true);c.removeAttribute('id');c.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));c.querySelectorAll('[aria-labelledby],[aria-describedby],[aria-controls],[aria-owns],[for]').forEach(n=>['aria-labelledby','aria-describedby','aria-controls','aria-owns','for'].forEach(a=>n.removeAttribute(a)));return c}
+function buildPrintFrame(){const body=$('#printRows'),main=$('#main');if(!body||!main)return;body.textContent='';const units=printUnits(main,[]);if(!units.length)return;const frag=document.createDocumentFragment();units.forEach(u=>{const tr=document.createElement('tr'),td=document.createElement('td');td.appendChild(printCopy(u));tr.appendChild(td);frag.appendChild(tr)});body.appendChild(frag);document.documentElement.setAttribute('data-print-frame','1')}
+function clearPrintFrame(){document.documentElement.removeAttribute('data-print-frame');const b=$('#printRows');if(b)b.textContent=''}
 function setDayChip(){const dc=$('#dayBtn'),l=dayLabel();dc.textContent=l||'Day';dc.hidden=!l}
 function openDay(){openDlg('Start date',`<label class="field" for="dayIn">Start date entered in this browser<small>Sets the Day N of ${BUILD.horizon} chip. It stays in this browser and never enters the library.</small><input class="input" type="date" id="dayIn" value="${START||''}"></label>
  <div class="chips"><button class="btn primary sm" data-day="save">Save</button><button class="btn sm" data-day="clear">Clear</button><button class="btn ghost sm" data-day="cancel">Cancel</button></div>`)}
