@@ -34,7 +34,7 @@ Every built edition has the Assistant page (`assistant.html`) and the Ask drawer
 
 ## Preconditions
 
-- Cards merged: `build-charts`, `search-js` and `search-palette` (the engine, the loader and the shortcut registry), `edge-harness`, `build-frame` and `build-home-and-areas`, `core-types-and-strings` (with `assistant_labels`), `page-context-packs`, `handoff-context`, `handoff-cite-check`, `handoff-new-note`, `ai-config-and-keys` (it creates `ports/chat.rs`), and `model-gate`.
+- Cards merged: `build-charts`, `search-js` and `search-palette` (the engine, the loader and the shortcut registry), `edge-harness`, `build-frame` and `build-home-and-areas`, `core-types-and-strings-2` (with `assistant_labels`), `page-context-packs`, `handoff-context`, `handoff-cite-check`, `handoff-new-note`, `ai-config-and-keys` (it creates `ports/chat.rs`), and `model-gate`.
 - `cite_facts` exists in `assist` (`handoff-cite-check`, step 1a) and `export_units` in `assist/view.rs` (`handoff-context`, step 4).
 
 ## Steps

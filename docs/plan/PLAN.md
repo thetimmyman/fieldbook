@@ -84,6 +84,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
 - kb-foundation-guard: exact authority and source-free foundation transitions; GS-01 remains active
 - kb-foundation-content: the pinned draft onboarding page, 32 open questions and 51 pending definitions
+- core-types-and-strings: standard-library hexadecimal rendering and schema-version lookup
 - day1-dependencies: complete catalog/workflow reference facts with source locations, without a policy gate
 - day1-dependencies-inputs: workspace/tool/replay configuration and the complete strict input aggregate
 - day1-dependencies-checks: strict Cargo metadata shapes, identities and complete declaration/edge facts
@@ -92,7 +93,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day1-dependencies-checks-4: all policy checks, complete command, baseline and gate
 - day1-dependencies-2: actual isolated offline resolution replay from immutable bounded bundles
 - day1-dependencies-3: bounded capture, initial Day-1 dependency adoption and full lock/replay activation
-- core-types-and-strings: frozen strings, `hex::lower`, schema-version constants, `strings::js()`, `cargo xtask docs`
+- core-types-and-strings-2: complete frozen words/chips, `strings::js()`, docs generation and the literal control
 - calc-day1: the decimal grammar, `Money`, `Value<T>`, `RoundingPolicy`, checked operations, `Unit`, the civil and partial date, the period and the duration, and the seeded `Rng` with its one-copy test
 - core-ids-and-dates: every identifier form and the `FAMILIES` table, next-id allocation, and the dates of `fieldbook-calc` re-exported
 - core-schema-pages: typed `corpus.toml` and page front matter with error positions

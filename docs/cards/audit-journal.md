@@ -32,7 +32,7 @@ The program keeps one append-only, hash-chained journal in its state folder, and
 
 ## Preconditions
 
-- Cards merged: `core-types-and-strings`, `core-ids-and-dates`, `core-labels` (it owns `LabelSet` and `StoreId`), `core-csv`, `workspace-skeleton`, `check-command`, `check-ci-and-docs`, `check-known-bad` (it wrote the pending rows for FB0800 to FB0805 that this card deletes), `windows-facts` (the `windows` CI job that runs this card's tests on Windows, and `fieldbook_win::principal()` that step 4 calls).
+- Cards merged: `core-types-and-strings-2`, `core-ids-and-dates`, `core-labels` (it owns `LabelSet` and `StoreId`), `core-csv`, `workspace-skeleton`, `check-command`, `check-ci-and-docs`, `check-known-bad` (it wrote the pending rows for FB0800 to FB0805 that this card deletes), `windows-facts` (the `windows` CI job that runs this card's tests on Windows, and `fieldbook_win::principal()` that step 4 calls).
 
 ## Steps
 
