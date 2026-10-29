@@ -1,0 +1,310 @@
+{
+  "references": {
+    "rows": [
+      [
+        "docs/reference/dependencies.md",
+        6,
+        "Pins",
+        "sample-crate",
+        [
+          "`sample-crate` (optional)",
+          "1.2.3 (2026-01-01)",
+          "default",
+          "core",
+          "MIT",
+          "1.85"
+        ]
+      ],
+      [
+        "docs/reference/dependencies.md",
+        11,
+        "Test-only and dev-only crates",
+        "sample-test",
+        [
+          "`sample-test`",
+          "2.0.0",
+          "default",
+          "dev-dependency",
+          "MIT",
+          "1.85",
+          "Synthetic fixture",
+          "Synthetic maintainer"
+        ]
+      ],
+      [
+        "docs/reference/dependencies.md",
+        16,
+        "Developer tools",
+        "sample tool",
+        [
+          "sample tool (optional)",
+          "9.0.0",
+          "Now",
+          "Synthetic pin"
+        ]
+      ],
+      [
+        "docs/reference/dependencies.md",
+        21,
+        "CI actions",
+        "example/action",
+        [
+          "`example/action`",
+          "v1.0.0",
+          "`bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`",
+          "Deliberate mismatch<br>literal detail"
+        ]
+      ]
+    ],
+    "workflows": [
+      [
+        ".github/workflows/check.yml",
+        5,
+        "example/action@tag"
+      ]
+    ]
+  },
+  "workspace": [
+    [
+      "Cargo.toml",
+      3,
+      "workspace",
+      "resolver",
+      "3"
+    ],
+    [
+      "Cargo.toml",
+      4,
+      "workspace",
+      "members",
+      []
+    ],
+    [
+      "Cargo.toml",
+      5,
+      "workspace",
+      "exclude",
+      [
+        "ignored/*"
+      ]
+    ],
+    [
+      "Cargo.toml",
+      6,
+      "workspace",
+      "default-members",
+      []
+    ],
+    [
+      "Cargo.toml",
+      8,
+      "workspace.dependencies",
+      "alias",
+      {
+        "version": "*",
+        "package": "renamed",
+        "path": "../outside",
+        "registry": "synthetic-registry",
+        "git": "file:///synthetic/source",
+        "branch": "topic",
+        "tag": "v1",
+        "rev": "revision",
+        "features": [
+          "alpha",
+          "beta"
+        ],
+        "default-features": false,
+        "optional": true,
+        "workspace": false
+      }
+    ],
+    [
+      "Cargo.toml",
+      9,
+      "workspace.dependencies",
+      "crate01",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      10,
+      "workspace.dependencies",
+      "crate02",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      11,
+      "workspace.dependencies",
+      "crate03",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      12,
+      "workspace.dependencies",
+      "crate04",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      13,
+      "workspace.dependencies",
+      "crate05",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      14,
+      "workspace.dependencies",
+      "crate06",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      15,
+      "workspace.dependencies",
+      "crate07",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      16,
+      "workspace.dependencies",
+      "crate08",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      17,
+      "workspace.dependencies",
+      "crate09",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      18,
+      "workspace.dependencies",
+      "crate10",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      19,
+      "workspace.dependencies",
+      "crate11",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      20,
+      "workspace.dependencies",
+      "crate12",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      21,
+      "workspace.dependencies",
+      "crate13",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      22,
+      "workspace.dependencies",
+      "crate14",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      23,
+      "workspace.dependencies",
+      "crate15",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      24,
+      "workspace.dependencies",
+      "crate16",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      25,
+      "workspace.dependencies",
+      "crate17",
+      "1.2.3"
+    ],
+    [
+      "Cargo.toml",
+      26,
+      "workspace.dependencies",
+      "crate18",
+      "1.2.3"
+    ]
+  ],
+  "tools": [
+    [
+      ".config/tools.toml",
+      3,
+      "cargo",
+      "missing-tool",
+      "9.9.9"
+    ],
+    [
+      ".config/tools.toml",
+      5,
+      "gitleaks",
+      "version",
+      "8.0.0"
+    ],
+    [
+      ".config/tools.toml",
+      6,
+      "gitleaks",
+      "linux-x64-sha256",
+      "not-a-validated-hash"
+    ],
+    [
+      ".config/tools.toml",
+      8,
+      "poppler",
+      "version",
+      "26.0.0"
+    ],
+    [
+      ".config/tools.toml",
+      10,
+      "lock",
+      "nightly",
+      "nightly-synthetic"
+    ],
+    [
+      "rust-toolchain.toml",
+      3,
+      "toolchain",
+      "channel",
+      "1.99.1"
+    ],
+    [
+      "rust-toolchain.toml",
+      4,
+      "toolchain",
+      "profile",
+      "minimal"
+    ],
+    [
+      "rust-toolchain.toml",
+      5,
+      "toolchain",
+      "components",
+      [
+        "rustfmt",
+        "clippy"
+      ]
+    ]
+  ],
+  "replay": null
+}

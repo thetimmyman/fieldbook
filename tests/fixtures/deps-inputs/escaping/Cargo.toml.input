@@ -1,0 +1,6 @@
+# Synthetic quoted delimiters and escapes.
+[workspace]
+resolver = "\u0033"
+members = ['literal\u0041,#', "escaped\u0041", "tab	member", "nonbreaking member"] # comment
+[workspace.dependencies]
+sample = { version = "=1.2.3#floor", features = ["comma,hash#", "brace}="] }

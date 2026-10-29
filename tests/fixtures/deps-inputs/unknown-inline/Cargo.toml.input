@@ -1,0 +1,2 @@
+[workspace.dependencies]
+sample={ future="1" }

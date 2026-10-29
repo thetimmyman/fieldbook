@@ -1,0 +1,326 @@
+[
+  [
+    "reference-error",
+    ".github/workflows",
+    1,
+    "unreadable directory"
+  ],
+  [
+    "opaque-four-quotes",
+    "Cargo.toml",
+    3,
+    "unsupported syntax"
+  ],
+  [
+    "opaque-four-literal-quotes",
+    "Cargo.toml",
+    3,
+    "unsupported syntax"
+  ],
+  [
+    "slash-escape",
+    ".config/tools.toml",
+    3,
+    "unsupported value"
+  ],
+  [
+    "surrogate-escape",
+    ".config/tools.toml",
+    3,
+    "unsupported value"
+  ],
+  [
+    "literal-control",
+    ".config/tools.toml",
+    3,
+    "unsupported syntax"
+  ],
+  [
+    "duplicate-workspace-after-opaque",
+    "Cargo.toml",
+    7,
+    "unknown or duplicate section"
+  ],
+  [
+    "duplicate-workspace-key",
+    "Cargo.toml",
+    5,
+    "invalid or duplicate key"
+  ],
+  [
+    "unknown-workspace-field",
+    "Cargo.toml",
+    5,
+    "unknown field or invalid type"
+  ],
+  [
+    "unknown-workspace-section",
+    "Cargo.toml",
+    8,
+    "unknown or duplicate section"
+  ],
+  [
+    "duplicate-inline",
+    "Cargo.toml",
+    2,
+    "unsupported value"
+  ],
+  [
+    "unknown-inline",
+    "Cargo.toml",
+    2,
+    "unsupported value"
+  ],
+  [
+    "wrong-inline-type",
+    "Cargo.toml",
+    2,
+    "unsupported value"
+  ],
+  [
+    "dotted-pin",
+    "Cargo.toml",
+    2,
+    "invalid or duplicate key"
+  ],
+  [
+    "nested-pin",
+    "Cargo.toml",
+    1,
+    "unknown or duplicate section"
+  ],
+  [
+    "trailing-workspace-junk",
+    "Cargo.toml",
+    3,
+    "unsupported value"
+  ],
+  [
+    "wrong-workspace-array",
+    "Cargo.toml",
+    4,
+    "unsupported value"
+  ],
+  [
+    "missing-cargo",
+    "Cargo.toml",
+    1,
+    "unreadable input"
+  ],
+  [
+    "invalid-utf8-cargo",
+    "Cargo.toml",
+    1,
+    "unreadable input"
+  ],
+  [
+    "cargo-directory",
+    "Cargo.toml",
+    1,
+    "unreadable input"
+  ],
+  [
+    "duplicate-tool-key",
+    ".config/tools.toml",
+    4,
+    "invalid or duplicate key"
+  ],
+  [
+    "duplicate-tool-section",
+    ".config/tools.toml",
+    11,
+    "unknown or duplicate section"
+  ],
+  [
+    "unknown-tool-section",
+    ".config/tools.toml",
+    11,
+    "unknown or duplicate section"
+  ],
+  [
+    "unknown-fixed-tool-field",
+    ".config/tools.toml",
+    7,
+    "unknown field or invalid type"
+  ],
+  [
+    "missing-fixed-tool-field",
+    ".config/tools.toml",
+    4,
+    "missing required field"
+  ],
+  [
+    "missing-tool-section",
+    ".config/tools.toml",
+    1,
+    "missing required section"
+  ],
+  [
+    "missing-tools",
+    ".config/tools.toml",
+    1,
+    "unreadable input"
+  ],
+  [
+    "numeric-tool-pin",
+    ".config/tools.toml",
+    3,
+    "unknown field or invalid type"
+  ],
+  [
+    "empty-tool-pin",
+    ".config/tools.toml",
+    3,
+    "unknown field or invalid type"
+  ],
+  [
+    "duplicate-toolchain",
+    "rust-toolchain.toml",
+    6,
+    "invalid or duplicate key"
+  ],
+  [
+    "unknown-toolchain",
+    "rust-toolchain.toml",
+    6,
+    "unknown field or invalid type"
+  ],
+  [
+    "wrong-toolchain-profile",
+    "rust-toolchain.toml",
+    4,
+    "unknown field or invalid type"
+  ],
+  [
+    "missing-toolchain-profile",
+    "rust-toolchain.toml",
+    2,
+    "missing required field"
+  ],
+  [
+    "wrong-toolchain-array",
+    "rust-toolchain.toml",
+    5,
+    "unsupported value"
+  ],
+  [
+    "unknown-replay-schema",
+    ".config/tools.toml",
+    12,
+    "unsupported value"
+  ],
+  [
+    "quoted-replay-schema",
+    ".config/tools.toml",
+    12,
+    "unknown field or invalid type"
+  ],
+  [
+    "unknown-replay-mode",
+    ".config/tools.toml",
+    13,
+    "unknown field or invalid type"
+  ],
+  [
+    "missing-replay-field",
+    ".config/tools.toml",
+    11,
+    "missing required field"
+  ],
+  [
+    "unknown-replay-field",
+    ".config/tools.toml",
+    19,
+    "unknown field or invalid type"
+  ],
+  [
+    "unknown-adjustment-reason",
+    ".config/tools.toml",
+    23,
+    "unknown field or invalid type"
+  ],
+  [
+    "missing-security-field",
+    ".config/tools.toml",
+    24,
+    "missing required field"
+  ],
+  [
+    "unknown-security-field",
+    ".config/tools.toml",
+    32,
+    "unknown field or invalid type"
+  ],
+  [
+    "cooldown-security-field",
+    ".config/tools.toml",
+    24,
+    "unknown field or invalid type"
+  ],
+  [
+    "duplicate-adjustment-field",
+    ".config/tools.toml",
+    23,
+    "invalid or duplicate key"
+  ],
+  [
+    "single-adjustment-table",
+    ".config/tools.toml",
+    20,
+    "unknown or duplicate section"
+  ],
+  [
+    "partial-replay-record",
+    ".config/tools.toml",
+    9,
+    "missing required field"
+  ],
+  [
+    "backslash-tab",
+    ".config/tools.toml",
+    3,
+    "unsupported value"
+  ],
+  [
+    "control-before-value",
+    "Cargo.toml",
+    3,
+    "unsupported syntax"
+  ],
+  [
+    "control-after-value",
+    ".config/tools.toml",
+    3,
+    "unsupported syntax"
+  ],
+  [
+    "non-ascii-separator",
+    "Cargo.toml",
+    3,
+    "unsupported syntax"
+  ],
+  [
+    "unknown-preamble",
+    "Cargo.toml",
+    1,
+    "field outside section"
+  ],
+  [
+    "dotted-preamble",
+    "Cargo.toml",
+    1,
+    "field outside section"
+  ],
+  [
+    "workspace-preamble",
+    "Cargo.toml",
+    1,
+    "field outside section"
+  ],
+  [
+    "bare-carriage-return",
+    "Cargo.toml",
+    2,
+    "unsupported syntax"
+  ]
+]

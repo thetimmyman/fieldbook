@@ -1,0 +1,8 @@
+[workspace]
+members=[]
+[workspace.dependencies]
+sample="1"
+[profile.release]
+debug=true
+[workspace.dependencies]
+other="2"

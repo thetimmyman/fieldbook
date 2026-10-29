@@ -1,0 +1,10 @@
+# Synthetic tool configuration.
+[cargo]
+missing-tool = "9.9.9"
+[gitleaks]
+version = "8.0.0"
+linux-x64-sha256 = "not-a-validated-hash"
+[poppler]
+version = "26.0.0"
+[lock]
+nightly = "nightly-synthetic"

@@ -1,0 +1,130 @@
+{
+  "references": {
+    "rows": [
+      [
+        "docs/reference/dependencies.md",
+        6,
+        "Pins",
+        "sample-crate",
+        [
+          "`sample-crate` (optional)",
+          "1.2.3 (2026-01-01)",
+          "default",
+          "core",
+          "MIT",
+          "1.85"
+        ]
+      ],
+      [
+        "docs/reference/dependencies.md",
+        11,
+        "Test-only and dev-only crates",
+        "sample-test",
+        [
+          "`sample-test`",
+          "2.0.0",
+          "default",
+          "dev-dependency",
+          "MIT",
+          "1.85",
+          "Synthetic fixture",
+          "Synthetic maintainer"
+        ]
+      ],
+      [
+        "docs/reference/dependencies.md",
+        16,
+        "Developer tools",
+        "sample tool",
+        [
+          "sample tool (optional)",
+          "9.0.0",
+          "Now",
+          "Synthetic pin"
+        ]
+      ],
+      [
+        "docs/reference/dependencies.md",
+        21,
+        "CI actions",
+        "example/action",
+        [
+          "`example/action`",
+          "v1.0.0",
+          "`bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`",
+          "Deliberate mismatch<br>literal detail"
+        ]
+      ]
+    ],
+    "workflows": [
+      [
+        ".github/workflows/check.yml",
+        5,
+        "example/action@tag"
+      ]
+    ]
+  },
+  "workspace": [],
+  "tools": [
+    [
+      ".config/tools.toml",
+      3,
+      "cargo",
+      "missing-tool",
+      "9.9.9"
+    ],
+    [
+      ".config/tools.toml",
+      5,
+      "gitleaks",
+      "version",
+      "8.0.0"
+    ],
+    [
+      ".config/tools.toml",
+      6,
+      "gitleaks",
+      "linux-x64-sha256",
+      "not-a-validated-hash"
+    ],
+    [
+      ".config/tools.toml",
+      8,
+      "poppler",
+      "version",
+      "26.0.0"
+    ],
+    [
+      ".config/tools.toml",
+      10,
+      "lock",
+      "nightly",
+      "nightly-synthetic"
+    ],
+    [
+      "rust-toolchain.toml",
+      3,
+      "toolchain",
+      "channel",
+      "1.99.1"
+    ],
+    [
+      "rust-toolchain.toml",
+      4,
+      "toolchain",
+      "profile",
+      "minimal"
+    ],
+    [
+      "rust-toolchain.toml",
+      5,
+      "toolchain",
+      "components",
+      [
+        "rustfmt",
+        "clippy"
+      ]
+    ]
+  ],
+  "replay": null
+}

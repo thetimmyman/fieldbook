@@ -1,0 +1,30 @@
+# Synthetic complete replay configuration.
+[cargo]
+missing-tool = "9.9.9"
+[gitleaks]
+version = "8.0.0"
+linux-x64-sha256 = "not-a-validated-hash"
+[poppler]
+version = "26.0.0"
+[fuzz]
+toolchain = "nightly-fuzz-synthetic"
+[lock]
+replay_schema = 1
+mode = "stable-fallback"
+resolver = "missing-resolver"
+cutoff = "not-a-time"
+inputs_sha256 = "not-a-hash"
+snapshot = "../outside"
+snapshot_sha256 = ""
+[[lock.adjustment]]
+package = "zeta-synthetic@3.0.0"
+version = "1.0.0"
+reason = "cooldown"
+[[lock.adjustment]]
+package = "alpha-synthetic@1.0.0"
+version = "1.1.0"
+reason = "security"
+advisory = "synthetic-advisory"
+approval_commit = "not-a-commit"
+approval = "../approval"
+approval_sha256 = ""

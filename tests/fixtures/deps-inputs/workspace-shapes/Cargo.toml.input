@@ -1,0 +1,48 @@
+# Synthetic workspace declarations with policy faults.
+[workspace]
+resolver = "3"
+members = []
+exclude = ["ignored/*"]
+default-members = []
+[workspace.dependencies]
+alias = { version = "*", package = "renamed", path = "../outside", registry = "synthetic-registry", git = "file:///synthetic/source", branch = "topic", tag = "v1", rev = "revision", features = ["alpha", "beta"], default-features = false, optional = true, workspace = false }
+crate01 = "1.2.3"
+crate02 = "1.2.3"
+crate03 = "1.2.3"
+crate04 = "1.2.3"
+crate05 = "1.2.3"
+crate06 = "1.2.3"
+crate07 = "1.2.3"
+crate08 = "1.2.3"
+crate09 = "1.2.3"
+crate10 = "1.2.3"
+crate11 = "1.2.3"
+crate12 = "1.2.3"
+crate13 = "1.2.3"
+crate14 = "1.2.3"
+crate15 = "1.2.3"
+crate16 = "1.2.3"
+crate17 = "1.2.3"
+crate18 = "1.2.3"
+[package]
+name = "synthetic"
+version = "0.0.0"
+[dependencies]
+crate01 = { workspace = true }
+crate02 = { workspace = true }
+crate03 = { workspace = true }
+crate04 = { workspace = true }
+crate05 = { workspace = true }
+crate06 = { workspace = true }
+crate07 = { workspace = true }
+crate08 = { workspace = true }
+crate09 = { workspace = true }
+crate10 = { workspace = true }
+crate11 = { workspace = true }
+crate12 = { workspace = true }
+crate13 = { workspace = true }
+crate14 = { workspace = true }
+crate15 = { workspace = true }
+crate16 = { workspace = true }
+crate17 = { workspace = true }
+crate18 = { workspace = true }
