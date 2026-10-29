@@ -1,0 +1,4 @@
+# Synthetic job whose name equals a data key.
+jobs:
+  env:
+    steps: [{uses: example/action@tag}]

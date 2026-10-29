@@ -1,0 +1,2 @@
+jobs:
+  reusable: {"uses":"example/project/.github/workflows/build.yml@tag"}

@@ -1,0 +1,15 @@
+{
+  "rows": [],
+  "workflows": [
+    [
+      ".github/workflows/a.yaml",
+      3,
+      "./unlisted-action"
+    ],
+    [
+      ".github/workflows/z.yml",
+      5,
+      "docker://sample:9#suffix"
+    ]
+  ]
+}

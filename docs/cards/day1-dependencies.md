@@ -6,22 +6,22 @@
 
 ## Outcome
 
-A strict policy-input producer reads bounded dependency documentation, workspace declarations, tool pins and workflow references into facts with relative source locations. It supplies `day1-dependencies-checks`, which alone owns the complete DEPS-1 to DEPS-5 command and gate.
+A strict source-reference producer returns complete dependency catalog rows and workflow action references with relative source locations. It supplies `day1-dependencies-inputs`; only the later complete checker may report a clean policy result.
 
 ## Why
 
-- Input reading is a real seam before Cargo graph measurement and policy decisions. Valid declarations that violate policy remain facts; malformed or unsupported input is a read error.
-- The full [dependency policy](../reference/dependencies.md) and the capture/replay gate remain required before any manifest adoption. This producer supplies no clean policy result.
+- Reference interpretation is a complete seam before workspace/configuration reading, Cargo graph measurement and policy decisions. Valid declarations that violate policy remain facts; malformed or unsupported input is a read error.
+- The full [dependency policy](../reference/dependencies.md) and capture/replay gate remain required before any manifest adoption. The atomic split preserves every remaining input requirement in `day1-dependencies-inputs` and makes the checker wait for it.
 
 ## Scope
 
-- Files: `xtask/src/deps_inputs.rs` (producer and module-local tests), `tests/fixtures/deps-inputs/` (public/synthetic immutable inputs).
-- Registration lines: `xtask/src/main.rs` (module only); `docs/reference/dependencies.md` (provider description).
-- Docs to update: [dependencies.md](../reference/dependencies.md).
+- Files: `xtask/src/deps_references.rs` (producer and module-local tests), `tests/fixtures/deps-references/` (public/synthetic immutable inputs), `docs/cards/day1-dependencies-inputs.md` (remaining producer).
+- Registration lines: `xtask/src/main.rs` (reference module and temporary unused-code expectation only); `docs/reference/dependencies.md` (provider descriptions and bounded input grammar); `docs/plan/PLAN.md` (the two input-provider rows); `docs/cards/day1-dependencies-checks.md` (final-provider prerequisite, reuse and aggregate expectation ownership).
+- Docs to update: [dependencies.md](../reference/dependencies.md), [PLAN.md](../plan/PLAN.md), `day1-dependencies-inputs.md` and `day1-dependencies-checks.md`.
 
 ## Out of scope
 
-CLI or `just check` activation, DEPS findings, measurements, DP-02, Cargo graph collection, manifests, lock files, new crates, capture/replay, CI permissions, shipped behavior, Corpus and seeds.
+Workspace/tool/replay configuration reading and the final aggregate; CLI or `just check` activation; DEPS findings, measurements, DP-02, Cargo graph collection, manifests, lock files, new crates, capture/replay, CI permissions, shipped behavior, Corpus and seeds.
 
 ## Preconditions
 
@@ -29,28 +29,28 @@ CLI or `just check` activation, DEPS findings, measurements, DP-02, Cargo graph 
 
 ## Steps
 
-1. Use existing serde_json and std. Provide a small `deps_inputs` interface that takes an explicit invocation root and returns complete documented rows, workspace declarations, tool pins and workflow references with relative source locations, or a structured read error. It performs no policy comparison and no Cargo resolution.
-2. Consume complete explicitly supported Markdown tables, workspace-pin/declaration shapes, workflow references and tool/replay configuration shapes. Unknown, duplicate, unsupported, malformed, ambiguous or unreadable input refuses; never skip a failed directory entry or malformed field. Cargo semantic dependency interpretation remains with the complete command. An absent workspace-dependencies table is valid on the skeleton.
-3. Preserve supported versioned replay-record configuration separately from developer-tool pins. Do not freeze today's incomplete nightly-only lock configuration into the input contract, add a second generic TOML parser, or silently ignore later documented replay fields. The actual verifier retains replay semantics.
-4. Module-local tests cross the producer interface on complete immutable synthetic fixtures. Cover valid current and documented replay shapes, missing/duplicate/unknown/malformed input, failed enumeration, an explicit invocation root and source locations. Valid missing-row, mismatched-pin and budget-violating declarations must remain readable facts for the later policy checks. Assert literal facts/errors, independently of the parser implementation.
-5. Put immutable fixture contents under `tests/fixtures/deps-inputs/`; keep executable setup, assertions and mutation logic counted. Compile the module normally. A narrowly justified temporary unused-code expectation is allowed only until the consumer registers it; `day1-dependencies-checks` removes it. No `deps` command, measurement, DP-02 completion or policy gate is registered here.
+1. Use existing serde_json and std. Provide `deps_references::read_references(root)` returning named reference facts or a structured read error, using the explicit invocation root without an environment, cwd or build-checkout fallback. Perform no policy comparison or Cargo resolution.
+2. Read the four complete catalog tables and supported workflow action contexts according to the [bounded grammar](../reference/dependencies.md#bootstrap-providers), preserving every cell, canonical identity and relative source location. Keep scalar/code/data contexts distinct from references. Unknown, duplicate, unsupported, malformed, ambiguous or unreadable input refuses; enumerate deterministically and never skip a failed directory entry.
+3. Test only the producing interface on complete immutable synthetic roots. `deps_references_complete_facts_from_supplied_root` owns literal rows/references, source locations, policy-fault preservation and scalar/data regressions; `deps_references_refuses_incomplete_and_ambiguous_inputs` owns literal malformed/duplicate/unsupported/enumeration errors. `deps_references_reads_current_sources` reads native inputs; `deps_references_bytes_and_single_byte_mutations_do_not_panic` follows [Testing](../reference/testing.md). Expected data is independent of the parser.
+4. Put immutable data under `tests/fixtures/deps-references/`; keep all executable setup, projection, mutation and assertions counted. Compile normally with a narrowly justified temporary unused-code expectation while fact fields still lack a consumer. The aggregate may remove it if its actual use makes it unfulfilled; the complete checker owns removing both provider expectations when it consumes the facts. No command, policy result or gate is registered here.
+5. Add the remaining input card and its PLAN row atomically with the checker prerequisite/reuse change. Reference interpretation and its controls remain owned here; configuration, final aggregation and their controls belong to the new card. The checker consumes only that final aggregate.
 
 ## Acceptance
 
 ```sh
-cargo nextest run --locked -p xtask deps_inputs
+cargo nextest run --locked -p xtask deps_references::
 just check
 ```
 
-Expected: all selected producer tests execute, valid policy faults are preserved for the consumer, malformed input refuses with a source location, and no dependency, manifest, lock or command/gate change occurs.
+Expected: all reference tests execute; complete rows and policy-fault references remain facts; malformed input refuses with a relative location; no dependency, manifest, lock or command/gate change occurs.
 
 ## Negative control
 
-Skip a malformed/duplicate input or failed enumeration, read the build checkout instead of the supplied root, or reject a valid policy fault as a parse error: its named producer case must fail. Restore each plant. A partial policy command is never an acceptable substitute.
+Skip a duplicate or failed enumeration, read the build checkout instead of the supplied root, reject a valid policy fault, scan scalar data as mappings, truncate a literal hash suffix, or treat a job name as a data context: its named interface case must fail. Restore every plant. No partial policy command substitutes for these controls.
 
 ## Rollback
 
-Revert the merge commit. Existing commands and policy gates remain unchanged; the complete checker remains ineligible.
+Revert the merge commit. Existing commands and gates remain unchanged; the configuration aggregate and complete checker stay ineligible without this provider.
 
 ## BLOCKED
 

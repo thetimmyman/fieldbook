@@ -1,0 +1,248 @@
+[
+  [
+    "duplicate-crate",
+    "docs/reference/dependencies.md",
+    11,
+    "duplicate identity"
+  ],
+  [
+    "duplicate-tool",
+    "docs/reference/dependencies.md",
+    17,
+    "duplicate identity"
+  ],
+  [
+    "duplicate-action",
+    "docs/reference/dependencies.md",
+    22,
+    "duplicate identity"
+  ],
+  [
+    "unknown-header",
+    "docs/reference/dependencies.md",
+    4,
+    "unsupported table header"
+  ],
+  [
+    "bad-separator",
+    "docs/reference/dependencies.md",
+    5,
+    "malformed table separator"
+  ],
+  [
+    "incomplete-row",
+    "docs/reference/dependencies.md",
+    6,
+    "incomplete table row"
+  ],
+  [
+    "empty-required-cell",
+    "docs/reference/dependencies.md",
+    6,
+    "incomplete table row"
+  ],
+  [
+    "bad-identity",
+    "docs/reference/dependencies.md",
+    6,
+    "malformed identity"
+  ],
+  [
+    "missing-table",
+    "docs/reference/dependencies.md",
+    1,
+    "missing required table"
+  ],
+  [
+    "missing-doc",
+    "docs/reference/dependencies.md",
+    1,
+    "unreadable input"
+  ],
+  [
+    "fenced-only",
+    "docs/reference/dependencies.md",
+    1,
+    "missing required table"
+  ],
+  [
+    "indented-only",
+    "docs/reference/dependencies.md",
+    1,
+    "missing required table"
+  ],
+  [
+    "unreadable-directory",
+    ".github/workflows",
+    1,
+    "unreadable directory"
+  ],
+  [
+    "bad-entry",
+    ".github/workflows/bad.yml",
+    1,
+    "unsupported workflow entry"
+  ],
+  [
+    "unreadable-workflow",
+    ".github/workflows/check.yml",
+    1,
+    "unreadable input"
+  ],
+  [
+    "duplicate-uses",
+    ".github/workflows/check.yml",
+    6,
+    "duplicate mapping key"
+  ],
+  [
+    "quoted-junk",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported quoted syntax"
+  ],
+  [
+    "multiline-quote",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported quoted syntax"
+  ],
+  [
+    "block-indicator",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported block scalar"
+  ],
+  [
+    "dynamic",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported uses scalar"
+  ],
+  [
+    "anchor",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported YAML syntax"
+  ],
+  [
+    "alias",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported YAML syntax"
+  ],
+  [
+    "flow-hidden",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "indentless",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported YAML syntax"
+  ],
+  [
+    "missing-colon",
+    ".github/workflows/check.yml",
+    5,
+    "unsupported YAML syntax"
+  ],
+  [
+    "unknown-context",
+    ".github/workflows/check.yml",
+    6,
+    "unsupported uses context"
+  ],
+  [
+    "empty-uses",
+    ".github/workflows/check.yml",
+    5,
+    "invalid uses scalar"
+  ],
+  [
+    "data-job-name",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "duplicate-table",
+    "docs/reference/dependencies.md",
+    24,
+    "duplicate table"
+  ],
+  [
+    "tab-indent",
+    ".github/workflows/check.yml",
+    2,
+    "unsupported YAML syntax"
+  ],
+  [
+    "spaced-sequence",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "bare-literal",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "bare-folded",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "bare-alias",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "bare-anchor",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "bare-tag",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "bare-dash",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ],
+  [
+    "inline-job",
+    ".github/workflows/check.yml",
+    2,
+    "unsupported YAML syntax"
+  ],
+  [
+    "escaped-inline-job",
+    ".github/workflows/check.yml",
+    2,
+    "unsupported YAML syntax"
+  ],
+  [
+    "html-comment",
+    "docs/reference/dependencies.md",
+    1,
+    "unsupported HTML context"
+  ],
+  [
+    "bare-scalar",
+    ".github/workflows/check.yml",
+    4,
+    "unsupported YAML syntax"
+  ]
+]

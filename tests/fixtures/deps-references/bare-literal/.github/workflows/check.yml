@@ -1,0 +1,5 @@
+jobs:
+  build:
+    steps:
+      - |
+          uses: shell-data

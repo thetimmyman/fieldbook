@@ -1,0 +1,4 @@
+# Synthetic hidden action.
+jobs:
+  check:
+    steps: [{uses: example/action@tag}]
