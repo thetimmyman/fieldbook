@@ -30,7 +30,7 @@
 
 ## Preconditions
 
-- Cards merged: `core-types-and-strings` and `calc-day1`.
+- Cards merged: `calc-day1`.
 - `calc-day1` gives the date types that `date.rs` re-exports and the generator that `ids_no_panic.rs` includes.
 
 ## Steps

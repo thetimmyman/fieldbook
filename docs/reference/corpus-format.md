@@ -145,7 +145,7 @@ locator  = "p. " , digits
 
 ## Strings
 
-`fieldbook-core::strings` is the single source of every string below. `build` writes it to `assets/strings.js`, which assigns one object, `window.FB_STRINGS`, with the keys shown. A test fails on any of these literals appearing elsewhere in the code. The card `core-types-and-strings` makes `cargo xtask docs` generate this section from the module; until it merges, this hand-written section is the source and the code must match it exactly.
+`fieldbook-core::strings` is the single source of every string below. `build` writes it to `assets/strings.js`, which assigns one object, `window.FB_STRINGS`, with the keys shown. A test fails on any of these literals appearing elsewhere in the code. The card `core-types-and-strings-2` makes `cargo xtask docs` generate this section from the module; until it merges, this hand-written section is the source and the code must match it exactly.
 
 <!-- strings:begin -->
 

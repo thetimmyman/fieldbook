@@ -17,7 +17,7 @@
 ## Scope
 
 - Files: `crates/fieldbook-core/src/check/{mod.rs,code.rs,diag.rs}`, `crates/fieldbook-core/src/lib.rs`, `xtask/src/{main.rs,errors.rs}`, `docs/reference/errors.md` (generated).
-- Registration lines: `xtask/src/docs.rs` (one row of `GENERATORS`, built by `core-types-and-strings`).
+- Registration lines: `xtask/src/docs.rs` (one row of `GENERATORS`, built by `core-types-and-strings-2`).
 - Docs to update: `docs/reference/errors.md` by `cargo xtask docs`. `AGENTS.md` needs no change.
 
 ## Out of scope
@@ -28,7 +28,7 @@
 
 ## Preconditions
 
-- Cards merged: `corpus-mini-fixture`, `core-types-and-strings`.
+- Cards merged: `corpus-mini-fixture`, `core-types-and-strings-2`.
 
 ## Steps
 

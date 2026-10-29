@@ -27,7 +27,7 @@
 
 ## Preconditions
 
-- Cards merged: `core-ids-and-dates`.
+- Cards merged: `core-ids-and-dates` and `core-types-and-strings` (schema-version lookup).
 
 ## Steps
 
