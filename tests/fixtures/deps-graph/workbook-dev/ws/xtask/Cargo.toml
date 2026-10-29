@@ -1,0 +1,7 @@
+[package]
+name = "xtask"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+zip = { path = "../../ext/zip", version = "0.1.0" }

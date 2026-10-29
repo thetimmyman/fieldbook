@@ -1,0 +1,7 @@
+[package]
+name = "fieldbook"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+foreign-core = { package = "fieldbook-core", path = "../external", version = "9.0.0" }

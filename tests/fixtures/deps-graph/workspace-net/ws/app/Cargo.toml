@@ -1,0 +1,10 @@
+[package]
+name = "fieldbook"
+version = "0.0.0"
+edition = "2024"
+
+[features]
+net = ["dep:netlib"]
+
+[dependencies]
+netlib = { path = "../../ext/netlib", version = "0.1.0", optional = true }

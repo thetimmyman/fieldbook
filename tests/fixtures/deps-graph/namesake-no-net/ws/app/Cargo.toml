@@ -1,0 +1,8 @@
+[package]
+name = "fieldbook"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+shared = { path = "../../ext/shared", version = "0.1.0" }
+other-app = { package = "fieldbook", path = "../../ext/other-app", version = "1.0.0" }

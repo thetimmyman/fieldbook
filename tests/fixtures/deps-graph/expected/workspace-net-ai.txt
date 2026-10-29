@@ -1,0 +1,6 @@
+transitive [netlib@0.1.0]
+all [netlib@0.1.0]
+shipped [netlib]
+normal [netlib]
+dev []
+build []

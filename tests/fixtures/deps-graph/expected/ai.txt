@@ -1,0 +1,6 @@
+transitive [both@0.1.0 netlib@0.1.0 normal@0.1.0 winlib@0.1.0 xtool@0.1.0]
+all [both@0.1.0 netlib@0.1.0 normal@0.1.0 winlib@0.1.0 xtool@0.1.0]
+shipped [both netlib normal winlib]
+normal [both netlib normal winlib xtool]
+dev [both devonly]
+build [buildonly]

@@ -12,14 +12,16 @@
           "dep:outside"
         ]
       },
-      "declarations": []
+      "declarations": [],
+      "manifest_path": "/fixture/opaque-external/Cargo.toml"
     },
     {
       "id": "opaque-library",
       "name": "outside",
       "version": "1.2.3",
       "features": {},
-      "declarations": []
+      "declarations": [],
+      "manifest_path": "/fixture/opaque-library/Cargo.toml"
     },
     {
       "id": "opaque-workspace",
@@ -31,33 +33,39 @@
           "outside",
           "^1.2.3",
           "normal",
-          null
+          null,
+          "/fixture/opaque-library"
         ],
         [
           "outside",
           "1.2.3",
           "dev",
-          "cfg(windows)"
+          "cfg(windows)",
+          null
         ],
         [
           "outside",
           "~1.2",
           "build",
+          null,
           null
         ],
         [
           "fieldbook",
           "1.0.0",
           "normal",
+          null,
           null
         ],
         [
           "outside",
           "99.0.0",
           "normal",
-          "cfg(any())"
+          "cfg(any())",
+          null
         ]
-      ]
+      ],
+      "manifest_path": "/fixture/opaque-workspace/Cargo.toml"
     }
   ],
   "nodes": [

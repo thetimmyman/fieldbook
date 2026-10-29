@@ -8,7 +8,8 @@
       "name": "fieldbook",
       "version": "0.1.0",
       "features": {},
-      "dependencies": false
+      "dependencies": false,
+      "manifest_path": "/fixture/opaque-workspace/Cargo.toml"
     },
     {
       "id": "opaque-external",
@@ -19,14 +20,16 @@
           "dep:outside"
         ]
       },
-      "dependencies": []
+      "dependencies": [],
+      "manifest_path": "/fixture/opaque-external/Cargo.toml"
     },
     {
       "id": "opaque-library",
       "name": "outside",
       "version": "1.2.3",
       "features": {},
-      "dependencies": []
+      "dependencies": [],
+      "manifest_path": "/fixture/opaque-library/Cargo.toml"
     }
   ],
   "resolve": {

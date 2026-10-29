@@ -31,6 +31,7 @@ pub(crate) struct Declaration {
     pub(crate) requirement: String,
     pub(crate) kind: Kind,
     pub(crate) target: Option<String>,
+    pub(crate) path: Option<String>,
 }
 
 #[derive(Debug)]
@@ -38,6 +39,7 @@ pub(crate) struct Package {
     pub(crate) id: String,
     pub(crate) name: String,
     pub(crate) version: String,
+    pub(crate) manifest_path: String,
     pub(crate) features: BTreeMap<String, Vec<String>>,
     pub(crate) declarations: Vec<Declaration>,
 }
@@ -195,6 +197,10 @@ fn package(value: &Value) -> Result<Package, String> {
                 requirement: text(value, "req")?.to_owned(),
                 kind: kind(value)?,
                 target: target(value)?,
+                path: match value.get("path") {
+                    None | Some(Value::Null) => None,
+                    Some(_) => Some(text(value, "path")?.to_owned()),
+                },
             })
         })
         .collect::<Result<_, String>>()?;
@@ -202,6 +208,7 @@ fn package(value: &Value) -> Result<Package, String> {
         id: text(value, "id")?.to_owned(),
         name: text(value, "name")?.to_owned(),
         version: text(value, "version")?.to_owned(),
+        manifest_path: text(value, "manifest_path")?.to_owned(),
         features,
         declarations,
     })
@@ -285,8 +292,8 @@ mod tests {
     fn complete_facts_and_workspace_identity_are_retained() {
         let metadata = decode(&std::fs::read(fixture("valid.json")).unwrap()).unwrap();
         let packages: Vec<_> = metadata.packages().values().map(|p| json!({
-            "id":p.id,"name":p.name,"version":p.version,"features":p.features,
-            "declarations":p.declarations.iter().map(|d| json!([d.name,d.requirement,d.kind.name(),d.target])).collect::<Vec<_>>()
+            "id":p.id,"name":p.name,"version":p.version,"manifest_path":p.manifest_path,"features":p.features,
+            "declarations":p.declarations.iter().map(|d| json!([d.name,d.requirement,d.kind.name(),d.target,d.path])).collect::<Vec<_>>()
         })).collect();
         let nodes: Vec<_> = metadata.nodes().values().map(|n| json!({
             "id":n.id,"edges":n.edges.iter().map(|e| json!({"package":e.package,
@@ -312,7 +319,7 @@ mod tests {
         let cases: Vec<(String, String)> =
             serde_json::from_slice(&std::fs::read(fixture("errors.json")).unwrap()).unwrap();
         assert!(
-            cases.len() >= 46,
+            cases.len() >= 51,
             "required independent refusals disappeared"
         );
         for (name, expected) in cases {
