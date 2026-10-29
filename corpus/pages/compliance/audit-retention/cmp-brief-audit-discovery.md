@@ -27,7 +27,7 @@ Open with business-system status, incurred-cost status and unallowable cost scre
 - A final indirect cost rate proposal is due within 6 months of year end [@CL-RTE-0001]. Ask the rates owner for the incurred-cost status by year and the submission log.
 - The unallowable cost penalty reaches contracts over $1 million [@CL-CMP-0005]. Ask the accounting owner for the unallowable account list and how proposals are screened.
 - Full CAS coverage and the Disclosure Statement start at $100 million [@CL-CMP-0002; @CL-CMP-0003]. Ask for each unit's coverage and Disclosure Statement.
-- A compliant earned value system is required at $100 million [@CL-PRG-0002]. Ask the program finance owner for any validation letter.
+- Earned value systems must follow the industry guidelines from $50 million, and from $100 million the cognizant agency must have determined the system compliant [@CL-PRG-0001; @CL-PRG-0002]. Ask the program finance owner which contracts fall in each band, and for any determination letter.
 
 ## Options
 

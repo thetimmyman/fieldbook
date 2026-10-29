@@ -44,4 +44,4 @@ Opening with a systems walkthrough was rejected: it needs approved access first.
 
 ## Next action
 
-The incoming finance lead revisits this brief after the first meeting and moves each answer into the questions register.
+The incoming finance lead revisits this brief after the first meeting and records each answer in approved company storage, never in the public questions register.
