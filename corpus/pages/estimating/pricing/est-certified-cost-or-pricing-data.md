@@ -1,0 +1,56 @@
++++
+id = "est-certified-cost-or-pricing-data"
+title = "Certified cost or pricing data threshold"
+area = "est"
+subarea = "pricing"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["certified_cost_or_pricing_data", "truthful_cost_or_pricing_data", "data_other_than_certified", "class_deviation"]
+questions = ["Q-047"]
+links = ["cmp-acquisition-thresholds"]
++++
+
+## Purpose
+
+Shows the dollar threshold above which a prime contract needs certified cost or pricing data, and how DoD's threshold differs from the codified FAR.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | DoD class deviation [@CL-EST-0002]; codified FAR for other agencies [@CL-EST-0001] |
+| Codified citation | FAR 15.403-4(a)(1) [@CL-EST-0001] |
+| RFO citation | Class Deviation 2026-O0048 Rev 1, DFARS 215.403-3(a) [@CL-EST-0002]; RFO FAR 15.403-3(a) [@CL-EST-0001] |
+| Edition date | Not established. |
+| Text status | Deviation text for DoD [@CL-EST-0002]; final for the codified FAR [@CL-EST-0001] |
+| Applies to | Prime contracts by award date [@CL-EST-0001] [@CL-EST-0002] |
+
+Under the codified FAR, certified cost or pricing data are required above $2.5 million for prime contracts awarded on or after July 1, 2018, unless an exception applies [@CL-EST-0001]. For DoD prime contracts awarded after June 30, 2026, the threshold is $10 million, unless an exception at FAR 15.403-2 or DFARS 215.403-71 applies [@CL-EST-0002]. For DoD prime contracts awarded on or before June 30, 2026, the threshold stays $2.5 million unless the contract states otherwise, and subcontracts follow the threshold of their prime when the prime and each higher tier must submit certified data [@CL-EST-0002].
+
+## How it works
+
+Check the exceptions first: adequate price competition, prices set by law or regulation, commercial products and services, a waiver, and the DoD-specific exceptions. If none applies and the expected value is above the threshold, the offeror submits certified cost or pricing data and signs the certificate when price is agreed. Below the threshold, the contracting officer may still ask for data other than certified cost or pricing data.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A DoD prime contract expected at 8 million is awarded after the DoD threshold change, with no competition and no exception. At a threshold of 10 million, certified data are not required, though other data may be. The same award under a 2.5 million threshold would have needed certified data.
+
+## Never confuse
+
+Certified cost or pricing data are not the same as data other than certified cost or pricing data; only the first carries a certificate. The Truthful Cost or Pricing Data statute is the law behind the rule; this page is about the regulation's threshold.
+
+## Company calibration
+
+How many open and planned proposals need certified data under each threshold. [@Q-047]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certified data threshold, with the DoD deviation value.
