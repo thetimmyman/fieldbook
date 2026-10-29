@@ -390,7 +390,7 @@ mod tests {
             result.report,
             [
                 "deps: silent direct 2/12 transitive 2/80 all-target 0",
-                AI_INAPPLICABLE
+                "deps: ai not applicable (fieldbook feature `net` absent)"
             ]
         );
     }
