@@ -1,0 +1,58 @@
++++
+id = "rte-fprp-recommendation-agreement"
+title = "Forward pricing rate proposal, recommendation and agreement"
+area = "rte"
+subarea = "rate-lifecycle"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["forward_pricing_rate_agreement", "forward_pricing_rate_recommendation", "certified_cost_or_pricing_data", "defense_contract_audit_agency"]
+questions = ["Q-011"]
+links = ["rte-forward-pricing-rate-agreements", "rte-final-indirect-rate-auditor-determination"]
++++
+
+## Purpose
+
+Describes the forward pricing rate proposal, recommendation and agreement as the audit manual presents them, how each one is created, and what the auditor does with them.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Not established. |
+| Codified citation | Not established. |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Not established. |
+| Applies to | Proposals priced with proposal, recommendation or agreement rates [@CL-RTE-0401] |
+
+The audit manual describes three sequential rate mechanisms governed by the FAR, and the process begins with a forward pricing rate proposal [@CL-RTE-0401]. The proposal is the contractor's formal submission detailing its forecast of direct labor rates, indirect cost pools and allocation bases over a specified multi-year projection period [@CL-RTE-0402]. If the contractor and the government reach a bilateral agreement on the proposal, they execute a contractually binding agreement to be used across all subsequent proposals [@CL-RTE-0342]. In the absence of a signed agreement or while negotiations are ongoing, the administrative contracting officer unilaterally issues a recommendation for procurement offices [@CL-RTE-0343].
+
+A recommendation is a formal rate schedule issued unilaterally by the administrative contracting officer to procuring contracting officers, recommending specific rates to use when an agreement cannot be reached, is being updated or is being audited [@CL-RTE-0344].
+
+## How it works
+
+An agreement is a formal written agreement negotiated between the contractor and the government, establishing specific rates to be used in pricing proposals during a specified period [@CL-RTE-0403]. The process may be started by the contractor, the procuring contracting officer or the administrative contracting officer, and the contractor's proposal must include certified cost or pricing data that is accurate, complete and current [@CL-RTE-0345]. The formal certificate is not executed when the agreement is made; certification occurs when an individual contract that uses the rates is priced [@CL-RTE-0346]. When evaluating the proposal, the auditor must assess the reasonableness of the projected business volume, allocation bases and indirect costs [@CL-RTE-0347]. The auditor periodically compares the agreed rates with the contractor's actual rates to identify significant variances, and if unfavorable trends emerge should notify the administrative contracting officer and may recommend that the contractor submit a revised proposal [@CL-RTE-0348]. If the auditor later finds the rates should have been revised for significant changes, pricing actions using them should be subject to a Truthful Cost or Pricing Data audit [@CL-RTE-0349].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A contractor proposes forward rates for three years. Negotiations stall, so the administrative contracting officer issues a recommendation that procurement offices use in the meantime. The parties later sign a bilateral agreement, and a proposal priced after that date uses the agreed rates, with the certificate executed on that proposal rather than on the agreement.
+
+## Never confuse
+
+The proposal, the recommendation and the agreement are three different documents. The proposal is the contractor's forecast [@CL-RTE-0402], the recommendation is unilateral and issued when no agreement is signed or while negotiations continue [@CL-RTE-0343], and the agreement is negotiated between the contractor and the government [@CL-RTE-0403]. For the FAR rules on the agreement and on recommendations, see [Forward pricing rate agreements](rte-forward-pricing-rate-agreements.md).
+
+## Company calibration
+
+Confirm which agreement, recommendation or open proposal applies to each pricing action and period [@CL-RTE-0342]. [@Q-011]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forward pricing rate proposal, recommendation and agreement process.

@@ -23,3 +23,5 @@ addres = "addres"
 recuiting = "recuiting"
 # "modifiation", a misspelling in the printed text of FAR 52.229-3, copied verbatim into a claim quote.
 modifiation = "modifiation"
+# "FPRA", forward pricing rate agreement, as abbreviated in FAR 15.407-3 and the DCAA manual.
+fpr = "fpr"

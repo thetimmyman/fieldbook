@@ -1,0 +1,58 @@
++++
+id = "cls-termination-costs"
+title = "Termination costs"
+area = "cls"
+subarea = "inventory-wip"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["allowability", "unallowable_cost", "direct_cost", "federal_acquisition_regulation"]
+questions = ["Q-027"]
+links = ["ctf-termination-for-convenience-settlement", "ctf-termination-cost-reimbursement-settlement", "cmp-allowability-factors"]
++++
+
+## Purpose
+
+Explains the principles governing the allowability of costs resulting from contract termination, including common inventory items, continuing costs, and settlement expenses.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CLS-0213] |
+| Codified citation | FAR 31.205-42 [@CL-CLS-0213] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CLS-0213] |
+| Applies to | Terminated contracts, with the termination cost principles used alongside the other cost principles [@CL-CLS-0309] |
+
+The costs of common items reasonably usable on the contractor's other work are not allowable unless the contractor submits evidence that the items could not be retained at cost without sustaining a loss [@CL-CLS-0213].
+
+Costs which cannot be discontinued immediately after the effective date of termination despite all reasonable efforts by the contractor are generally allowable [@CL-CLS-0214].
+
+## How it works
+
+The termination cost principles are used in conjunction with the other cost principles in the cost principles subpart [@CL-CLS-0309]. Costs that cannot be discontinued immediately after the effective date of termination, despite all reasonable efforts by the contractor, are generally allowable, but costs that continue after the effective date because of the contractor's negligent or willful failure to discontinue them are unallowable [@CL-CLS-0214; @CL-CLS-0215]. Settlement expenses are generally allowable, including accounting, legal, clerical and similar costs reasonably necessary for preparing and presenting settlement claims to the contracting officer [@CL-CLS-0310]. When settlement expenses are significant, a cost account or work order is established to separately identify and accumulate them [@CL-CLS-0216]. How the settlement itself is agreed or determined is covered in [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md) and [Termination settlement under cost-reimbursement contracts](../../contract-finance/billing-payment/ctf-termination-cost-reimbursement-settlement.md).
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+Following a partial termination, a contractor holds standard raw material that is reasonably usable on another active production line, and it submits no evidence that the material could not be retained at cost without a loss. The material cost is not allowable. Separately, facilities costs continue for two weeks after the effective date of termination while the contractor winds down, despite all reasonable efforts to discontinue them. The answer: those continuing costs are generally allowable, and they would be unallowable only if the contractor had negligently or willfully failed to discontinue them.
+
+## Never confuse
+
+A cost that continues after termination is not automatically allowable, and a common item is not automatically a termination cost. Continuing costs are generally allowable only where they could not be discontinued immediately despite all reasonable efforts, and they are unallowable where negligent or willful failure caused them [@CL-CLS-0214; @CL-CLS-0215]. Items reasonably usable on other work are not allowable unless the contractor submits the required evidence [@CL-CLS-0213].
+
+## Company calibration
+
+How excess inventory and work in process on terminated contracts are reviewed for alternative use and reserve adjustments at close. [@Q-027]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination costs.
