@@ -22,13 +22,13 @@ Shows what an offeror certifies and discloses about payments to influence a Fede
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1001; @CL-SUP-1004] |
-| Codified citation | FAR 52.203-11 [@CL-SUP-1001; @CL-SUP-1002; @CL-SUP-1056] and FAR 52.203-12 [@CL-SUP-1004; @CL-SUP-1006; @CL-SUP-1053] |
+| Codified citation | FAR 52.203-11 [@CL-SUP-1001; @CL-SUP-1002; @CL-SUP-1545; @CL-SUP-1056] and FAR 52.203-12 [@CL-SUP-1004; @CL-SUP-1006; @CL-SUP-1053; @CL-SUP-1537] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1001] |
 | Applies to | Offerors, for the provision, and the Contractor, for the clause [@CL-SUP-1001; @CL-SUP-1004] |
 
-By signing its offer, the offeror certifies to the best of its knowledge and belief that no Federal appropriated funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency, among other persons the provision lists [@CL-SUP-1001]. In the clause, the Contractor shall not use appropriated funds to pay any person for influencing or attempting to influence the listed Government and Congressional personnel in connection with the award of this contract [@CL-SUP-1004]. The clause also bars such payments in connection with the extension, continuation, renewal, amendment, or modification of the contract [@CL-SUP-1051].
+By signing its offer, the offeror certifies to the best of its knowledge and belief that no Federal appropriated funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress on its behalf in connection with the awarding of this contract [@CL-SUP-1001; @CL-SUP-1545]. In the clause, the Contractor shall not use appropriated funds to pay any person for influencing or attempting to influence the listed Government and Congressional personnel in connection with the award of this contract [@CL-SUP-1004]. The clause also bars such payments in connection with the extension, continuation, renewal, amendment, or modification of the contract [@CL-SUP-1051]. The prohibition does not apply under the conditions listed in the clause's exceptions paragraph [@CL-SUP-1537].
 
 If any registrants under the Lobbying Disclosure Act of 1995 have made a lobbying contact on behalf of the offeror with respect to this contract, the offeror must complete and submit OMB Standard Form LLL with its offer to provide the name of the registrants [@CL-SUP-1002]. The offeror need not report regularly employed officers or employees of the offeror to whom payments of reasonable compensation were made [@CL-SUP-1003]. In the clause, regularly employed is defined, for an officer or employee of a person requesting or receiving a Federal contract, as employed by that person for at least 130 working days within 1 year immediately preceding the date of the submission that initiates agency consideration [@CL-SUP-1052].
 
