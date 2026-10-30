@@ -1,0 +1,61 @@
++++
+id = "cmp-medical-liability-indemnity-and-insurance"
+title = "Indemnification and medical liability insurance"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-003"]
++++
+## Purpose
+
+Explains the indemnity and the medical liability insurance a contractor carries under a contract for health care services [@CL-CMP-5612].
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-5612] |
+| Codified citation | FAR 52.237-7 [@CL-CMP-5612] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-5612] |
+| Applies to | Contracts in which the clause is inserted as prescribed [@CL-CMP-5612] |
+
+The clause states that it is expressly agreed and understood that the contract is a nonpersonal services contract, as defined in FAR 37.101, under which the professional services rendered by the contractor are rendered in its capacity as an independent contractor [@CL-CMP-6245]. The Government may evaluate the quality of professional and administrative services provided, but retains no control over professional aspects of the services rendered, including the contractor's professional medical judgment, diagnosis or specific medical treatments [@CL-CMP-5753]. The contractor is solely liable for, and agrees to indemnify the Government against, liability-producing acts or omissions by itself or its employees or agents [@CL-CMP-5613]. It must maintain liability insurance from a responsible carrier of not less than the amount stated per specialty per occurrence for the contract term [@CL-CMP-5614]. The amount is a contract-specific fill-in [@CL-CMP-5614].
+
+An apparently successful offeror, upon the contracting officer's request, must furnish before contract award evidence of its insurability concerning the medical liability insurance required by paragraph (a) [@CL-CMP-5754].
+
+## How it works
+
+Liability insurance may be on an occurrences basis or a claims-made basis, and a claims-made policy must also carry an extended reporting endorsement, or tail, for a period of not less than 3 years after the end of the contract term [@CL-CMP-5615]. Evidence of insurance documenting the required coverage for each health care provider who will perform under the contract must be provided to the contracting officer before services under the contract begin [@CL-CMP-5755]. If the insurance is claims-made and evidence of the extended reporting endorsement is not provided before services begin, that evidence must be provided before the contract expires [@CL-CMP-5756]. Final payment is withheld until evidence of the extended reporting endorsement is provided to the contracting officer [@CL-CMP-5757].
+
+The policy must contain an endorsement that a cancellation or material change adversely affecting the Government's interest is not effective until 30 days after the insurer or the contractor gives written notice to the contracting officer [@CL-CMP-5616]. If the contractor changes insurance providers during the performance period of the contract, the duty to provide evidence of continued indemnity applies [@CL-CMP-5759]. The contractor must then provide evidence that the Government will be indemnified to the limits specified in paragraph (a) for the entire period of the contract, either under the new policy or under a combination of old and new policies [@CL-CMP-5758].
+
+The contractor must insert the substance of the clause, including paragraph (f), in all subcontracts under the contract for health care services, and must require those subcontractors to provide evidence of and maintain insurance in accordance with paragraph (a) [@CL-CMP-5760]. At least 5 days before any subcontractor begins work, the contractor must furnish the contracting officer evidence of that insurance [@CL-CMP-5617].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A clinic contract runs for 2 years with a limit of 1,000,000 per specialty per occurrence. The policy is written on a claims-made basis, so the contractor provides a tail of 4 years, which exceeds the 3-year minimum. The contractor gave the contracting officer evidence of each provider's coverage, including the tail, before services began. A subcontractor is due to start on day 20, and the contractor sends the subcontractor's insurance evidence on day 12. That is 8 days before the start, which meets the 5-day minimum.
+
+The policy carries the required endorsement, so if the carrier gives the contracting officer written notice of cancellation on day 100 of the contract, the cancellation cannot take effect before day 130. Had the tail evidence not been given before services began, it would be due before the contract expired, and final payment would be held until it arrived.
+
+## Never confuse
+
+A claims-made policy and an occurrence policy differ at the end of the term. Under the clause, only a claims-made policy must also carry an extended reporting endorsement, for not less than 3 years after the end of the contract term [@CL-CMP-5615]. The indemnity is a separate promise by the contractor to the Government, standing apart from the insurance it must carry [@CL-CMP-5613; @CL-CMP-5614]. The Government's right to evaluate quality is not control over medical judgment [@CL-CMP-5753].
+
+## Company calibration
+
+Which health care contracts and subcontracts are in scope, and who confirms the insured limits, the tail and the notice endorsement. [@Q-003]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indemnification and medical liability insurance.
