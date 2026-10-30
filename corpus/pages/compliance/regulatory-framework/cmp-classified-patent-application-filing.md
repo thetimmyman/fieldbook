@@ -34,7 +34,7 @@ Where the subject matter of the contract is classified for reasons of security, 
 
 ## How it works
 
-The clause sorts the filing step by classification level. Secret or higher subject matter goes to the Contracting Officer with a 30-day window before the Contractor may file, and the Contractor keeps the right to file [@CL-CMP-3624; @CL-CMP-3625; @CL-CMP-3662]. Confidential subject matter goes to the Contracting Officer as a copy before filing [@CL-CMP-3626]. Where the subject matter is classified for reasons of security, filing outside the United States needs the Contracting Officer's written approval first [@CL-CMP-3627; @CL-CMP-3628].
+The clause sorts the filing step by classification level. Secret or higher subject matter goes to the Contracting Officer first, and the Contractor may file if the Contracting Officer has given no instructions within 30 days of transmittal, while keeping the right to file despite any instructions on the manner of delivery [@CL-CMP-3624; @CL-CMP-3625; @CL-CMP-3662]. Confidential subject matter goes to the Contracting Officer as a copy before filing [@CL-CMP-3626]. Where the subject matter is classified for reasons of security, filing outside the United States needs the Contracting Officer's written approval first [@CL-CMP-3627; @CL-CMP-3628].
 
 ## Worked example
 
