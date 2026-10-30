@@ -44,7 +44,7 @@ The registrant first asks whether a pending proceeding is material and falls out
 
 Synthetic example. The numbers are made up.
 
-A registrant has consolidated current assets of 500,000. A claim for damages alone is 40,000, below the 50,000 that is ten percent of current assets, so the damages omission can apply if no paragraph (c) matter is involved. A separate environmental proceeding has a governmental authority as a party and potential monetary sanctions of 400,000. That is above 300,000, so it is described unless the registrant has elected another threshold.
+A registrant has consolidated current assets of 500,000. A claim for damages alone is 40,000, below the 50,000 that is ten percent of current assets, so the damages omission can apply if no paragraph (c) matter is involved. A separate environmental proceeding has a governmental authority as a party and potential monetary sanctions of 400,000. That is above 300,000, so it is described unless the registrant reasonably believes the proceeding will result in no monetary sanctions or sanctions below 300,000. If the registrant had elected another threshold, the election would not help here: one percent of current assets is 5,000, which is lower than 1 million, so an elected threshold could not exceed 5,000, and 400,000 is well above it.
 
 ## Never confuse
 
