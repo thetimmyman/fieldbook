@@ -37,13 +37,13 @@ The DoD section defines the estimating system as the contractor's policies, proc
 
 Review results are documented in survey reports [@CL-EST-0765], and the auditor sends a copy of the survey report and of the official notice of corrective action required to each contracting office and contract administration office having substantial business with the contractor [@CL-EST-0766]. Significant deficiencies not corrected by the contractor are a consideration in later proposal analyses and negotiations [@CL-EST-0767].
 
-Under the DoD section the auditor conducts the reviews [@CL-EST-0864]. The auditor documents findings and recommendations in a report to the contracting officer, and a report of material weaknesses describes the underlying deficiencies in enough detail for the contracting officer to understand them [@CL-EST-0865]. The contracting officer then decides: if material weaknesses are found, an initial determination follows with a 30-day written response [@CL-EST-0862; @CL-EST-0771], and if a final determination finds that weaknesses remain, the contractor has 45 days to correct them or submit a corrective action plan [@CL-EST-0863; @CL-EST-0772]. The contractor-side steps and the withholding consequence are on [Contractor estimating system requirements](est-estimating-system-criteria.md).
+Under the DoD section the auditor conducts the reviews [@CL-EST-0864]. The auditor documents findings and recommendations in a report to the contracting officer, and a report of material weaknesses describes the underlying deficiencies in enough detail for the contracting officer to understand them [@CL-EST-0865]. The contracting officer then decides: if material weaknesses are found, an initial determination follows with a 30-day written response [@CL-EST-0862; @CL-EST-0771], and if a final determination finds that weaknesses remain, the contracting officer requests that the contractor, within 45 days of receipt, either correct them or submit an acceptable corrective action plan [@CL-EST-0863; @CL-EST-0772]. The contractor-side steps and the withholding consequence are on [Contractor estimating system requirements](est-estimating-system-criteria.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A large business contractor's preceding fiscal year carries 60 million of DoD prime contracts requiring certified cost or pricing data, so the disclosure, maintenance and review requirements apply. Had the same year carried 20 million instead, they would apply only if the contracting officer determined it to be in the best interest of the Government.
+A large business contractor's preceding fiscal year carries 60 million of DoD prime contracts requiring certified cost or pricing data, so the disclosure, maintenance and review requirements apply. Had the same year carried 20 million instead, they would apply only if the contracting officer, with concurrence or at the request of the ACO, determined it to be in the best interest of the Government.
 
 ## Never confuse
 
