@@ -1,0 +1,82 @@
++++
+id = "est-price-reduction-defective-data-sealed-bidding-modifications"
+title = "Price reduction for defective certified data on modifications under sealed bidding"
+area = "est"
+subarea = "pricing"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["certified_cost_or_pricing_data", "defective_pricing"]
+questions = ["Q-004"]
+links = ["est-price-reduction-and-subcontractor-data-modification-clauses", "est-defective-pricing", "est-certificate-current-cost-pricing-data", "est-certified-data-exceptions", "est-subcontractor-certified-data-sealed-bidding-modifications"]
++++
+
+## Purpose
+
+Shows when the price of a modification under a sealed bidding contract is reduced for defective certified cost or pricing data, which matters the Contractor may not raise as a defense, which offsets are allowed or barred, and how interest and the penalty work.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-EST-2163] |
+| Codified citation | FAR 52.214-27 [@CL-EST-2163] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-EST-2163] |
+| Applies to | Modifications expected to exceed the certified data threshold on the date of execution, unless an exception applies [@CL-EST-2163; @CL-EST-2230; @CL-EST-2164] |
+
+The clause becomes operative only for a modification involving aggregate increases and/or decreases in costs, plus applicable profits, expected to exceed the threshold for the submission of certified cost or pricing data in FAR 15.403-4(a)(1) [@CL-EST-2163]. The expectation is tested on the date of execution of the modification [@CL-EST-2230]. The clause does not apply to a modification if an exception under FAR 15.403-1(b) applies [@CL-EST-2164]. The clause names the threshold by reference to FAR 15.403-4(a)(1) and states no dollar figure [@CL-EST-2163].
+
+A price reduction arises if any price, including profit, negotiated in connection with any modification under the clause was increased by any significant amount because of one of three grounds [@CL-EST-2232]. The first ground is that the Contractor or a subcontractor furnished certified cost or pricing data that were not complete, accurate, and current as certified in its Certificate of Current Cost or Pricing Data [@CL-EST-2165]. The second is that a subcontractor or prospective subcontractor furnished the Contractor certified cost or pricing data that were not complete, accurate, and current as certified in the Contractor's Certificate of Current Cost or Pricing Data [@CL-EST-2198]. The third is that any of these parties furnished data of any description that were not accurate [@CL-EST-2166]. In each case the price shall be reduced accordingly and the contract shall be modified to reflect the reduction [@CL-EST-2199].
+
+The right to a price reduction is limited to that resulting from defects in data relating to modifications for which the clause becomes operative under paragraph (a) [@CL-EST-2200].
+
+A reduction under paragraph (b) due to defective data from a prospective subcontractor that was not subsequently awarded the subcontract is limited to the amount, plus applicable overhead and profit markup, that the next sentence measures [@CL-EST-2201]. The amount is that by which the actual subcontract, or the actual cost to the Contractor if there was no subcontract, was less than the prospective subcontract cost estimate submitted by the Contractor [@CL-EST-2233]. That limit applies on the proviso that the actual subcontract price was not itself affected by defective certified cost or pricing data [@CL-EST-2202].
+
+## How it works
+
+If the Contracting Officer determines under paragraph (b) that a price or cost reduction should be made, the Contractor agrees not to raise four listed matters as a defense [@CL-EST-2203]. The first is that the Contractor or subcontractor was a sole source supplier or otherwise in a superior bargaining position, so that the price of the contract would not have been modified even if accurate, complete, and current certified cost or pricing data had been submitted [@CL-EST-2204]. The second is that the Contracting Officer should have known that the certified cost or pricing data in issue were defective even though the Contractor or subcontractor took no affirmative action to bring the character of the data to the Contracting Officer's attention [@CL-EST-2205]. The third is that the contract was based on an agreement about the total cost of the contract and there was no agreement about the cost of each item procured [@CL-EST-2206]. The fourth is that the Contractor or subcontractor did not submit a Certificate of Current Cost or Pricing Data [@CL-EST-2207].
+
+Except as paragraph (d)(2)(ii) prohibits, an offset in an amount determined appropriate by the Contracting Officer based upon the facts shall be allowed against the amount of a contract price reduction if the conditions that follow are met [@CL-EST-2167]. One condition is that the Contractor certifies to the Contracting Officer that, to the best of the Contractor's knowledge and belief, it is entitled to the offset in the amount requested [@CL-EST-2168]. The other is that the Contractor proves that the certified cost or pricing data were available before the date of agreement on the price of the contract or modification and that the data were not submitted before that date [@CL-EST-2169]. An offset shall not be allowed if the understated data was known by the Contractor to be understated when the Certificate of Current Cost or Pricing Data was signed [@CL-EST-2170]. An offset shall also not be allowed if the Government proves that the facts demonstrate that the contract price would not have increased in the amount to be offset even if the available data had been submitted before the date of agreement on price [@CL-EST-2171].
+
+If a reduction in the contract price reduces the price of items for which payment was made before the date of the modification reflecting the price reduction, the Contractor shall be liable to and shall pay the United States, at the time the overpayment is repaid, the amounts listed in paragraphs (e)(1) and (e)(2) [@CL-EST-2172]. The first is interest compounded daily, as the clause says a statute requires, on the overpayment, computed from the date or dates of overpayment to the Contractor to the date the Government is repaid by the Contractor [@CL-EST-2173]. The interest rate is the applicable underpayment rate effective for each quarter that the Secretary of the Treasury prescribes under a statutory provision the clause cites [@CL-EST-2208]. The second is a penalty equal to the amount of the overpayment, if the Contractor or subcontractor knowingly submitted certified cost or pricing data which were incomplete, inaccurate, or noncurrent [@CL-EST-2174].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+Assume the certified data threshold on the date of execution is 2,000,000. A modification is expected to change costs, plus profit, by 5,000,000 in total, so the clause is operative, and no exception applies. A second modification is expected to change them by 1,000,000 in total. The clause is not operative for it, so no price reduction right under the clause arises from data for that modification.
+
+The price of the first modification is agreed at 5,000,000 using certified data. Later it is shown that the Contractor furnished certified data that were not complete, accurate, and current as certified, and the price was increased by a significant 300,000 because of it. The price is reduced by 300,000 and the contract is modified.
+
+The Contractor argues that it was the sole source supplier, so the price would not have changed. It may not raise that as a defense. It also may not argue that the Contracting Officer should have known the data were defective, that only the total cost was agreed, or that no certificate was submitted.
+
+The Contractor then certifies that it is entitled to a 60,000 offset and proves that the supporting cost data were available before the date of agreement on price and were not submitted before that date. If the Contracting Officer determines that 60,000 is appropriate on the facts, the net reduction is 240,000. No offset would be allowed if the Contractor knew the data were understated when it signed the certificate, or if the Government proves that the price would not have increased by that 60,000 even if the data had been submitted before the date of agreement on price.
+
+Suppose the whole 240,000 reduction falls on items that the Government paid for before the modification reflecting the reduction. The 240,000 is an overpayment. When it is repaid, the Contractor also pays interest compounded daily on 240,000, from the dates of overpayment to the date the Government is repaid, at the underpayment rate effective for each quarter. If the Contractor or subcontractor knowingly submitted data that were incomplete, inaccurate or noncurrent, a penalty of 240,000 is added.
+
+Separately, the Contractor's price included a cost estimate of 400,000 from a prospective subcontractor whose certified data were defective. The subcontract went to another firm at 350,000, and that price was not affected by defective data. The reduction for the prospective subcontractor's defect is limited to 50,000 plus the applicable overhead and profit markup. At an assumed markup of 10 percent that is 55,000. If there had been no subcontract and the Contractor had performed the work at an actual cost of 360,000, the base would be 40,000.
+
+## Never confuse
+
+A price reduction and an offset are separate steps: the reduction follows from the defective data, while the offset needs the Contractor's certification and proof and can be barred [@CL-EST-2199; @CL-EST-2167; @CL-EST-2168; @CL-EST-2169; @CL-EST-2170; @CL-EST-2171].
+
+The matters listed in paragraph (d)(1) are barred as defenses to a reduction, and the offset in paragraph (d)(2) is a separate allowance with its own conditions [@CL-EST-2203; @CL-EST-2167].
+
+Interest and the penalty differ. Interest is owed on the overpayment of items already paid for, while the penalty applies only if certified data were knowingly incomplete, inaccurate, or noncurrent [@CL-EST-2173; @CL-EST-2174].
+
+This clause is the sealed bidding version. The versions used in negotiated contracts are on [Price reduction for defective certified data and subcontractor certified data clauses for modifications](est-price-reduction-and-subcontractor-data-modification-clauses.md), and wider defective pricing is on [Defective pricing: price reduction for defective certified cost or pricing data](est-defective-pricing.md). The matching subcontractor data requirement is on [Subcontractor certified data on modifications under sealed bidding](est-subcontractor-certified-data-sealed-bidding-modifications.md).
+
+## Company calibration
+
+Confirm which executed modifications carry this clause, who confirms that it applies to each, and where the certificates and supporting data are kept [@Q-004].
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reduction for defective certified cost or pricing data on modifications under sealed bidding.
