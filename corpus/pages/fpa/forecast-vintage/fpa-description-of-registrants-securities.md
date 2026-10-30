@@ -44,7 +44,7 @@ A company registers one class of common stock and one series of notes. For the s
 
 ## Never confuse
 
-This card is about the rights and terms of the securities. The [market price card](fpa-market-price-dividends-and-equity-compensation-plans.md) is about where the common equity trades, and the [use of proceeds card](fpa-use-of-proceeds-and-plan-of-distribution.md) is about what the offering money will be spent on. A debt description also covers default events and lien priority, which have nothing to do with trading markets [@CL-FPA-0223; @CL-FPA-0224].
+This card is about the rights and terms of the securities. The [market price card](fpa-market-price-dividends-and-equity-compensation-plans.md) is about where the common equity trades, and the [use of proceeds card](fpa-use-of-proceeds-and-plan-of-distribution.md) is about what the offering money will be spent on. A debt description also covers default events and lien priority, which are terms of the securities themselves and not market-price information [@CL-FPA-0223; @CL-FPA-0224].
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ How the company keeps its charter, indenture and warrant terms in a form that ca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Replaced an absolute statement about trading markets with a narrower contrast between security terms and market-price information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the description of the registrant's securities.
