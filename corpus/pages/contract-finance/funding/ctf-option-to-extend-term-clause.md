@@ -1,0 +1,60 @@
++++
+id = "ctf-option-to-extend-term-clause"
+title = "Option to extend the term of the contract clause"
+area = "ctf"
+subarea = "funding"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["funding"]
+questions = ["Q-004"]
+links = ["ctf-option-clauses-and-provisions", "ctf-option-to-extend-services-clause", "ctf-exercise-of-options"]
++++
+
+## Purpose
+
+Shows the preliminary notice, the exercise window and the total duration limit for the option to extend the term of the contract.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CTF-2308] |
+| Codified citation | FAR 52.217-9 [@CL-CTF-2308] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CTF-2308] |
+| Applies to | Contracts that include the option to extend the term clause [@CL-CTF-2308] |
+
+The Government may extend the term of the contract by written notice to the Contractor within a period of time that the clause leaves as a contract-specific blank to be inserted [@CL-CTF-2308]. The extension is provided that the Government gives the Contractor a preliminary written notice of its intent to extend at least a contract-specific number of days before the contract expires, and the clause's bracketed instruction sets 60 days unless a different number of days is inserted [@CL-CTF-2309]. The preliminary notice does not commit the Government to an extension [@CL-CTF-2310].
+
+The total duration of the contract, including the exercise of any options under the clause, shall not exceed a contract-specific period stated in months or years [@CL-CTF-2312]. If the Government exercises the option, the extended contract shall be considered to include the option clause [@CL-CTF-2311].
+
+## How it works
+
+The Government first sends a preliminary written notice of its intent to extend, at least the inserted number of days before the contract expires, which is 60 days unless a different number is inserted [@CL-CTF-2309]. The preliminary notice is a condition of the extension [@CL-CTF-2309]. That notice does not commit it [@CL-CTF-2310]. The extension itself is by written notice within the period inserted in the clause, which the clause text leaves as a blank with a bracketed instruction to insert it, so the period is contract-specific [@CL-CTF-2308]. The extended contract is treated as including the option clause, and the total duration, including any options exercised, stays within the period stated in the clause [@CL-CTF-2311; @CL-CTF-2312]. The prescription is covered on [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+The contract's current term runs to the end of day 730. It was a base period of 1 year, and the Government has already exercised one 1-year extension. The clause keeps the default of 60 days for the preliminary notice, and the total duration limit inserted is 3 years. The clause also inserts a period for giving the written notice of extension, and the Government gives that notice within it.
+
+Answer: the preliminary notice must be given at least 60 days before expiry, so on or before day 670. A preliminary notice on day 650 meets this, being 80 days before expiry, and one on day 690 does not, being 40 days before. The preliminary notice does not commit the Government to an extension. If the Government exercises a further 1-year extension, the total duration becomes 3 years, which does not exceed the limit, and the extended contract is considered to include the option clause. Another 1-year extension after that would bring the total to 4 years, which exceeds the limit, so the clause does not support it.
+
+## Never confuse
+
+This clause extends the term of the contract and needs a preliminary written notice [@CL-CTF-2309]. The clause to extend services allows continued performance of services with a total extension of no more than 6 months [@CL-CTF-2306]. See [Option to extend services](ctf-option-to-extend-services-clause.md).
+
+## Company calibration
+
+Confirm which contracts carry this clause, the exercise window, preliminary notice days and duration limit inserted in each one. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for option to extend the term of the contract.

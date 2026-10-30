@@ -1,0 +1,71 @@
++++
+id = "sup-fob-origin-variants"
+title = "F.o.b. origin variants: contractor's facility, freight allowed, freight prepaid"
+area = "sup"
+subarea = "procure-to-pay"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-026"]
+links = ["ctf-proper-invoice-content"]
++++
+
+## Purpose
+
+Shows how the contractor's facility, freight allowed and freight prepaid variants differ from plain f.o.b. origin, and who bears freight.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
+| Codified citation | FAR 52.247-30 to 52.247-32 [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
+| Applies to | Contracts containing one of the three f.o.b. origin variant clauses [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
+
+Each variant delivers free of expense to the Government on board the indicated type of conveyance of the carrier (or of the Government, if specified). For contractor's facility that is at the designated facility, on the named street or highway [@CL-SUP-1974]. For freight allowed and for freight prepaid it is at a designated point in the city, county and State of shipment [@CL-SUP-2068; @CL-SUP-2069]. Those two variants also include delivery to and placement on the carrier's wharf or freight station, or delivery to a United States Postal Service facility [@CL-SUP-2126; @CL-SUP-2128], and, if stated in the solicitation, delivery to any Government-designated point within the same city or commercial zone as the f.o.b. origin point specified in the contract [@CL-SUP-2127; @CL-SUP-2129].
+
+Freight allowed adds an allowance for freight, based on applicable published tariff rates (or Government rate tenders) between the points in the contract, that is deducted from the contract price [@CL-SUP-1975]. Freight prepaid adds that the cost of transportation, ultimately the Government's obligation, is prepaid by the contractor to the point specified in the contract [@CL-SUP-1976]. The contractor must prepay all freight charges to the extent specified in the contract [@CL-SUP-1977].
+
+Paragraph (b) of each variant also sets the contractor's shipping duties, and four of them read the same in all three. The contractor must pack and mark the shipment to comply with contract specifications or, in the absence of specifications, prepare it in conformance with carrier requirements to protect the goods and to ensure assessment of the lowest applicable transportation charge [@CL-SUP-2271; @CL-SUP-2279; @CL-SUP-2287]. It must order specified carrier equipment when the Government requests it or, if none is specified, order appropriate carrier equipment not in excess of capacity to accommodate the shipment [@CL-SUP-2272; @CL-SUP-2280; @CL-SUP-2288]. It must deliver the shipment in good order and condition to the carrier and, when it loads a carload or truckload shipment, load, stow, trim, block and/or brace it on or in the carrier's conveyance as carrier rules and regulations require [@CL-SUP-2273; @CL-SUP-2281; @CL-SUP-2289]. It must distribute the copies of the bill of lading, or other transportation receipts, as the ordering agency directs [@CL-SUP-2278; @CL-SUP-2286; @CL-SUP-2294].
+
+The bill of lading duty differs. Under freight allowed the contractor completes the Government bill of lading supplied by the ordering agency or, when none is supplied, prepares a commercial bill of lading or other transportation receipt [@CL-SUP-2070]. Under freight prepaid the contractor must prepare a bill of lading or other transportation receipt [@CL-SUP-2071]. Under contractor's facility the contractor completes the Government bill of lading supplied by the ordering agency or, when none is supplied, prepares a commercial bill of lading or other transportation receipt [@CL-SUP-2125].
+
+In all three variants the bill of lading must show a description of the shipment in terms of the governing freight classification or tariff (or Government rate tender) under which lowest freight rates are applicable, and the seals affixed to the conveyance with their serial numbers or other identification [@CL-SUP-2274; @CL-SUP-2282; @CL-SUP-2290]. It must also show the lengths and capacities of cars or trucks ordered and furnished, and other pertinent information required to effect prompt delivery to the consignee, including name, delivery address, postal address and ZIP code of consignee, and routing [@CL-SUP-2275; @CL-SUP-2283; @CL-SUP-2291]. It must show special instructions or annotations that the ordering agency requests, for example that the shipment is the property of the Government and that the Government will reimburse the freight charges paid to the carrier [@CL-SUP-2276; @CL-SUP-2284; @CL-SUP-2292]; under freight allowed those are the annotations requested for commercial bills of lading [@CL-SUP-2284]. It must also show the signature of the carrier's agent and the date the carrier receives the shipment [@CL-SUP-2277; @CL-SUP-2285; @CL-SUP-2293].
+
+Loss and damage do not differ. Under each variant the contractor must be responsible for any loss of or damage to the goods occurring before delivery to the carrier or resulting from improper packing and marking (improper packing or marking in freight prepaid) [@CL-SUP-2119; @CL-SUP-2121; @CL-SUP-2123], and for loss or damage resulting from improper loading, stowing, trimming, blocking, and/or bracing of the shipment if the contractor loaded it on or in the carrier's conveyance [@CL-SUP-2120; @CL-SUP-2122; @CL-SUP-2124].
+
+## How it works
+
+Read the variant clause first for two things: the delivery point and who moves the freight money. Contractor's facility fixes the point at a named facility [@CL-SUP-1974]. Freight allowed moves the freight money through a price deduction [@CL-SUP-1975]. Freight prepaid makes the contractor advance the freight [@CL-SUP-1976; @CL-SUP-1977]. The text of these three variant clauses on file does not say how freight is shown on the invoice. The separate clause for prepaid small package freight does: transportation charges are billed as a separate item on the invoice for each shipment, with a copy of the bill of lading, shipment receipt or freight bill [@CL-SUP-1994]. That clause applies only to f.o.b. origin shipments without a security classification when the Contracting Officer authorizes it [@CL-SUP-1991].
+
+Freight allowed and freight prepaid also state where the contractor's responsibilities are performed: at the plant or plants where the supplies are to be finally inspected and accepted, unless the facilities for shipment by carrier's equipment are not available at the contractor's plant [@CL-SUP-2130; @CL-SUP-2131]. If the contractor's shipping plant is in the State of Alaska or Hawaii, the contractor delivers the supplies listed for shipment outside Alaska or Hawaii to the port of loading in that State as specified in the contract, at its own expense [@CL-SUP-2132; @CL-SUP-2136], and to that extent the contract is f.o.b. destination [@CL-SUP-2133; @CL-SUP-2137]. If the plant is in Hawaii and the contract requires delivery by container service, the contractor instead delivers the supplies at its own expense to the container yard [@CL-SUP-2134; @CL-SUP-2138], in the same or nearest city where seavan container service is available [@CL-SUP-2135; @CL-SUP-2139].
+
+Read the variant clause actually in the contract, and see the plain f.o.b. origin card for the wording of plain f.o.b. origin.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A contract has a price of 10,000 and the published tariff freight between the contract points is 600. Under freight allowed, the contractor delivers on board the carrier's conveyance at the designated point, an allowance of 600 is deducted, and the contract price becomes 9,400. The contractor completes the Government bill of lading if the ordering agency supplied one and otherwise prepares a commercial bill of lading. Under freight prepaid, the contractor prepays the 600 of freight to the point named in the contract, to the extent the contract specifies. That 600 is ultimately the Government's obligation, but unlike freight allowed the clause itself deducts no allowance from the price. The contractor prepares a bill of lading or other transportation receipt. Under contractor's facility, the change is the delivery point: on board the carrier's conveyance at the designated facility on the named street or highway. Under any of the three variants, if the contractor loads the truck itself and bracing fails so that cargo shifts and is damaged, the loss is the contractor's, because it results from improper loading by the contractor. Under freight allowed or freight prepaid, a plant in Hawaii that ships supplies outside Hawaii delivers them to the port of loading in Hawaii at its own expense, and to that extent the contract is f.o.b. destination.
+
+Take a pallet load of 40 cartons under any of the three variants. The contract specifications set no packing standard, so the contractor prepares the load as carrier requirements demand, to protect the goods and to secure the lowest applicable transportation charge. The Government has asked for no particular carrier equipment, so the contractor orders appropriate equipment that is not larger than the load needs, and delivers the load to the carrier in good order and condition. The bill of lading shows the seal number on the conveyance, the length and capacity of the trailer ordered and furnished, and the consignee's delivery address and routing, and the carrier's agent signs it and dates it on receipt. The ordering agency directs that three copies go to the consignee and two to its transportation office, and the contractor distributes them that way.
+
+## Never confuse
+
+Freight allowed is not freight prepaid. Freight allowed reduces the contract price by the freight allowance [@CL-SUP-1975], while freight prepaid has the contractor prepay the transportation cost, and that cost is ultimately the Government's obligation [@CL-SUP-1976].
+
+## Company calibration
+
+Confirm which variant each contract carries and how freight is recovered or deducted on each invoice. [@Q-026]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the f.o.b. origin variants.
