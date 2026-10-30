@@ -39,3 +39,5 @@ extention = "extention"
 compensacion = "compensacion"
 fabricacion = "fabricacion"
 transmissiones = "transmissiones"
+# "exlcusive", as misprinted in FAR 52.248-3(b) and quoted verbatim.
+exlcusive = "exlcusive"
