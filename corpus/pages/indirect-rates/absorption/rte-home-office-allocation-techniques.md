@@ -31,7 +31,7 @@ Shows how home office expenses are grouped, how centralized service functions ar
 
 Ordinarily each home office service or management function has to be separately identified for allocation by an appropriate technique [@CL-RTE-0680]. Different functions need not be identified and allocated separately if allocation under the standard's relevant requirements can be made using a common allocation base [@CL-RTE-0681].
 
-Centralized service functions are governed by a hierarchy of preferable techniques, and the preferred representation is a measure of the activity of the organization performing the function [@CL-RTE-0682]. Where residual expenses are required to be allocated under the standard's residual expense paragraph, the three factor formula must be used [@CL-RTE-0686].
+Centralized service functions are governed by a hierarchy of preferable techniques, and the preferred representation is a measure of the activity of the organization performing the function [@CL-RTE-0682]. Where residual expenses are required to be allocated pursuant to 9904.403-40(c)(2), the three factor formula must be used [@CL-RTE-0686]. That paragraph applies only when the previous fiscal year's residual expenses exceed the percentage-ladder amount [@CL-CMP-0556]; otherwise residual expenses are allocated on a base representative of the total activity of the segments [@CL-CMP-0555].
 
 ## How it works
 
@@ -45,7 +45,7 @@ A home office personnel department costs 60,000 a year. It both runs personnel s
 
 ## Never confuse
 
-A centralized service function is not a residual expense. A service function follows the hierarchy of activity, then output, then a surrogate [@CL-RTE-0682; @CL-RTE-0684; @CL-RTE-0685]. Residual expenses that must be allocated use the three factor formula [@CL-RTE-0686]. For the underlying allocation requirements, see [the CAS home office card](../../compliance/cas-allowability/cmp-cas-403-home-office-allocation.md).
+A centralized service function is not a residual expense. A service function follows the hierarchy of activity, then output, then a surrogate [@CL-RTE-0682; @CL-RTE-0684; @CL-RTE-0685]. Residual expenses use the three factor formula only when the previous fiscal year's residual expenses exceed the percentage-ladder amount [@CL-CMP-0556; @CL-RTE-0686]; below that amount, a base representative of total segment activity is used [@CL-CMP-0555]. For the underlying allocation requirements, see [the CAS home office card](../../compliance/cas-allowability/cmp-cas-403-home-office-allocation.md).
 
 ## Company calibration
 
