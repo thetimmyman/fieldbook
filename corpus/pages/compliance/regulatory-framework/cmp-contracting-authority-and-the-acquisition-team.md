@@ -53,7 +53,7 @@ A program engineer who is not a contracting officer asks a supplier to add a tes
 
 ## Never confuse
 
-A contracting officer's authority is not a program office's direction. The program office defines the need; contracts are entered into and signed on behalf of the Government only by contracting officers [@CL-CMP-6868], and a contracting officer binds the Government only to the extent of the authority delegated to the officer [@CL-CMP-7165]. The team rule that Government members should not assume an unaddressed practice is prohibited does not widen anyone's authority: it applies within the limits of their authority [@CL-CMP-6871].
+A program office's direction is not a contracting officer's authority. Contracts are entered into and signed on behalf of the Government only by contracting officers [@CL-CMP-6868], and a contracting officer binds the Government only to the extent of the authority delegated to the officer [@CL-CMP-7165]. The team rule that Government members should not assume an unaddressed practice is prohibited does not widen anyone's authority: it applies within the limits of their authority [@CL-CMP-6871].
 
 ## Company calibration
 
@@ -63,4 +63,5 @@ Which roles in the company may accept direction that changes scope, price or sch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Removed an unsourced statement that the program office defines the need.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting authority and the acquisition team.
