@@ -1,0 +1,62 @@
++++
+id = "est-sealed-bidding-essentials"
+title = "Sealed bidding: amendments, false statements, bid submission and explanations"
+area = "est"
+subarea = "pricing"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["federal_acquisition_regulation"]
+questions = ["Q-012"]
+links = ["est-proposal-submission-and-late-proposals", "est-reverse-auction"]
++++
+
+## Purpose
+
+Covers bidder duties in sealed bidding: acknowledging amendments, giving complete and accurate information, packing and marking bids, and getting a written explanation of the solicitation in time.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
+| Codified citation | FAR 52.214-3 [@CL-EST-1955]; FAR 52.214-4 [@CL-EST-2151]; FAR 52.214-5 [@CL-EST-1959]; FAR 52.214-6 [@CL-EST-1962] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-EST-1955] |
+| Applies to | Invitations for bids that include the amendment, bid submission and explanation provisions [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
+
+If the solicitation is amended, all terms and conditions which are not modified remain unchanged [@CL-EST-1955]. Bidders shall acknowledge receipt of any amendment to the solicitation by signing and returning the amendment, or by identifying the amendment number and date in the space provided on the form for submitting a bid [@CL-EST-1956]. Acknowledgement may also be made by letter, by facsimile if facsimile bids are authorized in the solicitation, or by email if email bids are authorized in the solicitation [@CL-EST-1957]. The Government must receive the acknowledgement by the time and at the place specified for receipt of bids [@CL-EST-1958].
+
+Bidders must provide full, accurate and complete information as required by the solicitation and its attachments [@CL-EST-2151]. The penalty for making false statements in bids is prescribed in section 1001 of title 18 of the United States Code [@CL-EST-2152].
+
+Bids and bid modifications shall be submitted in sealed envelopes or packages, unless submitted by electronic means, addressed to the office specified in the solicitation and showing the time and date specified for receipt, the solicitation number, and the name and address of the bidder [@CL-EST-1959]. Bidders using commercial carrier services shall ensure that the bid is addressed and marked on the outermost envelope or wrapper in that way when delivered to the office specified in the solicitation [@CL-EST-2047]. Facsimile bids, modifications, or withdrawals will not be considered unless authorized by the solicitation [@CL-EST-1960]. Bids submitted by electronic commerce shall be considered only if the electronic commerce method was specifically stipulated or permitted by the solicitation [@CL-EST-1961].
+
+A prospective bidder desiring an explanation or interpretation of the solicitation, drawings, or specifications must request it in writing soon enough to allow a reply to reach all prospective bidders before the submission of their bids [@CL-EST-1962]. Oral explanations or instructions given before the award of a contract will not be binding [@CL-EST-1963]. Any information given a prospective bidder concerning a solicitation will be furnished promptly to all other prospective bidders as an amendment to the solicitation, if that information is necessary in submitting bids or if the lack of it would be prejudicial to other prospective bidders [@CL-EST-1964].
+
+## How it works
+
+Two timing rules govern the exchange, and neither sets a number of days. The acknowledgement must reach the Government by the time and at the place specified for receipt of bids [@CL-EST-1958]. A request for an explanation must be in writing and early enough for a reply to reach all prospective bidders before bids are submitted [@CL-EST-1962]. Information given to one bidder becomes an amendment for the others when it is necessary for bids or its absence would prejudice them [@CL-EST-1964]. Oral guidance does not bind before award [@CL-EST-1963]. The time and place for receipt, and which methods the solicitation authorizes, are contract-specific.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+An invitation for bids is amended twice, and bids are due at 2 pm. The bidder signs and returns both amendments, and the Government receives them by 2 pm, which meets the requirement. A second bidder acknowledges the second amendment only by a letter that reaches the Government at 3 pm, which is after the time specified for receipt, so that acknowledgement does not meet the requirement. The first bidder asks in writing, 10 days before bids are due, how to read a drawing, early enough for the reply to reach all prospective bidders. If the information in the reply is necessary for bids, the Government furnishes it to all prospective bidders as an amendment. A verbal answer from a buyer the day before bids are due is not binding. The bid goes in a sealed envelope addressed to the office in the solicitation, marked with the time and date for receipt, the solicitation number, and the bidder's name and address. A courier's outer wrapper carries the same markings.
+
+## Never confuse
+
+Acknowledging an amendment is not agreeing to it: the acknowledgement confirms receipt, and the terms that are not modified stay unchanged [@CL-EST-1956; @CL-EST-1955]. An oral answer is not an amendment: oral explanations before award are not binding, while information that is necessary for bids is furnished to all as an amendment [@CL-EST-1963; @CL-EST-1964]. The allowance for electronic means in the sealed envelope rule is not permission to bid electronically: a bid by electronic commerce is considered only if the solicitation stipulated or permitted the method [@CL-EST-1959; @CL-EST-1961]. Reverse auctions, in which offerors see competing prices, are on [Reverse auction under a solicitation](est-reverse-auction.md), and negotiated proposals are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md).
+
+## Company calibration
+
+Who tracks amendment acknowledgements and written clarification requests against the bid receipt deadline. [@Q-012]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sealed bidding amendments, bid submission and explanations.
