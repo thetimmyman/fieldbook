@@ -47,7 +47,7 @@ A contractor sends 12 staff to work at a detention facility. Each receives the C
 
 The training clause and the prohibition clause do different jobs. The training covers personnel who are expected to interact with detainees [@CL-CMP-4337], and the other clause bars contractor personnel from interrogating them [@CL-CMP-4342]. Interrogation has its own definition in the prohibition clause, and the exclusion of personnel held for law enforcement purposes belongs to that clause's definition of detainee [@CL-CMP-4343; @CL-CMP-4344].
 
-Related clauses are covered on Contractor personnel supporting deployed forces, on Defense contractors performing private security functions outside the United States, and, for crisis duties, on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md).
+Related clauses are covered on [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md), on [Defense contractors performing private security functions outside the United States](cmp-private-security-functions-outside-the-united-states.md), and, for crisis duties, on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md).
 
 ## Company calibration
 

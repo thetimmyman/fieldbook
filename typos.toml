@@ -33,3 +33,7 @@ flexibily = "flexibily"
 procurment = "procurment"
 # "writtten", as misprinted in FAR 19.306 and quoted verbatim.
 writtten = "writtten"
+# "Compensacion", "Fabricacion" and "Transmissiones", Spanish tax names printed in DFARS 252.229-7005 and quoted verbatim.
+compensacion = "compensacion"
+fabricacion = "fabricacion"
+transmissiones = "transmissiones"

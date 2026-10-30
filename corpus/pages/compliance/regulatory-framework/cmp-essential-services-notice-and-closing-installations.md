@@ -45,7 +45,7 @@ An offeror bids on a base-support contract with a list of essential services. It
 
 ## Never confuse
 
-The notice provision applies at the offer stage and asks for a plan with the offer [@CL-CMP-4323]. The contract clause covered on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md) incorporates the contractor's submitted plan into the contract [@CL-CMP-4315]. For deployed-forces duties, which are a separate clause, see Contractor personnel supporting deployed forces.
+The notice provision applies at the offer stage and asks for a plan with the offer [@CL-CMP-4323]. The contract clause covered on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md) incorporates the contractor's submitted plan into the contract [@CL-CMP-4315]. For deployed-forces duties, which are a separate clause, see [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
 
 The installation-closure clause is not about crisis continuity. It is about professional employees being used by the local government where professionals are available [@CL-CMP-4327].
 
