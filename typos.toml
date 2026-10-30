@@ -21,3 +21,5 @@ withh = "withh"
 addres = "addres"
 # "recuiting", a misspelling in the printed text of FAR 31.205-34(a)(4), copied verbatim into a claim quote.
 recuiting = "recuiting"
+# "modifiation", a misspelling in the printed text of FAR 52.229-3, copied verbatim into a claim quote.
+modifiation = "modifiation"
