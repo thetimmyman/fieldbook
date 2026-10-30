@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004", "Q-038"]
-links = ["fnd-stage-1", "cmp-acquisition-regulations", "cmp-oversight-roles", "ctf-contract-types", "ctf-financing-overview", "cmp-cas-overview", "est-brief-certified-data-threshold", "cmp-brief-rule-changes", "fnd-brief-research-reconciliation"]
+links = ["fnd-stage-1", "fnd-stage-3", "cmp-acquisition-regulations", "cmp-oversight-roles", "ctf-contract-types", "ctf-financing-overview", "cmp-cas-overview", "est-brief-certified-data-threshold", "cmp-brief-rule-changes", "fnd-brief-research-reconciliation"]
 +++
 
 ## Purpose
@@ -42,7 +42,7 @@ Read the pages in order after [Stage 1: Vocabulary and evidence rules](fnd-stage
 
 ### Next
 
-- [ ] The next stage, cost structure and pricing, is the clause cards for cost principles, the standards and pricing.
+- [ ] [Stage 3: Cost structure](fnd-stage-3.md)
 
 ## Worked example
 
