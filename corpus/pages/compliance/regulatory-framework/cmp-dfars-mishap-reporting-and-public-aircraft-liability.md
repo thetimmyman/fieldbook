@@ -1,0 +1,58 @@
++++
+id = "cmp-dfars-mishap-reporting-and-public-aircraft-liability"
+title = "Mishap reporting and public aircraft liability (DFARS)"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["defense_far_supplement", "administrative_contracting_officer"]
+questions = ["Q-004"]
+links = ["sup-dfars-ground-and-flight-risk", "sup-dfars-indemnification-unusually-hazardous-risks"]
++++
+
+## Purpose
+
+Shows what a contractor must report after a mishap, how it must cooperate in an investigation, and where responsibility, insurance and indemnity sit under the public aircraft clause.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified DFARS [@CL-CMP-4595; @CL-CMP-4598] |
+| Codified citation | DFARS 252.228-7005 [@CL-CMP-4595]; DFARS 252.228-7007 [@CL-CMP-4598] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-4595; @CL-CMP-4598] |
+| Applies to | Contracts with the mishap clause, for aircraft, missiles and space launch vehicles being manufactured, modified, repaired, or overhauled in connection with the contract [@CL-CMP-4595], and contracts with the public aircraft clause, for performance conducted as public aircraft or state aircraft operations [@CL-CMP-4598] |
+
+The contractor must report promptly to the administrative contracting officer all pertinent facts relating to each mishap involving an aircraft, missile, or space launch vehicle being manufactured, modified, repaired, or overhauled in connection with the contract [@CL-CMP-4595]. If the Government conducts an investigation of the mishap, the contractor must cooperate and assist the Government's personnel until the investigation is complete [@CL-CMP-4596]. It must also include a clause in subcontracts under the contract to require subcontractor cooperation and assistance in mishap investigations [@CL-CMP-4597].
+
+The liability paragraph of the public aircraft clause covers contractor liability for operations for contract performance conducted as public aircraft operations or state aircraft operations [@CL-CMP-4598]. Public aircraft means an aircraft that meets the definition and the qualifications in the two federal aviation statute provisions the clause cites [@CL-CMP-4730]. State aircraft means an aircraft operated by the Government for sovereign, noncommercial purposes such as military, customs, and police services, and military aircraft are afforded status as state aircraft [@CL-CMP-4731]. A DoD-contracted aircraft may be designated, in writing, by a responsible Government official to be operated in state aircraft status, and that status cannot be deemed without a written designation by an authorized Government official [@CL-CMP-4732]. For contract performance to be conducted as a public aircraft operation, the contractor is bound upon award by the operating procedures in the combined regulation or instruction entitled Contractor's Flight and Ground Operations [@CL-CMP-4733]. The contractor assumes responsibility for all damage or injury to persons or property, including its own employees and property and Government personnel and property [@CL-CMP-4599], and the responsibility is for damage or injury occasioned through the use, maintenance, and operation of its aircraft or other equipment by, or the action of, the contractor or its employees and agents [@CL-CMP-4600]. At its own expense it must maintain adequate public liability and property damage insurance, including hull insurance for its aircraft, during the duration of the contract, insuring the contractor against all claims for injury or damage [@CL-CMP-4727], and it must maintain workers' compensation and other legally required insurance with respect to its own employees and agents [@CL-CMP-4728]. The Government will in no event be liable or responsible for damage or injury to any person or property occasioned through the use, maintenance, or operation of any aircraft or other equipment by, or the action of, the contractor or its employees and agents in performing under the contract [@CL-CMP-4601], and the Government shall be indemnified and saved harmless against claims for damage or injury in such cases [@CL-CMP-4729].
+
+## How it works
+
+The mishap clause is a reporting and cooperation duty. The contractor reports the pertinent facts promptly [@CL-CMP-4595], assists any Government investigation until it is complete [@CL-CMP-4596], and requires the same help from subcontractors through a clause in its subcontracts [@CL-CMP-4597]. The public aircraft clause then allocates the risk of contract performance conducted as public aircraft or state aircraft operations [@CL-CMP-4598]: the contractor bears damage or injury caused by it or its people [@CL-CMP-4599; @CL-CMP-4600], the Government is not liable for it [@CL-CMP-4601], and the Government is indemnified against claims in such cases [@CL-CMP-4729]. Two cost-relevant duties follow for the contractor: public liability, property damage and hull insurance at its own expense [@CL-CMP-4727], and workers' compensation and other legally required insurance for its own employees and agents [@CL-CMP-4728].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+Assume an aircraft being overhauled under a contract worth 5,000,000 is damaged in a ground mishap. The contractor reports the pertinent facts to the administrative contracting officer promptly. The Government opens an investigation, and the contractor helps until it ends. The contractor also has a clause in its subcontracts requiring subcontractor cooperation. In a separate flight conducted as a public aircraft operation under the same contract, the contractor's crew damages a Government vehicle. The contractor assumes responsibility for that damage, the Government is not liable for it, and the contractor's own liability and property damage insurance is the cover for claims arising from it.
+
+## Never confuse
+
+The mishap clause covers reporting and cooperation [@CL-CMP-4595; @CL-CMP-4596], while responsibility for damage sits in the public aircraft clause [@CL-CMP-4599]. The Government taking on the risk of loss to covered aircraft is also a different clause; see [Ground and flight risk (DFARS)](../../supply-chain/sourcing-evidence/sup-dfars-ground-and-flight-risk.md). The indemnity in the public aircraft clause is a term of that clause [@CL-CMP-4729], separate from the indemnification clause for unusually hazardous risks in [Indemnification for unusually hazardous risks](../../supply-chain/sourcing-evidence/sup-dfars-indemnification-unusually-hazardous-risks.md).
+
+## Company calibration
+
+Which contracts involve aircraft, missiles or space launch vehicles, or public aircraft operations, and who confirms that these clauses apply. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mishap reporting and public aircraft liability.
