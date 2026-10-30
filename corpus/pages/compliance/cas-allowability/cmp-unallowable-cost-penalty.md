@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["unallowable_cost", "expressly_unallowable_cost", "incurred_cost_submission"]
 questions = ["Q-044"]
-links = ["rte-final-indirect-rate-proposal", "cmp-expressly-unallowable-penalty-assessment-and-waiver"]
+links = ["rte-final-indirect-rate-proposal"]
 +++
 
 ## Purpose
@@ -33,7 +33,7 @@ The penalty applies to all contracts over $1 million, except fixed-price contrac
 
 ## How it works
 
-The rule covers indirect costs in two places: the final indirect cost rate proposal, and the final statement of costs under a fixed-price incentive contract. An expressly unallowable cost left in the proposal draws a penalty equal to the cost allocated to covered contracts, plus interest on the paid part of the disallowed cost. A cost the government had already determined unallowable for the contractor before the proposal was submitted draws a penalty of two times the disallowed cost allocated to covered contracts [@CL-CMP-1860]. The penalty assessment card covers the amounts, interest and waiver in detail. The contracting officer decides whether to assess the penalty, and the auditor only recommends; the contracting officer must waive it when one of the listed waiver conditions is met.
+The rule covers indirect costs in two places: the final indirect cost rate proposal, and the final statement of costs under a fixed-price incentive contract. An expressly unallowable cost left in the proposal draws a penalty equal to the cost allocated to covered contracts, plus interest on the paid part of the disallowed cost. A cost the government had already determined unallowable for the contractor draws a larger penalty. The contracting officer decides whether to assess the penalty, and the auditor only recommends; the contracting officer must waive it when one of the listed waiver conditions is met.
 
 ## Worked example
 
@@ -53,5 +53,4 @@ How unallowable costs are screened before the incurred cost submission. [@Q-044]
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-29: Stated the two-times penalty for a cost already determined unallowable.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unallowable-cost penalties, with the RFO renumbering.
