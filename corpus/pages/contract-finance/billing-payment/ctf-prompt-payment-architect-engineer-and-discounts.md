@@ -41,7 +41,9 @@ For any discount offered for prompt payment, time is computed from the date of t
 
 Synthetic example. The numbers are made up.
 
-A design firm completes its work. The billing office receives a proper invoice on day 10, and the Government accepts the work on day 25. The later of day 40 and day 55 is day 55, so a payment made after day 55 draws an automatic interest penalty if the listed conditions are met.
+A design firm completes its work on day 20, and the billing office receives a proper invoice on day 22. There is no disagreement over quantity, quality or compliance. The payment due date is the later of the 30th day after receipt of the invoice, day 52, and the 30th day after Government acceptance, so it cannot be fixed until the Government accepts the work.
+
+For computing interest only, acceptance is deemed to occur constructively on the 7th day after completion, which is day 27. The interest deadline is the later of day 52 and day 57 (day 27 plus 30), which is day 57, so a payment made after day 57 draws an automatic interest penalty if the listed conditions are met. If the Government actually accepts within the 7 days, on day 25, the interest computation uses day 25 instead, and the later of day 52 and day 55 is day 55.
 
 For a discount, suppose an invoice is dated day 1 and offers a discount for payment within 10 days. The discount period ends on day 11. A payment check dated day 11 earns the discount.
 
