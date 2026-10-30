@@ -26,9 +26,9 @@ Shows what an offeror must keep current in SAM, and which solicitation provision
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2982] |
-| Applies to | Offerors and quoters that complete annual representations and certifications in SAM [@CL-CMP-2982] |
+| Applies to | Offerors and quoters, as a part of required registration in SAM [@CL-CMP-2982] |
 
-Offerors and quoters are required to complete electronic annual representations and certifications in SAM [@CL-CMP-2982]. Representations and certifications submitted to SAM are to be reviewed and updated as necessary, but at least annually, to keep them current, accurate, and complete, and they are effective until one year from date of submission or update to SAM [@CL-CMP-2983].
+Offerors and quoters are required to complete electronic annual representations and certifications in SAM as a part of required registration, and the section cross-refers to FAR 4.1102 on registration [@CL-CMP-2982]. Representations and certifications submitted to SAM are to be reviewed and updated as necessary, but at least annually, to keep them current, accurate, and complete, and they are effective until one year from date of submission or update to SAM [@CL-CMP-2983].
 
 The provision at 52.204-8, Annual Representations and Certifications, is to be inserted in solicitations, except for solicitations for commercial products or commercial services issued under part 12 [@CL-CMP-2984]. The contracting officer shall insert the clause at 52.204-19, Incorporation by Reference of Representations and Certifications, in solicitations and contracts [@CL-CMP-2985]. The contracting officer shall incorporate the representations and certifications by reference in the contract, with a pointer to the clause at 52.204-19 or, for commercial products or commercial services, to 52.212-4(v) [@CL-CMP-2945].
 
