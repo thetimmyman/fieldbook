@@ -40,7 +40,7 @@ The inserted percent applies to the dollars in excess of each goal in the plan [
 
 Synthetic example. The numbers are made up.
 
-A contractor plans to spend 1,000,000 under subcontracts and its plan sets a small business goal of 10 percent, which is 100,000. The contract's fill-in is 5 percent. The contractor awards 120,000 to small business concerns and also exceeds each of its other five goals, so the condition is met however the text is read. The example follows only the small business goal. The dollars in excess of the small business goal are 20,000, and 5 percent of 20,000 is 1,000. Now suppose the 20,000 above the goal arose because a small business subcontract cost more than the plan estimated. If the contracting officer determines that the excess was not due to the contractor's efforts, the contractor does not receive the 1,000.
+A contractor plans to spend 1,000,000 under subcontracts and its plan sets a small business goal of 10 percent, which is 100,000. The contract's fill-in is 5 percent. The contractor awards 120,000 to small business concerns and also exceeds each of its other five goals, so the condition is met however the text is read [@CL-MKT-1176]. The example follows only the small business goal. The dollars in excess of the small business goal are 20,000, and 5 percent of 20,000 is 1,000 [@CL-MKT-1111]. Now suppose the 20,000 above the goal arose because a small business subcontract cost more than the plan estimated. If the contracting officer determines that the excess was not due to the contractor's efforts, the contractor does not receive the 1,000 [@CL-MKT-1112; @CL-MKT-1113].
 
 ## Never confuse
 

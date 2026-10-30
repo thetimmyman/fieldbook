@@ -40,7 +40,7 @@ Under the basic clause the set-aside is a choice, because the text says the cont
 
 Synthetic example. The numbers are made up.
 
-A contract with the basic clause has ten orders. The contracting officer sets aside three of them for the identified small business concerns and gives notice naming those three orders and the applicable program. The notice and its restrictions apply to those three orders only, and not to the other seven. On a second contract that carries Alternate I, an order meets the conditions of FAR 19.502-2 and the program eligibility requirements, so the contracting officer will set it aside [@CL-MKT-1119]. On an order under that contract that does not meet them, the Alternate I paragraph does not require a set-aside [@CL-MKT-1119].
+A contract with the basic clause has ten orders. The contracting officer sets aside three of them for the identified small business concerns and gives notice naming those three orders and the applicable program [@CL-MKT-1116; @CL-MKT-1117]. The notice and its restrictions apply to those three orders only, and not to the other seven [@CL-MKT-1118]. On a second contract that carries Alternate I, an order meets the conditions of FAR 19.502-2 and the program eligibility requirements, so the contracting officer will set it aside [@CL-MKT-1119]. On an order under that contract that does not meet them, the Alternate I paragraph does not require a set-aside [@CL-MKT-1119].
 
 ## Never confuse
 

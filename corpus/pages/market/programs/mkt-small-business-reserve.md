@@ -40,7 +40,7 @@ Two texts work together: the provision goes in the solicitation, and the orders 
 
 Synthetic example. The numbers are made up.
 
-A solicitation contains a reserve for two types of small business concern, type A and type B. Each eligible concern submits one offer covering the portions it wants. The result is one contract award to a type A concern and three contract awards to type B concerns. The contracting officer may issue an order directly to the single type A awardee, because there is only one award to that type [@CL-MKT-1123]. The direct-issue sentence does not apply to the type B awardees, because there is more than one award to that type; for those awardees the contracting officer may instead set aside orders under FAR 19.504(c)(1)(i) [@CL-MKT-1245]. A contract that was not reserved is outside the orders clause [@CL-MKT-1122].
+A solicitation contains a reserve for two types of small business concern, type A and type B. Each eligible concern submits one offer covering the portions it wants [@CL-MKT-1121]. The result is one contract award to a type A concern and three contract awards to type B concerns. The contracting officer may issue an order directly to the single type A awardee, because there is only one award to that type [@CL-MKT-1123]. The direct-issue sentence does not apply to the type B awardees, because there is more than one award to that type; for those awardees the contracting officer may instead set aside orders under FAR 19.504(c)(1)(i) [@CL-MKT-1245]. A contract that was not reserved is outside the orders clause [@CL-MKT-1122].
 
 ## Never confuse
 

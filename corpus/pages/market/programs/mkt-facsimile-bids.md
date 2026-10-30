@@ -41,7 +41,7 @@ The bidder may use facsimile, and the Government is not responsible for failures
 
 Synthetic example. The numbers are made up.
 
-A solicitation names a receiving number and sets bid opening at 14:00. Bidder A sends a facsimile bid at 13:15, but the receiving machine is occupied and the bid is received at 14:10. The bid did not arrive by the time specified, and delay in transmission or receipt is a failure for which the Government is not responsible. Bidder B's signed bid arrives complete at 13:50. The Government may award on B's facsimile alone. If the contracting officer requests it, B, as the apparently successful bidder, agrees to promptly submit the complete original signed bid. Bidder C's signed facsimile bid arrives in time but omits a required representation, so it may be excluded from consideration.
+A solicitation names a receiving number and sets bid opening at 14:00. Bidder A sends a facsimile bid at 13:15, but the receiving machine is occupied and the bid is received at 14:10. The bid did not arrive by the time specified, and delay in transmission or receipt is a failure for which the Government is not responsible [@CL-MKT-1130; @CL-MKT-1134; @CL-MKT-1179]. Bidder B's signed bid arrives complete at 13:50. The Government may award on B's facsimile alone [@CL-MKT-1133]. If the contracting officer requests it, B, as the apparently successful bidder, agrees to promptly submit the complete original signed bid [@CL-MKT-1133]. Bidder C's signed facsimile bid arrives in time but omits a required representation, so it may be excluded from consideration [@CL-MKT-1131].
 
 ## Never confuse
 

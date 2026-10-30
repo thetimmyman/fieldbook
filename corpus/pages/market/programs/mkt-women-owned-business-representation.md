@@ -40,7 +40,7 @@ The provision has a definition and a representation [@CL-MKT-1124; @CL-MKT-1128]
 
 Synthetic example. The numbers are made up.
 
-Offeror X is privately held, two women own 60 percent of it, and they control its management and daily business operations. X did not represent itself as a small business concern in the small business program representations. X meets the definition and completes the representation. Offeror Y is publicly owned and women hold 40 percent of its stock, so it does not meet the ownership part. Offeror Z is 70 percent owned by women but its management and daily operations are controlled by men, so it does not meet the control part. Offeror W is a women-owned business concern that did represent itself as a small business concern in those representations, so the instruction does not call for it to complete this representation.
+Offeror X is privately held, two women own 60 percent of it, and they control its management and daily business operations. X did not represent itself as a small business concern in the small business program representations. X meets the definition and completes the representation [@CL-MKT-1124; @CL-MKT-1126; @CL-MKT-1127]. Offeror Y is publicly owned and women hold 40 percent of its stock, so it does not meet the ownership part [@CL-MKT-1125]. Offeror Z is 70 percent owned by women but its management and daily operations are controlled by men, so it does not meet the control part [@CL-MKT-1126]. Offeror W is a women-owned business concern that did represent itself as a small business concern in those representations, so the instruction does not call for it to complete this representation [@CL-MKT-1127].
 
 ## Never confuse
 
