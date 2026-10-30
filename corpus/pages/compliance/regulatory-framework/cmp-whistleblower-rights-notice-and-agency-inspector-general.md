@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-014"]
-links = ["cmp-contractor-employee-whistleblower-protections", "cmp-contractor-code-of-business-ethics", "cmp-deployed-contractor-personnel-definitions-and-predeployment", "cmp-mandatory-arbitration-restrictions"]
+links = ["cmp-contractor-employee-whistleblower-protections", "cmp-contractor-code-of-business-ethics", "cmp-deployed-contractor-personnel-definitions-and-predeployment", "cmp-mandatory-arbitration-restrictions", "cmp-dfars-hotline-posters"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ It also writes the notice requirement into every subcontract, including a small 
 
 ## Never confuse
 
-The notice clause is not the hotline poster clause. This one requires a written notice to employees [@CL-CMP-4191], and its printed text has no posting requirement. The poster duty is a separate clause covered on the card "DFARS display of hotline posters".
+The notice clause is not the hotline poster clause. This one requires a written notice to employees [@CL-CMP-4191], and its printed text has no posting requirement. The poster duty is a separate clause covered on [DFARS display of hotline posters](cmp-dfars-hotline-posters.md).
 
 It is also not the posting rule in the deployed-forces clause. That clause separately requires the Contractor to post a list of employee rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]. It is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
 

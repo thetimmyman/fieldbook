@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-003"]
-links = ["cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown"]
+links = ["cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown", "cmp-former-dod-official-compensation"]
 +++
 
 ## Purpose
@@ -29,7 +29,7 @@ Shows what an offeror represents about former DoD officials it employs or pays, 
 | Text status | Final [@CL-CMP-4194; @CL-CMP-4197] |
 | Applies to | Offers under the provision, and contracts with the clause where a contracting officer's representative is designated [@CL-CMP-4194; @CL-CMP-4197] |
 
-By submission of an offer, the Offeror represents, to the best of its knowledge and belief, that all covered DoD officials employed by or otherwise receiving compensation from it, and expected to undertake activities on its behalf for any resulting contract, are presently in compliance with all applicable post-employment restrictions [@CL-CMP-4194]. Those restrictions include those contained in the listed statutes and regulations [@CL-CMP-4195]. Covered DoD official is defined in the DFARS clause on compensation of former DoD officials [@CL-CMP-4196]. That clause is covered on the card "Compensation of former DoD officials".
+By submission of an offer, the Offeror represents, to the best of its knowledge and belief, that all covered DoD officials employed by or otherwise receiving compensation from it, and expected to undertake activities on its behalf for any resulting contract, are presently in compliance with all applicable post-employment restrictions [@CL-CMP-4194]. Those restrictions include those contained in the listed statutes and regulations [@CL-CMP-4195]. Covered DoD official is defined in the DFARS clause on compensation of former DoD officials [@CL-CMP-4196]. That clause is covered on [Compensation of former DoD officials](cmp-former-dod-official-compensation.md).
 
 If the Contracting Officer designates a contracting officer's representative, the Contractor will receive a copy of the written designation, which will specify the extent of the COR's authority to act on behalf of the contracting officer [@CL-CMP-4197]. The COR is not authorized to make any commitments or changes that will affect price, quality, quantity, delivery, or any other term or condition of the contract [@CL-CMP-4198].
 
@@ -49,7 +49,7 @@ During performance the COR asks the contractor to speed up a delivery date. The 
 
 ## Never confuse
 
-The representation is not the compensation prohibition itself. This card covers the offer's representation [@CL-CMP-4194], while the clause that sets the prohibition and defines covered DoD officials is covered on the card "Compensation of former DoD officials" [@CL-CMP-4196].
+The representation is not the compensation prohibition itself. This card covers the offer's representation [@CL-CMP-4194], while the clause that sets the prohibition and defines covered DoD officials is covered on [Compensation of former DoD officials](cmp-former-dod-official-compensation.md) [@CL-CMP-4196].
 
 A COR is not the Contracting Officer. The COR acts within the written designation [@CL-CMP-4197] and is not authorized to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-CMP-4198]. The change order power in the deployed-forces clause belongs to the Contracting Officer [@CL-CMP-4173]; see [the card on weapons, evacuation, changes and flowdown](cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown.md).
 

@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["sup-ownership-or-control-of-offeror", "sup-dfars-foreign-commercial-satellite-services-prohibition"]
+links = ["sup-ownership-or-control-of-offeror", "sup-dfars-foreign-commercial-satellite-services-prohibition", "cmp-foreign-government-control-and-terrorist-state-subcontracting"]
 +++
 
 ## Purpose
@@ -49,7 +49,7 @@ Answer: the offeror attaches the disclosure to its offer, naming that government
 
 ## Never confuse
 
-This provision is about an interest that a state sponsor of terrorism holds in the Offeror, its subsidiary, or a firm that owns or controls the Offeror [@CL-SUP-1503]. Disclosure of foreign government control under a different provision, and the clause on subcontracting with firms owned by a state sponsor of terrorism, are covered on the card "Foreign government ownership disclosure and subcontracting with terrorist-state firms". The question of who the immediate owner and the highest-level owner are is covered on [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md). The satellite services clause defines a covered foreign country to include any country that is a state sponsor of terrorism [@CL-SUP-1495]; it is covered on [Prohibition on acquisition of certain foreign commercial satellite services](sup-dfars-foreign-commercial-satellite-services-prohibition.md).
+This provision is about an interest that a state sponsor of terrorism holds in the Offeror, its subsidiary, or a firm that owns or controls the Offeror [@CL-SUP-1503]. Disclosure of foreign government control under a different provision, and the clause on subcontracting with firms owned by a state sponsor of terrorism, are covered on [Foreign government ownership disclosure and subcontracting with terrorist-state firms](../../compliance/regulatory-framework/cmp-foreign-government-control-and-terrorist-state-subcontracting.md). The question of who the immediate owner and the highest-level owner are is covered on [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md). The satellite services clause defines a covered foreign country to include any country that is a state sponsor of terrorism [@CL-SUP-1495]; it is covered on [Prohibition on acquisition of certain foreign commercial satellite services](sup-dfars-foreign-commercial-satellite-services-prohibition.md).
 
 ## Company calibration
 
