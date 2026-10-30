@@ -32,7 +32,7 @@ Costs of insurance required or approved pursuant to the contract are allowable [
 
 If purchased insurance is available, self-insurance charges plus administration expenses exceeding the cost of comparable purchased insurance plus associated administration expenses are unallowable [@CL-CMP-0502].
 
-Actual losses are unallowable unless expressly provided for in the contract, except that losses incurred under the nominal deductible provisions of purchased insurance in keeping with sound business practice are allowable [@CL-CMP-0503].
+Actual losses are unallowable unless expressly provided for in the contract, except that losses incurred under the nominal deductible provisions of purchased insurance in keeping with sound business practice, and minor losses in the ordinary course of business that are not covered by insurance (such as spoilage, breakage, and disappearance of small hand tools), are allowable [@CL-CMP-0503].
 
 ## How it works
 

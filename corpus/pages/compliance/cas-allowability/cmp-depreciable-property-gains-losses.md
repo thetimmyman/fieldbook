@@ -36,7 +36,7 @@ No loss is allowed for an impairment write-down from carrying value to fair valu
 
 ## How it works
 
-Dispositions of depreciable equipment or facilities adjust previously recognized depreciation costs. The net gain or loss reflects the difference between the net proceeds realized and the undepreciated asset balance. Recognized gains are capped at the difference between original acquisition cost and the undepreciated balance. No loss is allowed for a write-down from carrying value to fair value caused by impairments, such as environmental damage or idle facilities arising from a declining business base. When an impaired asset is subsequently disposed of, the allowable gain or loss is calculated as if no write-down had occurred.
+Dispositions of depreciable equipment or facilities adjust previously recognized depreciation costs. The net gain or loss reflects the difference between the net proceeds realized and the undepreciated asset balance. The gain recognized for contract costing purposes is limited to the difference between the acquisition cost of the asset (or the value at which the leased asset is capitalized for capital leases) and its undepreciated balance. No loss is allowed for a write-down from carrying value to fair value caused by impairments, such as environmental damage or idle facilities arising from a declining business base. When an impaired asset is subsequently disposed of, the allowable gain or loss is calculated as if no write-down had occurred.
 
 ## Worked example
 
