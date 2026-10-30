@@ -44,7 +44,7 @@ For leased vehicles, the Government takes the loss or damage to the vehicles unl
 
 Synthetic example. The numbers are made up.
 
-A leased vehicle is damaged in normal wear, and the Government is responsible for it. A second leased vehicle is damaged by a driver's negligence, and the Contractor, not the Government, is responsible for that loss. A third person's injury is one for which the Government is liable under the Federal Tort Claims Act, so the Government is also responsible for it.
+A leased vehicle is damaged by a falling tree while parked, a loss that is neither normal wear and tear nor caused by the negligence of the Contractor, its agents or employees, so the Government is responsible for it. A second leased vehicle shows only normal wear and tear, and a third is damaged by the negligence of a Contractor employee; the Government is responsible for neither. A third person's injury is one for which the Government is liable under the Federal Tort Claims Act, so the Government is also responsible for it.
 
 The Contractor's policy has 250,000 per person and 400,000 per occurrence for bodily injury and 15,000 per occurrence for property damage. The per occurrence bodily injury figure is below 500,000 and the property damage figure is below 20,000, so the policy falls short of the stated minimums. The State endorsement period is 20 days and the notice period is 30 days after written notice, so the endorsement period is 30 days.
 
