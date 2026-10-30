@@ -1,0 +1,58 @@
++++
+id = "rte-cas-solicitation-provisions-and-clauses"
+title = "CAS solicitation provision and contract clauses"
+area = "rte"
+subarea = "rate-lifecycle"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["cost_accounting_standards", "disclosure_statement", "cas_coverage"]
+questions = ["Q-024"]
+links = ["cmp-cas-applicability", "rte-far-30-cas-clauses-waiver-and-determinations", "rte-cas-findings-and-subcontractor-disclosure-statements"]
++++
+
+## Purpose
+
+Names the solicitation provision and the contract clauses in the Cost Accounting Standards Board rules, and the contracts each one goes in.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Cost Accounting Standards Board rules [@CL-RTE-0800] |
+| Codified citation | 48 CFR 9903.201-3 and 9903.201-4 [@CL-RTE-0800; @CL-RTE-0802] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-RTE-0800] |
+| Applies to | Solicitations for proposed contracts subject to CAS, and negotiated contracts, as each claim states [@CL-RTE-0800; @CL-RTE-0802] |
+
+The contracting officer shall insert the provision Cost Accounting Standards Notices and Certification in solicitations for proposed contracts subject to CAS as specified in 9903.201 [@CL-RTE-0800]. The provision allows offerors to certify their Disclosure Statement status and to claim exemption from full CAS coverage and elect modified CAS coverage when appropriate [@CL-RTE-0801]. The provision's list also includes a fourth item, certifying whether award of the contemplated contract would require a change to existing cost accounting practices [@CL-RTE-0850].
+
+The section prescribes these contract clauses, each with its own trigger. The Cost Accounting Standards clause goes in negotiated contracts, unless the contract is exempted, is subject to modified coverage, or the clause prescribed in paragraph (e) is used [@CL-RTE-0802; @CL-RTE-0851]. The Disclosure and Consistency of Cost Accounting Practices clause goes in negotiated contracts when the amount is over the Truth in Negotiations Act threshold, as adjusted for inflation, but less than $100 million [@CL-RTE-0803], and the offeror certifies it is eligible for and elects modified coverage, unless the clause prescribed in paragraph (d) is used [@CL-RTE-0804]. In the printed section, paragraph (d) is reserved [@CL-RTE-0851]. The Educational Institution clause is prescribed for negotiated contracts awarded to educational institutions, unless the contract is exempted, is to be performed by an FFRDC, or the provision at 9903.201-2(c)(6) applies [@CL-RTE-0805]. The Foreign Concerns clause goes in negotiated contracts when the contract is with a foreign concern and is not otherwise exempt under 9903.201-1 [@CL-RTE-0806].
+
+## How it works
+
+The provision and each clause depend on whether the contract is subject to CAS and on the exceptions each paragraph prints. A solicitation carries the provision when the proposed contract is subject to CAS [@CL-RTE-0800]. The clause a contract receives then depends on its exemption, its coverage type, its amount and the kind of contractor [@CL-RTE-0802; @CL-RTE-0803; @CL-RTE-0805; @CL-RTE-0806]. The thresholds that set coverage are on [CAS applicability](../../compliance/cas-allowability/cmp-cas-applicability.md) and are not repeated here.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A business unit proposes a negotiated contract of 70 million, above the Truth in Negotiations Act threshold. In the solicitation provision it certifies that it is eligible for modified coverage and elects it. The contract takes the Disclosure and Consistency of Cost Accounting Practices clause, not the full Cost Accounting Standards clause. A contract of 150 million would be outside the range for that clause.
+
+## Never confuse
+
+The solicitation provision and the contract clauses are different texts. The provision goes in solicitations and lets offerors certify [@CL-RTE-0800; @CL-RTE-0801], and the clauses go in negotiated contracts [@CL-RTE-0802]. Whether a contract is covered at all, and at what level, is set on the applicability card. The FAR prints its own clause prescriptions, with figures that differ from these; the [FAR clauses card](rte-far-30-cas-clauses-waiver-and-determinations.md) sets them side by side. The findings the Contracting Officer or the cognizant Federal agency official makes before an adjustment under these clauses are on the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md).
+
+## Company calibration
+
+Which provision and clause each open solicitation and contract carries, and whether the Disclosure Statement matches the practices in use. [@Q-024]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS solicitation provision and contract clauses.
