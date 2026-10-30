@@ -34,7 +34,7 @@ If the securities are to be offered through underwriters, Item 508(a) requires t
 
 ## How it works
 
-The registrant states each principal purpose of the proceeds with an approximate amount [@CL-FPA-0226], or says it has no current specific plan and discusses the principal reasons for the offering [@CL-FPA-0254]. If proceeds will buy assets or finance acquisitions of other businesses, it adds the listed descriptions [@CL-FPA-0227; @CL-FPA-0228; @CL-FPA-0229]. If underwriters are used, it names them, states their amounts and relationships, and shows their compensation [@CL-FPA-0230; @CL-FPA-0231].
+The registrant states each principal purpose of the proceeds with an approximate amount [@CL-FPA-0226], or says it has no current specific plan and discusses the principal reasons for the offering [@CL-FPA-0254]. If any material amount of the proceeds is to be used to acquire assets, or if the registrant indicates that the proceeds may, or will, be used to finance acquisitions of other businesses, it adds the listed descriptions [@CL-FPA-0227; @CL-FPA-0228; @CL-FPA-0229]. If underwriters are used, it names them, states their amounts and relationships, and shows their compensation [@CL-FPA-0230; @CL-FPA-0231].
 
 ## Worked example
 
@@ -54,4 +54,5 @@ What acquisition mandate, decision criteria and diligence scope are authorized w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the material-amount threshold for asset acquisitions and the indication condition for financing acquisitions of other businesses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for use of proceeds and plan of distribution.
