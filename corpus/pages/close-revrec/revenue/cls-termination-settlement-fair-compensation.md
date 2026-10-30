@@ -27,7 +27,7 @@ Establishes the standard of fair compensation and business judgment for terminat
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0500] |
-| Applies to | Settlements for the terminated portions of contracts [@CL-CLS-0500] |
+| Applies to | Fixed-price contracts terminated for convenience: the section sits in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart |
 
 A settlement should compensate the contractor fairly for the work done and the preparations made for the terminated portions of the contract, including a reasonable allowance for profit [@CL-CLS-0500].
 
