@@ -1,0 +1,89 @@
++++
+id = "cmp-overseas-designated-area-personnel"
+title = "Contractor personnel in a designated operational area or supporting a diplomatic or consular mission"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-003"]
++++
+
+## Purpose
+
+Explains the contractor's duties for personnel who perform outside the United States in a designated operational area or in support of a diplomatic or consular mission.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-5418] |
+| Codified citation | FAR 52.225-19 [@CL-CMP-5418] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-5418] |
+| Applies to | Contractor personnel required to perform outside the United States in a designated operational area, or when supporting a diplomatic or consular mission [@CL-CMP-5418; @CL-CMP-5454] |
+
+The clause applies when Contractor personnel are required to perform outside the United States in a designated operational area during contingency operations, humanitarian or peacekeeping operations, or other military operations [@CL-CMP-5418]. It also covers military exercises when the Combatant Commander designates them, and performance when supporting a diplomatic or consular mission [@CL-CMP-5454]. A mission qualifies when the Department of State has designated it a danger pay post or the Contracting Officer has indicated that it is subject to the clause [@CL-CMP-5455].
+
+A designated operational area is a geographic area that the combatant commander or a subordinate joint force commander designates for the conduct or support of specified military operations [@CL-CMP-5456]. Supporting a diplomatic or consular mission means performing outside the United States under a contract administered by Federal agency personnel who are subject to the direction of a chief of mission [@CL-CMP-5457]. Chief of mission means the principal officer in charge of a diplomatic mission of the United States or of a United States office abroad that the Secretary of State designates as diplomatic in nature [@CL-CMP-6046]. A chief of mission includes any individual assigned under section 502(c) of the Foreign Service Act of 1980 to be temporarily in charge of such a mission or office [@CL-CMP-6047]. Combatant commander means the commander of a unified or specified combatant command established in accordance with title 10 of the United States Code, section 161 [@CL-CMP-6048].
+
+Contract performance may require work in dangerous or austere conditions, and except as otherwise provided in the contract the Contractor accepts the risks of required performance in such operations [@CL-CMP-5458]. Contractor personnel are civilians who may use deadly force only in self-defense, except as paragraph (b)(3)(ii) provides and in accordance with paragraph (i)(3) [@CL-CMP-5419]. Contractor personnel performing security functions may also use deadly force when it reasonably appears necessary to execute their security mission to protect assets or persons [@CL-CMP-5459], consistent with the terms and conditions of the contract or their job description and terms of employment [@CL-CMP-5460]. Service performed by Contractor personnel subject to the clause is not active duty or service under the note to title 38 of the United States Code, section 106 [@CL-CMP-5460].
+
+Unless the contract specifies otherwise, the Contractor is responsible for all logistical and security support required for Contractor personnel engaged in the contract [@CL-CMP-5461].
+
+## How it works
+
+Compliance. The Contractor must comply with, and ensure that its personnel are familiar with and comply with, all applicable United States, host country and third country national laws [@CL-CMP-5420]. The same duty extends to treaties and international agreements, United States regulations, directives, instructions, policies and procedures, and force protection, security, health or safety orders, directives and instructions issued by the Chief of Mission or the Combatant Commander [@CL-CMP-5462]. Only the Contracting Officer is authorized to modify the terms and conditions of the contract [@CL-CMP-5463].
+
+Preliminary requirements. The statement of work or another part of the contract sets out the specific requirements for the items in paragraphs (e)(2)(i) through (e)(2)(vi) [@CL-CMP-5463]. Before Contractor personnel depart from the United States or a third country, and before Contractor personnel residing in the host country begin performance, the Contractor must ensure the items listed in paragraph (e)(2) [@CL-CMP-5421]. Those items are:
+
+- Security and background checks complete and acceptable, and all personnel medically and physically fit with all required vaccinations [@CL-CMP-5464].
+- Passports, visas, entry permits and other documents needed to enter and exit the foreign country, including in-transit countries [@CL-CMP-5465].
+- A country clearance or special area clearance if the chief of mission requires it, theater clearance if the Combatant Commander requires it, and personal security training [@CL-CMP-5466].
+- Personal security training that at a minimum covers safety and security issues facing employees overseas, safety and security contingency planning activities, and ways to use safety and security personnel and other resources [@CL-CMP-5467].
+- Isolated personnel training if the contract specifies it, where isolated personnel are military or civilian personnel separated from their unit or organization in an environment requiring them to survive, evade or escape while awaiting rescue or recovery [@CL-CMP-5468].
+- Registration of personnel who are United States citizens with the United States Embassy or Consulate with jurisdiction over the area of operations [@CL-CMP-5422].
+
+Notices on criminal jurisdiction. The Contractor must notify all personnel who are not a host country national or ordinarily resident in the host country of the matters in paragraph (e)(3), the first applying if the contract is with the Department of Defense or relates to supporting the mission of the Department of Defense outside the United States [@CL-CMP-6049]. The notice concerns such employees, and dependents residing with them, who engage in conduct outside the United States that would constitute an offense punishable by imprisonment for more than one year [@CL-CMP-6050]. That notice applies to such conduct if it had been engaged in within the special maritime and territorial jurisdiction of the United States, and tells those persons that they may potentially be subject to the criminal jurisdiction of the United States [@CL-CMP-6051]. Under the War Crimes Act, Federal criminal jurisdiction also extends to conduct that is determined to constitute a war crime when committed by a civilian national of the United States [@CL-CMP-6052]. Other laws may provide for prosecution of United States nationals who commit offenses on the premises of United States diplomatic, consular, military or other United States Government missions outside the United States [@CL-CMP-6053].
+
+Processing and data. The Contractor must require personnel who are arriving from outside the area of performance to take the steps in paragraph (f) [@CL-CMP-5469]. Those personnel must process through the departure center designated in the contract or complete another process directed by the Contracting Officer, and use the point of departure and transportation mode the Contracting Officer directs [@CL-CMP-5470]. They must also process through the reception center the Contracting Officer designates on arrival [@CL-CMP-5471]. Unless the contract specifies otherwise, the Contractor must maintain with the designated Government official a current list of all Contractor personnel in the areas of performance [@CL-CMP-5472]. The Contracting Officer will inform the Contractor of the Government official designated to receive the personnel data and the appropriate system to use for this effort [@CL-CMP-6054]. The Contractor must ensure that all employees on the personnel list have a current record of emergency data, for notification of next of kin, on file with both the Contractor and the designated Government official [@CL-CMP-6055].
+
+Removal. The Contracting Officer may direct the Contractor, at its own expense, to remove and replace any Contractor personnel who fail to comply with or violate applicable requirements of the contract [@CL-CMP-5473]. The Government may take the removal action at its discretion without prejudice to its rights under any other provision of the contract, including termination for default or cause [@CL-CMP-6056].
+
+Weapons. If the Contracting Officer, subject to the approval of the Combatant Commander or the Chief of Mission, authorizes the carrying of weapons, the Contracting Officer may authorize an approved Contractor to issue Contractor-owned weapons and ammunition to specified employees [@CL-CMP-5474]. The individual named in the contract blank, which is contract-specific, may instead issue Government-furnished weapons and ammunition to the Contractor for issuance to specified Contractor employees [@CL-CMP-5475]. The Contractor must give the Contracting Officer a specific list of personnel for whom authorization is requested, and must ensure that personnel authorized to carry weapons are adequately trained to carry and use them [@CL-CMP-5423]. That training covers safe carriage and use, the rules of the use of force issued by the Combatant Commander or the Chief of Mission, and compliance with applicable agency policies, agreements, rules, regulations and other law [@CL-CMP-5476]. Authorized personnel must not be barred from possessing a firearm by title 18 of the United States Code, section 922, and must follow all guidance and orders of the Combatant Commander or the Chief of Mission on possession, use, safety and accountability of weapons and ammunition [@CL-CMP-5477]. If the Contracting Officer revokes the authorization, the Contractor must ensure that Government-furnished weapons and unexpended ammunition are returned as the Contracting Officer directs [@CL-CMP-5478]. Whether or not weapons are Government-furnished, all liability for their use rests solely with the Contractor and the employee using the weapon [@CL-CMP-5479].
+
+Licences. Contractor personnel must possess the required licenses to operate all vehicles or equipment necessary to perform the contract in the area of performance [@CL-CMP-6057].
+
+Clothing. Contractor personnel are prohibited from wearing military clothing unless the Combatant Commander specifically authorizes it, and if authorized they must wear distinctive patches, armbands, nametags or headgear [@CL-CMP-5480]. The distinctive patches, armbands, nametags or headgear are required in order to be distinguishable from military personnel, consistent with force protection measures, and Contractor personnel may wear specific items required for safety and security, such as ballistic, nuclear, biological, or chemical protective equipment [@CL-CMP-6072].
+
+Evacuation and recovery. If the Chief of Mission or Combatant Commander orders a mandatory evacuation, the Government will give United States and third country national Contractor personnel the level of assistance given to private United States citizens [@CL-CMP-5481]. In a non-mandatory evacuation, the Contractor must keep enough personnel on location to meet contractual obligations unless the Contracting Officer instructs it to evacuate [@CL-CMP-5482]. For isolated, missing, detained, captured or abducted personnel, the Government will assist in personnel recovery actions [@CL-CMP-5425]. Personnel recovery may occur through military action, action by non-governmental organizations, other Government-approved action, diplomatic initiatives, or any combination of these options [@CL-CMP-6058]. The Department of Defense has primary responsibility for recovering its contract service employees and, when requested, will provide personnel recovery support to other agencies in accordance with its directive on personnel recovery [@CL-CMP-6059].
+
+Notification and remains. The Contractor must notify the employee-designated next of kin, and notify the United States Consul responsible for the area as soon as possible, when the employee falls within the circumstances in paragraph (n)(1) [@CL-CMP-5424]. Those circumstances are that the employee dies, needs evacuation due to an injury, or is isolated, missing, detained, captured or abducted, and the Contractor must also return personal effects of deceased or missing personnel to next of kin if appropriate [@CL-CMP-5483]. If the contract was awarded by the Department of Defense, remains are handled under the Department of Defense directive on mortuary affairs [@CL-CMP-5484]. If it was awarded by another agency, the Contractor must return the remains from the point of identification to the location the employee or next of kin specified, except as provided in paragraph (o)(2)(ii) [@CL-CMP-5485; @CL-CMP-6321]. Under paragraph (o)(2)(ii), the Department of Defense may provide reimbursable mortuary support for the remains and personal effects of all United States citizens on request of the Department of State [@CL-CMP-5486].
+
+Changes. In addition to the changes otherwise authorized by the Changes clause, the Contracting Officer may, at any time, by written order identified as a change order, make changes in place of performance or Government-furnished facilities, equipment, material, services, or site [@CL-CMP-6060]. Any change order issued under paragraph (p) is subject to the provisions of the Changes clause of the contract [@CL-CMP-6061].
+
+Subcontracts. The Contractor must incorporate the substance of the clause, including its subcontract paragraph, in all subcontracts that require subcontractor personnel to perform in the circumstances in paragraph (q) [@CL-CMP-5426]. Those are performance in a designated operational area during contingency, humanitarian or peacekeeping, or other military operations, or military exercises the Combatant Commander designates [@CL-CMP-5487], and performance when supporting a mission that is a danger pay post or that the Contracting Officer has indicated is subject to the clause [@CL-CMP-5488].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A team of 12 deploys to a designated operational area during a contingency operation under a contract awarded by the Department of Defense. Before departure the contractor completes background checks, vaccinations, passports and visas for all 12, and registers the 6 who are United States citizens with the Embassy. It asks the Contracting Officer to authorize weapons for 3 employees. One of the 3 is barred from possessing a firearm by title 18 of the United States Code, section 922, so the contractor withdraws that name and requests authorization for the other 2. The Contracting Officer, subject to the approval of the Combatant Commander or the Chief of Mission, authorizes the carrying of weapons for those 2, and the contractor trains them on safe carriage and use and on the rules on the use of force. Later one employee needs evacuation due to an injury, and the contractor notifies the employee's designated next of kin and, as soon as possible, the Consul responsible for the area. The contractor places the substance of the clause, including paragraph (q), in a subcontract that requires subcontractor personnel to perform in the same area.
+
+## Never confuse
+
+This clause is separate from the clause on private security functions. Its personnel are civilians, and deadly force is confined to self-defense except for the security-function authority stated above [@CL-CMP-5419; @CL-CMP-5459]. Liability for the use of a weapon rests with the Contractor and the employee using it, even when the weapon is Government-furnished [@CL-CMP-5479].
+
+## Company calibration
+
+Which personnel deploy under this clause and who keeps their clearances, training and registration current. [@Q-003]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor personnel in a designated operational area or supporting a diplomatic or consular mission.
