@@ -31,7 +31,7 @@ Shows what consent to a subcontract does not decide, what contracting officers s
 
 The contracting officer's consent to a subcontract or approval of the contractor's purchasing system does not constitute a determination of the acceptability of the subcontract terms or price, or of the allowability of costs, unless the consent or approval specifies otherwise [@CL-SUP-0511].
 
-Under the defense supplement, the contracting officer shall not withhold consent to subcontract without the written approval of the program manager, or comparable requiring activity official, if the contractor has an approved purchasing system [@CL-SUP-0515].
+Under the defense supplement, the contracting officer shall not withhold consent to subcontract without the written approval of the program manager, or comparable requiring activity official exercising program management responsibilities, if the contractor has an approved purchasing system [@CL-SUP-0515].
 
 ## How it works
 

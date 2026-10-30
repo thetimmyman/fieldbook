@@ -29,7 +29,7 @@ Shows how a prime contractor passes accelerated payments from the Government on 
 | Text status | Final [@CL-SUP-0570] |
 | Applies to | Contracts with the clause inserted as prescribed in FAR 32.009-2 [@CL-SUP-0704] |
 
-Within 15 days after receipt of accelerated payments from the Government, the contractor shall make accelerated payments to its small business subcontractors under the contract, to the maximum extent practicable and prior to when such payment is otherwise required under the applicable contract [@CL-SUP-0570]. The payment to a small business subcontractor follows receipt of a proper invoice and all other required documentation from that subcontractor [@CL-SUP-0705]. The contractor agrees to make such payments without any further consideration from or fees charged to the subcontractor [@CL-SUP-0571].
+Within 15 days after receipt of accelerated payments from the Government, the contractor shall make accelerated payments to its small business subcontractors under the contract, to the maximum extent practicable and prior to when such payment is otherwise required under the applicable contract [@CL-SUP-0570] or subcontract [@CL-SUP-0713]. The payment to a small business subcontractor follows receipt of a proper invoice and all other required documentation from that subcontractor [@CL-SUP-0705]. The contractor agrees to make such payments without any further consideration from or fees charged to the subcontractor [@CL-SUP-0571].
 
 ## How it works
 

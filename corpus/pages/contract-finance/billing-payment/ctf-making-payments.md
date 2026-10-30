@@ -29,7 +29,7 @@ Shows how early the Government may pay an invoice, what the payment office does,
 | Text status | Final [@CL-CTF-0914] |
 | Applies to | Invoice payments due under contract due dates [@CL-CTF-0914] |
 
-The Government will not make invoice payments earlier than 7 days before the contract due date, unless the agency head determines to pay earlier case by case or that accelerated payment methods are necessary [@CL-CTF-0914]. The restriction does not apply to invoice payments made to small business concerns, but contractors are not entitled to interest penalties if the Government fails to pay early [@CL-CTF-0915].
+The Government will not make invoice payments earlier than 7 days before the contract due date, unless the agency head determines to pay earlier case by case or that accelerated payment methods are necessary [@CL-CTF-0914]. The restriction does not apply to invoice payments made to small business concerns, but contractors are not entitled to interest penalties if the Government fails to make early payment [@CL-CTF-0915].
 
 Where the work permits, contracting officers must write statements of work and pricing arrangements so that contractors can deliver and receive invoice payments for discrete portions of the work as soon as they are completed and found acceptable [@CL-CTF-0918]. Unless the contract specifically prohibits it, the Payments clause provides that the contractor is entitled to payment for accepted partial deliveries of supplies or partial performance of services that comply with all applicable contract requirements [@CL-CTF-0919] and for which prices can be calculated from the contract terms [@CL-CTF-0920].
 
@@ -45,7 +45,7 @@ A contract sets a due date of day 30 after receipt of a proper invoice. The Gove
 
 ## Never confuse
 
-The limit on early payment is a different idea from the due date and the interest penalty on late payment, including payment on the following working day when a due date falls on a weekend or holiday, which the prompt payment card explains; see [Prompt payment](ctf-prompt-payment.md). The small business exception lifts the early payment limit, but it gives no interest penalty if the Government does not pay early [@CL-CTF-0915]. For how requests are filed, see [Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md).
+The limit on early payment is a different idea from the due date and the interest penalty on late payment, including payment on the following working day when a due date falls on a weekend or holiday, which the prompt payment card explains; see [Prompt payment](ctf-prompt-payment.md). The small business exception lifts the early payment limit, but it gives no interest penalty if the Government fails to make early payment [@CL-CTF-0915]. For how requests are filed, see [Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md).
 
 ## Company calibration
 
