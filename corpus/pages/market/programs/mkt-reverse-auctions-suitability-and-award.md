@@ -23,13 +23,13 @@ Shows when an agency may run a reverse auction, how a provider's fee reaches the
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1360] |
-| Codified citation | FAR 17.802 and FAR 17.804 [@CL-MKT-1360] |
+| Codified citation | FAR 17.802, FAR 17.803 and FAR 17.804 [@CL-MKT-1360; @CL-MKT-1604] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1360] |
-| Applies to | Acquisitions in which the agency considers a reverse auction [@CL-MKT-1360] |
+| Applies to | Acquisitions in which the agency considers a reverse auction, other than the excluded acquisition types [@CL-MKT-1360; @CL-MKT-1604; @CL-MKT-1605] |
 
-A reverse auction may be appropriate when market research indicates three conditions. First, a competitive marketplace exists for the supplies or services being acquired, and second, multiple offerors can satisfy the agency's requirement [@CL-MKT-1360]. Third, the nature of the supplies or services, such as clearly defined specifications and less complex requirements, encourages an iterative bidding process in which multiple offerors participate and at least one offeror submits more than one offer [@CL-MKT-1361].
+Reverse auction processes may not be used for design-build construction contracts, for procurements of architect-engineer services subject to chapter 11 of title 40 of the United States Code, or for procurements using sealed bidding procedures [@CL-MKT-1604]. Nor may they be used for the acquisition of personal protective equipment covered by the defense authorization provisions FAR 17.803(d) lists [@CL-MKT-1605]. Outside those exclusions, a reverse auction may be appropriate when market research indicates three conditions. First, a competitive marketplace exists for the supplies or services being acquired, and second, multiple offerors can satisfy the agency's requirement [@CL-MKT-1360]. Third, the nature of the supplies or services, such as clearly defined specifications and less complex requirements, encourages an iterative bidding process in which multiple offerors participate and at least one offeror submits more than one offer [@CL-MKT-1361].
 
 The reverse auction process is used to obtain pricing for an acquisition [@CL-MKT-1514]. Contracting officers must still follow the acquisition policies and procedures, such as those prescribed in subpart 8.4 or 16.5 or part 13 or 15, as appropriate for the particular acquisition [@CL-MKT-1362].
 
@@ -49,7 +49,7 @@ Only a contracting officer may exclude an offeror from participating in an aucti
 
 Synthetic example. The numbers are made up.
 
-An agency considers a reverse auction for 5,000 standard brackets. Market research shows a competitive marketplace and multiple offerors able to meet the requirement, and the clearly defined specifications encourage iterative bidding, so an auction may be appropriate [@CL-MKT-1360; @CL-MKT-1361]. The contracting officer evaluates the fee structure of the provider and documents that using the provider is cost effective [@CL-MKT-1537].
+An agency considers a reverse auction for 5,000 standard brackets, bought without sealed bidding, which is not design-build construction, architect-engineer services or personal protective equipment, so no exclusion applies [@CL-MKT-1604; @CL-MKT-1605]. Market research shows a competitive marketplace and multiple offerors able to meet the requirement, and the clearly defined specifications encourage iterative bidding, so an auction may be appropriate [@CL-MKT-1360; @CL-MKT-1361]. The contracting officer evaluates the fee structure of the provider and documents that using the provider is cost effective [@CL-MKT-1537].
 
 Five offerors register, and two lower their prices repeatedly. The successful offer is 117,600, and under the indirect method the provider adds its fee of 2,400, so the price provided to the Government at the close is 120,000 [@CL-MKT-1363]. The provider reports the offeror's price and its fee separately [@CL-MKT-1531]. The Government pays the awardee 120,000, and the provider collects the 2,400 from the awardee, which keeps 117,600 [@CL-MKT-1517; @CL-MKT-1518]. The contracting officer verifies that the 2,400 matches the provider's fee structure [@CL-MKT-1541]. The contracting officer, not the provider, determines the awardee and whether it is responsible [@CL-MKT-1535]. No offeror's identity is disclosed during the auction, and the awardee's identity is disclosed only after the award [@CL-MKT-1538].
 
@@ -57,7 +57,7 @@ A second auction draws a single offeror. The contracting officer may cancel it a
 
 ## Never confuse
 
-A reverse auction is not a competition-free purchase: it is a way to obtain pricing, and the ordinary acquisition policies and procedures still govern [@CL-MKT-1514; @CL-MKT-1362]. A provider's fee is not a separate Government charge under the indirect method: it sits inside the total price the Government pays the offeror, who then pays the provider [@CL-MKT-1517; @CL-MKT-1518]. A single offer does not settle the award: the contracting officer may cancel, or accept only at a fair and reasonable price [@CL-MKT-1364].
+Meeting the three market-research conditions does not make a reverse auction permissible for an excluded acquisition type, such as a sealed bid procurement [@CL-MKT-1604; @CL-MKT-1605]. A reverse auction is not a competition-free purchase: it is a way to obtain pricing, and the ordinary acquisition policies and procedures still govern [@CL-MKT-1514; @CL-MKT-1362]. A provider's fee is not a separate Government charge under the indirect method: it sits inside the total price the Government pays the offeror, who then pays the provider [@CL-MKT-1517; @CL-MKT-1518]. A single offer does not settle the award: the contracting officer may cancel, or accept only at a fair and reasonable price [@CL-MKT-1364].
 
 ## Company calibration
 
