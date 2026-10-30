@@ -31,7 +31,7 @@ Shows how the Government pays for group interments, what certificate the contrac
 
 The Government will pay the Contractor for supplies and services provided for remains interred as a group on the basis of the number of caskets furnished, rather than on the basis of the number of persons in the group [@CL-CMP-4667]. For each body prepared, or for each casket handled in a group interment, the Contractor shall state briefly the results of the embalming process on a certificate furnished by the Contracting Officer [@CL-CMP-4668].
 
-If the Contracting Officer determines that the service life of a contract working dog has terminated, the dog will be transferred to the Department of the Air Force, 341st Training Squadron, for veterinary screening and care, reclassification as a military animal, and placement for adoption [@CL-CMP-4669].
+If the Contracting Officer determines that the service life of a contract working dog has terminated, the dog will be transferred to the Department of the Air Force, 341st Training Squadron, for veterinary screening and care, reclassification as a military animal, and placement for adoption [@CL-CMP-4669]. A contract working dog is a dog that performs a service for DoD pursuant to a contract and is trained and kenneled by an entity that provides such a dog pursuant to such a contract [@CL-CMP-4772].
 
 ## How it works
 

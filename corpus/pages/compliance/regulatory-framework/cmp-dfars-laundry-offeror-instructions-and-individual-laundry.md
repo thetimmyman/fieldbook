@@ -35,7 +35,7 @@ Under the bulk weight provision, offers shall be submitted on a unit price per p
 
 ## How it works
 
-The individual laundry clause requires the Contractor to provide laundry service on both a unit bundle and on a piece-rate bundle basis for individual personnel [@CL-CMP-4689]. The estimate of individual laundry in the clause is for information only and is not a representation of the amount of individual laundry to be ordered, and individuals may elect whether or not to use the laundry services [@CL-CMP-4690].
+The individual laundry clause requires the Contractor to provide laundry service on both a unit bundle and on a piece-rate bundle basis for individual personnel [@CL-CMP-4689]. The estimate of individual laundry in the clause is for information only and is not a representation of the amount of individual laundry to be ordered, and individuals may elect whether or not to use the laundry services [@CL-CMP-4690]. Charges for individual laundry will be on a per unit bundle or a piece-rate basis [@CL-CMP-4777]. The maximum number of pieces allowed per bundle is as specified in the schedule and as the clause lists, which includes a bundle of 26 pieces including the laundry bag [@CL-CMP-4778] and a bundle of 13 pieces including the laundry bag [@CL-CMP-4779].
 
 ## Worked example
 
