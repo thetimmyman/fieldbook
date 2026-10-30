@@ -22,13 +22,13 @@ Sets out the standard arrangement of a solicitation and the contract that follow
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1332] |
-| Codified citation | FAR 15.204-1, FAR 15.204-2 and FAR 15.204-5 [@CL-MKT-1332] |
+| Codified citation | FAR 15.204, FAR 15.204-1, FAR 15.204-2 and FAR 15.204-5 [@CL-MKT-1602; @CL-MKT-1332] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1332] |
-| Applies to | Solicitations and resulting contracts prepared in the uniform contract format [@CL-MKT-1332] |
+| Applies to | Solicitations and resulting contracts prepared in the uniform contract format, other than the excepted categories [@CL-MKT-1332; @CL-MKT-1602; @CL-MKT-1603] |
 
-Contracting officers must prepare solicitations and resulting contracts using the uniform contract format [@CL-MKT-1332]. A solicitation in that format includes Parts I, II, III and IV, and on award the contracting officer does not physically include Part IV in the contract but retains it in the contract file [@CL-MKT-1333]. The representations and certifications are incorporated by reference in the contract by using FAR 52.204-19 or, for acquisitions of commercial products and commercial services, FAR 52.212-4(v) [@CL-MKT-1334].
+Contracting officers must prepare solicitations and resulting contracts using the uniform contract format [@CL-MKT-1332]. The format need not be used for construction and architect-engineer contracts or subsistence contracts [@CL-MKT-1602]. Nor need it be used for supplies or services contracts that require inconsistent special formats prescribed elsewhere in FAR part 15, for letter requests for proposals, or for contracts exempted by the agency head or designee [@CL-MKT-1603]. A solicitation in that format includes Parts I, II, III and IV, and on award the contracting officer does not physically include Part IV in the contract but retains it in the contract file [@CL-MKT-1333]. The representations and certifications are incorporated by reference in the contract by using FAR 52.204-19 or, for acquisitions of commercial products and commercial services, FAR 52.212-4(v) [@CL-MKT-1334].
 
 Part I is the Schedule, made up of Sections A through H: solicitation or contract form, supplies or services and prices or costs, description or specifications or statement of work, packaging and marking, inspection and acceptance, deliveries or performance, contract administration data, and special contract requirements [@CL-MKT-1480]. Part II is Section I, contract clauses, and Part III is Section J, the list of documents, exhibits and other attachments [@CL-MKT-1481]. Part IV is Sections K, L and M: representations, certifications and other statements of offerors or respondents, instructions, conditions and notices to offerors or respondents, and evaluation factors for award [@CL-MKT-1482].
 
@@ -46,13 +46,13 @@ Section M identifies all significant factors and any significant subfactors that
 
 Synthetic example. The numbers are made up.
 
-A solicitation is issued on a form other than Optional Form 308 or Standard Form 33. Its first page gives the issuing office with the room and building for submissions, the solicitation number and issue date [@CL-MKT-1335]. It also gives the closing date and time, the page count, the purchase authority and a brief description of the item, the requirement for each offeror to give its name and full address, and the offer expiration date [@CL-MKT-1484; @CL-MKT-1485].
+A supplies solicitation that falls in none of the excepted categories uses the uniform contract format [@CL-MKT-1332; @CL-MKT-1602; @CL-MKT-1603]. It is issued on a form other than Optional Form 308 or Standard Form 33. Its first page gives the issuing office with the room and building for submissions, the solicitation number and issue date [@CL-MKT-1335]. It also gives the closing date and time, the page count, the purchase authority and a brief description of the item, the requirement for each offeror to give its name and full address, and the offer expiration date [@CL-MKT-1484; @CL-MKT-1485].
 
 Section B lists twelve line items [@CL-MKT-1486]. Section G tells offerors to include a payment address in the proposal if it differs from the address shown for the offeror [@CL-MKT-1336]. Section L asks for three severable volumes and puts cost data in its own volume [@CL-MKT-1493; @CL-MKT-1338]. Section M lists the factors and subfactors and states that the non-price factors, when combined, are significantly more important than price [@CL-MKT-1339; @CL-MKT-1494]. On award, Part IV is kept in the contract file and is not bound into the contract, and the representations and certifications reach the contract by reference [@CL-MKT-1333; @CL-MKT-1334].
 
 ## Never confuse
 
-Leaving Part IV out of the awarded contract is not a loss of information: the part stays in the contract file and the representations and certifications reach the contract by reference [@CL-MKT-1333; @CL-MKT-1334]. Section L tells offerors how to prepare proposals or responses; Section M tells them which factors and subfactors will be considered in the award and their relative importance [@CL-MKT-1492; @CL-MKT-1339]. Section G carries contract administration data, while Section K carries the representations and certifications that offerors give [@CL-MKT-1490; @CL-MKT-1337].
+A solicitation in an excepted category, such as a construction contract, is not noncompliant for using another format [@CL-MKT-1602]. Leaving Part IV out of the awarded contract is not a loss of information: the part stays in the contract file and the representations and certifications reach the contract by reference [@CL-MKT-1333; @CL-MKT-1334]. Section L tells offerors how to prepare proposals or responses; Section M tells them which factors and subfactors will be considered in the award and their relative importance [@CL-MKT-1492; @CL-MKT-1339]. Section G carries contract administration data, while Section K carries the representations and certifications that offerors give [@CL-MKT-1490; @CL-MKT-1337].
 
 ## Company calibration
 
