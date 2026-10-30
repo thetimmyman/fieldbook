@@ -1,0 +1,60 @@
++++
+id = "sup-inspection-of-services-cost-reimbursement"
+title = "Inspection of Services—Cost-Reimbursement clause"
+area = "sup"
+subarea = "sourcing-evidence"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["federal_acquisition_regulation"]
+questions = ["Q-004", "Q-026"]
+links = ["sup-government-contract-quality-assurance", "cls-cost-reimbursement-contracts", "sup-inspection-of-services-fixed-price", "sup-inspection-of-supplies-cost-reimbursement"]
++++
+
+## Purpose
+
+Shows the Government's inspection rights and the correction rule in the services inspection clause for cost-reimbursement contracts, and what the printed text does and does not say about the cost of reperformance.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-SUP-1090] |
+| Codified citation | FAR 52.246-5 [@CL-SUP-1090] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-SUP-1090] |
+| Applies to | Contracts that include the Inspection of Services—Cost-Reimbursement clause [@CL-SUP-1090]; the clause is directed for solicitations and contracts for services, or supplies that involve the furnishing of services, when a cost-reimbursement contract is contemplated [@CL-SUP-1133] |
+
+The contractor must provide and maintain an inspection system acceptable to the Government that covers the services under the contract [@CL-SUP-1090]. The Government has the right to inspect and test all services called for by the contract, to the extent practicable, at all places and times during the term of the contract [@CL-SUP-1091].
+
+If any services performed do not conform with contract requirements, the Government may require the contractor to perform them again in conformity with contract requirements for no additional fee [@CL-SUP-1092]. When the defects cannot be corrected by reperformance, the Government may require the necessary action to ensure future performance conforms and may reduce any fee payable under the contract to reflect the reduced value [@CL-SUP-1093].
+
+The printed clause text says reperformance is for no additional fee [@CL-SUP-1092]. It does not state a rule on reimbursing the cost of reperformance, so the printed section does not establish one.
+
+## How it works
+
+The inspection system and the right to inspect apply during the term of the contract [@CL-SUP-1090; @CL-SUP-1091]. A nonconforming service is performed again for no additional fee [@CL-SUP-1092]. Where reperformance cannot correct the defects, the remedy reaches the fee: the Government may reduce any fee payable [@CL-SUP-1093]. The clause lists further remedies if the contractor fails to promptly perform again or to take the action necessary to ensure future conformity [@CL-SUP-1094]. One is that the Government performs the services and reduces any fee payable by an equitable amount; another is termination for default [@CL-SUP-1095].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A cost-reimbursement services contract carries a fixed fee of 50,000. One task is found nonconforming and is performed again. No additional fee is paid for the second performance, so the fee stays at 50,000. The source does not say how the cost of the second performance is reimbursed. If a defect could not be corrected by reperformance, the Government could reduce the fee to reflect the reduced value, for example to 48,000.
+
+## Never confuse
+
+The remedy here reaches any fee payable, while the fixed-price services clause on [Inspection of services, fixed-price](sup-inspection-of-services-fixed-price.md) reduces the contract price [@CL-SUP-1093; @CL-SUP-1087]. The supplies clause for cost-reimbursement contracts, on [Inspection of supplies, cost-reimbursement](sup-inspection-of-supplies-cost-reimbursement.md), instead includes correction cost in allowable cost with no added fee [@CL-SUP-1080]. The services clause text states a no-additional-fee rule for reperformance [@CL-SUP-1092], and the printed clause has no allowable-cost rule for it. The contract type framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and inspection places and methods are on [Government contract quality assurance](sup-government-contract-quality-assurance.md).
+
+## Company calibration
+
+Whether the executed contract includes this clause, and how the company bills and reserves for reperformed services. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of services under cost-reimbursement contracts.

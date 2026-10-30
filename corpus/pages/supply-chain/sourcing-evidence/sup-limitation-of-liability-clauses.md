@@ -1,0 +1,59 @@
++++
+id = "sup-limitation-of-liability-clauses"
+title = "Limitation of liability clauses: basic, high-value items and services"
+area = "sup"
+subarea = "sourcing-evidence"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-004"]
+links = ["sup-contractor-liability-after-acceptance", "sup-warranties", "sup-warranty-noncomplex-supplies", "sup-warranty-complex-supplies", "sup-warranty-systems-and-equipment", "sup-warranty-services-and-construction"]
++++
+
+## Purpose
+
+Shows what loss of Government property the contractor is not liable for after acceptance under each of the three limitation of liability clauses, the exceptions, and how the high-value items clause differs.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-SUP-1180] |
+| Codified citation | FAR 52.246-23, 52.246-24 and 52.246-25 [@CL-SUP-1180; @CL-SUP-1181; @CL-SUP-1182; @CL-SUP-1183; @CL-SUP-1184; @CL-SUP-1185; @CL-SUP-1186; @CL-SUP-1201; @CL-SUP-1202; @CL-SUP-1203; @CL-SUP-1204; @CL-SUP-1205] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-SUP-1180] |
+| Applies to | Loss of or damage to Government property after acceptance that results from defects or deficiencies, under a contract that includes the matching clause [@CL-SUP-1180; @CL-SUP-1183; @CL-SUP-1185] |
+
+The limit in paragraph (a) of the basic clause applies except as provided in paragraphs (b) and (c) of the clause and except for remedies expressly provided elsewhere in the contract [@CL-SUP-1201]. Its operative words are that the contractor shall not be liable for loss of or damage to Government property, excluding the supplies delivered, that occurs after Government acceptance of the supplies and results from defects or deficiencies in them [@CL-SUP-1180]. The exceptions in the later paragraphs follow [@CL-SUP-1181; @CL-SUP-1182]. The basic limitation does not apply when a defect or deficiency in, or the Government's acceptance of, the supplies results from willful misconduct or lack of good faith on the part of any of the contractor's managerial personnel [@CL-SUP-1181]. To the extent of the insurance or self-insurance reserve covering liability for loss or damage suffered by the Government through purchase or use of the supplies, the contractor shall be liable to the Government [@CL-SUP-1182].
+
+The limit in paragraph (a) of the high-value items clause applies except as provided in paragraphs (b) through (e) of the clause, and notwithstanding any other provision of the contract [@CL-SUP-1202]. Its operative words are that the contractor shall not be liable for loss of or damage to Government property, including the supplies delivered, that occurs after Government acceptance of the supplies and results from defects or deficiencies in them [@CL-SUP-1183]. The high-value items clause does not diminish the contractor's obligations, to the extent that they arise otherwise under the contract, relating to correction, repair, replacement, or other relief for any defect or deficiency in supplies delivered [@CL-SUP-1184]. Unless the contract is a cost-reimbursement contract, if loss or damage occurs and correction, repair, or replacement is not feasible or desired by the Government, the contractor shall, as determined by the contracting officer, give the relief that the clause lists [@CL-SUP-1203]. The listed relief is to pay the Government the amount it would have cost the contractor to make correction, repair, or replacement before the loss or damage occurred, or to provide other equitable relief [@CL-SUP-1204]. The high-value items clause does not limit or otherwise affect the Government's rights under clauses, if included in the contract, that cover warranty of technical data, ground and flight risks or aircraft flight risks, or Government property [@CL-SUP-1205].
+
+The limit in paragraph (a) of the services clause applies except as provided in its paragraphs (b) and (c) and except to the extent that the contractor is expressly responsible under the contract for deficiencies in the services [@CL-SUP-1186]. Its operative words are that the contractor shall not be liable for loss of or damage to Government property that occurs after Government acceptance of services and results from defects or deficiencies in the services performed or materials furnished [@CL-SUP-1185].
+
+## How it works
+
+Each clause's first paragraph states a limit on the contractor's liability for loss of or damage to Government property that occurs after acceptance and results from defects or deficiencies [@CL-SUP-1180; @CL-SUP-1183; @CL-SUP-1185]. The basic clause leaves out the supplies delivered, while the high-value items clause includes them [@CL-SUP-1180; @CL-SUP-1183]. The exceptions for managerial misconduct and for insurance or a self-insurance reserve are stated in the basic clause [@CL-SUP-1181; @CL-SUP-1182]. The high-value items and services clauses print paragraphs on the same two subjects, and this card does not restate them. The high-value items clause adds a rule for payment or other equitable relief when correction, repair or replacement is not feasible or desired, and that rule does not apply to a cost-reimbursement contract [@CL-SUP-1203; @CL-SUP-1204].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A contractor delivers 10 control units, and a defect in one unit, found after acceptance, damages a Government test bench worth 80,000. Under the basic clause, with no managerial misconduct, no insurance and no remedy expressly provided elsewhere in the contract, the contractor is not liable for the bench. The unit itself is not within that limit, so other contract terms govern it. If the contractor carries insurance of 50,000 that covers this liability, it is liable to that extent. The answer: no liability for the bench without insurance, and up to 50,000 with it.
+
+## Never confuse
+
+The limit concerns loss of or damage to Government property after acceptance, and it is not a bar on correction: the high-value items clause keeps the contractor's correction obligations in place [@CL-SUP-1184]. The basic clause leaves out the supplies delivered, while the high-value items clause includes them [@CL-SUP-1180; @CL-SUP-1183]. The warranty clauses are separate, for example [Warranty of supplies of a noncomplex nature](sup-warranty-noncomplex-supplies.md), [Warranty of supplies of a complex nature](sup-warranty-complex-supplies.md), [Warranty of systems and equipment](sup-warranty-systems-and-equipment.md) and [Warranty of services and warranty of construction](sup-warranty-services-and-construction.md). The general policy and prescription for these clauses are on [Contractor liability for Government property loss after acceptance](sup-contractor-liability-after-acceptance.md), and warranty remedies are on [Warranties: criteria, terms and remedies](sup-warranties.md).
+
+## Company calibration
+
+Which limitation of liability clause each contract carries, whether any line items are high-value items, and what insurance or self-insurance reserve covers the Government's loss. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the limitation of liability clauses.
