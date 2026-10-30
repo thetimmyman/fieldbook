@@ -1,0 +1,58 @@
++++
+id = "cmp-inflation-adjustment-of-thresholds"
+title = "Inflation adjustment of acquisition-related dollar thresholds"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["federal_acquisition_regulation"]
+questions = ["Q-004"]
+links = ["cmp-acquisition-thresholds"]
++++
+
+## Purpose
+
+Shows how statutory acquisition-related dollar thresholds are adjusted for inflation, which ones are left out, and how an adjusted threshold reaches an existing contract.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-2015] |
+| Codified citation | FAR 1.109 [@CL-CMP-2015] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-2015] |
+| Applies to | Statutory acquisition-related dollar thresholds in the FAR, except the excluded ones [@CL-CMP-2015; @CL-CMP-2017; @CL-CMP-2018] |
+
+The FAR Council must periodically adjust all statutory acquisition-related dollar thresholds in the FAR for inflation, except as provided in paragraph (c) of FAR 1.109 [@CL-CMP-2015]. The adjustment is calculated every 5 years using the Consumer Price Index for All Urban Consumers [@CL-CMP-2016]. The statute does not permit escalation of thresholds established by the bonds subchapter or the construction wage rate requirements subchapter of chapter 31 of title 40 of the United States Code [@CL-CMP-2017]. Two further listed exclusions are thresholds established by chapter 67 of title 41 of the United States Code, Service Contract Labor Standards, and thresholds established by the United States Trade Representative under the Trade Agreements Act of 1979 [@CL-CMP-2017; @CL-CMP-2018].
+
+If a threshold is adjusted for inflation, the changed threshold applies throughout the remaining term of the contract, unless there is a subsequent threshold adjustment [@CL-CMP-2019]. The statute requires the adjustment to be applied to contracts and subcontracts without regard to the date of award of the contract or subcontract [@CL-CMP-2020].
+
+## How it works
+
+The FAR Council recalculates the covered thresholds on a fixed cycle, using one price index [@CL-CMP-2016]. Thresholds in the excluded groups are not escalated [@CL-CMP-2017; @CL-CMP-2018]. An adjusted threshold applies to contracts and subcontracts whatever their award date, and it stays in force for the rest of the contract term unless a later adjustment replaces it [@CL-CMP-2020; @CL-CMP-2019]. The section does not print the adjusted values. For the current simplified acquisition and micro-purchase values, see [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md).
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A statutory acquisition-related dollar threshold that the FAR applies to a clause is 1,000,000, and an inflation adjustment moves it to 1,100,000. A contract awarded before the adjustment is still running. The new figure applies to the rest of its term. If a later adjustment moves the figure again, the later figure applies from then on.
+
+## Never confuse
+
+Unless otherwise specified, a general FAR change reaches an existing contract when the contracting officer chooses to include it, with appropriate consideration [@CL-CMP-2012; @CL-CMP-2014], whereas an inflation-adjusted threshold applies throughout the remaining term of the contract [@CL-CMP-2019]. The excluded thresholds are not escalated at all [@CL-CMP-2017; @CL-CMP-2018].
+
+## Company calibration
+
+Which running contracts hold a threshold that has since been adjusted, and who confirms the value now in force. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the inflation adjustment of acquisition-related dollar thresholds.
