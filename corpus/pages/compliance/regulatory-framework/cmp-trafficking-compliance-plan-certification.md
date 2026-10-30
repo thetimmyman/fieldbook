@@ -26,7 +26,7 @@ Shows when the trafficking compliance plan certification applies, what the offer
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5905] |
-| Applies to | The apparent successful offeror, for the contract portion for non-commercial supplies acquired outside the United States or services performed outside the United States above the value threshold [@CL-CMP-5906; @CL-CMP-5905] |
+| Applies to | The apparent successful offeror, for the contract portion for supplies, other than commercially available off-the-shelf items, acquired outside the United States or services performed outside the United States above the value threshold [@CL-CMP-5906; @CL-CMP-5905] |
 
 The certification covers the part of a contract for supplies other than commercially available off-the-shelf items to be acquired outside the United States, or services to be performed outside the United States, where the estimated value exceeds $700,000 [@CL-CMP-5905]. The apparent successful offeror submits the certification before award, covering that portion of the contract [@CL-CMP-5906].
 
