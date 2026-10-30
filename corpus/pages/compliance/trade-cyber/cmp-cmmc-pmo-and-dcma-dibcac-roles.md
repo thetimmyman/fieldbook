@@ -45,7 +45,7 @@ A report reaches the CMMC PMO that a supplier's recorded status may be wrong. Th
 
 ## Never confuse
 
-The CMMC PMO and DCMA DIBCAC do different jobs. The PMO oversees the program, reviews Accreditation Body decisions and investigates indications that a status is in doubt [@CL-CMP-3211; @CL-CMP-3212]. DCMA DIBCAC assessors conduct Level 3 certification assessments [@CL-CMP-3215], and one listed duty is to assess an OSA when the PMO requests it [@CL-CMP-3216]. The DIBCAC level of assessment is on the [DIBCAC assessment](cmp-cmmc-level-3-assessment.md) card. The body described on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218], and the PMO reviews its decisions [@CL-CMP-3211]. What a third-party assessment organization must do is on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card. The terms used here are on the [purpose and definitions](cmp-cmmc-purpose-incorporation-and-definitions.md) card.
+The CMMC PMO and DCMA DIBCAC do different jobs. The Office of the Deputy CIO for Cybersecurity oversees the program [@CL-CMP-3210], and the PMO acts on its behalf to review Accreditation Body decisions and investigates indications that a status is in doubt [@CL-CMP-3211; @CL-CMP-3212]. DCMA DIBCAC assessors conduct Level 3 certification assessments [@CL-CMP-3215], and one listed duty is to assess an OSA when the PMO requests it [@CL-CMP-3216]. The DIBCAC level of assessment is on the [DIBCAC assessment](cmp-cmmc-level-3-assessment.md) card. The body described on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218], and the PMO reviews its decisions [@CL-CMP-3211]. What a third-party assessment organization must do is on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card. The terms used here are on the [purpose and definitions](cmp-cmmc-purpose-incorporation-and-definitions.md) card.
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which control findings, corrective actions and external assessment requests are 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Named the Office of the Deputy CIO for Cybersecurity as the program overseer and the PMO as acting on its behalf.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC Program Management Office and DCMA DIBCAC roles.

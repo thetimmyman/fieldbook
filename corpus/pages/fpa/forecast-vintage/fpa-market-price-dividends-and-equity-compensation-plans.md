@@ -34,7 +34,7 @@ Item 201(e)(1) requires a line graph comparing the yearly percentage change in t
 
 ## How it works
 
-The registrant names its markets and trading symbols [@CL-FPA-0213], is encouraged to say whether it intends to pay cash dividends [@CL-FPA-0249], and presents the equity compensation plan information as of the fiscal year end, with a narrative for plans adopted without security holder approval [@CL-FPA-0214; @CL-FPA-0215; @CL-FPA-0216; @CL-FPA-0250]. Unless it is a smaller reporting company, it adds the performance graph over the measurement period [@CL-FPA-0217; @CL-FPA-0218; @CL-FPA-0219].
+The registrant names its markets and trading symbols [@CL-FPA-0213], is encouraged, if it has a record of paying no cash dividends although earnings indicate an ability to do so, to consider its intention to pay cash dividends in the foreseeable future and, if it has no such intention, to state that fact [@CL-FPA-0249], and presents the equity compensation plan information as of the fiscal year end, with a narrative for plans adopted without security holder approval [@CL-FPA-0214; @CL-FPA-0215; @CL-FPA-0216; @CL-FPA-0250]. Unless it is a smaller reporting company, it adds the performance graph over the measurement period [@CL-FPA-0217; @CL-FPA-0218; @CL-FPA-0219].
 
 ## Worked example
 
@@ -54,4 +54,5 @@ How the company sources its market data, plan data and peer index choices. [@Q-0
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Limited the dividend encouragement in the summary to a registrant with a record of paying no cash dividends although earnings indicate an ability to do so.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for market price, dividends and equity compensation plans.
