@@ -1,0 +1,60 @@
++++
+id = "sup-subcontracts-commercial-products-and-services"
+title = "Subcontracts for commercial products and commercial services"
+area = "sup"
+subarea = "sourcing-evidence"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["commercial_product", "purchasing_system", "federal_acquisition_regulation", "defense_far_supplement"]
+questions = ["Q-021", "Q-040"]
+links = ["sup-contractor-purchasing-system", "sup-make-or-buy-programs"]
++++
+
+## Purpose
+
+Shows which clauses a prime contractor must put in subcontracts for commercial products and commercial services, and the defense duty to decide whether a subcontract item is commercial.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-SUP-0550] |
+| Codified citation | FAR 44.402 and FAR 52.244-6 [@CL-SUP-0550; @CL-SUP-0555] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-SUP-0550] |
+| Applies to | Subcontracts for commercial products or commercial services, under the clause inserted as prescribed in FAR 44.403 [@CL-SUP-0685; @CL-SUP-0550] |
+
+Notwithstanding any other clause in the prime contract, only those clauses identified in the clause at 52.244-6 are required to be in subcontracts for commercial products or commercial services [@CL-SUP-0550]. Agencies may supplement the clause only as necessary to reflect agency unique statutes applicable to the acquisition of commercial products and commercial services [@CL-SUP-0686].
+
+Contractors and subcontractors at all tiers are required, to the maximum extent practicable, to incorporate commercial products, commercial services, or nondevelopmental items as components of items delivered to the Government [@CL-SUP-0551].
+
+## How it works
+
+While not required, the contractor may flow down to subcontracts for commercial products or commercial services a minimal number of additional clauses necessary to satisfy its contractual obligations [@CL-SUP-0554]. The contractor shall include the terms of the clause, including its paragraph (d), in subcontracts awarded under the contract [@CL-SUP-0555]. Under the defense supplement, contractors are required to determine whether a particular subcontract item meets the definition of a commercial product or commercial service [@CL-SUP-0552]. They are expected to exercise reasonable business judgment, consistent with the guidelines for conducting market research in FAR part 10 [@CL-SUP-0687]. Items valued at less than $10,000 per item that a contractor purchases for use in the performance of multiple contracts with the Department of Defense and other parties, and that are not identifiable to any particular contract when purchased, are treated as commercial products [@CL-SUP-0553].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A contractor buys commercial power assemblies for a defense contract whose prime contract carries many other clauses. It wants to add several of those clauses to the supplier's order.
+
+Answer: the order is required to carry only the clauses identified in the commercial subcontracts clause. The contractor may add a minimal number of further clauses needed to meet its own contractual obligations, but it is not required to.
+
+## Never confuse
+
+Relief from flowdowns is not relief from deciding what is commercial. Under the defense supplement the contractor is required to determine whether a particular subcontract item meets the definition of a commercial product or commercial service [@CL-SUP-0552]. Purchasing system and consent topics are on the [Contractor purchasing system](../procure-to-pay/sup-contractor-purchasing-system.md) card, and make-or-buy on the [Make-or-buy programs](sup-make-or-buy-programs.md) card.
+
+## Company calibration
+
+Confirm how commercial item determinations are made and recorded and which clauses the standard commercial order terms carry. [@Q-021; @Q-040]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracts for commercial products and commercial services.

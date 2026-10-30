@@ -25,3 +25,5 @@ recuiting = "recuiting"
 modifiation = "modifiation"
 # "FPRA", forward pricing rate agreement, as abbreviated in FAR 15.407-3 and the DCAA manual.
 fpr = "fpr"
+# "flexibily-priced", as misprinted in DFARS 242.1204(i) and quoted verbatim.
+flexibily = "flexibily"
