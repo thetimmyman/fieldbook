@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
-links = ["cmp-safeguarding-covered-defense-information", "cmp-cmmc-model-levels-and-scoping", "cmp-cmmc-level-1-self-assessment", "cmp-cmmc-level-2-assessment", "cmp-cmmc-affirmation-and-flowdown"]
+links = ["cmp-safeguarding-covered-defense-information", "cmp-cmmc-model-levels-and-scoping", "cmp-cmmc-level-1-self-assessment", "cmp-cmmc-level-2-assessment", "cmp-cmmc-affirmation-and-flowdown", "cmp-cmmc-level-3-assessment"]
 +++
 
 ## Purpose
@@ -36,7 +36,7 @@ DoD Program Managers or requiring activities choose the CMMC Status that applies
 
 ## How it works
 
-DoD adds the requirements to solicitations and contracts in phases. Phase 1 begins on the effective date of the complementary acquisition final rule, and DoD intends to require [Level 1 (Self)](cmp-cmmc-level-1-self-assessment.md) or [Level 2 (Self)](cmp-cmmc-level-2-assessment.md) status for all applicable solicitations and contracts as a condition of contract award [@CL-CMP-2055]. Phase 2 begins one calendar year after the start of Phase 1, and DoD intends then to add a requirement for [Level 2 (C3PAO)](cmp-cmmc-level-2-assessment.md) status for applicable DoD solicitations and contracts as a condition of award [@CL-CMP-2056]. Phase 3 begins one calendar year after the start of Phase 2, and DoD intends then to require Level 2 (C3PAO) status for all applicable solicitations and contracts as a condition of award [@CL-CMP-2057]. Phase 4, full implementation, begins one calendar year after the start of Phase 3, and DoD will include the requirements in all applicable solicitations and contracts, including option periods on contracts awarded before Phase 4 begins [@CL-CMP-2058].
+DoD adds the requirements to solicitations and contracts in phases. Phase 1 begins on the effective date of the complementary acquisition final rule, and DoD intends to require [Level 1 (Self)](cmp-cmmc-level-1-self-assessment.md) or [Level 2 (Self)](cmp-cmmc-level-2-assessment.md) status for all applicable solicitations and contracts as a condition of contract award [@CL-CMP-2055]. Phase 2 begins one calendar year after the start of Phase 1, and DoD intends then to add a requirement for [Level 2 (C3PAO)](cmp-cmmc-level-2-assessment.md) status for applicable DoD solicitations and contracts as a condition of award [@CL-CMP-2056]. Phase 3 begins one calendar year after the start of Phase 2 [@CL-CMP-2057]. DoD then intends to require Level 2 (C3PAO) status for all applicable solicitations and contracts both as a condition of award and as a condition to exercise an option period on a contract awarded after the effective date [@CL-CMP-2136]. In Phase 3 DoD also intends to require [Level 3 (DIBCAC)](cmp-cmmc-level-3-assessment.md) status for all applicable solicitations and contracts as a condition of award [@CL-CMP-2137], though it may delay that requirement to an option period instead [@CL-CMP-2138]. Phase 4, full implementation, begins one calendar year after the start of Phase 3, and DoD will include the requirements in all applicable solicitations and contracts, including option periods on contracts awarded before Phase 4 begins [@CL-CMP-2058].
 
 ## Worked example
 
