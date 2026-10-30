@@ -43,7 +43,7 @@ Where additional cost or pricing data are required to determine through cost or 
 
 Synthetic example. The numbers are made up.
 
-A competitive solicitation for a 4,000,000 supply contract draws one offer, and the solicitation allowed 45 days for proposals, so resolicitation is not required. Analysis of the offer alone cannot show that the price is fair and reasonable, so the contracting officer obtains additional cost or pricing data. The acquisition is above the certified data threshold and no listed exception applies, so the data must be certified. If the contracting officer is still unable to find the price fair and reasonable, the contracting officer negotiates, and the negotiated price should not exceed the offered price.
+A competitive solicitation for a 14,000,000 DoD supply contract awarded after the current DoD threshold took effect draws one offer, and the solicitation allowed 45 days for proposals, so resolicitation is not required. Analysis of the offer alone cannot show that the price is fair and reasonable, so the contracting officer obtains additional cost or pricing data. The acquisition is above the certified data threshold and no listed exception applies, so the data must be certified. If the contracting officer is still unable to find the price fair and reasonable, the contracting officer negotiates, and the negotiated price should not exceed the offered price.
 
 ## Never confuse
 
@@ -57,4 +57,5 @@ Which proposals expected in the next two quarters may draw a single offer and so
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Raised the worked example amount above the current DoD threshold for certified cost or pricing data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD rule for a single offer.
