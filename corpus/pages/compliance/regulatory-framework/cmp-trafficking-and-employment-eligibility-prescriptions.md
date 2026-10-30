@@ -41,7 +41,7 @@ The contracting officer decides what goes into each solicitation and contract. T
 
 The certification provision is narrower and needs both conditions, a possibility that at least $700,000 of the value may be performed outside the United States and an acquisition that is not entirely for commercially available off-the-shelf items [@CL-CMP-6813; @CL-CMP-6814]. If either condition fails, the prescription does not call for the provision [@CL-CMP-6813; @CL-CMP-6814].
 
-The employment eligibility clause needs a value above $150,000 and then drops out for any one of the exceptions: work only outside the United States, a period of performance under 120 days, or an acquisition only for the listed commercially available off-the-shelf cases [@CL-CMP-6815; @CL-CMP-6816; @CL-CMP-6993; @CL-CMP-6994]. The off-the-shelf exceptions apply only where the acquisition is only for those items or services, so a mixed acquisition is not excused by them [@CL-CMP-6816; @CL-CMP-6993; @CL-CMP-6994].
+The employment eligibility clause needs a value above $150,000 and then drops out for any one of the exceptions: work only outside the United States, a period of performance under 120 days, or an acquisition only for the listed commercially available off-the-shelf cases [@CL-CMP-6815; @CL-CMP-6816; @CL-CMP-6993; @CL-CMP-6994]. The off-the-shelf exceptions apply where the acquisition is only for the listed items and services, so an acquisition that combines listed items with qualifying commercial services from their provider stays excused [@CL-CMP-6816; @CL-CMP-6993; @CL-CMP-6994]. The exception is lost when the acquisition also includes items or services outside the listed categories [@CL-CMP-6815; @CL-CMP-6816; @CL-CMP-6994].
 
 ## Worked example
 
