@@ -39,6 +39,8 @@ Under the payment for overtime premiums clause, overtime is authorized if the ov
 
 A request for estimated overtime premiums that exceeds the amount specified in the clause must include all estimated overtime for contract completion and the items the clause lists [@CL-CMP-6460]. One item is to identify the work unit, such as the department or section in which the requested overtime will be used, with present workload, staffing and other data of the affected unit sufficient to permit the Contracting Officer to evaluate the necessity for the overtime [@CL-CMP-6461]. Another is to demonstrate the effect that denial of the request will have on the contract delivery or performance schedule [@CL-CMP-6462]. Another is to identify the extent to which approval of overtime would affect the performance or payments in connection with other Government contracts, with identification of each affected contract [@CL-CMP-6463]. The last is to provide reasons why the required work cannot be performed by using multishift operations or by employing additional personnel [@CL-CMP-6464].
 
+During contract performance, such a request goes to the office administering the contract, submitted as paragraph (b) of the clause states [@CL-CMP-6469]. That office reviews it and, if it approves, sends it to the contracting officer [@CL-CMP-6470]. If the contracting officer determines that the overtime should be approved in whole or in part, the contracting officer requests the approval of the agency's designated approving official and modifies the amount in paragraph (a) of the clause to reflect any approval [@CL-CMP-6471].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,7 +49,7 @@ A laborer works 46 hours in a week at a basic rate of 20 per hour. The hours ove
 
 In the case where all 46 hours are paid at 20 per hour, suppose the 6 overtime hours fall on 2 calendar days and the rate per affected employee per calendar day in the regulation is 25 for this example. The real rate is the one in 29 CFR 5.5(b)(2), adjusted each year. Liquidated damages are 1 employee times 2 days times 25, which is 50, payable to the Government, in addition to the 60 in unpaid wages. The Contracting Officer withholds enough from payments due to cover both, so at least 110.
 
-Separately, a contract inserts 1,000 as the overtime premium amount. A premium cost of 800 is authorized. A premium cost of 1,500 is authorized only if the premium is paid for a listed kind of work, such as emergency work after an accident.
+Separately, a contract inserts 1,000 as the overtime premium amount. A premium cost of 800 is authorized. A premium cost of 1,500 is authorized if the premium is paid for a listed kind of work, such as emergency work after an accident. Otherwise the contractor submits a request with the listed items to the office administering the contract, and the 1,500 is authorized only after the designated official approves it and the contracting officer raises the amount in the clause to at least 1,500.
 
 ## Never confuse
 

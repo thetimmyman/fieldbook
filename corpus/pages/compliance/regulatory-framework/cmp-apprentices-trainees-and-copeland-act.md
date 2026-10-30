@@ -30,7 +30,7 @@ Shows when an apprentice or trainee may be paid below the determined rate, the r
 
 An apprentice is permitted to work at less than the predetermined rate for the work performed when employed pursuant to and individually registered in a bona fide apprenticeship program registered with the United States Department of Labor [@CL-CMP-5833]. The registration may instead be with a State Apprenticeship Agency recognized by the Office of Apprenticeship Training, Employer, and Labor Services (OATELS) [@CL-CMP-5834]. An apprentice in the first 90 days of probationary employment in such a program may also work below the predetermined rate without individual registration, if OATELS or a State Apprenticeship Agency certifies the apprentice as eligible for probationary employment [@CL-CMP-5835].
 
-Trainees are not permitted to work at less than the predetermined rate for the work performed unless they are employed pursuant to and individually registered in a program that has received prior approval, evidenced by formal certification, except as provided in 29 CFR 5.16 [@CL-CMP-5837].
+Trainees are not permitted to work at less than the predetermined rate for the work performed unless they are employed pursuant to and individually registered in a program that has received prior approval, evidenced by formal certification by the Department of Labor's Office of Apprenticeship Training, Employer, and Labor Services (OATELS), except as provided in 29 CFR 5.16 [@CL-CMP-5837; @CL-CMP-6468].
 
 ## How it works
 
@@ -54,7 +54,7 @@ A worker who is listed at an apprentice rate but is not registered, and is not i
 
 ## Never confuse
 
-An apprentice or trainee rate is not a general training allowance. It depends on registered or approved program status, on staying inside the permitted ratio, and on paying at least the program rate for the worker's level of progress [@CL-CMP-5833; @CL-CMP-5836; @CL-CMP-5837; @CL-CMP-6168; @CL-CMP-6172; @CL-CMP-6173]. The Copeland Act clause is also not a wage rate clause, because it adds an external body of requirements by reference [@CL-CMP-5838].
+An apprentice or trainee rate is not a general training allowance. It depends on registered or OATELS-approved program status, on staying inside the permitted ratio, and on paying at least the program rate for the worker's level of progress [@CL-CMP-5833; @CL-CMP-5836; @CL-CMP-5837; @CL-CMP-6468; @CL-CMP-6168; @CL-CMP-6172; @CL-CMP-6173]. The Copeland Act clause is also not a wage rate clause, because it adds an external body of requirements by reference [@CL-CMP-5838].
 
 ## Company calibration
 
