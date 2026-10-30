@@ -27,7 +27,7 @@ Governs the choice between the preferred inventory basis and the total-cost basi
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0508] |
-| Applies to | Fixed-price contracts terminated for convenience: the section sits in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart |
+| Applies to | Fixed-price contracts terminated for convenience: the section sits in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
 
 Use of the inventory basis for settlement proposals is preferred, and under this basis the contractor may propose only costs allocable to the terminated portion of the contract [@CL-CLS-0508].
 

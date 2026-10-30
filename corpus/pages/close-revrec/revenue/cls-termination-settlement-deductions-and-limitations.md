@@ -27,7 +27,7 @@ Controls the deductions taken from a termination settlement, the separate invoic
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0517] |
-| Applies to | Fixed-price contracts terminated for convenience: these sections sit in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart |
+| Applies to | Fixed-price contracts terminated for convenience: these sections sit in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
 
 From the amount payable to the contractor under a settlement, the termination contracting officer must deduct the agreed price for any part of the termination inventory purchased or retained by the contractor, and the proceeds from any materials sold that have not been paid or credited to the Government [@CL-CLS-0517].
 

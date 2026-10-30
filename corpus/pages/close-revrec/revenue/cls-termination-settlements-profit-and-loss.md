@@ -27,7 +27,7 @@ Specifies how profit is allowed on preparations made and work done, and how a se
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0513] |
-| Applies to | Fixed-price contracts terminated for convenience: these sections sit in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart |
+| Applies to | Fixed-price contracts terminated for convenience: these sections sit in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
 
 The termination contracting officer must allow profit on preparations made and work done by the contractor for the terminated portion of the contract, but not on the settlement expenses [@CL-CLS-0513].
 
