@@ -1,0 +1,59 @@
++++
+id = "cmp-improper-activity-cancellation-and-price-adjustment"
+title = "Cancellation, rescission and price or fee adjustment for illegal or improper activity"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-004"]
+links = ["cmp-independent-price-and-contingent-fee-clauses", "cmp-voiding-and-rescinding-contracts", "cmp-procurement-integrity-prohibitions", "cmp-procurement-integrity-marking-and-violations"]
++++
+
+## Purpose
+
+Shows what triggers the cancellation and rescission clause, what triggers the price or fee adjustment clause, and what amounts the Government may recover under each.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-2615; @CL-CMP-2620] |
+| Codified citation | FAR 52.203-8 and FAR 52.203-10 [@CL-CMP-2615; @CL-CMP-2620] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-2615; @CL-CMP-2620] |
+| Applies to | Solicitations and contracts that exceed the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2687] |
+
+FAR 3.104-9 directs insertion of the clauses it lists in solicitations and contracts that exceed the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2687]. The cancellation clause is inserted as prescribed in FAR 3.104-9(a) [@CL-CMP-2615]. If the Government receives information that a contractor or a person has violated the statute on obtaining and disclosing certain information, the Government may cancel the solicitation if the contract has not yet been awarded or issued [@CL-CMP-2616]. The Government may instead rescind a contract with respect to which the Contractor or someone acting for it has been convicted for an offense where the conduct violates a section the clause cites, for a purpose that the clause lists [@CL-CMP-2617]. Another ground for rescission is a determination by the head of the contracting activity, based upon a preponderance of the evidence, that the Contractor or someone acting for it engaged in conduct punishable under a section the clause cites [@CL-CMP-2618]. If the Government rescinds, it is entitled to recover, in addition to any penalty prescribed by law, the amount expended under the contract [@CL-CMP-2619].
+
+The price or fee adjustment clause is inserted as prescribed in FAR 3.104-9(b) [@CL-CMP-2620]. The Government, at its election, may reduce the price of a fixed-price type contract and the total cost and fee under a cost-type contract by the amount of profit or fee determined under the clause, conditional on a determination by the head of the contracting activity or designee [@CL-CMP-2621]. That determination is that there was a violation of the statute as implemented in the FAR section the clause cites [@CL-CMP-2622]. Among the listed reductions, for cost-plus-fixed-fee contracts the reduction is the amount of the fee specified in the contract at the time of award [@CL-CMP-2623]. For cost-plus-incentive-fee contracts it is the target fee specified in the contract at the time of award, notwithstanding any minimum fee or fee floor [@CL-CMP-2688]. For cost-plus-award-fee contracts it includes the base fee established in the contract at the time of award [@CL-CMP-2689]. If such a contract specifies no base fee, it is 30 percent of each award fee otherwise payable for each award fee evaluation period or at each award fee determination point [@CL-CMP-2699]. For fixed-price-incentive contracts, the Government may reduce the contract target price and contract target profit both by an amount equal to the initial target profit specified in the contract at the time of award [@CL-CMP-2690]. For firm-fixed-price contracts the reduction is 10 percent of the initial contract price, or a profit amount the Contracting Officer determines from records or documents that existed before award [@CL-CMP-2624].
+
+The Government may also reduce a prime contractor's price or fee for violations of the statute by its subcontractors [@CL-CMP-2692]. That reduction may not exceed the amount of profit or fee reflected in the subcontract at the time the subcontract was first definitively priced [@CL-CMP-2694]. In addition to the price or fee reductions, the Government may terminate the contract for default, and its rights and remedies under the clause are not exclusive and are in addition to any other rights and remedies provided by law or under the contract [@CL-CMP-2693].
+
+## How it works
+
+Both clauses rest on statutory violations, but they trigger and recover differently. Cancellation and rescission start from information the Government receives, and rescission needs a conviction or a determination by the head of the contracting activity [@CL-CMP-2616; @CL-CMP-2617; @CL-CMP-2618]. Rescission recovers the amount expended under the contract, plus any penalty the law prescribes [@CL-CMP-2619]. The price or fee adjustment starts from a determination by the head of the contracting activity or designee, and it reduces price or fee by amounts the clause fixes by contract type [@CL-CMP-2621; @CL-CMP-2623]. The clause sets different reductions for cost-plus-incentive-fee, cost-plus-award-fee, fixed-price-incentive and firm-fixed-price contracts [@CL-CMP-2688; @CL-CMP-2689; @CL-CMP-2690; @CL-CMP-2624]. It also reaches subcontractor violations and allows termination for default as an added remedy [@CL-CMP-2692; @CL-CMP-2693]. For fixed-price-incentive contracts the clause also lets the Contracting Officer defer the adjustment in a stated case, and this card does not set that case out.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A cost-plus-fixed-fee contract above the simplified acquisition threshold, not for commercial products or commercial services, had a fee of 300,000 specified at award. After a determination of a covered violation, the Government may reduce the total cost and fee by 300,000. On a different contract, 2 million has been expended when the Government rescinds after a conviction. The Government is entitled to recover the 2 million, plus any penalty the law prescribes.
+
+## Never confuse
+
+Annulment under the covenant against contingent fees is a different remedy, covered on [Independent price certificate and covenant against contingent fees](cmp-independent-price-and-contingent-fee-clauses.md). The rescission in the cancellation clause is not the agency head's separate power to void and rescind a contract after a final conviction, which is covered in [Voiding and rescinding contracts after a conviction or proven offense](cmp-voiding-and-rescinding-contracts.md). The price clause says the violation is as implemented in a FAR section [@CL-CMP-2622], and that section's rules are covered in [Procurement integrity: bid and proposal information and the disclosure and obtaining bans](cmp-procurement-integrity-prohibitions.md) and [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md). Price or fee adjustment takes away profit or fee, while rescission recovers amounts expended [@CL-CMP-2621; @CL-CMP-2619].
+
+## Company calibration
+
+Which contracts carry each clause, and who decides how a cancellation, rescission or price reduction would be recorded and paid. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause cards for cancellation and rescission, and for price or fee adjustment, for illegal or improper activity.

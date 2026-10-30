@@ -1,0 +1,63 @@
++++
+id = "est-proposal-submission-and-late-proposals"
+title = "Submitting, modifying, withdrawing and late proposals"
+area = "est"
+subarea = "pricing"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-023"]
+links = ["est-rfp-and-solicitation-amendments", "est-advisory-multi-step-and-source-selection-provisions"]
++++
+
+## Purpose
+
+Shows who must get a proposal in on time, when a late proposal can still be considered, and how a proposal is withdrawn.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-EST-1369] |
+| Codified citation | FAR 15.208 [@CL-EST-1369] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-EST-1369] |
+| Applies to | Proposals, revisions and modifications submitted in response to a solicitation [@CL-EST-1369] |
+
+Offerors are responsible for submitting proposals, revisions and modifications so as to reach the designated Government office by the time specified in the solicitation [@CL-EST-1369]. If the solicitation specifies no time, the time for receipt is 4:30 p.m., local time, for the designated Government office on the date that proposals are due [@CL-EST-1370].
+
+## How it works
+
+A proposal, modification or revision received at the designated Government office after the exact time specified for receipt of proposals is late [@CL-EST-1482]. A late proposal will not be considered unless it is received before award, the contracting officer determines that accepting it would not unduly delay the acquisition, and a listed condition is met [@CL-EST-1482; @CL-EST-1371].
+
+One listed condition is that the proposal was transmitted through an electronic commerce method authorized by the solicitation and was received at the initial point of entry to the Government infrastructure not later than 5:00 p.m., one working day before the date specified for receipt of proposals [@CL-EST-1371; @CL-EST-1372]. Two further listed conditions are acceptable evidence that the proposal was received at the Government installation designated for receipt and was under the Government's control before the time set for receipt, or that it was the only proposal received [@CL-EST-1371; @CL-EST-1373]. Acceptable evidence of the time of receipt at the Government installation includes the time and date stamp of the installation on the proposal wrapper, other documentary evidence of receipt maintained by the installation, or oral testimony or statements of Government personnel [@CL-EST-1483].
+
+A late modification of an otherwise successful proposal that makes its terms more favorable to the Government will be considered at any time it is received and may be accepted [@CL-EST-1374]. Proposals may be withdrawn by written notice at any time before award, and oral proposals in response to oral solicitations may be withdrawn orally [@CL-EST-1375].
+
+If an emergency or unanticipated event interrupts normal Government processes so that proposals cannot be received at the designated office by the exact time specified in the solicitation [@CL-EST-1484], and urgent Government requirements preclude amendment of the solicitation closing date [@CL-EST-1485], the time specified for receipt is deemed extended to the same time of day on the first work day on which normal Government processes resume [@CL-EST-1484; @CL-EST-1485].
+
+What the solicitation must say is on [Requests for proposals and amending the solicitation](est-rfp-and-solicitation-amendments.md). The facsimile proposals provision is on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+Proposals are due Friday at 2:00 p.m. An offeror sends its proposal by the electronic method the solicitation allows. It reaches the Government's initial point of entry on Thursday at 4:00 p.m., but it is not delivered to the contracting office until Friday at 2:15 p.m. It is late. It can still be considered if it is received before award, the contracting officer finds no undue delay, and the entry-point time meets the listed cutoff, which here it does.
+
+## Never confuse
+
+A late proposal and a late modification of an otherwise successful proposal that is more favorable to the Government are treated differently. A late proposal needs the listed conditions [@CL-EST-1371], while that kind of late modification will be considered at any time it is received [@CL-EST-1374]. Withdrawal is also different from revision: a withdrawal is made by written notice at any time before award, except that oral proposals in response to oral solicitations may be withdrawn orally [@CL-EST-1375], while a revision is to reach the designated office by the time specified in the solicitation [@CL-EST-1369].
+
+## Company calibration
+
+How the company freezes and versions each proposal and any later revision against the closing time. [@Q-023]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for submission, modification, withdrawal and late proposals.

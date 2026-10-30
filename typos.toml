@@ -27,3 +27,7 @@ modifiation = "modifiation"
 fpr = "fpr"
 # "flexibily-priced", as misprinted in DFARS 242.1204(i) and quoted verbatim.
 flexibily = "flexibily"
+# "Procurment", as misprinted in DFARS 242.002 (Public Services and Procurement Canada) and quoted verbatim.
+procurment = "procurment"
+# "writtten", as misprinted in FAR 19.306 and quoted verbatim.
+writtten = "writtten"
