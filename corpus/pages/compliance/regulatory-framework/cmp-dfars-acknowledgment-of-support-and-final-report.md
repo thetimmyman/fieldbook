@@ -31,17 +31,17 @@ Shows what published material must state about Government support, which materia
 
 The contractor must include an acknowledgment of the Government's support in the publication of any material based on or developed under the contract, stating that the material is based upon work supported by the named contracting agency under the contract number [@CL-CMP-4590]. All material, except scientific articles or papers published in scientific journals, must also contain the clause's disclaimer, in addition to any notices or disclaimers by the contractor [@CL-CMP-4591]. The disclaimer says that any opinions, findings and conclusions or recommendations expressed in the material are those of the authors and do not necessarily reflect the views of the named contracting agency [@CL-CMP-4592].
 
-The contractor must submit an electronic copy of the approved final scientific or technical report delivered under the contract, not a summary, to the Defense Technical Information Center through its web-based input system [@CL-CMP-4593]. It must include a completed Standard Form 298, Report Documentation Page, in the document, or complete the web-based form [@CL-CMP-4594].
+The contractor must submit an electronic copy of the approved final scientific or technical report delivered under the contract, not a summary, to the Defense Technical Information Center through its web-based input system [@CL-CMP-4593]. It must include a completed Standard Form 298, Report Documentation Page, in the document, or complete the web-based form [@CL-CMP-4594]. Classified reports follow a different route: reports up to Secret are emailed to the SIPRNET address the clause prints [@CL-CMP-4741], and if a SIPRNET email capability is not available, the contractor follows the classified submission instructions on the Defense Technical Information Center submission page [@CL-CMP-4742].
 
 ## How it works
 
-Two duties work together in published material. Every publication based on the work carries the support acknowledgment [@CL-CMP-4590], and all material except scientific journal articles also carries the disclaimer [@CL-CMP-4591; @CL-CMP-4592]. At the end of the work, the approved final report goes to the Defense Technical Information Center through its web-based input system as an electronic copy, with the report documentation form completed [@CL-CMP-4593; @CL-CMP-4594].
+Two duties work together in published material. Every publication based on the work carries the support acknowledgment [@CL-CMP-4590], and all material except scientific journal articles also carries the disclaimer [@CL-CMP-4591; @CL-CMP-4592]. At the end of the work, the approved final report goes to the Defense Technical Information Center through its web-based input system as an electronic copy, with the report documentation form completed [@CL-CMP-4593; @CL-CMP-4594]; a classified report instead goes by the classified route [@CL-CMP-4741; @CL-CMP-4742].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-Assume a research contract worth 300,000. The contractor publishes a technical brochure that carries the acknowledgment naming the agency and the contract number, and it carries the disclaimer. A journal article on the same work carries the acknowledgment only. At the end of the contract, the contractor sends the approved final report, not a summary, through the web-based system, with the report documentation page completed.
+Assume a research contract worth 300,000. The contractor publishes a technical brochure that carries the acknowledgment naming the agency and the contract number, and it carries the disclaimer. A journal article on the same work carries the acknowledgment only. At the end of the contract, the contractor sends the approved final report, which is unclassified, not a summary, through the web-based system, with the report documentation page completed.
 
 ## Never confuse
 
