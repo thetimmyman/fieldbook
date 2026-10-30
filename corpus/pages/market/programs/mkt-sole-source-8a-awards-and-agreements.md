@@ -36,7 +36,7 @@ The SBA should participate, whenever practicable, in negotiating the contracting
 
 ### The participant
 
-An 8(a) participant must represent that it is a small business under the size standard for the NAICS code assigned to the contract [@CL-MKT-1277]. The concern must be a current participant in the 8(a) program at the time of the sole-source award [@CL-MKT-1372]. A participant owned by an Alaska Native Corporation, Indian Tribe, Native Hawaiian Organization, or Community Development Corporation may not receive a sole-source follow-on award if the predecessor contract was performed by another participant, or former participant, owned by the same entity [@CL-MKT-1278; @CL-MKT-1373].
+An 8(a) participant must represent that it is a small business under the size standard for the NAICS code assigned to the contract [@CL-MKT-1277]. The concern must be a current participant in the 8(a) program at the time of the sole-source award [@CL-MKT-1372]. A participant owned by an Alaska Native Corporation, Indian Tribe, Native Hawaiian Organization, or Community Development Corporation may not receive an 8(a) sole-source award that is a follow-on to an 8(a) contract if the predecessor contract was performed by another 8(a) participant, or former participant, owned by the same entity [@CL-MKT-1278; @CL-MKT-1373].
 
 ### Orders under agreements
 
