@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["material_management_and_accounting_system", "inventory_wip", "contractor_business_systems", "material_weakness"]
 questions = ["Q-013"]
-links = ["cmp-material-costs", "cmp-business-system-withholds"]
+links = ["cmp-material-costs", "cmp-business-system-withholds", "cmp-cas-gaap-conformance-2026"]
 +++
 
 ## Purpose
@@ -35,7 +35,7 @@ Acceptable means that the system generally complies with the system criteria in 
 
 ## How it works
 
-The system must cost material from valid time-phased requirements, and its costing methodology may be standard or actual cost or any of the inventory costing methods in 48 CFR 9904.411-50(b), provided the contractor maintains consistency across all contract and customer types and from accounting period to accounting period [@CL-CLS-0111; @CL-CLS-0117].
+The system must cost material from valid time-phased requirements, and its costing methodology may be standard or actual cost or any of the inventory costing methods in 48 CFR 9904.411-50(b), provided the contractor maintains consistency across all contract and customer types and from accounting period to accounting period [@CL-CLS-0111; @CL-CLS-0117]. The clause still points to 48 CFR 9904.411-50(b), but CAS 411 was wholly rescinded with effect from August 7, 2026, and section 9904.411 is now printed as reserved [@CL-CMP-1500; @CL-CMP-1501; @CL-CMP-1524]. The CAS conformance brief explains what moved and what was removed.
 
 A 98 percent bill of material accuracy and a 95 percent master production schedule accuracy are desirable goals, and a 95 percent record accuracy level is desirable [@CL-CLS-0112; @CL-CLS-0113]. A system below those levels must provide adequate evidence of no material harm to the Government and that the cost to meet the goal is excessive in relation to the impact on the Government [@CL-CLS-0166; @CL-CLS-0167]. Record accuracy also requires periodic reconciliation of recorded inventory quantities to physical inventory by part number [@CL-CLS-0113].
 
