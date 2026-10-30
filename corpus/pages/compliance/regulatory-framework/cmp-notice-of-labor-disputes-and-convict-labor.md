@@ -1,0 +1,58 @@
++++
+id = "cmp-notice-of-labor-disputes-and-convict-labor"
+title = "Notice of labor disputes and the convict labor prohibition"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["applicability_record", "federal_acquisition_regulation"]
+questions = ["Q-004", "Q-014"]
+links = ["cmp-labor-disputes-and-labor-costs-in-pricing", "cmp-construction-labor-disputes-and-contract-clauses"]
++++
+
+## Purpose
+
+Shows two employment duties that ride with a contract: reporting a labor dispute that threatens timely performance, and keeping persons serving prison sentences out of contract performance, with the exceptions the convict labor clause lists.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-5214] |
+| Codified citation | FAR 52.222-1 and 52.222-3 [@CL-CMP-5214; @CL-CMP-5215] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-5214] |
+| Applies to | Contracts that carry the labor dispute notice clause or the convict labor clause [@CL-CMP-5214; @CL-CMP-5215] |
+
+If the contractor has knowledge that an actual or potential labor dispute is delaying, or threatens to delay, the timely performance of the contract, it must immediately give notice, including all relevant information, to the Contracting Officer [@CL-CMP-5214]. The convict labor clause bars a contractor from employing in performance of the contract any person undergoing a sentence of imprisonment imposed by a court of a State, the District of Columbia, Puerto Rico, the Northern Mariana Islands, American Samoa, Guam or the United States Virgin Islands [@CL-CMP-5215]. The exceptions sit in the clause's second paragraph and are described below [@CL-CMP-5216].
+
+## How it works
+
+The notice goes to the Contracting Officer. The trigger is knowledge of an actual or potential dispute, so a dispute that only threatens delay is enough [@CL-CMP-5214].
+
+The convict labor bar does not stop the contractor from employing persons on parole or probation to work at paid employment during the term of their sentence, or persons who have been pardoned or who have served their terms [@CL-CMP-5216]. It also does not stop the contractor from employing a person confined for violation of the laws of a listed jurisdiction who is authorized to work at paid employment in the community under that jurisdiction's laws, if the listed conditions are met [@CL-CMP-5216; @CL-CMP-5334]. All of the following conditions must be met [@CL-CMP-5219; @CL-CMP-5334]. The worker is paid or is in an approved work training program on a voluntary basis, and representatives of local union central bodies or similar labor union organizations have been consulted [@CL-CMP-5217]. The employment does not displace employed workers, is not applied in skills, crafts or trades with a surplus of available gainful labor in the locality, and does not impair existing contracts for services [@CL-CMP-5218]. Rates of pay and other conditions of employment are no less than those paid or provided for work of a similar nature in the locality where the work is performed [@CL-CMP-5219]. The Attorney General of the United States has certified that the work-release laws or regulations of the jurisdiction involved conform to Executive Order 11755, as amended by Executive Orders 12608 and 12943 [@CL-CMP-5220].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A subcontractor's machinists vote to strike on a Monday. On Tuesday the prime learns that the strike will stop a scheduled test, and that afternoon it tells the Contracting Officer, with the union notice, the affected work and the revised test date. The prime then looks at two candidates for a task. The first is on parole and works at paid employment during the sentence, so the bar does not reach that person. The second is confined, is authorized to work in the community under the laws of the jurisdiction and would be paid local rates, but the Attorney General has not certified that jurisdiction's work-release laws, so the conditions are not all met and the prime may not employ that person.
+
+## Never confuse
+
+The notice duty is not a dispute-settlement procedure; it is a reporting step that starts when the contractor has knowledge [@CL-CMP-5214]. The convict labor bar is not a ban on hiring anyone with a criminal record: it reaches persons undergoing a sentence of imprisonment [@CL-CMP-5215], and the clause leaves out persons on parole or probation, persons who have been pardoned and persons who have served their terms [@CL-CMP-5216].
+
+## Company calibration
+
+Which contracts carry these clauses, and who confirms that each new hire clears the screening. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of labor disputes and convict labor.
