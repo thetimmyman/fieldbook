@@ -1,0 +1,56 @@
++++
+id = "prg-evms-guideline-18-analyze-variances"
+title = "Analyze significant variances"
+area = "prg"
+subarea = "evms"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["control_account", "performance_measurement_baseline", "earned_value_management_system"]
+questions = ["Q-037"]
+links = ["cmp-accounting-system-criteria"]
++++
+
+## Purpose
+
+Shows how the guideline requires significant cost and schedule variances to be identified, analyzed, and explained for each control account [@CL-PRG-0310].
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Not established. |
+| Codified citation | Not established. |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Not established. |
+| Applies to | Each control account, at least monthly [@CL-PRG-0310] |
+
+The guideline requires significant differences between planned and actual schedule and cost performance to be identified and evaluated at least monthly for each control account, with the reasons analyzed and provided in the detail needed by program management [@CL-PRG-0310]. Variances that exceed the established internal or external thresholds are considered significant enough to require in-depth analysis and possible management action [@CL-PRG-0708]. Analyzing deviations from the performance measurement baseline permits management, at all levels, to implement corrective actions rapidly and effectively, to regain contract objectives [@CL-PRG-0311].
+
+## How it works
+
+Focused variance analysis by the control account manager gives program management insight into significant problem areas and highlights the potential need for management action [@CL-PRG-0707]. The analysis identifies the factors causing the variance, such as efficiency, rate and timing, and its potential impacts [@CL-PRG-0705]. Corrective actions or mitigation plans are identified [@CL-PRG-0706]. Schedule variance analysis is supplemented with integrated master schedule analysis and assesses the impact on future critical path, near-critical path, and driving path activities [@CL-PRG-0312].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A control account has earned 400,000 of budget and spent 460,000, so its cost variance is 400,000 minus 460,000, which is minus 60,000 and unfavorable. The variance exceeds the control account's analysis threshold. The control account manager traces it to a labor rate increase and a material price increase, and records the corrective action of renegotiating the material buy.
+
+## Never confuse
+
+Calculating a variance is not the same as analyzing it. The guideline requires the significant differences to be identified and evaluated, and the reasons for the variances to be analyzed and provided in the detail needed by program management [@CL-PRG-0310].
+
+## Company calibration
+
+Whether significant variances are analyzed, with reasons and potential impacts, each month for every control account. [@Q-037]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 18 significant variance analysis.
