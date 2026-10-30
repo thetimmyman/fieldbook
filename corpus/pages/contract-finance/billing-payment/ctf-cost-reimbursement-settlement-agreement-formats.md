@@ -74,4 +74,5 @@ Which agreement language and which reserved-items list the company uses when fee
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Corrected the settlement to decrease the estimated cost only if appropriate, as the format text says, and stated why the worked example applies the decrease.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-reimbursement settlement agreement formats.
