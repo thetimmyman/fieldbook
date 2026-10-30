@@ -29,7 +29,7 @@ A contractor's cost estimating practices and its cost accounting practices for a
 | Text status | Final [@CL-CMP-0201] |
 | Applies to | A contractor's estimating practices and cost accounting practices [@CL-CMP-0201] |
 
-A contractor must price a proposal with estimating practices consistent with the practices used to accumulate and report costs [@CL-CMP-0201]. The estimating practices and the accumulating and reporting practices must also be consistent as to the direct-or-indirect classification of cost elements or functions, the indirect cost pools to which each is charged or proposed to be charged, and the methods of allocating indirect costs to the contract [@CL-CMP-0202]. Grouping homogeneous costs together in an estimate is not by itself an inconsistency when those costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203].
+A contractor must price a proposal with estimating practices consistent with the practices used to accumulate and report costs [@CL-CMP-0201]. The estimating practices and the accumulating and reporting practices must also be consistent as to the direct-or-indirect classification of cost elements or functions, the indirect cost pools to which each is charged or proposed to be charged, and the methods of allocating indirect costs to the contract [@CL-CMP-0202]. Grouping homogeneous costs together in an estimate is not by itself an inconsistency when those costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203; @CL-CMP-0834].
 
 ## How it works
 

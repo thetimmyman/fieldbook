@@ -29,7 +29,7 @@ Training and education costs related to the field the employee works in or may r
 | Text status | Final [@CL-CMP-0455] |
 | Applies to | Training and education costs related to the field the employee works in or may reasonably be expected to work in [@CL-CMP-0455] |
 
-Costs of training and education related to the employee's field are allowable, except as the cost principle otherwise lists [@CL-CMP-0455]. The cost of salaries for attending undergraduate or part-time graduate classes during working hours is unallowable, except when unusual circumstances prevent attendance outside regular working hours [@CL-CMP-0456]. Costs in connection with full-time graduate education are unallowable for any portion of the program exceeding two school years or the length of the degree program, whichever is less [@CL-CMP-0457].
+Costs of training and education related to the employee's field are allowable, except as the cost principle otherwise lists [@CL-CMP-0455; @CL-CMP-0824]. The cost of salaries for attending undergraduate or part-time graduate classes during working hours is unallowable, except when unusual circumstances prevent attendance outside regular working hours [@CL-CMP-0456]. Costs in connection with full-time graduate education are unallowable for any portion of the program exceeding two school years or the length of the degree program, whichever is less [@CL-CMP-0457].
 
 ## How it works
 

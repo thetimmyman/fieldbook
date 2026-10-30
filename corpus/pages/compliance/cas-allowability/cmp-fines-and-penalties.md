@@ -29,11 +29,11 @@ Establishes the unallowability of fines, penalties for regulatory violations, an
 | Text status | Final [@CL-CMP-0306] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0306] |
 
-Costs of fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific contract terms or written instructions from the contracting officer [@CL-CMP-0306]. Costs incurred in connection with the mischarging of costs on Government contracts caused by alteration or destruction of records, or other false or improper charging, are also unallowable, including measurement and rescreening expenses [@CL-CMP-0307; @CL-CMP-0308].
+Costs of fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific contract terms or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. Costs incurred in connection with the mischarging of costs on Government contracts caused by alteration or destruction of records, or other false or improper charging, are also unallowable, including measurement and rescreening expenses [@CL-CMP-0307; @CL-CMP-0308].
 
 ## How it works
 
-Fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-0306]. The mischarging disallowance bars all costs caused by improper charging or record alteration on government work [@CL-CMP-0307]. Costs incurred to measure or otherwise determine the magnitude of the improper charging, and costs incurred to remedy or correct the mischarging, such as costs to rescreen and reconstruct records, are unallowable [@CL-CMP-0308]. These corrective costs are unallowable mischarging costs [@CL-CMP-0308].
+Fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. The mischarging disallowance bars all costs caused by improper charging or record alteration on government work [@CL-CMP-0307]. Costs incurred to measure or otherwise determine the magnitude of the improper charging, and costs incurred to remedy or correct the mischarging, such as costs to rescreen and reconstruct records, are unallowable [@CL-CMP-0308]. These corrective costs are unallowable mischarging costs [@CL-CMP-0308].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ An environmental agency assesses a 75,000 civil penalty against a contractor for
 
 ## Never confuse
 
-Fines and penalties arise from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations [@CL-CMP-0306]. Mischarging costs are unallowable when caused by, or resulting from, alteration or destruction of records or other false or improper charging or recording of costs, and include costs to measure the magnitude of the improper charging and to remedy or correct it [@CL-CMP-0307; @CL-CMP-0308]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+Fines and penalties arise from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations [@CL-CMP-0306; @CL-CMP-0814]. Mischarging costs are unallowable when caused by, or resulting from, alteration or destruction of records or other false or improper charging or recording of costs, and include costs to measure the magnitude of the improper charging and to remedy or correct it [@CL-CMP-0307; @CL-CMP-0308]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 ## Company calibration
 

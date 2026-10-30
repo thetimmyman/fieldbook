@@ -31,7 +31,7 @@ Explains when a contracting officer may settle the direct and indirect costs of 
 
 The contracting officer responsible for closeout settles the direct and indirect costs of the specific contract, task order or delivery order in advance of the final costs and indirect rates the ordinary closeout process would determine [@CL-RTE-0151].
 
-The procedure needs a physically complete contract, unsettled amounts that are relatively insignificant, a risk assessment that supports its use, and agreement on a reasonable estimate of allocable dollars [@CL-RTE-0152; @CL-RTE-0153; @CL-RTE-0157]. The unsettled total must not exceed the lesser of $1,000,000 or 10 percent of the total contract amount, and that risk assessment must cover the contractor's accounting, estimating and purchasing systems together with the auditors' concerns [@CL-RTE-0153; @CL-RTE-0154; @CL-RTE-0155].
+The procedure needs a physically complete contract, unsettled amounts that are relatively insignificant, a risk assessment that supports its use, and agreement on a reasonable estimate of allocable dollars [@CL-RTE-0152; @CL-RTE-0153; @CL-RTE-0157; @CL-RTE-0154]. The unsettled total must not exceed the lesser of $1,000,000 or 10 percent of the total contract amount, and that risk assessment must cover the contractor's accounting, estimating and purchasing systems together with the auditors' concerns [@CL-RTE-0153; @CL-RTE-0154; @CL-RTE-0155].
 
 ## How it works
 

@@ -28,7 +28,7 @@ Specifies how gains and losses from the sale, retirement, or impairment of depre
 | Text status | Final [@CL-CMP-0510] |
 | Applies to | Contracts subject to the FAR cost principles [@CL-CMP-0510] |
 
-Gains and losses from the sale, retirement, or other disposition of depreciable property must be included in the year they occur as credits or charges to the cost groupings where depreciation was included, subject to the exceptions stated in that section [@CL-CMP-0510].
+Gains and losses from the sale, retirement, or other disposition of depreciable property must be included in the year they occur as credits or charges to the cost groupings where depreciation was included, subject to the exceptions stated in that section [@CL-CMP-0510; @CL-CMP-0829].
 
 Gains and losses arising from the sale or exchange of capital assets other than depreciable property are excluded in computing contract costs [@CL-CMP-0511].
 

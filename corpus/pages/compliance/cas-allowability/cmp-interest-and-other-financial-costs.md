@@ -29,11 +29,11 @@ Identifies interest on borrowings, bond discounts, and capital financing expense
 | Text status | Final [@CL-CMP-0309] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0309] |
 
-Interest on borrowings however represented, bond discounts, costs of financing and refinancing capital (net worth plus long-term liabilities), legal and professional fees paid in connection with preparing prospectuses, and costs of preparing and issuing stock rights are unallowable (but see 31.205-28) [@CL-CMP-0309]. However, interest assessed by State or local taxing authorities under the conditions specified in 31.205-41(a)(3) is allowable [@CL-CMP-0310].
+Interest on borrowings however represented, bond discounts, costs of financing and refinancing capital (net worth plus long-term liabilities), legal and professional fees paid in connection with preparing prospectuses, and costs of preparing and issuing stock rights are unallowable (but see 31.205-28) [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. However, interest assessed by State or local taxing authorities under the conditions specified in 31.205-41(a)(3) is allowable [@CL-CMP-0310].
 
 ## How it works
 
-Interest on borrowings is unallowable under the section [@CL-CMP-0309]. The prohibition covers interest on borrowings however represented, and bond discounts (but see 31.205-28) [@CL-CMP-0309]. Costs of financing and refinancing capital, legal and professional fees paid in connection with preparing prospectuses, and costs of preparing and issuing stock rights are unallowable (but see 31.205-28) [@CL-CMP-0309]. An exception permits interest assessed by State or local taxing authorities under the conditions specified in 31.205-41(a)(3) [@CL-CMP-0310].
+Interest on borrowings is unallowable under the section [@CL-CMP-0309]. The prohibition covers interest on borrowings however represented, and bond discounts (but see 31.205-28) [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. Costs of financing and refinancing capital, legal and professional fees paid in connection with preparing prospectuses, and costs of preparing and issuing stock rights are unallowable (but see 31.205-28) [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. An exception permits interest assessed by State or local taxing authorities under the conditions specified in 31.205-41(a)(3) [@CL-CMP-0310].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A contractor takes out a commercial line of credit to finance working capital du
 
 ## Never confuse
 
-Interest on borrowings however represented is unallowable, subject to the 'but see' cross-reference [@CL-CMP-0309]. Costs of financing and refinancing capital (net worth plus long-term liabilities) are unallowable, subject to the 'but see' cross-reference [@CL-CMP-0309]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+Interest on borrowings however represented is unallowable, subject to the 'but see' cross-reference [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. Costs of financing and refinancing capital (net worth plus long-term liabilities) are unallowable, subject to the 'but see' cross-reference [@CL-CMP-0309; @CL-CMP-0818; @CL-CMP-0310]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 ## Company calibration
 

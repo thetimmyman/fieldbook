@@ -29,7 +29,7 @@ Shows which period a contractor uses to accumulate costs and to establish the al
 | Text status | Final [@CL-CMP-0210] |
 | Applies to | A contractor's cost accounting period [@CL-CMP-0210] |
 
-A contractor uses its fiscal year as its cost accounting period, subject to the listed exceptions [@CL-CMP-0210]. The same period is used to accumulate costs in an indirect cost pool and to establish the allocation base, unless the parties agree to a different period for the base [@CL-CMP-0211]. When the fiscal year changes, the contractor uses a transitional period of a length other than a year [@CL-CMP-0212].
+A contractor uses its fiscal year as its cost accounting period, subject to the listed exceptions [@CL-CMP-0210; @CL-CMP-0835; @CL-CMP-0836; @CL-CMP-0837; @CL-CMP-0212]. The same period is used to accumulate costs in an indirect cost pool and to establish the allocation base, unless the parties agree to a different period for the base [@CL-CMP-0211]. When the fiscal year changes, the contractor uses a transitional period of a length other than a year [@CL-CMP-0212].
 
 ## How it works
 

@@ -28,7 +28,7 @@ Rental costs under operating leases are allowable when the rates are reasonable 
 | Text status | Final [@CL-CMP-0461] |
 | Applies to | Costs of renting or leasing real or personal property acquired under operating leases [@CL-CMP-0462] |
 
-The subsection applies to the cost of renting or leasing real or personal property acquired under operating leases [@CL-CMP-0462]. Rental costs under operating leases are allowable to the extent the rates are reasonable at the time of the lease decision [@CL-CMP-0461]. Rental costs under a sale and leaseback arrangement are allowable only up to the amount the contractor would be allowed if it retained title [@CL-CMP-0463].
+The subsection applies to the cost of renting or leasing real or personal property acquired under operating leases [@CL-CMP-0462]. Rental costs under operating leases are allowable to the extent the rates are reasonable at the time of the lease decision [@CL-CMP-0461; @CL-CMP-0827]. Rental costs under a sale and leaseback arrangement are allowable only up to the amount the contractor would be allowed if it retained title [@CL-CMP-0463].
 
 ## How it works
 

@@ -32,11 +32,11 @@ Material costs include items such as raw materials, parts, subassemblies, and ma
 
 Contractors must adjust material costs for income and credits, including available trade discounts, refunds, rebates, allowances, cash discounts, and credits for scrap and vendor returns [@CL-CMP-0514].
 
-Transfers of materials, supplies, and services between affiliated divisions or subsidiaries under common control must be priced on the basis of cost incurred unless strict commercial pricing conditions are satisfied [@CL-CMP-0515].
+Transfers of materials, supplies, and services between affiliated divisions or subsidiaries under common control must be priced on the basis of cost incurred unless strict commercial pricing conditions are satisfied [@CL-CMP-0515; @CL-CMP-0830; @CL-CMP-0831].
 
 ## How it works
 
-Materials purchased exclusively for a single contract are directly charged at actual purchase cost. Materials issued from stores may be priced using any generally recognized method if it is consistently applied and the results are equitable. Contractors must credit available discounts, rebates, and scrap and salvage credits either directly to the cost of the material or as a credit to indirect costs, except that lost cash discounts need not be credited when failure to take them was reasonable. Transfers from affiliated divisions are allowed on the basis of cost incurred, but may be at price when it is the established practice to price interorganizational transfers at other than cost for commercial work, the item qualifies for an exception under 15.403-1(b), and the contracting officer has not determined the price to be unreasonable [@CL-CMP-0515].
+Materials purchased exclusively for a single contract are directly charged at actual purchase cost. Materials issued from stores may be priced using any generally recognized method if it is consistently applied and the results are equitable. Contractors must credit available discounts, rebates, and scrap and salvage credits either directly to the cost of the material or as a credit to indirect costs, except that lost cash discounts need not be credited when failure to take them was reasonable. Transfers from affiliated divisions are allowed on the basis of cost incurred, but may be at price when it is the established practice to price interorganizational transfers at other than cost for commercial work, the item qualifies for an exception under 15.403-1(b), and the contracting officer has not determined the price to be unreasonable [@CL-CMP-0515; @CL-CMP-0830; @CL-CMP-0831].
 
 ## Worked example
 

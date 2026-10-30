@@ -35,7 +35,7 @@ For meetings, conventions, conferences, symposia and seminars the section adds a
 
 ## How it works
 
-The section lists allowable categories rather than a single general test, so each cost is checked against the category it falls in [@CL-CMP-0364]. The conference branch applies a purpose test to the event, and only then allows the organizing cost and the cost of sending employees [@CL-CMP-0366]. Outside attendance is the narrow bucket: a second reimbursement source, or an attendee who is useful rather than essential, defeats it [@CL-CMP-0369].
+The section lists allowable categories rather than a single general test, so each cost is checked against the category it falls in [@CL-CMP-0364]. The conference branch applies a purpose test to the event, and only then allows the organizing cost and the cost of sending employees [@CL-CMP-0366]. Outside attendance is the narrow bucket: a second reimbursement source, or an attendee who is useful rather than essential, defeats it [@CL-CMP-0369; @CL-CMP-0370].
 
 ## Worked example
 
