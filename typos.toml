@@ -15,6 +15,8 @@ titel = "titel"
 caf = "caf"
 # "MIS Builder", an accounting report tool named in docs/reference/dependencies.md.
 mis = "mis"
+# "ANC", the Alaska Native Corporation abbreviation printed in FAR subpart 19.7 and quoted in subcontracting cards.
+anc = "anc"
 # "withh", a regex fragment (withholding, withheld) in the search script of docs/design/mockup/index.html.
 withh = "withh"
 # "addres", the data hook of the add-results region in docs/design/mockup/index.html.
