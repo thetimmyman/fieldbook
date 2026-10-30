@@ -45,7 +45,7 @@ A contract lists a base-support service as essential. The contracting officer di
 
 ## Never confuse
 
-This clause is not the deployed-forces clause. That clause is about contractor personnel supporting deployed forces and is covered on Contractor personnel supporting deployed forces. The cost notice here covers costs of continued performance directed in a crisis, and its period runs from the direction to continue [@CL-CMP-4319].
+This clause is not the deployed-forces clause. That clause is about contractor personnel supporting deployed forces and is covered on [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md). The cost notice here covers costs of continued performance directed in a crisis, and its period runs from the direction to continue [@CL-CMP-4319].
 
 The plan in this clause is not the offeror's plan submitted with an offer. The offer-stage plan comes from the solicitation provision, covered on [Notice of continuation of essential services and services at installations being closed](cmp-essential-services-notice-and-closing-installations.md), which asks for a written plan with the offer [@CL-CMP-4323]. This clause incorporates the contractor's submitted plan into the contract [@CL-CMP-4315].
 
