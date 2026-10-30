@@ -57,4 +57,5 @@ Which proposals expected in the next two quarters may draw a single offer and so
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Raised the worked example amount above the current DoD threshold for certified cost or pricing data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD rule for a single offer.

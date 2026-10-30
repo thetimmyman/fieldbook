@@ -54,4 +54,5 @@ Which statements, how many years and which audit level the company's owners, len
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the Article 8 election for smaller reporting companies and its shorter period for annual statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for income, cash flow and equity statements under Regulation S-X.

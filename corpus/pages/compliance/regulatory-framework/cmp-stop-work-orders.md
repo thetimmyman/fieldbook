@@ -61,4 +61,5 @@ Whether the company can separate costs incurred during a stop-work period, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Tied the price or schedule adjustment to cancellation or expiry of the order and resumed work, and added the separate treatment when the work is terminated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for stop-work orders.
