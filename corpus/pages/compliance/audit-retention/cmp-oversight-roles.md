@@ -20,7 +20,7 @@ Explains who on the government side decides, administers and audits, so that eac
 
 ## The rule
 
-The contracting officer decides; the auditor advises. The contracting officer normally delegates contract administration functions to a contract administration office, keeping some reserved functions such as establishing final indirect cost rates and billing rates where the criteria are met [@S-0005-v1, § 42.302]. The auditor gives information and advice on the acceptability of incurred and estimated costs and reviews the financial and accounting aspects of cost control systems [@S-0005-v1, § 42.101]. For most contractors the Defense Contract Audit Agency is the responsible audit agency [@S-0005-v1, § 42.101]. The cognizant federal agency is normally the one with the largest dollar amount of negotiated contracts, including options [@S-0005-v1, § 42.003].
+The contracting officer decides; the auditor advises. The contracting officer normally delegates contract administration functions to a contract administration office and may keep most of them, but may not keep some, such as establishing final indirect cost rates and billing rates, unless the cognizant federal agency has designated the contracting officer to perform them [@S-0005-v1, § 42.302]. The auditor gives information and advice on the acceptability of incurred and estimated costs and reviews the financial and accounting aspects of cost control systems [@S-0005-v1, § 42.101]. For most contractors the Defense Contract Audit Agency is the responsible audit agency [@S-0005-v1, § 42.101]. The cognizant federal agency is normally the one with the largest dollar amount of negotiated contracts, including options [@S-0005-v1, § 42.003].
 
 ## How it works
 
