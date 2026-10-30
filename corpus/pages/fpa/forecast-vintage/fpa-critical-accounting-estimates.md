@@ -16,7 +16,7 @@ links = ["prg-evms-guideline-20-eac-updates", "prg-evms-guideline-23-program-man
 
 ## Purpose
 
-Shows how a public defense contractor identifies and explains its critical accounting estimates in the management discussion, including why they are uncertain and how sensitive reported amounts are. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the disclosure is a benchmark only.
+Shows how a public defense contractor identifies and explains its critical accounting estimates in the management discussion, including why they are uncertain and how sensitive reported amounts are. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the disclosure is a benchmark only.
 
 ## The rule
 
@@ -27,7 +27,7 @@ Shows how a public defense contractor identifies and explains its critical accou
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, for estimates that meet the definition of critical [@CL-FPA-0035]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, for estimates that meet the definition of critical [@CL-FPA-0035]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Item 303(b)(3) of Regulation S-K, in 17 CFR 229.303, defines critical accounting estimates as estimates made under generally accepted accounting principles that involve a significant level of estimation uncertainty and have had or are reasonably likely to have a material impact on financial condition or results of operations [@CL-FPA-0035]. It calls for qualitative and quantitative information necessary to understand the estimation uncertainty and the impact of the estimate, to the extent the information is material and reasonably available [@CL-FPA-0036].
 

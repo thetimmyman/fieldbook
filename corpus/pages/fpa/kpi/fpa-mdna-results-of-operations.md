@@ -15,7 +15,7 @@ links = ["fpa-mdna-objective-and-liquidity"]
 
 ## Purpose
 
-Shows how a public defense contractor explains its results of operations: unusual events, known trends, shifts in the relationship between costs and revenues, and whether a revenue change is attributable to price, volume or new products. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the discussion is a benchmark only.
+Shows how a public defense contractor explains its results of operations: unusual events, known trends, shifts in the relationship between costs and revenues, and whether a revenue change is attributable to price, volume or new products. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the discussion is a benchmark only.
 
 ## The rule
 
@@ -26,7 +26,7 @@ Shows how a public defense contractor explains its results of operations: unusua
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, in the results of operations discussion [@CL-FPA-0028]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, in the results of operations discussion [@CL-FPA-0028]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Item 303(b) of Regulation S-K, in 17 CFR 229.303, tells the registrant to describe the underlying reasons for material period-to-period changes in line items in quantitative and qualitative terms [@CL-FPA-0027]. Paragraph (b)(2)(i) tells the registrant to describe unusual or infrequent events or transactions or significant economic changes that materially affected reported income from continuing operations, and the extent to which income was affected [@CL-FPA-0028]. Paragraph (b)(2)(ii) tells the registrant to describe known trends or uncertainties that have had, or are reasonably likely to have, a material favorable or unfavorable impact on net sales or revenues or income from continuing operations [@CL-FPA-0029].
 

@@ -33,17 +33,17 @@ The contracting officer shall identify and report a unique entity identifier for
 
 ## How it works
 
-A generic entity identifier is a number or other identifier assigned to a category of vendors and not specific to any individual or entity [@CL-MKT-0026]. Under the paragraph that authorizes generic entity identifiers, an identifier may be used to report contracts in lieu of the contractor's actual unique entity identifier only for listed cases [@CL-MKT-0027]. One listed case is a contract action valued at or below $40,000 that is awarded to a contractor that is a student [@CL-MKT-0027]. Another is a case in which specific public identification of the contracted party could endanger the mission, contractor, or recipients of the acquired goods or services, and the contracting officer must include a written determination in the contract file [@CL-MKT-0028].
+A generic entity identifier is a number or other identifier assigned to a category of vendors and not specific to any individual or entity [@CL-MKT-0026]. Under the paragraph that authorizes generic entity identifiers, an identifier may be used to report contracts in lieu of the contractor's actual unique entity identifier only for listed cases [@CL-MKT-0027]. One listed case is a contract action valued at or below $40,000 that is awarded to a contractor that is a student [@CL-MKT-0027]. Another is a case in which specific public identification of the contracted party could endanger the mission, contractor, or recipients of the acquired goods or services, and the contracting officer must include a written determination in the contract file [@CL-MKT-0028]. Use of a generic identifier does not supersede the requirements of provisions 52.204-6 or 52.204-7, where present in the solicitation, for the contractor to have its own unique entity identifier assigned [@CL-MKT-0156].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contracting officer awards a 25,000 contract to a student who has no identifier of their own. A generic identifier may be used, because the value is at or below the limit for that case. A 25,000 contract to an ordinary domestic firm is different, because the identifier reported must be the firm's own, as registered.
+A contracting officer awards a 25,000 contract to a student. A generic identifier may be used to report the award, because the value is at or below the limit for that case. That only changes what is reported: if the solicitation contains the identifier or registration provision, the student must still have a unique entity identifier assigned. A 25,000 contract to an ordinary domestic firm is different, because the identifier reported must be the firm's own, as registered.
 
 ## Never confuse
 
-A generic entity identifier is assigned to a category of vendors and is not specific to any individual or entity [@CL-MKT-0026], while the unique entity identifier is the one that corresponds to the successful offeror's name and address as registered [@CL-MKT-0025]. The CAGE code is a different identifier again [@CL-MKT-0101]. For CAGE codes, see the [Commercial and Government Entity Code Reporting provision](../../supply-chain/supplier-identity/sup-cage-code-reporting.md) card.
+A generic entity identifier is assigned to a category of vendors and is not specific to any individual or entity [@CL-MKT-0026] and changes only what is reported, not whether the contractor needs its own identifier [@CL-MKT-0156], while the unique entity identifier is the one that corresponds to the successful offeror's name and address as registered [@CL-MKT-0025]. The CAGE code is a different identifier again [@CL-MKT-0101]. For CAGE codes, see the [Commercial and Government Entity Code Reporting provision](../../supply-chain/supplier-identity/sup-cage-code-reporting.md) card.
 
 ## Company calibration
 

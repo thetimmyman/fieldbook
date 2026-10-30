@@ -15,7 +15,7 @@ links = ["ctf-termination-for-convenience-settlement", "cmp-acquisition-regulati
 
 ## Purpose
 
-Shows how a public defense contractor describes any material portion of its business that may be subject to renegotiation of profits or termination of contracts or subcontracts at the election of the Government, and the material effects that compliance with government regulations may have on its capital expenditures, earnings and competitive position. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the disclosure is a benchmark only.
+Shows how a public defense contractor describes any material portion of its business that may be subject to renegotiation of profits or termination of contracts or subcontracts at the election of the Government, and the material effects that compliance with government regulations may have on its capital expenditures, earnings and competitive position. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the disclosure is a benchmark only.
 
 ## The rule
 
@@ -26,7 +26,7 @@ Shows how a public defense contractor describes any material portion of its busi
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, for the material portion of its business subject to the Government's election rights [@CL-FPA-0012], and for compliance effects to the extent material to its business taken as a whole [@CL-FPA-0013]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, for the material portion of its business subject to the Government's election rights [@CL-FPA-0012], and for compliance effects to the extent material to its business taken as a whole [@CL-FPA-0013]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Paragraph (c)(1)(iv) of Item 101 of Regulation S-K, in 17 CFR 229.101, names a description of any material portion of the business that may be subject to renegotiation of profits or termination of contracts or subcontracts at the election of the Government [@CL-FPA-0012]. It is one item in a list that disclosure may include but is not limited to, and only information material to an understanding of the business taken as a whole is required [@CL-FPA-0007].
 

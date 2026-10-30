@@ -16,7 +16,7 @@ links = ["fpa-business-development-disclosure", "fpa-government-contract-exposur
 
 ## Purpose
 
-Shows how a public defense contractor describes, segment by segment, its revenue-generating activities, any dependence on key products or customers including governmental customers, and the status of development efforts and trends in market demand. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the disclosure is a benchmark only.
+Shows how a public defense contractor describes, segment by segment, its revenue-generating activities, any dependence on key products or customers including governmental customers, and the status of development efforts and trends in market demand. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the disclosure is a benchmark only.
 
 ## The rule
 
@@ -27,7 +27,7 @@ Shows how a public defense contractor describes, segment by segment, its revenue
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, for its dominant segment or each reportable segment about which financial information is presented [@CL-FPA-0006]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, for its dominant segment or each reportable segment about which financial information is presented [@CL-FPA-0006]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Item 101(c)(1) of Regulation S-K, in 17 CFR 229.101, tells the registrant to describe the business done and intended to be done by the registrant and its subsidiaries, focusing on its dominant segment or each reportable segment about which financial information is presented [@CL-FPA-0006]. In describing each segment only information material to an understanding of the business taken as a whole is required, and the listed items are ones that disclosure may include but is not limited to [@CL-FPA-0007].
 

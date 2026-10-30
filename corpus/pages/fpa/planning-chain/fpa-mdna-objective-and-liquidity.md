@@ -16,7 +16,7 @@ links = ["ctf-dod-cash-flow-forecasts", "ctf-financing-overview", "fpa-mdna-resu
 
 ## Purpose
 
-Shows how a public defense contractor frames its management discussion of financial condition, known events and uncertainties, and short-term and long-term liquidity and capital resources. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the discussion is a benchmark only.
+Shows how a public defense contractor frames its management discussion of financial condition, known events and uncertainties, and short-term and long-term liquidity and capital resources. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the discussion is a benchmark only.
 
 ## The rule
 
@@ -27,7 +27,7 @@ Shows how a public defense contractor frames its management discussion of financ
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, in its management's discussion and analysis [@CL-FPA-0017]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, in its management's discussion and analysis [@CL-FPA-0017]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Item 303(a) of Regulation S-K, in 17 CFR 229.303, states the objective as material information relevant to an assessment of financial condition and results of operations, including an evaluation of the amounts and certainty of cash flows from operations and from outside sources [@CL-FPA-0017]. The discussion must focus specifically on material events and uncertainties known to management that are reasonably likely to cause reported financial information not to be necessarily indicative of future operating results or future financial condition [@CL-FPA-0018].
 

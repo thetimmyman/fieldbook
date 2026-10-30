@@ -15,7 +15,7 @@ links = ["fpa-critical-accounting-estimates"]
 
 ## Purpose
 
-Shows how a public defense contractor presents the material factors that make an investment speculative or risky, including how they are organized and summarized. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the discussion is a benchmark only.
+Shows how a public defense contractor presents the material factors that make an investment speculative or risky, including how they are organized and summarized. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the discussion is a benchmark only.
 
 ## The rule
 
@@ -26,7 +26,7 @@ Shows how a public defense contractor presents the material factors that make an
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, where appropriate, for factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, where appropriate, for factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Item 105(a) of Regulation S-K, in 17 CFR 229.105, tells the registrant, where appropriate, to provide under the caption “Risk Factors” a discussion of the material factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041]. The discussion must be organized logically with relevant headings, and each risk factor should be set forth under a subcaption that adequately describes the risk [@CL-FPA-0042]. Risks that could apply generically to any registrant or offering are discouraged, and any generic risk factors presented are disclosed at the end of the risk factor section under the caption “General Risk Factors” [@CL-FPA-0043].
 

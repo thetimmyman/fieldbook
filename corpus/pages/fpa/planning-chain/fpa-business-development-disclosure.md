@@ -15,7 +15,7 @@ links = ["fpa-business-description-by-segment"]
 
 ## Purpose
 
-Shows how a public defense contractor describes the general development of its business, including material changes of strategy, material reclassifications, mergers and consolidations, and acquisitions or disposals of assets outside the ordinary course. Regulation S-K binds only SEC registrants (public companies), so a privately held contractor is not bound by it. For a private contractor the disclosure is a benchmark only.
+Shows how a public defense contractor describes the general development of its business, including material changes of strategy, material reclassifications, mergers and consolidations, and acquisitions or disposals of assets outside the ordinary course. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. For a private contractor the disclosure is a benchmark only.
 
 ## The rule
 
@@ -26,7 +26,7 @@ Shows how a public defense contractor describes the general development of its b
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The registrant, as the text of the cited paragraph states it [@CL-FPA-0001]. Regulation S-K binds SEC registrants only, so a privately held contractor is not bound. |
+| Applies to | The registrant, as the text of the cited paragraph states it [@CL-FPA-0001]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
 Item 101(a) of Regulation S-K, in 17 CFR 229.101, requires the registrant to describe the general development of the business of the registrant, its subsidiaries and any predecessors [@CL-FPA-0001]. Only information material to an understanding of the general development of the business is required, and the topics that follow are ones that disclosure may include but is not limited to [@CL-FPA-0002].
 
