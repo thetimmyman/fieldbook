@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["direct_cost", "indirect_cost", "cost_pool", "allocation_base", "cost_objective", "cost_accounting_practice"]
 questions = ["Q-024"]
-links = ["cmp-cas-applicability"]
+links = ["cmp-cas-applicability", "cmp-cas-gaap-conformance-2026"]
 +++
 
 ## Purpose
@@ -35,6 +35,8 @@ A business unit must have a written statement of accounting policies for classif
 
 Indirect costs must be accumulated in indirect cost pools that are homogeneous [@CL-CMP-0217]. A pool that contains a material amount of the costs of management or supervision of activities involving direct labor or direct material costs is allocated on a base representative of the activity being managed or supervised. A pool that does not contain a material amount of the costs of management or supervision of activities involving direct labor or direct material costs is allocated on a resource consumption measure, an output measure, or a surrogate representative of resources consumed.
 
+The Board's final rule on CAS 407, effective October 1, 2026, rescinded that standard and moved its retained requirements on standard costs and related variances at the production unit level into CAS 418 [@CL-CMP-1516; @CL-CMP-1517; @CL-CMP-1518]. The printed text of 9904.418-30 now defines a production unit [@CL-CMP-1527]. The printed text of 9904.418-50 now holds paragraph (h) on standard costing, which sets conditions for a labor-rate standard covering a group of workers who perform disparate functions [@CL-CMP-1526]. The CAS conformance brief explains what moved and what was removed.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,4 +55,5 @@ How the pools, bases and the direct-versus-indirect split are defined and reconc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-29: Noted the standard-cost requirements moved into this standard from the rescinded CAS 407.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for allocation of direct and indirect costs.

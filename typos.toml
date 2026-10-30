@@ -19,3 +19,5 @@ mis = "mis"
 withh = "withh"
 # "addres", the data hook of the add-results region in docs/design/mockup/index.html.
 addres = "addres"
+# "recuiting", a misspelling in the printed text of FAR 31.205-34(a)(4), copied verbatim into a claim quote.
+recuiting = "recuiting"

@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["unallowable_cost", "expressly_unallowable_cost", "indirect_cost", "cost_pool", "allocation_base", "billing"]
 questions = ["Q-044"]
-links = ["cmp-unallowable-cost-penalty", "cmp-cas-applicability"]
+links = ["cmp-unallowable-cost-penalty", "cmp-cas-applicability", "cmp-cas-gaap-conformance-2026"]
 +++
 
 ## Purpose
@@ -35,6 +35,8 @@ Costs that are expressly unallowable or mutually agreed unallowable must be iden
 
 The record detail must be enough to keep unallowable costs visible, including directly associated costs, and to show how they are treated for allocation. Unallowable costs follow the same allocability principles as allowable costs. A contractor may use separate accounts, separate workpapers, or a less formal technique that still permits audit verification.
 
+The section now also carries content unrelated to unallowable costs. When CAS 404 was rescinded, the Board relocated the requirements of 404-50(d)(1) to a new paragraph (g) of 9904.405-40 [@CL-CMP-1502]. The printed text of 9904.405-40 holds that paragraph (g) as the retained content from CAS 404 and 409 on asset accounting and depreciation [@CL-CMP-1504; @CL-CMP-1525]. The CAS conformance brief explains what moved and what was removed.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,4 +55,5 @@ How unallowable costs are kept out of rate and billing pools, and who reviews th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-29: Noted the paragraph relocated into this section from the rescinded CAS 404 and 409.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for unallowable costs.
