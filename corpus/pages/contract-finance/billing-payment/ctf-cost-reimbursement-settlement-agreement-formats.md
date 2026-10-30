@@ -56,13 +56,13 @@ A cost-reimbursement contract is completely terminated and settlement is limited
 
 The contracting officer keeps the reserved items on warranties and Government property, omits the patent item because the contract has no such clause, and adds one reservation for a disputed claim [@CL-CTF-3134; @CL-CTF-3136; @CL-CTF-3280]. The suggested wording may be varied at the contracting officer's discretion [@CL-CTF-3278].
 
-A second cost-reimbursement contract is partially terminated. The agreement deletes line item 3 with its quantity and price, decreases the fee from 100,000 to 80,000, and decreases the estimated cost from 1,000,000 to 800,000 [@CL-CTF-3287; @CL-CTF-3288; @CL-CTF-3139]. Allowable costs and earned fee on the deleted line item continue to be reimbursed on Standard Form 1034 [@CL-CTF-3140].
+A second cost-reimbursement contract is partially terminated. The agreement deletes line item 3 with its quantity and price, decreases the fee from 100,000 to 80,000, and, because a cost decrease is appropriate here, decreases the estimated cost from 1,000,000 to 800,000 [@CL-CTF-3287; @CL-CTF-3288; @CL-CTF-3139]. Allowable costs and earned fee on the deleted line item continue to be reimbursed on Standard Form 1034 [@CL-CTF-3140].
 
 ## Never confuse
 
 A settlement limited to fee does not close out cost reimbursement. Allowable costs are still paid under the contract and parts 31 and 49 of the FAR when there are costs to be vouchered out or covered later by a separate agreement [@CL-CTF-3275; @CL-CTF-3276].
 
-The partial-termination format is not the fee-only format. It deletes the terminated portion and decreases the fee and estimated cost [@CL-CTF-3287; @CL-CTF-3139], and the terminated portion's costs continue on the voucher [@CL-CTF-3140].
+The partial-termination format is not the fee-only format. It deletes the terminated portion and decreases the fee and, if appropriate, the estimated cost [@CL-CTF-3287; @CL-CTF-3139], and the terminated portion's costs continue on the voucher [@CL-CTF-3140].
 
 The authorization and delinquency notices for these agreements are on [the cost-reimbursement settlement format card](../../close-revrec/revenue/cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
 
