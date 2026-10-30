@@ -1,0 +1,62 @@
++++
+id = "ctf-financing-methods-and-noncommercial-payment-clauses"
+title = "Contract financing methods and payment clauses for noncommercial purchases"
+area = "ctf"
+subarea = "financing"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["contract_financing", "progress_payment", "performance_based_payment"]
+questions = ["Q-026"]
+links = ["ctf-financing-overview", "ctf-defense-production-loan-guarantees", "ctf-advance-payments-for-non-commercial-items", "ctf-performance-based-payments", "ctf-progress-payments", "ctf-tm-and-lh-payments", "ctf-making-payments", "ctf-far-32-definitions-and-financing-payment-timing", "ctf-progress-payment-clauses-and-supervision", "ctf-loan-guarantee-assignment-and-advance-payment-applicability"]
++++
+
+## Purpose
+
+Names the contract financing methods the FAR describes and the payment clauses a contracting officer inserts, with the trigger for each clause.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CTF-1510; @CL-CTF-1514] |
+| Codified citation | FAR 32.102 and FAR 32.111 [@CL-CTF-1510; @CL-CTF-1514] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CTF-1510] |
+| Applies to | Contract financing methods, and solicitations and contracts of the contract types listed for each clause [@CL-CTF-1510; @CL-CTF-1514] |
+
+This card restates the contract financing methods below, and their place among the contract financing payments is on [the definitions and payment timing card](ctf-far-32-definitions-and-financing-payment-timing.md). Advance payments are advances of money by the Government to a prime contractor before, in anticipation of, and for the purpose of complete performance under one or more contracts [@CL-CTF-1510]. Progress payments based on costs are made on the basis of costs incurred by the contractor as work progresses under the contract [@CL-CTF-1511]. Loan guarantees are made by Federal Reserve banks, on behalf of designated guaranteeing agencies, to enable contractors to obtain financing from private sources under contracts for the acquisition of supplies or services for the national defense [@CL-CTF-1512]. Performance-based payments are contract financing payments made on the basis of performance measured by objective, quantifiable methods, accomplishment of defined events, or other quantifiable measures of results [@CL-CTF-1513]. The section also describes payments for partial deliveries and progress payments based on a percentage or stage of completion, which this card does not restate.
+
+In the first paragraph of the clauses section, the contracting officer shall insert the listed clauses, appropriately modified with respect to payment due dates, in accordance with agency regulations [@CL-CTF-1514]. The clause at 52.232-1, Payments, goes in solicitations and contracts when a fixed-price supply contract, a fixed-price service contract, or a contract for nonregulated communication services is contemplated [@CL-CTF-1514; @CL-CTF-1515]. The clause at 52.232-2, Payment under Fixed-Price Research and Development Contracts, goes in solicitations and contracts when a fixed-price research and development contract is contemplated, and the clause at 52.232-3, Payments under Personal Services Contracts, goes in solicitations and contracts for personal services [@CL-CTF-1514; @CL-CTF-1516]. The clause at 52.232-4, Payments under Transportation Contracts and Transportation-Related Services Contracts, goes in solicitations and contracts for transportation or transportation-related services [@CL-CTF-1514; @CL-CTF-1517]. The clause at 52.232-5, Payments under Fixed-Price Construction Contracts, goes in solicitations and contracts for construction when a fixed-price contract is contemplated [@CL-CTF-1514; @CL-CTF-1518]. The clause at 52.232-6, Payments under Communication Service Contracts with Common Carriers, goes in solicitations and contracts for regulated communication services by common carriers [@CL-CTF-1514; @CL-CTF-1519]. The clause at 52.232-7, Payments under Time-and-Materials and Labor-Hour Contracts, goes in solicitations and contracts when a time-and-materials or labor-hour contract is contemplated [@CL-CTF-1514; @CL-CTF-1520]. The contracting officer shall also insert the clause at 52.232-10, Payments under Fixed-Price Architect-Engineer Contracts, in fixed-price architect-engineer contracts, appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1521], and the clause at 52.232-11, Extras, in solicitations and contracts when a fixed-price supply contract, fixed-price service contract, or a transportation contract is contemplated [@CL-CTF-1521; @CL-CTF-1522]. The contracting officer shall insert the clauses in the middle paragraph of that section, appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1562]. One is the clause at 52.232-8, Discounts for Prompt Payment, in solicitations and contracts when a fixed-price supply contract or fixed-price service contract is contemplated [@CL-CTF-1562; @CL-CTF-1563]. The other is a clause substantially the same as the clause at 52.232-9, Limitation on Withholding of Payments, in solicitations and contracts when a supply contract, research and development contract, service contract, time-and-materials contract, or labor-hour contract is contemplated [@CL-CTF-1562; @CL-CTF-1564], described as one that includes two or more terms authorizing the temporary withholding of amounts otherwise payable to the contractor for supplies delivered or services performed [@CL-CTF-1565].
+
+The text after the first list adds a rule on withholding. If the contracting officer determines that it is necessary to withhold payment to protect the Government's interests, paragraph (a)(7) of the clause permits the contracting officer to unilaterally issue a modification requiring the contractor to withhold 5 percent of amounts due [@CL-CTF-1566]. The withholding is up to a maximum of $50,000 under the contract [@CL-CTF-1567].
+
+## How it works
+
+Each listed clause is tied to a contract type or kind of service named in the listing, and the contracting officer inserts the clause when that type or service is contemplated [@CL-CTF-1514; @CL-CTF-1515]. The inserted clauses are appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1514; @CL-CTF-1562; @CL-CTF-1521]. The printed text of the methods section does not name a clause to insert for any method.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A solicitation contemplates a fixed-price research and development contract worth 400,000. The contracting officer checks the list and finds the clause for fixed-price research and development contracts.
+
+Answer: that clause goes into the solicitation and contract, modified for payment due dates as agency regulations direct.
+
+## Never confuse
+
+A loan guarantee is made by Federal Reserve banks to enable contractors to obtain financing from private sources [@CL-CTF-1512], whereas an advance payment is an advance of money by the Government [@CL-CTF-1510]. A payment clause here governs payment under its contract type, and time-and-materials and labor-hour contracts have their own card, [Payments under time-and-materials and labor-hour contracts](../billing-payment/ctf-tm-and-lh-payments.md). The definitions of a contract financing payment and the timing rule for contract financing requests are on [the definitions and payment timing card](ctf-far-32-definitions-and-financing-payment-timing.md). Earliest payment dates and partial deliveries are on [Making payments: earliest payment date and partial deliveries](../billing-payment/ctf-making-payments.md). Loan guarantees and advance payments have fuller cards, [Loan guarantees for defense production and the certificate of eligibility](ctf-defense-production-loan-guarantees.md) and [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md), and the assignment of claims under a guaranteed loan and the cases for advance payments are on [Assignment of claims under guaranteed loans and when advance payments may be considered](ctf-loan-guarantee-assignment-and-advance-payment-applicability.md). Progress payment rates are on [Customary progress payment rates (DoD)](ctf-progress-payments.md), the progress payments clause and its alternates are on [Progress payments clauses and supervision of progress payments](ctf-progress-payment-clauses-and-supervision.md), the performance-based payments clause is on [Performance-Based Payments clause](ctf-performance-based-payments.md), and the overview is [Contract financing at a glance](ctf-financing-overview.md).
+
+## Company calibration
+
+Confirm which financing methods and payment clauses each contract carries, since they drive the cash forecast. [@Q-026]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract financing methods and the payment clauses for noncommercial purchases.
