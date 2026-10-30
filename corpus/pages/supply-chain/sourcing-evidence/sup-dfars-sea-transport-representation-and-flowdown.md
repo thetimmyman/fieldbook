@@ -23,13 +23,13 @@ Shows what the contractor must send after each ocean shipment, the representatio
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-SUP-1396] |
-| Codified citation | DFARS 252.247-7023(f) to (h) and (j) [@CL-SUP-1396; @CL-SUP-1397; @CL-SUP-1399; @CL-SUP-1401] |
+| Codified citation | DFARS 252.247-7023(f) to (h) and (j) [@CL-SUP-1396; @CL-SUP-1771; @CL-SUP-1397; @CL-SUP-1399; @CL-SUP-1401] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1396] |
 | Applies to | Shipments covered by the clause, and for the final-invoice representation, contracts above the simplified acquisition threshold [@CL-SUP-1396; @CL-SUP-1397] |
 
-Within 30 days after each shipment covered by the clause, the contractor shall provide the contracting officer and MARAD one copy of the rated on board vessel operating carrier's ocean bill of lading [@CL-SUP-1396]. If the contract exceeds the simplified acquisition threshold, the contractor shall provide with its final invoice a representation, to the best of its knowledge and belief, about its use of ocean transportation [@CL-SUP-1397].
+Within 30 days after each shipment covered by the clause, the contractor shall provide the contracting officer and MARAD one copy of the rated on board vessel operating carrier's ocean bill of lading [@CL-SUP-1396; @CL-SUP-1771]. If the contract exceeds the simplified acquisition threshold, the contractor shall provide with its final invoice a representation, to the best of its knowledge and belief, about its use of ocean transportation [@CL-SUP-1397].
 
 In the basic clause, two of the listed representations are that ocean transportation was used and the contractor had received a prior-approved waiver for all foreign-flag ocean transportation, or that some or all shipments were made on foreign-flag vessels without the written consent of DoD [@CL-SUP-1397; @CL-SUP-1398]. In Alternate II, one of the listed representations is instead that the contractor had the written consent of the contracting officer for all foreign-flag ocean transportation [@CL-SUP-1445].
 

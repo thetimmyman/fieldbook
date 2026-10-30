@@ -43,7 +43,7 @@ The two alternates add contractor liability for damages [@CL-SUP-1386; @CL-SUP-1
 
 Synthetic example. The numbers are made up.
 
-A contractor finishes a data line item on a set date and the contract sets no longer period. The warranty then runs three years from that date. In year two the contractor finds a drawing error and tells the contracting officer in writing at once. The contracting officer directs the contractor to correct the drawing at the contractor's expense. If the contractor refused, the contracting officer could correct the drawing by contract or otherwise and charge the cost to the contractor. Under Alternate I, if damages also arose, the additional liability would be capped at a share of target profit. If target profit were 100,000, the cap would be 75,000.
+A contractor finishes a data line item on a set date and the contract sets no longer period. The warranty then runs three years from that date. In year two the contractor finds a drawing error and tells the contracting officer in writing at once, before the Government has found it. The contracting officer directs the contractor to correct the drawing at the contractor's expense. If the contractor refused, the contracting officer could correct the drawing by contract or otherwise and charge the cost to the contractor. Because the contractor found and reported this error first, the Alternate I additional damages liability does not apply to it. Later in year two the Government finds a different error in a parts list in writing and notifies the contractor, and the contract uses Alternate I. For that Government-found error, the contractor is also liable for damages, capped at 75 percent of target profit: if target profit were 100,000, the cap would be 75,000.
 
 ## Never confuse
 
