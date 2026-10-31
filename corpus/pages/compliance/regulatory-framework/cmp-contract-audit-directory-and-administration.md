@@ -35,7 +35,7 @@ For each contract assigned for administration, the contract administration offic
 
 ## How it works
 
-The contracting officer is the only decision maker the sections name, and that officer decides whether the office may perform any FAR 42.302(b) function [@CL-CMP-7794]. For the FAR 42.302(a) functions the office acts by default, and the only limit the section names is a function that was specifically withheld from it [@CL-CMP-7793]. The section does not say who withholds a function or how; the assignment of administration and the delegation are on [Assignment of contract administration](cmp-assignment-of-contract-administration.md). The two lists of functions are on [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md), and the DoD additions are on [DoD additions to contract administration functions](cmp-dod-contract-administration-additions.md).
+The contracting officer is the only decision maker the sections name, and that officer decides whether the office may perform any FAR 42.302(b) function [@CL-CMP-7794]. For the FAR 42.302(a) functions that apply to the contract the office acts by default, and the only exception the section names is a function that was specifically withheld from it [@CL-CMP-7793]. The section does not say who withholds a function or how; the assignment of administration and the delegation are on [Assignment of contract administration](cmp-assignment-of-contract-administration.md). The two lists of functions are on [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md), and the DoD additions are on [DoD additions to contract administration functions](cmp-dod-contract-administration-additions.md).
 
 The audit directory and the assignment of administration are separate. The directory is kept by DCAA and names audit offices [@CL-CMP-7790]. The administration duties belong to the contract administration office for each assigned contract [@CL-CMP-7793]. The roles of the contracting officer, the administration agency and the auditor are on [Contracting officers, DCMA and DCAA](../audit-retention/cmp-oversight-roles.md).
 
@@ -57,4 +57,5 @@ Which contracts are assigned to which contract administration office, and which 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Restored that the office performs the FAR 42.302(a) functions only to the extent they apply to the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contract audit services directory and the assignment of contract administration responsibilities.
