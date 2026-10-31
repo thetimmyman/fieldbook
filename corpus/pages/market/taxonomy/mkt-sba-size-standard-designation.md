@@ -36,7 +36,7 @@ The NAICS code assigned to a procurement and its corresponding size standard is 
 
 ## How it works
 
-For a multiple award contract, the contracting officer takes one of two listed routes [@CL-MKT-0526; @CL-MKT-0380]. The first is to assign one code and size standard to the solicitation, but only if that code will also best describe the principal purpose of each order [@CL-MKT-0379]. The other is to divide the solicitation into discrete categories and assign each discrete category the single code and size standard that best describes the principal purpose of the goods or services to be acquired under that category [@CL-MKT-0380; @CL-MKT-1839]. A concern must then meet the size standard for each category for which it seeks an award as a small business [@CL-MKT-0381]. Each order against a multiple award contract takes a single NAICS code, and that code must be one included in the underlying contract [@CL-MKT-0382].
+For a multiple award contract, the contracting officer takes one of two listed routes [@CL-MKT-0526; @CL-MKT-0380]. The first is to assign the solicitation a single code and corresponding size standard that best describes the principal purpose of the acquisition, but only if that code will also best describe the principal purpose of each order [@CL-MKT-0379]. The other is to divide the solicitation into discrete categories and assign each discrete category the single code and size standard that best describes the principal purpose of the goods or services to be acquired under that category [@CL-MKT-0380; @CL-MKT-1839]. A concern must then meet the size standard for each category for which it seeks an award as a small business [@CL-MKT-0381]. Each order against a multiple award contract takes a single NAICS code, and that code must be one included in the underlying contract [@CL-MKT-0382].
 
 Sections 121.401 through 121.412 apply to all Federal procurement programs for which status as a small business is required or advantageous, including the small business set-aside program and SBA's Certificate of Competency program [@CL-MKT-2355]. The same sentence also lists SBA's 8(a) Business Development program, SBA's HUBZone program, the Women Owned Small Business (WOSB) Federal Contract Program, SBA's Service-Disabled Veteran-Owned Small Business program, the Small Business Subcontracting program, and the Federal Small Disadvantaged Business (SDB) program [@CL-MKT-2356].
 
@@ -60,6 +60,7 @@ Which NAICS codes and size standards the company's products and customers usuall
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the principal purpose of the acquisition in the single-code route.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the size standard in effect on the issue date.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA-assignment exception to the code finality statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the programs covered by the size sections and the size rules for multiple item procurements.

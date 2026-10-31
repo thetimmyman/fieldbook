@@ -31,7 +31,7 @@ Shows which justifications for other than full and open competition must be post
 
 Justifications and approvals for other than full and open competition must be posted in accordance with FAR 6.305 [@CL-MKT-0095]. Limited-source justifications (excluding brand name) for Federal Supply Schedule orders or blanket purchase agreements with an estimated value greater than the simplified acquisition threshold must be posted in accordance with FAR 8.405-6(a)(2) [@CL-MKT-0096]. Justifications for task or delivery orders greater than the simplified acquisition threshold and awarded without providing for fair opportunity must be posted in accordance with FAR 16.505(b)(2)(ii)(D) [@CL-MKT-0097].
 
-When the same item or class of items is being acquired by more than one agency or contracting activity, the exchange and coordination of pertinent information, particularly cost and pricing data, is necessary [@CL-MKT-0098]. When substantial acquisitions of major items are involved or when the contracting activity deems it desirable, the contracting activity shall request appropriate information, on both the end item and on major subcontracted components [@CL-MKT-0099], from other agencies or contracting activities responsible for acquiring similar items [@CL-MKT-0155].
+When the same item or class of items is being acquired by more than one agency or contracting activity, the exchange and coordination of pertinent information, particularly cost and pricing data, is necessary to promote uniformity of treatment of major issues and the resolution of particularly difficult or controversial issues [@CL-MKT-0098; @CL-MKT-9389]. When substantial acquisitions of major items are involved or when the contracting activity deems it desirable, the contracting activity shall request appropriate information, on both the end item and on major subcontracted components [@CL-MKT-0099], from other agencies or contracting activities responsible for acquiring similar items [@CL-MKT-0155].
 
 ## How it works
 
@@ -57,5 +57,6 @@ Confirm which posted justifications are relevant public market observations for 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the purpose of the information exchange.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules for public requests and requests from Members of Congress.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for public disclosure of justification documents and exchange of acquisition information.

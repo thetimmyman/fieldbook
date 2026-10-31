@@ -31,7 +31,7 @@ Shows what a presolicitation notice and a synopsis must contain, who may post a 
 
 Contracting officers must provide access to presolicitation notices through the GPE [@CL-MKT-0075], and the contracting officer must synopsize a proposed contract action before issuing any resulting solicitation [@CL-MKT-0076]. Each synopsis transmitted to the GPE must address the listed data elements, as applicable, beginning with the action code, date, year, contracting office ZIP code and product or service code [@CL-MKT-0081].
 
-The listed entities may transmit a notice to the GPE to seek competition for subcontracts [@CL-MKT-0077]. One listed entity is a contractor awarded a contract exceeding the simplified acquisition threshold that is likely to result in the award of any subcontracts [@CL-MKT-0077; @CL-MKT-0078]. Another is a subcontractor or supplier, at any tier, under a contract exceeding the simplified acquisition threshold, that has a subcontracting opportunity exceeding $20,000 [@CL-MKT-0077; @CL-MKT-0079].
+The listed entities may transmit a notice to the GPE to seek competition for subcontracts, to increase participation by HUBZone small business, small, small disadvantaged, women-owned small business, veteran-owned small business and service-disabled veteran-owned small business concerns, and to meet established subcontracting plan goals [@CL-MKT-0077; @CL-MKT-9390]. One listed entity is a contractor awarded a contract exceeding the simplified acquisition threshold that is likely to result in the award of any subcontracts [@CL-MKT-0077; @CL-MKT-0078]. Another is a subcontractor or supplier, at any tier, under a contract exceeding the simplified acquisition threshold, that has a subcontracting opportunity exceeding $20,000 [@CL-MKT-0077; @CL-MKT-0079].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Confirm which public synopses and subcontracting notices are relevant market obs
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the other purposes of a subcontracting opportunity notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing and transmitting synopses.
