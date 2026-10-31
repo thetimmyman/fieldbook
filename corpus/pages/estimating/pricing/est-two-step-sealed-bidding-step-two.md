@@ -68,5 +68,6 @@ Confirm which step-one technical proposals the company has submitted, which were
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported contract-specific gloss and restated the eligibility sentence in the provision's words.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported contract-specific gloss and restated the eligibility sentence in the provision's words.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for step two of two-step sealed bidding.

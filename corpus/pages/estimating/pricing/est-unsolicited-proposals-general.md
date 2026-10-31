@@ -60,7 +60,8 @@ Who decides whether an idea is sent as an unsolicited proposal, and who owns the
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unsolicited proposal; replaced an unsupported brochure example with the listed submissions that are not unsolicited proposals.
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced an unsupported brochure example with the listed submissions that are not unsolicited proposals.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unsolicited proposal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of unsolicited proposal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the FAR 15.604(a)(3) guidance applies to commercial solutions openings.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

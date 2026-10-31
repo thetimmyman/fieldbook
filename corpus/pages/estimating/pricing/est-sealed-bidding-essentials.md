@@ -63,7 +63,8 @@ Who tracks amendment acknowledgements and written clarification requests against
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of electronic commerce; Restated the acknowledgement, oral explanation and electronic bid warnings as the provisions word them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the acknowledgement, oral explanation and electronic bid warnings as the provisions word them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of electronic commerce.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of electronic commerce.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sealed bidding amendments, bid submission and explanations.

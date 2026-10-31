@@ -60,5 +60,6 @@ Who confirms that our order quotes count as auction agreements and that a withdr
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Carried the provider qualification on the release bar.
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the provider qualification on the release bar.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reverse auction for orders.

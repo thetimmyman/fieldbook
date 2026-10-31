@@ -61,5 +61,6 @@ Confirm which line items in upcoming proposals will be priced on adequate price 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-7 requirement to identify items offerors will not make; removed two uses of only that the quotes do not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed two uses of only that the quotes do not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-7 requirement to identify items offerors will not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unit prices.

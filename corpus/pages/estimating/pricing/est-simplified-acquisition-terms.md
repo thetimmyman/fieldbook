@@ -90,7 +90,8 @@ Who confirms, for each executed order, which incorporated clauses and thresholds
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state; added the paragraph (a)(2) lead-in companion and restored the convenience-termination qualifiers.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (a)(2) lead-in companion and restored the convenience-termination qualifiers.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of purchase order and simplified acquisition procedures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of simplified acquisition procedures and purchase order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

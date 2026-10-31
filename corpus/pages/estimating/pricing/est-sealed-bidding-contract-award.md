@@ -73,5 +73,6 @@ Confirm who checks bid prices for unbalance, who decides whether to limit a bid 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Restated two warnings as the provision words them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated two warnings as the provision words them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract award under sealed bidding.

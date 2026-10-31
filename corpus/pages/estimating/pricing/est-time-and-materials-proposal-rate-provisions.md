@@ -61,5 +61,6 @@ Who owns the proposal rate build-up by labor category and source, and where it i
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; described the paragraph (b) difference between the two proposal provisions and aligned the uncompensated-overtime sentence with its quote.
+- COMPATIBLE_EXTENSION, 2026-10-31: Described the paragraph (b) difference between the two proposal provisions and aligned the uncompensated-overtime sentence with its quote.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the time-and-materials and labor-hour proposal provisions.

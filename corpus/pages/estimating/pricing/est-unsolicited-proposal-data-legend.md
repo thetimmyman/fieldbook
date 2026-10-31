@@ -64,6 +64,7 @@ Who owns the proposal data that would be marked and who would apply the legend t
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the notice on use of proposal data; kept the FAR 3.104 reference and the shall wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Kept the FAR 3.104 reference and the shall wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the notice on use of proposal data.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limited use of data in unsolicited proposals.

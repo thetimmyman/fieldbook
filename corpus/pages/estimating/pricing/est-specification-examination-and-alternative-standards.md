@@ -68,5 +68,6 @@ Confirm how the company records which specifications it examined and which alter
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; reworded glosses on the specification-viewing details and the alternative-standard steps to match the quoted wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded glosses on the specification-viewing details and the alternative-standard steps to match the quoted wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for availability for examination of specifications and alternatives to Government-unique standards.

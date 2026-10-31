@@ -66,6 +66,7 @@ Whether each platform we use is bound by these duties on our data, on its fee re
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.800 subpart scope; Restated the provider duties as the clause words them, including hosting scope and notice duty.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the provider duties as the clause words them, including hosting scope and notice duty.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.800 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reverse auction services.

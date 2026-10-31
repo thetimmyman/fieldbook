@@ -58,7 +58,8 @@ Who owns proposal pricing and the choice between these contract types and the fe
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the refund reduction sentence; Added the overpayment lead-in, the reserve amount standard, the 60-day disagreement period and the contracting officer's clause insertion duty.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the overpayment lead-in, the reserve amount standard, the 60-day disagreement period and the contracting officer's clause insertion duty.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the refund reduction sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the applies-to row to keep the negotiation condition and the solicitations-and-contracts scope of the retroactive clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for retroactive price redetermination and the no-fee cost and cost-sharing clauses.

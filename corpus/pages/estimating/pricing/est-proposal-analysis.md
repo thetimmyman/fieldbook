@@ -58,7 +58,8 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the circumstances condition and removed the either-or wording; Added the contracting officer's determination, the exceptional cases and the results sentence, and reworded the disclosure rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's determination, the exceptional cases and the results sentence, and reworded the disclosure rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the circumstances condition and removed the either-or wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of cost realism.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of cost realism.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.404-4(a) minimum content of the technical analysis.

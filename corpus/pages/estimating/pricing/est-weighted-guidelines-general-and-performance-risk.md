@@ -55,5 +55,6 @@ Which factors the company's profit model moves away from normal on, and where th
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range; cited the contract type risk claim for the degree of cost risk accepted.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the contract type risk claim for the degree of cost risk accepted.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the weighted guidelines general policy and performance risk.

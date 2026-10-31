@@ -87,5 +87,6 @@ Confirm which subcontracts under modified sealed bidding contracts crossed the t
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; aligned the Alternate I prescription sentence with its quote and removed an unsupported contract-specific gloss.
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Alternate I prescription sentence with its quote and removed an unsupported contract-specific gloss.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor certified cost or pricing data on modifications under sealed bidding.

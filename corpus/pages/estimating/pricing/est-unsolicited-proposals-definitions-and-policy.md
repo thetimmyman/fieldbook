@@ -73,7 +73,8 @@ Who owns the pricing and technical content of a submission that goes out as an u
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of broad agency announcement; restored routine correspondence to the list of submissions that are not unsolicited proposals.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored routine correspondence to the list of submissions that are not unsolicited proposals.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of broad agency announcement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of broad agency announcement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.600 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the FAR 15.602 policy applies to commercial solutions openings.

@@ -62,5 +62,6 @@ How the delivery dates and ordering status stated on the invoice are supported b
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; restored the delivery dates and addressee scope in the invoice-content sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the delivery dates and addressee scope in the invoice-content sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for simplified acquisition invoices.

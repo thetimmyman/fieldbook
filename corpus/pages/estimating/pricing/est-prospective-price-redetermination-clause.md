@@ -61,5 +61,6 @@ Who prepares and reviews the cost breakdown and support for each redetermination
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; named paragraphs (f), (g), and (h) by their headings, with companion claims for the headings.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named paragraphs (f), (g), and (h) by their headings, with companion claims for the headings.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prospective price redetermination clause.

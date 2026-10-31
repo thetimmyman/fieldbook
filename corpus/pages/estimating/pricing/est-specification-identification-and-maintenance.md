@@ -75,6 +75,7 @@ The company must confirm which approval date, amendment and revision of each cit
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the customer check sentence; corrected the competent-evaluation object, restored not normally furnished, and removed an unstated actor contrast.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the competent-evaluation object, restored not normally furnished, and removed an unstated actor contrast.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the customer check sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added customer communication on requirements documents.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the identification, availability and maintenance of specifications and standards.

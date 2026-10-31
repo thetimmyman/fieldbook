@@ -90,5 +90,6 @@ Confirm who owns delivery and withdrawal of technical proposals, and what proof 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications, revisions and withdrawals of technical proposals under two-step sealed bidding.

@@ -58,7 +58,8 @@ Who confirms, for each auction we enter, that a quote is an agreement to take pa
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text; Removed wording the provision does not say and carried the provider and restricted-information qualifications.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed wording the provision does not say and carried the provider and restricted-information qualifications.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of reverse auction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the reverse auction provision.

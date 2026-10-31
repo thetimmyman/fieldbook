@@ -64,5 +64,6 @@ Who keeps the dated acknowledgment of service and the form edition evidence for 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Used shall, official or location and the provided conditions as the clause words them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Used shall, official or location and the provided conditions as the clause words them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service of protest and computer generated forms.
