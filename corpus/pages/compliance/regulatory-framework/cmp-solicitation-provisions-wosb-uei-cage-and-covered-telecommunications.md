@@ -53,7 +53,7 @@ The first two solicitations both contain the provisions at FAR 52.204-24 and 52.
 
 ## Never confuse
 
-A provision placed in a solicitation is not the offeror's own duty to give a CAGE code. The provisions and clause named in 4.607 and 4.2105 go into solicitations and contracts, while the CAGE code duty rests on the offeror before award above the micro-purchase threshold when SAM registration or a unique entity identifier is required [@CL-CMP-7221; @CL-CMP-7225; @CL-CMP-7223; @CL-CMP-7329].
+A provision placed in a solicitation is not the offeror's own duty to give a CAGE code. The women-owned business and telecommunications representation provisions go into solicitations [@CL-CMP-7221; @CL-CMP-7225], while the CAGE code duty rests on the offeror before award above the micro-purchase threshold when SAM registration or a unique entity identifier is required [@CL-CMP-7223; @CL-CMP-7329].
 
 ## Company calibration
 
@@ -63,4 +63,5 @@ Where each solicitation's provision set and entity data are recorded, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Corrected a summary sentence that put the solicitation provisions into contracts; they go into solicitations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the women-owned business, entity identifier, CAGE code and covered telecommunications provisions.
