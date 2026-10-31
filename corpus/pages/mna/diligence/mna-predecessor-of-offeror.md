@@ -29,7 +29,7 @@ Shows what an offeror must report about predecessors when it is the successor to
 | Text status | Final [@CL-MNA-0388] |
 | Applies to | Offerors, who represent whether they are a successor to a predecessor that held a Federal contract or grant within the last three years [@CL-MNA-0388] |
 
-In the provision, the offeror represents whether or not it is a successor to a predecessor that held a Federal contract or grant within the last three years [@CL-MNA-0388]. An offeror that indicates it is a successor enters the following information for all predecessors that held a Federal contract or grant within the last three years, listing them in reverse chronological order if there is more than one [@CL-MNA-0389]. The information includes the predecessor CAGE code, which the offeror may mark Unknown [@CL-MNA-0458], and the predecessor's legal name, never a doing-business-as name [@CL-MNA-0390].
+In the provision, the offeror represents whether or not it is a successor to a predecessor that held a Federal contract or grant within the last three years [@CL-MNA-0388]. An offeror that indicates it is a successor enters the following information for all predecessors that held a Federal contract or grant within the last three years, listing them in reverse chronological order if there is more than one [@CL-MNA-0389]. The information includes the predecessor CAGE code, which the offeror may mark Unknown [@CL-MNA-0458], and the predecessor's legal name, not a doing-business-as name [@CL-MNA-0390].
 
 ## How it works
 
@@ -55,5 +55,6 @@ How the target's predecessors, their CAGE codes and legal names are identified a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Predecessor of Offeror provision.

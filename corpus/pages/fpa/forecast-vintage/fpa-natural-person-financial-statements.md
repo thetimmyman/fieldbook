@@ -32,7 +32,7 @@ In lieu of the financial statements otherwise required, a natural person may fil
 
 Paragraph (b) requires separate presentation of financial statements that conform with the instructions for subsidiaries not consolidated and 50 percent or less owned persons under § 210.3-09(a) [@CL-FPA-0301]. Those statements shall be separately presented for three groups [@CL-FPA-0301; @CL-FPA-0302; @CL-FPA-0303]. The first is each business owned as a sole proprietor [@CL-FPA-0301]. The second is each partnership, business trust, unincorporated association, or similar business organization of which the person holds a controlling interest [@CL-FPA-0302]. The third is each corporation of which the person, directly or indirectly, owns securities representing more than 50 percent of the voting power [@CL-FPA-0303]. The text does not say who prepares them, and it gives no percentage for a controlling interest [@CL-FPA-0302]. For the separate statements of a majority-owned subsidiary that is not consolidated, see [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
 
-Paragraph (c) then allows separate financial statements to be omitted for each corporation, business trust, unincorporated association, or similar business organization if two entity-level tests are met [@CL-FPA-0304; @CL-FPA-0305]. The person's total investment in the entity must not exceed 5 percent of his total assets [@CL-FPA-0304]. The person's total income from the entity must not exceed 5 percent of his gross income [@CL-FPA-0305]. A proviso adds an aggregate test: the person's aggregate investment in and income from all such omitted entities shall not exceed 15 percent of his total assets and gross income, respectively [@CL-FPA-0306].
+Paragraph (c) then allows separate financial statements to be omitted for each corporation, business trust, unincorporated association, or similar business organization if two entity-level tests are met [@CL-FPA-0304; @CL-FPA-0305]. The omission applies if the person's total investment in the entity does not exceed 5 percent of his total assets [@CL-FPA-0304]. The person's total income from the entity must not exceed 5 percent of his gross income [@CL-FPA-0305]. A proviso adds an aggregate test: the person's aggregate investment in and income from all such omitted entities shall not exceed 15 percent of his total assets and gross income, respectively [@CL-FPA-0306].
 
 ## How it works
 
@@ -64,4 +64,5 @@ Whether each controlled entity's investment and income are measured on the same 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements of natural persons.

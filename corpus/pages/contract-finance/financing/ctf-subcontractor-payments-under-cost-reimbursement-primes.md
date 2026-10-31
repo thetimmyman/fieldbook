@@ -41,7 +41,7 @@ A further condition applies to every method: the subcontract must contain financ
 
 ## How it works
 
-The contracting officer decides whether to accept the payments as reimbursable, and should do so only under the listed conditions [@CL-CTF-3529]. The conditions follow the method in use. The payment criteria of that method always apply [@CL-CTF-3530]. The rate ceiling and the customary liquidation principles apply when customary progress payments are made [@CL-CTF-3531; @CL-CTF-3532]. The performance-based payment liquidation principles apply when performance-based payments are made [@CL-CTF-3533]. The prescribed financing terms in the subcontract apply in every case [@CL-CTF-3534].
+The contracting officer decides whether to accept the payments as reimbursable, and should do so only under the listed conditions [@CL-CTF-3529]. The conditions follow the method in use. One listed condition is that the payments are made under the criteria of that method, as applicable [@CL-CTF-3530]. The rate ceiling and the customary liquidation principles apply when customary progress payments are made [@CL-CTF-3531; @CL-CTF-3532]. The performance-based payment liquidation principles apply when performance-based payments are made [@CL-CTF-3533]. Another listed condition is that the subcontract contains the financing payment terms prescribed in the part [@CL-CTF-3534].
 
 The liquidation conditions look to the subcontractor's compliance, not the prime's [@CL-CTF-3532; @CL-CTF-3533]. This section sets no remedy for a prime that does not pay its subcontractors. It governs only whether the contracting officer accepts the prime's financing payments as reimbursable costs [@CL-CTF-3529].
 
@@ -67,5 +67,6 @@ Whether each subcontract carries the prescribed financing payment terms, and whi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payment of subcontractors under cost-reimbursement prime contracts.
