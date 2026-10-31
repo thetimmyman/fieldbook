@@ -29,7 +29,7 @@ Sets out the campus access clause prescription, its threshold and funding condit
 | Text status | Final [@CL-CMP-7981] |
 | Applies to | Solicitations and contracts with institutions of higher education that are expected to exceed the simplified acquisition threshold, when funds from a covered agency are used, other than part 12 acquisitions of commercial products and commercial services [@CL-CMP-7981; @CL-CMP-7982; @CL-CMP-7983] |
 
-The contracting officer shall insert the clause at 252.209-14 in solicitations and contracts that are expected to exceed the simplified acquisition threshold, with institutions of higher education [@CL-CMP-7981], when using funds from a covered agency [@CL-CMP-7982]. The clause is not prescribed for solicitations and contracts using part 12 for the acquisition of commercial products and commercial services [@CL-CMP-7983].
+The contracting officer shall insert the clause at FAR 52.209-14 in solicitations and contracts that are expected to exceed the simplified acquisition threshold, with institutions of higher education [@CL-CMP-7981], when using funds from a covered agency [@CL-CMP-7982]. The clause is not prescribed for solicitations and contracts using part 12 for the acquisition of commercial products and commercial services [@CL-CMP-7983].
 
 The definitions in section 9.110-1 apply as the terms are used in that section [@CL-CMP-8446]. A covered agency is any of the following: the Department of Defense [@CL-CMP-7979]; any department or agency for which regular appropriations are made in a Department of Labor, Health and Human Services, and Education, and Related Agencies Appropriations Act [@CL-CMP-8447]; and the Department of Homeland Security, the National Nuclear Security Administration of the Department of Energy, the Department of Transportation and the Central Intelligence Agency [@CL-CMP-8448]. An institution of higher education is an institution that meets the requirements of section 1001 of title 20 of the United States Code and includes all sub-elements of such an institution [@CL-CMP-7980].
 
@@ -51,7 +51,7 @@ The inverted domestic corporation definitions state no duty, threshold or decisi
 
 Synthetic example. The numbers are made up.
 
-A covered agency funds a research support contract with a university that meets the institution of higher education definition. The contract is expected to exceed the simplified acquisition threshold and does not use part 12 for commercial products or commercial services, so the contracting officer inserts the clause at 252.209-14 [@CL-CMP-7981; @CL-CMP-7982; @CL-CMP-7983]. Assume a department of that university is a sub-element of the institution, so the institution definition covers it [@CL-CMP-7980].
+A covered agency funds a research support contract with a university that meets the institution of higher education definition. The contract is expected to exceed the simplified acquisition threshold and does not use part 12 for commercial products or commercial services, so the contracting officer inserts the clause at FAR 52.209-14 [@CL-CMP-7981; @CL-CMP-7982; @CL-CMP-7983]. Assume a department of that university is a sub-element of the institution, so the institution definition covers it [@CL-CMP-7980].
 
 The same agency buys commercial products from the same university under part 12, and there the clause is not prescribed [@CL-CMP-7983].
 
