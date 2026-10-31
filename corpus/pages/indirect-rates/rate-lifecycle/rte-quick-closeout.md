@@ -24,7 +24,7 @@ Explains when a contracting officer may settle the direct and indirect costs of 
 |---|---|
 | Instrument | Codified FAR [@CL-RTE-0151] |
 | Codified citation | FAR 42.708 [@CL-RTE-0151] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 42.507 [@CL-RTE-0975; @CL-RTE-0977] |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0151] |
 | Applies to | Physically complete contracts, task orders and delivery orders that also pass the size and risk tests [@CL-RTE-0152] |
@@ -43,6 +43,8 @@ A risk assessment must support the procedure, covering the contractor's systems 
 
 The resulting determination of final indirect costs is final for the contract it covers, and the rates used are not a binding precedent for other contracts [@CL-RTE-0158; @CL-RTE-0159].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text because Class Deviation 2026-O0050 directs it, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.507 says the contracting officer responsible for contract closeout may negotiate the settlement of direct and indirect costs prior to the determination of final indirect cost rates, where the codified text says the contracting officer shall negotiate it in advance of the determination of final direct costs and indirect rates [@CL-RTE-0975; @CL-RTE-0151]. It sets the conditions that the contract, task order or delivery order is physically complete and that the unsettled direct and indirect costs are relatively insignificant [@CL-RTE-0976; @CL-RTE-0152; @CL-RTE-0153]. It sets the limit at the lesser of $1,000,000 or 10 percent, but measures the 10 percent against the total contract amount, where the codified text says the total contract, task order, or delivery order amount [@CL-RTE-0977; @CL-RTE-0153; @CL-RTE-0154]. It says the contracting officer performs a risk assessment and determines quick-closeout procedures are appropriate, and that the assessment must include consideration of the contractor's accounting, estimating and purchasing systems and other concerns of the cognizant contract auditors [@CL-RTE-0978; @CL-RTE-0155], together with any other pertinent information, such as documented history of Federal Government approved indirect cost rate agreements, changes to the contractor's rate structure, volatility of rate fluctuations during affected periods, mergers or acquisitions, and special contract provisions limiting the contractor's recovery of otherwise allowable indirect costs under cost reimbursement or time-and-materials contracts [@CL-RTE-0979; @CL-RTE-0984]. It also sets the condition that agreement can be reached on a reasonable estimate of allocable dollars [@CL-RTE-0980; @CL-RTE-0157]. It says a determination of final indirect costs under the quick-closeout procedure provided for by the Allowable Cost and Payment clause at 52.216-7 is final for the contract it covers, that no adjustment will be made to other contracts for over- or under-recoveries of costs allocated or allocable to that contract, and that the indirect cost rates used will not be considered a binding precedent when establishing final indirect cost rates for other contracts [@CL-RTE-0981; @CL-RTE-0982; @CL-RTE-0983; @CL-RTE-0158; @CL-RTE-0159].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,6 +55,8 @@ A closed delivery order has a total amount of 2,000,000 and 150,000 of unsettled
 
 Quick closeout is not a rate agreement for the contractor's other work: the determination is final for the contract it covers, other contracts are not adjusted for over- or under-recoveries, and the rates used set no precedent [@CL-RTE-0158; @CL-RTE-0159]. It is also not the ordinary route that waits for final direct costs and indirect rates; see [Final indirect cost rate proposal](rte-final-indirect-rate-proposal.md) [@CL-RTE-0151].
 
+The codified text says the contracting officer responsible for closeout shall negotiate the settlement if the listed conditions are met [@CL-RTE-0151], while the RFO text says that officer may negotiate it if the listed conditions are met [@CL-RTE-0975].
+
 ## Company calibration
 
 Whether each closing contract's unsettled direct and indirect costs fall under the quick-closeout ceiling, and where that contract sits among the open incurred cost years. [@Q-035]
@@ -61,4 +65,5 @@ Whether each closing contract's unsettled direct and indirect costs fall under t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the quick-closeout procedure.

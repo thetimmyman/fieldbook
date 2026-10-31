@@ -23,7 +23,7 @@ Explains how a forward pricing rate agreement is requested, negotiated and monit
 |---|---|
 | Instrument | Codified FAR [@CL-RTE-0160] |
 | Codified citation | FAR 42.1701 [@CL-RTE-0160] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 42.1301 [@CL-RTE-0967; @CL-RTE-0969] |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0160] |
 | Applies to | Normally only contractors with a significant volume of Government contract proposals [@CL-RTE-0163] |
@@ -40,6 +40,8 @@ After negotiations the administrative contracting officer prepares a price negot
 
 The agreement allows either party to cancel it and requires the contractor to report any significant change in the supporting cost or pricing data to the administrative contracting officer and the cognizant auditor [@CL-RTE-0166].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text because Class Deviation 2026-O0050 directs it, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.1301 says the contracting officer, the administrative contracting officer or the contractor may initiate a request for an agreement [@CL-RTE-0967], and that agreements are normally negotiated only with contractors having a significant volume of Government contract proposals, where the codified text says they should normally be negotiated only with such contractors [@CL-RTE-0968; @CL-RTE-0163]. It says the administrative contracting officer must obtain the contractor's forward pricing rate proposal and require cost or pricing data that are accurate, complete and current as of the date of submission, but must not require a certification, where the codified text ends with a cross-reference to 15.407-3(c) [@CL-RTE-0970; @CL-RTE-0164]. It says the administrative contracting officer must prepare the price negotiation memorandum and forward copies of it and of the agreement to the cognizant auditor and to all contracting offices known to be affected, pointing to part 15 where the codified text points to 15.406-3 [@CL-RTE-0971; @CL-RTE-0165]. It says the agreement must provide for cancellation at the choice of either party and must require the contractor to submit any significant change in the supporting cost or pricing data to the administrative contracting officer and the cognizant contract auditor [@CL-RTE-0972; @CL-RTE-0166]. On who decides, the RFO text differs: it says the cognizant Federal agency should determine whether to establish an agreement by considering whether the benefits are commensurate with the effort of establishing and monitoring it [@CL-RTE-0969], where the codified text says the cognizant contract administration agency shall determine whether an agreement will be established and separately says the administrative contracting officer should consider whether the benefits are commensurate [@CL-RTE-0161; @CL-RTE-0162].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -50,6 +52,8 @@ Negotiators agree a forward pricing rate of 118 percent for one overhead pool, s
 
 A forward pricing rate recommendation is not an agreement: when no agreement has been established or an established one has been invalidated, the recommendation goes to buying activities with documentation to assist negotiators [@CL-RTE-0167]. An invalid agreement is not simply carried forward either, because the contractor should submit and negotiate a new proposal to reflect the changed conditions [@CL-RTE-0168].
 
+Under the RFO text, an invalid agreement is still not simply carried forward: the contractor should submit and negotiate a new proposal to reflect the changed conditions [@CL-RTE-0973], and if an agreement has not been established or has been invalidated the administrative contracting officer will issue a recommendation to buying activities with documentation to assist negotiators [@CL-RTE-0974]. The codified text makes the decision to establish an agreement one the cognizant contract administration agency shall make [@CL-RTE-0161], while the RFO text says the cognizant Federal agency should determine whether to establish one by considering the benefits [@CL-RTE-0969].
+
 ## Company calibration
 
 Which agreement rates the company may use for each proposal purpose and period, and how those rates relate to its provisional billing and final indirect rate sets. [@Q-011]
@@ -58,4 +62,5 @@ Which agreement rates the company may use for each proposal purpose and period, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for forward pricing rate agreements.
