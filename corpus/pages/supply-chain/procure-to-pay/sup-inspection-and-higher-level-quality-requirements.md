@@ -24,7 +24,7 @@ Shows who inspects under the contractor inspection clause, what the Government m
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 | Codified citation | FAR 52.246-1, FAR 52.246-9 and FAR 52.246-11 [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-1 [@CL-SUP-0408]; RFO FAR 52.246-9 [@CL-SUP-0410]; RFO FAR 52.246-11 [@CL-SUP-0412] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 | Applies to | Contracts that include one or more of the three clauses, each rule below applying only where its own clause is included [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
@@ -38,6 +38,8 @@ Higher-Level Contract Quality Requirement: the contractor complies with the high
 ## How it works
 
 Under the contractor inspection clause, inspection is a contractor duty: the contractor is responsible for performing or having performed the inspections and tests necessary to substantiate that the supplies or services conform [@CL-SUP-3105]. The Government inspection and testing that the specifications require gives way to that clause, except for specialized inspections or tests that the specifications reserve solely to the Government [@CL-SUP-3106]. The short-form research and development clause instead states a Government right to inspect and evaluate, with a duty on the contractor to furnish facilities and assistance when the Government does so on its premises or a subcontractor's [@CL-SUP-3107; @CL-SUP-3108]. The higher-level quality clause adds a listed standard that the contractor meets itself and carries into the subcontracts described above [@CL-SUP-3109; @CL-SUP-3110]. This card does not restate acceptance, rejection or correction rules; they sit in the inspection clauses for each contract type, such as those on the linked cards.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. Section 52.246-1 of the RFO text keeps the rule that the Contractor is responsible for performing or having performed all inspections and tests necessary to substantiate that the supplies or services furnished under the contract conform to contract requirements, including any applicable technical requirements for specified manufacturers' parts [@CL-SUP-0408; @CL-SUP-3105], and that the clause takes precedence over any Government inspection and testing required in the contract's specifications, except for specialized inspections or tests specified to be performed solely by the Government [@CL-SUP-0409; @CL-SUP-3106]. Section 52.246-9 keeps the Government's right to inspect and evaluate the work performed or being performed under the contract, and the premises where the work is being performed, at all reasonable times and in a manner that will not unduly delay the work [@CL-SUP-0410; @CL-SUP-3107], and the Contractor's duty, if the Government performs inspection or evaluation on the premises of the Contractor or a subcontractor, to furnish and require subcontractors to furnish all reasonable facilities and assistance for the safe and convenient performance of these duties [@CL-SUP-0411; @CL-SUP-3108]. Section 52.246-11 keeps the rule that the Contractor complies with the higher-level quality standard or standards listed in the clause [@CL-SUP-0412; @CL-SUP-3109], with the Contracting Officer inserting the title, number, date, and tailoring, if any [@CL-SUP-0413; @CL-SUP-3190]. It also keeps the requirement to include applicable requirements of those standards, and the requirement to flow down such standards as applicable, in lower-tier subcontracts for critical and complex items, with the cross-reference to 46.203(b) and (c), or whose technical requirements require control of such things as design, work operations, in-process control, testing, and inspection, or attention to such factors as organization, planning, work instructions, documentation control, and advanced metrology [@CL-SUP-0414; @CL-SUP-0415; @CL-SUP-0416; @CL-SUP-3110; @CL-SUP-3111; @CL-SUP-3112].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Which quality standard is written into each contract and purchase order, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection duties and higher-level quality requirements.

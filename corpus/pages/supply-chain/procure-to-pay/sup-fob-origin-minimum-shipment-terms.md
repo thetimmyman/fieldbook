@@ -22,7 +22,7 @@ Shows what the contractor must load or guarantee under f.o.b. origin minimum shi
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
 | Codified citation | FAR 52.247-59 to 52.247-61 [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent for FAR 52.247-59, FAR 52.247-60 and FAR 52.247-61, which RFO part 52 lists as [Reserved] [@CL-SUP-0321; @CL-SUP-0322; @CL-SUP-0323] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
 | Applies to | Solicitations and contracts containing the carload and truckload, guaranteed shipping characteristics or minimum size of shipments clause [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2010] |
@@ -37,6 +37,8 @@ Under the minimum size of shipments clause, shipment is made in carload and truc
 
 The carload and truckload clause sets the duty to ship in full lots, fixes the agreed weight at evaluation and at shipment, and puts the cost of failure on the contractor [@CL-SUP-2004; @CL-SUP-2005; @CL-SUP-2090; @CL-SUP-2092]. The guaranteed characteristics clause reduces the price when actual shipping costs exceed those used in evaluation [@CL-SUP-2007; @CL-SUP-2008], and the data is used only to evaluate offers and to establish that liability [@CL-SUP-2104]. The minimum size clause fixes the agreed weight at the date of shipment and excuses liability for outsized supplies [@CL-SUP-2096; @CL-SUP-2010].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.247-59 as [Reserved] [@CL-SUP-0321], where the codified text has the carload and truckload clause [@CL-SUP-2002]. It prints FAR 52.247-60 as [Reserved] [@CL-SUP-0322], where the codified text has the guaranteed shipping characteristics provision [@CL-SUP-2006]. It prints FAR 52.247-61 as [Reserved] [@CL-SUP-0323], where the codified text has the minimum size of shipments clause [@CL-SUP-2094].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -45,7 +47,7 @@ Under a carload and truckload clause, the lowest published freight rate on the b
 
 ## Never confuse
 
-Guaranteed shipping characteristics are not shipping instructions. They do not establish actual transportation requirements, which are specified elsewhere in the solicitation [@CL-SUP-2009]. They exist to evaluate offers and to establish liability for increased transportation costs when the actual characteristics differ [@CL-SUP-2104].
+The codified text has carload and truckload, guaranteed shipping characteristics and minimum size of shipments clauses at FAR 52.247-59, FAR 52.247-60 and FAR 52.247-61 [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2094], but the RFO text of FAR part 52 prints those three section numbers as [Reserved] [@CL-SUP-0321; @CL-SUP-0322; @CL-SUP-0323]. Guaranteed shipping characteristics are not shipping instructions. They do not establish actual transportation requirements, which are specified elsewhere in the solicitation [@CL-SUP-2009]. They exist to evaluate offers and to establish liability for increased transportation costs when the actual characteristics differ [@CL-SUP-2104].
 
 ## Company calibration
 
@@ -55,4 +57,5 @@ Confirm the load sizes and package data the company can guarantee at each shippi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for f.o.b. origin minimum shipment terms.
