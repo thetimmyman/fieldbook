@@ -33,7 +33,7 @@ Indirect costs are costs not tied to a single final cost objective, proposed as 
 
 ## How it works
 
-Contractors generally propose indirect costs using historical financial trends, current fiscal year budgets, and forward-looking business volume forecasts to establish realistic, projected rates [@CL-EST-0723]. Contractors are required to distinguish variable, semivariable, and fixed costs, and mapping that behavior is critical because the contractor must be able to project how rates fluctuate as the volume of direct work changes [@CL-EST-0725; @CL-EST-0856]. To distribute pool expenses to specific contracts, the contractor must select an equitable allocation base, such as direct labor hours, machine hours, or total cost input [@CL-EST-0855]. The structure used to build the proposal must mirror the contractor's actual accounting system [@CL-EST-0727]. If an advance agreement has been negotiated on cost ceilings or specific rate structures, the contractor is bound to apply those limits in the proposal [@CL-EST-0728].
+Contractors generally propose indirect costs using historical financial trends, current fiscal year budgets, and forward-looking business volume forecasts to establish realistic, projected rates [@CL-EST-0723]. Under FAR and CAS, contractors are required to distinguish variable, semivariable, and fixed costs, and mapping that behavior is critical because the contractor must be able to project how rates fluctuate as the volume of direct work changes [@CL-EST-0725; @CL-EST-0856]. To distribute pool expenses to specific contracts, the contractor must select an equitable allocation base, such as direct labor hours, machine hours, or total cost input [@CL-EST-0855]. In accordance with CAS 401, the structure used to build the proposal must mirror the contractor's actual accounting system [@CL-EST-0727]. If an advance agreement has been negotiated on cost ceilings or specific rate structures, the contractor is bound to apply those limits in the proposal [@CL-EST-0728].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ That indirect cost pools and allocation bases mirror the accounting system and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named FAR, CAS and CAS 401 as the source of the stated duties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost estimates in proposals.

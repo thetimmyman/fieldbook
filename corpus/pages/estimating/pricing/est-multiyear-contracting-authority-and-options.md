@@ -31,7 +31,7 @@ Shows what the FAR multiyear contracting subpart implements, which supply contra
 
 Authority. The subpart implements title 41 of the United States Code, section 3903, and title 10, section 3501, and provides policy and procedures for the use of multi-year contracting [@CL-EST-3038].
 
-Applicability. For DoD, NASA and the Coast Guard, the authorities cited in the authority section do not apply to contracts for the purchase of supplies to which title 40 of the United States Code, section 759 applies [@CL-EST-3039]. The section labels these information resource management supply contracts [@CL-EST-3039]. The sentence is written for those three agencies and for supply purchases only [@CL-EST-3039].
+Applicability. For DoD, NASA and the Coast Guard, the authorities cited in the authority section do not apply to contracts for the purchase of supplies to which title 40 of the United States Code, section 759 applies [@CL-EST-3039]. The section labels these information resource management supply contracts [@CL-EST-3039]. The sentence is written for those three agencies and for contracts for the purchase of supplies [@CL-EST-3039].
 
 Options. Benefits may accrue by including options in a multiyear contract [@CL-EST-3040]. In that event, contracting officers must follow the requirements of subpart 17.2 [@CL-EST-3040]. Options should not include charges for plant and equipment already amortized, or other nonrecurring charges that were included in the basic contract [@CL-EST-3041].
 
@@ -51,7 +51,7 @@ A contracting officer awards a multiyear contract that includes two option years
 
 ## Never confuse
 
-The exclusion reaches only supply contracts to which the cited title 40 provision applies, bought by DoD, NASA or the Coast Guard [@CL-EST-3039]. The sentence does not name services contracts or other agencies [@CL-EST-3039].
+The exclusion described reaches contracts for the purchase of supplies to which the cited title 40 provision applies, for DoD, NASA and the Coast Guard [@CL-EST-3039]. The sentence does not name services contracts or other agencies [@CL-EST-3039].
 
 Including options in a multiyear contract does not replace one rule with another. The contracting officer follows the requirements of subpart 17.2 [@CL-EST-3040], and the sentence on plant, equipment and nonrecurring charges is a separate statement in the same section [@CL-EST-3041].
 
@@ -63,4 +63,5 @@ Whether a planned multiyear buy is expected to call for certified cost or pricin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed 'only' the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting authority, applicability and options.
