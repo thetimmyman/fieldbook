@@ -30,7 +30,7 @@ The contractor reports to the contracting officer, promptly and in reasonable wr
 
 ## How it works
 
-In the construction clause, except as otherwise provided, the contractor indemnifies the Government and its officers, agents and employees against liability, including costs and expenses, for infringement of a United States patent [@CL-CMP-5602]. The indemnity covers infringement arising out of performing the contract or out of use or disposal, by or for the account of the Government, of supplies furnished or work performed under the contract [@CL-CMP-5604]. It does not cover a patent issued on an application that is now or may hereafter be withheld from issue under a Secrecy Order [@CL-CMP-5603]. Where 27.201-2(d)(2) applies, the first paragraph of the basic clause becomes paragraph (a) and a new paragraph (b) provides that the indemnification does not apply to the items that the contracting officer lists as excluded [@CL-CMP-5745]. The excluded items are a contract-specific fill-in [@CL-CMP-5745].
+In the construction clause, except as otherwise provided, the contractor indemnifies the Government and its officers, agents and employees against liability, including costs and expenses, for infringement of any United States patent [@CL-CMP-5602]. The indemnity covers infringement arising out of performing the contract or out of use or disposal, by or for the account of the Government, of supplies furnished or work performed under the contract [@CL-CMP-5604]. It does not cover a patent issued on an application that is now or may hereafter be withheld from issue under a Secrecy Order [@CL-CMP-5603]. Where 27.201-2(d)(2) applies, the first paragraph of the basic clause becomes paragraph (a) and a new paragraph (b) provides that the indemnification does not apply to the items that the contracting officer lists as excluded [@CL-CMP-5745]. The excluded items are a contract-specific fill-in [@CL-CMP-5745].
 
 Notwithstanding any other provision or clause of the contract, the waiver clause authorizes and consents to the use and manufacture, solely in performing the contract, of any invention covered by the identified United States patents [@CL-CMP-5605]. It also waives the contractor's indemnification with respect to those patents [@CL-CMP-5747]. The patents are identified in the clause itself, so the list differs by contract [@CL-CMP-5605].
 
@@ -60,6 +60,7 @@ Which contracts carry the notice clause, the construction indemnity or a waiver,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Indemnity sentence now says any United States patent, as the clause does.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on patent indemnity and authorization and consent.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent and copyright notice, assistance and indemnity.

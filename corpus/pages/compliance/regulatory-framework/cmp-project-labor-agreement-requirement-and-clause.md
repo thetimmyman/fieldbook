@@ -65,7 +65,7 @@ An agency estimates a Federal courthouse project in the United States at 40 mill
 
 ## Never confuse
 
-Under the basic provision, a project labor agreement requirement is not a price term: the agreement does not change the resulting contract and provides no price adjustment [@CL-CMP-5250]. Nor, under the basic provision, does it close the field to firms outside collective bargaining: the agreement must let subcontractors compete whether or not they are parties to collective bargaining agreements [@CL-CMP-5248].
+Under the basic provision, a project labor agreement requirement is not a price term: the agreement does not change the resulting contract and provides no price adjustment [@CL-CMP-5250]. Nor, under the basic provision, does it close the field to firms outside collective bargaining: the agreement must let the offeror and all subcontractors compete whether or not they are otherwise parties to collective bargaining agreements [@CL-CMP-5248].
 
 ## Company calibration
 
@@ -75,5 +75,6 @@ Which solicitations carry the provision or an alternate, and who holds the execu
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Competition term now names the offeror as well as subcontractors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the project labor agreement requirement and clause.
