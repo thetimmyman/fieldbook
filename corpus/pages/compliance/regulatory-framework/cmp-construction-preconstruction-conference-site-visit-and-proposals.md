@@ -24,7 +24,7 @@ Shows what the preconstruction conference notice must contain, how a site visit 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127] |
 | Codified citation | FAR 52.236-26 through 52.236-28 [@CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent [@CL-CMP-0739; @CL-CMP-0740; @CL-CMP-0741] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5123] |
 | Applies to | Solicitations and contracts where the prescriptions direct insertion [@CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127] |
@@ -39,17 +39,19 @@ The site visit provision states that the clauses on differing site conditions an
 
 Proposals must be submitted on the forms furnished by the Government or on copies of those forms, and must be manually signed, and the person signing must initial each erasure or change on any proposal form [@CL-CMP-4934]. The proposal form may require proposed prices for one or more items on various bases, including lump sum price, alternate prices, units of construction, or any combination of those [@CL-CMP-4935]. If the solicitation requires a proposal on all items, failure to submit one for every item may result in rejection without further consideration [@CL-CMP-4936]. If a proposal on all items is not required, offerors should insert the words "no proposal" in the space provided for any item on which no price is submitted [@CL-CMP-5128]. Alternate proposals are not considered unless the solicitation authorizes their submission [@CL-CMP-4937].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.236-26, FAR 52.236-27 and FAR 52.236-28 each as reserved [@CL-CMP-0739; @CL-CMP-0740; @CL-CMP-0741]. It therefore prints at those section numbers no preconstruction conference clause, no site visit provision with its Alternate I, and no preparation of proposals provision, which the codified text prints there [@CL-CMP-0739; @CL-CMP-0740; @CL-CMP-0741; @CL-CMP-5123; @CL-CMP-5124; @CL-CMP-5127].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
 A solicitation has four items and does not require a proposal on all items. The offeror attends the organized site visit, then files its proposal on the Government form. It prices the first three items at 120,000, 80,000 and 50,000, for a total of 250,000, and writes "no proposal" in the space for the fourth item. The person signing initials a corrected unit price on the signed sheet.
 
-The answer: the offeror may leave the fourth item unpriced by writing "no proposal" there. Had the solicitation required a proposal on all items, the missing item could have led to rejection without further consideration. A second proposal with a different design would not be considered unless the solicitation authorized alternate proposals.
+The answer: the offeror may leave the fourth item unpriced by writing "no proposal" there. Had the solicitation required a proposal on all items, the missing item could have led to rejection without further consideration. A second proposal with a different design would not be considered unless the solicitation authorized alternate proposals. Under the RFO text, FAR 52.236-28 is printed as reserved, so the rules on proposals for all items, "no proposal" and alternate proposals are not printed at that section [@CL-CMP-0741; @CL-CMP-4936; @CL-CMP-5128; @CL-CMP-4937].
 
 ## Never confuse
 
-The preconstruction conference is not the site visit, because the conference is a meeting the successful offeror must attend after the Contracting Officer decides to hold one, while the site visit provision urges inspection of the site during the solicitation [@CL-CMP-4929; @CL-CMP-4931]. Alternate proposals are also not alternate prices, because alternate prices are a pricing basis the form may request while an alternate proposal needs express authorization in the solicitation [@CL-CMP-4935; @CL-CMP-4937].
+The preconstruction conference is not the site visit, because the conference is a meeting the successful offeror must attend after the Contracting Officer decides to hold one, while the site visit provision urges inspection of the site during the solicitation [@CL-CMP-4929; @CL-CMP-4931]. Alternate proposals are also not alternate prices, because alternate prices are a pricing basis the form may request while an alternate proposal needs express authorization in the solicitation [@CL-CMP-4935; @CL-CMP-4937]. The codified text prints the conference notice, the site visit rule and the proposal rules at FAR 52.236-26 through 52.236-28 [@CL-CMP-4929; @CL-CMP-4931; @CL-CMP-4934], while the RFO text prints each of those sections as reserved [@CL-CMP-0739; @CL-CMP-0740; @CL-CMP-0741].
 
 ## Company calibration
 
@@ -59,4 +61,5 @@ Who confirms that the proposal form, the site visit record and the conference at
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the preconstruction conference, the site visit and preparation of construction proposals.

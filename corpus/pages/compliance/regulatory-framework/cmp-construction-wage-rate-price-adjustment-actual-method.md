@@ -24,7 +24,7 @@ Shows what the actual method adjusts when a wage determination changes, what the
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-4944] |
 | Codified citation | FAR 52.222-32 [@CL-CMP-4944] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-32 [@CL-CMP-0849] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4944] |
 | Applies to | Construction contracts where the prescription directs insertion of the actual method clause [@CL-CMP-4944] |
@@ -44,6 +44,8 @@ Paragraph (f) gives the computations for schedule of indefinite-quantity work, b
 For a contract unit price that contains multiple craft hours, paragraph (f)(2) applies [@CL-CMP-5147]. A difference is computed for each labor classification, as above [@CL-CMP-5148]. It is multiplied by the actual hours expended for each craft on the unit-priced item [@CL-CMP-5149]. The product is divided by the actual units ordered in the preceding contract period, and the totals for the crafts are added to the current unit price to give the new unit price [@CL-CMP-5150]. The extended amount for the line item is the new unit price times the estimated quantity [@CL-CMP-5151]. If actual hours from the preceding period are not available, the contractor and the Contracting Officer agree on an estimate of total hours per craft per unit of work [@CL-CMP-5152]. The clause's own note says the adjustment may be accompanied by social security and unemployment taxes and workers' compensation insurance [@CL-CMP-5153].
 
 Wage determination coverage and option-period pricing are on the [option wage pricing card](cmp-improper-wage-determinations-and-option-wage-pricing.md), and the [percentage method card](cmp-construction-wage-rate-price-adjustment-percentage-method.md) covers the other method.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause is inserted as prescribed in FAR 22.402-4(f), where the codified clause points to FAR 22.407(g) [@CL-CMP-0897; @CL-CMP-4944]. It keeps the rule that the wage determination effective for an option to extend the term applies to that option period [@CL-CMP-0849; @CL-CMP-5138], the contractor's statement about allowances for increases [@CL-CMP-0850; @CL-CMP-4945], and the statement that goes with each request for adjustment [@CL-CMP-0888; @CL-CMP-4946]. It keeps the adjustment to reflect the contractor's actual increase or decrease in wages and fringe benefits, to the extent the increase is made to comply with, or the decrease is voluntarily made as a result of, the two causes it lists [@CL-CMP-0889; @CL-CMP-0890; @CL-CMP-0891; @CL-CMP-4947; @CL-CMP-5139; @CL-CMP-5140]. It keeps the limit of the adjustment to the wage and fringe benefit change and the accompanying social security and unemployment taxes and workers' compensation insurance, with no other amount for general and administrative costs, overhead or profit [@CL-CMP-0892; @CL-CMP-0893; @CL-CMP-4948; @CL-CMP-4949]. It keeps the 30-day notice of a claimed increase unless the Contracting Officer extends the period in writing [@CL-CMP-0894; @CL-CMP-4950]. It keeps the single craft hour computation that adds a combined increase to the original unit price [@CL-CMP-0895; @CL-CMP-5145] and the multiple craft hour computation that finds a difference for each labor classification and multiplies it by the actual hours expended for each craft [@CL-CMP-0944; @CL-CMP-0896; @CL-CMP-5148; @CL-CMP-5149].
 
 ## Worked example
 
@@ -65,4 +67,5 @@ Who owns the response when the Contracting Officer calls for payroll records sup
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the construction wage rate requirements price adjustment under the actual method.

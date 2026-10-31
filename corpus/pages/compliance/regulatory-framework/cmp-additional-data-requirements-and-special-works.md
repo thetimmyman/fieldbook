@@ -46,7 +46,7 @@ A contract ends and all items are accepted. Two years later the Contracting Offi
 
 ## Never confuse
 
-Additional data under the ordering clause is still governed by the [Rights in Data—General clause](cmp-rights-in-data-general-definitions-and-allocation.md) or an equivalent, so ordering data does not erase the right to withhold it [@CL-CMP-3706]. The withholding rules are on [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). Special works data is the opposite case, where the Government has unlimited rights in all delivered data and all first-produced data [@CL-CMP-3708].
+Additional data under the ordering clause is still governed by the [Rights in Data—General clause](cmp-rights-in-data-general-definitions-and-allocation.md) or an equivalent, so ordering data does not erase the right to withhold it [@CL-CMP-3706]. The withholding rules are on [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). Special works data is the opposite case, where, except as provided in the copyright paragraph, the Government has unlimited rights in all delivered data and all first-produced data [@CL-CMP-3708].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which executed contracts carry the ordering clause or the special works clause, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the special works sentence to keep the exception for the copyright paragraph, as the clause prints.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for additional data requirements and rights in data for special works.
