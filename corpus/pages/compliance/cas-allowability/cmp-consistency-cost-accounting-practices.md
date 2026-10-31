@@ -57,5 +57,6 @@ Which business units sit in a foreign concern, and whether a Disclosure Statemen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the disputes sentence so it covers only a failure to agree on CAS compliance or a cost adjustment the Government demands, as the clause prints.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Consistency in Cost Accounting Practices clause.

@@ -54,5 +54,6 @@ Whether each business unit has full CAS coverage, modified coverage, or neither,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Disclosure Statement sentence so the amendment duty applies only if the statement is affected, as the clause prints.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Cost Accounting Standards clause.

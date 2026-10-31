@@ -58,5 +58,6 @@ Who confirms which contracts carry the notification of changes clause, and where
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example so the exclusion for delay from a failure to give notice is not applied to a timely notice.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of changes.

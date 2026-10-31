@@ -56,5 +56,6 @@ Which executed contracts carry the ordering clause or the special works clause, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the special works sentence to keep the exception for the copyright paragraph, as the clause prints.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for additional data requirements and rights in data for special works.
