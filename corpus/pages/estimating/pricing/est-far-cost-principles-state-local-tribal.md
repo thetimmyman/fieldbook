@@ -24,7 +24,7 @@ Shows which contracts the State, local and tribal government cost principles cov
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2521] |
 | Codified citation | FAR 31.107, 31.603, 31.108, 31.701, 31.702 and 31.703 [@CL-EST-2521; @CL-EST-2709; @CL-EST-2706; @CL-EST-2711; @CL-EST-2714; @CL-EST-2524] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.107 [@CL-EST-3128; @CL-EST-3129; @CL-EST-3130; @CL-EST-3131], 31.603 [@CL-EST-3132; @CL-EST-3133; @CL-EST-3134; @CL-EST-3135], 31.108 [@CL-EST-3136; @CL-EST-3137], 31.701 [@CL-EST-3138; @CL-EST-3139; @CL-EST-3140], 31.702 [@CL-EST-3141; @CL-EST-3142] and 31.703 [@CL-EST-3143; @CL-EST-3144; @CL-EST-3145; @CL-EST-3146] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2521] |
 | Applies to | Contracts with State, local and federally recognized Indian tribal governments, and contracts that refer to the nonprofit organization subpart for allowable costs [@CL-EST-2521; @CL-EST-2524] |
@@ -51,6 +51,8 @@ For nonprofit organizations, a contract that refers to subpart 31.7 is read as r
 
 Agencies are not expected to add restrictions on individual items of cost, but the costs cited in FAR 31.603(b) are unallowable under the two statutes the section cites [@CL-EST-2525; @CL-EST-2659]. FAR 31.702 points to 31.108 for exceptions to the cost principles for nonprofit organizations [@CL-EST-2661].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.107(a) provides principles and standards for determining costs applicable to contracts, subcontracts, and modifications to contracts and subcontracts with those governments [@CL-EST-3128]. Its next sentence says they apply to contracts with those governments, where the codified text says they apply to all programs that involve those contracts [@CL-EST-3129; @CL-EST-2522], and the codified sentence on a uniform approach and better relationships [@CL-EST-2656] is not among the RFO sentences quoted for that paragraph [@CL-EST-3128; @CL-EST-3129]. It lists the two exceptions the codified text lists, with the first joined to the second by and [@CL-EST-3129; @CL-EST-3130; @CL-EST-2522; @CL-EST-2523], and keeps approval of any other exception by the Office of Management and Budget in particular cases when adequate justification is presented [@CL-EST-3131]. RFO FAR 31.603(a) keeps the rule that a contract referring to subpart 31.6 for allowable costs is deemed to refer to the OMB Uniform Guidance at 2 CFR part 200, subpart E and appendices V and VII, in effect on the date of the contract, with the contracting officer determining allowability [@CL-EST-3132; @CL-EST-3133]. The RFO text places the list of unallowable costs in a new paragraph 31.603(c), which begins with the four statutes it cites [@CL-EST-3135], and leaves paragraph (b) as the statement that agencies are not expected to place additional restrictions on individual items of cost [@CL-EST-3134]; RFO FAR 31.703(b) cites the costs in 31.603(c) [@CL-EST-3146], where the codified 31.703(b) cites the costs in 31.603(b) [@CL-EST-2659]. RFO FAR 31.108 covers contracts and contract modifications with nonprofit organizations, with the same exclusions and the same reference to subpart 31.2 [@CL-EST-3136; @CL-EST-3137]. RFO FAR 31.701 is headed Definition and defines a nonprofit organization with the same three conditions [@CL-EST-3138; @CL-EST-3139; @CL-EST-3140], and it does not carry the codified sentence that subpart 31.7 provides the principles for determining the cost of work performed by nonprofit organizations under contracts with the Government [@CL-EST-2660; @CL-EST-3138]. RFO FAR 31.702 and 31.703(a) keep the OMB Uniform Guidance at 2 CFR part 200, subpart E and appendix IV, and the deemed reference to it in effect on the date of the contract [@CL-EST-3141; @CL-EST-3142; @CL-EST-3143; @CL-EST-3144].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,7 +61,7 @@ A Federal agency awards a cost-reimbursement contract to a State agency under a 
 
 A publicly owned hospital under the same program has a contract subject to requirements promulgated by its sponsoring Government agency, so it is excluded [@CL-EST-2523]. A contract with a publicly financed university subject to subpart 31.3 is excluded as well [@CL-EST-2522]. If the agency wants another exception for one contract, the Office of Management and Budget approves other exceptions in particular cases when adequate justification is presented [@CL-EST-2657].
 
-Separately, a contract with a nonprofit research organization refers to subpart 31.7 for determining allowable costs. It is deemed to refer to the OMB Uniform Guidance at 2 CFR part 200, subpart E and appendix IV in effect on the contract date, and the contracting officer determines allowability in accordance with it [@CL-EST-2524; @CL-EST-2658]. If the organization's cost submission included a cost that FAR 31.603(b) cites, that cost would be unallowable as that paragraph describes it [@CL-EST-2659].
+Separately, a contract with a nonprofit research organization refers to subpart 31.7 for determining allowable costs. It is deemed to refer to the OMB Uniform Guidance at 2 CFR part 200, subpart E and appendix IV in effect on the contract date, and the contracting officer determines allowability in accordance with it [@CL-EST-2524; @CL-EST-2658]. If the organization's cost submission included a cost that FAR 31.603(b) cites, that cost would be unallowable as that paragraph describes it [@CL-EST-2659]; under the RFO text the same list is in paragraph 31.603(c) [@CL-EST-3135; @CL-EST-3146].
 
 ## Never confuse
 
@@ -69,6 +71,8 @@ A publicly financed educational institution that is subject to subpart 31.3 is e
 
 Subpart 31.7 provides the nonprofit principles, but a contract that refers to it for allowable costs is deemed to refer to the OMB Uniform Guidance, and subpart 31.7 does not reach educational institutions, State and local governments, or nonprofit organizations exempted under appendix VIII [@CL-EST-2660; @CL-EST-2658; @CL-EST-2706; @CL-EST-2707]. The costs cited in FAR 31.603(b) [@CL-EST-2659] are listed on the [State, local and tribal governments](../../compliance/cas-allowability/cmp-cost-principles-state-local-tribal-governments.md) card.
 
+The unallowable costs are cited at codified FAR 31.603(b) [@CL-EST-2659] but listed at RFO FAR 31.603(c) [@CL-EST-3135; @CL-EST-3146], and RFO paragraph 31.603(b) is the separate statement that agencies are not expected to place additional restrictions on individual items of cost [@CL-EST-3134].
+
 ## Company calibration
 
 Whether any bid is priced for a State, local or tribal government customer and who reviews the cost submission. [@Q-012]
@@ -77,4 +81,5 @@ Whether any bid is priced for a State, local or tribal government customer and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the State, local and tribal government cost principles and the nonprofit subpart reference.
