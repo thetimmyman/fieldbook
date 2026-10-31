@@ -49,7 +49,7 @@ A time-and-materials contract is contemplated, so the clause at 252.242-7006 is 
 
 ## Never confuse
 
-Acceptance of an accounting system is measured against the system criteria in the clause at 252.242-7006, not against the prescription that decides when the clause is used [@CL-CMP-7853; @CL-CMP-7857]. The definition covers subsystems for areas such as indirect costs, compensation, billing and labor, while the prescription turns on the contract type or the progress payment basis [@CL-CMP-7856; @CL-CMP-7857; @CL-CMP-7858]. The prescription for the material management and accounting system clause is narrower, because it covers progress payments based on costs incurred but not those on a percentage or stage of completion [@CL-CMP-7852; @CL-CMP-7858]. For the administration of the system, see [DoD accounting system administration](../business-systems/cmp-dod-accounting-system-administration.md); for the criteria, see [Accounting system criteria](../business-systems/cmp-accounting-system-criteria.md).
+Acceptance of an accounting system is measured against the system criteria in the clause at 252.242-7006, not against the prescription that decides when the clause is used [@CL-CMP-7853; @CL-CMP-7857]. The definition covers subsystems for areas such as indirect costs, compensation, billing and labor, while the prescription turns on the contract type or the progress payment basis [@CL-CMP-7856; @CL-CMP-7857; @CL-CMP-7858]. The prescription for the material management and accounting system clause is narrower. It names cost-reimbursement contracts and fixed-price contracts with progress payments based on costs incurred as work progresses, and does not name those based on a percentage or stage of completion [@CL-CMP-7852; @CL-CMP-7858]. It also applies to solicitations and contracts that exceed the simplified acquisition threshold, are not for commercial products or commercial services, and are not awarded to small businesses, educational institutions or nonprofit organizations [@CL-CMP-7850; @CL-CMP-7851]. For the administration of the system, see [DoD accounting system administration](../business-systems/cmp-dod-accounting-system-administration.md); for the criteria, see [Accounting system criteria](../business-systems/cmp-accounting-system-criteria.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Which contracts are cost-reimbursement, incentive, time-and-materials or labor-h
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the other conditions of the material management and accounting system prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting system definitions and the clause prescription.

@@ -35,7 +35,7 @@ Contractor personnel shall not interrogate detainees [@CL-CMP-4342]. The prohibi
 
 ## How it works
 
-The contractor shall arrange for its personnel interacting with detainees to receive the specified training, on the timing set out in the sub-items that follow [@CL-CMP-4338]. The training is to be received prior to interacting with detainees, or as soon as possible if, for compelling reasons, the contracting officer authorizes interaction with detainees prior to receipt of such training, and annually thereafter [@CL-CMP-4339]. The contractor shall also arrange for those personnel to provide a copy of the training receipt document to the contractor for retention [@CL-CMP-4409], and the contractor shall retain a copy of the training receipt documents until the contract is closed, or 3 years after all work required by the contract has been completed and accepted by the Government, whichever is sooner [@CL-CMP-4340]. The substance of the training clause goes in all subcontracts, including subcontracts for commercial services, that may require subcontractor personnel to interact with detainees [@CL-CMP-4341], and the prohibition clause has the same flowdown wording [@CL-CMP-4345].
+The contractor shall arrange for its personnel interacting with detainees to receive the specified training, on the timing set out in the sub-items that follow [@CL-CMP-4338]. The training is to be received prior to interacting with detainees, or as soon as possible if, for compelling reasons, the contracting officer authorizes interaction with detainees prior to receipt of such training, and annually thereafter [@CL-CMP-4339]. The contractor shall also arrange for those personnel to provide a copy of the training receipt document to the contractor for retention [@CL-CMP-4409], and the contractor shall retain a copy of the training receipt documents until the contract is closed, or 3 years after all work required by the contract has been completed and accepted by the Government, whichever is sooner [@CL-CMP-4340]. The substance of the training clause goes in all subcontracts, including subcontracts for commercial services, that may require subcontractor personnel to interact with detainees in the course of their duties [@CL-CMP-4341], and the prohibition clause has the same flowdown wording [@CL-CMP-4345].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which contracts carry these clauses, which personnel interact with detainees, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored 'in the course of their duties' in the subcontract flowdown condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for detainee training and the interrogation prohibition.

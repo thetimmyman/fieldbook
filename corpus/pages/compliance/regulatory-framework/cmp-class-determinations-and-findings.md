@@ -45,7 +45,7 @@ A class document covers recurring purchases of the same repair service for one y
 
 ## Never confuse
 
-A class determination and findings is not an individual one with more actions added to it. A determination and findings is ordinarily for an individual contract action, and the class form is available unless otherwise prohibited [@CL-CMP-8340; @CL-CMP-8341]. It is also not a class deviation: a class deviation is an authorized departure from the FAR that affects more than one contract action [@CL-OPM-0024], while a class document is a written approval that authority exists for a class of actions [@CL-CMP-8345]. The deviation rules are on [Deviations from the FAR: who authorizes them and what cannot be deviated from](../../operating-model/decision-rights/opm-deviations-from-the-far.md).
+A class determination and findings is not an individual one with more actions added to it. A determination and findings is ordinarily for an individual contract action, and the class form is available unless otherwise prohibited [@CL-CMP-8340; @CL-CMP-8341]. It is also not a class deviation: a class deviation is a deviation, which FAR 1.401 defines as any one or combination of the forms it lists, that affects more than one contract action [@CL-CMP-8330; @CL-OPM-0024], while a class document is a determination and findings, a special form of written approval [@CL-CMP-8337], that provides authority for a class of contract actions [@CL-CMP-8345]. The deviation rules are on [Deviations from the FAR: who authorizes them and what cannot be deviated from](../../operating-model/decision-rights/opm-deviations-from-the-far.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which recurring contract actions in the company's remit are covered by a class d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the class deviation and class document characterizations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for class determinations and findings.

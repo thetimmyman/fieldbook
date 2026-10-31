@@ -35,7 +35,7 @@ The clause has two versions. Under the basic clause, the contracting officer fur
 
 ## How it works
 
-The duty to obtain authorization sits with the contractor [@CL-CMP-4575]. Equipment with no frequency allocation triggers an early report of its technical operating characteristics to the contracting officer [@CL-CMP-4576; @CL-CMP-4577]. The route to authorization depends on the version: the contracting officer supplies the procedures under the basic clause [@CL-CMP-4578], and the contractor files the application form under Alternate I [@CL-CMP-4579]. The clause, including its flowdown paragraph, must also be included in subcontracts requiring the development, production, construction, testing, or operation of a device for which a radio frequency authorization is required [@CL-CMP-4580].
+The duty to obtain authorization sits with the contractor [@CL-CMP-4575]. Experimental, developmental or operational equipment for which the appropriate frequency allocation has not been made triggers an early report of its technical operating characteristics to the contracting officer [@CL-CMP-4576; @CL-CMP-4577]. The route to authorization depends on the version: the contracting officer supplies the procedures under the basic clause [@CL-CMP-4578], and the contractor files the application form under Alternate I [@CL-CMP-4579]. The clause, including its flowdown paragraph, must also be included in subcontracts requiring the development, production, construction, testing, or operation of a device for which a radio frequency authorization is required [@CL-CMP-4580].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ Assume a contract worth 2,000,000 under which a contractor develops a new radio 
 
 ## Never confuse
 
-The basic clause and Alternate I differ in who supplies the route to authorization [@CL-CMP-4578; @CL-CMP-4579]. Giving the technical operating characteristics is also not the same as obtaining authorization. The characteristics go to the contracting officer for equipment without an allocation [@CL-CMP-4576], while the contractor still has to obtain the authorization itself [@CL-CMP-4575]. Other clause cards pass their clause down with a flowdown paragraph in a similar way, for example [Animal welfare in research](cmp-dfars-animal-welfare-in-research.md) [@CL-CMP-4574] and [Protection of human subjects](cmp-dfars-protection-of-human-subjects.md) [@CL-CMP-4589].
+The basic clause and Alternate I differ in who supplies the route to authorization [@CL-CMP-4578; @CL-CMP-4579]. Giving the technical operating characteristics is also not the same as obtaining authorization. The characteristics go to the contracting officer for experimental, developmental or operational equipment without an allocation [@CL-CMP-4576], while the contractor still has to obtain the authorization itself [@CL-CMP-4575]. Other clause cards pass their clause down with a flowdown paragraph in a similar way, for example [Animal welfare in research](cmp-dfars-animal-welfare-in-research.md) [@CL-CMP-4574] and [Protection of human subjects](cmp-dfars-protection-of-human-subjects.md) [@CL-CMP-4589].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which equipment under which contracts radiates and needs a frequency authorizati
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored experimental, developmental or operational scope of the characteristics report.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for frequency authorization.
