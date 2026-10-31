@@ -24,7 +24,7 @@ Shows when an agency head may reduce or suspend further payments because a contr
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3515] |
 | Codified citation | FAR 32.006-1 and FAR 32.006-2 [@CL-CTF-3515; @CL-CTF-3521] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.006-1 [@CL-CTF-4483; @CL-CTF-4484; @CL-CTF-4485; @CL-CTF-4486; @CL-CTF-4487; @CL-CTF-4488] and RFO FAR 32.006-2 [@CL-CTF-4489] and RFO FAR 32.006-4 [@CL-CTF-4490; @CL-CTF-4491; @CL-CTF-4779; @CL-CTF-4492] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3515] |
 | Applies to | A contractor's request for advance, partial or progress payments, excluding commercial interim payments and performance-based payments [@CL-CTF-3517; @CL-CTF-3518] |
@@ -44,6 +44,8 @@ As the section uses the term, a remedy coordination official is the person or en
 The agency head decides. The trigger is the agency head's determination that there is substantial evidence that the payment request is based on fraud [@CL-CTF-3517].
 
 The contractor's opportunity to respond comes from the procedures section, not from the two sections on this card. There the remedy coordination official recommends the reduction or suspension [@CL-CTF-1450]. Before deciding, the agency head shall, in accordance with agency procedures, notify the contractor in writing of the action proposed by the remedy coordination official and the reasons for it [@CL-CTF-1404], and provide an opportunity to submit information within a reasonable time in response to the action proposed by the remedy coordination official [@CL-CTF-1405]. The steps, the factors the agency head weighs and the review deadline are covered in [Financing consideration and fraud payment procedures](ctf-financing-consideration-and-fraud-payment-procedures.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.006-1 keeps the authority: under title 10 it is available to the Department of Defense and the National Aeronautics and Space Administration and not to the United States Coast Guard [@CL-CTF-4483], and under title 41 it is available to all agencies subject to Division C of subtitle I of title 41 [@CL-CTF-4484]. It keeps the trigger, which is the agency head's determination that there is substantial evidence that the contractor's request for advance, partial or progress payments is based on fraud [@CL-CTF-4485], the exclusion of commercial interim payments and performance-based payments [@CL-CTF-4486], the limit on delegation below Level IV of the Executive Schedule and the authority being in addition to other Government rights, remedies and procedures [@CL-CTF-4487], and the choice of an individual contract or any group of contracts affected by the fraud [@CL-CTF-4488]. RFO FAR 32.006-2 keeps the definition of a remedy coordination official [@CL-CTF-4489]. RFO FAR 32.006-4 keeps the recommendation by the remedy coordination official [@CL-CTF-4490], and before deciding the agency head must, in accordance with agency procedures, notify the contractor in writing [@CL-CTF-4491], with a notice sufficiently specific to allow the contractor to collect and present evidence addressing the reasons given [@CL-CTF-4779], and provide an opportunity to submit information within a reasonable time [@CL-CTF-4492].
 
 ## Worked example
 
@@ -65,4 +67,5 @@ Which payment streams the company receives could be reduced or suspended, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reduction or suspension of payments on a finding of fraud.

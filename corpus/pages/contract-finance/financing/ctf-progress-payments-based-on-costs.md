@@ -24,7 +24,7 @@ Shows what makes a progress payment based on costs customary or unusual, which p
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3548] |
 | Codified citation | FAR 32.501, FAR 32.501-5 and FAR 32.502-2 [@CL-CTF-3548; @CL-CTF-3550; @CL-CTF-3553] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.501 [@CL-CTF-4457; @CL-CTF-4458; @CL-CTF-4459], RFO FAR 32.501-1 [@CL-CTF-4460; @CL-CTF-4461; @CL-CTF-4462; @CL-CTF-4463], RFO FAR 32.501-2 [@CL-CTF-4464; @CL-CTF-4465], RFO FAR 32.501-5 [@CL-CTF-4466; @CL-CTF-4467; @CL-CTF-4468] and RFO FAR 32.502-2 [@CL-CTF-4469; @CL-CTF-4470; @CL-CTF-4471; @CL-CTF-4472] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3548] |
 | Applies to | Progress payments based on costs [@CL-CTF-3548] |
@@ -47,6 +47,8 @@ Protective terms are extra safeguards that the contracting officer may add to th
 
 Finance office approval is a separate gate. The contracting officer shall obtain it before a rate above the customary rate, a deviation from the prescribed terms, or progress payments to a contractor in one of the listed situations [@CL-CTF-3553; @CL-CTF-3554; @CL-CTF-3555; @CL-CTF-3613]. A rate above the customary rate is both an unusual progress payment and a listed action, so the unusual progress payment approvals and the finance office approval both come into play [@CL-CTF-1052; @CL-CTF-3554].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.501 keeps the split between customary and unusual progress payments: customary progress payments are those made under the general guidance in the subpart, using the customary progress payment rate, the cost base, and frequency of payment established in the Progress Payments clause [@CL-CTF-4457], and either the ordinary liquidation method or the alternate method [@CL-CTF-4458], and any other progress payments are considered unusual and may be used only in exceptional cases when authorized in accordance with section 32.501-2 [@CL-CTF-4459]. RFO FAR 32.501-1 keeps the 80 percent customary rate on total costs and the 85 percent rate for small business concerns [@CL-CTF-4460], the rule that the contracting officer must consider any higher rate an unusual progress payment and must not include it unless advance agency approval is obtained as prescribed in 32.501-2 [@CL-CTF-4461], the bar on a rate higher than the customary rate when advance payments and progress payments are authorized under the same contract [@CL-CTF-4462], and the 80 percent limit on work accomplished under undefinitized contract actions, with no higher rate under unusual or other customary progress payments for those actions [@CL-CTF-4463]. RFO FAR 32.501-2 keeps the rule that unusual progress payments may be provided only if the listed conditions are met, the first being that the contract necessitates predelivery expenditures that are large in relation to contract price and in relation to the contractor's working capital and credit [@CL-CTF-4464]; the conditions also include full documentation of an actual need to supplement private financing, including guaranteed loans, and approval of the request by the head of the contracting activity or a designee [@CL-CTF-4465]. RFO FAR 32.501-5 keeps the protective terms that may be used if the contracting officer considers it necessary for protection of the Government's interest [@CL-CTF-4466], including guarantees, subordinations or standbys, special bank accounts and protective covenants [@CL-CTF-4467], and the first article limit [@CL-CTF-4468], but the printed paragraph (d) leaves the number of the Advance Payments clause blank [@CL-CTF-4467]. RFO FAR 32.502-2 keeps the finance office approval, worded with "must" in place of "shall" [@CL-CTF-4469], before a rate higher than the customary rate or a deviation from the prescribed progress payments terms [@CL-CTF-4470], before progress payments to a contractor whose financial condition is in doubt or who has had an advance payment request or loan guarantee denied for financial reasons, or approved but withdrawn or lapsed, within the previous 12 months [@CL-CTF-4471], and before progress payments to a contractor named in the consolidated list of contractors indebted to the United States, known commonly as the Hold-up List [@CL-CTF-4472].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -67,4 +69,5 @@ Which rate, cost base and liquidation method apply to each contract, and whether
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for progress payments based on costs.
