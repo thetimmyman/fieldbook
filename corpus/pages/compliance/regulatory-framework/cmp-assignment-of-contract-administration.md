@@ -24,7 +24,7 @@ Shows how a contracting officer delegates contract administration to a contract 
 |---|---|
 | Instrument | Codified FAR and DFARS [@CL-CMP-2559; @CL-CMP-2567] |
 | Codified citation | FAR 42.202, FAR 42.203 and DFARS 242.202 [@CL-CMP-2559; @CL-CMP-2566; @CL-CMP-2567] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 42.202 [@CL-CMP-0066; @CL-CMP-0069]; RFO FAR 42.203 [@CL-CMP-0073] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2559; @CL-CMP-2567] |
 | Applies to | Contracting officers delegating contract administration, and DoD activities retaining contracts for administration [@CL-CMP-2559; @CL-CMP-2567] |
@@ -37,15 +37,19 @@ An agency may decline a request for contract administration services on a case-b
 
 As provided in agency procedures, the contracting officer delegates through an interagency agreement or a direct request to the listed office, and the delegation should name the designated office and any withheld functions [@CL-CMP-2559; @CL-CMP-2560]. The contracting officer at the requesting agency may rescind or recall a delegation, except for the cost accounting standards and rate functions [@CL-CMP-2562]. An agency asked to administer may decline on a case-by-case basis when its resources are inadequate [@CL-CMP-2565]. The printed sections do not list the functions that may be delegated; they point to the separate functions section, which is on [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md). The DoD items on functions are on [DoD additions to contract administration functions](cmp-dod-contract-administration-additions.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text under Class Deviation 2026-O0050, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.202(a) has contracting officers delegate contract administration or specialized support services through interagency agreements or by direct request to the cognizant contract administration office listed in the Contract Administration Services Directory, where the codified paragraph begins "As provided in agency procedures" and names the Federal Directory of Contract Administration Services Components [@CL-CMP-0066; @CL-CMP-2559]. The RFO delegation should still include the name and address of the designated office, which must also be entered in the contract, and any special instructions, including any functions withheld or any specific authorization to perform listed functions [@CL-CMP-0067; @CL-CMP-2560]. Under RFO paragraph (c), the contracting officer may delegate additional functions beyond those listed in 42.302, provided that conditions are met, the first being that prior coordination with the office ensures the availability of required resources [@CL-CMP-0068; @CL-CMP-2561]. RFO paragraph (d) lets the contracting officer at the requesting agency rescind or recall a delegation except for the cognizant Federal agency functions identified in 42.302(a), where the codified paragraph excepts functions pertaining to cost accounting standards and negotiation of forward pricing rates and indirect cost rates [@CL-CMP-0069; @CL-CMP-2562]; it keeps the requirement of a reasonable transition period before rescinding or recalling a delegation [@CL-CMP-0070; @CL-CMP-2563]. RFO paragraph (e)(2) says supporting contract administration may only be used for subcontracts when the Government otherwise would incur undue cost, successful completion of the prime contract is threatened, or it is authorized under paragraph (f) or elsewhere in the regulation [@CL-CMP-0071; @CL-CMP-2564]. RFO paragraph (g) keeps the rule that an agency may decline a request on a case-by-case basis if it lacks adequate resources, and that declinations must be in writing [@CL-CMP-0072; @CL-CMP-2565]. RFO FAR 42.203 keeps the rule that the Defense Contract Management Agency maintains the directory, which the RFO text calls the CASD [@CL-CMP-0073; @CL-CMP-2566].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contracting officer sends a direct request to a listed administration office to administer a cost-reimbursement contract worth 5,000,000. The request names the office, withholds one function and says so in the special instructions. Later the officer wants to recall the function of negotiating indirect cost rates. The recall is not allowed, because that function is excepted from rescission. The officer may recall other functions after agreeing a reasonable transition period with the office.
+A contracting officer sends a direct request to a listed administration office to administer a cost-reimbursement contract worth 5,000,000. The request names the office, withholds one function and says so in the special instructions. Later the officer wants to recall the function of negotiating indirect cost rates. The recall is not allowed under the codified text, because that function is excepted from rescission [@CL-CMP-2562]; under the RFO text the exception is for the cognizant Federal agency functions identified in 42.302(a) [@CL-CMP-0069]. The officer may recall other functions after agreeing a reasonable transition period with the office.
 
 ## Never confuse
 
 The assignment of administration, which says which office administers a contract, is not the list of functions that office performs. The functions are on [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md), and the roles of the offices are on [Oversight roles](../audit-retention/cmp-oversight-roles.md).
+
+The codified text excepts functions pertaining to cost accounting standards and negotiation of forward pricing rates and indirect cost rates from rescission or recall [@CL-CMP-2562], while the RFO text excepts the cognizant Federal agency functions identified in 42.302(a) [@CL-CMP-0069].
 
 ## Company calibration
 
@@ -55,4 +59,5 @@ Which executed contracts name a contract administration office and any withheld 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for assignment of contract administration, reassignment and the DoD additions.
