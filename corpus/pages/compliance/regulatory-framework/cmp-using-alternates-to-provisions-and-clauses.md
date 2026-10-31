@@ -23,7 +23,7 @@ Explains what an alternate is, how it is titled, dated and cited, and the limit 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8870] |
 | Codified citation | FAR 52.105 [@CL-CMP-8870] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.105 [@CL-CMP-6339; @CL-CMP-6341; @CL-CMP-6343] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8870] |
 | Applies to | Provisions and clauses that the FAR prescribes with one or more alternates [@CL-CMP-8870; @CL-CMP-8872] |
@@ -41,6 +41,8 @@ The section does not name who selects an alternate or say when one is used. The 
 All provisions, clauses and alternates are dated [@CL-CMP-8896], and the date shall be included, whether the text is incorporated by reference or in full text, to avoid questions about which version is operative in a given solicitation or contract [@CL-CMP-8847]. For an alternate the date is cited together with the date of the basic text [@CL-CMP-8871].
 
 Each applicable alternate is cited, so incorporation by reference does not hide one of them [@CL-CMP-8872]. An alternate stays with the provision or clause it was written for [@CL-CMP-8873]. How the identification of a text is written is on the card for [identifying provisions and clauses](cmp-identifying-provisions-and-clauses.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. On the points below the RFO section reads the same as the codified section [@CL-CMP-6339; @CL-CMP-6341; @CL-CMP-6343]. It says the FAR accommodates a major variation in a provision or clause by use of an alternate and prescribes alternates to a given provision or clause in the FAR subject text where the provision or clause is prescribed [@CL-CMP-6339; @CL-CMP-8870], and it titles the alternates "Alternate I," "Alternate II," "Alternate III," and so on [@CL-CMP-6340; @CL-CMP-8909]. When an alternate is used, its date shall be cited along with the date of the basic provision or clause [@CL-CMP-6341; @CL-CMP-8871]. A provision or clause may be used with two or more alternates under certain circumstances, and each of the applicable alternates shall then be cited, whether incorporated by reference or in full text [@CL-CMP-6342; @CL-CMP-6343; @CL-CMP-8872]. Under no circumstances may an alternate to a specific provision or clause be applied to any other provision or clause [@CL-CMP-6344; @CL-CMP-8873].
 
 ## Worked example
 
@@ -66,4 +68,5 @@ Which executed contracts and modifications the company holds, and who confirms w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for using alternates to provisions and clauses.
