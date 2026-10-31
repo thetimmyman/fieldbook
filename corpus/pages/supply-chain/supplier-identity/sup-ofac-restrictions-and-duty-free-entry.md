@@ -31,7 +31,7 @@ Shows the OFAC purchase prohibition and its flowdown to subcontracts, and when s
 
 Except as authorized by the Office of Foreign Assets Control (OFAC) in the Department of the Treasury, the contractor shall not acquire supplies or services for use in performing the contract [@CL-SUP-1263]. The prohibited acquisitions are any supplies or services that any proclamation, Executive order, or statute administered by OFAC, or OFAC's implementing regulations, would prohibit as a transaction by a person subject to the jurisdiction of the United States [@CL-SUP-1262]. The contractor shall insert the clause, including its paragraph (c), in all subcontracts [@CL-SUP-1264].
 
-For supplies not identified in the Schedule to be accorded duty-free entry, the listed procedures apply except as provided in paragraph (d) of the duty-free entry clause or elsewhere in the contract [@CL-SUP-1265]. The contractor shall claim duty-free entry only for supplies to be delivered to the Government under the contract, either as end products or incorporated into end products [@CL-SUP-1268].
+For supplies not identified in the Schedule to be accorded duty-free entry, the listed procedures apply except as provided in paragraph (d) of the duty-free entry clause or elsewhere in the contract [@CL-SUP-1265]. The contractor shall claim duty-free entry only for supplies to be delivered to the Government under the contract, either as end products or incorporated into end products [@CL-SUP-1268]. The contractor shall also pay duty on supplies, or any portion of them, other than scrap, salvage, or competitive sale authorized by the Contracting Officer, diverted to nongovernmental use [@CL-SUP-4034].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Whether the purchasing system passes the restrictions clause to every subcontrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the duty-free entry sentence so the claim rule keeps the duty owed on supplies diverted to nongovernmental use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on certain foreign purchases and duty-free entry.
