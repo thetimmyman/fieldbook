@@ -39,7 +39,7 @@ The provision first defines cloud computing as a model for enabling ubiquitous, 
 
 The duty to indicate falls on the offeror, and the offeror chooses the blank [@CL-CMP-9075]. The provision names no deciding official, approval route, threshold or deadline of its own, and it sets no notice duty after award [@CL-CMP-9075]. The question in paragraph (b) refers to the resultant contract, while the blanks in paragraph (c) refer to any contract or subcontract resulting from the solicitation, so the offeror should read the representation as reaching subcontract use as well [@CL-CMP-9075; @CL-CMP-9076; @CL-CMP-9274].
 
-The offeror's answer matters later. The separate cloud computing services clause conditions its post-award approval step on the offeror having indicated that it does not anticipate cloud use [@CL-CMP-3990]. That clause is covered in [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+The offeror's answer matters later. Under the separate cloud computing services clause, a contractor that indicated in its offer that it does not anticipate cloud use, and that proposes after award to use cloud computing services, shall obtain approval from the Contracting Officer before using them [@CL-CMP-3990; @CL-CMP-3991]. That clause is covered in [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
 ## Worked example
 
@@ -65,4 +65,5 @@ Which solicitations this company bids, and whether its technical solution or its
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated both conditions of the cloud approval step.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD representation of use of cloud computing.

@@ -41,7 +41,7 @@ The FAR's general definitions say a contracting officer's representative (COR) i
 
 ## How it works
 
-The contracting officer's authority is a delegation, and the appointing authority writes down its limits [@CL-OPM-0001; @CL-OPM-0002]. The contracting officer in turn designates a COR in writing [@CL-OPM-0100]. One listed attribute of a COR is that the COR shall be designated in writing, with copies furnished to the contractor and the contract administration office, specifying the extent of the COR's authority and identifying the limitations on it [@CL-OPM-0007]. Two further listed statements in that designation are that the authority is not redelegable and that the COR may be personally liable for unauthorized acts [@CL-OPM-0008]. As the ratification subsection uses the term, an unauthorized commitment is an agreement that is not binding solely because the Government representative who made it lacked the authority to enter into that agreement on behalf of the Government [@CL-OPM-0009]. [Ratification of unauthorized commitments](opm-ratification-of-unauthorized-commitments.md) is covered on its own card.
+The contracting officer's authority is a delegation, and the appointing authority writes down its limits [@CL-OPM-0001; @CL-OPM-0002]. The contracting officer in turn designates a COR in writing, subject to the contract types and the exception for a contracting officer who retains and executes the COR duties, as stated above [@CL-OPM-0100; @CL-OPM-0004]. One listed attribute of a COR is that the COR shall be designated in writing, with copies furnished to the contractor and the contract administration office, specifying the extent of the COR's authority and identifying the limitations on it [@CL-OPM-0007]. Two further listed statements in that designation are that the authority is not redelegable and that the COR may be personally liable for unauthorized acts [@CL-OPM-0008]. As the ratification subsection uses the term, an unauthorized commitment is an agreement that is not binding solely because the Government representative who made it lacked the authority to enter into that agreement on behalf of the Government [@CL-OPM-0009]. [Ratification of unauthorized commitments](opm-ratification-of-unauthorized-commitments.md) is covered on its own card.
 
 ## Worked example
 
@@ -61,6 +61,7 @@ Which written instrument carries each signer's limit on each executed contract, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the COR designation conditions into the summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the contracting officer definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contracting officer's representative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 42.202 and 42.302 references to the COR limits.

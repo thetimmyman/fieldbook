@@ -29,7 +29,7 @@ Shows the policy to avoid overtime, who approves it, and when the overtime premi
 
 Contractors shall perform all contracts, so far as practicable, without using overtime, particularly as a regular employment practice, except when lower overall costs to the Government will result or when it is necessary to meet urgent program needs [@CL-OPM-0080]. Approval of the use of overtime may be granted by an agency approving official after determining in writing that overtime is necessary to meet essential delivery or performance schedules, which is one of the listed purposes [@CL-OPM-0081]. Two further listed purposes are to make up for delays beyond the control and without the fault or negligence of the contractor and to eliminate foreseeable extended production bottlenecks that cannot be eliminated in any other way [@CL-OPM-0129].
 
-Approval by the designated official of the use and total dollar amount of overtime is required before an amount is included in the overtime premiums clause [@CL-OPM-0083]. Contracting officer approval of payment of overtime premiums is required for time-and-materials and labor-hour contracts [@CL-OPM-0084]. The section also states that no approvals are required for paying overtime premiums under other types of contracts [@CL-OPM-0085]. It does not spell out how that statement relates to the designated official's approval before an amount is included in the clause [@CL-OPM-0083].
+Approval by the designated official of the use and total dollar amount of overtime is required before an amount is included in paragraph (a) of the overtime premiums clause [@CL-OPM-0083]. Contracting officer approval of payment of overtime premiums is required for time-and-materials and labor-hour contracts [@CL-OPM-0084]. The section also states that no approvals are required for paying overtime premiums under other types of contracts [@CL-OPM-0085]. It does not spell out how that statement relates to the designated official's approval before an amount is included in the clause [@CL-OPM-0083].
 
 As used in subpart 22.1, a normal workweek means, generally, a workweek of 40 hours [@CL-OPM-1000]. Outside the United States and its outlying areas, a workweek longer than 40 hours is considered normal if the workweek does not exceed the norm for the area, as determined by local custom, tradition, or law [@CL-OPM-1001], and if the hours worked in excess of 40 in the workweek are not compensated at a premium rate of pay [@CL-OPM-1002].
 
@@ -47,7 +47,7 @@ A cost-plus-fixed-fee contract is expected to exceed the threshold and no listed
 
 ## Never confuse
 
-Approval before an amount goes into the clause is not the same as approval of payment: the designated official's approval concerns the use and total dollar amount of overtime [@CL-OPM-0083], while contracting officer approval of payment of overtime premiums is required for time-and-materials and labor-hour contracts [@CL-OPM-0084].
+Approval before an amount goes into paragraph (a) of the clause is not the same as approval of payment: the designated official's approval concerns the use and total dollar amount of overtime [@CL-OPM-0083], while contracting officer approval of payment of overtime premiums is required for time-and-materials and labor-hour contracts [@CL-OPM-0084].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Who approves overtime requests, and where approved dollar amounts and the clause
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named paragraph (a) of the overtime premiums clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of overtime and overtime premium.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of overtime and overtime premium.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the normal workweek definition.

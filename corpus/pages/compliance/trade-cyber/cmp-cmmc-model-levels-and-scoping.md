@@ -44,7 +44,7 @@ A contractor keeps CUI on a file server. A separate lab network is physically an
 
 ## Never confuse
 
-A level is a set of security requirements, and the scope is the set of assets they are assessed against [@CL-CMP-2059; @CL-CMP-2060]. The status a procurement asks for is selected by DoD Program Managers or requiring activities, not by the model [@CL-CMP-2054]. A system that holds only FCI is in the Level 1 scope [@CL-CMP-2061], while CUI Assets are one Level 2 in-scope category [@CL-CMP-2062].
+A level is a set of security requirements, and the scope is the set of assets they are assessed against [@CL-CMP-2059; @CL-CMP-2060]. The status a procurement asks for is selected by DoD Program Managers or requiring activities, not by the model [@CL-CMP-2054]. An OSA information system that processes, stores, or transmits FCI is in the Level 1 scope [@CL-CMP-2061], while CUI Assets are one Level 2 in-scope category [@CL-CMP-2062].
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ Which systems, storage tools, transfer tools and assistant tools process, store 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only from the Level 1 scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC model levels and scoping.

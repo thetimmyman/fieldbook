@@ -35,7 +35,7 @@ The FAR's general definitions say contracting activity means an element of an ag
 
 Agencies should take positive action to preclude, to the maximum extent possible, the need for ratification actions [@CL-OPM-0103]. The ratification procedures may not be used in a manner that encourages unauthorized commitments by Government personnel [@CL-OPM-0104]. Agencies should process unauthorized commitments using the ratification authority instead of referring such actions to the Government Accountability Office for resolution [@CL-OPM-0105].
 
-The authority to ratify may be exercised only when listed conditions are met, the first being that supplies or services have been provided to and accepted by the Government, or the Government otherwise has obtained or will obtain a benefit resulting from performance of the unauthorized commitment [@CL-OPM-0012].
+The authority to ratify may be exercised only when all of the listed conditions are met, the first being that supplies or services have been provided to and accepted by the Government, or the Government otherwise has obtained or will obtain a benefit resulting from performance of the unauthorized commitment [@CL-OPM-0012].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Who holds ratification authority in each contracting activity, and how finance l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that all listed ratification conditions apply.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contracting activity.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contracting activity.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for ratification of unauthorized commitments.
