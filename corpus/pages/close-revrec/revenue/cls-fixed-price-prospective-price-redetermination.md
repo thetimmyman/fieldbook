@@ -37,7 +37,7 @@ The initial period should be the longest period for which it is possible to nego
 
 The contract may provide for a ceiling price based on evaluation of the uncertainties involved in performance and their possible cost impact [@CL-CLS-0553]. That ceiling price should provide for assumption of a reasonable proportion of the risk by the contractor and, once established, may be adjusted only by operation of contract clauses providing for equitable adjustment or other revision of the contract price under stated circumstances [@CL-CLS-0675].
 
-This contract type shall not be used unless, among other conditions, negotiations have established that the conditions for use of a firm-fixed-price contract are not present and that a fixed-price incentive contract would not be more appropriate [@CL-CLS-0554]. The same list of limitations also names three further items [@CL-CLS-0555]. They are that the contractor's accounting system is adequate for price redetermination, that the prospective pricing periods can be made to conform with operation of that accounting system, and that there is reasonable assurance that price redetermination actions will take place promptly [@CL-CLS-0555].
+This contract type shall not be used unless, among other conditions, negotiations have established that the conditions for use of a firm-fixed-price contract are not present and that a fixed-price incentive contract would not be more appropriate [@CL-CLS-0554]. The same list of limitations also names three further items [@CL-CLS-0555]. They are that the contractor's accounting system is adequate for price redetermination, that the prospective pricing periods can be made to conform with operation of that accounting system, and that there is reasonable assurance that price redetermination actions will take place promptly at the specified times [@CL-CLS-0555; @CL-CLS-0193].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Who confirms that the accounting system is adequate for price redetermination an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the price redetermination sentence so the reasonable-assurance limitation keeps its specified times.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price contracts with prospective price redetermination.

@@ -41,7 +41,7 @@ Equipment gets its own treatment, and the section defines construction equipment
 
 ### Schedules of predetermined rates
 
-The section gives as examples that schedules need to be adjusted for Government contract costing purposes if they are based on replacement cost, include unallowable interest costs, or use improper cost of money rates or computations [@CL-CMP-2766]. It states that the allowance for ownership costs should include the cost of depreciation and may include facilities capital cost of money, and that the allowance for operating costs may include costs for such items as fuel, filters, oil, and grease; servicing, repairs, and maintenance; and tire wear and repair [@CL-CMP-2767]. Costs of labor, mobilization, demobilization, overhead, and profit are generally not reflected in predetermined schedules, and separate consideration may be necessary [@CL-CMP-2768]. When schedule use rates determine direct costs, all costs of equipment included in the schedule allowances shall be identified and eliminated from the contractor's other direct and indirect costs [@CL-CMP-2721]. In periods of suspension of work pursuant to a contract clause, the allowance for equipment ownership shall not exceed an amount for standby cost as determined by the schedule or contract provision [@CL-CMP-2765].
+The section gives as examples that schedules need to be adjusted for Government contract costing purposes if they are based on replacement cost, include unallowable interest costs, or use improper cost of money rates or computations [@CL-CMP-2766]. It states that the allowance for ownership costs should include the cost of depreciation and may include facilities capital cost of money, and that the allowance for operating costs may include costs for such items as fuel, filters, oil, and grease; servicing, repairs, and maintenance; and tire wear and repair [@CL-CMP-2767]. Costs of labor, mobilization, demobilization, overhead, and profit are generally not reflected in predetermined schedules, and separate consideration may be necessary [@CL-CMP-2768]. When schedule use rates determine direct costs, all costs of equipment included in the schedule allowances shall be identified and eliminated from the contractor's other direct and indirect costs charged to the contract [@CL-CMP-2721; @CL-CMP-7777]. In periods of suspension of work pursuant to a contract clause, the allowance for equipment ownership shall not exceed an amount for standby cost as determined by the schedule or contract provision [@CL-CMP-2765].
 
 ### Rented equipment
 
@@ -75,5 +75,6 @@ Whether the company holds construction or architect-engineer contracts, and whet
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the equipment allowance sentence so the elimination rule keeps its limit to costs charged to the contract.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost principles for construction and architect-engineer contracts.

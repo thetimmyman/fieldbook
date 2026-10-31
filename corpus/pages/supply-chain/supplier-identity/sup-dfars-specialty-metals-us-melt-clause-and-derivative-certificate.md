@@ -37,7 +37,7 @@ In the provision, the offeror lists any commercial derivative military articles 
 
 ## How it works
 
-The restriction sits in the clause and attaches to specialty metal delivered under the contract [@CL-SUP-1696]. The definition decides which steels and alloys count as specialty metal [@CL-SUP-1697; @CL-SUP-1698; @CL-SUP-1699; @CL-SUP-1700]. If the offeror listed any commercial derivative military articles, it certifies, on the footing that it is awarded a contract and the Government approves the designation, that it and its subcontractors will demonstrate purchase agreements for domestically melted or produced specialty metal in the required form for use during contract performance [@CL-SUP-1702; @CL-SUP-1703]. The amount is not less than the contractor's good faith estimate of the greater of two amounts, one equal to 120 percent of the metal needed for the article [@CL-SUP-1704] and the other equal to 50 percent of the metal to be purchased in the period for the article and the related commercial article [@CL-SUP-1705]. The metal needed includes metal in any incorporated item, including commercially available off-the-shelf items [@CL-SUP-1748].
+The restriction sits in the clause and attaches to specialty metal delivered under the contract [@CL-SUP-1696]. The definition decides which steels and alloys count as specialty metal [@CL-SUP-1697; @CL-SUP-1698; @CL-SUP-1699; @CL-SUP-1700]. If the offeror listed any commercial derivative military articles, it certifies, on the footing that it is awarded a contract and the Government approves the designation, that it and its subcontractors will demonstrate purchase agreements for domestically melted or produced specialty metal in the required form for use during contract performance in the production of each commercial derivative military article and the related commercial article [@CL-SUP-1702; @CL-SUP-1703; @CL-SUP-4059]. The amount is not less than the contractor's good faith estimate of the greater of two amounts, one equal to 120 percent of the metal needed for the article [@CL-SUP-1704] and the other equal to 50 percent of the metal to be purchased in the period for the article and the related commercial article [@CL-SUP-1705]. The metal needed includes metal in any incorporated item, including commercially available off-the-shelf items [@CL-SUP-1748].
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Which executed contracts and modifications carry the clause or the provision, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the derivative certificate sentence so the purchase agreements keep their use in producing each commercial derivative military article and the related commercial article.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the specialty metals melt clause and derivative certificate.

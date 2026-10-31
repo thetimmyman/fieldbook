@@ -44,7 +44,7 @@ The contractor must also spread the pay protection. Using language prescribed by
 
 The contractor must comply with Executive Order 11246, as amended, and the rules, regulations and orders of the Secretary of Labor [@CL-CMP-6360], and must furnish to the contracting agency all information that the order and those rules, regulations and orders require [@CL-CMP-6361]. It must also file Standard Form 100 (EEO-1), or any successor form, as prescribed in 41 CFR part 60-1 [@CL-CMP-6362]. Unless it filed within the 12 months before award, it must, within 30 days after award, apply to either the regional Office of Federal Contract Compliance Programs or the local office of the Equal Employment Opportunity Commission [@CL-CMP-5872], for the necessary forms [@CL-CMP-6363].
 
-The contractor must permit the contracting agency or the Office of Federal Contract Compliance Programs to have access to its premises during normal business hours for on-site compliance evaluations and complaint investigations [@CL-CMP-5873]. It must also permit the Government to inspect and copy any books, accounts, records, including computerized records, and other material that may be relevant to the matter under investigation and pertinent to compliance with Executive Order 11246, as amended [@CL-CMP-6364].
+The contractor must permit the contracting agency or the Office of Federal Contract Compliance Programs to have access to its premises during normal business hours for on-site compliance evaluations and complaint investigations [@CL-CMP-5873]. It must also permit the Government to inspect and copy any books, accounts, records, including computerized records, and other material that may be relevant to the matter under investigation and pertinent to compliance with Executive Order 11246, as amended, and with the rules and regulations that implement the Executive Order [@CL-CMP-6364; @CL-CMP-7779].
 
 If the Office of Federal Contract Compliance Programs determines that the contractor is not in compliance with the clause or any rule, regulation or order of the Secretary of Labor, the contract may be canceled, terminated or suspended in whole or in part and the contractor may be declared ineligible for further Government contracts [@CL-CMP-5874]. Those actions follow the procedures authorized in Executive Order 11246, as amended, and sanctions may also be imposed and remedies invoked as provided in that order, in the Secretary of Labor's rules, regulations and orders, or as otherwise provided by law [@CL-CMP-6365].
 
@@ -74,5 +74,6 @@ Which contracts and business units sit inside the equal opportunity population w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records access sentence so the inspection rule keeps its extension to the rules and regulations that implement the Executive Order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the equal opportunity clause.
