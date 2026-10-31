@@ -30,7 +30,7 @@ Shows what the contractor must do about Title III industrial resources under the
 
 The Contractor must refer any request from a Title III project contractor for testing and qualification of a Title III industrial resource to the Contracting Officer [@CL-PRG-0947]. Upon the direction of the Contracting Officer, the Contractor must test Title III industrial resources for qualification and provide the test results to the Defense Production Act Office, Title III Program [@CL-PRG-0948].
 
-When the Contracting Officer modifies the contract to direct testing, the Government will provide the Title III industrial resource to be tested and will make an equitable adjustment in the contract for the costs of testing and qualification of that resource [@CL-PRG-0949]. The Contractor agrees to insert the substance of the clause, including its paragraph (e), in every subcontract issued in performance of the contract [@CL-PRG-0950].
+When the Contracting Officer modifies the contract to direct testing pursuant to the clause, the Government will provide the Title III industrial resource to be tested and will make an equitable adjustment in the contract for the costs of testing and qualification of that resource [@CL-PRG-0949]. The Contractor agrees to insert the substance of the clause, including its paragraph (e), in every subcontract issued in performance of the contract [@CL-PRG-0950].
 
 ## How it works
 
@@ -56,6 +56,7 @@ Whether any contract has received a Title III testing request or direction, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: restored pursuant to the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for industrial resources developed under Title III of the Defense Production Act.

@@ -31,7 +31,7 @@ Shows what a Certificate of Competency is, which acquisitions it covers, and whe
 
 A Certificate of Competency is the certificate issued by the Small Business Administration stating that the holder is responsible [@CL-MKT-0475]. The program applies to all Government acquisitions except 8(a) sole-source awards [@CL-MKT-0476]. A contracting officer shall refer an apparent successful small business offeror determined to be nonresponsible to the SBA for a possible Certificate of Competency, even if the next acceptable offer is from a small business [@CL-MKT-0477].
 
-Upon determining and documenting that an apparent successful small business offeror lacks certain elements of responsibility [@CL-MKT-0565], the contracting officer has two duties: to withhold contract award and to refer the matter [@CL-MKT-0478]. The referral goes to the cognizant SBA Government Contracting Area Office serving the area of the offeror's headquarters, in accordance with agency procedures, except in the listed cases where referral is not necessary [@CL-MKT-0479]. Those listed cases are a concern determined to be unqualified and ineligible because it does not meet the standard in 9.104-1(g), provided the determination is approved by the chief of the contracting office, and a concern suspended or debarred under Executive Order 11246 or subpart 9.4 [@CL-MKT-0480].
+Upon determining and documenting that an apparent successful small business offeror lacks certain elements of responsibility [@CL-MKT-0565], the contracting officer has two duties: to withhold contract award and to refer the matter [@CL-MKT-0478]. The referral goes to the cognizant SBA Government Contracting Area Office serving the area of the offeror's headquarters, in accordance with agency procedures, except in the listed cases where referral is not necessary [@CL-MKT-0479]. Referral is not necessary if the concern meets one of the alternatives: it is determined to be unqualified and ineligible because it does not meet the standard in 9.104-1(g), provided the determination is approved by the chief of the contracting office [@CL-MKT-0480]; or it is suspended or debarred under Executive Order 11246 or subpart 9.4 [@CL-MKT-0480].
 
 ## How it works
 
@@ -55,4 +55,6 @@ Whether the company bids as a small business, and in which market segments, so t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: referral alternatives wording and cite placement.
+- COMPATIBLE_EXTENSION, 2026-10-31: Referral exceptions stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Certificates of Competency: general rules and referral.

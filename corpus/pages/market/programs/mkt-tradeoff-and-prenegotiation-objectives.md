@@ -31,7 +31,7 @@ Shows when an agency may weigh price against other factors, what the solicitatio
 
 A tradeoff process is appropriate when it may be in the best interest of the Government to consider award to other than the lowest priced offeror or other than the highest technically rated offeror [@CL-MKT-1325]. The process permits tradeoffs among cost or price and non-cost factors, and allows the Government to accept other than the lowest priced proposal [@CL-MKT-1478].
 
-When a tradeoff process is used, the solicitation must clearly state all evaluation factors and significant subfactors that will affect contract award and their relative importance [@CL-MKT-1326]. It must also state whether all evaluation factors other than cost or price, when combined, are significantly more important than, approximately equal to, or significantly less important than cost or price [@CL-MKT-1327]. The perceived benefits of the higher priced proposal must merit the additional cost, and the rationale for tradeoffs must be documented in the file in accordance with FAR 15.406 [@CL-MKT-1328].
+When a tradeoff process is used, the solicitation must clearly state all evaluation factors and significant subfactors that will affect contract award and their relative importance [@CL-MKT-9356; @CL-MKT-1326]. It must also state whether all evaluation factors other than cost or price, when combined, are significantly more important than, approximately equal to, or significantly less important than cost or price [@CL-MKT-1327]. The perceived benefits of the higher priced proposal must merit the additional cost, and the rationale for tradeoffs must be documented in the file in accordance with FAR 15.406 [@CL-MKT-1328].
 
 ## How it works
 
@@ -61,6 +61,7 @@ Which estimates need a documented tradeoff rationale and prenegotiation objectiv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: tradeoff process lead-in cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.103-4 phased acquisition.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the tradeoff process and prenegotiation objectives.

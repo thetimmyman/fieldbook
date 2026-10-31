@@ -29,11 +29,11 @@ Sets out which acquisitions count as interagency acquisitions, what is excluded,
 | Text status | Final [@CL-MKT-1727] |
 | Applies to | Interagency acquisitions under any authority, except the excluded reimbursable work, incidental-contracting activities and small Federal Supply Schedule orders [@CL-MKT-1727; @CL-MKT-1777; @CL-MKT-1729] |
 
-The subpart prescribes policies and procedures applicable to all interagency acquisitions under any authority, except as provided in its exclusion paragraph [@CL-MKT-1727]. It applies when an agency needing supplies or services obtains them using another agency's contract [@CL-MKT-1775], and when an agency uses another agency to provide acquisition assistance, such as awarding and administering a contract, a task order or a delivery order [@CL-MKT-1776].
+The subpart prescribes policies and procedures applicable to all interagency acquisitions under any authority, except as provided in its exclusion paragraph [@CL-MKT-1727]. It applies when either of two things happens: an agency needing supplies or services obtains them using another agency's contract [@CL-MKT-1775], or an agency uses another agency to provide acquisition assistance, such as awarding and administering a contract, a task order or a delivery order [@CL-MKT-1776].
 
 The subpart does not apply to interagency reimbursable work performed by Federal employees other than acquisition assistance, or to interagency activities where contracting is incidental to the purpose of the transaction [@CL-MKT-1777]. It also does not apply to orders of $750,000 or less issued against Federal Supply Schedules [@CL-MKT-1729].
 
-In addition to complying with this subpart, nondefense agencies acquiring supplies and services on behalf of the Department of Defense shall also comply with the policy and procedures of the subpart on acquisitions by nondefense agencies for the Department of Defense [@CL-MKT-1728].
+In addition to complying with this subpart, nondefense agencies acquiring supplies and services on behalf of the Department of Defense shall also comply with the policy and procedures at subpart 17.7 [@CL-MKT-1728].
 
 An agency shall not use an interagency acquisition to circumvent conditions and limitations imposed on the use of funds [@CL-MKT-1730]. An agency shall not use an interagency acquisition to make acquisitions conflicting with any other agency's authority or responsibility [@CL-MKT-1732]. An interagency acquisition is not exempt from the requirements of subpart 7.3 on contractor versus Government performance [@CL-MKT-1731].
 
@@ -69,6 +69,7 @@ Which interagency orders the company performs under, which agency is the servici
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: applicability alternatives stated as either-or, subpart 17.7 wording follows quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the interagency acquisition definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of interagency acquisition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of interagency acquisition.

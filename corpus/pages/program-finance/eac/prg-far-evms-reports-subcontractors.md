@@ -33,7 +33,7 @@ As a minimum, contracting officers must require contractors to submit EVMS month
 
 ## How it works
 
-The monthly report is a minimum, and it attaches only to contracts for which an EVMS applies [@CL-PRG-0855]. Whether an EVMS applies is not decided by this paragraph; the acquisition rules on [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md) set that [@CL-PRG-0850; @CL-PRG-0851], and the DoD thresholds are on [Earned value management system requirement](../evms/prg-evms-requirement.md). The printed FAR text does not state what the report must contain or its format, so this card does not establish either. For a subcontractor, the question is not answered by a separate test: the same rules as for the prime contractor are used [@CL-PRG-0856].
+The monthly report is a minimum, and the requirement is stated for those contracts for which an EVMS applies [@CL-PRG-0855]. Whether an EVMS applies is not decided by this paragraph; the acquisition rules on [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md) set that [@CL-PRG-0850; @CL-PRG-0851], and the DoD thresholds are on [Earned value management system requirement](../evms/prg-evms-requirement.md). The printed FAR text does not state what the report must contain or its format, so this card does not establish either. For a subcontractor, the question is not answered by a separate test: the same rules as for the prime contractor are used [@CL-PRG-0856].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ Who owns the program estimates and reports, and how each monthly report is recon
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive 'only' the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR monthly EVMS reports and subcontractor application.

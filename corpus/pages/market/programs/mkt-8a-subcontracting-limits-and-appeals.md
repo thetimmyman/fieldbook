@@ -47,7 +47,7 @@ The SBA accepts a requirement for the program. The contracting officer then reje
 
 ## Never confuse
 
-An SBA appeal to the agency head is a different path from the contracting agency's appeal of a Certificate of Competency, which goes to SBA Headquarters and is on the [Issuing or denying a Certificate of Competency and resolving differences with SBA](mkt-coc-issuance-denial-and-resolution.md) card [@CL-MKT-0489]. The 8(a) performance test measures what the participant itself performs [@CL-MKT-0514], while the appeal rules decide who may take a disagreement to the agency head and by when [@CL-MKT-0515; @CL-MKT-0517; @CL-MKT-0518].
+An SBA appeal to the agency head is a different path from the contracting agency's notice of intent to appeal the issuance of a Certificate of Competency, which goes to SBA Headquarters and is on the [Issuing or denying a Certificate of Competency and resolving differences with SBA](mkt-coc-issuance-denial-and-resolution.md) card [@CL-MKT-0489]. The 8(a) performance test measures what the participant itself performs [@CL-MKT-0514], while the appeal rules decide who may take a disagreement to the agency head and by when [@CL-MKT-0515; @CL-MKT-0517; @CL-MKT-0518].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ How subcontract spend is tracked against the participant's own performance, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Certificate of Competency appeal pointer limited to the notice of intent its claim quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the preaward survey and Certificate of Competency referral.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for 8(a) limitations on subcontracting and SBA appeals.

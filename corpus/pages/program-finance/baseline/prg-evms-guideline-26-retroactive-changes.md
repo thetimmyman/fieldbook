@@ -29,7 +29,7 @@ Shows which adjustments to previously reported cost, earned value, and budget am
 | Text status | Not established. |
 | Applies to | Retroactive changes to previously reported cost, earned value, or budget amounts for completed work [@CL-PRG-0373] |
 
-The guideline text says adjustments are made only for correction of errors, routine accounting adjustments, or the effects of customer or management directed changes, including implementation of a single point adjustment [@CL-PRG-0372]. The guide’s purpose statement lists the permitted changes as correction of errors, routine accounting adjustments, customer-directed changes, definitization of contract actions, rate changes, economic price adjustments, and implementation of a single point adjustment [@CL-PRG-0751]. Retroactive changes involve adjustments to previously reported values for budgeted cost for work scheduled, budgeted cost for work performed, or actual cost of work performed, related to completed work [@CL-PRG-0373].
+The guideline text says adjustments are made only for correction of errors, routine accounting adjustments, or the effects of customer or management directed changes, including implementation of a single point adjustment [@CL-PRG-0372]. The guide’s purpose statement says the changes should be limited to correction of errors, routine accounting adjustments, customer-directed changes, definitization of contract actions, rate changes, economic price adjustments, or implementation of a single point adjustment, and these are alternatives [@CL-PRG-0751]. Retroactive changes involve adjustments to previously reported values for budgeted cost for work scheduled, budgeted cost for work performed, or actual cost of work performed, related to completed work [@CL-PRG-0373].
 
 ## How it works
 
@@ -53,5 +53,6 @@ Whether a proposed reset of variances is a permitted retroactive change or a sin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Purpose-statement list reworded as alternatives the changes should be limited to.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: added the guide’s fuller list of permitted changes and fixed the single point adjustment contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for retroactive changes.

@@ -29,11 +29,11 @@ Shows how the earned value system summarizes performance data and variances thro
 | Text status | Not established. |
 | Applies to | Programs whose performance status is summarized from the control account through the work breakdown structure and organizational breakdown structure for management insight and control and to meet customer reporting requirements [@CL-PRG-0351] |
 
-Program performance status is summarized from the control account, at a minimum, through the work breakdown structure and organizational breakdown structure for management insight and control and to meet customer reporting requirements [@CL-PRG-0351]. The data used for internal management control and external customer reporting must be derived from the same data resident in the earned value system [@CL-PRG-0353].
+The guideline's purpose is to ensure that program performance status can be accurately summarized from the control account, at a minimum, through the work breakdown structure and organizational breakdown structure for program management insight and control as well as to meet customer reporting requirements [@CL-PRG-0351]. The guide treats it as critical that the data used for internal management control and external customer reporting are derived from the same data resident in the earned value system [@CL-PRG-0353].
 
 ## How it works
 
-Performance data is summarized through the work breakdown structure and organizational breakdown structure from the control account through the contract level [@CL-PRG-0352]. The summarized data carries budgeted cost for work scheduled, budgeted cost for work performed, actual cost of work performed, budget at completion, and estimate at completion [@CL-PRG-0352]. Internal management control and external customer reporting are drawn from the same data resident in the earned value system [@CL-PRG-0353].
+Performance data is summarized through the work breakdown structure and organizational breakdown structure from the control account through the contract level [@CL-PRG-0352]. The summarized data carries budgeted cost for work scheduled, budgeted cost for work performed, actual cost of work performed, budget at completion, and estimate at completion [@CL-PRG-0352]. The guide treats it as critical that internal management control and external customer reporting are drawn from the same data resident in the earned value system [@CL-PRG-0353].
 
 ## Worked example
 
@@ -53,5 +53,6 @@ Whether internal management control and external customer reporting draw from th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Purpose and critical-data statements attributed to the guide's wording.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restated the summarizing sentence to match its claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for earned value performance and variance summarization.

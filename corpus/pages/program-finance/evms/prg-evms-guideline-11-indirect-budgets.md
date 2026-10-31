@@ -34,7 +34,7 @@ The budgets are established at the appropriate organizational level for each poo
 
 ## How it works
 
-Actual indirect expense is compared with the established indirect budgets, which tells the contractor whether absorption under the existing allocation schemes is on track or whether a rate needs adjustment [@CL-PRG-0268]. The indirect budgets are planned alongside the direct budgets and are consistent with the contractor’s documented procedures for approving and allocating indirect cost [@CL-PRG-0266]. The budgets enter the baseline with the current rates, whether those are approved, provisional or proposed [@CL-PRG-0267]. The guide treats it as critical to the contractor that all indirect expenses are allocated by the end of the accounting year [@CL-PRG-0264].
+Actual indirect expense is compared with the established indirect budgets, which tells the contractor whether absorption under the existing documented allocation schemes is on track or whether a rate needs adjustment [@CL-PRG-0268]. The indirect budgets are planned alongside the direct budgets and are consistent with the contractor’s documented procedures for approving and allocating indirect cost [@CL-PRG-0266]. The budgets enter the baseline with the current rates, whether those are approved, provisional or proposed [@CL-PRG-0267]. The guide treats it as critical to the contractor that, at the end of the accounting year, all indirect expenses are allocated [@CL-PRG-0264].
 
 ## Worked example
 
@@ -56,6 +56,7 @@ Whether each pool carries an indirect budget in the baseline at the level the re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the documented allocation schemes wording and the year-end timing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed two sentences the cited claims did not support and aligned the wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 11 indirect budgets.

@@ -29,7 +29,7 @@ Sets out the requirement to identify in the schedule the physical products, mile
 | Text status | Not established. |
 | Applies to | Schedules used to measure progress under the fifth earned value guideline [@CL-PRG-0201] |
 
-The contractor must identify in the schedule the physical products, milestones, technical performance goals, or other objective indicators used to measure progress [@CL-PRG-0201]. The guideline ensures that program schedules establish and maintain a relationship between technical achievement and progress statusing while providing objective performance data that accurately reflects work progress [@CL-PRG-0202]. Objective program milestones aligned with technical requirements and goals are determined in advance, documented, and used to plan and measure progress [@CL-PRG-0205].
+The contractor must identify in the schedule the physical products, milestones, technical performance goals, or other objective indicators used to measure progress [@CL-PRG-0201]. The stated purpose of the guideline is to ensure that program schedules establish and maintain a relationship between technical achievement and progress statusing and provide objective performance data that accurately reflects the progress of the work [@CL-PRG-0202]. Objective program milestones aligned with technical requirements and goals are determined in advance, documented, and used to plan and measure progress [@CL-PRG-0205].
 
 ## How it works
 
@@ -43,7 +43,7 @@ A software build activity spans 6 months with an authorized budget of 120,000. R
 
 ## Never confuse
 
-This guideline identifies indicators in the schedule to measure progress [@CL-PRG-0201]. The next guideline is a different step, because it schedules the authorized work so that it describes the sequence of work and the task interdependencies required to meet program requirements [@CL-PRG-0206]. See [Earned value management system requirement](prg-evms-requirement.md).
+This guideline identifies indicators in the schedule to measure progress [@CL-PRG-0201]. The next guideline is a different step, because it schedules the authorized work in a manner that describes the sequence of work and identifies task interdependencies required to meet the requirements of the program [@CL-PRG-0206]. See [Earned value management system requirement](prg-evms-requirement.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which contracts carry an earned value requirement, and whether the milestones us
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: purpose wording and interdependencies verb.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 5 progress indicators.

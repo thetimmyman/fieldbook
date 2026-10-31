@@ -31,7 +31,7 @@ Explains what the multiyear method is for, how the agency must fund it, how canc
 
 Multiyear contracting is a special contracting method to acquire known requirements in quantities and total cost not over planned requirements for up to 5 years unless otherwise authorized by statute, even though the total funds ultimately to be obligated may not be available at the time of contract award [@CL-MKT-1354]. It may be used in sealed bidding or contracting by negotiation [@CL-MKT-1506]. The extent to which cancellation terms are used depends on the unique circumstances of each contract [@CL-MKT-1507]. For multiyear contracts, the agency head may authorize modification of the requirements of the subpart and of the cancellation clause [@CL-MKT-1355].
 
-Agency funding of multiyear contracts must conform to the policies in OMB Circular A-11 and other applicable guidance [@CL-MKT-1508]. The funds obligated must be sufficient to cover any potential cancellation and/or termination costs, and multiyear contracts for the acquisition of fixed assets should be fully funded or funded in stages that are economically or programmatically viable [@CL-MKT-1356].
+Agency funding of multiyear contracts must conform to the policies in OMB Circular A-11 and other applicable guidance [@CL-MKT-1508]. As provided by that guidance, the funds obligated must be sufficient to cover any potential cancellation and/or termination costs [@CL-MKT-9339], and multiyear contracts for the acquisition of fixed assets should be fully funded or funded in stages that are economically or programmatically viable [@CL-MKT-1356].
 
 ## How it works
 
@@ -51,7 +51,7 @@ In the second year the contracting officer notifies the contractor that funds ar
 
 ## Never confuse
 
-Cancellation is not termination: cancellation is effected between fiscal years and must cover all subsequent fiscal years' quantities, while termination may come at any time and may be partial [@CL-MKT-1357]. The cancellation clause is inserted when a multiyear contract is contemplated, although the agency head may authorize modification of the requirements of the subpart and of the clause [@CL-MKT-1358; @CL-MKT-1355]. A fall in the requirement is not a cancellation: unless the clause's funding trigger occurs, a reduction by the contracting officer is a termination for convenience [@CL-MKT-1596; @CL-MKT-1597; @CL-MKT-1598].
+Cancellation is not termination: cancellation is effected between fiscal years and must cover all subsequent fiscal years' quantities, while termination may come at any time and may be partial [@CL-MKT-1357]. The cancellation clause is inserted when a multiyear contract is contemplated, although the agency head may authorize modification of the requirements of the subpart and of the clause [@CL-MKT-1358; @CL-MKT-1355]. A fall in the requirement is not a cancellation: except for cancellation under the clause, which occurs on one of the two funding triggers, or termination under the Default clause, a reduction by the contracting officer is a termination for convenience [@CL-MKT-1596; @CL-MKT-1597; @CL-MKT-1598].
 
 ## Company calibration
 
@@ -61,4 +61,5 @@ Which executed contracts are multiyear and who confirms the cancellation clause 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: funding sentence carries lead-in, cancellation or default exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting, cancellation and the related clauses.

@@ -48,7 +48,7 @@ The agency prepares the contract to be awarded to the SBA in accordance with age
 
 The contracting officer prepares the contract that the SBA will award to the participant as if awarding directly to the participant, except for the listed items [@CL-MKT-1376]. The award form cites the statutory authority for other than full and open competition [@CL-MKT-1377]. The contract includes appropriate clauses, as necessary, to show that it is between the SBA and the 8(a) contractor [@CL-MKT-1378]. The SBA inserts its contract number, the effective date, the typed name and signature of its contracting officer, and the date signed [@CL-MKT-1379].
 
-The SBA obtains the 8(a) contractor's signature before signing and returning the prime contract to the contracting officer [@CL-MKT-1380]. The SBA will make every effort to return the contract, and any later bilateral modification, within a maximum of 10 working days [@CL-MKT-1381].
+The SBA obtains the 8(a) contractor's signature before signing and returning the prime contract to the contracting officer [@CL-MKT-1380]. The SBA will make every effort to obtain signatures and return the contract, and any later bilateral modification, within a maximum of 10 working days [@CL-MKT-1381].
 
 ### The single-document alternative
 
@@ -72,4 +72,5 @@ Whether any planned sole-source award sits near the justification trigger, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: 8a signature return wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sole-source 8(a) awards, agreement orders and the agency contract.

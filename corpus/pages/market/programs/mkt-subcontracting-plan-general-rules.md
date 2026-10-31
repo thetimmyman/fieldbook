@@ -35,7 +35,7 @@ When the contracting officer uses a contractual incentive provision that rewards
 
 ## How it works
 
-An individual plan covers the entire contract period, including option periods, applies to a specific contract and has goals based on planned subcontracting for it [@CL-MKT-0555; @CL-MKT-0430]. A master plan holds the required elements except goals and may be incorporated into individual plans once approved [@CL-MKT-0431]. A commercial plan covers the offeror's fiscal year and the whole production of commercial products and services sold by the company or a portion of it [@CL-MKT-0426]. A contractor with a commercial plan is excepted from the plan requirement for an indefinite-delivery contract [@CL-MKT-0440]. The definitions of the three plan types are on the [Subcontracting program definitions and eligibility to participate](mkt-subcontracting-program-definitions-and-eligibility.md) card, and the review of a plan is on the [Reviewing the subcontracting plan](mkt-subcontracting-plan-review.md) card. The incentive clause itself is on the [Subcontracting contract clauses](mkt-subcontracting-contract-clauses.md) card.
+An individual plan covers the entire contract period, including option periods, applies to a specific contract and has goals based on the offeror's planned subcontracting in support of it, except that indirect costs incurred for common or joint purposes may be allocated on a prorated basis to the contract [@CL-MKT-0555; @CL-MKT-0430]. A master plan holds the required elements except goals and may be incorporated into individual plans once approved [@CL-MKT-0431]. A commercial plan covers the offeror's fiscal year and the whole production of commercial products and services sold by the company or a portion of it [@CL-MKT-0426]. A contractor with a commercial plan is excepted from the plan requirement for an indefinite-delivery contract [@CL-MKT-0440]. The definitions of the three plan types are on the [Subcontracting program definitions and eligibility to participate](mkt-subcontracting-program-definitions-and-eligibility.md) card, and the review of a plan is on the [Reviewing the subcontracting plan](mkt-subcontracting-plan-review.md) card. The incentive clause itself is on the [Subcontracting contract clauses](mkt-subcontracting-contract-clauses.md) card.
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Whether the company holds a commercial plan or an approved master plan, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: individual plan goals exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for general rules for subcontracting plans.

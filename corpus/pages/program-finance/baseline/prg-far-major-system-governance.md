@@ -32,7 +32,7 @@ As required by A-109, the agency head or designee must establish written procedu
 
 The FAR's general definitions say agency head or head of the agency means the Secretary, Attorney General, Administrator, Governor, Chairperson, or other chief official of an executive agency, unless otherwise indicated, including any deputy or assistant chief official of an executive agency [@CL-PRG-9064]. The RFO model text of FAR 2.101 defines agency head or "head of the agency" in the same words as the codified definition, apart from the quotation marks it prints around head of the agency [@CL-PRG-9100; @CL-PRG-9064].
 
-Systems acquisitions normally designated as major are those programs that, as determined by the agency head, meet the criteria listed after that lead-in [@CL-PRG-0876]. One listed criterion is that the program is directed at and critical to fulfilling an agency mission need [@CL-PRG-0876; @CL-PRG-0877]. Another is that it entails allocating relatively large resources for the particular agency [@CL-PRG-0876; @CL-PRG-0878]. The last is that it warrants special management attention, including specific agency-head decisions [@CL-PRG-0876; @CL-PRG-0879].
+Systems acquisitions normally designated as major are those programs that, as determined by the agency head, meet all three criteria listed after that lead-in, which the section joins with "and" [@CL-PRG-0876; @CL-PRG-9148]. One listed criterion is that the program is directed at and critical to fulfilling an agency mission need [@CL-PRG-0876; @CL-PRG-0877]. Another is that it entails allocating relatively large resources for the particular agency [@CL-PRG-0876; @CL-PRG-0878]. The last is that it warrants special management attention, including specific agency-head decisions [@CL-PRG-0876; @CL-PRG-0879].
 
 The program manager, as specified in agency procedures, must develop an acquisition strategy tailored to the program [@CL-PRG-0881]. The strategy is the program manager's overall plan for satisfying the mission need in the most effective, economical, and timely manner [@CL-PRG-0882]. The strategy must be in writing, prepared in accordance with the requirements of subpart 7.1 except where inconsistent with this part, and it qualifies as the acquisition plan for the major system acquisition [@CL-PRG-0882; @CL-PRG-0883]. Contracts for full production of successfully tested major systems selected from the full-scale development phase may be awarded if the agency head reaffirms the mission need and program objectives and grants approval to proceed with production [@CL-PRG-0884].
 
@@ -40,7 +40,7 @@ The FAR's general definitions say acquisition planning means the process by whic
 
 ## How it works
 
-The agency head or designee sets the written procedures, and the agency head decides which programs are normally designated as major [@CL-PRG-0874; @CL-PRG-0876]. The officials who make the key decisions are those the agency procedures identify, and the source does not name them, so the company reads the procedures for each program [@CL-PRG-0875]. The program manager develops the acquisition strategy, as the agency procedures specify [@CL-PRG-0881]. That written strategy serves as the acquisition plan [@CL-PRG-0882; @CL-PRG-0883]. Before full production the agency head reaffirms the mission need and program objectives and approves proceeding [@CL-PRG-0884].
+The agency head or designee sets the written procedures, and the agency head decides which programs are normally designated as major [@CL-PRG-0874; @CL-PRG-0876]. The officials who make the key decisions are those the agency procedures identify, and the source does not name them, so the company reads the procedures for each program [@CL-PRG-0875]. The program manager develops the acquisition strategy, as the agency procedures specify [@CL-PRG-0881]. That written strategy serves as the acquisition plan [@CL-PRG-0882; @CL-PRG-0883]. Contracts for full production of successfully tested major systems may be awarded if the agency head reaffirms the mission need and program objectives and grants approval to proceed with production [@CL-PRG-0884].
 
 For DoD, DFARS 234.003 says DoDD 5000.01, The Defense Acquisition System, and DoDI 5000.02, Operation of the Adaptive Acquisition Framework, contain the DoD implementation of OMB Circular A-109 and OMB Circular A-11 [@CL-PRG-0543].
 
@@ -62,6 +62,7 @@ Which key decision points and agency officials apply to the company's programs, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Criteria list stated as all three; full-production sentence restored to may-be-awarded-if.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored program objectives in the reaffirmation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the acquisition planning definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of acquisition planning and agency head or head of the agency.

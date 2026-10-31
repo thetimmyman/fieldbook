@@ -40,7 +40,7 @@ The FAR definitions section describes source selection information as any of the
 
 Synthetic example. The numbers are made up.
 
-A target competing for a Federal contract obtained a competitor's proprietary information from a Government employee without authorization. In a second bid, it held source selection information relevant to the contract that was not available to all competitors and would help it win.
+A target competing for a Federal contract obtained a competitor's proprietary information from a Government official without proper authorization. In a second bid, it held source selection information relevant to the contract that was not available to all competitors and would help it win.
 
 Answer: in the first case the rule says an unfair competitive advantage exists. In the second case it also exists, because the information is relevant, not available to all competitors, and would assist the target in obtaining the contract.
 
@@ -56,6 +56,7 @@ Which current and past engagements of the target, the buyer and their affiliates
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Example now says Government official, matching the rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the source selection information definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of source selection information.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of source selection information.

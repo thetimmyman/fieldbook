@@ -36,7 +36,7 @@ The senior procurement executive has the authority to make the determination aut
 
 ## How it works
 
-The review, reporting and determination duties bind Government officials. The private security clause is the part that reaches the contractor's fee: a period of noncompliance requires the contracting officer to consider reducing or denying award fee for that period and recovering fee already paid for it, and the award-fee plan must require the review that finds it [@CL-MKT-1588; @CL-MKT-1589; @CL-MKT-1590].
+The review, reporting and determination duties bind Government officials. The private security clause is the part that reaches the contractor's fee: a period of noncompliance requires the contracting officer to consider reducing or denying award fee for that period and recovering fee already paid for it, and the award-fee plan must include a requirement to review contractor compliance with, or violation of, applicable contract requirements on private security functions [@CL-MKT-1588; @CL-MKT-1589; @CL-MKT-1590].
 
 For short shelf-life items the contracting officer considers an indefinite-delivery contract with direct ordering or direct delivery, and the issuing office supplies the data so that each ordering activity can report within the time allowed [@CL-MKT-1591; @CL-MKT-1641; @CL-MKT-1592]. The single-source determination sits with the senior procurement executive and, for the integrally-related ground, uses the efficiently-perform standard, and a justification executed in accordance with FAR subpart 6.3 and DFARS subpart 206.3 removes the need for the determination [@CL-MKT-1643; @CL-MKT-1593; @CL-MKT-1644].
 
@@ -62,6 +62,7 @@ Which contracts within the finance remit carry an award-fee plan or the private 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Award-fee plan review duty restated as the quoted requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that the justification that removes the need for the single-award determination must follow DFARS subpart 206.3 as well as FAR subpart 6.3.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award fee, shelf-life items and the multiple-award determination.
