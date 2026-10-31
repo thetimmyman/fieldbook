@@ -24,7 +24,7 @@ Shows what the inspection clause for cost-reimbursement supply contracts asks of
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1077] |
 | Codified citation | FAR 52.246-3 [@CL-SUP-1076] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-3 [@CL-SUP-3244] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1077] |
 | Applies to | Solicitations and contracts for supplies, or services that involve the furnishing of supplies, when a cost-reimbursement contract is contemplated [@CL-SUP-1076] |
@@ -38,6 +38,8 @@ Except as paragraph (h) provides otherwise, the cost of replacement or correctio
 ## How it works
 
 The contractor's inspection system and the Government's right to inspect during manufacture and before acceptance work side by side [@CL-SUP-1077; @CL-SUP-1078]. After acceptance, the Government may still require replacement or correction of supplies that were nonconforming at delivery, within the time limit [@CL-SUP-1079; @CL-SUP-1128]. That correction cost is included in allowable cost with no added fee, unless a listed no-cost case applies [@CL-SUP-1080; @CL-SUP-1081; @CL-SUP-1131]. If the contractor does not proceed with reasonable promptness, the Government may perform the correction by contract or otherwise and either charge the contractor any increased cost or make an equitable reduction in any fixed fee, as one listed remedy [@CL-SUP-1082]. Paragraph (g)(1) also lists requiring delivery of undelivered supplies at an equitable reduction in any fixed fee, and termination for default [@CL-SUP-1130]. The fixed-price clause is covered in [Inspection of supplies, fixed-price](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md) and is not restated here. The services version for cost-reimbursement contracts is on [Inspection of services, cost-reimbursement](sup-inspection-of-services-cost-reimbursement.md), and the certificate that may replace source inspection is on [Certificate of conformance](sup-certificate-of-conformance-and-dismantling-inspection.md).
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the contractor's duty to provide and maintain an inspection system acceptable to the Government [@CL-SUP-1077] [@CL-SUP-3244], the duty to keep complete inspection records available [@CL-SUP-1126] [@CL-SUP-3245] and the Government's right to inspect and test the contract supplies before acceptance [@CL-SUP-1078] [@CL-SUP-3246] and to inspect the plant of the contractor or any subcontractor [@CL-SUP-1127] [@CL-SUP-3247]. It keeps the period for requiring replacement or correction [@CL-SUP-1128] [@CL-SUP-3248] of nonconforming supplies [@CL-SUP-1079] [@CL-SUP-3249], and the definition of nonconforming [@CL-SUP-1129] [@CL-SUP-3250]. It keeps the listed remedies if the contractor does not proceed with reasonable promptness [@CL-SUP-1082] [@CL-SUP-3252] [@CL-SUP-3253] [@CL-SUP-1130] [@CL-SUP-3254]. It keeps the listed causes for no-cost correction or replacement: fraud, lack of good faith or willful misconduct by managerial personnel [@CL-SUP-1081] [@CL-SUP-3256] and the conduct of employees the contractor selected or retained after managerial personnel had reasonable grounds to believe they were habitually careless or unqualified [@CL-SUP-1131] [@CL-SUP-3257]. The RFO text states the cost rule, that the cost is included in allowable cost with no additional fee, except as provided in paragraph (h) of this clause [@CL-SUP-3251], and the no-cost correction or replacement as applying notwithstanding paragraphs (f) and (g) of this clause [@CL-SUP-3255]. The substance of both is the same as in the codified text [@CL-SUP-1080] [@CL-SUP-1081], and the cross-reference wording differs.
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Whether the executed contract includes this clause or the fixed-price one, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of supplies under cost-reimbursement contracts.

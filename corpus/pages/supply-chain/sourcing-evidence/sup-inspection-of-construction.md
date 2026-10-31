@@ -24,7 +24,7 @@ Shows the inspection system duty, the Government's right to inspect and test, th
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1114] |
 | Codified citation | FAR 52.246-12 [@CL-SUP-1114] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-12 [@CL-SUP-3168] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1114] |
 | Applies to | Contracts that include the Inspection of Construction clause [@CL-SUP-1114]; the clause is directed for solicitations and contracts for construction when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-SUP-1141] |
@@ -38,6 +38,8 @@ Acceptance is final and conclusive except for latent defects, fraud, gross mista
 ## How it works
 
 The contractor inspects its own work, and the Government inspects and tests it before acceptance [@CL-SUP-1114; @CL-SUP-1115]. Rejected work is replaced or corrected without charge, unless the Government consents to accept it with a price adjustment in the public interest [@CL-SUP-1117]. Rejected material is segregated and removed from the premises [@CL-SUP-1118]. If the contractor does not act promptly, the Government may do the work and charge the cost, or terminate for default [@CL-SUP-1119]. Once the work is accepted, acceptance is final subject to the listed exceptions [@CL-SUP-1120].
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the contractor's duty to maintain an adequate inspection system [@CL-SUP-1114] [@CL-SUP-3168] and the Government's right to inspect and test all work before acceptance [@CL-SUP-1115] [@CL-SUP-3169]. It keeps the rule that Government inspections and tests are for the sole benefit of the Government and do not relieve the contractor of quality control responsibility or of responsibility for damage or loss before acceptance [@CL-SUP-1116] [@CL-SUP-3170] and do not constitute or imply acceptance [@CL-SUP-1142] [@CL-SUP-3171]. The RFO list also includes that these inspections and tests do not affect the continuing rights of the Government after acceptance of the completed work under paragraph (i) [@CL-SUP-9271]. It keeps the duty to replace or correct nonconforming work without charge unless the Government consents in the public interest to accept it with an adjustment in contract price [@CL-SUP-1117] [@CL-SUP-3172], the duty to segregate and remove rejected material [@CL-SUP-1118] [@CL-SUP-3173], the Government remedies if the contractor does not promptly act [@CL-SUP-1119] [@CL-SUP-3174], and the rule that acceptance is final and conclusive except for the listed exceptions [@CL-SUP-1120] [@CL-SUP-3175].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Which acceptance and payment terms govern construction milestones under the exec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of construction.

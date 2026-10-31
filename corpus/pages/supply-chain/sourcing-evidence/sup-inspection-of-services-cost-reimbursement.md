@@ -24,7 +24,7 @@ Shows the Government's inspection rights and the correction rule in the services
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1090] |
 | Codified citation | FAR 52.246-5 [@CL-SUP-1090] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-5 [@CL-SUP-3185] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1090] |
 | Applies to | Contracts that include the Inspection of Services—Cost-Reimbursement clause [@CL-SUP-1090]; the clause is directed for solicitations and contracts for services, or supplies that involve the furnishing of services, when a cost-reimbursement contract is contemplated [@CL-SUP-1133] |
@@ -38,6 +38,8 @@ The printed clause text says reperformance is for no additional fee [@CL-SUP-109
 ## How it works
 
 The inspection system and the right to inspect apply during the term of the contract [@CL-SUP-1090; @CL-SUP-1091]. A nonconforming service is performed again for no additional fee [@CL-SUP-1092]. Where reperformance cannot correct the defects, the remedy reaches the fee: the Government may reduce any fee payable [@CL-SUP-1093]. The clause lists further remedies if the contractor fails to promptly perform again or to take the action necessary to ensure future conformity [@CL-SUP-1094]. One is that the Government performs the services and reduces any fee payable by an equitable amount; another is termination for default [@CL-SUP-1095].
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the contractor's duty to provide and maintain an inspection system acceptable to the Government [@CL-SUP-1090] [@CL-SUP-3185] and the Government's right to inspect and test all services during the term of the contract [@CL-SUP-1091] [@CL-SUP-3231]. It keeps reperformance of nonconforming services for no additional fee [@CL-SUP-1092] [@CL-SUP-3232]. When defects cannot be corrected by reperformance, it keeps the option to require action to ensure future conformity [@CL-SUP-1093] [@CL-SUP-3233] and the option to reduce any fee payable [@CL-SUP-1093] [@CL-SUP-3234]. It keeps the listed remedies if the contractor fails to promptly perform again or take the necessary action [@CL-SUP-1094] [@CL-SUP-1095] [@CL-SUP-3235] [@CL-SUP-3236].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Whether the executed contract includes this clause, and how the company bills an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of services under cost-reimbursement contracts.
