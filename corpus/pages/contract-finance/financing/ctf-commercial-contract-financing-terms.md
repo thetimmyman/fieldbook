@@ -24,7 +24,7 @@ Shows the statutory authority for commercial payment terms, how market research 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3535] |
 | Codified citation | FAR 32.201, FAR 32.202-3 and FAR 32.203 [@CL-CTF-3535; @CL-CTF-3536; @CL-CTF-3539] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.201 [@CL-CTF-4212; @CL-CTF-4213], RFO FAR 32.202-3 [@CL-CTF-4214; @CL-CTF-4215; @CL-CTF-4216; @CL-CTF-4217] and RFO FAR 32.203 [@CL-CTF-4218; @CL-CTF-4219] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3535] |
 | Applies to | Payment for commercial products and commercial services [@CL-CTF-3535] |
@@ -45,6 +45,8 @@ Market research is one place where the contracting officer can learn what the ma
 
 The choice then fixes the procedure. When the contracting officer specifies the terms, the terms are included in the solicitation, financing is not a factor in evaluating the proposals, and proposals of alternative financing terms are not accepted, with the text referring to the rules on amendments of solicitations [@CL-CTF-3069]. When offerors propose terms, the contracting officer must determine which offer is in the best interests of the United States [@CL-CTF-1417]. See [Contracting officer-specified financing for commercial purchases](ctf-commercial-financing-terms.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.201(a) keeps the statutory rule that payment for commercial products or commercial services may be made under such terms and conditions as the head of the agency determines are appropriate or customary in the commercial marketplace and are in the best interest of the United States [@CL-CTF-4212]. RFO FAR 32.202-3 keeps the rule that contract financing may be a subject included in the market research conducted in accordance with part 10 [@CL-CTF-4214], with the same matters to consider: the extent of other buyers’ financing and the overall level of financing [@CL-CTF-4215], payments equivalent to commercial advance and interim payments [@CL-CTF-4216], and methods of liquidation and special or unusual delivery payment terms [@CL-CTF-4217]. RFO FAR 32.203 keeps the choice, when the criteria in 32.202-1(b) are met, between specifying the financing terms in the solicitation and permitting each offeror to propose its own customary financing terms [@CL-CTF-4218], and the rule that terms may be specified when the contracting officer has sufficient information on customary terms [@CL-CTF-4219]. One addition: RFO FAR 32.201(b) states that section 3324(d)(2) of title 31 of the United States Code authorizes advance payments for subscriptions or other charges for newspapers, magazines, periodicals, or other publications [@CL-CTF-4213].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,6 +61,8 @@ The agency head's determination under the statutes is also not the contracting o
 
 Market research about financing is not a required step. Contract financing may be a subject included in the market research conducted under part 10 [@CL-CTF-3536].
 
+The RFO text adds paragraph (b) to the authority section, on advance payments for subscriptions to publications under section 3324(d)(2) of title 31 of the United States Code [@CL-CTF-4213]; it is separate from the commercial payment terms rule in paragraph (a) [@CL-CTF-4212].
+
 ## Company calibration
 
 What financing terms the company's market actually uses, and whether the solicitation fixes them. [@Q-026]
@@ -67,4 +71,5 @@ What financing terms the company's market actually uses, and whether the solicit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial contract financing terms.

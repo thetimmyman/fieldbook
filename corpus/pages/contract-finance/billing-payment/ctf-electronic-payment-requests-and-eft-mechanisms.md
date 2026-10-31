@@ -24,7 +24,7 @@ Explains how DoD processes payment requests electronically, what the contracting
 |---|---|
 | Instrument | Codified DFARS and codified FAR [@CL-CTF-3381; @CL-CTF-3387] |
 | Codified citation | DFARS 232.7003 and FAR 32.1106 [@CL-CTF-3381; @CL-CTF-3387] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.1106 [@CL-CTF-4587; @CL-CTF-4589] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3381] |
 | Applies to | Payment requests and receiving reports that DoD receives in electronic form, and payments under the EFT clauses [@CL-CTF-3381; @CL-CTF-3387] |
@@ -38,6 +38,8 @@ If one of the exceptions to submission in electronic form at 232.7002(a) applies
 The EFT clauses at FAR 52.232-33 and 52.232-34 are designed for use with the domestic United States banking system, using United States currency, and only the Automated Clearing House and Fedwire Transfer System mechanisms of EFT [@CL-CTF-3387]. The head of an agency may authorize any other EFT mechanism for domestic EFT with the concurrence of the office or agency responsible for making payments [@CL-CTF-3388].
 
 The Government must provide payment by other than EFT for payments received by or on behalf of the contractor outside the United States and Puerto Rico, or for contracts paid in other than United States currency [@CL-CTF-3389]. The head of an agency may still authorize appropriate use of EFT for those payments, with the concurrence of the office or agency responsible for making payments, if either of two grounds holds: the political, financial, and communications infrastructure in a foreign country supports payment by EFT [@CL-CTF-3390], or payments of other than United States currency may be made safely [@CL-CTF-3419].
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified FAR part 32 text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.1106 keeps the FAR EFT mechanisms rule described above [@CL-CTF-4587; @CL-CTF-4588; @CL-CTF-4589; @CL-CTF-4590; @CL-CTF-4591]. The EFT clauses at FAR 52.232-33 and 52.232-34 are designed for use with the domestic United States banking system, using United States currency, and only the specified mechanisms, the Automated Clearing House and the Fedwire Transfer System [@CL-CTF-4587]. The head of an agency may authorize the use of any other EFT mechanism for domestic EFT with the concurrence of the office or agency responsible for making payments [@CL-CTF-4588]. The Government must provide payment by other than EFT for payments received by or on behalf of the contractor outside the United States and Puerto Rico or for contracts paid in other than United States currency [@CL-CTF-4589]. The head of an agency may still authorize appropriate use of EFT, with the concurrence of the office or agency responsible for making payments, if the political, financial, and communications infrastructure in a foreign country supports payment by EFT [@CL-CTF-4590], or if payments of other than United States currency may be made safely [@CL-CTF-4591].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Confirm where payment requests are submitted for each contract and who handles a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic payment requests and EFT mechanisms.

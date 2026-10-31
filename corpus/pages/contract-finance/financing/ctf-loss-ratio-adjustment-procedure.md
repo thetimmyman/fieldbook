@@ -24,7 +24,7 @@ Explains who prepares the supplementary analysis behind a loss ratio adjustment 
 |---|---|
 | Instrument | Codified DFARS and codified FAR [@CL-CTF-3367; @CL-CTF-3411] |
 | Codified citation | DFARS 232.503-6 and FAR 32.503-6(g) [@CL-CTF-3367; @CL-CTF-3411] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.503-6 [@CL-CTF-4628; @CL-CTF-4633] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3367] |
 | Applies to | Progress payment requests on loss contracts [@CL-CTF-3410] |
@@ -40,6 +40,8 @@ The loss ratio factor is computed in two steps. The current contract price used 
 If the contracting officer concludes that the contractor's figures in the progress payment request are not correct, the contracting officer must prepare a supplementary analysis to be attached to the contractor's request [@CL-CTF-3412]. In the same situation, the contracting officer must also advise the contractor in writing of the differences and adjust all further progress payments in accordance with paragraph (g)(1), using the contracting officer's figures, until the difference is resolved [@CL-CTF-3413].
 
 The loss ratio adjustments must not be made by altering or replacing data on the contractor's original request, which is the SF 1443 or a computer generated equivalent [@CL-CTF-3369]. This keeps an audit trail and lets the calculations be verified [@CL-CTF-3369]. For contractor noncompliance, the section refers the reader to 242.7503 [@CL-CTF-3370], and the text of that cross-referenced section is not among this card's sources.
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified FAR part 32 text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.503-6(g) keeps the FAR loss ratio rule described above [@CL-CTF-4628; @CL-CTF-4629; @CL-CTF-4630; @CL-CTF-4631; @CL-CTF-4632; @CL-CTF-4633; @CL-CTF-4634; @CL-CTF-4635; @CL-CTF-4636]. If the sum of the total costs incurred under a contract plus the estimated costs to complete the performance are likely to exceed the contract price, the contracting officer must compute a loss ratio factor and adjust future progress payments to exclude the element of loss [@CL-CTF-4628]. To compute the factor, the current contract price used in progress payment computations (the current ceiling price under fixed-price incentive contracts) is revised to include the not-to-exceed amount for any pending change orders and unpriced orders [@CL-CTF-4631], and the revised contract price is divided by the sum of the total costs incurred to date plus the estimated additional costs of completing the contract performance [@CL-CTF-4632]. If the contracting officer believes a loss is probable, future progress payment requests must be modified so that the contract price is the revised amount computed under paragraph (g)(1)(i) of the section [@CL-CTF-4633], the total costs eligible for progress payments are the product of the sum of paid costs eligible for progress payments times the loss ratio factor computed under paragraph (g)(1)(ii) of the section [@CL-CTF-4634], and the costs applicable to items delivered, invoiced, and accepted must not include costs in excess of the contract price of the items [@CL-CTF-4635]. If the contracting officer concludes that the contractor's figures in the contractor's progress payment request are not correct, the contracting officer must prepare a supplementary analysis to be attached to the contractor's request, in the manner prescribed in paragraph (4) of the section [@CL-CTF-4629], advise the contractor in writing of the differences, and adjust all further progress payments in accordance with paragraph (1) of the section, using the contracting officer's figures, until the difference is resolved [@CL-CTF-4630]. The RFO example of a supplementary analysis shows total costs eligible for progress payments of $2,700,000, a loss ratio factor of 83.3%, recognized costs for progress payments of $2,249,100 and a progress payment rate of 80.0% [@CL-CTF-4636].
 
 ## Worked example
 
@@ -63,4 +65,5 @@ Confirm who prepares the costs-to-complete estimate and whether the supporting a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for loss ratio adjustments on loss contracts.
