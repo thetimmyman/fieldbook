@@ -24,7 +24,7 @@ Contract financing pays the contractor before delivery and is recovered as deliv
 
 ## How it works
 
-The contract names the financing method and its terms. Progress payments are requested from costs incurred and liquidated against deliveries; performance-based payments are requested when an agreed event or measure is met. Financing payments do not earn prompt payment interest, and a business system withhold can reduce them [@CL-CMP-0004]. See [Customary progress payment rates](ctf-progress-payments.md).
+The contract names the financing method and its terms. Progress payments are requested from costs incurred and liquidated against deliveries; performance-based payments are requested when an agreed event or measure is met. Contract financing payments are not subject to the interest penalty provisions of the Prompt Payment Act [@CL-CTF-0136], and on a DoD contract a business system withhold can reduce progress and performance-based payments [@CL-CMP-0004]. See [Customary progress payment rates](ctf-progress-payments.md).
 
 ## Worked example
 
@@ -44,4 +44,5 @@ Which contracts carry progress or performance-based payments, and which financin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the interest penalty rule separately and scoped the withhold to DoD progress and performance-based payments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 overview of contract financing.

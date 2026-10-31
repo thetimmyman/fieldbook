@@ -29,7 +29,7 @@ Shows how firm targets are set at the negotiation point under the successive tar
 | Text status | Final [@CL-EST-1669] |
 | Applies to | Contracts that include the clause as prescribed [@CL-EST-1669] |
 
-The contractor shall submit data that include a proposed firm fixed price or total firm target price for supplies delivered and to be delivered and services performed and to be performed [@CL-EST-1704]. The contracting officer and the contractor shall promptly establish either a firm fixed price or a profit adjustment formula for determining final profit, and the parties shall negotiate a total firm target cost based upon the data submitted under the data paragraph [@CL-EST-1670].
+Within the number of days the contracting officer inserts after the end of the month in which the contractor has completed the item stated in the clause blank [@CL-EST-9513], the contractor shall submit data that include a proposed firm fixed price or total firm target price for supplies delivered and to be delivered and services performed and to be performed [@CL-EST-1704]. Upon the contracting officer's receipt of the data [@CL-EST-9514], the contracting officer and the contractor shall promptly establish either a firm fixed price or a profit adjustment formula for determining final profit, and the parties shall negotiate a total firm target cost based upon the data submitted under the data paragraph [@CL-EST-1670].
 
 Total initial target profit is decreased if total firm target cost is more than total initial target cost, and increased if total firm target cost is less [@CL-EST-1671]. The initial target profit is increased or decreased by a stated percent of the difference between the total initial target cost and the total firm target cost, and the resulting amount is the total firm target profit [@CL-EST-1705]. The total firm target profit may in no event be less than one stated percent or more than another stated percent of the total initial target cost [@CL-EST-1672].
 
@@ -61,5 +61,5 @@ When the negotiation point for firm targets falls and who prepares the supportin
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; added the data-submission timing and the receipt-of-data trigger.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the incentive price revision clause with successive targets.

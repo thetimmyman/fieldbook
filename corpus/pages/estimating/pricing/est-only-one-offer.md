@@ -29,13 +29,13 @@ Shows what an offeror agrees to do when the Contracting Officer notifies it that
 | Text status | Final [@CL-EST-0351] |
 | Applies to | The provision as prescribed at DFARS 215.408(3) [@CL-EST-0351] |
 
-The provision is prescribed at DFARS 215.408(3) [@CL-EST-0351]. After initial submission of offers, if the Contracting Officer notifies the offeror that only one offer was received, the offeror agrees to submit any additional cost or pricing data that is required to determine whether the price is fair and reasonable [@CL-EST-0352]. That additional data also covers data needed to comply with the statutory requirement for certified cost or pricing data [@CL-EST-0460]. Except as provided for the Canadian Commercial Corporation, if the acquisition exceeds the certified cost or pricing data threshold and no exception under FAR 15.403-1(b)(2) through (5) applies, the offeror agrees to certify all cost or pricing data [@CL-EST-0353].
+The provision is prescribed at DFARS 215.408(3) [@CL-EST-0351]. After initial submission of offers, if the Contracting Officer notifies the offeror that only one offer was received, the offeror agrees to submit any additional cost or pricing data that is required to determine whether the price is fair and reasonable [@CL-EST-0352]. That additional data also covers data needed to comply with the statutory requirement for certified cost or pricing data [@CL-EST-0460]. The offeror also agrees, in addition to the data submission, that except as provided for the Canadian Commercial Corporation, if the acquisition exceeds the certified cost or pricing data threshold and no exception under FAR 15.403-1(b)(2) through (5) applies, it will certify all cost or pricing data [@CL-EST-0352; @CL-EST-9515; @CL-EST-0353].
 
 If the offeror is the Canadian Commercial Corporation, certified cost or pricing data are not required [@CL-EST-0354]. If the Contracting Officer notifies the Canadian Commercial Corporation that additional data other than certified cost or pricing data are required in accordance with DFARS 225.870-4(c), it shall obtain and provide the data the provision lists [@CL-EST-0461], which includes the profit rate or fee, as applicable, and the analysis that Public Works and Government Services Canada provided to determine a fair and reasonable price [@CL-EST-0462]. Unless the offeror is the Canadian Commercial Corporation, the offeror shall insert the substance of the provision in all subcontracts exceeding the simplified acquisition threshold defined in FAR part 2 [@CL-EST-0355].
 
 ## How it works
 
-The offeror's agreement applies after the Contracting Officer notifies it that only one offer was received [@CL-EST-0352]. There are two routes. The first is the submission of additional cost or pricing data needed to determine whether the price is fair and reasonable [@CL-EST-0352]. The second is the certification of all cost or pricing data, which applies only where the acquisition exceeds the certified cost or pricing data threshold and no listed exception applies [@CL-EST-0353]. The Canadian Commercial Corporation follows a separate route [@CL-EST-0354; @CL-EST-0461].
+The offeror's agreement applies after the Contracting Officer notifies it that only one offer was received [@CL-EST-0352]. There are two agreements, joined by "and". The first is the submission of additional cost or pricing data needed to determine whether the price is fair and reasonable [@CL-EST-0352]. The second is the certification of all cost or pricing data, which applies where the acquisition exceeds the certified cost or pricing data threshold and no listed exception applies [@CL-EST-9515; @CL-EST-0353]. The Canadian Commercial Corporation follows a separate route [@CL-EST-0354; @CL-EST-0461].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor submits a proposal of 5,000,000 for communications hardware. After 
 
 ## Never confuse
 
-The text of the first duty, to submit additional data, names no threshold, while the duty to certify applies only where the acquisition exceeds the certified cost or pricing data threshold and no listed exception applies [@CL-EST-0352; @CL-EST-0353]. Receiving only one offer therefore does not by itself require certification. For the general rules, see [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) and [Certified data exceptions](est-certified-data-exceptions.md).
+The text of the first duty, to submit additional data, names no threshold, while the duty to certify depends on the acquisition exceeding the certified cost or pricing data threshold and no listed exception applying [@CL-EST-0352; @CL-EST-0353]. Receiving only one offer therefore does not by itself trigger the duty to certify; the threshold and exception conditions also apply. For the general rules, see [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) and [Certified data exceptions](est-certified-data-exceptions.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Determining certified cost or pricing data requirements and approval routing whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Made the two agreements joined by and, and removed only-where wording.
 - COMPATIBLE_EXTENSION, 2026-10-29: Corrected the scope of the provision, added the statutory data route and the Canadian Commercial Corporation data, and rewrote the worked example and the contrast section to follow the provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Only One Offer provision.

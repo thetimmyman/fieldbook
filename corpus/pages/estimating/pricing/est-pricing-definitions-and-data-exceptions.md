@@ -55,9 +55,9 @@ A contractor's parts division transfers a commercial product to its assembly div
 
 Price is not cost. Price means cost plus any fee or profit applicable to the contract type [@CL-EST-2746].
 
-Exercising an option at the established price is not the same as negotiating a new price. Only the exercise at the price established at contract award or initial negotiation is covered by this paragraph [@CL-EST-2748].
+Exercising an option at the established price is not the same as negotiating a new price. The paragraph addresses the exercise of an option at the price established at contract award or initial negotiation [@CL-EST-2748].
 
-The overrun and billing exception is not a rule for any revised proposal. It reaches only proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2749].
+The overrun and billing exception is not a rule for any revised proposal. The paragraph is framed for proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2749].
 
 The codified text states the exceptions for the exercise of an option at the established price and for proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2748; @CL-EST-2749], while the RFO text states them as exceptions for modifications [@CL-EST-3365; @CL-EST-3366]. The codified subcontract definition excludes use in 15.407-2 [@CL-EST-2747], and the RFO definition excludes use in 15.405-2 [@CL-EST-3364].
 
@@ -69,5 +69,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted 'only' from two never-confuse sentences.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the pricing definitions and the other circumstances where certified cost or pricing data are not required.

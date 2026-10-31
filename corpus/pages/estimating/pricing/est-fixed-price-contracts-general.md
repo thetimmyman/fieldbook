@@ -41,7 +41,7 @@ Time-and-materials contracts and labor-hour contracts are not fixed-price contra
 
 A fixed-price contract provides for a firm price or, in appropriate cases, an adjustable price [@CL-EST-0956]. The section does not say who decides when a case is appropriate. An adjustable price may include a ceiling price, a target price (including target cost), or both [@CL-EST-0957]. The ceiling or target price moves only by operation of contract clauses that provide for equitable adjustment or other revision of the contract price under stated circumstances, unless the contract specifies otherwise [@CL-EST-0958]. The contract can therefore specify a different rule, and the section does not describe the circumstances [@CL-EST-0958].
 
-For commercial products and commercial services, the contracting officer shall use firm-fixed-price or fixed-price with economic price adjustment contracts, except as provided in 12.207(b) [@CL-EST-0959]. The sentence applies to those acquisitions only. Time-and-materials and labor-hour contracts are outside the fixed-price category [@CL-EST-0960]. For how the choice of type is framed, see [selecting contract types](est-selecting-contract-types.md). For one adjustable-price form, see [fixed-price incentive contracts](est-fixed-price-incentive-and-letter-contracts.md).
+For commercial products and commercial services, the contracting officer shall use firm-fixed-price or fixed-price with economic price adjustment contracts, except as provided in 12.207(b) [@CL-EST-0959]. The sentence is about those acquisitions. Time-and-materials and labor-hour contracts are outside the fixed-price category [@CL-EST-0960]. For how the choice of type is framed, see [selecting contract types](est-selecting-contract-types.md). For one adjustable-price form, see [fixed-price incentive contracts](est-fixed-price-incentive-and-letter-contracts.md).
 
 ## Worked example
 
@@ -61,4 +61,5 @@ Which awards the company holds as firm-fixed-price, fixed-price with economic pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'only' from the commercial-acquisitions sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price contracts in general.

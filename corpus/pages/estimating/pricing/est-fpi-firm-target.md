@@ -35,7 +35,7 @@ The contract type is appropriate when the parties can negotiate at the outset a 
 
 ## How it works
 
-A final cost below the target cost gives a final profit above the target profit, and a final cost above the target cost gives a final profit below it, or even a net loss [@CL-EST-1078]. If the final negotiated cost exceeds the price ceiling, the contractor absorbs the difference as a loss [@CL-EST-1105]. The contract type may be used only when, as the first listed condition, the contractor's accounting system is adequate for providing data to support negotiation of final cost and incentive price revision [@CL-EST-1080]. The second listed condition is that adequate cost or pricing information for establishing reasonable firm targets is available at the time of initial contract negotiation [@CL-EST-1081].
+A final cost below the target cost gives a final profit above the target profit, and a final cost above the target cost gives a final profit below it, or even a net loss [@CL-EST-1078]. If the final negotiated cost exceeds the price ceiling, the contractor absorbs the difference as a loss [@CL-EST-1105]. The contract type may be used only when both listed conditions are met. The first is that the contractor's accounting system is adequate for providing data to support negotiation of final cost and incentive price revision [@CL-EST-1080]. The second is that adequate cost or pricing information for establishing reasonable firm targets is available at the time of initial contract negotiation [@CL-EST-1081].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which proposals expected soon rest on cost or pricing information strong enough 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that both listed conditions apply.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price incentive (firm target) contracts.

@@ -29,7 +29,7 @@ Shows when an incentive contract is the right contract type, what its incentives
 | Text status | Final [@CL-EST-1050] |
 | Applies to | Incentive contracts as described in the FAR subpart on incentive contracts [@CL-EST-1050] |
 
-An incentive contract is appropriate when a firm-fixed-price contract is not appropriate and the required supplies or services can be acquired at lower costs and, in certain instances, with improved delivery or technical performance [@CL-EST-1050]. Incentive contracts are designed to obtain specific acquisition objectives by establishing reasonable and attainable targets that are clearly communicated to the contractor [@CL-EST-1051], and by including appropriate incentive arrangements designed to motivate contractor efforts that might not otherwise be emphasized and to discourage contractor inefficiency and waste [@CL-EST-1100].
+An incentive contract is appropriate when a firm-fixed-price contract is not appropriate and the required supplies or services can be acquired at lower costs and, in certain instances, with improved delivery or technical performance [@CL-EST-1050], by relating the amount of profit or fee payable under the contract to the contractor's performance [@CL-EST-9511]. Incentive contracts are designed to obtain specific acquisition objectives by establishing reasonable and attainable targets that are clearly communicated to the contractor [@CL-EST-1051], and by including appropriate incentive arrangements designed to motivate contractor efforts that might not otherwise be emphasized and to discourage contractor inefficiency and waste [@CL-EST-1100].
 
 The two basic categories are fixed-price incentive contracts and cost-reimbursement incentive contracts [@CL-EST-1053]. The fixed-price kind is preferred when contract costs and performance requirements are reasonably certain [@CL-EST-1054].
 
@@ -55,4 +55,5 @@ Which incentive-contract bids need immediate support, and what review evidence a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the 'by relating profit or fee to performance' ending of the appropriateness sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incentive contracts in general.

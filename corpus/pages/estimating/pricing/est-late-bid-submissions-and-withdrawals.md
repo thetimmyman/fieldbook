@@ -77,7 +77,7 @@ A time stamp is one kind of acceptable evidence, not the only kind [@CL-EST-1974
 
 The codified provision has a facsimile withdrawal sentence [@CL-EST-1976]; the RFO paragraph prints no such sentence between the written-notice and in-person sentences [@CL-EST-0336] or after them [@CL-EST-0337].
 
-The emergency extension moves the time to the same time of day on the first work day on which normal Government processes resume, and it applies only where urgent requirements preclude amending the invitation [@CL-EST-2084; @CL-EST-2085].
+The emergency extension moves the time to the same time of day on the first work day on which normal Government processes resume, and it applies where an emergency or unanticipated event interrupts normal Government processes and urgent requirements preclude amending the invitation [@CL-EST-2084; @CL-EST-2085].
 
 ## Company calibration
 
@@ -87,5 +87,5 @@ Confirm who owns bid delivery and withdrawal authority, and what proof of timely
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported 'only' from the emergency-extension sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications and withdrawals of bids.

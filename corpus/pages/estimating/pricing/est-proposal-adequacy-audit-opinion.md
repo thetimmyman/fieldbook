@@ -29,7 +29,7 @@ Shows when an auditor treats a price proposal as inadequate, what that does to t
 | Text status | Not established. |
 | Applies to | Not established. |
 
-A proposal is inadequate when the contractor fails to submit required supporting data, or when cost data is insufficient to perform the planned audit procedures [@CL-EST-0663]. When data is inadequate, the auditor cannot issue an unqualified opinion, and depending on severity issues a qualified opinion, an adverse opinion or a disclaimer of opinion [@CL-EST-0664].
+A proposal is inadequate when the contractor fails to submit required supporting data, or when cost data is insufficient to perform the planned audit procedures [@CL-EST-0663]. When data is inadequate, the auditor cannot issue an unqualified opinion, and depending on severity issues a qualified opinion, an adverse opinion or a disclaimer of opinion as required under GAGAS [@CL-EST-0664].
 
 ## How it works
 
@@ -43,7 +43,7 @@ A proposal arrives without the supporting material for a large part of its mater
 
 ## Never confuse
 
-A thin proposal is not the same as a refusal. Missing or insufficient data makes the proposal inadequate and rules out an unqualified opinion [@CL-EST-0663; @CL-EST-0664]. A refusal to provide required certified cost data, or a denial of access to books and records, also triggers immediate notice to the contracting officer and, if necessary, the agency's access process [@CL-EST-0666]. Defective pricing is a separate subject; see [Defective pricing](est-defective-pricing.md). Opinion types on business system audits are covered in [Business system audit reporting](../../compliance/business-systems/cmp-business-system-audit-reporting.md).
+A thin proposal is not the same as a refusal. A failure to submit required supporting data, or cost data too thin for the planned audit procedures, makes the proposal inadequate [@CL-EST-0663], and when data is inadequate the auditor cannot issue an unqualified opinion [@CL-EST-0664]. A refusal to provide required certified cost data, or a denial of access to books and records, also triggers immediate notice to the contracting officer and, if necessary, the agency's access process [@CL-EST-0666]. Defective pricing is a separate subject; see [Defective pricing](est-defective-pricing.md). Opinion types on business system audits are covered in [Business system audit reporting](../../compliance/business-systems/cmp-business-system-audit-reporting.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored GAGAS condition and required-data wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proposal adequacy and the audit opinion.

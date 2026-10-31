@@ -34,7 +34,7 @@ Performance incentives may be considered in connection with specific product cha
 
 ## How it works
 
-Except for award-fee contracts, an incentive contract has a target cost, a target profit or fee, and an adjustment formula that works within a price ceiling or minimum and maximum fee [@CL-EST-1070]. Under the formula, actual cost that meets the target gives the target profit or fee, actual cost above the target adjusts it down, and actual cost below the target adjusts it up [@CL-EST-1070; @CL-EST-1071]. With more than one incentive, a properly structured arrangement should motivate the contractor to strive for outstanding results in all incentive areas and compel trade-off decisions among them [@CL-EST-1074]. All multiple-incentive contracts must include a cost incentive or constraint that operates to preclude rewarding a contractor for superior technical performance or delivery results when the cost of those results outweighs their value to the Government [@CL-EST-1075].
+Except for award-fee contracts, an incentive contract has a target cost, a target profit or fee, and an adjustment formula that works within a price ceiling or minimum and maximum fee [@CL-EST-1070]. Under the formula, actual cost that meets the target gives the target profit or fee, actual cost above the target adjusts it down, and actual cost below the target adjusts it up [@CL-EST-1070; @CL-EST-1071]. With more than one incentive, a properly structured arrangement should motivate the contractor to strive for outstanding results in all incentive areas and compel trade-off decisions among the incentive areas, consistent with the Government's overall objectives for the acquisition [@CL-EST-1074]. All multiple-incentive contracts must include a cost incentive or constraint that operates to preclude rewarding a contractor for superior technical performance or delivery results when the cost of those results outweighs their value to the Government [@CL-EST-1075].
 
 ## Worked example
 
@@ -54,4 +54,5 @@ How the target cost and the incentive assumptions in a proposal are frozen and l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the Government's overall objectives qualifier into the multiple-incentive sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost, performance and delivery incentives.

@@ -36,7 +36,7 @@ FAR part 15 prescribes policies and procedures governing competitive and noncomp
 
 ## How it works
 
-An agency can obtain best value in negotiated acquisitions by using any one or a combination of source selection approaches [@CL-EST-2734]. The relative importance of cost or price may vary between acquisitions [@CL-EST-2735]. Where the requirement is clearly definable and the risk of unsuccessful contract performance is minimal, cost or price may play a dominant role in source selection [@CL-EST-2735]. The less definitive the requirement, the more development work required, or the greater the performance risk, the more technical or past performance considerations may play a dominant role [@CL-EST-2736]. The text on the continuum says can and may, not shall [@CL-EST-2734; @CL-EST-2735; @CL-EST-2736].
+An agency can obtain best value in negotiated acquisitions by using any one or a combination of source selection approaches [@CL-EST-2734]. The relative importance of cost or price may vary between acquisitions [@CL-EST-2735]. For example, where the requirement is clearly definable and the risk of unsuccessful contract performance is minimal, cost or price may play a dominant role in source selection [@CL-EST-2735]. The less definitive the requirement, the more development work required, or the greater the performance risk, the more technical or past performance considerations may play a dominant role [@CL-EST-2736]. The text on the continuum says can and may, not shall [@CL-EST-2734; @CL-EST-2735; @CL-EST-2736].
 
 The FAR's general definitions say best value means the expected outcome of an acquisition that, in the Government's estimation, provides the greatest overall benefit in response to the requirement [@CL-EST-9272]. The RFO model text of FAR 2.101 defines best value in the same words as the codified definition [@CL-EST-9346; @CL-EST-9272].
 
@@ -68,7 +68,7 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Codified proposal revision definition now includes the contracting officer request and negotiation conditions.
+- COMPATIBLE_EXTENSION, 2026-10-31: Codified proposal revision definition now includes the contracting officer request and negotiation conditions; marked the cost-or-price dominant role case as the FAR's example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of best value.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of best value.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.000 part scope and the FAR 15.100 subpart scope.
