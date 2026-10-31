@@ -24,7 +24,7 @@ Shows two employment duties that ride with a contract: reporting a labor dispute
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5214] |
 | Codified citation | FAR 52.222-1 and 52.222-3 [@CL-CMP-5214; @CL-CMP-5215] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-1 [@CL-CMP-1464] and RFO FAR 52.222-3 [@CL-CMP-1465; @CL-CMP-1466] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5214] |
 | Applies to | Contracts that carry the labor dispute notice clause or the convict labor clause [@CL-CMP-5214; @CL-CMP-5215] |
@@ -36,6 +36,8 @@ If the contractor has knowledge that an actual or potential labor dispute is del
 The notice goes to the Contracting Officer. The trigger is knowledge of an actual or potential dispute, so a dispute that only threatens delay is enough [@CL-CMP-5214].
 
 The convict labor bar does not stop the contractor from employing persons on parole or probation to work at paid employment during the term of their sentence, or persons who have been pardoned or who have served their terms [@CL-CMP-5216]. It also does not stop the contractor from employing a person confined for violation of the laws of a listed jurisdiction who is authorized to work at paid employment in the community under that jurisdiction's laws, if the listed conditions are met [@CL-CMP-5216; @CL-CMP-5334]. All of the following conditions must be met [@CL-CMP-5219; @CL-CMP-5334]. The worker is paid or is in an approved work training program on a voluntary basis, and representatives of local union central bodies or similar labor union organizations have been consulted [@CL-CMP-5217]. The employment does not displace employed workers, is not applied in skills, crafts or trades with a surplus of available gainful labor in the locality, and does not impair existing contracts for services [@CL-CMP-5218]. Rates of pay and other conditions of employment are no less than those paid or provided for work of a similar nature in the locality where the work is performed [@CL-CMP-5219]. The Attorney General of the United States has certified that the work-release laws or regulations of the jurisdiction involved conform to Executive Order 11755, as amended by Executive Orders 12608 and 12943 [@CL-CMP-5220].
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.222-1 keeps the duty to give immediate notice to the Contracting Officer, with all relevant information, when the contractor knows of an actual or potential labor dispute that is delaying or threatens to delay timely performance [@CL-CMP-1464] [@CL-CMP-5214]. The RFO text of FAR 52.222-3 keeps the bar on employing a person undergoing a sentence of imprisonment imposed by a court of a listed jurisdiction, subject to paragraph (b) [@CL-CMP-1465] [@CL-CMP-1466] [@CL-CMP-5215]. It also keeps the exceptions for persons on parole or probation and persons pardoned or who have served their terms [@CL-CMP-1467] [@CL-CMP-5216], and the work-release exception with its conditions: paid or approved voluntary training and union consultation [@CL-CMP-1468] [@CL-CMP-1469] [@CL-CMP-5334] [@CL-CMP-5217], no displacement, surplus trades or impaired contracts [@CL-CMP-1470] [@CL-CMP-5218], local rates of pay and conditions [@CL-CMP-1471] [@CL-CMP-5219], and certification by the Attorney General of the United States [@CL-CMP-1472] [@CL-CMP-5220]. The RFO text prints "must" where the codified text prints "shall" in these two clauses [@CL-CMP-1464] [@CL-CMP-1465] [@CL-CMP-5214] [@CL-CMP-5215].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Which contracts carry these clauses, and who confirms that each new hire clears 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of labor disputes and convict labor.
