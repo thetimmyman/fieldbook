@@ -23,7 +23,7 @@ Shows how the annual Executive Order minimum wage rate is published and adjusted
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2390] |
 | Codified citation | FAR 22.1904, FAR 22.1905, FAR 22.2105, FAR 22.2109 and FAR 52.222-55 [@CL-CMP-2390; @CL-CMP-2391; @CL-CMP-2393; @CL-CMP-2491; @CL-CMP-2489] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-55 [@CL-CMP-6886; @CL-CMP-6887] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2390] |
 | Applies to | Contracts covered by the minimum wage requirements, and contracts covered by the paid sick leave requirements [@CL-CMP-2391; @CL-CMP-2393] |
@@ -39,6 +39,8 @@ For a paid sick leave violation, the contracting officer shall, upon his or her 
 ## How it works
 
 The Administrator announces the new minimum wage rate ahead of its effective date, and the contractor adjusts the minimum wage paid to meet the applicable annual rate [@CL-CMP-2390; @CL-CMP-2490]. Withholding for unpaid minimum wage follows the Administrator's direction, and the contracting officer carries it out [@CL-CMP-2391]. If the violation is not remedied, the Administrator may reach payments due on other contracts with the same contractor [@CL-CMP-2392]. Paid sick leave is a set of contractor duties, starting with accrual, and its enforcement section has its own withholding step [@CL-CMP-2393; @CL-CMP-2491]. Price adjustments, complaints, investigations, other remedies and the other sick leave duties are in the printed sections and are not drafted here.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.222-55(b)(1) has the same substance, with "must pay" where the codified clause says "shall pay": the contractor must pay workers, while performing in the United States and performing on or in connection with the contract, a minimum hourly wage rate of $15.00 per hour beginning January 30, 2022 [@CL-CMP-6886; @CL-CMP-2489]. RFO FAR 52.222-55(b)(2) has the same substance, with "must adjust" where the codified clause says "shall adjust": the contractor must adjust the minimum wage paid, if necessary, beginning January 1, 2023, and annually thereafter, to meet the applicable annual Executive Order minimum wage [@CL-CMP-6887; @CL-CMP-2490].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Which covered contracts carry these requirements, and who tracks each new annual
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order minimum wage and paid sick leave.

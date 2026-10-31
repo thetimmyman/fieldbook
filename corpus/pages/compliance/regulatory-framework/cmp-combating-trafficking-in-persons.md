@@ -23,7 +23,7 @@ Shows the trafficking in persons prohibition, when an offeror must certify a com
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2394] |
 | Codified citation | FAR 22.1703, FAR 22.1704 and FAR 52.222-50 [@CL-CMP-2394; @CL-CMP-2398; @CL-CMP-2495] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-50 [@CL-CMP-6725; @CL-CMP-6876; @CL-CMP-6877] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2394] |
 | Applies to | Government solicitations and contracts, with the compliance plan certification applying where a portion meets the listed conditions [@CL-CMP-2394; @CL-CMP-2395; @CL-CMP-2396] |
@@ -39,6 +39,8 @@ The clause provides that, in addition to other remedies available to the Governm
 ## How it works
 
 The policy prohibits the listed conduct and requires remedies for failure to comply [@CL-CMP-2394; @CL-CMP-2397]. A compliance plan certification is owed before award where a portion of the contract or subcontract meets the listed conditions, including the value threshold [@CL-CMP-2395; @CL-CMP-2396]. After a final determination that a violation is substantiated, the contracting officer records it in FAPIIS and considers the clause remedies [@CL-CMP-2398; @CL-CMP-2399]. An authorized agency official, such as the agency suspending and debarring official, is delegated the responsibility to expeditiously conduct an administrative proceeding allowing the contractor to respond to the Inspector General report and to make a final determination as to whether the allegations are substantiated [@CL-CMP-2494]. The printed section ties that proceeding to receipt of a report from the agency Inspector General that provides support for the allegations.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.222-50(e) keeps the rule that, in addition to other remedies available to the Government, the contractor's failure to comply with the requirements of paragraphs (c), (d), (g), (h), or (i) of the clause may result in requiring the contractor to remove a contractor employee or employees from the performance of the contract [@CL-CMP-6725; @CL-CMP-2495]. It keeps the further listed remedies of requiring the contractor to terminate a subcontract, suspension of contract payments until the contractor has taken appropriate remedial action, and loss of award fee, consistent with the award fee plan, for the performance period in which the Government determined contractor non-compliance [@CL-CMP-6876; @CL-CMP-2496]. It also keeps declining to exercise available options under the contract, termination of the contract for default or cause in accordance with the termination clause of the contract, and suspension or debarment [@CL-CMP-6877; @CL-CMP-2497].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Which contracts and subcontracts meet the certification conditions, and who owns
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for combating trafficking in persons.

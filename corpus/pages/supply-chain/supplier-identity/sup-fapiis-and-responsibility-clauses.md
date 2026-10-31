@@ -24,7 +24,7 @@ Shows what the contracting officer must review in the Federal Awardee Performanc
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0900; @CL-SUP-0907] |
 | Codified citation | FAR 9.104-6, FAR 9.104-7 and FAR 52.209-9 [@CL-SUP-0900; @CL-SUP-0905; @CL-SUP-0907] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.209-9 [@CL-SUP-3809; @CL-SUP-3810; @CL-SUP-3811; @CL-SUP-3812; @CL-SUP-3813; @CL-SUP-3814] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0900; @CL-SUP-0907] |
 | Applies to | Contracts above the simplified acquisition threshold for the review; solicitations and contracts as each provision or clause states [@CL-SUP-0900; @CL-SUP-0904; @CL-SUP-0905; @CL-SUP-0906] |
@@ -40,6 +40,8 @@ One listed trigger for the additional-information paragraph is relevant FAPIIS i
 Under the clause on updates, data in the non-public segment of FAPIIS is automatically transferred to the publicly-available segment after a waiting period of 14 calendar days, except for the listed categories [@CL-SUP-0975]. A contractor seeking removal of a posting from FAPIIS under the clause must cite 52.209-9 and request removal within 7 calendar days of the posting [@CL-SUP-0976]. If a contractor asserts in writing within 7 calendar days, to the Government official who posted the information, that some of the information posted to the non-public segment is covered by a disclosure exemption under the Freedom of Information Act, that official must within 7 calendar days remove the posting from FAPIIS [@CL-SUP-1000; @CL-SUP-0977; @CL-SUP-0976].
 
 The cadence a finance or compliance team must keep under the updates clause is the semi-annual update of FAPIIS information [@CL-SUP-0907]. The printed section on FAPIIS review sets no number of days for posting mitigating factors or for the offeror's answer to a request for additional information [@CL-SUP-0901; @CL-SUP-0903].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.209-9(a) says the same as the codified clause: the contractor shall update the information in FAPIIS on a semi-annual basis, throughout the life of the contract, by posting the required information in the System for Award Management [@CL-SUP-0907; @CL-SUP-3809]. RFO FAR 52.209-9(b)(2) says all data in the non-public segment of FAPIIS is automatically transferred to the publicly-available segment after a waiting period of 14 calendar days, except for past performance reviews required by part 42 and the other categories it lists [@CL-SUP-3810; @CL-SUP-3811], where the codified clause names past performance reviews required by subpart 42.15 [@CL-SUP-9423]; the codified clause also sets a waiting period of 14 calendar days [@CL-SUP-0975]. RFO FAR 52.209-9(c)(1) says the same as the codified clause on the contractor's written assertion within 7 calendar days to the Government official who posted the information, on that official's duty to remove the posting within 7 calendar days, and on the contractor's duty to cite 52.209-9 and request removal within 7 calendar days of the posting [@CL-SUP-1000; @CL-SUP-0977; @CL-SUP-0976; @CL-SUP-3812; @CL-SUP-3813; @CL-SUP-3814].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Confirm who owns the semi-annual FAPIIS update and the posting of mitigating fac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAPIIS review and the responsibility provisions and clauses.

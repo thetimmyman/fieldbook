@@ -24,7 +24,7 @@ Shows which clauses a prime contractor must put in subcontracts for commercial p
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0550] |
 | Codified citation | FAR 44.402 and FAR 52.244-6 [@CL-SUP-0550; @CL-SUP-0555] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.244-6 [@CL-SUP-3806; @CL-SUP-3807; @CL-SUP-3808; @CL-SUP-9421; @CL-SUP-9422] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0550] |
 | Applies to | Subcontracts for commercial products or commercial services, under the clause inserted as prescribed in FAR 44.403 [@CL-SUP-0685; @CL-SUP-0550] |
@@ -36,6 +36,8 @@ Contractors and subcontractors at all tiers are required, to the maximum extent 
 ## How it works
 
 While not required, the contractor may flow down to subcontracts for commercial products or commercial services a minimal number of additional clauses necessary to satisfy its contractual obligations [@CL-SUP-0554]. The contractor shall include the terms of the clause, including its paragraph (d), in subcontracts awarded under the contract [@CL-SUP-0555]. Under the defense supplement, contractors are required to determine whether a particular subcontract item meets the definition of a commercial product or commercial service [@CL-SUP-0552]. They are expected to exercise reasonable business judgment, consistent with the guidelines for conducting market research in FAR part 10 [@CL-SUP-0687]. Items valued at less than $10,000 per item that a contractor purchases for use in the performance of multiple contracts with the Department of Defense and other parties, and that are not identifiable to any particular contract when purchased, are treated as commercial products [@CL-SUP-0553].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.244-6 is inserted as prescribed in FAR 44.403, as the codified clause is [@CL-SUP-0685; @CL-SUP-3806]. Its paragraph (b)(1) says that, to the maximum extent practicable, the contractor shall incorporate, and require its subcontractors at all tiers to incorporate, commercial products, commercial services, or non-developmental items as components of items to be supplied under the contract [@CL-SUP-3807]. Its paragraph (b)(2) says that if a clause in the following table is included in the contract, the contractor shall insert the clause in subcontracts for commercial products or commercial services and must flow down the requirements of the clause to subcontracts as indicated in the specific clause [@CL-SUP-3808]. Its paragraph (c) says the contractor shall include the terms of the clause, including that paragraph (c), in subcontracts awarded under the contract, where the codified clause puts the same duty in its paragraph (d) [@CL-SUP-0555; @CL-SUP-9421]. After the table and its note, the RFO clause prints only that paragraph (c) before it ends, so the RFO text prints no counterpart to the codified sentence that lets the contractor flow down a minimal number of additional clauses necessary to satisfy its contractual obligations [@CL-SUP-0554; @CL-SUP-9422].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm how commercial item determinations are made and recorded and which claus
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracts for commercial products and commercial services.
