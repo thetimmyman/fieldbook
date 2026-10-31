@@ -36,7 +36,7 @@ It requires the principal market in which the subject securities are traded and 
 
 It requires the frequency and amount of any dividends paid during the past two years and a brief description of any restriction on the subject company's current or future ability to pay dividends [@CL-MNA-0269]. If the filing person is not the subject company, it furnishes that dividend information to the extent known after making reasonable inquiry [@CL-MNA-0270].
 
-If the filing person has made an underwritten public offering of the subject securities for cash during the past three years that was registered under the Securities Act of 1933 or exempt from registration under Regulation A, it states the date, the amount of securities offered, the offering price per share (adjusted for stock splits, stock dividends and the like as appropriate) and the aggregate proceeds received [@CL-MNA-0271; @CL-MNA-0272]. If the filing person purchased any subject securities during the past two years, it states the amount purchased, the range of prices paid and the average purchase price for each quarter during that period [@CL-MNA-0273]. The prior stock purchases paragraph adds that affiliates need not give information for purchases made before becoming an affiliate [@CL-MNA-0274].
+If the filing person has made an underwritten public offering of the subject securities for cash during the past three years that was registered under the Securities Act of 1933 or exempt from registration under Regulation A, it states the date, the amount of securities offered, the offering price per share (adjusted for stock splits, stock dividends and the like as appropriate) and the aggregate proceeds received by the filing person [@CL-MNA-0271; @CL-MNA-0272]. If the filing person purchased any subject securities during the past two years, it states the amount purchased, the range of prices paid and the average purchase price for each quarter during that period [@CL-MNA-0273]. The prior stock purchases paragraph adds that affiliates need not give information for purchases made before becoming an affiliate [@CL-MNA-0274].
 
 ### Identity and background of the filing person
 
@@ -48,7 +48,7 @@ For each filing person or Instruction C person that is a natural person, the fil
 
 It also states whether or not the person was a party to any judicial or administrative proceeding during the past five years, except for matters dismissed without sanction or settlement, that resulted in a judgment, decree or final order enjoining future violations of, or prohibiting activities subject to, federal or state securities laws, or a finding of any violation of those laws [@CL-MNA-0283; @CL-MNA-0284]. It describes that proceeding, including a summary of the terms of the judgment, decree or final order, and gives the country of citizenship [@CL-MNA-0285].
 
-For a tender offer, the filing identifies the tender offer and the class of securities to which it relates and gives the name and address of the offeror, which may be based on the offeror's Schedule TO filed with the Commission [@CL-MNA-0286]. If the filing person is making information relating to the transaction available on the Internet, the instruction to the item requires the filing to state the address where the information can be found [@CL-MNA-1119].
+For a tender offer, the filing identifies the tender offer and the class of securities to which it relates and gives the name of the offeror and its address (which may be based on the offeror's Schedule TO filed with the Commission) [@CL-MNA-0286]. If the filing person is making information relating to the transaction available on the Internet, the instruction to the item requires the filing to state the address where the information can be found [@CL-MNA-1119].
 
 ## How it works
 
@@ -74,5 +74,6 @@ The company confirms which entity is the subject company, which persons must be 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Offering proceeds recipient and offeror address source stated as in the rule.
 - NEW_KNOWLEDGE, 2026-10-31: Added the instruction to state the Internet address where transaction information is available, and moved the page to question Q-028.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subject company information and filing person background.

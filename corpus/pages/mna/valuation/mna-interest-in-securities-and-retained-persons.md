@@ -52,7 +52,7 @@ A filing person that is named in response to Item 1003 of Regulation M-A benefic
 
 ## Never confuse
 
-The ownership statement and the transaction description are separate duties: paragraph (a) of Item 1008 states the aggregate number and percentage of subject securities beneficially owned, and paragraph (b) describes transactions in the subject securities during the past 60 days [@CL-MNA-0310; @CL-MNA-0314]. Paragraph (a) of Item 1009 concerns persons employed, retained or to be compensated to make solicitations or recommendations, and paragraph (b) concerns subject company officers, employees and assets used by the filing person [@CL-MNA-0316; @CL-MNA-0318].
+The ownership statement and the transaction description are separate duties: paragraph (a) of Item 1008 states the aggregate number and percentage of subject securities beneficially owned, and paragraph (b) describes transactions in the subject securities during the past 60 days [@CL-MNA-0310; @CL-MNA-0314]. Paragraph (a) of Item 1009 concerns persons employed, retained or to be compensated to make solicitations or recommendations, and paragraph (b) concerns any officer, class of employees or corporate assets of the subject company that has been or will be employed or used by the filing person [@CL-MNA-0316; @CL-MNA-0318].
 
 ## Company calibration
 
@@ -62,4 +62,5 @@ Which acquisition mandate and diligence scope are authorized, and within it whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: paragraph (b) scope stated as in the source.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the interest in subject securities and retained persons item.

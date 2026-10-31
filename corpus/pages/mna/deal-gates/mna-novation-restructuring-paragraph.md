@@ -31,7 +31,7 @@ Shows the special paragraph that DoD requires in a novation agreement when the b
 
 When a novation agreement is required and the transferee intends to incur restructuring costs as defined in the cross-referenced section, the cognizant contracting officer must include a DoD-specified provision as paragraph (b)(7) of the novation agreement [@CL-MNA-0381]. It goes in instead of the paragraph (b)(7) provided in the sample format [@CL-MNA-0456].
 
-Under that provision, restructuring costs allowable under FAR part 31 or DFARS part 231 may be reimbursed under flexibly-priced novated contracts [@CL-MNA-0457]. The proviso is that the transferee demonstrates that the restructuring will reduce overall costs to DoD (and to NASA where there is a mix of DoD and NASA contracts) and that the requirements included in DFARS 231.205-70 are met [@CL-MNA-0382]. The costs are not allowed on novated contracts unless there is an audit of the restructuring proposal and a contracting officer determination of overall reduced costs to DoD or NASA [@CL-MNA-0383]. The list of conditions ends with an advance agreement that sets a cumulative cost ceiling for restructuring projects and the period to which the costs are assigned [@CL-MNA-0384].
+Under that provision, restructuring costs allowable under FAR part 31 or DFARS part 231 may be reimbursed under flexibly-priced novated contracts [@CL-MNA-0457]. The proviso is that the transferee demonstrates that the restructuring will reduce overall costs to DoD (and to NASA where there is a mix of DoD and NASA contracts) and that the requirements included in DFARS 231.205-70 are met [@CL-MNA-0382]. The costs are not allowed on novated contracts unless there is an audit of the restructuring proposal, a determination by the contracting officer of overall reduced costs to DoD or NASA, and an advance agreement that sets a cumulative cost ceiling for restructuring projects and the period to which the costs are assigned [@CL-MNA-0383; @CL-MNA-0384].
 
 ## How it works
 
@@ -45,7 +45,7 @@ A buyer will acquire all assets of a seller and expects to close a plant and pay
 
 ## Never confuse
 
-Placing the paragraph in the agreement does not allow any cost by itself; costs must still be allowable and meet the listed conditions [@CL-MNA-0457; @CL-MNA-0382; @CL-MNA-0383]. The paragraph is also not the general novation rule: for when the Government may recognize a successor and what is filed, see [Novation and change-of-name agreements](../diligence/mna-novation-agreements.md). The determination named in this paragraph is made by the contracting officer [@CL-MNA-0383]; the cost principle's own conditions, including who makes its written savings determination, are on [DoD external restructuring costs after a business combination](../valuation/mna-dod-external-restructuring-costs.md). An advance agreement is a general tool described in [Advance agreements](../../compliance/cas-allowability/cmp-advance-agreements.md).
+Placing the paragraph in the agreement does not allow any cost by itself; costs must still be allowable and meet the listed conditions [@CL-MNA-0457; @CL-MNA-0382; @CL-MNA-0383; @CL-MNA-0384]. The paragraph is also not the general novation rule: for when the Government may recognize a successor and what is filed, see [Novation and change-of-name agreements](../diligence/mna-novation-agreements.md). The determination named in this paragraph is made by the contracting officer [@CL-MNA-0383]; the cost principle's own conditions, including who makes its written savings determination, are on [DoD external restructuring costs after a business combination](../valuation/mna-dod-external-restructuring-costs.md). An advance agreement is a general tool described in [Advance agreements](../../compliance/cas-allowability/cmp-advance-agreements.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Whether the transfer agreement for each acquisition case is drafted with the DoD
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restructuring-cost conditions stated as a single all-required list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD restructuring paragraph in the novation agreement.
