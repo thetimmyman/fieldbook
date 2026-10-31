@@ -24,7 +24,7 @@ Shows the conditions under which the contracting officer should accept a prime c
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3529] |
 | Codified citation | FAR 32.110 [@CL-CTF-3529] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.110 [@CL-CTF-4493; @CL-CTF-4494; @CL-CTF-4495; @CL-CTF-4496; @CL-CTF-4497; @CL-CTF-4498], RFO FAR 32.501-1 [@CL-CTF-4460] and RFO FAR 32.501-2 [@CL-CTF-4465] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3529] |
 | Applies to | Financing payments that a contractor makes to a subcontractor under a cost-reimbursement prime contract [@CL-CTF-3529] |
@@ -44,6 +44,8 @@ A further condition applies to every method: the subcontract must contain financ
 The contracting officer decides whether to accept the payments as reimbursable, and should do so only under the listed conditions [@CL-CTF-3529]. The conditions follow the method in use. The payment criteria of that method always apply [@CL-CTF-3530]. The rate ceiling and the customary liquidation principles apply when customary progress payments are made [@CL-CTF-3531; @CL-CTF-3532]. The performance-based payment liquidation principles apply when performance-based payments are made [@CL-CTF-3533]. The prescribed financing terms in the subcontract apply in every case [@CL-CTF-3534].
 
 The liquidation conditions look to the subcontractor's compliance, not the prime's [@CL-CTF-3532; @CL-CTF-3533]. This section sets no remedy for a prime that does not pay its subcontractors. It governs only whether the contracting officer accepts the prime's financing payments as reimbursable costs [@CL-CTF-3529].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.110 keeps the rule that, if the contractor makes financing payments to a subcontractor under a cost-reimbursement prime contract, the contracting officer should accept them as reimbursable costs of the prime contract only under the listed conditions [@CL-CTF-4493]: the payments are made under the criteria for the applicable method [@CL-CTF-4494]; if customary progress payments are made, they do not exceed the progress payment rate unless unusual progress payments to the subcontractor have been approved [@CL-CTF-4495] and the subcontractor complies with the liquidation principles [@CL-CTF-4496]; if performance-based payments are made, the subcontractor complies with the liquidation principles [@CL-CTF-4497]; and the subcontract contains financing payments terms as prescribed in the part [@CL-CTF-4498]. The rates and approval that the rate condition refers to are also kept in the RFO text: 80 percent, or 85 percent for small business concerns [@CL-CTF-4460], and approval of the request by the head of the contracting activity or a designee as one of the conditions for unusual progress payments [@CL-CTF-4465].
 
 ## Worked example
 
@@ -65,4 +67,5 @@ Whether each subcontract carries the prescribed financing payment terms, and whi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payment of subcontractors under cost-reimbursement prime contracts.

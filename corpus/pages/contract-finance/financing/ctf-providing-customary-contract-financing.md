@@ -24,7 +24,7 @@ Shows what the contracting officer weighs before offering contract financing, wh
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1407; @CL-CTF-1411; @CL-CTF-1410] |
 | Codified citation | FAR 32.104, FAR 32.113 and FAR 32.114 [@CL-CTF-1407; @CL-CTF-1411; @CL-CTF-1410] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.104 [@CL-CTF-4473; @CL-CTF-4474; @CL-CTF-4475; @CL-CTF-4778; @CL-CTF-4476; @CL-CTF-4477; @CL-CTF-4478; @CL-CTF-4479], RFO FAR 32.113 [@CL-CTF-4480; @CL-CTF-4481] and RFO FAR 32.114 [@CL-CTF-4482] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1407] |
 | Applies to | Solicitations and contracts where contract financing is considered [@CL-CTF-1407] |
@@ -39,6 +39,8 @@ Unusual contract financing is any arrangement that deviates from FAR part 32, an
 
 The solicitation must specify the customary contract financing offerors may propose, and the forms listed in FAR 32.113 are customary when provided in accordance with FAR part 32 and agency regulations [@CL-CTF-1411]. One listed form, for supplies or services awarded under the competitive negotiation method in FAR part 15, is either progress payments based on costs or performance-based payments, but not both [@CL-CTF-1412]. The same section lists other customary forms that this card does not restate. See [Contract financing at a glance](ctf-financing-overview.md) and, for financing through loan guarantees and advance payments, [Loan guarantees for defense production](ctf-defense-production-loan-guarantees.md) and [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.104(a) keeps the duty to consider the criteria in the part when determining whether to include contract financing in solicitations and contracts [@CL-CTF-4473] and the limit that Government financing is provided only to the extent actually needed for prompt and efficient performance, considering the availability of private financing and the probable impact on working capital of the predelivery expenditures and production lead-times [@CL-CTF-4475], which are those associated with the contract, or groups of contracts or orders, such as orders issued under indefinite-delivery contracts, basic ordering agreements, or their equivalent [@CL-CTF-4778]. RFO FAR 32.104(c) keeps the rule that, subject to specific agency regulations and paragraph (d), the contracting officer may provide customary contract financing and must not provide unusual contract financing except as authorized in 32.114 [@CL-CTF-4476]. RFO FAR 32.104(d) keeps the $3.5 million alternative for a contractor that is not a small business concern, for an individual contract [@CL-CTF-4478], and the simplified acquisition threshold alternative for a small business concern, for an individual contract [@CL-CTF-4479]. RFO FAR 32.113 keeps the solicitation duty and the list of customary forms, including the choice of either progress payments based on costs or performance-based payments, but not both, for contracts awarded under the competitive negotiation method in part 15 [@CL-CTF-4480; @CL-CTF-4481]. RFO FAR 32.114 keeps the definition of unusual contract financing and the rule that it must be authorized only after approval by the head of the agency or as provided for in agency regulations [@CL-CTF-4482]. Two paragraphs differ. In RFO FAR 32.104(a) the contracting officer is told to resolve doubts that lack of financing could affect performance by including contract financing in the solicitation [@CL-CTF-4474]. In RFO FAR 32.104(d) the opening is "Unless prohibited by agency procedures" [@CL-CTF-4477].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -51,6 +53,8 @@ Answer: for this kind of award the listed customary choice is one or the other, 
 
 Customary financing is a form that the FAR lists as customary when provided under FAR part 32 and agency regulations [@CL-CTF-1411], while unusual financing is any arrangement that deviates from FAR part 32 [@CL-CTF-1410]. The section on unusual financing lists no forms; it defines them only as deviations [@CL-CTF-1410]. Progress payments and performance-based payments are separate choices; see [Customary progress payment rates (DoD)](ctf-progress-payments.md) and [Performance-based payments](ctf-performance-based-payments.md). For what the Government expects in return for financing, see [Consideration for contract financing and fraud-based reduction or suspension of payments](ctf-financing-consideration-and-fraud-payment-procedures.md).
 
+The codified text says to resolve reasonable doubts by including contract financing in the solicitation [@CL-CTF-1407], while the RFO text says to resolve doubts that lack of financing could affect performance by including it [@CL-CTF-4474]. The codified text opens paragraph (d) with "Unless otherwise authorized by agency procedures" [@CL-CTF-1455], while the RFO text opens it with "Unless prohibited by agency procedures", and under the RFO text the contracting officer may provide performance-based payments or customary progress payments if the listed conditions are met, unless agency procedures prohibit it [@CL-CTF-4477]. The wording differs; this card does not say how an agency's procedures would use either opening.
+
 ## Company calibration
 
 Which financing form each solicitation names as customary, and whether any proposed arrangement would count as unusual. [@Q-026]
@@ -59,4 +63,5 @@ Which financing form each solicitation names as customary, and whether any propo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for providing contract financing and customary contract financing.
