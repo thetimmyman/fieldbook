@@ -35,7 +35,7 @@ Auditors cannot perform examinations or render formal opinions on proposals supp
 
 ## How it works
 
-Auditors may perform examinations on proposals supported by cost data, and the volume and quality of the data decide the type of opinion [@CL-EST-0673]. Before starting fieldwork the auditor must coordinate with the contracting officer to assess risk, evaluate the data level required, and help decide whether an examination, agreed-upon procedures or advisory services best serve the procurement [@CL-EST-0674]. The deciding line is the data behind the proposal: cost data can be examined, while for sales or pricing data alone the manual points to agreed-upon procedures rather than an examination [@CL-EST-0672; @CL-EST-0673]. The auditor also evaluates whether the submitted data is adequate for an examination, recognizing that deficiencies may come from the contractor missing solicitation requirements or from the contracting officer asking for too little data [@CL-EST-0910]. The auditor applies professional judgment, advises the contracting officer if required information was not provided, or recommends that the contracting officer solicit more data to protect the Government's interest [@CL-EST-0911].
+Auditors may perform examinations on proposals supported by cost data, and the volume and quality of the data decide the type of opinion [@CL-EST-0673]. Before starting fieldwork the auditor must coordinate with the contracting officer to assess risk, evaluate the data level required, and help the contracting officer decide whether an examination, agreed-upon procedures or advisory services best serve the procurement [@CL-EST-0674]. The deciding line is the data behind the proposal: cost data can be examined, while for sales or pricing data alone the manual points to agreed-upon procedures rather than an examination [@CL-EST-0672; @CL-EST-0673]. The auditor also evaluates whether the submitted data is adequate for an examination, recognizing that deficiencies may come from the contractor missing solicitation requirements or from the contracting officer asking for too little data [@CL-EST-0910]. The auditor applies professional judgment, advises the contracting officer if required information was not provided, or recommends that the contracting officer solicit more data to protect the Government's interest [@CL-EST-0911].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the contracting officer who decides, as the cited text does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for data other than certified cost or pricing data.

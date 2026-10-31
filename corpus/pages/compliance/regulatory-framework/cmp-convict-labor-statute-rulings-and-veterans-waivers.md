@@ -46,7 +46,7 @@ A supply contract is awarded at 15,000 and later modified to 25,000. The answer:
 
 ## Never confuse
 
-The convict labor order does not prohibit employing the groups it lists, but employing nonfederal prisoners is subject to the listed conditions [@CL-CMP-3250; @CL-CMP-3251]. A ruling is not a waiver. The rulings say when a contract falls under the statute [@CL-CMP-3254; @CL-CMP-3255], while a waiver is a decision by a named official to set aside veterans clause terms or requirements [@CL-CMP-3256; @CL-CMP-3257]. A waiver by the Director or the agency head is also not a withdrawal: the Deputy Assistant Secretary of Labor may withdraw approved waivers, and a withdrawal does not apply to awarded contracts [@CL-CMP-3355]. The veterans clause thresholds and definitions are on [Equal opportunity for veterans](cmp-veterans-equal-opportunity.md) and are not restated here.
+The convict labor order does not prohibit employing the groups it lists, but employing nonfederal prisoners is subject to the listed conditions [@CL-CMP-3250; @CL-CMP-3251]. A ruling is not a waiver. The rulings say when a contract falls under the statute [@CL-CMP-3254; @CL-CMP-3255], while a waiver is a decision by a named official to set aside veterans clause terms or requirements [@CL-CMP-3256; @CL-CMP-3257]. A waiver by the Director or the agency head is also not a withdrawal: the Deputy Assistant Secretary of Labor may withdraw approved waivers, and a withdrawal does not apply to awarded contracts [@CL-CMP-3256; @CL-CMP-3257; @CL-CMP-3355]. The veterans clause thresholds and definitions are on [Equal opportunity for veterans](cmp-veterans-equal-opportunity.md) and are not restated here.
 
 ## Company calibration
 
@@ -56,4 +56,5 @@ Which contracts use prisoner or work-release labor, and who owns any veterans cl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claims that name the Director and the agency head.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for convict labor, statute rulings on contract value and veterans clause waivers.

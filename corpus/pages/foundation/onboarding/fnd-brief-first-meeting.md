@@ -25,7 +25,7 @@ Spend the meeting on scope, decision rights and systems. Request the contract li
 
 - Which rules apply turns on contract value: the CAS exemption [@CL-CMP-0001], the DoD certified data threshold [@CL-EST-0002] and the earned value threshold [@CL-PRG-0001].
 - Financing terms differ by business size: the DoD customary progress payment rates [@CL-CTF-0001; @CL-CTF-0002].
-- A fully funded cost contract with the Limitation of Cost clause requires notice when costs expected in the next 60 days will take total costs past 75 percent of the estimated cost [@CL-CTF-0003].
+- A fully funded cost contract with the Limitation of Cost clause requires notice when costs expected in the next 60 days will take total costs past 75 percent of the estimated cost [@CL-CTF-2919; @CL-CTF-0003].
 - Final indirect cost rate proposals are due within 6 months of year end [@CL-RTE-0001].
 
 ## Options

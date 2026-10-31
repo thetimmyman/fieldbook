@@ -16,7 +16,7 @@ links = ["rte-far-30-cas-clauses-waiver-and-determinations"]
 
 ## Purpose
 
-Shows how the contracting officer, the cognizant auditor and the cognizant Federal agency official (CFAO) divide the work of CAS coverage and Disclosure Statement adequacy under FAR 30.202-6, and when award may go ahead without the statement [@CL-CMP-7033; @CL-CMP-7035; @CL-CMP-7036; @CL-CMP-7039].
+Shows how the contracting officer, the cognizant auditor and the cognizant Federal agency official (CFAO) divide the work of CAS coverage and Disclosure Statement adequacy under FAR 30.202-6, and when award may go ahead without the statement [@CL-CMP-7033; @CL-CMP-7035; @CL-CMP-7036; @CL-CMP-7038; @CL-CMP-7039].
 
 ## The rule
 
@@ -65,4 +65,5 @@ For each business unit, whether proposed contracts may require CAS coverage and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names the auditor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage.

@@ -35,7 +35,7 @@ There should be no standard or usual variation percentage [@CL-SUP-3359]. The ov
 
 Contractors are responsible for delivery of the specified quantity of items in a fixed-price contract, within allowable variations, if any [@CL-SUP-3362]. The contract may include the clause at FAR 52.211-17, Delivery of Excess Quantities, to provide that excess quantities of items totaling up to $250 in value may be retained without compensating the contractor [@CL-SUP-3308]. The clause may also provide that excess quantities totaling over $250 in value may, at the Government's option, be either returned at the contractor's expense or retained and paid for at the contract unit price [@CL-SUP-3363].
 
-Construction contracts may authorize a variation in estimated quantities of unit-priced items [@CL-SUP-3364]. When the variation between the estimated and actual quantity of a unit-priced item is more than plus or minus 15 percent, an equitable adjustment in the contract price must be made upon the demand of either the Government or the contractor [@CL-SUP-3309]. The contractor may request an extension of time if the variation increases the time necessary for completion, and the contracting officer must receive the request in writing within 10 days from the beginning of the period of delay [@CL-SUP-3310]. The contracting officer may extend that 10-day limit before the date of final settlement of the contract [@CL-SUP-3365], and must ascertain the facts and make any adjustment for extending the completion date that the findings justify [@CL-SUP-3366].
+Construction contracts may authorize a variation in estimated quantities of unit-priced items [@CL-SUP-3364]. When the variation between the estimated and actual quantity of a unit-priced item is more than plus or minus 15 percent, an equitable adjustment in the contract price must be made upon the demand of either the Government or the contractor [@CL-SUP-3309]. The contractor may request an extension of time if the variation increases the time necessary for completion, and the contracting officer must receive the request in writing within 10 days from the beginning of the period of delay [@CL-SUP-3310]. The contracting officer may extend that 10-day limit before the date of final settlement of the contract [@CL-SUP-3310; @CL-SUP-3365], and must ascertain the facts and make any adjustment for extending the completion date that the findings justify [@CL-SUP-3366].
 
 ## How it works
 
@@ -65,5 +65,6 @@ Confirm the variation percentages and excess-quantity terms in each supply contr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the 10-day limit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on economic purchase quantity.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variation in quantity in supply and construction contracts.
