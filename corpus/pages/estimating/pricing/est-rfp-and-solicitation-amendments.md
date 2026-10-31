@@ -23,7 +23,7 @@ Shows what a request for proposals must describe and when the contracting office
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1364] |
 | Codified citation | FAR 15.203 and FAR 15.206 [@CL-EST-1364; @CL-EST-1366] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 15.102(b)(3)(i) [@CL-EST-3449; @CL-EST-3450] and RFO FAR 15.106 [@CL-EST-3443; @CL-EST-3444] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1364] |
 | Applies to | Requests for proposals for competitive acquisitions, and solicitations whose requirements or terms change [@CL-EST-1364; @CL-EST-1366] |
@@ -40,6 +40,8 @@ Cancellation is a separate step. One condition of the cancellation rule is the c
 
 The time and manner of submission are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md). The provisions and clauses inserted in solicitations are on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. RFO FAR 15.106(a) says that when the Government changes its requirements or terms and conditions, the contracting officer must amend the RFP [@CL-EST-3443; @CL-EST-1366]. RFO FAR 15.102(b)(3)(i) says that, when the uniform contract format is not used, contracting officers must ensure competitive RFPs, at a minimum, describe the Government's requirement and any anticipated terms and conditions that will apply to the contract [@CL-EST-3449; @CL-EST-1364]. The same list continues with the information required to be in the offeror's proposal, the factors and significant subfactors that will be used to evaluate the proposal and their relative importance, and one of the statements at 15.104(d) [@CL-EST-3450; @CL-EST-1365]. RFO FAR 15.106(e)(1) says contracting officers must amend the RFP if the Government is interested in a proposal that involves a departure from the stated requirements [@CL-EST-3444; @CL-EST-1367], and says separately that the amendment should not reveal the alternate solution proposed or any other information that is entitled to protection [@CL-EST-3445; @CL-EST-1481]. RFO FAR 15.106(e)(2) says contracting officers must cancel the RFP and issue a new one, regardless of the stage of the acquisition, if an amendment is proposed after offers have been received and, in the judgment of the contracting officer, based on market research or otherwise, has a requirement change that is so substantial it exceeds what prospective offerors reasonably could have anticipated as a change to the RFP, and additional sources likely would have submitted offers had the change been in the RFP [@CL-EST-3446; @CL-EST-3447; @CL-EST-3448; @CL-EST-1368; @CL-EST-1354].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -50,6 +52,8 @@ After proposals arrive, the Government drops a required delivery site and adds t
 
 An amendment changes the solicitation that is already out. Cancellation ends it and starts a new one, and the cancellation rule rests on the contracting officer's judgment about how far the change goes [@CL-EST-1368; @CL-EST-1354]. Talks with industry before the solicitation issues are on [Exchanges with industry before receipt of proposals](est-exchanges-before-proposals.md).
 
+Codified FAR 15.206(d) makes the duty to amend for a departure from the stated requirements subject to its being done without revealing the alternate solution proposed or any other information entitled to protection [@CL-EST-1367; @CL-EST-1481], while RFO FAR 15.106(e)(1) states the duty to amend and then says separately that the amendment should not reveal them [@CL-EST-3444; @CL-EST-3445].
+
 ## Company calibration
 
 Who reads each amendment and updates the estimate and its assumptions when requirements or terms change. [@Q-036]
@@ -58,4 +62,5 @@ Who reads each amendment and updates the estimate and its assumptions when requi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requests for proposals and amendments.
