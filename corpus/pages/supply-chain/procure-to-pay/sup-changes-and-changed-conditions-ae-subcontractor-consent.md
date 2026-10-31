@@ -45,7 +45,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A construction contract is priced at 2,000,000. During excavation the crew meets rock that the drawings do not show. The contractor writes to the contracting officer that week, before starting that part of the work, and 30 days later submits a proposal for 90,000 of extra cost and 12 extra days, long before final payment. The answer: cost and time rose, the written notice came before the work, and the proposal came before final payment, so the contracting officer makes an equitable adjustment for the cost and time the parties agree. If they cannot agree on the figures, the disagreement is a dispute under the Disputes clause.
+A construction contract is priced at 2,000,000. During excavation the crew meets rock that the drawings do not show. The contractor writes to the contracting officer that week, before starting that part of the work, and the contracting officer receives the notice. Thirty days later the contractor submits a proposal for 90,000 of extra cost and 12 extra days, long before final payment. The answer: cost and time rose, the written notice came before the work and was received, and the proposal came before final payment, so the contracting officer makes an equitable adjustment for the cost and time the parties agree. If they cannot agree on the figures, the disagreement is a dispute under the Disputes clause.
 
 A second condition, an unmarked buried tank, is found. The crew works on and the contractor never sends written notice. The answer: the contracting officer makes no equitable adjustment for that condition unless the contracting officer waives the written notice, and the contractor also failed to notify before proceeding with the work.
 
@@ -63,5 +63,6 @@ Which clause text sits in each construction and architect-engineer contract, whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to show the contracting officer received the written notice.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changes and changed conditions with architect-engineer subcontractor consent.
