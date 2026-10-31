@@ -44,7 +44,7 @@ Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text i
 
 Synthetic example. The numbers are made up.
 
-A site engineer gives a verbal direction that the Contractor regards as a change. The Contractor notifies the Administrative Contracting Officer in writing within the negotiated number of days, with the date, the people involved and an estimated price effect of 80,000. The Contracting Officer confirms the change in writing. An equitable adjustment is then made to price and schedule, but not for delay costs caused by the Contractor's own late notice.
+A site engineer gives a verbal direction that the Contractor regards as a change. The Contractor notifies the Administrative Contracting Officer in writing within the negotiated number of days, with the date, the people involved and an estimated price effect of 80,000. The Contracting Officer confirms the change in writing. An equitable adjustment is then made to price and schedule; because the notice was timely, the exclusion for delay resulting from a failure to give notice does not apply.
 
 ## Never confuse
 

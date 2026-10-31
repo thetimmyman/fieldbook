@@ -28,7 +28,7 @@ Explains the disclosure, consistency, practice-change, and confidentiality requi
 | Text status | Final [@CL-CMP-0606] |
 | Applies to | CAS-covered contracts unless the stated exemptions apply [@CL-CMP-0606; @CL-CMP-0607] |
 
-Unless an exemption applies, the clause incorporates the CAS contract requirements by reference [@CL-CMP-0606]. A contractor on a CAS-covered contract discloses its practices in a Disclosure Statement as required by 48 CFR 9903.202-1 through 9903.202-5, follows them consistently, and applies covered practice changes prospectively while amending the Disclosure Statement [@CL-CMP-0607; @CL-CMP-0608; @CL-CMP-0609]. The clause ties the Disclosure Statement to what those provisions require, so CAS coverage alone does not settle whether one is required [@CL-CMP-0607].
+Unless an exemption applies, the clause incorporates the CAS contract requirements by reference [@CL-CMP-0606]. A contractor on a CAS-covered contract discloses its practices in a Disclosure Statement as required by 48 CFR 9903.202-1 through 9903.202-5, follows them consistently, and applies covered practice changes prospectively while amending the Disclosure Statement if it is affected [@CL-CMP-0607; @CL-CMP-0608; @CL-CMP-0609]. The clause ties the Disclosure Statement to what those provisions require, so CAS coverage alone does not settle whether one is required [@CL-CMP-0607].
 
 ## How it works
 
