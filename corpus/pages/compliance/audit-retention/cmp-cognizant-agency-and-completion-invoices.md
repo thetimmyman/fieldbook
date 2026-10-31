@@ -55,7 +55,7 @@ A university holds a cost-reimbursement research and development contract whose 
 
 ## Never confuse
 
-The cognizant Federal agency for a contractor with negotiated contracts is the one with the largest dollar amount, including options, while the agency for an educational institution or nonprofit organization is set by the OMB Uniform Guidance [@CL-CMP-7267; @CL-CMP-7455].
+For a contractor other than an educational institution or nonprofit organization, the cognizant Federal agency normally will be the agency with the largest dollar amount of negotiated contracts, including options, while the agency for an educational institution or nonprofit organization is set by the OMB Uniform Guidance [@CL-CMP-7267; @CL-CMP-7455].
 
 Predetermined rates and postdetermined rates are different settlement bases for an educational institution. Postdetermined rates are the default, and predetermined rates need the conditions above [@CL-CMP-7271; @CL-CMP-7272; @CL-CMP-7467]. The linked cards cover the determination procedures; see [Contracting officer determination of final indirect rates](../../indirect-rates/rate-lifecycle/rte-co-final-indirect-rates.md).
 
@@ -67,4 +67,5 @@ Which Federal agency is cognizant for each entity, which contracts are physicall
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Kept "normally" and the exclusion of educational institutions and nonprofit organizations in the summary of how the cognizant Federal agency is chosen.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cognizant Federal agency, completion invoices and educational institution rate settlement.
