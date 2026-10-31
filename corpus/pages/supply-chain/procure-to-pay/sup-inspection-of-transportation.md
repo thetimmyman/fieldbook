@@ -23,7 +23,7 @@ Shows the Government's right to inspect and test a freight carrier's services, f
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2465] |
 | Codified citation | FAR 52.246-14 [@CL-SUP-2465] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-14 [@CL-SUP-0417] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2465] |
 | Applies to | Solicitations and contracts for freight transportation services by rail, motor, domestic freight forwarder and domestic water carriers, except the services the clause excludes [@CL-SUP-2465; @CL-SUP-2466; @CL-SUP-2531] |
@@ -35,6 +35,8 @@ The Government has the right to inspect and test the contractor's services, faci
 ## How it works
 
 The clause gives the Government a right of inspection and testing over the carrier's services, facilities and equipment, limited to reasonable times [@CL-SUP-2467]. The contractor's matching duty is free access plus the reasonable facilities and assistance the inspectors need [@CL-SUP-2468]. The clause has no entries to complete. Whether it applies depends on the mode of carriage and on the exclusions for air carriers, international ocean carriers, services under bills of lading and reduced-rate services [@CL-SUP-2465; @CL-SUP-2466; @CL-SUP-2531].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. Section 52.246-14 of the RFO text keeps the scope of the clause: its prescription says to insert it in solicitations and contracts for freight transportation services, including local drayage, by rail, motor (including bus), domestic freight forwarder, and domestic water carriers, including inland, coastwise, and intercoastal service [@CL-SUP-0417; @CL-SUP-2465]. It also keeps the exclusions: the contracting officer shall not use the clause for transportation services by domestic or international air carriers or by international ocean carriers, or to freight services provided under bills of lading or to those negotiated for reduced rates under sections 10721 or 13712 of title 49 of the United States Code [@CL-SUP-0418; @CL-SUP-2466; @CL-SUP-2531]. It keeps the Government's right to inspect and test the Contractor's services, facilities, and equipment at all reasonable times [@CL-SUP-0419; @CL-SUP-2467], and the Contractor's duty to furnish Government representatives with the free access and reasonable facilities and assistance required to accomplish their inspections and tests [@CL-SUP-0420; @CL-SUP-2468].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Whether each freight service the company performs or buys sits inside the carrie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of transportation.
