@@ -23,7 +23,7 @@ Sets out how a FAR provision or clause, a supplemental provision or clause, and 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8857] |
 | Codified citation | FAR 52.103 [@CL-CMP-8857] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.103 [@CL-CMP-1287; @CL-CMP-1288] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8857] |
 | Applies to | FAR provisions and clauses, and provisions and clauses that supplement the FAR, used in solicitations and contracts by reference or in full text [@CL-CMP-8857; @CL-CMP-8860] |
@@ -45,6 +45,8 @@ Where the marker goes for a supplemental text is stated two ways. This section p
 For supplemental texts, except those of the individual-acquisition kind covered by paragraph (c), the section gives two hypothetical examples of how they shall be identified [@CL-CMP-8863]. In the first, a provision that is sequentially the first provision or clause in section 52.214 of the X Agency Acquisition Regulation is identified as 9952.214-70, Bid Envelopes (OCT 1983) [@CL-CMP-8905]. The chapter number comes first where the regulation is published in the Federal Register and codified in 48 CFR [@CL-CMP-8842]. In the second, the Y Acquisition Regulation is not published in the Federal Register and codified in 48 CFR [@CL-CMP-8906], and a clause that is sequentially the second provision or clause in section 52.236 is identified as 52.236-71, Refrigerated Display Cases (MAR 1983), Y Acquisition Regulation [@CL-CMP-8907]. The two identifications differ in whether the regulation name is written after the date, and the section does not say why [@CL-CMP-8905; @CL-CMP-8907].
 
 The section sets no threshold or deadline.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.103 keeps the rule that a FAR provision or clause used without deviation, whether incorporated by reference or in full text, is identified by number, title and date [@CL-CMP-1287; @CL-CMP-8857]. It keeps the rule that the contracting officer inserts "(DEVIATION)" after the date when the provision or clause is used with an authorized deviation [@CL-CMP-1288; @CL-CMP-8858]. It keeps the pointer to the Authorized Deviations in Provisions provision at 52.252-5 and the Authorized Deviations in Clauses clause at 52.252-6 [@CL-CMP-1289; @CL-CMP-8859], prescribed in 52.107(e) and (f) [@CL-CMP-1290; @CL-CMP-8904]. It keeps the rule that a supplemental provision or clause is identified by number, title, date and name of the regulation [@CL-CMP-1291; @CL-CMP-8860], with "(DEVIATION)" inserted after the name of the regulation when it is used with an authorized deviation [@CL-CMP-1292; @CL-CMP-8861]. It keeps the identification of a text developed for an individual acquisition by title, date and the name of the agency or suborganization that developed it [@CL-CMP-1293; @CL-CMP-8862]. It keeps the identification each of its two hypothetical examples produces, 9952.214-70, Bid Envelopes, in the first and 52.236-71, Refrigerated Display Cases, Y Acquisition Regulation, in the second [@CL-CMP-1294; @CL-CMP-8905; @CL-CMP-1295; @CL-CMP-8907].
 
 ## Worked example
 
@@ -68,4 +70,5 @@ Which executed contracts and modifications the company holds, and who confirms t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identifying provisions and clauses.

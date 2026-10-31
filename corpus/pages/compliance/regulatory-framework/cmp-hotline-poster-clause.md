@@ -23,7 +23,7 @@ Shows when the fraud hotline poster must be displayed, where it goes, and when a
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2637] |
 | Codified citation | FAR 52.203-14 [@CL-CMP-2637] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.203-14 [@CL-CMP-1280; @CL-CMP-1281] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2637] |
 | Applies to | Contracts that exceed $7.5 million or a lesser amount established by the agency, not for commercial products or commercial services and not performed entirely outside the United States, where the agency has a fraud hotline poster or the contract is funded with disaster assistance funds, subject to the exception for an existing awareness program [@CL-CMP-2676; @CL-CMP-2677; @CL-CMP-2639] |
@@ -35,6 +35,8 @@ If the Contractor has implemented a business ethics and conduct awareness progra
 ## How it works
 
 The poster duty is a display duty tied to performance in the United States and to specific places, the common work areas and the contract work sites [@CL-CMP-2638]. The clause leaves a blank for the Contracting Officer to fill with where the posters can be obtained. The clause also has a paragraph on an electronic version at a company website, and this card does not set it out. Its flowdown paragraph is limited by a threshold and by exceptions for commercial and wholly foreign subcontracts [@CL-CMP-2678]. An existing awareness program with a reporting mechanism removes the duty for agency posters, but not for required DHS posters [@CL-CMP-2639].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the prescription cross-reference to FAR 3.1004(b) [@CL-CMP-1280; @CL-CMP-2637]. It keeps the duty, except as provided in paragraph (c), during contract performance in the United States to prominently display, in common work areas within business segments performing work under the contract and at contract work sites, the listed posters, the first being any agency fraud hotline poster [@CL-CMP-1281; @CL-CMP-1282; @CL-CMP-2638]. It keeps the paragraph (c) exception under which a contractor with a business ethics and conduct awareness program, including a reporting mechanism such as a hotline poster, need not display agency fraud hotline posters other than any required DHS posters [@CL-CMP-1283; @CL-CMP-2639]. It keeps the flowdown of the substance of the clause in all subcontracts that exceed the threshold specified in FAR 3.1004(b)(1) on the date of subcontract award, except a subcontract for the acquisition of a commercial product or commercial service or one performed entirely outside the United States [@CL-CMP-1284; @CL-CMP-1285; @CL-CMP-2678]. The RFO clause also has a paragraph requiring an electronic version of the poster(s) at the company website if the contractor maintains one as a method of providing information to employees [@CL-CMP-1286].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts carry the poster clause, where the company performs work on them
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Display of Hotline Poster(s) clause.
