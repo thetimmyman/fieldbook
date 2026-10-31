@@ -22,8 +22,8 @@ Shows who decides for the Government when a contract is made, administered or en
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-OPM-0001] |
-| Codified citation | FAR 1.602-1; FAR 1.602-2 [@CL-OPM-0001; @CL-OPM-0004] |
+| Instrument | Codified FAR and codified DFARS [@CL-OPM-0001; @CL-OPM-1053] |
+| Codified citation | FAR 1.602-1; FAR 1.602-2; DFARS 242.200-70 [@CL-OPM-0001; @CL-OPM-0004; @CL-OPM-1053] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-OPM-0001] |
@@ -47,7 +47,7 @@ A contracting officer's written limit is 500,000 for any one action. A COR tells
 
 ## Never confuse
 
-A COR is not a contracting officer. The COR has no authority to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-OPM-0006]. Functions that a contracting officer delegates to a contract administration office are a different delegation, and a COR may not be delegated responsibility to perform them [@CL-OPM-0101]; see [Contract administration functions](../../compliance/audit-retention/cmp-contract-administration-functions.md).
+A COR is not a contracting officer. The COR has no authority to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-OPM-0006]. Functions that a contracting officer delegates to a contract administration office are a different delegation, and a COR may not be delegated responsibility to perform them [@CL-OPM-0101]; see [Contract administration functions](../../compliance/audit-retention/cmp-contract-administration-functions.md). The DFARS scope section 242.200-70 says the subpart does not address the contract administration role of a contracting officer's representative, and it points to 201.602 [@CL-OPM-1053].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which written instrument carries each signer's limit on each executed contract, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS scope section on the contracting officer's representative role.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer authority and contracting officer's representatives.

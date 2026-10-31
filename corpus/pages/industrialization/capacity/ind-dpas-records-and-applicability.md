@@ -32,6 +32,8 @@ Persons are required to make and preserve for at least three years accurate and 
 
 The part and all official actions, unless specifically stated otherwise, apply to transactions in any state, territory or possession of the United States and the District of Columbia [@CL-IND-0211]. The part and all official actions apply not only to deliveries to other persons but also to deliveries to affiliates and subsidiaries of a person and deliveries from one branch, division or section of a single entity to another under common ownership or control [@CL-IND-0212].
 
+A person shall not be held liable for damages or penalties for any act or failure to act resulting directly or indirectly from compliance with any provision of the part, or an official action, notwithstanding that such provision or action shall subsequently be declared invalid by judicial or other competent authority [@CL-IND-1033; @CL-IND-1034].
+
 ## How it works
 
 A person keeps accurate and complete records of each covered transaction for at least the stated period [@CL-IND-0208]. The records must let an examiner decide whether each transaction complies, and the part does not specify any particular method or system [@CL-IND-0209]. Commerce can ask to examine them on demand, as the audit and investigation powers are described on [DPAS: audits, investigations, violations and penalties](ind-dpas-audits-investigations-and-penalties.md) [@CL-IND-0210]. Persons must also develop, maintain and submit any other records and reports that Commerce may require [@CL-IND-0221]. The printed section does not say from which date the retention period runs. It also treats some information as confidential, which this card does not state.
@@ -54,4 +56,5 @@ Where rated-order records are kept, in what detail, and who can produce them on 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the protection against claims for acting in compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for records and reports and the applicability of the part.

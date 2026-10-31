@@ -21,7 +21,7 @@ Shows who pays for testing and qualification of industrial resources developed w
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0891] |
-| Codified citation | FAR 34.102, 34.103 and 34.104 [@CL-PRG-0891; @CL-PRG-0892; @CL-PRG-0893; @CL-PRG-0897; @CL-PRG-0898; @CL-PRG-0899] |
+| Codified citation | FAR 34.102, 34.103 and 34.104 [@CL-PRG-0891; @CL-PRG-0892; @CL-PRG-0893; @CL-PRG-0897; @CL-PRG-0898; @CL-PRG-0899]; FAR 34.100 [@CL-PRG-9047; @CL-PRG-9048]; FAR 34.101 [@CL-PRG-9049; @CL-PRG-9050] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0891] |
@@ -32,6 +32,8 @@ It is the policy of the Government to pay for any testing and qualification requ
 A contractor that receives a request from a Title III project contractor for testing and qualification of a Title III industrial resource must refer the request to the contracting officer [@CL-PRG-0892]. The contracting officer must evaluate the request in accordance with agency procedures to determine whether the listed conditions are met [@CL-PRG-0893]. One condition is that the Title III industrial resource is being or potentially may be used in the development or manufacture of a major system or item of supply [@CL-PRG-0894]. The other is that, for major systems in production, remaining quantities to be acquired are sufficient to justify incurring the cost of testing and qualification [@CL-PRG-0893; @CL-PRG-0895]. In evaluating a request for testing and qualification, the contracting officer must consult with the Defense Production Act Office, Title III Program [@CL-PRG-0892; @CL-PRG-0896].
 
 If the determination about the listed conditions is affirmative, the contracting officer must modify the contract to require the contractor to test the Title III industrial resource for qualification [@CL-PRG-0893; @CL-PRG-0897]. The Defense Production Act Office, Title III Program, must provide to the contractor the industrial resource produced by the Title III project contractor in sufficient amounts to meet testing needs [@CL-PRG-0898]. The clause at 52.234-1 must be inserted in all contracts for major systems and items of supply [@CL-PRG-0899].
+
+Subpart 34.1 prescribes policies and procedures for the testing, qualification, and use of industrial resources manufactured or developed with assistance provided under section 301, 302, or 303 of the Defense Production Act [@CL-PRG-9047]. Title III of the Defense Production Act authorizes various forms of Government assistance to encourage expansion of production capacity and supply of industrial resources essential to national defense [@CL-PRG-9048]. As used in the subpart, item of supply means any individual part, component, subassembly, assembly, or subsystem integral to a major system, and other property which may be replaced during the service life of the system [@CL-PRG-9049]. The term includes spare parts and replenishment parts, but does not include packaging or labeling associated with shipment or identification of an item [@CL-PRG-9050].
 
 ## How it works
 
@@ -55,4 +57,5 @@ Whether any contract has received a Title III testing request or modification, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.100 scope and 34.101 definition of item of supply.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for testing and qualification of Title III industrial resources.

@@ -23,7 +23,7 @@ Shows the two DoD contract-clause directions at DFARS 216.603-4, Contract clause
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-MKT-1871] |
-| Codified citation | DFARS 216.603-4(b)(2) and (b)(3) [@CL-MKT-1870; @CL-MKT-1871] |
+| Codified citation | DFARS 216.603-3; DFARS 216.603-4(b)(2) and (b)(3) [@CL-MKT-9163; @CL-MKT-1870; @CL-MKT-1871] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1871] |
@@ -35,7 +35,7 @@ The first direction is a pointer to guidance; it does not say to include or omit
 
 ## How it works
 
-The section does not restate when a definitization clause is needed; that depends on the prescription at 217.7406(b) [@CL-MKT-1871]. Where that prescription calls for the DoD clause, the clause takes the place of the FAR definitization clause and is not added to it [@CL-MKT-1871]. For the Limitation of Government Liability clause the section adds only a cross-reference to further guidance [@CL-MKT-1870]. The section sets no deadline, threshold or approval step of its own.
+The section does not restate when a definitization clause is needed; that depends on the prescription at 217.7406(b) [@CL-MKT-1871]. Where that prescription calls for the DoD clause, the clause takes the place of the FAR definitization clause and is not added to it [@CL-MKT-1871]. For the Limitation of Government Liability clause the section adds only a cross-reference to further guidance [@CL-MKT-1870]. The section sets no deadline, threshold or approval step of its own. Section 216.603-3, Limitations, separately says to see subpart 217.74 for additional limitations on the use of letter contracts [@CL-MKT-9163].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which letter contracts the company holds, which definitization clause each carri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the additional limitations on letter contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract clauses under DFARS 216.603-4.

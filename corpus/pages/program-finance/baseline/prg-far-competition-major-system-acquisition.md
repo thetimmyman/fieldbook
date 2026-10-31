@@ -23,7 +23,7 @@ Shows who carries the competition duty during a major system acquisition, what n
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0406] |
-| Codified citation | FAR 34.005-1 [@CL-PRG-0406] |
+| Codified citation | FAR 34.005-1 [@CL-PRG-0406]; FAR 34.001 [@CL-PRG-9045; @CL-PRG-9046] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0406] |
@@ -34,6 +34,8 @@ The program manager must, throughout the acquisition process, promote full and o
 Notice of the proposed acquisition must be given the broadest and most effective circulation practicable throughout the business, academic, and Government communities [@CL-PRG-0407]. Foreign contractors, technology, and equipment may be considered when it is feasible and permissible to do so [@CL-PRG-0408].
 
 The contracting officer should time solicitation issuance and contract award to maintain continuity of concept development during the transition from withdrawing concept proposer to new contractor [@CL-PRG-0409].
+
+As used in part 34, effective competition is a market condition that exists when two or more contractors, acting independently, actively contend for the Government's business in a manner that ensures that the Government will be offered the lowest cost or price alternative or best technical design meeting its minimum needs [@CL-PRG-9045; @CL-PRG-9046].
 
 ## How it works
 
@@ -67,4 +69,5 @@ What work breakdown and control account standards, and which scheduling tool, pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.001 definition of effective competition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for competition throughout a major system acquisition.

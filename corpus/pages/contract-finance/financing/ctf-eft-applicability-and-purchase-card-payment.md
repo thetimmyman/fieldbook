@@ -23,7 +23,7 @@ States when the Government pays by electronic funds transfer, the exceptions the
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1532] |
-| Codified citation | FAR 32.1101, FAR 32.1103 and FAR 32.1108 [@CL-CTF-3747; @CL-CTF-1532; @CL-CTF-1539] |
+| Codified citation | FAR 32.1101, FAR 32.1103 and FAR 32.1108 [@CL-CTF-3747; @CL-CTF-1532; @CL-CTF-1539]; FAR 32.1100 [@CL-CTF-9306] |
 | RFO citation | RFO FAR 32.1100 [@CL-CTF-3044], RFO FAR 32.1101 [@CL-CTF-3045], RFO FAR 32.1103 and RFO FAR 32.1108 [@CL-CTF-4294; @CL-CTF-4301] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1532] |
@@ -34,6 +34,8 @@ States when the Government pays by electronic funds transfer, the exceptions the
 The Government shall provide all contract payments through EFT except in the listed cases [@CL-CTF-1532]. One listed case is that the office making payment under a contract that requires payment by EFT loses the ability to release payment by EFT, and the paragraph then says what the payment office does until it can make EFT payments, which this card does not restate [@CL-CTF-1532]. Two further listed cases are a payment to be received by or on behalf of the contractor outside the United States and Puerto Rico and a contract paid in other than United States currency, each marked in the text with a cross-reference to 32.1106(b) [@CL-CTF-1533]. A further listed case is payment by EFT under a classified contract that could compromise the safeguarding of classified information or national security, or for which arrangements for appropriate EFT payments would be impractical due to security considerations [@CL-CTF-1534].
 
 The exception for deployed and emergency operations has two parts joined by the word or. One is a contract awarded by a deployed contracting officer in the course of military operations, including, but not limited to, contingency operations as defined in 2.101 [@CL-CTF-1535]. The other is a contract awarded by any contracting officer in the conduct of emergency operations, such as responses to natural disasters or national or civil emergencies [@CL-CTF-1536]. The paragraph states one condition after both parts, introduced by if: EFT is not known to be possible, or EFT payment would not support the objectives of the operation [@CL-CTF-1536]. The text places that condition after both parts, so read the paragraph for how it applies to each [@CL-CTF-1535; @CL-CTF-1536]. Two more listed cases are that the agency does not expect to make more than one payment to the same recipient within a one-year period, and that the agency's need for supplies and services is of such unusual and compelling urgency that the Government would be seriously injured unless payment is made by a method other than EFT [@CL-CTF-1537]. The last two are that there is only one source for supplies and services and the Government would be seriously injured unless payment is made by a method other than EFT, and that EFT is otherwise not required where authorized by Department of the Treasury Regulations at 31 CFR part 208 [@CL-CTF-1538].
+
+Subpart 32.11 provides policy and procedures for contract financing and delivery payments to contractors by electronic funds transfer (EFT) [@CL-CTF-9306].
 
 ## How it works
 
@@ -61,6 +63,7 @@ Confirm which contracts are paid by EFT or purchase card and which listed except
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.1100 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1100 scope and 32.1101 statutory EFT requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.1101 statutory EFT requirement.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -22,8 +22,8 @@ Shows how a successive targets contract starts with initial targets, sets firm t
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-EST-1082] |
-| Codified citation | FAR 16.403-2 [@CL-EST-1082] |
+| Instrument | Codified FAR and codified DFARS [@CL-EST-1082; @CL-EST-9220] |
+| Codified citation | FAR 16.403-2 [@CL-EST-1082]; DFARS 216.403-2 [@CL-EST-9220] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1082] |
@@ -35,7 +35,7 @@ The contract type is appropriate when, among its conditions, available informati
 
 ## How it works
 
-When the production point is reached, the parties negotiate the firm target cost, giving consideration to cost experience under the contract and other pertinent factors, and the formula sets the firm target profit [@CL-EST-1085]. The parties may then negotiate a firm fixed price, using the firm target cost plus the firm target profit as a guide [@CL-EST-1086]. If a firm fixed price is inappropriate, they may negotiate a formula for the final price using the firm target cost and firm target profit [@CL-EST-1087]. The final cost is then negotiated at completion, and the final profit is established by formula, as under the firm target type [@CL-EST-1104].
+When the production point is reached, the parties negotiate the firm target cost, giving consideration to cost experience under the contract and other pertinent factors, and the formula sets the firm target profit [@CL-EST-1085]. The parties may then negotiate a firm fixed price, using the firm target cost plus the firm target profit as a guide [@CL-EST-1086]. If a firm fixed price is inappropriate, they may negotiate a formula for the final price using the firm target cost and firm target profit [@CL-EST-1087]. The final cost is then negotiated at completion, and the final profit is established by formula, as under the firm target type [@CL-EST-1104]. The DFARS section with the same number says to see PGI 216.403-2 for guidance on the use of fixed-price incentive (successive targets) contracts [@CL-EST-9220].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ How the initial targets, and the cost experience later used for the firm target 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on successive targets contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price incentive (successive targets) contracts.

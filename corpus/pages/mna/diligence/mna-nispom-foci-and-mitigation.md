@@ -34,7 +34,7 @@ A U.S. entity that is in process for an entity eligibility determination and is 
 
 ## How it works
 
-Factors relating to the entity, relevant foreign interests and their governments are considered in the aggregate to decide whether an applicant entity is under FOCI, its eligibility, and the protective measures required [@CL-MNA-0529]. The entity completes an SF 328 during the process for an entity eligibility determination or when significant changes occur to information previously submitted [@CL-MNA-0530]. An entity with a favorable determination that enters negotiations for a merger, acquisition or takeover by a foreign interest notifies the CSA that the negotiations have started [@CL-MNA-0531], and the notification names the type of transaction, the potential foreign investor and a mitigation plan [@CL-MNA-0532]. Among the measures, a security control agreement may be adequate where the foreign interest does not effectively own or control the entity but is entitled to board representation [@CL-MNA-0533], an SSA may be adequate where a foreign interest effectively owns or controls it [@CL-MNA-0534], and a voting trust or proxy agreement vests the foreign-owned voting rights in cleared U.S. citizens approved by the USG [@CL-MNA-0535].
+Factors relating to the entity, relevant foreign interests and their governments are considered in the aggregate to decide whether an applicant entity is under FOCI, its eligibility, and the protective measures required [@CL-MNA-0529]. The entity completes an SF 328 during the process for an entity eligibility determination or when significant changes occur to information previously submitted [@CL-MNA-0530]. The SF 328, Certificate Pertaining to Foreign Interest, in § 117.8 and § 117.11 is assigned Office of Management and Budget Control Number 0704-0579 [@CL-MNA-1387]. An entity with a favorable determination that enters negotiations for a merger, acquisition or takeover by a foreign interest notifies the CSA that the negotiations have started [@CL-MNA-0531], and the notification names the type of transaction, the potential foreign investor and a mitigation plan [@CL-MNA-0532]. Among the measures, a security control agreement may be adequate where the foreign interest does not effectively own or control the entity but is entitled to board representation [@CL-MNA-0533], an SSA may be adequate where a foreign interest effectively owns or controls it [@CL-MNA-0534], and a voting trust or proxy agreement vests the foreign-owned voting rights in cleared U.S. citizens approved by the USG [@CL-MNA-0535].
 
 ## Worked example
 
@@ -56,4 +56,5 @@ Whether the company holds or seeks access to classified information, which forei
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the control number of the SF 328.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign ownership, control or influence.

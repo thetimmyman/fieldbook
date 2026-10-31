@@ -23,7 +23,7 @@ Gives the prompt payment definitions that set payment dates, and shows where a c
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3584] |
-| Codified citation | FAR 32.901, 32.902 and 32.909 [@CL-CTF-3745; @CL-CTF-3746; @CL-CTF-3584; @CL-CTF-3588] |
+| Codified citation | FAR 32.901, 32.902 and 32.909 [@CL-CTF-3745; @CL-CTF-3746; @CL-CTF-3584; @CL-CTF-3588]; FAR 32.900 [@CL-CTF-9305] |
 | RFO citation | RFO FAR 32.900 [@CL-CTF-3041]; RFO FAR 32.901 [@CL-CTF-3042]; RFO FAR 32.902 [@CL-CTF-4055; @CL-CTF-4056; @CL-CTF-4057; @CL-CTF-4058]; RFO FAR 32.909 [@CL-CTF-4059; @CL-CTF-4060; @CL-CTF-4061] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3584] |
@@ -34,6 +34,8 @@ The prompt payment subpart applies to invoice payments on all contracts, except 
 In the prompt payment subpart, a discount for prompt payment means an invoice payment reduction offered by the contractor for payment prior to the due date [@CL-CTF-3584]. A mixed invoice means an invoice that contains items with different payment due dates [@CL-CTF-3585]. Payment date means the date on which a check for payment is dated or, for an electronic funds transfer, the settlement date [@CL-CTF-3586]. Settlement date, as it applies to electronic funds transfer, means the date on which an electronic funds transfer payment is credited to the contractor's financial institution [@CL-CTF-3587].
 
 Questions about delinquent payments are directed to the designated billing office or the designated payment office [@CL-CTF-3588]. Disagreements in payment amount or timing are directed to the contracting officer for resolution, and the contracting officer must coordinate within appropriate contracting channels and seek the advice of other offices as necessary to resolve them [@CL-CTF-3589].
+
+Subpart 32.9 prescribes policies, procedures, and clauses for implementing Office of Management and Budget (OMB) prompt payment regulations at 5 CFR part 1315 [@CL-CTF-9305].
 
 ## How it works
 
@@ -61,6 +63,7 @@ Which office the company contacts about a late payment, who owns a disagreement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.900 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.900 scope and 32.901 applicability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.901 applicability of the prompt payment subpart.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

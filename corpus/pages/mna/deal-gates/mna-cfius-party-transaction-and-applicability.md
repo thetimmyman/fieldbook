@@ -50,7 +50,7 @@ Answer: A, S and T are parties because the deal is an acquisition of an ownershi
 
 ## Never confuse
 
-A transaction is not the same as a covered transaction. The definition only says what kinds of deals count as transactions [@CL-MNA-0820], and whether one is covered is on the [jurisdiction card](mna-cfius-jurisdiction.md). A party is also not the same as an advisor, because the acquisition rule applies without regard to brokerage or underwriting services [@CL-MNA-0817]. Control transactions are on the [covered control transactions card](mna-cfius-covered-control-transactions.md). The terms foreign person, parent and U.S. business are on the [foreign person card](mna-cfius-foreign-person-parent-us-business.md), and a date test in the sensitive personal data definition points back to this applicability rule on the [sensitive personal data card](mna-cfius-sensitive-personal-data.md).
+A transaction is not the same as a covered transaction. The definition only says what kinds of deals count as transactions [@CL-MNA-0820], and whether one is covered is on the [jurisdiction card](mna-cfius-jurisdiction.md). Brokerage or underwriting services for the deal do not change who the party is, because the acquisition rule names the entity whose ownership interest is acquired without regard to any person providing those services [@CL-MNA-0817]. Control transactions are on the [covered control transactions card](mna-cfius-covered-control-transactions.md). The terms foreign person, parent and U.S. business are on the [foreign person card](mna-cfius-foreign-person-parent-us-business.md), and a date test in the sensitive personal data definition points back to this applicability rule on the [sensitive personal data card](mna-cfius-sensitive-personal-data.md).
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Which deals, past or planned, involve a foreign person, who would be a party or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: The brokerage and underwriting sentence now says what the acquisition rule says, instead of a general statement about advisors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of person and investment.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for party to a transaction, transaction and the applicability rule.

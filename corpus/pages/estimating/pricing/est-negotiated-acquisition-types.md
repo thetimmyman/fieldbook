@@ -22,7 +22,7 @@ Defines the proposal terms used in the negotiated acquisition part of the FAR, s
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2726] |
-| Codified citation | FAR 15.001, FAR 15.002 and FAR 15.101 [@CL-EST-2726; @CL-EST-2731; @CL-EST-2734]; FAR 15.508 [@CL-EST-2057] |
+| Codified citation | FAR 15.001, FAR 15.002 and FAR 15.101 [@CL-EST-2726; @CL-EST-2731; @CL-EST-2734]; FAR 15.508 [@CL-EST-2057]; FAR 15.000 [@CL-EST-9186; @CL-EST-9187]; FAR 15.100 [@CL-EST-9188] |
 | RFO citation | RFO FAR 15.001 [@CL-EST-3312; @CL-EST-3313; @CL-EST-3314; @CL-EST-3315]; RFO FAR 15.002 [@CL-EST-3316; @CL-EST-3317; @CL-EST-3318]; RFO FAR 15.103 [@CL-EST-3319; @CL-EST-3320]; RFO FAR 15.000 [@CL-EST-2238; @CL-EST-2239]; RFO FAR 15.303 [@CL-EST-2240] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2726] |
@@ -31,6 +31,8 @@ Defines the proposal terms used in the negotiated acquisition part of the FAR, s
 The terms below are defined as used in FAR part 15 [@CL-EST-2776]. A proposal modification is a change made to a proposal before the solicitation closing date and time, or made in response to an amendment, or made to correct a mistake at any time before award [@CL-EST-2727]. A proposal revision is a change made after the solicitation closing date, at the request of or as allowed by a contracting officer, as the result of negotiations [@CL-EST-2728]. A deficiency is a material failure of a proposal to meet a Government requirement, or a combination of significant weaknesses in a proposal that increases the risk of unsuccessful contract performance to an unacceptable level [@CL-EST-2726]. A weakness is a flaw in the proposal that increases the risk of unsuccessful contract performance, and a significant weakness is a flaw that appreciably increases that risk [@CL-EST-2729; @CL-EST-2730].
 
 In a sole source environment, the request for proposals should be tailored to remove unnecessary information and requirements, such as evaluation criteria and voluminous proposal preparation instructions [@CL-EST-2731]. The text says should, not shall [@CL-EST-2731]. In a competitive environment, the procedures of this part are intended to minimize the complexity of the solicitation, the evaluation and the source selection decision, while maintaining a process designed to foster an impartial and comprehensive evaluation of offerors' proposals, leading to selection of the proposal representing the best value to the Government [@CL-EST-2732; @CL-EST-2733].
+
+FAR part 15 prescribes policies and procedures governing competitive and noncompetitive negotiated acquisitions [@CL-EST-9186]. A contract awarded using other than sealed bidding procedures is a negotiated contract, and the section refers to 14.101 [@CL-EST-9187]. Subpart 15.1 describes some of the acquisition processes and techniques that may be used to design competitive acquisition strategies suitable for the specific circumstances of the acquisition [@CL-EST-9188].
 
 ## How it works
 
@@ -64,6 +66,7 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.000 part scope and the FAR 15.100 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.000 scope and RFO FAR 15.303 mistakes in a proposal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added mistakes in a proposal disclosed after award.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

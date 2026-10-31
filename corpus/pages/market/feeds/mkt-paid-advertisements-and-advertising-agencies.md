@@ -22,8 +22,8 @@ Shows how orders for paid advertisements are placed, priced, supported with proo
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-MKT-0731] |
-| Codified citation | FAR 5.503; FAR 5.504 [@CL-MKT-0731; @CL-MKT-0732] |
+| Instrument | Codified FAR and codified DFARS [@CL-MKT-0731; @CL-MKT-9162] |
+| Codified citation | FAR 5.503; FAR 5.504; DFARS 205.502(a) [@CL-MKT-0731; @CL-MKT-0732; @CL-MKT-9162] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0731] |
@@ -39,7 +39,7 @@ An order may go straight to the media or through an advertising agency [@CL-MKT-
 
 In the subpart on paid advertising, advertisement means any single message prepared for placement in communication media, regardless of the number of placements [@CL-MKT-2223]. Publication means the placement of an advertisement in a newspaper, magazine, trade or professional journal, or any other printed medium, or the broadcasting of an advertisement over radio or television [@CL-MKT-2224].
 
-Authority to approve the publication of paid advertisements in newspapers is vested in the head of each agency under title 44 of the United States Code, section 3702, and this approval authority may be delegated under title 5 of the United States Code, section 302(b) [@CL-MKT-2225]. Contracting officers shall obtain written authorization in accordance with agency procedures before advertising in newspapers, and, unless the agency head determines otherwise, advance written authorization is not required to place advertisements in media other than newspapers [@CL-MKT-2226].
+Authority to approve the publication of paid advertisements in newspapers is vested in the head of each agency under title 44 of the United States Code, section 3702, and this approval authority may be delegated under title 5 of the United States Code, section 302(b) [@CL-MKT-2225]. Contracting officers shall obtain written authorization in accordance with agency procedures before advertising in newspapers, and, unless the agency head determines otherwise, advance written authorization is not required to place advertisements in media other than newspapers [@CL-MKT-2226]. In the defense supplement, heads of contracting activities are delegated authority to approve the publication of paid advertisements in newspapers, and the text names no official who delegates it [@CL-MKT-9162].
 
 ## Worked example
 
@@ -59,5 +59,6 @@ Confirm which public advertising orders are relevant market observations for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS delegation to heads of contracting activities for newspaper advertisements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the advertisement and publication definitions and the approval authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for paid advertisements and the use of advertising agencies.

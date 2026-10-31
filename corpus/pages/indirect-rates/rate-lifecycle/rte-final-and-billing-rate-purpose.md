@@ -23,7 +23,7 @@ Sets out why final indirect cost rates and billing rates exist, who establishes 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-RTE-0300] |
-| Codified citation | FAR 42.703-1 [@CL-RTE-0302] |
+| Codified citation | FAR 42.703-1 [@CL-RTE-0302]; FAR 42.700 [@CL-RTE-9004] |
 | RFO citation | RFO FAR 42.503-1 [@CL-RTE-0933; @CL-RTE-0935] |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0301] |
@@ -32,6 +32,8 @@ Sets out why final indirect cost rates and billing rates exist, who establishes 
 A single agency establishes the final indirect cost rates for each business unit, and those rates bind every agency and its contracting offices unless a statute specifically prohibits that [@CL-RTE-0302]. Final rates are used for contract closeout, and in negotiating the final price of fixed-price incentive and redeterminable contracts and in other situations requiring that indirect costs be settled before contract prices are established, unless the quick-closeout procedure is used [@CL-RTE-0305; @CL-RTE-0307].
 
 Billing rates are the interim counterpart: an indirect cost rate set temporarily for interim reimbursement and adjusted as necessary until the final rates are established [@CL-RTE-0300]. Both sets are used to reimburse indirect costs under cost-reimbursement contracts and to determine progress payments under fixed-price contracts [@CL-RTE-0304].
+
+Subpart 42.7 prescribes policies and procedures for establishing billing rates and final indirect cost rates [@CL-RTE-9004].
 
 ## How it works
 
@@ -59,5 +61,6 @@ Confirm which billing and final rate sets apply to each contract and period, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.700 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose and policy of final indirect cost rates and billing rates.

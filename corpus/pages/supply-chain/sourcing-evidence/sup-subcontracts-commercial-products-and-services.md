@@ -23,7 +23,7 @@ Shows which clauses a prime contractor must put in subcontracts for commercial p
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0550] |
-| Codified citation | FAR 44.402 and FAR 52.244-6 [@CL-SUP-0550; @CL-SUP-0555] |
+| Codified citation | FAR 44.402 and FAR 52.244-6 [@CL-SUP-0550; @CL-SUP-0555]; FAR 44.400 [@CL-SUP-9466]; FAR 44.401 [@CL-SUP-9467; @CL-SUP-9468] |
 | RFO citation | RFO FAR 52.244-6 [@CL-SUP-3806; @CL-SUP-3807; @CL-SUP-3808; @CL-SUP-9421; @CL-SUP-9422] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0550] |
@@ -32,6 +32,8 @@ Shows which clauses a prime contractor must put in subcontracts for commercial p
 Notwithstanding any other clause in the prime contract, only those clauses identified in the clause at 52.244-6 are required to be in subcontracts for commercial products or commercial services [@CL-SUP-0550]. Agencies may supplement the clause only as necessary to reflect agency unique statutes applicable to the acquisition of commercial products and commercial services [@CL-SUP-0686].
 
 Contractors and subcontractors at all tiers are required, to the maximum extent practicable, to incorporate commercial products, commercial services, or nondevelopmental items as components of items delivered to the Government [@CL-SUP-0551].
+
+Subpart 44.4 prescribes the policies limiting the contract clauses a contractor may be required to apply to any subcontractors that are furnishing commercial products, including commercial components, or commercial services in accordance with section 3307 of title 41 of the United States Code [@CL-SUP-9466]. The subpart applies to all contracts and subcontracts, and for its purposes the term subcontract has the same meaning as defined in part 12 [@CL-SUP-9467; @CL-SUP-9468].
 
 ## How it works
 
@@ -59,5 +61,6 @@ Confirm how commercial item determinations are made and recorded and which claus
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 44.400 scope and 44.401 applicability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracts for commercial products and commercial services.

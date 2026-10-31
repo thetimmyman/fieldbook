@@ -22,8 +22,8 @@ How the termination contracting officer estimates the funds that the settlement 
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-CTF-3113] |
-| Codified citation | FAR 49.105-2 and FAR 49.604 [@CL-CTF-3113; @CL-CTF-3245] |
+| Instrument | Codified FAR and codified DFARS [@CL-CTF-3113; @CL-CTF-9324] |
+| Codified citation | FAR 49.105-2, DFARS 249.105-2 and FAR 49.604 [@CL-CTF-3113; @CL-CTF-9324; @CL-CTF-3245] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3113] |
@@ -31,7 +31,7 @@ How the termination contracting officer estimates the funds that the settlement 
 
 The termination contracting officer (TCO) estimates the funds required to settle the termination and, within 30 days after receipt of the termination notice, recommends the release of excess funds to the contracting officer [@CL-CTF-3113]. The initial deobligation of excess funds should be accomplished in a timely manner by the contracting officer, or by the TCO if the TCO has been delegated the responsibility [@CL-CTF-3243].
 
-The TCO does not recommend the release of amounts under $1,000 unless the contracting officer requests it [@CL-CTF-3114]. The TCO maintains continuous surveillance of the required funds to permit timely release of any additional excess funds [@CL-CTF-3244].
+The TCO does not recommend the release of amounts under $1,000 unless the contracting officer requests it [@CL-CTF-3114]. The TCO maintains continuous surveillance of the required funds to permit timely release of any additional excess funds [@CL-CTF-3244]. The DFARS section 249.105-2 says to see PGI 249.105-2 for guidance on recommending the release of excess funds [@CL-CTF-9324].
 
 ## How it works
 
@@ -65,4 +65,5 @@ How the company ties its settlement estimate to the obligated balance so that ex
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on recommending the release of excess funds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of excess funds on a terminated contract.

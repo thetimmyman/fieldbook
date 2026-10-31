@@ -22,7 +22,7 @@ Shows which techniques the Government may use to talk with industry before propo
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1358] |
-| Codified citation | FAR 15.201 [@CL-EST-1358] |
+| Codified citation | FAR 15.201 [@CL-EST-1358]; FAR 15.200 [@CL-EST-9189] |
 | RFO citation | RFO FAR 15.101 [@CL-EST-3271; @CL-EST-3272; @CL-EST-3273; @CL-EST-3274; @CL-EST-3275; @CL-EST-3276]; RFO FAR 15.201(c) [@CL-EST-3265] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1358] |
@@ -31,6 +31,8 @@ Shows which techniques the Government may use to talk with industry before propo
 Exchanges of information among all interested parties, from the earliest identification of a requirement through receipt of proposals, are encouraged, and any exchange must be consistent with procurement integrity requirements [@CL-EST-1358].
 
 Some listed techniques to promote early exchanges include industry or small business conferences, public hearings and market research [@CL-EST-1359]. Another listed technique is one-on-one meetings with potential offerors, and any such meeting substantially involved with potential contract terms and conditions should include the contracting officer [@CL-EST-1359; @CL-EST-1360]. Five further listed techniques are presolicitation notices, draft RFPs, RFIs, presolicitation or preproposal conferences, and site visits [@CL-EST-1359; @CL-EST-1361]. The advisory multi-step presolicitation notice is on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
+
+Subpart 15.2 prescribes policies and procedures for exchanging information with industry prior to receipt of proposals, for preparing and issuing requests for proposals (RFPs) and requests for information (RFIs), and for receiving proposals and information [@CL-EST-9189].
 
 ## How it works
 
@@ -58,5 +60,6 @@ Who in the company may speak with the Government about a planned acquisition and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.200 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exchanges with industry before receipt of proposals.

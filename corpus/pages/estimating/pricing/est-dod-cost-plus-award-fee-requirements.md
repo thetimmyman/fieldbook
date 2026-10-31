@@ -22,7 +22,7 @@ Shows what DoD requires for cost-plus-award-fee contracts: how much award fee mu
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-EST-1577] |
-| Codified citation | DFARS 216.405-2 and DFARS 252.216-7004 [@CL-EST-1577; @CL-EST-1580] |
+| Codified citation | DFARS 216.405-2, DFARS 216.470 and DFARS 252.216-7004 [@CL-EST-1577; @CL-EST-9222; @CL-EST-1580] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1577] |
@@ -34,7 +34,7 @@ Under the clause on award fee reduction or denial for jeopardizing the health or
 
 ## How it works
 
-The final-period rule is meant so that the award fee is appropriately distributed over all evaluation periods [@CL-EST-1577]. The final share may be set lower on the contracting officer's determination of a lower percentage, approved by the head of the contracting activity, who may not delegate that approval [@CL-EST-1578]. The base fee has its own cap, which is separate from the award fee [@CL-EST-1579]. The health or safety clause lets the Government reduce or deny award fee for the period of a covered incident, and that right includes recovery of award fees paid for an earlier period in which the covered incident occurred [@CL-EST-1580; @CL-EST-1640]. The section points to PGI for further guidance on using these contracts.
+The final-period rule is meant so that the award fee is appropriately distributed over all evaluation periods [@CL-EST-1577]. The final share may be set lower on the contracting officer's determination of a lower percentage, approved by the head of the contracting activity, who may not delegate that approval [@CL-EST-1578]. The base fee has its own cap, which is separate from the award fee [@CL-EST-1579]. The health or safety clause lets the Government reduce or deny award fee for the period of a covered incident, and that right includes recovery of award fees paid for an earlier period in which the covered incident occurred [@CL-EST-1580; @CL-EST-1640]. The section points to PGI for further guidance on using these contracts. Section 216.470 says to see PGI 216.470 for guidance on other applications of award fees [@CL-EST-9222].
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which award-fee contracts the company holds, how much of each pool is set aside 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on other applications of award fees.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD cost-plus-award-fee requirements.

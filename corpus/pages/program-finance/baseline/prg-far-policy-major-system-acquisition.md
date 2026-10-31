@@ -23,7 +23,7 @@ Shows the policy for acquiring a major system and the duties it places on the ag
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0400] |
-| Codified citation | FAR 34.002 [@CL-PRG-0400] |
+| Codified citation | FAR 34.002 [@CL-PRG-0400]; FAR 34.000 [@CL-PRG-9044] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0400] |
@@ -34,6 +34,8 @@ The policies of this part are designed to ensure that agencies acquire major sys
 Under paragraph (a), the agency must promote innovation and full and open competition, as part 6 requires, in the development of major system concepts [@CL-PRG-0402]. It does so in two ways. It expresses agency needs and major system acquisition program objectives in terms of the agency's mission and not in terms of specified systems to satisfy needs [@CL-PRG-0403]. It also focuses agency resources and special management attention on activities conducted in the initial stage of major programs [@CL-PRG-0404].
 
 Under paragraph (b), the agency must sustain effective competition between alternative system concepts and sources for as long as it is beneficial [@CL-PRG-0405].
+
+FAR part 34 describes acquisition policies and procedures for use in acquiring major systems consistent with OMB Circular A-109, and the use of an Earned Value Management System in acquisitions designated as major acquisitions consistent with OMB Circular A-11, Part 7 [@CL-PRG-9044].
 
 ## How it works
 
@@ -61,4 +63,5 @@ Which baseline, contingency and risk decisions change the current program foreca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.000 part scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for major system acquisition.
