@@ -29,11 +29,11 @@ Explains how a full business system audit becomes the baseline for the scope of 
 | Text status | Not established. |
 | Applies to | Audits of a contractor business system after a full audit of that system has been performed [@CL-CMP-1657] |
 
-Once a full business system audit has been performed, it should serve as a baseline for establishing the scope of subsequent audits of that system [@CL-CMP-1657]. Subsequent audits should cover major system changes, including procedures to validate that the changes have controls in place to comply with the applicable DFARS business system criteria [@CL-CMP-1658].
+Once a full business system audit has been performed, it should serve as a baseline for establishing the scope of subsequent audits of that system [@CL-CMP-1657]. Subsequent audits should cover major system changes, including procedures to validate that the changes have controls in place to comply with the applicable DFARS business system criteria, FAR requirements, applicable laws and regulations, and contract terms [@CL-CMP-1658; @CL-CMP-8124].
 
 ## How it works
 
-The components of internal control and the relevant control objectives identified within the business systems apply to every contractor [@CL-CMP-1967]. Smaller contractors may have less formal internal controls that accomplish these control objectives [@CL-CMP-1656]. The auditor identifies the control objectives associated with the contractor's compliance with the DFARS business systems requirements, applicable laws and regulations, and contract terms [@CL-CMP-1660].
+The components of internal control and the relevant control objectives identified within the business systems apply to every contractor and should be considered in the context of the contractor's size, organization and ownership characteristics, nature of business, diversity and complexity of operations, methods of transmitting, processing, maintaining, and accessing information, and applicable legal and regulatory requirements [@CL-CMP-1967; @CL-CMP-8126; @CL-CMP-8127]. Smaller contractors may have less formal internal controls that accomplish these control objectives [@CL-CMP-1656]. The auditor identifies the control objectives associated with the contractor's compliance with the DFARS business systems requirements, applicable laws and regulations, and contract terms [@CL-CMP-1660].
 
 If a full audit was performed before, audit teams should leverage the information gathered from the contractor walk-through or demonstrations to the maximum extent possible [@CL-CMP-1968]. For key internal controls that have changed, the auditor should request a contractor walk-through and demonstration to gain an understanding, and should use information from the prior audit where possible to prevent duplication [@CL-CMP-1659].
 
@@ -55,5 +55,6 @@ Identify major changes to business system policies or automated controls since t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the subsequent-audit and internal-control sentences so the rules keep the added FAR, law and contract-term criteria and the contractor context factors.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business system audit scope and baselines.

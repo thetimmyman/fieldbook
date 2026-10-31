@@ -33,7 +33,7 @@ The Government recoups progress payments through the deduction of liquidations f
 
 The objective of the alternate method is to permit the contractor to retain the earned profit element of the contract prices for completed items in the liquidation process [@CL-CTF-0763]. The minimum liquidation rate is the expected progress payments divided by the contract price, and the expected progress payments are the estimated cost of performing the contract multiplied by the progress payment rate [@CL-CTF-0764]. Minimum rates are generally expressed to tenths of a percent, and decimals between tenths are rounded up to the next highest tenth, not necessarily the nearest tenth [@CL-CTF-0782].
 
-Among the conditions for reducing the rate are that the contractor requests a reduction, the rate has not been reduced in the preceding 12 months, and the delivery schedule extends at least 18 months from the contract award date [@CL-CTF-0781]. The conditions also cover data on actual costs [@CL-CTF-0864], recoupment under each invoice [@CL-CTF-0865], limits on what the contractor is paid and on unliquidated progress payments [@CL-CTF-0874], and agreement on the rate with an annual certification [@CL-CTF-0866].
+Among the conditions for reducing the rate are that the contractor requests a reduction, the rate has not been reduced in the preceding 12 months, and the delivery schedule extends at least 18 months from the contract award date [@CL-CTF-0781]. The conditions also cover data on actual costs [@CL-CTF-0864], recoupment under each invoice [@CL-CTF-0865], limits on what the contractor is paid and on unliquidated progress payments [@CL-CTF-0874], and agreement on the rate with an annual certification that the alternate rate continues to meet the conditions of subsections 5, 6, and 7 of the source list [@CL-CTF-0866; @CL-CTF-2264].
 
 ## How it works
 
@@ -61,5 +61,6 @@ Confirm which contracts qualify for alternate liquidation rates and verify that 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the annual certification condition so the rule keeps the conditions that the alternate rate must continue to meet.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for progress payment liquidation rates.

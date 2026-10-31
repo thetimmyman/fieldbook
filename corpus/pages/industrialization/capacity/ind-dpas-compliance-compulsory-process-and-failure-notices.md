@@ -1,0 +1,60 @@
++++
+id = "ind-dpas-compliance-compulsory-process-and-failure-notices"
+title = "DPAS compliance, compulsory process and notification of failure to comply"
+area = "ind"
+subarea = "capacity"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["decision_right", "control_evidence"]
+questions = ["Q-014"]
+links = ["ind-dpas-audits-investigations-and-penalties", "ind-dpas-records-and-applicability"]
++++
+
+## Purpose
+
+Shows what compliance actions the Department of Commerce may take under the priority and allocation rules, when it may seek compulsory process, and what a written notice of failure to comply says.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Not established. |
+| Codified citation | Not established. |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Not established. |
+| Applies to | Compliance actions taken for the enforcement or administration of the Defense Production Act, the Selective Service Act and related statutes, this part or an official action [@CL-IND-0309] |
+
+General provisions. Compliance actions may be taken for any reason necessary or appropriate to the enforcement or administration of the Defense Production Act, the Selective Service Act and related statutes, this part or an official action [@CL-IND-0309]. Such actions include audits, investigations or other inquiries [@CL-IND-0310]. A willful violation of Title I or section 705 of the Defense Production Act, of this part or of an official action of the Department of Commerce is a criminal act, punishable as provided in sections 103 and 705 of the Defense Production Act [@CL-IND-0311].
+
+Compulsory process. If a person refuses to permit a duly authorized representative of the Department of Commerce to have access to any premises or source of information necessary to the administration or enforcement of the Defense Production Act or this part, the Department of Commerce may seek compulsory process [@CL-IND-0312]. Compulsory process means the institution of appropriate legal action, including ex parte application for an inspection warrant or its equivalent, in any forum of appropriate jurisdiction [@CL-IND-0313]. It may be sought in advance of an audit, investigation or other inquiry if, in the judgment of the Director of the Office of Strategic Industries and Economic Security in consultation with the Chief Counsel for Industry and Security, there is reason to believe that a person will refuse to permit one, or that other circumstances make such process desirable or necessary [@CL-IND-0314; @CL-IND-0315].
+
+Notification of failure to comply. At the conclusion of an audit, investigation or other inquiry, or at any other time, the Department of Commerce may inform the person in writing where compliance with the Defense Production Act, the Selective Service Act and related statutes, or this part was not met [@CL-IND-0316]. Where the Department of Commerce determines that a failure to comply was inadvertent, the person may be informed in writing of the particulars involved and the corrective action to be taken [@CL-IND-0317; @CL-IND-0318]. Failure to take corrective action may then be construed as a willful violation of the Defense Production Act, this part or an official action [@CL-IND-0319].
+
+## How it works
+
+The Department of Commerce may take compliance actions, including audits and other inquiries, for any reason necessary or appropriate to enforcement or administration [@CL-IND-0309; @CL-IND-0310]. When access is refused, it may go to any forum of appropriate jurisdiction for an inspection warrant or its equivalent [@CL-IND-0312; @CL-IND-0313]. Before any refusal, process may be sought in advance of an audit, investigation or other inquiry if, in the judgment of the Director, in consultation with the Chief Counsel, there is reason to believe that a person will refuse to permit one or that other circumstances make such process desirable or necessary [@CL-IND-0314; @CL-IND-0315]. The Department of Commerce decides whether a failure was inadvertent, and a notice for an inadvertent failure may state the particulars and the corrective action [@CL-IND-0317; @CL-IND-0318]. The sections state no deadline for correction and no dollar threshold.
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A supplier refuses a duly authorized Commerce representative access to its order log, a source of information necessary to the administration or enforcement of the Defense Production Act or this part. Commerce may seek compulsory process, for example an ex parte application for an inspection warrant in a forum of appropriate jurisdiction [@CL-IND-0312; @CL-IND-0313]. Later, Commerce determines that 2 order-log entries were not rated as required and that the failure was inadvertent. It may inform the supplier in writing of the particulars and the corrective action to be taken [@CL-IND-0317; @CL-IND-0318]. If the supplier then takes no corrective action, that failure may be construed as a willful violation [@CL-IND-0319], and a willful violation is a criminal act, punishable as provided in sections 103 and 705 of the Defense Production Act [@CL-IND-0311]. The section does not say who decides whether the failure is construed as willful, and it gives no number of days for the correction.
+
+## Never confuse
+
+A written notice of failure to comply differs from compulsory process. The notice tells the person in writing where compliance was not met, and compulsory process is legal action to obtain access [@CL-IND-0316; @CL-IND-0313]. A failure that the Department of Commerce determines was inadvertent is also different from a willful violation, which is a criminal act, though failure to take corrective action may then be construed as willful [@CL-IND-0311; @CL-IND-0319].
+
+## Company calibration
+
+Confirm who owns the response to a Commerce access request and to any written failure notice, and how each corrective action is closed out. [@Q-014]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS compliance provisions, compulsory process and notification of failure to comply.

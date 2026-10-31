@@ -39,7 +39,7 @@ The Contractor shall establish a program that provides for testing for the use o
 
 ## How it works
 
-Testing has a required part and optional parts. The Contractor decides the extent of and criteria for the required testing of employees in sensitive positions, based on considerations that include the nature of the work, the employee's duties and the efficient use of its resources [@CL-CMP-4455; @CL-CMP-4478]. The Contractor may in addition test on reasonable suspicion, after an accident or unsafe practice, as part of or after counseling or rehabilitation, or under a voluntary program [@CL-CMP-4456; @CL-CMP-4476], and may test applicants for employment [@CL-CMP-4477]. Testing may be limited to the substances for which the Mandatory Guidelines for Federal Workplace Drug Testing Programs prescribe testing [@CL-CMP-4479]. The Contractor shall adopt appropriate personnel procedures for employees found to be using drugs illegally, and shall not allow such an employee to remain on duty or perform in a sensitive position until it determines under its own procedures that the employee may perform in that position [@CL-CMP-4480; @CL-CMP-4457]. The printed clause does not say which contracts receive it; it points to its prescription section [@CL-CMP-4449].
+Testing has a required part and optional parts. The Contractor decides the extent of and criteria for the required testing of employees in sensitive positions, based on considerations that include the nature of the work, the employee's duties, the efficient use of its resources and the risks to health, safety or national security that could result from a failure to discharge the position adequately [@CL-CMP-4455; @CL-CMP-4478; @CL-CMP-8131]. The Contractor may in addition test on reasonable suspicion, after an accident or unsafe practice, as part of or after counseling or rehabilitation, or under a voluntary program [@CL-CMP-4456; @CL-CMP-4476], and may test applicants for employment [@CL-CMP-4477]. Testing may be limited to the substances for which the Mandatory Guidelines for Federal Workplace Drug Testing Programs prescribe testing [@CL-CMP-4479]. The Contractor shall adopt appropriate personnel procedures for employees found to be using drugs illegally, and shall not allow such an employee to remain on duty or perform in a sensitive position until it determines under its own procedures that the employee may perform in that position [@CL-CMP-4480; @CL-CMP-4457]. The printed clause does not say which contracts receive it; it points to its prescription section [@CL-CMP-4449].
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Which contracts carry the clause, and who owns the program and its testing crite
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the required-testing sentence so the considerations keep the risks to health, safety or national security.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the drug-free work force clause.

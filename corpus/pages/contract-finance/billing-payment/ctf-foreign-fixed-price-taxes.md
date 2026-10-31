@@ -29,7 +29,7 @@ Sets out how the foreign fixed-price clause and the fixed-price clause with a fo
 | Text status | Final [@CL-CTF-2539] |
 | Applies to | Foreign fixed-price clause: supplies furnished or services performed outside the United States and its outlying areas [@CL-CTF-2539]. Clause with a foreign government: Not established. |
 
-Where the contract provides for furnishing supplies or performing services outside the United States and its outlying areas, the foreign fixed-price clause applies in lieu of any Federal, State, and local taxes clause of the contract [@CL-CTF-2539]. Unless the contract provides otherwise, the contract price includes all applicable taxes and duties [@CL-CTF-2540]. The contract price does not include taxes and duties that the Government of the United States and the government of the country concerned have agreed shall not be applicable to expenditures in such country by or on behalf of the United States [@CL-CTF-2620].
+Where the contract provides for furnishing supplies or performing services outside the United States and its outlying areas, the foreign fixed-price clause applies in lieu of any Federal, State, and local taxes clause of the contract [@CL-CTF-2539]. Unless the contract provides otherwise, the contract price includes all applicable taxes and duties [@CL-CTF-2540]. The contract price does not include taxes and duties that the Government of the United States and the government of the country concerned have agreed shall not be applicable to expenditures in such country by or on behalf of the United States, except as provided in subparagraph (c)(2) of the clause [@CL-CTF-2620; @CL-CTF-2266].
 
 Taxes imposed under section 5000C of title 26 of the United States Code may not be included in the contract price and may not be reimbursed [@CL-CTF-2541]. The contract price may not be increased to offset those taxes [@CL-CTF-2542].
 
@@ -79,5 +79,6 @@ Whether each foreign-performance contract carries the foreign fixed-price clause
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the contract price sentence so the rule keeps the exception for subparagraph (c)(2).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxes under foreign fixed-price contracts.

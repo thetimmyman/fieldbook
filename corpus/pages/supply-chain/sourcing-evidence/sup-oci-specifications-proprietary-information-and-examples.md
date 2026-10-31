@@ -37,7 +37,7 @@ The work-statement restriction applies where a contractor prepares, or assists i
 
 The first bar covers the nondevelopmental items whose complete specifications the contractor prepared and furnished, and the second covers the system, major components or services whose work statement it prepared or helped prepare [@CL-SUP-0944; @CL-SUP-0946]. Each has its listed exceptions [@CL-SUP-0945; @CL-SUP-0947]. In one listed example, because the specifications are the basis for selection of commercial hardware, a potential conflict of interest exists and the company named in the example should be excluded from the initial follow-on information technology hardware acquisition [@CL-SUP-0949].
 
-Proprietary information works differently: a contractor that gains access to other companies' proprietary information in performing advisory and assistance services for the Government must agree with the other companies to protect their information from unauthorized use or disclosure for as long as it remains proprietary [@CL-SUP-0948]. This card does not summarise the rest of the printed section on access to proprietary information.
+Proprietary information works differently: a contractor that gains access to other companies' proprietary information in performing advisory and assistance services for the Government must agree with the other companies to protect their information from unauthorized use or disclosure for as long as it remains proprietary and to refrain from using the information for any purpose other than that for which it was furnished [@CL-SUP-0948; @CL-SUP-4048]. This card does not summarise the rest of the printed section on access to proprietary information.
 
 ## Worked example
 
@@ -49,7 +49,7 @@ Answer: the firm shall not be allowed to furnish the item for a reasonable perio
 
 ## Never confuse
 
-A bar on supplying is not the same as a duty to protect information. The follow-on bar stops the contractor from furnishing items or services, while the proprietary information rule requires an agreement with the other companies to protect their information [@CL-SUP-0944; @CL-SUP-0948]. A listed example illustrates one situation and does not replace the general rules on the [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) card. How the contracting officer analyzes a planned acquisition and approves a course of action is on the [Organizational conflicts of interest: contracting officer procedures](sup-oci-contracting-officer-procedures.md) card.
+A bar on supplying is not the same as a duty to protect information. The follow-on bar stops the contractor from furnishing items or services, while the proprietary information rule requires an agreement with the other companies to protect their information and to use it only for the purpose for which it was furnished [@CL-SUP-0944; @CL-SUP-0948; @CL-SUP-4048]. A listed example illustrates one situation and does not replace the general rules on the [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) card. How the contracting officer analyzes a planned acquisition and approves a course of action is on the [Organizational conflicts of interest: contracting officer procedures](sup-oci-contracting-officer-procedures.md) card.
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Confirm whether the company prepared specifications or work statements, or recei
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the two proprietary information sentences so the protection agreement keeps the limit on the purpose for which the information may be used.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts in specifications, proprietary information and examples.
