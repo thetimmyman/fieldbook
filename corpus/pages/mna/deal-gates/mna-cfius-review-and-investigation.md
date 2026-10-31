@@ -48,7 +48,7 @@ On completion or termination of an investigation the Committee must send the Pre
 
 ## How it works
 
-An accepted voluntary notice, an agency notice received by the Staff Chairperson, or a notice the Chairperson requested starts the review [@CL-MNA-0639]. After the review the Committee investigates if a member sees an unmitigated threat to national security, if the lead agency recommends it and the Committee concurs, if the deal is foreign government-controlled, or if it would give a foreign person control of critical infrastructure and the Committee determines that it could impair national security and the impairment has not been mitigated [@CL-MNA-0641; @CL-MNA-0642; @CL-MNA-0643; @CL-MNA-0644; @CL-MNA-0645]. The investigation commences by the end of the review period and has its own forty-five-day limit [@CL-MNA-0667; @CL-MNA-0648]. The Committee reports to the President when it recommends suspension or prohibition [@CL-MNA-0649].
+An accepted voluntary notice, an agency notice received by the Staff Chairperson, or a notice the Chairperson requested starts the review [@CL-MNA-0639]. After the review the Committee investigates if a member sees an unmitigated threat to national security, if the lead agency recommends it and the Committee concurs, if the deal is foreign government-controlled, or if it would give a foreign person control of critical infrastructure and the Committee determines that it could impair national security and the impairment has not been mitigated [@CL-MNA-0641; @CL-MNA-0642; @CL-MNA-0643; @CL-MNA-0644; @CL-MNA-0645]. The last two investigations need not be undertaken if the Chairperson (or the Deputy Secretary of the Treasury) and the head of any lead agency designated by the Chairperson determine, on the basis of the review, that the covered transaction will not impair national security [@CL-MNA-0646; @CL-MNA-0647]. The investigation commences by the end of the review period and has its own forty-five-day limit [@CL-MNA-0667; @CL-MNA-0648]. The Committee reports to the President when it recommends suspension or prohibition [@CL-MNA-0649].
 
 ## Worked example
 
@@ -68,6 +68,7 @@ Whether a foreign government could control or hold a stake in the company or a c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Exception added to the how-it-works summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: The critical-infrastructure ground for an investigation now carries its impairment condition, and the worked example's extension now needs a lead-agency head's written request.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Committee, Chairperson, Staff Chairperson and lead agency definitions and the rule on a determination not to investigate.

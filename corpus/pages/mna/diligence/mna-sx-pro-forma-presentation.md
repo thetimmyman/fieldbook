@@ -36,7 +36,7 @@ Article 8 (§§ 210.8-01 through 210.8-08) applies to financial statements filed
 
 ## How it works
 
-The registrant checks the listed conditions against the filing it is making [@CL-MNA-0682]. For an acquisition it then tests significance with the significant subsidiary definition, substituting 20 percent for 10 percent [@CL-MNA-0687]. If the target's own statements are not in the filing, the pro forma effects can be left out unless the combined impact of the acquired businesses is significant [@CL-MNA-0688; @CL-MNA-0772].
+The registrant checks the listed conditions against the filing it is making [@CL-MNA-0682]. For an acquisition it then applies the listed tests of significance, one of which is the significant subsidiary definition with 20 percent substituted for 10 percent each place it appears [@CL-MNA-0687]. If the target's own statements are not in the filing, the pro forma effects of the acquisition need not be presented, except where the aggregate impact of businesses acquired or to be acquired is significant [@CL-MNA-0688; @CL-MNA-0772].
 
 ## Worked example
 
@@ -56,6 +56,7 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: significance test described as one listed test; exception wording tightened.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that the Article 8 pro forma rule applies to smaller reporting companies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pro forma rule in § 210.8-05.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pro forma financial information presentation requirements.

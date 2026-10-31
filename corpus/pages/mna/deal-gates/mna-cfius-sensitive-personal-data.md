@@ -44,13 +44,13 @@ The term does not include the data in the listed exclusions, regardless of wheth
 
 ## How it works
 
-There are two independent branches, and data is covered if either one applies, subject to the exclusions.
+The definition has two numbered parts, called branches here, and it is subject to the exclusions paragraph.
 
 Branch one covers identifiable data held by a U.S. business that meets a listed test and falls within a listed category. The data must be identifiable and held by a U.S. business [@CL-MNA-0826]. The business must meet a listed test: serving government security customers, holding data on a large population, or having a demonstrated objective to do so with the data built into its main products [@CL-MNA-0827; @CL-MNA-0828; @CL-MNA-0830]. The population test looks back over a twelve-month window that ends at the earliest of several dates, and it has a carve-out for a business that can show it lacked the capability [@CL-MNA-0828; @CL-MNA-0917; @CL-MNA-0829; @CL-MNA-0918]. The data must also be in a listed category [@CL-MNA-0831].
 
-Branch two covers the results of an individual's genetic tests, including any related genetic sequencing data, whenever the results constitute identifiable data. It does not depend on the business tests or the listed categories of branch one [@CL-MNA-0833].
+Branch two covers the results of an individual's genetic tests, including any related genetic sequencing data, whenever the results constitute identifiable data [@CL-MNA-0833]. The text of that part states no business test and no listed category.
 
-The listed exclusions apply to both branches regardless of whether those criteria are met [@CL-MNA-0834].
+The term does not include the listed exclusions, regardless of the applicability of the criteria in the definition [@CL-MNA-0834].
 
 ## Worked example
 
@@ -74,5 +74,6 @@ What identifiable data in the listed categories the company or a target holds, o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Branch wording tied to the two numbered parts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of identifiable, aggregated, anonymized and encrypted data and personal identifier.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sensitive personal data.

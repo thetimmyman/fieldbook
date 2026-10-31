@@ -32,7 +32,7 @@ This card rests on the Federal Trade Commission's premerger notification transmi
 
 Each person required to file does so by completing and filing the Notification and Report Form, following the form's instructions and the rules [@CL-MNA-0600]. The notification is filed by the preacquisition ultimate parent entity, or by an entity within the person that the preacquisition ultimate parent entity authorizes to file for it [@CL-MNA-0601]. A person that is both an acquiring and an acquired person submits one form for each role [@CL-MNA-0602].
 
-The notification must be certified. A general partner may certify for a partnership, and an officer or director may certify for a corporation [@CL-MNA-0603]. The certifying individual must have actual authority to certify for the person filing [@CL-MNA-0604].
+The notification must be certified. For a partnership the certification is by any general partner, and for a corporation by any officer or director [@CL-MNA-0603]. Further items cover other kinds of person and are not restated here. The certifying individual must have actual authority to certify for the person filing [@CL-MNA-0604].
 
 Documentary materials or information in a foreign language that are required to be submitted at the time of filing a Notification and Report Form, and in response to a request for additional information or documentary material, must be submitted with verbatim English language translations [@CL-MNA-1381]. All verbatim translations must be accurate and complete [@CL-MNA-1382].
 
@@ -42,7 +42,7 @@ The dollar thresholds that make an acquisition reportable are not set in these p
 
 ## How it works
 
-The person filing completes the form, and the filer is the preacquisition ultimate parent entity or an authorized entity within the person [@CL-MNA-0601]. A person that is on both sides of a deal files two forms, one for each role [@CL-MNA-0602]. A person with actual authority certifies the form, such as a general partner or an officer or director [@CL-MNA-0603; @CL-MNA-0604]. Later answers to a request for more information carry their own certification in the form's format [@CL-MNA-0605].
+The person filing completes the form, and the filer is the preacquisition ultimate parent entity or an authorized entity within the person [@CL-MNA-0601]. A person that is on both sides of a deal files two forms, one for each role [@CL-MNA-0602]. A person with actual authority certifies the form, such as a general partner or an officer or director [@CL-MNA-0603; @CL-MNA-0604]. Additional information or documentary material submitted in response to a request under section 7A(e) and section 803.20 is accompanied by a certification in the form's format, completed in accordance with paragraph (a) by the person or individual to whom the request was directed [@CL-MNA-0605; @CL-MNA-1565].
 
 ## Worked example
 
@@ -62,5 +62,6 @@ Which entity is the ultimate parent that would file, and who holds authority to 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Certifier wording tightened and certification of later submissions completed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added foreign language translations and the separability rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for premerger notification filing and certification.

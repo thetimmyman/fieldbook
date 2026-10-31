@@ -34,7 +34,7 @@ A material change concerning the information previously reported on foreign owne
 
 ## How it works
 
-A transaction that changes ownership or control, including a stock transfer that affects control, is among the listed events [@CL-MNA-0537]. When the contractor enters into discussion, consultations or agreements that may reasonably lead to effective ownership or control by a foreign interest, it reports the details to the CSA in writing [@CL-MNA-0539]. If the foreign ownership information already on file changes materially, the contractor files an updated SF 328 [@CL-MNA-0538]. What the CSA then decides is covered on the NISPOM FOCI card.
+A transaction that changes ownership or control, including a stock transfer that affects control, is among the listed events [@CL-MNA-0537]. When the contractor enters into discussion, consultations or agreements that may reasonably lead to effective ownership or control by a foreign interest, it reports the details to the CSA in writing [@CL-MNA-0539]. If the information already reported on foreign ownership, control or influence changes materially, the contractor files an updated SF 328 [@CL-MNA-0538]. What the CSA then decides is covered on the NISPOM FOCI card.
 
 ## Worked example
 
@@ -56,5 +56,6 @@ Who owns the duty to report ownership changes and foreign-interest talks, and ho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: SF 328 update trigger now covers foreign ownership, control or influence information.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the reporting sentence so the requirement keeps the other kinds of reportable events listed in the same sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changed conditions and reportable events under the NISPOM.

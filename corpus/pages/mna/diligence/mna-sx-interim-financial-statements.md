@@ -32,11 +32,11 @@ Interim statements required by the interim section need only be provided for the
 
 For filings on Form 10-Q, financial statements are provided as set forth in the periods paragraph, and one listed item is an interim balance sheet as of the end of the most recent fiscal quarter and a balance sheet as of the end of the preceding fiscal year [@CL-MNA-0710]. Another listed item is interim statements of comprehensive income for the most recent fiscal quarter, for the period from the end of the preceding fiscal year to the end of the most recent quarter, and for the corresponding periods of the preceding fiscal year [@CL-MNA-0711]. A third is interim statements of cash flows for the period from the end of the preceding fiscal year to the end of the most recent fiscal quarter and for the corresponding period of the preceding fiscal year [@CL-MNA-0712]. A registrant engaged in seasonal production and sale of a single-crop agricultural commodity may instead provide interim statements of comprehensive income and cash flows for the twelve month period ended during the most recent fiscal quarter and for the corresponding preceding period [@CL-MNA-0784]. Those statements are provided in lieu of the year-to-date statements specified for the Form 10-Q periods [@CL-MNA-0785].
 
-Before filing, interim financial statements included in quarterly reports on Form 10-Q must be reviewed by an independent public accountant [@CL-MNA-0713]. The section also sets caption tests for the income statement and lists extra disclosures. This card does not draw out those thresholds or lists.
+Before filing, interim financial statements included in quarterly reports on Form 10-Q must be reviewed by an independent public accountant using applicable professional standards and procedures for conducting such reviews, as may be modified or supplemented by the Commission [@CL-MNA-0713; @CL-MNA-1583]. The section also sets caption tests for the income statement and lists extra disclosures. This card does not draw out those thresholds or lists.
 
 ## How it works
 
-The registrant prepares interim statements for itself and its consolidated subsidiaries, and they may be unaudited [@CL-MNA-0708]. It may combine major balance sheet captions that pass both the size test and the change test, and it may abbreviate the cash flow statement [@CL-MNA-0709; @CL-MNA-0782; @CL-MNA-0783]. For a quarterly report it presents the balance sheets, income statements and cash flow statements for the periods listed, subject to the seasonal single-crop alternative [@CL-MNA-0710; @CL-MNA-0711; @CL-MNA-0712; @CL-MNA-0784; @CL-MNA-0785]. An independent public accountant reviews the statements before filing [@CL-MNA-0713].
+The registrant prepares interim statements for itself and its consolidated subsidiaries, and they may be unaudited [@CL-MNA-0708]. It may combine major balance sheet captions that pass both the size test and the change test, and it may abbreviate the cash flow statement [@CL-MNA-0709; @CL-MNA-0782; @CL-MNA-0783]. For a quarterly report it presents the balance sheets, income statements and cash flow statements for the periods listed, subject to the seasonal single-crop alternative [@CL-MNA-0710; @CL-MNA-0711; @CL-MNA-0712; @CL-MNA-0784; @CL-MNA-0785]. An independent public accountant reviews the statements before filing, using applicable professional standards and procedures [@CL-MNA-0713; @CL-MNA-1583].
 
 ## Worked example
 
@@ -56,5 +56,6 @@ Which accounting frameworks and approved revenue policies govern the interim sta
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: review standards qualifier added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the cash flow test.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interim financial statements.

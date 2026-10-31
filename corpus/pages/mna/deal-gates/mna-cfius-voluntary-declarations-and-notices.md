@@ -28,7 +28,7 @@ Shows how a party may choose a declaration instead of a written notice, the thir
 | Text status | Not established. |
 | Applies to | A party to any proposed or completed transaction [@CL-MNA-0633] |
 
-This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. A party to any proposed or completed transaction may submit a declaration to the Committee instead of a written notice, except where the declaration-procedures section prohibits it [@CL-MNA-0633]. The rules govern the parties who choose to file and the Committee that must respond.
+This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. A party to any proposed or completed transaction may submit a declaration to the Committee instead of a written notice, except as otherwise prohibited under paragraph (e) of the declaration-procedures section [@CL-MNA-0633]. The rules govern the parties who choose to file and the Committee that must respond.
 
 The 30-day assessment period for a declaration starts on the date the Committee receives the declaration from the Staff Chairperson [@CL-MNA-0634]. It ends no later than the thirtieth day after it starts, or no later than the next business day if the thirtieth day is not a business day [@CL-MNA-0635]. The Committee must take action on a declaration within the time period that the assessment-period section sets [@CL-MNA-0665].
 
@@ -38,7 +38,7 @@ This card does not restate the content rules for a declaration or the fee rules 
 
 ## How it works
 
-The party picks a declaration instead of a notice [@CL-MNA-0633]. The thirty-day assessment period runs from the Committee's receipt of the declaration [@CL-MNA-0634]. The Committee may ask for a written notice, start its own review, or tell the parties it has concluded action [@CL-MNA-0637; @CL-MNA-0638].
+The party picks a declaration instead of a notice [@CL-MNA-0633]. The thirty-day assessment period runs from the Committee's receipt of the declaration [@CL-MNA-0634]. At its discretion, the Committee may, if it has reason to believe the transaction may raise national security considerations, ask for a written notice, and it may also start its own review or tell the parties it has concluded action [@CL-MNA-0637; @CL-MNA-0638].
 
 ## Worked example
 
@@ -58,4 +58,5 @@ Whether the company would choose a declaration or a notice for a foreign investm
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Notice-request condition and prohibition paragraph stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review voluntary declarations and notices.

@@ -35,7 +35,7 @@ Paragraph (b) requires the filing to state the reasons for the position (includi
 
 Paragraph (c) requires the filing, to the extent known by the filing person after making reasonable inquiry, to state whether the filing person or any executive officer, director, affiliate or subsidiary of the filing person currently intends to tender, sell or hold the subject securities [@CL-MNA-0343] that are held of record or beneficially owned by that person [@CL-MNA-0344].
 
-Paragraph (d) is headed intent to tender or vote in a going-private transaction. It requires the filing, to the extent known by the filing person after making reasonable inquiry, to state whether or not any executive officer, director or affiliate of the issuer (or any person specified in Instruction C to the schedule) [@CL-MNA-0345] currently intends to tender or sell subject securities owned or held by that person [@CL-MNA-1110]. It uses the words "and/or" for how each person currently intends to vote subject securities, including any securities the person has proxy authority for [@CL-MNA-0346]. The filing must state the reasons for the intended action [@CL-MNA-0347].
+Paragraph (d) is headed intent to tender or vote in a going-private transaction. It requires the filing, to the extent known by the filing person after making reasonable inquiry, to state whether or not any executive officer, director or affiliate of the issuer (or any person specified in Instruction C to the schedule) [@CL-MNA-0345] currently intends to tender or sell subject securities owned or held by that person [@CL-MNA-1110], and/or how each person currently intends to vote subject securities, including any securities the person has proxy authority for [@CL-MNA-0346]. The filing must state the reasons for the intended action [@CL-MNA-0347].
 
 The instruction to paragraph (d) says to provide the information required by the section if it is available to the filing person at the time the statement is initially filed with the Commission [@CL-MNA-1109]. If the information is not available, it must be filed with the Commission promptly, but in no event later than three business days after the date of the initial filing, and, if material, disclosed in a manner reasonably designed to inform security holders [@CL-MNA-0348].
 
@@ -59,4 +59,5 @@ Which recommendation, reasons and insider intentions the company can state after
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: paragraph (d) and/or vote statement joined as in the source.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the solicitation or recommendation.
