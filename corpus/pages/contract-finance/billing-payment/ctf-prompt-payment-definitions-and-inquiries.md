@@ -24,7 +24,7 @@ Gives the prompt payment definitions that set payment dates, and shows where a c
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3584] |
 | Codified citation | FAR 32.902 and 32.909 [@CL-CTF-3584; @CL-CTF-3588] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.902 [@CL-CTF-4055; @CL-CTF-4056; @CL-CTF-4057; @CL-CTF-4058]; RFO FAR 32.909 [@CL-CTF-4059; @CL-CTF-4060; @CL-CTF-4061] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3584] |
 | Applies to | Contractor questions about delinquent payments and about disagreements in payment amount or timing [@CL-CTF-3588; @CL-CTF-3589] |
@@ -38,6 +38,8 @@ Questions about delinquent payments are directed to the designated billing offic
 The contractor sorts an inquiry by its kind. A question about a delinquent payment goes to the designated billing office or the designated payment office [@CL-CTF-3588]. A disagreement about the amount or timing of a payment goes to the contracting officer, who resolves it and must coordinate within contracting channels and seek the advice of other offices as necessary [@CL-CTF-3589].
 
 Small business concerns have an additional route. They may contact the agency's local small business specialist, or a representative from the Office of Small and Disadvantaged Business Utilization, to obtain additional assistance on payment issues, late payment interest penalties and information on the Prompt Payment Act [@CL-CTF-3590]. The definitions apply throughout the subpart, and the date a payment counts depends on whether it was made by check or by electronic funds transfer [@CL-CTF-3586; @CL-CTF-3587]. Due dates and interest are covered on separate cards.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.902 keeps the definitions of discount for prompt payment [@CL-CTF-4055], mixed invoice [@CL-CTF-4056], payment date [@CL-CTF-4057] and settlement date [@CL-CTF-4058]. RFO FAR 32.909 keeps the routing of inquiries: questions involving delinquent payments go to the designated billing office or designated payment office [@CL-CTF-4059], and disagreements in payment amount or timing go to the contracting officer for resolution, who must coordinate within appropriate contracting channels and seek the advice of other offices as necessary to resolve disagreements [@CL-CTF-4060]. It also keeps the route for small business concerns: they may contact the agency's local small business specialist or a representative from the Office of Small and Disadvantaged Business Utilization to obtain additional assistance related to payment issues, late payment interest penalties, and information on the Prompt Payment Act [@CL-CTF-4061].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Which office the company contacts about a late payment, who owns a disagreement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prompt payment, definitions and contractor inquiries.
