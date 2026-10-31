@@ -34,7 +34,7 @@ An individual waiver for an item in a solicitation will be approved when the SBA
 
 ## How it works
 
-Any interested person, business, association or Federal agency may submit a request for a class waiver [@CL-MKT-0401]. The request need not take a particular form, but should state the class of products, the applicable NAICS code and the efforts made to identify small business manufacturers or processors [@CL-MKT-0402]. A contracting officer's request for an individual waiver also need not take a particular form, but must include the listed items, the first being a definitive statement of each item sought to be waived with the reason it is required [@CL-MKT-0403]. If SBA's research verifies that no small business manufacturers or processors exist for the item, the Director will grant an individual, one-time waiver [@CL-MKT-0404]. A nonmanufacturer rule waiver for a specific solicitation expires one year after SBA's determination to grant the waiver [@CL-MKT-0531]. A waiver of the Nonmanufacturer Rule for classes of products has no specific time limitation [@CL-MKT-0532].
+Any interested person, business, association or Federal agency may submit a request for a class waiver [@CL-MKT-0401]. The request need not take a particular form, but should state the class of products, the applicable NAICS code and the efforts made to identify small business manufacturers or processors [@CL-MKT-0402]. A contracting officer's request for an individual waiver also need not take a particular form, but must, at a minimum, include items the section lists, beginning with a definitive statement of each item sought to be waived with the reason it is required [@CL-MKT-0403]. If SBA's research verifies that no small business manufacturers or processors exist for the item, the Director will grant an individual, one-time waiver [@CL-MKT-0404]. A nonmanufacturer rule waiver for a specific solicitation expires one year after SBA's determination to grant the waiver [@CL-MKT-0531]. A waiver of the Nonmanufacturer Rule for classes of products has no specific time limitation [@CL-MKT-0532]. SBA will, however, periodically review existing class waivers to determine whether small business manufacturers or processors have become available to participate in the Federal market for the waived classes of products and the waiver should be terminated [@CL-MKT-9399].
 
 A list of classes of products for which waivers of the Nonmanufacturer Rule have been granted is maintained on an SBA web site [@CL-MKT-2398].
 
@@ -56,5 +56,6 @@ Which supply items the company resells and whether a small business makes each o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the periodic review of class waivers and softened the list of request items.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the list of class waivers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for waivers of the Nonmanufacturer Rule.

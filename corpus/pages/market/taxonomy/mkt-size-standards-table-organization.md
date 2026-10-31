@@ -54,7 +54,7 @@ The footnotes add rules for particular codes. This card states these:
 - For food canning and preserving, for Government procurement, the standard of 1,000 employees excludes agricultural labor as defined in the Internal Revenue Code provision the footnote names [@CL-MKT-2199].
 - For the leasing of building space to the Federal Government, for Government procurement, a size standard of $47 million in gross receipts applies to the owners of the space and does not apply to an agent [@CL-MKT-2200].
 - For the codes that one footnote lists, size is measured by total revenues, excluding funds received in trust for an unaffiliated third party such as bookings or sales subject to commissions, and the commissions received are included as revenue [@CL-MKT-2201].
-- For Government procurement, the purchase of software subject to potential waiver of the nonmanufacturer rule should be classified under the NAICS code that the footnote names [@CL-MKT-2202].
+- For Government procurement, the purchase of software subject to potential waiver of the nonmanufacturer rule under section 121.1203(d) should be classified under the NAICS code that the footnote names [@CL-MKT-2202].
 - Concerns performing operational services for the administration of a government program are classified under the private sector industry based on the activities performed [@CL-MKT-2203]. Procurements for services of that type are classified under the private sector industry that best describes the activities to be performed [@CL-MKT-2208].
 - For rebuilding machinery or equipment on a factory basis, or equivalent, the footnote on subsectors 333, 334, 335 and 336 says to use the code for a newly manufactured product [@CL-MKT-2169]. It adds that concerns performing major rebuilding or overhaul do not necessarily have to meet the criteria for being a manufacturer even though the activities may be classified under a manufacturing code, and that ordinary repair services or preservation are not considered rebuilding [@CL-MKT-2192]. [The aerospace card](mkt-aerospace-defense-size-standards.md) applies this to aircraft codes and research and development.
 
@@ -91,5 +91,6 @@ Which industry code each product line and customer group falls under, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the waiver section the software footnote names.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the purpose line: an industry code can carry exception rows with their own standards.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for how the size standards table is organized.

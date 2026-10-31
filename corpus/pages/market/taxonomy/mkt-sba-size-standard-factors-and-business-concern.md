@@ -28,7 +28,7 @@ Shows the factors SBA weighs when it establishes size standards and each element
 | Text status | Not established. |
 | Applies to | Business concerns that want SBA assistance as a small business, with a separate definition for small agricultural cooperatives [@CL-MKT-0658; @CL-MKT-0660] |
 
-In establishing size standards, SBA considers the economic characteristics that make up the structure of an industry: degree of competition, average firm size, start-up costs and entry barriers, and the distribution of firms by size [@CL-MKT-0655]. The text also names technological changes [@CL-MKT-0655]. It lists competition from other industries, growth trends, historical activity within the industry, unique factors that may distinguish small firms from other firms, and the objectives of SBA's programs and the impact on those programs of different size standard levels [@CL-MKT-0656]. When SBA reviews a size standard, it investigates whether any concern at or below the standard would be dominant in the industry [@CL-MKT-0657].
+In establishing size standards, SBA considers the economic characteristics that make up the structure of an industry, including degree of competition, average firm size, start-up costs and entry barriers, and the distribution of firms by size [@CL-MKT-0655]. The text also names technological changes [@CL-MKT-0655]. It lists competition from other industries, growth trends, historical activity within the industry, unique factors that may distinguish small firms from other firms, and the objectives of SBA's programs and the impact on those programs of different size standard levels [@CL-MKT-0656]. When SBA reviews a size standard, it investigates whether any concern at or below the standard would be dominant in the industry [@CL-MKT-0657].
 
 Except for small agricultural cooperatives, a business concern eligible for assistance from SBA as a small business is a business entity organized for profit [@CL-MKT-0658]. In the same definition, the entity must have a place of business located in the United States and either operate primarily within the United States or make a significant contribution to the U.S. economy through payment of taxes or use of American products, materials or labor [@CL-MKT-0659]. A business concern may be in the legal form of an individual proprietorship, partnership, limited liability company, corporation, joint venture, association, trust or cooperative [@CL-MKT-0661]. Where the form is a joint venture, no more than 49 percent participation by foreign business entities is allowed [@CL-MKT-0662].
 
@@ -56,5 +56,6 @@ Which of the company's product families and market segments it would offer as a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored 'including' so the characteristics are not read as a closed list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA test for a concern's primary industry.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA size standard factors and the business concern definition.

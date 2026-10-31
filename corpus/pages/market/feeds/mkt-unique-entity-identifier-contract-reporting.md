@@ -33,7 +33,7 @@ The contracting officer shall identify and report a unique entity identifier for
 
 ## How it works
 
-A generic entity identifier is a number or other identifier assigned to a category of vendors and not specific to any individual or entity [@CL-MKT-0026]. Under the paragraph that authorizes generic entity identifiers, an identifier may be used to report contracts in lieu of the contractor's actual unique entity identifier only for listed cases [@CL-MKT-0027]. One listed case is a contract action valued at or below $40,000 that is awarded to a contractor that is a student [@CL-MKT-0027]. Another is a case in which specific public identification of the contracted party could endanger the mission, contractor, or recipients of the acquired goods or services, and the contracting officer must include a written determination in the contract file [@CL-MKT-0028]. Use of a generic identifier does not supersede the requirements of provisions 52.204-6 or 52.204-7, where present in the solicitation, for the contractor to have its own unique entity identifier assigned [@CL-MKT-0156].
+A generic entity identifier is a number or other identifier assigned to a category of vendors and not specific to any individual or entity [@CL-MKT-0026]. Under the paragraph that authorizes generic entity identifiers, an authorized generic entity identifier, maintained by the Integrated Award Environment program office, may be used to report contracts in lieu of the contractor's actual unique entity identifier only for listed cases [@CL-MKT-0027; @CL-MKT-9394]. One listed case is a contract action valued at or below $40,000 that is awarded to a contractor that is a student, a dependent of either a veteran, foreign service officer, or military member assigned outside the United States and its outlying areas, or a contractor located outside the United States and its outlying areas for work to be performed outside them that does not otherwise have a unique entity identifier [@CL-MKT-0027; @CL-MKT-9395; @CL-MKT-9396]. Another is a case in which specific public identification of the contracted party could endanger the mission, contractor, or recipients of the acquired goods or services, and the contracting officer must include a written determination in the contract file [@CL-MKT-0028]. Use of a generic identifier does not supersede the requirements of provisions 52.204-6 or 52.204-7, where present in the solicitation, for the contractor to have its own unique entity identifier assigned [@CL-MKT-0156].
 
 ## Worked example
 
@@ -53,6 +53,7 @@ Confirm how supplier and customer identifiers in reported contract data are reco
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added who maintains generic identifiers and the other contractor kinds in the first listed case.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unique entity identifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of unique entity identifier.

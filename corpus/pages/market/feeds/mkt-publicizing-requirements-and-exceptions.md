@@ -31,11 +31,11 @@ Shows which proposed contract actions need a notice transmitted to the Governmen
 
 For acquisitions of supplies and services, other than those covered by the exceptions and the special situations, the contracting officer must transmit a notice to the GPE for each proposed contract action meeting the synopsis threshold [@CL-MKT-0057]. The notice is also required for a modification to an existing contract for additional supplies or services that meets that threshold [@CL-MKT-0057; @CL-MKT-0058], and for a contract action in any amount when advantageous to the Government [@CL-MKT-0057; @CL-MKT-0059].
 
-The contracting officer need not submit the notice when the contracting officer determines that one of the conditions listed in the exceptions section applies [@CL-MKT-0060]. One listed case is a proposed action not expected to exceed the simplified acquisition threshold that will be made through a means giving access to the notice through the GPE and that permits the public to respond to the solicitation electronically [@CL-MKT-0060; @CL-MKT-0061].
+The contracting officer need not submit the notice when the contracting officer determines that one of the conditions listed in the first paragraph of the exceptions section applies [@CL-MKT-0060], or when the head of the agency determines in writing, after consultation with the Administrator for Federal Procurement Policy and the Administrator of the Small Business Administration, that advance notice is not appropriate or reasonable [@CL-MKT-9392]. One listed case is a proposed action not expected to exceed the simplified acquisition threshold that will be made through a means giving access to the notice through the GPE and that permits the public to respond to the solicitation electronically [@CL-MKT-0060; @CL-MKT-0061].
 
 ## How it works
 
-The notice duty rests on the synopsis threshold from the dissemination rule, which is $25,000 [@CL-MKT-0050; @CL-MKT-0057]. A modification counts when it meets that threshold, and an action of any amount can be noticed when advantageous to the Government [@CL-MKT-0058; @CL-MKT-0059]. The exceptions work as carve-outs from the duty: the exceptions section opens by saying the notice need not be submitted when the listed conditions apply [@CL-MKT-0060]. The low-value action with electronic access and electronic response is one such carve-out [@CL-MKT-0061].
+The notice duty rests on the synopsis threshold from the dissemination rule, which is $25,000 [@CL-MKT-0050; @CL-MKT-0057]. A modification counts when it meets that threshold, and a contract action in any amount is also listed when advantageous to the Government [@CL-MKT-0058; @CL-MKT-0059]. The exceptions work as carve-outs from the duty: the exceptions section opens by saying the notice need not be submitted in the cases it then lists, which include a contracting officer determination under one of its listed conditions and a written head of agency determination [@CL-MKT-0060; @CL-MKT-9392]. The low-value action with electronic access and electronic response is one such carve-out [@CL-MKT-0061].
 
 FAR part 5 prescribes policies and procedures for publicizing contract opportunities and award information [@CL-MKT-2213]. As used in that part, contract action means an action resulting in a contract, as defined in subpart 2.1, including actions for additional supplies or services outside the existing contract scope [@CL-MKT-2214], but not including actions that are within the scope and under the terms of the existing contract, such as contract modifications issued pursuant to the Changes clause, or funding and other administrative changes [@CL-MKT-2215].
 
@@ -59,5 +59,6 @@ Confirm which proposed-action notices are relevant public market observations fo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the head of agency determination exception and kept the listed cases as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 5, the contract action definition, the publicizing policy and the GPE transmission rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for when contract actions must be publicized and the exceptions.
