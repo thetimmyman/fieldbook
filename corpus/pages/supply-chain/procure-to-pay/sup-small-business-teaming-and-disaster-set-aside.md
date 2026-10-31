@@ -64,11 +64,12 @@ A teaming arrangement between an offeror and its small business subcontractors e
 
 ## Company calibration
 
-Whether the company's teaming agreements are in writing, carry the arrangement name, state the roles and work shares, and are on file before an offer is submitted. [@Q-004]
+Whether the company's teaming agreements are in writing, carry the arrangement name, and state the roles and work shares. [@Q-004]
 
 ## Sources
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the review question to drop a filing deadline the provision does not set.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business teaming arrangements and disaster area set-asides.

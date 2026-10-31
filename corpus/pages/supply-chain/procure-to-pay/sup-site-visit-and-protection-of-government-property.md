@@ -26,7 +26,7 @@ Shows what a services solicitation asks offerors to do about visiting the site, 
 | RFO citation | RFO FAR 52.237-1 [@CL-SUP-0489; @CL-SUP-0490; @CL-SUP-0491] and RFO FAR 52.237-2 [@CL-SUP-0492; @CL-SUP-0493; @CL-SUP-0494; @CL-SUP-0495] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2911] |
-| Applies to | Solicitations and contracts for services performed on a Government installation, unless the work is construction [@CL-SUP-2911; @CL-SUP-2914] |
+| Applies to | The site visit provision goes in solicitations, and the protection clause in solicitations and contracts, for services performed on Government installations, unless the work is construction [@CL-SUP-2911; @CL-SUP-2914] |
 
 The site visit instrument is a provision, not a contract clause. It is inserted in solicitations for services to be performed on Government installations, unless the solicitation is for construction [@CL-SUP-2911]. Offerors or quoters are urged and expected to inspect the site where services are to be performed and to satisfy themselves about all general and local conditions that may affect the cost of contract performance, to the extent that the information is reasonably obtainable [@CL-SUP-2912]. In no event is a failure to inspect the site grounds for a claim after contract award [@CL-SUP-2913].
 
@@ -68,5 +68,6 @@ Who confirms that each services solicitation on a Government installation carrie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Applies to row to say the site visit provision goes in solicitations only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the site visit and protection of Government property.
