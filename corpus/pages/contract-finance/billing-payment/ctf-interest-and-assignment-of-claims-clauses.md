@@ -24,7 +24,7 @@ Shows when amounts the contractor owes the Government start to bear interest and
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1671; @CL-CTF-1675] |
 | Codified citation | FAR 52.232-17 [@CL-CTF-1671]; FAR 52.232-23 [@CL-CTF-1675] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-17 [@CL-CTF-0383]; RFO FAR 52.232-23 [@CL-CTF-0387] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1671; @CL-CTF-1675] |
 | Applies to | Amounts payable by the contractor to the Government under the contract, and the contractor's right to be paid under the contract [@CL-CTF-1671; @CL-CTF-1675] |
@@ -36,6 +36,8 @@ Under the Assignment of Claims Act, the contractor may assign its rights to be p
 ## How it works
 
 A debt starts to bear interest on its due date, which is the earlier of the date fixed in the contract and the first written demand [@CL-CTF-1674; @CL-CTF-1672]. No interest runs on an amount paid within 30 days of becoming due, subject to the listed exceptions for the price reduction and Cost Accounting Standards clauses [@CL-CTF-1672; @CL-CTF-1671]. An assignment covers everything still unpaid and goes to one party at a time, or to one agent or trustee for several parties [@CL-CTF-1676]. Further assignment, conditions, notices and policy are on [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md); this card covers the contract clause only.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.232-17 keeps the simple interest on amounts payable by the Contractor to the Government, except as otherwise provided under a Price Reduction for Defective Certified Cost or Pricing Data clause or a Cost Accounting Standards clause [@CL-CTF-1671; @CL-CTF-0383], the interest running from the date due until paid unless paid within 30 days of becoming due [@CL-CTF-1672; @CL-CTF-0384], the due date at the earliest of the date fixed under the contract and the date of the first written demand, including a demand resulting from a default termination [@CL-CTF-1674; @CL-CTF-0385], and the reduction of the interest charge under the procedures in the FAR section it names, in effect on the date of the contract [@CL-CTF-1710; @CL-CTF-0386]. The RFO text of FAR 52.232-23 keeps the Contractor's right to assign its rights to be paid to a bank, trust company, or other financing institution [@CL-CTF-1675; @CL-CTF-0387], including any Federal lending agency, with the assignee able to further assign or reassign its right under the original assignment to any type of financing institution described in the preceding sentence [@CL-CTF-9075], the rule that an assignment covers all unpaid amounts and is not made to more than one party [@CL-CTF-1676; @CL-CTF-0388] except to one party as agent or trustee for two or more parties [@CL-CTF-1676; @CL-CTF-0389], the bar on giving an assignee classified documents or related information until the Contracting Officer authorizes it in writing [@CL-CTF-1677; @CL-CTF-0390], and, if a no-setoff commitment is to be included in the contract, the Alternate I no-setoff sentence [@CL-CTF-1711; @CL-CTF-0391; @CL-CTF-9076].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm whether financing arrangements assign contract payments, who handles Gov
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the interest clause and the assignment of claims clause.
