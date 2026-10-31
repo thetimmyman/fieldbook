@@ -23,7 +23,7 @@ Shows the policy rules on how an agency describes what it needs: competition, co
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-0990] |
-| Codified citation | FAR 11.002 [@CL-EST-0990] |
+| Codified citation | FAR 11.000 [@CL-EST-2138] and FAR 11.002 [@CL-EST-0990] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-0990] |
@@ -46,6 +46,8 @@ Unless the agency Chief Information Officer waives the requirement, when an agen
 Agencies shall not include in a solicitation a requirement that prohibits an offeror from permitting its employees to telecommute, unless the contracting officer executes a written determination in accordance with FAR 7.108(a) [@CL-EST-1003].
 
 ## How it works
+
+Part 11 prescribes policies and procedures for describing agency needs [@CL-EST-2138].
 
 The agency, through its acquisition officials, shapes the requirement. The contracting officer makes the written determination that allows a solicitation to prohibit telework, and obtains the accessibility requirement documents from the requiring activity [@CL-EST-1003; @CL-EST-1004]. The agency Chief Information Officer may waive the Internet Protocol reference [@CL-EST-1110]. Requiring activities write the metric guidance [@CL-EST-1002].
 
@@ -73,4 +75,5 @@ The company must confirm, for each requirement set it prices, which version of t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 11.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for describing agency needs.

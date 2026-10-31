@@ -23,11 +23,13 @@ Shows how an offeror files a Disclosure Statement, where the copies and amendmen
 | Field | Value |
 |---|---|
 | Instrument | Codified CAS [@CL-EST-2484] |
-| Codified citation | 48 CFR 9903.202-5 and 9903.303 [@CL-EST-2484; @CL-EST-2488] |
+| Codified citation | FAR 30.202-5 [@CL-EST-2148], 48 CFR 9903.202-5 and 9903.303 [@CL-EST-2484; @CL-EST-2488] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2484] |
 | Applies to | Offerors that file a Disclosure Statement [@CL-EST-2486] |
+
+The FAR section on filing disclosure statements, 30.202-5, refers the reader to 48 CFR 9903.202-5 [@CL-EST-2148].
 
 Disclosure must be on Form Number CASB DS-1 or CASB DS-2, as applicable [@CL-EST-2484]. The forms may be obtained from the cognizant Federal agency, meaning the cognizant administrative contracting officer or the cognizant Federal agency official authorized to act in that capacity, or from the looseleaf version of the Federal Acquisition Regulation [@CL-EST-2629].
 
@@ -73,4 +75,5 @@ Whether a Disclosure Statement is on file for each covered business unit and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.202-5 pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Disclosure Statement filing and the effect of filing.

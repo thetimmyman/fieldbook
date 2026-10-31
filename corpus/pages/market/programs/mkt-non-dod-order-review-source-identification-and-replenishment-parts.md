@@ -41,6 +41,10 @@ The order review and the replenishment rules bind departments and agencies. The 
 
 The order review is a gate before the order is placed, so the file shows the best-interest evaluation, the fee review, the scope check and the appropriation check [@CL-MKT-1576; @CL-MKT-1624; @CL-MKT-1577]. The threshold for the review is the amount of the order, while the threshold for the identification requirement is the value of the contract [@CL-MKT-1575; @CL-MKT-1579]. For replenishment parts, the default is competition on adequate data, and limiting competition to earlier sources needs both the assurance problem and a justification [@CL-MKT-1580; @CL-MKT-1581]. The price increase limits are on [multi-year services and spare parts price limits](../../estimating/pricing/est-dod-multiyear-services-and-spare-parts-price-limits.md).
 
+The DFARS subpart on identifying sources of supply implements title 10 of the United States Code, section 4753, and contains policy and procedures for requiring contractors to identify the actual manufacturer of supplies furnished to DoD [@CL-MKT-2343]. Its policy is that contractors shall identify their sources of supply in contracts for supplies [@CL-MKT-2344]. That identification enables solicitation, in subsequent acquisitions, of actual manufacturers or other suppliers of items, which enhances competition and potentially avoids payment of additional costs for no significant added value [@CL-MKT-2345].
+
+For spare parts breakout requirements, the DFARS section on the spare parts breakout program points to PGI 217.7506 and DoD Manual 4140.01, Volume 9, DoD Supply Chain Materiel Management Procedures: Materiel Programs [@CL-MKT-2348]. That section states no breakout requirement itself and names no official.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -63,4 +67,5 @@ Which supplies are commercial products, and which contracts valued above the sim
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the source identification scope and policy and the spare parts breakout pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for orders under non-DoD contracts, source identification and replenishment parts.

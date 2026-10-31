@@ -23,7 +23,7 @@ Explains three kinds of contract quality requirement: reliance on the contractor
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3983] |
-| Codified citation | FAR 46.202-1, 46.202-3 and 46.202-4 [@CL-SUP-3983; @CL-SUP-3923; @CL-SUP-3926] |
+| Codified citation | FAR 46.202, 46.202-1, 46.202-3 and 46.202-4 [@CL-SUP-4124; @CL-SUP-3983; @CL-SUP-3923; @CL-SUP-3926] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3983] |
@@ -48,6 +48,8 @@ Higher-level contract quality requirements.
 - Examples of higher-level quality standards include overarching quality management system standards such as ISO 9001, ASQ/ANSI E4, ASME NQA-1, SAE AS9100, SAE AS9003 and ISO/TS 16949, and product or process specific quality standards such as SAE AS5553 [@CL-SUP-3984].
 
 ## How it works
+
+The section on types of contract quality requirements says that contract quality requirements fall into four general categories, depending on the extent of quality assurance needed by the Government for the acquisition involved [@CL-SUP-4124]. This card covers three of the specific types, and the remaining one is covered in [contract quality requirements](sup-contract-quality-requirements.md).
 
 Commercial reliance changes who inspects before tender. For commercial products the Government relies on the contractor's existing quality assurance system as a substitute for Government inspection and testing before tender for acceptance, unless customary market practices for the product include in-process inspection [@CL-SUP-3983; @CL-SUP-3920]. For commercial services the contractor accomplishes all the inspection and testing needed before tender [@CL-SUP-3922]. The section does not say who decides whether customary market practices include in-process inspection. The policy section words the same exception as practices that permit in-process inspection, as covered in [quality assurance policy and responsibilities](sup-quality-assurance-policy-and-responsibilities.md) [@CL-SUP-3903]. Another section covers reliance for contracts at or below the simplified acquisition threshold, as covered in [contract quality requirements](sup-contract-quality-requirements.md) [@CL-SUP-0950].
 
@@ -75,4 +77,5 @@ Which product lines fall under commercial reliance, standard inspection requirem
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the four general categories of contract quality requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the types of contract quality requirements.

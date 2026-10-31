@@ -40,6 +40,8 @@ For a multiple award contract with a single NAICS code, SBA determines size stat
 
 The same section lists exceptions that can displace these order rules. For orders or BPAs to be placed against the GSA Federal Supply Schedule Multiple Award Schedule contract, size is determined as of the date of the initial offer, which includes price, for that contract [@CL-MKT-0544]. Size is determined on the date of recertification when a recertification is required under the cited provisions, or on the date of initial offer, which includes price, if a contracting officer requests it under the cited provision [@CL-MKT-0545]. The exceptions also cover sole source orders in the Business Development program, which this card does not detail.
 
+A concern must self-certify that it is small under the size standard specified in the solicitation, or as clarified, completed or supplied by SBA pursuant to section 121.402(d) [@CL-MKT-2359]. A contracting officer may accept the concern's self-certification as true for the particular procurement involved in the absence of a written protest by other offerors or other credible information which causes the contracting officer or SBA to question the size of the concern [@CL-MKT-2360].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -58,4 +60,5 @@ Which kinds of contracts, orders and subcontracts the company offers on as a sma
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the self-certification duty and the contracting officer's acceptance of it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the date a concern's size status is measured.

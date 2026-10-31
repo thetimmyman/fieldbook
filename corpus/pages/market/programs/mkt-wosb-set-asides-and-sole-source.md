@@ -37,6 +37,8 @@ A contracting officer shall consider a contract award to an EDWOSB concern on a 
 
 Both the set-aside options and the sole-source conditions depend in part on whether SBA has designated the industry code as underrepresented or substantially underrepresented [@CL-MKT-0624; @CL-MKT-0625; @CL-MKT-0627; @CL-MKT-0650]. The dollar limit applies to sole-source awards and depends on whether the requirement is in a manufacturing industry code [@CL-MKT-0628]. The section also sets the remaining market research conditions for set-asides, offeror eligibility checks, awards on one offer, SBA procurement center representative recommendations and appeals, and it lists the remaining sole-source conditions; this card does not restate them.
 
+The procedures in FAR subpart 19.15 apply to all Federal agencies that employ one or more contracting officers [@CL-MKT-2212].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which product families, customer groups and market segments the company reaches 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the agencies the subpart applies to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Women-Owned Small Business Program set-asides and sole-source awards.

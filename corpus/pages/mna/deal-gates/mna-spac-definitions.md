@@ -30,6 +30,8 @@ Fixes the four terms a deal team uses to decide whether a company is a special p
 
 The definitions in 17 CFR 229.1601 are stated for the purposes of the subpart that contains them [@CL-MNA-1142]. Each term below has its own claims.
 
+Item 1610 separately says the disclosure that the subpart requires is to be provided in an Interactive Data File in accordance with §§ 232.405 (Rule 405 of Regulation S-T) and 232.301 (the EDGAR Filer Manual) of the same chapter [@CL-MNA-1349].
+
 A de-SPAC transaction is a business combination, such as a merger, consolidation, exchange of securities, acquisition of assets, reorganization or similar transaction, involving a special purpose acquisition company and one or more target companies [@CL-MNA-1143]. In the case of more than one target company, the target companies are involved contemporaneously [@CL-MNA-1144].
 
 A special purpose acquisition company is a company that meets one of two alternatives [@CL-MNA-1145; @CL-MNA-1149]. The first alternative is that it has indicated that its business plan is to do all three of the things that follow [@CL-MNA-1145; @CL-MNA-1146]. The plan is to conduct a primary offering of securities that is not subject to the requirements of Rule 419 under the Securities Act (17 CFR 230.419) [@CL-MNA-1145]. It is also to complete a business combination, such as a merger, consolidation, exchange of securities, acquisition of assets, reorganization or similar transaction, with one or more target companies within a specified time frame [@CL-MNA-1146]. And it is to return the proceeds of the offering, and of any concurrent offering that intends to raise proceeds, to its security holders if the company does not complete a business combination [@CL-MNA-1147]. That business combination is again one with one or more target companies within the specified time frame [@CL-MNA-1148]. The second alternative is that the company has represented that it pursues or will pursue a special purpose acquisition company strategy [@CL-MNA-1149].
@@ -67,4 +69,5 @@ Confirm which business-plan statements and representations the company or a coun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the Interactive Data File requirement in Item 1610.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions of special purpose acquisition companies and de-SPAC transactions.

@@ -22,11 +22,13 @@ Defines the four terms the priorities and allocations subpart of the FAR defines
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0481] |
-| Codified citation | FAR 11.601 and FAR 11.602 [@CL-PRG-0481; @CL-PRG-0482] |
+| Codified citation | FAR 11.600 [@CL-PRG-1005], FAR 11.601 and FAR 11.602 [@CL-PRG-0481; @CL-PRG-0482] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0481] |
 | Applies to | The defined terms as used in the priorities and allocations subpart of the FAR [@CL-PRG-0486] |
+
+Subpart 11.6 implements the Defense Priorities and Allocations System (DPAS), a Department of Commerce regulation in support of approved national defense, emergency preparedness, and energy programs (see 15 CFR part 700) [@CL-PRG-1005].
 
 The definitions are for terms as used in the subpart that contains the section [@CL-PRG-0486]. The section defines four terms [@CL-PRG-0476; @CL-PRG-0478; @CL-PRG-0479; @CL-PRG-0481]. The glossary gives each one.
 
@@ -77,5 +79,6 @@ Which supplier commitments and lead times in the near-term plan rest on orders t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DPAS scope line of subpart 11.6.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the card for the defense priorities and allocations system definitions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the priorities and allocations definitions and general rule.

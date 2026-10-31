@@ -23,7 +23,7 @@ Shows which situations bar a contractor from a follow-on award, where specificat
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0944] |
-| Codified citation | FAR 9.505-2, FAR 9.505-4 and FAR 9.508 [@CL-SUP-0944; @CL-SUP-0948; @CL-SUP-0949] |
+| Codified citation | FAR 9.505-2, FAR 9.505-3, FAR 9.505-4 and FAR 9.508 [@CL-SUP-0944; @CL-SUP-4153; @CL-SUP-0948; @CL-SUP-0949] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0944] |
@@ -32,6 +32,8 @@ Shows which situations bar a contractor from a follow-on award, where specificat
 If a contractor prepares and furnishes complete specifications covering nondevelopmental items to be used in a competitive acquisition, that contractor shall not be allowed to furnish these items, as a prime contractor or as a subcontractor, for a reasonable period of time [@CL-SUP-0944]. That period includes, at least, the duration of the initial production contract [@CL-SUP-0978]. The restriction does not apply to contractors that furnish at Government request specifications or data regarding a product they provide, which is one of the listed exceptions [@CL-SUP-0945].
 
 The work-statement restriction applies where a contractor prepares, or assists in preparing, a work statement to be used in competitively acquiring a system or services, or provides material leading directly, predictably and without delay to such a work statement [@CL-SUP-0946]. That contractor may not supply the system, major components of the system or the services unless it is the sole source, has participated in the development and design work, or more than one contractor has been involved in preparing the work statement [@CL-SUP-0947]. General rules and principles are on the [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) card.
+
+A further section covers evaluation services. Contracts for the evaluation of offers for products or services shall not be awarded to a contractor that will evaluate its own offers for products or services, or those of a competitor, without proper safeguards to ensure objectivity to protect the Government's interests [@CL-SUP-4153].
 
 ## How it works
 
@@ -59,5 +61,6 @@ Confirm whether the company prepared specifications or work statements, or recei
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on providing evaluation services.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the two proprietary information sentences so the protection agreement keeps the limit on the purpose for which the information may be used.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts in specifications, proprietary information and examples.

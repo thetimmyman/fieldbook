@@ -23,11 +23,13 @@ Shows how the start of a contractor record retention period is fixed, how annual
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3318] |
-| Codified citation | FAR 4.704 [@CL-SUP-3318] |
+| Codified citation | FAR 4.700, 4.701 and 4.704 [@CL-SUP-4113; @CL-SUP-4114; @CL-SUP-3318] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3318] |
 | Applies to | Contractor records with an entry that charges or allocates a cost to a Government contract or subcontract [@CL-SUP-3318] |
+
+The subpart provides policies and procedures for retention of records by contractors to meet the records review requirements of the Government, and in the subpart the terms contracts and contractors include subcontracts and subcontractors [@CL-SUP-4113]. Its purpose is to generally describe records retention requirements and to allow reductions in the retention period for specific classes of records under prescribed circumstances [@CL-SUP-4114].
 
 The retention periods in FAR 4.705 are calculated from the end of the contractor's fiscal year in which an entry is made charging or allocating a cost to a Government contract or subcontract [@CL-SUP-3318]. If a specific record contains a series of entries, the retention period is calculated from the end of the contractor's fiscal year in which the final entry is made [@CL-SUP-3319]. The contractor should cut off the records in annual blocks and retain them for block disposal under the prescribed retention periods [@CL-SUP-3382].
 
@@ -57,4 +59,5 @@ Confirm which record categories the company holds, how they are blocked by fisca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope and purpose of the records retention subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for calculating contractor record retention periods.

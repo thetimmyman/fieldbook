@@ -37,6 +37,10 @@ The postaward section directs the contracting officer to follow the usual public
 
 The preaward notice and the postaward notice have different triggers. The preaward notice is tied to orders over a stated amount under task or delivery order contracts [@CL-MKT-0738], while the postaward notice is tied to a larger amount and covers contracts, orders and their modifications [@CL-MKT-0740; @CL-MKT-0742]. Regardless of dollar value, if a contract action, including all modifications and orders under task or delivery order contracts, is not both fixed-price and competitively awarded, the award notice must be publicized and its description must include the rationale [@CL-MKT-0743]. The description must include a statement specifically noting if the contract action was not awarded competitively, or was not fixed-price, or was neither competitive nor fixed-price [@CL-MKT-0744]. The postaward section itself sets no number of days for posting; it points to the usual publication procedures, and the timing for those is on the [Synopses of contract awards](mkt-contract-award-synopses.md) card and the [Publicizing and response time](mkt-publicizing-and-response-time.md) card.
 
+The Recovery Act subpart prescribes posting requirements for presolicitation and award notices for actions funded in whole or in part by the Recovery Act, and its requirements enhance transparency to the public [@CL-MKT-2227]. It applies to all actions expected to exceed $25,000 funded in whole or in part by the Recovery Act and, unlike subparts 5.2 and 5.3, includes additional requirements for orders and for actions that are not both fixed-price and competitive [@CL-MKT-2228].
+
+In the subpart, task or delivery order contract means a delivery order contract and a task order contract, as defined in FAR 16.501-1 [@CL-MKT-2229]. The term includes, for example, Governmentwide Acquisition Contracts, multi-agency contracts, and other indefinite-delivery/indefinite-quantity contracts, whether single award or multiple award [@CL-MKT-2230], and also includes Federal Supply Schedule contracts, including Blanket Purchase Agreements under FAR subpart 8.4 [@CL-MKT-2231].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +59,5 @@ Confirm whether public Recovery Act funded award notices are relevant market obs
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope, applicability and definition of task or delivery order contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for publicizing preaward and postaward for actions using emergency or contingency authorities.

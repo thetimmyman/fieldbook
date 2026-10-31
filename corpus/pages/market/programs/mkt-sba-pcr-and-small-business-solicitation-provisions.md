@@ -37,6 +37,8 @@ The provision at 52.219-1, Small Business Program Representations, is to be inse
 
 The representative reviews and recommends, and one listed remedy for a rejected recommendation is a written appeal [@CL-MKT-0331; @CL-MKT-0332; @CL-MKT-0333]. The list of duties is longer than the four quoted, and this card does not restate the rest. The micro-purchase threshold amount is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
 
+The Director of the Office of Small and Disadvantaged Business Utilization serves as the agency focal point for interfacing with the Small Business Administration, and the Director of the Office of Small Business Programs is the agency focal point for the Department of Defense [@CL-MKT-2003].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which product families and customer groups buy through activities with an assign
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the agency focal points for interfacing with SBA.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA procurement center representatives and the small business solicitation provisions and clauses.

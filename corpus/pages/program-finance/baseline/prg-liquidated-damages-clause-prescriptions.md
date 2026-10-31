@@ -23,7 +23,7 @@ Shows when the contracting officer's determination calls for a liquidated damage
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0472] |
-| Codified citation | FAR 11.503 [@CL-PRG-0472] |
+| Codified citation | FAR 11.500 [@CL-PRG-1000; @CL-PRG-1001], FAR 11.502 [@CL-PRG-1002; @CL-PRG-1003; @CL-PRG-1004] and FAR 11.503 [@CL-PRG-0472] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0472] |
@@ -36,6 +36,10 @@ Paragraph (b) says to use the clause at 52.211-12, Liquidated Damages—Construc
 Paragraph (c) says to use the clause at 52.211-13, Time Extensions, in solicitations and contracts for construction that use the clause at 52.211-12 when that clause has been revised as provided in paragraph (b) [@CL-PRG-0475].
 
 ## How it works
+
+Subpart 11.5 prescribes policies and procedures for using liquidated damages clauses in solicitations and contracts for supplies, services, research and development, and construction [@CL-PRG-1000]. It does not apply to liquidated damages for subcontracting plans (see 19.705-7), liquidated damages related to the Contract Work Hours and Safety Standards statute (see subpart 22.3), or liquidated damages related to paid sick leave for Federal contractors [@CL-PRG-1001].
+
+A further section adds rules on solicitations. The applicable liquidated damages clause and liquidated damages rates are to be included in solicitations when the contract will contain liquidated damages provisions, and the text names no official who includes them [@CL-PRG-1002]. Construction contracts with liquidated damages provisions must describe the rate or rates of liquidated damages assessed per day of delay [@CL-PRG-1003]. The rate or rates for a construction contract should include the estimated daily cost of Government inspection and superintendence [@CL-PRG-1004].
 
 The contracting officer decides. Both prescriptions apply when the contracting officer determines that liquidated damages are appropriate [@CL-PRG-0472; @CL-PRG-0473]. This section does not say what makes liquidated damages appropriate. It refers the reader to 11.501(a) [@CL-PRG-0472; @CL-PRG-0473]. The card [delivery schedules and liquidated damages](../../supply-chain/procure-to-pay/sup-delivery-schedules-and-liquidated-damages.md) covers that policy.
 
@@ -69,4 +73,5 @@ Who confirms that each executed construction contract states damages by stage an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of subpart 11.5 and the solicitation rules in section 11.502.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for liquidated damages clause prescriptions.

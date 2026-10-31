@@ -36,6 +36,8 @@ Except for small agricultural cooperatives, a business concern eligible for assi
 
 The definition has several elements. Unless it is a small agricultural cooperative, the concern must be an entity organized for profit, with a United States place of business, that operates primarily in the United States or contributes significantly to its economy [@CL-MKT-0658; @CL-MKT-0659]. A small agricultural cooperative is instead an association acting pursuant to the Agricultural Marketing Act whose size does not exceed the size standard SBA established for other similar agricultural small business concerns [@CL-MKT-0660]. A firm is not treated as a separate business concern if a substantial portion of its assets or liabilities are the same as those of a predecessor entity, and the predecessor's annual receipts and employees are then taken into account in determining size [@CL-MKT-0663]. The printed text gives no industry size standard figures, so this card gives none.
 
+In deciding a concern's primary industry, for a concern or a concern combined with its affiliates, SBA considers the distribution of receipts, employees and costs of doing business among the different industries in which business operations occurred for the most recently completed fiscal year [@CL-MKT-2349]. SBA may also consider other factors, such as the distribution of patents, contract awards, and assets [@CL-MKT-2350].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -54,4 +56,5 @@ Which of the company's product families and market segments it would offer as a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA test for a concern's primary industry.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA size standard factors and the business concern definition.

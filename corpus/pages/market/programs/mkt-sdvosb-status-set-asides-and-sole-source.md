@@ -37,6 +37,8 @@ A contracting officer shall consider a contract award to an SDVOSB concern on a 
 
 The contracting officer verifies the offeror's status for an SDVOSB set-aside or sole-source contract [@CL-MKT-0618]. A set-aside depends on a reasonable expectation, based on market research, of two or more offers and of award at a fair market price [@CL-MKT-0619]. A sole-source award is considered provided none of the listed exclusions apply and the further listed conditions, including the price ceiling, are met [@CL-MKT-0620; @CL-MKT-0621]. The section also covers the other joint venture conditions, the check of offers for eligibility, status updates after an SBA decision, the withdrawal of a set-aside that draws no acceptable offer and SBA appeals, and this card does not restate them.
 
+The purpose of the service-disabled veteran-owned small business (SDVOSB) Program is to provide Federal contracting assistance to service-disabled veteran-owned small business concerns [@CL-MKT-2210]. The procedures in FAR subpart 19.14 apply to all Federal agencies that employ one or more contracting officers [@CL-MKT-2211].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which product families, customer groups and market segments the company reaches 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the program purpose and the agencies the subpart applies to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service-disabled veteran-owned small business status, set-asides and sole-source awards.

@@ -49,6 +49,8 @@ If the agency small business specialist does not agree to a withdrawal or modifi
 
 If a set-aside acquisition, or a portion of one, is not awarded, the determination to set it aside is automatically dissolved for the unawarded portion [@CL-MKT-1305]. The required supplies or services for which no award was made may be acquired by sealed bidding or negotiation, as appropriate [@CL-MKT-1403]. Before issuing a solicitation for the items in a dissolved set-aside, the contracting officer ensures that the delivery schedule is realistic in the light of all relevant factors, including the capabilities of small business concerns [@CL-MKT-1404].
 
+For the requirement to give offerors a notice about definitization of equitable adjustments for change orders under construction contracts, the set-aside section on solicitation notices points to FAR 36.211 [@CL-MKT-2022]. The section itself states no notice wording and names no official.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -67,4 +69,5 @@ Whether the file records the specific reason an acquisition was not set aside an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the construction change order notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for insufficient reasons, withdrawal and dissolution of a set-aside.

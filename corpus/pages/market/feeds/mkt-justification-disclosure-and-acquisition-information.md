@@ -37,6 +37,8 @@ When the same item or class of items is being acquired by more than one agency o
 
 The posting rules point to the sections that govern each justification, so the detail of what is posted and when sits in those sections [@CL-MKT-0095; @CL-MKT-0096; @CL-MKT-0097]. The exchange rule is about information moving between agencies and contracting activities, with cost and pricing data singled out [@CL-MKT-0098; @CL-MKT-0099]. The cost and pricing data side overlaps with the [certified data exceptions](../../estimating/pricing/est-certified-data-exceptions.md) card, and the other-than-full-and-open side with the [Only One Offer provision](../../estimating/pricing/est-only-one-offer.md) card. This card does not restate them.
 
+Contracting officers shall process requests for specific information from the general public, including suppliers, in accordance with FAR subpart 24.1 or 24.2, as appropriate [@CL-MKT-2219]. Contracting officers shall give Members of Congress, upon their request, detailed information regarding any particular contract [@CL-MKT-2220]. When responsiveness would result in disclosure of classified matter, business confidential information, or information prejudicial to competitive acquisition, the contracting officer shall refer the proposed reply, with full documentation, to the agency head and inform the legislative liaison office of the action [@CL-MKT-2220; @CL-MKT-2221].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Confirm which posted justifications are relevant public market observations for 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rules for public requests and requests from Members of Congress.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for public disclosure of justification documents and exchange of acquisition information.

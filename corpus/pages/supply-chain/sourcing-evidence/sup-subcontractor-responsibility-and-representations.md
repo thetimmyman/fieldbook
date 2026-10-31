@@ -23,11 +23,13 @@ Shows who determines the responsibility of a prospective subcontractor, when the
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0787] |
-| Codified citation | FAR 9.104-4 and FAR 9.104-5 [@CL-SUP-0787; @CL-SUP-0789] |
+| Codified citation | FAR 9.100, FAR 9.104-4 and FAR 9.104-5 [@CL-SUP-4157; @CL-SUP-0787; @CL-SUP-0789] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0787] |
 | Applies to | Prospective prime contractors and offerors in acquisitions where responsibility is determined [@CL-SUP-0787; @CL-SUP-0789] |
+
+The subpart prescribes policies, standards, and procedures for determining whether prospective contractors and subcontractors are responsible [@CL-SUP-4157].
 
 Generally, prospective prime contractors are responsible for determining the responsibility of their prospective subcontractors, but the rule points to the sections on debarred, ineligible, or suspended firms [@CL-SUP-0787]. Those sections are covered on the [Continuing current contracts and limits on subcontracting with listed parties](../supplier-identity/sup-listed-party-continuation-and-subcontracting-limits.md) and [Protecting the Government's interest when subcontracting with debarred or suspended contractors](../supplier-identity/sup-debarred-suspended-subcontractors.md) cards. When it is in the Government's interest to do so, the contracting officer may directly determine a prospective subcontractor's responsibility, such as when the prospective contract involves medical supplies, urgent requirements, or substantial subcontracting [@CL-SUP-0788].
 
@@ -55,4 +57,5 @@ Confirm how the company determines and records the responsibility of a supplier 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the responsibility subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor responsibility and responsibility representations.

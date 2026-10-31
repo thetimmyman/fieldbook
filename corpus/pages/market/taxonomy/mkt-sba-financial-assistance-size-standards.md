@@ -40,6 +40,10 @@ The size status of an applicant for SBA financial assistance is determined as of
 
 A concern that submits an application for financial assistance is deemed to have certified that it is small under the applicable size standard, and SBA may question the concern's status based on information supplied in the application or from any other source [@CL-MKT-0711]. A small business investment company, a development company, a surety bond company, or a preferred lender may accept as true the size information provided by an applicant, unless credible evidence to the contrary is apparent [@CL-MKT-0712]. The printed text also sets affiliation principles for these programs, a net income computation for applicants that pay no income tax at the enterprise level, a date for pre-disaster mitigation loans, and the steps for a formal size determination; this card does not state them.
 
+A concern that applies to refinance an existing SBA loan or guarantee will be considered small for the refinancing even though its size has increased since the date of the original financing to exceed its applicable size standard, provided that the increase in size is due to natural growth (as distinguished from merger, acquisition or similar management action) and SBA determines that refinancing is necessary to protect the Government's financial interest [@CL-MKT-2351; @CL-MKT-2352]. If the concern's size has increased other than by natural growth, the concern and its affiliates must be small at the time SBA accepts the application for refinancing for processing [@CL-MKT-2353].
+
+A concern qualified as small for a particular procurement, including an 8(a) subcontract, is small for financial assistance directly and primarily relating to the performance of the particular procurement [@CL-MKT-2354].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -58,4 +62,5 @@ Whether the company or its affiliates expect to apply for SBA business, disaster
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added size rules for loan refinancing and for assistance tied to a procurement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size standards for SBA financial assistance.

@@ -16,14 +16,14 @@ links = ["cls-inspection-of-supplies-fixed-price", "cls-payments-and-responsibil
 
 ## Purpose
 
-Shows what acceptance acknowledges, when it may occur, how it is ordinarily evidenced, and when title to supplies and risk of loss pass to the Government.
+Shows who is responsible for acceptance, what acceptance acknowledges, when and where it may occur, how it is ordinarily evidenced, and when title to supplies and risk of loss pass to the Government.
 
 ## The rule
 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3938] |
-| Codified citation | FAR 46.501 and 46.505 [@CL-SUP-3938; @CL-SUP-3942] |
+| Codified citation | FAR 46.501, 46.502, 46.503 and 46.505 [@CL-SUP-3938; @CL-SUP-4138; @CL-SUP-4139; @CL-SUP-4140; @CL-SUP-4141; @CL-SUP-4142; @CL-SUP-4143; @CL-SUP-3942] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3938; @CL-SUP-3942] |
@@ -32,6 +32,10 @@ Shows what acceptance acknowledges, when it may occur, how it is ordinarily evid
 Acceptance constitutes acknowledgment that the supplies or services conform with applicable contract quality and quantity requirements, except as provided in this subpart and subject to other terms and conditions of the contract [@CL-SUP-3938]. Acceptance may take place before delivery, at the time of delivery, or after delivery, depending on the terms and conditions of the contract [@CL-SUP-3939].
 
 Supplies or services shall ordinarily not be accepted before completion of Government contract quality assurance actions, and the sentence adds a cross-reference to 46.504 [@CL-SUP-3940]. Acceptance shall ordinarily be evidenced by execution of an acceptance certificate on an inspection or receiving report form or commercial shipping document or packing list [@CL-SUP-3941]. That sentence does not name who executes the certificate [@CL-SUP-3941].
+
+Acceptance of supplies or services is the responsibility of the contracting officer [@CL-SUP-4138]. When that responsibility is assigned to a cognizant contract administration office or to another agency (see 42.202(g)), acceptance by that office or agency is binding on the Government [@CL-SUP-4139].
+
+Each contract shall specify the place of acceptance [@CL-SUP-4140]. Contracts that provide for Government contract quality assurance at source shall ordinarily provide for acceptance at source [@CL-SUP-4141], and contracts that provide for it at destination shall ordinarily provide for acceptance at destination [@CL-SUP-4142]. Supplies accepted at a place other than destination shall not be reinspected at destination for acceptance purposes, but should be examined at destination for quantity, damage in transit, and possible substitution or fraud [@CL-SUP-4143].
 
 Title to supplies shall pass to the Government upon formal acceptance, regardless of when or where the Government takes physical possession, unless the contract specifically provides for earlier passage of title [@CL-SUP-3942].
 
@@ -77,4 +81,5 @@ How the company records acceptance evidence and shipping terms, so title and ris
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added responsibility for acceptance and place of acceptance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acceptance, title and risk of loss.

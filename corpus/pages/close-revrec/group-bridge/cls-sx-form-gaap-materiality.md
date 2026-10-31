@@ -32,6 +32,8 @@ Financial statements filed with the Commission that are not prepared in accordan
 
 The line-item rules for balance sheets and income statements, in the sections from 210.5-01 to 210.5-04, apply to financial statements filed for all persons except those listed [@CL-CLS-0817]. The first two listed exclusions are registered investment companies and employee stock purchase, savings and similar plans [@CL-CLS-0817]. Further listed exclusions cover insurance companies, bank holding companies and banks, and brokers and dealers when filing Form X-17A-5 [@CL-CLS-0818].
 
+The section on inapplicable captions says no caption should be shown in any financial statement as to which the items and conditions are not present [@CL-CLS-1450]. Financial statements that are not required, or that are inapplicable because the required matter is not present, need not be filed [@CL-CLS-1451]. The reasons for the omission of any required financial statements shall be indicated; the text names no one who indicates them [@CL-CLS-1452].
+
 ## How it works
 
 The registrant prepares its statements under generally accepted accounting principles, because a statement that is not prepared that way is presumed misleading even with footnotes, unless the Commission has otherwise provided [@CL-CLS-0815]. It treats each required item as a floor and adds material information needed to keep the statements from misleading [@CL-CLS-0814]. It leaves out a separate line for an item that is not material, and it may combine insignificant amounts [@CL-CLS-0816]. The rule on immaterial items names no number for materiality, so it establishes no threshold [@CL-CLS-0816]. The line-item rules apply to it unless it falls in a listed exclusion [@CL-CLS-0817; @CL-CLS-0818].
@@ -54,4 +56,5 @@ Which accounting framework the company uses for local and group reporting, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rules on inapplicable captions and omitted financial statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for form, the GAAP presumption and materiality under Regulation S-X.

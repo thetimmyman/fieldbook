@@ -37,6 +37,8 @@ The same policy says an undefinitized contract action shall be as complete and d
 
 The section states Defense Department policy. It names no approving official, sets no dollar limit and gives no deadline. The two conditions gate whether the device is used, and the completeness standard governs how the action is written. The approval route and the limits on obligations before definitization are on [Approval and obligation limits](mkt-uca-approval-and-obligation-limits.md). The exceptions, profit and reporting are on [Exceptions, profit and reporting](mkt-uca-exceptions-profit-and-reporting.md), and the wider topic is on [Undefinitized contract actions](../../estimating/pricing/est-dod-undefinitized-contract-actions.md). This section states no duty on the contractor.
 
+The DFARS subpart on undefinitized contract actions prescribes policies and procedures implementing title 10 of the United States Code, section 3371 and the sections that follow it [@CL-MKT-2346].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which open undefinitized actions exist, what each file records about the two con
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy on undefinitized contract actions.

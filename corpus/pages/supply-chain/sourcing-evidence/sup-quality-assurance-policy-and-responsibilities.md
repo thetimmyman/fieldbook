@@ -22,11 +22,13 @@ Sets out the quality assurance policy that agencies must follow and the quality 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3898] |
-| Codified citation | FAR 46.102, 46.103 and 46.104 [@CL-SUP-3898; @CL-SUP-3906; @CL-SUP-3912] |
+| Codified citation | FAR 46.000, 46.102, 46.103 and 46.104 [@CL-SUP-4123; @CL-SUP-3898; @CL-SUP-3906; @CL-SUP-3912] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3898] |
 | Applies to | Agencies (policy); contracting offices; and the contract administration office cognizant of the contractor's plant when a contract is assigned to it for administration, unless specified otherwise [@CL-SUP-3898; @CL-SUP-3906; @CL-SUP-3912] |
+
+The scope section says that part 46 prescribes policies and procedures to ensure that supplies and services acquired under Government contract conform to the contract's quality and quantity requirements, and that the part includes inspection, acceptance, warranty, and other measures associated with quality requirements [@CL-SUP-4123].
 
 Policy. Agencies must ensure the following [@CL-SUP-3898].
 
@@ -85,4 +87,5 @@ Which office holds the quality verification duty for each contract, and who owns
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 46.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for quality assurance policy and office responsibilities.

@@ -38,6 +38,10 @@ The life-of-agreement rule has listed exceptions [@CL-MKT-0694; @CL-MKT-0695]. I
 
 To use its own standard, one listed condition is that the agency consulted in writing with the Division Chief of SBA's Office of Size Standards at least 14 calendar days before publishing the proposed rule [@CL-MKT-0699]. That written consultation includes what size standard the agency contemplates using, to what agency program it will apply, how the agency arrived at that standard for the program, and why SBA's existing size standards do not satisfy the program requirements [@CL-MKT-0725]. Two further listed conditions are that the agency proposes the size standard for public comment under the Administrative Procedure Act and provides the Division Chief a copy of the proposed rule when it publishes it for public comment [@CL-MKT-0724]. Another is that SBA's Administrator approves the size standard before the agency adopts a final rule or otherwise prescribes the standard for its use [@CL-MKT-0700]. The section also lists a condition on what the standard will measure and what the request for the Administrator's approval must include, which this card does not state.
 
+Size determinations by authorized SBA officials are formal actions based upon a specific funding agreement, and are binding upon the parties [@CL-MKT-2378]. Other SBA opinions provided to funding agreement officers or others are only advisory, and are not binding or appealable [@CL-MKT-2379].
+
+Upon request by another Government agency, SBA will provide a size determination, under SBA rules, standards and procedures, for that agency's use in determining compliance with small business requirements of its statutes, regulations or programs [@CL-MKT-2385]. The size standards for compliance with programs of other agencies are those for SBA programs which are most comparable to the programs of such other agencies, unless the agency and SBA agree otherwise [@CL-MKT-2386]. For compliance with programs of other agencies, SBA will base its size determination on the size of the concern as of the date set forth in the request of the other agency [@CL-MKT-2387].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -56,4 +60,5 @@ Whether a merger, acquisition or novation could fall within the life of any SBIR
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added binding size determinations for funding agreements and the size rules for other agencies' programs.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBIR and STTR size timing, self-certification and agency size standards.

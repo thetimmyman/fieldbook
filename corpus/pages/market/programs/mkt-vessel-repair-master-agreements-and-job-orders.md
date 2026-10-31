@@ -38,6 +38,8 @@ For a vessel of a foreign government, contractors shall treat it as if it were a
 
 Activities enter into a master agreement with every prospective contractor in the covered area that requests ship repair work and has the organization and facilities to perform it [@CL-MKT-1571]. The agreement carries the standing terms, and each job order incorporates them and adds the terms of one job [@CL-MKT-1567; @CL-MKT-1569; @CL-MKT-1570]. The contractor's own duty on a foreign government vessel is triggered when the contracting officer requests that treatment [@CL-MKT-1574].
 
+The DFARS subpart on master agreements contains acquisition policies and procedures for master agreements for repair and alteration of vessels [@CL-MKT-2233]. The section on content and format directs that the procedures at PGI 217.7103-1 be followed for preparation of master agreements [@CL-MKT-2234], and the section on repair costs directs that the procedures at PGI 217.7103-5 be followed if the nature of any repairs is such that their extent and probable cost cannot be ascertained readily [@CL-MKT-2342]. The text names no official in either direction.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -56,4 +58,5 @@ Which vessel repair job orders sit within the finance remit, and who confirms th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the pointers to the PGI procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for vessel repair master agreements and job orders.

@@ -38,6 +38,8 @@ For a Certificate of Competency, the applicant files the size form, and SBA read
 
 For a section 8(d) subcontract, the code is the one that the prime contractor believes best describes the product or service being acquired by the subcontract [@CL-MKT-2050]. A concern is small for the subcontract if it does not exceed the size standard for that code [@CL-MKT-2050]. Subcontracts for engineering services awarded under the named energy statute are the stated exception, and they have the same size standard as Military and Aerospace Equipment and Military Weapons under NAICS code 541330 [@CL-MKT-2051]. The text gives no figure for any standard. The codes and standards are covered in [Size standards and NAICS codes](../taxonomy/mkt-size-standards-and-naics-codes.md).
 
+For the purpose of receiving a Certificate of Competency in an unrestricted procurement, the applicable size standard is that corresponding to the NAICS code set forth in the solicitation [@CL-MKT-2364]. For that purpose, the offeror need not be the manufacturer of any of the items acquired [@CL-MKT-2365].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -58,4 +60,5 @@ Which NAICS code the company, as a prime contractor, believes best describes eac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the size standard for a Certificate of Competency in an unrestricted procurement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Certificate of Competency size procedures and section 8(d) subcontract size standards.

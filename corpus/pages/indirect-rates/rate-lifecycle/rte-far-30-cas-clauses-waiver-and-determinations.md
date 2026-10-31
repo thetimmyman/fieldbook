@@ -23,7 +23,7 @@ Names the CAS clauses the FAR tells the contracting officer to insert, says who 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-RTE-0841] |
-| Codified citation | FAR 30.001, 30.201-4, 30.201-5 and 30.202-7 [@CL-RTE-0874; @CL-RTE-0841; @CL-RTE-0848; @CL-RTE-0849] |
+| Codified citation | FAR 30.000 [@CL-RTE-1000; @CL-RTE-1001], FAR 30.001, 30.201-4, 30.201-5 and 30.202-7 [@CL-RTE-0874; @CL-RTE-0841; @CL-RTE-0848; @CL-RTE-0849], and FAR 30.202-1, 30.202-2 and 30.202-3 [@CL-RTE-1005; @CL-RTE-1006; @CL-RTE-1007] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0841] |
@@ -34,6 +34,10 @@ The clause at FAR 52.230-2, Cost Accounting Standards, must be inserted in negot
 The head of the agency may waive the applicability of CAS for a particular contract or subcontract under the conditions listed in paragraph (b) of the waiver section, and must not delegate this waiver authority to any official in the agency below the senior contract policymaking level [@CL-RTE-0848]. The cognizant Federal agency official (CFAO) is the contracting officer assigned by the cognizant Federal agency to administer the CAS [@CL-RTE-0874]. The CFAO shall determine if the Disclosure Statement adequately describes the contractor's cost accounting practices [@CL-RTE-0849]. Generally, the CFAO should furnish the contractor notification of adequacy or inadequacy within 30 days after the CFAO receives the Disclosure Statement [@CL-RTE-0873].
 
 ## How it works
+
+Part 30 describes policies and procedures for applying the Cost Accounting Standards Board rules and regulations (48 CFR chapter 99) to negotiated contracts and subcontracts [@CL-RTE-1000]. It does not apply to sealed bid contracts or to any contract with a small business concern, and the text refers the reader to 48 CFR 9903.201-1(b) for these and other exemptions [@CL-RTE-1001].
+
+Three sections on Disclosure Statements are only pointers. The FAR section on general requirements refers the reader to 48 CFR 9903.202-1 [@CL-RTE-1005]. The section on impracticality of submission refers the reader to 48 CFR 9903.202-2 [@CL-RTE-1006]. The section on amendments and revisions refers the reader to 48 CFR 9903.202-3 [@CL-RTE-1007].
 
 Each clause is keyed to a contract type or a contractor type, and the Administration clause goes in contracts containing any of the other four [@CL-RTE-0847]. The waiver conditions and the request contents are on the [CAS waiver card](../../compliance/cas-allowability/cmp-cas-waiver.md), which this card does not restate; the FAR text prints its own list of conditions, so compare the two there. For Disclosure Statements, the printed target for notifying the contractor is a general one, stated as what the CFAO should do [@CL-RTE-0873]. The Administration clause is covered on the [Administration of Cost Accounting Standards card](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md).
 
@@ -55,4 +59,5 @@ Which CAS clauses each contract carries and which Disclosure Statement determina
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the part 30 scope and the Disclosure Statement pointer sections.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR 30 CAS clauses, waiver authority and Disclosure Statement determinations.

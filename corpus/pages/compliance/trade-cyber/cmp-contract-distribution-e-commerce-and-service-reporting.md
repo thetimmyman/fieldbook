@@ -21,14 +21,14 @@ Shows what the Government must do to distribute contracts, how it treats electro
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-CMP-2993] |
-| Codified citation | FAR 4.201 [@CL-CMP-2993]; FAR 4.502 [@CL-CMP-2994]; FAR 4.1703 [@CL-CMP-2996] |
+| Instrument | Codified FAR and codified DFARS [@CL-CMP-2993; @CL-CMP-9755] |
+| Codified citation | FAR 4.201 [@CL-CMP-2993]; DFARS 204.201(a) [@CL-CMP-9755]; FAR 4.502 [@CL-CMP-2994]; FAR 4.1703 [@CL-CMP-2996] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2993] |
 | Applies to | Contracting officers distributing contracts, agencies using electronic commerce, and service contracts and orders at the listed thresholds in FAIR Act agencies other than DoD [@CL-CMP-2993; @CL-CMP-2994; @CL-CMP-2996; @CL-CMP-3602] |
 
-Contracting officers shall distribute copies of contracts or modifications within 10 working days after execution by all parties [@CL-CMP-2993]. The Federal Government shall use electronic commerce whenever practicable or cost-effective [@CL-CMP-2994].
+Contracting officers shall distribute copies of contracts or modifications within 10 working days after execution by all parties [@CL-CMP-2993]. The defense supplement says that, in lieu of the requirement at FAR 4.201(a), contracting officers shall distribute one signed copy or reproduction of the signed contract to the contractor [@CL-CMP-9755]. The Federal Government shall use electronic commerce whenever practicable or cost-effective [@CL-CMP-2994].
 
 The service contract reporting subpart applies to all FAIR Act agencies, except DoD as specified in FAR 4.1705 [@CL-CMP-3602], and its reporting clause is not required for actions entirely funded by DoD, contracts awarded with a generic entity identifier, or classified solicitations, contracts, or orders [@CL-CMP-3603]. Within that scope, except as exempted by OFPP guidance, service contractor reporting shall be required for contracts and first-tier subcontracts for services based on type of contract and estimated total value [@CL-CMP-2948]. Reporting is required for all first-tier subcontracts for services as prescribed in the two threshold paragraphs [@CL-CMP-2949]. One listed reporting threshold covers all cost-reimbursement, time-and-materials, and labor-hour service contracts and orders with an estimated total value above the simplified acquisition threshold [@CL-CMP-2996]. The second listed category covers all fixed-price service contracts awarded and orders issued according to listed thresholds [@CL-CMP-2995]. One listed threshold under that category is an estimated total value of $500,000 or greater for contracts awarded or orders issued in Fiscal Year 2016 and subsequent years [@CL-CMP-2997]. The section also deals with indefinite-delivery contracts, which this card does not set out.
 
@@ -54,4 +54,5 @@ Which service contracts and orders meet the reporting thresholds, who submits th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS rule on distributing a signed contract copy to the contractor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract distribution, electronic commerce and service contract reporting.

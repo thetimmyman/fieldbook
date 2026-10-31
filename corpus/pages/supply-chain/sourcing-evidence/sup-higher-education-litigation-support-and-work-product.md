@@ -23,7 +23,7 @@ Shows what the offeror represents about institutions of higher education that ho
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-SUP-1656; @CL-SUP-1657; @CL-SUP-1658] |
-| Codified citation | DFARS 252.209-7011 [@CL-SUP-1656]; DFARS 252.204-7015 [@CL-SUP-1657]; DFARS 252.204-7003 [@CL-SUP-1658] |
+| Codified citation | DFARS 252.209-7011 [@CL-SUP-1656]; DFARS 252.204-7015 [@CL-SUP-1657]; DFARS 252.204-7003 [@CL-SUP-1658]; DFARS 204.7400 [@CL-SUP-4121]; DFARS 204.402 [@CL-SUP-4120] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1656; @CL-SUP-1657; @CL-SUP-1658] |
@@ -33,9 +33,9 @@ By submission of an offer, the offeror represents either that it is not an insti
 
 The provision defines a Confucius Institute to include any program that receives funding or support from the Chinese International Education Foundation or from the Center for Language Exchange Cooperation of the Ministry of Education of the People's Republic of China [@CL-SUP-1667]. It also includes any cultural institute directly or indirectly funded by the government of the People's Republic of China [@CL-SUP-1668].
 
-The litigation support notice clause defines a litigation support contractor as a contractor, including its experts, technical consultants, subcontractors, and suppliers, providing litigation support under a contract that contains the clause on limitations on the use or disclosure of information by litigation support contractors [@CL-SUP-1670]. Under the notice, the Government may disclose to a litigation support contractor, for the sole purpose of litigation support activities, any information, including sensitive information, received in connection with a quotation or offer or in the performance of or in connection with a contract [@CL-SUP-1593]. The contractor shall include the substance of the clause, including its subcontracts paragraph, in all subcontracts, including subcontracts for commercial products or commercial services [@CL-SUP-1594].
+The defense supplement's litigation support subpart prescribes policies and procedures for the release and safeguarding of information to litigation support contractors and implements the requirements of section 129d of title 10 of the United States Code [@CL-SUP-4121]. The litigation support notice clause defines a litigation support contractor as a contractor, including its experts, technical consultants, subcontractors, and suppliers, providing litigation support under a contract that contains the clause on limitations on the use or disclosure of information by litigation support contractors [@CL-SUP-1670]. Under the notice, the Government may disclose to a litigation support contractor, for the sole purpose of litigation support activities, any information, including sensitive information, received in connection with a quotation or offer or in the performance of or in connection with a contract [@CL-SUP-1593]. The contractor shall include the substance of the clause, including its subcontracts paragraph, in all subcontracts, including subcontracts for commercial products or commercial services [@CL-SUP-1594].
 
-Under the work product clause, the contractor's procedures for protecting against unauthorized disclosure of information shall not require Department of Defense employees or members of the Armed Forces to relinquish control of their work products, whether classified or not, to the contractor [@CL-SUP-1595].
+Under the work product clause, the contractor's procedures for protecting against unauthorized disclosure of information shall not require Department of Defense employees or members of the Armed Forces to relinquish control of their work products, whether classified or not, to the contractor [@CL-SUP-1595]. A separate section says DoD employees or members of the Armed Forces who are assigned to or visiting a contractor facility and are engaged in oversight of an acquisition program will retain control of their work products, both classified and unclassified [@CL-SUP-4120].
 
 ## How it works
 
@@ -59,4 +59,5 @@ Which solicitations carry the higher education representation and which subcontr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the litigation support subpart scope and the oversight personnel work product rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the higher education representation, litigation support disclosure notice and control of Government personnel work product.

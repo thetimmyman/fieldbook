@@ -38,6 +38,8 @@ The provision names tie bids as the case in which labor surplus area status may 
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the rule described above: it applies to small business concerns only and says labor surplus area status may affect entitlement to award in case of tie bids [@CL-MKT-0121; @CL-MKT-1105; @CL-MKT-1106]. A bidder that wants the priority must identify the labor surplus area in which the manufacturing or production costs amount to more than 50 percent of the contract price [@CL-MKT-0122; @CL-MKT-1107]. Failure to identify the areas as specified precludes priority consideration [@CL-MKT-0123; @CL-MKT-1108], and a bidder awarded a contract only because of the priority must perform it, or cause it to be performed, in accordance with the obligations of a labor surplus area concern [@CL-MKT-0124; @CL-MKT-1109].
 
+The codified FAR section on equal low bids sets the order of award in a tie: awards shall be made first to small business concerns that are also labor surplus area concerns, and second to small business concerns that are not also labor surplus area concerns [@CL-MKT-2002].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -56,5 +58,6 @@ Whether each bidding entity and contract is inside the finance remit, so the lab
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the award order for equal low bids from the codified small business section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal low bids.

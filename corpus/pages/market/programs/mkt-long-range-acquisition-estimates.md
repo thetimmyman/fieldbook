@@ -37,6 +37,8 @@ The agency head shall ensure that classified information is released through exi
 
 Release is the agency head's choice, tested against the listed conditions [@CL-MKT-0090; @CL-MKT-0091]. Further publicizing may be accomplished by announcing through the GPE that the estimates have been published and are obtainable, upon request, from the contracting officer [@CL-MKT-0094]. By the required statement, a released estimate is subject to modification and is in no way binding on the Government [@CL-MKT-0093].
 
+To assist industry planning and to locate additional sources of supply, it may be desirable to publicize estimates of unclassified long-range acquisition requirements, and the estimates may be publicized as far in advance as possible [@CL-MKT-2222].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Confirm which product families, customer groups and market segments define the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the introductory statement on publicizing long-range estimates.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of long-range acquisition estimates.

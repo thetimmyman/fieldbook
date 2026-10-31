@@ -37,6 +37,10 @@ Every invoice for advertising shall be accompanied by a copy of the advertisemen
 
 An order may go straight to the media or through an advertising agency [@CL-MKT-0731]. Basic ordering agreements may be placed with advertising agencies for assistance in producing and placing advertisements when a significant number will be placed in several publications and in national media [@CL-MKT-0732]. If the advertising agency will not agree to place advertisements at no cost, the agreement shall either provide that the Government may place orders directly with the media or specify an amount that the Government will pay if the agency places the orders [@CL-MKT-0737]. The invoice then goes forward with proof of advertising and a copy of the written authority [@CL-MKT-0735; @CL-MKT-0736].
 
+In the subpart on paid advertising, advertisement means any single message prepared for placement in communication media, regardless of the number of placements [@CL-MKT-2223]. Publication means the placement of an advertisement in a newspaper, magazine, trade or professional journal, or any other printed medium, or the broadcasting of an advertisement over radio or television [@CL-MKT-2224].
+
+Authority to approve the publication of paid advertisements in newspapers is vested in the head of each agency under title 44 of the United States Code, section 3702, and this approval authority may be delegated under title 5 of the United States Code, section 302(b) [@CL-MKT-2225]. Contracting officers shall obtain written authorization in accordance with agency procedures before advertising in newspapers, and, unless the agency head determines otherwise, advance written authorization is not required to place advertisements in media other than newspapers [@CL-MKT-2226].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +59,5 @@ Confirm which public advertising orders are relevant market observations for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the advertisement and publication definitions and the approval authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for paid advertisements and the use of advertising agencies.

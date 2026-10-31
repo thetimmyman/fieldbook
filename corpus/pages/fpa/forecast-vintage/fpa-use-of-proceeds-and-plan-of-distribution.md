@@ -32,6 +32,12 @@ Item 504 requires the registrant to state the principal purposes for which the n
 
 If the securities are to be offered through underwriters, Item 508(a) requires the registrant to name the principal underwriters, state the amounts each underwrites, and identify each underwriter with a material relationship to the registrant and the nature of that relationship [@CL-FPA-0230]. Item 508(e) requires a table setting out the nature of the compensation and the amount of discounts and commissions to be paid to the underwriter for each security and in total, showing separately the amounts paid by the company and the selling shareholders [@CL-FPA-0231]. The printed plan of distribution section has further paragraphs, including new underwriters, other distributions, stabilization and indemnification, which these claims do not restate.
 
+Other registration statement items sit beside these. Item 505(a) applies where common equity is being registered for which there is no established public trading market for purposes of paragraph (a) of Item 201 of Regulation S-K (§ 229.201(a)) [@CL-FPA-1002]. It also applies where there is a material disparity between the offering price of the common equity being registered and the market price of outstanding shares of the same class, and in either case the registrant is to describe the various factors considered in determining the offering price [@CL-FPA-1003].
+
+If any of the securities to be registered are to be offered for the account of security holders, Item 507 says each such security holder is to be named [@CL-FPA-1004]. For each such holder the filing is also to indicate the nature of any position, office or other material relationship within the past three years with the registrant or any of its predecessors or affiliates [@CL-FPA-1005], and to state the amount of securities of the class owned before the offering, the amount to be offered for the holder's account, and the amount and (if one percent or more) the percentage of the class to be owned after completion of the offering [@CL-FPA-1006].
+
+Item 511 calls for a reasonably itemized statement of all expenses in connection with the issuance and distribution of the securities to be registered, other than underwriting discounts and commissions [@CL-FPA-1007]. If any of the securities to be registered are to be offered for the account of security holders, the portion of those expenses to be borne by such security holder is to be indicated [@CL-FPA-1008]. Item 702 calls for a statement of the general effect of any statute, charter provisions, by-laws, contract or other arrangements under which any controlling persons, director or officer of the registrant is insured or indemnified in any manner against liability that the person may incur in that capacity [@CL-FPA-1009].
+
 ## How it works
 
 The registrant states each principal purpose of the proceeds with an approximate amount [@CL-FPA-0226], or says it has no current specific plan and discusses the principal reasons for the offering [@CL-FPA-0254]. If any material amount of the proceeds is to be used to acquire assets, or if the registrant indicates that the proceeds may, or will, be used to finance acquisitions of other businesses, it adds the listed descriptions [@CL-FPA-0227; @CL-FPA-0228; @CL-FPA-0229]. If underwriters are used, it names them, states their amounts and relationships, and shows their compensation [@CL-FPA-0230; @CL-FPA-0231].
@@ -54,6 +60,7 @@ What acquisition mandate, decision criteria and diligence scope are authorized w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added Items 505(a), 507, 511 and 702 of Regulation S-K.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the asset acquisition sentence so the Instruction 5 rule keeps the affiliate acquisition detail.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the material-amount threshold for asset acquisitions and the indication condition for financing acquisitions of other businesses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for use of proceeds and plan of distribution.

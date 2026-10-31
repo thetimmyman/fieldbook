@@ -37,6 +37,8 @@ The price evaluation preference for HUBZone small business concerns shall be use
 
 The factor of 10 percent shall be applied on a line item basis or to any group of items on which award may be made [@CL-MKT-0617]. Other evaluation factors, such as transportation costs or rent-free use of Government property, shall be added to the offer to establish the base offer before adding the factor of 10 percent [@CL-MKT-0644]. The preference does not apply in the cases the paragraph lists, so a company should check those cases before counting on it [@CL-MKT-0615]. The section also covers a tie between a HUBZone small business concern and a large business after the preference, set-asides with one or no acceptable offer, and SBA appeals, and this card does not restate them.
 
+The purpose of the HUBZone Program is to provide Federal contracting assistance for qualified small business concerns located in historically underutilized business zones, in an effort to increase employment opportunities, investment, and economic development in those areas [@CL-MKT-2209].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which product families, customer groups and market segments the company reaches 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the purpose of the HUBZone Program.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for HUBZone set-asides, sole-source awards and the price evaluation preference.

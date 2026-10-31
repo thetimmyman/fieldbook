@@ -37,6 +37,8 @@ Subcontracting plans are not required from small business concerns or for person
 
 For a multiple-award contract with more than one NAICS code, the solicitation shall require the apparently successful offeror to submit an acceptable subcontracting plan [@CL-MKT-0239]. The plan required for such a solicitation may cover either the distinct portions or categories of the proposal for which the offeror is other than small or the entirety of the proposal, at the offeror's discretion [@CL-MKT-0240]. When determining the need for a plan in that case, the contracting officer shall consider the cumulative dollar value of the portions or categories for which the offeror is other than small [@CL-MKT-0281]. On a modification the contracting officer determines whether subcontracting opportunities exist [@CL-MKT-0236]. A determination that there are no subcontracting possibilities shall include a detailed rationale, be approved at a level above the contracting officer, and be placed in the contract file [@CL-MKT-0241]. The contracting officer may also require a plan for a contract containing the subcontracting plan clause if a prime contractor's size status changes from small to other than small as a result of a size rerepresentation [@CL-MKT-0291], which is on the [Rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card. This card does not restate the separate paragraph for sealed bidding, the rules for options and for amending goals in an existing plan, or the factors the contracting officer weighs.
 
+The contracting officer shall provide the procurement center representative of the Small Business Administration (or, if none is assigned, see FAR 19.402(a)) a reasonable period of time to review any solicitation requiring submission of a subcontracting plan [@CL-MKT-2023] and to submit advisory findings before the solicitation is issued [@CL-MKT-2024].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which pending awards and modifications may cross the thresholds, which are const
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the review period for the procurement center representative before the solicitation is issued.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for when a small business subcontracting plan is required.

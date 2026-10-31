@@ -35,6 +35,8 @@ Section 721 also authorizes the President to suspend or prohibit any covered tra
 
 Part 800 implements regulations pertaining to covered transactions [@CL-MNA-0557]. Regulations pertaining to covered real estate transactions are addressed in part 802 of the same chapter [@CL-MNA-0557].
 
+The term section 721 means section 721 of title VII of the Defense Production Act of 1950, as amended (title 50 of the United States Code, section 4565) [@CL-MNA-1290]. Nothing in part 800 shall be construed as altering or affecting any other authority, process, regulation, investigation, enforcement measure, or review provided by or established under any other provision of federal law, including the International Emergency Economic Powers Act, or any other authority of the President or the Congress under the Constitution of the United States [@CL-MNA-1286; @CL-MNA-1287]. The examples included in part 800 are provided for informational purposes and should not be construed to alter the meaning of the text of the regulations in part 800 [@CL-MNA-1288]. As used in part 800, the term including means including but not limited to [@CL-MNA-1289].
+
 ## How it works
 
 The Committee reviews covered transactions and may mitigate risk; the President decides whether to suspend or prohibit one [@CL-MNA-0013; @CL-MNA-0556; @CL-MNA-0014].
@@ -71,4 +73,5 @@ Which body owns the deal decision and what diligence the mandate requires before
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of section 721, the effect on other law and the rules of construction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the CFIUS regulations and the risk-based analysis.

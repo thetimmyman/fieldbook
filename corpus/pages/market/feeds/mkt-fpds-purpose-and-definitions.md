@@ -23,13 +23,13 @@ Explains what the Federal Procurement Data System is for, what counts as a contr
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0007] |
-| Codified citation | FAR 4.601 to 4.603 [@CL-MKT-0001; @CL-MKT-0005; @CL-MKT-0007] |
+| Codified citation | FAR 4.600 to 4.603 [@CL-MKT-1543; @CL-MKT-0001; @CL-MKT-0005; @CL-MKT-0007] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0007] |
 | Applies to | Unclassified contract actions exceeding the micro-purchase threshold, and modifications that change previously reported data [@CL-MKT-0007] |
 
-Executive agencies shall use FPDS to maintain publicly available information about all unclassified contract actions exceeding the micro-purchase threshold, and any modifications to those actions that change previously reported contract action report data, regardless of dollar value [@CL-MKT-0007]. A contract action is any oral or written action that results in the purchase, rent, or lease of supplies or equipment, services, or construction using appropriated dollars over the micro-purchase threshold, or a modification to such an action regardless of dollar value [@CL-MKT-0001].
+The subpart prescribes uniform reporting requirements for the Federal Procurement Data System (FPDS) [@CL-MKT-1543]. Executive agencies shall use FPDS to maintain publicly available information about all unclassified contract actions exceeding the micro-purchase threshold, and any modifications to those actions that change previously reported contract action report data, regardless of dollar value [@CL-MKT-0007]. A contract action is any oral or written action that results in the purchase, rent, or lease of supplies or equipment, services, or construction using appropriated dollars over the micro-purchase threshold, or a modification to such an action regardless of dollar value [@CL-MKT-0001].
 
 FPDS provides a comprehensive web-based tool for agencies to report contract actions, and the resulting data provides a basis for recurring and special reports to the President, the Congress, the Government Accountability Office, Federal executive agencies, and the general public [@CL-MKT-0005].
 
@@ -55,4 +55,5 @@ Confirm which public market observations drawn from reported contract actions th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Federal Procurement Data System purpose, definitions and public reporting policy.

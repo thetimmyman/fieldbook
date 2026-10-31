@@ -21,8 +21,8 @@ Shows who signs a contract for each kind of contractor, and how the contractor's
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-CMP-2400] |
-| Codified citation | FAR 4.102 and FAR 4.203 [@CL-CMP-2400; @CL-CMP-2409] |
+| Instrument | Codified FAR and codified DFARS [@CL-CMP-2400; @CL-CMP-9756] |
+| Codified citation | FAR 4.102 and FAR 4.203 [@CL-CMP-2400; @CL-CMP-2409]; DFARS 204.203(b) [@CL-CMP-9756] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2400] |
@@ -35,6 +35,8 @@ The taxpayer information in the source is the contractor's TIN and type of organ
 ## How it works
 
 Three paragraphs of the source give the general routes by which the payment office gets the information, and the source has further paragraphs for Federal Supply Schedule orders and for basic ordering agreements and indefinite-delivery contracts that this card does not cover. Where the provision was completed, the completed provision travels as the last page of the contract copy [@CL-CMP-2405; @CL-CMP-2406]. Where the TIN or type of organization comes from another source, the contracting officer annotates the last page of the contract or order, unless the information reaches the payment office under agency procedures [@CL-CMP-2407; @CL-CMP-2408]. Where the contractor gives the information after award, the contracting officer forwards it within 7 days of receipt [@CL-CMP-2409].
+
+The defense supplement adds that the procedure at FAR 4.203(b) does not apply to contracts that include the provision at FAR 52.204-7, System for Award Management, and that the payment office obtains the taxpayer identification number and the type of organization from the System for Award Management database [@CL-CMP-9756].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Where the executed contracts, signature pages and TIN annotations are kept, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS rule for contracts that include the System for Award Management provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor signature and taxpayer identification information.

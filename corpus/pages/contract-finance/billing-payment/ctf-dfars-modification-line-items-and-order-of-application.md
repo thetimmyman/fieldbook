@@ -22,14 +22,14 @@ Shows how a modification adds or changes line items, what must happen before a m
 
 | Field | Value |
 |---|---|
-| Instrument | Codified DFARS [@CL-CTF-1596] |
-| Codified citation | DFARS 204.7106 [@CL-CTF-1596; @CL-CTF-1597]; DFARS 204.1671 [@CL-CTF-1603; @CL-CTF-1634] |
+| Instrument | Codified DFARS and codified FAR [@CL-CTF-1596; @CL-CTF-1397] |
+| Codified citation | FAR 4.1006 [@CL-CTF-1397; @CL-CTF-1398]; DFARS 204.7106 [@CL-CTF-1596; @CL-CTF-1597]; DFARS 204.1671 [@CL-CTF-1603; @CL-CTF-1634] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1596] |
 | Applies to | Modifications that add or change contract line items, subline items or exhibit line items, and the sequence in which modifications are applied [@CL-CTF-1596; @CL-CTF-1597; @CL-CTF-1603] |
 
-Under the section on contract modifications, if new items are added, new contract line or subline item numbers or exhibit line item numbers are assigned under the numbering procedures [@CL-CTF-1596]. If a modification relates to existing line items or exhibit line items, it shall refer to those item numbers [@CL-CTF-1597]. If the contracting officer decides to assign new identifications to existing items, the listed rules apply [@CL-CTF-1598].
+Under the section on contract modifications, if new items are added, new contract line or subline item numbers or exhibit line item numbers are assigned under the numbering procedures [@CL-CTF-1596]. If a modification relates to existing line items or exhibit line items, it shall refer to those item numbers [@CL-CTF-1597]. The FAR counterpart says that when a new item, such as an increased quantity, is added to the procurement instrument, a new line item number is to be assigned [@CL-CTF-1397], and that a modification that relates to existing line items shall refer to those items [@CL-CTF-1398]. If the contracting officer decides to assign new identifications to existing items, the listed rules apply [@CL-CTF-1598].
 
 One listed rule is that the original line item or subline item number may be used if the modification applies to the total quantity of the original line item or subline [@CL-CTF-1598; @CL-CTF-1599]. If the changes in the specifications make the item significantly distinguishable from the original item or the resulting changes in unit price cannot be averaged, a new line item is created [@CL-CTF-1598; @CL-CTF-1632]. Another rule applies if the modification affects only a partial quantity of an existing item and the change does not involve either the delivery date or the ship-to/mark-for data [@CL-CTF-1631]. In that case the original item number shall remain with the unchanged quantity, and the changed quantity is assigned the next available number [@CL-CTF-1631; @CL-CTF-1600]. For undefinitized items, additional rules apply, including that a modification that is undefinitized and increases the quantity of an existing definitized item has its undefinitized quantity assigned the next available number [@CL-CTF-1598; @CL-CTF-1633]. The same paragraph lists further rules that this card does not set out [@CL-CTF-1598].
 
@@ -61,4 +61,5 @@ How the company tracks the effective date and line item effect of each modificat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR rule on line item numbers for new items in a modification.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for line items in modifications and the order of application.

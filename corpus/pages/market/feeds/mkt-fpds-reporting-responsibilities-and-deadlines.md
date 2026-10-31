@@ -22,7 +22,7 @@ Shows who is responsible for each contract action report, how soon after award i
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR and codified DFARS [@CL-MKT-0008; @CL-MKT-0013] |
-| Codified citation | FAR 4.604; DFARS 204.604 [@CL-MKT-0008; @CL-MKT-0013] |
+| Codified citation | FAR 4.604; DFARS 204.604 [@CL-MKT-0008; @CL-MKT-0013]; DFARS 204.602 [@CL-MKT-1544] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0008; @CL-MKT-0013] |
@@ -32,7 +32,7 @@ The contracting officer who awarded the contract action is responsible for the c
 
 ## How it works
 
-When the contracting officer receives written notification that a contractor has changed its size status under the postaward small business rerepresentation clause, the contracting officer shall update the size status in FPDS within 30 days after receipt of the notification [@CL-MKT-0011]. The chief acquisition officer of each agency required to report must submit an annual certification to the General Services Administration within 120 days after the end of each fiscal year [@CL-MKT-0012]. For DoD, the reporting process should, where possible, be automated by incorporating it into contract writing systems [@CL-MKT-0013]. Under the DFARS, the contracting officer may reference the report approval date in the contract file instead of including a paper copy of the electronically submitted report [@CL-MKT-0014]. The chief acquisition officer of each DoD component required to report shall submit its annual certification and data validation results by December 15th of each year [@CL-MKT-0015].
+When the contracting officer receives written notification that a contractor has changed its size status under the postaward small business rerepresentation clause, the contracting officer shall update the size status in FPDS within 30 days after receipt of the notification [@CL-MKT-0011]. The chief acquisition officer of each agency required to report must submit an annual certification to the General Services Administration within 120 days after the end of each fiscal year [@CL-MKT-0012]. For DoD, the reporting process should, where possible, be automated by incorporating it into contract writing systems [@CL-MKT-0013]. Under the DFARS, the contracting officer may reference the report approval date in the contract file instead of including a paper copy of the electronically submitted report [@CL-MKT-0014]. The chief acquisition officer of each DoD component required to report shall submit its annual certification and data validation results by December 15th of each year [@CL-MKT-0015]. The DFARS general section says to see PGI 204.602 for additional information on FPDS and procedures for resolving technical or policy issues relating to FPDS [@CL-MKT-1544].
 
 ## Worked example
 
@@ -52,4 +52,5 @@ Confirm which of the company's legal entities and contracts sit inside the finan
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI for FPDS procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for who reports a contract action to the Federal Procurement Data System and when.

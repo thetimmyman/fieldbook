@@ -36,6 +36,8 @@ Any interested party adversely affected by a NAICS code designation may appeal t
 
 The two rules cover different disputes. A size protest challenges the size of a concern in connection with a particular procurement or sale [@CL-MKT-0701]. A NAICS code appeal challenges the code or size standard the contracting officer designated, and goes to the Office of Hearings and Appeals [@CL-MKT-0702; @CL-MKT-0704]. Who may file a size protest and the protest time limits are on the [Who may file a size protest and the time limits](mkt-sba-size-protest-parties-and-deadlines.md) card and are not restated here. The printed text also gives examples of specific and non-specific protest allegations, the information an appeal must contain, how an appeal is served, and the other steps the contracting officer and the Office of Hearings and Appeals take after an appeal; this card does not state those.
 
+Unless an appeal is made to the Office of Hearings and Appeals, the size determination made by an SBA Government Contracting Area Office or Disaster Area Office is the final decision of the agency [@CL-MKT-2394]. An appeal to that office is an administrative remedy that must be exhausted before judicial review of a formal size determination may be sought in a court [@CL-MKT-2395]. A NAICS code designation made by a procuring activity contracting officer may also be appealed to the Office of Hearings and Appeals [@CL-MKT-2396].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -54,4 +56,5 @@ Which of the company's offers carry a NAICS code that could put it over the size
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added appeals of size determinations and NAICS code designations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size protests tied to a procurement and NAICS code appeals.

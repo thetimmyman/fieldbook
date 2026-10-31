@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["item_identity_layer"]
 questions = ["Q-040"]
-links = ["cmp-dfars-item-unique-identification", "ctf-dfars-line-item-and-subline-item-criteria"]
+links = ["cmp-dfars-item-unique-identification", "ctf-dfars-line-item-and-subline-item-criteria", "est-market-research-and-alternative-line-items"]
 +++
 
 ## Purpose
@@ -23,7 +23,7 @@ Shows how a procurement instrument identifies deliverables as line items and sub
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3313] |
-| Codified citation | FAR 4.1001, 4.1003 and 4.1005-2 [@CL-SUP-3313; @CL-SUP-3315; @CL-SUP-3374] |
+| Codified citation | FAR 4.1001, 4.1003, 4.1005-2, 4.1007 and 4.1008 [@CL-SUP-3313; @CL-SUP-3315; @CL-SUP-3374; @CL-SUP-4115; @CL-SUP-4116] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3313] |
@@ -53,6 +53,8 @@ Each deliverable with the listed characteristics gets its own line item, and sub
 
 The exceptions keep the structure workable where data are not known at award: an indefinite-delivery contract leaves certain data to each order, quantity and price may be omitted at line item level in the stated cases, and the single price requirement drops away in the four listed conditions [@CL-SUP-3374; @CL-SUP-3375; @CL-SUP-3376; @CL-SUP-3378; @CL-SUP-3379; @CL-SUP-3380].
 
+Solicitations should be structured to allow offerors to propose alternative line items, and the text gives as an example that when soliciting certain items using units of measure such as kit, set, or lot, the offeror may not be able to group and deliver all items in a single shipment [@CL-SUP-4115]. The text also says to insert the provision at 52.204-22, Alternative Line Item Proposal, in all solicitations, and it names no official [@CL-SUP-4116]. How an alternative line item proposal is made and treated is on [Market research and alternative line item proposals](../../estimating/pricing/est-market-research-and-alternative-line-items.md).
+
 The related DoD rules are on [Item unique identification](../../compliance/business-systems/cmp-dfars-item-unique-identification.md) and [DFARS line item and subline item criteria](../../contract-finance/billing-payment/ctf-dfars-line-item-and-subline-item-criteria.md).
 
 ## Worked example
@@ -73,4 +75,5 @@ Confirm how each instrument in force splits deliverables into line items and sub
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rules on structuring solicitations for alternative line items and the provision to insert.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for separately identified line items and subline items.
