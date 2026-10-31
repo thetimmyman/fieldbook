@@ -24,7 +24,7 @@ Shows how a contractor applies for advance payments and what the contracting off
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0929; @CL-CTF-0933] |
 | Codified citation | FAR 32.408 and FAR 32.409 [@CL-CTF-0929; @CL-CTF-0933] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.408 [@CL-CTF-4144; @CL-CTF-4145; @CL-CTF-4146; @CL-CTF-4147], RFO FAR 32.409 [@CL-CTF-4149], RFO FAR 32.409-1 [@CL-CTF-4150; @CL-CTF-4151] and RFO FAR 32.409-2 [@CL-CTF-4152] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0929] |
 | Applies to | Contractors requesting advance payments before or after contract award [@CL-CTF-0929] |
@@ -37,6 +37,8 @@ If recommending approval, the contracting officer shall transmit contract data t
 
 The contractor files a written request that carries a cash flow forecast [@CL-CTF-0931] and, except for the contract types named in the cited paragraphs, a description of its efforts to obtain private financing [@CL-CTF-0932]. The contracting officer then sends a recommendation under agency procedures to the approving authority [@CL-CTF-0933]. A recommendation to disapprove carries the contract data, the request and the past-performance report, plus the reasons for disapproval [@CL-CTF-0934].
 
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.408 keeps the written request to the contracting officer, with a reference to the contract or the solicitation [@CL-CTF-4145], and RFO FAR 32.409 keeps the recommendation of approval or disapproval to the approving authority [@CL-CTF-4149; @CL-CTF-4150; @CL-CTF-4152]. RFO FAR 32.408(b)(2) limits the cash flow forecast to the contract to be financed without the codified condition on contract type [@CL-CTF-4146; @CL-CTF-0931]. RFO FAR 32.408(b)(5) asks only about unguaranteed private financing, where the codified paragraph also names a V-loan [@CL-CTF-4147; @CL-CTF-0932], and it exempts the contract types described in 32.407(d)(1) and (2), which are contracts for experimental, research, or development work with nonprofit education or research institutions and contracts solely for the management and operation of Government-owned plants [@CL-CTF-4147; @CL-CTF-4161]. The codified section 32.403, which the codified paragraphs cited for the exempt types, is printed as reserved in the RFO text [@CL-CTF-0931; @CL-CTF-4148].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,6 +49,8 @@ A contractor files a written request for advance payments before award. It attac
 
 A request for advance payments is not approval of them. The contractor applies, and the contracting officer transmits a recommendation for approval or disapproval to the approving authority under agency procedures [@CL-CTF-0933; @CL-CTF-0934]. For progress payments, see [Progress payments](ctf-progress-payments.md) and [Contract financing at a glance](ctf-financing-overview.md).
 
+The codified text requires the cash flow forecast to be limited to the financed contract when the application pertains to a contract type described in FAR 32.403(a) or (b) [@CL-CTF-0931], while the RFO text states the limit without that condition [@CL-CTF-4146]. The codified text also asks about efforts to obtain a V-loan [@CL-CTF-0932], but the RFO text asks only about unguaranteed private financing [@CL-CTF-4147].
+
 ## Company calibration
 
 Confirm whether the company has applied for advance payments, who prepares the cash flow forecast, and which financing terms drive the cash forecast. [@Q-026]
@@ -55,4 +59,5 @@ Confirm whether the company has applied for advance payments, who prepares the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment application and recommendation.

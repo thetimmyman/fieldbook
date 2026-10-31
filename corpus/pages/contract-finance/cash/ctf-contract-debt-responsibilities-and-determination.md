@@ -24,7 +24,7 @@ Sets out who identifies and demands payment of a contract debt, who collects it,
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3567] |
 | Codified citation | FAR 32.602 and 32.603 [@CL-CTF-3567; @CL-CTF-3571] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.602 [@CL-CTF-4128; @CL-CTF-4129; @CL-CTF-4130; @CL-CTF-4131] and RFO FAR 32.603 [@CL-CTF-4132; @CL-CTF-4133; @CL-CTF-4134] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3567] |
 | Applies to | Amounts a contractor owes the Government under a contract [@CL-CTF-3571] |
@@ -38,6 +38,8 @@ If the contracting officer has any indication that a contractor owes money to th
 The duties are split between two offices. The contracting officer has primary responsibility for identifying the debt and demanding payment, and determines whether a debt is due and how much [@CL-CTF-3567; @CL-CTF-3571]. The payment office has primary responsibility for collecting what the contracting officer identifies and for identifying and collecting duplicate and erroneous payments [@CL-CTF-3569; @CL-CTF-3570]. The payment office has primary responsibility for authorizing liquidation of a contract debt under agency procedures, and the contracting officer shall not agree to it [@CL-CTF-3568; @CL-CTF-3570]. A debt that results from an error made by the payment office is outside the primary responsibility of the contracting officer for identifying and demanding payment [@CL-CTF-3567].
 
 Speed matters. Unnecessary delay in the determination may contribute to loss of timely availability of the funds to the program for which they were provided, increased difficulty in collecting the debt, or actual monetary loss to the Government [@CL-CTF-3572]. Once the contracting officer has determined that an actual debt is due and its amount, the officer issues the demand for payment as soon as that determination is made, except as the demand section provides [@CL-CTF-0766].
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.602 keeps the split of responsibility described above: the contracting officer has primary responsibility for identifying and demanding payment, except for payment office errors [@CL-CTF-4128], and must not collect or agree to liquidate contract debts [@CL-CTF-4129], while the payment office has primary responsibility for collecting, for identifying and collecting duplicate and erroneous payments, and for authorizing liquidation under agency procedures [@CL-CTF-4130; @CL-CTF-4131]. RFO FAR 32.603 keeps the duty to determine promptly whether an actual debt is due and the amount, the listed consequences of delay, and the merits-and-contract-terms test for the amount [@CL-CTF-4132; @CL-CTF-4133; @CL-CTF-4134]. RFO FAR 32.604(a)(1) keeps the demand as soon as the debt is determined, except as paragraph (c) of that section provides [@CL-CTF-4135].
 
 ## Worked example
 
@@ -57,5 +59,6 @@ Who owns the response when a payment office identifies a duplicate or erroneous 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Corrected the delay sentence to say the funds are lost to the program for which they were provided.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract debts, responsibilities and the debt determination.

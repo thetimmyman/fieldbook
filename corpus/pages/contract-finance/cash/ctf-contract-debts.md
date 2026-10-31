@@ -24,7 +24,7 @@ Covers contracting officer demands for payment of contract debts, deferment proc
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0766] |
 | Codified citation | FAR 32.604 [@CL-CTF-0766] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.604 [@CL-CTF-4135; @CL-CTF-4136; @CL-CTF-4137; @CL-CTF-4138; @CL-CTF-4139; @CL-CTF-4140] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0766] |
 | Applies to | Contractors determined to owe an actual debt to the Government [@CL-CTF-0766] |
@@ -39,15 +39,19 @@ Deferment requests must be submitted in writing to the contracting officer [@CL-
 
 The office designated in agency procedures may authorize a deferment pending the resolution of appeal to avoid possible overcollections [@CL-CTF-0861]. An equitable interest credit shall be applied when the amount of debt initially determined is subsequently reduced, for example through a successful appeal [@CL-CTF-0770]. The credit is computed by charging interest at the rate under the Interest clause on the reduced debt from the date of collection until the date the monies are remitted to the contractor [@CL-CTF-0858].
 
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.604 keeps the demand rules described above: issue the demand as soon as the debt is determined [@CL-CTF-4135], do not issue it when the contracting officer only becomes aware of the debt through a lump sum payment or credit invoice, except under paragraph (d) [@CL-CTF-4137], and otherwise issue it no sooner than 30 days after becoming aware of the debt unless a listed exception applies [@CL-CTF-4138; @CL-CTF-4139]. RFO FAR 32.604(b) keeps the notice that amounts not paid within 30 days of the demand bear interest and the notice of the right to request installment payments or deferment [@CL-CTF-4136; @CL-CTF-4140]. RFO FAR 32.608-2 keeps the equitable interest credit and how it is computed [@CL-CTF-4142; @CL-CTF-4143]. RFO FAR 32.607-2 keeps the rule that deferment requests must be submitted in writing to the contracting officer [@CL-CTF-4141]. The RFO text of that section prints no counterpart to the codified list of information to submit with a request when no appeal is pending [@CL-CTF-0860; @CL-CTF-4141], or to the codified statement that the office designated in agency procedures may authorize a deferment pending the resolution of appeal to avoid possible overcollections [@CL-CTF-0861; @CL-CTF-4141].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contracting officer determines an overpayment of 50,000 and issues a demand for payment. The contractor does not pay within 30 days, so interest computed from the demand date applies. The contractor sends a written deferment request to the contracting officer and also appeals under the Disputes clause; the appeal does not delay collection, and the Government collects the full 50,000 by offset. The appeal succeeds and reduces the debt to 20,000, so 30,000 is remitted and an equitable interest credit is computed under the interest-credit procedures.
+A contracting officer determines an overpayment of 50,000 and issues a demand for payment. The contractor does not pay within 30 days, so interest computed from the demand date applies. The contractor sends a written deferment request to the contracting officer and also appeals under the Disputes clause; under the codified text the appeal does not delay collection [@CL-CTF-0769] (the RFO text of FAR 32.607-2 prints no such sentence [@CL-CTF-4141]), and the Government collects the full 50,000 by offset. The appeal succeeds and reduces the debt to 20,000, so 30,000 is remitted and an equitable interest credit is computed under the interest-credit procedures.
 
 ## Never confuse
 
 A demand for payment of a contract debt is the Government collecting from the contractor; it is a different matter from a contractor's own bad debts, see [Bad debts](../../compliance/cas-allowability/cmp-bad-debts.md). It is also not a revision of billing rates; see [Billing rates](../billing-payment/ctf-billing-rates.md).
+
+Under the codified text, actions filed under the Disputes Clause shall not suspend or delay collection [@CL-CTF-0769], but the RFO text of FAR 32.607-2 prints no such sentence [@CL-CTF-4141].
 
 ## Company calibration
 
@@ -57,4 +61,5 @@ Confirm the billing-to-collection process and review procedures for managing gov
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract debts demand deferment and interest.

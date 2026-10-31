@@ -24,7 +24,7 @@ Shows when a contract debt becomes a final decision, how collection escalates, a
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3100] |
 | Codified citation | FAR 32.605, FAR 32.606 and FAR 32.611 [@CL-CTF-3100; @CL-CTF-3102; @CL-CTF-3105] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.605 [@CL-CTF-4114; @CL-CTF-4115; @CL-CTF-4116; @CL-CTF-4117; @CL-CTF-4118], RFO FAR 32.606 [@CL-CTF-4119; @CL-CTF-4120; @CL-CTF-4121; @CL-CTF-4122] and RFO FAR 32.611 [@CL-CTF-4123; @CL-CTF-4124; @CL-CTF-4125; @CL-CTF-4126; @CL-CTF-4127] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3100] |
 | Applies to | Contract debts demanded by the contracting officer, and solicitations and contracts that may carry the Interest clause [@CL-CTF-3100; @CL-CTF-3105] |
@@ -38,6 +38,8 @@ The contracting officer inserts the clause at FAR 52.232-17, Interest, in solici
 ## How it works
 
 A demand sets a due date, and the contracting officer issues a final decision when agreement fails, a demanded debt is not liquidated within the demanded timeline, or the contractor requests a deferment of collection [@CL-CTF-3100; @CL-CTF-3194; @CL-CTF-3195]. The final decision repeats the original due date and is sent by a method that gives evidence of receipt [@CL-CTF-3101; @CL-CTF-3104]. If the debt is still not liquidated 30 days after the due date and no installment or deferment request is on file, the payment office starts withholding, while respecting any assignee's rights [@CL-CTF-3102; @CL-CTF-3197]. A debt delinquent more than 180 days goes to the Department of the Treasury [@CL-CTF-3103].
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.605 and RFO FAR 32.606 keep the final decision and collection rules described above, including the same due date in a final decision, the withholding point 30 days after the date due, and the transfer of debts delinquent more than 180 days to the Department of Treasury [@CL-CTF-4117; @CL-CTF-4119; @CL-CTF-4121]. RFO FAR 32.611(a) keeps the same excepted categories for the Interest clause, and RFO FAR 32.611(b) still lets the contracting officer insert the clause for them [@CL-CTF-4124; @CL-CTF-4125; @CL-CTF-4126; @CL-CTF-4127]. RFO FAR 32.611(a) states the insertion as a bare direction to insert the clause and does not name who inserts it, where the codified paragraph names the contracting officer [@CL-CTF-4123; @CL-CTF-3105].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Who runs the billing-to-collection workflow, and who resolves a rejected or over
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract debt final decisions and collection.
