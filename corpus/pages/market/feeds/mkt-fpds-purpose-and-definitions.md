@@ -57,6 +57,7 @@ Confirm which public market observations drawn from reported contract actions th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the international disaster assistance exception and the inside and outside the United States amounts to the micro-purchase threshold summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the micro-purchase threshold definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of micro-purchase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of micro-purchase and two exceptions to the micro-purchase threshold.
