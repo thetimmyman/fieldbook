@@ -29,7 +29,7 @@ Shows how the contracting officer gathers information before a responsibility de
 | Text status | Final [@CL-SUP-0908] |
 | Applies to | Contracting officer determinations of responsibility made before award [@CL-SUP-0908] |
 
-Before making a determination of responsibility, the contracting officer shall possess or obtain information sufficient to be satisfied that a prospective contractor currently meets the applicable standards [@CL-SUP-0908]. Generally, the contracting officer shall obtain information regarding the responsibility of prospective contractors, including requesting preaward surveys when necessary, promptly after a bid opening or receipt of offers [@CL-SUP-0981]. Information on financial resources and performance capability shall be obtained or updated on as current a basis as is feasible up to the date of award [@CL-SUP-0910]. The standards themselves are on the [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md) card and are not restated here.
+Before making a determination of responsibility, the contracting officer shall possess or obtain information sufficient to be satisfied that a prospective contractor currently meets the applicable standards [@CL-SUP-0908]. Generally, the contracting officer shall obtain information regarding the responsibility of prospective contractors, including requesting preaward surveys when necessary, promptly after a bid opening or receipt of offers [@CL-SUP-0981]. However, in negotiated contracting, especially when research and development is involved, the contracting officer may obtain this information before issuing the request for proposals [@CL-SUP-9654]. Information on financial resources and performance capability shall be obtained or updated on as current a basis as is feasible up to the date of award [@CL-SUP-0910]. The standards themselves are on the [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md) card and are not restated here.
 
 If the surveying activity is not a contract administration office, the contracting officer shall obtain from the auditor any information required concerning prospective contractors' financial competence and credit needs [@CL-SUP-0909]. The printed sections set no financial ratio or numeric financial test for a contractor, so none is established here.
 
@@ -61,4 +61,5 @@ Confirm who supplies financial data, credit information and accounting system in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the timing of responsibility information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for obtaining responsibility information and documenting the determination.

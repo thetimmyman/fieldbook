@@ -43,7 +43,7 @@ Item 307 is a neighbouring item on disclosure controls and procedures [@CL-FPA-1
 
 ## How it works
 
-Management states the framework it used and assesses effectiveness at year end [@CL-FPA-0139; @CL-FPA-0140]. If it finds a material weakness, it cannot conclude that the control is effective [@CL-FPA-0141]. A registrant that is an accelerated filer or a large accelerated filer, and is not an emerging growth company as defined in the cited rules, has the attestation report of the registered public accounting firm provided in its annual report [@CL-FPA-0142; @CL-FPA-0143]. A registrant that has not yet reached the point described in Instruction 1 need not comply with paragraphs (a) and (b), but if it does not comply it states in the first annual report it files, in substantially the printed form, that the report omits management's assessment report and the attestation report because of the transition period for newly public companies [@CL-FPA-0175; @CL-FPA-0263; @CL-FPA-0264; @CL-FPA-0266]. Management keeps evidential matter, including documentation, that reasonably supports its assessment [@CL-FPA-0265]. Each quarter, the registrant checks for changes that have materially affected, or are reasonably likely to materially affect, its control [@CL-FPA-0144; @CL-FPA-0145].
+Management states the framework it used and assesses effectiveness at year end [@CL-FPA-0139; @CL-FPA-0140]. If it finds a material weakness, it cannot conclude that the control is effective [@CL-FPA-0141]. A registrant that is an accelerated filer or a large accelerated filer, and is not an emerging growth company as defined in the cited rules, has the attestation report of the registered public accounting firm provided in its annual report [@CL-FPA-0142; @CL-FPA-0143]. A registrant that has not yet reached the point described in Instruction 1 need not comply with paragraphs (a) and (b), but if it does not comply it states in the first annual report it files, in substantially the printed form, that the report omits management's assessment report and the attestation report because of the transition period for newly public companies [@CL-FPA-0175; @CL-FPA-0263; @CL-FPA-0264; @CL-FPA-0266]. Management keeps evidential matter, including documentation, that reasonably supports its assessment [@CL-FPA-0265]. The registrant discloses any change in its internal control over financial reporting, identified in connection with the required evaluation, that occurred during its last fiscal quarter (the fourth fiscal quarter in the case of an annual report) and has materially affected, or is reasonably likely to materially affect, that control [@CL-FPA-0144; @CL-FPA-0145].
 
 ## Worked example
 
@@ -65,6 +65,7 @@ Which framework management uses, how deficiencies are rated, and how quarterly c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced the each-quarter check statement with the last fiscal quarter change disclosure rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the neighbouring item on disclosure controls.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the neighbouring Item 307 rule on disclosure controls and procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for internal control over financial reporting disclosure.

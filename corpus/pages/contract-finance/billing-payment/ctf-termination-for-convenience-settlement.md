@@ -39,7 +39,7 @@ FAR 2.101 defines the effective date of termination as the date on which the not
 
 After receiving a Notice of Termination, and except as directed by the contracting officer, the contractor immediately proceeds with its listed obligations, beginning with stopping work as specified in the notice [@CL-CTF-0601]. The same list also covers terminating subcontracts to the extent they relate to the terminated work and protecting contract property in the contractor's possession in which the Government has or may acquire an interest.
 
-The contractor and the contracting officer may agree on the whole or any part of the amount to be paid, and the agreed amount may include a reasonable allowance for profit on work done [@CL-CTF-0603]. If they fail to agree on the whole amount, the contracting officer pays the amounts the contracting officer determines, without duplicating any agreed amounts [@CL-CTF-0602]. If it appears that the contractor would have sustained a loss on the entire contract had it been completed, the contracting officer allows no profit under the profit subdivision of that determination and reduces the settlement to reflect the indicated rate of loss [@CL-CTF-0356].
+The contractor and the contracting officer may agree on the whole or any part of the amount to be paid, and the agreed amount may include a reasonable allowance for profit on work done [@CL-CTF-0603], but the agreed amount, exclusive of the costs shown in paragraph (g)(3), may not exceed the total contract price as reduced by previous payments and the contract price of work not terminated [@CL-CTF-0355]. If they fail to agree on the whole amount, the contracting officer pays the amounts the contracting officer determines, without duplicating any agreed amounts [@CL-CTF-0602]. If it appears that the contractor would have sustained a loss on the entire contract had it been completed, the contracting officer allows no profit under the profit subdivision of that determination and reduces the settlement to reflect the indicated rate of loss [@CL-CTF-0356].
 
 All costs claimed, agreed to, or determined under the clause are governed by the cost principles and procedures of FAR Part 31 in effect on the date of the contract [@CL-CTF-0357]. In a partial termination, the contractor may request an equitable adjustment of the continued portion within 90 days from the effective date of termination unless the contracting officer extends the period in writing [@CL-CTF-0358].
 
@@ -53,7 +53,7 @@ A contractor holds a fixed-price contract with a total contract price of 1,000,0
 
 ## Never confuse
 
-A convenience settlement may include a reasonable allowance for profit on work done when the parties agree [@CL-CTF-0603], but when the contracting officer determines the amount and it appears that the contractor would have sustained a loss on the entire contract, no profit is allowed and the settlement is reduced to reflect the indicated rate of loss [@CL-CTF-0356].
+A convenience settlement may include a reasonable allowance for profit on work done when the parties agree [@CL-CTF-0603], within the cap that the agreed amount, exclusive of settlement costs, may not exceed the total contract price as reduced by previous payments and the contract price of work not terminated [@CL-CTF-0355], but when the contracting officer determines the amount and it appears that the contractor would have sustained a loss on the entire contract, no profit is allowed and the settlement is reduced to reflect the indicated rate of loss [@CL-CTF-0356].
 
 The cap on the agreed amount leaves out the settlement costs, so those costs are not counted against it [@CL-CTF-0355]. For regular invoice payments and terms, see [Prompt payment](ctf-prompt-payment.md) and [Contract types](ctf-contract-types.md).
 
@@ -65,6 +65,7 @@ Tracking termination inventory schedules, settlement proposal submission deadlin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the agreed amount rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of effective date of termination.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of effective date of termination.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

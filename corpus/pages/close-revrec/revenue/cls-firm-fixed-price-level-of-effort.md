@@ -35,7 +35,7 @@ Payment under this contract type is based on the effort expended rather than on 
 
 ## How it works
 
-The contract type is suitable for investigation or study in a specific research and development area, and its product is usually a report showing the results achieved through application of the required level of effort [@CL-CLS-0563]. It may be used only when the work required cannot otherwise be clearly defined, the required level of effort is identified and agreed upon in advance, and there is reasonable assurance that the intended result cannot be achieved by expending less than the stipulated effort [@CL-CLS-0565]. One further listed condition is that the contract price is the simplified acquisition threshold or less, unless approved by the chief of the contracting office [@CL-CLS-0566].
+The contract type is suitable for investigation or study in a specific research and development area, and its product is usually a report showing the results achieved through application of the required level of effort [@CL-CLS-0563], although payment is based on the effort expended rather than on the results achieved [@CL-CLS-0564]. It may be used only when the work required cannot otherwise be clearly defined, the required level of effort is identified and agreed upon in advance, and there is reasonable assurance that the intended result cannot be achieved by expending less than the stipulated effort [@CL-CLS-0565]. One further listed condition is that the contract price is the simplified acquisition threshold or less, unless approved by the chief of the contracting office [@CL-CLS-0566].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Who tracks hours expended against the level-of-effort commitment to support reve
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the product of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for firm-fixed-price, level-of-effort term contracts.
