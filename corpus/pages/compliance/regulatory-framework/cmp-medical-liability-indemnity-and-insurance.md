@@ -21,7 +21,7 @@ Explains the indemnity and the medical liability insurance a contractor carries 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5612] |
 | Codified citation | FAR 52.237-7 [@CL-CMP-5612] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.237-7 [@CL-CMP-1418; @CL-CMP-1446; @CL-CMP-1447] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5612] |
 | Applies to | Contracts in which the clause is inserted as prescribed [@CL-CMP-5612] |
@@ -38,6 +38,8 @@ The policy must contain an endorsement that a cancellation or material change ad
 
 The contractor must insert the substance of the clause, including paragraph (f), in all subcontracts under the contract for health care services, and must require those subcontractors to provide evidence of and maintain insurance in accordance with paragraph (a) [@CL-CMP-5760]. At least 5 days before any subcontractor begins work, the contractor must furnish the contracting officer evidence of that insurance [@CL-CMP-5617].
 
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.237-7 says, in paragraph (a), that the contract is a nonpersonal services contract under which the professional services are rendered in the contractor's capacity as an independent contractor, but its sentence prints no reference to the definition in FAR 37.101 that the codified sentence contains [@CL-CMP-1418] [@CL-CMP-6245]. The rest of the RFO clause keeps the codified rules: the Government's right to evaluate quality without control over medical judgment [@CL-CMP-1419] [@CL-CMP-5753], the contractor's sole liability and indemnity [@CL-CMP-1446] [@CL-CMP-5613], the required liability insurance [@CL-CMP-1447] [@CL-CMP-5614] and the evidence of insurability before award [@CL-CMP-1448] [@CL-CMP-5754]. It also keeps the occurrences or claims-made basis with a tail of not less than 3 years [@CL-CMP-1449] [@CL-CMP-5615], the evidence of coverage before services begin [@CL-CMP-1450] [@CL-CMP-5755], the evidence of the tail before the contract expires [@CL-CMP-1451] [@CL-CMP-5756], the withholding of final payment [@CL-CMP-1452] [@CL-CMP-5757], the 30-day cancellation endorsement [@CL-CMP-1453] [@CL-CMP-5616], the evidence of continued indemnity when insurers change [@CL-CMP-1454] [@CL-CMP-1455] [@CL-CMP-5758] [@CL-CMP-5759] and the subcontract flowdown with evidence at least 5 days before work begins [@CL-CMP-1456] [@CL-CMP-1457] [@CL-CMP-5760] [@CL-CMP-5617].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -48,7 +50,7 @@ The policy carries the required endorsement, so if the carrier gives the contrac
 
 ## Never confuse
 
-A claims-made policy and an occurrence policy differ at the end of the term. Under the clause, only a claims-made policy must also carry an extended reporting endorsement, for not less than 3 years after the end of the contract term [@CL-CMP-5615]. The indemnity is a separate promise by the contractor to the Government, standing apart from the insurance it must carry [@CL-CMP-5613; @CL-CMP-5614]. The Government's right to evaluate quality is not control over medical judgment [@CL-CMP-5753].
+A claims-made policy and an occurrence policy differ at the end of the term. Under the clause, only a claims-made policy must also carry an extended reporting endorsement, for not less than 3 years after the end of the contract term [@CL-CMP-5615]. The indemnity is a separate promise by the contractor to the Government, standing apart from the insurance it must carry [@CL-CMP-5613; @CL-CMP-5614]. The Government's right to evaluate quality is not control over medical judgment [@CL-CMP-5753]. The codified paragraph (a) also points to the definition of a nonpersonal services contract in FAR 37.101 [@CL-CMP-6245], while the RFO paragraph (a) prints the same sentence without that reference [@CL-CMP-1418].
 
 ## Company calibration
 
@@ -58,4 +60,5 @@ Which health care contracts and subcontracts are in scope, and who confirms the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indemnification and medical liability insurance.

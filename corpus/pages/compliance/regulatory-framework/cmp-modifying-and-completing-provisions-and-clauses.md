@@ -23,7 +23,7 @@ Explains the limit on modifying a provision or clause, and where changed wording
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8865] |
 | Codified citation | FAR 52.104 [@CL-CMP-8865] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.104 [@CL-CMP-1458; @CL-CMP-1459; @CL-CMP-1460; @CL-CMP-1461; @CL-CMP-1462; @CL-CMP-1463] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8865] |
 | Applies to | Provisions and clauses that the FAR authorizes the contracting officer to modify, and provisions and clauses with blanks to be completed, whether incorporated by reference or in full text [@CL-CMP-8865; @CL-CMP-8866; @CL-CMP-8868] |
@@ -41,6 +41,8 @@ Authority comes first. Without a FAR authorization to modify, the contracting of
 The placement rules differ by form. For a text incorporated by reference, the change or the fill-in is recorded below the title at the level affected [@CL-CMP-8866; @CL-CMP-8868]. For a text in full text, the change is made in the language and the fill-in goes in the blanks [@CL-CMP-8867; @CL-CMP-8869].
 
 Only paragraph (a) names an actor, the contracting officer. Paragraphs (d) and (e) say where fill-in information goes, not who supplies it. The related rule on incorporation names both sides: the Government inserts fill-in material in some provisions and clauses, the offeror or prospective contractor completes others, and each is still to be incorporated by reference to the maximum practical extent [@CL-CMP-8850]. The card on [incorporating provisions and clauses by reference](cmp-incorporating-provisions-and-clauses-by-reference.md) covers that rule.
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.104 keeps the limit that the contracting officer must not modify provisions and clauses unless the FAR authorizes their modification [@CL-CMP-1458] [@CL-CMP-8865], and the same two examples of an authorization [@CL-CMP-1459] [@CL-CMP-8908]. It keeps the placement rules: changed wording goes directly below the title for a text incorporated by reference [@CL-CMP-1460] [@CL-CMP-8866], the language is changed directly for a text in full text [@CL-CMP-1461] [@CL-CMP-8867], and fill-in information goes below the title for a text incorporated by reference [@CL-CMP-1462] [@CL-CMP-8868] or in the blanks for a text in full text [@CL-CMP-1463] [@CL-CMP-8869].
 
 ## Worked example
 
@@ -64,4 +66,5 @@ Which open control findings and corrective actions touch clause text or blanks, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for modifying and completing provisions and clauses.
