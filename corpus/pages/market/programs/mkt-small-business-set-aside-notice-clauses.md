@@ -45,7 +45,7 @@ A solicitation sets aside the first of two portions for small business. A large 
 
 ## Never confuse
 
-The total clause covers a whole requirement set aside; the partial clause covers one portion of it. The codified total clause applies only to contracts that have been "totally set aside" for small business concerns [@CL-MKT-0842], while the RFO text of that clause applies only to contracts that have been set aside for small business concerns, without the word "totally" [@CL-MKT-1188]. The tests for when a portion may be set aside are on the [Partial and class small business set-asides](mkt-partial-and-class-small-business-set-asides.md) card. The tests for total set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and which clause goes where is on the [Set-aside orders and clauses](mkt-set-aside-orders-and-clauses.md) card. The subcontract percentage limits that apply to set-aside contracts are on the [Limitations on subcontracting and nonmanufacturer rule clause text](mkt-limitations-and-nonmanufacturer-clause-text.md) card, and the provision where an offeror states its size status is on the [Small business program representations provision](mkt-small-business-program-representations-provision.md) card.
+The total clause covers a whole requirement set aside; the partial clause covers one portion of it. The codified total clause applies only to contracts that have been "totally set aside" for small business concerns and to orders set aside for small business concerns under multiple-award contracts as described in 8.405-5 and 16.505(b)(2)(i)(F) [@CL-MKT-0842]. The RFO text of that clause applies only to contracts that have been set aside for small business concerns, without the word "totally", and to such orders as described in 8.4 and 16.5 [@CL-MKT-1188]. The tests for when a portion may be set aside are on the [Partial and class small business set-asides](mkt-partial-and-class-small-business-set-asides.md) card. The tests for total set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and which clause goes where is on the [Set-aside orders and clauses](mkt-set-aside-orders-and-clauses.md) card. The subcontract percentage limits that apply to set-aside contracts are on the [Limitations on subcontracting and nonmanufacturer rule clause text](mkt-limitations-and-nonmanufacturer-clause-text.md) card, and the provision where an offeror states its size status is on the [Small business program representations provision](mkt-small-business-program-representations-provision.md) card.
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which product families and customer groups the company bids on as set-aside work
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the total clause applicability sentence to keep the orders under multiple-award contracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the total and partial small business set-aside notice clauses.

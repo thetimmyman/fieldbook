@@ -26,7 +26,7 @@ Shows how the retroactive redetermination clause sets the price and its ceiling,
 | RFO citation | RFO FAR 52.216-6 [@CL-EST-0507]; RFO FAR 52.216-11 [@CL-EST-0529]; RFO FAR 52.216-12 [@CL-EST-0534] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1826] |
-| Applies to | Contracts that include the retroactive redetermination clause, the cost contract no fee clause or the cost-sharing contract no fee clause [@CL-EST-1826; @CL-EST-1830; @CL-EST-1833]; the retroactive clause is inserted when a fixed-price contract is contemplated and the listed conditions apply [@CL-EST-1863] |
+| Applies to | Contracts that include the retroactive redetermination clause, the cost contract no fee clause or the cost-sharing contract no fee clause [@CL-EST-1826; @CL-EST-1830; @CL-EST-1833]; when contracting by negotiation, the retroactive clause is inserted in solicitations and contracts when a fixed-price contract is contemplated and the listed conditions apply [@CL-EST-1863] |
 
 The unit price and the total price are redetermined under the retroactive clause, and in no event may the total amount paid exceed the ceiling price inserted in the clause [@CL-EST-1826]. Under the cost contract clause the Government shall not pay the Contractor a fee for performing the contract [@CL-EST-1830], and the cost-sharing clause says the same [@CL-EST-1833].
 
@@ -58,5 +58,6 @@ Who owns proposal pricing and the choice between these contract types and the fe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the applies-to row to keep the negotiation condition and the solicitations-and-contracts scope of the retroactive clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for retroactive price redetermination and the no-fee cost and cost-sharing clauses.
