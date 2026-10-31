@@ -28,7 +28,7 @@ Shows the records, cost-examination, plant-inspection, and certified-data audit 
 | Text status | Final [@CL-CMP-0601] |
 | Applies to | Listed contract types for cost examination and certified-data records when required [@CL-CMP-0602; @CL-CMP-0605] |
 
-The clause defines records broadly, regardless of type or form [@CL-CMP-0601]. For the listed contract types, the contractor must maintain cost records and evidence, and the Contracting Officer or an authorized representative has examination and audit rights [@CL-CMP-0602; @CL-CMP-0603].
+The clause defines records broadly, regardless of type or form [@CL-CMP-0601]. For the listed contract types, the contractor must maintain cost records and evidence sufficient to reflect properly costs claimed to have been incurred or anticipated to be incurred directly or indirectly in performance of the contract, and the Contracting Officer or an authorized representative has examination and audit rights, including inspection at all reasonable times of the Contractor's plants, or parts of them, engaged in performing the contract [@CL-CMP-0602; @CL-CMP-0603; @CL-CMP-8536].
 
 ## How it works
 
@@ -54,5 +54,6 @@ Which control findings, corrective actions, and external requests are open, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records and audit sentence so the records duty keeps its cover of anticipated costs and its plant inspection right.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Audit and Records, Negotiation clause.

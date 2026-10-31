@@ -29,7 +29,7 @@ Shows who the subcontracting plan clause excludes, what happens if no plan is ne
 | Text status | Final [@CL-MKT-0821] |
 | Applies to | Contracts that include the clause, except as to small business concerns [@CL-MKT-0821] |
 
-The clause does not apply to small business concerns [@CL-MKT-0821]. Upon request by the contracting officer, the offeror shall submit and negotiate a subcontracting plan, where applicable [@CL-MKT-0880]. The plan shall be negotiated within the time specified by the Contracting Officer [@CL-MKT-0822]. Failure to submit and negotiate the subcontracting plan makes the offeror ineligible for award of a contract [@CL-MKT-0822; @CL-MKT-0880].
+The clause does not apply to small business concerns [@CL-MKT-0821]. Upon request by the contracting officer, the offeror shall submit and negotiate a subcontracting plan, where applicable [@CL-MKT-0880]. The plan separately addresses subcontracting with small business, veteran-owned small business, service-disabled veteran-owned small business, HUBZone small business, small disadvantaged business, and women-owned small business concerns [@CL-MKT-2014]. The plan shall be negotiated within the time specified by the Contracting Officer [@CL-MKT-0822]. Failure to submit and negotiate the subcontracting plan makes the offeror ineligible for award of a contract [@CL-MKT-0822; @CL-MKT-0880].
 
 An individual subcontracting plan has goals based on the offeror's planned subcontracting in support of the specific contract, except that indirect costs incurred for common or joint purposes may be allocated on a prorated basis to the contract [@CL-MKT-0823]. The offeror's plan shall include the elements the clause then lists [@CL-MKT-0824]. One listed element is the name of the individual employed by the offeror who will administer its subcontracting program, with a description of that individual's duties [@CL-MKT-0825].
 
@@ -57,5 +57,6 @@ Who administers the subcontracting program, who is named in the plan, and which 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the plan submission sentence so the submission duty keeps the six categories the plan separately addresses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the subcontracting plan clause scope, individual plans and required elements.

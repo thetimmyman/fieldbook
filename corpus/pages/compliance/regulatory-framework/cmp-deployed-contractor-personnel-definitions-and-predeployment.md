@@ -31,7 +31,7 @@ Shows who the deployed-forces clause covers, what emergency medical care and oth
 
 The clause applies to both CAAF and non-CAAF when they perform in a designated operational area outside the United States to support deployed United States Armed Forces [@CL-CMP-4149]. The listed operations include contingency operations [@CL-CMP-4149], peace operations consistent with Joint Publication 3-07.3, and other military operations or military exercises when designated by the Combatant Commander or as directed by the Secretary of Defense [@CL-CMP-4150].
 
-CAAF are contractor personnel, including all tiers of subcontractor personnel, who are authorized to accompany the forces in applicable operations and have CAAF status through a letter of authorization [@CL-CMP-4151]. Non-CAAF are personnel not designated as CAAF, such as local national employees and non-local-national employees who are permanent residents in the operational area or third-country nationals not routinely residing with the forces [@CL-CMP-4152].
+CAAF are contractor personnel, including all tiers of subcontractor personnel, who are authorized to accompany the forces in applicable operations and have CAAF status through a letter of authorization [@CL-CMP-4151]. Non-CAAF are personnel not designated as CAAF, such as local national employees and non-local-national employees who are permanent residents in the operational area or third-country nationals not routinely residing with the forces, and the definition also names third-country national expatriates who are permanent residents in the operational area; non-CAAF personnel perform support functions away from the close proximity of, and do not reside with, the forces [@CL-CMP-4152; @CL-CMP-8540].
 
 Unless the contract provides otherwise, the Contractor accepts the risks of required contract performance in these operations, which may involve dangerous or austere conditions [@CL-CMP-4153]. Unless specified elsewhere in the contract, the Contractor is responsible for all other support for its personnel in the designated operational area [@CL-CMP-4156].
 
@@ -81,4 +81,5 @@ Which contracts carry the clause, which personnel are CAAF, who keeps the tracke
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the non-CAAF definition sentence so the definition keeps its limit to personnel who perform support functions away from the close proximity of, and do not reside with, the forces.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deployed-forces support, definitions, compliance and pre-deployment duties.
