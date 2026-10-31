@@ -24,7 +24,7 @@ Shows the methods the FAR requires for making advance payments, including the le
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1427; @CL-CTF-1429] |
 | Codified citation | FAR 32.406 and FAR 32.410 [@CL-CTF-1427; @CL-CTF-1429] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.406 [@CL-CTF-4164; @CL-CTF-4165; @CL-CTF-4166; @CL-CTF-4167] and RFO FAR 32.410 [@CL-CTF-4168; @CL-CTF-4169; @CL-CTF-4170; @CL-CTF-4171] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1427] |
 | Applies to | Advance payments that agencies provide to contractors [@CL-CTF-1427] |
@@ -36,6 +36,8 @@ Each determination concerning advance payments shall be supported by written fin
 ## How it works
 
 The section requires written findings to support each determination [@CL-CTF-1429]. In the example format, the findings include that advance payments are the only adequate means of financing available to the contractor and that the designated amount is based, to the extent possible, on the use of the contractor's own working capital [@CL-CTF-1430]. The example says that finding should not be included if the contract is for experimental, developmental, or research work with a nonprofit educational or research institution, or only for management and operation of a Government-owned plant [@CL-CTF-1431]. The example format includes a signature block for a signature, a typed name and the title of an authorized official [@CL-CTF-1432]. For the security, covenants and special account, see [Advance payments: security, supervision, covenants and the special account](ctf-advance-payment-security-and-special-account.md).
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.406(b) keeps the required methods unless the agency has obtained a Treasury waiver: a letter of credit for a continuing relationship of a year or more with advances totaling at least $120,000 a year, and otherwise a direct Treasury check [@CL-CTF-4165; @CL-CTF-4166; @CL-CTF-4167]. RFO FAR 32.406(a) refers to 2 CFR 700.7 for the Treasury regulations on letters of credit [@CL-CTF-4164]. RFO FAR 32.410(a) keeps the requirement that each determination be supported by written findings [@CL-CTF-4168], and its example format keeps the only-adequate-means finding, the instruction to omit it for the two listed contract types, and the signature block [@CL-CTF-4169; @CL-CTF-4170; @CL-CTF-4171].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Which advance payment arrangements the company expects to carry a letter of cred
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment letters of credit and the findings, determination and authorization.
