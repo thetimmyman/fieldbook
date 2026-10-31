@@ -43,3 +43,5 @@ transmissiones = "transmissiones"
 exlcusive = "exlcusive"
 # "witheld", as misprinted in FAR 32.804(b)(2)(iii) and quoted verbatim.
 witheld = "witheld"
+# "identifer", as misprinted in FAR 52.212-3(p) and quoted verbatim.
+identifer = "identifer"
