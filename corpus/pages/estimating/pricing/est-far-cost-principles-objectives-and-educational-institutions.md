@@ -24,7 +24,7 @@ Shows why the cost principles are grouped by organization type, who must approve
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2513] |
 | Codified citation | FAR 31.101, 31.104 and 31.303 [@CL-EST-2513; @CL-EST-2517; @CL-EST-2520] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.100(a), 31.004, 31.104 and 31.303; RFO FAR 31.101 is reserved [@CL-EST-3116; @CL-EST-3117; @CL-EST-3118; @CL-EST-3119; @CL-EST-3120; @CL-EST-3121; @CL-EST-3122; @CL-EST-3123; @CL-EST-3124; @CL-EST-3125; @CL-EST-3126; @CL-EST-3127] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2513] |
 | Applies to | Cost principles grouped by organizational type, including educational institutions [@CL-EST-2513; @CL-EST-2517] |
@@ -51,6 +51,8 @@ For fixed-price contracts and termination settlements the section calls the cost
 
 Where a contract refers to subpart 31.3 for allowable costs, the reference is read as the OMB Uniform Guidance text in effect on the contract date, and the contracting officer determines allowability [@CL-EST-2520; @CL-EST-2654].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.101 is reserved [@CL-EST-3117], so the codified statement of the overall objective, that organizations of similar types doing similar work follow the same cost principles and procedures [@CL-EST-2649], is not part of that section, and the grouping of the cost principles by organization type is in RFO FAR 31.100(a) [@CL-EST-3116]. Approval of deviations moved to RFO FAR 31.004, where, under the heading for civilian agencies, individual deviations from the cost principles require approval by the agency head and class deviations require approval by the Civilian Agency Acquisition Council, without the word advance that the codified text uses [@CL-EST-3118; @CL-EST-3119; @CL-EST-2514; @CL-EST-2650], and for DoD and NASA the paragraph refers readers to agency supplements for the approval of deviations [@CL-EST-3120]. The RFO text describes the educational institution category as contracts, subcontracts, and modifications to contracts and subcontracts performed by educational institutions [@CL-EST-3121], where the codified text reads all contracts and contract modifications for research and development, training, and other work performed by educational institutions [@CL-EST-2517]. Its first listed basis reads reimbursable costs under cost-reimbursement contracts and cost-reimbursement subcontracts performed by educational institutions [@CL-EST-3123], where the codified text reads under the contracts and cost-reimbursement subcontracts thereunder [@CL-EST-2651]; the bases of negotiating indirect cost rates and settling costs of cost-reimbursement terminated contracts are also listed [@CL-EST-3123]. The RFO text keeps the rules that the contracting officer incorporates subpart 31.3 by reference in cost-reimbursement contracts with educational institutions, that the principles are a guide for fixed-price contracts and termination settlements, and that a contract referring to subpart 31.3 for allowable costs is deemed to refer to the OMB Uniform Guidance in effect on the date of the contract, with no additional restrictions on individual items of cost expected [@CL-EST-3122; @CL-EST-3124; @CL-EST-3125; @CL-EST-3126; @CL-EST-3127].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -61,7 +63,7 @@ The same institution is later offered a firm-fixed-price contract. In negotiatin
 
 The cost-reimbursement contract refers to subpart 31.3 for allowable costs. It is read as referring to the OMB Uniform Guidance at 2 CFR part 200, subpart E and appendix III as in effect on the contract date, and the contracting officer determines allowability in accordance with it [@CL-EST-2520; @CL-EST-2654].
 
-A program office asks to depart from one cost principle for a single contract. That is an individual deviation, which needs advance approval of the agency head or designee [@CL-EST-2514]. A departure meant to apply to a class of contracts across the civilian agencies would be a class deviation, which needs advance approval of the Civilian Agency Acquisition Council [@CL-EST-2650].
+A program office asks to depart from one cost principle for a single contract. That is an individual deviation, which needs advance approval of the agency head or designee [@CL-EST-2514] and, in the RFO paragraph for civilian agencies, approval by the agency head [@CL-EST-3118]. A departure meant to apply to a class of contracts across the civilian agencies would be a class deviation, which needs advance approval of the Civilian Agency Acquisition Council [@CL-EST-2650], and the RFO paragraph for civilian agencies also requires approval by that Council for class deviations [@CL-EST-3119].
 
 ## Never confuse
 
@@ -70,6 +72,8 @@ The principles are the basis for settling costs of terminated cost-reimbursement
 A contract that refers to subpart 31.3 for allowable costs is deemed to refer to the OMB Uniform Guidance, and the contracting officer determines allowability in accordance with it [@CL-EST-2520; @CL-EST-2654].
 
 A deviation needs approval in advance, not afterwards. Individual and class deviations each need advance approval at the level the section names [@CL-EST-2514; @CL-EST-2650; @CL-EST-2515; @CL-EST-2516].
+
+The codified text requires advance approval of the agency head or designee for individual deviations and names the approving official for NASA and DoD class deviations [@CL-EST-2514; @CL-EST-2515; @CL-EST-2516], while RFO FAR 31.004 requires approval by the agency head for individual deviations under its civilian agencies heading, without the word advance, and refers readers to agency supplements for DoD and NASA [@CL-EST-3118; @CL-EST-3120; @CL-EST-2514].
 
 The related cards are [educational institution](../../compliance/cas-allowability/cmp-cas-educational-institution.md), [commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) and [cost principles definitions](../../compliance/cas-allowability/cmp-far-cost-principles-definitions.md).
 
@@ -81,4 +85,5 @@ Which proposals are priced under educational institution cost principles and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the organization-type grouping, deviations and the educational institution cost principles.
