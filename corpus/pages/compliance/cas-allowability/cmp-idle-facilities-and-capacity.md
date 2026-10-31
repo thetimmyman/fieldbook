@@ -43,7 +43,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in pla
 
 Synthetic example. The numbers are made up.
 
-A plant could achieve 2,500 hours a year on a one-shift basis after normal delays, but actually ran 1,500 hours. The 1,000 unused hours carry rent and maintenance that are idle capacity costs, allowable while the capacity stays necessary and cannot be sublet. A second building stood empty all year and is excess to needs, so its costs are unallowable unless it is necessary to meet fluctuations in workload or was necessary when acquired and is now idle for causes that could not have been reasonably foreseen.
+A plant could achieve 2,500 hours a year on a one-shift basis after normal delays, but actually ran 1,500 hours. The 1,000 unused hours carry rent and maintenance that are idle capacity costs, allowable while the capacity stays necessary and cannot be sublet. A second building stood empty all year and is excess to needs, so its costs are unallowable unless it is necessary to meet fluctuations in workload or was necessary when acquired and is now idle for causes that could not have been reasonably foreseen, in which case its costs are allowable for a reasonable period, ordinarily not to exceed 1 year, depending upon the initiative taken to use, lease or dispose of it [@CL-CMP-0769].
 
 ## Never confuse
 
@@ -57,6 +57,7 @@ Whether the company measures idle capacity on a documented shift basis and separ
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the reasonable-period allowance to the example.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for idle facilities and idle capacity costs.
