@@ -22,7 +22,7 @@ Shows who may ask for a debriefing before award, by when, what it includes and w
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1411] |
-| Codified citation | FAR 15.505 [@CL-EST-1411] |
+| Codified citation | FAR 15.501 [@CL-EST-2054]; FAR 15.505 [@CL-EST-1411] |
 | RFO citation | RFO FAR 15.206-2 [@CL-EST-3346] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1411] |
@@ -35,6 +35,8 @@ An offeror that does not submit a timely request need not be given a preaward or
 The contracting officer shall make every effort to debrief the unsuccessful offeror as soon as practicable, but may refuse the request if, for compelling reasons, it is not in the best interests of the Government to conduct a debriefing at that time [@CL-EST-1453].
 
 ## How it works
+
+The word day, as used in FAR subpart 15.5, has the meaning set forth at FAR 33.101 [@CL-EST-2054], and the 3-day request period above is stated in FAR 15.505 [@CL-EST-1412].
 
 At the offeror's request the debriefing may be delayed until after award, and a debriefing delayed that way shall include all information normally provided in a postaward debriefing [@CL-EST-1413]. If the contracting officer delays the debriefing, it shall be provided no later than the time postaward debriefings are provided, and it shall include the information that a postaward debriefing includes at a minimum [@CL-EST-1454]. At a minimum a preaward debriefing includes the agency's evaluation of significant elements in the offeror's proposal and a summary of the rationale for eliminating the offeror [@CL-EST-1415], and reasonable responses to relevant questions about whether source selection procedures contained in the solicitation, applicable regulations, and other applicable authorities were followed in the process of eliminating the offeror [@CL-EST-1415; @CL-EST-1457]. A preaward debriefing shall not disclose the number of offerors, the identity of other offerors, the content of other offerors' proposals, the ranking of other offerors, the evaluation of other offerors, or any information the postaward debriefing rule bars from disclosure [@CL-EST-1416].
 
@@ -60,5 +62,6 @@ Who prepares the evaluation material for a debriefing request and who owns the p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the meaning of day in FAR subpart 15.5.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preaward debriefing of offerors.

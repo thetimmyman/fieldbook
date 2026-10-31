@@ -23,7 +23,7 @@ Shows the two worked outcomes for cost of money on a project under construction 
 | Field | Value |
 |---|---|
 | Instrument | Codified CAS [@CL-CMP-3420] |
-| Codified citation | 48 CFR 9904.417-60, 48 CFR 9904.410-63 and 48 CFR 9904.414-63 [@CL-CMP-3420; @CL-CMP-3422; @CL-CMP-3424] |
+| Codified citation | 48 CFR 9904.417-60, 48 CFR 9904.417-62, 48 CFR 9904.410-62, 48 CFR 9904.410-63, 48 CFR 9904.414-60 and 48 CFR 9904.414-63 [@CL-CMP-3420; @CL-CMP-8663; @CL-CMP-8657; @CL-CMP-3422; @CL-CMP-8660; @CL-CMP-3424] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3420] |
@@ -36,6 +36,8 @@ CAS 410 is effective as of April 17, 1992, and contractors with prior CAS-covere
 The general and administrative section also holds an appendix. A business unit may use the method described in the appendix for transition from the use of a cost of sales or sales base to a cost input base [@CL-CMP-3444]. Under that method, the amount of the inventory suspense account shall be equal to the beginning inventory of contracts subject to the CAS clause of the cost accounting period in which the business unit must first allocate costs in accordance with the requirements of the standard [@CL-CMP-3445]. The other steps and illustrations of that appendix are not claimed here.
 
 The facilities capital section holds an appendix with form instructions. Each facilities capital cost of money factor is the quotient of the cost of money for the cost accounting period divided by the corresponding overhead or G&A expense allocation base, and each computation is carried to five decimal places [@CL-CMP-3446]. The other instructions and the example in that appendix are not claimed here.
+
+The exemption section of the general and administrative standard says it shall not apply to contracts and grants with state, local, and Federally recognized Indian tribal governments [@CL-CMP-8657]. The exemption section of the standard on capital assets under construction says there is no exemption for it [@CL-CMP-8663]. The illustrations section of the facilities capital standard says the use of Form CASB CMF and other computations anticipated for that standard are illustrated in appendix B to 9904.414 [@CL-CMP-8660].
 
 ## How it works
 
@@ -61,4 +63,5 @@ Which capital projects are under construction and carry cost of money, and where
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exemption sections of CAS 410 and CAS 417 and the illustrations pointer of CAS 414.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 417 illustrations and the effective dates of CAS 410 and CAS 414.

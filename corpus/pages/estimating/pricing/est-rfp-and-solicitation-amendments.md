@@ -22,7 +22,7 @@ Shows what a request for proposals must describe and when the contracting office
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1364] |
-| Codified citation | FAR 15.203 and FAR 15.206 [@CL-EST-1364; @CL-EST-1366] |
+| Codified citation | FAR 15.203, FAR 15.205 and FAR 15.206 [@CL-EST-1364; @CL-EST-2051; @CL-EST-2052; @CL-EST-1366] |
 | RFO citation | RFO FAR 15.102(b)(3)(i) [@CL-EST-3449; @CL-EST-3450] and RFO FAR 15.106 [@CL-EST-3443; @CL-EST-3444] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1364] |
@@ -30,7 +30,7 @@ Shows what a request for proposals must describe and when the contracting office
 
 RFPs for competitive acquisitions shall at a minimum describe the Government's requirement and the anticipated terms and conditions that will apply to the contract [@CL-EST-1364]. Two further listed items are the information required to be in the offeror's proposal and the factors and significant subfactors that will be used to evaluate the proposal with their relative importance [@CL-EST-1364; @CL-EST-1365].
 
-When the Government changes its requirements or terms and conditions, either before or after receipt of proposals, the contracting officer shall amend the solicitation [@CL-EST-1366].
+When the Government changes its requirements or terms and conditions, either before or after receipt of proposals, the contracting officer shall amend the solicitation [@CL-EST-1366]. The contracting officer shall issue solicitations to potential sources in accordance with the policies and procedures in FAR 5.102, FAR 19.202-4 and FAR part 6 [@CL-EST-2051]. A master solicitation, as described in FAR 14.203-3, may also be used for negotiated acquisitions [@CL-EST-2052].
 
 ## How it works
 
@@ -62,5 +62,6 @@ Who reads each amendment and updates the estimate and its assumptions when requi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added how solicitations are issued and the master solicitation.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requests for proposals and amendments.

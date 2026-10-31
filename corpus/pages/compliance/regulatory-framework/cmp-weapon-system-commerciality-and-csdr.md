@@ -23,11 +23,13 @@ Shows when a DoD major weapon system, subsystem, component or spare part may be 
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7274] |
-| Codified citation | DFARS 234.7002 [@CL-CMP-7400]; DFARS 234.7100 [@CL-CMP-7277]; DFARS 234.005-1 [@CL-CMP-7279] |
+| Codified citation | DFARS 234.7000 [@CL-CMP-9678]; DFARS 234.7001 [@CL-CMP-9679]; DFARS 234.7002 [@CL-CMP-7400]; DFARS 234.7100 [@CL-CMP-7277]; DFARS 234.005-1 [@CL-CMP-7279] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7274] |
 | Applies to | DoD major weapon systems and their subsystems, components and spare parts [@CL-CMP-7400; @CL-CMP-7409; @CL-CMP-7440]; major defense acquisition programs [@CL-CMP-7277]; follow-on items under a broad agency announcement award [@CL-CMP-7478] |
+
+DFARS subpart 234.70 implements section 3455 of title 10 of the United States Code and requires a determination by the Secretary of Defense and a notification to Congress before acquiring a major weapon system as a commercial product [@CL-CMP-9678]. As used in DFARS subpart 234.70, major weapon system means a weapon system acquired pursuant to a major defense acquisition program [@CL-CMP-9679].
 
 A DoD major weapon system may be treated as a commercial product, or acquired under procedures established for the acquisition of commercial products, only if two conditions are met [@CL-CMP-7400]. The Secretary of Defense determines that the major weapon system is a commercial product as defined in FAR 2.101 and that such treatment is necessary to meet national security objectives [@CL-CMP-7274]. The congressional defense committees are notified at least 30 days before such treatment or acquisition occurs [@CL-CMP-7275]. The Secretary's authority to make the determination may not be delegated below the level of the Deputy Secretary of Defense [@CL-CMP-7276].
 
@@ -73,4 +75,5 @@ Which major weapon systems, subsystems, components and spare parts are treated a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the major weapon system definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial treatment of major weapon systems, data reporting and follow-on items.

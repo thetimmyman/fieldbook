@@ -22,11 +22,13 @@ Shows what agencies must do when notified that a contractor is in bankruptcy pro
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2585] |
-| Codified citation | FAR 42.902, FAR 42.903 and FAR 52.242-13 [@CL-CMP-2585; @CL-CMP-2589; @CL-CMP-2650] |
+| Codified citation | FAR 42.900 [@CL-CMP-9670; @CL-CMP-9671; @CL-CMP-9672]; FAR 42.901 [@CL-CMP-9673]; FAR 42.902, FAR 42.903 and FAR 52.242-13 [@CL-CMP-2585; @CL-CMP-2589; @CL-CMP-2650] |
 | RFO citation | RFO FAR 42.702 [@CL-CMP-6704; @CL-CMP-6705; @CL-CMP-6706; @CL-CMP-6707]; RFO FAR 42.703 [@CL-CMP-6708]; RFO FAR 52.242-13 [@CL-CMP-6709; @CL-CMP-6710; @CL-CMP-6711; @CL-CMP-6712; @CL-CMP-6713] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2585] |
 | Applies to | Agencies notified of bankruptcy proceedings [@CL-CMP-2585]. Solicitations and contracts exceeding the simplified acquisition threshold, for the Bankruptcy clause [@CL-CMP-2589]. A contractor under the clause that enters into proceedings relating to bankruptcy, whether voluntary or involuntary [@CL-CMP-2650] |
+
+FAR subpart 42.9 prescribes policies and procedures regarding actions to be taken when a contractor enters into proceedings relating to bankruptcy [@CL-CMP-9670], establishes a requirement for the contractor to notify the contracting officer upon filing a petition for bankruptcy [@CL-CMP-9671], and further establishes minimum requirements for agencies to follow in the event of a contractor bankruptcy [@CL-CMP-9672]. The contract administration office shall take prompt action to determine the potential impact of a contractor bankruptcy on the Government in order to protect the interests of the Government [@CL-CMP-9673].
 
 When notified of bankruptcy proceedings, agencies shall, as a minimum, furnish the notice of bankruptcy to legal counsel and other appropriate agency offices and affected buying activities [@CL-CMP-2585]. Another listed minimum action is to determine the amount of the Government's potential claim against the contractor, identifying and reviewing any contracts that have not been closed out [@CL-CMP-2586]. Two further listed minimum actions are to take actions necessary to protect the Government's financial interests and safeguard Government property, and to furnish pertinent contract information to the legal counsel representing the Government [@CL-CMP-2587].
 
@@ -56,5 +58,6 @@ Which executed contracts contain the Bankruptcy clause, and who confirms its app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the contract administration office duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 42 and part 52 citations and how DoD's class deviations apply them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor bankruptcy procedures and the Bankruptcy clause.

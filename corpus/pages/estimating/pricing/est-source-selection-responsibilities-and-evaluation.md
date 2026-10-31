@@ -23,13 +23,13 @@ Shows who is responsible for a source selection, what the source selection autho
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1376] |
-| Codified citation | FAR 15.303 and FAR 15.305 [@CL-EST-1376; @CL-EST-1379] |
+| Codified citation | FAR 15.302 [@CL-EST-2053]; FAR 15.303 and FAR 15.305 [@CL-EST-1376; @CL-EST-1379] |
 | RFO citation | RFO FAR 15.201 [@CL-EST-3463; @CL-EST-3464], RFO FAR 15.202 [@CL-EST-3467; @CL-EST-3468; @CL-EST-3475], RFO FAR 15.404 [@CL-EST-3469], RFO FAR 15.404-1 [@CL-EST-3471], RFO FAR 15.404-3 [@CL-EST-3472] and RFO FAR 15.104 [@CL-EST-3474] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1376] |
 | Applies to | Source selections in which competitive proposals are evaluated [@CL-EST-1379] |
 
-Agency heads are responsible for source selection, and the contracting officer is the source selection authority unless the agency head appoints another individual for a particular acquisition or group of acquisitions [@CL-EST-1376]. The source selection authority shall establish an evaluation team, tailored for the particular acquisition, that includes appropriate contracting, legal, logistics, technical, and other expertise [@CL-EST-1377]. One listed duty of the source selection authority is to select the source or sources whose proposal is the best value to the Government [@CL-EST-1377; @CL-EST-1378].
+Agency heads are responsible for source selection, and the contracting officer is the source selection authority unless the agency head appoints another individual for a particular acquisition or group of acquisitions [@CL-EST-1376]. The source selection authority shall establish an evaluation team, tailored for the particular acquisition, that includes appropriate contracting, legal, logistics, technical, and other expertise [@CL-EST-1377]. The objective of source selection is to select the proposal that represents the best value [@CL-EST-2053]. One listed duty of the source selection authority is to select the source or sources whose proposal is the best value to the Government [@CL-EST-1377; @CL-EST-1378].
 
 An agency shall evaluate competitive proposals and then assess their relative qualities solely on the factors and subfactors specified in the solicitation [@CL-EST-1379]. The source selection authority may reject all proposals received in response to a solicitation, if doing so is in the best interest of the Government [@CL-EST-1489].
 
@@ -61,5 +61,6 @@ Which proposals need cost realism support because they are cost-reimbursement, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the source selection objective.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for source selection responsibilities and proposal evaluation.

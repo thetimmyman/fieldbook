@@ -22,13 +22,13 @@ Shows what the Cost Accounting Standards statute requires of certain contractors
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7026] |
-| Codified citation | FAR 30.101 [@CL-CMP-7026] |
+| Codified citation | FAR 30.101 [@CL-CMP-7026]; 48 CFR 9903.101 [@CL-CMP-9677] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7026] |
 | Applies to | Certain contractors and subcontractors [@CL-CMP-7026] |
 
-The statute is title 41 of the United States Code, chapter 15, Cost Accounting Standards [@CL-CMP-7026]. It requires certain contractors and subcontractors to comply with the Cost Accounting Standards (CAS) and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-7026].
+The statute is title 41 of the United States Code, chapter 15, Cost Accounting Standards [@CL-CMP-7026]. It requires certain contractors and subcontractors to comply with the Cost Accounting Standards (CAS) and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-7026]. The CAS Board text at 48 CFR 9903.101 names Public Law 100-679, codified at section 422 of title 41 of the United States Code, as requiring certain contractors and subcontractors to comply with Cost Accounting Standards (CAS) and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-9677].
 
 A contract that refers to FAR part 30 for the purpose of applying the policies, procedures, standards and regulations that the CASB promulgated under that statute is deemed to refer to the CAS and to any other regulations promulgated by the CASB [@CL-CMP-7027]. The same sentence states that the CAS and those other regulations, cross-referenced to 48 CFR chapter 99, are all hereby incorporated in FAR part 30 [@CL-CMP-7028].
 
@@ -62,4 +62,5 @@ Which legal entities, business units and contracts sit inside the finance remit,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the statute reference in 48 CFR 9903.101.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Cost Accounting Standards statute's requirements and scope.

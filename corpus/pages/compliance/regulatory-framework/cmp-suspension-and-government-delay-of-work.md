@@ -22,11 +22,13 @@ Shows when a suspension of work, the Suspension of Work clause and the Governmen
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2590] |
-| Codified citation | FAR 42.1302, FAR 42.1304, FAR 52.242-14 and FAR 52.242-17 [@CL-CMP-2590; @CL-CMP-2591; @CL-CMP-2656; @CL-CMP-2663] |
+| Codified citation | FAR 42.1301 [@CL-CMP-9674; @CL-CMP-9675]; FAR 42.1302, FAR 42.1304, FAR 52.242-14 and FAR 52.242-17 [@CL-CMP-2590; @CL-CMP-2591; @CL-CMP-2656; @CL-CMP-2663] |
 | RFO citation | RFO FAR 42.1002 [@CL-CMP-7013], RFO FAR 42.1004 [@CL-CMP-7014; @CL-CMP-7015; @CL-CMP-7016; @CL-CMP-7017; @CL-CMP-9901], RFO FAR 42.1005 [@CL-CMP-7018; @CL-CMP-9910], RFO FAR 52.242-14 [@CL-CMP-7019; @CL-CMP-9902; @CL-CMP-9903; @CL-CMP-7020; @CL-CMP-9904; @CL-CMP-9905; @CL-CMP-7021; @CL-CMP-7022] and RFO FAR 52.242-17 [@CL-CMP-9906; @CL-CMP-9907; @CL-CMP-7023; @CL-CMP-9908; @CL-CMP-9909; @CL-CMP-7024; @CL-CMP-7025] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2590] |
 | Applies to | Suspension: construction and architect-engineer contracts [@CL-CMP-2590]. Suspension of Work clause: solicitations and contracts when a fixed-price construction or architect-engineer contract is contemplated [@CL-CMP-2656]. Delay clause: delays and interruptions caused by the acts or failures to act of the contracting officer [@CL-CMP-2591] |
+
+Situations may occur during contract performance that cause the Government to order a suspension of work, or a work stoppage [@CL-CMP-9674]. FAR subpart 42.13 provides clauses to meet these situations and a clause for settling contractor claims for unordered Government caused delays that are not otherwise covered in the contract [@CL-CMP-9675].
 
 A suspension of work under a construction or architect-engineer contract may be ordered by the contracting officer for a reasonable period of time, and if the suspension is unreasonable the contractor may submit a written claim for increases in the cost of performance, excluding profit [@CL-CMP-2590]. The Government Delay of Work clause provides for the administrative settlement of contractor claims that arise from delays and interruptions in the contract work caused by the acts, or failures to act, of the contracting officer [@CL-CMP-2591]. It is not applicable if the contract otherwise specifically provides for an equitable adjustment because of the delay or interruption, for example when the Changes clause is applicable [@CL-CMP-2592].
 
@@ -58,5 +60,6 @@ Which executed contracts contain the Government Delay of Work clause or another 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope for suspension of work and work stoppage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 42 and part 52 citations and how DoD's class deviations apply them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for suspension of work and the Government Delay of Work clause.

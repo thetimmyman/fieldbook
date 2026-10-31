@@ -22,7 +22,7 @@ Shows who decides what in a major system acquisition: who writes the agency proc
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0874] |
-| Codified citation | FAR 34.003, 34.004 and 34.005-6 [@CL-PRG-0874; @CL-PRG-0875; @CL-PRG-0876; @CL-PRG-0881; @CL-PRG-0883; @CL-PRG-0884] |
+| Codified citation | FAR 34.003, 34.004 and 34.005-6 [@CL-PRG-0874; @CL-PRG-0875; @CL-PRG-0876; @CL-PRG-0881; @CL-PRG-0883; @CL-PRG-0884]; DFARS 234.003 [@CL-PRG-0543] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0874] |
@@ -37,6 +37,8 @@ The program manager, as specified in agency procedures, must develop an acquisit
 ## How it works
 
 The agency head or designee sets the written procedures, and the agency head decides which programs are normally designated as major [@CL-PRG-0874; @CL-PRG-0876]. The officials who make the key decisions are those the agency procedures identify, and the source does not name them, so the company reads the procedures for each program [@CL-PRG-0875]. The program manager develops the acquisition strategy, as the agency procedures specify [@CL-PRG-0881]. That written strategy serves as the acquisition plan [@CL-PRG-0882; @CL-PRG-0883]. Before full production the agency head reaffirms the need and approves proceeding [@CL-PRG-0884].
+
+For DoD, DFARS 234.003 says DoDD 5000.01, The Defense Acquisition System, and DoDI 5000.02, Operation of the Adaptive Acquisition Framework, contain the DoD implementation of OMB Circular A-109 and OMB Circular A-11 [@CL-PRG-0543].
 
 ## Worked example
 
@@ -56,4 +58,5 @@ Which key decision points and agency officials apply to the company's programs, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to the DoD implementation of the OMB circulars.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for major system acquisition governance, with who decides at each point.
