@@ -41,7 +41,7 @@ If registrants under the Lobbying Disclosure Act of 1995 have made a lobbying co
 
 ## How it works
 
-The paragraph (d) representations are history and status statements. The offeror states whether it took part in earlier contracts under the Equal Opportunity clause and whether it filed its compliance reports [@CL-CMP-8976]. It then states either that it keeps the required affirmative action programs at each establishment or that it has not previously had contracts subject to the written program requirement [@CL-CMP-8977; @CL-CMP-8978]. The program requirement that the representation refers to is set by the rules and regulations of the Secretary of Labor [@CL-CMP-8977].
+The paragraph (d) representations are history and status statements. The offeror states whether it took part in earlier contracts under the Equal Opportunity clause and whether it filed its compliance reports [@CL-CMP-8976]. It then states that it has, or has not, developed and kept on file the required affirmative action programs at each establishment, or that it has not previously had contracts subject to the written program requirement [@CL-CMP-8977; @CL-CMP-8978]. The program requirement that the representation refers to is set by the rules and regulations of the Secretary of Labor [@CL-CMP-8977].
 
 The paragraph (e) certification is a separate duty with a dollar test. The offeror first asks whether the contract is expected to exceed $200,000 [@CL-CMP-8979]. If it is, the offeror certifies, to the best of its knowledge and belief, about Federal appropriated funds [@CL-CMP-8979; @CL-CMP-8980]. If a registrant under the Lobbying Disclosure Act of 1995 made a lobbying contact for the offeror about the contract, the offeror files Standard Form LLL with its offer [@CL-CMP-8981]. Regularly employed officers and employees paid reasonable compensation are left out of that report [@CL-CMP-8982].
 
@@ -59,7 +59,7 @@ Pine Start-up Inc has not previously had contracts subject to the written affirm
 
 ## Never confuse
 
-The paragraph (d) representations are not a statement that the offeror has no compliance findings. They state participation and filing history and whether the written affirmative action programs are on file or not yet required [@CL-CMP-8976; @CL-CMP-8977; @CL-CMP-8978].
+The paragraph (d) representations are not a statement that the offeror has no compliance findings. They state participation and filing history and whether the written affirmative action programs are on file, not on file, or not yet required [@CL-CMP-8976; @CL-CMP-8977; @CL-CMP-8978].
 
 The paragraph (e) certification is worded around Federal appropriated funds [@CL-CMP-8980]. The lobbying disclosure form is a separate duty within paragraph (e) that follows a registrant's lobbying contact on the offeror's behalf with respect to the contract, and paragraph (e) applies only if the contract is expected to exceed $200,000 [@CL-CMP-8981; @CL-CMP-8979].
 
