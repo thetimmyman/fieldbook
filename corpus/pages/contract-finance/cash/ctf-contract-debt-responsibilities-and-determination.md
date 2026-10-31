@@ -37,7 +37,7 @@ If the contracting officer has any indication that a contractor owes money to th
 
 The duties are split between two offices. The contracting officer has primary responsibility for identifying the debt and demanding payment, and determines whether a debt is due and how much [@CL-CTF-3567; @CL-CTF-3571]. The payment office has primary responsibility for collecting what the contracting officer identifies and for identifying and collecting duplicate and erroneous payments [@CL-CTF-3569; @CL-CTF-3570]. The payment office has primary responsibility for authorizing liquidation of a contract debt under agency procedures, and the contracting officer shall not agree to it [@CL-CTF-3568; @CL-CTF-3570]. A debt that results from an error made by the payment office is outside the primary responsibility of the contracting officer for identifying and demanding payment [@CL-CTF-3567].
 
-Speed matters. Unnecessary delay in the determination may contribute to loss of timely availability of the funds to the program that provided them, increased difficulty in collecting the debt, or actual monetary loss to the Government [@CL-CTF-3572]. Once the contracting officer has determined that an actual debt is due and its amount, the officer issues the demand for payment as soon as that determination is made, except as the demand section provides [@CL-CTF-0766].
+Speed matters. Unnecessary delay in the determination may contribute to loss of timely availability of the funds to the program for which they were provided, increased difficulty in collecting the debt, or actual monetary loss to the Government [@CL-CTF-3572]. Once the contracting officer has determined that an actual debt is due and its amount, the officer issues the demand for payment as soon as that determination is made, except as the demand section provides [@CL-CTF-0766].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Who owns the response when a payment office identifies a duplicate or erroneous 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Corrected the delay sentence to say the funds are lost to the program for which they were provided.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract debts, responsibilities and the debt determination.
