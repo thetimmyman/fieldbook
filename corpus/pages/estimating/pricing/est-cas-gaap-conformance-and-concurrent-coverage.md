@@ -37,17 +37,17 @@ A change to the current practice that would move it to or from using revenue as 
 
 The contract price and cost adjustment requirements are also not applicable to changes directly associated with the conformance of CAS 408 to GAAP [@CL-EST-2480]. Those changes must be disclosed and made during the contractor's fiscal year directly following the effective date of the final rule rescinding CAS 408 [@CL-EST-2481].
 
-A contract subject to full coverage may be performed during a period in which a previously awarded contract subject to modified coverage is being performed [@CL-EST-2482]. Compliance with full coverage may compel the use of practices that modified coverage does not require [@CL-EST-2626]. Under these circumstances the practices applicable to the modified coverage contracts need not be changed [@CL-EST-2627], and any resulting differences between the two coverages are not a violation of CAS 401 and CAS 402 [@CL-EST-2483]. The same principle applies when a modified coverage contract is performed during a period in which a previously awarded full coverage contract is being performed [@CL-EST-2628].
+A contract subject to full coverage may be performed during a period in which a previously awarded contract subject to modified coverage is being performed [@CL-EST-2482]. Compliance with full coverage may compel the use of practices that modified coverage does not require [@CL-EST-2626]. Under these circumstances the practices applicable to the modified coverage contracts need not be changed [@CL-EST-2627], and any resulting differences in practices between contracts subject to full coverage and those subject to modified coverage shall not constitute a violation of CAS 401 and CAS 402 [@CL-EST-2483]. The same principle applies when a modified coverage contract is performed during a period in which a previously awarded full coverage contract is being performed [@CL-EST-2628].
 
 ## How it works
 
 The revenue exemption removes the contract price and cost adjustment requirements for a conforming change [@CL-EST-2476]. It reaches only the two disclosed situations in the rule, so a change outside them has no exemption [@CL-EST-2477].
 
-A move onto or away from a revenue base is treated as a unilateral change that goes through the normal cost impact and resolution process [@CL-EST-2479]. The section does not describe that process; see the linked cards.
+A move onto or away from a revenue base is treated as a unilateral change that goes through the normal cost impact and resolution process [@CL-EST-2479]. See the linked cards for that process.
 
 The CAS 408 exemption has its own timing condition [@CL-EST-2481]. The change must be disclosed and made in the contractor's fiscal year directly following the effective date of the final rule rescinding CAS 408 [@CL-EST-2481]. The GAAP conformance card holds the rescission and its dates.
 
-The concurrent coverage section applies in both directions: a full coverage contract performed beside an earlier modified coverage contract [@CL-EST-2482], and a modified coverage contract performed beside an earlier full coverage contract [@CL-EST-2628]. It protects the modified coverage practices from a forced change [@CL-EST-2627], and it keeps the resulting differences from counting as a violation of CAS 401 and CAS 402 [@CL-EST-2483].
+The concurrent coverage section applies in both directions: a full coverage contract performed beside an earlier modified coverage contract [@CL-EST-2482], and a modified coverage contract performed beside an earlier full coverage contract [@CL-EST-2628]. Under it the practices applicable to the modified coverage contracts need not be changed [@CL-EST-2627], and the resulting differences in practices shall not constitute a violation of CAS 401 and CAS 402 [@CL-EST-2483].
 
 ## Worked example
 
@@ -63,7 +63,7 @@ The contractor then wins a full coverage contract while an earlier modified cove
 
 ## Never confuse
 
-This is not a pass for every practice change that follows GAAP. The revenue exemption applies only to the two disclosed situations the section names, and a move to or from a revenue base stays a unilateral change [@CL-EST-2477; @CL-EST-2479].
+The revenue exemption applies only to current disclosed practices where the contractor is required to use the three-factor formula prescribed in CAS 403 for residual expenses, or where its current disclosed and compliant accounting practice includes revenue as a basis for allocating costs, and a change to or from using revenue as a basis for allocation is treated as a unilateral change [@CL-EST-2477; @CL-EST-2479].
 
 The protection for concurrent coverage covers differences that result from performing the two kinds of contract side by side [@CL-EST-2483]. The consistency Standard keeps its own card; see [the consistency Standard](../../compliance/cas-allowability/cmp-cas-401-consistency.md).
 
@@ -77,4 +77,5 @@ Which business units carry full coverage, modified coverage or neither, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Concurrent coverage and revenue exemption wording aligned with the cited text; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for GAAP conformance changes and concurrent full and modified coverage.

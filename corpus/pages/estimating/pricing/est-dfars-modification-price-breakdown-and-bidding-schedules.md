@@ -35,7 +35,7 @@ The bidding schedule provision is the one to use as prescribed in DFARS 236.570(
 
 ## How it works
 
-A modification proposal travels with a breakdown that lets the Government test both profit and each cost category [@CL-EST-1747; @CL-EST-1748]. Because the breakdown must reach deleted, added and changed work, deleted work appears in the breakdown beside the added and changed work [@CL-EST-1749]. Subcontract amounts need their own breakdowns, and any time extension needs a justification [@CL-EST-1750; @CL-EST-1751]. For the bidding schedule, the scheduled prices must carry every cost for the work in the specifications, whether or not a line lists that work [@CL-EST-1752; @CL-EST-1753]. The printed text does not set a format for the breakdown beyond itemization as the Contracting Officer requires, so the source does not establish one [@CL-EST-1747]. It also does not name any contract type or work type beyond a contract modification and a Bidding Schedule, so the source does not establish a wider scope.
+The Contractor shall furnish a price breakdown, itemized as required and within the time specified by the Contracting Officer, with any proposal for a contract modification [@CL-EST-1747]. The price breakdown must include sufficient detail to permit an analysis of profit, and of all costs for material, labor, equipment, subcontracts and overhead [@CL-EST-1748], and must cover all work involved in the modification, whether the work was deleted, added, or changed [@CL-EST-1749]. The Contractor shall provide similar price breakdowns to support any amounts claimed for subcontracts [@CL-EST-1750], and the proposal shall include a justification for any time extension proposed [@CL-EST-1751]. Under the bidding schedule provision, the Contractor shall include in the prices for the items listed in the Bidding Schedule all costs for work in the specifications, whether or not specifically listed in the Bidding Schedule [@CL-EST-1753].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A modification deletes a 10,000 item, adds a 30,000 item and changes a third for
 
 ## Never confuse
 
-A price breakdown goes with a proposal for a contract modification, while the bidding schedule provision concerns the prices stated for the items in the Bidding Schedule [@CL-EST-1747; @CL-EST-1753]. Related pages are [Changes clause for construction](../../close-revrec/revenue/cls-changes-construction.md) and [Cost principles for construction and architect-engineer contracts](../../compliance/cas-allowability/cmp-cost-principles-construction-architect-engineer.md). How the Government analyses the breakdown is on [Proposal analysis](est-proposal-analysis.md). The separate clause for data from the Canadian Commercial Corporation is on [Data other than certified data for Canadian Commercial Corporation modifications](est-dfars-ccc-modification-data-clause.md), and the payment clauses for mobilization are on [Mobilization payment clauses and the cost limitation provision](est-dfars-mobilization-payment-and-cost-limitation.md).
+The Contractor shall furnish a price breakdown with any proposal for a contract modification [@CL-EST-1747], and shall include in the prices for the items listed in the Bidding Schedule all costs for work in the specifications, whether or not specifically listed in the Bidding Schedule [@CL-EST-1753]. Related pages are [Changes clause for construction](../../close-revrec/revenue/cls-changes-construction.md) and [Cost principles for construction and architect-engineer contracts](../../compliance/cas-allowability/cmp-cost-principles-construction-architect-engineer.md). For how the Government analyses the breakdown, see [Proposal analysis](est-proposal-analysis.md). For the clause on data from the Canadian Commercial Corporation, see [Data other than certified data for Canadian Commercial Corporation modifications](est-dfars-ccc-modification-data-clause.md), and for the mobilization payment clauses, see [Mobilization payment clauses and the cost limitation provision](est-dfars-mobilization-payment-and-cost-limitation.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Who prepares modification price breakdowns, how fast they can be itemized when t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to follow the clause text; uncited negatives and contrasts replaced with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the modification price breakdown and bidding schedule provisions.

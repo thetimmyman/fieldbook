@@ -32,15 +32,15 @@ The contracting officer must complete and insert the provision at 52.216-1, Type
 
 When contracting by negotiation, the contracting officer must insert the clause at 52.216-5, Price Redetermination—Prospective, in solicitations and contracts [@CL-EST-2976]. The duty arises when a fixed-price contract is contemplated and the conditions specified in 16.205-2 and 16.205-3(a) through (d) apply [@CL-EST-2976].
 
-Both sections put the duty on the contracting officer [@CL-EST-2975; @CL-EST-2976]. Neither names a dollar threshold or a deadline, and neither says who decides whether an exception or a condition applies.
+Both sections put the duty on the contracting officer [@CL-EST-2975; @CL-EST-2976].
 
 ## How it works
 
-The provision is the default for a solicitation. Only the two exceptions remove it, and any other solicitation carries it [@CL-EST-2975]. The provision tells offerors that the Government contemplates award of the type of contract the contracting officer inserts in the blank [@CL-EST-1842]. See [the type of contract provision](est-type-of-contract-letter-contract-and-time-and-materials-provisions.md).
+The contracting officer shall complete and insert the provision in a solicitation unless it is for a fixed-price acquisition made under simplified acquisition procedures or for information or planning purposes [@CL-EST-2975]. The provision tells offerors that the Government contemplates award of the type of contract the contracting officer inserts in the blank [@CL-EST-1842]. See [the type of contract provision](est-type-of-contract-letter-contract-and-time-and-materials-provisions.md).
 
-The clause has three prerequisites. The acquisition must be by negotiation, a fixed-price contract must be contemplated, and the conditions specified in the two cross-referenced sections must apply [@CL-EST-2976]. The clause goes into both the solicitation and the contract [@CL-EST-2976].
+The contracting officer shall, when contracting by negotiation, insert the clause in solicitations and contracts when a fixed-price contract is contemplated and the conditions specified in 16.205-2 and 16.205-3(a) through (d) apply [@CL-EST-2976].
 
-Those conditions are not stated here. Section 16.205-2 says when the contract type may be used [@CL-CLS-0551]. Section 16.205-3 says that the contract type shall not be used unless negotiations have established that the conditions for a firm-fixed-price contract are not present and that a fixed-price incentive contract would not be more appropriate [@CL-CLS-0554], and it lists the further limits in paragraphs (b) through (d) [@CL-CLS-0555]. See [prospective price redetermination contracts](../../close-revrec/revenue/cls-fixed-price-prospective-price-redetermination.md). For what the clause requires of the contractor, see [the prospective price redetermination clause](est-prospective-price-redetermination-clause.md). For fixed-price contracts in general, see [fixed-price contracts in general](est-fixed-price-contracts-general.md).
+Section 16.205-2 says a fixed-price contract with prospective price redetermination may be used in acquisitions of quantity production or services for which it is possible to negotiate a fair and reasonable firm fixed price for an initial period, but not for subsequent periods of contract performance [@CL-CLS-0551]. Section 16.205-3 says that the contract type shall not be used unless negotiations have established that the conditions for a firm-fixed-price contract are not present and that a fixed-price incentive contract would not be more appropriate [@CL-CLS-0554]; the contractor's accounting system is adequate for price redetermination; the prospective pricing periods can be made to conform with operation of the contractor's accounting system; and there is reasonable assurance that price redetermination actions will take place promptly at the specified times [@CL-CLS-0555; @CL-CLS-0193]. See [prospective price redetermination contracts](../../close-revrec/revenue/cls-fixed-price-prospective-price-redetermination.md). For what the clause requires of the contractor, see [the prospective price redetermination clause](est-prospective-price-redetermination-clause.md). For fixed-price contracts in general, see [fixed-price contracts in general](est-fixed-price-contracts-general.md).
 
 ## Worked example
 
@@ -54,7 +54,7 @@ Solicitation C buys office supplies at a firm fixed price under simplified acqui
 
 ## Never confuse
 
-The provision and the clause are different instruments with different triggers. The provision goes in a solicitation unless one of two exceptions applies [@CL-EST-2975]. The clause goes in solicitations and contracts, and when the acquisition is negotiated, a fixed-price contract is contemplated and the specified conditions apply [@CL-EST-2976]. The two exceptions to the provision do not govern the clause, and the three prerequisites for the clause do not govern the provision [@CL-EST-2975; @CL-EST-2976].
+The provision at 52.216-1 goes in a solicitation unless it is for a fixed-price acquisition made under simplified acquisition procedures or for information or planning purposes [@CL-EST-2975]. The clause at 52.216-5 goes in solicitations and contracts when contracting by negotiation, when a fixed-price contract is contemplated and the specified conditions apply [@CL-EST-2976].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Whether each solicitation in the pipeline carries the contract type provision an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited negatives and added only-wording removed; limitations and conditions restated with their qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of solicitation provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of solicitation provision.

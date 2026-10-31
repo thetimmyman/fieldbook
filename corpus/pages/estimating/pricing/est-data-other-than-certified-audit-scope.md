@@ -35,7 +35,7 @@ Auditors cannot perform examinations or render formal opinions on proposals supp
 
 ## How it works
 
-Auditors may perform examinations on proposals supported by cost data, and the volume and quality of the data decide the type of opinion [@CL-EST-0673]. Before starting fieldwork the auditor must coordinate with the contracting officer to assess risk, evaluate the data level required, and help the contracting officer decide whether an examination, agreed-upon procedures or advisory services best serve the procurement [@CL-EST-0674]. The deciding line is the data behind the proposal: cost data can be examined, while for sales or pricing data alone the manual points to agreed-upon procedures rather than an examination [@CL-EST-0672; @CL-EST-0673]. The auditor also evaluates whether the submitted data is adequate for an examination, recognizing that deficiencies may come from the contractor missing solicitation requirements or from the contracting officer asking for too little data [@CL-EST-0910]. The auditor applies professional judgment, advises the contracting officer if required information was not provided, or recommends that the contracting officer solicit more data to protect the Government's interest [@CL-EST-0911].
+Auditors may perform examinations on proposals supported by cost data, and the volume and quality of the data determine the resulting opinion type (unqualified, qualified, adverse, or disclaimer), using FAR Part 15 as a general guideline [@CL-EST-0673]. Because an examination resulting in a disclaimer of opinion provides little value when insufficient cost data has been required [@CL-EST-9618], auditors must coordinate with the contracting officer prior to starting fieldwork to assess risk, evaluate the required data level, and help the contracting officer decide whether an examination, agreed-upon procedures, or advisory services best serve the procurement needs [@CL-EST-0674]. For proposals supported solely by sales or pricing data, auditors cannot perform examinations or render formal opinions but can provide agreed-upon procedures to assist the contracting officer [@CL-EST-0671; @CL-EST-0672]. The auditor will evaluate whether submitted data other than certified cost or pricing data is adequate to perform an examination [@CL-EST-9619], recognizing that deficiencies may stem either from the contractor failing to meet solicitation requirements or from the contracting officer requesting insufficient data to perform an audit [@CL-EST-0910]. Because regulations like FAR 15.4 provide general guidelines [@CL-EST-9620], the auditor must apply professional judgment to evaluate compliance, advising the contracting officer if the contractor failed to provide required information or recommending that the contracting officer solicit additional data to protect the Government's interest [@CL-EST-0911].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ An offeror supports a commercial item price only with its catalog sales history.
 
 ## Never confuse
 
-The same kinds of data can appear in both kinds of proposal, the difference being the certification [@CL-EST-0669]. What changes the audit service here is the type of support, cost data or sales and pricing data [@CL-EST-0672; @CL-EST-0673]. The certified data rules are in [Certified cost or pricing data](est-certified-cost-or-pricing-data.md).
+Data other than certified cost or pricing data may look identical to certified data, with the primary difference being that it is not certified [@CL-EST-0669]. Auditors may perform examinations on proposals supported by cost data [@CL-EST-0673], but cannot perform examinations or render formal opinions on proposals supported solely by sales or pricing data [@CL-EST-0671; @CL-EST-0672]. The certified data rules are in [Certified cost or pricing data](est-certified-cost-or-pricing-data.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Lead-in reasons and qualifiers restored with companion claims; must wording restored.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the contracting officer who decides, as the cited text does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for data other than certified cost or pricing data.

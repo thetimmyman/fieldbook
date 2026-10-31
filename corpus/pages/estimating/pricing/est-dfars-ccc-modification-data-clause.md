@@ -35,7 +35,7 @@ The clause lists three items. The first is the profit rate or fee, as applicable
 
 ## How it works
 
-The clause takes the place of FAR 52.215-21 where it applies, and under it certified cost or pricing data is not required [@CL-EST-1725; @CL-EST-1726]. The Canadian Commercial Corporation instead supplies the three listed items for modifications that exceed the dollar value stated in the clause or the higher value set in the solicitation [@CL-EST-1727; @CL-EST-1728; @CL-EST-1729; @CL-EST-1730]. The description of the data for the third item is left to the United States Contracting Officer to insert [@CL-EST-1786]. Beyond the three listed items and that insert, the printed clause states no form or format for the data, so the source does not establish one. The printed clause also has no flowdown paragraph, so the source does not establish a flowdown to subcontracts. The matching provision for the Canadian Commercial Corporation is covered on [Supplemental cost principles and data other than certified data from the Canadian Commercial Corporation](../../contract-finance/billing-payment/ctf-dfars-supplemental-cost-principles-and-ccc-data.md).
+The clause takes the place of FAR 52.215-21 where it applies, and under it certified cost or pricing data is not required [@CL-EST-1725; @CL-EST-1726]. The Canadian Commercial Corporation shall obtain and provide the three listed items for modifications that exceed $150,000, or a higher dollar value specified by the United States Contracting Officer in the solicitation [@CL-EST-1727; @CL-EST-1728; @CL-EST-1729; @CL-EST-1730]. The description of the data for the third item is left to the United States Contracting Officer to insert [@CL-EST-1786]. The matching provision for the Canadian Commercial Corporation is covered on [Supplemental cost principles and data other than certified data from the Canadian Commercial Corporation](../../contract-finance/billing-payment/ctf-dfars-supplemental-cost-principles-and-ccc-data.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contract was awarded to the Canadian Commercial Corporation with this clause, 
 
 ## Never confuse
 
-Data other than certified cost or pricing data is not certified data, and this clause says certified data is not required [@CL-EST-1726]. The only-one-offer provision also has a Canadian Commercial Corporation route, but it works from a notice by the Contracting Officer; see [Only one offer received](est-only-one-offer.md). A different DFARS clause asks for a price breakdown with any proposal for a contract modification; see [Modification price breakdown and bidding schedule pricing](est-dfars-modification-price-breakdown-and-bidding-schedules.md). The format rules for data other than certified data are on [Data submission format and instructions](est-data-submission-format-and-instructions.md).
+Under this clause, submission of certified cost or pricing data is not required [@CL-EST-1726], and the third listed item is data other than certified cost or pricing data necessary to permit a determination by the United States Contracting Officer that the proposed price is fair and reasonable [@CL-EST-1730]. For the only-one-offer provision, see [Only one offer received](est-only-one-offer.md). For the DFARS clause on a price breakdown for a contract modification, see [Modification price breakdown and bidding schedule pricing](est-dfars-modification-price-breakdown-and-bidding-schedules.md). The format rules for data other than certified data are on [Data submission format and instructions](est-data-submission-format-and-instructions.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Whether any expected award or modification will run through the Canadian Commerc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Obligation wording restored to shall obtain and provide with the dollar threshold; uncited negatives and contrasts replaced with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the modifications clause for the Canadian Commercial Corporation.

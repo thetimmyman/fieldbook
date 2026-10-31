@@ -35,9 +35,9 @@ When conducting a source selection for fuel that is for an overseas contingency 
 
 ## How it works
 
-For structures, best value is judged with life-cycle cost in the determination, so the cost of the equipment, fuel and electricity needed to run the structure counts alongside the purchase price [@CL-EST-2428]. A buying office outside DoD that acquires structures on behalf of DoD follows the same rule [@CL-EST-2429].
+For structures, the determination of best value includes consideration of the total life-cycle costs of the tents or structures, including the costs associated with any equipment, fuel or electricity needed to heat, cool or light them [@CL-EST-2428]. The requirements apply to any agency or department that acquires tents or other temporary structures on behalf of DoD [@CL-EST-2429].
 
-For fuel, the contracting officer must consider using a tradeoff process, which is not the same as being required to use one, and the four listed factors are suggestions to consider rather than required factors [@CL-EST-2430; @CL-EST-2431]. Where a tradeoff process was not considered, the written justification states why, goes to an official one level above the contracting officer for approval before the solicitation issues, and is kept in the contract file [@CL-EST-2432; @CL-EST-2433].
+For fuel, the contracting officer must consider using a tradeoff process in accordance with FAR 15.101-1 [@CL-EST-2430], and in any such tradeoff process should consider using past performance, cost, anticorruption training and anticorruption compliance as evaluation factors [@CL-EST-2431]. If a tradeoff process was not considered, then before the solicitation is issued the contracting officer must justify in writing why a tradeoff process was not considered and obtain approval by an official one level above the contracting officer [@CL-EST-2432], and must include the justification in the contract file [@CL-EST-2433].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A contracting officer plans a source selection for fuel for an overseas continge
 
 ## Never confuse
 
-The tent rule is not a preference for the cheaper structure, because life-cycle cost including energy is part of the best value determination [@CL-EST-2428]. The fuel rule is not a command to use a tradeoff process, because it requires the contracting officer to consider one and, where one was not considered, to justify that in writing [@CL-EST-2430; @CL-EST-2432]. The general source selection duties and the limits on lowest price technically acceptable awards are covered on their own cards and are not repeated here.
+For tents and other temporary structures, the determination of best value includes consideration of the total life-cycle costs, including the costs associated with any equipment, fuel or electricity needed to heat, cool or light them [@CL-EST-2428]. For fuel for an overseas contingency operation, the contracting officer must consider using a tradeoff process and, if one was not considered, must justify in writing why not [@CL-EST-2430; @CL-EST-2432]. Other source selection duties are covered in [Source selection responsibilities and evaluation](est-source-selection-responsibilities-and-evaluation.md) and [Lowest price technically acceptable source selection](est-lpta-source-selection.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ That the program records a life-cycle comparison for shelter buys and a tradeoff
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to track the cited text and drop uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the simplified acquisition threshold condition to the fuel tradeoff duty in the purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for best value for tents and temporary structures, and the contingency fuel tradeoff process.

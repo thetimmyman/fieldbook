@@ -41,18 +41,18 @@ An established price is a price that meets both of two conditions [@CL-EST-0941]
 
 ## How it works
 
-The definitions name two award-fee roles. The board assists the Fee-Determining Official [@CL-EST-0940]. The official reviews the board's recommendations in determining the amount of award fee to be earned for each evaluation period [@CL-EST-0942]. The definitions do not say who the designated Agency official is, who sits on the board, or what the award-fee plan contains. For the conditions under which award-fee contracts are used and how fee is earned, see [award-fee contracts](est-award-fee-contracts.md).
+The definitions name two award-fee roles. The board assists the Fee-Determining Official [@CL-EST-0940]. The official reviews the board's recommendations in determining the amount of award fee to be earned for each evaluation period [@CL-EST-0942]. For the conditions under which award-fee contracts are used and how fee is earned, see [award-fee contracts](est-award-fee-contracts.md).
 
-Rollover moves unearned award fee from one evaluation period to a later one and gives the contractor another opportunity to earn it [@CL-EST-0943]. The definition covers only fee that the contractor had an opportunity to earn [@CL-EST-0943]. It does not say whether a given contract allows rollover.
+Rollover moves unearned award fee from one evaluation period to a later one and gives the contractor another opportunity to earn it [@CL-EST-0943]. The definition describes the unearned award fee as fee which the contractor had an opportunity to earn [@CL-EST-0943].
 
-An established price fails the definition if either condition is missing [@CL-EST-0941]. The price must be a catalog or market price for a commercial product sold in substantial quantities to the general public, and it must be the net price after standard trade discounts offered by the contractor [@CL-EST-0941].
+An established price is a price that is an established catalog or market price for a commercial product sold in substantial quantities to the general public and is the net price after applying any standard trade discounts offered by the contractor [@CL-EST-0941].
 
 | Term | Definition | Elements or limits | Claim |
 |---|---|---|---|
-| Award-Fee Board | The team of individuals identified in the award-fee plan who have been designated to assist the Fee-Determining Official in making award-fee determinations | Team named in the award-fee plan; designated to assist the Fee-Determining Official | [@CL-EST-0940] |
+| Award-Fee Board | The team of individuals identified in the award-fee plan who have been designated to assist the Fee-Determining Official in making award-fee determinations | Team identified in the award-fee plan; designated to assist the Fee-Determining Official | [@CL-EST-0940] |
 | Established price | A price that (1) is an established catalog or market price for a commercial product sold in substantial quantities to the general public, and (2) is the net price after applying any standard trade discounts offered by the contractor | Both elements required: element (1) and element (2) | [@CL-EST-0941] |
 | Fee-Determining Official (FDO) | The designated Agency official or officials who review the recommendations of the Award-Fee Board in determining the amount of award fee to be earned by the contractor for each evaluation period | One official or several; reviews the board's recommendations; applies to each evaluation period | [@CL-EST-0942] |
-| Rollover of unearned award fee | The process of transferring unearned award fee, which the contractor had an opportunity to earn, from one evaluation period to a subsequent evaluation period, thus allowing the contractor an additional opportunity to earn that previously unearned award fee | Covers only fee the contractor had an opportunity to earn | [@CL-EST-0943] |
+| Rollover of unearned award fee | The process of transferring unearned award fee, which the contractor had an opportunity to earn, from one evaluation period to a subsequent evaluation period, thus allowing the contractor an additional opportunity to earn that previously unearned award fee | Unearned award fee which the contractor had an opportunity to earn | [@CL-EST-0943] |
 
 ## Worked example
 
@@ -62,7 +62,7 @@ An award-fee plan names a board of five people. The plan sets evaluation periods
 
 ## Never confuse
 
-The section as stored here defines the four terms above. It prints no definition of base fee or of an award-fee evaluation period, so those two terms are not defined by this card. A catalog price is not by itself an established price, because the price must also be the net price after the standard trade discounts that the contractor offers [@CL-EST-0941]. The FAR definitions section defines a catalog price for purposes of the services described in paragraph (2) of its definition of commercial service, as a price included in a catalog, price list, schedule, or other form that is regularly maintained by the manufacturer or vendor [@CL-EST-9331]. Under that definition the price is also either published or otherwise available for inspection by customers, and it states prices at which sales are currently, or were last, made to a significant number of buyers constituting the general public [@CL-EST-9332]. The section on this card does not say that this definition governs the established price for a commercial product. The board assists in making award-fee determinations, and the Fee-Determining Official reviews the board's recommendations in determining the award fee to be earned [@CL-EST-0940; @CL-EST-0942].
+An established price is an established catalog or market price for a commercial product sold in substantial quantities to the general public that is also the net price after applying any standard trade discounts offered by the contractor [@CL-EST-0941]. The FAR definitions section defines a catalog price for purposes of the services described in paragraph (2) of its definition of commercial service, as a price included in a catalog, price list, schedule, or other form that is regularly maintained by the manufacturer or vendor [@CL-EST-9331]. Under that definition the price is also either published or otherwise available for inspection by customers, and it states prices at which sales are currently, or were last, made to a significant number of buyers constituting the general public [@CL-EST-9332]. The board assists in making award-fee determinations, and the Fee-Determining Official reviews the board's recommendations in determining the award fee to be earned [@CL-EST-0940; @CL-EST-0942].
 
 ## Company calibration
 
@@ -72,5 +72,6 @@ Which contract types the company holds by revenue, so these definitions are appl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited negative remarks removed; only-wording on rollover and board identification matched to the definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of catalog price.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract-type definitions.

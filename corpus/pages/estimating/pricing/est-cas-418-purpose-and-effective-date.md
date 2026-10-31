@@ -31,11 +31,11 @@ States the purpose and the start rules of the Standard on allocation of direct a
 
 The purpose of the Standard is to provide for consistent determination of direct and indirect costs and criteria for the accumulation of indirect costs, including service center and overhead costs, in indirect cost pools [@CL-EST-2902]. It also provides guidance on selecting allocation measures based on the beneficial or causal relationship between an indirect cost pool and cost objectives [@CL-EST-2903]. Consistent application of the criteria and guidance will improve the classification of costs as direct and indirect and the allocation of indirect costs [@CL-EST-2974].
 
-The Standard is effective as of 17 April 1992, and contractors with prior CAS-covered contracts with full coverage shall continue its applicability upon receipt of a contract to which it is applicable [@CL-EST-2904]. For contractors with no previous contracts subject to the Standard, it shall be applied beginning with the contractor's second full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2905]. The effective date section names no approving official; the duty to continue or begin applying the Standard falls on the contractor.
+The Standard is effective as of 17 April 1992, and contractors with prior CAS-covered contracts with full coverage shall continue its applicability upon receipt of a contract to which it is applicable [@CL-EST-2904]. For contractors with no previous contracts subject to the Standard, it shall be applied beginning with the contractor's second full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2905].
 
 ## How it works
 
-The purpose section states aims and creates no separate duty: consistent determination of direct and indirect costs, criteria for accumulating indirect costs in pools, and guidance on selecting allocation measures from the beneficial or causal relationship between a pool and cost objectives [@CL-EST-2902; @CL-EST-2903]. The start rule turns on whether the contractor already held full-coverage CAS contracts, because a contractor with no previous contracts subject to the Standard waits until its second full fiscal year after receipt [@CL-EST-2904; @CL-EST-2905]. The requirements themselves are on the main card.
+The purpose section states these aims: consistent determination of direct and indirect costs, criteria for accumulating indirect costs in pools, and guidance on selecting allocation measures from the beneficial or causal relationship between a pool and cost objectives [@CL-EST-2902; @CL-EST-2903]. The start rule has two cases: contractors with prior CAS-covered contracts with full coverage shall continue the Standard's applicability upon receipt of a contract to which it is applicable [@CL-EST-2904], and for contractors with no previous contracts subject to the Standard it shall be applied beginning with the contractor's second full fiscal year beginning after that receipt [@CL-EST-2905]. The requirements themselves are on the main card.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor with a calendar fiscal year has never held a contract subject to th
 
 ## Never confuse
 
-The purpose section is not a rule about how much a pool may contain: it states aims about classifying costs as direct or indirect, accumulating indirect costs in pools, and selecting allocation measures [@CL-EST-2902; @CL-EST-2903]. The start rule here is not the start rule of the capital assets under construction Standard: this Standard waits for the second full fiscal year, where that Standard begins with the next one [@CL-EST-2905; @CL-EST-2901].
+The purpose section states the aims of consistent determination of direct and indirect costs, criteria for the accumulation of indirect costs in indirect cost pools, and guidance on the selection of allocation measures [@CL-EST-2902; @CL-EST-2903]. The start rule here is not the start rule of the capital assets under construction Standard: this Standard waits for the second full fiscal year, where that Standard begins with the next one [@CL-EST-2905; @CL-EST-2901].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Confirm how the company classifies each cost as direct or indirect and which all
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Purpose and start-rule wording aligned with the cited text; uncited statements and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the allocation of direct and indirect costs Standard purpose and effective date.

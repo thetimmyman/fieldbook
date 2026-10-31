@@ -33,7 +33,7 @@ The purpose of the Standard is to establish criteria for the measurement of the 
 
 An intangible capital asset means an asset that has no physical substance, has more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the benefits it yields, and it includes right-of-use assets acquired under leases [@CL-EST-2898]. A tangible capital asset means an asset that has physical substance, more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the services it yields [@CL-EST-2899]. Other terms defined elsewhere in part 99 have the meanings given in those definitions unless paragraph (b) of the section requires otherwise [@CL-EST-2966], and paragraph (b) applies no modification to those terms for this Standard [@CL-EST-2967].
 
-The Standard is effective as of 17 April 1992, and contractors with prior CAS-covered contracts with full coverage shall continue its applicability upon receipt of a contract to which it is applicable [@CL-EST-2900]. For contractors with no previous contracts subject to the Standard, it shall be applied beginning with the contractor's next full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2901]. The effective date section names no approving official; the duty to continue or begin applying the Standard falls on the contractor.
+The Standard is effective as of 17 April 1992, and contractors with prior CAS-covered contracts with full coverage shall continue its applicability upon receipt of a contract to which it is applicable [@CL-EST-2900]. For contractors with no previous contracts subject to the Standard, it shall be applied beginning with the contractor's next full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2901].
 
 ## How it works
 
@@ -49,7 +49,7 @@ A contractor with a calendar fiscal year and no previous contract subject to the
 
 ## Never confuse
 
-The purpose is not a financing charge on a contract: the Standard sets criteria for measuring cost of money attributable to capital assets under construction, fabrication or development as an element of the cost of those assets [@CL-EST-2897]. The two asset definitions are close but not identical: both require more than minimal value, only a tangible asset has physical substance, and only the intangible definition names right-of-use assets acquired under leases [@CL-EST-2898; @CL-EST-2899]. The start rule is not the one in the direct and indirect cost Standard: this Standard begins with the next full fiscal year, and that one with the second [@CL-EST-2901; @CL-EST-2905].
+The purpose is to establish criteria for measuring the cost of money attributable to capital assets under construction, fabrication or development as an element of the cost of those assets [@CL-EST-2897]. The two asset definitions are close but not identical: both require more than minimal value, only a tangible asset has physical substance, and only the intangible definition names right-of-use assets acquired under leases [@CL-EST-2898; @CL-EST-2899]. The start rule is not the one in the direct and indirect cost Standard: this Standard begins with the next full fiscal year, and that one with the second [@CL-EST-2901; @CL-EST-2905].
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Confirm which capital projects are under construction at each segment and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Purpose restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the capital assets under construction cost of money Standard purpose, definitions and effective date.
