@@ -29,13 +29,13 @@ Shows what the DoD EVMS Interpretation Guide is for, which policy it rests on an
 | Text status | Not established. |
 | Applies to | Programs where an earned value management system requirement is applied [@CL-PRG-0623] |
 
-The guide gives the overarching DoD interpretation of the 27 guidelines where an earned value management system requirement applies, and it is the authoritative source for interpretive guidance and the basis for assessing compliance [@CL-PRG-0623]. It says the federal references it cites require federal Government agency contractors to establish, maintain and use a compliant system on all major capital asset acquisitions [@CL-PRG-0624].
+The guide gives the overarching DoD interpretation of the 27 guidelines where an earned value management system requirement applies, and it serves as the authoritative source for interpretive guidance and is used as the basis for DoD to assess compliance [@CL-PRG-0623]. It says the federal references it cites require federal Government agency contractors to establish, maintain and use a system that is compliant with the 27 guidelines on all major capital asset acquisitions [@CL-PRG-0624].
 
 When DoD is the cognizant federal agency, the Defense Contract Management Agency is responsible for determining compliance, and the procuring contracting officer does not retain that function [@CL-PRG-0625].
 
 ## How it works
 
-The guide defines an earned value management system as the management control system that ties a program's work scope, schedule and budget together for planning and control [@CL-PRG-0622]. It is the basis DoD uses to assess compliance, and the Defense Contract Management Agency holds the determination when DoD is the cognizant agency [@CL-PRG-0623; @CL-PRG-0625]. The step-by-step determination is on [the compliance determination page](prg-evms-compliance-determination.md).
+The guide defines an earned value management system as the management control system that ties a program's work scope, schedule and budget together for optimum program planning and control [@CL-PRG-0622]. It is the basis DoD uses to assess compliance, and the Defense Contract Management Agency holds the determination when DoD is the cognizant agency [@CL-PRG-0623; @CL-PRG-0625]. The step-by-step determination is on [the compliance determination page](prg-evms-compliance-determination.md).
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Whether the company's own system documents follow this guide, and which agency i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: restored DoD actor and 27 guidelines.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Interpretation Guide.

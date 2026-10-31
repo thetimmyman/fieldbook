@@ -45,7 +45,7 @@ A requiring activity designates a batch of protective masks as personal protecti
 
 ## Never confuse
 
-This section is the Defense supplement's prohibition for designated items; it sets no dollar threshold, and it does not displace the separate bar on reverse auctions for personal protective equipment in the general rules [@CL-MKT-1605]. The general limits on when a reverse auction is suitable and how it is awarded are on [Reverse auctions: suitability and award](mkt-reverse-auctions-suitability-and-award.md). The prohibition here turns on the requiring activity's designation and its advice, not on how the contracting officer would otherwise run the auction [@CL-MKT-2116; @CL-MKT-2117].
+This section is the Defense supplement's prohibition for designated items; it sets no dollar threshold, and the general rules separately bar reverse auction processes for acquisition of personal protective equipment [@CL-MKT-1604; @CL-MKT-1605]. The general limits on when a reverse auction is suitable and how it is awarded are on [Reverse auctions: suitability and award](mkt-reverse-auctions-suitability-and-award.md). The prohibition here turns on the requiring activity's designation and its advice, not on how the contracting officer would otherwise run the auction [@CL-MKT-2116; @CL-MKT-2117].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which catalogue items the requiring activity designates as personal protective e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: general bar on personal protective equipment cited to lead-in and item.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on reverse auctions for protective equipment and aviation critical safety items.

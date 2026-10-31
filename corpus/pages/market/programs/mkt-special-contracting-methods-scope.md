@@ -37,7 +37,7 @@ Compliance with the subpart on acquisitions for the Defense Department by nondef
 
 ## How it works
 
-The part is organized by method, and each subpart holds the operative rules for its method. The scope sections name no decision maker and state coverage, not duties on a contractor. For the options subpart, agency regulations can change which listed contracts it reaches, so the agency's own rules decide that question [@CL-MKT-2158]. The nondefense-agency subpart adds requirements on top of the general interagency rules and does not replace them [@CL-MKT-2141].
+The part is organized by method, and each subpart holds the operative rules for its method. The scope sections name no decision maker and state coverage, not duties on a contractor. For the options subpart, the exclusion of the listed contracts is subject to what agency regulations provide [@CL-MKT-2158]. The nondefense-agency subpart adds requirements on top of the general interagency rules and does not replace them [@CL-MKT-2141].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which entities and contracts sit in the finance remit for these methods, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: options subpart exclusion wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the special contracting methods part and its two subparts.

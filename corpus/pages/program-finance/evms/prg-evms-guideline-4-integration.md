@@ -31,11 +31,11 @@ Shows what the guide expects when the scheduling, budgeting, work authorization 
 
 The guideline asks the contractor to provide for the integration of the scheduling, budgeting, work authorization and cost accumulation processes with each other and, as appropriate, with the work and organizational structures [@CL-PRG-0174]. The guide says integrating planning, scheduling, budgeting, work authorization and cost accumulation management processes provides the capability to establish the performance measurement baseline, identify work progress and collect actual costs [@CL-PRG-0175].
 
-Integration runs through coding structures that use unique identifiers and common data elements, or a simple mapping method [@CL-PRG-0176]. The earned value system must also integrate subcontractor data [@CL-PRG-0177]. Those subsystems are joined by one common and unique coding structure across all levels of the work structure and the organizational structure [@CL-PRG-0178].
+Integration runs through coding structures that use unique identifiers and common data elements, or a simple mapping method [@CL-PRG-0176]. The earned value system must also integrate subcontractor data [@CL-PRG-0177]. The planning, scheduling, budgeting, work authorization and cost accumulation subsystems are integrated via a common and unique coding structure for all levels of the contract work breakdown structure and the organizational structure [@CL-PRG-0178].
 
 ## How it works
 
-The guideline names the processes that have to be integrated with each other: scheduling, budgeting, work authorization and cost accumulation [@CL-PRG-0174]. Unique identifiers and common data elements, or a simple mapping method, integrate the processes [@CL-PRG-0176]. The unique coding allows data from one system to relate to and be consistent with the data of the other systems [@CL-PRG-0562]. The integration provides the capability to establish the baseline, identify work progress and collect actual costs [@CL-PRG-0175]. Subcontractor data sits inside that boundary as well [@CL-PRG-0177].
+The guideline names the processes that have to be integrated with each other: scheduling, budgeting, work authorization and cost accumulation [@CL-PRG-0174]. Unique identifiers and common data elements, or a simple mapping method, integrate the processes [@CL-PRG-0176]. The unique coding allows data from one system to relate to and be consistent with the data of each of the other systems, at the level established by the unique coding and/or charge number level through the total contract level [@CL-PRG-0562]. The integration provides the capability to establish the baseline, identify work progress and collect actual costs [@CL-PRG-0175]. Subcontractor data sits inside that boundary as well [@CL-PRG-0177].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Whether the coding structure that links planning, scheduling, budgeting, work au
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: restored level qualifier and subsystem list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the subsidiary management process guideline.

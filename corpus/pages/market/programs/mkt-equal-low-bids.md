@@ -50,7 +50,7 @@ Three small business bidders submit the same low price. Bidder A expects manufac
 
 ## Never confuse
 
-Labor surplus area status is not small business status: the provision applies to small business concerns only, and the labor surplus area identification matters when bids are tied [@CL-MKT-1105; @CL-MKT-1106]. The identification states where the manufacturing or production costs will be incurred, and it is not a price [@CL-MKT-1107]. The small business set-aside rules are on the [Small business set-asides and the socioeconomic programs](mkt-small-business-set-asides.md) card.
+Labor surplus area status is not small business status: the provision applies to small business concerns only, and the labor surplus area identification matters when bids are tied [@CL-MKT-1105; @CL-MKT-1106]. The identification names the labor surplus area in which the manufacturing or production costs are to be incurred, and a bidder gives it only if it wishes to be considered for the priority [@CL-MKT-1107]. The small business set-aside rules are on the [Small business set-asides and the socioeconomic programs](mkt-small-business-set-asides.md) card.
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Whether each bidding entity and contract is inside the finance remit, so the lab
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: identification sentence limited to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the labor surplus area concern definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of labor surplus area and labor surplus area concern.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of labor surplus area and labor surplus area concern.

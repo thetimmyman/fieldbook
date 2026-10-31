@@ -29,13 +29,13 @@ Lists what the administrative contracting officer and the contract administratio
 | Text status | Final [@CL-MKT-0459] |
 | Applies to | Contracts that contain the subcontracting plan clause or a subcontracting plan [@CL-MKT-0459] |
 
-The administrative contracting officer is responsible for assisting in evaluating subcontracting plans and for monitoring, evaluating and documenting contractor performance under the subcontracting plan clause and any plan in the contract [@CL-MKT-0459]. The contract administration office shall furnish, as appropriate, documentation on the contractor's performance and compliance with subcontracting plans under previous contracts [@CL-MKT-0460].
+The administrative contracting officer is responsible for assisting in evaluating subcontracting plans and for monitoring, evaluating and documenting contractor performance under the subcontracting plan clause and any plan in the contract [@CL-MKT-0459]. The contract administration office shall provide the necessary information and advice to support the contracting officer, as appropriate, by furnishing documentation on the contractor's performance and compliance with subcontracting plans under previous contracts [@CL-MKT-0460].
 
 One listed item furnished is immediate notice if, during performance, the contractor is failing to meet its commitments under the subcontracting plan clause or the plan [@CL-MKT-0461]. Another is immediate notice and rationale if, during performance, the contractor is failing to comply in good faith with the plan [@CL-MKT-0462]. Another is immediate notice that performance is complete, that the goals were or were not met, and, if not met, whether there is any indication of a lack of good faith effort [@CL-MKT-0463].
 
 ## How it works
 
-The contract administration office supports the contracting officer at two points. Before award it supplies past performance documentation, which the contracting officer uses when judging a proposed plan, as the [Reviewing the subcontracting plan](mkt-subcontracting-plan-review.md) card describes [@CL-MKT-0460; @CL-MKT-0447]. During and at the end of performance it gives immediate notices on missed commitments, lack of good faith and completion [@CL-MKT-0461; @CL-MKT-0462; @CL-MKT-0463]. The printed section also lists items on progress toward goals, on whether efforts follow the plan and on subcontractor plans, and these are not drafted on this card. The contracting officer can start liquidated damages action on the administrative contracting officer's recommendation, if one is assigned, or on other reliable evidence that assessing them is warranted [@CL-MKT-0458].
+The contract administration office supports the contracting officer at two points. Before award it supplies past performance documentation, which the contracting officer uses when judging a proposed plan, as the [Reviewing the subcontracting plan](mkt-subcontracting-plan-review.md) card describes [@CL-MKT-0460; @CL-MKT-0447]. During and at the end of performance it gives immediate notices on missed commitments, lack of good faith and completion [@CL-MKT-0461; @CL-MKT-0462; @CL-MKT-0463]. The printed section also lists items on progress toward goals, on whether efforts follow the plan and on subcontractor plans, and these are not drafted on this card. After a contract or modification containing a subcontracting plan is awarded or an existing plan is amended, the contracting officer shall initiate action to assess liquidated damages upon a recommendation by the administrative contracting officer, if one is assigned, or receipt of other reliable evidence to indicate that assessing them is warranted [@CL-MKT-0453; @CL-MKT-0458].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Who at the company answers the contract administration office about plan perform
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: support wording and liquidated damages duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for responsibilities of the administrative contracting officer for subcontracting plans.

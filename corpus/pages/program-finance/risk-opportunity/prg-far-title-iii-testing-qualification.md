@@ -29,7 +29,7 @@ Shows who pays for testing and qualification of industrial resources developed w
 
 It is the policy of the Government to pay for any testing and qualification required for the use or incorporation of the industrial resources manufactured or developed with assistance provided under Title III of the Defense Production Act of 1950 [@CL-PRG-0891].
 
-A contractor that receives a request from a Title III project contractor for testing and qualification of a Title III industrial resource must refer the request to the contracting officer [@CL-PRG-0892]. The contracting officer must evaluate the request in accordance with agency procedures to determine whether the listed conditions are met [@CL-PRG-0893]. One condition is that the Title III industrial resource is being or potentially may be used in the development or manufacture of a major system or item of supply [@CL-PRG-0894]. The other is that, for major systems in production, remaining quantities to be acquired are sufficient to justify incurring the cost of testing and qualification [@CL-PRG-0893; @CL-PRG-0895]. In evaluating a request for testing and qualification, the contracting officer must consult with the Defense Production Act Office, Title III Program [@CL-PRG-0892; @CL-PRG-0896].
+A contractor that receives a request from a Title III project contractor for testing and qualification of a Title III industrial resource must refer the request to the contracting officer [@CL-PRG-0892]. The contracting officer must evaluate the request in accordance with agency procedures to determine whether the listed conditions are met [@CL-PRG-0893]. One condition is that the Title III industrial resource is being or potentially may be used in the development or manufacture of a major system or item of supply [@CL-PRG-0894]. The other is that, for major systems in production, remaining quantities to be acquired are sufficient to justify incurring the cost of testing and qualification [@CL-PRG-0893; @CL-PRG-0895]. In evaluating a request for testing and qualification, the contracting officer must consult with the Defense Production Act Office, Title III Program [@CL-PRG-0896].
 
 If the determination about the listed conditions is affirmative, the contracting officer must modify the contract to require the contractor to test the Title III industrial resource for qualification [@CL-PRG-0893; @CL-PRG-0897]. The Defense Production Act Office, Title III Program, must provide to the contractor the industrial resource produced by the Title III project contractor in sufficient amounts to meet testing needs [@CL-PRG-0898]. The clause at 52.234-1 must be inserted in all contracts for major systems and items of supply [@CL-PRG-0899].
 
@@ -47,7 +47,7 @@ A prime contractor on a major system receives a request to test a new alloy made
 
 ## Never confuse
 
-A request from a Title III project contractor does not itself change the contract: the contractor refers it, the contracting officer evaluates it, and an affirmative determination leads to a modification [@CL-PRG-0892; @CL-PRG-0893; @CL-PRG-0897]. The test is also not done at the contractor's own cost by default, since the stated policy is that the Government pays [@CL-PRG-0891]. The resource under test comes from the Title III office, not from the contractor's own supply [@CL-PRG-0898]. Governance of major system acquisitions is on [Major system acquisition governance under the FAR](../baseline/prg-far-major-system-governance.md).
+A request from a Title III project contractor does not itself change the contract: the contractor refers it, the contracting officer evaluates it, and an affirmative determination leads to a modification [@CL-PRG-0892; @CL-PRG-0893; @CL-PRG-0897]. The stated policy is that the Government pays for any testing and qualification required for the use or incorporation of these industrial resources [@CL-PRG-0891]; that policy sentence does not itself say how the contract price is adjusted. The resource under test comes from the Title III office, not from the contractor's own supply [@CL-PRG-0898]. Governance of major system acquisitions is on [Major system acquisition governance under the FAR](../baseline/prg-far-major-system-governance.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Whether any contract has received a Title III testing request or modification, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed mis-cited pointer; policy wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.100 scope and 34.101 definition of item of supply.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for testing and qualification of Title III industrial resources.

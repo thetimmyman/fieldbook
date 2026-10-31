@@ -29,7 +29,7 @@ Governs the decomposition of control account scope, schedule, and budget into ex
 | Text status | Not established. |
 | Applies to | Control accounts in an earned value management system [@CL-PRG-0227] |
 
-The contractor must plan authorized scope, schedule, and budget into work packages and planning packages [@CL-PRG-0227]. Budgets are determined in terms of dollars, hours, or other measurable units such that the sum of all work package and planning package budgets equals the control account budget [@CL-PRG-0228]. Distributing all control account budgets to either work packages or planning packages ensures the Performance Measurement Baseline is planned at an executable level that aligns with how meaningful performance measurements will be achieved [@CL-PRG-0230].
+The contractor must plan authorized scope, schedule, and budget into work packages and/or planning packages [@CL-PRG-0227]. Budgets are determined in terms of dollars, hours, or other measurable units such that the sum of all work package and planning package budgets equals the control account budget [@CL-PRG-0228]. Distributing all control account budgets to either work packages or planning packages ensures the Performance Measurement Baseline is planned at an executable level that aligns with how meaningful performance measurements will be achieved [@CL-PRG-0230].
 
 ## How it works
 
@@ -43,7 +43,7 @@ A control account has an authorized budget of 500,000 across a 12-month period. 
 
 ## Never confuse
 
-Work packages and planning packages sit within control accounts, whereas Summary Level Planning Packages sit above the control account level [@CL-PRG-0233; @CL-PRG-0216]. A planning package holds scope, schedule and budget for work that is not yet detail planned, and is detail planned into work packages at the earliest practicable point [@CL-PRG-0231; @CL-PRG-0232]. See [Earned value management system requirement](prg-evms-requirement.md).
+Work package and planning package budgets sit within control accounts [@CL-PRG-0233]. For future effort that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level [@CL-PRG-0216]. When authorized control account work scope cannot be planned in the near-term, a planning package holds its scope, schedule and budget until the work is detail planned into work packages, which happens at the earliest practicable point before any work is performed on that scope [@CL-PRG-0231; @CL-PRG-0232]. See [Earned value management system requirement](prg-evms-requirement.md).
 
 The guideline on the performance measurement criteria for each work package is covered in [performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md).
 
@@ -55,6 +55,7 @@ Which control account work scope the company holds in planning packages, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: restored and/or; SLPP permissive wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on EVMS Guideline 10.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 9 work packages and planning packages.

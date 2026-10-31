@@ -29,7 +29,7 @@ Shows how the safety of Government personnel enters an award-fee evaluation, who
 | Text status | Final [@CL-MKT-1856] |
 | Applies to | Any award-fee plan, and contracts that include the clause at 252.216-7004 [@CL-MKT-1856; @CL-MKT-1859] |
 
-The contracting officer shall include in the evaluation criteria of any award-fee plan a review of contractor and subcontractor actions that jeopardized the health or safety of Government personnel through gross negligence or reckless disregard for the safety of such personnel [@CL-MKT-1856]. That review is determined through a conviction in a criminal proceeding, or a finding of fault and liability in a civil or administrative proceeding [@CL-MKT-1857]. If a contractor or a subcontractor at any tier is not subject to the jurisdiction of the United States courts, the determination is a final determination of contractor or subcontractor fault resulting from a DoD investigation [@CL-MKT-1858].
+The contracting officer shall include in the evaluation criteria of any award-fee plan a review of contractor and subcontractor actions that jeopardized the health or safety of Government personnel through gross negligence or reckless disregard for the safety of such personnel [@CL-MKT-1856]. The actions reviewed are as determined through one of two alternatives: a conviction in a criminal proceeding, or a finding of fault and liability in a civil or administrative proceeding [@CL-MKT-1857; @CL-MKT-9333]; or, if a contractor or a subcontractor at any tier is not subject to the jurisdiction of the United States courts, a final determination of contractor or subcontractor fault resulting from a DoD investigation [@CL-MKT-1858].
 
 In evaluating the contractor's performance under a contract that includes the clause at 252.216-7004, the contracting officer shall consider reducing or denying award fees [@CL-MKT-1859]. That consideration covers a period in which contractor or subcontractor actions cause serious bodily injury or death of civilian or military Government personnel [@CL-MKT-1860]. The contracting officer's evaluation also shall consider recovering all or part of award fees previously paid for such period [@CL-MKT-1861]. Covered incident and serious bodily injury, as used in the section, are defined in the clause at 252.216-7004 [@CL-MKT-1855].
 
@@ -57,5 +57,6 @@ How the company's award-fee plans record the health-and-safety review, and what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Determination routes stated as alternatives, cited to a companion.
 - COMPATIBLE_EXTENSION, 2026-10-30: Restored the jurisdiction condition on the final DoD determination route in the summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award fee reduction or denial for jeopardizing Government personnel safety under DFARS 216.405-2-70.

@@ -40,7 +40,7 @@ When leader company contracting is used, the Government shall reserve the right 
 
 The contracting officer may award a prime contract to the leader company, obligating it to subcontract a designated portion of the required end items to a specified follower company and to assist that follower to produce them [@CL-MKT-1724].
 
-The contracting officer may instead award a prime contract to the leader company for the required assistance and a prime contract to the follower for production of the items, or award a prime contract to the follower, obligating it to subcontract with a designated leader company for the required assistance [@CL-MKT-1725].
+The contracting officer may instead award a prime contract to the leader company for the required assistance and a prime contract to the follower for production of the items, or award a prime contract to the follower, obligating it to subcontract with a designated leader company for the required assistance [@CL-MKT-1724; @CL-MKT-1725].
 
 Whichever route is used, the contracting officer shall ensure that any contract awarded under the arrangement contains a firm agreement regarding disclosure, if any, of contractor trade secrets, technical designs or concepts, and specific data or software of a proprietary nature [@CL-MKT-1726]. The Government's right to approve subcontracts between the leader and the follower applies whenever the technique is used [@CL-MKT-1723].
 
@@ -66,4 +66,5 @@ Whether any program depends on a leader-follower arrangement, which agency proce
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: alternative awards cite the lead-in claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for leader company contracting.

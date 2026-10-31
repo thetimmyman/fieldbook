@@ -35,7 +35,7 @@ The contracting officer shall insert the provision at 52.217-10, Reverse Auction
 
 ## How it works
 
-Each prescription is a duty of the contracting officer. The 52.217-10 provision is prescribed for solicitations, while the 52.217-11 and 52.217-12 clauses are prescribed for solicitations and contracts [@CL-MKT-2124; @CL-MKT-2125; @CL-MKT-2126]. The triggers differ: an award made through a reverse auction, the possibility that orders may be placed by reverse auction under a multiple-award contract or blanket purchase agreement, and the purchase of reverse auction services [@CL-MKT-2124; @CL-MKT-2125; @CL-MKT-2126]. The orders clause is triggered by the chance that a reverse auction may be used for orders, not only by actual use [@CL-MKT-2125]. The definitions separate Government data from the material a contractor holds while handling it, and leave out the contractor's own records and general tools [@CL-MKT-2120; @CL-MKT-2121; @CL-MKT-2122].
+Each prescription is a duty of the contracting officer. The 52.217-10 provision is prescribed for solicitations, while the 52.217-11 and 52.217-12 clauses are prescribed for solicitations and contracts [@CL-MKT-2124; @CL-MKT-2125; @CL-MKT-2126]. The triggers differ: an award made through a reverse auction, the possibility that orders may be placed by reverse auction under a multiple-award contract or blanket purchase agreement, and the purchase of reverse auction services [@CL-MKT-2124; @CL-MKT-2125; @CL-MKT-2126]. The orders clause is triggered by the chance that a reverse auction may be used for orders, not only by actual use [@CL-MKT-2125]. The definitions separate Government data from the material a contractor holds while handling it, and leave out the contractor's business records and data such as operating procedures, software coding or algorithms that are not uniquely applied to the Government data [@CL-MKT-2120; @CL-MKT-2121; @CL-MKT-2122].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which agreements use reverse auctions, and who confirms the provision and clause
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: exclusions wording follows definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the reverse auction definitions and the provision and clause prescriptions.

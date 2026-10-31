@@ -29,11 +29,11 @@ Shows who may protest a firm's status as an economically disadvantaged women-own
 | Text status | Final [@CL-MKT-0589] |
 | Applies to | Protests of an offeror's EDWOSB or WOSB status [@CL-MKT-0589; @CL-MKT-0590] |
 
-For sole source acquisitions, the contracting officer or SBA may protest the offeror's status as an economically disadvantaged women-owned small business concern or as a women-owned small business concern eligible under the Women-Owned Small Business Program [@CL-MKT-0589]. For all other acquisitions, an interested party may protest the apparent successful offeror's status [@CL-MKT-0590]. An interested party that wants to protest both size and WOSB or EDWOSB status shall file two separate protests [@CL-MKT-0654].
+For sole source acquisitions, the contracting officer or SBA may protest the offeror's status as an economically disadvantaged women-owned small business concern or as a women-owned small business concern eligible under the Women-Owned Small Business Program [@CL-MKT-0589]. For all other acquisitions, an interested party may protest the apparent successful offeror's status [@CL-MKT-0590]. An interested party seeking to protest both the small business size and the WOSB or EDWOSB status of an apparent successful offeror shall file two separate protests [@CL-MKT-0654].
 
 The FAR definitions section describes a women-owned small business concern eligible under the WOSB Program as a small business concern that is at least 51 percent directly and unconditionally owned by, and whose management and daily business operations are controlled by, one or more women who are citizens of the United States [@CL-MKT-9232], and that is certified by SBA or an approved third-party certifier in accordance with 13 CFR 127.300 [@CL-MKT-9233].
 
-An offeror shall submit its protest to the contracting officer to be received by the close of business by the fifth business day after bid opening for sealed bid acquisitions [@CL-MKT-0591]. For negotiated acquisitions, one listed deadline is the close of business by the fifth business day after receipt of the special notification that identifies the apparently successful offeror [@CL-MKT-0592]. Any protest received after the designated time limit is untimely, unless it is from the contracting officer or SBA [@CL-MKT-0593].
+An offeror shall submit its protest to the contracting officer to be received by the close of business by the fifth business day after bid opening for sealed bid acquisitions [@CL-MKT-0591]. For negotiated acquisitions, one listed deadline is the close of business by the fifth business day after receipt of the special notification that identifies the apparently successful offeror; the quoted line goes on to name two kinds of order under multiple-award contracts that this card does not restate [@CL-MKT-0592]. Any protest received after the designated time limit is untimely, unless it is from the contracting officer or SBA [@CL-MKT-0593].
 
 ## How it works
 
@@ -47,7 +47,7 @@ A women-owned set-aside draws a status protest, and the contracting officer with
 
 ## Never confuse
 
-Here SBA decides the status protest first [@CL-MKT-0594], and its determination is final unless overturned on appeal by OHA [@CL-MKT-0595], while for service-disabled veteran-owned protests OHA decides the merits [@CL-MKT-0587]. The service-disabled route is on the [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) card. A protest about size is not a status protest, and a party that wants both shall file two separate protests [@CL-MKT-0654]. The size route is on the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card. The conditions for a set-aside or sole-source award under the program are on the [Women-Owned Small Business Program set-asides and sole-source awards](mkt-wosb-set-asides-and-sole-source.md) card.
+Here SBA determines the merits of the status protest [@CL-MKT-0594], and its determination is final unless overturned on appeal by OHA [@CL-MKT-0595], while for service-disabled veteran-owned protests OHA decides the merits [@CL-MKT-0587]. The service-disabled route is on the [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) card. A protest about size is not a status protest, and a party seeking to protest both the size and the status of an apparent successful offeror shall file two separate protests [@CL-MKT-0654]. The size route is on the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card. The conditions for a set-aside or sole-source award under the program are on the [Women-Owned Small Business Program set-asides and sole-source awards](mkt-wosb-set-asides-and-sole-source.md) card.
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which bids need immediate support when a status protest could be filed or answer
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: negotiated deadline continuation, apparent successful offeror, SBA decides wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of WOSB concern eligible under the WOSB Program.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protests of economically disadvantaged or women-owned small business status.

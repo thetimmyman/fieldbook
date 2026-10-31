@@ -31,7 +31,7 @@ Shows how the guide builds the performance measurement baseline from scope, sche
 
 The performance measurement baseline is a dollarized time-phased plan, set primarily at the control account level, that reflects how the contractor intends to use its resources for all authorized work [@CL-PRG-0639]. The sum of management reserve and the baseline is the contract budget base, also called the total allocated budget, which is reconcilable with the contract target cost [@CL-PRG-0640]. A portion of the contract budget base may be withheld outside the baseline as management reserve, to manage risk within the established contract scope [@CL-PRG-0642].
 
-The integrated network schedule gives visibility into the accomplishment of the tasks required for the contractual scope and is the basis for creating the baseline [@CL-PRG-0641]. The category stresses the integrity of the baseline: the sum of lower-level budgets in the baseline must not exceed the total time-phased budget, and all internal program budgets and management reserve reconcile to the contractual target cost [@CL-PRG-0643]. Among the planning parameters the guide lists is ensuring that the budgets of work packages and planning packages sum to the total budget authorized for the control account [@CL-PRG-0644].
+The integrated network schedule gives visibility into the accomplishment of the tasks required for the contractual scope and is the basis for creating the baseline [@CL-PRG-0641]. The guide says the category emphasizes maintaining the baseline's integrity by ensuring that the sum of lower-level budgets in the baseline does not exceed the total time-phased budget and that all internal program budgets and management reserve reconcile to the contractual target cost [@CL-PRG-0643]. Among the planning parameters the guide lists is ensuring that the budgets of work packages and planning packages sum to the total budget authorized for the control account [@CL-PRG-0644].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Who holds management reserve, and which baseline and risk decisions change the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the integrity sentence to match the guide's wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Planning, Scheduling and Budgeting category.

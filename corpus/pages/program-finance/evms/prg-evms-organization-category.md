@@ -29,7 +29,7 @@ Shows how the guide sets up the work structure, the organization and the control
 | Text status | Not established. |
 | Applies to | Programs that must set up a work breakdown structure, an organization structure, control accounts and integrated subsystems [@CL-PRG-0634] |
 
-The primary objectives of the four Organization guidelines, guidelines 1 through 4, are to establish the framework for capturing all contractually authorized work, identify the organization hierarchy responsible for it, and create a structure that integrates all subsystems [@CL-PRG-0634]. The work breakdown structure breaks the program work into manageable segments, and each element contains a specific scope of work [@CL-PRG-0635]. The organization breakdown structure identifies the managers responsible for work accomplishment [@CL-PRG-0636].
+The primary objectives of the four Organization guidelines, guidelines 1 through 4, are to establish the basic framework for capturing all contractually authorized work to be accomplished, identify the program organization hierarchy responsible for accomplishing that work, and create a structure that integrates all subsystems allowing for management control [@CL-PRG-0634]. The work breakdown structure breaks the program work into manageable segments, and each element contains a specific scope of work [@CL-PRG-0635]. The organization breakdown structure identifies the managers responsible for work accomplishment [@CL-PRG-0636].
 
 Assigning organizational elements to work breakdown elements establishes the control accounts, which are the primary management control points for work authorization, budgeting, cost accumulation and performance measurement [@CL-PRG-0637]; the detail is on [the control account guideline](prg-evms-guideline-3-control-accounts.md). The subsystems for planning, scheduling, budgeting, work authorization and cost accumulation must integrate within the system, so that data from one is relatable to and consistent with the data of the others [@CL-PRG-0638]; the detail is on [the integration guideline](prg-evms-guideline-4-integration.md).
 
@@ -55,4 +55,5 @@ Which work breakdown and control account standards the company's programs use, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: restored management control purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Organization category.

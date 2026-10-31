@@ -35,7 +35,7 @@ The SBA and an agency match the agency's requirements with the capabilities of 8
 
 ## How it works
 
-Of the three listed ways, one is that the SBA advises the contracting activity of a participant's capabilities through a search letter and requests the contracting activity to identify acquisitions to support the participant's business plans [@CL-MKT-0495; @CL-MKT-0496]. A second listed way is that the SBA identifies a specific requirement for one or more participants and sends a requirements letter to the agency's Office of Small and Disadvantaged Business Utilization or, for the Department of Defense, to the Office of Small Business Programs [@CL-MKT-0495; @CL-MKT-0497]. A third listed way is that agencies review other proposed acquisitions to identify requirements that may be offered to the SBA [@CL-MKT-0495; @CL-MKT-0498]. This card does not restate the information the SBA must supply with a search letter or a requirements letter, the contracting officer's duty to comply with another section before offering an acquisition under the program, or what an agency may offer when it identifies a requirement itself.
+Of the three listed ways, one is that the SBA advises the contracting activity of a participant's capabilities through a search letter and requests the contracting activity to identify acquisitions to support the participant's business plans [@CL-MKT-0495; @CL-MKT-0496]. A second listed way is that the SBA identifies a specific requirement for one or more participants and sends a requirements letter to the agency's Office of Small and Disadvantaged Business Utilization or, for the Department of Defense, to the Office of Small Business Programs [@CL-MKT-0495; @CL-MKT-0497]. A third listed way is that agencies may also review other proposed acquisitions for the purpose of identifying requirements which may be offered to the SBA [@CL-MKT-0495; @CL-MKT-0498]. This card does not restate the information the SBA must supply with a search letter or a requirements letter, the contracting officer's duty to comply with another section before offering an acquisition under the program, or what an agency may offer when it identifies a requirement itself.
 
 Determining the eligibility of a small business to be a participant in the 8(a) program is the responsibility of the Small Business Administration, whose regulations on eligibility requirements for participation in the program are found at 13 CFR 124.101 through 124.112 [@CL-MKT-2099].
 
@@ -57,5 +57,6 @@ Which product families, customer groups and market segments the company expects 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Third way restated with its may.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who determines eligibility for the 8(a) program.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for selecting acquisitions for the 8(a) program.

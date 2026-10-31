@@ -29,7 +29,7 @@ Shows who approves an undefinitized contract action (UCA), how much of the not-t
 | Text status | Final [@CL-MKT-1545] |
 | Applies to | Approval of undefinitized contract actions and the funds obligated before definitization [@CL-MKT-1545; @CL-MKT-1548] |
 
-The contracting officer shall obtain approval from the head of the contracting activity before entering into a UCA [@CL-MKT-1545]. The request must fully explain the need to begin performance before definitization, including the adverse impact on agency requirements from delay [@CL-MKT-1615]. The same approval route covers two further steps: including requirements for non-urgent spare parts and support equipment, and modifying the scope of a UCA when performance has already begun. The request for either of those two steps should show that the step is consistent with good business practices and in the best interest of the United States [@CL-MKT-1546; @CL-MKT-1547].
+The contracting officer shall obtain approval from the head of the contracting activity before entering into a UCA [@CL-MKT-1545]. The request must fully explain the need to begin performance before definitization, including the adverse impact on agency requirements from delay [@CL-MKT-1615]. The same approval route covers two further steps: including requirements for non-urgent spare parts and support equipment, and modifying the scope of a UCA when performance has already begun [@CL-MKT-1545; @CL-MKT-1546; @CL-MKT-1547]. The request for either of those two steps should show that the step is consistent with good business practices and in the best interest of the United States [@CL-MKT-1546; @CL-MKT-1547].
 
 The FAR's general definitions say contracting activity means an element of an agency designated by the agency head and delegated broad authority regarding acquisition functions [@CL-MKT-9196].
 
@@ -65,6 +65,7 @@ Which executed UCAs and scope modifications sit within the finance remit, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: approval route for further steps cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a contrast with the head of the contracting activity that the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the good-business-practices showing to the spares and scope-change requests.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contracting activity.

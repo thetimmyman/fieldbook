@@ -33,7 +33,7 @@ The guideline requires significant differences between planned and actual schedu
 
 ## How it works
 
-Focused variance analysis by the control account manager gives program management insight into significant problem areas and highlights the potential need for management action [@CL-PRG-0707]. The analysis identifies the factors causing the variance, such as efficiency, rate and timing, and its potential impacts [@CL-PRG-0705]. Corrective actions or mitigation plans are identified [@CL-PRG-0706]. Schedule variance analysis is supplemented with integrated master schedule analysis and assesses the impact on future critical path, near-critical path, and driving path activities [@CL-PRG-0312].
+Focused variance analysis by the control account manager gives program management insight into significant problem areas and highlights the potential need for management action to mitigate potential or realized program risks [@CL-PRG-0707]. The analysis identifies the factors causing the variance, such as efficiency, rate and timing, and its potential impacts [@CL-PRG-0705]. Corrective actions or mitigation plans are identified [@CL-PRG-0706]. Schedule variance analysis is supplemented with integrated master schedule analysis and assesses the impact on future critical path, near-critical path, and driving path activities [@CL-PRG-0312].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ Whether significant variances are analyzed, with reasons and potential impacts, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the risk-mitigation purpose of management action that the guide states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 18 significant variance analysis.

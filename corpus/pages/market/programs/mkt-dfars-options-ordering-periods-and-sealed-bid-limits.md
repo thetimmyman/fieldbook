@@ -31,7 +31,7 @@ Shows how long the ordering period of a DoD task or delivery order contract may 
 
 Notwithstanding FAR 17.204(e), the ordering period of a task order or delivery order contract, including a contract for information technology, awarded by DoD pursuant to section 3403 of title 10, United States Code, may be for any period up to 5 years [@CL-MKT-1903]. That ordering period may be subsequently extended for one or more successive periods in accordance with an option provided in the contract or a modification of the contract [@CL-MKT-1904]. It shall not exceed 10 years unless the head of the agency determines in writing that exceptional circumstances require a longer ordering period [@CL-MKT-1905].
 
-The ordering-period paragraph does not apply to contracts, including task or delivery order contracts, awarded under other statutory authority [@CL-MKT-1906]. It does not apply to advisory and assistance service task order contracts that are limited by statute to 5 years, with the authority to extend an additional 6 months [@CL-MKT-1907]. It also does not apply to definite-quantity contracts, GSA schedule contracts, or multi-agency contracts awarded by agencies other than NASA, DoD or the Coast Guard [@CL-MKT-1908].
+The ordering-period paragraph does not apply to contracts, including task or delivery order contracts, awarded under other statutory authority [@CL-MKT-1906]. It does not apply to advisory and assistance service task order contracts authorized by section 3405 of title 10, United States Code, that are limited by statute to 5 years, with the authority to extend an additional 6 months [@CL-MKT-1907]. It also does not apply to definite-quantity contracts, GSA schedule contracts, or multi-agency contracts awarded by agencies other than NASA, DoD or the Coast Guard [@CL-MKT-1908].
 
 Approval from the senior procurement executive must be obtained before an order is issued against a task or delivery order contract subject to the ordering-period paragraph, if performance under the order is expected to extend more than 1 year beyond the 10-year limit [@CL-MKT-1909]. The limit that counts is the 10-year limit or the extended limit described in the paragraph on exceptional circumstances, and the paragraph points to FAR 37.106 for funding and term of service contracts [@CL-MKT-2029].
 
@@ -61,4 +61,5 @@ How ordering-period end dates and option exercise decisions are tracked for each
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Advisory and assistance statute reference restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contracts with options and the sealed bid option evaluation limit.

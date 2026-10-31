@@ -31,7 +31,7 @@ Shows who sets the timing of an Integrated Baseline Review, what a solicitation 
 
 The timing and conduct of the review must be in accordance with agency procedures [@CL-PRG-0866]. If a pre-award review will be conducted, the solicitation must include the procedures for conducting it and address whether offerors will be reimbursed for the associated costs [@CL-PRG-0867]. If reimbursement is permitted, it is governed by the provisions of FAR Part 31 [@CL-PRG-0868].
 
-The contracting officer must insert a provision substantially the same as FAR 52.234-2, the Notice of Earned Value Management System, Preaward Integrated Baseline Review [@CL-PRG-0869]. That insertion is for solicitations for contracts that require the contractor to use an EVMS and for which the Government requires a review prior to award [@CL-PRG-0870]. The contracting officer must also insert a provision substantially the same as 52.234-3, the Postaward notice [@CL-PRG-0871], in solicitations for contracts that require the EVMS and for which the Government requires a review after contract award [@CL-PRG-0872]. A clause substantially the same as FAR 52.234-4, Earned Value Management System, goes in solicitations and contracts that require a contractor to use an EVMS [@CL-PRG-0873].
+The contracting officer must insert a provision substantially the same as FAR 52.234-2, the Notice of Earned Value Management System, Preaward Integrated Baseline Review [@CL-PRG-0869]. That insertion is for solicitations for contracts that require the contractor to use an EVMS and for which the Government requires a review prior to award [@CL-PRG-0870]. The contracting officer must also insert a provision substantially the same as 52.234-3, the Postaward notice [@CL-PRG-0871], in solicitations for contracts that require the EVMS and for which the Government requires a review after contract award [@CL-PRG-0872]. The contracting officer must also insert a clause substantially the same as FAR 52.234-4, Earned Value Management System, in solicitations and contracts that require a contractor to use an EVMS [@CL-PRG-0873].
 
 ## How it works
 
@@ -55,5 +55,6 @@ Which of the company's contracts carry the earned value clause, and whether a re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: named contracting officer as actor for clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Integrated Baseline Review timing, offeror cost reimbursement and the earned value provisions and clause.

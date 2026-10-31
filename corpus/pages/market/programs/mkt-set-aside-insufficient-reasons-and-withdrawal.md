@@ -43,7 +43,7 @@ Two of these carry a large-business exception. A total small business set-aside 
 
 ## How it works
 
-If, before award of a contract involving a total or partial small business set-aside, the contracting officer considers that award would be detrimental to the public interest, for example payment of more than a fair market price, the contracting officer may withdraw the set-aside, whether it was unilateral or joint [@CL-MKT-1303]. The contracting officer initiates the withdrawal by written notice, stating the reasons, to the agency small business specialist and the SBA procurement center representative or, if none is assigned, as provided in 19.402(a) [@CL-MKT-1304]. The contracting officer may modify a unilateral or joint class small business set-aside in a similar manner to withdraw one or more individual acquisitions [@CL-MKT-1400].
+If, before award of a contract involving a total or partial small business set-aside, the contracting officer considers that award would be detrimental to the public interest, for example payment of more than a fair market price, the contracting officer may withdraw the set-aside, whether it was unilateral or joint [@CL-MKT-1303; @CL-MKT-9346]. The contracting officer initiates the withdrawal by written notice, stating the reasons, to the agency small business specialist and the SBA procurement center representative or, if none is assigned, as provided in 19.402(a) [@CL-MKT-1304]. The contracting officer may modify a unilateral or joint class small business set-aside in a similar manner to withdraw one or more individual acquisitions [@CL-MKT-1400].
 
 If the agency small business specialist does not agree to a withdrawal or modification, the case is promptly referred to the SBA procurement center representative or, if none is assigned, as provided in 19.402(a), for review [@CL-MKT-1401]. The contracting officer prepares a written statement supporting any withdrawal or modification and includes it in the contract file [@CL-MKT-1402].
 
@@ -69,5 +69,6 @@ Whether the file records the specific reason an acquisition was not set aside an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: withdrawal completion cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the construction change order notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for insufficient reasons, withdrawal and dissolution of a set-aside.
