@@ -33,7 +33,7 @@ An advance payment pool agreement is a means of financing the performance of mor
 
 ## How it works
 
-The pool is a single agreement that finances the performance of more than one contract held by a single contractor [@CL-CTF-0948]. The printed text singles out nonprofit educational and research institutions that hold several cost-type research contracts needing advance payments [@CL-CTF-0949], but pooled advance payments may also be used for other types of contracts held by a single contractor, when appropriate [@CL-CTF-1017]. A pool agreement may be established without regard to the number of appropriations involved and to finance contracts for one or more departments or contracting activities, among other ways [@CL-CTF-1015]. It may also be established in addition to another pool agreement at a single contractor location when more than one agreement is more convenient or otherwise preferable [@CL-CTF-1016].
+The pool is a single agreement that finances the performance of more than one contract held by a single contractor [@CL-CTF-0948]. The printed text singles out nonprofit educational and research institutions that hold several cost-type research contracts needing advance payments [@CL-CTF-0949], but pooled advance payments may also be used for other types of contracts held by a single contractor, when appropriate [@CL-CTF-1017]. A pool agreement may be established in one of several alternative ways: without regard to the number of appropriations involved, or to finance contracts for one or more departments or contracting activities [@CL-CTF-1015]. A further alternative is to establish it in addition to any other advance payment pool agreement at a single contractor location when it is more convenient or otherwise preferable to have more than one agreement [@CL-CTF-1016].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A nonprofit research institute holds three cost-type research contracts with the
 
 ## Never confuse
 
-A pool agreement is not a different kind of payment from an advance payment; it is a way of financing several contracts of one contractor [@CL-CTF-0948]. For the general advance payment rules, see [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md) and [Contract financing at a glance](ctf-financing-overview.md).
+A pool agreement is not a different kind of payment from an advance payment; it is a means of financing the performance of more than one contract held by a single contractor [@CL-CTF-0948; @CL-CTF-1017]. For the general advance payment rules, see [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md) and [Contract financing at a glance](ctf-financing-overview.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Confirm whether the company holds several contracts that one financing agreement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Pool set-up ways stated as alternatives; wording matched to the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD advance payment pool agreements.

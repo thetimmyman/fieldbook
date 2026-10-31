@@ -37,7 +37,7 @@ The enforceability of contract provisions for security of Government financing i
 
 ## How it works
 
-A purchase subject to part 32 is reached by the opening sections and by the first group of subparts [@CL-CTF-3509; @CL-CTF-3510]. Beyond that group, the authority under which the purchase is made sorts the financing subparts: a purchase under part 12 authority falls under the commercial purchase financing subpart, and a purchase under any other authority falls under the four non-commercial financing subparts [@CL-CTF-3511; @CL-CTF-3512; @CL-CTF-3513].
+A purchase subject to part 32 is reached by the opening sections and by the first group of subparts [@CL-CTF-3509; @CL-CTF-3510]. Beyond that group, the authority under which the purchase is made sorts the financing subparts: a purchase of commercial products or commercial services under part 12 authority falls under the commercial purchase financing subpart, and a purchase under any other authority falls under the four non-commercial financing subparts [@CL-CTF-3511; @CL-CTF-3512; @CL-CTF-3513].
 
 Where foreign jurisdictions may become involved, the duty to ensure enforceable security falls on the contracting officer and comes before the financing is provided [@CL-CTF-3514]. Local law and procedure decide whether the security can be enforced [@CL-CTF-3607]. The section names no particular form of security and no approval route. It says only that additional or different security may be required [@CL-CTF-3514].
 
@@ -65,6 +65,7 @@ The award authority behind each contract, and whether foreign jurisdictions may 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Commercial subpart sentence names commercial products and services under part 12.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.003 limit on financing for part 13 purchases.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.003 limit on financing for part 13 purchases.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

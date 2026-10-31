@@ -29,9 +29,9 @@ Sets out when the contracting officer may use performance-based payments, and wh
 | Text status | Final [@CL-CTF-3561] |
 | Applies to | Individual orders and contracts for which the contracting officer and the offeror agree the payment terms and the other listed conditions are met [@CL-CTF-3561; @CL-CTF-3562; @CL-CTF-3563] |
 
-The contracting officer may use performance-based payments for individual orders and contracts provided that the contracting officer and the offeror agree on the performance-based payment terms [@CL-CTF-3561]. A further condition is that the contract, individual order or line item is a fixed-price type [@CL-CTF-3562]. For an indefinite delivery contract the individual order must not provide for progress payments, and for other than an indefinite delivery contract the contract must not provide for progress payments [@CL-CTF-3563].
+The contracting officer may use performance-based payments for individual orders and contracts provided that the contracting officer and the offeror agree on the performance-based payment terms [@CL-CTF-3561]. A further condition is that the contract, individual order or line item is a fixed-price type [@CL-CTF-3562]. Two further conditions depend on the contract type: for an indefinite delivery contract the individual order does not provide for progress payments, and for other than an indefinite delivery contract the contract does not provide for progress payments [@CL-CTF-3563].
 
-The prescriptions direct that the clause at 52.232-32, Performance-Based Payments, be inserted in solicitations that may result in contracts providing for performance-based payments, and in fixed-price contracts under which the Government will provide them [@CL-CTF-3564]. They direct that the solicitation provision at 52.232-28, Invitation to Propose Performance-Based Payments, be inserted in negotiated solicitations that invite offerors to propose performance-based payments [@CL-CTF-3565]. The provision must be used with its Alternate I in competitive negotiated solicitations if the Government intends to adjust proposed prices for proposal evaluation purposes [@CL-CTF-3566].
+The prescriptions direct that the clause at 52.232-32, Performance-Based Payments, be inserted in solicitations that may result in contracts providing for performance-based payments, and in fixed-price contracts under which the Government will provide them [@CL-CTF-3564]. They direct that the solicitation provision at 52.232-28, Invitation to Propose Performance-Based Payments, be inserted in negotiated solicitations that invite offerors to propose performance-based payments [@CL-CTF-3565]. The prescription directs use of the provision with its Alternate I in competitive negotiated solicitations if the Government intends to adjust proposed prices for proposal evaluation purposes [@CL-CTF-3566].
 
 ## How it works
 
@@ -63,6 +63,7 @@ Which method of financing each order uses, who agrees the payment terms, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Progress payment conditions and Alternate I direction worded as the text states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the DoD condition for performance-based payments.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payments, criteria and clause prescriptions.

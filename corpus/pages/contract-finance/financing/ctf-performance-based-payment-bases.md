@@ -61,7 +61,7 @@ Responsibility for award is a different test from adequate security. An offeror'
 
 FAR 32.1002 gives bases for noncommercial purchases, while the DFARS security paragraph concerns commercial contract financing [@CL-CTF-3445; @CL-CTF-3431]. They are not one rule.
 
-DFARS 232.072 is the policy for determining financial capability [@CL-CTF-3432]. DFARS 232.202-4(a)(2) points to two of its subsections for guidance on security and adds the warning that responsibility for award and adequate security differ [@CL-CTF-3432; @CL-CTF-3430; @CL-CTF-3431].
+DFARS 232.072 is the policy for determining financial capability [@CL-CTF-3432]. DFARS 232.202-4(a)(2) points to DFARS 232.072-2 and 232.072-3 for guidance on whether an offeror's financial condition is adequate security and adds the warning that responsibility for award and adequate security differ [@CL-CTF-3432; @CL-CTF-3430; @CL-CTF-3431].
 
 The [performance-based payments](ctf-performance-based-payments.md) card covers the payment mechanics. The bases here are measures of performance or results [@CL-CTF-3429].
 
@@ -73,5 +73,6 @@ Which contracts receive performance-based payments and which measure of results 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Guidance pointer names the sections it points to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1000 scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payment bases.

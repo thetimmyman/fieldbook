@@ -47,7 +47,7 @@ A contractor holds an unliquidated advance balance of 200,000 for a full month. 
 
 ## Never confuse
 
-An advance payment that falls under a listed exclusion is outside the advance payments subpart [@CL-CTF-0922]. An advance payment made without interest is a different case, because the interest-free authority removes the interest charge for the listed types of contracts when the agency head or designee authorizes it [@CL-CTF-0927]. Interest that is charged is a further matter, because it is not reimbursable under cost-reimbursement contracts [@CL-CTF-0928]. See [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md).
+An advance payment that falls under a listed exclusion is outside the advance payments subpart [@CL-CTF-0922]. An advance payment made without interest is a different case, because the interest-free authority removes the interest charge for the listed types of contracts when the agency head or designee authorizes it and doing so is in the Government's interest [@CL-CTF-0927]. Interest that is charged is a further matter, because it is not reimbursable under cost-reimbursement contracts [@CL-CTF-0928]. See [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md).
 
 The codified exclusions apply to advance payments authorized by law for the listed items [@CL-CTF-0922], while the RFO text lists the exclusions for advance payments "for" those items without the words "authorized by law" [@CL-CTF-4153].
 
@@ -59,6 +59,7 @@ Confirm whether any advance payment the company receives bears interest, who com
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Interest-free authority sentence now carries the Government's-interest condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment exclusions and interest.
