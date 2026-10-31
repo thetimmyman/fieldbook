@@ -49,7 +49,7 @@ Three firms bid on the same line item. Two of the offers contain the same spelli
 
 ## Never confuse
 
-Identical bids must be reported when the agency has some reason to believe that collusion produced them [@CL-CMP-6844], and a sudden change from competitive to identical bidding is also a listed pattern that warrants notifying the authorities [@CL-CMP-6839; @CL-CMP-6838]. A listed pattern is a reason to notify the authorities, not a finding of wrongdoing [@CL-CMP-6838]. The certificate that offerors sign is a different tool; see [Evaluating the Certificate of Independent Price Determination](../regulatory-framework/cmp-certificate-of-independent-price-evaluation.md), where a rejection or a suspected false certificate also leads to a report to the Attorney General [@CL-CMP-6834].
+Identical bids must be reported when the agency has some reason to believe that collusion produced them [@CL-CMP-6844], and a sudden change from competitive to identical bidding is also a listed pattern that warrants notifying the authorities [@CL-CMP-6839; @CL-CMP-6838]. A listed pattern is a reason to notify the authorities, not a finding of wrongdoing [@CL-CMP-6838]. The certificate that offerors sign is a different tool; see [Evaluating the Certificate of Independent Price Determination](../regulatory-framework/cmp-certificate-of-independent-price-evaluation.md), where a rejection under FAR 3.103-2(b)(1) or (2), or a suspected false certificate, also leads to a report to the Attorney General [@CL-CMP-6834].
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Which pricing behaviors the company treats as red flags, and who reviews a bid f
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Limited the cross-reference to the Attorney General report to rejections under FAR 3.103-2(b)(1) or (2) and suspected false certificates.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for antitrust red flags and reporting suspected violations.
