@@ -35,11 +35,11 @@ Total cost is not allowable cost. Total cost includes all costs properly allocab
 
 ## How it works
 
-Composition starts with allocability: the direct and indirect costs allocable to the contract are added whether already incurred or still to be incurred, any allocable cost of money is added and allocable credits are subtracted [@CL-CMP-7508]. The cost of money is determined under FAR 31.205-10 (see [cost of money as an imputed cost](../cas-allowability/cmp-cost-of-money.md)), and standard costs enter total cost only after proper adjustment for applicable variances [@CL-CMP-7508]. Any generally accepted method of determining or estimating costs may be used, but only one that is equitable and consistently applied [@CL-CMP-7509]. Neither section names an approving official for the method.
+Composition starts with allocability: the direct and indirect costs allocable to the contract are added whether already incurred or still to be incurred, any allocable cost of money is added and allocable credits are subtracted [@CL-CMP-7508]. The cost of money is determined under FAR 31.205-10 (see [cost of money as an imputed cost](../cas-allowability/cmp-cost-of-money.md)), and standard costs enter total cost when properly adjusted for applicable variances [@CL-CMP-7508]. Any generally accepted method of determining or estimating costs that is equitable and consistently applied may be used [@CL-CMP-7509]. Neither section names an approving official for the method.
 
 The cost allowable to the Government is then narrowed from total cost to allowable cost, because only allocable costs that are allowable under part 31 and agency supplements count [@CL-CMP-7510].
 
-The credit rule reaches credits received by or accruing to the contractor, covers only the applicable portion of a credit that relates to an allowable cost, and is met by a cost reduction or by cash refund; the section does not name an approving official [@CL-CMP-7511]. Rules for a refund or credit to the Government associated with pension adjustments and asset reversions are at FAR 31.205-6(j)(3), not here [@CL-CMP-7512]. See [allowable compensation for personal services](../cas-allowability/cmp-compensation-personal-services.md).
+The credit rule reaches credits received by or accruing to the contractor, covers the applicable portion of a credit that relates to an allowable cost, and is met by a cost reduction or by cash refund; the section does not name an approving official [@CL-CMP-7511]. Rules for a refund or credit to the Government associated with pension adjustments and asset reversions are at FAR 31.205-6(j)(3), not here [@CL-CMP-7512]. See [allowable compensation for personal services](../cas-allowability/cmp-compensation-personal-services.md).
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.201-1 keeps the formula for the total cost of a contract [@CL-CMP-9373] and the rule that any generally accepted method of determining or estimating costs that is equitable and consistently applied may be used [@CL-CMP-9374]. It limits the allowable costs to the Government to those allocable costs that are allowable pursuant to this part, with no reference to applicable agency supplements [@CL-CMP-9375; @CL-CMP-7510]. RFO FAR 31.201-5 requires a credit relating to an allowable cost under a cost contract, received by or accruing to the contractor, to be credited to the Government [@CL-CMP-9376], as a cost reduction to the contract or a cash refund [@CL-CMP-9377]. It refers to 31.105-6(i)(3), not 31.205-6(j)(3), for pension adjustments and asset reversions [@CL-CMP-9377; @CL-CMP-7512].
 
@@ -61,5 +61,6 @@ How pools, bases, service centers and intercompany charges are defined and recon
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for composition of total cost and the treatment of credits.

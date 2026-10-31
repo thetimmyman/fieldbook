@@ -45,7 +45,7 @@ A final determination lists two material weaknesses in a labor distribution syst
 
 ## Never confuse
 
-A system criterion says what the accounting system must provide [@CL-CMP-0977]. A material weakness is a different test: a deficiency or combination of deficiencies in internal control over information in contractor business systems, such that there is a reasonable possibility that a material misstatement will not be prevented, or detected and corrected, on a timely basis [@CL-CMP-0980]. A reasonable possibility exists when the likelihood of the event is probable, or more than remote but less than likely [@CL-CMP-0981]. Disapproval is a separate outcome that the final determination addresses only if the contracting officer determines that one or more material weaknesses remain [@CL-CMP-0991].
+A system criterion says what the accounting system must provide [@CL-CMP-0977]. A material weakness is a different test: a deficiency or combination of deficiencies in internal control over information in contractor business systems, such that there is a reasonable possibility that a material misstatement will not be prevented, or detected and corrected, on a timely basis [@CL-CMP-0980]. A reasonable possibility exists when the likelihood of the event is probable, or more than remote but less than likely [@CL-CMP-0981]. Disapproval is a separate outcome that the final determination addresses if the contracting officer determines that one or more material weaknesses remain [@CL-CMP-0991].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ The current government status of each accounting system: approved, disapproved, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD Contractor Accounting System Administration clause.

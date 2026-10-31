@@ -29,7 +29,7 @@ Shows how the price of a service contract is adjusted when a wage determination 
 | Text status | Final [@CL-CMP-4815] |
 | Applies to | Contracts subject to area prevailing wage determinations and contracts subject to contractor collective bargaining agreements [@CL-CMP-4815] |
 
-The clause applies to contracts subject to area prevailing wage determinations and to contracts subject to contractor collective bargaining agreements [@CL-CMP-4815]. The contract price, contract unit price labor rates, or fixed hourly labor rates are adjusted to reflect the contractor's increases or decreases in wages and fringe benefits, but only to the extent that they are made to comply with a covered cause [@CL-CMP-4963]. There are two covered causes. One is an increased or decreased wage determination applied to the contract by operation of law [@CL-CMP-4817]. The other is an amendment to the Fair Labor Standards Act of 1938 that is enacted after award, affects the minimum wage and becomes applicable to the contract under law [@CL-CMP-4818].
+The clause applies to contracts subject to area prevailing wage determinations and to contracts subject to contractor collective bargaining agreements [@CL-CMP-4815]. The contract price, contract unit price labor rates, or fixed hourly labor rates are adjusted to reflect the contractor's increases or decreases in wages and fringe benefits to the extent that they are made to comply with a covered cause [@CL-CMP-4963]. There are two covered causes. One is an increased or decreased wage determination applied to the contract by operation of law [@CL-CMP-4817]. The other is an amendment to the Fair Labor Standards Act of 1938 that is enacted after award, affects the minimum wage and becomes applicable to the contract under law [@CL-CMP-4818].
 
 The contractor warrants that the prices include no allowance for any contingency to cover increased costs for which the clause provides an adjustment [@CL-CMP-4816]. An adjustment is limited to the wage and fringe benefit changes described above and to the accompanying changes in social security and unemployment taxes and workers' compensation insurance [@CL-CMP-4819]. It does not otherwise include any amount for general and administrative costs, overhead or profit [@CL-CMP-4820].
 
@@ -59,5 +59,6 @@ Which contracts carry the clause and who confirms the wage determination that ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the price adjustment.

@@ -53,7 +53,7 @@ For the first contract, the contractor is not a small business, an educational i
 
 ## Never confuse
 
-The clause at DFARS 252.242-7005 is used only when the contract is covered and includes a listed clause [@CL-CMP-7263], while the MMAS policy in DFARS 242.7202 is DoD policy about the system itself [@CL-CMP-7264]. The decision on acceptability is the contracting officer's, not the auditor's [@CL-CMP-7265].
+The clause at DFARS 252.242-7005 is used when the contract is covered and includes a listed clause [@CL-CMP-7263], while the MMAS policy in DFARS 242.7202 is DoD policy about the system itself [@CL-CMP-7264]. The decision on acceptability is the contracting officer's, not the auditor's [@CL-CMP-7265].
 
 The test of acceptability compares the system with the criteria in the clause at DFARS 252.242-7004 [@CL-CMP-7266]. The clause card for the material management and accounting system is [Material management and accounting system clause](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md), and the review steps are on [MMAS review procedures](cmp-mmas-review-procedures.md).
 
@@ -65,4 +65,5 @@ Which contracts include the business systems clause and which listed clauses, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the business systems clause prescription and the material management and accounting system policy.

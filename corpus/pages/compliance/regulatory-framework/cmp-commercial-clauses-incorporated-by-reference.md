@@ -49,7 +49,7 @@ A commercial products contract includes the clause. The contractor's compliance 
 
 ## Never confuse
 
-The by-reference clauses in paragraph (a) are not the selected clauses that follow, because those apply only to the extent the contracting officer has indicated them [@CL-CMP-9039; @CL-CMP-9045]. A listed clause and the statute beside it are different things: the clause is the contract term, and the statute is the authority the entry cites [@CL-CMP-9040]. The inverted domestic corporation clause in paragraph (a)(4) is a contract clause, which is not the offeror's representation that the offeror provision asks for at the offer stage [@CL-CMP-9043]. The paragraph (a) list is not RFO FAR 52.212-5 text, because the RFO text lists that section as [Reserved] [@CL-CMP-9039; @CL-CMP-0644].
+The by-reference clauses in paragraph (a) are not the selected clauses that follow, because those are the clauses the contracting officer has indicated [@CL-CMP-9039; @CL-CMP-9045]. A listed clause and the statute beside it are different things: the clause is the contract term, and the statute is the authority the entry cites [@CL-CMP-9040]. The inverted domestic corporation clause in paragraph (a)(4) is a contract clause, which is not the offeror's representation that the offeror provision asks for at the offer stage [@CL-CMP-9043]. The paragraph (a) list is not RFO FAR 52.212-5 text, because the RFO text lists that section as [Reserved] [@CL-CMP-9039; @CL-CMP-0644].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ The company must confirm that its contract register records these by-reference c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the by-reference clause paragraph of the commercial statutes and Executive orders clause.

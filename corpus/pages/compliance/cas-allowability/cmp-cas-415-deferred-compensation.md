@@ -33,7 +33,7 @@ Deferred compensation cost is assigned to the period in which the contractor inc
 
 ## How it works
 
-The trigger is the incurred obligation, not the date of the promise and not the cash payment [@CL-CMP-0570]. An obligation is incurred only when every listed condition is met: a future payment the contractor cannot unilaterally avoid, an award settled in money, other assets or contractor stock, an amount that can be measured with reasonable accuracy, a known recipient, a reasonable probability that any required events occur, and, for stock options, a reasonable probability of exercise [@CL-CMP-0838; @CL-CMP-0840; @CL-CMP-0841; @CL-CMP-0842]. Where the employee must perform future service to earn the award, the cost is recognized as the service is performed, not all at once when the award is made [@CL-CMP-0839]. Where a condition is not met, assignment is deferred and the cost sits in the period of payment, measured by the amount paid [@CL-CMP-0843; @CL-CMP-0571]. Measurement differs by vehicle: present value for ordinary awards, contribution amount for an ESOP [@CL-CMP-0572; @CL-CMP-0573]. The separate-award rule gives way to group treatment only where group measurement stays reasonably accurate [@CL-CMP-0574].
+The trigger is the incurred obligation, not the date of the promise and not the cash payment [@CL-CMP-0570]. An obligation is incurred only when every listed condition is met: a future payment the contractor cannot unilaterally avoid, an award settled in money, other assets or contractor stock, an amount that can be measured with reasonable accuracy, a known recipient, a reasonable probability that any required events occur, and, for stock options, a reasonable probability of exercise [@CL-CMP-0838; @CL-CMP-0840; @CL-CMP-0841; @CL-CMP-0842]. Where the employee must perform future service to earn the award, the cost is recognized as the service is performed, not all at once when the award is made [@CL-CMP-0839]. Where a condition is not met, assignment is deferred and the cost sits in the period of payment, measured by the amount paid [@CL-CMP-0843; @CL-CMP-0571]. Measurement differs by vehicle: present value for ordinary awards, contribution amount for an ESOP [@CL-CMP-0572; @CL-CMP-0573]. The separate-award rule gives way to group treatment where group measurement stays reasonably accurate [@CL-CMP-0574].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which business units are under full or modified coverage and where each deferred
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deferred compensation accounting.

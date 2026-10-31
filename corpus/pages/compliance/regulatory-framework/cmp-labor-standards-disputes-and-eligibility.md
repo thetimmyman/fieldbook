@@ -49,7 +49,7 @@ Later the Government refuses to authorize overtime for a week, but the first mec
 
 ## Never confuse
 
-A labor standards dispute is not an ordinary contract dispute. The clause routes it to the Department of Labor procedures and states that the Disputes clause does not govern it [@CL-CMP-5846]. Approval of a rate is also not approval of the cost, because the excess over the approved rate is never reimbursed [@CL-CMP-5851]. A refusal to authorize overtime is not a release from paying overtime actually worked [@CL-CMP-6195].
+A labor standards dispute is not an ordinary contract dispute. The clause routes it to the Department of Labor procedures and states that the Disputes clause does not govern it [@CL-CMP-5846]. Approval of a rate is also not approval of the cost, because any amount paid above the approved rate is at the contractor's expense and is not reimbursed by the Government [@CL-CMP-5851]. A refusal to authorize overtime is not a release from paying overtime actually worked [@CL-CMP-6195].
 
 The insertion rules for these clauses are covered in [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md), and the companion clauses on subcontracts and debarment are covered in [Labor standards subcontracts, termination for debarment and incorporated rulings](cmp-labor-standards-subcontracts-and-debarment.md).
 
@@ -61,6 +61,7 @@ Which covered contracts pay rates above the determination, and who confirms the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text on which disputes the labor standards disputes clause covers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction labor clause insertion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

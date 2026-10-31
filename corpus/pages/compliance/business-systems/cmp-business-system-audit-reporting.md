@@ -47,7 +47,7 @@ An audit of a contractor's estimating system finds two issues. The first is a mi
 
 ## Never confuse
 
-A system deficiency is a lesser finding than a material weakness; it does not rise to that level [@CL-CMP-1674]. An audit finding is also not the contracting officer's final determination. A payment withhold can follow only if the administrative contracting officer makes a final determination to disapprove the system [@CL-CMP-1680]. See [Business system withholds](cmp-business-system-withholds.md) and [Accounting system policy](cmp-dod-accounting-system-policy.md).
+A system deficiency is a lesser finding than a material weakness; it does not rise to that level [@CL-CMP-1674]. An audit finding is also not the contracting officer's final determination. Payments may be withheld if the administrative contracting officer makes a final determination to disapprove the system [@CL-CMP-1680]. See [Business system withholds](cmp-business-system-withholds.md) and [Accounting system policy](cmp-dod-accounting-system-policy.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Sort every open audit finding into material weakness, system deficiency or less 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business system audit reporting and deficiency classifications.

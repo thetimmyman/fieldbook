@@ -88,7 +88,7 @@ If the company calls the 10 inventory staff independent contractors, that label 
 
 Never confuse performing on a contract with performing in connection with a contract. Direct work on the specific services the contract calls for is the first, and work that is necessary to performance but is not those services is the second [@CL-CMP-8178; @CL-CMP-8179].
 
-Never confuse paragraph (1)(i) of the worker definition with the whole of it: special certificate workers and registered apprentices or trainees are added by paragraphs (1)(ii) and (1)(iii) [@CL-CMP-8175; @CL-CMP-8176; @CL-CMP-8177].
+Paragraph (1)(i) of the worker definition is not the whole of it: special certificate workers and registered apprentices or trainees are added by paragraphs (1)(ii) and (1)(iii) [@CL-CMP-8175; @CL-CMP-8176; @CL-CMP-8177].
 
 ## Company calibration
 
@@ -98,6 +98,7 @@ Which covered contracts, labor categories and headcounts the company counts insi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined worker definition sentences to their claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor minimum wage definitions.

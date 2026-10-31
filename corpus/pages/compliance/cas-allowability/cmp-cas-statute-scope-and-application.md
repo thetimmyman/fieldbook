@@ -38,7 +38,7 @@ The statute reaches certain contractors and subcontractors, not every one [@CL-C
 
 The duty has two parts: compliance with the CAS, and written disclosure of cost accounting practices together with consistent following of them [@CL-CMP-7026]. Both parts are stated for the same certain contractors and subcontractors [@CL-CMP-7026].
 
-The deemed-reference rule is conditional. It applies only to a contract that refers to FAR part 30 for the purpose of applying the CASB's policies, procedures, standards and regulations [@CL-CMP-7027]. The section names no official who decides, and no deadline or filing step.
+The deemed-reference rule is conditional. It applies to a contract that refers to FAR part 30 for the purpose of applying the CASB's policies, procedures, standards and regulations [@CL-CMP-7027]. The section names no official who decides, and no deadline or filing step.
 
 ## Worked example
 
@@ -62,5 +62,6 @@ Which legal entities, business units and contracts sit inside the finance remit,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statute reference in 48 CFR 9903.101.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Cost Accounting Standards statute's requirements and scope.

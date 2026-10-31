@@ -67,7 +67,7 @@ Now take an IDIQ contract where the agency will negotiate agreements order by or
 
 ## Never confuse
 
-Never confuse the provision at 52.222-33 with the clause at 52.222-34 [@CL-CMP-8005; @CL-CMP-8009]. The provision is a solicitation document, and the clause goes in solicitations and in contracts [@CL-CMP-8005; @CL-CMP-8009].
+The provision at 52.222-33 is not the clause at 52.222-34 [@CL-CMP-8005; @CL-CMP-8009]. The provision is a solicitation document, and the clause goes in solicitations and in contracts [@CL-CMP-8005; @CL-CMP-8009].
 
 Never match alternate numbers across the two. For submission after award, the provision uses Alternate II and the clause uses Alternate I; Alternate III of the provision goes with Alternate II of the clause [@CL-CMP-8007; @CL-CMP-8008; @CL-CMP-8010].
 
@@ -79,4 +79,5 @@ Which of the company's construction pursuits involve a project labor agreement, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the project labor agreement solicitation provision and clause.

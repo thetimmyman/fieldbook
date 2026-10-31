@@ -42,7 +42,7 @@ A contractor's billings for the quarter total 500,000 while the cost accounts sh
 
 ## Never confuse
 
-Accounting system criteria are not rules on whether a particular cost is allowable; the system must exclude from contract charges amounts that are not allowable under the cost principles [@CL-CMP-0409]. A disapproval is a separate step from a finding of material weaknesses: withholding follows a final disapproval only when the business systems clause is present [@CL-CMP-0414].
+Accounting system criteria are not rules on whether a particular cost is allowable; the system must exclude from contract charges amounts that are not allowable under the cost principles [@CL-CMP-0409]. A disapproval is a separate step from a finding of material weaknesses: withholding follows a final disapproval when the business systems clause is present [@CL-CMP-0414].
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ The current government status of each contractor business system: approved, disa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the remaining codified accounting system criteria: segregation of direct and indirect costs, ledger reconciliation, interim cost determinations, exclusion of unallowable costs, reconcilable billings and accounting practices that follow the applicable standards.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor accounting system criteria.

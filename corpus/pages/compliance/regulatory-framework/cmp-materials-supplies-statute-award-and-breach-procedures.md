@@ -58,7 +58,7 @@ A contract for the furnishing of supplies for a made-up $50,000 is awarded by a 
 
 Never confuse the publication furnished at award with the notice of a violation. The first goes to the contractor, and the second goes to the appropriate regional office of the Wage and Hour Division [@CL-CMP-8012; @CL-CMP-8013].
 
-Never read the $20,000 figure as a limit in this section, because it comes from the stipulation requirement in 22.602 [@CL-CMP-8023].
+The $20,000 figure is not a limit in this section, because it comes from the stipulation requirement in 22.602 [@CL-CMP-8023].
 
 ## Company calibration
 
@@ -68,5 +68,6 @@ Which of the company's supply contracts are subject to the statute, and who conf
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the clause insertion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the award and breach procedures under the materials, supplies, articles and equipment statute.

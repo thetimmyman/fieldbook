@@ -33,7 +33,7 @@ FAR 31.110 has two paragraphs and each points elsewhere for the procedure [@CL-C
 
 ## How it works
 
-Certification attaches to the indirect cost rates proposed for final payment purposes, but only under contracts that require it [@CL-CMP-7506]. The section does not say which contracts require it, who signs, who may waive it, or when; the reader goes to the administrative procedures [@CL-CMP-7506].
+Certain contracts require certification of the indirect cost rates proposed for final payment purposes [@CL-CMP-7506]. The section does not say which contracts require it, who signs, who may waive it, or when; the reader goes to the administrative procedures [@CL-CMP-7506].
 
 A penalty is possible when unallowable costs are included in a final indirect cost settlement proposal. The word is "may": the section makes the assessment discretionary on its face and does not say who assesses it, in what amount, on which contracts, or with what exceptions; the reader goes to the administrative procedures at FAR 42.709 [@CL-CMP-7507].
 
@@ -59,6 +59,7 @@ Who signs the indirect rate certification and how unallowable costs are screened
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Removed an unsupported statement about who controls the proposal's contents.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost rate certification and penalties on unallowable costs.

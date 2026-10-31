@@ -30,7 +30,7 @@ Identifies the allowability restrictions and accounting rules governing legal, a
 
 Costs not covered elsewhere in the legal proceedings cost principle are unallowable if incurred in defending against Federal Government claims or appeals or prosecuting claims or appeals against the Federal Government [@CL-CMP-0504].
 
-Costs of proceedings described in paragraph (b) that are not made unallowable by it may be allowable only to the extent they are reasonable, not otherwise recovered, and allowed at a percentage that does not exceed the percentage determined to be appropriate considering the complexity of procurement litigation, generally accepted principles governing the award of legal fees in civil actions involving the United States as a party, and such other factors as may be appropriate [@CL-CMP-0913; @CL-CMP-0914; @CL-CMP-7076; @CL-CMP-7077]. For those proceedings the percentage of costs allowed shall not exceed 80 percent, and agreements reached under paragraph (c) are subject to the same limit [@CL-CMP-0505].
+Costs of proceedings described in paragraph (b) that are not made unallowable by it may be allowable to the extent they are reasonable, not otherwise recovered, and allowed at a percentage that does not exceed the percentage determined to be appropriate considering the complexity of procurement litigation, generally accepted principles governing the award of legal fees in civil actions involving the United States as a party, and such other factors as may be appropriate [@CL-CMP-0913; @CL-CMP-0914; @CL-CMP-7076; @CL-CMP-7077]. For those proceedings the percentage of costs allowed shall not exceed 80 percent, and agreements reached under paragraph (c) are subject to the same limit [@CL-CMP-0505].
 
 Costs that may be unallowable under the legal proceedings cost principle, including directly associated costs, must be segregated and accounted for separately [@CL-CMP-0506].
 
@@ -60,6 +60,7 @@ How legal and consultant expenses connected to government proceedings are segreg
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the allowability sentence so the rule for costs of paragraph (b) proceedings keeps the percentage condition.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for costs related to legal and other proceedings.
