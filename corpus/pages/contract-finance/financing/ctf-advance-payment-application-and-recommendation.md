@@ -23,13 +23,15 @@ Shows how a contractor applies for advance payments and what the contracting off
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0929; @CL-CTF-0933] |
-| Codified citation | FAR 32.408 and FAR 32.409 [@CL-CTF-0929; @CL-CTF-0933] |
+| Codified citation | FAR 32.408 and FAR 32.409 [@CL-CTF-0929; @CL-CTF-3742; @CL-CTF-0933] |
 | RFO citation | RFO FAR 32.408 [@CL-CTF-4144; @CL-CTF-4145; @CL-CTF-4146; @CL-CTF-4147], RFO FAR 32.409 [@CL-CTF-4149], RFO FAR 32.409-1 [@CL-CTF-4150; @CL-CTF-4151] and RFO FAR 32.409-2 [@CL-CTF-4152] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0929] |
 | Applies to | Contractors requesting advance payments before or after contract award [@CL-CTF-0929] |
 
 A contractor may apply for advance payments before or after the award of a contract [@CL-CTF-0929]. The contractor shall submit any request in writing to the contracting officer, with a reference to the existing contract or to the solicitation for a proposed contract, among other information [@CL-CTF-0930]. The request must include a cash flow forecast of estimated disbursements and receipts for the period of performance, which is limited to the financed contract for the contract types named in the cited paragraphs [@CL-CTF-0931]. It must also describe the contractor's efforts to obtain unguaranteed private financing or a V-loan under eligible contracts, which does not apply to those named contract types [@CL-CTF-0932].
+
+After analysis of the contractor's application and any appropriate investigation, the contracting officer shall recommend approval or disapproval and transmit the request and recommendation to the approving authority designated under FAR 32.402(e) [@CL-CTF-3742].
 
 If recommending approval, the contracting officer shall transmit contract data to the approving authority under agency procedures, including the identification and date of the award, the citation of the appropriation, and the type and dollar amount of the contract [@CL-CTF-0933]. A recommendation for approval also includes the contractor's request and supporting information and a report on the contractor's past performance, responsibility, technical ability, and plant capacity [@CL-CTF-1007]. If recommending disapproval, the contracting officer shall transmit the items prescribed for the approval recommendation in its contract data, request, and past-performance paragraphs, together with the recommendation for disapproval and the reasons [@CL-CTF-0934].
 
@@ -59,5 +61,6 @@ Confirm whether the company has applied for advance payments, who prepares the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.409 contracting officer recommendation rule.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment application and recommendation.

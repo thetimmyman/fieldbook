@@ -24,7 +24,7 @@ Shows what a contract administration office must work to when it performs contra
 |---|---|
 | Instrument | Codified FAR and DFARS [@CL-CMP-8761; @CL-CMP-8764] |
 | Codified citation | FAR 42.301 [@CL-CMP-8761; @CL-CMP-8762], FAR 42.403 [@CL-CMP-8763] and DFARS 242.301 [@CL-CMP-8764; @CL-CMP-8765] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 42.301 [@CL-CMP-8947; @CL-CMP-8948] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8761] |
 | Applies to | Contracts assigned for administration under Subpart 42.2 [@CL-CMP-8761]; onsite inspections or evaluations of a contract administration office's assigned functions [@CL-CMP-8763]; contract administration services performed outside the United States [@CL-CMP-8764] |
@@ -38,6 +38,8 @@ DFARS 242.301 is headed General and sits in Subpart 242.3, Contract Administrati
 ## How it works
 
 The sections apply in this order. Assignment of the contract under Subpart 42.2 comes first, and the CAO's duties under FAR 42.301 follow from it [@CL-CMP-8761]. The CAO works to Chapter I and the contract terms. The unless-clause on interagency agreements is printed with the item on the servicing agency's regulations [@CL-CMP-8762]. The section does not say who decides whether an interagency agreement provides otherwise, and it points to FAR 42.002 for interagency agreements [@CL-CMP-8762]. See [Interagency agreements for contract administration and audit](cmp-interagency-agreements-for-administration-and-audit.md) for that section.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text under Class Deviation 2026-O0050, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.301 has the same substance as the codified section, with "will perform" where the codified sentence says "shall perform": when a contract is assigned for administration under subpart 42.2, the CAO will perform contract administration functions in accordance with 48 CFR Chapter 1 and the contract terms [@CL-CMP-8947; @CL-CMP-8761], and, unless otherwise agreed to in an interagency agreement (see RFO FAR 42.001), the applicable regulations of the servicing agency [@CL-CMP-8948; @CL-CMP-8762].
 
 Evaluation is a separate matter. The agency that the CAO belongs to does an onsite inspection or evaluation itself or directs it [@CL-CMP-8763]. For the functions that a CAO performs and the assignment itself, see [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md) and [Assignment of contract administration](cmp-assignment-of-contract-administration.md). For the DoD additions, see [DoD additions to contract administration functions](cmp-dod-contract-administration-additions.md). For the wider set of oversight roles, see [Oversight roles](../audit-retention/cmp-oversight-roles.md).
 
@@ -69,4 +71,5 @@ Which contracts and business units sit in the finance remit, and which administr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.301 sentence on contract administration functions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract administration functions and evaluation of contract administration offices.

@@ -24,7 +24,7 @@ Covers four sections of the FAR contract debts subpart: how a contractor asks to
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3616] |
 | Codified citation | FAR 32.607-1, FAR 32.608-1, FAR 32.609 and FAR 32.610 [@CL-CTF-3616; @CL-CTF-3617; @CL-CTF-3619; @CL-CTF-3620] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.600 [@CL-CTF-3033], RFO FAR 32.607-1 [@CL-CTF-3034], RFO FAR 32.608-1 [@CL-CTF-3035; @CL-CTF-3036], RFO FAR 32.609 [@CL-CTF-3037; @CL-CTF-3038] and RFO FAR 32.610 [@CL-CTF-3039] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3616] |
 | Applies to | Contract debts under the FAR contract debts subpart, except that sections 32.607, 32.608 and 32.610 (which include the installment, interest charge and compromise sections) do not apply to claims against common carriers for transportation overcharges and freight and cargo losses [@CL-CTF-3630; @CL-CTF-3631] |
@@ -46,6 +46,8 @@ Four parties act. The contractor asks for installments. The contracting officer 
 Interest follows the demand. The Interest clause can specify otherwise, and a contract of an excluded kind or an exemption under agency procedures means the charges do not apply [@CL-CTF-3617; @CL-CTF-3618]. The excluded kinds are listed in FAR 32.611 [@CL-CTF-3618], which is covered on [Contract debts: final decisions, collection and the Interest clause](ctf-contract-debt-final-decisions-and-collection.md). If the Government delays the demand letter, the interest date moves to a fair and reasonable time [@CL-CTF-3619; @CL-CTF-3632].
 
 A contracting officer needs specific authorization in agency procedures to compromise any debt [@CL-CTF-3621].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.600 keeps the first scope sentence: the subpart prescribes policies and procedures for identifying, collecting, and deferring collection of contract debts, including interest if applicable [@CL-CTF-3630; @CL-CTF-3033]. The second scope sentence, on claims against common carriers, is cited on this card only from the codified text [@CL-CTF-3631]. RFO FAR 32.607-1 keeps the installment notice, with "must" where the codified text says "shall" [@CL-CTF-3616; @CL-CTF-3034]. RFO FAR 32.608-1 keeps the interest rule, unless the Interest clause specifies otherwise, and its two exceptions for a contract of a kind excluded under 32.611 and for a contract or debt exempted under agency procedures [@CL-CTF-3617; @CL-CTF-3618; @CL-CTF-3035; @CL-CTF-3036]. RFO FAR 32.609 keeps the delay rule: if interest is accrued based on the date of the demand letter and the Government delays delivery of the demand letter, the date of the debt and accrual of interest must be extended to a time that is fair and reasonable under the particular circumstances [@CL-CTF-3037; @CL-CTF-3038]. RFO FAR 32.610 keeps the $100,000 compromise rule for the designated agency official and the limit on contracting officers [@CL-CTF-3620; @CL-CTF-3621; @CL-CTF-3039].
 
 ## Worked example
 
@@ -75,4 +77,5 @@ Which office agency procedures designate for installment requests, who tracks th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.600, 32.607-1, 32.608-1, 32.609 and 32.610 citations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract debt installments, interest charges, delayed demand letters and compromises.

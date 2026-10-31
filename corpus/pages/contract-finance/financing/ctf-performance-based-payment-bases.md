@@ -24,7 +24,7 @@ Lists the bases on which FAR 32.1002 says performance-based payments may be made
 |---|---|
 | Instrument | Codified FAR and DFARS [@CL-CTF-3429; @CL-CTF-3430]; RFO model text [@CL-CTF-3444] |
 | Codified citation | FAR 32.1002; DFARS 232.202-4(a)(2) and 232.072 [@CL-CTF-3429; @CL-CTF-3430; @CL-CTF-3431; @CL-CTF-3432] |
-| RFO citation | RFO FAR 32.1002 [@CL-CTF-3444] |
+| RFO citation | RFO FAR 32.1000 [@CL-CTF-3043] and RFO FAR 32.1002 [@CL-CTF-3444] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3429; @CL-CTF-3444] |
 | Applies to | Performance-based payments under noncommercial purchases; DoD determinations of an offeror's financial condition as security for commercial contract financing; DoD determinations of the financial capability of current or prospective contractors [@CL-CTF-3445; @CL-CTF-3431; @CL-CTF-3432] |
@@ -45,7 +45,7 @@ The stored DFARS text of 232.202-4 prints only paragraph (a)(2) [@CL-CTF-3430].
 
 The financial responsibility section is the policy base. Its reviews, information requests and cash flow forecasts are on the [required financial reviews](../cash/ctf-dod-required-financial-reviews.md), [financial review information](../cash/ctf-dod-financial-review-information.md) and [cash flow forecasts](../cash/ctf-dod-cash-flow-forecasts.md) cards.
 
-From February 1, 2026, DoD contracting officers use the RFO text of FAR part 32 in place of the codified text [@CL-CTF-4046]. RFO FAR 32.1002 has the same three bases as the codified section [@CL-CTF-3444; @CL-CTF-3429].
+From February 1, 2026, DoD contracting officers use the RFO text of FAR part 32 in place of the codified text [@CL-CTF-4046]. RFO FAR 32.1002 has the same three bases as the codified section [@CL-CTF-3444; @CL-CTF-3429]. RFO FAR 32.1000 says the subpart provides policy and procedures for performance-based payments under noncommercial purchases pursuant to Subpart 32.1, in the same words as the codified scope section [@CL-CTF-3043; @CL-CTF-3445].
 
 ## Worked example
 
@@ -73,4 +73,5 @@ Which contracts receive performance-based payments and which measure of results 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1000 scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payment bases.

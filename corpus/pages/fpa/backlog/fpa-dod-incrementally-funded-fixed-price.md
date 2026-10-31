@@ -23,7 +23,7 @@ Shows when a fixed-price contract may be incrementally funded under the DFARS, a
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-FPA-0069] |
-| Codified citation | DFARS 232.703-1; DFARS 232.704-70; DFARS 232.706-70 [@CL-FPA-0069; @CL-FPA-0073; @CL-FPA-0078] |
+| Codified citation | DFARS 232.001; DFARS 232.702; DFARS 232.703-1; DFARS 232.704-70; DFARS 232.706-70 [@CL-FPA-0371; @CL-FPA-0372; @CL-FPA-0069; @CL-FPA-0073; @CL-FPA-0078] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-FPA-0069] |
@@ -31,7 +31,7 @@ Shows when a fixed-price contract may be incrementally funded under the DFARS, a
 
 A fixed-price contract may be incrementally funded only under defined conditions [@CL-FPA-0069]. Under the first set, the contract excluding options, or any exercised option, must be for severable services, must not exceed one year in length, and must be incrementally funded using funds available (unexpired) as of the date the funds are obligated [@CL-FPA-0069; @CL-FPA-0070]. Under the second set, the contract uses funds available from two or more fiscal years and is funded with research and development appropriations, or Congress has otherwise authorized incremental funding [@CL-FPA-0071].
 
-An incrementally funded fixed-price contract shall be fully funded as soon as funds are available [@CL-FPA-0072].
+An incrementally funded fixed-price contract shall be fully funded as soon as funds are available [@CL-FPA-0072]. In the DFARS, incremental funding means the partial funding of a contract or an exercised option, with additional funds anticipated to be provided at a later time [@CL-FPA-0371]. Fixed-price contracts shall be fully funded except as permitted by DFARS 232.703-1 [@CL-FPA-0372].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Which fixed-price contracts are incrementally funded, which of the two sets of c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.001 definition and 232.702 policy.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD incrementally funded fixed-price contracts.

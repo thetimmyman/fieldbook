@@ -23,11 +23,13 @@ Gives the prompt payment definitions that set payment dates, and shows where a c
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3584] |
-| Codified citation | FAR 32.902 and 32.909 [@CL-CTF-3584; @CL-CTF-3588] |
-| RFO citation | RFO FAR 32.902 [@CL-CTF-4055; @CL-CTF-4056; @CL-CTF-4057; @CL-CTF-4058]; RFO FAR 32.909 [@CL-CTF-4059; @CL-CTF-4060; @CL-CTF-4061] |
+| Codified citation | FAR 32.901, 32.902 and 32.909 [@CL-CTF-3745; @CL-CTF-3746; @CL-CTF-3584; @CL-CTF-3588] |
+| RFO citation | RFO FAR 32.900 [@CL-CTF-3041]; RFO FAR 32.901 [@CL-CTF-3042]; RFO FAR 32.902 [@CL-CTF-4055; @CL-CTF-4056; @CL-CTF-4057; @CL-CTF-4058]; RFO FAR 32.909 [@CL-CTF-4059; @CL-CTF-4060; @CL-CTF-4061] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3584] |
 | Applies to | Contractor questions about delinquent payments and about disagreements in payment amount or timing [@CL-CTF-3588; @CL-CTF-3589] |
+
+The prompt payment subpart applies to invoice payments on all contracts, except contracts with payment terms and late payment penalties established by other governmental authority, for example tariffs [@CL-CTF-3745]. It does not apply to contract financing payments, and the text points to the definition at FAR 32.001 [@CL-CTF-3746].
 
 In the prompt payment subpart, a discount for prompt payment means an invoice payment reduction offered by the contractor for payment prior to the due date [@CL-CTF-3584]. A mixed invoice means an invoice that contains items with different payment due dates [@CL-CTF-3585]. Payment date means the date on which a check for payment is dated or, for an electronic funds transfer, the settlement date [@CL-CTF-3586]. Settlement date, as it applies to electronic funds transfer, means the date on which an electronic funds transfer payment is credited to the contractor's financial institution [@CL-CTF-3587].
 
@@ -39,7 +41,7 @@ The contractor sorts an inquiry by its kind. A question about a delinquent payme
 
 Small business concerns have an additional route. They may contact the agency's local small business specialist, or a representative from the Office of Small and Disadvantaged Business Utilization, to obtain additional assistance on payment issues, late payment interest penalties and information on the Prompt Payment Act [@CL-CTF-3590]. The definitions apply throughout the subpart, and the date a payment counts depends on whether it was made by check or by electronic funds transfer [@CL-CTF-3586; @CL-CTF-3587]. Due dates and interest are covered on separate cards.
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.902 keeps the definitions of discount for prompt payment [@CL-CTF-4055], mixed invoice [@CL-CTF-4056], payment date [@CL-CTF-4057] and settlement date [@CL-CTF-4058]. RFO FAR 32.909 keeps the routing of inquiries: questions involving delinquent payments go to the designated billing office or designated payment office [@CL-CTF-4059], and disagreements in payment amount or timing go to the contracting officer for resolution, who must coordinate within appropriate contracting channels and seek the advice of other offices as necessary to resolve disagreements [@CL-CTF-4060]. It also keeps the route for small business concerns: they may contact the agency's local small business specialist or a representative from the Office of Small and Disadvantaged Business Utilization to obtain additional assistance related to payment issues, late payment interest penalties, and information on the Prompt Payment Act [@CL-CTF-4061].
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.900 says the subpart prescribes policies, procedures, and clauses for implementing Office of Management and Budget (OMB) prompt payment regulations at 5 CFR part 1315 [@CL-CTF-3041]. RFO FAR 32.901 keeps the applicability rule: the subpart applies to invoice payments on all contracts, except contracts with payment terms and late payment penalties established by other governmental authority, for example tariffs, and does not apply to contract financing payments [@CL-CTF-3745; @CL-CTF-3746; @CL-CTF-3042]. RFO FAR 32.902 keeps the definitions of discount for prompt payment [@CL-CTF-4055], mixed invoice [@CL-CTF-4056], payment date [@CL-CTF-4057] and settlement date [@CL-CTF-4058]. RFO FAR 32.909 keeps the routing of inquiries: questions involving delinquent payments go to the designated billing office or designated payment office [@CL-CTF-4059], and disagreements in payment amount or timing go to the contracting officer for resolution, who must coordinate within appropriate contracting channels and seek the advice of other offices as necessary to resolve disagreements [@CL-CTF-4060]. It also keeps the route for small business concerns: they may contact the agency's local small business specialist or a representative from the Office of Small and Disadvantaged Business Utilization to obtain additional assistance related to payment issues, late payment interest penalties, and information on the Prompt Payment Act [@CL-CTF-4061].
 
 ## Worked example
 
@@ -59,5 +61,7 @@ Which office the company contacts about a late payment, who owns a disagreement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.900 scope and 32.901 applicability.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.901 applicability of the prompt payment subpart.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prompt payment, definitions and contractor inquiries.

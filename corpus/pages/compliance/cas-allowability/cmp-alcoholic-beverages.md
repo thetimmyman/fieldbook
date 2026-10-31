@@ -24,7 +24,7 @@ Explains why the cost of alcoholic beverages is unallowable, and how that flat b
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0371] |
 | Codified citation | FAR 31.205-51 [@CL-CMP-0371] |
-| RFO citation | RFO FAR 31.205-51 [@CL-CMP-0371] |
+| RFO citation | RFO FAR 31.205-51 [@CL-CMP-9929] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0371] |
 | Applies to | Not established. |
@@ -36,6 +36,8 @@ The section states the bar flatly: it sets no purpose test, no recipient test an
 ## How it works
 
 The section names one category and bars it without qualification [@CL-CMP-0371]. Nothing in it turns on where the drinks were served, who attended or whether the event had a business purpose, so the category alone decides the answer.
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-51 keeps the rule described above: it also states that costs of alcoholic beverages are unallowable [@CL-CMP-9929].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ How beverage lines are split out of event invoices before those costs reach a po
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for alcoholic beverages.
