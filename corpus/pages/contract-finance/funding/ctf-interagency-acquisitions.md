@@ -39,7 +39,7 @@ In the payment paragraph of the Economy Act section, the servicing agency may as
 
 ## How it works
 
-Who decides: the D&F shall be approved by a contracting officer of the requesting agency with authority to contract for the supplies or services to be ordered, or by another official designated by the agency head, except where the servicing agency is not covered by the FAR [@CL-CTF-1334]. In that exception, approval of the D&F may not be delegated below the senior procurement executive of the requesting agency [@CL-CTF-1335]. When an interagency acquisition requires the servicing agency to award a contract, further procedures apply [@CL-CTF-1377], and the servicing agency is responsible for compliance with all other legal or regulatory requirements applicable to the contract, including adequate statutory authority and the competition requirements of part 6 [@CL-CTF-1336]. This card does not state the rest of the agreement contents, the order contents, the procedures for resolving disagreements, the business-case rules for multi-agency and governmentwide contracts, or the use of research centers.
+Who decides: the D&F shall be approved by a contracting officer of the requesting agency with authority to contract for the supplies or services to be ordered, or by another official designated by the agency head, except where the servicing agency is not covered by the FAR [@CL-CTF-1334]. In that exception, approval of the D&F may not be delegated below the senior procurement executive of the requesting agency [@CL-CTF-1335]. When an interagency acquisition requires the servicing agency to award a contract, further procedures apply [@CL-CTF-1377], and the servicing agency is responsible for compliance with all other legal or regulatory requirements applicable to the contract, including adequate statutory authority and the competition requirements of part 6 [@CL-CTF-1336]. The same paragraph makes a different rule where the servicing agency is not subject to the FAR, which this card does not restate. This card does not state the rest of the agreement contents, the order contents, the procedures for resolving disagreements, the business-case rules for multi-agency and governmentwide contracts, or the use of research centers.
 
 ## Worked example
 
@@ -61,6 +61,7 @@ Confirm whom to ask for the interagency agreement and any D&F, and who confirms 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Noted the exception to servicing-agency responsibility.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of assisted acquisition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of assisted acquisition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interagency acquisitions.

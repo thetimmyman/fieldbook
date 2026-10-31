@@ -28,7 +28,7 @@ Shows who establishes final indirect cost rates by contracting officer determina
 | Text status | Final [@CL-RTE-0103] |
 | Applies to | Business units whose final indirect cost rates are contracting officer determined [@CL-RTE-0101] |
 
-The procedure applies to the listed business units, with the indicated cognizant contracting officer or cognizant Federal agency official responsible for establishing the final rates [@CL-RTE-0101]. The contractor submits an adequate final indirect cost rate proposal to that official and to the cognizant auditor within six months after each fiscal year ends [@CL-RTE-0103; @CL-RTE-0104].
+The procedure applies to the listed business units. For business units of a multidivisional corporation under a corporate administrative contracting officer, that officer is responsible for the determination, assisted as required by the administrative contracting officers assigned to the individual business units [@CL-RTE-0101]. The contractor submits an adequate final indirect cost rate proposal to the contracting officer (or cognizant Federal agency official) and to the cognizant auditor within six months after each fiscal year ends [@CL-RTE-0103; @CL-RTE-0104].
 
 In the FAR's general definitions, a business unit is any segment of an organization, or an entire business organization that is not divided into segments [@CL-RTE-9063]. The RFO model text of FAR 2.101 defines a business unit in the same words as the codified definition [@CL-RTE-9087; @CL-RTE-9063]. The cognizant Federal agency is the Federal agency that, on behalf of all Federal agencies, is responsible for establishing final indirect cost rates and forward pricing rates, if applicable, and administering cost accounting standards for all contracts in a business unit [@CL-RTE-9064]. The RFO model text of FAR 2.101 defines the cognizant Federal agency in the same words as the codified definition [@CL-RTE-9088; @CL-RTE-9064].
 
@@ -46,7 +46,7 @@ A contractor's fiscal year ends on 30 September and it files an adequate proposa
 
 ## Never confuse
 
-A contracting officer determination is not an auditor determination; where a unit falls outside the corporate and resident administrative contracting officer cases, the officer decides which route applies [@CL-RTE-0101]. An advisory audit report supports the negotiation, but the contracting officer heads the team and prepares the written rate agreement [@CL-RTE-0107; @CL-RTE-0110].
+A contracting officer determination is not an auditor determination; under the RFO text, where a unit falls outside the corporate and resident administrative contracting officer cases, the contracting officer (or cognizant Federal agency official) decides which route applies [@CL-RTE-0917]. An advisory audit report supports the negotiation, but the contracting officer heads the team and prepares the written rate agreement [@CL-RTE-0107; @CL-RTE-0110].
 
 The codified contracting officer determination procedure at FAR 42.705-1 [@CL-RTE-0103] is printed as RFO FAR 42.505-1 [@CL-RTE-0914], so the section number changes from 42.705-1 to 42.505-1.
 
@@ -58,6 +58,7 @@ Which fiscal years are still open for incurred cost, whether not submitted, subm
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the officials the cited text names.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of business unit and cognizant Federal agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of business unit and cognizant Federal agency.

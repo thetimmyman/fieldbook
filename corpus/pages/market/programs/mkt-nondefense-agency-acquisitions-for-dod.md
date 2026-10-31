@@ -57,7 +57,7 @@ Had the civilian agency not certified, the request could go ahead only if the Un
 
 ## Never confuse
 
-A certification is not a waiver. The certification is the agency head's statement of compliance for the fiscal year, while the waiver is a written determination by the Under Secretary of Defense for Acquisition and Sustainment that removes the certification condition for the acquisition categories it names [@CL-MKT-1753; @CL-MKT-1757; @CL-MKT-1800]. This subpart is also separate from the general interagency acquisitions subpart, which applies as well [@CL-MKT-1728].
+A certification is not a waiver. The certification is the statement of compliance for the fiscal year by the head of the nondefense agency conducting the acquisition, while the waiver is a written determination by the Under Secretary of Defense for Acquisition and Sustainment that removes the certification condition for the acquisition categories it names [@CL-MKT-1753; @CL-MKT-1757; @CL-MKT-1800]. This subpart is also separate from the general interagency acquisitions subpart, which applies as well [@CL-MKT-1728].
 
 ## Company calibration
 
@@ -67,4 +67,5 @@ Which contracts the company performs for a nondefense agency acting for the Depa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the head of the nondefense agency, as the cited text does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acquisitions by nondefense agencies on behalf of the Department of Defense.

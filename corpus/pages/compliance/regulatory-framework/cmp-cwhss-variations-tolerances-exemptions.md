@@ -42,7 +42,7 @@ What each paragraph reaches. Paragraph (a) reaches provisions of the statute. Pa
 
 Ground. Paragraph (a) allows reasonable limitations [@CL-CMP-7995]. Its text states no finding. Paragraph (b) is tied to a finding that the action is necessary and proper in the public interest or to prevent injustice and undue hardship [@CL-CMP-7996].
 
-Duties. Both paragraphs say "may". They create no duty on a contractor, a contracting officer or an agency, and they do not oblige the Secretary to grant a request [@CL-CMP-7995; @CL-CMP-7996].
+Duties. Both paragraphs say "may". They do not oblige the Secretary to grant a request [@CL-CMP-7995; @CL-CMP-7996].
 
 Not stated here. The section sets no dollar threshold and no deadline. What 29 CFR 5.14 and 5.15 provide is outside this section [@CL-CMP-7995; @CL-CMP-7996].
 
@@ -66,4 +66,5 @@ Which of the company's construction contracts sit under the statute, and who con
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed a duty statement about officials the cited text does not name.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variations, tolerances and exemptions under the Contract Work Hours and Safety Standards statute.

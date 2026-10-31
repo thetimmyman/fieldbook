@@ -53,7 +53,7 @@ The notice follows on two routes. One runs directly to the Secretary of Labor. T
 
 The two subcontract tests use different words. The first-tier test is "equal to or greater than" $700,000, and the later tests are "greater than" $150,000 [@CL-CLS-0297; @CL-CLS-0298]. A first-tier subcontract of exactly $700,000 meets the first test [@CL-CLS-0297]. A subcontract of exactly $150,000 does not meet the second [@CL-CLS-0298].
 
-The $700,000 test applies to first-tier subcontracts [@CL-CLS-0297]. The $150,000 tests apply to subcontracts that a subcontractor places with its own subcontractors and to subcontracts at all tiers [@CL-CLS-0298]. Paragraph (c)(2) refers to each subcontractor and does not restate the $700,000 test [@CL-CLS-0298]. The section prints no deadline for the prime contractor's notice and says nothing about the content of any notice.
+The $700,000 test applies to first-tier subcontracts [@CL-CLS-0297]. The $150,000 tests apply to subcontracts that a subcontractor places with its own subcontractors and to subcontracts at all tiers [@CL-CLS-0298]. Paragraph (c)(2) refers to each subcontractor and does not restate the $700,000 test [@CL-CLS-0297; @CL-CLS-0298]. The section prints no deadline for the prime contractor's notice and says nothing about the content of any notice.
 
 The contract clause that carries the contractor's own notice steps is covered on [Notification of anticipated contract termination or reduction (DFARS)](cls-dfars-anticipated-termination-notification.md).
 
@@ -83,4 +83,5 @@ Which prime contracts and subcontracts the company holds above the notice thresh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $700,000 first-tier test.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of anticipated contract terminations or reductions.

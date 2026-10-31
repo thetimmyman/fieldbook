@@ -28,7 +28,7 @@ Shows when a contractor must warn the contracting officer that costs are approac
 | Text status | Final [@CL-CTF-0003] |
 | Applies to | Fully funded cost-reimbursement contracts with the clause [@CL-CTF-0003] |
 
-The contractor must notify the contracting officer when costs expected in the next 60 days, added to costs incurred, will exceed 75 percent of the estimated cost [@CL-CTF-0003]. The contractor must also notify the contracting officer when it expects the total cost to be greater, or substantially less, than previously estimated [@CL-CTF-0003]. The prescription lets a contract change both figures, so read the clause in the contract [@CL-CTF-0003].
+The contractor must notify the contracting officer when costs expected in the next 60 days, added to costs incurred, will exceed 75 percent of the estimated cost [@CL-CTF-2919; @CL-CTF-0003]. The contractor must also notify the contracting officer when it expects the total cost to be greater, or substantially less, than previously estimated [@CL-CTF-0003]. The prescription lets a contract change both figures, so read the clause in the contract [@CL-CTF-0003].
 
 ## How it works
 
@@ -52,4 +52,5 @@ Which contracts carry the limitation of cost or limitation of funds clause, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the next 60 days.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Limitation of Cost notice.

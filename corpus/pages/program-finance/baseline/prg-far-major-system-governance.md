@@ -40,7 +40,7 @@ The FAR's general definitions say acquisition planning means the process by whic
 
 ## How it works
 
-The agency head or designee sets the written procedures, and the agency head decides which programs are normally designated as major [@CL-PRG-0874; @CL-PRG-0876]. The officials who make the key decisions are those the agency procedures identify, and the source does not name them, so the company reads the procedures for each program [@CL-PRG-0875]. The program manager develops the acquisition strategy, as the agency procedures specify [@CL-PRG-0881]. That written strategy serves as the acquisition plan [@CL-PRG-0882; @CL-PRG-0883]. Before full production the agency head reaffirms the need and approves proceeding [@CL-PRG-0884].
+The agency head or designee sets the written procedures, and the agency head decides which programs are normally designated as major [@CL-PRG-0874; @CL-PRG-0876]. The officials who make the key decisions are those the agency procedures identify, and the source does not name them, so the company reads the procedures for each program [@CL-PRG-0875]. The program manager develops the acquisition strategy, as the agency procedures specify [@CL-PRG-0881]. That written strategy serves as the acquisition plan [@CL-PRG-0882; @CL-PRG-0883]. Before full production the agency head reaffirms the mission need and program objectives and approves proceeding [@CL-PRG-0884].
 
 For DoD, DFARS 234.003 says DoDD 5000.01, The Defense Acquisition System, and DoDI 5000.02, Operation of the Adaptive Acquisition Framework, contain the DoD implementation of OMB Circular A-109 and OMB Circular A-11 [@CL-PRG-0543].
 
@@ -48,7 +48,7 @@ For DoD, DFARS 234.003 says DoDD 5000.01, The Defense Acquisition System, and Do
 
 Synthetic example. The numbers are made up.
 
-An agency's procedures name 5 key decision points for a major program. The program manager writes the acquisition strategy, and it serves as the acquisition plan. After full-scale development, the system tests successfully. The agency head reaffirms the mission need and approves production. The answer: the contract for full production may be awarded once the agency head has reaffirmed the need and approved production.
+An agency's procedures name 5 key decision points for a major program. The program manager writes the acquisition strategy, and it serves as the acquisition plan. After full-scale development, the system tests successfully. The agency head reaffirms the mission need and approves production. The answer: the contract for full production may be awarded once the agency head has reaffirmed the mission need and program objectives and approved production.
 
 ## Never confuse
 
@@ -62,6 +62,7 @@ Which key decision points and agency officials apply to the company's programs, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored program objectives in the reaffirmation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the acquisition planning definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of acquisition planning and agency head or head of the agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of agency head and acquisition planning.

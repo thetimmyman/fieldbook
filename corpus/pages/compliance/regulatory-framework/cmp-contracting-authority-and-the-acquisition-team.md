@@ -27,7 +27,7 @@ Shows where contracting authority sits, who may bind the Government, and how the
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6867] |
-| Applies to | Agency heads, contracting officers and the Government members of the acquisition team, and the contractors who deal with them [@CL-CMP-6867; @CL-CMP-7164] |
+| Applies to | Agency heads, contracting officers and the Government members of the acquisition team, and the contractors who deal with them [@CL-CMP-6867; @CL-CMP-6868; @CL-CMP-7164] |
 
 Unless specifically prohibited by another provision of law, authority and responsibility to contract for authorized supplies and services are vested in the agency head [@CL-CMP-6867]. The agency head may establish contracting activities and delegate broad authority to manage the agency's contracting functions to the heads of those activities [@CL-CMP-7156]. Contracts may be entered into and signed on behalf of the Government only by contracting officers [@CL-CMP-6868]. In some agencies a relatively small number of high level officials are contracting officers solely by virtue of their positions [@CL-CMP-7157]. Contracting officers below the level of a head of a contracting activity must be selected and appointed under the appointment rule [@CL-CMP-7158].
 
@@ -63,5 +63,6 @@ Which roles in the company may accept direction that changes scope, price or sch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names contracting officers.
 - COMPATIBLE_EXTENSION, 2026-10-30: Removed an unsourced statement that the program office defines the need.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting authority and the acquisition team.

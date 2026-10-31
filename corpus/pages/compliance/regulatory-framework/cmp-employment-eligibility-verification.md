@@ -38,7 +38,7 @@ A contractor that is already enrolled at award must use E-Verify to initiate ver
 
 A contractor that is an institution of higher education, a State or local government, the government of a Federally recognized Indian tribe, or a surety performing under a takeover agreement entered into with a Federal agency pursuant to a performance bond [@CL-CMP-5397] may choose to verify only employees assigned to the contract, whether existing employees or new hires [@CL-CMP-5259]. It follows the verification requirements of paragraph (b)(1) or (b)(2), respectively, except that any requirement to verify new employees applies only to new employees assigned to the contract [@CL-CMP-5398].
 
-Any contractor may elect to verify all existing employees hired after November 6, 1986, or after November 27, 2009 in the Northern Mariana Islands, rather than just those assigned to the contract [@CL-CMP-5260]. A contractor that makes this election must initiate verification for each existing employee working in the United States who was hired after those dates within 180 calendar days of an event listed next [@CL-CMP-5399]. The 180 calendar days run from enrollment in E-Verify or from notifying E-Verify Operations of the decision to exercise the option, using the contact information in the E-Verify program Memorandum of Understanding [@CL-CMP-5400].
+Any contractor may elect to verify all existing employees hired after November 6, 1986, or after November 27, 2009 in the Northern Mariana Islands, rather than just those assigned to the contract [@CL-CMP-5260]. A contractor that makes this election must initiate verification for each existing employee working in the United States who was hired after those dates within 180 calendar days of an event listed next [@CL-CMP-5399]. The 180 calendar days run from enrollment in E-Verify or from notifying E-Verify Operations of the decision to exercise the option, using the contact information in the E-Verify program Memorandum of Understanding [@CL-CMP-5399; @CL-CMP-5400].
 
 The clause does not require additional E-Verify verification of an employee whose employment eligibility the contractor previously verified through the E-Verify program [@CL-CMP-5261], who has been granted and holds an active Government security clearance for access to confidential, secret or top secret information under the National Industrial Security Program Operating Manual [@CL-CMP-5401], or who has undergone a completed background investigation and been issued credentials under Homeland Security Presidential Directive 12 [@CL-CMP-5402].
 
@@ -72,6 +72,7 @@ Which subcontracts cross the value and place-of-performance tests, and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the 180 calendar days.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on E-Verify policy and definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for employment eligibility verification with E-Verify.
