@@ -22,13 +22,15 @@ Shows what a value engineering change proposal is under the value engineering cl
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0919] |
-| Codified citation | FAR 52.248-1 [@CL-PRG-0919] |
+| Codified citation | FAR 52.248-1 [@CL-PRG-0919]; FAR 2.101 [@CL-PRG-9084; @CL-PRG-9085] |
 | RFO citation | RFO FAR 52.248-1 [@CL-PRG-0038; @CL-PRG-0041; @CL-PRG-0042; @CL-PRG-0043; @CL-PRG-0044; @CL-PRG-0045; @CL-PRG-0046; @CL-PRG-0047; @CL-PRG-0048], with Alternate I [@CL-PRG-0039; @CL-PRG-0040] |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0919] |
 | Applies to | Contracts that include the clause [@CL-PRG-0919] |
 
 Under the basic clause, the Contractor is encouraged to submit value engineering change proposals (VECPs) voluntarily, and shall share in any net acquisition savings realized from accepted proposals, in accordance with the incentive sharing rates [@CL-PRG-0920]. If the contracting officer selects a mandatory value engineering program requirement, Alternate I substitutes a paragraph (a) under which the Contractor shall engage in a value engineering program and submit value engineering progress reports [@CL-PRG-0958]. A VECP is a proposal that requires a change to the instant contract to implement and reduces the overall projected cost to the agency without impairing essential functions or characteristics, subject to a proviso [@CL-PRG-0921]. The proviso excludes a change in deliverable end item quantities only, a change in research and development end items or test quantities due solely to results of previous testing under the contract, and a change to the contract type only [@CL-PRG-0922].
+
+The FAR definitions section describes value engineering as an analysis of the functions of a program, project, system, product, item of equipment, building, facility, service, or supply of an executive agency, performed by qualified agency or contractor personnel [@CL-PRG-9084], directed at improving performance, reliability, quality, safety, and life-cycle costs [@CL-PRG-9085].
 
 As a minimum, each VECP must carry the information in the eight listed subparagraphs [@CL-PRG-0923]. The Contractor submits VECPs to the Contracting Officer unless the contract says otherwise, and sends a copy at the same time to the Administrative Contracting Officer where the contract is administered by other than the contracting office [@CL-PRG-0924].
 
@@ -56,5 +58,6 @@ Which contracts carry the value engineering clause, who prepares and approves ch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of value engineering.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the value engineering clause definition and submission rules.

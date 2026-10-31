@@ -23,7 +23,7 @@ Shows when contractor inventory may be abandoned or destroyed, what the inventor
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0742] |
-| Codified citation | FAR 45.603, 45.605 and 45.606 [@CL-CLS-0742; @CL-CLS-0746; @CL-CLS-0748] |
+| Codified citation | FAR 45.603, 45.605 and 45.606 [@CL-CLS-0742; @CL-CLS-0746; @CL-CLS-0748]; FAR 2.101 [@CL-CLS-1526] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0742] |
@@ -32,6 +32,8 @@ Shows when contractor inventory may be abandoned or destroyed, what the inventor
 The conditions that precede the actions permitted without further approval are that contractor inventory has been processed through the reutilization screening process without success and that the property has no commercial value, does not require demilitarization, and does not constitute a danger to public health or welfare [@CL-CLS-0742]. Provided the property meets those property conditions, plant clearance officers or other authorized officials may without further approval take the listed actions [@CL-CLS-0743]. The listed actions are directing the contractor to destroy the property, abandoning non-sensitive property at the contractor's or subcontractor's premises, and abandoning sensitive property at those premises with contractor consent [@CL-CLS-0744].
 
 Approval by a Government reviewing official at least one level higher than the plant clearance officer or other agency authorized official is a condition of the authority of those officials to authorize the abandonment, or order the destruction, of other contractor inventory [@CL-CLS-0745]. That authority covers inventory at the contractor's or subcontractor's premises, is exercised in accordance with the cited Federal Management Regulation provisions, and must be consistent with the criteria the paragraph lists [@CL-CLS-0752]. One listed criterion is that the property is not considered sensitive, does not require demilitarization, has no commercial value or reutilization, transfer or donation potential, and does not constitute a danger to public health or welfare [@CL-CLS-0753]. Another is that the estimated cost of continued care and handling of the property, including advertising, storage and other costs associated with making the sale, exceed the estimated proceeds from its sale [@CL-CLS-0754].
+
+The FAR definitions section describes scrap as personal property that has no value except its basic metallic, mineral, or organic content [@CL-CLS-1526].
 
 ## How it works
 
@@ -55,4 +57,5 @@ Who approves abandonment or destruction, and who reconciles the inventory dispos
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of scrap.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for abandonment, destruction, inventory disposal reports and contractor scrap.

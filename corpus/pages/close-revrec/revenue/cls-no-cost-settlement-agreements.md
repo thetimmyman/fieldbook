@@ -23,13 +23,15 @@ Sets out what a no-cost settlement agreement releases and what it leaves standin
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0262] |
-| Codified citation | FAR 49.603-6, 49.603-7 and 49.603-9 [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427] |
+| Codified citation | FAR 49.603-6, 49.603-7 and 49.603-9 [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427]; FAR 2.101 [@CL-CLS-1517] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0262] |
 | Applies to | No-cost settlement agreements for complete and partial terminations, and settlements of reservations [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427] |
 
 The sections give agreement text for Block 14 of SF 30 [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427]. The text is bilateral: the contractor waives or releases, and the Government agrees or acknowledges [@CL-CLS-0263; @CL-CLS-0264; @CL-CLS-0267; @CL-CLS-0269]. The sections print no deadline and no dollar threshold. They do not say who decides to execute a no-cost agreement. FAR 49.402-4 names the contracting officer for the no-cost course in lieu of termination for default, and then only when the requirement no longer exists and the contractor is not liable for damages [@CL-CLS-0261]; see [Courses of action in lieu of termination for default](cls-default-termination-courses-of-action-in-lieu.md).
+
+The FAR definitions section describes a partial termination as the termination of a part, but not all, of the work that has not been completed and accepted under a contract [@CL-CLS-1517].
 
 ### Complete termination
 
@@ -99,4 +101,5 @@ How reserved items, unbilled amounts and inventory balances are tracked after a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of partial termination.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for no-cost settlement agreements.

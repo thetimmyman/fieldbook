@@ -52,7 +52,7 @@ The policy carries the required endorsement, so if the carrier gives the contrac
 
 A claims-made policy and an occurrence policy differ at the end of the term. Under the clause, only a claims-made policy must also carry an extended reporting endorsement, for not less than 3 years after the end of the contract term [@CL-CMP-5615]. The indemnity is a separate promise by the contractor to the Government, standing apart from the insurance it must carry [@CL-CMP-5613; @CL-CMP-5614]. The Government's right to evaluate quality is not control over medical judgment [@CL-CMP-5753]. The codified paragraph (a) also points to the definition of a nonpersonal services contract in FAR 37.101 [@CL-CMP-6245], while the RFO paragraph (a) prints the same sentence without that reference [@CL-CMP-1418].
 
-The cost principle on insurance and indemnification is covered in [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md), and the indemnity under Public Law 85-804 is covered in [Indemnification under Public Law 85-804](cmp-pub-law-85-804-indemnification.md).
+The cost principle on insurance and indemnification is covered in [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md), and the Government indemnity under a public law is covered in [Indemnification under that public law](cmp-pub-law-85-804-indemnification.md).
 
 ## Company calibration
 
@@ -62,6 +62,7 @@ Which health care contracts and subcontracts are in scope, and who confirms the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded a pointer so no figure remains.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on insurance and indemnification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indemnification and medical liability insurance.

@@ -46,7 +46,7 @@ Case B. A filing requirement covers three consecutive years, with no more than 1
 
 ## Never confuse
 
-A period of 9 to 12 months is not deemed to satisfy a requirement for one year by its length alone; paragraph (a) ties the deeming to its listed conditions and excludes registered investment companies [@CL-CLS-0376]. Nor does it satisfy a longer requirement in full. It can satisfy one year of that time period, and full-year statements must be filed for the other years [@CL-CLS-0381; @CL-CLS-0382].
+A period of 9 to 12 months is not deemed to satisfy a requirement for one year by its length alone [@CL-CLS-0376]; paragraph (a) ties the deeming to its listed conditions and excludes registered investment companies [@CL-CLS-0376]. Nor does it satisfy a longer requirement in full. It can satisfy one year of that time period, and full-year statements must be filed for the other years [@CL-CLS-0381; @CL-CLS-0382].
 
 ## Company calibration
 
@@ -56,4 +56,5 @@ Which fiscal-year changes, significant acquisitions and Commission permissions t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on the length-alone deeming sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements covering nine to twelve months.

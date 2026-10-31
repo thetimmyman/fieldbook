@@ -15,7 +15,7 @@ links = ["cls-sx-receivables-balance-sheet", "cls-sx-inventories-long-term-contr
 
 ## Purpose
 
-Shows three ground rules for financial statements filed under Regulation S-X: statements not prepared under generally accepted accounting principles are presumed misleading, the required information is a minimum, and immaterial items need not be set out. It also shows who the sections from 210.5-01 to 210.5-04 apply to. Regulation S-X is not FAR, DFARS or CAS. It binds financial statements filed with the Commission, which is the Securities and Exchange Commission, and a contractor that files nothing with the Commission is not bound [@CL-CLS-0850]. Whether it binds a company depends on the company's filing obligations with the Commission.
+Shows three ground rules for financial statements filed under Regulation S-X: statements not prepared under generally accepted accounting principles are presumed misleading, the required information is a minimum, and immaterial items need not be set out. It also shows who the sections from 210.5-01 to 210.5-04 apply to [@CL-CLS-0817]. Regulation S-X is not FAR, DFARS or CAS. It binds financial statements filed with the Commission, which is the Securities and Exchange Commission, and a contractor that files nothing with the Commission is not bound [@CL-CLS-0850]. Whether it binds a company depends on the company's filing obligations with the Commission.
 
 ## The rule
 
@@ -56,6 +56,7 @@ Which accounting framework the company uses for local and group reporting, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on who the sections apply to.
 - COMPATIBLE_EXTENSION, 2026-10-31: The sentences on Rule 5-01 now name the sections it covers instead of describing them as line-item rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules on inapplicable captions and omitted financial statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for form, the GAAP presumption and materiality under Regulation S-X.

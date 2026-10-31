@@ -50,7 +50,7 @@ A solicitation names one NAICS code, and its size standard is 600 employees. A c
 
 ## Never confuse
 
-Choosing the NAICS code and its size standard is a different step from deciding on what date a concern's size is measured, which [When a concern's size status is measured](../taxonomy/mkt-sba-size-measurement-date.md) covers. It is also different from an appeal of the code to SBA's Office of Hearings and Appeals, because the assigned code is final unless timely appealed [@CL-MKT-0547]. The linked card, [Size standards, NAICS codes and appeals](../taxonomy/mkt-size-standards-and-naics-codes.md), covers the wider picture. Whether a firm that resells supplies counts as small is a separate test, set out in [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md).
+Choosing the NAICS code and its size standard is a different step from deciding on what date a concern's size is measured, which [When a concern's size status is measured](../taxonomy/mkt-sba-size-measurement-date.md) covers. It is also different from an appeal of the code to SBA's Office of Hearings and Appeals, because the assigned code is final unless timely appealed or unless SBA assigns a code or size standard as a later paragraph of the section provides [@CL-MKT-0547]. The linked card, [Size standards, NAICS codes and appeals](../taxonomy/mkt-size-standards-and-naics-codes.md), covers the wider picture. Whether a firm that resells supplies counts as small is a separate test, set out in [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md).
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which NAICS codes and size standards the company's products and customers usuall
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA-assignment exception to the code finality statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the programs covered by the size sections and the size rules for multiple item procurements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the multiple award sentence so the discrete-category route keeps the code that best describes the principal purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the size standard that applies to a federal procurement.

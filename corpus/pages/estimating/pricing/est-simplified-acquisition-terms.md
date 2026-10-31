@@ -22,7 +22,7 @@ Shows the terms that the simplified acquisitions clause for other than commercia
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2280] |
-| Codified citation | FAR 52.213-4 [@CL-EST-2280] |
+| Codified citation | FAR 52.213-4 [@CL-EST-2280]; FAR 2.101 [@CL-EST-9315; @CL-EST-9316] |
 | RFO citation | RFO FAR 52.213-4 [@CL-EST-0590] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2280] |
@@ -30,7 +30,7 @@ Shows the terms that the simplified acquisitions clause for other than commercia
 
 The contractor must comply with the FAR clauses that the first paragraph lists as incorporated by reference [@CL-EST-2280]. The first group in that paragraph implements provisions of law or executive order [@CL-EST-2351]. The second group lists additional clauses that apply, including Payments, Discounts for Prompt Payment, Extras and Prompt Payment [@CL-EST-2283], Unenforceability of Unauthorized Obligations [@CL-EST-2352], and the Disputes, Subcontracts for Commercial Products and Commercial Services and Computer Generated Forms clauses [@CL-EST-2284].
 
-A second paragraph lists clauses incorporated by reference with which the contractor must comply unless the circumstances stated for a clause do not apply [@CL-EST-2281]. Clauses incorporated by reference have the same force and effect as if given in full text, and the contracting officer makes the full text available on request [@CL-EST-2282].
+A second paragraph lists clauses incorporated by reference with which the contractor must comply unless the circumstances stated for a clause do not apply [@CL-EST-2281]. Clauses incorporated by reference have the same force and effect as if given in full text, and the contracting officer makes the full text available on request [@CL-EST-2282]. The FAR definitions section describes simplified acquisition procedures as the methods prescribed in part 13 for making purchases of supplies or services [@CL-EST-9315]. It also describes a purchase order, when issued by the Government, as an offer by the Government to buy supplies or services, including construction and research and development, upon specified terms and conditions, using simplified acquisition procedures [@CL-EST-9316].
 
 ## How it works
 
@@ -90,5 +90,6 @@ Who confirms, for each executed order, which incorporated clauses and thresholds
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of simplified acquisition procedures and purchase order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for simplified acquisition terms.

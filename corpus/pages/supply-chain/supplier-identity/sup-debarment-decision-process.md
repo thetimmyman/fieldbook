@@ -23,13 +23,15 @@ Shows how a proposed debarment is weighed and decided: the general rules, the mi
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0917] |
-| Codified citation | FAR 9.406-1 and FAR 9.406-3 [@CL-SUP-0917; @CL-SUP-0921] |
+| Codified citation | FAR 9.406-1 and FAR 9.406-3 [@CL-SUP-0917; @CL-SUP-0921]; FAR 2.101 [@CL-SUP-9570] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0917] |
 | Applies to | Debarment proposals decided by the suspending and debarring official [@CL-SUP-0923; @CL-SUP-0920] |
 
 The existence of a cause for debarment does not necessarily require debarment, and the seriousness of the acts or omissions and any remedial measures, mitigating factors or aggravating factors should be considered in making any debarment decision [@CL-SUP-0917]. If a cause for debarment exists, the contractor has the burden of demonstrating, to the satisfaction of the suspending and debarring official, its present responsibility and that debarment is not necessary [@CL-SUP-0920]. The causes are on the [Causes for debarment](sup-causes-for-debarment.md) card and the period and scope are on the [Period and scope of debarment](sup-debarment-period-and-scope.md) card; neither is restated here.
+
+The FAR definitions section describes the suspending and debarring official as an agency head or a designee authorized by the agency head to impose a suspension and/or a debarment [@CL-SUP-9570].
 
 The deadlines and the standard of proof in the printed sections are these. The notice of proposed debarment states that the contractor may submit information and argument in opposition within 30 days after receipt of the notice [@CL-SUP-0921; @CL-SUP-0982]. If no suspension is in effect, the decision shall be made within 45 days from the date that the official administrative record is closed, unless the suspending and debarring official extends this period for good cause [@CL-SUP-0924]. That sentence sits in the paragraph that provides for a decision on the administrative record in actions based upon a conviction or civil judgment, or in which there is no genuine dispute over material facts [@CL-SUP-0923]. The official record closes upon the expiration of the contractor's time to submit information and argument in opposition, including any extensions [@CL-SUP-0925]. In any action in which the proposed debarment is not based upon a conviction or civil judgment, the cause for debarment must be established by a preponderance of the evidence [@CL-SUP-0983].
 
@@ -65,5 +67,6 @@ Confirm who owns the response to a notice of proposed debarment, how the respons
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of suspending and debarring official.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the findings sentence so the decision rule keeps the contractor's submissions and the administrative record.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the debarment decision process.

@@ -32,7 +32,7 @@ The subpart prescribes policies and procedures to implement Executive Order 1402
 
 United States means the 50 States, the District of Columbia, Puerto Rico, the Northern Mariana Islands, American Samoa, Guam, the United States Virgin Islands, Johnston Island, Wake Island, and the outer Continental Shelf as defined in the Outer Continental Shelf Lands Act (title 43 of the United States Code, section 1331 and following) [@CL-CMP-8171].
 
-Worker is defined in accordance with 29 CFR 23.20. It means any person engaged in performing work on, or in connection with, a contract covered by Executive Order 14026 [@CL-CMP-8172]. Paragraph (1)(i)(A): the person's wages under the contract are governed by the Fair Labor Standards Act (title 29 of the United States Code, chapter 8), the Service Contract Labor Standards statute (title 41, chapter 67), or the Wage Rate Requirements (Construction) statute (title 40, chapter 31, subchapter IV) [@CL-CMP-8173].
+Worker is defined in accordance with 29 CFR 23.20 and means any person engaged in performing work on, or in connection with, a contract covered by Executive Order 14026 [@CL-CMP-8172]. Paragraph (1)(i)(A): the person's wages under the contract are governed by the Fair Labor Standards Act (title 29 of the United States Code, chapter 8), the Service Contract Labor Standards statute (title 41, chapter 67), or the Wage Rate Requirements (Construction) statute (title 40, chapter 31, subchapter IV) [@CL-CMP-8173].
 
 Paragraph (1)(i)(B): the person is other than an individual employed in a bona fide executive, administrative, or professional capacity, as those terms are defined in 29 CFR part 541 [@CL-CMP-8174].
 
@@ -62,7 +62,7 @@ Paragraph (2) says when a worker performs on a contract and when a worker perfor
 
 The worker definition has a coverage element and a wage element. The person must be engaged in work on, or in connection with, a contract covered by Executive Order 14026, and the person's wages under the contract must be governed by one of the three named statutes [@CL-CMP-8172; @CL-CMP-8173].
 
-Executive, administrative and professional employees as defined in 29 CFR part 541 are outside paragraph (1)(i) of the definition [@CL-CMP-8174]. The content of those part 541 terms is Not established here.
+Executive, administrative and professional employees as defined in 29 CFR part 541 are outside paragraph (1)(i) of the definition [@CL-CMP-8174]. The content of those terms is Not established here.
 
 The label the parties give the relationship does not decide who is a worker. The definition applies regardless of the contractual relationship alleged to exist between the individual and the employer [@CL-CMP-8190].
 
@@ -88,7 +88,7 @@ If the company calls the 10 inventory staff independent contractors, that label 
 
 Never confuse performing on a contract with performing in connection with a contract. Direct work on the specific services the contract calls for is the first, and work that is necessary to performance but is not those services is the second [@CL-CMP-8178; @CL-CMP-8179].
 
-Never confuse paragraph (1)(i) of the worker definition with the whole of it. Special certificate workers and registered apprentices or trainees are added by paragraphs (1)(ii) and (1)(iii) [@CL-CMP-8175; @CL-CMP-8176; @CL-CMP-8177].
+Never confuse paragraph (1)(i) of the worker definition with the whole of it: special certificate workers and registered apprentices or trainees are added by paragraphs (1)(ii) and (1)(iii) [@CL-CMP-8175; @CL-CMP-8176; @CL-CMP-8177].
 
 ## Company calibration
 
@@ -98,5 +98,6 @@ Which covered contracts, labor categories and headcounts the company counts insi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Joined worker definition sentences to their claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor minimum wage definitions.

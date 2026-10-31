@@ -23,7 +23,7 @@ Names each termination for convenience clause that the FAR prescribes, and the k
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-1014] |
-| Codified citation | FAR 49.502 and 49.503 [@CL-CLS-1014; @CL-CLS-1022] |
+| Codified citation | FAR 49.502 and 49.503 [@CL-CLS-1014; @CL-CLS-1022]; FAR 2.101 [@CL-CLS-1521] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-1014] |
@@ -36,6 +36,8 @@ The long-form clause at 52.249-2 goes in when a fixed-price contract is contempl
 The clause at 52.249-3 goes in solicitations and contracts for dismantling, demolition, or removal of improvements [@CL-CLS-1017], when a fixed-price contract is contemplated and the amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1018]. The services short-form clause at 52.249-4 goes in services contracts, regardless of value, when a fixed-price contract is contemplated and the contracting officer makes a determination [@CL-CLS-1019]. The determination includes that, because of the kind of services, the offeror will not incur substantial charges in preparation for and in carrying out the contract [@CL-CLS-1020], and that the offeror would, if terminated for the convenience of the Government, limit termination settlement charges to services rendered before the date of termination [@CL-CLS-1073].
 
 The clause at 52.249-5, titled for educational and other nonprofit institutions, goes in when either a fixed-price or cost-reimbursement contract is contemplated for research and development work [@CL-CLS-1021], with an educational or nonprofit institution on a no-profit or no-fee basis [@CL-CLS-1056]. The clause at 52.249-6 is inserted when a cost-reimbursement contract is contemplated, except contracts for research and development with an educational or nonprofit institution on a no-fee basis [@CL-CLS-1022]. If the contract is for construction, the contracting officer shall use it with its Alternate I [@CL-CLS-1057]. If the contract is a time-and-material or labor-hour contract, the contracting officer shall use it with its Alternate IV [@CL-CLS-1058]. The clause at 52.249-7 is inserted for architect-engineer services when a fixed-price contract is contemplated [@CL-CLS-1023].
+
+The FAR definitions section describes termination for convenience as the exercise of the Government's right to completely or partially terminate performance of work under a contract when it is in the Government's interest [@CL-CLS-1521].
 
 ## How it works
 
@@ -59,4 +61,5 @@ Which termination clause each open contract carries, checked against its contrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of termination for convenience.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for convenience clauses.

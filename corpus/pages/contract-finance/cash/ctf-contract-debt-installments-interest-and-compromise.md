@@ -37,7 +37,7 @@ The delay rule applies if interest is accrued based on the date of the demand le
 
 For debts under $100,000, excluding interest, the designated agency official may compromise the debt pursuant to the Federal Claims Collection Standards (31 CFR part 902) and agency regulations [@CL-CTF-3620]. The amount is measured on the debt without interest [@CL-CTF-3620]. Unless specifically authorized by agency procedures, contracting officers cannot compromise debts [@CL-CTF-3621]. The section does not say who may compromise a debt that is not under that amount [@CL-CTF-3620].
 
-The scope sentence names sections 32.607, 32.608 and 32.610 as the ones that do not apply to the common carrier claims; it does not name section 32.609, on delays in receipt of notices or demands [@CL-CTF-3631].
+The scope sentence names sections 32.607, 32.608 and 32.610 as the ones that do not apply to the common carrier claims [@CL-CTF-3631]; it does not name section 32.609, on delays in receipt of notices or demands [@CL-CTF-3631].
 
 ## How it works
 
@@ -77,5 +77,6 @@ Which office agency procedures designate for installment requests, who tracks th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim before the semicolon.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.600, 32.607-1, 32.608-1, 32.609 and 32.610 citations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract debt installments, interest charges, delayed demand letters and compromises.

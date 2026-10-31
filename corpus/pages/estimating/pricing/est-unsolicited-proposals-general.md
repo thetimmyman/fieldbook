@@ -22,7 +22,7 @@ Shows what makes a proposal a valid unsolicited proposal, what is not one, and w
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1426] |
-| Codified citation | FAR 15.603 [@CL-EST-1426]; DFARS 215.604(a)(3) [@CL-EST-2061] |
+| Codified citation | FAR 15.603 [@CL-EST-1426]; DFARS 215.604(a)(3) [@CL-EST-2061]; FAR 2.101 [@CL-EST-9312; @CL-EST-9313] |
 | RFO citation | RFO FAR 15.503-1 [@CL-EST-3512]; RFO FAR 15.502 [@CL-EST-3518] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1426] |
@@ -31,6 +31,8 @@ Shows what makes a proposal a valid unsolicited proposal, what is not one, and w
 A valid unsolicited proposal must, among its listed requirements, be innovative and unique, be independently originated and developed by the offeror, and be prepared without Government supervision, endorsement, direction, or direct Government involvement [@CL-EST-1426]. It must also include sufficient detail to permit a determination that Government support could be worthwhile and the proposed work could benefit the agency's research and development or other mission responsibilities [@CL-EST-1426; @CL-EST-1427].
 
 It must not be an advance proposal for a known agency requirement that can be acquired by competitive methods, and it must not address a previously published agency requirement [@CL-EST-1426; @CL-EST-1428].
+
+The FAR definitions section also defines an unsolicited proposal as a written proposal for a new or innovative idea that is submitted to an agency on the initiative of the offeror for the purpose of obtaining a contract with the Government [@CL-EST-9312], and that is not in response to a request for proposals, Broad Agency Announcement, Small Business Innovation Research topic, Small Business Technology Transfer Research topic, Program Research and Development Announcement, or any other Government-initiated solicitation or program [@CL-EST-9313].
 
 ## How it works
 
@@ -58,6 +60,7 @@ Who decides whether an idea is sent as an unsolicited proposal, and who owns the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of unsolicited proposal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the FAR 15.604(a)(3) guidance applies to commercial solutions openings.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for valid unsolicited proposals and agency points of contact.

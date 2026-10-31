@@ -29,7 +29,7 @@ Records the Executive Order minimum wage rates that FAR 22.1002-5 states for ser
 | Text status | Final [@CL-CMP-8087] |
 | Applies to | Certain workers, as the section words it [@CL-CMP-8087; @CL-CMP-8088]; the clause at FAR 52.222-55 [@CL-CMP-8091] |
 
-Executive Order 13658 established minimum wages for certain workers at $10.10 per hour. That rate has increased each year since 2015, rising to $11.25 on January 1, 2022 [@CL-CMP-8087].
+Executive Order 13658 established minimum wages for certain workers at $10.10 per hour [@CL-CMP-8087]. That rate has increased each year since 2015, rising to $11.25 on January 1, 2022 [@CL-CMP-8087].
 
 As of January 30, 2022, Executive Order 13658 is superseded by Executive Order 14026 to the extent that it is inconsistent with Executive Order 14026, and the minimum wage rate for certain workers is increased to $15.00 per hour [@CL-CMP-8088].
 
@@ -57,7 +57,7 @@ For a second class, the wage determination amount is $18.00 per hour and the Exe
 
 ## Never confuse
 
-The clause compares the Executive Order 14026 rate with other minimum wage rates, such as the subpart 22.10 statutory wage determination amount. It requires the Executive Order 14026 rate to be paid if that rate is higher [@CL-CMP-8091].
+The clause compares the Executive Order 14026 rate with other minimum wage rates, such as the subpart 22.10 statutory wage determination amount [@CL-CMP-8091]. It requires the Executive Order 14026 rate to be paid if that rate is higher [@CL-CMP-8091].
 
 The $15.00 rate is stated as of January 30, 2022 [@CL-CMP-8088]. The next sentence makes the wage rate subject to annual increases [@CL-CMP-8089]. Executive Order 14026 supersedes Executive Order 13658 only to the extent that the two are inconsistent [@CL-CMP-8088].
 
@@ -69,5 +69,6 @@ Which contracts carry the Executive Order minimum wage clause and which pay clas
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the rate and comparison sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory minimum wage floor for service contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order minimum wages on service contracts.

@@ -23,13 +23,15 @@ Shows the penalty amounts in the unallowable cost penalty clause and the wording
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1685; @CL-CTF-1689] |
-| Codified citation | FAR 52.242-3 [@CL-CTF-1685]; FAR 52.242-4 [@CL-CTF-1689] |
+| Codified citation | FAR 52.242-3 [@CL-CTF-1685]; FAR 52.242-4 [@CL-CTF-1689]; FAR 2.101 [@CL-CTF-9426] |
 | RFO citation | RFO FAR 52.242-3 [@CL-CTF-0789]; RFO FAR 52.242-4 [@CL-CTF-0795] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1685; @CL-CTF-1689] |
 | Applies to | Costs submitted in a proposal under the penalty clause, and proposals to establish final indirect cost rates under the certification clause [@CL-CTF-1685; @CL-CTF-1716] |
 
 If the Contracting Officer determines that a cost submitted in the proposal is expressly unallowable under a cost principle in the FAR or an agency supplement that defines the allowability of specific selected costs, the contractor shall be assessed a penalty [@CL-CTF-1685]. The penalty for an expressly unallowable cost is the amount of the disallowed cost allocated to the contract plus simple interest, to be computed on the amount the contractor was paid, whether as a progress or billing payment, in excess of the amount to which it was entitled, and as further listed in the clause [@CL-CTF-1686]. Where the Contracting Officer determines that a cost submitted in the proposal includes a cost previously determined to be unallowable for that contractor [@CL-CTF-1718], the contractor will be assessed a penalty equal to two times the amount of the disallowed cost allocated to the contract [@CL-CTF-1687]. Payment of an assessed penalty does not constitute repayment to the Government of any unallowable cost which has been paid by the Government to the contractor [@CL-CTF-1714]. The Contracting Officer may waive the penalties in paragraph (d) or (e) of the clause, pursuant to the criteria in the FAR section on waiver [@CL-CTF-1688]. The clause itself does not set out those criteria; the criteria are on [Penalties on expressly unallowable costs: assessment, interest and waiver](../../compliance/audit-retention/cmp-expressly-unallowable-penalty-assessment-and-waiver.md).
+
+The FAR definitions section describes an unallowable cost as any cost that, under the provisions of any pertinent law, regulation, or contract, cannot be included in prices, cost-reimbursements, or settlements under a Government contract to which it is allocable [@CL-CTF-9426].
 
 The contractor shall certify any proposal to establish or modify final indirect cost rates and use the format in the clause's certificate paragraph to certify [@CL-CTF-1716]. One listed duty is to have the certificate signed by an individual at a level no lower than a vice president or chief financial officer of the business segment that submits the proposal [@CL-CTF-1689]. The certifying official states that the official has reviewed the proposal to establish final indirect cost rates and makes the listed statements to the best of the official's knowledge and belief [@CL-CTF-1717]. The first statement is that all costs in the proposal are allowable in accordance with the cost principles of the FAR and its supplements applicable to the contracts to which the final indirect cost rates will apply [@CL-CTF-1690; @CL-CTF-1485], and the second is that the proposal does not include any costs which are expressly unallowable under applicable cost principles of the FAR or its supplements [@CL-CTF-1691]. Failure to submit a signed certificate, as described in the clause, may result in final indirect costs at rates unilaterally established by the Contracting Officer [@CL-CTF-1715].
 
@@ -57,6 +59,7 @@ Confirm who signs the certificate, who screens costs for expressly unallowable i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of unallowable cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the certificate statement and the RFO penalty interest sentence so the rules keep the contracts-to-which-the-rates-apply scope and the interest rate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for penalties for unallowable costs and certification of final indirect costs.

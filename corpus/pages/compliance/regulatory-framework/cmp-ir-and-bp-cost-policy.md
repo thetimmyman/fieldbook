@@ -29,7 +29,7 @@ Shows what two short DFARS sections say. DFARS 242.771-1 gives the scope of DFAR
 | Text status | Final [@CL-CMP-8769] |
 | Applies to | Scope: the three provisions of title 10 of the United States Code that DFARS 242.771 implements [@CL-CMP-8769]. Policy: defense contractors' independent research and development projects [@CL-CMP-8770] |
 
-The scope section says that DFARS 242.771 implements three provisions of title 10 of the United States Code: section 3762, Independent research and development costs: allowable costs; section 3763, Bid and proposal costs: allowable costs; and section 3847, Defense Contract Audit Agency: annual report [@CL-CMP-8769]. That one sentence is the whole text of the scope section. It sets no allowance, threshold, deadline or duty of its own [@CL-CMP-8769].
+The scope section says that DFARS 242.771 implements three provisions of title 10 of the United States Code: section 3762 (Independent research and development costs: allowable costs), section 3763 (Bid and proposal costs: allowable costs) and section 3847 (Defense Contract Audit Agency: annual report) [@CL-CMP-8769]. That one sentence is the whole text of the scope section. It sets no allowance, threshold, deadline or duty of its own [@CL-CMP-8769].
 
 The policy section says that defense contractors are encouraged to engage in independent research and development projects that will advance the needs of DoD for future technology and advanced capability, and it cross-refers to 231.205-18(c)(iii) [@CL-CMP-8770]. The sentence says "encouraged". It sets no duty, threshold or deadline. It does not say who decides whether a project meets the stated purpose [@CL-CMP-8770].
 
@@ -59,4 +59,5 @@ Which business units and segments run independent research and development proje
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced semicolons in a list so the claim covers it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal cost policy.

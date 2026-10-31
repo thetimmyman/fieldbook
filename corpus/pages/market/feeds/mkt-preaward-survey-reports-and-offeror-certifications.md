@@ -23,13 +23,15 @@ Shows who completes the preaward survey reports, what they cover, what an offero
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0749] |
-| Codified citation | FAR 9.106-4; FAR 9.107; FAR 9.109-1; FAR 9.109-4; FAR 9.110-2; FAR 9.110-3 [@CL-MKT-0749; @CL-MKT-0786; @CL-MKT-9164; @CL-MKT-0750; @CL-MKT-9165; @CL-MKT-0751] |
+| Codified citation | FAR 9.106-4; FAR 9.107; FAR 9.109-1; FAR 9.109-4; FAR 9.110-2; FAR 9.110-3 [@CL-MKT-0749; @CL-MKT-0786; @CL-MKT-9164; @CL-MKT-0750; @CL-MKT-9165; @CL-MKT-0751]; FAR 2.101 [@CL-MKT-9228] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0749] |
 | Applies to | Surveyed prospective contractors, offerors for contract award, contracting offices asked for a capability survey, and institutions of higher education named in the prohibition [@CL-MKT-0749; @CL-MKT-0750; @CL-MKT-0786; @CL-MKT-0751] |
 
 The surveying activity shall complete the applicable parts of the general, technical and production preaward survey forms, SF 1403, SF 1404 and SF 1405 [@CL-MKT-0749]. The listed preaward survey forms also include SF 1406 for quality assurance, SF 1407 for financial capability and SF 1408 for the accounting system [@CL-MKT-0752]. When the contractor surveyed is a small business that has received preferential treatment on an ongoing contract under section 8(a) of the Small Business Act or has received a Certificate of Competency during the last 12 months, the surveying activity shall consult [@CL-MKT-0788]. The surveying activity's consultation is with the appropriate Small Business Administration field office, and it takes place before making an affirmative recommendation regarding the contractor's responsibility or nonresponsibility [@CL-MKT-0789]. When a preaward survey discloses previous unsatisfactory performance, the surveying activity shall specify the extent to which the prospective contractor plans, or has taken, corrective action [@CL-MKT-0753]. When the surveying activity possesses information that supports a recommendation of complete award without an on-site survey and no special areas for investigation have been requested, the surveying activity may provide a short-form preaward survey report [@CL-MKT-0754].
+
+The FAR definitions section describes a preaward survey as an evaluation of a prospective contractor's capability to perform a proposed contract [@CL-MKT-9228].
 
 In order to be eligible for contract award, an offeror is required to meet the conditions listed after the dash [@CL-MKT-0750]. The listed paragraphs offer a certification route and an alternative route [@CL-MKT-0755; @CL-MKT-0783]. One listed item on the certification route is a certification that the offeror does not engage and has not engaged in any activity that contributed to or was a significant factor in the President's or Secretary of State's determination [@CL-MKT-0755]. The determination that the certification concerns may be that a foreign country is in violation of its obligations undertaken in any arms control, nonproliferation, or disarmament agreement to which the United States is a party, or that it is not adhering to its arms control, nonproliferation, or disarmament commitments in which the United States is a participating state [@CL-MKT-0781; @CL-MKT-1811]. One listed item is that the offeror similarly certify with regard to any entity owned or controlled by the offeror [@CL-MKT-0782]. As an alternative to certifying, an offeror may provide with its offer information that the President of the United States has waived application under subsection (d) or (e) of section 2593e of title 22 of the United States Code or has determined under subsection (g)(2) of that section that the entity has ceased all activities for which measures were imposed under subsection (b) [@CL-MKT-0783]. The authority section 9.109-1 says that it implements section 2593e of title 22 of the United States Code [@CL-MKT-9164].
 
@@ -57,6 +59,7 @@ Confirm which preaward survey requests and offeror certifications are open and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of preaward survey.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the authority sections for the arms control certification and the higher education funding prohibition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the determination sentence so the rule keeps the alternative of a foreign country not adhering to its commitments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prospective contractor responsibility reports and certifications.

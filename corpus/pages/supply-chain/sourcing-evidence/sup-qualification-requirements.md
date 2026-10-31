@@ -23,13 +23,13 @@ Shows what a potential offeror is entitled to when an agency sets a qualificatio
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0933] |
-| Codified citation | FAR 9.200, FAR 9.202, FAR 9.203, FAR 9.204 and FAR 9.205 [@CL-SUP-4150; @CL-SUP-0933; @CL-SUP-0997; @CL-SUP-0934; @CL-SUP-0938] |
+| Codified citation | FAR 9.200, FAR 9.202, FAR 9.203, FAR 9.204 and FAR 9.205 [@CL-SUP-4150; @CL-SUP-0933; @CL-SUP-0997; @CL-SUP-0934; @CL-SUP-0938]; FAR 2.101 [@CL-SUP-9566] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0933] |
 | Applies to | Agency activities that establish qualification requirements, and potential offerors seeking qualification [@CL-SUP-0933; @CL-SUP-0938] |
 
-The subpart implements section 3243 of title 10 and section 3311 of title 41 of the United States Code and prescribes policies and procedures regarding qualification requirements and the acquisitions that are subject to such requirements [@CL-SUP-4150].
+The subpart implements section 3243 of title 10 and section 3311 of title 41 of the United States Code and prescribes policies and procedures regarding qualification requirements and the acquisitions that are subject to such requirements [@CL-SUP-4150]. The FAR definitions section describes a qualification requirement as a Government requirement for testing or other quality assurance demonstration that must be completed before award of a contract [@CL-SUP-9566].
 
 Upon request to the contracting activity, potential offerors shall be provided all requirements to become qualified and, at their expense but subject to a cross-referenced rule for small businesses, a prompt opportunity to demonstrate their abilities [@CL-SUP-0933].
 
@@ -61,5 +61,6 @@ Confirm which items the company supplies under a qualification requirement, whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of qualification requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope and statutory basis of the qualification requirements subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for qualification requirements and the opportunity to qualify before award.

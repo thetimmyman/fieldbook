@@ -23,13 +23,15 @@ Shows when a contractor may not subcontract with a debarred, suspended or propos
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0558] |
-| Codified citation | FAR 52.209-6 [@CL-SUP-0558] |
+| Codified citation | FAR 52.209-6 [@CL-SUP-0558]; FAR 2.101 [@CL-SUP-9581; @CL-SUP-9582; @CL-SUP-9583] |
 | RFO citation | RFO FAR 52.209-6 [@CL-SUP-3638; @CL-SUP-3639] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0558] |
 | Applies to | Contracts with the clause inserted as prescribed in FAR 9.409, other than for subcontracts for commercially available off-the-shelf items [@CL-SUP-0689; @CL-SUP-0690] |
 
 Under paragraph (b), the contractor shall not enter into any subcontract, in excess of the threshold specified in FAR 9.405-2(b) on the date of subcontract award, with a contractor that is debarred, suspended, or proposed for debarment by any executive agency unless there is a compelling reason to do so [@CL-SUP-0558]. The prohibition does not apply to a subcontract for a commercially available off-the-shelf item [@CL-SUP-0690].
+
+The codified FAR definitions section defines a commercially available off-the-shelf (COTS) item as any item of supply (including construction material) that is a commercial product as defined in paragraph (1) of the definition of commercial product [@CL-SUP-9581], is sold in substantial quantities in the commercial marketplace, and is offered to the Government, under a contract or subcontract at any tier, without modification, in the same form in which it is sold in the commercial marketplace [@CL-SUP-9582]. A COTS item does not include bulk cargo, as defined in section 40102(4) of title 46 of the United States Code, such as agricultural products and petroleum products [@CL-SUP-9583].
 
 ## How it works
 
@@ -57,5 +59,6 @@ Confirm how exclusion screening and written disclosures are checked before a sub
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of a commercially available off-the-shelf item.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protecting the Government's interest when subcontracting with debarred or suspended contractors.

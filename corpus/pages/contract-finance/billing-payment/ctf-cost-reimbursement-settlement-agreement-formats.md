@@ -23,13 +23,13 @@ The supplemental agreement formats for a completely terminated cost-reimbursemen
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3271] |
-| Codified citation | FAR 49.603-4 and FAR 49.603-5 [@CL-CTF-3271; @CL-CTF-3285] |
+| Codified citation | FAR 49.603-4 and FAR 49.603-5 [@CL-CTF-3271; @CL-CTF-3285]; FAR 2.101 [@CL-CTF-9424] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3271] |
 | Applies to | Cost-reimbursement contracts that are completely terminated with settlement limited to fee, and cost-reimbursement contracts that are partially terminated [@CL-CTF-3271; @CL-CTF-3285] |
 
-For a completely terminated cost-reimbursement contract where settlement is limited to fee, the format is inserted in Block 14 of Standard Form 30 [@CL-CTF-3271]. The supplemental agreement settles the amount of fee due under the contract, terminated in its entirety by a notice of termination [@CL-CTF-3272]. It states the amount the contractor has received on account of its fee under the contract before the effective date of termination [@CL-CTF-3273].
+For a completely terminated cost-reimbursement contract where settlement is limited to fee, the format is inserted in Block 14 of Standard Form 30 [@CL-CTF-3271]. The supplemental agreement settles the amount of fee due under the contract, terminated in its entirety by a notice of termination [@CL-CTF-3272]. It states the amount the contractor has received on account of its fee under the contract before the effective date of termination [@CL-CTF-3273]. The FAR definitions section describes a supplemental agreement as a contract modification that is accomplished by the mutual action of the parties [@CL-CTF-9424].
 
 It also states that the Government agrees to pay the contractor or its assignee, upon presentation of a proper invoice or voucher, the net amount to be paid on account of fee [@CL-CTF-3274]. That net sum, with sums previously paid, constitutes payment in full and complete settlement of the amount due the contractor on account of its fee under the contract [@CL-CTF-3131]. The agreement states that the contractor's allowable costs under the contract will be paid under the terms and conditions of the contract and parts 31 and 49 of the FAR [@CL-CTF-3275]. That statement is inserted only if there are costs to be vouchered out or if there are costs to be covered later by a separate settlement agreement [@CL-CTF-3276].
 
@@ -74,5 +74,6 @@ Which agreement language and which reserved-items list the company uses when fee
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of supplemental agreement.
 - COMPATIBLE_EXTENSION, 2026-10-30: Corrected the settlement to decrease the estimated cost only if appropriate, as the format text says, and stated why the worked example applies the decrease.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-reimbursement settlement agreement formats.

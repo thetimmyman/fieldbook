@@ -22,13 +22,13 @@ Shows how orders are issued under a delivery or task order contract, what the Go
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1835] |
-| Codified citation | FAR 52.216-18, FAR 52.216-20 and FAR 52.216-21 [@CL-EST-1835; @CL-EST-1837; @CL-EST-1839] |
+| Codified citation | FAR 52.216-18, FAR 52.216-20 and FAR 52.216-21 [@CL-EST-1835; @CL-EST-1837; @CL-EST-1839]; FAR 2.101 [@CL-EST-9317] |
 | RFO citation | RFO FAR 52.216-18 [@CL-EST-0386]; RFO FAR 52.216-20 [@CL-EST-0391]; RFO FAR 52.216-21 [@CL-EST-0396] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1835] |
 | Applies to | Delivery order and task order contracts that include the ordering, definite quantity or requirements clause [@CL-EST-1835; @CL-EST-1837; @CL-EST-1839] |
 
-Supplies and services under the contract shall be ordered by issuing delivery orders or task orders by the individuals or activities designated in the Schedule [@CL-EST-1835]. Such orders may be issued from the start date through the end date that the Contracting Officer inserts in the clause [@CL-EST-1908]. If a delivery order or task order conflicts with the contract, the contract controls [@CL-EST-1836]. A delivery order or task order sent by mail is considered issued when the Government deposits the order in the mail, and one sent by fax when the Government transmits the order to the Contractor's fax number [@CL-EST-1871]. An order sent electronically is considered issued when the Government either posts a copy of the order to a Government document access system and notice is sent to the Contractor, or distributes the order by email to the Contractor's email address [@CL-EST-1909]. Orders may be issued by methods other than those enumerated in the clause only if authorized in the contract [@CL-EST-1910].
+Supplies and services under the contract shall be ordered by issuing delivery orders or task orders by the individuals or activities designated in the Schedule [@CL-EST-1835]. Such orders may be issued from the start date through the end date that the Contracting Officer inserts in the clause [@CL-EST-1908]. If a delivery order or task order conflicts with the contract, the contract controls [@CL-EST-1836]. A delivery order or task order sent by mail is considered issued when the Government deposits the order in the mail, and one sent by fax when the Government transmits the order to the Contractor's fax number [@CL-EST-1871]. An order sent electronically is considered issued when the Government either posts a copy of the order to a Government document access system and notice is sent to the Contractor, or distributes the order by email to the Contractor's email address [@CL-EST-1909]. Orders may be issued by methods other than those enumerated in the clause only if authorized in the contract [@CL-EST-1910]. The FAR definitions section describes a task order as an order for services placed against an established contract or with Government sources [@CL-EST-9317].
 
 Under the definite quantity clause the Government shall order the quantity of supplies or services specified in the Schedule, and the Contractor shall furnish them when ordered [@CL-EST-1837]. Except for quantity limitations in the Order Limitations clause or the Schedule, there is no limit on the number of orders that may be issued under that clause [@CL-EST-1838]. Under the requirements clause, the quantities specified in the Schedule are estimates only and are not purchased by the contract [@CL-EST-1870]. Under the definite quantity clause, an order issued during the effective period and not completed within that time shall be completed by the Contractor within the time specified in the order [@CL-EST-1912], the contract governs the rights and obligations for that order as if it were completed during the effective period [@CL-EST-1913], and the Contractor is not required to make deliveries after the date inserted in the clause [@CL-EST-1914]. The requirements clause says the same for an order issued during its effective period and not completed within that period [@CL-EST-1915; @CL-EST-1916; @CL-EST-1917].
 
@@ -58,5 +58,6 @@ Which bids and task order proposals need immediate support and the approval rout
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of task order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ordering, definite quantity and requirements clauses.

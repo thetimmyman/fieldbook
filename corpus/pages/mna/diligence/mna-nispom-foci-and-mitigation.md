@@ -46,7 +46,7 @@ Answer: because the investor would effectively own the contractor, an SSA is the
 
 ## Never confuse
 
-FOCI is a rule about access to classified information. It is not the ownership representation an offeror makes in a FAR provision, which is on the [Ownership or Control of Offeror provision](../../supply-chain/supplier-identity/sup-ownership-or-control-of-offeror.md) card, and it is not a cyber rule; the cyber side is on the [Safeguarding covered defense information](../../compliance/trade-cyber/cmp-safeguarding-covered-defense-information.md) card. For an entity in process, the bar on access lasts only until effective security measures are in place [@CL-MNA-0527].
+FOCI is a rule about access to classified information. It is not the ownership representation an offeror makes in a FAR provision, which is on the [Ownership or Control of Offeror provision](../../supply-chain/supplier-identity/sup-ownership-or-control-of-offeror.md) card, and it is not a cyber rule; the cyber side is on the [Safeguarding covered defense information](../../compliance/trade-cyber/cmp-safeguarding-covered-defense-information.md) card. For an entity in process, the bar on access lasts only until effective security measures are in place [@CL-MNA-0527]. The FAR definitions section defines a classified contract as any contract in which the contractor or its employees must have access to classified information during contract performance, and a contract may be a classified contract even though the contract document itself is unclassified [@CL-MNA-1461]. That is the FAR wording, and the FOCI rule on this card rests on the NISPOM and not on the FAR [@CL-MNA-0525].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether the company holds or seeks access to classified information, which forei
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of a classified contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the control number of the SF 328.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign ownership, control or influence.
