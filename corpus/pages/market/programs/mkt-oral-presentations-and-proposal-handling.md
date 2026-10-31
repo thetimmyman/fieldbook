@@ -37,7 +37,7 @@ Information that the parties intend to make a material term or condition of the 
 
 ## How it works
 
-In deciding what to take orally, the Government considers its ability to evaluate the information and the need to incorporate it into the contract [@CL-MKT-1468], as well as the effect on the efficiency of the acquisition and on small businesses, including cost [@CL-MKT-1469]. The contracting officer keeps a record of oral presentations that documents what the Government relied on in the source selection decision [@CL-MKT-1318]. The source selection authority decides the method and level of detail of that record [@CL-MKT-1474]. A copy of the record placed in the file may be provided to the offeror [@CL-MKT-1475].
+In deciding what to take orally, the Government considers its ability to adequately evaluate the information and the need to incorporate it into the contract [@CL-MKT-1468], as well as the effect on the efficiency of the acquisition and on small businesses, including cost [@CL-MKT-1469]. The contracting officer keeps a record of oral presentations that documents what the Government relied on in the source selection decision [@CL-MKT-1318]. The source selection authority decides the method and level of detail of that record [@CL-MKT-1474]. A copy of the record placed in the file may be provided to the offeror [@CL-MKT-1475].
 
 Proposals and information received in response to a request for information are marked with the date and time of receipt at the location the solicitation specifies, then passed to the designated officials [@CL-MKT-1321]. Proposals must be safeguarded from unauthorized disclosure throughout the source selection process [@CL-MKT-1322]. Information received in response to a request for information must also be safeguarded adequately [@CL-MKT-1476].
 
@@ -63,4 +63,5 @@ Whether any live solicitation calls for oral presentations, and where the presen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Restored the word "adequately" to the Government's ability to evaluate information taken orally, as FAR 15.102(c) states it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for oral presentations and the handling of proposals.

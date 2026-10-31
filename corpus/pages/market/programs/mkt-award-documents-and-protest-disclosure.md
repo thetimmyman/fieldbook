@@ -31,7 +31,7 @@ Explains how an award is made and signed, what a partial award notice must say, 
 
 The contracting officer awards a contract to the successful offeror by furnishing the executed contract or other notice of the award to that offeror [@CL-MKT-1340]. If the award document includes information different from the latest signed proposal, as amended by the offeror's written correspondence, both the offeror and the contracting officer must sign the contract award [@CL-MKT-1341]. When an award covers less than all the items that may be awarded and items are withheld for later award, each notice must state that the Government may make subsequent awards on those items within the proposal acceptance period [@CL-MKT-1342].
 
-If Optional Form 307, Standard Form 26 or Standard Form 33 is not used to award the contract, the first page of the award document must contain the Government's acceptance statement from Block 15 of that form [@CL-MKT-1343]. That statement excludes the Item 3 reference language, and the first page must also contain the contracting officer's name, signature and date [@CL-MKT-1495]. If the award document also differs from the signed proposal as amended by the offeror's written correspondence, the first page must include the contractor's agreement statement from Block 14 of Optional Form 307 and the signature of the contractor's authorized representative [@CL-MKT-1496].
+If Optional Form 307, Standard Form 26 or Standard Form 33 is not used to award the contract, the first page of the award document must contain the Government's acceptance statement from Block 15 of that form [@CL-MKT-1343]. That statement excludes the Item 3 reference language, and the first page must also contain the contracting officer's name, signature and date [@CL-MKT-1495]. When none of those forms is used and the award document also differs from the signed proposal as amended by the offeror's written correspondence, the first page must include the contractor's agreement statement from Block 14 of Optional Form 307 and the signature of the contractor's authorized representative [@CL-MKT-1343; @CL-MKT-1496].
 
 ## How it works
 
@@ -59,4 +59,5 @@ Who confirms the signature state of each award document and keeps the record of 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Limited the contractor's agreement statement on the first page to awards made without Optional Form 307, Standard Form 26 or Standard Form 33, as FAR 15.504(c) does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award documents and protest-related disclosure.
