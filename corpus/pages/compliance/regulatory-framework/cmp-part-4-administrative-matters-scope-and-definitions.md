@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation"]
-links = ["cmp-piid-and-supplementary-piid", "cmp-piid-applicability-uniform-identifier-rules"]
+links = ["cmp-piid-and-supplementary-piid", "cmp-contract-line-item-rules-applicability"]
 questions = ["Q-003"]
 +++
 
@@ -37,7 +37,7 @@ Two examples in the definitions show how an agency may form the identifier. For 
 
 ## How it works
 
-These two sections state policy scope and definitions. They name no approving official and set no threshold or deadline, and they place no duty on a contractor [@CL-CMP-8280; @CL-CMP-8283]. The part carries two kinds of content: the paperwork and records side of contract execution, and security-based sourcing prohibitions [@CL-CMP-8280; @CL-CMP-8281]. On the records side, one unique identifier names each procurement action, and a supplementary identifier carries a non-unique amendment number alongside it [@CL-CMP-8283; @CL-CMP-8284; @CL-CMP-8591]. The order or agreement number combined with the contract number is a permitted form of identifier, not a required one, because the definition says an agency may use it [@CL-CMP-8285]. The same is true of the amendment number form [@CL-CMP-8591]. The identifier rules themselves, including how an identifier is built, are in the identifier subpart; see [Procurement instrument identifier and supplementary identifier](../trade-cyber/cmp-piid-and-supplementary-piid.md).
+These two sections state policy scope and definitions. They name no approving official and set no threshold or deadline, and they place no duty on a contractor [@CL-CMP-8280; @CL-CMP-8283]. The part carries two kinds of content: the paperwork and records side of contract execution, and security-based sourcing prohibitions [@CL-CMP-8280; @CL-CMP-8281]. On the records side, one unique identifier names each procurement action, and a supplementary identifier carries a non-unique amendment number alongside it [@CL-CMP-8283; @CL-CMP-8284; @CL-CMP-8591]. The order or agreement number combined with the contract number is a permitted form of identifier, not a required one, because the definition says an agency may use it [@CL-CMP-8285]. The same is true of the amendment number form [@CL-CMP-8591]. The identifier rules themselves, including how an identifier is built, are in the separate identifier subpart [@CL-CMP-8599]; see [Procurement instrument identifier and supplementary identifier](../trade-cyber/cmp-piid-and-supplementary-piid.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ An agency issues solicitation 1000001 and amends it twice. It uses 1000001 with 
 
 ## Never confuse
 
-A unique identifier is not a supplementary identifier: the first is the Government-unique identifier, while the second is non-unique and is used in conjunction with the first [@CL-CMP-8283; @CL-CMP-8284]. The administrative scope of the part is also not the identifier subpart, whose coverage turns on the type of procurement instrument [@CL-CMP-8286].
+A unique identifier is not a supplementary identifier: the first is the Government-unique identifier, while the second is non-unique and is used in conjunction with the first [@CL-CMP-8283; @CL-CMP-8284]. The administrative scope of the part is also not the line item subpart, whose coverage turns on the type of procurement instrument and which concerns line items, not the identifier of the instrument [@CL-CMP-8286; @CL-CMP-8597].
 
 ## Company calibration
 
