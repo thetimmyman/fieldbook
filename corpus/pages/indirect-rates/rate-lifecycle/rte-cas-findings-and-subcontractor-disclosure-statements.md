@@ -47,7 +47,7 @@ A contractor changes a pool base after a new standard applies to an existing con
 
 ## Never confuse
 
-The section sits in the Cost Accounting Standards Board text, but it assigns each finding to the Contracting Officer or the cognizant Federal agency official [@CL-RTE-0807; @CL-RTE-0809]. In the first alternative the required-change paragraph names, the finding asks whether a standard forced the change [@CL-RTE-0807], and a desirable-change finding asks whether the change is not detrimental to the Government [@CL-RTE-0809]. A confidential statement may instead go directly to the ACO and auditor cognizant of the subcontractor [@CL-RTE-0812].
+The section sits in the Cost Accounting Standards Board text, but it assigns each finding to the Contracting Officer or the cognizant Federal agency official [@CL-RTE-0807; @CL-RTE-0809]. In the first alternative the required-change paragraph names, the finding is that the practice change was required to comply with a CAS, modification or interpretation thereof that subsequently became applicable to the contract [@CL-RTE-0807], and the desirable-change finding is that the change to a cost accounting practice is desirable and not detrimental to the interests of the Government [@CL-RTE-0809]. A confidential statement may instead go directly to the ACO and auditor cognizant of the subcontractor [@CL-RTE-0812].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which fiscal years are open for CAS cost-impact adjustments that still need a fi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the required-change and desirable-change findings in the words of the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said the required-change finding has a first alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the price-or-cost adjustment and similar-information wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-6 and 30.202-4 pointers.

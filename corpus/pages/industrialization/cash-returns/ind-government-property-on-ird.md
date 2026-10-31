@@ -35,7 +35,7 @@ A further condition is that a rental charge for the portion of the contractor's 
 
 ## How it works
 
-Authorization is by the contracting officer, and it depends on all the listed conditions [@CL-IND-0027; @CL-IND-0028]. The contractor gives up any claim for the rental value of the property against a Government contract [@CL-IND-0028]. The rental charge for the commercial share of the program cost comes off the claim for the agreed Government share of IR&D costs [@CL-IND-0029]. The cost rules for IR&D itself are on [IR&D and B&P costs](../../compliance/cas-allowability/cmp-ird-and-bp-costs.md) and [IR&D and B&P project and pool techniques](../../indirect-rates/pools-bases/rte-ird-bp-project-and-pool-techniques.md).
+The contracting officer may authorize the use, if all the listed conditions are met [@CL-IND-0027; @CL-IND-0028; @CL-IND-0029]. The contractor gives up any claim for the rental value of the property against a Government contract [@CL-IND-0028]. The rental charge for the commercial share of the program cost comes off the claim for the agreed Government share of IR&D costs [@CL-IND-0029]. The cost rules for IR&D itself are on [IR&D and B&P costs](../../compliance/cas-allowability/cmp-ird-and-bp-costs.md) and [IR&D and B&P project and pool techniques](../../indirect-rates/pools-bases/rte-ird-bp-project-and-pool-techniques.md).
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Whether any advance agreement covers IR&D or the use of Government property on i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Authorization condition cites all three items
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government property on independent research and development.

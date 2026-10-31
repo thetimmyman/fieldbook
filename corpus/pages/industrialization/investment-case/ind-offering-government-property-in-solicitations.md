@@ -35,7 +35,7 @@ The contracting officer shall consider any potentially unfair competitive advant
 
 ## How it works
 
-When Government property is offered for use in a competitive acquisition, solicitations should specify that the contractor is responsible for all costs related to making the property available, such as transportation, installation or rehabilitation costs [@CL-IND-0011]. Among the information offerors must submit with their offers is a list or description of all Government property that the offeror or its subcontractors propose to use on a rent-free basis [@CL-IND-0013], and another listed item is the amount of rent that would otherwise be charged [@CL-IND-0014]. The contracting officer also ensures that the offeror's property management plans, methods, practices, or procedures are consistent with the requirements of the solicitation [@CL-IND-0017]. For the rental clause itself, see [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
+When Government property is offered for use in a competitive acquisition, solicitations should specify that the contractor is responsible for all costs related to making the property available, such as transportation, installation or rehabilitation costs [@CL-IND-0011]. Among the information offerors must submit with their offers is a list or description of all Government property that the offeror or its subcontractors propose to use on a rent-free basis [@CL-IND-0013], and another listed item is the amount of rent that would otherwise be charged [@CL-IND-0014]. The contracting officer shall also ensure that the offeror's property management plans, methods, practices, or procedures are consistent with the requirements of the solicitation [@CL-IND-0017]. For the rental clause itself, see [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which capital projects depend on offered Government property, and who reconciles
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for property plan check
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for offering Government property in a solicitation.

@@ -35,7 +35,7 @@ Management or supervision costs of activities involving direct labor or direct m
 
 ## How it works
 
-For a pool with material management or supervision costs, a direct labor hour or direct labor cost base shall be used, whichever in the aggregate is more likely to vary with the pool's costs, except where one of the listed other bases applies [@CL-RTE-0666]. Two of the other bases listed are a machine-hour base, appropriate for a pool made up predominantly of facility-related costs, and a units-of-production base, appropriate where there is common production of comparable units [@CL-RTE-0667]; the list continues beyond them. A homogeneous pool of the type without material management or supervision costs has a direct and definitive relationship to benefiting cost objectives and is allocated using an appropriate measure of resource consumption [@CL-RTE-0668]. If consumption measures are unavailable or impractical, the next best measure is the output of the pool's activities [@CL-RTE-0669]. Pools that benefit one another may be allocated by the cross-allocation (reciprocal) method, the sequential method, or a method approximating either [@CL-RTE-0670].
+For an indirect cost pool which includes a material amount of the costs of management or supervision of activities involving direct labor or direct material costs, a direct labor hour or direct labor cost base shall be used, whichever in the aggregate is more likely to vary with the pool's costs, except where one of the listed other bases applies [@CL-RTE-9131; @CL-RTE-0666]. Two of the other bases listed are a machine-hour base, appropriate for a pool made up predominantly of facility-related costs, and a units-of-production base, appropriate where there is common production of comparable units [@CL-RTE-0667]; the list continues beyond them. Homogeneous indirect cost pools that do not include material amounts of the costs of management or supervision of activities involving direct labor or direct material costs have a direct and definitive relationship to benefiting cost objectives and shall be allocated using an appropriate measure of resource consumption [@CL-RTE-9132; @CL-RTE-0668]. If consumption measures are unavailable or impractical, the next best measure is the output of the pool's activities [@CL-RTE-0669]. Pools that benefit one another may be allocated by the cross-allocation (reciprocal) method, the sequential method, or a method approximating either [@CL-RTE-0670].
 
 ## Worked example
 
@@ -55,5 +55,6 @@ How the company defines its pools, picks the base for each, and reconciles charg
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the pool type that each allocation-measure paragraph covers and cited its heading.
 - COMPATIBLE_EXTENSION, 2026-10-31: Changed "includes" to "must include" to match "shall include"; said the other-base list continues beyond the two bases quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost pools and allocation bases.

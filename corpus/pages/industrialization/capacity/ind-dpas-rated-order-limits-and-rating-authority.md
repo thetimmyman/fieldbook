@@ -38,7 +38,7 @@ Section 101(c) of the Defense Production Act authorizes the use of priority rati
 
 ## How it works
 
-The starting point is that a person may not place a rated order unless the person received one, was explicitly authorized to do so, or is otherwise permitted to do so by the part [@CL-IND-0176]. The listed limits then narrow what may be rated, and some items need specific authority first [@CL-IND-0179]. For energy projects, the request goes to the Department of Energy, and Commerce then authorizes that department to grant the rating once the findings are satisfied [@CL-IND-0183; @CL-IND-0185]. The printed sections do not establish a general procedure for requesting priority rating authority for other items; the line on advance authorization points to another section that this card's source text does not include [@CL-IND-0178]. The printed section also lists further items for which rated orders may not be used, which this card does not state.
+The starting point is that a person may not place a rated order unless the person received one, was explicitly authorized to do so, or is otherwise permitted to do so by the part [@CL-IND-0176]. The listed limits then narrow what may be rated, and some items need specific authority first [@CL-IND-0179]. For energy projects, the request goes to the Department of Energy, and Commerce then authorizes that department to grant the rating once the findings are satisfied [@CL-IND-0183; @CL-IND-0185]. The sections on this card set out no general procedure for requesting priority rating authority for other items; the line on advance authorization points to section 700.51(c), as printed, for information on obtaining that authorization [@CL-IND-0178]. That section is on the [priority rating authority requests](ind-dpas-priority-rating-authority-requests.md) card. The printed section also lists further items for which rated orders may not be used, which this card does not state.
 
 ## Worked example
 
@@ -58,5 +58,6 @@ Which planned purchases might be mistaken for rated-order items, and who confirm
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Pointer to section 700.51 requests card
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory basis for energy-project ratings and the listed kinds of energy projects.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limits on placing rated orders and applications for rating authority.

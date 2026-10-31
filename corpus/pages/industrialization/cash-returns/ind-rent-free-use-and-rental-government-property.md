@@ -35,7 +35,7 @@ Use on a contract other than the accountable contract is treated by contract typ
 
 ## How it works
 
-The default is rent-free use on the accountable contract [@CL-IND-0018]. The cognizant contracting officer or officers may authorize rent-free use on a cost type Government contract other than the contract to which the property is accountable [@CL-IND-0023]. The contractor may use Government property for commercial use in exchange for consideration set by the cognizant contracting officer [@CL-IND-0024]. Prior approval of the Head of the Contracting Activity is required where non-Government use is expected to exceed 25 percent of the total use of Government and commercial work performed [@CL-IND-0025]. Requests by, or for the benefit of, foreign Governments or international organizations to use Government property shall be processed in accordance with agency procedures [@CL-IND-0026].
+The default is rent-free use on the accountable contract [@CL-IND-0018]. The cognizant contracting officer or officers may authorize rent-free use on a cost type Government contract other than the contract to which the property is accountable [@CL-IND-0023]. The contracting officer cognizant of the Government property may also authorize the rent-free use of property in the possession of nonprofit organizations when used for research, development, or educational work and all three listed conditions are met [@CL-IND-9004]: the use is in the national interest, the property will not be used for the direct benefit of a profit-making organization, and the Government receives some direct benefit, such as rights to use the results of the work without charge [@CL-IND-9005]. The contractor may use Government property for commercial use in exchange for consideration set by the cognizant contracting officer [@CL-IND-0024]. Prior approval of the Head of the Contracting Activity is required where non-Government use is expected to exceed 25 percent of the total use of Government and commercial work performed [@CL-IND-0025]. Requests by, or for the benefit of, foreign Governments or international organizations to use Government property shall be processed in accordance with agency procedures [@CL-IND-0026].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A plant holds Government machine tools accountable under Contract A. In a year t
 
 ## Never confuse
 
-Rent-free is tied to the accountable contract and its authorized uses [@CL-IND-0018]. It does not cover use for commercial purposes, which is in exchange for consideration as determined by the cognizant contracting officer [@CL-IND-0024]. The rental formula and payment terms sit in the [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md), and the title and control duties sit in the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
+Rent-free is the default for the accountable contract and its authorized uses [@CL-IND-0018]; other rent-free uses need an authorization by the cognizant contracting officer [@CL-IND-0023; @CL-IND-9004]. It does not cover use for commercial purposes, which is in exchange for consideration as determined by the cognizant contracting officer [@CL-IND-0024]. The rental formula and payment terms sit in the [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md), and the title and control duties sit in the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Who tracks Government property use by contract and by commercial share, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added nonprofit rent-free use; rent-free scope
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rent-free use and rental of Government property.

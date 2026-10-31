@@ -27,7 +27,7 @@ Shows how indirect costs on a terminated cost-reimbursement contract may be sett
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0694] |
-| Applies to | Terminated contracts that contain the Allowable Cost and Payment clause, where adjusting indirect costs would unduly delay final settlement [@CL-RTE-0694] |
+| Applies to | Terminated contracts that contain the Allowable Cost and Payment clause, where it appears that adjusting indirect costs will unduly delay final settlement [@CL-RTE-0694] |
 
 If the terminated contract contains the Allowable Cost and Payment clause and adjusting indirect costs appears to unduly delay final settlement, the termination contracting officer, after obtaining information from the appropriate audit agency, may agree with the contractor to one of two courses [@CL-RTE-0694]. The first is to negotiate the amount of indirect costs for the contract period for which final rates have not been negotiated, or to use billing rates as final rates for that period if they appear reasonable [@CL-RTE-0695]. The second is to reserve any indirect cost adjustment in the final settlement agreement, pending establishment of negotiated rates [@CL-RTE-0696].
 
@@ -55,5 +55,6 @@ Which fiscal years and terminated contracts still have open indirect cost adjust
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the appears condition in the scope row.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added terminated-contract scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost adjustment on terminated cost-reimbursement contracts.
