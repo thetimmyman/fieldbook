@@ -45,7 +45,7 @@ On completion and acceptance of all work and receipt of a properly executed vouc
 
 ## How it works
 
-The continuity clause has two layers. The basic duties of phase-in training and best efforts apply from the start, and the phase-in, phase-out services and the plan begin only on the Contracting Officer's written notice [@CL-SUP-2918; @CL-SUP-2919].
+The continuity clause has two layers. The basic duties of phase-in training and best efforts apply from the start, and the phase-in, phase-out services and the plan begin upon the Contracting Officer's written notice [@CL-SUP-2918; @CL-SUP-2919].
 
 The services run for up to 90 days after expiration, under a plan that names a training program and a transfer date for each division of work and that the Contracting Officer must approve [@CL-SUP-2919; @CL-SUP-2992].
 
@@ -79,5 +79,6 @@ Whether any services contract carries the continuity clause and who prices the p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for continuity of services and payment by the Government to the contractor.

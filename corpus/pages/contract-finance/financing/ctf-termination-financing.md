@@ -55,7 +55,7 @@ The section says the contract financing procedures may be applied to financing t
 
 ## Never confuse
 
-Termination financing is not the termination settlement. This section only lets the financing procedures be applied to the financing of terminations [@CL-CTF-3420]. The [termination for convenience settlement](../billing-payment/ctf-termination-for-convenience-settlement.md) card covers the settlement.
+Termination financing is not the termination settlement. This section lets the financing procedures be applied to the financing of terminations [@CL-CTF-3420]. The [termination for convenience settlement](../billing-payment/ctf-termination-for-convenience-settlement.md) card covers the settlement.
 
 A permission to apply the procedures is not a promise of financing, because the sentence says may [@CL-CTF-3420].
 
@@ -69,5 +69,6 @@ Whether the company's cash forecast separates financing received during a termin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.100 subpart scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination financing.

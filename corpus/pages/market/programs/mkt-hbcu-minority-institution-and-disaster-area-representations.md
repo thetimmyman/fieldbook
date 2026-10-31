@@ -50,7 +50,7 @@ An offeror's main operating office in the set-aside area generated 60 percent of
 
 ## Never confuse
 
-Residing in the set-aside area is a test on the main operating office over the last twelve months, built on its revenues and permanent employees, and the further factors apply only when the offeror does not meet it [@CL-MKT-1025; @CL-MKT-1026; @CL-MKT-1094]. The limits are measured on different bases: personnel cost for services, manufacturing cost without materials for supplies, and contract cost without materials for construction [@CL-MKT-1027; @CL-MKT-1028; @CL-MKT-1030; @CL-MKT-1031].
+Residing in the set-aside area is a test on the main operating office over the last twelve months, built on its revenues and permanent employees, and the further factors apply when the offeror does not meet it [@CL-MKT-1025; @CL-MKT-1026; @CL-MKT-1094]. The limits are measured on different bases: personnel cost for services, manufacturing cost without materials for supplies, and contract cost without materials for construction [@CL-MKT-1027; @CL-MKT-1028; @CL-MKT-1030; @CL-MKT-1031].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which institutional and disaster area representations in the finance remit are d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of minority institution.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the institutional and disaster area representations.

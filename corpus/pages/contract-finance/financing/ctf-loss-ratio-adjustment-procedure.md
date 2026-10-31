@@ -31,7 +31,7 @@ Explains who prepares the supplementary analysis behind a loss ratio adjustment 
 
 For loss contracts, the DFARS directs use of the following loss ratio adjustment procedures for making the adjustments required by FAR 32.503-6(f) and (g) [@CL-CTF-3410]. Under the FAR, if the sum of the total costs incurred under a contract plus the estimated costs to complete the performance are likely to exceed the contract price, the contracting officer must compute a loss ratio factor and adjust future progress payments to exclude the element of loss [@CL-CTF-3411].
 
-Except where the alternative below applies, the contracting officer must prepare a supplementary analysis of the contractor's request for progress payments and calculate the loss ratio adjustment using the procedures in FAR 32.503-6(g) [@CL-CTF-3367]. The contracting officer may instead request the contractor to prepare the supplementary analysis as an attachment to the progress payment request, when the contracting officer determines that the contractor's methods of estimating the costs to complete are reliable, accurate, and not susceptible to improper influences [@CL-CTF-3368]. So the contractor prepares the analysis only if the contracting officer asks for it, and the contracting officer makes the reliability determination [@CL-CTF-3368].
+Except where the alternative below applies, the contracting officer must prepare a supplementary analysis of the contractor's request for progress payments and calculate the loss ratio adjustment using the procedures in FAR 32.503-6(g) [@CL-CTF-3367]. The contracting officer may instead request the contractor to prepare the supplementary analysis as an attachment to the progress payment request, when the contracting officer determines that the contractor's methods of estimating the costs to complete are reliable, accurate, and not susceptible to improper influences [@CL-CTF-3368]. So the contractor prepares the analysis when the contracting officer asks for it, and the contracting officer makes the reliability determination [@CL-CTF-3368].
 
 ## How it works
 
@@ -65,5 +65,6 @@ Confirm who prepares the costs-to-complete estimate and whether the supporting a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for loss ratio adjustments on loss contracts.

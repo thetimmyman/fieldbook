@@ -34,7 +34,7 @@ Where a long-duration work package is unavoidable, interim milestones that model
 
 ## How it works
 
-The control account manager assesses each assigned work package and looks for a discrete way to measure progress towards its completion [@CL-PRG-0254]. The criterion is objective and set per work package, consistent with how the work is expected to be accomplished [@CL-PRG-0252]. Level of effort earns value only as time passes, so it never shows a schedule variance and always equals the budgeted cost for work scheduled [@CL-PRG-0258]. Earned value for discrete material items may be claimed on receipt, inspection and acceptance only if the items go into use within a reasonable time or are identified to a serially numbered end item [@CL-PRG-0260]. The program evaluation and review technique cost formula is a non-discrete material method [@CL-PRG-0764]. It computes BCWP as (ACWP/EAC) x BAC and needs the estimate at completion evaluated and updated every month [@CL-PRG-0259]. It is appropriate only for high-quantity, low-value, low-risk items where measurement is impracticable [@CL-PRG-0763].
+The control account manager assesses each assigned work package and looks for a discrete way to measure progress towards its completion [@CL-PRG-0254]. The criterion is objective and set per work package, consistent with how the work is expected to be accomplished [@CL-PRG-0252]. Level of effort earns value only as time passes, so it never shows a schedule variance and always equals the budgeted cost for work scheduled [@CL-PRG-0258]. Earned value for discrete material items may be claimed on receipt, inspection and acceptance, provided the items go into use within a reasonable time or are identified to a serially numbered end item [@CL-PRG-0260]. The program evaluation and review technique cost formula is a non-discrete material method [@CL-PRG-0764]. It computes BCWP as (ACWP/EAC) x BAC and needs the estimate at completion evaluated and updated every month [@CL-PRG-0259]. It is appropriate only for high-quantity, low-value, low-risk items where measurement is impracticable [@CL-PRG-0763].
 
 ## Worked example
 
@@ -56,6 +56,7 @@ Which work packages the company measures as level of effort, and whether the sys
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restated the material and apportioned effort sentences to match the guide.

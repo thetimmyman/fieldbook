@@ -45,7 +45,7 @@ A contract has two line items. The Contracting Officer inserts line item one in 
 
 ## Never confuse
 
-The deliverable-item clause is not the whole-contract clause. The whole-contract clause applies to the whole contract, while this clause applies only to the inserted line items and its schedule also names the line items for each event [@CL-CTF-1731; @CL-CTF-1732; @CL-CTF-1725]. Which kind of financing a contract carries, performance-based or progress payments, is set out on [DoD financing notice and progress payments for multiple lots](ctf-dod-financing-notice-and-multiple-lot-progress-payments.md).
+The deliverable-item clause is not the whole-contract clause. The whole-contract clause applies to the whole contract, while this clause applies to the line items that the contracting officer inserts and its schedule also names the line items for each event [@CL-CTF-1731; @CL-CTF-1732; @CL-CTF-1725]. Which kind of financing a contract carries, performance-based or progress payments, is set out on [DoD financing notice and progress payments for multiple lots](ctf-dod-financing-notice-and-multiple-lot-progress-payments.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which line items carry performance-based payments, and which events and amounts 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD performance-based payments on a deliverable-item basis.

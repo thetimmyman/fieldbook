@@ -54,7 +54,7 @@ Solicitation C buys office supplies at a firm fixed price under simplified acqui
 
 ## Never confuse
 
-The provision and the clause are different instruments with different triggers. The provision goes in a solicitation unless one of two exceptions applies [@CL-EST-2975]. The clause goes in solicitations and contracts, and only when the acquisition is negotiated, a fixed-price contract is contemplated and the specified conditions apply [@CL-EST-2976]. The two exceptions to the provision do not govern the clause, and the three prerequisites for the clause do not govern the provision [@CL-EST-2975; @CL-EST-2976].
+The provision and the clause are different instruments with different triggers. The provision goes in a solicitation unless one of two exceptions applies [@CL-EST-2975]. The clause goes in solicitations and contracts, and when the acquisition is negotiated, a fixed-price contract is contemplated and the specified conditions apply [@CL-EST-2976]. The two exceptions to the provision do not govern the clause, and the three prerequisites for the clause do not govern the provision [@CL-EST-2975; @CL-EST-2976].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Whether each solicitation in the pipeline carries the contract type provision an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of solicitation provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of solicitation provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contract type solicitation provision and the prospective price redetermination clause.

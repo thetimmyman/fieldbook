@@ -44,7 +44,7 @@ For short shelf-life items the contracting officer considers an indefinite-deliv
 
 Synthetic example. The numbers are made up.
 
-An award-fee contract includes the clause at DFARS 252.225-7039, and its award-fee plan requires the private security compliance review [@CL-MKT-1588; @CL-MKT-1640]. The contractor fails to comply with the clause during one evaluation period. The contracting officer must consider reducing or denying the award fee for that period [@CL-MKT-1589] and must also consider recovering award fee already paid for it [@CL-MKT-1590]. After considering both, the contracting officer could decide to reduce the fee by 40,000 and recover 15,000, but the section requires only that these steps be considered [@CL-MKT-1589; @CL-MKT-1590].
+An award-fee contract includes the clause at DFARS 252.225-7039, and its award-fee plan requires the private security compliance review [@CL-MKT-1588; @CL-MKT-1640]. The contractor fails to comply with the clause during one evaluation period. The contracting officer must consider reducing or denying the award fee for that period [@CL-MKT-1589] and must also consider recovering award fee already paid for it [@CL-MKT-1590]. After considering both, the contracting officer could decide to reduce the fee by 40,000 and recover 15,000, but the section requires that these steps be considered [@CL-MKT-1589; @CL-MKT-1590].
 
 An item has a shelf-life of 4 months, which is less than 6 months, so the contracting officer considers an indefinite-delivery contract with orders placed by users or by central offices delivering direct to users [@CL-MKT-1591]. For an order placed on Day 10, the issuing office must have furnished the data in time for the ordering activity to prepare its report within 3 working days of the order [@CL-MKT-1641; @CL-MKT-1592].
 
@@ -62,5 +62,6 @@ Which contracts within the finance remit carry an award-fee plan or the private 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that the justification that removes the need for the single-award determination must follow DFARS subpart 206.3 as well as FAR subpart 6.3.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award fee, shelf-life items and the multiple-award determination.

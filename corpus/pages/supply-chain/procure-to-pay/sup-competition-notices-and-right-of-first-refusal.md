@@ -56,7 +56,7 @@ A standard competition ends in favor of a private sector offeror and a services 
 
 ## Never confuse
 
-Right of first refusal attaches to employment openings under the contract in positions for which the personnel are qualified, and only if the conflict of interest standards allow the employment [@CL-SUP-2953; @CL-SUP-2954]. The standard and streamlined notices are separate provisions with different evaluations and different decision routes, so do not read the standard competition rules into a streamlined competition [@CL-SUP-2962; @CL-SUP-2967; @CL-SUP-2952]. The contest rules appear in the standard competition notice [@CL-SUP-2964].
+Right of first refusal attaches to employment openings under the contract in positions for which the personnel are qualified, and if the conflict of interest standards allow the employment [@CL-SUP-2953; @CL-SUP-2954]. The standard and streamlined notices are separate provisions with different evaluations and different decision routes, so do not read the standard competition rules into a streamlined competition [@CL-SUP-2962; @CL-SUP-2967; @CL-SUP-2952]. The contest rules appear in the standard competition notice [@CL-SUP-2964].
 
 The codified FAR 52.207-1, 52.207-2 and 52.207-3 carry the notices and the clause described above [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953], but the RFO text prints each of those numbers as [Reserved] [@CL-SUP-0114; @CL-SUP-0115; @CL-SUP-0116], so none of those rules is printed under those numbers in the RFO text.
 
@@ -70,6 +70,7 @@ Who checks whether an award came from a competition and where the displaced-pers
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Right of first refusal sentence now includes the post-Government employment conflict of interest condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the pointer sentence to avoid an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on other FAR 52.207 provisions.

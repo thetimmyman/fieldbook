@@ -37,7 +37,7 @@ The services short form gives the same power of written notice, in whole or in p
 
 The fixed-price short form does not set out the settlement itself. It sends compensation to part 49 of the Federal Acquisition Regulation as in effect on the date of the contract [@CL-CTF-2052]. The settlement mechanics are on [Termination for Convenience of the Government (Fixed-Price): settlement](ctf-termination-for-convenience-settlement.md) and [Submission of settlement proposals after termination of a fixed-price contract](../../close-revrec/revenue/cls-fixed-price-settlement-proposal-submission.md).
 
-The services short form is used only after the contracting officer determines that, because of the kind of services required, the successful offeror will not incur substantial charges in preparation for and in carrying out the contract, and that it would, if terminated for the convenience of the Government, limit termination settlement charges to services rendered before the date of termination [@CL-CTF-2054; @CL-CTF-2055].
+The services short form is used when the contracting officer determines that, because of the kind of services required, the successful offeror will not incur substantial charges in preparation for and in carrying out the contract, and that it would, if terminated for the convenience of the Government, limit termination settlement charges to services rendered before the date of termination [@CL-CTF-2054; @CL-CTF-2055].
 
 The prescription for the fixed-price short form excepts cases where the services short form is appropriate and research and development work with an educational or nonprofit institution on a no-profit basis [@CL-CLS-1051]. Those institutions have their own clause, on [Termination for convenience: educational and other nonprofit institutions](ctf-termination-for-convenience-educational-nonprofit.md).
 
@@ -65,5 +65,6 @@ Which short form, if either, each fixed-price contract actually carries, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the fixed-price and services short-form termination for convenience clauses.

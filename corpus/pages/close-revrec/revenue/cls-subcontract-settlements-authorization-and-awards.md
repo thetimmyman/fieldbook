@@ -47,7 +47,7 @@ Answer: A is within the stated limit, so the authorization can apply if its list
 
 ## Never confuse
 
-Authority to settle without approval or ratification is a limited authorization given by the TCO on written request, and it is not an exemption from the general rule against paying anticipatory profits or consequential damages, which the section qualifies only by pointing to the judgments and arbitration awards section [@CL-CLS-0922; @CL-CLS-0920]. A judgment treated as a cost of settling is allowed to the extent allocable to the terminated portion of the prime contract if the listed conditions are met, and when they are not all met the TCO may allow only the part considered fair [@CL-CLS-0923; @CL-CLS-0960]. For the settlement bases and the deductions, see [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md) and [Termination settlements: deductions, completed end items, and settlement limitation](cls-termination-settlement-deductions-and-limitations.md).
+Authority to settle without approval or ratification is a limited authorization given by the TCO on written request, and it is not an exemption from the general rule against paying anticipatory profits or consequential damages, which the section qualifies only by pointing to the judgments and arbitration awards section [@CL-CLS-0922; @CL-CLS-0920]. A judgment treated as a cost of settling is allowed to the extent allocable to the terminated portion of the prime contract if the listed conditions are met, and when they are not all met the TCO may allow the part considered fair [@CL-CLS-0923; @CL-CLS-0960]. For the settlement bases and the deductions, see [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md) and [Termination settlements: deductions, completed end items, and settlement limitation](cls-termination-settlement-deductions-and-limitations.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which subcontract termination settlements were approved, ratified or settled und
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontract settlements, settlement authority and the recognition of judgments and arbitration awards.

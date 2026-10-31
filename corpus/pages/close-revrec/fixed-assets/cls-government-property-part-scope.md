@@ -59,7 +59,7 @@ The answer is that the 12 computers are outside the part, and the plant machine 
 
 ## Never confuse
 
-The place-of-performance exclusion is not an exclusion for everything located at a Government site. It applies only when the contract requires contractor personnel to be located there and the property used within the location remains accountable to the Government [@CL-CLS-0327].
+The place-of-performance exclusion is not an exclusion for everything located at a Government site. It applies when the contract requires contractor personnel to be located there and the property used within the location remains accountable to the Government [@CL-CLS-0327].
 
 The payment exclusion is narrower than a rule that all financed property leaves the part. It reaches only a lien or title acquired solely because of the listed payments [@CL-CLS-0325].
 
@@ -73,4 +73,5 @@ Which company sites, leases and payment-financed property fall inside or outside
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the Government property part.

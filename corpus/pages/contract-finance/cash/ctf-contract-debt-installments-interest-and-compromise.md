@@ -63,7 +63,7 @@ A third debt is 98,000 plus 6,000 of interest. With interest it totals 104,000, 
 
 An installment request and a compromise are separate steps with separate decision makers. The designated office decides installment requests [@CL-CTF-1435], and the designated agency official may compromise a debt under the dollar limit [@CL-CTF-3620]. The text does not say these are the same office or person.
 
-The 30 days run from the issuance of the demand [@CL-CTF-3617]. The delay rule applies only when the Government delays delivery and interest is accrued based on the date of the demand letter [@CL-CTF-3619].
+The 30 days run from the issuance of the demand [@CL-CTF-3617]. The delay rule applies when the Government delays delivery and interest is accrued based on the date of the demand letter [@CL-CTF-3619].
 
 The dollar limit is measured on the debt excluding interest, not on the debt with interest [@CL-CTF-3620].
 
@@ -77,6 +77,7 @@ Which office agency procedures designate for installment requests, who tracks th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the contract debts subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim before the semicolon.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.600, 32.607-1, 32.608-1, 32.609 and 32.610 citations.

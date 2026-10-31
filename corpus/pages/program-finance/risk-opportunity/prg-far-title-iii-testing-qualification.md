@@ -47,7 +47,7 @@ A prime contractor on a major system receives a request to test a new alloy made
 
 ## Never confuse
 
-A request from a Title III project contractor does not itself change the contract: the contractor refers it, the contracting officer evaluates it, and only an affirmative determination leads to a modification [@CL-PRG-0892; @CL-PRG-0893; @CL-PRG-0897]. The test is also not done at the contractor's own cost by default, since the stated policy is that the Government pays [@CL-PRG-0891]. The resource under test comes from the Title III office, not from the contractor's own supply [@CL-PRG-0898]. Governance of major system acquisitions is on [Major system acquisition governance under the FAR](../baseline/prg-far-major-system-governance.md).
+A request from a Title III project contractor does not itself change the contract: the contractor refers it, the contracting officer evaluates it, and an affirmative determination leads to a modification [@CL-PRG-0892; @CL-PRG-0893; @CL-PRG-0897]. The test is also not done at the contractor's own cost by default, since the stated policy is that the Government pays [@CL-PRG-0891]. The resource under test comes from the Title III office, not from the contractor's own supply [@CL-PRG-0898]. Governance of major system acquisitions is on [Major system acquisition governance under the FAR](../baseline/prg-far-major-system-governance.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Whether any contract has received a Title III testing request or modification, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.100 scope and 34.101 definition of item of supply.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for testing and qualification of Title III industrial resources.

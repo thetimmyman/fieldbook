@@ -47,7 +47,7 @@ A solicitation requires data under a contract and includes DD Form 1423 [@CL-EST
 
 ## Never confuse
 
-An estimate of a data price is not a charge for the same data twice, because the contracting officer must ensure the contract does not require data already delivered or owed under another contract or subcontract, except where duplicate data are desired and the price covers duplication only [@CL-EST-2462; @CL-EST-2463]. Nor is a duplicate priced as new work where duplicate data are desired, since the price includes duplication and not preparation [@CL-EST-2463]. The deferred delivery and previously delivered data card covers the ordering mechanics and is not repeated here.
+An estimate of a data price is not a charge for the same data twice, because the contracting officer must ensure the contract does not require data already delivered or owed under another contract or subcontract, except where duplicate data are desired and the price covers the costs of duplication but not of preparation [@CL-EST-2462; @CL-EST-2463]. Nor is a duplicate priced as new work where duplicate data are desired, since the price includes duplication and not preparation [@CL-EST-2463]. The deferred delivery and previously delivered data card covers the ordering mechanics and is not repeated here.
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ That each proposal with data deliverables prices them and checks them against da
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for estimated data prices and the Contract Data Requirements List.

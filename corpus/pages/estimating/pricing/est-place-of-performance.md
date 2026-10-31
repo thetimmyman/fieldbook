@@ -36,7 +36,7 @@ The printed provision does not say whether the stated place may change after awa
 
 ## How it works
 
-The offeror or respondent answers by checking a block [@CL-EST-1926]. The address spaces are filled in only when it checks that it intends to use another plant or facility [@CL-EST-1927]. A separate part of the spaces asks for the owner and operator when they are someone other than the offeror or respondent [@CL-EST-1928]. The answer and the addresses are contract-specific.
+The offeror or respondent answers by checking a block [@CL-EST-1926]. The address spaces are filled in when it checks that it intends to use another plant or facility [@CL-EST-1927]. A separate part of the spaces asks for the owner and operator when they are someone other than the offeror or respondent [@CL-EST-1928]. The answer and the addresses are contract-specific.
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.215-6(a) says that the offeror or respondent, in the performance of any contract resulting from this request for proposals, checks one block to state whether it intends or does not intend to use one or more plants or facilities located at a different address from its own address as indicated in the proposal or response to request for information [@CL-EST-0427], where the codified paragraph says this solicitation [@CL-EST-1926]. Paragraph (b) keeps the rule that an offeror or respondent that checks intends shall insert the required information in the spaces provided, which for the place of performance are street address, city, state, county and ZIP code [@CL-EST-0428; @CL-EST-1927], and keeps the space for the name and address of the owner and operator of the plant or facility if other than the offeror or respondent [@CL-EST-0429; @CL-EST-1928].
 
@@ -48,7 +48,7 @@ An offeror's response gives its own address as 100 Main Street. It will assemble
 
 ## Never confuse
 
-The block asks about plants or facilities at a different address from the offeror's or respondent's own address, not about the offeror's own address [@CL-EST-1926]. The place of performance spaces and the owner and operator spaces are separate: the owner and operator are named only if they are someone other than the offeror or respondent [@CL-EST-1927; @CL-EST-1928]. When the provision is inserted is covered on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
+The block asks about plants or facilities at a different address from the offeror's or respondent's own address, not about the offeror's own address [@CL-EST-1926]. The place of performance spaces and the owner and operator spaces are separate: the owner and operator are named if they are someone other than the offeror or respondent [@CL-EST-1927; @CL-EST-1928]. When the provision is inserted is covered on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Who confirms, for each response, whether work will run from another plant and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for place of performance.

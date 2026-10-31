@@ -48,7 +48,7 @@ An acquisition is evaluated under the preference clause, with no other evaluatio
 
 ## Never confuse
 
-The two notices are separate clauses. The set-aside clause limits who may offer [@CL-MKT-0983], while the preference clause adds a factor to prices in evaluation [@CL-MKT-0985]. A waiver changes only the preference: the factor is then added to the waiving concern's own offer [@CL-MKT-0987]. The general set-aside rules are on the [Small business set-asides](mkt-small-business-set-asides.md) card. Under the RFO text the preference notice prints no paragraph on award to the HUBZone small business concern when its evaluated offer equals a large business's [@CL-MKT-0161; @CL-MKT-1037].
+The two notices are separate clauses. The set-aside clause limits who may offer [@CL-MKT-0983], while the preference clause adds a factor to prices in evaluation [@CL-MKT-0985]. A waiver gives up the preference: the factor is then added to the waiving concern's own offer [@CL-MKT-0987]. The general set-aside rules are on the [Small business set-asides](mkt-small-business-set-asides.md) card. Under the RFO text the preference notice prints no paragraph on award to the HUBZone small business concern when its evaluated offer equals a large business's [@CL-MKT-0161; @CL-MKT-1037].
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Which contracts in the finance remit could be offered as HUBZone work, and who s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the HUBZone set-aside and price evaluation preference notices.
