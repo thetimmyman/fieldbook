@@ -23,7 +23,7 @@ Shows how a standard or streamlined competition notice frames the choice between
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2949] |
 | Codified citation | FAR 52.207-1, FAR 52.207-2 and FAR 52.207-3 [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent [@CL-SUP-0114; @CL-SUP-0115; @CL-SUP-0116] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2949] |
 | Applies to | Solicitations that are part of a standard or streamlined competition, and contracts carrying the right of first refusal clause [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953] |
@@ -46,6 +46,8 @@ In a streamlined competition a private sector win produces an award or a competi
 
 The employment duty follows the award. The Contracting Officer supplies the list of affected personnel, the contractor gives those who are qualified first refusal of the openings, and the contractor reports the listed people it hires within 90 days after performance begins and forwards that report within 120 days after performance begins [@CL-SUP-2953; @CL-SUP-2970; @CL-SUP-2955].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.207-1 as [Reserved] [@CL-SUP-0114], FAR 52.207-2 as [Reserved] [@CL-SUP-0115] and FAR 52.207-3 as [Reserved] [@CL-SUP-0116], so the notices and the clause described above have no text under those numbers in the RFO text.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -56,6 +58,8 @@ A standard competition ends in favor of a private sector offeror and a services 
 
 Right of first refusal attaches to employment openings under the contract in positions for which the personnel are qualified, and only if the conflict of interest standards allow the employment [@CL-SUP-2953; @CL-SUP-2954]. The standard and streamlined notices are separate provisions with different evaluations and different decision routes, so do not read the standard competition rules into a streamlined competition [@CL-SUP-2962; @CL-SUP-2967; @CL-SUP-2952]. The contest rules appear in the standard competition notice [@CL-SUP-2964].
 
+The codified FAR 52.207-1, 52.207-2 and 52.207-3 carry the notices and the clause described above [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953], but the RFO text prints each of those numbers as [Reserved] [@CL-SUP-0114; @CL-SUP-0115; @CL-SUP-0116], so none of those rules is printed under those numbers in the RFO text.
+
 ## Company calibration
 
 Who checks whether an award came from a competition and where the displaced-personnel list and the hiring report are filed. [@Q-004]
@@ -64,4 +68,5 @@ Who checks whether an award came from a competition and where the displaced-pers
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the competition notices and right of first refusal of employment.

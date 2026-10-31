@@ -29,7 +29,7 @@ Shows when the Contractor must obtain certified cost or pricing data from a subc
 | Text status | Final [@CL-EST-0401] |
 | Applies to | Subcontracts and subcontract modifications expected to exceed the certified cost or pricing data threshold [@CL-EST-0407; @CL-EST-0408] |
 
-Before awarding a subcontract expected to exceed the certified cost or pricing data threshold, or before pricing a subcontract modification whose pricing adjustment is expected to exceed it, the Contractor must require the subcontractor to submit certified cost or pricing data [@CL-EST-0407; @CL-EST-0408]. That requirement does not apply where an exception under the cited exceptions section applies [@CL-EST-0601]. The Contractor must require the subcontractor to certify, in substantially the prescribed form, that to the best of its knowledge and belief the data were accurate, complete, and current as of the date of agreement on the negotiated price [@CL-EST-0402].
+Before awarding a subcontract expected to exceed the certified cost or pricing data threshold on the date of agreement on price or the date of award, whichever is later, or before pricing a subcontract modification whose pricing adjustment is expected to exceed it, the Contractor must require the subcontractor to submit certified cost or pricing data [@CL-EST-0407; @CL-EST-0408]. That requirement does not apply where an exception under the cited exceptions section applies [@CL-EST-0601]. The Contractor must require the subcontractor to certify, in substantially the prescribed form, that to the best of its knowledge and belief the data were accurate, complete, and current as of the date of agreement on the negotiated price [@CL-EST-0402].
 
 In each subcontract that, when entered into, exceeds the threshold, the Contractor must insert either the substance of this clause, including paragraph (c), or another alternative the clause allows [@CL-EST-0403]. The substance of this clause is the option where paragraph (a) requires certified cost or pricing data for the subcontract [@CL-EST-0603], and the other option is the substance of the clause at FAR 52.215-13, Subcontractor Certified Cost or Pricing Data—Modifications [@CL-EST-0602].
 
@@ -61,5 +61,6 @@ Which bids and estimates need immediate support, and the review evidence and app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to keep the date on which the subcontract award threshold is measured.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Subcontractor Certified Cost or Pricing Data clause.

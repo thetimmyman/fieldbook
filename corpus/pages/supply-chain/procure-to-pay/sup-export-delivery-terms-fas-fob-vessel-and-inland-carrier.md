@@ -24,7 +24,7 @@ Compares the three export delivery terms, showing where delivery is complete in 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2333] |
 | Codified citation | FAR 52.247-36, FAR 52.247-37 and FAR 52.247-38 [@CL-SUP-2333; @CL-SUP-2336; @CL-SUP-2339] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.247-36 [@CL-SUP-0214; @CL-SUP-0215; @CL-SUP-0216; @CL-SUP-0217; @CL-SUP-0218; @CL-SUP-0219; @CL-SUP-0220; @CL-SUP-0221]; RFO FAR 52.247-37 [@CL-SUP-0222; @CL-SUP-0223; @CL-SUP-0224; @CL-SUP-0225; @CL-SUP-0226; @CL-SUP-0227; @CL-SUP-0228; @CL-SUP-0229]; RFO FAR 52.247-38 [@CL-SUP-0230; @CL-SUP-0231; @CL-SUP-0232; @CL-SUP-0233; @CL-SUP-0234; @CL-SUP-0235; @CL-SUP-0236; @CL-SUP-0237] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2333] |
 | Applies to | Solicitations and contracts when the delivery term is f.a.s. vessel, port of shipment [@CL-SUP-2342]; f.o.b. vessel, port of shipment [@CL-SUP-2376]; or f.o.b. inland carrier, point of exportation [@CL-SUP-2381] |
@@ -40,6 +40,8 @@ F.o.b. inland carrier, point of exportation, means free of expense to the Govern
 ## How it works
 
 The delivery point sets where the contractor's charges and its responsibility for loss or damage end. Under f.a.s. vessel they end alongside the vessel within reach of its loading tackle [@CL-SUP-2390; @CL-SUP-2334; @CL-SUP-2335]. Under f.o.b. vessel they end on board the ocean vessel [@CL-SUP-2378; @CL-SUP-2337; @CL-SUP-2338]. Under f.o.b. inland carrier they end at the specified point of exportation [@CL-SUP-2384; @CL-SUP-2340; @CL-SUP-2341]. The delivery dates, periods and points are contract-specific, and the clauses refer to them as those specified or fixed in the contract [@CL-SUP-2390; @CL-SUP-2378; @CL-SUP-2384]. The clauses differ in the receipt or bill of lading the contractor provides: a clean dock or ship's receipt, a clean ship's receipt or on-board ocean bill of lading, or commercial bills of lading or other transportation receipt [@CL-SUP-2374; @CL-SUP-2379; @CL-SUP-2383].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.247-36 keeps the rules described above for its delivery term: when the clause is inserted, what the term means, packing and marking, delivery alongside the vessel, the charges the contractor bears, the clean dock or ship's receipt, responsibility for loss or damage, and help with export and import documents [@CL-SUP-2342; @CL-SUP-2333; @CL-SUP-2373; @CL-SUP-2390; @CL-SUP-2334; @CL-SUP-2374; @CL-SUP-2335; @CL-SUP-2375; @CL-SUP-0214; @CL-SUP-0215; @CL-SUP-0216; @CL-SUP-0217; @CL-SUP-0218; @CL-SUP-0219; @CL-SUP-0220; @CL-SUP-0221]. RFO FAR 52.247-37 keeps its rules in the same way, with delivery on board the ocean vessel and the clean ship's receipt or on-board ocean bill of lading [@CL-SUP-2376; @CL-SUP-2336; @CL-SUP-2377; @CL-SUP-2378; @CL-SUP-2337; @CL-SUP-2379; @CL-SUP-2338; @CL-SUP-2380; @CL-SUP-0222; @CL-SUP-0223; @CL-SUP-0224; @CL-SUP-0225; @CL-SUP-0226; @CL-SUP-0227; @CL-SUP-0228; @CL-SUP-0229]. RFO FAR 52.247-38 keeps its rules in the same way, with commercial bills of lading or other transportation receipt and delivery in or on the carrier's conveyance [@CL-SUP-2381; @CL-SUP-2339; @CL-SUP-2382; @CL-SUP-2383; @CL-SUP-2384; @CL-SUP-2340; @CL-SUP-2341; @CL-SUP-2385; @CL-SUP-0230; @CL-SUP-0231; @CL-SUP-0232; @CL-SUP-0233; @CL-SUP-0234; @CL-SUP-0235; @CL-SUP-0236; @CL-SUP-0237].
 
 ## Worked example
 
@@ -65,4 +67,5 @@ Confirm which delivery term each export order carries, the delivery date or peri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the export delivery terms.

@@ -55,7 +55,7 @@ When the solicitation requires product samples, they are submitted at or before 
 
 Offerors are encouraged to submit multiple offers presenting alternative terms and conditions, including alternative line items consistent with FAR subpart 4.10, or alternative commercial products or commercial services [@CL-EST-2271]. Each offer is evaluated separately [@CL-EST-2272].
 
-Except on an invitation for bids, the Government intends to evaluate offers and award a contract without discussions, so the initial offer should contain the offeror's best price and technical terms [@CL-EST-2269]. It reserves the right to conduct discussions if the contracting officer later determines they are necessary [@CL-EST-2335]. It may reject any or all offers if that is in the public interest, accept other than the lowest offer, and waive informalities and minor irregularities [@CL-EST-2270].
+Except on an invitation for bids, the Government intends to evaluate offers and award a contract without discussions, so the initial offer should contain the offeror's best terms from a price and technical standpoint [@CL-EST-2269]. It reserves the right to conduct discussions if the contracting officer later determines they are necessary [@CL-EST-2335]. It may reject any or all offers if that is in the public interest, accept other than the lowest offer, and waive informalities and minor irregularities [@CL-EST-2270].
 
 The Government may accept any item or group of items of an offer unless the offeror qualifies the offer by specific limitations [@CL-EST-2336]. Unless the Schedule provides otherwise, offers may not be submitted for quantities less than those specified [@CL-EST-2337]. The Government reserves the right to award any item for a quantity less than the quantity offered, at the unit prices offered, unless the offeror specifies otherwise in the offer [@CL-EST-2338].
 
@@ -93,5 +93,6 @@ Which offers need an approved review record before signature and submission. [@Q
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to use the provision's wording for the initial offer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for instructions to offerors on commercial solicitations.

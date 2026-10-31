@@ -24,7 +24,7 @@ Shows how the desired and required time of delivery clause separates the schedul
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2552] |
 | Codified citation | FAR 52.211-9 [@CL-SUP-2552] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent [@CL-SUP-0169] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2552] |
 | Applies to | Not established. |
@@ -49,6 +49,8 @@ Alternate II applies where the delivery schedule is expressed in specific calend
 
 Alternate III applies where the delivery schedule is to be based on the actual date the contractor receives a written notice of award, and the contracting officer may then delete paragraph (b) of the basic clause [@CL-SUP-2617]. The same heading, within days after the date of receipt of a written notice of award, may be used for the third column of paragraph (a) [@CL-SUP-2618].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.211-9 as [Reserved] [@CL-SUP-0169], so the clause and its three alternates described above have no text under that number in the RFO text.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -65,6 +67,8 @@ The desired schedule is not a ceiling and the required schedule is not a target.
 
 An alternate changes the event that the delivery dates are tied to, namely an assumed award date, an assumed date of receipt of notice of award, or actual receipt of a written notice of award [@CL-SUP-2609; @CL-SUP-2613; @CL-SUP-2617]. It does not substitute for the paragraph (a) limit that the proposed schedule must not extend delivery beyond the required delivery schedule [@CL-SUP-2554].
 
+The codified FAR 52.211-9 carries the desired and required delivery schedule rules and the three alternates [@CL-SUP-2552; @CL-SUP-2609; @CL-SUP-2613; @CL-SUP-2617], but the RFO text prints that number as [Reserved] [@CL-SUP-0169], so none of those rules is printed under that number in the RFO text.
+
 ## Company calibration
 
 Confirm which schedule in each solicitation is desired and which is required, how each offered date was computed, and which alternate paragraph the contract uses [@Q-022].
@@ -73,4 +77,5 @@ Confirm which schedule in each solicitation is desired and which is required, ho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for desired and required time of delivery.
