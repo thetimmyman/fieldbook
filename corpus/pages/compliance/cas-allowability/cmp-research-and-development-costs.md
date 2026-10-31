@@ -24,7 +24,7 @@ Shows how sponsored or contract-required research and development is defined for
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0873] |
 | Codified citation | FAR 31.205-48 [@CL-CMP-0873] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-48 [@CL-CMP-9604; @CL-CMP-9605] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0873] |
 | Applies to | Not established. |
@@ -34,6 +34,8 @@ Research and development, as used here, means the type of technical effort descr
 ## How it works
 
 The section defines research and development, for its own purpose, by reference to the independent research and development cost principle [@CL-CMP-0873]. The effort must be sponsored by a grant or required in the performance of a contract before the section applies [@CL-CMP-0873]. The section then limits an overrun: where costs exceed the price of the contract or the amount of the grant for the effort, the excess is unallowable under any other Government contract [@CL-CMP-0874].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-48 keeps the rule described above [@CL-CMP-9604; @CL-CMP-9605]. Research and development means the type of technical effort described in 31.205-18 but sponsored by a grant or required in the performance of a contract [@CL-CMP-9604], and costs incurred in excess of either the price of a contract or the amount of a grant for research and development are unallowable under any other Government contract [@CL-CMP-9605]. The RFO text letters the definition and the overrun sentence as paragraphs (a) and (b), says section where the codified text says subsection, and ends the overrun sentence with for research and development where the codified text ends with for research and development effort [@CL-CMP-9604; @CL-CMP-9605; @CL-CMP-0873; @CL-CMP-0874].
 
 ## Worked example
 
@@ -53,5 +55,6 @@ Whether sponsored and contract-required research effort is tracked against its o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Removed statements about the independent research and development principle and about where an overrun stays, which the section does not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for research and development costs.

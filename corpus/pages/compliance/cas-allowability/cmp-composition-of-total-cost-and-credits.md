@@ -24,7 +24,7 @@ Sets out what makes up a contract's total cost and how income, rebates and other
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7508] |
 | Codified citation | FAR 31.201-1 [@CL-CMP-7508] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.201-1 [@CL-CMP-9373]; RFO FAR 31.201-5 [@CL-CMP-9376] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7508] |
 | Applies to | The total cost of a contract and credits relating to allowable costs [@CL-CMP-7508; @CL-CMP-7511] |
@@ -41,15 +41,17 @@ The cost allowable to the Government is then narrowed from total cost to allowab
 
 The credit rule reaches credits received by or accruing to the contractor, covers only the applicable portion of a credit that relates to an allowable cost, and is met by a cost reduction or by cash refund; the section does not name an approving official [@CL-CMP-7511]. Rules for a refund or credit to the Government associated with pension adjustments and asset reversions are at FAR 31.205-6(j)(3), not here [@CL-CMP-7512]. See [allowable compensation for personal services](../cas-allowability/cmp-compensation-personal-services.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.201-1 keeps the formula for the total cost of a contract [@CL-CMP-9373] and the rule that any generally accepted method of determining or estimating costs that is equitable and consistently applied may be used [@CL-CMP-9374]. It limits the allowable costs to the Government to those allocable costs that are allowable pursuant to this part, with no reference to applicable agency supplements [@CL-CMP-9375; @CL-CMP-7510]. RFO FAR 31.201-5 requires a credit relating to an allowable cost under a cost contract, received by or accruing to the contractor, to be credited to the Government [@CL-CMP-9376], as a cost reduction to the contract or a cash refund [@CL-CMP-9377]. It refers to 31.105-6(i)(3), not 31.205-6(j)(3), for pension adjustments and asset reversions [@CL-CMP-9377; @CL-CMP-7512].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contract carries 400,000 of direct cost, 100,000 of allocable indirect cost and 50,000 of allocable cost of money, so the total cost before credits is 550,000 [@CL-CMP-7508]. Of the indirect cost, 5,000 is not allowable under part 31, so the allowable costs to the Government before credits are 545,000, because allowable costs are limited to allocable costs that are allowable [@CL-CMP-7510]. A 20,000 rebate relates to an allowable material cost and accrues to the contractor, so the applicable portion shall be credited to the Government as a cost reduction or by cash refund [@CL-CMP-7511]. Total cost after the credit is 530,000 [@CL-CMP-7508], and the allowable cost to the Government after the credit is 525,000 [@CL-CMP-7510; @CL-CMP-7511].
+A contract carries 400,000 of direct cost, 100,000 of allocable indirect cost and 50,000 of allocable cost of money, so the total cost before credits is 550,000 [@CL-CMP-7508]. Of the indirect cost, 5,000 is not allowable under part 31, so the allowable costs to the Government before credits are 545,000, because allowable costs are limited to allocable costs that are allowable [@CL-CMP-7510]. A 20,000 rebate relates to an allowable material cost and accrues to the contractor, so the applicable portion shall be credited to the Government as a cost reduction or by cash refund [@CL-CMP-7511], and under the RFO text that credit rule is stated for a credit relating to an allowable cost under a cost contract [@CL-CMP-9376]. Total cost after the credit is 530,000 [@CL-CMP-7508], and the allowable cost to the Government after the credit is 525,000 [@CL-CMP-7510; @CL-CMP-7511].
 
 ## Never confuse
 
-Total cost and allowable cost are different measures: a cost can be part of total cost because it is allocable and still be excluded from the costs allowable to the Government because it is unallowable [@CL-CMP-7510]. A credit is not a disallowance; it reduces cost because an income, rebate, allowance or other credit relating to an allowable cost was received by or accrued to the contractor [@CL-CMP-7511]. The allocability and allowability tests behind the two measures are set out in [allocability](../cas-allowability/cmp-allocability.md) and [allowability factors](../cas-allowability/cmp-allowability-factors.md).
+Total cost and allowable cost are different measures: a cost can be part of total cost because it is allocable and still be excluded from the costs allowable to the Government because it is unallowable [@CL-CMP-7510]. A credit is not a disallowance; it reduces cost because an income, rebate, allowance or other credit relating to an allowable cost was received by or accrued to the contractor [@CL-CMP-7511]. The codified text limits allowable costs to those allowable under FAR part 31 and applicable agency supplements [@CL-CMP-7510], while the RFO text limits them to those allowable pursuant to this part [@CL-CMP-9375]. The codified credit rule covers the applicable portion of any credit relating to any allowable cost [@CL-CMP-7511], while the RFO credit rule covers a credit relating to an allowable cost under a cost contract [@CL-CMP-9376]. The allocability and allowability tests behind the two measures are set out in [allocability](../cas-allowability/cmp-allocability.md) and [allowability factors](../cas-allowability/cmp-allowability-factors.md).
 
 ## Company calibration
 
@@ -59,4 +61,5 @@ How pools, bases, service centers and intercompany charges are defined and recon
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for composition of total cost and the treatment of credits.

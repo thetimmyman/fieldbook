@@ -24,7 +24,7 @@ Shows how unallowable costs and their directly associated costs are identified a
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2724] |
 | Codified citation | FAR 31.201-6 [@CL-CMP-2724] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.201-6 [@CL-CMP-9352; @CL-CMP-9353] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2724] |
 | Applies to | Expressly unallowable, mutually agreed unallowable and officer-designated costs in billings, claims and proposals [@CL-CMP-2724; @CL-CMP-2726] |
@@ -44,6 +44,8 @@ In determining the materiality of a directly associated cost, consideration shou
 ### Statistical sampling
 
 Statistical sampling is an acceptable practice for contractors in accounting for and presenting unallowable costs, provided the three listed criteria are met [@CL-CMP-2752]. The first is that the sampling results in an unbiased sample that is a reasonable representation of the sampling universe [@CL-CMP-2753]. The other two are that any large dollar value or high risk transaction is separately reviewed for unallowable costs and excluded from the sampling process, and that the sampling permits audit verification [@CL-CMP-2754]. For any indirect cost in the selected sample that is subject to the penalty provisions at FAR 42.709, the amount projected to the sampling universe from that sampled cost is also subject to the same penalty provisions [@CL-CMP-2755]. Use of statistical sampling methods for identifying and segregating unallowable costs should be the subject of an advance agreement with the cognizant administrative contracting officer or Federal official [@CL-CMP-2728]; see [Advance agreements on particular costs](../cas-allowability/cmp-advance-agreements.md). In the absence of an advance agreement, if an initial review of the facts results in a challenge of the statistical sampling methods by the contracting officer or the contracting officer's representative, the burden of proof is on the contractor [@CL-CMP-2750]. That burden is to establish that the method meets the sampling criteria [@CL-CMP-2751].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.201-6 keeps the rule that expressly unallowable costs and costs mutually agreed to be unallowable must be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-9352], and the rule that costs designated unallowable by a contracting officer's written decision must be identified if included in or used in computing any billing, claim, or proposal [@CL-CMP-9353]. It keeps the statistical sampling criteria [@CL-CMP-9354; @CL-CMP-9355], the contractor's burden of proof after a challenge to the sampling methods [@CL-CMP-9358; @CL-CMP-9359] and the cost pool rules for directly associated costs [@CL-CMP-9360; @CL-CMP-9361]. It requires the cognizant administrative contracting officer or Federal official to request input from the cognizant auditor before entering into an advance agreement on sampling [@CL-CMP-9357]. It cites 31.110 for that advance agreement, where the codified text cites 31.109, and it no longer names the contractor and the cognizant administrative contracting officer or Federal official as the parties to the agreement in that sentence [@CL-CMP-9356; @CL-CMP-2728].
 
 ## Worked example
 
@@ -67,4 +69,5 @@ Whether an advance agreement covers any statistical sampling used to identify un
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for unallowable and directly associated costs.

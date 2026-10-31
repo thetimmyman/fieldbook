@@ -24,7 +24,7 @@ Shows when work on patents can be charged to a Government contract, and where pa
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0851] |
 | Codified citation | FAR 31.205-30 [@CL-CMP-0851] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-30 [@CL-CMP-9472] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0851] |
 | Applies to | Not established. |
@@ -35,7 +35,9 @@ General counseling services relating to patent matters, such as advice on patent
 
 ## How it works
 
-The test for the listed patent costs is whether the contract requires the work [@CL-CMP-0851]. Patent costs that the contract does not require are unallowable, apart from general counseling services [@CL-CMP-0856]. General counseling services are allowable without that requirement [@CL-CMP-0855; @CL-CMP-0856]. Both the list in paragraph (a) and the counseling rule in paragraph (b) carry a cross-reference to FAR 31.205-33 [@CL-CMP-0852; @CL-CMP-0855].
+The test for the listed patent costs is whether the contract requires the work [@CL-CMP-0851]. Patent costs that the contract does not require are unallowable, apart from general counseling services [@CL-CMP-0856]. General counseling services are allowable without that requirement [@CL-CMP-0855; @CL-CMP-0856]. In the codified text, both the list in paragraph (a) and the counseling rule in paragraph (b) carry a cross-reference to FAR 31.205-33 [@CL-CMP-0852; @CL-CMP-0855].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-30 keeps the same list of patent costs [@CL-CMP-9473; @CL-CMP-9474] and the rule that, other than general counseling services, patent costs not required by the contract are unallowable [@CL-CMP-9476]. Two wording differences matter. RFO paragraph (a) allows the listed costs "when incurred as a requirement of a Government contract", where the codified paragraph says "to the extent that they are incurred as requirements" [@CL-CMP-9472; @CL-CMP-0851]. The RFO counseling paragraph (b) allows general counseling services without the codified cross-reference to FAR 31.205-33 [@CL-CMP-9475].
 
 ## Worked example
 
@@ -45,7 +47,7 @@ A contract requires the company to file a United States application and convey a
 
 ## Never confuse
 
-A patent cost under this section is a cost of disclosing, searching for, filing or prosecuting a patent, or of counseling about patents. A royalty is a payment for the right to use a patent, and the royalties section treats it separately; see [Royalties and other costs for use of patents](cmp-patent-royalties.md). For the general allowability test, see [Allowability factors](../cas-allowability/cmp-allowability-factors.md).
+A patent cost under this section is a cost of disclosing, searching for, filing or prosecuting a patent, or of counseling about patents. A royalty is a payment for the right to use a patent, and the royalties section treats it separately; see [Royalties and other costs for use of patents](cmp-patent-royalties.md). For the general allowability test, see [Allowability factors](../cas-allowability/cmp-allowability-factors.md). The codified counseling paragraph ends with a cross-reference to FAR 31.205-33 [@CL-CMP-0855], but the RFO counseling paragraph does not [@CL-CMP-9475].
 
 ## Company calibration
 
@@ -55,5 +57,6 @@ Whether contract-required patent work is tagged at the source so that non-requir
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Checked each sentence against the section and removed statements the section does not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent costs.
