@@ -31,7 +31,7 @@ Shows when DoD may use the lowest price technically acceptable source selection 
 
 The process shall only be used when the listed conditions are met, and one of them is that minimum requirements can be described clearly and comprehensively and expressed in terms of performance objectives, measures, and standards that will be used to determine the acceptability of offers [@CL-EST-1538]. The paragraph lists further conditions, which this card does not set out. Contracting officers shall avoid, to the maximum extent practicable, using the process in a procurement that is predominately for listed categories, which include information technology services and cybersecurity services [@CL-EST-1539].
 
-Contracting officers shall not use the process to procure items designated by the requiring activity as personal protective equipment or an aviation critical safety item [@CL-EST-1540], when the requiring activity advises the contracting officer that the level of quality or failure of the equipment or item could result in combat casualties [@CL-EST-1536]. Contracting officers shall not use the process to acquire engineering and manufacturing development for a major defense acquisition program for which budgetary authority is requested beginning in fiscal year 2019 [@CL-EST-1541]. For an auditing contract, award decisions are based on best value factors and criteria, as determined by the resource sponsor in accordance with agency procedures, and use of the process is prohibited [@CL-EST-1542].
+Contracting officers shall not use the process to procure items designated by the requiring activity as personal protective equipment or an aviation critical safety item [@CL-EST-1540], when the requiring activity advises the contracting officer that the level of quality or failure of the equipment or item could result in combat casualties [@CL-EST-1536]. Contracting officers shall not use the process to acquire engineering and manufacturing development for a major defense acquisition program for which budgetary authority is requested beginning in fiscal year 2019 [@CL-EST-1541]. For an auditing contract, contracting officers shall make award decisions based on best value factors and criteria, as determined by the resource sponsor in accordance with agency procedures, and use of the lowest price technically acceptable source selection process is prohibited [@CL-EST-1542].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Which of the company's expected bids may be evaluated this way, and what review 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording for award decisions on an auditing contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD limits and prohibitions on lowest price technically acceptable source selection.

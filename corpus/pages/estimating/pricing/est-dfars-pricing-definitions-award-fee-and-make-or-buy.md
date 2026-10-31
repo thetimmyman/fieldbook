@@ -53,7 +53,7 @@ A make-or-buy plan lists one item valued at 2 million and another valued at 1 mi
 
 ## Never confuse
 
-Market prices and relevant sales data are different evidence. Market prices are current prices established in ordinary trade between buyers and sellers free to bargain, substantiated through competition or from sources independent of the offerors. Relevant sales data come from the offeror's own sales of the same or similar items [@CL-EST-2769; @CL-EST-2770].
+Market prices and relevant sales data are different evidence. Market prices are current prices established in ordinary trade between buyers and sellers free to bargain, substantiated through competition or from sources independent of the offerors. Relevant sales data are information an offeror provides on sales of the same or similar items [@CL-EST-2769; @CL-EST-2770].
 
 The cost-plus-award-fee fee objective is not set with the weighted guidelines method. For that method elsewhere, see [DoD profit policy: structured approaches and when weighted guidelines are not used](est-dod-profit-structured-approaches.md) [@CL-EST-2772].
 
@@ -65,4 +65,5 @@ Who owns the proposal pricing that a cost-plus-award-fee fee objective and a mak
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Relevant sales data described as information an offeror provides, not its own sales.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD pricing definitions, award-fee fee objectives and the make-or-buy minimum.
