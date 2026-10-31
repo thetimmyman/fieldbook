@@ -24,7 +24,7 @@ Explains what the Disclosure and Consistency of Cost Accounting Practices clause
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-1600] |
 | Codified citation | FAR 52.230-3 [@CL-CMP-1600] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.230-3 [@CL-CMP-0290] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-1600] |
 | Applies to | Contracts that include the clause [@CL-CMP-1600] |
@@ -39,6 +39,8 @@ On a contract covered by the cost accounting standards, a business unit of a com
 
 The contractor must pass the substance of the clause, except the dispute paragraph, to its negotiated subcontracts and require it in other subcontracts of any tier, subject to listed exceptions [@CL-CMP-0963]. The requirement reaches only negotiated subcontracts above the lower cost accounting standards threshold on the date of subcontract award [@CL-CMP-0965], and it does not reach negotiated subcontracts that are otherwise exempt [@CL-CMP-0966]. A subcontract awarded to a business unit under other types of coverage takes the applicable clause instead [@CL-CMP-0964].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the four standards, 48 CFR 9904.401, 9904.402, 9904.405 and 9904.406 [@CL-CMP-0291; @CL-CMP-0951], applying in the version in effect on the date of award of the contract, as indicated in 48 CFR part 9904 [@CL-CMP-0292; @CL-CMP-0952]. It keeps the consistent following of cost accounting practices, with either the Government or the contractor able to propose a change and the contractor agreeing to negotiate its terms with the contracting officer [@CL-CMP-0293; @CL-CMP-0955]. It keeps the prospective application of an agreed change, with the Disclosure Statement amended if it is affected [@CL-CMP-0294; @CL-CMP-0956], and the negotiation of an equitable adjustment when the contracting officer has made the finding required in 48 CFR 9903.201-6(c) that the change is desirable and not detrimental to the interests of the Government [@CL-CMP-0295; @CL-CMP-0957]. In the absence of the required finding, it keeps the bar on any agreement under the clause that will increase costs paid by the United States [@CL-CMP-0326; @CL-CMP-0958]. It keeps the adjustment of the contract price or cost allowance when the contractor or a subcontractor fails to comply with applicable standards or to follow any cost accounting practice and the failure results in increased costs paid by the United States [@CL-CMP-0296; @CL-CMP-0959]. For a subcontract awarded to a business unit under other types of coverage, the RFO text says the applicable clause is the one in FAR section 30.205, where the codified text says section 30.201-4 [@CL-CMP-0297; @CL-CMP-0964], and for the lower threshold it says FAR 30.205(b), where the codified text says FAR 30.201-4(b) [@CL-CMP-0298; @CL-CMP-0965].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -49,6 +51,8 @@ A business unit proposes a change to its cost accounting practice after award, a
 
 Following a practice consistently is not the same as freezing it: either party may propose a change, and the change then moves forward prospectively [@CL-CMP-0955; @CL-CMP-0956]. The disclosure duty is a separate obligation and arises only for a business unit of a company required to submit a Disclosure Statement [@CL-CMP-0953]. The foreign-concern clause names fewer standards; see [Disclosure and consistency for foreign concerns](cmp-consistency-cost-accounting-practices.md). The Cost Accounting Standards clause has its own page, [Cost Accounting Standards clause](cmp-cost-accounting-standards.md).
 
+For the subcontract clause and the lower threshold, the codified clause points to FAR 30.201-4 and 30.201-4(b) [@CL-CMP-0964; @CL-CMP-0965], while the RFO clause points to FAR 30.205 and 30.205(b) [@CL-CMP-0297; @CL-CMP-0298].
+
 ## Company calibration
 
 Which coverage each business unit is under, and whether a Disclosure Statement is on file for it [@Q-033].
@@ -57,4 +61,5 @@ Which coverage each business unit is under, and whether a Disclosure Statement i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Disclosure and Consistency of Cost Accounting Practices clause.

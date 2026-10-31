@@ -24,7 +24,7 @@ Shows how the construction affirmative action clause turns solicitation goals in
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5229] |
 | Codified citation | FAR 52.222-27 [@CL-CMP-5229] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent: the RFO text lists RFO FAR 52.222-27 as reserved [@CL-CMP-0372] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5229] |
 | Applies to | Construction contracts that carry the clause, and construction-trade subcontracts over $10,000 at any tier [@CL-CMP-5229] |
@@ -68,6 +68,8 @@ The contractor is encouraged to participate in voluntary associations that may a
 
 Nothing in the clause is to be construed as a limitation upon the application of other laws that establish different standards of compliance or upon the requirements for the hiring of local or other area residents [@CL-CMP-5790].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.222-27 as reserved [@CL-CMP-0372].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -78,6 +80,8 @@ A solicitation states a goal of 20 percent female utilization in the carpentry t
 
 The goals are not fixed headcounts: the solicitation states them as percentages of the total hours of employment and training [@CL-CMP-5231]. Compliance is evaluated on the contractor's effort to achieve maximum results, and the contractor must document that effort fully [@CL-CMP-5340; @CL-CMP-5341]. A union's failure to refer minorities or women does not excuse the contractor's obligations under the clause [@CL-CMP-5337].
 
+The codified FAR 52.222-27 carries the construction affirmative action clause, while the RFO text prints that section number as reserved [@CL-CMP-5229; @CL-CMP-0372].
+
 ## Company calibration
 
 Which construction contracts and subcontracts carry this clause, and who owns the applicant file and the annual reviews. [@Q-004]
@@ -86,4 +90,5 @@ Which construction contracts and subcontracts carry this clause, and who owns th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction affirmative action requirements.

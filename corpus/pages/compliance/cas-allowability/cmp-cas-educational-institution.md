@@ -24,7 +24,7 @@ Shows the duties the Cost Accounting Standards clause for educational institutio
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5929] |
 | Codified citation | FAR 52.230-5 [@CL-CMP-5929] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.230-5 [@CL-CMP-0251] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5929] |
 | Applies to | Contracts that carry the clause, unless the contract is exempt under the cited CAS exemption rules [@CL-CMP-5929] |
@@ -61,6 +61,8 @@ A failure to agree whether the contractor or a subcontractor has complied with a
 
 The contractor must include the substance of the clause, except the paragraph on disputes, in all negotiated subcontracts it enters into, and must require that inclusion in all other subcontracts, of any tier [@CL-CMP-5938; @CL-CMP-5937]. The substance includes the obligation to comply with all applicable CAS in effect on the subcontractor's award date or, if the subcontractor has submitted certified cost or pricing data, on the date of final agreement on price [@CL-CMP-6524]. Three exceptions follow. If the subcontract is awarded to a business unit that is subject to other types of CAS coverage, the substance of the applicable clause in 48 CFR 9903.201-4 is inserted instead [@CL-CMP-5939]. The requirement applies only to negotiated subcontracts in excess of the lower CAS threshold in FAR 30.201-4(b) on the date of subcontract award [@CL-CMP-5940]. It does not apply to negotiated subcontracts otherwise exempt from the requirement to include a CAS clause [@CL-CMP-5941].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO section keeps the incorporation of 48 CFR part 9903 by reference unless the contract is exempt under 48 CFR 9903.201-1 and 9903.201-2 [@CL-CMP-0252; @CL-CMP-5929]. It keeps the scope of paragraph (a)(1), which applies to CAS-covered contracts only and applies if a business unit of an educational institution, defined as an institution of higher education in the OMB Uniform Guidance and the statute it cites, is required to submit a Disclosure Statement [@CL-CMP-0253; @CL-CMP-6509]. It keeps the rule that an accounting principle change mandated under the OMB Uniform Guidance that requires a change in the contractor's cost accounting practices after the date of contract award is applied prospectively to the contract [@CL-CMP-0254; @CL-CMP-6512]. It keeps the contractor's agreement to an equitable adjustment as provided in the Changes clause if the contract cost is affected by a change which, under paragraph (a)(3) of the clause, the contractor is required to make to its established cost accounting practices [@CL-CMP-0255; @CL-CMP-5934]. It keeps the cap on recovery for noncompliance, subject to an exception stated in the same sentence, at the increased cost to the Government in the aggregate on the relevant contracts subject to the price adjustment [@CL-CMP-0256; @CL-CMP-6521], and it keeps the exception for a change in cost accounting practices of which the contractor was aware or should have been aware at the time of price negotiations and which it failed to disclose to the Government [@CL-CMP-0257; @CL-CMP-6522]. It keeps the rule that the subcontract requirement does not apply to negotiated subcontracts otherwise exempt from the requirement to include a CAS clause as specified in 48 CFR 9903.201-1 [@CL-CMP-0259; @CL-CMP-5941]. For the lower CAS threshold in the subcontract requirement, the RFO text says FAR 30.205(b), where the codified text says FAR 30.201-4(b) [@CL-CMP-0258; @CL-CMP-5940].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -77,6 +79,8 @@ An equitable adjustment for a change the contractor is required to make [@CL-CMP
 
 A contract for which the offeror elected modified coverage in Part II of the notice carries the Disclosure and Consistency of Cost Accounting Practices clause instead of the Cost Accounting Standards clause [@CL-CMP-5925]; that clause is covered on the [modified coverage card](cmp-disclosure-consistency-modified-cas.md). The thresholds that decide coverage are on the [CAS applicability card](cmp-cas-applicability.md).
 
+The codified clause points to FAR 30.201-4(b) for the lower CAS threshold on subcontracts [@CL-CMP-5940], while the RFO clause points to FAR 30.205(b) [@CL-CMP-0258].
+
 ## Company calibration
 
 Which business units are educational institutions for this clause, who owns the Disclosure Statement and the practice-change file, and who tracks the subcontract flowdown. [@Q-003]
@@ -85,4 +89,5 @@ Which business units are educational institutions for this clause, who owns the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Cost Accounting Standards for educational institutions.

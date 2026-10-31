@@ -22,7 +22,7 @@ Explains when a contract that carries this clause may use only domestic and desi
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5404] |
 | Codified citation | FAR 52.225-23, basic clause [@CL-CMP-5404] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-23 is marked reserved [@CL-CMP-0374] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5404] |
 | Applies to | Construction material used in performing a contract that includes the clause [@CL-CMP-5404] |
@@ -61,6 +61,8 @@ Data. To permit evaluation of requests based on unreasonable cost, the Contracto
 
 Alternate I. Alternate I adds a definition of Bahraini, Mexican, or Omani construction material, which means a construction material that is wholly the growth, product, or manufacture of Bahrain, Mexico, or Oman, or that meets the second alternative in the definition [@CL-CMP-6101]. A construction material that consists in whole or in part of materials from another country also qualifies if it has been substantially transformed in Bahrain, Mexico, or Oman into a new and different construction material distinct from the materials from which it was transformed [@CL-CMP-6102]. Under Alternate I, the Contractor must use only domestic construction material, Recovery Act designated country manufactured construction material, or designated country unmanufactured construction material, other than Bahraini, Mexican, or Omani construction material, in performing the contract [@CL-CMP-6123].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.225-23, the required-use clause number, as reserved [@CL-CMP-0374].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -71,6 +73,8 @@ A contractor wants to buy gravel, an unmanufactured construction material, from 
 
 The clause is not a flat ban on foreign construction material. Designated country unmanufactured material and Recovery Act designated country manufactured material sit outside the restrictions, and the Contracting Officer may add other material to the list after a determination [@CL-CMP-5407; @CL-CMP-5408; @CL-CMP-5507]. Exactly 20 percent is not enough for unmanufactured material, because the test is more than 20 percent [@CL-CMP-5406].
 
+The codified FAR 52.225-23 carries the required-use clause and its exception tests, while the RFO text prints that section number as reserved [@CL-CMP-5404; @CL-CMP-0374].
+
 ## Company calibration
 
 Which contracts carry the clause and which excepted materials each contract lists. [@Q-004]
@@ -79,4 +83,5 @@ Which contracts carry the clause and which excepted materials each contract list
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for required use of American iron, steel and manufactured goods under trade agreements.
