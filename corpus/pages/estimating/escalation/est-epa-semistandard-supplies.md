@@ -31,7 +31,7 @@ Explains the Economic Price Adjustment clause for semistandard supplies, where t
 
 The contractor warrants that the schedule line items are, except for modifications required by the contract specifications, supplies for which it has an established price [@CL-EST-0757]. As of the date of the contract, any difference between the contract unit prices for those items and the contractor's established prices for like quantities of the nearest commercial equivalents is due to compliance with contract specifications [@CL-EST-0758]. The warranty also ties the difference to compliance with any contract requirements for preservation, packaging, and packing beyond standard commercial practice [@CL-EST-0859]. The contractor promptly notifies the Contracting Officer of the amount and effective date of each decrease in any applicable established price [@CL-EST-0759].
 
-If the established price is increased after the contract date, the corresponding contract unit price is increased, upon the contractor's written request, by the same percentage, subject to the limitations that follow [@CL-EST-0874; @CL-EST-1041]. The part of the unit price resulting from specifications or from packaging and similar requirements beyond standard commercial practice is excluded from that increase [@CL-EST-0860]. The aggregate of the increases in any contract unit price cannot exceed 10 percent of the original contract unit price [@CL-EST-0760].
+If the established price is increased after the contract date, the corresponding contract unit price is increased, upon the contractor's written request, by the same percentage, subject to the limitations that follow [@CL-EST-9438; @CL-EST-0874; @CL-EST-1041]. The part of the unit price resulting from specifications or from packaging and similar requirements beyond standard commercial practice is excluded from that increase [@CL-EST-0860]. The aggregate of the increases in any contract unit price cannot exceed 10 percent of the original contract unit price [@CL-EST-0760].
 
 ## How it works
 
@@ -57,6 +57,6 @@ That each semistandard line item price gap to the established price is attributa
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow; cited the lead-in of the price increase rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Economic Price Adjustment clause for semistandard supplies.

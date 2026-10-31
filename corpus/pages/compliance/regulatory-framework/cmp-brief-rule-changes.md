@@ -23,7 +23,7 @@ Treat the DoD class deviation text as current for DoD work, and re-baseline ever
 
 ## Evidence
 
-- Contracts and subcontracts of $35 million or less are now exempt from all CAS requirements, tested at award [@CL-CMP-0001].
+- Negotiated contracts and subcontracts of $35 million or less are now exempt from all CAS requirements, tested at award [@CL-CMP-0001].
 - Full CAS coverage starts at $100 million [@CL-CMP-0002], and so does the Disclosure Statement before award [@CL-CMP-0003].
 - For DoD prime contracts awarded after June 30, 2026, certified cost or pricing data start above $10 million [@CL-EST-0002].
 - DoD earned value requirements start at $50 million and $100 million [@CL-PRG-0001; @CL-PRG-0002], with exemptions for software and nontraditional defense contractors [@CL-PRG-0003].

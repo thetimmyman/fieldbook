@@ -39,7 +39,7 @@ When the foreign government revises wage rates or material prices, the Contracti
 
 ## How it works
 
-For nonstandard steel, the contractor furnishes within 30 days after final delivery, or another period the Contracting Officer authorizes, a statement identifying the correctness of the average straight time hourly earnings and the established prices that are relevant to the index computations [@CL-EST-1194; @CL-EST-1201; @CL-EST-1202], and no modification is made until the Contracting Officer has verified the revised established price [@CL-EST-1195]. The DFARS prescription adds that the ten percent figure in the clause shall not be exceeded unless approval is obtained at a level above the contracting officer [@CL-EST-1181]. For the foreign-government clause, no modification changing unit prices is executed until the Contracting Officer has verified the change in rates or prices set by the foreign government [@CL-EST-1199]. The clause also defines base and current labor indexes, and its notes tell the offeror how to fill the blanks, such as the days used for the current steel index [@CL-EST-1192; @CL-EST-1203]. The printed foreign-government clause text does not state a percentage limit.
+For nonstandard steel, the contractor furnishes within 30 days after final delivery, or another period the Contracting Officer authorizes, a statement identifying the correctness of the average straight time hourly earnings and the established prices that are relevant to the index computations [@CL-EST-1194; @CL-EST-1201; @CL-EST-1202], and no modification is made until the Contracting Officer has verified the revised established price [@CL-EST-1195]. The DFARS prescription adds that the ten percent figure in the clause shall not be exceeded unless approval is obtained at a level above the contracting officer [@CL-EST-1181]. For the foreign-government clause, no modification changing unit prices is executed until the Contracting Officer has verified the change in rates or prices set by the foreign government [@CL-EST-1199]. The clause also refers to a base labor index and a current labor index [@CL-EST-1201], and its notes tell the offeror how to fill the blanks, such as the days used for the current steel index [@CL-EST-1192; @CL-EST-1203]. The printed foreign-government clause text does not state a percentage limit.
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Which contracts use either clause and who tracks the index inputs, the statement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched labor index wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustment for nonstandard steel items and foreign-government controlled wages or prices.

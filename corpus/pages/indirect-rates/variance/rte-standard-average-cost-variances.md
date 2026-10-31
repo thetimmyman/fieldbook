@@ -31,7 +31,7 @@ Shows when standard costs, average costs and pre-established labor rates may be 
 
 Standard costs may be used for estimating, accumulating and reporting direct material and direct labor costs only when the standard costs and related variances are appropriately accounted for at the production unit level and under the standard costing paragraph [@CL-RTE-0650]. A production unit is a grouping of activities that uses homogeneous inputs of direct material and direct labor or yields homogeneous outputs, so that the related costs or statistics are appropriate bases for allocating variances [@CL-RTE-0659].
 
-An average cost or pre-established labor rate may be used if the functions are not materially disparate and the employees are interchangeable, or if the functions are materially disparate but the employees all work in one production unit yielding homogeneous outputs or perform their functions as an integral team [@CL-RTE-0651; @CL-RTE-0652]. When such rates are used, the variances, if material, are disposed of at least annually by allocation to cost objectives in proportion to the costs previously allocated to them [@CL-RTE-0653].
+An average cost or pre-established labor rate may be used provided that the functions are not materially disparate and the employees are interchangeable, or if the functions are materially disparate but the employees all work in one production unit yielding homogeneous outputs or perform their functions as an integral team [@CL-RTE-0651; @CL-RTE-0652]. When such rates are used, the variances, if material, are disposed of at least annually by allocation to cost objectives in proportion to the costs previously allocated to them [@CL-RTE-0653].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Which pre-established rate sets and standard-cost systems the company has approv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched 'provided that'.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for standard costs, average costs and pre-established labor rates.

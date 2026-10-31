@@ -29,13 +29,13 @@ Shows when an indirect cost pool is homogeneous and how the allocation base is c
 | Text status | Final [@CL-RTE-0661] |
 | Applies to | Business unit indirect cost pools [@CL-RTE-0661] |
 
-An indirect cost pool is homogeneous if each significant activity in it has the same or a similar beneficial or causal relationship to cost objectives as the other activities [@CL-RTE-0661]. A pool is also homogeneous if allocating its activities together gives an allocation not materially different from allocating them separately [@CL-RTE-0662]. A homogeneous pool includes all indirect costs identified with the activity to which it relates [@CL-RTE-0663].
+An indirect cost pool is homogeneous if each significant activity in it has the same or a similar beneficial or causal relationship to cost objectives as the other activities [@CL-RTE-0661]. A pool is also homogeneous if allocating its activities together gives an allocation not materially different from allocating them separately [@CL-RTE-0662]. A homogeneous pool must include all indirect costs identified with the activity to which it relates [@CL-RTE-0663].
 
 Management or supervision costs of activities involving direct labor or direct material have no direct and definitive relationship to the benefiting cost objectives, and they cannot be allocated on specific beneficial or causal measures [@CL-RTE-0664]. For them the base must be representative of the activity being managed or supervised [@CL-RTE-0665].
 
 ## How it works
 
-For a pool with material management or supervision costs, a direct labor hour or direct labor cost base is used, whichever in the aggregate is more likely to vary with the pool's costs, except where one of the listed other bases applies [@CL-RTE-0666]. A machine-hour base suits a pool made up mostly of facility-related costs, and a units-of-production base suits common production of comparable units [@CL-RTE-0667]. A homogeneous pool of the type without material management or supervision costs has a direct and definitive relationship to benefiting cost objectives and is allocated using an appropriate measure of resource consumption [@CL-RTE-0668]. If consumption measures are unavailable or impractical, the next best measure is the output of the pool's activities [@CL-RTE-0669]. Pools that benefit one another may be allocated by the cross-allocation (reciprocal) method, the sequential method, or a method approximating either [@CL-RTE-0670].
+For a pool with material management or supervision costs, a direct labor hour or direct labor cost base shall be used, whichever in the aggregate is more likely to vary with the pool's costs, except where one of the listed other bases applies [@CL-RTE-0666]. Two of the other bases listed are a machine-hour base, appropriate for a pool made up predominantly of facility-related costs, and a units-of-production base, appropriate where there is common production of comparable units [@CL-RTE-0667]; the list continues beyond them. A homogeneous pool of the type without material management or supervision costs has a direct and definitive relationship to benefiting cost objectives and is allocated using an appropriate measure of resource consumption [@CL-RTE-0668]. If consumption measures are unavailable or impractical, the next best measure is the output of the pool's activities [@CL-RTE-0669]. Pools that benefit one another may be allocated by the cross-allocation (reciprocal) method, the sequential method, or a method approximating either [@CL-RTE-0670].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ How the company defines its pools, picks the base for each, and reconciles charg
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Changed "includes" to "must include" to match "shall include"; said the other-base list continues beyond the two bases quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost pools and allocation bases.

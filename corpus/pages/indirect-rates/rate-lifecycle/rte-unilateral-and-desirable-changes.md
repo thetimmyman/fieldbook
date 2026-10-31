@@ -29,15 +29,15 @@ Details the limit on unilateral cost accounting practice changes, the notice dut
 | Text status | Final [@CL-RTE-0608] |
 | Applies to | A contractor's disclosed or established cost accounting practices [@CL-RTE-0608] |
 
-The contractor may unilaterally change its disclosed or established cost accounting practices, but the Government shall not pay any increased cost in the aggregate as a result of the unilateral change [@CL-RTE-0608]. Prior to taking action addressing a desirable change, the CFAO must determine that the change is a desirable change and not detrimental to the interests of the Government [@CL-RTE-0609].
+The contractor may unilaterally change its disclosed or established cost accounting practices, but the Government shall not pay any increased cost in the aggregate as a result of the unilateral change [@CL-RTE-0608]. Prior to taking action under the applicable paragraphs addressing a desirable change at FAR 52.230-2, 52.230-3 or 52.230-5, the CFAO must determine that the change is a desirable change and not detrimental to the interests of the Government [@CL-RTE-0609].
 
 ## How it works
 
-Until the CFAO has determined a change to a cost accounting practice is a desirable change, the change remains a unilateral change [@CL-RTE-0610]. When a contractor makes a unilateral change, the clause at FAR 52.230-6 requires the contractor to submit a description of the change to the CFAO not less than 60 days, or another mutually agreeable date, before implementation of the change [@CL-RTE-0711]. If a contractor implements a change without submitting the required notice, the CFAO may determine the change a failure to follow a cost accounting practice consistently and process it as a noncompliance [@CL-RTE-0712].
+Until the CFAO has determined a change to a cost accounting practice is a desirable change, the change remains a unilateral change [@CL-RTE-0610]. When a contractor makes a unilateral change, the clause at FAR 52.230-6 requires the contractor to take listed steps, the first being to submit a description of the change to the CFAO not less than 60 days, or another mutually agreeable date, before implementation of the change [@CL-RTE-0711]. If a contractor implements a change without submitting the required notice, the CFAO may determine the change a failure to follow a cost accounting practice consistently and process it as a noncompliance [@CL-RTE-0712].
 
 If a contractor requests that a unilateral change be retroactive, the contractor must submit supporting rationale [@CL-RTE-0708]. The CFAO must not approve a date for the retroactive change that is before the beginning of the contractor's fiscal year in which the request is made [@CL-RTE-0611].
 
-The factors for deciding whether a change is desirable are not limited to those listed, and they include whether the contractor must change its cost accounting practices to remain in compliance with Part 31 [@CL-RTE-0709]. Another listed factor concerns actions directly associated with the change that will result in cost savings over the shorter of the forward pricing rate period or 5 years, with the savings reflected in the forward pricing rates [@CL-RTE-0710].
+The factors for deciding whether a change is desirable are not limited to those listed, and they include whether the contractor must change its cost accounting practices to remain in compliance with Part 31 [@CL-RTE-0709]. Another listed factor concerns actions directly associated with the change that will result in cost savings for segments with CAS-covered contracts and subcontracts over the shorter of the forward pricing rate period or 5 years, with the savings reflected in the forward pricing rates [@CL-RTE-0710].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Whether a planned practice change meets the desirable-change factors before it g
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added clause scope for desirable change; stated notice as one listed step; added segment scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unilateral and desirable changes to cost accounting practices.

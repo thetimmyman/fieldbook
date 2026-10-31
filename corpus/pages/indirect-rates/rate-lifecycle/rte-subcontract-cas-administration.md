@@ -45,7 +45,7 @@ A first-tier subcontractor has a cost accounting practice noncompliance that rai
 
 ## Never confuse
 
-The CFAO for a higher-tier contractor receives the lower-tier determination but does not change it [@CL-RTE-0628]. A subcontractor's refusal to submit a general dollar magnitude or detailed cost-impact proposal is remedied at the prime contractor level [@CL-RTE-0629]. See [Administration of Cost Accounting Standards clause](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md) and [CAS applicability](../../compliance/cas-allowability/cmp-cas-applicability.md).
+The CFAO for the contractor of the next higher-tier subcontractor is furnished a copy of the lower-tier determination but does not change it [@CL-RTE-0627; @CL-RTE-0628]. A subcontractor's refusal to submit a general dollar magnitude or detailed cost-impact proposal is remedied at the prime contractor level [@CL-RTE-0629]. See [Administration of Cost Accounting Standards clause](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md) and [CAS applicability](../../compliance/cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which subcontractors are covered, and whether a disclosure statement is on file 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched tier wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontract CAS administration and subcontractor disclosure statements.

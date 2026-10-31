@@ -31,7 +31,7 @@ Shows what an offer on a commercial products and commercial services solicitatio
 
 An offer is signed and dated and reaches the office named in the solicitation at or before the exact time the solicitation sets [@CL-EST-2261]. Offers may be submitted on the SF 1449, on letterhead stationery, or as the solicitation otherwise specifies [@CL-EST-2316].
 
-As a minimum an offer shows the solicitation number, the time set for receipt of offers, and the offeror's name, address and telephone number [@CL-EST-2262]. It also shows a technical description of the items offered in enough detail to evaluate compliance, which may include product literature or other documents if necessary [@CL-EST-2263]. It shows the terms of any express warranty, its price and any discount terms, and a remit-to address if that differs from the mailing address [@CL-EST-2317]. It shows a completed copy of the representations and certifications at FAR 52.212-3, completed electronically where FAR 52.212-3(b) requires, and an acknowledgment of solicitation amendments [@CL-EST-2318]. When past performance is an evaluation factor, it shows past performance information, including recent and relevant contracts for the same or similar items and other references with contract numbers and points of contact [@CL-EST-2319].
+As a minimum an offer shows the solicitation number, the time set for receipt of offers, and the offeror's name, address and telephone number [@CL-EST-9471; @CL-EST-2262]. It also shows a technical description of the items offered in enough detail to evaluate compliance, which may include product literature or other documents if necessary [@CL-EST-2263]. It shows the terms of any express warranty, its price and any discount terms, and a remit-to address if that differs from the mailing address [@CL-EST-2317]. It shows a completed copy of the representations and certifications at FAR 52.212-3, completed electronically where FAR 52.212-3(b) requires, and an acknowledgment of solicitation amendments [@CL-EST-2318]. When past performance is an evaluation factor, it shows past performance information, including recent and relevant contracts for the same or similar items and other references with contract numbers and points of contact [@CL-EST-2319].
 
 An offer that is not submitted on the SF 1449 includes a statement specifying the extent of its agreement with all terms, conditions and provisions in the solicitation [@CL-EST-2320]. An offer that fails to furnish required representations or information, or that rejects the terms and conditions of the solicitation, may be excluded from consideration [@CL-EST-2264].
 
@@ -93,6 +93,6 @@ Which offers need an approved review record before signature and submission. [@Q
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to use the provision's wording for the initial offer.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to use the provision's wording for the initial offer; cited the minimum-contents lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for instructions to offerors on commercial solicitations.

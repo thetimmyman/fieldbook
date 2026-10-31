@@ -32,7 +32,7 @@ Paragraph (a), award. When a contract subject to the statute is awarded, the con
 
 Paragraph (b), breach of stipulation. In the event of a violation of a stipulation required under the statute, the contracting officer must, in accordance with agency procedures, notify the appropriate regional office of the Department of Labor, Wage and Hour Division, and furnish any information available [@CL-CMP-8013]. The paragraph refers to 29 CFR part 1, Appendix B [@CL-CMP-8013].
 
-Separately, 22.602 states that, except for the exemptions at 22.604, all contracts subject to the statute and entered into by any executive department, independent establishment, or other agency or instrumentality of the United States [@CL-CMP-8022], for the manufacture or furnishing of materials, supplies, articles and equipment, called supplies in the subpart [@CL-CMP-8024], in any amount exceeding $20,000, shall include or incorporate by reference the stipulations required by the statute on such matters as minimum wages, maximum hours, child labor, convict labor, and safe and sanitary working conditions [@CL-CMP-8023].
+Separately, 22.602 states that, except for the exemptions at 22.604, all contracts subject to the statute and entered into by any executive department, independent establishment, or other agency or instrumentality of the United States, among the contracting entities the section names [@CL-CMP-8022], for the manufacture or furnishing of materials, supplies, articles and equipment, called supplies in the subpart [@CL-CMP-8024], in any amount exceeding $20,000, shall include or incorporate by reference the stipulations required by the statute on such matters as minimum wages, maximum hours, child labor, convict labor, and safe and sanitary working conditions [@CL-CMP-8023].
 
 The contracting officer shall insert the clause at 52.222-20, Contracts for Materials, Supplies, Articles, and Equipment, in solicitations and contracts covered by the statute (see 22.603, 22.604, and 22.605) [@CL-CMP-7709].
 
@@ -68,6 +68,7 @@ Which of the company's supply contracts are subject to the statute, and who conf
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Marked the list of contracting entities as not complete.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the clause insertion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the award and breach procedures under the materials, supplies, articles and equipment statute.

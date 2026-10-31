@@ -47,7 +47,7 @@ The determination of allowability remains a responsibility of the contracting of
 
 The individual Disclosure Statement may be used in audits of contracts or in negotiation of prices leading to contracts [@CL-EST-2490]. The authority of the audit agencies and the contracting officers is in no way abrogated by the material the contractor presents in the statement [@CL-EST-2631].
 
-Disclosures must be complete and accurate, because the practices disclosed may have a significant impact on the ways the contractor will be required to comply with the Cost Accounting Standards [@CL-EST-2491].
+Contractors are cautioned that their disclosures must be complete and accurate; the practices disclosed may have a significant impact on the ways in which contractors will be required to comply with the Cost Accounting Standards [@CL-EST-2491].
 
 ## Worked example
 
@@ -75,6 +75,6 @@ Whether a Disclosure Statement is on file for each covered business unit and who
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the sections that illustrate Disclosure Statement Forms CASB-DS-1 and CASB DS-2.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the sections that illustrate Disclosure Statement Forms CASB-DS-1 and CASB DS-2; restated the caution on complete and accurate disclosures as the source words it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.202-5 pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Disclosure Statement filing and the effect of filing.
