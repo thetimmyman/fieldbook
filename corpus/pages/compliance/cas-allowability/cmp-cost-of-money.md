@@ -31,7 +31,7 @@ Explains what the imputed cost of money is, the conditions that make it allowabl
 
 Cost of money is an imputed cost, and it is not a form of interest on borrowings [@CL-CMP-0756]. It is an incurred cost for cost-reimbursement purposes under applicable cost-reimbursement contracts and for progress payment purposes under fixed-price contracts [@CL-CMP-0757]. It refers to facilities capital cost of money and to cost of money as an element of the cost of capital assets under construction, each under its own cost accounting standard [@CL-CMP-0758].
 
-Allowability is conditional: the cost is allowable, provided it is measured, assigned and allocated to contracts under the facilities capital standard, or measured and added to the cost of capital assets under construction under the capital asset standard [@CL-CMP-0759]. The separate provision limiting the allowability of cost of money is followed [@CL-CMP-0760], and the estimated facilities capital cost of money is specifically identified and proposed in the cost proposals for the contract under which it is claimed [@CL-CMP-0761]. Actual interest cost taken in place of the calculated imputed amount is unallowable [@CL-CMP-0762].
+Allowability is conditional: cost of money is allowable provided three listed conditions are all met. It is measured, assigned and allocated to contracts under the facilities capital standard, or measured and added to the cost of capital assets under construction under the capital asset standard [@CL-CMP-0759]; the separate provision limiting the allowability of cost of money is followed [@CL-CMP-0760]; and the estimated facilities capital cost of money is specifically identified and proposed in the cost proposals for the contract under which it is claimed [@CL-CMP-0761]. Actual interest cost taken in place of the calculated imputed amount is unallowable [@CL-CMP-0762].
 
 ## How it works
 
@@ -57,7 +57,7 @@ Whether the company computes cost of money only under the applicable cost accoun
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text; stated that the three cost of money conditions apply together.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost of money.
