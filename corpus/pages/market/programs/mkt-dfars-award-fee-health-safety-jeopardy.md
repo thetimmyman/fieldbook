@@ -37,7 +37,7 @@ The duties fall on the contracting officer. The section sets no separate step fo
 
 ## How it works
 
-The review of safety-jeopardizing actions is a criterion in the award-fee plan, and the section applies it to any award-fee plan [@CL-MKT-1856]. It counts the actions of subcontractors as well as the contractor, and it rests on a conviction, a civil or administrative finding, or a final DoD determination [@CL-MKT-1856; @CL-MKT-1857; @CL-MKT-1858]. The reduction and recovery step is separate and is written for a contract that includes the clause: the contracting officer shall consider reducing or denying fee for the period of the injury or death, and shall consider recovering fee already paid for that period [@CL-MKT-1859; @CL-MKT-1860; @CL-MKT-1861]. The section directs the contracting officer to consider these steps; it does not itself say that fee is reduced, denied or recovered, and it sets no amount [@CL-MKT-1859; @CL-MKT-1861].
+The review of safety-jeopardizing actions is a criterion in the award-fee plan, and the section applies it to any award-fee plan [@CL-MKT-1856]. It counts the actions of subcontractors as well as the contractor, and it rests on a conviction, a civil or administrative finding, or, for a contractor or subcontractor not subject to the jurisdiction of the United States courts, a final DoD determination [@CL-MKT-1856; @CL-MKT-1857; @CL-MKT-1858]. The reduction and recovery step is separate and is written for a contract that includes the clause: the contracting officer shall consider reducing or denying fee for the period of the injury or death, and shall consider recovering fee already paid for that period [@CL-MKT-1859; @CL-MKT-1860; @CL-MKT-1861]. The section directs the contracting officer to consider these steps; it does not itself say that fee is reduced, denied or recovered, and it sets no amount [@CL-MKT-1859; @CL-MKT-1861].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ How the company's award-fee plans record the health-and-safety review, and what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Restored the jurisdiction condition on the final DoD determination route in the summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award fee reduction or denial for jeopardizing Government personnel safety under DFARS 216.405-2-70.

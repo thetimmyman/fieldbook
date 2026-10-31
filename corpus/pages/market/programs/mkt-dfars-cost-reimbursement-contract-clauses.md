@@ -16,7 +16,7 @@ links = ["cls-cost-reimbursement-contracts", "cls-dfars-foreign-wage-price-whist
 
 ## Purpose
 
-Shows which task orders and contracts awarded before the cutoff date must carry the DFARS clause on allowability of costs incurred in connection with a whistleblower proceeding, and the two conditions that bring a contract in.
+Shows which task orders under contracts awarded before the cutoff date, and which of those contracts themselves, must carry the DFARS clause on allowability of costs incurred in connection with a whistleblower proceeding, and the two conditions that bring a contract in.
 
 ## The rule
 
@@ -57,4 +57,5 @@ Which cost-reimbursement contracts and task orders were awarded before the cutof
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Made the purpose sentence tie the cutoff date to the underlying contract, not the task order.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD cost-reimbursement contract clauses under DFARS 216.307.

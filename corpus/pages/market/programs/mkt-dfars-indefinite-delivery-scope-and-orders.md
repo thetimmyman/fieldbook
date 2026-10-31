@@ -16,7 +16,7 @@ links = ["est-dod-ordering-multiple-award-contracts", "est-far-ordering-indefini
 
 ## Purpose
 
-Sets out three DoD rules for orders under multiple-award contracts: the procedures for architect-engineer orders, the limit on requests for contractor qualification information, and the step a contracting officer follows when a competitive order above the simplified acquisition threshold draws only one offer.
+Sets out three DoD rules on orders: the procedures for architect-engineer orders under a multiple-award contract, the limit on requests for contractor qualification information, and the step a contracting officer follows when a competitive order above the simplified acquisition threshold draws only one offer.
 
 ## The rule
 
@@ -57,4 +57,5 @@ Which multiple-award contracts the company holds, which of their orders are arch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Stopped the purpose sentence from tying the qualification-information limit to multiple-award contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD indefinite-delivery scope and orders under multiple-award contracts under DFARS 216.500 and 216.505-70.
