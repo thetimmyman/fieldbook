@@ -28,7 +28,7 @@ Shows, under 13 CFR 121.402 [@CL-MKT-0375], which size standard a concern must m
 | Text status | Not established. |
 | Applies to | Concerns offering on a solicitation that specifies a NAICS code [@CL-MKT-0375] |
 
-A concern must not exceed the size standard for the NAICS code specified in the solicitation, and the contracting officer must specify the size standard in effect on the date the solicitation is issued [@CL-MKT-0375]. The procuring agency contracting officer, or an authorized representative, designates the NAICS code and size standard, selecting the single code that best describes the principal purpose of the product or service being acquired [@CL-MKT-0376]. Except for multiple award contracts, a solicitation must contain only one NAICS code and only one size standard [@CL-MKT-0377].
+A concern must not exceed the size standard for the NAICS code specified in the solicitation, and the contracting officer must specify the size standard in effect on the date the solicitation is issued, although if SBA amends the size standard and the amendment becomes effective before the date initial offers (including price) are due, the contracting officer may amend the solicitation and use the new size standard [@CL-MKT-0375; @CL-MKT-9331]. The procuring agency contracting officer, or an authorized representative, designates the NAICS code and size standard, selecting the single code that best describes the principal purpose of the product or service being acquired [@CL-MKT-0376]. Except for multiple award contracts, a solicitation must contain only one NAICS code and only one size standard [@CL-MKT-0377].
 
 A procurement is generally classified according to the component that accounts for the greatest percentage of contract value [@CL-MKT-0378]. Acquisitions for supplies must be classified under the appropriate manufacturing or supply NAICS code, not under a Wholesale Trade or Retail Trade NAICS code [@CL-MKT-0546].
 
@@ -60,6 +60,7 @@ Which NAICS codes and size standards the company's products and customers usuall
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the size standard in effect on the issue date.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA-assignment exception to the code finality statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the programs covered by the size sections and the size rules for multiple item procurements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the multiple award sentence so the discrete-category route keeps the code that best describes the principal purpose.

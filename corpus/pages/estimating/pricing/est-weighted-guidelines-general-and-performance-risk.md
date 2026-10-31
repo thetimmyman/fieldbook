@@ -35,7 +35,7 @@ In the price negotiation documentation the contracting officer need not explain 
 
 ## How it works
 
-Performance risk has a technical part, covering technical uncertainties of performance, and a management/cost control part, covering the management effort needed to meet contract requirements and to reduce and control costs [@CL-EST-0776]. The two elements carry weights that total 100 percent [@CL-EST-0777]. Values come from a table in which the standard normal value is 5 percent with a designated range of 3 to 7 percent and the technology incentive normal value is 9 percent with a range of 7 to 11 percent [@CL-EST-0778]. For the technical factor only, contracting officers may use the technology incentive range for acquisitions that include development, production, or application of innovative new technologies [@CL-EST-0866]. The base is the Block 20 amount, which is total contract costs excluding facilities capital cost of money [@CL-EST-0779].
+Performance risk has a technical part, covering technical uncertainties of performance, and a management/cost control part, covering the management effort needed to meet contract requirements and to reduce and control costs [@CL-EST-0776]. The two elements carry weights that total 100 percent [@CL-EST-0777]. Values come from a table in which the standard normal value is 5 percent with a designated range of 3 to 7 percent and the technology incentive normal value is 9 percent with a range of 7 to 11 percent [@CL-EST-0778]. For the technical factor only, contracting officers may use the technology incentive range for acquisitions that include development, production, or application of innovative new technologies [@CL-EST-0866], but the range does not apply to efforts restricted to studies, analyses, or demonstrations that have a technical report as their primary deliverable [@CL-EST-9432]. The base is the Block 20 amount, which is total contract costs excluding facilities capital cost of money [@CL-EST-0779].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which factors the company's profit model moves away from normal on, and where th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the weighted guidelines general policy and performance risk.

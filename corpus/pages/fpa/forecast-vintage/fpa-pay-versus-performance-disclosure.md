@@ -36,7 +36,7 @@ The shareholder return measure is based on a fixed investment of one hundred dol
 
 The registrant also provides a tabular list of at least three, and up to seven, financial performance measures that in its assessment are the most important measures used to link compensation actually paid to its named executive officers [@CL-FPA-1142]. The list is for the most recently completed fiscal year and links compensation actually paid to company performance [@CL-FPA-1143]. If fewer than three such measures were used, the list must include all that were used, if any [@CL-FPA-1144].
 
-The disclosure must appear with, and in the same format as, the rest of the Item 402 disclosure [@CL-FPA-1145], and must in addition be provided in an Interactive Data File [@CL-FPA-1146]. A smaller reporting company may provide the information for three years, instead of five [@CL-FPA-1147]. The information is not deemed incorporated by reference into a Securities Act or Exchange Act filing, except to the extent the registrant specifically incorporates it [@CL-FPA-1148].
+The disclosure must appear with, and in the same format as, the rest of the Item 402 disclosure [@CL-FPA-1145], and must in addition be provided in an Interactive Data File [@CL-FPA-1146]. A smaller reporting company may provide the information for three years, instead of five, and in the first filing in which it provides the disclosure it may provide it for only two fiscal years; it is also not required to provide the peer group total shareholder return disclosure, the Company-Selected Measure disclosure or the Tabular List [@CL-FPA-1147; @CL-FPA-1223; @CL-FPA-1224; @CL-FPA-1225]. The information is not deemed incorporated by reference into a Securities Act or Exchange Act filing, except to the extent the registrant specifically incorporates it [@CL-FPA-1148].
 
 The printed paragraph also gives the pension service cost and prior service cost add-backs, the remaining equity award steps, the fair value method and its footnote rules, the full total shareholder return method and peer group rules, the Company-Selected Measure, the footnotes naming the officers, the relationships with net income and the Company-Selected Measure, the use of non-financial measures, the further relief for smaller reporting companies and the transition relief, which these claims do not restate.
 
@@ -62,4 +62,5 @@ How the company would track fair value changes on its awards and its shareholder
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the smaller reporting company relief.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for pay versus performance disclosure.
