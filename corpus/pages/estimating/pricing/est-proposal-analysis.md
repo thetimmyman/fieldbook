@@ -32,7 +32,7 @@ The objective is a final agreed-to price that is fair and reasonable [@CL-EST-01
 
 ## How it works
 
-Cost analysis may also test data other than certified data for cost reasonableness or cost realism when price analysis alone cannot establish a fair and reasonable price [@CL-EST-0113]. The first two price analysis techniques are preferred, but when competitive or historical price information is unavailable or insufficient the officer may use any remaining technique [@CL-EST-0114]. Normally, adequate price competition establishes a fair and reasonable price [@CL-EST-0119]. Cost realism analysis is required on cost-reimbursement contracts and produces a probable cost that is used to determine best value [@CL-EST-0115; @CL-EST-0116]. Cost realism analysis may also be used on competitive fixed-price incentive contracts, and its results may be used in performance risk and responsibility assessments, but proposals are still evaluated on the solicitation criteria and offered prices are not adjusted as a result of the analysis [@CL-EST-0117]. Review conclusions are not shared with the offeror without the concurrence of the contracting officer [@CL-EST-0118].
+Cost analysis may also test data other than certified data for cost reasonableness or cost realism when price analysis alone cannot establish a fair and reasonable price [@CL-EST-0113]. The first two price analysis techniques are preferred, but when competitive or historical price information is unavailable or insufficient the officer may use any remaining technique as appropriate to the circumstances applicable to the acquisition [@CL-EST-0114]. Normally, adequate price competition establishes a fair and reasonable price [@CL-EST-0119]. Cost realism analysis is required on cost-reimbursement contracts and produces a probable cost that is used to determine best value [@CL-EST-0115; @CL-EST-0116]. Cost realism analysis may also be used on competitive fixed-price incentive contracts, and its results may be used in performance risk and responsibility assessments, but proposals are still evaluated on the solicitation criteria and offered prices are not adjusted as a result of the analysis [@CL-EST-0117]. Review conclusions are not shared with the offeror without the concurrence of the contracting officer [@CL-EST-0118].
 
 The FAR's general definitions say that cost realism means that the costs in an offeror's proposal are realistic for the work to be performed, reflect a clear understanding of the requirements, and are consistent with the various elements of the offeror's technical proposal [@CL-EST-9271]. The RFO model text of FAR 2.101 defines cost realism in the same words as the codified definition, apart from the printed form of the dash and the apostrophe [@CL-EST-9348; @CL-EST-9271].
 
@@ -52,12 +52,13 @@ The codified text says cost analysis is used to evaluate the reasonableness of i
 
 ## Company calibration
 
-Which proposals expected in the next two quarters may need certified cost or pricing data, and so require cost analysis rather than price analysis. [@Q-047]
+Which proposals expected in the next two quarters may need certified cost or pricing data, and so call for cost analysis of the cost elements. [@Q-047]
 
 ## Sources
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the circumstances condition and removed the either-or wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of cost realism.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of cost realism.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.404-4(a) minimum content of the technical analysis.

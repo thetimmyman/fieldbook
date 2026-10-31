@@ -28,7 +28,7 @@ Shows when the parties to a covered transaction must file a declaration with the
 | Text status | Not established. |
 | Applies to | Parties to a transaction described in the section's two trigger paragraphs [@CL-MNA-0625] |
 
-This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. The mandatory-declaration duty binds the parties to a transaction described in the section's two trigger paragraphs, except as three listed paragraphs provide [@CL-MNA-0625]. The penalty can reach any person who fails to comply [@CL-MNA-0632].
+This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. The mandatory-declaration duty binds the parties to a transaction described in the section's two trigger paragraphs, except as three listed paragraphs provide [@CL-MNA-0625]. Under paragraph (d), a declaration is not required under the first trigger for a covered transaction by an investment fund if the fund is managed exclusively by a general partner, a managing member or an equivalent, the general partner, managing member or equivalent is not a foreign person, and the fund satisfies, for any foreign person who is a limited partner on an advisory board or committee of the fund, the criteria in section 800.307(a)(3) and (4) [@CL-MNA-1548; @CL-MNA-1549; @CL-MNA-1550]. Paragraph (d) also removes the duty under the first trigger for a covered control transaction involving an air carrier that holds a certificate issued under the cited aviation statute [@CL-MNA-1551]. The other two paragraphs are covered below [@CL-MNA-0631; @CL-MNA-0664]. The penalty can reach any person who fails to comply [@CL-MNA-0632].
 
 The first trigger is a covered transaction that results in a foreign person acquiring a substantial interest in a TID U.S. business, where the governments of a single foreign state other than an excepted foreign state hold a substantial interest in that foreign person [@CL-MNA-0625; @CL-MNA-0626]. In the context of an acquisition by a foreign person, a substantial interest is a direct or indirect voting interest of 25 percent or more [@CL-MNA-0659]. In the context of a foreign person in which the governments of a single foreign state have an interest, it is a direct or indirect voting interest of 49 percent or more, subject to a further paragraph of the same section that this card does not restate [@CL-MNA-0660]. The section makes the first trigger subject to a paragraph on when critical technology is assessed, and this card does not restate it.
 
@@ -62,5 +62,6 @@ Whether a foreign person with a government link or with access to export-control
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (d) of section 800.401 that the quoted rule refers to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of U.S. regulatory authorization.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review mandatory declarations.
