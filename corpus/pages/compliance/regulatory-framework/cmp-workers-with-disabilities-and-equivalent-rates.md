@@ -50,7 +50,7 @@ A contract carries the disability clause and the equivalent rates statement. A p
 
 ## Never confuse
 
-The equivalent rates statement is often mistaken for a wage determination. The clause says it is for information only and is not a wage determination [@CL-CMP-5895], and its content is the agency-side wage and fringe benefit for each expected employee class [@CL-CMP-5894]. The disability clause binds the contractor to the equal opportunity clause at 41 CFR 60-741.5(a) [@CL-CMP-5891], not to the general equal opportunity clause for race, sex and the other listed bases. The codified clause points to FAR 22.1408(a) for the subcontract threshold, but the RFO clause points to FAR 22.1401-2(a)(1) [@CL-CMP-5893; @CL-CMP-6611].
+The equivalent rates statement is not a wage determination. The clause says it is for information only and is not a wage determination [@CL-CMP-5895], and its content is the agency-side wage and fringe benefit for each expected employee class [@CL-CMP-5894]. The disability clause binds the contractor to the equal opportunity clause at 41 CFR 60-741.5(a) [@CL-CMP-5891]. The codified clause points to FAR 22.1408(a) for the subcontract threshold, but the RFO clause points to FAR 22.1401-2(a)(1) [@CL-CMP-5893; @CL-CMP-6611].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which service contracts carry the equivalent rates statement and who reconciles 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: workers with disabilities and equivalent rates: unsupported remarks removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the complaint forwarding and sanction rules for the disability clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for workers with disabilities and the equivalent rates statement.

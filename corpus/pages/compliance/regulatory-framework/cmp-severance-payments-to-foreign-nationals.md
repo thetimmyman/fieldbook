@@ -44,7 +44,7 @@ A service contract performed abroad covers 60 local employees, and severance wou
 
 ## Never confuse
 
-A limit on cost allowability is a limit on cost, not a statement about the payment itself. The limit applies unless the agency grants a waiver before contract award [@CL-CMP-5619]. The waiver is not a contract-type formality: it rests on the matters the agency determines and takes effect through the waiver clause [@CL-CMP-5761; @CL-CMP-5620; @CL-CMP-5623]. The waiver clause may be incorporated into a subcontract if the contracting officer approves, so approval is a separate step [@CL-CMP-5763].
+A limit on cost allowability is a limit on cost, not a statement about the payment itself. The limit applies unless the agency grants a waiver before contract award [@CL-CMP-5619]. The waiver rests on the matters the agency determines [@CL-CMP-5761; @CL-CMP-5620], and the waiver clause states that the cost allowability limitations are waived [@CL-CMP-5623]. The waiver clause may be incorporated into a subcontract if the contracting officer approves, so approval is a separate step [@CL-CMP-5763].
 
 The codified waiver clause waives the limitations in FAR 31.205-6(g)(6) [@CL-CMP-5623], while the RFO waiver clause waives those in FAR 31.205-6(f)(6) [@CL-CMP-6038].
 
@@ -58,6 +58,8 @@ Which foreign service contracts pay severance, and who confirms whether a waiver
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: severance payments: waiver determination sentence restored to the quoted wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: severance payments: all three matters required, waiver sentence tied to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on local labor laws overseas.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for severance payments to foreign nationals.

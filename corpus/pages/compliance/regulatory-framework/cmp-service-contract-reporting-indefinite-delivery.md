@@ -29,7 +29,7 @@ Shows how service reporting works when the contract is indefinite-delivery: what
 | Text status | Final [@CL-CMP-5956] |
 | Applies to | Indefinite-delivery contracts that carry the clause, for orders that exceed the thresholds established in FAR 4.1703(a)(2) [@CL-CMP-5956] |
 
-The contractor reports annually by October 31 for services performed during the preceding Government fiscal year, which runs from October 1 to September 30, under the contract for orders that exceed the thresholds established in FAR 4.1703(a)(2) [@CL-CMP-5956]. The report gives the contract number and the order number [@CL-CMP-5957]. It gives the total dollar amount invoiced for services performed during the previous Government fiscal year under the order [@CL-CMP-5958] and the number of contractor direct labor hours expended on those services [@CL-CMP-5959]. It includes the data reported by subcontractors under the subcontractor paragraph of the clause [@CL-CMP-5960].
+The contractor shall report annually by October 31 for services performed during the preceding Government fiscal year, which runs from October 1 to September 30, under the contract for orders that exceed the thresholds established in FAR 4.1703(a)(2) [@CL-CMP-5956]. The report gives the contract number and the order number [@CL-CMP-5957]. It gives the total dollar amount invoiced for services performed during the previous Government fiscal year under the order [@CL-CMP-5958] and the number of contractor direct labor hours expended on those services [@CL-CMP-5959]. It includes the data reported by subcontractors under the subcontractor paragraph of the clause [@CL-CMP-5960].
 
 ## How it works
 
@@ -41,7 +41,7 @@ Agencies review the reported information for reasonableness and consistency with
 
 ### Subcontractors
 
-A first-tier subcontract is a subcontract awarded directly by the contractor for the purpose of acquiring supplies or services, including construction, for performance of a prime contract [@CL-CMP-6532]. The definition does not include the contractor's supplier agreements with vendors, such as long-term arrangements for materials or supplies that benefit multiple contracts and the costs of which are normally applied to general and administrative expenses or indirect costs [@CL-CMP-6533].
+A first-tier subcontract is a subcontract awarded directly by the contractor for the purpose of acquiring supplies or services, including construction, for performance of a prime contract [@CL-CMP-6532]. The definition does not include the contractor's supplier agreements with vendors, such as long-term arrangements for materials or supplies that benefit multiple contracts and/or the costs of which are normally applied to general and administrative expenses or indirect costs [@CL-CMP-6533].
 
 The contractor must require each first-tier subcontractor providing services under the contract, with subcontracts each valued at or above the thresholds set forth in FAR 4.1703(a)(2), to provide the detailed information in sufficient time to submit the report [@CL-CMP-5962]. The clause does not print those thresholds, and the company reads them in the FAR section the clause names [@CL-CMP-5962]. The detailed information is the subcontract number, including the subcontractor name and unique entity identifier, and the number of first-tier subcontractor direct-labor hours expended on the services performed during the previous Government fiscal year [@CL-CMP-6539]. The contractor must advise the subcontractor that the information will be made available to the public as required by section 743 of Division C of the Consolidated Appropriations Act, 2010 [@CL-CMP-5963].
 
@@ -69,6 +69,7 @@ Which indefinite-delivery orders sit inside the remit, who keeps the invoiced am
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: indefinite-delivery reporting: shall report, and/or in supplier-agreement exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to cite the FAR 4.1703(a)(2) order threshold and to list the contract number in each report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract reporting on indefinite-delivery contracts.

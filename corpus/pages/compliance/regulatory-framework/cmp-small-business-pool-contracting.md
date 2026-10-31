@@ -48,7 +48,7 @@ Before award, each member participating in the contract furnishes a certified co
 
 ## Never confuse
 
-Approval of a pool by the SBA under the Small Business Act is not the same as approval under the Defense Production Act. Only the first carries small business preferences and privileges, and the contracting officer verifies approved status on receipt of an offer from any group that represents itself as a pool [@CL-CMP-7211; @CL-CMP-7212].
+Approval of a pool by the SBA under the Small Business Act is not the same as approval under the Defense Production Act. The first entitles the pool to small business preferences and privileges, while the second does not confer them. The contracting officer verifies approved status on receipt of an offer from any group that represents itself as a pool [@CL-CMP-7211; @CL-CMP-7212].
 
 ## Company calibration
 
@@ -58,4 +58,5 @@ Whether the company participates in any pool, on what terms its members sign for
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: small business pool: removed added only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting with small business pools.

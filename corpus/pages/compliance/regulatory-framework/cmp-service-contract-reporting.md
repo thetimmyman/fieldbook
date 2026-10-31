@@ -29,7 +29,7 @@ Shows what a contractor reports each year about services performed under the con
 | Text status | Final [@CL-CMP-5945] |
 | Applies to | Contracts that carry the clause, for services performed under the contract [@CL-CMP-5947] |
 
-The contractor reports annually by October 31 for services performed under the contract during the preceding Government fiscal year, which runs from October 1 to September 30 [@CL-CMP-5947]. The report gives the contract number and, as applicable, the order number [@CL-CMP-5948]. It gives the total dollar amount invoiced for services performed during the previous Government fiscal year under the contract [@CL-CMP-5949] and the number of contractor direct labor hours expended on those services [@CL-CMP-5950]. It includes the data reported by subcontractors under the subcontractor paragraph of the clause [@CL-CMP-5951].
+The contractor shall report annually by October 31 for services performed under the contract during the preceding Government fiscal year, which runs from October 1 to September 30 [@CL-CMP-5947]. The report gives the contract number and, as applicable, the order number [@CL-CMP-5948]. It gives the total dollar amount invoiced for services performed during the previous Government fiscal year under the contract [@CL-CMP-5949] and the number of contractor direct labor hours expended on those services [@CL-CMP-5950]. It includes the data reported by subcontractors under the subcontractor paragraph of the clause [@CL-CMP-5951].
 
 ## How it works
 
@@ -41,7 +41,7 @@ Agencies review the reported information for reasonableness and consistency with
 
 ### Subcontractors
 
-A first-tier subcontract is a subcontract awarded directly by the contractor for the purpose of acquiring supplies or services, including construction, for performance of a prime contract [@CL-CMP-5945]. The definition does not include the contractor's supplier agreements with vendors, such as long-term arrangements for materials or supplies that benefit multiple contracts and the costs of which are normally applied to general and administrative expenses or indirect costs [@CL-CMP-5946].
+A first-tier subcontract is a subcontract awarded directly by the contractor for the purpose of acquiring supplies or services, including construction, for performance of a prime contract [@CL-CMP-5945]. The definition does not include the contractor's supplier agreements with vendors, such as long-term arrangements for materials or supplies that benefit multiple contracts and/or the costs of which are normally applied to general and administrative expenses or indirect costs [@CL-CMP-5946].
 
 The contractor must require each first-tier subcontractor providing services under the contract, with subcontracts each valued at or above the thresholds set forth in FAR 4.1703(a)(2), to provide the detailed information in sufficient time to submit the report [@CL-CMP-5954]. The clause does not print those thresholds, and the company reads them in the FAR section the clause names [@CL-CMP-5954]. The detailed information is the subcontract number, including the subcontractor name and unique entity identifier, and the number of first-tier subcontractor direct-labor hours expended on the services performed during the previous Government fiscal year [@CL-CMP-6531]. The contractor must advise the subcontractor that the information will be made available to the public as required by section 743 of Division C of the Consolidated Appropriations Act, 2010 [@CL-CMP-5955].
 
@@ -71,5 +71,6 @@ Which contracts for services sit inside the remit, who assembles the annual repo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: service contract reporting: shall report, and/or in supplier-agreement exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract reporting requirements.

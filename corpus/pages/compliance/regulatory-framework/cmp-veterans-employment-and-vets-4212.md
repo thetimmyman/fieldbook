@@ -56,7 +56,7 @@ A contractor has one hiring location. Under the codified text, it picks an endin
 
 ## Never confuse
 
-Veterans duties are often folded into the general equal opportunity clause. Under the codified text a contractor may select an ending date in the pay-period window of July 1 to August 31 or, with approval from the Equal Employment Opportunity Commission, December 31 [@CL-CMP-6384; @CL-CMP-6385], and the RFO paragraph (e) prints no such choice [@CL-CMP-6481]. The codified text also has an offer-stage representation on the most recent VETS-4212 report [@CL-CMP-5890], and the RFO text prints FAR 52.222-38 as reserved [@CL-CMP-6484]. They sit in separate clauses: the veterans clause carries a subcontract flow-down that turns on a threshold in the acquisition regulation [@CL-CMP-5885], and the reporting clause carries an annual filing due by September 30 [@CL-CMP-5889] that is the VETS-4212 report [@CL-CMP-6382]. The offer-stage representation concerns whether the most recent required report has been filed, not the content of the report [@CL-CMP-5890].
+Under the codified text a contractor may select an ending date in the pay-period window of July 1 to August 31 or, with approval from the Equal Employment Opportunity Commission, December 31 [@CL-CMP-6384; @CL-CMP-6385], and the RFO paragraph (e) prints no such choice [@CL-CMP-6481]. The codified text also has an offer-stage representation on the most recent VETS-4212 report [@CL-CMP-5890], and the RFO text prints FAR 52.222-38 as reserved [@CL-CMP-6484]. They sit in separate clauses: the veterans clause carries a subcontract flow-down that turns on a threshold in the acquisition regulation [@CL-CMP-5885], and the reporting clause carries an annual filing due by September 30 [@CL-CMP-5889] that is the VETS-4212 report [@CL-CMP-6382]. The offer-stage representation concerns whether the most recent required report has been filed, not the content of the report [@CL-CMP-5890].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Who owns the annual veterans report, where the filed copy is kept, and who signs
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: veterans employment: removed unsupported opening sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the condition from the list lead-in for the protected veteran count in the report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to say the ending-date choices come from the codified text and to cite them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -36,7 +36,7 @@ Alternate I is added if a cost contract for research and development with an edu
 
 ### Basic clause: changes after award
 
-Paragraph (c) applies if, after the date of the contract, the Government changes the security classification or security requirements and the changes cause an increase or decrease in security costs or otherwise affect any other term or condition of the contract [@CL-CMP-5968]. Where those conditions are met, the contract is subject to an equitable adjustment as if the changes had been directed under the Changes clause of the contract [@CL-CMP-5969].
+Paragraph (c) applies if, after the date of the contract, the Government changes the security classification or security requirements and the changes cause an increase or decrease in security costs or otherwise affect any other term or condition of the contract [@CL-CMP-5968]. Where those conditions are met, the contract shall be subject to an equitable adjustment as if the changes had been directed under the Changes clause of the contract [@CL-CMP-5969].
 
 ### Basic clause: flowdown
 
@@ -44,7 +44,7 @@ The contractor must insert terms that conform substantially to the language of t
 
 ### Alternate I: change that makes continued performance impracticable
 
-Paragraph (e) of Alternate I applies if a change in security requirements, as provided in paragraphs (b) and (c), results in a change in the security classification of the contract or any of its elements from an unclassified status or a lower classification to a higher classification [@CL-CMP-6647]. It also applies if the change results in more restrictive area controls than previously required [@CL-CMP-6648]. The contractor must then exert every reasonable effort compatible with its established policies to continue performance in compliance with the change [@CL-CMP-6649].
+Paragraph (e) of Alternate I applies if a change in security requirements, as provided in paragraphs (b) and (c), results in one of two alternative outcomes. The first is a change in the security classification of the contract or any of its elements from an unclassified status or a lower classification to a higher classification [@CL-CMP-6647]. The second is more restrictive area controls than previously required [@CL-CMP-6648]. In either case the contractor shall exert every reasonable effort compatible with its established policies to continue performance in compliance with the change [@CL-CMP-6649].
 
 If, despite reasonable efforts, the contractor determines that continuing the work is not practicable because of the change, it must notify the contracting officer in writing [@CL-CMP-6650]. Until the contracting officer resolves the problem, the contractor must continue safeguarding all classified material as the contract requires [@CL-CMP-6651].
 
@@ -72,7 +72,7 @@ The equitable adjustment in the basic clause follows a change that the Governmen
 
 The two alternates both add a paragraph (e), but the paragraphs deal with different things: Alternate I deals with a change that makes continued performance impracticable, and Alternate II deals with employee identification [@CL-CMP-6647; @CL-CMP-6659]. The notice, exploration and termination steps come from Alternate I, and the basic clause on its own does not contain them [@CL-CMP-6646].
 
-Where a contract includes this security requirements clause, the clause on keeping entity codes current requires the contractor to ensure that subcontractors maintain their codes [@CL-CMP-5992]; see [Commercial and Government entity code maintenance and the telecommunications representation](cmp-cage-code-and-telecommunications-representation.md). The safeguarding duties themselves are on [Classified information safeguarding duties](../audit-retention/cmp-classified-information-safeguarding-duties.md).
+Where a contract includes this security requirements clause, the clause on keeping entity codes current requires the contractor to ensure that subcontractors maintain their codes throughout the life of the contract [@CL-CMP-5992]; see [Commercial and Government entity code maintenance and the telecommunications representation](cmp-cage-code-and-telecommunications-representation.md). The safeguarding duties themselves are on [Classified information safeguarding duties](../audit-retention/cmp-classified-information-safeguarding-duties.md).
 
 The codified Alternates I and II add paragraphs (e), (f) and (g) and a paragraph (e) [@CL-CMP-6646; @CL-CMP-6658], but the RFO Alternates add paragraphs (f), (g) and (h) and a paragraph (f), and the RFO basic clause has its own paragraph (e) [@CL-CMP-5671; @CL-CMP-5681; @CL-CMP-5670]. The codified text puts the duty to keep subcontractor entity codes in a separate clause that applies where the contract includes the security requirements clause [@CL-CMP-5992], while the RFO text prints section 52.204-18 as reserved [@CL-CMP-6207] and prints that duty in the security requirements clause itself [@CL-CMP-5670].
 
@@ -84,5 +84,6 @@ Which contracts and subcontracts involve classified access, which alternate each
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: security requirements classified info: shall wording, Alternate I (e) alternatives, life-of-contract phrase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for security requirements for access to classified information.
