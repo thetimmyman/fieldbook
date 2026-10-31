@@ -47,7 +47,7 @@ A cost-reimbursement contract worth 3,000,000 dollars is awarded to a small busi
 
 ## Never confuse
 
-An acceptable system is defined by general compliance with the clause criteria, so the definition does not ask for compliance with every criterion without exception [@CL-CMP-7846]. A material management and accounting system is the contractor's own planning, control and accounting system for material, not the contract clause that tests it [@CL-CMP-7847]. The clause prescription here covers only progress payments based on costs incurred, while the accounting system clause prescription also covers progress payments on a percentage or stage of completion [@CL-CMP-7852; @CL-CMP-7858]. For the clause itself, see [Material management and accounting system](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md); for the surrounding business-system policy, see [Business systems clause and MMAS policy](../business-systems/cmp-business-systems-clause-and-mmas-policy.md).
+An acceptable system is defined by general compliance with the clause criteria, so the definition does not ask for compliance with every criterion without exception [@CL-CMP-7846]. A material management and accounting system is the contractor's own planning, control and accounting system for material, not the contract clause that tests it [@CL-CMP-7847]. For fixed-price contracts, the clause prescription here covers only progress payments based on costs incurred, while the accounting system clause prescription also covers progress payments on a percentage or stage of completion [@CL-CMP-7852; @CL-CMP-7858]. For the clause itself, see [Material management and accounting system](../../close-revrec/inventory-wip/cls-material-management-accounting-system.md); for the surrounding business-system policy, see [Business systems clause and MMAS policy](../business-systems/cmp-business-systems-clause-and-mmas-policy.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which contracts are above the simplified acquisition threshold and outside the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Made clear that the progress payment contrast applies to fixed-price contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material management and accounting system definitions and the clause prescription.
