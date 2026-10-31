@@ -37,9 +37,9 @@ The six listed clauses are DFARS 252.215-7002, Cost Estimating System Requiremen
 
 Within the scope that DFARS 242.7200 sets, DoD policy is for its contractors to have an MMAS that conforms to the standards in paragraph (d) of the clause at DFARS 252.242-7004, so that the system reasonably forecasts material requirements [@CL-CMP-7264]. The policy also calls for the system to ensure that the costs of purchased and fabricated material charged or allocated to a contract are based on valid time-phased requirements [@CL-CMP-7450], and to maintain a consistent, equitable and unbiased logic for costing of material transactions [@CL-CMP-7451].
 
-That scope covers contractors with contracts that exceed the simplified acquisition threshold, are not for the acquisition of commercial products or commercial services, and are cost-reimbursement contracts or fixed-price contracts with progress payments made on the basis of costs incurred by the contractor as work progresses [@CL-CMP-7498; @CL-CMP-7499]. It does not cover small businesses, educational institutions or nonprofit organizations [@CL-CMP-7600].
+That scope applies only when the contractor has contracts that exceed the simplified acquisition threshold, are not for the acquisition of commercial products or commercial services, and are either cost-reimbursement contracts or fixed-price contracts with progress payments made on the basis of costs incurred by the contractor as work progresses [@CL-CMP-7498; @CL-CMP-7499]. It does not cover small businesses, educational institutions or nonprofit organizations [@CL-CMP-7600].
 
-The cognizant contracting officer, in consultation with the auditor and functional specialist if appropriate, must determine the acceptability of the contractor's MMAS, approve or disapprove the system, and pursue correction of any weaknesses or deficiencies [@CL-CMP-7265]. The contracting officer makes that decision and consults the auditor and functional specialist if appropriate. The officer, in consultation with them if appropriate, must determine whether the contractor's MMAS complies with the system criteria for an acceptable MMAS as prescribed in the clause at DFARS 252.242-7004 [@CL-CMP-7266].
+The cognizant contracting officer, in consultation with the auditor and functional specialist if appropriate, must determine the acceptability of the contractor's MMAS, approve or disapprove the system, and pursue correction of any weaknesses or deficiencies [@CL-CMP-7265]. The contracting officer makes that decision and consults the auditor and functional specialist if appropriate. In evaluating the acceptability of the system, the officer, in consultation with them if appropriate, must determine whether the contractor's MMAS complies with the system criteria for an acceptable MMAS as prescribed in the clause at DFARS 252.242-7004 [@CL-CMP-7266].
 
 The review steps and the deficiency determinations are on the linked cards and are not restated here.
 
@@ -65,5 +65,6 @@ Which contracts include the business systems clause and which listed clauses, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the only when limit on the MMAS subpart scope and the in evaluating acceptability lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the business systems clause prescription and the material management and accounting system policy.

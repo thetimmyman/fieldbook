@@ -35,7 +35,7 @@ If the offeror submits a proposal in an amount less than $50,000,000, the offero
 
 ## How it works
 
-The proposal value sets the tier: a proposal of $50,000,000 or more is treated differently from one below that amount [@CL-CMP-3835; @CL-CMP-3838]. In the higher tier the proof is a Cognizant Federal Agency determination, with a compliance plan as the fallback [@CL-CMP-3835; @CL-CMP-3836]. In that tier the Government reserves the right to perform reviews of the system when deemed necessary to verify compliance [@CL-CMP-3888]. In the lower tier the written description includes, as one listed element, a matrix that correlates each guideline in ANSI/EIA-748 to the corresponding process in the offeror's written management procedures [@CL-CMP-3839], and an offeror whose system the agency has determined to be in compliance may submit a copy of that determination instead [@CL-CMP-3840]. The provision also requires the offeror to identify the subcontractors, or the subcontracted effort if subcontractors have not been selected, to whom the EVMS requirements will apply, and the Government must agree to them [@CL-CMP-3841]. The offeror is responsible for ensuring that the selected subcontractors comply with the requirements of the Earned Value Management System clause of the contract [@CL-CMP-3889].
+The proposal value sets the tier: a proposal of $50,000,000 or more is treated differently from one below that amount [@CL-CMP-3835; @CL-CMP-3838]. In the higher tier the proof is a Cognizant Federal Agency determination, with a compliance plan as the fallback [@CL-CMP-3835; @CL-CMP-3836]. In that tier the Government reserves the right to perform reviews of the system when deemed necessary to verify compliance [@CL-CMP-3888]. In the lower tier the written description includes, as one listed element, a matrix that correlates each guideline in ANSI/EIA-748 to the corresponding process in the offeror's written management procedures [@CL-CMP-3839], and an offeror whose system the agency has determined to be in compliance may submit a copy of that determination instead [@CL-CMP-3840]. The provision also requires the offeror to identify the subcontractors, or the subcontracted effort if subcontractors have not been selected, to whom the EVMS requirements will apply, and the offeror and the Government must agree on them [@CL-CMP-3841]. The offeror is responsible for ensuring that the selected subcontractors comply with the requirements of the Earned Value Management System clause of the contract [@CL-CMP-3889].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which solicitations carry this provision, and whether the company's system has a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Subcontractor selection is agreed by the offeror and the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DFARS notice of earned value management system provision.

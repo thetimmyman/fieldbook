@@ -39,7 +39,7 @@ The auditor shall use relevant findings and recommendations of earlier reviews i
 
 ## How it works
 
-The ACO decides whether an in-depth review is needed, after advice from the specialists and auditors [@CL-CMP-2233]. A special review is not tied to the sales threshold, but it applies only when the circumstance may materially affect Government contract costs [@CL-CMP-2235]. An in-depth review evaluates the contractor's insurance programs, pension plans, other deferred compensation plans and related policies, procedures, practices and costs [@CL-CMP-2256]. The special review concentrates on specific areas of those programs and plans [@CL-CMP-2257].
+For an in-depth review, the ACO determines, with advice from the specialists and auditors and based on a risk assessment of the contractor's past experience and current vulnerability, whether a review is needed; that determination is one of two conditions, and the other is $50 million of qualifying sales in the preceding fiscal year [@CL-CMP-2233; @CL-CMP-2274]. A special review is not tied to the sales threshold, but it applies only when the circumstance may materially affect Government contract costs [@CL-CMP-2235]. An in-depth review evaluates the contractor's insurance programs, pension plans, other deferred compensation plans and related policies, procedures, practices and costs [@CL-CMP-2256]. The special review concentrates on specific areas of those programs and plans [@CL-CMP-2257].
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Which insurance or pension reviews, recommendations or follow-ups are open, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the in-depth review decision sentence to keep the sales condition and the risk assessment basis.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor insurance/pension review.
