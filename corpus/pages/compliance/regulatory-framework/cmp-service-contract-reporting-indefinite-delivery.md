@@ -51,9 +51,9 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-An indefinite-delivery contract for services has three fixed-price orders issued after fiscal year 2015, so under FAR 4.1703(a)(2) an order is reported if its estimated total value is 500,000 or greater. Order A, estimated at 3.5 million, invoiced 3 million in the Government fiscal year that ended September 30, with 18,000 contractor direct labor hours, and a first-tier subcontractor at or above the subcontract threshold worked 5,000 direct-labor hours on it. Order B, estimated at 2.4 million, invoiced 2 million with 9,000 hours. Order C, estimated at 400,000, invoiced 300,000.
+An indefinite-delivery contract for services has three fixed-price orders issued after fiscal year 2015, and for fixed-price orders issued in fiscal year 2016 and later the FAR 4.1703(a)(2) threshold is an estimated total value of $500,000 or greater [@CL-CMP-2997]. The clause reports orders that exceed that threshold [@CL-CMP-5956]. Order A, estimated at 3.5 million, invoiced 3 million in the Government fiscal year that ended September 30, with 18,000 contractor direct labor hours, and a first-tier subcontractor at or above the subcontract threshold worked 5,000 direct-labor hours on it. Order B, estimated at 2.4 million, invoiced 2 million with 9,000 hours. Order C, estimated at 400,000, invoiced 300,000.
 
-Orders A and B are above the order threshold, so the contractor reports each by October 31 through the SAM website. Report A states the contract number, order A's number, the 3 million, the 18,000 hours and the subcontractor's data, including its 5,000 hours. Report B states its own order number, the 2 million and the 9,000 hours. Order C's estimated total value is below the threshold, so it is not reported. If the agency notifies the contractor by November 15 that a figure looks inconsistent, the contractor revises the report or documents its rationale by November 30.
+Orders A and B are above the order threshold, so the contractor reports each by October 31 through the SAM website. Report A states the contract number, order A's number, the 3 million, the 18,000 hours and the subcontractor's data, including its 5,000 hours. Report B states the contract number, its own order number, the 2 million and the 9,000 hours [@CL-CMP-5957]. Order C's estimated total value is below the threshold, so it is not reported. If the agency notifies the contractor by November 15 that a figure looks inconsistent, the contractor revises the report or documents its rationale by November 30.
 
 ## Never confuse
 
@@ -69,5 +69,6 @@ Which indefinite-delivery orders sit inside the remit, who keeps the invoiced am
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to cite the FAR 4.1703(a)(2) order threshold and to list the contract number in each report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract reporting on indefinite-delivery contracts.
