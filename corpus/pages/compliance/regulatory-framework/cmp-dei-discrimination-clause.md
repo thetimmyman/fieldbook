@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["revolutionary_far_overhaul", "decision_right"]
 questions = ["Q-004", "Q-014"]
+links = ["cmp-equal-opportunity-clause"]
 +++
 
 ## Purpose
@@ -58,4 +59,5 @@ Which contracts and subcontracts the company holds that carry the clause, who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the equal opportunity clause card.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DEI discrimination clause.

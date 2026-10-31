@@ -36,7 +36,7 @@ Systems acquisitions normally designated as major are those programs that, as de
 
 The program manager, as specified in agency procedures, must develop an acquisition strategy tailored to the program [@CL-PRG-0881]. The strategy is the program manager's overall plan for satisfying the mission need in the most effective, economical, and timely manner [@CL-PRG-0882]. The strategy must be in writing, prepared in accordance with the requirements of subpart 7.1 except where inconsistent with this part, and it qualifies as the acquisition plan for the major system acquisition [@CL-PRG-0882; @CL-PRG-0883]. Contracts for full production of successfully tested major systems selected from the full-scale development phase may be awarded if the agency head reaffirms the mission need and program objectives and grants approval to proceed with production [@CL-PRG-0884].
 
-The FAR's general definitions say acquisition planning means the process by which the efforts of all personnel responsible for an acquisition are coordinated and integrated through a comprehensive plan for fulfilling the agency need in a timely manner and at a reasonable cost [@CL-PRG-9065], and that it includes developing the overall strategy for managing the acquisition [@CL-PRG-9066]. The first sentence of the RFO model text definition of acquisition planning in FAR 2.101 reads the same as the codified first sentence [@CL-PRG-9099; @CL-PRG-9065].
+The FAR's general definitions say acquisition planning means the process by which the efforts of all personnel responsible for an acquisition are coordinated and integrated through a comprehensive plan for fulfilling the agency need in a timely manner and at a reasonable cost [@CL-PRG-9065], and that it includes developing the overall strategy for managing the acquisition [@CL-PRG-9066]. The first sentence of the RFO model text definition of acquisition planning in FAR 2.101 reads the same as the codified first sentence [@CL-PRG-9099; @CL-PRG-9065], and the RFO text also says that acquisition planning includes developing the overall strategy for managing the acquisition [@CL-PRG-9099; @CL-PRG-9127].
 
 ## How it works
 
@@ -62,6 +62,7 @@ Which key decision points and agency officials apply to the company's programs, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the acquisition planning definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of acquisition planning and agency head or head of the agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of agency head and acquisition planning.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to the DoD implementation of the OMB circulars.

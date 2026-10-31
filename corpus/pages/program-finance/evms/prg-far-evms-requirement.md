@@ -33,7 +33,7 @@ An earned value management system is required for major acquisitions for develop
 
 An offeror that proposes a system not determined to comply with EIA-748 must submit a comprehensive plan for compliance with these standards [@CL-PRG-0852]. Offerors must not be eliminated from consideration for contract award because they lack a system that complies with these standards [@CL-PRG-0852; @CL-PRG-0853]. When an offeror is required to provide an EVMS plan as part of its proposal, the contracting officer determines the adequacy of that plan before contract award [@CL-PRG-0854].
 
-FAR 2.101 defines an earned value management system as a project management tool that effectively integrates the project scope of work with cost, schedule and performance elements for optimum project planning and control [@CL-PRG-9076]. The RFO model text of FAR 2.101 defines an earned value management system in the same words as the codified definition [@CL-PRG-9102; @CL-PRG-9076]. The qualities and operating characteristics of an earned value management system are described in Electronic Industries Alliance Standard 748 (EIA-748), Earned Value Management Systems [@CL-PRG-9077].
+FAR 2.101 defines an earned value management system as a project management tool that effectively integrates the project scope of work with cost, schedule and performance elements for optimum project planning and control [@CL-PRG-9076]. The RFO model text of FAR 2.101 defines an earned value management system in the same words as the codified definition [@CL-PRG-9102; @CL-PRG-9076], and the RFO text also says that the qualities and operating characteristics of an earned value management system are described in Electronic Industries Alliance Standard 748 (EIA-748), Earned Value Management Systems [@CL-PRG-9102; @CL-PRG-9129]. The qualities and operating characteristics of an earned value management system are described in Electronic Industries Alliance Standard 748 (EIA-748), Earned Value Management Systems [@CL-PRG-9077].
 
 ## How it works
 
@@ -57,6 +57,7 @@ Which contracts carry an earned value requirement, and whether the system offere
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the earned value management system definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of earned value management system.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of earned value management system.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the FAR earned value requirement, the compliance plan and the pre-award adequacy determination.

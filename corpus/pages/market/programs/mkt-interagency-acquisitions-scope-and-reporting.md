@@ -37,7 +37,7 @@ In addition to complying with this subpart, nondefense agencies acquiring suppli
 
 An agency shall not use an interagency acquisition to circumvent conditions and limitations imposed on the use of funds [@CL-MKT-1730]. An agency shall not use an interagency acquisition to make acquisitions conflicting with any other agency's authority or responsibility [@CL-MKT-1732]. An interagency acquisition is not exempt from the requirements of subpart 7.3 on contractor versus Government performance [@CL-MKT-1731].
 
-FAR 2.101 defines an interagency acquisition as a procedure by which an agency needing supplies or services (the requesting agency) obtains them from another agency (the servicing agency), by an assisted acquisition or a direct acquisition [@CL-MKT-9211]. The first sentence of the RFO model text definition of an interagency acquisition in FAR 2.101 reads the same as the codified first sentence [@CL-MKT-9260; @CL-MKT-9211]. The term includes acquisitions under the Economy Act (section 1535 of title 31 of the United States Code) and non-Economy Act acquisitions completed under other statutory authorities, for example General Services Administration Federal Supply Schedules in subpart 8.4 and Governmentwide acquisition contracts [@CL-MKT-9212].
+FAR 2.101 defines an interagency acquisition as a procedure by which an agency needing supplies or services (the requesting agency) obtains them from another agency (the servicing agency), by an assisted acquisition or a direct acquisition [@CL-MKT-9211]. The first sentence of the RFO model text definition of an interagency acquisition in FAR 2.101 reads the same as the codified first sentence [@CL-MKT-9260; @CL-MKT-9211], and the RFO text goes on to say that the term includes (1) acquisitions under the Economy Act (31 U.S.C. 1535) and (2) non-Economy Act acquisitions completed under other statutory authorities, for example General Services Administration Federal Supply Schedules in subpart 8.4 and Governmentwide acquisition contracts [@CL-MKT-9260; @CL-MKT-9307]. The term includes acquisitions under the Economy Act (section 1535 of title 31 of the United States Code) and non-Economy Act acquisitions completed under other statutory authorities, for example General Services Administration Federal Supply Schedules in subpart 8.4 and Governmentwide acquisition contracts [@CL-MKT-9212].
 
 ## How it works
 
@@ -69,6 +69,7 @@ Which interagency orders the company performs under, which agency is the servici
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the interagency acquisition definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of interagency acquisition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of interagency acquisition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interagency acquisitions scope, general rules and reporting.

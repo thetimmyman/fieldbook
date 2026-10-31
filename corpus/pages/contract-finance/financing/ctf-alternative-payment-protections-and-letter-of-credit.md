@@ -44,7 +44,7 @@ The financial institution shall use the format set out in paragraph (f) to confi
 
 The Contracting Officer uses the sight draft format in the clause to draw on the letter of credit, and that format orders payment to the order of the beneficiary agency of a stated sum in United States dollars [@CL-CTF-2576].
 
-FAR 2.101 defines an irrevocable letter of credit as a written commitment by a federally insured financial institution to pay all or part of a stated amount of money, until the expiration date of the letter, upon the Government's (the beneficiary) presentation of a written demand for payment [@CL-CTF-9410]. The first sentence of the RFO model text definition of an irrevocable letter of credit in FAR 2.101 reads the same as the codified first sentence, apart from the printed form of the apostrophe [@CL-CTF-9445; @CL-CTF-9410]. Neither the financial institution nor the offeror or contractor can revoke or condition the letter of credit [@CL-CTF-9411].
+FAR 2.101 defines an irrevocable letter of credit as a written commitment by a federally insured financial institution to pay all or part of a stated amount of money, until the expiration date of the letter, upon the Government's (the beneficiary) presentation of a written demand for payment [@CL-CTF-9410]. The first sentence of the RFO model text definition of an irrevocable letter of credit in FAR 2.101 reads the same as the codified first sentence, apart from the printed form of the apostrophe [@CL-CTF-9445; @CL-CTF-9410], and the RFO text also says that, for an irrevocable letter of credit, neither the financial institution nor the offeror/contractor can revoke or condition the letter of credit [@CL-CTF-9445; @CL-CTF-9482]. Neither the financial institution nor the offeror or contractor can revoke or condition the letter of credit [@CL-CTF-9411].
 
 ## How it works
 
@@ -78,6 +78,7 @@ Which contracts require payment protection or a letter of credit, in what form, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the irrevocable letter of credit definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of irrevocable letter of credit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of irrevocable letter of credit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the confirmation format sentence so the confirmation keeps its expiry on the stated date or any automatically extended expiration date.

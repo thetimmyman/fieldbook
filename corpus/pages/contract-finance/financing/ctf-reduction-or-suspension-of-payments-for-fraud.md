@@ -41,7 +41,7 @@ As the section uses the term, a remedy coordination official is the person or en
 
 ## How it works
 
-The agency head decides. The trigger is the agency head's determination that there is substantial evidence that the payment request is based on fraud [@CL-CTF-3517].
+The agency head decides. The trigger is the agency head's determination that there is substantial evidence that the payment request is based on fraud [@CL-CTF-3517]. The FAR's general definitions say substantial evidence means information sufficient to support the reasonable belief that a particular act or omission has occurred [@CL-CTF-9473]. The RFO model text of FAR 2.101 defines it in the same words [@CL-CTF-9474; @CL-CTF-9473].
 
 The FAR's general definitions say agency head or head of the agency means the Secretary, Attorney General, Administrator, Governor, Chairperson, or other chief official of an executive agency, unless otherwise indicated, including any deputy or assistant chief official of an executive agency [@CL-CTF-9394]. The limit on delegating these responsibilities is stated in the section this card covers [@CL-CTF-3519].
 
@@ -69,6 +69,7 @@ Which payment streams the company receives could be reduced or suspended, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of substantial evidence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of agency head.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the written notice sentences so the notice rule keeps the requirement that the notice be sufficiently specific to permit the contractor to collect and present evidence.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

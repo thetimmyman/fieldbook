@@ -37,7 +37,7 @@ Questions about delinquent payments are directed to the designated billing offic
 
 Subpart 32.9 prescribes policies, procedures, and clauses for implementing Office of Management and Budget (OMB) prompt payment regulations at 5 CFR part 1315 [@CL-CTF-9305].
 
-FAR 2.101 defines an electronic funds transfer as any transfer of funds, other than a transaction originated by cash, check, or similar paper instrument, that is initiated through an electronic terminal, telephone, computer, or magnetic tape, for the purpose of ordering, instructing, or authorizing a financial institution to debit or credit an account [@CL-CTF-9407; @CL-CTF-9408]. The RFO text of FAR 2.101 defines an electronic funds transfer the same way, word for word [@CL-CTF-9464; @CL-CTF-9465].
+FAR 2.101 defines an electronic funds transfer as any transfer of funds, other than a transaction originated by cash, check, or similar paper instrument, that is initiated through an electronic terminal, telephone, computer, or magnetic tape, for the purpose of ordering, instructing, or authorizing a financial institution to debit or credit an account [@CL-CTF-9407; @CL-CTF-9408]. The RFO text of FAR 2.101 defines an electronic funds transfer the same way, word for word [@CL-CTF-9464; @CL-CTF-9465], and goes on to say that the term includes Automated Clearing House transfers, Fedwire transfers, and transfers made at automatic teller machines and point-of-sale terminals, and that, for purposes of compliance with 31 U.S.C.3332 and implementing regulations at 31 CFR part 208, it includes a Governmentwide commercial purchase card transaction [@CL-CTF-9465; @CL-CTF-9486; @CL-CTF-9487].
 
 ## How it works
 
@@ -65,6 +65,7 @@ Which office the company contacts about a late payment, who owns a disagreement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the electronic funds transfer definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of electronic funds transfer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of electronic funds transfer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.900 subpart scope.
