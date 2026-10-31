@@ -29,7 +29,7 @@ Governs the allowability of independent research and development and bid and pro
 | Text status | Final [@CL-CMP-0112] |
 | Applies to | Contracts with the cost principles clause [@CL-CMP-0112] |
 
-Except as provided in paragraphs (d) and (e) of FAR 31.205-18 or in agency regulations, costs for independent research and development and bid and proposal efforts are allowable as indirect expenses on contracts to the extent that they are allocable and reasonable [@CL-CMP-0112]. Under defense rules, a major contractor is any contractor whose covered segments allocated a total of more than $11 million in these costs to covered contracts in the preceding fiscal year [@CL-CMP-0113]. A covered segment is a product division of the contractor that allocated more than $1,100,000 in IR&D and B&P costs to covered contracts during the preceding fiscal year, or the contractor as a whole if it has no product divisions [@CL-CMP-0114].
+Costs for independent research and development and bid and proposal efforts are allowable as indirect expenses on contracts to the extent that those costs are allocable and reasonable [@CL-CMP-0112], except as provided in paragraphs (d) and (e) of FAR 31.205-18 or as provided in agency regulations. Under defense rules, a major contractor is any contractor whose covered segments allocated a total of more than $11 million in these costs to covered contracts in the preceding fiscal year [@CL-CMP-0113]. A covered segment is a product division of the contractor that allocated more than $1,100,000 in IR&D and B&P costs to covered contracts during the preceding fiscal year [@CL-CMP-0114]. For a contractor with no product divisions, the term means the contractor as a whole.
 
 ## How it works
 
@@ -47,7 +47,7 @@ A defense contractor has two product divisions. Division Alpha allocates 8 milli
 
 Independent research is initiated by the contractor; contracted research is performed under a contract requirement. Bid and proposal costs prepare offers on potential contracts, whereas contract performance costs execute awarded work. Screening and indirect rate treatment are reviewed during the rate settlement process; see [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md) and [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md).
 
-The codified paragraph (c) makes costs allowable to the extent that they are allocable and reasonable, with an exception for agency regulations [@CL-CMP-0112], while the RFO paragraph (c) says they are allowable if allocable and reasonable, except as provided in paragraphs (d) and (e), and does not repeat the agency-regulations exception [@CL-CMP-9739].
+The codified paragraph (c) makes costs allowable to the extent that they are allocable and reasonable [@CL-CMP-0112], and its opening exception covers agency regulations as well as paragraphs (d) and (e), while the RFO paragraph (c) says they are allowable if allocable and reasonable, except as provided in paragraphs (d) and (e), and does not repeat the agency-regulations exception [@CL-CMP-9739].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ How research and proposal projects are opened, authorized, tracked and reported 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Moved the codified paragraph (c) exceptions and the no-product-divisions fallback outside the sentences cited to claims that do not quote them.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal costs.

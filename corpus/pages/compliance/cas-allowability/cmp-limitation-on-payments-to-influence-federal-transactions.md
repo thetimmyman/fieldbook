@@ -31,7 +31,7 @@ Shows the prohibition on using appropriated funds to pay a person to influence F
 
 Paragraph (a) of the statutory prohibition section states that section 1352 of title 31 of the United States Code prohibits a recipient of a Federal contract, grant, loan, or cooperative agreement from using appropriated funds to pay any person for influencing or attempting to influence an officer or employee of any agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with any covered Federal actions [@CL-CMP-2450; @CL-CMP-2451]. A covered Federal action means awarding any Federal contract, making any Federal grant, making any Federal loan, entering into any cooperative agreement, or extending, continuing, renewing, amending, or modifying any Federal contract, grant, loan, or cooperative agreement [@CL-CMP-2324]. For this subpart, the term appropriated funds does not include profit or fee from a covered Federal action [@CL-CMP-2452]. To the extent a person can demonstrate that the person has sufficient monies, other than Federal appropriated funds, the Government shall assume that these other monies were spent for any influencing activities that would be unallowable if paid for with Federal appropriated funds [@CL-CMP-2453].
 
-Offerors must furnish a declaration consisting of both a certification and a disclosure, with periodic updates of the disclosure after contract award [@CL-CMP-2454]. The contracting officer shall obtain certifications and disclosures as required by the certification and disclosure provision prior to the award of any contract exceeding $200,000 [@CL-CMP-2455]. The exceptions apply to the prohibition of paragraph (a) of the statutory prohibition section, under the conditions listed [@CL-CMP-2326]. Only those communications and services expressly authorized by paragraph (a) of the exceptions section are permitted [@CL-CMP-2327].
+Offerors must furnish a declaration consisting of both a certification and a disclosure, with periodic updates of the disclosure after contract award [@CL-CMP-2454]. The contracting officer shall obtain certifications and disclosures as required by the certification and disclosure provision prior to the award of any contract exceeding $200,000 [@CL-CMP-2455]. The prohibition of paragraph (a) of the statutory prohibition section does not apply under the conditions listed in the exceptions section [@CL-CMP-2326]. Only those communications and services expressly authorized by paragraph (a) of the exceptions section are permitted [@CL-CMP-2327].
 
 ## How it works
 
@@ -61,6 +61,7 @@ How payments to employees and outside consultants near a bid are screened and ke
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the exceptions sentence as the prohibition not applying under the listed conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the Secretary of Defense exemption, violation reporting, civil penalties and the provision and clause prescriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the second and third listed exceptions so each payment exception keeps the alternative of payment for meeting requirements imposed by law as a condition for receiving the Federal action.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limitation on payments to influence Federal transactions.

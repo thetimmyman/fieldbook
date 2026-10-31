@@ -29,11 +29,11 @@ Identifies entertainment, diversion, and social club expenses as expressly unall
 | Text status | Final [@CL-CMP-0107] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0107] |
 
-Costs of amusement, diversions, social activities, and directly associated costs such as tickets to shows, meals, lodging, rentals, transportation, and gratuities are unallowable [@CL-CMP-0107]. Costs made specifically unallowable under the entertainment cost principle cannot be made allowable under any other cost principle [@CL-CMP-0108]. Costs of membership in social, dining or country clubs or other organizations having the same purposes are also unallowable, regardless of whether the cost is reported as taxable income to the employees [@CL-CMP-9623].
+Costs of amusement, diversions, social activities, and directly associated costs such as tickets to shows or sports events, meals, lodging, rentals, transportation, and gratuities are unallowable [@CL-CMP-0107]. Costs made specifically unallowable under the entertainment cost principle cannot be made allowable under any other cost principle [@CL-CMP-0108]. Costs of membership in social, dining or country clubs or other organizations having the same purposes are also unallowable, regardless of whether the cost is reported as taxable income to the employees [@CL-CMP-9623].
 
 ## How it works
 
-The entertainment cost principle establishes a strict prohibition against charging amusement or social expenses to government work [@CL-CMP-0107]. The ban extends to any directly associated costs, such as tickets to shows or sports events, meals, lodging, rentals, transportation and gratuities [@CL-CMP-0107]. Contractors cannot circumvent the disallowance by claiming entertainment under employee morale or other general cost categories [@CL-CMP-0108]. Costs of membership in social, dining or country clubs are unallowable [@CL-CMP-9623], so they are screened out of indirect pools and incurred cost proposals.
+The entertainment cost principle establishes a strict prohibition against charging amusement or social expenses to government work [@CL-CMP-0107]. The ban extends to any directly associated costs, such as tickets to shows or sports events, meals, lodging, rentals, transportation and gratuities [@CL-CMP-0107]. Costs made specifically unallowable under this cost principle are not allowable under any other cost principle, so claiming them under another principle does not make them allowable [@CL-CMP-0108]. Costs of membership in social, dining, or country clubs or other organizations having the same purposes are unallowable [@CL-CMP-9623], so they are screened out of indirect pools and incurred cost proposals.
 
 Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-14 keeps the rule described above, and its paragraph (a) makes costs of amusement, diversions, social activities and any directly associated costs unallowable [@CL-CMP-9952]. RFO paragraph (b) makes costs of membership in social, dining, country clubs or other organizations having the same purposes unallowable, regardless of whether the cost is reported as taxable income to the employees [@CL-CMP-9953]. RFO paragraph (c) keeps the rule that costs made specifically unallowable under this cost principle are not allowable under any other cost principle [@CL-CMP-9954].
 
@@ -55,5 +55,6 @@ How social, dining, and diversion expenses are screened and excluded from billin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored sports events and the same-purposes organizations wording and tied the other-principle sentence to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for entertainment costs.
