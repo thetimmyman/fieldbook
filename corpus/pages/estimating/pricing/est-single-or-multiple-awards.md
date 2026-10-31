@@ -59,7 +59,8 @@ Whether our pricing and bid posture assumes one award or several for each order-
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition; added the advisory-services exception to the single or multiple awards provision scope.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the advisory-services exception to the single or multiple awards provision scope.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of advisory and assistance services.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of advisory and assistance services.
