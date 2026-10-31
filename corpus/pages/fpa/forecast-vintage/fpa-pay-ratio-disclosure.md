@@ -34,7 +34,7 @@ An employee is an individual employed by the registrant or any of its consolidat
 
 A registrant is required to identify its median employee only once every three years and calculate total compensation for that employee each year [@CL-FPA-1121]. That applies provided that, during the last completed fiscal year, there has been no change in its employee population or employee compensation arrangements that it reasonably believes would result in a significant change to its pay ratio disclosure [@CL-FPA-1122]. Registrants may use reasonable estimates in identifying the median employee and in calculating annual total compensation for employees other than the PEO [@CL-FPA-1125], and are to briefly describe the methodology used to identify the median employee [@CL-FPA-1126]. A registrant may annualize the total compensation for permanent employees employed for less than the full fiscal year [@CL-FPA-1127]. It may not annualize it for temporary or seasonal employees or make a full-time equivalent adjustment for any employee [@CL-FPA-1128].
 
-The required pay ratio information must in any event be filed as provided in General Instruction G(3) of Form 10-K not later than 120 days after the end of the last completed fiscal year [@CL-FPA-1124].
+Pay ratio information for the last completed fiscal year is not required to be disclosed until the filing of the annual report on Form 10-K for that fiscal year or, if later, the filing of a definitive proxy or information statement relating to the next annual meeting of shareholders (or written consents in lieu of such a meeting) following the end of that fiscal year [@CL-FPA-1245; @CL-FPA-1246]. The required pay ratio information must, however, in any event be filed as provided in General Instruction G(3) of Form 10-K not later than 120 days after the end of that fiscal year [@CL-FPA-1124].
 
 The printed paragraph also gives the data privacy exemption and its legal opinion, the detail of the de minimis exemption, cost-of-living adjustments, sampling, items the registrant may include, multiple PEOs, transition rules for new registrants and acquisitions, supplemental ratios and limits on personal information, which these claims do not restate.
 
@@ -60,4 +60,5 @@ How the company would identify its employee population and payroll data across s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Pay ratio timing lead-in added.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for pay ratio disclosure.

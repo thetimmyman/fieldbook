@@ -57,7 +57,7 @@ A letter contract with a value of 2,000,000 is awarded with a target date for de
 
 Definitization is the negotiated conversion of a letter contract into a definitive contract. FAR-required clauses are measured at the letter contract's execution date, but clauses required by law are measured at the later date the definitive contract is executed [@CL-CTF-0412].
 
-The only stated limit on the duty to keep performing is the Limitation of Government Liability clause, not a funding ceiling set elsewhere in the contract [@CL-CTF-0416].
+The clause makes the Contractor's duty to proceed with completion subject only to the Limitation of Government Liability clause [@CL-CTF-0416].
 
 Funding ceilings on incrementally funded work are covered in [Limitation of funds](ctf-limitation-of-funds.md).
 
@@ -71,6 +71,7 @@ Whether each letter contract has a target date, a proposal carrying both kinds o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an added contrast about funding ceilings from the duty-to-proceed sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.

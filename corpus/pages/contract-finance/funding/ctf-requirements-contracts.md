@@ -31,7 +31,7 @@ Shows when a requirements contract is used, what the stated estimated quantity i
 
 A requirements contract provides for filling all actual purchase requirements of designated Government activities for supplies or services during a specified contract period from one contractor, with deliveries or performance scheduled by placing orders with the contractor [@CL-CTF-1215]. It may be appropriate for acquiring any supplies or services when the Government anticipates recurring requirements but cannot predetermine the precise quantities of supplies or services that designated Government activities will need during a definite period [@CL-CTF-1220]. A separate paragraph limits the use of requirements contracts for advisory and assistance services, and this card does not state its terms [@CL-CTF-1255].
 
-A realistic estimated total quantity shall be stated in the solicitation and resulting contract, and that estimate is not a representation that the quantity will be required or ordered or that conditions affecting requirements will be stable or normal [@CL-CTF-1216]. The contracting officer may obtain the estimate from records of previous requirements and consumption, or by other means, and should base the estimate on the most current information available [@CL-CTF-1217].
+A realistic estimated total quantity shall be stated in the solicitation and resulting contract, and that estimate is not a representation to an offeror or contractor that the estimated quantity will be required or ordered or that conditions affecting requirements will be stable or normal [@CL-CTF-1216]. The contracting officer may obtain the estimate from records of previous requirements and consumption, or by other means, and should base the estimate on the most current information available [@CL-CTF-1217].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Which contracts are requirements contracts, the estimate and limits each states,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the audience of the estimate disclaimer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requirements contracts.
