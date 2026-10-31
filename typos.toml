@@ -41,3 +41,5 @@ fabricacion = "fabricacion"
 transmissiones = "transmissiones"
 # "exlcusive", as misprinted in FAR 52.248-3(b) and quoted verbatim.
 exlcusive = "exlcusive"
+# "witheld", as misprinted in FAR 32.804(b)(2)(iii) and quoted verbatim.
+witheld = "witheld"
