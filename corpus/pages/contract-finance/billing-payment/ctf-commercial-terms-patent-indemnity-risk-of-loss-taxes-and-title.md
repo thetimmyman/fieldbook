@@ -47,7 +47,7 @@ A contractor ships supplies priced at 10,000 under a contract that does not prov
 
 ## Never confuse
 
-Risk of loss and title are separate. Risk of loss passes on delivery to a carrier or at the destination, depending on the transportation term [@CL-CTF-2441; @CL-CTF-2442]. Title passes on acceptance [@CL-CTF-2443]. The patent indemnity is a separate paragraph from the warranty paragraph: it covers liability for infringement of a patent, trademark or copyright [@CL-CTF-2439]. See [Free on board origin delivery term](../../supply-chain/procure-to-pay/sup-fob-origin-delivery-term.md), [Title and risk of loss under performance-based payments](../financing/ctf-pbp-title-and-risk-of-loss.md), [Federal, state and local taxes](ctf-federal-state-local-taxes.md) and [Patent indemnity and refund of royalties](../../compliance/regulatory-framework/cmp-patent-indemnity-and-refund-of-royalties.md).
+Risk of loss and title are separate. Risk of loss passes on delivery to a carrier or at the destination, depending on the transportation term [@CL-CTF-2441; @CL-CTF-2442]. Title passes on acceptance [@CL-CTF-2443]. The patent indemnity is a separate paragraph from the warranty paragraph: it covers liability, arising out of the performance of the contract, for infringement of a patent, trademark or copyright [@CL-CTF-2439; @CL-CTF-2440]. See [Free on board origin delivery term](../../supply-chain/procure-to-pay/sup-fob-origin-delivery-term.md), [Title and risk of loss under performance-based payments](../financing/ctf-pbp-title-and-risk-of-loss.md), [Federal, state and local taxes](ctf-federal-state-local-taxes.md) and [Patent indemnity and refund of royalties](../../compliance/regulatory-framework/cmp-patent-indemnity-and-refund-of-royalties.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Confirm the transportation term and any title term in each executed contract. [@
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Patent indemnity summary now carries the performance scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial contract terms on patent indemnity, risk of loss, taxes and title.

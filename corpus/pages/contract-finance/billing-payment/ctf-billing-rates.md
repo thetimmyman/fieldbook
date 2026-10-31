@@ -31,15 +31,15 @@ Explains how billing rates are set for interim reimbursement under cost-reimburs
 
 The contracting officer, cognizant Federal agency official, or auditor responsible for the final indirect cost rates also determines the billing rates, which should be as close as possible to the anticipated final rates, adjusted for unallowable costs [@CL-CTF-0123; @CL-CTF-0124].
 
-Until final annual indirect cost rates are established, the Government reimburses at those billing rates and adjusts when the final rates are settled [@CL-CTF-0127].
+Under the allowable cost and payment clause, until final annual indirect cost rates are established for a period, the Government reimburses the contractor at billing rates established by the contracting officer or the cognizant auditor, subject to adjustment when the final rates are established [@CL-CTF-0127].
 
 ## How it works
 
-Billing rates may be revised prospectively or retroactively by mutual agreement at either party's request, to prevent substantial overpayment or underpayment [@CL-CTF-0125].
+Once established, billing rates may be revised prospectively or retroactively by mutual agreement of the contracting officer (or cognizant Federal agency official) or auditor and the contractor at either party's request, to prevent substantial overpayment or underpayment [@CL-CTF-0125].
 
-Where agreement cannot be reached, the contracting officer may determine the billing rates unilaterally [@CL-CTF-0125; @CL-CTF-0278].
+When agreement cannot be reached, the billing rates may be unilaterally determined by the contracting officer (or cognizant Federal agency official) [@CL-CTF-0278].
 
-Under the allowable cost and payment clause, interim amounts are reimbursed at the billing rates established by the contracting officer or the cognizant auditor [@CL-CTF-0127]. Under the basic clause the Government makes payments when requested as work progresses but, except for small business concerns, not more often than once every two weeks [@CL-CTF-0128]. Alternate II replaces that paragraph with one that has no small business exception [@CL-CTF-0487].
+Under the allowable cost and payment clause, interim amounts are reimbursed at the billing rates established by the contracting officer or the cognizant auditor [@CL-CTF-0127]. Under the basic clause the Government makes payments when requested as work progresses but, except for small business concerns, not more often than once every two weeks, in amounts determined to be allowable by the contracting officer in accordance with FAR subpart 31.2 in effect on the date of the contract and the terms of the contract [@CL-CTF-0128; @CL-CTF-9586]. Alternate II replaces that paragraph with one that has no small business exception [@CL-CTF-0487].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text because Class Deviation 2026-O0050 directs it, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.504(a) keeps the rule that the contracting officer (or cognizant Federal agency official) or auditor responsible under RFO 42.505 for establishing the final indirect cost rates also determines the billing rates, but it says "must also determine" where the codified text says "shall also be responsible for determining" [@CL-CTF-4798; @CL-CTF-0123]. RFO FAR 42.504(b) tells the official, when establishing billing rates, to ensure that they are as close as possible to the final indirect cost rates anticipated for the contractor's fiscal period, as adjusted for any unallowable costs, where the codified text says billing rates should be as close as possible to those rates [@CL-CTF-4799; @CL-CTF-0124]. RFO FAR 42.504(c) keeps the rule that, once established, billing rates may be prospectively or retroactively revised by mutual agreement of the contracting officer (or cognizant Federal agency official) or auditor and the contractor at either party's request, to prevent substantial overpayment or underpayment [@CL-CTF-4800; @CL-CTF-0125]. It also keeps the rule that, when agreement cannot be reached, the contracting officer (or cognizant Federal agency official) may unilaterally determine the billing rates [@CL-CTF-4801; @CL-CTF-0278]. RFO FAR 42.504(d) keeps the rule that the elements of indirect cost and the base or bases used in computing billing rates are not to be construed as determinative of the indirect costs to be distributed or of the bases of distribution to be used in the final settlement, written as "Do not construe" in place of "shall not be construed" [@CL-CTF-4802; @CL-CTF-0126].
 
@@ -65,5 +65,6 @@ Confirm which billing rate set is approved for each period and how differences a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Billing-rate revision, unilateral determination and payment-timing sentences now name who agrees or decides and the allowable-amounts qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for billing rates and provisional payment.

@@ -61,7 +61,7 @@ A buyer owns a business that carries a mitigation agreement with a data-location
 
 The Committee may also require a notice or declaration for a covered transaction that the buyer initiates after March 1 of Year 1 and before March 1 of Year 6 [@CL-MNA-0047]. A covered transaction the buyer initiates in Year 4 falls inside that window [@CL-MNA-0047]. One initiated in Year 7 falls outside it [@CL-MNA-0047]. The Committee may also seek injunctive relief, and its penalty authority and its power to start a review of its own accord remain [@CL-MNA-0049; @CL-MNA-0045].
 
-A second buyer was advised in writing under § 800.506 that the Committee had concluded all action under section 721 with respect to its covered transaction [@CL-MNA-0041]. The lead agency monitoring that buyer's mitigation agreement later certifies a material breach to the Committee, and the Committee determines that no other adequate and appropriate remedies or enforcement tools are available [@CL-MNA-0581; @CL-MNA-0582; @CL-MNA-0583]. A Committee member may then file an agency notice through the Staff Chairperson [@CL-MNA-0577; @CL-MNA-0578; @CL-MNA-0579]. The bar in § 800.701(b) is stated subject to § 800.501(c)(1)(ii), so the written advice is not by itself the end of the matter [@CL-MNA-0569].
+A second buyer was advised in writing under § 800.506 that the Committee had concluded all action under section 721 with respect to its covered transaction [@CL-MNA-0041]. Assume the review was initiated on or after August 13, 2018 and the mitigation agreement is one described in section 721(l)(3)(A) [@CL-MNA-0581; @CL-MNA-0582; @CL-MNA-0583]. The lead agency monitoring that buyer's mitigation agreement later certifies a material breach to the Committee, and the Committee determines that no other adequate and appropriate remedies or enforcement tools are available [@CL-MNA-0581; @CL-MNA-0582; @CL-MNA-0583]. A Committee member may then file an agency notice through the Staff Chairperson [@CL-MNA-0577; @CL-MNA-0578; @CL-MNA-0579]. The bar in § 800.701(b) is stated subject to § 800.501(c)(1)(ii), so the written advice is not by itself the end of the matter [@CL-MNA-0569].
 
 ## Never confuse
 
@@ -77,5 +77,6 @@ Who tracks mitigation obligations, and what the deal team must evidence before i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the review date and mitigation agreement assumptions to the second buyer example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Flagged the exception in paragraph (c)(2) of section 800.501 that the quoted rule refers to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for finality of action and the effect of breaching a mitigation agreement.
