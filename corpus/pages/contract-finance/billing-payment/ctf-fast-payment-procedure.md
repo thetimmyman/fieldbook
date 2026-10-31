@@ -31,7 +31,7 @@ Shows what the fast payment procedure allows, the conditions under which it may 
 
 Payment rests on the contractor's invoice, which constitutes a certification of two things [@CL-CTF-2979; @CL-CTF-2980]. The first is that the contractor has delivered the supplies to a post office, common carrier or point of first receipt by the Government [@CL-CTF-2979]. The second is that the contractor must replace, repair or correct supplies not received at destination, damaged in transit or not conforming to purchase agreements [@CL-CTF-2980]. The contracting officer must be primarily responsible for determining the amount of debts that result when a contractor fails to properly replace, repair or correct supplies lost, damaged or not conforming to purchase requirements, and the paragraph cross-refers to 32.602 and 32.603 [@CL-CTF-2981].
 
-Fast payment procedures may be used under the conditions listed in 32.1202 [@CL-CTF-2995]. They are:
+Fast payment procedures may be used under the conditions listed in 32.1202 [@CL-CTF-2995]. The list joins its items with "and" before the last one, so all of the conditions apply [@CL-CTF-2986]. They are:
 
 - Amount: the contract or order does not exceed the simplified acquisition threshold, except that executive agencies may permit higher dollar limitations for specified activities or items on a case-by-case basis [@CL-CTF-2982]. The text prints no dollar figure; the codified definition of the threshold is $350,000, with listed exceptions [@CL-FND-0001].
 - Place of delivery: deliveries are to occur at locations with both a geographical separation and a lack of adequate communications facilities between Government receiving and disbursing activities, which will make timely payment based on evidence of Government acceptance impractical [@CL-CTF-2983].
@@ -74,4 +74,5 @@ Which orders meet every condition for use, how each purchasing instrument is che
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that all fast payment conditions for use apply together.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the fast payment procedure.

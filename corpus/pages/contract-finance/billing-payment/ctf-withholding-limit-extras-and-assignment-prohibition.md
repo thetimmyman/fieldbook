@@ -27,7 +27,7 @@ Explains the cap on withholding when several clauses allow it, when extras are p
 | RFO citation | RFO FAR 52.232-9 [@CL-CTF-0805; @CL-CTF-0806]; RFO FAR 52.232-9(a)-(d) [@CL-CTF-0807]; RFO FAR 52.232-11 [@CL-CTF-0808]; RFO FAR 52.232-24 [@CL-CTF-0809] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2017; @CL-CTF-2019; @CL-CTF-2020] |
-| Applies to | Contracts that include the clause: for the withholding limit, a supply, research and development, service, time-and-materials or labor-hour contract with two or more terms authorizing temporary withholding [@CL-CTF-1564; @CL-CTF-1565]; for extras, a fixed-price supply, fixed-price service or transportation contract [@CL-CTF-1522]; for the prohibition, any contract that includes it [@CL-CTF-2020] |
+| Applies to | Contracts that include the clause; for the withholding limit and for extras the prescribed clauses are appropriately modified with respect to payment due dates in accordance with agency regulations [@CL-CTF-1562; @CL-CTF-1521]. For the withholding limit, a clause substantially the same as the clause goes into a supply, research and development, service, time-and-materials or labor-hour contract that includes two or more terms authorizing temporary withholding [@CL-CTF-1564; @CL-CTF-1565]; for extras, the clause goes into a fixed-price supply, fixed-price service or transportation contract [@CL-CTF-1522]; for the prohibition, any contract that includes it [@CL-CTF-2020] |
 
 The withholding limit addresses the case where more than one clause or Schedule term of the contract authorizes the temporary withholding of amounts otherwise payable to the Contractor for supplies delivered or services performed [@CL-CTF-2016]. The total withheld at any one time may not exceed the greatest amount that may be withheld under any one clause or Schedule term at that time [@CL-CTF-2017]. The limit does not apply to withholdings under any clause relating to wages or hours of employees, to withholdings the contract does not specifically provide for, to the recovery of overpayments, or to any other withholding for which the Contracting Officer determines the limit is inappropriate [@CL-CTF-2018].
 
@@ -59,5 +59,6 @@ Which contracts carry two or more withholding terms, who authorizes extras in wr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the appropriately-modified payment due date wording and the substantially-the-same scope of the withholding limit clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limitation on withholding of payments, extras and prohibition of assignment of claims.
