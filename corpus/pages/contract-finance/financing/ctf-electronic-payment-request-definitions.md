@@ -23,11 +23,13 @@ Fixes the meaning of electronic form, payment request and receiving report for t
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CTF-3842] |
-| Codified citation | DFARS 232.7001 [@CL-CTF-3842] |
+| Codified citation | DFARS 232.7000 and DFARS 232.7001 [@CL-CTF-3752; @CL-CTF-3842] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3842] |
 | Applies to | The terms used in the subpart on electronic submission and processing of payment requests and receiving reports [@CL-CTF-3842; @CL-CTF-3843; @CL-CTF-3844] |
+
+The subpart prescribes policies and procedures for submitting and processing payment requests in electronic form to comply with 10 U.S.C. 4601 [@CL-CTF-3752].
 
 The definitions apply as used in the subpart on electronic submission and processing of payment requests and receiving reports [@CL-CTF-3842]. An electronic form is any automated system that transmits information electronically from the initiating system to affected systems [@CL-CTF-3842].
 
@@ -57,4 +59,5 @@ Whether the company's systems for submitting payment requests and receiving repo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.7000 scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD definitions of electronic form, payment request and receiving report.

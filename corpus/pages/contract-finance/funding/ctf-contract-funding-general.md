@@ -24,12 +24,12 @@ Shows what obligated funds cover when a contract is fully funded and when it is 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3687] |
 | Codified citation | FAR 32.703-1(a) and (b) [@CL-CTF-3687; @CL-CTF-3688] |
-| RFO citation | RFO FAR 32.703-1(a) and (b) [@CL-CTF-3692; @CL-CTF-3693] |
+| RFO citation | RFO FAR 32.700 [@CL-CTF-3040] and RFO FAR 32.703-1(a) and (b) [@CL-CTF-3692; @CL-CTF-3693] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3687; @CL-CTF-3688; @CL-CTF-3692; @CL-CTF-3693] |
 | Applies to | Paragraph (a): a fully funded contract, fixed-price or cost-reimbursement [@CL-CTF-3687]. Paragraph (b): an incrementally funded contract, with no contract type named [@CL-CTF-3688] |
 
-If a contract is fully funded, funds are obligated to cover the price or target price of a fixed-price contract, or the estimated cost and any fee of a cost-reimbursement contract [@CL-CTF-3687]. If a contract is incrementally funded, funds are obligated to cover the amount allotted and any corresponding increment of fee [@CL-CTF-3688]. The RFO text has the same two paragraphs in the same words [@CL-CTF-3692; @CL-CTF-3693].
+If a contract is fully funded, funds are obligated to cover the price or target price of a fixed-price contract, or the estimated cost and any fee of a cost-reimbursement contract [@CL-CTF-3687]. If a contract is incrementally funded, funds are obligated to cover the amount allotted and any corresponding increment of fee [@CL-CTF-3688]. The RFO text has the same two paragraphs in the same words [@CL-CTF-3692; @CL-CTF-3693]. Its scope section, RFO FAR 32.700, says the subpart describes basic requirements for contract funding and prescribes procedures for using limitation of cost or limitation of funds clauses, and that detailed acquisition funding requirements are contained in agency fiscal regulations [@CL-CTF-3691; @CL-CTF-3040].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Which contracts are fully or incrementally funded, which notices apply, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.700 scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named both DFARS sets of conditions for incrementally funding a fixed-price contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract funding in general.

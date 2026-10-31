@@ -24,7 +24,7 @@ Explains why contributions and donations are barred as contract costs whatever t
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0351] |
 | Codified citation | FAR 31.205-8 [@CL-CMP-0351] |
-| RFO citation | RFO FAR 31.205-8 [@CL-CMP-0351] |
+| RFO citation | RFO FAR 31.205-8 [@CL-CMP-9944] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0351] |
 | Applies to | Not established. |
@@ -37,6 +37,8 @@ The exception sits in another section rather than in this one: the codified text
 
 Allowability turns on what the payment is, not on who receives it, so the identity of the recipient does not rescue the cost [@CL-CMP-0351]. Cash, property and services are treated the same way. Because the only route to allowability is an exception defined in a different section, the cost stays unallowable unless that separate test is met [@CL-CMP-0352].
 
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-8 says that contributions or donations, including cash, property and services, regardless of recipient, are unallowable, and cross-refers to 31.205-1(d)(3) with the words "(except see 31.205-1(d)(3))" [@CL-CMP-9944]. The RFO paragraph it names refers to costs of participation in community service activities [@CL-CMP-9625], the same subject that the codified text prints at 31.205-1(e)(3) [@CL-CMP-9624].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -45,7 +47,7 @@ The company pays 5,000 to a local school and 3,000 to a national charity, and bo
 
 ## Never confuse
 
-Contributions and donations are often relabelled as marketing, community relations or employee relations spend. The section tests neither the label nor the recipient, so a renamed donation stays unallowable. Barred balances are screened out before they reach a rate, as described in [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
+Contributions and donations are often relabelled as marketing, community relations or employee relations spend. The section tests neither the label nor the recipient, so a renamed donation stays unallowable. The cross-reference is not the same in both texts: the codified section cites 31.205-1(e)(3) after the words "except as provided in" [@CL-CMP-0352], and the RFO text cites 31.205-1(d)(3) after the words "except see" [@CL-CMP-9944]. Barred balances are screened out before they reach a rate, as described in [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
 
 The clause that encourages donating excess food, with its subcontract flowdown, is covered in [Promoting excess food donation and encouraging policies against text messaging while driving](../regulatory-framework/cmp-excess-food-donation-and-texting-policy.md).
 
@@ -57,5 +59,6 @@ Which ledger accounts carry donations, sponsorships and community payments, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on excess food donation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contributions and donations.

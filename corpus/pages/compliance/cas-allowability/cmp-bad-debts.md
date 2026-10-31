@@ -24,7 +24,7 @@ Identifies bad debts, uncollectible accounts receivable losses, and directly ass
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0304] |
 | Codified citation | FAR 31.205-3 [@CL-CMP-0304] |
-| RFO citation | RFO FAR 31.205-3 [@CL-CMP-0304] |
+| RFO citation | RFO FAR 31.205-3 [@CL-CMP-9938] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0304] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0304] |
@@ -34,6 +34,8 @@ Bad debts, including actual or estimated losses arising from uncollectible accou
 ## How it works
 
 The cost principle makes bad debts and their directly associated costs unallowable [@CL-CMP-0304]. The prohibition applies equally to actual write-offs of worthless receivables and additions to allowance reserves for estimated credit losses [@CL-CMP-0304]. Directly associated expenditures incurred in pursuing recovery, including fees paid to collection agencies and retained legal counsel, are tainted and disallowed along with the underlying bad debt [@CL-CMP-0305]. Bad debts and their directly associated costs are unallowable [@CL-CMP-0304].
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-3 keeps the rule described above: bad debts, including actual or estimated losses arising from uncollectible accounts receivable due from customers and other claims, and any directly associated costs such as collection costs and legal costs are unallowable [@CL-CMP-9938].
 
 ## Worked example
 
@@ -53,4 +55,5 @@ How accounts receivable write-offs, credit loss reserves, and related collection
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bad debts.

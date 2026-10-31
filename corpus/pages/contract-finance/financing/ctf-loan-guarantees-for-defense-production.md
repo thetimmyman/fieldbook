@@ -22,8 +22,8 @@ Shows what the loan guarantee subpart means by a guaranteed loan, a borrower and
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-CTF-3541] |
-| Codified citation | FAR 32.301, FAR 32.302 and FAR 32.306 [@CL-CTF-3541; @CL-CTF-3544; @CL-CTF-3546] |
+| Instrument | Codified FAR and codified DFARS [@CL-CTF-3541; @CL-CTF-3750] |
+| Codified citation | FAR 32.301, FAR 32.302, DFARS 232.302 and FAR 32.306 [@CL-CTF-3541; @CL-CTF-3544; @CL-CTF-3750; @CL-CTF-3751; @CL-CTF-3546] |
 | RFO citation | RFO FAR 32.301 [@CL-CTF-4533; @CL-CTF-4534] and RFO FAR 32.302 [@CL-CTF-4536; @CL-CTF-4537; @CL-CTF-4538] and RFO FAR 32.303(d) [@CL-CTF-4535]; RFO FAR 32.306 is marked reserved [@CL-CTF-4539] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3541] |
@@ -32,6 +32,8 @@ Shows what the loan guarantee subpart means by a guaranteed loan, a borrower and
 As used in the subpart, a borrower is a contractor, subcontractor at any tier, or other supplier who receives a guaranteed loan [@CL-CTF-3541]. A guaranteed loan, or V loan, is a loan, revolving credit fund, or other financial arrangement made pursuant to Regulation V of the Federal Reserve Board, under which the guaranteeing agency is obligated, on demand of the lender, to purchase a stated percentage of the loan [@CL-CTF-3542]. The guaranteeing agency is also obligated to share any losses in the amount of the guaranteed percentage [@CL-CTF-3611]. The Federal Reserve Board is the Board of Governors of the Federal Reserve System [@CL-CTF-3610]. A guaranteeing agency is any agency that the President has authorized to guarantee loans, through Federal Reserve Banks, for expediting national defense production [@CL-CTF-3543].
 
 Congress has authorized Federal Reserve Banks to act, on behalf of guaranteeing agencies, as fiscal agents of the United States in the making of loan guarantees for defense production [@CL-CTF-3544]. The President has designated as guaranteeing agencies the Departments of Defense, Energy, Commerce, the Interior and Agriculture, the General Services Administration and the National Aeronautics and Space Administration [@CL-CTF-3545].
+
+The DFARS says that the use of guaranteed loans as a contract financing mechanism requires the availability of certain congressional authority [@CL-CTF-3750]. It adds that the DoD has not requested such authority in recent years, and none is now available [@CL-CTF-3751].
 
 If the request for a loan guarantee concerns a subcontractor that is financially weak in comparison with its contractor, the Government's interests may be fostered by the contractor making progress payments to the subcontractor [@CL-CTF-3546]. In that case the agency shall try to arrange for the contractor to provide the progress payments, and as a result the need for the loan guarantee may be reduced or eliminated and the contractor would bear part or all of the risk of loss arising from the selection of the subcontractor [@CL-CTF-3547].
 
@@ -65,5 +67,6 @@ Whether a financing need would be met by a guaranteed loan, and which agency wou
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.302 statement on congressional authority.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for loan guarantees for defense production.

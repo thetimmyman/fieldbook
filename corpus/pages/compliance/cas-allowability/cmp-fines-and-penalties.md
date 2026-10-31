@@ -24,7 +24,7 @@ Establishes the unallowability of fines, penalties for regulatory violations, an
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0306] |
 | Codified citation | FAR 31.205-15 [@CL-CMP-0306] |
-| RFO citation | RFO FAR 31.205-15 [@CL-CMP-0306] |
+| RFO citation | RFO FAR 31.205-15 [@CL-CMP-8549; @CL-CMP-8550; @CL-CMP-8551] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0306] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0306] |
@@ -34,6 +34,8 @@ Costs of fines and penalties resulting from violations of, or failure to comply 
 ## How it works
 
 Fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. The mischarging disallowance bars all costs caused by improper charging or record alteration on government work [@CL-CMP-0307]. Costs incurred to measure or otherwise determine the magnitude of the improper charging, and costs incurred to remedy or correct the mischarging, such as costs to rescreen and reconstruct records, are unallowable [@CL-CMP-0308]. These corrective costs are unallowable mischarging costs [@CL-CMP-0308].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. The RFO section 31.205-15 keeps the rule described above: paragraph (a) makes fines and penalties unallowable except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-8549], and paragraph (b) keeps the mischarging disallowance [@CL-CMP-8550] and its measurement and remedy costs [@CL-CMP-8551].
 
 ## Worked example
 
@@ -53,4 +55,5 @@ How regulatory penalties and improper mischarging investigation or reconstructio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fines and penalties.

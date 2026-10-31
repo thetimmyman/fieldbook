@@ -24,7 +24,7 @@ Shows which contracts expose a contractor to penalties when unallowable indirect
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0005] |
 | Codified citation | FAR 42.709-1(b) [@CL-CMP-0005] |
-| RFO citation | RFO FAR 42.508-1(b) [@CL-CMP-0005] |
+| RFO citation | RFO FAR 42.508-1(a) [@CL-CMP-8951; @CL-CMP-8952]; RFO FAR 42.508-1(b) [@CL-CMP-0005; @CL-CMP-8953] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0005] |
 | Applies to | Contracts over $1 million, except the excluded fixed-price types [@CL-CMP-0005] |
@@ -34,6 +34,8 @@ The penalty applies to all contracts over $1 million, except fixed-price contrac
 ## How it works
 
 The rule covers indirect costs in two places: the final indirect cost rate proposal, and the final statement of costs under a fixed-price incentive contract. An expressly unallowable cost left in the proposal draws a penalty equal to the cost allocated to covered contracts, plus interest on the paid part of the disallowed cost. A cost the government had already determined unallowable for the contractor before the proposal was submitted draws a penalty of two times the disallowed cost allocated to covered contracts [@CL-CMP-1860]. The penalty assessment card covers the amounts, interest and waiver in detail. The contracting officer decides whether to assess the penalty, and the auditor only recommends; the contracting officer must waive it when one of the listed waiver conditions is met.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text under Class Deviation 2026-O0050, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.508-1(a) says the section implements 10 U.S.C. 3743 and 41 U.S.C. 4303 [@CL-CMP-8951] and covers the assessment of penalties against contractors which include unallowable indirect costs in (1) final indirect cost rate proposals or (2) the final statement of costs incurred or estimated to be incurred under a fixed-price incentive contract [@CL-CMP-8952]. RFO FAR 42.508-1(b) says the section applies to all contracts in excess of $1 million, except fixed-price contracts without cost incentives or any firm-fixed-price contracts for the purchase of commercial products or commercial services [@CL-CMP-8953].
 
 ## Worked example
 
@@ -53,5 +55,6 @@ How unallowable costs are screened before the incurred cost submission. [@Q-044]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.508-1 scope and application sentences.
 - COMPATIBLE_EXTENSION, 2026-10-29: Stated the two-times penalty for a cost already determined unallowable.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unallowable-cost penalties, with the RFO renumbering.
