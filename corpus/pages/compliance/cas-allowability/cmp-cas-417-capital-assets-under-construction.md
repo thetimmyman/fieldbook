@@ -55,7 +55,7 @@ Capitalization of cost of money does not simply run until the asset is finished:
 
 The allowability of cost of money is covered in [Cost of money](../cas-allowability/cmp-cost-of-money.md), and facilities capital cost of money in [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md).
 
-Using another method is not a free choice, because the result must not differ materially from the prescribed calculation [@CL-CMP-1795].
+Another method may be used, provided the result does not differ materially from the prescribed calculation [@CL-CMP-1795].
 
 ## Company calibration
 
@@ -65,4 +65,5 @@ Whether cost of money on assets under construction is captured in the capital pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost of money on capital assets under construction.

@@ -34,7 +34,7 @@ The drone clause prohibits the contractor from delivering any FASC-prohibited un
 
 ## How it works
 
-The safeguards clause gives the Government access only to the extent required to carry out a program of inspection to safeguard against threats and hazards to the security, integrity and confidentiality of Government data [@CL-CMP-5543]. To that extent the contractor must afford the Government access to its facilities, installations, technical capabilities, operations, documentation, records and databases [@CL-CMP-5544].
+The safeguards clause gives the Government access to the extent required to carry out a program of inspection to safeguard against threats and hazards to the security, integrity and confidentiality of Government data [@CL-CMP-5543]. To that extent the contractor must afford the Government access to its facilities, installations, technical capabilities, operations, documentation, records and databases [@CL-CMP-5544].
 
 If new or unanticipated threats or hazards are discovered by either the Government or the contractor, or if existing safeguards have ceased to function, the discoverer must immediately bring the situation to the attention of the other party [@CL-CMP-5545].
 
@@ -72,6 +72,7 @@ Confirm which contracts carry each clause and who checks the Government list bef
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on basic safeguarding and Kaspersky and ByteDance prohibitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for privacy or security safeguards and the drone prohibition.

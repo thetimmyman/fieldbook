@@ -39,7 +39,7 @@ A listed clause can appear with its alternate as a separate sub-entry. Paragraph
 
 ## How it works
 
-The Contracting Officer decides which entries apply to the contract and records that decision by indicating them. The Contractor's duty under paragraph (b) or (c) reaches the entries so indicated [@CL-CMP-9045; @CL-CMP-9046; @CL-CMP-9205; @CL-CMP-9206]. Paragraph (c) is selected separately from paragraph (b), so a commercial services contract can carry entries from both lists and a commercial products contract only from paragraph (b) [@CL-CMP-9045; @CL-CMP-9046].
+The Contracting Officer decides which entries apply to the contract and records that decision by indicating them. The Contractor's duty under paragraph (b) or (c) reaches the entries so indicated [@CL-CMP-9045; @CL-CMP-9046; @CL-CMP-9205; @CL-CMP-9206]. Paragraph (c) is selected separately from paragraph (b), and the paragraph (c) clauses are those applicable to commercial services, while the paragraph (b) clauses are those applicable to commercial products and commercial services [@CL-CMP-9045; @CL-CMP-9046].
 
 An entry's own limit is written into that entry, so a reader checks both the indication and the limit. The funding source, the agency and the type of item are the limits that appear in the entries above [@CL-CMP-9047; @CL-CMP-9048; @CL-CMP-9050; @CL-CMP-9207]. The entry text for paragraph (b)(40) points to FAR 22.1803 for the excluded types [@CL-CMP-9050]. The HUBZone entry works differently, because the offeror's own election decides whether the preference is waived, and the offeror makes it in its offer [@CL-CMP-9049].
 
@@ -65,5 +65,6 @@ The company must confirm who reads the Contracting Officer's indications on each
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two selection-list paragraphs of the commercial statutes and Executive orders clause.

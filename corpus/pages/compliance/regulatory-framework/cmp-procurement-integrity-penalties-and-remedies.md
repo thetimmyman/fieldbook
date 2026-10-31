@@ -45,7 +45,7 @@ Each route turns on what the person knew or did.
 
 - The official in paragraph (a) must knowingly fail to comply with 3.104-3 [@CL-CMP-7642].
 - The offeror in paragraph (b) must engage in employment discussion with an official subject to the restrictions of 3.104-3, and must know that the official has not complied with 3.104-3(c)(1) [@CL-CMP-7643].
-- The official in paragraph (c) must refuse to terminate employment discussions, and the agency administrative actions are stated for the case where the disqualification interferes substantially with the official's assigned duties [@CL-CMP-7644; @CL-CMP-7645].
+- Paragraph (c) covers an official who refuses to terminate employment discussions, who may be subject to agency administrative actions, stated for the case where the disqualification interferes substantially with the official's assigned duties [@CL-CMP-7644; @CL-CMP-7645].
 
 Paragraph 3.104-3(c)(1) covers an agency official who participates personally and substantially in a procurement for a contract above the simplified acquisition threshold [@CL-CMP-7122]. If an offeror in that procurement contacts the official, or the official contacts the offeror, about possible non-Federal employment, the official must act [@CL-CMP-7113]. The official must promptly report the contact in writing to the official's supervisor and to the agency ethics official [@CL-CMP-7123]. The official must also either reject the possibility of non-Federal employment or disqualify himself or herself until the agency authorizes resumption [@CL-CMP-7124]. Disqualification notice and resumption are in [Procurement integrity: related statutes, disqualification and ethics opinions](cmp-procurement-integrity-related-statutes-and-disqualification.md). The section points to 3.104-7 for administrative remedies relating to contracts [@CL-CMP-7656]; see [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md). Voiding and rescinding is a separate route that this section does not name; see [Voiding and rescinding contracts after a conviction or proven offense](cmp-voiding-and-rescinding-contracts.md).
 
@@ -53,7 +53,7 @@ Paragraph 3.104-3(c)(1) covers an agency official who participates personally an
 
 Synthetic example. The numbers are made up.
 
-An agency official participates personally and substantially in a procurement for a contract worth 5,000,000, which is above the simplified acquisition threshold [@CL-CMP-7122]. An offeror in that procurement begins to discuss a job with the official [@CL-CMP-7113]. The official knows a written report is required and never makes it [@CL-CMP-7123]. The offeror learns of the missing report after 2 conversations and holds 3 more.
+An agency official participates personally and substantially in a procurement for a contract worth 5,000,000, which is above the simplified acquisition threshold [@CL-CMP-7122]. An offeror in that procurement begins to discuss a job with the official [@CL-CMP-7113]. The official knows a written report is required and does not make it [@CL-CMP-7123]. The offeror learns of the missing report after 2 conversations and holds 3 more.
 
 The official knowingly failed to comply with 3.104-3, so the official is subject to the penalties and administrative action in section 2105 of title 41 of the United States Code [@CL-CMP-7642]. For the offeror, the text reaches an offeror that engages in employment discussion with the official knowing that the official has not complied with 3.104-3(c)(1) [@CL-CMP-7643]. The offeror did not know during the first 2 conversations, so the knowledge element is not met for them. The 3 later conversations are the ones that fit the text [@CL-CMP-7643]. Being subject to the penalties is not the same as having them imposed, and the section does not say who decides that [@CL-CMP-7643].
 
@@ -71,4 +71,5 @@ The company must confirm which procurement integrity control findings, correctiv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement integrity penalties and remedies.

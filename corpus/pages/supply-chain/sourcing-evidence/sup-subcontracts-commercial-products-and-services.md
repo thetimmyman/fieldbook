@@ -49,7 +49,7 @@ Synthetic example. The numbers are made up.
 
 A contractor buys commercial power assemblies for a defense contract whose prime contract carries many other clauses. It wants to add several of those clauses to the supplier's order.
 
-Answer: the order is required to carry only the clauses identified in the commercial subcontracts clause. The contractor may add a minimal number of further clauses needed to meet its own contractual obligations, but it is not required to.
+Answer: if a clause in the clause's table is included in the contract, the contractor shall insert it in the order and flow down its requirements as the specific clause indicates [@CL-SUP-3808]. Under the codified clause the contractor may also flow down a minimal number of further clauses necessary to satisfy its contractual obligations, though it is not required to [@CL-SUP-0554]. The RFO text prints no counterpart to that sentence [@CL-SUP-9422], so this example does not establish that extra clauses may be added under the RFO text.
 
 ## Never confuse
 
@@ -63,6 +63,7 @@ Confirm how commercial item determinations are made and recorded and which claus
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Worked example now separates the codified permission from the RFO text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the commercial product definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (1) of commercial service and the RFO paragraph (2).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 paragraph (1) of commercial product.

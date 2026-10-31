@@ -28,13 +28,13 @@ Shows what the materials and supplies clause requires when a contract crosses th
 | Text status | Final [@CL-CMP-5221] |
 | Applies to | Contracts for materials, supplies, articles or equipment above the Walsh-Healey threshold, plus two offeror representation provisions [@CL-CMP-5221] |
 
-The clause is written for a contract to manufacture or furnish materials, supplies, articles or equipment in an amount that exceeds or may exceed the FAR 22.602 threshold on the date of award [@CL-CMP-5221]. The terms apply only where the contract is also subject to chapter 65 of title 41 of the United States Code [@CL-CMP-5222]. The clause names the threshold by reference to FAR 22.602, so the dollar figure comes from that section and not from the clause [@CL-CMP-5221].
+The clause is written for a contract to manufacture or furnish materials, supplies, articles or equipment in an amount that exceeds or may exceed the FAR 22.602 threshold on the date of award [@CL-CMP-5221]. The terms apply where the contract is also subject to chapter 65 of title 41 of the United States Code [@CL-CMP-5222]. The clause names the threshold by reference to FAR 22.602, so the dollar figure comes from that section and not from the clause [@CL-CMP-5221].
 
 All stipulations required by that chapter and by the Secretary of Labor's regulations in 41 CFR chapter 50 are incorporated by reference [@CL-CMP-5223], and they are subject to all applicable rulings and interpretations of the Secretary of Labor that are now, or may hereafter, be in effect [@CL-CMP-5335]. All employees whose work relates to the contract must be paid not less than the minimum wage that the Secretary of Labor's regulations prescribe [@CL-CMP-5224].
 
 ## How it works
 
-Learners, student learners, apprentices and workers with disabilities may be employed below that minimum wage only to the same extent that section 14 of the Fair Labor Standards Act permits [@CL-CMP-5225].
+Learners, student learners, apprentices and workers with disabilities may be employed below that minimum wage to the same extent that section 14 of the Fair Labor Standards Act permits [@CL-CMP-5225].
 
 The provision at FAR 52.222-22 has the offeror represent whether it has, or has not, participated in a previous contract or subcontract subject to the Equal Opportunity clause of the solicitation [@CL-CMP-5226]. It also has the offeror represent whether it has, or has not, filed all required compliance reports, and that representations of submission of required compliance reports, signed by proposed subcontractors, will be obtained before subcontract awards [@CL-CMP-5227].
 
@@ -60,5 +60,6 @@ Which orders cross the threshold and carry the labor standards statute, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Walsh-Healey stipulations and representations.

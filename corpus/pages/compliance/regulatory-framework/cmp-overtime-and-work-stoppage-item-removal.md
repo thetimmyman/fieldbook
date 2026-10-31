@@ -53,7 +53,7 @@ In a separate case, a strike halts work at a plant that holds items an agency pr
 
 ## Never confuse
 
-A contractor's request for overtime is not an approval of overtime. This section only requires the contracting officer to secure the request [@CL-CMP-6778]. Approval before overtime is used is covered on [Overtime premium approval](../../operating-model/talent/opm-overtime-premium-approval.md), and the separate contract work hours rule is on [Contract work hours overtime](cmp-contract-work-hours-overtime.md).
+A contractor's request for overtime is not an approval of overtime. The cited paragraph says the contracting officer shall secure the request [@CL-CMP-6778]. Approval before overtime is used is covered on [Overtime premium approval](../../operating-model/talent/opm-overtime-premium-approval.md), and the separate contract work hours rule is on [Contract work hours overtime](cmp-contract-work-hours-overtime.md).
 
 Removal of items during a stoppage is an agency procedure for getting items out of a plant, not a price negotiation. It runs through agency procedures and must avoid force or its appearance [@CL-CMP-6977; @CL-CMP-6781].
 
@@ -65,4 +65,5 @@ Which contracts the company holds are applicable contracts for the overtime prem
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for overtime at Government expense and removal of items after a work stoppage.
