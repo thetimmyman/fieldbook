@@ -45,9 +45,9 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A solicitation lists two lanes with estimated weights of 40,000 pounds and 10,000 pounds. An offeror quotes 2 dollars per 100 pounds on both lanes. Evaluation applies the estimates, so the offer is scored on 50,000 pounds in total, which is 500 hundredweight, and its evaluated price is 1,000 dollars. The estimates serve evaluation only and no other purpose.
+A solicitation lists two lanes with estimated weights of 40,000 pounds and 10,000 pounds. An offeror quotes 2 dollars per 100 pounds on both lanes. Evaluation applies the estimates, so the offer is scored on 50,000 pounds in total, which is 500 hundredweight, and its evaluated price is 1,000 dollars. The estimates serve evaluation only and no other purpose. This part of the example follows the codified estimates provision, not the RFO text, which lists FAR 52.247-20 as [Reserved] [@CL-SUP-0197].
 
-Later, while performing, a contractor's truck backs into a customer's fence and the repair costs 3,000 dollars. The contractor is responsible for that damage because it arose from the use of its vehicle by its employee. The Government is not liable or responsible, and the contractor holds the insurance the clause requires, including workers' compensation for its own driver. This part of the example follows the codified estimates provision, not the RFO text, which lists FAR 52.247-20 as [Reserved] [@CL-SUP-0197].
+Later, while performing, a contractor's truck backs into a customer's fence and the repair costs 3,000 dollars. The contractor is responsible for that damage because it arose from the use of its vehicle by its employee. The Government is not liable or responsible, and the contractor holds the insurance the clause requires, including workers' compensation for its own driver.
 
 ## Never confuse
 
