@@ -33,7 +33,7 @@ Facilities capital is measured and allocated under the standard, and the allocat
 
 ## How it works
 
-The standard does not set a market rate of its own; it delegates the rate to Treasury determinations [@CL-CMP-0568]. Facilities capital is measured and allocated first, then the rate is applied to that allocated base [@CL-CMP-0567]. Each contract gets its own figure, built from factors computed for the period [@CL-CMP-0569].
+The standard says the cost of money rate is based on rates determined by the Secretary of the Treasury under the public law it names [@CL-CMP-0568]. Facilities capital is measured and allocated first, then the rate is applied to that allocated base [@CL-CMP-0567]. Each contract gets its own figure, built from factors computed for the period [@CL-CMP-0569].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A segment holds facilities capital of 4 million. A cost of money rate of 5 perce
 
 ## Never confuse
 
-Cost of money on facilities capital is a computed charge on the allocated facilities capital base, using a rate based on rates determined by the Secretary of the Treasury [@CL-CMP-0567; @CL-CMP-0568]. The factors are computed for each cost accounting period rather than once for the whole contract [@CL-CMP-0569].
+Cost of money on facilities capital is a computed charge on the allocated facilities capital base, using a rate based on rates determined by the Secretary of the Treasury [@CL-CMP-0567; @CL-CMP-0568]. The factors are computed for each cost accounting period, and the cost of capital committed to facilities is computed separately for each contract [@CL-CMP-0569].
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Whether facilities capital and the cost of money factors are recorded for each b
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the rate and period sentences to say only what the quotes say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for facilities capital cost of money.

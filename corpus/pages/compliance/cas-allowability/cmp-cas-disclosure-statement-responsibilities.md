@@ -37,7 +37,7 @@ Paragraph (c): the cognizant auditor is responsible for conducting reviews of Di
 
 ## How it works
 
-The duties fall on different parties. The contracting officer screens for coverage, puts the notice in the solicitation, ensures the certifications and submissions, and may not award a CAS-covered contract before the CFAO's written adequacy determination unless the agency head authorizes award without the submission [@CL-CMP-7033; @CL-CMP-7034; @CL-CMP-7035; @CL-CMP-7036]. The cognizant auditor reviews the statement [@CL-CMP-7038]. The CFAO issues the determinations [@CL-CMP-7039].
+The duties fall on different parties. The contracting officer screens for coverage, puts the notice in the solicitation, ensures the certifications and submissions, and may not award a CAS-covered contract before the CFAO's written adequacy determination unless the agency head authorizes award without the submission [@CL-CMP-7033; @CL-CMP-7034; @CL-CMP-7035; @CL-CMP-7036]. The cognizant auditor is responsible for reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038]. The CFAO is responsible for issuing determinations of adequacy and compliance [@CL-CMP-7039].
 
 The text states one exception to the award bar. The one it names is the agency head, who authorizes award without obtaining the submission, on a nondelegable basis and in order to protect the Government's interest [@CL-CMP-7036]. After such an authorization, the contractor must submit the required Disclosure Statement [@CL-CMP-7037]. The CFAO must then determine adequacy as soon as possible after the award; the paragraph sets no number of days [@CL-CMP-7037].
 
@@ -53,7 +53,7 @@ In a second scenario, the agency head, on a nondelegable basis and in order to p
 
 ## Never confuse
 
-The auditor's review and the CFAO's determination are different steps. The auditor conducts the reviews; the CFAO issues the determinations [@CL-CMP-7038; @CL-CMP-7039].
+The auditor's review and the CFAO's determination are different steps. The auditor is responsible for conducting the reviews for adequacy and compliance; the CFAO is responsible for issuing the determinations of adequacy and compliance [@CL-CMP-7038; @CL-CMP-7039].
 
 A written determination of adequacy is not the agency-head authorization to award without a submission. The authorization is a nondelegable agency-head act, and the contractor's submission follows the award [@CL-CMP-7036; @CL-CMP-7037].
 
@@ -65,5 +65,6 @@ For each business unit, whether proposed contracts may require CAS coverage and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named adequacy and compliance in the auditor and CFAO duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names the auditor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage.

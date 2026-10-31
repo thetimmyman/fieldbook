@@ -33,7 +33,7 @@ Bad debts, including actual or estimated losses arising from uncollectible accou
 
 ## How it works
 
-The cost principle makes bad debts and their directly associated costs unallowable [@CL-CMP-0304]. The prohibition applies equally to actual write-offs of worthless receivables and additions to allowance reserves for estimated credit losses [@CL-CMP-0304]. Directly associated expenditures incurred in pursuing recovery, including fees paid to collection agencies and retained legal counsel, are tainted and disallowed along with the underlying bad debt [@CL-CMP-0305]. Bad debts and their directly associated costs are unallowable [@CL-CMP-0304].
+The cost principle makes bad debts and their directly associated costs unallowable [@CL-CMP-0304]. The prohibition covers both actual and estimated losses arising from uncollectible accounts receivable due from customers and other claims [@CL-CMP-0304]. Any directly associated costs, such as collection costs and legal costs, are unallowable along with the bad debt [@CL-CMP-0305]. Bad debts and their directly associated costs are unallowable [@CL-CMP-0304].
 
 Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-3 keeps the rule described above: bad debts, including actual or estimated losses arising from uncollectible accounts receivable due from customers and other claims, and any directly associated costs such as collection costs and legal costs are unallowable [@CL-CMP-9938].
 
@@ -45,7 +45,7 @@ A commercial customer defaults on payment, resulting in an uncollectible account
 
 ## Never confuse
 
-Bad debts include actual or estimated losses arising from uncollectible accounts receivable due from customers and other claims [@CL-CMP-0304]. Even when legal costs are otherwise ordinary business expenses, fees incurred specifically for debt collection are tainted and unallowable [@CL-CMP-0305]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+Bad debts include actual or estimated losses arising from uncollectible accounts receivable due from customers and other claims [@CL-CMP-0304]. The section makes unallowable any directly associated costs such as collection costs and legal costs, not only the bad debt itself [@CL-CMP-0305]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ How accounts receivable write-offs, credit loss reserves, and related collection
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Kept the How it works and Never confuse sentences to the quote: actual or estimated losses, and directly associated costs such as collection and legal costs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bad debts.

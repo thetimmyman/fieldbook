@@ -49,7 +49,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in pla
 
 Synthetic example. The numbers are made up.
 
-A contractor ends a Government contract and incurs three costs at its facility. It spends 8,000 removing Government-owned equipment, 3,000 restoring the floor that the removal damaged, and 30,000 restoring the rest of the bay to approximately its condition before the contract began, excluding fair wear and tear. The two restoration costs are reconversion costs [@CL-CMP-7520]. The 8,000 for removing Government property and the 3,000 for the restoration caused by that removal fall within the exception, so 11,000 is allowable [@CL-CMP-7521]. The 30,000 is unallowable [@CL-CMP-7521], unless special circumstances where equity so dictates apply and the additional cost was agreed upon before it was incurred, in which case it may be allowed to the extent agreed [@CL-CMP-7522]. If no such agreement existed before the work, nothing under that route is allowed. Care should be exercised so that the 11,000 is not also allowed as a contingency, through additional profit or fee, or in other contracts [@CL-CMP-7523].
+A contractor ends a Government contract and incurs three costs at its facility. It spends 8,000 removing Government-owned equipment, 3,000 restoring the floor that the removal damaged, and 30,000 restoring the rest of the bay to approximately its condition before the contract began, excluding fair wear and tear. The two restoration costs are reconversion costs [@CL-CMP-7520]. The 8,000 for removing Government property and the 3,000 for the restoration caused by that removal fall within the exception, so the bar on reconversion costs does not apply to that 11,000 [@CL-CMP-7521]. The 30,000 is unallowable [@CL-CMP-7521], unless special circumstances where equity so dictates apply and the additional cost was agreed upon before it was incurred, in which case it may be allowed to the extent agreed [@CL-CMP-7522]. If no such agreement existed before the work, nothing under that route is allowed. Care should be exercised so that the 11,000 is not also allowed as a contingency, through additional profit or fee, or in other contracts [@CL-CMP-7523].
 
 ## Never confuse
 
@@ -63,6 +63,7 @@ Whether any reconversion work is covered by a written agreement made before the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Worked example now says the removal exception lifts the reconversion bar rather than making the cost allowable.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bonding costs, economic planning costs and plant reconversion costs.

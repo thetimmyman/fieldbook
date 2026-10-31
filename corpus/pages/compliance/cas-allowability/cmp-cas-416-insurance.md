@@ -39,17 +39,17 @@ For exposure covered by purchased insurance or by payments to a trusteed fund, t
 
 One of those exceptions is coverage bought specifically for, and directly allocated to, a single final cost objective, where the premium need not be prorated [@CL-CMP-1786].
 
-For exposure not covered by purchased insurance or by payments to a trusteed fund, the contractor follows a program of self-insurance accounting [@CL-CMP-1905]. Except as the two listed subdivisions provide, actual losses do not become insurance costs [@CL-CMP-1787]. The contractor makes a self-insurance charge for each period and each type of self-insured risk, representing the projected average loss for that period [@CL-CMP-1788].
+For exposure not covered by purchased insurance or by payments to a trusteed fund, the contractor follows a program of self-insurance accounting [@CL-CMP-1905]. Except as the two listed subdivisions provide, actual losses do not become insurance costs [@CL-CMP-1787]. Instead, the contractor makes a self-insurance charge for each period and each type of self-insured risk, representing the projected average loss for that period [@CL-CMP-1788].
 
-Allocation then follows the factors used to determine the premium, assessment, refund, dividend or self-insurance charge [@CL-CMP-1789]. Costs incurred by a segment, or allocated to it from a home office, may be combined with other indirect cost pools if the resulting allocation to each final cost objective is substantially the same as separate allocation would give [@CL-CMP-1906].
+Allocation then follows the factors used to determine the premium, assessment, refund, dividend or self-insurance charge [@CL-CMP-1789], except that costs incurred by a segment, or allocated to it from a home office, may be combined with the costs of other indirect cost pools if the resulting allocation to each final cost objective is substantially the same as separate allocation would give [@CL-CMP-1906].
 
-Administration expenses that are material in relation to total insurance costs follow the same basis as the related premium or charge [@CL-CMP-1790], and records must substantiate the amounts and the allocation [@CL-CMP-1791].
+Administration expenses that are material in relation to total insurance costs follow the same basis as the related premium or charge [@CL-CMP-1790], and the contractor must maintain such records as may be necessary to substantiate the amounts of premiums, refunds, dividends, losses and self-insurance charges, paid or accrued, and the measurement and allocation of insurance costs [@CL-CMP-1791].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A policy term of two years costs 90,000 and covers two equal cost accounting periods, so 45,000 is assigned to each period. Administration expenses of 6,000 are added in the periods they belong to. A separate policy bought for one final cost objective at 20,000 is charged directly to that objective instead of being prorated. The answer: the first policy is spread, the second is not, and both carry their own administration expenses.
+A policy term of two years costs 90,000 and covers two equal cost accounting periods, so 45,000 is assigned to each period. Administration expenses of 6,000 are added in the periods they belong to. A separate policy bought specifically for, and directly allocated to, one final cost objective at 20,000 need not be prorated among cost accounting periods. The answer: the first policy is spread, the second is not, and both carry their own administration expenses.
 
 ## Never confuse
 
@@ -65,4 +65,5 @@ Whether premiums, self-insurance charges and administration expenses land in the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the self-insurance charge to the instead lead-in, marked the pooling allowance as an exception and named the contractor's records duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for insurance costs under the Cost Accounting Standards.

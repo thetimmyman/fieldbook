@@ -31,7 +31,7 @@ Shows what an offeror states and certifies about the Cost Accounting Standards a
 
 The notice is in three parts, and the offeror must examine each part and provide the requested information to determine the CAS requirements for any resulting contract [@CL-CMP-5917]. For an educational institution, Part II does not apply unless the contemplated contract will be subject to full or modified CAS coverage under the cited Cost Accounting Standards Board rules [@CL-CMP-5918].
 
-In Part I, a contract resulting from the solicitation that is in excess of the lower CAS threshold in the FAR will be subject to the Cost Accounting Standards Board requirements [@CL-CMP-6486], except for contracts exempt under the cited exemption rule [@CL-CMP-6487]. The provision names the threshold by reference and does not print the amount [@CL-CMP-6486]. An offeror whose proposal, if accepted, would result in a contract subject to those requirements must, as a condition of contracting, submit a Disclosure Statement as required by 48 CFR 9903.202, so an offeror exempt under that rule does not submit one [@CL-CMP-5919].
+In Part I, a contract resulting from the solicitation that is in excess of the lower CAS threshold in the FAR will be subject to the Cost Accounting Standards Board requirements [@CL-CMP-6486], except for contracts exempt under the cited exemption rule [@CL-CMP-6487]. The provision names the threshold by reference and does not print the amount [@CL-CMP-6486]. An offeror whose proposal, if accepted, would result in a contract subject to those requirements must, as a condition of contracting, submit a Disclosure Statement as required by 48 CFR 9903.202 [@CL-CMP-5919].
 
 ## How it works
 
@@ -79,7 +79,7 @@ A second offeror received 20 million in CAS-covered awards in its preceding peri
 
 ## Never confuse
 
-Absent specific regulations or agreement, a practice disclosed in a Disclosure Statement is not by that disclosure alone a proper, approved or agreed-to practice [@CL-CMP-5921]. The Part II election concerns which clause the resulting contract carries [@CL-CMP-5925], while the monetary and interim exemption certificates in Part I concern the Disclosure Statement [@CL-CMP-6495; @CL-CMP-6496].
+Absent specific regulations or agreement, a practice disclosed in a Disclosure Statement is not by that disclosure alone deemed a proper, approved or agreed-to practice for pricing proposals or accumulating and reporting contract performance cost data [@CL-CMP-5921]. The Part II election concerns which clause the resulting contract carries [@CL-CMP-5925], while the monetary and interim exemption certificates in Part I concern the Disclosure Statement [@CL-CMP-6495; @CL-CMP-6496].
 
 The dollar amounts here are the amounts printed in this provision. The [CAS applicability card](cmp-cas-applicability.md) covers the coverage and Disclosure Statement thresholds now in force, and the offeror reads both. The consequences of modified coverage are on the [modified coverage card](cmp-disclosure-consistency-modified-cas.md).
 
@@ -93,6 +93,7 @@ Which business units are inside the certification decision for this solicitation
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an inference on exempt offerors and added the pricing and reporting scope to the disclosed-practice rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected two sentences so the certificate applies to an award resulting from the proposal, as the provision prints.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS notices and certification.

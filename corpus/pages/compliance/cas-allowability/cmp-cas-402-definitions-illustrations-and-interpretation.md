@@ -37,7 +37,7 @@ The exemption section of the standard on consistency in allocating costs incurre
 
 ## How it works
 
-The illustrations turn on whether two costs were incurred for the same purpose. The tooling and fire-protection illustrations tie a direct charge and an indirect charge to disclosed criteria or practices showing that the costs serve different purposes [@CL-CMP-2786; @CL-CMP-2788]. The travel illustration goes the other way, because the travel costs of personnel accounted for as direct labor on other contracts are for the same purpose and so leave the indirect pools for covered contracts [@CL-CMP-2877; @CL-CMP-2784]. For proposal costs, the interpretation separates proposals required by an existing contract from other proposals, and still allows indirect allocation of all of them if practices are followed consistently and the method gives an equitable distribution [@CL-CMP-2789; @CL-CMP-2790; @CL-CMP-2879].
+The illustrations turn on whether two costs were incurred for the same purpose. The tooling and fire-protection illustrations tie a direct charge and an indirect charge to disclosed criteria or practices showing that the costs serve different purposes [@CL-CMP-2786; @CL-CMP-2788]. The travel illustration goes the other way, because the travel costs of personnel accounted for as direct labor on other contracts are for the same purpose and so leave the indirect pools for covered contracts [@CL-CMP-2877; @CL-CMP-2784]. For proposal costs, the interpretation separates proposals required by an existing contract from other proposals, and does not preclude allocating the costs of preparing all proposals as indirect costs, but the contractor's cost accounting practices must be followed consistently and the method used to reallocate such costs must provide an equitable distribution to all final cost objectives [@CL-CMP-2789; @CL-CMP-2790; @CL-CMP-2879].
 
 ## Worked example
 
@@ -57,5 +57,6 @@ How the company charges proposal, travel, planning and tooling costs, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the consistency and equitable-distribution conditions on indirect allocation of proposal costs as requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption and effective date sections of CAS 402.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions, illustrations and interpretation of the same-purpose standard.

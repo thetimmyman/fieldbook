@@ -59,7 +59,7 @@ A contractor uses a statistical sample to find unallowable costs, with no advanc
 
 ## Never confuse
 
-Identifying a cost is not the same as excluding it. Expressly unallowable and mutually agreed costs must be identified and excluded [@CL-CMP-2724], while costs designated by a contracting officer's written decision must be identified if included in or used in computing a billing, claim or proposal applicable to a Government contract [@CL-CMP-2726; @CL-CMP-7778]. The accounting duty is separate from the penalty on expressly unallowable costs left in a final rate proposal; see [Unallowable-cost penalties](../cas-allowability/cmp-unallowable-cost-penalty.md). For the terms directly associated cost and expressly unallowable cost, see [Definitions used in the FAR cost principles](../cas-allowability/cmp-far-cost-principles-definitions.md). Costs otherwise unallowable do not become allowable through the use of any schedule of predetermined equipment rates [@CL-CMP-2720]; see [Cost principles for construction and architect-engineer contracts](../cas-allowability/cmp-cost-principles-construction-architect-engineer.md).
+Identifying a cost is not the same as excluding it. Expressly unallowable and mutually agreed costs must be identified and excluded [@CL-CMP-2724], while costs designated by a contracting officer's written decision must be identified if included in or used in computing a billing, claim or proposal applicable to a Government contract [@CL-CMP-2726; @CL-CMP-7778]. The accounting duty is separate from the penalty on expressly unallowable costs left in a final rate proposal; see [Unallowable-cost penalties](../cas-allowability/cmp-unallowable-cost-penalty.md). For the terms directly associated cost and expressly unallowable cost, see [Definitions used in the FAR cost principles](../cas-allowability/cmp-far-cost-principles-definitions.md). For construction equipment, when actual cost data cannot be determined, the contracting agency may specify a schedule of predetermined rates [@CL-CMP-2719], but costs otherwise unallowable under FAR part 31 do not become allowable through the use of any schedule [@CL-CMP-2720]; see [Cost principles for construction and architect-engineer contracts](../cas-allowability/cmp-cost-principles-construction-architect-engineer.md).
 
 ## Company calibration
 
@@ -69,6 +69,7 @@ Whether an advance agreement covers any statistical sampling used to identify un
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the schedule sentence to the construction-equipment rule and its limit to costs otherwise unallowable under FAR part 31.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the identification sentences so the rule keeps its limit to billings, claims and proposals applicable to a Government contract.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for unallowable and directly associated costs.

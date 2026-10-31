@@ -37,7 +37,7 @@ The exemption section of the standard on accounting for unallowable costs says t
 
 ## How it works
 
-The illustrations show who acts after a cost is questioned and what must stay visible. Where the contracting officer's decision supports the auditor, the contractor identifies the disallowed costs in its records and later submissions [@CL-CMP-2882; @CL-CMP-2796], and in the planning-activity illustration it also identifies specific other costs incurred for the same purpose in like circumstances [@CL-CMP-2884; @CL-CMP-2799]. In the second illustration, identified unallowable manufacturing overhead costs stay in the allocation base where manufacturing overhead is regularly part of that base [@CL-CMP-2797; @CL-CMP-2798]. In the entertainment-trip illustration, travel and subsistence are directly associated costs for identification with the unallowable entertainment expense [@CL-CMP-2801]. The official's salary is not required to be identified as a directly associated cost unless the activity was a significant part of the official's regular duties [@CL-CMP-2885].
+The illustrations show who acts after a cost is questioned and what must stay visible. Where the contracting officer's decision supports the auditor, the contractor identifies the disallowed costs in its records and later submissions [@CL-CMP-2882; @CL-CMP-2796], and in the planning-activity illustration it also identifies specific other costs incurred for the same purpose in like circumstances [@CL-CMP-2884; @CL-CMP-2799]. In the second illustration, identified unallowable manufacturing overhead costs stay in the allocation base where manufacturing overhead is regularly part of that base [@CL-CMP-2797; @CL-CMP-2798]. In the entertainment-trip illustration, travel and subsistence are directly associated costs for identification with the unallowable entertainment expense [@CL-CMP-2801]. The official's salary is not required to be identified as a directly associated cost unless the activity constituted a significant part of the official's regular duties and responsibilities on which the salary was based [@CL-CMP-2885].
 
 ## Worked example
 
@@ -57,5 +57,6 @@ How unallowable and directly associated costs are identified in the company's bo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the duties-and-responsibilities-on-which-the-salary-was-based qualification in the entertainment-trip salary sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption and effective date sections of CAS 405.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the illustrations of identifying unallowable and directly associated costs.
