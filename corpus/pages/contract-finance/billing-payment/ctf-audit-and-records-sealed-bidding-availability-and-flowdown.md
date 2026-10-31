@@ -55,7 +55,7 @@ A sealed bid contract with the basic clause runs from month 0. Part of the work 
 
 ## Never confuse
 
-Availability is not the examination right. The examination right attaches to records related to a modification priced with certified cost or pricing data, while paragraph (d) fixes how long the materials described in paragraph (b) must stay available [@CL-CTF-2950; @CL-CTF-2954].
+Availability is not the examination right. The examination right applies where the Contractor has been required to submit certified cost or pricing data in connection with the pricing of any modification, and it reaches the records related to the proposal, the discussions, the pricing or the performance of the modification [@CL-CTF-2950; @CL-CTF-2951; @CL-CTF-2952]. Paragraph (d) fixes how long the materials described in paragraph (b) must stay available [@CL-CTF-2954].
 
 The period of 3 years after final payment is not the only one: subpart 4.7 can specify another, terminated work runs from the final termination settlement, and appeals, litigation and claims run until disposition [@CL-CTF-2954; @CL-CTF-2955; @CL-CTF-2956; @CL-CTF-2957].
 
@@ -69,5 +69,6 @@ Where modification records are kept, when final payment is recorded, and which s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Examination-right sentence now carries its condition and record list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for record availability periods and subcontract flowdown under sealed bidding.

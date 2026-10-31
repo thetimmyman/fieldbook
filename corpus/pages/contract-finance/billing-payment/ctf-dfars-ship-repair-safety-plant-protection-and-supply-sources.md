@@ -35,7 +35,7 @@ The apparently successful offeror agrees to complete and submit before award a t
 
 ## How it works
 
-The Government reimburses the portion of the costs of the additional safeguards that is allocable to the contract, in the same manner as if the Contracting Officer had issued a change order for them [@CL-CTF-1974]. The costs reimbursed do not include any overhead allowance, unless the overhead is incident to the construction or installation of necessary security devices or equipment [@CL-CTF-1993]. Upon payment by the Government of the cost of any device or equipment required or approved under the additional-safeguards paragraph, title vests in the Government [@CL-CTF-1994]. The contractor must then comply with the Contracting Officer's instructions on the identification and disposition of that device or equipment, and it does not become a fixture by being affixed to realty the Government does not own [@CL-CTF-2185]. The reimbursement attaches to the additional safeguards and not to the reasonable safeguards the contractor provides for the plant and work in process [@CL-CTF-1973; @CL-CTF-1974; @CL-CTF-1992].
+The Government reimburses the portion of the costs of the additional safeguards that is allocable to the contract, in the same manner as if the Contracting Officer had issued a change order for them [@CL-CTF-1974]. The costs reimbursed do not include any overhead allowance, unless the overhead is incident to the construction or installation of necessary security devices or equipment [@CL-CTF-1993]. Upon payment by the Government of the cost of any device or equipment required or approved under the additional-safeguards paragraph, title vests in the Government [@CL-CTF-1994]. The contractor must then comply with the Contracting Officer's instructions on the identification and disposition of that device or equipment, and it does not become a fixture by being affixed to realty the Government does not own [@CL-CTF-2185]. The reimbursement paragraph speaks only of the additional safeguards, and the paragraph on the reasonable safeguards for the plant and work in process states no reimbursement [@CL-CTF-1973; @CL-CTF-1974; @CL-CTF-1992].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which executed contracts include the safety, plant protection and supply-source 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: reimbursement scope stated as text, not inference.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ship repair master agreement clauses on safety and health, plant protection, and identification of sources of supply.

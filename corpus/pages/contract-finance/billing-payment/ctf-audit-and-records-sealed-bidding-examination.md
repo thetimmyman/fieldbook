@@ -35,7 +35,7 @@ In the basic clause, the right arises where the Contractor has been required to 
 
 In the case of pricing any modification, the Comptroller General of the United States or an authorized representative has the same rights as paragraph (b) gives and also the right to interview any current employee regarding such transactions [@CL-CTF-2953].
 
-Alternate I is prescribed under FAR 14.201-7(a)(2) and substitutes its paragraphs (c) and (e) for paragraphs (c) and (e) of the basic clause [@CL-CTF-2974]. Under the alternate, the Comptroller General of the United States, an appropriate Inspector General or an authorized representative of either has access to and the right to take the actions listed in its paragraph (c) [@CL-CTF-2975]. Those officials have the right to examine any of the Contractor's or any subcontractors' records that pertain to, and involve transactions relating to, the contract or a subcontract under it [@CL-CTF-2976]. They also have the right to interview any officer or employee regarding such transactions [@CL-CTF-2977].
+Alternate I is prescribed under FAR 14.201-7(a)(2) and substitutes its paragraphs (c) and (e) for paragraphs (c) and (e) of the basic clause [@CL-CTF-2974]. Under the alternate, the Comptroller General of the United States, an appropriate Inspector General appointed under section 3 or 8G of the Inspector General Act of 1978, or an authorized representative of either of those officials has access to and the right to take the actions listed in its paragraph (c) [@CL-CTF-2975]. Those officials have the right to examine any of the Contractor's or any subcontractors' records that pertain to, and involve transactions relating to, the contract or a subcontract under it [@CL-CTF-2976]. They also have the right to interview any officer or employee regarding such transactions [@CL-CTF-2977].
 
 ## How it works
 
@@ -69,5 +69,6 @@ Which modifications required certified data, where those files sit, who can prod
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the Inspector General Act appointment in Alternate I.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for examination of certified cost or pricing data and records under sealed bidding.

@@ -44,7 +44,7 @@ A contractor leases office equipment under an operating lease at a monthly rate 
 
 ## Never confuse
 
-An operating lease is rented use of property, not a capital lease, which is treated as a purchased asset and depreciated. Rental costs are judged for reasonableness at the time of the lease decision, and a sale and leaseback is capped at the retained-title amount.
+An operating lease, which this subsection covers [@CL-CMP-0462], is not a capital lease. Rental costs are judged for reasonableness at the time of the lease decision, and a sale and leaseback is capped at the retained-title amount.
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How common-control rental charges and pools are defined and reconciled. [@Q-024]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed the unsupported capital lease treatment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the RFO sentence so the common-control rent rule keeps the exclusion of interest and other unallowable costs.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rental costs.

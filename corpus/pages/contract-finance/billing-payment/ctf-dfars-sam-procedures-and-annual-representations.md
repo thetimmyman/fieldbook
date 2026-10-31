@@ -37,7 +37,7 @@ When using the provision at FAR 52.204-8, Annual Representations and Certificati
 
 ## How it works
 
-Award documents use the name and address recorded in SAM at the time of award [@CL-CTF-1647]. Before an option is exercised or a modification is issued, the contracting officer confirms an active SAM record and accurate identifying data in the contract document [@CL-CTF-1618; @CL-CTF-1619]. A mismatch between the contract and the SAM record is fixed by a novation, a change-of-name agreement or an address change [@CL-CTF-1620]. The payment office receives the CAGE code rather than the UEI [@CL-CTF-1621]. The solicitation side pairs the annual representations provision with its Alternate A [@CL-CTF-1622], and the SAM provision in the solicitation removes the need to include the listed provisions separately [@CL-CTF-1648].
+Award documents use the name and address recorded in SAM at the time of award [@CL-CTF-1647]. Before an option is exercised or a modification other than a unilateral administrative change is issued, the contracting officer confirms an active SAM record and accurate identifying data in the contract document [@CL-CTF-1618; @CL-CTF-1619]. A mismatch between the contract and the SAM record is fixed by a novation, a change-of-name agreement or an address change [@CL-CTF-1620]. The payment office receives the CAGE code rather than the UEI [@CL-CTF-1621]. The solicitation side pairs the annual representations provision with its Alternate A [@CL-CTF-1622], and the SAM provision in the solicitation removes the need to include the listed provisions separately [@CL-CTF-1648].
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Who keeps the company's SAM record, name and address aligned with its contracts,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: administrative-change exception restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS SAM procedures and the annual representations provision.
