@@ -34,7 +34,7 @@ A protest keyed to bid opening must be received by the contracting officer befor
 
 ## How it works
 
-The deadline is counted in days that exclude Saturdays, Sundays and legal holidays, and it is the date of receipt by the contracting officer that matters [@CL-MKT-0409; @CL-MKT-0410]. The time limits do not apply to contracting officers, funding agreement officers or SBA, who may file before or after awards, except to the extent set forth in the rule on premature protests [@CL-MKT-0411; @CL-MKT-0535]. A protest filed by any party, including the contracting officer, before bid opening or notification to offerors of the selection of the apparent successful offer will be dismissed as premature [@CL-MKT-0535]. A protest received after the allotted time limits must still be forwarded to SBA, and SBA will dismiss untimely protests [@CL-MKT-0536]. The section also covers orders against multiple award contracts, long-term contracts, option periods, recertifications, electronic notice and bid protest corrective action, which this card does not detail.
+The deadline is counted in days that exclude Saturdays, Sundays and legal holidays, and it is the date of receipt by the contracting officer that matters [@CL-MKT-0409; @CL-MKT-0410]. The time limits do not apply to contracting officers, funding agreement officers or SBA, who may file before or after awards, except to the extent set forth in the rule on premature protests, except that for the SBIR and STTR programs the funding agreement officer or SBA may file a protest in anticipation of an award [@CL-MKT-0411; @CL-MKT-1840; @CL-MKT-0535]. A protest filed by any party, including the contracting officer, before bid opening or notification to offerors of the selection of the apparent successful offer will be dismissed as premature [@CL-MKT-0535]. A protest received after the allotted time limits must still be forwarded to SBA, and SBA will dismiss untimely protests [@CL-MKT-0536]. The section also covers orders against multiple award contracts, long-term contracts, option periods, recertifications, electronic notice and bid protest corrective action, which this card does not detail.
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which of the company's offers are small business set-asides that a competitor co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the time-limit sentence so the protest exemption keeps the SBIR and STTR exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for who may file a size protest and the time limits.
