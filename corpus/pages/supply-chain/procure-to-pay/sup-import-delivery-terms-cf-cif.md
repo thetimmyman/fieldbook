@@ -23,7 +23,7 @@ Explains what the contractor arranges and pays, which documents it provides, and
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2421; @CL-SUP-2426] |
 | Codified citation | FAR 52.247-41 and FAR 52.247-42 [@CL-SUP-2421; @CL-SUP-2426] |
-| RFO citation | Not established. |
+| RFO citation | RFO part 52 lists 52.247-41 and 52.247-42 as reserved [@CL-SUP-0398; @CL-SUP-0399] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2421; @CL-SUP-2426] |
 | Applies to | Solicitations and contracts when the delivery term is cost and freight destination [@CL-SUP-2471] or cost, insurance and freight destination [@CL-SUP-2474] |
@@ -42,6 +42,8 @@ Under CIF destination the contractor must also obtain and dispatch to the Govern
 
 The destination point and the packing and marking specifications are supplied by the contract, and the marine insurance coverage is specified in the contract or agreed upon by the Government Contracting Officer [@CL-SUP-2421; @CL-SUP-2472; @CL-SUP-2427]. The contractor carries the freight and export charges, and under CIF destination it also carries the marine insurance [@CL-SUP-2422; @CL-SUP-2426]. The Government bears the cost of the origin and importation documents that it requests [@CL-SUP-2425; @CL-SUP-2479]. The clauses make the contractor responsible for loss or damage before delivery, and they define delivery as on board the ocean vessel to the specified destination point [@CL-SUP-2424; @CL-SUP-2421].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO part 52 text lists section 52.247-41, the C&F destination clause, as [Reserved] [@CL-SUP-0398], and section 52.247-42, the CIF destination clause, as [Reserved] [@CL-SUP-0399]. The rules described above come from the codified clause text [@CL-SUP-2421; @CL-SUP-2426].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -50,7 +52,7 @@ A supply contract with a price of 400,000 uses the CIF destination term. The con
 
 ## Never confuse
 
-C&F destination and CIF destination differ only in marine insurance: the contractor pays the cost of transportation under both, and also marine insurance under CIF [@CL-SUP-2421; @CL-SUP-2426]. These terms deliver on board the ocean vessel at a destination point, which differs from the export terms that deliver at the port of shipment; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). They also differ from the inland delivery terms at the consignee; see [F.o.b. destination terms](sup-fob-destination-terms.md).
+C&F destination and CIF destination differ only in marine insurance: the contractor pays the cost of transportation under both, and also marine insurance under CIF [@CL-SUP-2421; @CL-SUP-2426]. These terms deliver on board the ocean vessel at a destination point, which differs from the export terms that deliver at the port of shipment; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). They also differ from the inland delivery terms at the consignee; see [F.o.b. destination terms](sup-fob-destination-terms.md). The RFO part 52 text lists 52.247-41 and 52.247-42 as [Reserved] [@CL-SUP-0398; @CL-SUP-0399]; the codified clauses set the C&F and CIF destination terms [@CL-SUP-2421; @CL-SUP-2426].
 
 ## Company calibration
 
@@ -60,4 +62,5 @@ Which import term each order carries and who confirms that its clause applies, b
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for import delivery terms (cost and freight, and cost, insurance and freight, destination).

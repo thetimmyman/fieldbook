@@ -23,7 +23,7 @@ Shows how the contractor's facility, freight allowed and freight prepaid variant
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
 | Codified citation | FAR 52.247-30 to 52.247-32 [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.247-30, RFO FAR 52.247-31 and RFO FAR 52.247-32 [@CL-SUP-0324; @CL-SUP-0325; @CL-SUP-0326] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
 | Applies to | Contracts containing one of the three f.o.b. origin variant clauses [@CL-SUP-1974; @CL-SUP-1975; @CL-SUP-1976] |
@@ -48,6 +48,8 @@ Freight allowed and freight prepaid also state where the contractor's responsibi
 
 Read the variant clause actually in the contract, and see the plain f.o.b. origin card for the wording of plain f.o.b. origin.
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.247-30(a) keeps the contractor's facility delivery point: on board the indicated type of conveyance of the carrier (or of the Government, if specified) at the designated facility, on the named street or highway [@CL-SUP-0324; @CL-SUP-1974], and it places that facility in the city, county and State from which the shipment will be made [@CL-SUP-9090]. RFO FAR 52.247-31(a)(1)(i) and RFO FAR 52.247-32(a)(1)(i) keep delivery, free of expense to the Government, on board the indicated type of conveyance of the carrier (or of the Government, if specified) at a designated point in the city, county and State from which the shipments will be made [@CL-SUP-0325; @CL-SUP-2068] [@CL-SUP-0326; @CL-SUP-2069]. Both RFO paragraphs also say that point is one from which line-haul transportation service (as distinguished from switching, local drayage or other terminal service) will begin [@CL-SUP-9091] [@CL-SUP-9092]. RFO FAR 52.247-31(a)(2) keeps the freight allowed deduction from the contract price of an allowance for freight, based on applicable published tariff rates (or Government rate tenders) between the points specified in the contract [@CL-SUP-0327; @CL-SUP-1975]. RFO FAR 52.247-32(a)(2) keeps the rule that the cost of transportation, ultimately the Government's obligation, is prepaid by the contractor to the point specified in the contract [@CL-SUP-0328; @CL-SUP-1976], and paragraph (b)(7) keeps the duty to prepay all freight charges to the extent specified in the contract [@CL-SUP-0329; @CL-SUP-1977]. On the bill of lading, RFO FAR 52.247-30(b)(5) and RFO FAR 52.247-31(b)(5) keep the duty to complete the Government bill of lading supplied by the ordering agency or, when none is supplied, to prepare a commercial bill of lading or other transportation receipt [@CL-SUP-0330; @CL-SUP-2125] [@CL-SUP-0331; @CL-SUP-2070], and RFO FAR 52.247-32(b)(5) keeps the duty to prepare a bill of lading or other transportation receipt [@CL-SUP-0332; @CL-SUP-2071]. Each RFO variant keeps the contractor's responsibility for loss or damage occurring before delivery to the carrier or resulting from improper packing and marking (improper packing or marking in freight prepaid) [@CL-SUP-0333; @CL-SUP-2119] [@CL-SUP-0335; @CL-SUP-2121] [@CL-SUP-0337; @CL-SUP-2123], and for loss or damage resulting from improper loading, stowing, trimming, blocking and/or bracing if the contractor loaded the shipment on or in the carrier's conveyance [@CL-SUP-0334; @CL-SUP-2120] [@CL-SUP-0336; @CL-SUP-2122] [@CL-SUP-0338; @CL-SUP-2124]. In RFO FAR 52.247-31(c)(2) and RFO FAR 52.247-32(c)(2), if the contractor's shipping plant is in Hawaii and the contract requires delivery by container service, the contractor delivers the supplies at its own expense, notwithstanding paragraph (c)(1) [@CL-SUP-9093; @CL-SUP-2134] [@CL-SUP-9095; @CL-SUP-2138], to the container yard in the same or nearest city where seavan container service is available [@CL-SUP-9094; @CL-SUP-2135] [@CL-SUP-9096; @CL-SUP-2139]. Both RFO paragraphs call the cross-referenced paragraph "paragraph (c)(1)" where the codified text calls it "subparagraph (c)(1)" [@CL-SUP-9093; @CL-SUP-2134] [@CL-SUP-9095; @CL-SUP-2138]. The RFO text prints FAR 52.247-65 as [Reserved] [@CL-SUP-0339], where the codified text bills transportation charges as a separate item on the invoice for each shipment [@CL-SUP-1994].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -58,7 +60,7 @@ Take a pallet load of 40 cartons under any of the three variants. The contract s
 
 ## Never confuse
 
-Freight allowed is not freight prepaid. Freight allowed reduces the contract price by the freight allowance [@CL-SUP-1975], while freight prepaid has the contractor prepay the transportation cost, and that cost is ultimately the Government's obligation [@CL-SUP-1976].
+Do not look in RFO FAR 52.247-65 for the codified rule that prepaid transportation charges are billed as a separate invoice item for each shipment [@CL-SUP-1994]: the RFO text prints that section as [Reserved] [@CL-SUP-0339]. Freight allowed is not freight prepaid. Freight allowed reduces the contract price by the freight allowance [@CL-SUP-1975], while freight prepaid has the contractor prepay the transportation cost, and that cost is ultimately the Government's obligation [@CL-SUP-1976].
 
 ## Company calibration
 
@@ -68,4 +70,5 @@ Confirm which variant each contract carries and how freight is recovered or dedu
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the f.o.b. origin variants.

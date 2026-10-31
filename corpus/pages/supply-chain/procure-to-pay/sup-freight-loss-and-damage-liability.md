@@ -24,7 +24,7 @@ Sets out the liability standard for freight lost or damaged in the movement, the
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2308] |
 | Codified citation | FAR 52.247-22 and FAR 52.247-23 [@CL-SUP-2308; @CL-SUP-2310] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.247-22 [@CL-SUP-0382]; RFO FAR 52.247-23 [@CL-SUP-0383; @CL-SUP-0384] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2308] |
 | Applies to | The freight clause in solicitations and contracts for the transportation of freight other than household goods [@CL-SUP-2309]; the household goods clause, which the prescription directs to be inserted [@CL-SUP-2352] |
@@ -38,6 +38,8 @@ The contractor is liable for loss or damage discovered by the owner if written n
 ## How it works
 
 The freight clause puts full liability on the contractor for goods lost or damaged in the movement, with one exception: causes beyond its control and without its fault or negligence [@CL-SUP-2308]. Both conditions of the exception must be met, because the clause joins them with the word and [@CL-SUP-2308]. The household goods clause owes the liability to the owner and follows the article through packing, handling, transit storage and third-party servicing [@CL-SUP-2310; @CL-SUP-2311]. It adds a notice rule, which looks to the dispatch of written notice within 75 days of delivery [@CL-SUP-2312], and an indemnity rate per pound per article [@CL-SUP-2313].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.247-22 keeps the rule that, except when loss and/or damage arises out of causes beyond the control and without the fault or negligence of the contractor, the contractor assumes full liability for any and all goods lost and/or damaged in the movement covered by the contract [@CL-SUP-0382; @CL-SUP-2308]. RFO FAR 52.247-23(a) keeps the same exception, with the contractor liable to the owner for loss of or damage to any article while it is in a circumstance that the paragraph lists [@CL-SUP-0383; @CL-SUP-2310], the listed circumstances being an article packed, picked up, loaded, transported, delivered, unloaded or unpacked, stored in transit, or serviced (appliances, etc.) by a third person hired by the contractor to perform the servicing [@CL-SUP-0384; @CL-SUP-2311]. Paragraph (b) keeps the notice rule, under which the contractor is liable for loss or damage discovered by the owner if written notice of it is dispatched to the contractor not later than 75 days following the date of delivery [@CL-SUP-0385; @CL-SUP-2312], and paragraph (c) keeps the indemnity rate, in cents per pound per article, that the clause leaves blank for completion [@CL-SUP-0386; @CL-SUP-2313].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ Confirm which liability clause each transportation award carries, the indemnity 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor liability for freight and household goods.

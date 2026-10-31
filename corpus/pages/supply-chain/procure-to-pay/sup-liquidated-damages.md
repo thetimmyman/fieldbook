@@ -24,7 +24,7 @@ Shows how the two liquidated damages clauses fix a daily amount, when that amoun
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2568] |
 | Codified citation | FAR 52.211-11 and FAR 52.211-12 [@CL-SUP-2568; @CL-SUP-2572] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.211-11 [@CL-SUP-0421]; RFO FAR 52.211-12 [@CL-SUP-0425] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2568] |
 | Applies to | Not established. |
@@ -38,6 +38,8 @@ Under the construction clause, if the Contractor fails to complete the work with
 Both clauses state the amount per calendar day, and the Contracting Officer inserts the amount, so it is a contract-specific blank [@CL-SUP-2568; @CL-SUP-2572]. In the supplies clause the amount stands in place of actual damages [@CL-SUP-2568], and after a termination under the Default clause it keeps accruing until the Government reasonably obtains similar supplies or services [@CL-SUP-2569]. In the construction clause the amount runs until the work is completed or accepted [@CL-SUP-2572], and a termination of the right to proceed does not stop it before the work is completed [@CL-SUP-2573].
 
 The daily amount does not replace excess costs of repurchase: each clause states that the liquidated damages are in addition to those costs under the Termination clause [@CL-SUP-2570; @CL-SUP-2574].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. Section 52.211-11 of the RFO text keeps the supplies, services, or research and development rules: if the Contractor fails to deliver the supplies or perform the services within the time specified in the contract, it pays the Government liquidated damages, in place of actual damages, of the amount the Contracting Officer inserts per calendar day of delay [@CL-SUP-0421; @CL-SUP-2568]; if the Government terminates the contract in whole or in part under the Default-Fixed-Price Supply and Service clause, the Contractor is liable for liquidated damages accruing until the Government reasonably obtains delivery or performance of similar supplies or services [@CL-SUP-0422; @CL-SUP-2569]; these liquidated damages are in addition to excess costs of repurchase under the Termination clause [@CL-SUP-0423; @CL-SUP-2570]; and the Contractor will not be charged when the delay is beyond the control and without the fault or negligence of the Contractor as defined in the Default-Fixed-Price Supply and Service clause in the contract [@CL-SUP-0424; @CL-SUP-2571]. Section 52.211-12 keeps the construction rules: if the Contractor fails to complete the work within the time specified in the contract, it pays liquidated damages in the amount the Contracting Officer inserts for each calendar day of delay until the work is completed or accepted [@CL-SUP-0425; @CL-SUP-2572]; if the Government terminates the Contractor's right to proceed, liquidated damages continue to accrue until the work is completed [@CL-SUP-0426; @CL-SUP-2573]; and these liquidated damages are in addition to excess costs of repurchase under the Termination clause [@CL-SUP-0427; @CL-SUP-2574]. The prescriptions differ: the RFO text prescribes 52.211-11 in 11.403(a) [@CL-SUP-9121], where the codified text prescribes it in 11.503(a) [@CL-SUP-9122], and prescribes 52.211-12 in 11.403(b) [@CL-SUP-9123], where the codified text prescribes it in 11.503(b) [@CL-SUP-9124].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Confirm the daily amount inserted in each contract and whether the recorded dela
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for liquidated damages for supplies, services, research and development, and construction.
