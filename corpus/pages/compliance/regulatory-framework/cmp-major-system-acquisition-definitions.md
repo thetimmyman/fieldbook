@@ -37,7 +37,7 @@ The section on mission-oriented solicitations does not set the prohibition itsel
 
 ## How it works
 
-The section separates two ideas about earned value: a system that complies with the guidelines in the ANSI/EIA-748, and an acceptable system that generally complies with the clause criteria [@CL-CMP-7860; @CL-CMP-7859]. The section does not say who decides whether a system generally complies. Production of a major defense acquisition program is defined by what the activity is meant to achieve, or alternatively by its Milestone C status under the DoD instruction [@CL-CMP-7861; @CL-CMP-7862]. The mission-oriented solicitation section does not restate the source selection prohibition; it points to 215.101-2-70(b)(2) [@CL-CMP-7863]. The prohibition is tied to engineering and manufacturing development for which budgetary authority is requested beginning in fiscal year 2019, and contracting officers are the ones barred from using the process [@CL-CMP-7863; @CL-EST-1541].
+The section separates two ideas about earned value: a system that complies with the guidelines in the ANSI/EIA-748, and an acceptable system that generally complies with the clause criteria [@CL-CMP-7860; @CL-CMP-7859]. The section does not say who decides whether a system generally complies. Production of a major defense acquisition program is defined as the production and deployment of a major system intended to achieve an operational capability that satisfies mission needs, or alternatively by its Milestone C status under the DoD instruction [@CL-CMP-7861; @CL-CMP-7862]. The mission-oriented solicitation section does not restate the source selection prohibition; it points to 215.101-2-70(b)(2) [@CL-CMP-7863]. The prohibition is tied to engineering and manufacturing development for a major defense acquisition program for which budgetary authority is requested beginning in fiscal year 2019, and contracting officers are the ones barred from using the process [@CL-CMP-7863; @CL-EST-1541].
 
 ## Worked example
 
@@ -61,4 +61,5 @@ Which programs are major defense acquisition programs, which of them are in prod
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the production definition and the major defense acquisition program scope in two sentences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for major system acquisition definitions and mission-oriented solicitations.

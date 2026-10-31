@@ -61,7 +61,7 @@ A company receives a phase II SBIR contract and the award date is the start of t
 
 ## Never confuse
 
-The protection period here runs from the date of award of the contract under which the data are developed or generated [@CL-CMP-3915]. The FAR clause for SBIR data uses a period of 4 years after acceptance of all items to be delivered, unless extended [@CL-CMP-3717]. That clause is covered on [Rights in data under the SBIR and STTR program](cmp-rights-in-data-sbir-and-sttr-program.md), so compare the two before applying either. Limited rights are also not unlimited rights, because they keep the Government's use inside the Government unless an exception or the owner's permission applies [@CL-CMP-3918; @CL-CMP-3919]. General definitions are on [Rights in data, general: definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md). The additional agreement requirements for STTR awards are a separate topic, covered on [DoD STTR agreement requirements before and after award](cmp-dfars-sttr-preaward-and-postaward-requirements.md).
+The protection period here runs from the date of award of the contract under which the data are developed or generated [@CL-CMP-3915]. The FAR clause for SBIR data uses a period of 4 years after acceptance of all items to be delivered, unless extended in accordance with FAR 27.409(h) [@CL-CMP-3717]. That clause is covered on [Rights in data under the SBIR and STTR program](cmp-rights-in-data-sbir-and-sttr-program.md), so compare the two before applying either. Limited rights are also not unlimited rights, because they keep the Government's use inside the Government unless an exception or the owner's permission applies [@CL-CMP-3918; @CL-CMP-3919]. General definitions are on [Rights in data, general: definitions and allocation](cmp-rights-in-data-general-definitions-and-allocation.md). The additional agreement requirements for STTR awards are a separate topic, covered on [DoD STTR agreement requirements before and after award](cmp-dfars-sttr-preaward-and-postaward-requirements.md).
 
 ## Company calibration
 
@@ -71,5 +71,6 @@ Which executed SBIR or STTR contracts carry this clause, whether the agency and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the extension rule in the FAR period sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the protection period sentence so the data rights rule keeps its scope of all SBIR/STTR data developed or generated under the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD rights in technical data and computer software under the SBIR and STTR programs.
