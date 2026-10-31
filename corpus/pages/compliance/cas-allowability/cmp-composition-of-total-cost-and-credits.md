@@ -1,0 +1,62 @@
++++
+id = "cmp-composition-of-total-cost-and-credits"
+title = "Composition of total cost and the treatment of credits"
+area = "cmp"
+subarea = "cas-allowability"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["actual_cost", "allocability", "allowability", "direct_cost", "indirect_cost", "unallowable_cost"]
+questions = ["Q-024"]
+links = ["cmp-allocability", "cmp-allowability-factors", "rte-indirect-cost-pools-bases", "cmp-compensation-personal-services", "cmp-cost-of-money"]
++++
+
+## Purpose
+
+Sets out what makes up a contract's total cost and how income, rebates and other credits that relate to allowable costs reach the Government.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-7508] |
+| Codified citation | FAR 31.201-1 [@CL-CMP-7508] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-7508] |
+| Applies to | The total cost of a contract and credits relating to allowable costs [@CL-CMP-7508; @CL-CMP-7511] |
+
+The total cost of a contract, including standard costs properly adjusted for applicable variances, is the sum of the direct and indirect costs allocable to the contract, incurred or to be incurred, plus any allocable cost of money pursuant to FAR 31.205-10, less any allocable credits [@CL-CMP-7508]. In ascertaining what constitutes a cost, any generally accepted method of determining or estimating costs that is equitable and consistently applied may be used [@CL-CMP-7509].
+
+Total cost is not allowable cost. Total cost includes all costs properly allocable to the contract, but the allowable costs to the Government are limited to those allocable costs that are allowable under FAR part 31 and applicable agency supplements [@CL-CMP-7510]. The applicable portion of any income, rebate, allowance or other credit relating to any allowable cost and received by or accruing to the contractor shall be credited to the Government either as a cost reduction or by cash refund [@CL-CMP-7511].
+
+## How it works
+
+Composition starts with allocability: the direct and indirect costs allocable to the contract are added whether already incurred or still to be incurred, any allocable cost of money is added and allocable credits are subtracted [@CL-CMP-7508]. The cost of money is determined under FAR 31.205-10 (see [cost of money as an imputed cost](../cas-allowability/cmp-cost-of-money.md)), and standard costs enter total cost only after proper adjustment for applicable variances [@CL-CMP-7508]. Any generally accepted method of determining or estimating costs may be used, but only one that is equitable and consistently applied [@CL-CMP-7509]. Neither section names an approving official for the method.
+
+The cost allowable to the Government is then narrowed from total cost to allowable cost, because only allocable costs that are allowable under part 31 and agency supplements count [@CL-CMP-7510].
+
+The credit rule reaches credits received by or accruing to the contractor, covers only the applicable portion of a credit that relates to an allowable cost, and is met by a cost reduction or by cash refund; the section does not name an approving official [@CL-CMP-7511]. Rules for a refund or credit to the Government associated with pension adjustments and asset reversions are at FAR 31.205-6(j)(3), not here [@CL-CMP-7512]. See [allowable compensation for personal services](../cas-allowability/cmp-compensation-personal-services.md).
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A contract carries 400,000 of direct cost, 100,000 of allocable indirect cost and 50,000 of allocable cost of money, so the total cost before credits is 550,000 [@CL-CMP-7508]. Of the indirect cost, 5,000 is not allowable under part 31, so the allowable costs to the Government before credits are 545,000, because allowable costs are limited to allocable costs that are allowable [@CL-CMP-7510]. A 20,000 rebate relates to an allowable material cost and accrues to the contractor, so the applicable portion shall be credited to the Government as a cost reduction or by cash refund [@CL-CMP-7511]. Total cost after the credit is 530,000 [@CL-CMP-7508], and the allowable cost to the Government after the credit is 525,000 [@CL-CMP-7510; @CL-CMP-7511].
+
+## Never confuse
+
+Total cost and allowable cost are different measures: a cost can be part of total cost because it is allocable and still be excluded from the costs allowable to the Government because it is unallowable [@CL-CMP-7510]. A credit is not a disallowance; it reduces cost because an income, rebate, allowance or other credit relating to an allowable cost was received by or accrued to the contractor [@CL-CMP-7511]. The allocability and allowability tests behind the two measures are set out in [allocability](../cas-allowability/cmp-allocability.md) and [allowability factors](../cas-allowability/cmp-allowability-factors.md).
+
+## Company calibration
+
+How pools, bases, service centers and intercompany charges are defined and reconciled so that credits and allocable cost of money land in the right pool. [@Q-024]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for composition of total cost and the treatment of credits.
