@@ -47,7 +47,7 @@ A contractor plans to change how it sets up control accounts in its EVMS. The co
 
 ## Never confuse
 
-This card is the contract clause. The solicitation notices that ask an offeror to show its system or file a plan are covered by [Notice of earned value management system, preaward and postaward review](prg-far-evms-notice-provisions.md) and are not restated here. Whether a contract needs an earned value system at all is on [When the FAR requires an earned value management system](prg-far-evms-requirement.md), the provisions and clause the contracting officer inserts are on [Integrated Baseline Review timing, cost, provisions and clause](../risk-opportunity/prg-far-ibr-timing-clauses.md), and the reports and subcontractor rule are on [EVMS monthly reports and subcontractors under the FAR](../eac/prg-far-evms-reports-subcontractors.md). A waiver of advance approval is also not a waiver of disclosure [@CL-PRG-0916]. The codified clause adds a post award review when no pre-award review was held and limits access to records that the Contracting Officer or an authorized representative requests [@CL-PRG-0913; @CL-PRG-0917], but the RFO paragraphs print neither of those conditions [@CL-PRG-0009; @CL-PRG-0013].
+This card is the contract clause. The solicitation notices that ask an offeror to show its system or file a plan are covered by [Notice of earned value management system, preaward and postaward review](prg-far-evms-notice-provisions.md) and are not restated here. Whether a contract needs an earned value system at all is on [When the FAR requires an earned value management system](prg-far-evms-requirement.md), the provisions and clause the contracting officer inserts are on [Integrated Baseline Review timing, cost, provisions and clause](../risk-opportunity/prg-far-ibr-timing-clauses.md), and the reports and subcontractor rule are on [EVMS monthly reports and subcontractors under the FAR](../eac/prg-far-evms-reports-subcontractors.md). A waiver of advance approval is also not a waiver of disclosure [@CL-PRG-0916]. The codified clause adds a post award review when no pre-award review was held and requires access to pertinent records and data that the Contracting Officer or an authorized representative requests [@CL-PRG-0913; @CL-PRG-0917], but the RFO paragraphs print neither of those conditions [@CL-PRG-0009; @CL-PRG-0013].
 
 ## Company calibration
 
@@ -57,5 +57,5 @@ Whether the cognizant agency has determined the contract's system compliant, whi
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Matched the access-to-records wording to the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the earned value management system clause.
