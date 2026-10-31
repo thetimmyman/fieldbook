@@ -23,7 +23,7 @@ Sets out the definition of a women-owned business concern used in this provision
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1124] |
 | Codified citation | FAR 52.204-5 [@CL-MKT-1124] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.204-5 [@CL-MKT-1253; @CL-MKT-1256] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1124] |
 | Applies to | Offerors that are women-owned business concerns and have not represented themselves as small business concerns in paragraph (c)(1) of FAR 52.219-1 [@CL-MKT-1127] |
@@ -35,6 +35,8 @@ The representation is to be completed only if the offeror is a women-owned busin
 ## How it works
 
 The provision has a definition and a representation [@CL-MKT-1124; @CL-MKT-1128]. Ownership and control are separate parts, and the definition requires both [@CL-MKT-1124; @CL-MKT-1126]. For a publicly owned business, the ownership part is measured on its stock [@CL-MKT-1125]. A bracketed instruction before the representation limits who completes it, and it refers only to the representation in paragraph (c)(1) of FAR 52.219-1 [@CL-MKT-1127]. The provision does not say what the Government does with the representation.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the provision keeps the definition, with its ownership part, its stock rule for a publicly owned business and its control part [@CL-MKT-1253] [@CL-MKT-1254] [@CL-MKT-1255] [@CL-MKT-1124] [@CL-MKT-1125] [@CL-MKT-1126], and it keeps the bracketed instruction that the representation is completed only if the offeror is a women-owned business concern that has not represented itself as a small business concern in paragraph (c)(1) of FAR 52.219-1, as well as the representation itself [@CL-MKT-1256] [@CL-MKT-1257] [@CL-MKT-1127] [@CL-MKT-1128].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which legal entities in the group meet the ownership and control test, and which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the women-owned business representation.
