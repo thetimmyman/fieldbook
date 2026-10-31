@@ -24,7 +24,7 @@ Explains the principles governing the allowability of costs resulting from contr
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0213] |
 | Codified citation | FAR 31.205-42 [@CL-CLS-0213] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-42 [@CL-CLS-1226; @CL-CLS-1227; @CL-CLS-1228; @CL-CLS-1229; @CL-CLS-1230; @CL-CLS-1231] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0213] |
 | Applies to | Terminated contracts, with the termination cost principles used alongside the other cost principles [@CL-CLS-0309] |
@@ -37,6 +37,8 @@ Costs which cannot be discontinued immediately after the effective date of termi
 
 The termination cost principles are used in conjunction with the other cost principles in the cost principles subpart [@CL-CLS-0309]. Costs that cannot be discontinued immediately after the effective date of termination, despite all reasonable efforts by the contractor, are generally allowable, but costs that continue after the effective date because of the contractor's negligent or willful failure to discontinue them are unallowable [@CL-CLS-0214; @CL-CLS-0215]. Settlement expenses are generally allowable, including accounting, legal, clerical and similar costs reasonably necessary for preparing and presenting settlement claims to the contracting officer [@CL-CLS-0310]. When settlement expenses are significant, a cost account or work order is established to separately identify and accumulate them [@CL-CLS-0216]. How the settlement itself is agreed or determined is covered in [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md) and [Termination settlement under cost-reimbursement contracts](../../contract-finance/billing-payment/ctf-termination-cost-reimbursement-settlement.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-42 keeps the termination cost principles as principles used in conjunction with the other cost principles in the subpart [@CL-CLS-1226]. The common-items evidence rule is numbered (a)(1) in the RFO text [@CL-CLS-1227]. Costs that cannot be discontinued immediately despite all reasonable efforts are generally allowable under (b)(1) [@CL-CLS-1228], and costs continuing because of the contractor's negligent or willful failure to discontinue them must be unallowable under (b)(2) [@CL-CLS-1229]. Settlement expenses stay generally allowable under (g)(1) [@CL-CLS-1230], and significant settlement expenses still need a separate cost account or work order under (g)(2) [@CL-CLS-1231].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -45,7 +47,7 @@ Following a partial termination, a contractor holds standard raw material that i
 
 ## Never confuse
 
-A cost that continues after termination is not automatically allowable, and a common item is not automatically a termination cost. Continuing costs are generally allowable only where they could not be discontinued immediately despite all reasonable efforts, and they are unallowable where negligent or willful failure caused them [@CL-CLS-0214; @CL-CLS-0215]. Items reasonably usable on other work are not allowable unless the contractor submits the required evidence [@CL-CLS-0213].
+A cost that continues after termination is not automatically allowable, and a common item is not automatically a termination cost. Continuing costs are generally allowable only where they could not be discontinued immediately despite all reasonable efforts, and they are unallowable where negligent or willful failure caused them [@CL-CLS-0214; @CL-CLS-0215]. Items reasonably usable on other work are not allowable unless the contractor submits the required evidence [@CL-CLS-0213]. Under the RFO text, that evidence rule is paragraph (a)(1) [@CL-CLS-1227], and the rule on continuing costs is split into paragraphs (b)(1) and (b)(2) [@CL-CLS-1228; @CL-CLS-1229].
 
 ## Company calibration
 
@@ -55,4 +57,5 @@ How excess inventory and work in process on terminated contracts are reviewed fo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination costs.

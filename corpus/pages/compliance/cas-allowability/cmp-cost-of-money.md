@@ -24,7 +24,7 @@ Explains what the imputed cost of money is, the conditions that make it allowabl
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0756] |
 | Codified citation | FAR 31.205-10 [@CL-CMP-0756] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-10 [@CL-CMP-9385] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0756] |
 | Applies to | Cost of money as an incurred cost under applicable cost-reimbursement contracts and for progress payment purposes under fixed-price contracts [@CL-CMP-0757] |
@@ -36,6 +36,8 @@ Allowability is conditional: the cost has to be measured, assigned and allocated
 ## How it works
 
 The amount is computed rather than paid: the contractor imputes it, then measures, assigns and allocates it to contracts under the applicable cost accounting standard [@CL-CMP-0759]. It counts as an incurred cost for cost-reimbursement purposes under applicable cost-reimbursement contracts and for progress payment purposes under fixed-price contracts [@CL-CMP-0757]. Two conditions sit on top of that arithmetic: the provision limiting cost of money allowability must be respected [@CL-CMP-0760], and the estimated facilities capital cost of money must appear by name in the proposal for the contract that will claim it [@CL-CMP-0761]. Substituting actual interest for the imputed figure is not an option [@CL-CMP-0762].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-10 keeps the rule that cost of money is an imputed cost that is not a form of interest on borrowings [@CL-CMP-9385], and that it is an incurred cost for cost-reimbursement purposes under applicable cost-reimbursement contracts and for progress payment purposes under fixed-price contracts [@CL-CMP-9386]. It keeps the reference to facilities capital cost of money and to cost of money for capital assets under construction [@CL-CMP-9387] and the listed conditions for allowability, but it introduces them with "allowable when" where the codified text says "allowable, provided" [@CL-CMP-9388; @CL-CMP-9408]. The conditions are measurement, assignment and allocation under the applicable cost accounting standard [@CL-CMP-9388], observance of the requirements of 31.205-52 [@CL-CMP-9389] and specific identification of the estimated facilities capital cost of money in the cost proposals [@CL-CMP-9390]. It keeps the rule that actual interest cost in lieu of the calculated imputed cost of money is unallowable [@CL-CMP-9391].
 
 ## Worked example
 
@@ -55,5 +57,6 @@ Whether the company computes cost of money only under the applicable cost accoun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost of money.

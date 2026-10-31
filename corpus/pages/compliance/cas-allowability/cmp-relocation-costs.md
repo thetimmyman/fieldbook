@@ -24,7 +24,7 @@ Sets out allowable and unallowable relocation costs, ceiling limits on real esta
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0806] |
 | Codified citation | FAR 31.205-35 [@CL-CMP-0806] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-35 [@CL-CMP-9497] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0806] |
 | Applies to | Not established. |
@@ -53,6 +53,8 @@ Relocation costs, both outgoing and return, of employees hired for specific cont
 
 The principle first lists the relocation costs that are allowable as noted, then adds criteria every cost must meet and a short list of unallowable items [@CL-CMP-1123; @CL-CMP-1141]. Home sale and ownership costs share one ceiling, and home purchase, mortgage differential and rental differential payments carry their own limits [@CL-CMP-0807; @CL-CMP-1129; @CL-CMP-1131; @CL-CMP-1134]. A lump-sum option may replace actual costs for miscellaneous expenses and for supported home-finding, travel and lodging amounts [@CL-CMP-0808; @CL-CMP-1138]. If the employee resigns early for reasons within the employee's control, the allowed costs are refunded or credited [@CL-CMP-0809].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-35 keeps the definition of relocation costs [@CL-CMP-9497], the 14 percent ceiling on closing costs added to continuing ownership costs [@CL-CMP-9499], the 5 percent limit on costs of acquiring a home in the new work location [@CL-CMP-9502], the $5,000 lump sum for miscellaneous costs [@CL-CMP-9504], and the refund or credit when the employee resigns within 12 months for reasons within the employee's control [@CL-CMP-9507]. It differs as follows. Paragraph (a) lists the types of relocation costs as allowable without the codified words "as noted, subject to the limitations in paragraphs (b) and (f)" [@CL-CMP-1123; @CL-CMP-9498]. Paragraph (b) still requires the costs in paragraph (a) to meet its listed criteria to be considered allowable [@CL-CMP-9525]. A new paragraph (a)(5) makes the cost of a mortgage title policy allowable if it is a cost incident to acquiring a home in a new location [@CL-CMP-9500], so several later list items move down one place: other necessary and reasonable expenses become (a)(6) [@CL-CMP-9501], costs of acquiring a home become (a)(7) [@CL-CMP-9502], and mortgage interest differential payments become (a)(8) [@CL-CMP-9503]. Paragraph (c)(2) no longer carries the codified parenthetical about mortgage title policies [@CL-CMP-9506; @CL-CMP-1143]. For employees hired for specific contracts or long-term field projects, the costs are determined in accordance with the whole section instead of paragraphs (a) through (d) [@CL-CMP-9508; @CL-CMP-1147]. The exception for the costs to return employees released on completion of field assignments is a separate paragraph (f)(5) [@CL-CMP-9508].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -61,7 +63,7 @@ An existing employee is permanently transferred to a new facility. The employee 
 
 ## Never confuse
 
-Relocation costs are costs incident to a permanent change of assigned work location for a period of 12 months or more [@CL-CMP-0806]; see [Travel costs](cmp-travel-costs.md) for travel cost rules. Loss on the sale of a home and continuing mortgage principal payments on a residence being sold are expressly unallowable relocation items [@CL-CMP-1141; @CL-CMP-1144]; see [Compensation for personal services](cmp-compensation-personal-services.md).
+Relocation costs are costs incident to a permanent change of assigned work location for a period of 12 months or more [@CL-CMP-0806]; see [Travel costs](cmp-travel-costs.md) for travel cost rules. Loss on the sale of a home and continuing mortgage principal payments on a residence being sold are expressly unallowable relocation items [@CL-CMP-1141; @CL-CMP-1144]; see [Compensation for personal services](cmp-compensation-personal-services.md). Under the codified text a mortgage title policy is allowable through a parenthetical in paragraph (c)(2)(v) [@CL-CMP-1143]; under the RFO text it is allowable under paragraph (a)(5) [@CL-CMP-9500]. The codified $5,000 lump sum refers to paragraph (a)(5) [@CL-CMP-0808], which is paragraph (a)(6) in the RFO text [@CL-CMP-9504; @CL-CMP-9501].
 
 ## Company calibration
 
@@ -71,5 +73,6 @@ How relocation reimbursements are monitored to enforce ceiling caps and track ea
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for relocation costs.

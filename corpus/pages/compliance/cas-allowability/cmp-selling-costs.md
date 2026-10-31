@@ -24,7 +24,7 @@ Shows which selling efforts the cost principle addresses, which of them are allo
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0773] |
 | Codified citation | FAR 31.205-38 [@CL-CMP-0773] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-38 [@CL-CMP-9517] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0773] |
 | Applies to | Selling efforts to market the contractor's products or services [@CL-CMP-0773] |
@@ -39,6 +39,8 @@ Notwithstanding any other provision of the subsection, sellers' or agents' compe
 
 The principle routes each selling activity to the provision that governs it and treats anything unrouted as unallowable [@CL-CMP-0774]. Direct selling, which is aimed at particular customers, is expressly allowed [@CL-CMP-0775; @CL-CMP-0776], as are market planning costs other than long-range ones [@CL-CMP-0777]. Payments to intermediaries pass only through a gate: the recipient must be a bona fide employee or an established commercial or selling agency maintained by the contractor for the purpose of securing business, and contingency on award does not open that gate [@CL-CMP-1113; @CL-CMP-0778]. Long-range market planning and bid and proposal work are left to their own allowability provisions [@CL-CMP-0777; @CL-CMP-0779].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-38 keeps the rule that the costs of selling efforts other than those the principle addresses are unallowable, now at paragraph (a)(2) [@CL-CMP-9517], after paragraph (a)(1) saying that selling encompasses all efforts to market the contractor's products or services [@CL-CMP-9516]. It keeps the allowability of direct selling [@CL-CMP-9520; @CL-CMP-9521], the allowability of market planning costs other than long-range ones [@CL-CMP-9519], and the pointer for bid and proposal costs [@CL-CMP-9518]. In paragraph (c) the opening words are "Notwithstanding any other limitation of this section" [@CL-CMP-9522], where the codified paragraph says "any other provision of this subsection" [@CL-CMP-1113]. The payee test is unchanged: the seller or agent compensation, fees, commissions, percentages, and retainer or brokerage fees named in that paragraph are allowable only when paid to bona fide employees or established commercial or selling agencies maintained by the contractor for the purpose of securing business, whether or not contingent upon the award [@CL-CMP-9522; @CL-CMP-9523].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,7 +49,7 @@ A company spends 40,000 on a general awareness campaign, 60,000 on direct sellin
 
 ## Never confuse
 
-Selling is not one allowable category: only the efforts the principle addresses are covered, and the rest are unallowable [@CL-CMP-0774]. Direct selling is not broad market awareness work, because it is aimed at inducing particular customers to buy particular products or services [@CL-CMP-0775]. A commission is not allowable merely because a sale followed; the payee must qualify [@CL-CMP-0778]. Bid and proposal cost has its own card at [Bid and proposal costs](cmp-ird-and-bp-costs.md).
+Selling is not one allowable category: only the efforts the principle addresses are covered, and the rest are unallowable [@CL-CMP-0774]. Direct selling is not broad market awareness work, because it is aimed at inducing particular customers to buy particular products or services [@CL-CMP-0775]. A commission is not allowable merely because a sale followed; the payee must qualify [@CL-CMP-0778]. Bid and proposal cost has its own card at [Bid and proposal costs](cmp-ird-and-bp-costs.md). The rule that unaddressed selling efforts are unallowable is the second sentence of codified paragraph (a) [@CL-CMP-0774] and paragraph (a)(2) in the RFO text [@CL-CMP-9517].
 
 ## Company calibration
 
@@ -57,5 +59,6 @@ Whether the company tags each selling cost to a category the principle addresses
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for selling costs.

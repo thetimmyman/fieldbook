@@ -24,7 +24,7 @@ Shows which recurring costs of running a company the section makes allowable.
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-0868] |
 | Codified citation | FAR 31.205-28 [@CL-CMP-0868] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-28 [@CL-CMP-9466; @CL-CMP-9467; @CL-CMP-9468; @CL-CMP-9469] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0868] |
 | Applies to | Not established. |
@@ -34,6 +34,8 @@ The section makes a listed set of recurring business costs allowable [@CL-CMP-08
 ## How it works
 
 The section works by listing types of recurring cost and making those types allowable [@CL-CMP-0868]. The closing item, other similar costs, lets a cost like the named ones fall under the same section [@CL-CMP-0872]. The printed section does not say which cost pool these costs belong to.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-28 keeps the rule described above [@CL-CMP-9466]. It makes the listed recurring costs allowable, starting with registry and transfer charges resulting from changes in ownership of securities issued by the contractor [@CL-CMP-9466], then the cost of shareholders' meetings, normal proxy solicitations, and preparing and publishing reports to shareholders [@CL-CMP-9467], required reports and forms to taxing and other regulatory bodies and incidental costs of directors' and committee meetings [@CL-CMP-9468], and other similar costs [@CL-CMP-9469].
 
 ## Worked example
 
@@ -53,5 +55,6 @@ Whether shareholder and regulatory housekeeping costs are booked as recurring in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Narrowed the statements to what the section lists and removed statements about cost pools that the section does not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for other business expenses.

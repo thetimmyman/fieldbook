@@ -24,7 +24,7 @@ Shows which contracts the construction category covers, what applies to them, an
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2713] |
 | Codified citation | FAR 31.105 [@CL-CMP-2711] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.105 [@CL-CMP-9569; @CL-CMP-9570; @CL-CMP-9572; @CL-CMP-9573; @CL-CMP-9575] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2711] |
 | Applies to | Cost-negotiated contracts for construction and architect-engineer work, with the organization exclusions stated in the section [@CL-CMP-2711; @CL-CMP-2712] |
@@ -51,6 +51,8 @@ Reasonable costs of renting construction equipment are allowable with a cross-re
 
 The section lists superintendence, timekeeping and clerical work, engineering, utility costs, supplies, material handling, and restoration and cleanup as examples of costs incurred at the job site incident to performing the work [@CL-CMP-2762]. Job-site costs of those kinds are allowable as direct or indirect costs, provided the accounting practice used is in accordance with the contractor's established and consistently followed cost accounting practices for all work [@CL-CMP-2763]. Rental and other costs of acquiring the temporary use of land, structures, and facilities, and costs of constructing or fabricating structures and facilities of a temporary nature, are allowable, in each case less any applicable credits [@CL-CMP-2764].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.105 keeps the category: it covers construction management or construction, alteration or repair of real property and related architect-engineer contracts, and not vessels, aircraft or other personal property [@CL-CMP-9569], when negotiated on the basis of cost with organizations other than the excluded kinds [@CL-CMP-9570]. It keeps most of the equipment and job-site rules: actual cost data must be used when it can be determined [@CL-CMP-9577], the ownership and operating allowance guidance [@CL-CMP-9581; @CL-CMP-9582], the elimination of equipment costs included in schedule allowances [@CL-CMP-9583], the standby cap during suspension of work [@CL-CMP-9584], major repair and overhaul of rented equipment being unallowable [@CL-CMP-9586], job-site costs [@CL-CMP-9587; @CL-CMP-9588], and temporary land and facility costs [@CL-CMP-9589]. Several things change. The paragraphs are renumbered: the definition of construction equipment is paragraph (b) [@CL-CMP-9571], the pricing rule is paragraph (c) [@CL-CMP-9572], the incorporation rule is paragraph (d) [@CL-CMP-9573; @CL-CMP-9574], and the allowability rules are in paragraph (e) [@CL-CMP-9575]. The pricing exception and the incorporation rule's modification reference both still point to paragraph (d), not to paragraph (e), where the codified text pointed to its allowability paragraph [@CL-CMP-9572; @CL-CMP-9573; @CL-CMP-2713; @CL-CMP-2714]. In the reimbursable-cost purpose, the RFO text reads cost-reimbursement contracts and subcontracts, without the codified words including cost-reimbursement subcontracts thereunder [@CL-CMP-9573; @CL-CMP-2772]. Advance agreements appear as an exception that refers to 31.110, where the codified text refers to 31.109, and the RFO text does not repeat the codified statement that such agreements are particularly important [@CL-CMP-9576; @CL-CMP-2716]. When actual cost data cannot be determined, the contracting officer, not the contracting agency, may specify a schedule of predetermined rates or any part of one [@CL-CMP-9578; @CL-CMP-2719]. The rule that costs otherwise unallowable do not become allowable is tied to an advance agreement rather than to any schedule [@CL-CMP-9579; @CL-CMP-2720], and the schedule-adjustment examples are kept [@CL-CMP-9580; @CL-CMP-2766]. The rented-equipment paragraph opens directly with its list, with no counterpart to the codified sentence that reasonable costs of renting construction equipment are allowable [@CL-CMP-9585; @CL-CMP-2722], and its common-control reference adds 31.205-36(b)(4) [@CL-CMP-9586; @CL-CMP-2723].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -63,6 +65,8 @@ The same contractor incurs 8,000 of job-site superintendence and 2,000 of rental
 
 A schedule of predetermined rates is a way to measure ownership and operating cost, not a way to allow cost, because costs otherwise unallowable do not become allowable through it [@CL-CMP-2720]. Job-site costs are allowable as direct or indirect costs provided the accounting practice follows the contractor's established and consistently followed practices for all work, which is a different test from the equipment rules [@CL-CMP-2763]. The commercial-organization category excludes construction and architect-engineer contracts [@CL-CMP-2707]; see [Cost principles for contracts with commercial organizations](../cas-allowability/cmp-cost-principles-commercial-organizations.md). For how costs that are unallowable are identified and excluded, see [Accounting for unallowable and directly associated costs](../cas-allowability/cmp-accounting-for-unallowable-and-associated-costs.md). For rental costs under the general cost principles, see [Allowable rental costs](../cas-allowability/cmp-rental-costs.md), and for the allowability tests, see [Factors determining cost allowability](../cas-allowability/cmp-allowability-factors.md).
 
+Under the codified text, costs otherwise unallowable do not become allowable through any schedule [@CL-CMP-2720], but under the RFO text they must not become allowable through the use of an advance agreement [@CL-CMP-9579]. The codified text also states that reasonable costs of renting construction equipment are allowable [@CL-CMP-2722], and the RFO rented-equipment paragraph opens with its list and does not state this [@CL-CMP-9585].
+
 ## Company calibration
 
 Whether the company holds construction or architect-engineer contracts, and whether advance agreements cover equipment usage and home office overhead. [@Q-043]
@@ -71,4 +75,5 @@ Whether the company holds construction or architect-engineer contracts, and whet
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost principles for construction and architect-engineer contracts.

@@ -24,7 +24,7 @@ Covers bonding costs, economic planning costs and plant reconversion costs toget
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7513] |
 | Codified citation | FAR 31.205-4 [@CL-CMP-7513] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-4 [@CL-CMP-9362]; RFO FAR 31.205-12 [@CL-CMP-9366]; RFO FAR 31.205-31 [@CL-CMP-9369] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7513] |
 | Applies to | Bonding costs, economic planning costs and plant reconversion costs [@CL-CMP-7513; @CL-CMP-7517; @CL-CMP-7520] |
@@ -43,6 +43,8 @@ Economic planning is allowable as a category, and the section sets no condition 
 
 Reconversion is unallowable by default. The exception covers removal of Government property together with the restoration or rehabilitation that the removal caused [@CL-CMP-7521]. Beyond that, additional costs may be allowed only where special circumstances make equity dictate it, and only to the extent agreed upon before the costs are incurred [@CL-CMP-7522]. The section does not say who agrees; the allowance is a "may", not a right. Fair wear and tear is not part of the reconversion cost [@CL-CMP-7520]. The caution on duplication applies to how these costs are allowed: through contingencies, additional profit or fee, or in other contracts [@CL-CMP-7523].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-4 keeps the bonding rules [@CL-CMP-9362] but prints the list of bonds as paragraph (b) [@CL-CMP-9363], so bonding required by the terms of the contract is allowable under paragraph (c) [@CL-CMP-9364] and bonding required by the contractor in the general conduct of its business is allowable under paragraph (d) to the extent that it is in accordance with sound business practice and the rates and premiums are reasonable under the circumstances [@CL-CMP-9365]. RFO FAR 31.205-12 keeps the definition of economic planning costs [@CL-CMP-9366; @CL-CMP-9368] and the exclusion of organization and reorganization costs, with its pointer to 31.205-38 for market planning costs, and it prints the allowability sentence last, as paragraph (c) [@CL-CMP-9367]. RFO FAR 31.205-31 keeps the rule that reconversion costs are unallowable except for the cost of removing Government property and the restoration or rehabilitation costs caused by that removal [@CL-CMP-9370], and the caution against duplication [@CL-CMP-9372]. It excepts reasonable wear and tear where the codified text excepts fair wear and tear [@CL-CMP-9369; @CL-CMP-7520], and it allows additional costs, to the extent agreed upon before costs are incurred, in circumstances where equity so dictates, without the word special [@CL-CMP-9371; @CL-CMP-7522].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -51,7 +53,7 @@ A contractor ends a Government contract and incurs three costs at its facility. 
 
 ## Never confuse
 
-Economic planning is not organization or reorganization work, which is outside the category [@CL-CMP-7519]; see [organization costs](../cas-allowability/cmp-organization-costs.md) and, for market planning, [selling costs](../cas-allowability/cmp-selling-costs.md) [@CL-CMP-7631]. Plant reconversion is restoring or rehabilitating facilities to approximately their condition before the Government contract, fair wear and tear excepted, and it is unallowable apart from the removal exception and any equity allowance agreed in advance [@CL-CMP-7520; @CL-CMP-7521; @CL-CMP-7522]. Contract-required bonding and business bonding also differ, because only the second carries the condition that the bonding follow sound business practice and carry reasonable rates and premiums [@CL-CMP-7515; @CL-CMP-7516].
+Economic planning is not organization or reorganization work, which is outside the category [@CL-CMP-7519]; see [organization costs](../cas-allowability/cmp-organization-costs.md) and, for market planning, [selling costs](../cas-allowability/cmp-selling-costs.md) [@CL-CMP-7631]. Plant reconversion is restoring or rehabilitating facilities to approximately their condition before the Government contract, fair wear and tear excepted, and it is unallowable apart from the removal exception and any equity allowance agreed in advance [@CL-CMP-7520; @CL-CMP-7521; @CL-CMP-7522]. Contract-required bonding and business bonding also differ, because only the second carries the condition that the bonding follow sound business practice and carry reasonable rates and premiums [@CL-CMP-7515; @CL-CMP-7516]. The equity allowance for reconversion costs is worded differently in the two texts: the codified text says "in special circumstances where equity so dictates" [@CL-CMP-7522], while the RFO text says "in circumstances, where equity so dictates" [@CL-CMP-9371].
 
 ## Company calibration
 
@@ -61,4 +63,5 @@ Whether any reconversion work is covered by a written agreement made before the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bonding costs, economic planning costs and plant reconversion costs.

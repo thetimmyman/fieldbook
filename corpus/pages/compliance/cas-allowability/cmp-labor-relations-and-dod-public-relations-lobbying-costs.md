@@ -24,7 +24,7 @@ Separates allowable labor relations work from the persuasion costs the FAR makes
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7524] |
 | Codified citation | FAR 31.205-21 [@CL-CMP-7524] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 31.205-21 [@CL-CMP-9436; @CL-CMP-9438] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7524] |
 | Applies to | Labor relations costs under the FAR, and public relations, advertising, lobbying and political activity costs under the DoD supplement [@CL-CMP-7524; @CL-CMP-7528; @CL-CMP-7530] |
@@ -47,6 +47,8 @@ The line between the two labor relations categories is what the activity is for.
 
 The DoD supplements add to the FAR cost principles. Neither names a contracting officer decision, an approval route or a threshold. The leasing rule makes lease payments and support-service reimbursements paid to the Government unallowable as public relations and advertising costs, and the foreign military sales exception applies only to contracts as provided for at DFARS 225.7303-2 [@CL-CMP-7528]. The cross-reference sends other foreign military sales allowability questions to DFARS 225.7303-2(e) [@CL-CMP-7527]. The impact-material rule is stated for an acquisition program whose research, development, testing and evaluation has not been completed [@CL-CMP-7530].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-21 keeps the labor relations rules [@CL-CMP-9436; @CL-CMP-9438]. Costs incurred in maintaining satisfactory relations between the contractor and its employees, including costs of shop stewards, labor management committees, employee publications, and other related activities, are allowable [@CL-CMP-9436]. As required by Executive Order 13494 [@CL-CMP-9437], costs of any activities undertaken to persuade employees of any entity to exercise, or not to exercise, or concerning the manner of exercising, the right to organize and bargain collectively, through representatives of the employees' own choosing, are unallowable [@CL-CMP-9438]. The examples include preparing and distributing materials and hiring or consulting legal counsel or consultants [@CL-CMP-9439], meetings (including paying the salaries of the attendees at meetings held for this purpose), and planning or conducting activities by managers, supervisors, or union representatives during work hours [@CL-CMP-9440]. Two wordings differ: paragraph (a) omits the codified exclusion for costs made unallowable in paragraph (b) [@CL-CMP-9436], and the RFO text introduces the examples with "Examples of unallowable costs are" where the codified text says they "include, but are not limited to" the costs listed [@CL-CMP-9439].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -57,7 +59,7 @@ On a DoD contract, the contractor pays the Government 5,000 to lease Government-
 
 ## Never confuse
 
-Labor relations costs and lobbying costs are separate prohibitions: the first turns on whether the activity persuades employees about organizing or bargaining, the second, in the DoD supplement, reaches impact material for an acquisition program whose research, development, testing and evaluation is incomplete [@CL-CMP-7525; @CL-CMP-7530]. Public relations and advertising is its own DoD supplement topic, and the foreign military sales exception belongs to it [@CL-CMP-7527; @CL-CMP-7528]. The neighbouring cards are [public relations and advertising costs](../cas-allowability/cmp-public-relations-and-advertising-costs.md) and [lobbying and political activity costs](../cas-allowability/cmp-lobbying-and-political-activity-costs.md).
+Labor relations costs and lobbying costs are separate prohibitions: the first turns on whether the activity persuades employees about organizing or bargaining, the second, in the DoD supplement, reaches impact material for an acquisition program whose research, development, testing and evaluation is incomplete [@CL-CMP-7525; @CL-CMP-7530]. The codified paragraph (a) allows relations costs "other than those made unallowable in paragraph (b)" [@CL-CMP-7524], whereas RFO paragraph (a) has no such exclusion [@CL-CMP-9436], although RFO paragraph (b) still makes the persuasion costs unallowable [@CL-CMP-9438]. Public relations and advertising is its own DoD supplement topic, and the foreign military sales exception belongs to it [@CL-CMP-7527; @CL-CMP-7528]. The neighbouring cards are [public relations and advertising costs](../cas-allowability/cmp-public-relations-and-advertising-costs.md) and [lobbying and political activity costs](../cas-allowability/cmp-lobbying-and-political-activity-costs.md).
 
 ## Company calibration
 
@@ -67,4 +69,5 @@ How labor relations, public relations and lobbying costs are identified and kept
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor relations costs and the DoD supplements on public relations, advertising, lobbying and political activity.
