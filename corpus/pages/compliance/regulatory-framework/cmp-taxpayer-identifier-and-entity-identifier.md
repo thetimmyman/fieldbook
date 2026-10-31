@@ -71,7 +71,7 @@ During performance the identifier changes on day 0. The contractor must tell the
 
 The taxpayer identification number and the unique entity identifier are different things. The first is the number the Internal Revenue Service requires for reporting returns [@CL-CMP-5978], and the second identifies a specific entity [@CL-CMP-5981].
 
-The clauses on SAM registration and its maintenance are separate clauses; they are covered on [SAM registration and maintenance clauses](cmp-sam-registration-and-maintenance-clauses.md), including their own notice rules, and this card does not restate them. Under the codified text all offerors submit the taxpayer information and a refusal may cost 31 percent of payments [@CL-CMP-5979; @CL-CMP-5980]; under the RFO text, the duty to complete the taxpayer paragraph is stated for an offeror that will not have an active registration when submitting its offer, and that paragraph prints no payment reduction [@CL-CMP-6318; @CL-CMP-6328]. A changed identifier does not necessarily require a novation [@CL-CMP-5986]; novation agreements are covered on [Novation and change-of-name agreements](../../mna/diligence/mna-novation-agreements.md).
+The clauses on SAM registration and its maintenance are separate clauses; they are covered on [SAM registration and maintenance clauses](cmp-sam-registration-and-maintenance-clauses.md), including their own notice rules, and this card does not restate them. Under the codified text all offerors must submit the taxpayer information and, where the resulting contract is subject to the payment reporting requirements, a failure or refusal to furnish it may result in a 31 percent reduction of payments otherwise due [@CL-CMP-5979; @CL-CMP-5980]; under the RFO text, the duty to complete the taxpayer paragraph is stated for an offeror that will not have an active registration when submitting its offer, and that paragraph prints no payment reduction [@CL-CMP-6318; @CL-CMP-6328]. A changed identifier does not necessarily require a novation [@CL-CMP-5986]; novation agreements are covered on [Novation and change-of-name agreements](../../mna/diligence/mna-novation-agreements.md).
 
 The Electronic Funds Transfer indicator is a suffix assigned to the same entity's identifier to establish additional records for alternative accounts [@CL-CMP-6679; @CL-CMP-6680]. It does not identify a separate entity. Under the codified text the indicator is a four-character suffix to the identifier [@CL-CMP-6679], and the RFO definition calls it a bank account identifier and does not describe it as a suffix [@CL-CMP-6325].
 
@@ -83,5 +83,6 @@ Which legal entities hold each identifier, who owns the identifier updates, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: taxpayer identifier: 31 percent reduction condition restored.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxpayer identification, the unique entity identifier and its maintenance.

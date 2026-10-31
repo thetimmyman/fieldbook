@@ -35,7 +35,7 @@ If a pool member submits an individual offer, independent of the pool, the contr
 
 ## How it works
 
-The member's freedom to offer alone is qualified by the competing-offer bar [@CL-CMP-8255; @CL-CMP-8256]. The bar applies when the member participates in a competing offer submitted by the pool, and it does not turn on the bare fact that the member belongs to a pool [@CL-CMP-8256]. Both duties fall on the contracting officer, who shall not consider an independent offer in the barred case and who weighs the pool agreement in the responsibility determination [@CL-CMP-8256; @CL-CMP-8257]. The pool agreement is one factor, considered along with other factors [@CL-CMP-8257]. What a pool is, and how the contracting officer verifies its approved status, is on the [small business pool contracting](./cmp-small-business-pool-contracting.md) card.
+The member's freedom to offer alone is qualified by the competing-offer bar [@CL-CMP-8255; @CL-CMP-8256]. The bar applies if the member participates in a competing offer submitted by the pool [@CL-CMP-8256]. Both duties fall on the contracting officer, who shall not consider an independent offer in the barred case and who weighs the pool agreement in the responsibility determination [@CL-CMP-8256; @CL-CMP-8257]. The pool agreement is one factor, considered along with other factors [@CL-CMP-8257]. What a pool is, and how the contracting officer verifies its approved status, is on the [small business pool contracting](./cmp-small-business-pool-contracting.md) card.
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A pool submits an offer on a requirement, and Member A participates in that pool
 
 ## Never confuse
 
-A member offering alone is not the same as the pool offering. The bar applies only where the member participates in a competing offer submitted by the pool [@CL-CMP-8256]. The pool agreement is also not ignored in the responsibility question, because the contracting officer shall consider it along with other factors [@CL-CMP-8257].
+A member offering alone is not the same as the pool offering. The bar is stated for the case where the member participates in a competing offer submitted by the pool [@CL-CMP-8256]. The pool agreement is also not ignored in the responsibility question, because the contracting officer shall consider it along with other factors [@CL-CMP-8257].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Who confirms that a member's independent offer does not sit beside a competing p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: pool member offers: removed only and unstated necessity.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting with individual members of a small business pool.

@@ -29,7 +29,7 @@ Gives the full meaning of the five terms that the service contract labor standar
 | Text status | Final [@CL-CMP-8081] |
 | Applies to | The terms as used in this subpart [@CL-CMP-8103] |
 
-The definitions apply to the terms as used in this subpart [@CL-CMP-8103]. The section defines five terms [@CL-CMP-8081; @CL-CMP-8082; @CL-CMP-8083; @CL-CMP-8085; @CL-CMP-8086]. Each is quoted in full below, with every listed element and exclusion.
+The definitions apply to the terms as used in this subpart [@CL-CMP-8103]. The section defines five terms [@CL-CMP-8081; @CL-CMP-8082; @CL-CMP-8083; @CL-CMP-8085; @CL-CMP-8086]. Each is summarized below.
 
 | Term | Full definition | Claim |
 |---|---|---|
@@ -47,11 +47,11 @@ Contractor: where the subpart says contractor, the term includes a subcontractor
 
 Multiple year contracts: the test is a term of more than 1 year, and fiscal year funding does not change the result [@CL-CMP-8082]. Multi-year contracts are included, with a cross-reference to FAR 17.103 [@CL-CMP-8082].
 
-United States: the definition lists the included places and, in the same sentence, does not include any other place subject to United States jurisdiction or any United States base or possession within a foreign country [@CL-CMP-8083; @CL-CMP-8084].
+United States: the definition names the 50 States, the District of Columbia, Puerto Rico, the Northern Mariana Islands, American Samoa, Guam, the United States Virgin Islands, Johnston Island, Wake Island, and the outer Continental Shelf as defined in the Outer Continental Shelf Lands Act, but, in the same sentence, does not include any other place subject to United States jurisdiction or any United States base or possession within a foreign country [@CL-CMP-8083; @CL-CMP-8084].
 
 Wage and Hour Division: the Department of Labor unit that holds the Secretary of Labor's functions under the statute [@CL-CMP-8085]. The section does not say what the unit decides.
 
-Wage determination: a determination of minimum wages or fringe benefits that is applicable to one or more classes of service employees in a given locality [@CL-CMP-8086]. How a wage determination is obtained and applied is on [the wage determinations and successorship card](cmp-scls-wage-determinations-and-successorship.md).
+Wage determination: a determination of minimum wages or fringe benefits made under section 6703 or 6707(c) of title 41 of the United States Code that is applicable to the employment in a given locality of one or more classes of service employees [@CL-CMP-8086]. How a wage determination is obtained and applied is on [the wage determinations and successorship card](cmp-scls-wage-determinations-and-successorship.md).
 
 ## Worked example
 
@@ -63,7 +63,7 @@ Work is performed in Guam and at a base the United States holds in a foreign cou
 
 ## Never confuse
 
-Multiple year contracts is the broader term: it covers any contract with a term of more than 1 year, and multi-year contracts are included [@CL-CMP-8082]. Fiscal year funding does not change whether a term of more than 1 year makes a contract a multiple year contract [@CL-CMP-8082].
+Multiple year contracts means contracts having a term of more than 1 year, and the term includes multi-year contracts [@CL-CMP-8082]. Fiscal year funding does not change whether a term of more than 1 year makes a contract a multiple year contract [@CL-CMP-8082].
 
 The Wage and Hour Division is a unit of the Department of Labor, not the Secretary of Labor [@CL-CMP-8085]. A wage determination is a determination of minimum wages or fringe benefits, not an organization [@CL-CMP-8086]. The definition of the Wage and Hour Division does not say that the unit makes wage determinations [@CL-CMP-8085].
 
@@ -75,4 +75,6 @@ Which legal entity signs as the contractor, which subcontracts at any tier are s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: SCLS definitions: sentence wording adjusted so each figure sits with its claim.
+- COMPATIBLE_EXTENSION, 2026-10-31: SCLS definitions: United States places listed, wage determination statute cited, wording tied to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the service contract labor standards definitions.

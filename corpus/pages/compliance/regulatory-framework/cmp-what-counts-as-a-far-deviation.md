@@ -49,7 +49,7 @@ A contract file lacks a clause whose prescription requires its use in contracts 
 
 ## Never confuse
 
-The definition of a deviation is not the same as an authorization to deviate. The definition says what counts as a deviation, and the authorization rules say who may grant one and in which cases [@CL-CMP-8330; @CL-OPM-0021]. A deviation is also not the same as using a modified clause, because modified or alternate language that the FAR authorizes is not a deviation under the third form [@CL-CMP-8333].
+The definition of a deviation is not the same as an authorization to deviate. The definition says what counts as a deviation [@CL-CMP-8330]. The authorization rules say that, unless precluded by law, executive order or regulation, deviations from the FAR may be granted as specified in that subpart when necessary to meet the specific needs and requirements of each agency [@CL-OPM-0021]. A deviation is also not the same as using a modified clause, because modified or alternate language that the FAR authorizes is not a deviation under the third form [@CL-CMP-8333].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Which contracts and modifications in the company's remit sit under terms that de
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: what counts as a deviation: authorization rule restated as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-30: The comparison of the deviation forms now states the test for the first and fourth forms as FAR 1.401 does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deviations from the FAR.

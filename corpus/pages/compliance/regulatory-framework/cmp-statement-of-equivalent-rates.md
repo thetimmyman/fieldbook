@@ -32,7 +32,7 @@ The statement of equivalent rates for Federal hires is the statement required un
 
 ## How it works
 
-Wages paid blue collar employees are the basic hourly rate for each class, which is Wage Board pay schedule step two for nonsupervisory service employees and step three for supervisory service employees [@CL-CMP-6774]. Wages paid white collar employees are an hourly rate for each class, obtained by dividing the general pay schedule step one biweekly rate by 80 [@CL-CMP-6925]. Local civilian personnel offices can assist in determining and providing grade and salary data [@CL-CMP-6775].
+Wages paid blue collar employees shall be the basic hourly rate for each class, and that rate shall be Wage Board pay schedule step two for nonsupervisory service employees and step three for supervisory service employees [@CL-CMP-6774]. Wages paid white collar employees shall be an hourly rate for each class, obtained by dividing the general pay schedule step one biweekly rate by 80 [@CL-CMP-6925]. Local civilian personnel offices can assist in determining and providing grade and salary data [@CL-CMP-6775].
 
 ## Worked example
 
@@ -52,4 +52,5 @@ Confirm who prepares the grade and salary data and who reviews the statement bef
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: equivalent rates: shall wording for computation rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the statement of equivalent rates for Federal hires.

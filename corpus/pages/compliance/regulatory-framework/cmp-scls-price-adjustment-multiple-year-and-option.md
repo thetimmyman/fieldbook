@@ -39,7 +39,7 @@ The contractor warrants that the prices include no allowance for any contingency
 
 The clause's own example shows the measure of an increase. The prior wage determination required 4.00 an hour and the contractor chose to pay 4.10 [@CL-CMP-4958]. The new determination raises the minimum rate to 4.50, so the allowable adjustment is 0.40 an hour even if the contractor voluntarily pays 4.75 [@CL-CMP-4958; @CL-CMP-4959].
 
-The contractor must notify the contracting officer of any increase claimed within 30 days after receiving a new wage determination, unless the contracting officer extends that period in writing [@CL-CMP-4811]. The contractor must promptly notify the contracting officer of any decrease, and nothing in the clause stops the government from asserting a claim within the period the law permits [@CL-CMP-4812]. The notice states the amount claimed and, for a time-and-materials or labor-hour contract, the change in fixed hourly rates, with any relevant supporting data, including payroll records, that the contracting officer may reasonably require [@CL-CMP-4813]. Upon agreement of the parties, the price or rates are modified in writing [@CL-CMP-4961]. The contractor must continue performance pending agreement on or determination of the adjustment and its effective date [@CL-CMP-4962].
+The contractor must notify the contracting officer of any increase claimed within 30 days after receiving a new wage determination, unless the contracting officer extends that period in writing [@CL-CMP-4811]. The contractor must promptly notify the contracting officer of any decrease, and nothing in the clause stops the government from asserting a claim within the period the law permits [@CL-CMP-4812]. The notice states the amount claimed and, for a time-and-materials or labor-hour contract, the change in fixed hourly rates, with any relevant supporting data, including payroll records, that the contracting officer may reasonably require [@CL-CMP-4813]. Upon agreement of the parties, the contract price, contract unit price labor rates, or fixed hourly rates shall be modified in writing [@CL-CMP-4961]. The contractor must continue performance pending agreement on or determination of the adjustment and its effective date [@CL-CMP-4962].
 
 The contracting officer or an authorized representative may examine the contractor's directly pertinent books, documents, papers and records until 3 years after final payment under the contract [@CL-CMP-4814].
 
@@ -63,6 +63,7 @@ Which contracts carry the clause and who confirms the wage determination that ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's "shall be modified in writing".
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the price adjustment in multiple year and option contracts.

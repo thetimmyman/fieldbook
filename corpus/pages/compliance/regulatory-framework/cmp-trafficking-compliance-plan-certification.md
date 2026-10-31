@@ -28,7 +28,7 @@ Shows when the trafficking compliance plan certification applies, what the offer
 | Text status | Final [@CL-CMP-5905] |
 | Applies to | The apparent successful offeror, for the contract portion for supplies, other than commercially available off-the-shelf items, acquired outside the United States or services performed outside the United States above the value threshold [@CL-CMP-5906; @CL-CMP-5905] |
 
-The certification covers the part of a contract for supplies other than commercially available off-the-shelf items to be acquired outside the United States, or services to be performed outside the United States, where the estimated value exceeds $700,000 [@CL-CMP-5905]. The apparent successful offeror submits the certification before award, covering that portion of the contract [@CL-CMP-5906].
+The certification covers the part of a contract for supplies other than commercially available off-the-shelf items to be acquired outside the United States, or services to be performed outside the United States, where the estimated value exceeds $700,000 [@CL-CMP-5905]. The apparent successful offeror shall submit, prior to award, a certification as specified in paragraph (c) of the provision, for the portion (if any) of the contract that meets the conditions above [@CL-CMP-5905; @CL-CMP-5906].
 
 ## How it works
 
@@ -54,5 +54,7 @@ Which overseas contract portions cross the value threshold and who signs the pre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: trafficking certification: cited the claim stating the conditions.
+- COMPATIBLE_EXTENSION, 2026-10-31: trafficking certification: shall submit stated with paragraph (c).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the trafficking in persons compliance plan certification.
