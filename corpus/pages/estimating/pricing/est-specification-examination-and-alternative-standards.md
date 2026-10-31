@@ -23,7 +23,7 @@ Shows where cited specifications may be examined when they are not distributed, 
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2187; @CL-EST-2188] |
 | Codified citation | FAR 52.211-4 [@CL-EST-2187]; FAR 52.211-7 [@CL-EST-2188] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent [@CL-EST-0618] [@CL-EST-0619] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2187; @CL-EST-2188] |
 | Applies to | Solicitations that cite specifications not available for distribution, or that include Government-unique standards [@CL-EST-2187; @CL-EST-2188] |
@@ -38,6 +38,8 @@ Offers that do not comply with the Government-unique standards specified in the 
 
 An offeror that needs a cited specification goes to a listed location at the listed times, because copies are not distributed [@CL-EST-2187; @CL-EST-2237]. An offeror that prefers a voluntary consensus standard proposes it and supplies enough data for the Government to judge whether it meets the requirements [@CL-EST-2188; @CL-EST-2189]. The Government's acceptance is described as a unilateral decision made solely at its discretion, and also as something it will do for a qualifying standard unless that is inconsistent with law or otherwise impractical [@CL-EST-2226; @CL-EST-2225]. An offer that does not comply with the Government-unique standards risks being found nonresponsive or unacceptable [@CL-EST-2190], and the offeror may submit a compliant offer in addition to any proposed alternative [@CL-EST-2227].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.211-4 as [Reserved] and prints no clause text under that number [@CL-EST-0618], and lists FAR 52.211-7 as [Reserved] and prints no clause text under that number [@CL-EST-0619].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -48,11 +50,15 @@ The solicitation also includes a Government-unique test standard. The offeror pr
 
 The offeror also submits a second offer that complies with the Government-unique test standard, in addition to the offer with the alternative. If the Government does not accept the alternative, the offer that relied on it does not comply and may be determined to be nonresponsive or unacceptable. The compliant offer is not affected by that.
 
+This example applies the codified provisions at FAR 52.211-4 and FAR 52.211-7 [@CL-EST-2187] [@CL-EST-2188]; the RFO text lists both numbers as [Reserved] [@CL-EST-0618] [@CL-EST-0619].
+
 ## Never confuse
 
 A specification that may only be examined differs from one that can be obtained on request. A provision for specifications not in the GSA index names an activity to obtain copies from [@CL-EST-2186], while this provision says cited specifications are not available for distribution [@CL-EST-2187]. The first is covered on [Where to get specifications, standards and data item descriptions](est-availability-of-specifications-standards-and-dids.md).
 
 Proposing an alternative standard is not the same as having it accepted. Acceptance is the Government's decision, and a noncompliant offer may be found nonresponsive or unacceptable [@CL-EST-2226; @CL-EST-2190]. A compliant offer may be submitted in addition to an alternative [@CL-EST-2227]. Brand name or equal rules are covered separately on [Material requirements and brand name or equal](../../supply-chain/sourcing-evidence/sup-material-requirements-and-brand-name-or-equal.md).
+
+The codified provisions at FAR 52.211-4 and FAR 52.211-7 print the viewing-location provision and the alternative-standards provision [@CL-EST-2187] [@CL-EST-2188], but the RFO text lists both numbers as [Reserved] with no clause text [@CL-EST-0618] [@CL-EST-0619].
 
 ## Company calibration
 
@@ -62,4 +68,5 @@ Confirm how the company records which specifications it examined and which alter
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for availability for examination of specifications and alternatives to Government-unique standards.

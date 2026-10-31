@@ -23,7 +23,7 @@ Shows what the step-two invitation is, who may bid in step two of two-step seale
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2161] |
 | Codified citation | FAR 52.214-25 [@CL-EST-2161] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.214-25 [@CL-EST-0825; @CL-EST-0826] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2161] |
 | Applies to | Bidders that have submitted acceptable technical proposals in step one [@CL-EST-2161] |
@@ -37,6 +37,8 @@ A bidder that has submitted multiple technical proposals in step one may submit 
 ## How it works
 
 A bid may be considered for award only if the bidder has submitted acceptable technical proposals in step one under the identified request [@CL-EST-2161]. A bidder with several acceptable proposals may submit a separate bid on each [@CL-EST-2162]. The separate-bid permission is stated for technical proposals that the Government determined to be acceptable [@CL-EST-2162]. The late and withdrawal rules for step-one technical proposals are on [Late technical proposals and withdrawals under two-step sealed bidding](est-two-step-technical-proposals-late-and-withdrawals.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision says the invitation for bids is issued to initiate step two of two-step sealed bidding under section 14.211 of the Federal Acquisition Regulation, where the codified provision says subpart 14.5 [@CL-EST-0825; @CL-EST-2197]. Its paragraph (b) has the same limit to bids from bidders that submitted acceptable technical proposals in step one under the request identified in the blank, and the same instruction to the Contracting Officer to insert that identification [@CL-EST-0826; @CL-EST-0827; @CL-EST-2161; @CL-EST-2229]. Its paragraph (c) has the same permission for a separate bid on each technical proposal determined to be acceptable [@CL-EST-0828; @CL-EST-2162].
 
 ## Worked example
 
@@ -56,6 +58,8 @@ An acceptable technical proposal is not a bid. The step-two invitation for bids 
 
 Eligibility turns on acceptable proposals under the identified step-one request, not on having taken part in some other acquisition [@CL-EST-2161]. Ordinary sealed bid award is covered on [Contract award under sealed bidding](est-sealed-bidding-contract-award.md).
 
+The codified provision names subpart 14.5 [@CL-EST-2197], while the RFO provision names section 14.211 [@CL-EST-0825].
+
 ## Company calibration
 
 Confirm which step-one technical proposals the company has submitted, which were found acceptable, and who decides which of them to bid on [@Q-012].
@@ -64,4 +68,5 @@ Confirm which step-one technical proposals the company has submitted, which were
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for step two of two-step sealed bidding.
