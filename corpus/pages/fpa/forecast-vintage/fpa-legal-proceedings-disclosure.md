@@ -34,7 +34,7 @@ Paragraph (b) of Item 103 states that no information need be given for the proce
 
 One matter in that list is an administrative or judicial proceeding, including proceedings which present in large degree the same issues, arising under Federal, State, or local provisions that regulate the discharge of materials into the environment [@CL-FPA-0112]. The provisions covered also include those adopted primarily for the purpose of protecting the environment [@CL-FPA-0159]. Such a proceeding is not deemed ordinary routine litigation and shall be described if the listed conditions are met [@CL-FPA-0113]. One condition is that the proceeding is material to the business or financial condition of the registrant [@CL-FPA-0160]. Another applies when the proceeding involves primarily a claim for damages, or involves potential monetary sanctions, capital expenditures, deferred charges or charges to income, and the amount involved, excluding interest and costs, exceeds 10 percent of consolidated current assets [@CL-FPA-0114]. A third applies when a governmental authority is a party and the proceeding involves potential monetary sanctions, unless the registrant reasonably believes the proceeding will result in no monetary sanctions or in monetary sanctions, excluding interest and costs, of less than $300,000 [@CL-FPA-0115].
 
-For that third condition the registrant may instead elect another threshold [@CL-FPA-0116]. The elected threshold must be one the registrant determines is reasonably designed to result in disclosure of any such proceeding that is material to the business or financial condition [@CL-FPA-0116]. The registrant must disclose it, including any change, in each annual and quarterly report [@CL-FPA-0161]. It must not exceed the lesser of $1 million or one percent of consolidated current assets, and similar proceedings may be grouped and described generically [@CL-FPA-0162].
+For that third condition the registrant may instead elect another threshold [@CL-FPA-0116]. The elected threshold must be one the registrant determines is reasonably designed to result in disclosure of any such proceeding that is material to the business or financial condition [@CL-FPA-0116]. The registrant must disclose it, including any change, in each annual and quarterly report [@CL-FPA-0161]. A further condition on the elected threshold is that it does not exceed the lesser of $1 million or one percent of consolidated current assets, and similar proceedings may be grouped and described generically [@CL-FPA-0162].
 
 ## How it works
 
@@ -58,4 +58,5 @@ Whether the company would measure consolidated current assets and track pending 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for legal proceedings disclosure.

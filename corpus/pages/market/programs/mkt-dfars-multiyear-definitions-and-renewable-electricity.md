@@ -35,7 +35,7 @@ The definitions apply as used in the subpart [@CL-MKT-2025]. Advance procurement
 
 ## How it works
 
-The head of the contracting activity decides, and the requiring activity prepares the analysis on which the decision rests [@CL-MKT-1898; @CL-MKT-1899]. The section states the business case determination only for a contract period in excess of 5 years [@CL-MKT-1898]. A period in excess of 5 years needs both tests, and the period may never exceed 10 years under this authority [@CL-MKT-1897; @CL-MKT-1900; @CL-MKT-1901]. The section places no duty on the contractor. The definitions give meaning to terms used elsewhere in the subpart and place no duty on a contractor.
+The head of the contracting activity decides, and the requiring activity prepares the analysis on which the decision rests [@CL-MKT-1898; @CL-MKT-1899]. The section states the business case determination only for a contract period in excess of 5 years [@CL-MKT-1898]. A period in excess of 5 years needs both tests, and the period may not exceed 10 years under this authority [@CL-MKT-1897; @CL-MKT-1900; @CL-MKT-1901]. The section places no duty on the contractor. The definitions give meaning to terms used elsewhere in the subpart and place no duty on a contractor.
 
 The general multiyear contracting method is on [Multiyear contracting method and clauses](mkt-multiyear-contracting-method-and-clauses.md), and congressional notification and advance procurement are on [Multiyear contracts: congressional notification and advance procurement](../../industrialization/ramp/ind-multiyear-congressional-notification-and-advance-procurement.md).
 
@@ -57,4 +57,5 @@ How renewable electricity contracts and their business case analyses are tracked
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD multiyear contracting definitions and renewable electricity contracts.

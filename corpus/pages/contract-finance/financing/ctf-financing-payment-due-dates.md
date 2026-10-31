@@ -31,7 +31,7 @@ Sets out how DoD fixes payment due dates for contract financing, the conditions 
 
 DoD policy is to make contract financing payments as quickly as possible [@CL-CTF-3356]. The contracting officer generally inserts the standard due dates of 7 days for progress payments, and 14 days for performance-based payments and interim payments on cost-type contracts, in the appropriate paragraphs of the respective payment clauses [@CL-CTF-3406]. For interim payments on cost-reimbursement contracts for services, the contracting officer generally inserts a standard due date of 14 days in the Prompt Payment clause when using that clause with its Alternate I [@CL-CTF-3407].
 
-The contracting officer should coordinate the payment terms with the offices involved in the payment process, so that the specified terms can be met [@CL-CTF-3357]. Where justified, the contracting officer may insert a due date greater than the standard, but never less than the standard [@CL-CTF-3357]. In setting the terms the contracting officer must consider geographical separation, workload, the contractor's ability to submit a proper request, and other factors that could affect the timing of payment [@CL-CTF-3358].
+The contracting officer should coordinate the payment terms with the offices involved in the payment process, so that the specified terms can be met [@CL-CTF-3357]. Where justified, the contracting officer may insert a due date greater than, but not less than, the standard [@CL-CTF-3357]. In setting the terms the contracting officer must consider geographical separation, workload, the contractor's ability to submit a proper request, and other factors that could affect the timing of payment [@CL-CTF-3358].
 
 ## How it works
 
@@ -63,4 +63,5 @@ Confirm which financing terms each contract states and who tracks the entitlemen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract financing payment due dates.

@@ -56,7 +56,7 @@ A company receives a fairness opinion on the consideration to be paid to the tar
 
 ## Never confuse
 
-An opinion of counsel is not a report, opinion or appraisal that triggers the preparer disclosure [@CL-MNA-1179]. The identity, qualifications and selection items are given for the firm, not its employees [@CL-MNA-1183]. A projection is not its bases: the filing must also disclose the material bases, assumptions and any growth, reduction or discount rates [@CL-MNA-1188; @CL-MNA-1189]. The extra Schedule TO items are in addition to the information otherwise required by Schedule TO [@CL-MNA-1185]. For the going-private counterpart, see the [going-private reports card](../valuation/mna-going-private-reports-opinions-appraisals.md).
+An opinion of counsel is not a report, opinion or appraisal that triggers the preparer disclosure [@CL-MNA-1179]. The identity, qualifications and selection items are given for the firm, not its employees [@CL-MNA-1183]. A projection is not its bases: the filing must also disclose the material bases and assumptions, and the disclosure should discuss any material growth, reduction or discount rates and the reasons for selecting them [@CL-MNA-1188; @CL-MNA-1189]. The extra Schedule TO items are in addition to the information otherwise required by Schedule TO [@CL-MNA-1185]. For the going-private counterpart, see the [going-private reports card](../valuation/mna-going-private-reports-opinions-appraisals.md).
 
 ## Company calibration
 
@@ -66,4 +66,5 @@ Confirm who prepares and affirms the projections, and on what bases, so the proj
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reports, opinions, appraisals, tender offer filings and projections in de-SPAC transactions.

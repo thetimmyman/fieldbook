@@ -47,7 +47,7 @@ Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text i
 
 Synthetic example. The numbers are made up.
 
-A loss contract's total costs incurred plus the estimated costs to complete are likely to exceed the contract price, so a loss ratio factor applies [@CL-CTF-3411]. The contracting officer determines that the contractor's methods of estimating the costs to complete are reliable, accurate, and not susceptible to improper influences, and asks the contractor to prepare the supplementary analysis as an attachment to its progress payment request [@CL-CTF-3368]. The contractor attaches the analysis and leaves its SF 1443 figures as submitted. The adjustment appears in the attachment and never as an overwrite of the original request [@CL-CTF-3369].
+A loss contract's total costs incurred plus the estimated costs to complete are likely to exceed the contract price, so a loss ratio factor applies [@CL-CTF-3411]. The contracting officer determines that the contractor's methods of estimating the costs to complete are reliable, accurate, and not susceptible to improper influences, and asks the contractor to prepare the supplementary analysis as an attachment to its progress payment request [@CL-CTF-3368]. The contractor attaches the analysis and leaves its SF 1443 figures as submitted. The adjustment appears in the attachment, and the text says not to make it by altering or replacing data on the original request [@CL-CTF-3369].
 
 The attachment shows these synthetic figures. The contract price is 900,000 and a pending change order has a not-to-exceed amount of 100,000, so the revised contract price is 1,000,000 [@CL-CTF-3488]. Total costs incurred to date are 750,000 and the estimated additional costs to complete are 500,000, a sum of 1,250,000 against the contract price of 900,000 [@CL-CTF-3411; @CL-CTF-3489]. The loss ratio factor is 1,000,000 divided by 1,250,000, which is 80% [@CL-CTF-3489]. If the contracting officer believes a loss is probable and the paid costs eligible for progress payments are 750,000, the total costs eligible for progress payments are 750,000 times 80%, or 600,000 [@CL-CTF-3490; @CL-CTF-3491].
 
@@ -65,6 +65,7 @@ Confirm who prepares the costs-to-complete estimate and whether the supporting a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for loss ratio adjustments on loss contracts.

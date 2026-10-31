@@ -55,7 +55,7 @@ Synthetic example. The numbers are made up.
 
 An agency weighs a requirement. It records plans for 12 units a month and a 3 year contract with two 1 year priced options [@CL-MKT-1646; @CL-MKT-1647; @CL-MKT-1648]. The work is supplies, not construction, so no geographical location is recorded [@CL-MKT-1648]. It notes that the same work was set aside for small business 4 years earlier and that a prior award to a participant had delivery problems [@CL-MKT-1649]. Assume the review is necessary (the section does not say who decides), so the contracting agency makes an independent review of the factors in 19.803(a) and of the participants' capabilities [@CL-MKT-1651].
 
-A multiple-award contract was set aside for exclusive competition among 8(a) contractors. A 2 million dollar order under it needs no separate offer and acceptance and is competed among all 8(a) contract holders [@CL-MKT-1652; @CL-MKT-1653]. If the contracting officer wants to place that order on a sole source basis instead, the offering and acceptance procedures at 19.804-2 and 19.804-3 must be followed, and the order value must be at or below the 19.805-1(a)(2) thresholds [@CL-MKT-1656; @CL-MKT-1657]. The 2 million dollar value is below both threshold amounts, $5.5 million and $8.5 million [@CL-MKT-1682].
+A multiple-award contract was set aside for exclusive competition among 8(a) contractors. A 2 million dollar order under it needs no separate offer and acceptance and is competed among all 8(a) contract holders [@CL-MKT-1652; @CL-MKT-1653]. The contracting officer may instead issue that order on a sole source basis when the offering and acceptance procedures at 19.804-2 and 19.804-3 are followed and the order value is at or below the 19.805-1(a)(2) thresholds [@CL-MKT-1656; @CL-MKT-1657]. The 2 million dollar value is below both threshold amounts, $5.5 million and $8.5 million [@CL-MKT-1682].
 
 A second multiple-award contract was reserved for 8(a) participants. An order estimated at 4 million for an acquisition without a manufacturing NAICS code is at or below 5.5 million, so the contracting officer may issue it directly to one 8(a) contractor if the procedures at 19.804-2 and 19.804-3 are followed [@CL-MKT-1658; @CL-MKT-1659]. An order estimated at 9 million for an acquisition assigned a manufacturing NAICS code is above 8.5 million, so the direct route in 19.804-6(c) is not open for it [@CL-MKT-1659]. This card does not say which other route then applies.
 
@@ -73,5 +73,6 @@ Which product families, customer groups and market segments the company counts i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (b) of FAR 19.805-1 that the quoted rule refers to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for agency evaluation of a requirement and orders under 8(a) multiple-award contracts.
