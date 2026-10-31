@@ -24,7 +24,7 @@ Shows the written code duty and the written disclosure duty in the clause, the i
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2625] |
 | Codified citation | FAR 52.203-13 [@CL-CMP-2625] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.203-13 [@CL-CMP-0599] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2625] |
 | Applies to | Solicitations and contracts expected to exceed $7.5 million with a performance period of 120 days or more, with two exceptions for the control system paragraph [@CL-CMP-2675; @CL-CMP-2628] |
@@ -36,6 +36,8 @@ Paragraph (c) of the clause does not apply if the Contractor has represented its
 ## How it works
 
 The clause has two layers. The written code duty and the disclosure duty sit in the code paragraph, which is outside paragraph (c), so the two exceptions printed in paragraph (c) do not by their terms remove them [@CL-CMP-2628; @CL-CMP-2695]. The control system paragraph is built from listed items and has its own two exceptions [@CL-CMP-2628]. Its timely disclosure item, with the continuing period after final payment, sits inside that paragraph and so is subject to those exceptions [@CL-CMP-2628; @CL-CMP-2635]. The code duty has a day count, and the control system items have a longer one, but the printed clause sets no number of days for the timely disclosure [@CL-CMP-2695; @CL-CMP-2629]. The Contractor shall include the substance of the clause in subcontracts that exceed the threshold specified in FAR 3.1004(a) on the date of subcontract award and a performance period of more than 120 days [@CL-CMP-2691].
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text keeps the written code duty within 30 days after contract award, unless the Contracting Officer establishes a longer time period [@CL-CMP-0599; @CL-CMP-2695]. It keeps the duty to timely disclose in writing to the agency Office of the Inspector General, with a copy to the Contracting Officer, when the Contractor has credible evidence of the listed conduct [@CL-CMP-0600; @CL-CMP-0616; @CL-CMP-2626; @CL-CMP-2627]. It keeps the exceptions to paragraph (c) for a small business concern and for a commercial product or commercial service [@CL-CMP-0617; @CL-CMP-2628], and keeps the 90-day period for the control system items, unless the Contracting Officer establishes a longer time period [@CL-CMP-0618; @CL-CMP-2629]. It keeps the rule that the disclosure requirement for an individual contract continues until at least 3 years after final payment [@CL-CMP-0619; @CL-CMP-2635], and keeps the flowdown to subcontracts that exceed the threshold in FAR 3.1004(a) with a performance period of more than 120 days [@CL-CMP-0620; @CL-CMP-2691].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Which contracts carry the clause, which were won as a small business concern or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Code of Business Ethics and Conduct clause.

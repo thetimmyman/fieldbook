@@ -23,7 +23,7 @@ Shows what the contractor must send the Contracting Officer before filing a pate
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3624] |
 | Codified citation | FAR 52.227-10 [@CL-CMP-3624] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-10 [@CL-CMP-0593] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3624] |
 | Applies to | Contract subject matter classified Secret or higher, or Confidential [@CL-CMP-3624; @CL-CMP-3626] |
@@ -35,6 +35,8 @@ Where the subject matter of the contract is classified for reasons of security, 
 ## How it works
 
 The clause sorts the filing step by classification level. Secret or higher subject matter goes to the Contracting Officer first, and the Contractor may file if the Contracting Officer has given no instructions within 30 days of transmittal, while keeping the right to file despite any instructions on the manner of delivery [@CL-CMP-3624; @CL-CMP-3625; @CL-CMP-3662]. Confidential subject matter goes to the Contracting Officer as a copy before filing [@CL-CMP-3626]. Where the subject matter is classified for reasons of security, filing outside the United States needs the Contracting Officer's written approval first [@CL-CMP-3627; @CL-CMP-3628].
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text keeps the Secret or higher rule: the Contractor transmits the proposed application to the Contracting Officer, citing the 30-day provision [@CL-CMP-0593; @CL-CMP-3624], observes the Contracting Officer's instructions on delivery without losing the right to file [@CL-CMP-0594; @CL-CMP-3662], and may file if no instructions come within 30 days [@CL-CMP-0595; @CL-CMP-3625]. It keeps the rule that, for Confidential subject matter, the Contractor furnishes the Contracting Officer a copy of the application before filing, for Government determination whether, for reasons of national security, the application should be placed under an order of secrecy or the issuance of a patent should be otherwise delayed [@CL-CMP-0596; @CL-CMP-0624; @CL-CMP-3626]. It keeps the rule on filing outside the United States where the subject matter is classified for reasons of security, which needs the Contracting Officer's written approval first [@CL-CMP-0597; @CL-CMP-0598; @CL-CMP-3627; @CL-CMP-3628].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts involve classified subject matter, and who confirms that this cl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for filing patent applications on classified subject matter.

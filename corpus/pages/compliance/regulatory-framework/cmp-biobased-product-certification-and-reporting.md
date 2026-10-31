@@ -23,7 +23,7 @@ Shows what an offeror certifies about biobased products by signing its offer, wh
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5164] |
 | Codified citation | FAR 52.223-1 and FAR 52.223-2 [@CL-CMP-5164; @CL-CMP-5166] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.223-1 [@CL-CMP-0528] and RFO FAR 52.223-2 [@CL-CMP-0534] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5164] |
 | Applies to | Offerors whose offers carry the biobased product certification provision, and contractors whose contracts carry the biobased reporting clause [@CL-CMP-5164; @CL-CMP-5166] |
@@ -42,6 +42,8 @@ The contractor reports to the website the clause names, with a copy to the contr
 
 The report is due no later than October 31 of each year during contract performance, and again at the end of contract performance [@CL-CMP-5167].
 
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO certification provision says the offeror certifies, by signing the offer, for biobased products within categories the Department of Agriculture lists at a web address instead of in 7 CFR part 3201, subpart B [@CL-CMP-0528; @CL-CMP-5164]. It keeps the exclusion for biobased products not purchased as a direct result of the contract and the compliance statement for the rest [@CL-CMP-0529; @CL-CMP-5165]. The RFO reporting clause keeps the definition of a biobased product, including the biological products limb, the intermediate ingredient or feedstock limb, and the forestry materials sentence [@CL-CMP-0530; @CL-CMP-0531; @CL-CMP-0532; @CL-CMP-5264; @CL-CMP-5265; @CL-CMP-5266]. It describes a USDA-designated product category differently [@CL-CMP-0533; @CL-CMP-5267]. It keeps the Contractor's duty under paragraph (b) to report on the product types and dollar value of biobased products purchased during the previous Government fiscal year, to the website the clause names with a copy to the contracting officer [@CL-CMP-0622; @CL-CMP-0534; @CL-CMP-5166], and keeps the deadlines of October 31 each year and the end of contract performance [@CL-CMP-0622; @CL-CMP-0535; @CL-CMP-5167].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -56,6 +58,8 @@ A later purchase report does not replace the certification, because the signatur
 
 Biobased content is not recovered material content: recovered material content is certified separately for EPA-designated items [@CL-CMP-5176].
 
+A USDA-designated product category is described with USDA purchasing recommendations in the codified clause [@CL-CMP-5267], but with minimum biobased content standards in the RFO clause [@CL-CMP-0533].
+
 ## Company calibration
 
 Whether the buying records can produce the product types and dollar value purchased in each USDA-designated product category for the Government fiscal year, and which contracts carry the reporting clause. [@Q-004]
@@ -64,4 +68,5 @@ Whether the buying records can produce the product types and dollar value purcha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for biobased product certification and reporting.
