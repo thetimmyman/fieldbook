@@ -29,7 +29,7 @@ Shows who must be registered in the System for Award Management before an offer 
 | Text status | Final [@CL-MKT-0029] |
 | Applies to | Offerors and quoters, except for the listed exceptions [@CL-MKT-0029] |
 
-Offerors and quoters are required to be registered in SAM at the time an offer or quotation is submitted in order to comply with the annual representations and certifications requirements, subject to the exceptions listed in the same paragraph [@CL-MKT-0029]. Unless the acquisition is exempt, the contracting officer shall verify that the offeror or quoter is registered in SAM at the time an offer or quotation is submitted [@CL-MKT-0031]. The FAR definitions section describes the System for Award Management as the primary Government repository for prospective Federal awardee and Federal awardee information and the centralized Government system for certain contracting, grants, and other assistance-related processes [@CL-MKT-9226].
+Offerors and quoters are required to be registered in SAM at the time an offer or quotation is submitted in order to comply with the annual representations and certifications requirements, subject to the exceptions listed in the same paragraph [@CL-MKT-0029]. Unless the acquisition is exempt, the contracting officer shall verify that the offeror or quoter is registered in SAM at the time an offer or quotation is submitted [@CL-MKT-0031]. The FAR definitions section describes the System for Award Management as the primary Government repository for prospective Federal awardee and Federal awardee information and the centralized Government system for certain contracting, grants, and other assistance-related processes [@CL-MKT-9226]. The RFO text of FAR 2.101 defines the System for Award Management as the primary Government repository for prospective Federal awardee and Federal awardee information and the centralized Government system for certain contracting, grants, and other assistance-related processes, the same in substance as the codified definition [@CL-MKT-9276; @CL-MKT-9226].
 
 ## How it works
 
@@ -53,6 +53,7 @@ Confirm which of the company's legal entities hold SAM registrations and which c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of System for Award Management.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of System for Award Management.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of agreement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAM registration and the unique entity identifier in awards.

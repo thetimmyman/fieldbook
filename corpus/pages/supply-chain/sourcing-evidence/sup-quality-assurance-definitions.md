@@ -29,7 +29,7 @@ Gives the meaning of the terms that the quality assurance part of the FAR define
 | Text status | Final [@CL-SUP-3980] |
 | Applies to | The defined terms as they are used in part 46 of the FAR [@CL-SUP-3980] |
 
-The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-3980]. It defines each term below. The section does not say who grades a nonconformance or who accepts supplies; other sections do, and the cards linked below cover them. Two rows below, inspection and latent defect, come from the definitions in FAR 2.101 instead [@CL-SUP-9554; @CL-SUP-9555].
+The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-3980]. It defines each term below. The section does not say who grades a nonconformance or who accepts supplies; other sections do, and the cards linked below cover them. Two rows below, inspection and latent defect, come from the definitions in FAR 2.101 instead [@CL-SUP-9554; @CL-SUP-9555]. The RFO model text of FAR 2.101 defines a latent defect in the same words as the codified definition [@CL-SUP-9596; @CL-SUP-9555]. The RFO model text of FAR 2.101 defines inspection in the same words as the codified definition [@CL-SUP-9595; @CL-SUP-9554].
 
 ### Definitions at a glance
 
@@ -84,5 +84,6 @@ Which grade (critical, major or minor) the company's receiving inspection gives 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of inspection and latent defect.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of inspection and latent defect.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for quality assurance definitions.

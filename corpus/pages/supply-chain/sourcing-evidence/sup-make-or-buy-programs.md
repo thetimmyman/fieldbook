@@ -24,14 +24,14 @@ Shows when a make-or-buy program can be required, what it must contain, and how 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0151] |
 | Codified citation | FAR 15.407-2 [@CL-SUP-0151] |
-| RFO citation | RFO FAR 15.105-5 [@CL-SUP-3421]; RFO FAR 15.405-2 [@CL-SUP-3429] |
+| RFO citation | RFO FAR 15.105-5 [@CL-SUP-3421]; RFO FAR 15.405-2 [@CL-SUP-3429]; RFO FAR 2.101 [@CL-SUP-9601] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0151] |
 | Applies to | Negotiated acquisitions where the contracting officer requires a make-or-buy program [@CL-SUP-0155] |
 
 The prime contractor is responsible for managing contract performance, including planning, placing, and administering subcontracts to ensure the lowest overall cost and technical risk to the Government [@CL-SUP-0151]. Where make-or-buy programs are required, the Government may reserve the right to review and agree on the program when necessary to ensure reasonable contract prices, satisfactory performance, or implementation of socioeconomic policies [@CL-SUP-0152]. Contracting officers may require program plans for negotiated acquisitions requiring certified cost or pricing data whose estimated value is $20 million or more [@CL-SUP-0155], except where the proposed contract is for research or development and, if prototypes or hardware are involved, no significant follow-on production is anticipated [@CL-SUP-0156].
 
-FAR 2.101 defines a make-or-buy program as that part of a contractor's written plan for a contract identifying those major items to be produced or work efforts to be performed in the prime contractor's facilities and those to be subcontracted [@CL-SUP-9553].
+FAR 2.101 defines a make-or-buy program as that part of a contractor's written plan for a contract identifying those major items to be produced or work efforts to be performed in the prime contractor's facilities and those to be subcontracted [@CL-SUP-9553]. The RFO text of FAR 2.101 defines a make-or-buy program as that part of a contractor's written plan for a contract identifying those major items to be produced or work efforts to be performed in the prime contractor's facilities and those to be subcontracted, the same in substance as the codified definition [@CL-SUP-9601; @CL-SUP-9553].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Whether a make-or-buy policy exists, who decides each categorization, and who ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of make-or-buy program.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of make-or-buy program.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added when the contracting officer may incorporate a make-or-buy program in a negotiated contract and the two conditions for other supplies and services.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

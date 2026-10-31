@@ -38,7 +38,7 @@ The Contractor shall not be reimbursed for liabilities, and expenses incidental 
 
 If any suit or action is filed or any claim is made against the Contractor, the cost and expense of which may be reimbursable under the contract and the risk of which is uninsured or insured for less than the amount claimed, the Contractor shall take the actions that the clause then lists [@CL-CTF-2593]. In that case the Contractor shall immediately notify the Contracting Officer and promptly furnish copies of all pertinent papers received [@CL-CTF-2594]. The Contractor shall also authorize Government representatives to collaborate with counsel for the insurance carrier in settling or defending the claim when the amount of the liability claimed exceeds the amount of coverage [@CL-CTF-2595]. The Contractor shall also authorize Government representatives to settle or defend the claim and to represent the Contractor in or to take charge of any litigation, if required by the Government, when the liability is not insured or covered by bond [@CL-CTF-2596]. The Contractor may, at its own expense, be associated with the Government representatives in any such claim or litigation [@CL-CTF-2740].
 
-FAR 2.101 defines insurance as a contract that provides that for a stipulated consideration, one party undertakes to indemnify another against loss, damage, or liability arising from an unknown or contingent event [@CL-CTF-9413].
+FAR 2.101 defines insurance as a contract that provides that for a stipulated consideration, one party undertakes to indemnify another against loss, damage, or liability arising from an unknown or contingent event [@CL-CTF-9413]. The RFO model text of FAR 2.101 defines insurance in the same words as the codified definition [@CL-CTF-9444; @CL-CTF-9413].
 
 ## How it works
 
@@ -70,6 +70,7 @@ Which contracts carry these clauses, what kinds and amounts of insurance the sch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of insurance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of insurance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Compared the remaining RFO paragraphs of FAR 52.228-7, the reimbursement of insurance cost in (c)(1) and the Contractor's association with Government representatives, with the codified text, both in the same words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

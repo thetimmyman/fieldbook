@@ -33,7 +33,7 @@ Facilities capital cost of money will be an allowable cost under the contemplate
 
 For postretirement benefit plans, the Contractor shall promptly notify the Contracting Officer in writing when it determines that it will terminate or reduce the benefits of a plan [@CL-EST-1817]. If fund assets revert or inure to the Contractor, or are constructively received by it, the Contractor shall make a refund or give a credit to the Government for its equitable share [@CL-EST-1818]. When determining or agreeing on the method for recovery of that share, the parties should consider cost reduction, amortizing the credit over a number of years with appropriate interest, cash refund, or some other agreed upon method [@CL-EST-1868]. Should the parties be unable to agree on the method through good faith negotiations, the Contracting Officer shall designate the method of recovery [@CL-EST-1883]. The Contractor shall insert the substance of the postretirement benefits clause in all subcontracts that meet the applicability requirements of FAR 15.408(j) [@CL-EST-1884].
 
-FAR 2.101 defines facilities capital cost of money as cost of money as an element of the cost of facilities capital, as used at 48 CFR 9904.414, titled Cost Accounting Standard, Cost of Money as an Element of the Cost of Facilities Capital [@CL-EST-9294].
+FAR 2.101 defines facilities capital cost of money as cost of money as an element of the cost of facilities capital, as used at 48 CFR 9904.414, titled Cost Accounting Standard, Cost of Money as an Element of the Cost of Facilities Capital [@CL-EST-9294]. The RFO model text of FAR 2.101 defines facilities capital cost of money in the same words as the codified definition, apart from the printed form of the dash and the quotation marks [@CL-EST-9351; @CL-EST-9294].
 
 ## How it works
 
@@ -61,6 +61,7 @@ Who owns proposal pricing and so decides whether facilities capital cost of mone
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of facilities capital cost of money.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of facilities capital cost of money.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for facilities capital cost of money, its waiver and postretirement benefit plan reversion.

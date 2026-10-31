@@ -23,14 +23,14 @@ Shows who must get a proposal in on time, when a late proposal can still be cons
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1369] |
 | Codified citation | FAR 15.208 [@CL-EST-1369]; FAR 2.101 [@CL-EST-9338; @CL-EST-9339; @CL-EST-9340] |
-| RFO citation | RFO FAR 15.107 [@CL-EST-3430; @CL-EST-3432; @CL-EST-3441] |
+| RFO citation | RFO FAR 15.107 [@CL-EST-3430; @CL-EST-3432; @CL-EST-3441]; RFO FAR 2.101 [@CL-EST-9359; @CL-EST-9360; @CL-EST-9361] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1369] |
 | Applies to | Proposals, revisions and modifications submitted in response to a solicitation [@CL-EST-1369] |
 
 Offerors are responsible for submitting proposals, revisions and modifications so as to reach the designated Government office by the time specified in the solicitation [@CL-EST-1369]. If the solicitation specifies no time, the time for receipt is 4:30 p.m., local time, for the designated Government office on the date that proposals are due [@CL-EST-1370].
 
-The FAR definitions section defines an offer as a response to a solicitation that, if accepted, would bind the offeror to perform the resultant contract [@CL-EST-9338]. Responses to invitations for bids (sealed bidding) are offers called bids or sealed bids, and responses to requests for proposals (negotiation) are offers called proposals, but responses to requests for quotations (simplified acquisition) are quotations, not offers [@CL-EST-9339]. The term offeror means offeror or bidder [@CL-EST-9340].
+The FAR definitions section defines an offer as a response to a solicitation that, if accepted, would bind the offeror to perform the resultant contract [@CL-EST-9338]. Responses to invitations for bids (sealed bidding) are offers called bids or sealed bids, and responses to requests for proposals (negotiation) are offers called proposals, but responses to requests for quotations (simplified acquisition) are quotations, not offers [@CL-EST-9339]. The term offeror means offeror or bidder [@CL-EST-9340]. The RFO text of FAR 2.101 defines an offer as a response to a solicitation that, if accepted, would bind the offeror to perform the resulting contract, where the codified definition says the resultant contract [@CL-EST-9359; @CL-EST-9338]. The RFO definition lists the inclusions and the exclusion as numbered paragraphs, so that responses to invitations for bids and to requests for proposals are included and responses to requests for quotations are not [@CL-EST-9360]; the codified definition instead says that responses to requests for quotations (simplified acquisition) are quotations, not offers [@CL-EST-9339]. The RFO text says an offeror is an entity that makes an offer or bid, where the codified text says offeror or bidder [@CL-EST-9361; @CL-EST-9340].
 
 ## How it works
 
@@ -66,6 +66,7 @@ How the company freezes and versions each proposal and any later revision agains
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of offer and offeror.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of offer and offeror.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for submission, modification, withdrawal and late proposals.

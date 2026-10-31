@@ -23,8 +23,8 @@ Shows when an agency requirement may name one manufacturer's product or feature,
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3286] |
-| Codified citation | FAR 11.001, 11.105, 11.301 and 11.302 [@CL-SUP-4155; @CL-SUP-4156; @CL-SUP-3286; @CL-SUP-3290; @CL-SUP-4154] |
-| RFO citation | Not established. |
+| Codified citation | FAR 11.001, 11.105, 11.301 and 11.302 [@CL-SUP-4155; @CL-SUP-4156; @CL-SUP-3286; @CL-SUP-3290; @CL-SUP-4154]; FAR 2.101 [@CL-SUP-9617] |
+| RFO citation | RFO FAR 2.101 [@CL-SUP-9618] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3286] |
 | Applies to | Agency requirements peculiar to one manufacturer, and agency requests for information on used, reconditioned or remanufactured material, and agency requirements for virgin material [@CL-SUP-3286; @CL-SUP-3290] |
@@ -33,7 +33,7 @@ Agency requirements may not be written to require a particular brand name, produ
 
 The section refers multiple award schedule orders to FAR 8.405-6 and orders under indefinite-quantity contracts to FAR 16.505(a)(4) [@CL-SUP-3337].
 
-Agencies must not require virgin material, or supplies composed of or manufactured using virgin material, unless compelled by law or regulation or unless virgin material is vital for safety or for meeting the contract's performance requirements [@CL-SUP-3290].
+Agencies must not require virgin material, or supplies composed of or manufactured using virgin material, unless compelled by law or regulation or unless virgin material is vital for safety or for meeting the contract's performance requirements [@CL-SUP-3290]. The FAR definitions section defines virgin material as previously unused raw material, including previously unused copper, aluminum, lead, zinc, iron, other metal or metal ore, or any undeveloped resource that is, or with new technology will become, a source of raw materials [@CL-SUP-9617]. The RFO text of FAR 2.101 has the same definition word for word [@CL-SUP-9618; @CL-SUP-9617].
 
 When acquiring products other than commercial products, agencies must require offerors to identify used, reconditioned or remanufactured supplies, or unused former Government surplus property, proposed for use under the contract [@CL-SUP-3291]. These supplies and that property may not be used in contract performance unless authorized by the contracting officer [@CL-SUP-3338].
 
@@ -69,5 +69,6 @@ Confirm whether any solicitation in force names a brand or feature, how that was
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of virgin material.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the part 11 definitions of reconditioned and remanufactured and the Material Requirements clause prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for brand name requirements and used, reconditioned or virgin material.

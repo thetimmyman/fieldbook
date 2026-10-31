@@ -35,7 +35,7 @@ Normally, testing and approval is not required in contracts for research or deve
 
 A solicitation containing a testing and approval requirement shall inform offerors that the requirement may be waived when supplies identical or similar to those called for have previously been delivered by the offeror and accepted by the Government [@CL-IND-0160; @CL-IND-0128].
 
-FAR 2.101 defines a first article as a preproduction model, initial production sample, test sample, first lot, pilot lot, or pilot models [@CL-IND-1047]. It defines first article testing as testing and evaluating the first article for conformance with specified contract requirements before or in the initial stage of production [@CL-IND-1048].
+FAR 2.101 defines a first article as a preproduction model, initial production sample, test sample, first lot, pilot lot, or pilot models [@CL-IND-1047]. The RFO model text of FAR 2.101 defines a first article in the same words as the codified definition [@CL-IND-1065; @CL-IND-1047]. It defines first article testing as testing and evaluating the first article for conformance with specified contract requirements before or in the initial stage of production [@CL-IND-1048]. The RFO model text of FAR 2.101 defines first article testing in the same words as the codified definition [@CL-IND-1066; @CL-IND-1048].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Which new products or process changes would need first article approval before c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of first article and first article testing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of first article and first article testing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for first article testing and approval.

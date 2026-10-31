@@ -31,7 +31,7 @@ Shows when screening of excess contractor inventory begins, how long standard sc
 
 The screening period begins when the plant clearance officer accepts an inventory disposal schedule [@CL-CLS-0362]. That officer decides whether standard or special screening is appropriate and starts the screening actions [@CL-CLS-0362]. The standard screening period is 46 days [@CL-CLS-0363].
 
-The FAR definitions section describes a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site [@CL-CLS-1525].
+The FAR definitions section describes a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site [@CL-CLS-1525]. The RFO text of FAR 2.101 defines a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site, the same in substance as the codified definition [@CL-CLS-1537; @CL-CLS-1525].
 
 ## How it works
 
@@ -100,6 +100,7 @@ Which of the company's excess inventory schedules are under screening, and what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of plant clearance officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the first-stage and donation screening sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of plant clearance officer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for screening of excess contractor inventory.

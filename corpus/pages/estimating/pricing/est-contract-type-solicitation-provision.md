@@ -28,7 +28,7 @@ Shows which solicitations must carry the type of contract provision, and when a 
 | Text status | Final [@CL-EST-2975; @CL-EST-2976] |
 | Applies to | The provision: solicitations, except the two excluded acquisition types [@CL-EST-2975]. The clause: solicitations and contracts, when contracting by negotiation, a fixed-price contract is contemplated and the specified conditions apply [@CL-EST-2976] |
 
-The contracting officer must complete and insert the provision at 52.216-1, Type of Contract, in a solicitation [@CL-EST-2975]. There are two exceptions. The duty does not arise for a solicitation for a fixed-price acquisition made under simplified acquisition procedures, or for a solicitation for information or planning purposes [@CL-EST-2975]. The FAR definitions section describes a solicitation provision as a term or condition used only in solicitations and applying only before contract award [@CL-EST-9314].
+The contracting officer must complete and insert the provision at 52.216-1, Type of Contract, in a solicitation [@CL-EST-2975]. There are two exceptions. The duty does not arise for a solicitation for a fixed-price acquisition made under simplified acquisition procedures, or for a solicitation for information or planning purposes [@CL-EST-2975]. The FAR definitions section describes a solicitation provision as a term or condition used only in solicitations and applying only before contract award [@CL-EST-9314]. The RFO text of FAR 2.101 defines a solicitation provision, or provision, as a term or condition used only in solicitations and applying only before contract award, the same in substance as the codified definition [@CL-EST-9366; @CL-EST-9314].
 
 When contracting by negotiation, the contracting officer must insert the clause at 52.216-5, Price Redetermination—Prospective, in solicitations and contracts [@CL-EST-2976]. The duty arises when a fixed-price contract is contemplated and the conditions specified in 16.205-2 and 16.205-3(a) through (d) apply [@CL-EST-2976].
 
@@ -64,5 +64,6 @@ Whether each solicitation in the pipeline carries the contract type provision an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of solicitation provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of solicitation provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contract type solicitation provision and the prospective price redetermination clause.

@@ -35,7 +35,7 @@ Billing rates are the interim counterpart: an indirect cost rate set temporarily
 
 Subpart 42.7 prescribes policies and procedures for establishing billing rates and final indirect cost rates [@CL-RTE-9004].
 
-FAR 2.101 defines the final indirect cost rate as the indirect cost rate established and agreed upon by the Government and the contractor as not subject to change [@CL-RTE-9071]. It is usually established after the close of the contractor's fiscal year, unless the parties decide upon a different period, to which it applies [@CL-RTE-9072]. An indirect cost rate is the percentage or dollar factor that expresses the ratio of indirect expense incurred in a given period to direct labor cost, manufacturing cost, or another appropriate base for the same period [@CL-RTE-9073].
+FAR 2.101 defines the final indirect cost rate as the indirect cost rate established and agreed upon by the Government and the contractor as not subject to change [@CL-RTE-9071]. The first sentence of the RFO model text definition of the final indirect cost rate in FAR 2.101 reads the same as the codified first sentence [@CL-RTE-9091; @CL-RTE-9071]. It is usually established after the close of the contractor's fiscal year, unless the parties decide upon a different period, to which it applies [@CL-RTE-9072]. An indirect cost rate is the percentage or dollar factor that expresses the ratio of indirect expense incurred in a given period to direct labor cost, manufacturing cost, or another appropriate base for the same period [@CL-RTE-9073]. The RFO model text of FAR 2.101 defines the indirect cost rate in the same words as the codified definition, apart from the printed form of the quotation marks [@CL-RTE-9092; @CL-RTE-9073].
 
 ## How it works
 
@@ -63,6 +63,7 @@ Confirm which billing and final rate sets apply to each contract and period, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of final indirect cost rate and indirect cost rate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of final indirect cost rate and indirect cost rate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.700 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.

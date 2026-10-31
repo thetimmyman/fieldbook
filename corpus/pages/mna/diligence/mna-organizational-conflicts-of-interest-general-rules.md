@@ -34,7 +34,7 @@ The general rules prescribe limitations on contracting as the means of avoiding,
 
 In addition to the other situations described in the subpart, an unfair competitive advantage exists where a contractor competing for award of any Federal contract possesses proprietary information that was obtained from a Government official without proper authorization [@CL-MNA-0548]. The second item in the same list is source selection information that is relevant to the contract but is not available to all competitors, where such information would assist that contractor in obtaining the contract [@CL-MNA-0549]. This card does not cover the definitions, waiver or procedure rules, which are not established from the sources held.
 
-The FAR definitions section describes source selection information as any of the listed information that is prepared for use by an agency for the purpose of evaluating a bid or proposal to enter into an agency procurement contract, if that information has not been previously made available to the public or disclosed publicly [@CL-MNA-1417].
+The FAR definitions section describes source selection information as any of the listed information that is prepared for use by an agency for the purpose of evaluating a bid or proposal to enter into an agency procurement contract, if that information has not been previously made available to the public or disclosed publicly [@CL-MNA-1417]. The RFO text of FAR 2.101 defines source selection information as any of the listed information that is prepared for use by an agency for the purpose of evaluating a bid or proposal to enter into an agency procurement contract, if that information has not been previously made available to the public or disclosed publicly, the same in substance as the codified definition [@CL-MNA-1473; @CL-MNA-1417].
 
 ## Worked example
 
@@ -56,5 +56,6 @@ Which current and past engagements of the target, the buyer and their affiliates
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of source selection information.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of source selection information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts of interest.

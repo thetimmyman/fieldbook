@@ -24,14 +24,14 @@ Shows how price or cost must figure in a source selection, what the solicitation
 |---|---|
 | Instrument | Codified FAR and DFARS [@CL-EST-1294; @CL-EST-1299] |
 | Codified citation | FAR 15.304 [@CL-EST-1294]; DFARS 215.304 [@CL-EST-1299]; FAR 2.101 [@CL-EST-9311] |
-| RFO citation | RFO FAR 15.104 [@CL-EST-3244; @CL-EST-3245] |
+| RFO citation | RFO FAR 15.104 [@CL-EST-3244; @CL-EST-3245]; RFO FAR 2.101 [@CL-EST-9362] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1294] |
 | Applies to | Source selections, subject to a listed exception for DoD, NASA, and the Coast Guard [@CL-EST-1294; @CL-EST-1295] |
 
 The evaluation factors and significant subfactors that apply to an acquisition and their relative importance are within the broad discretion of agency acquisition officials, subject to the listed requirements [@CL-EST-1312]. Price or cost to the Government shall be evaluated in every source selection, subject to the exception listed in a cross-referenced paragraph [@CL-EST-1294]. For DoD, NASA, and the Coast Guard, the contracting officer may choose not to include price or cost as an evaluation factor for award when a solicitation meets listed conditions [@CL-EST-1295]. Those conditions are that the solicitation has an estimated value above the simplified acquisition threshold, will result in multiple-award contracts for the same or similar services, and states that the Government intends to make an award to each and all qualifying offerors [@CL-EST-1296]. That exception shall not apply to solicitations for multiple-award contracts that provide for sole source orders under section 8(a) of the Small Business Act [@CL-EST-1310].
 
-Past performance, except as set forth in a separate listed paragraph, shall be evaluated in all source selections for negotiated competitive acquisitions expected to exceed the simplified acquisition threshold [@CL-EST-1297]. Past performance need not be evaluated if the contracting officer documents the reason past performance is not an appropriate evaluation factor for the acquisition [@CL-EST-1311]. In the definitions section of the FAR, past performance means an offeror's or contractor's performance on active and physically completed contracts, with a cross-reference to 4.804-4 [@CL-EST-9311].
+Past performance, except as set forth in a separate listed paragraph, shall be evaluated in all source selections for negotiated competitive acquisitions expected to exceed the simplified acquisition threshold [@CL-EST-1297]. Past performance need not be evaluated if the contracting officer documents the reason past performance is not an appropriate evaluation factor for the acquisition [@CL-EST-1311]. In the definitions section of the FAR, past performance means an offeror's or contractor's performance on active and physically completed contracts, with a cross-reference to 4.804-4 [@CL-EST-9311]. The RFO text of FAR 2.101 defines past performance as an offeror's or contractor's performance on active and physically completed contracts, with a cross-reference to 4.804-4, the same in substance as the codified definition [@CL-EST-9362; @CL-EST-9311].
 
 All factors and significant subfactors that will affect contract award and their relative importance shall be stated clearly in the solicitation [@CL-EST-1313]. Unless the exception that lets the contracting officer leave price or cost out of the award factors applies, the solicitation shall also state, at a minimum, whether all evaluation factors other than cost or price, when combined, are significantly more important than cost or price, approximately equal to cost or price, or in a further listed alternative [@CL-EST-1298]. The three listed alternatives are significantly more important than, approximately equal to, and significantly less important than cost or price [@CL-EST-1309].
 
@@ -59,6 +59,7 @@ Which bids and estimates in the pipeline need immediate pricing support, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of past performance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of past performance.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation factors and significant subfactors.

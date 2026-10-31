@@ -31,7 +31,7 @@ Explains when the contracting officer may require separate cost accounts for inc
 
 The contracting officer may require change order accounting whenever the estimated cost of a change or series of related changes exceeds $100,000 [@CL-CLS-0207].
 
-In the FAR's general definitions, a change order is a written order, signed by the contracting officer, directing the contractor to make a change that the Changes clause authorizes the contracting officer to order without the contractor's consent [@CL-CLS-1497].
+In the FAR's general definitions, a change order is a written order, signed by the contracting officer, directing the contractor to make a change that the Changes clause authorizes the contracting officer to order without the contractor's consent [@CL-CLS-1497]. The RFO model text of FAR 2.101 defines a change order in the same words as the codified definition, apart from the printed form of the apostrophe [@CL-CLS-1528; @CL-CLS-1497].
 
 For each change or series of related changes, the contractor must maintain separate accounts, by job order or other suitable accounting procedure, of all incurred segregable, direct costs, less allocable credits, of work, both changed and not changed, allocable to the change [@CL-CLS-0208].
 
@@ -59,6 +59,7 @@ How change order accounts and project work breakdown structures are opened and r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of change order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of change order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Change Order Accounting clause.

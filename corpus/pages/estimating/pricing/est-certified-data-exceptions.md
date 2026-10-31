@@ -33,7 +33,7 @@ Certified cost or pricing data shall not be obtained for acquisitions at or belo
 
 The exceptions include adequate price competition, prices set by law or regulation, a commercial product or commercial service, and a waiver [@CL-EST-0153; @CL-EST-0154; @CL-EST-0155; @CL-EST-0156]. In an acquisition that does not require certified cost or pricing data, the contracting officer carries out the steps in paragraph (a)(1) of FAR 15.403-3 [@CL-EST-0520]. These include requiring data other than certified cost or pricing data from the offeror to the extent necessary to determine a fair and reasonable price [@CL-EST-0521], if the contracting officer determines that adequate data from sources other than the offeror are not available [@CL-EST-0522].
 
-FAR 2.101 defines data other than certified cost or pricing data as pricing data, cost data, and judgmental information necessary for the contracting officer to determine a fair and reasonable price or to determine cost realism [@CL-EST-9291]. Such data may include the identical types of data as certified cost or pricing data, consistent with Table 15-2 of FAR 15.408, but without the certification [@CL-EST-9292].
+FAR 2.101 defines data other than certified cost or pricing data as pricing data, cost data, and judgmental information necessary for the contracting officer to determine a fair and reasonable price or to determine cost realism [@CL-EST-9291]. The first sentence of the RFO model text definition of data other than certified cost or pricing data in FAR 2.101 reads the same as the codified first sentence [@CL-EST-9353; @CL-EST-9291]. Such data may include the identical types of data as certified cost or pricing data, consistent with Table 15-2 of FAR 15.408, but without the certification [@CL-EST-9292].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Which upcoming proposals may need certified cost or pricing data, and whether ea
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of data other than certified cost or pricing data.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of data other than certified cost or pricing data.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Corrected the rule to say certified data shall not be required when a listed circumstance applies, and moved the data-other-than-certified and ineligibility statements from model deviation text to codified FAR 15.403-3.

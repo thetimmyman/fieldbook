@@ -29,7 +29,7 @@ Shows who must sign and approve what when one agency buys through another, who m
 | Text status | Final [@CL-CTF-1328] |
 | Applies to | Assisted acquisitions, direct acquisitions and Economy Act orders, as each claim states [@CL-CTF-1328; @CL-CTF-1329; @CL-CTF-1330] |
 
-The FAR's general definitions say an assisted acquisition is a type of interagency acquisition where a servicing agency performs acquisition activities on a requesting agency's behalf, such as awarding and administering a contract, task order, or delivery order [@CL-CTF-9392].
+The FAR's general definitions say an assisted acquisition is a type of interagency acquisition where a servicing agency performs acquisition activities on a requesting agency's behalf, such as awarding and administering a contract, task order, or delivery order [@CL-CTF-9392]. The RFO model text of FAR 2.101 defines an assisted acquisition in the same words as the codified definition [@CL-CTF-9442; @CL-CTF-9392].
 
 For assisted acquisitions, prior to the issuance of a solicitation, the servicing agency and the requesting agency shall both sign a written interagency agreement that establishes the general terms and conditions governing the relationship between the parties [@CL-CTF-1328]. For direct acquisitions the requesting agency administers the order, so no written agreement with the servicing agency is required [@CL-CTF-1329].
 
@@ -61,5 +61,6 @@ Confirm whom to ask for the interagency agreement and any D&F, and who confirms 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of assisted acquisition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of assisted acquisition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interagency acquisitions.

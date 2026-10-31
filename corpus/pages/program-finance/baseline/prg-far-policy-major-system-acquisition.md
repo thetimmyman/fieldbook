@@ -51,7 +51,7 @@ Paragraph (b) governs how long competition lasts. The duty to sustain effective 
 
 Synthetic example. The numbers are made up.
 
-An agency has three alternative concepts for a major system. It must state its need as a mission and not as a named system [@CL-PRG-0403]. It must also sustain effective competition between the alternative concepts and sources for as long as that is beneficial [@CL-PRG-0405]. Suppose the agency judges that funding the third concept no longer brings any benefit. The duty to sustain competition for that concept then lasts only as long as the benefit does [@CL-PRG-0405]. The section does not say who makes that call or how, so the example does not assume one [@CL-PRG-0405]. The agency must still state its need as a mission and not as a named system [@CL-PRG-0403].
+An agency has three alternative concepts for a major system. It must state its need as a mission and not as a named system [@CL-PRG-0403]. It must also sustain effective competition between the alternative concepts and sources for as long as that is beneficial [@CL-PRG-0405]. Suppose the agency judges that funding the third concept no longer brings any benefit. The duty to sustain competition for that concept then lasts only as long as the benefit does [@CL-PRG-0405]. The section does not say who makes that call or how, so the agency's judgment in this example is only an assumption of the example [@CL-PRG-0405]. The agency must still state its need as a mission and not as a named system [@CL-PRG-0403].
 
 ## Never confuse
 
@@ -65,6 +65,7 @@ Which baseline, contingency and risk decisions change the current program foreca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the example sentence on who judges the benefit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of major system.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.000 part scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for major system acquisition.

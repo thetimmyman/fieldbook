@@ -33,7 +33,7 @@ Unless more specific statutory authority exists, the procedures in FAR subpart 1
 
 When the requesting agency is within DoD, a copy of the executed determination and findings required by FAR 17.502-2 must be furnished to the servicing agency as an attachment to the order [@CL-MKT-1915]. The paragraph does not name the official who furnishes it. When a DoD contracting office is acting as the servicing agency, a copy of the executed determination and findings must be obtained from the requesting agency and placed in the contract file for the Economy Act order [@CL-MKT-1916].
 
-The FAR definitions section describes the requesting agency as the agency that has the requirement for an interagency acquisition [@CL-MKT-9234], and the servicing agency as the agency that will conduct an assisted acquisition on behalf of the requesting agency [@CL-MKT-9235].
+The FAR definitions section describes the requesting agency as the agency that has the requirement for an interagency acquisition [@CL-MKT-9234], and the servicing agency as the agency that will conduct an assisted acquisition on behalf of the requesting agency [@CL-MKT-9235]. The RFO text of FAR 2.101 defines the requesting agency as the agency that has the requirement for an interagency acquisition and the servicing agency as the agency that will conduct an assisted acquisition on behalf of the requesting agency, the same in substance as the codified definitions [@CL-MKT-9273; @CL-MKT-9274; @CL-MKT-9234; @CL-MKT-9235].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Which contracts are placed for the company by another agency, and where the dete
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of requesting agency and servicing agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of requesting agency and servicing agency.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the DoD interagency acquisitions subpart and its ordering procedures.

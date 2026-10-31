@@ -35,7 +35,7 @@ Under the codified FAR, certified cost or pricing data are required above $2.5 m
 
 Check the exceptions first: adequate price competition, prices set by law or regulation, commercial products and services, a waiver, and the DoD-specific exceptions. If none applies and the expected value is above the threshold, the offeror submits certified cost or pricing data and signs the certificate when price is agreed. Below the threshold, the contracting officer may still ask for data other than certified cost or pricing data.
 
-The FAR's general definitions say cost or pricing data means all facts that, as of the date of price agreement, or, if applicable, an earlier date agreed upon between the parties that is as close as practicable to the date of agreement on price, prudent buyers and sellers would reasonably expect to affect price negotiations significantly [@CL-EST-9275]. They also say cost or pricing data are factual, not judgmental, and are verifiable [@CL-EST-9276]. Certified cost or pricing data means cost or pricing data that were required to be submitted in accordance with FAR 15.403-4 and 15.403-5 and have been certified, or are required to be certified, in accordance with 15.406-2 [@CL-EST-9277], and the certification states that, to the best of the person's knowledge and belief, the cost or pricing data are accurate, complete, and current as of a date certain before contract award [@CL-EST-9278].
+The FAR's general definitions say cost or pricing data means all facts that, as of the date of price agreement, or, if applicable, an earlier date agreed upon between the parties that is as close as practicable to the date of agreement on price, prudent buyers and sellers would reasonably expect to affect price negotiations significantly [@CL-EST-9275]. They also say cost or pricing data are factual, not judgmental, and are verifiable [@CL-EST-9276]. Certified cost or pricing data means cost or pricing data that were required to be submitted in accordance with FAR 15.403-4 and 15.403-5 and have been certified, or are required to be certified, in accordance with 15.406-2 [@CL-EST-9277], and the certification states that, to the best of the person's knowledge and belief, the cost or pricing data are accurate, complete, and current as of a date certain before contract award [@CL-EST-9278]. The first sentence of the RFO model text definition of certified cost or pricing data in FAR 2.101 reads the same as the codified first sentence, except that it says is required to be certified where the codified text says are required to be certified [@CL-EST-9352; @CL-EST-9277].
 
 ## Worked example
 
@@ -55,5 +55,6 @@ How many open and planned proposals need certified data under each threshold. [@
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of certified cost or pricing data.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of cost or pricing data and certified cost or pricing data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certified data threshold, with the DoD deviation value.

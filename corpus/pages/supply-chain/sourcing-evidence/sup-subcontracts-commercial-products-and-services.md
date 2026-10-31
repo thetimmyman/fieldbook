@@ -24,7 +24,7 @@ Shows which clauses a prime contractor must put in subcontracts for commercial p
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0550] |
 | Codified citation | FAR 44.402 and FAR 52.244-6 [@CL-SUP-0550; @CL-SUP-0555]; FAR 44.400 [@CL-SUP-9466]; FAR 44.401 [@CL-SUP-9467; @CL-SUP-9468] |
-| RFO citation | RFO FAR 52.244-6 [@CL-SUP-3806; @CL-SUP-3807; @CL-SUP-3808; @CL-SUP-9421; @CL-SUP-9422] |
+| RFO citation | RFO FAR 52.244-6 [@CL-SUP-3806; @CL-SUP-3807; @CL-SUP-3808; @CL-SUP-9421; @CL-SUP-9422]; RFO FAR 2.101 [@CL-SUP-9619; @CL-SUP-9620] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0550] |
 | Applies to | Subcontracts for commercial products or commercial services, under the clause inserted as prescribed in FAR 44.403 [@CL-SUP-0685; @CL-SUP-0550] |
@@ -33,7 +33,7 @@ Notwithstanding any other clause in the prime contract, only those clauses ident
 
 Contractors and subcontractors at all tiers are required, to the maximum extent practicable, to incorporate commercial products, commercial services, or nondevelopmental items as components of items delivered to the Government [@CL-SUP-0551].
 
-The FAR's general definitions say a product is a commercial product under paragraph (1) of that definition when it is a product, other than real property, of a type customarily used by the general public or by nongovernmental entities for purposes other than governmental purposes, and it has been sold, leased, or licensed to the general public or has been offered for sale, lease, or license to the general public [@CL-SUP-9540; @CL-SUP-9546]. Under paragraph (2) of the commercial service definition, services of a type offered and sold competitively in substantial quantities in the commercial marketplace based on established catalog or market prices for specific tasks performed or specific outcomes to be achieved and under standard commercial terms and conditions are a commercial service [@CL-SUP-9541]. The other paragraphs of the two definitions are not summarized here.
+The FAR's general definitions say a product is a commercial product under paragraph (1) of that definition when it is a product, other than real property, of a type customarily used by the general public or by nongovernmental entities for purposes other than governmental purposes, and it has been sold, leased, or licensed to the general public or has been offered for sale, lease, or license to the general public [@CL-SUP-9540; @CL-SUP-9546]. The RFO text of FAR 2.101 states paragraph (1) of the commercial product definition with the added words (i.e., purposes that are not unique to a government) after purposes other than governmental purposes [@CL-SUP-9619; @CL-SUP-9620]; its alternative that the product has been offered for sale, lease, or license to the general public is the same [@CL-SUP-9620]. Under paragraph (2) of the commercial service definition, services of a type offered and sold competitively in substantial quantities in the commercial marketplace based on established catalog or market prices for specific tasks performed or specific outcomes to be achieved and under standard commercial terms and conditions are a commercial service [@CL-SUP-9541]. The other paragraphs of the two definitions are not summarized here.
 
 Subpart 44.4 prescribes the policies limiting the contract clauses a contractor may be required to apply to any subcontractors that are furnishing commercial products, including commercial components, or commercial services in accordance with section 3307 of title 41 of the United States Code [@CL-SUP-9466]. The subpart applies to all contracts and subcontracts, and for its purposes the term subcontract has the same meaning as defined in part 12 [@CL-SUP-9467; @CL-SUP-9468].
 
@@ -63,6 +63,7 @@ Confirm how commercial item determinations are made and recorded and which claus
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 paragraph (1) of commercial product.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the offered-for-sale alternative of the commercial product definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of commercial product and commercial service.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 44.400 scope and 44.401 applicability.

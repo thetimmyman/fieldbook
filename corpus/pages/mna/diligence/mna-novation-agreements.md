@@ -23,7 +23,7 @@ Explains when the Government may recognize a successor in interest after a trans
 |---|---|
 | Instrument | Codified FAR [@CL-MNA-0101] |
 | Codified citation | FAR 42.1200 [@CL-MNA-0473; @CL-MNA-0474]; FAR 42.1204 [@CL-MNA-0101] |
-| RFO citation | RFO FAR 42.900 [@CL-MNA-0471; @CL-MNA-0472]; RFO FAR 42.903 [@CL-MNA-0988; @CL-MNA-0989] |
+| RFO citation | RFO FAR 42.900 [@CL-MNA-0471; @CL-MNA-0472]; RFO FAR 42.903 [@CL-MNA-0988; @CL-MNA-0989]; RFO FAR 2.101 [@CL-MNA-1471; @CL-MNA-1472] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MNA-0101] |
 | Applies to | Transfers of all the contractor's assets or of the entire portion of the assets involved in performing the contract [@CL-MNA-0103] |
@@ -34,7 +34,7 @@ A statute prohibits transferring a Government contract from the contractor to a 
 
 The transfer must be of all the contractor's assets or of the entire portion of the assets involved in performing the contract, and a sale of the assets with a provision for assuming liabilities or a transfer incident to a merger or corporate consolidation are examples [@CL-MNA-0103; @CL-MNA-0104]. A stock purchase that changes ownership without a legal change in the contracting party, where that party stays in control of the assets and performs the contract, needs no novation agreement [@CL-MNA-0105].
 
-FAR 2.101 defines a novation agreement as a legal instrument executed by the contractor (transferor), the successor in interest (transferee) and the Government [@CL-MNA-1409], by which, among other things, the transferor guarantees performance of the contract, the transferee assumes all obligations under the contract, and the Government recognizes the transfer of the contract and related assets [@CL-MNA-1410].
+FAR 2.101 defines a novation agreement as a legal instrument executed by the contractor (transferor), the successor in interest (transferee) and the Government [@CL-MNA-1409], by which, among other things, the transferor guarantees performance of the contract, the transferee assumes all obligations under the contract, and the Government recognizes the transfer of the contract and related assets [@CL-MNA-1410]. The RFO text of FAR 2.101 defines a novation agreement as a legal instrument executed by the contractor (transferor), the successor in interest (transferee) and the Government, by which, among other things, the transferor guarantees performance of the contract, the transferee assumes all obligations under the contract, and the Government recognizes the transfer of the contract and related assets, the same in substance as the codified definition [@CL-MNA-1471; @CL-MNA-1472; @CL-MNA-1409; @CL-MNA-1410].
 
 ## How it works
 
@@ -70,6 +70,7 @@ The diligence scope authorized for each acquisition case, and how the target's G
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of novation agreement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of novation agreement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.1200 and RFO FAR 42.900 scope of the subpart.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.

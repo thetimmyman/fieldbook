@@ -23,14 +23,14 @@ Shows what a contractor must obtain from an individual surety, how long the pled
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2480] |
 | Codified citation | FAR 52.228-11 and FAR 52.228-17 [@CL-CTF-2480; @CL-CTF-2518]; FAR 2.101 [@CL-CTF-9425] |
-| RFO citation | RFO FAR 52.228-11(a) [@CL-CTF-0896]; RFO FAR 52.228-11(b) [@CL-CTF-0897; @CL-CTF-0898; @CL-CTF-0899]; RFO FAR 52.228-11(c) [@CL-CTF-0984; @CL-CTF-0985; @CL-CTF-0986; @CL-CTF-0987; @CL-CTF-0988]; RFO FAR 52.228-11(d) [@CL-CTF-0989]; RFO FAR 52.228-17 [@CL-CTF-0990; @CL-CTF-0991; @CL-CTF-0992] |
+| RFO citation | RFO FAR 52.228-11(a) [@CL-CTF-0896]; RFO FAR 52.228-11(b) [@CL-CTF-0897; @CL-CTF-0898; @CL-CTF-0899]; RFO FAR 52.228-11(c) [@CL-CTF-0984; @CL-CTF-0985; @CL-CTF-0986; @CL-CTF-0987; @CL-CTF-0988]; RFO FAR 52.228-11(d) [@CL-CTF-0989]; RFO FAR 52.228-17 [@CL-CTF-0990; @CL-CTF-0991; @CL-CTF-0992]; RFO FAR 2.101 [@CL-CTF-9455] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2480] |
 | Applies to | Contracts with an individual surety on a performance or payment bond, and offers with an individual surety on a bid guarantee [@CL-CTF-2480; @CL-CTF-2518] |
 
 The Contractor shall obtain from each individual surety on a performance bond or a payment bond a pledge of assets that meets the eligibility, valuation and security requirements described in the Federal Acquisition Regulation, and Standard Form 28, Affidavit of Individual Surety [@CL-CTF-2480]. The clause points to another section of the Federal Acquisition Regulation for which assets are eligible and how they are valued, so this card does not list the assets [@CL-CTF-2480]. The eligible assets are Not established.
 
-The FAR definitions section describes a surety as an individual or corporation legally liable for the debt, default, or failure of a principal to satisfy a contractual obligation [@CL-CTF-9425].
+The FAR definitions section describes a surety as an individual or corporation legally liable for the debt, default, or failure of a principal to satisfy a contractual obligation [@CL-CTF-9425]. The RFO text of FAR 2.101 defines a surety as an individual or corporation legally liable for the debt, default, or failure of a principal to satisfy a contractual obligation, the same in substance as the codified definition [@CL-CTF-9455; @CL-CTF-9425].
 
 For a performance bond, the Contracting Officer may release a portion of the security interest on the individual surety's assets based upon substantial performance of the Contractor's obligations under its performance bond, and the security interest in support of a performance bond shall be maintained as the list that follows provides [@CL-CTF-2509]. For construction, alteration or repair contracts for a public building or public work of the Federal Government exceeding $150,000, the period is until completion of any warranty period, or for 1 year following final payment, whichever is later [@CL-CTF-2481]. For contracts subject to alternative payment protection, the period is the full contract performance period plus 1 year [@CL-CTF-2510]. For other contracts not subject to the requirements of paragraph (b)(1), the period is until completion of any warranty period, or for 90 days following final payment, whichever is later [@CL-CTF-2511].
 
@@ -70,6 +70,7 @@ Which contracts and offers rely on individual sureties, and who holds the pledge
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of surety.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of surety.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for individual surety pledge of assets for bonds and bid guarantees.

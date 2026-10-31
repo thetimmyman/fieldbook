@@ -22,13 +22,13 @@ Explains when a sealed bid must include product samples, how the Government test
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2005] |
-| Codified citation | FAR 52.214-20 [@CL-EST-2006] |
-| RFO citation | RFO FAR 52.214-20 [@CL-EST-0063; @CL-EST-0064] |
+| Codified citation | FAR 52.214-20 [@CL-EST-2006]; FAR 2.101 [@CL-EST-9370] |
+| RFO citation | RFO FAR 52.214-20 [@CL-EST-0063; @CL-EST-0064]; RFO FAR 2.101 [@CL-EST-9371] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2005] |
 | Applies to | Solicitations that include the bid samples provision [@CL-EST-2110], and those that add its Alternate I [@CL-EST-2112] or Alternate II [@CL-EST-2116] |
 
-A bid sample is a product sample required to be submitted by a bidder to show those characteristics of the offered products that cannot adequately be described by specifications, purchase descriptions or the invitation for bid [@CL-EST-2005]. Bidders must furnish bid samples as part of the bid, and the Government must receive them by the time specified in the invitation for bids [@CL-EST-2006].
+A bid sample is a product sample required to be submitted by a bidder to show those characteristics of the offered products that cannot adequately be described by specifications, purchase descriptions or the invitation for bid [@CL-EST-2005]. The FAR definitions section says a bid sample means a product sample required to be submitted by an offeror to show characteristics of the offered products that cannot adequately be described by specifications, purchase descriptions, or the solicitation, with the examples balance, facility of use, or pattern [@CL-EST-9370]. The RFO text of FAR 2.101 has the same sentence word for word [@CL-EST-9371; @CL-EST-9370]. Bidders must furnish bid samples as part of the bid, and the Government must receive them by the time specified in the invitation for bids [@CL-EST-2006].
 
 If the bidder fails to submit samples on time, the Government will reject the bid, except that the Contracting Officer will consider a late sample sent by mail under the late submissions provision of the solicitation [@CL-EST-2007].
 
@@ -74,6 +74,7 @@ Confirm who produces and ships samples, and who can prove the delivery date for 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of bid sample.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported phrase from one sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bid samples under sealed bidding.

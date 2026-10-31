@@ -33,7 +33,7 @@ The suspending and debarring official may debar a contractor for a conviction of
 
 The official may also debar a contractor or subcontractor based on any other cause of so serious or compelling a nature that it affects the present responsibility of the contractor or subcontractor [@CL-SUP-0766; @CL-SUP-0775].
 
-The FAR's general definitions say conviction means a judgment or conviction of a criminal offense by any court of competent jurisdiction, whether entered upon a verdict or a plea, and includes a conviction entered upon a plea of nolo contendere [@CL-SUP-9537]. For use in subpart 9.4, that definition points to the definition at 9.403 [@CL-SUP-9538].
+The FAR's general definitions say conviction means a judgment or conviction of a criminal offense by any court of competent jurisdiction, whether entered upon a verdict or a plea, and includes a conviction entered upon a plea of nolo contendere [@CL-SUP-9537]. The first sentence of the RFO model text definition of conviction in FAR 2.101 reads the same as the codified first sentence [@CL-SUP-9594; @CL-SUP-9537]. For use in subpart 9.4, that definition points to the definition at 9.403 [@CL-SUP-9538].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Confirm how supplier screening picks up convictions, civil judgments and tax del
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of conviction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of conviction and its pointer to 9.403.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for causes for debarment.

@@ -33,7 +33,7 @@ The suspending and debarring official may suspend a contractor suspected, upon a
 
 The official may upon adequate evidence also suspend a contractor for any other cause of so serious or compelling a nature that it affects the present responsibility of a Government contractor or subcontractor [@CL-SUP-0779].
 
-The FAR's general definitions say adequate evidence means information sufficient to support the reasonable belief that a particular act or omission has occurred [@CL-SUP-9536].
+The FAR's general definitions say adequate evidence means information sufficient to support the reasonable belief that a particular act or omission has occurred [@CL-SUP-9536]. The RFO model text of FAR 2.101 defines adequate evidence in the same words as the codified definition [@CL-SUP-9591; @CL-SUP-9536].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Confirm how supplier screening picks up indictments and other signs that could l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of adequate evidence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of adequate evidence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for causes for suspension.

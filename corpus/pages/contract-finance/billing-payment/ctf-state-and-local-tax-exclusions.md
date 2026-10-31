@@ -23,13 +23,13 @@ Explains how the State and Local Taxes clause takes State and local taxes out of
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2521] |
-| Codified citation | FAR 52.229-1 and FAR 52.229-4 [@CL-CTF-2521; @CL-CTF-2523] |
-| RFO citation | RFO FAR 52.229-1 [@CL-CTF-0660; @CL-CTF-0661]; RFO FAR 52.229-4 [@CL-CTF-0662; @CL-CTF-0663; @CL-CTF-0664; @CL-CTF-0665; @CL-CTF-0666; @CL-CTF-0667; @CL-CTF-0668; @CL-CTF-0669; @CL-CTF-0670; @CL-CTF-0671; @CL-CTF-0672; @CL-CTF-0673; @CL-CTF-0674; @CL-CTF-0675; @CL-CTF-0676; @CL-CTF-0677; @CL-CTF-0678; @CL-CTF-9127; @CL-CTF-9128; @CL-CTF-9129; @CL-CTF-9130] |
+| Codified citation | FAR 52.229-1 and FAR 52.229-4 [@CL-CTF-2521; @CL-CTF-2523]; FAR 2.101 [@CL-CTF-9466] |
+| RFO citation | RFO FAR 52.229-1 [@CL-CTF-0660; @CL-CTF-0661]; RFO FAR 52.229-4 [@CL-CTF-0662; @CL-CTF-0663; @CL-CTF-0664; @CL-CTF-0665; @CL-CTF-0666; @CL-CTF-0667; @CL-CTF-0668; @CL-CTF-0669; @CL-CTF-0670; @CL-CTF-0671; @CL-CTF-0672; @CL-CTF-0673; @CL-CTF-0674; @CL-CTF-0675; @CL-CTF-0676; @CL-CTF-0677; @CL-CTF-0678; @CL-CTF-9127; @CL-CTF-9128; @CL-CTF-9129; @CL-CTF-9130]; RFO FAR 2.101 [@CL-CTF-9467] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2521] |
 | Applies to | Contracts that include the State and Local Taxes clause or the clause with State and local adjustments [@CL-CTF-2521; @CL-CTF-2523] |
 
-The State and Local Taxes clause says that, notwithstanding the terms of the Federal, State, and Local Taxes clause, the contract price excludes all State and local taxes levied on or measured by the contract or sales price of the services or completed supplies furnished under the contract [@CL-CTF-2521]. The Contractor states the excluded taxes separately on its invoices, and the Government agrees either to pay the amount of the taxes to the Contractor or to provide evidence necessary to sustain an exemption [@CL-CTF-2522].
+The State and Local Taxes clause says that, notwithstanding the terms of the Federal, State, and Local Taxes clause, the contract price excludes all State and local taxes levied on or measured by the contract or sales price of the services or completed supplies furnished under the contract [@CL-CTF-2521]. The Contractor states the excluded taxes separately on its invoices, and the Government agrees either to pay the amount of the taxes to the Contractor or to provide evidence necessary to sustain an exemption [@CL-CTF-2522]. The FAR definitions section defines State and local taxes as taxes levied by the States, the District of Columbia, outlying areas of the United States, or their political subdivisions [@CL-CTF-9466], and the RFO text of FAR 2.101 has the same sentence word for word [@CL-CTF-9467; @CL-CTF-9466].
 
 The clause with State and local adjustments takes the opposite default: unless the contract provides otherwise, the contract price includes all applicable Federal, State, and local taxes and duties, except as provided in subparagraph (b)(2)(i) [@CL-CTF-2523]. Taxes imposed under section 5000C of title 26 of the United States Code may not be included in the contract price and may not be reimbursed [@CL-CTF-2524].
 
@@ -83,5 +83,6 @@ Whether each contract carries the State and Local Taxes clause or the clause wit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of State and local taxes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for state and local tax exclusions and price adjustments.

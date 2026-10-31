@@ -31,11 +31,11 @@ Shows who decides for the Government when a contract is made, administered or en
 
 Contracting officers have authority to enter into, administer, or terminate contracts and make related determinations and findings, but may bind the Government only to the extent of the authority delegated to them [@CL-OPM-0001]. The limit is set in writing: contracting officers shall receive clear written instructions from the appointing authority on the limits of their authority, and information on those limits shall be readily available to the public and agency personnel [@CL-OPM-0002].
 
-The FAR's general definitions say contracting officer means a person with the authority to enter into, administer, and/or terminate contracts and make related determinations and findings [@CL-OPM-1083], and that the term includes certain authorized representatives of the contracting officer acting within the limits of their authority as delegated by the contracting officer [@CL-OPM-1084].
+The FAR's general definitions say contracting officer means a person with the authority to enter into, administer, and/or terminate contracts and make related determinations and findings [@CL-OPM-1083], and that the term includes certain authorized representatives of the contracting officer acting within the limits of their authority as delegated by the contracting officer [@CL-OPM-1084]. The first sentence of the RFO model text definition of a contracting officer in FAR 2.101 reads the same as the codified first sentence [@CL-OPM-1113; @CL-OPM-1083].
 
 Among the listed duties, contracting officers shall ensure that the requirements of 1.602-1(b) have been met and that sufficient funds are available for obligation [@CL-OPM-0003]. Another listed duty is to designate and authorize a COR in writing and in accordance with agency procedures on all contracts and orders other than firm-fixed-price ones, and on firm-fixed-price ones as appropriate, unless the contracting officer retains and executes the COR duties [@CL-OPM-0100; @CL-OPM-0004].
 
-A COR shall be a Government employee, unless otherwise authorized in agency regulations [@CL-OPM-0005]. One listed attribute of a COR is that the COR has no authority to make any commitments or changes that affect price, quality, quantity, delivery, or other terms and conditions of the contract, nor to direct the contractor or its subcontractors to operate in conflict with the contract terms and conditions [@CL-OPM-0006]. Another is that the COR may not be delegated responsibility to perform functions that have been delegated to a contract administration office, but may be assigned some duties by the contracting officer [@CL-OPM-0101].
+A COR shall be a Government employee, unless otherwise authorized in agency regulations [@CL-OPM-0005]. One listed attribute of a COR is that the COR has no authority to make any commitments or changes that affect price, quality, quantity, delivery, or other terms and conditions of the contract, nor to direct the contractor or its subcontractors to operate in conflict with the contract terms and conditions [@CL-OPM-0006]. Another is that the COR may not be delegated responsibility to perform functions that have been delegated under 42.202 to a contract administration office, but may be assigned some duties at 42.302 by the contracting officer [@CL-OPM-0101].
 
 The FAR's general definitions say a contracting officer's representative (COR) is an individual, including a contracting officer's technical representative (COTR), designated and authorized in writing by the contracting officer to perform specific technical or administrative functions [@CL-OPM-1085].
 
@@ -61,6 +61,8 @@ Which written instrument carries each signer's limit on each executed contract, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the 42.202 and 42.302 references to the COR limits.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of contracting officer and contracting officer's representative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS scope section on the contracting officer's representative role.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer authority and contracting officer's representatives.

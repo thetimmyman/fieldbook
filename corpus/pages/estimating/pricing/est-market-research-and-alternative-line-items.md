@@ -23,14 +23,14 @@ Shows the market research a contractor owes before certain subcontract awards, a
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2297] |
 | Codified citation | FAR 52.210-1 [@CL-EST-2297]; FAR 52.204-22 [@CL-EST-2299] |
-| RFO citation | RFO FAR 52.210-1 [@CL-EST-0339; @CL-EST-0340; @CL-EST-0341]; No RFO equivalent for FAR 52.204-22, which the RFO text prints as reserved [@CL-EST-0342] |
+| RFO citation | RFO FAR 52.210-1 [@CL-EST-0339; @CL-EST-0340; @CL-EST-0341]; No RFO equivalent for FAR 52.204-22, which the RFO text prints as reserved [@CL-EST-0342]; RFO FAR 2.101 [@CL-EST-9358] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2297] |
 | Applies to | Subcontracts for other than commercial acquisitions that are over the simplified acquisition threshold on the date of subcontract award [@CL-EST-2297], and solicitations that invite alternative line item proposals [@CL-EST-2299] |
 
 Before awarding subcontracts for other than commercial acquisitions where the subcontracts are over the simplified acquisition threshold as defined in FAR 2.101 on the date of subcontract award, the contractor must conduct market research [@CL-EST-2297]. The research determines whether commercial products, commercial services or, where suitable commercial products are not available, nondevelopmental items are available [@CL-EST-2385] that meet the agency's requirements, could be modified to meet them, or could meet them if the requirements were modified to a reasonable extent [@CL-EST-2298]. It also determines the extent to which commercial products, commercial services or nondevelopmental items could be incorporated at the component level [@CL-EST-2386].
 
-FAR 2.101 defines market research as collecting and analyzing information about capabilities within the market to satisfy agency needs [@CL-EST-9293].
+FAR 2.101 defines market research as collecting and analyzing information about capabilities within the market to satisfy agency needs [@CL-EST-9293]. The RFO text of FAR 2.101 defines market research as collecting and analyzing information about capabilities within the market to satisfy agency needs, the same in substance as the codified definition [@CL-EST-9358; @CL-EST-9293].
 
 ## How it works
 
@@ -60,6 +60,7 @@ Where the market research record for each subcontract award is kept and reviewed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of market research.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of market research.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on line item rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

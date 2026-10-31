@@ -31,7 +31,7 @@ Explains what counts as exchange property, how a trade-in allowance is applied, 
 
 The subpart prescribes policy and procedures for exchange of nonexcess personal property concurrent with an acquisition [@CL-MKT-1921]. The section states that the statute it cites, section 503 of title 40, permits exchange of personal property and application of the exchange allowance to the acquisition of similar property [@CL-MKT-2032]. The subpart does not authorize the sale of nonexcess personal property [@CL-MKT-1922].
 
-The FAR definitions section describes personal property as property of any kind or interest in it except real property, records of the Federal Government, and naval vessels in five listed categories, namely battleships, cruisers, aircraft carriers, destroyers, and submarines [@CL-MKT-9229].
+The FAR definitions section describes personal property as property of any kind or interest in it except real property, records of the Federal Government, and naval vessels in five listed categories, namely battleships, cruisers, aircraft carriers, destroyers, and submarines [@CL-MKT-9229]. The RFO text of FAR 2.101 defines personal property as property of any kind or interest in it except real property, records of the Federal Government, and naval vessels in five listed categories, the same in substance as the codified definition [@CL-MKT-9271; @CL-MKT-9229].
 
 Exchange (trade-in) property means property that is not excess but is eligible for replacement because of obsolescence, unserviceability or another reason [@CL-MKT-1923]. The second element of the definition is that the property is applied as whole or partial payment toward the acquisition of similar items, meaning items designed and constructed for the same purpose [@CL-MKT-1924]. Property means items that fall within one of the generic categories listed in DoD Manual 4140.01, Volume 9, DoD Supply Chain Materiel Management Procedures: Materiel Programs [@CL-MKT-1925].
 
@@ -59,5 +59,6 @@ Whether the company acquires items where the Government offers exchange property
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of personal property.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of personal property.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope, definitions and policy of the exchange of personal property.

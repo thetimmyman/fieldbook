@@ -33,7 +33,7 @@ Approval by the designated official of the use and total dollar amount of overti
 
 As used in subpart 22.1, a normal workweek means, generally, a workweek of 40 hours [@CL-OPM-1000]. Outside the United States and its outlying areas, a workweek longer than 40 hours is considered normal if the workweek does not exceed the norm for the area, as determined by local custom, tradition, or law [@CL-OPM-1001], and if the hours worked in excess of 40 in the workweek are not compensated at a premium rate of pay [@CL-OPM-1002].
 
-FAR 2.101 defines overtime as time worked by a contractor's employee in excess of the employee's normal workweek [@CL-OPM-1093]. It defines the overtime premium as the difference between the contractor's regular rate of pay to an employee for the shift involved and the higher rate paid for overtime [@CL-OPM-1094], and says the premium does not include shift premium, which is the difference between the contractor's regular rate of pay to an employee and the higher rate paid for extra-pay-shift work [@CL-OPM-1095].
+FAR 2.101 defines overtime as time worked by a contractor's employee in excess of the employee's normal workweek [@CL-OPM-1093]. It defines the overtime premium as the difference between the contractor's regular rate of pay to an employee for the shift involved and the higher rate paid for overtime [@CL-OPM-1094], and says the premium does not include shift premium, which is the difference between the contractor's regular rate of pay to an employee and the higher rate paid for extra-pay-shift work [@CL-OPM-1095]. The RFO text of FAR 2.101 defines overtime, the overtime premium and the exclusion of shift premium in a way that is the same in substance as the codified definitions [@CL-OPM-1118; @CL-OPM-1119; @CL-OPM-1120; @CL-OPM-1093; @CL-OPM-1094; @CL-OPM-1095].
 
 ## How it works
 
@@ -57,6 +57,7 @@ Who approves overtime requests, and where approved dollar amounts and the clause
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of overtime and overtime premium.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of overtime and overtime premium.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the normal workweek definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for overtime premiums on cost-type, time-and-materials and labor-hour contracts.

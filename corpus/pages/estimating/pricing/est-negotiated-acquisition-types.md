@@ -38,7 +38,7 @@ FAR part 15 prescribes policies and procedures governing competitive and noncomp
 
 An agency can obtain best value in negotiated acquisitions by using any one or a combination of source selection approaches [@CL-EST-2734]. The relative importance of cost or price may vary between acquisitions [@CL-EST-2735]. Where the requirement is clearly definable and the risk of unsuccessful contract performance is minimal, cost or price may play a dominant role in source selection [@CL-EST-2735]. The less definitive the requirement, the more development work required, or the greater the performance risk, the more technical or past performance considerations may play a dominant role [@CL-EST-2736]. The text on the continuum says can and may, not shall [@CL-EST-2734; @CL-EST-2735; @CL-EST-2736].
 
-The FAR's general definitions say best value means the expected outcome of an acquisition that, in the Government's estimation, provides the greatest overall benefit in response to the requirement [@CL-EST-9272].
+The FAR's general definitions say best value means the expected outcome of an acquisition that, in the Government's estimation, provides the greatest overall benefit in response to the requirement [@CL-EST-9272]. The RFO model text of FAR 2.101 defines best value in the same words as the codified definition [@CL-EST-9346; @CL-EST-9272].
 
 The label for a change to a proposal depends on its timing and cause: a revision also depends on the contracting officer's request or allowance and on negotiations [@CL-EST-2727; @CL-EST-2728]. Who the source selection authority is, and how proposals are evaluated, are on [Source selection responsibilities and evaluation](est-source-selection-responsibilities-and-evaluation.md). The tradeoff approach and the lowest price technically acceptable approach each have their own cards: [Tradeoff and prenegotiation objectives](../../market/programs/mkt-tradeoff-and-prenegotiation-objectives.md) and [Lowest price technically acceptable source selection](est-lpta-source-selection.md).
 
@@ -68,6 +68,7 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of best value.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of best value.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.000 part scope and the FAR 15.100 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.000 scope and RFO FAR 15.303 mistakes in a proposal.

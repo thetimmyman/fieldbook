@@ -58,7 +58,7 @@ The final phase of the plant clearance period is the period after receipt of acc
 
 A change is an unsettled contract change when a definitive modification is required and has not been executed [@CL-CLS-0257].
 
-In the FAR's general definitions, contract modification means any written change in the terms of a contract, and the definition points to 43.103 [@CL-CLS-1499].
+In the FAR's general definitions, contract modification means any written change in the terms of a contract, and the definition points to 43.103 [@CL-CLS-1499]. The RFO model text of FAR 2.101 defines a contract modification in the same words as the codified definition [@CL-CLS-1530; @CL-CLS-1499].
 
 ## Worked example
 
@@ -86,5 +86,6 @@ Which executed termination notices, modifications and inventory schedules the co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contract modification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contract modification.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions used in contract termination.

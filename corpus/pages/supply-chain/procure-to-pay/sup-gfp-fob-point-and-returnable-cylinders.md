@@ -30,7 +30,7 @@ Explains where the Government delivers Government-furnished property and where t
 
 Unless the solicitation provides otherwise, the Government delivers Government-furnished property for use within the contiguous United States or Canada to a point the contractor specifies in the offer [@CL-SUP-2051]. If the Government makes delivery by railroad, the f.o.b. point is private siding at the contractor's plant [@CL-SUP-2173]; if the plant is not served by rail, it is railroad cars in the same or nearest city having rail service [@CL-SUP-2174]. The Government may choose the mode of transportation and the carriers, and bears the cost of all line-haul transportation to the specified destination [@CL-SUP-2052]. Returnable cylinders remain the contractor's property and are loaned without charge to the Government for the loan period the contract states [@CL-SUP-2056], which runs following the day of delivery to the f.o.b. point specified in the contract [@CL-SUP-2177].
 
-The FAR's general definitions say the contiguous United States (CONUS) means the 48 contiguous States and the District of Columbia [@CL-SUP-9543].
+The FAR's general definitions say the contiguous United States (CONUS) means the 48 contiguous States and the District of Columbia [@CL-SUP-9543]. The RFO model text of FAR 2.101 defines the Contiguous United States (CONUS) in the same words as the codified definition [@CL-SUP-9593; @CL-SUP-9543].
 
 ## How it works
 
@@ -60,6 +60,7 @@ Which clause versions and delivery points the contracts state for Government-fur
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of Contiguous United States (CONUS).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of the contiguous United States.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the lost-cylinder sentence to state the Government's option to return, and the delivery and return point contrast to what the clause states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
