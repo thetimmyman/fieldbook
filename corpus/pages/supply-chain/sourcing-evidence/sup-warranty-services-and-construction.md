@@ -23,7 +23,7 @@ Shows what the services and construction warranties cover, when the Government m
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1171] |
 | Codified citation | FAR 52.246-20 and 52.246-21 [@CL-SUP-1171; @CL-SUP-1172; @CL-SUP-1173; @CL-SUP-1174; @CL-SUP-1175; @CL-SUP-1176; @CL-SUP-1177; @CL-SUP-1178; @CL-SUP-1179; @CL-SUP-1221; @CL-SUP-1222; @CL-SUP-1223] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-20 and 52.246-21 [@CL-SUP-3514; @CL-SUP-3515; @CL-SUP-3516; @CL-SUP-9342; @CL-SUP-3517; @CL-SUP-3518; @CL-SUP-3519; @CL-SUP-3520; @CL-SUP-9343; @CL-SUP-3521; @CL-SUP-3522; @CL-SUP-3523; @CL-SUP-3524; @CL-SUP-3525; @CL-SUP-3526; @CL-SUP-3527] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1171] |
 | Applies to | Services performed, and construction work performed, under a contract that includes the matching clause [@CL-SUP-1171; @CL-SUP-1175] |
@@ -35,6 +35,8 @@ For construction, the contractor warrants, except as provided in paragraph (i) o
 ## How it works
 
 The services clause leaves the notice period as a blank that the contracting officer fills in, while the construction clause sets it as a reasonable time after discovery [@CL-SUP-1172; @CL-SUP-1178]. If the contractor fails to remedy any failure, defect, or damage within a reasonable time after receipt of notice, the Government has the right to replace, repair, or otherwise remedy it at the contractor's expense [@CL-SUP-1179]. The construction warranty does not limit the Government's rights under the inspection and acceptance clause of the contract with respect to latent defects, gross mistakes, or fraud [@CL-SUP-1223]. The source text does not establish a standard notice period for services, because the clause leaves it for the contracting officer to fill in.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of 52.246-20 keeps the warranty of services at the time of acceptance [@CL-SUP-3514; @CL-SUP-3515; @CL-SUP-1171], the written notice of a defect or nonconformance [@CL-SUP-3516; @CL-SUP-1172], with the bracketed instruction that also allows the notice period to be another specified event whose occurrence will terminate the period of notice, or a combination of any applicable events or period of time [@CL-SUP-9342], the rule that correction or reperformance is at no cost to the Government [@CL-SUP-3517; @CL-SUP-1173], the right to correct or replace if the contractor fails or refuses [@CL-SUP-3518; @CL-SUP-1174] and the equitable adjustment if correction or reperformance is not required [@CL-SUP-3519; @CL-SUP-1221]. The RFO text of 52.246-21 keeps the construction warranty [@CL-SUP-3520; @CL-SUP-1175], which paragraph (a) states is in addition to any other warranties in the contract [@CL-SUP-9343], its exception for defects of material or design furnished by the Government [@CL-SUP-3521; @CL-SUP-3522; @CL-SUP-1222], the 1-year period [@CL-SUP-3523; @CL-SUP-1176], the duty to remedy at the contractor's expense [@CL-SUP-3524; @CL-SUP-1177], the written notice within a reasonable time [@CL-SUP-3525; @CL-SUP-1178], the Government's right to remedy at the contractor's expense [@CL-SUP-3526; @CL-SUP-1179] and the saving of inspection and acceptance rights for latent defects, gross mistakes or fraud [@CL-SUP-3527; @CL-SUP-1223].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Whether each service or construction contract carries the matching clause, what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the services and construction warranties.
