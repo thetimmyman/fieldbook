@@ -23,7 +23,7 @@ Explains the notice provision that accompanies the Buy American clause for const
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2801] |
 | Codified citation | FAR 52.225-12 [@CL-SUP-2801]; Alternate I [@CL-SUP-2805]; Alternate II [@CL-SUP-2839] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-12 [@CL-SUP-3698]; Alternate I [@CL-SUP-3712]; Alternate II [@CL-SUP-3713] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2801] |
 | Applies to | Offers in solicitations that include the provision, from offerors that request a determination or submit an alternate offer [@CL-SUP-2801; @CL-SUP-2834] |
@@ -58,6 +58,8 @@ The decision. If the Government determines that the requested exception does not
 
 Alternate II changes the alternate-offer paragraph in three ways and adds a definition. Material from Bahrain, Mexico or Oman does not fall within the designated-country exception to the alternate-offer condition [@CL-SUP-2839]. The alternate offer and the evaluation after a denied exception use equivalent domestic or designated country material other than Bahraini, Mexican or Omani material [@CL-SUP-2840; @CL-SUP-2841]. Alternate II's evaluation sentence, as quoted in the claim, ends without the clause requiring the offeror to furnish the material, which the basic provision has [@CL-SUP-2841; @CL-SUP-2838]. Alternate II also adds the definition of Bahraini, Mexican, or Omani construction material to paragraph (a) [@CL-SUP-3035]. The construction materials clause, covered on [Buy American, construction materials under trade agreements](sup-buy-american-construction-trade-agreements.md), defines that term in its Alternate I to include material that is wholly the growth, product or manufacture of Bahrain, Mexico or Oman [@CL-SUP-2862] and material that consists in whole or in part of materials from another country and has been substantially transformed in Bahrain, Mexico or Oman into a new and different construction material distinct from the materials from which it was transformed [@CL-SUP-3083].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.225-12 keeps the pointer in paragraph (a) saying the defined terms are defined in the Buy American clause for construction materials under trade agreements, FAR clause 52.225-11 [@CL-SUP-9392; @CL-SUP-9393; @CL-SUP-3033; @CL-SUP-3034]. It keeps the timing and content rules for the request in paragraph (b) [@CL-SUP-3698; @CL-SUP-3699; @CL-SUP-3700; @CL-SUP-2801; @CL-SUP-2802]. It keeps the evaluation and tie rules in paragraph (c) [@CL-SUP-3701; @CL-SUP-3702; @CL-SUP-3703; @CL-SUP-3704; @CL-SUP-2803; @CL-SUP-2804; @CL-SUP-3142]. It keeps the alternate-offer rules in paragraph (d), including the separate Standard Form 1442 and price comparison table [@CL-SUP-3705; @CL-SUP-3706; @CL-SUP-3707; @CL-SUP-3708; @CL-SUP-2834; @CL-SUP-2833; @CL-SUP-2835; @CL-SUP-2836]. It keeps the rule for a denied exception, including the sealed-bidding and negotiation outcomes [@CL-SUP-3709; @CL-SUP-3710; @CL-SUP-3711; @CL-SUP-2837; @CL-SUP-2838; @CL-SUP-2806]. Alternate I keeps the rule that the request goes in with the offer [@CL-SUP-3712; @CL-SUP-2805]. Alternate II keeps its alternate-offer condition, its evaluation sentence and its added definition [@CL-SUP-3713; @CL-SUP-3714; @CL-SUP-3715; @CL-SUP-9391; @CL-SUP-3716; @CL-SUP-2839; @CL-SUP-2840; @CL-SUP-2841; @CL-SUP-3035].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -88,4 +90,5 @@ Whether the company files its request early enough for a decision before offers 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the notice of Buy American requirement for construction materials under trade agreements.

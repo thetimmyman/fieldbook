@@ -23,7 +23,7 @@ Shows what a product, manufacturer or source must show before award under a qual
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1023] |
 | Codified citation | FAR 52.209-1 [@CL-SUP-1023; @CL-SUP-1024; @CL-SUP-1026; @CL-SUP-1027; @CL-SUP-1063; @CL-SUP-1065] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.209-1 [@CL-SUP-3759] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1023] |
 | Applies to | Supplies or services covered by a qualification requirement [@CL-SUP-1024] |
@@ -33,6 +33,8 @@ The clause defines a qualification requirement as a Government requirement for t
 ## How it works
 
 If an offeror, manufacturer, source, product or service has met the requirement but is not yet on a list, the offeror must submit evidence of qualification prior to award [@CL-SUP-1026]. If, after award, the Contracting Officer discovers that an applicable qualification requirement was not in fact met at the time of award, the Contracting Officer may either terminate the contract for default or take a second course that the paragraph then states [@CL-SUP-1027]. The second course is that the Contracting Officer may allow performance to continue if adequate consideration is offered and the action is determined to be otherwise in the Government's best interests [@CL-SUP-1063]. Unless determined to be in the Government's interest, award of the contract shall not be delayed to permit an offeror to submit evidence of qualification [@CL-SUP-1064]. Any change in location or ownership of a previously qualified manufacturer or source requires reevaluation of the qualification, and the reevaluation must be accomplished before the date of award [@CL-SUP-1065]. The clause also covers a change in plant location or ownership, which this card does not draft.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.209-1 keeps the definition of qualification requirement [@CL-SUP-3759; @CL-SUP-1023]. It keeps the rule in paragraph (b) that the product, manufacturer, or source must have demonstrated qualification before award and must be qualified at the time of award whether or not it is on a list [@CL-SUP-3760; @CL-SUP-3761; @CL-SUP-1024; @CL-SUP-1025]. It keeps the options in paragraph (d) when a requirement was not met at the time of award [@CL-SUP-3762; @CL-SUP-3763; @CL-SUP-1027; @CL-SUP-1063]. Its paragraph (e) keeps the duty to submit evidence of qualification prior to award [@CL-SUP-3764; @CL-SUP-1026], and says award of the contract will not be delayed to permit an offeror to submit evidence of qualification unless determined to be in the Government's interest, where the codified clause says award shall not be delayed [@CL-SUP-3765; @CL-SUP-1064]. It keeps the reevaluation rule in paragraph (f) [@CL-SUP-3766; @CL-SUP-1065].
 
 ## Worked example
 
@@ -52,4 +54,5 @@ Which items and sources carry qualification requirements and where the evidence 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the qualification requirements clause.

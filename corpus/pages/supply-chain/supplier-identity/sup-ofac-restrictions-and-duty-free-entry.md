@@ -24,7 +24,7 @@ Shows the OFAC purchase prohibition and its flowdown to subcontracts, and when s
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1262; @CL-SUP-1265] |
 | Codified citation | FAR 52.225-13 [@CL-SUP-1262]; FAR 52.225-8 [@CL-SUP-1265] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.240-91(d)(2)(i) [@CL-SUP-3718; @CL-SUP-3719], because the RFO text lists FAR 52.225-13 as [Reserved] [@CL-SUP-3717]; RFO FAR 52.225-8 [@CL-SUP-3721] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1262; @CL-SUP-1265] |
 | Applies to | Contracts that include either clause [@CL-SUP-1262; @CL-SUP-1265] |
@@ -39,6 +39,8 @@ The first clause is a prohibition with one route around it, which is OFAC author
 
 The contractor is not required to give the notice if two listed conditions are met. The first is that the supplies are identical in nature to items purchased by the contractor or any subcontractor in connection with its commercial business [@CL-SUP-1293]. The second is that segregation of these supplies to ensure use only on Government contracts containing duty-free entry provisions is not economical or feasible [@CL-SUP-1294].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.225-13 as [Reserved] and prints no clause text under that number [@CL-SUP-3717]. Under the RFO text the OFAC prohibition is in paragraph (d)(2)(i) of FAR 52.240-91, which keeps the OFAC exception and the scope of the prohibited supplies and services [@CL-SUP-3718; @CL-SUP-3719; @CL-SUP-1263; @CL-SUP-1262]. The RFO text of FAR 52.240-91(j) says the Contractor shall insert the substance of the clause, including paragraph (j) but excluding subparagraphs (d)(1) and (i)(1), in all subcontracts and other contractual instruments, including subcontracts for acquiring commercial products or commercial services [@CL-SUP-3720]. The RFO text of FAR 52.225-8 keeps the notice rules in paragraph (c), including the $20,000 amount, the import scope, the 20 calendar days and the price reduction [@CL-SUP-3721; @CL-SUP-3722; @CL-SUP-3723; @CL-SUP-3724; @CL-SUP-3725; @CL-SUP-1265; @CL-SUP-1266; @CL-SUP-1295; @CL-SUP-1267; @CL-SUP-1296]. It keeps the exception in paragraph (d) [@CL-SUP-3726; @CL-SUP-3727; @CL-SUP-1293; @CL-SUP-1294] and the duty-free claim limit in paragraph (e) [@CL-SUP-3728; @CL-SUP-1268]. Paragraph (e) also requires the Contractor to pay duty on supplies, or any portion of them, diverted to nongovernmental use, other than scrap, salvage, or competitive sale authorized by the Contracting Officer [@CL-SUP-9397].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,7 +49,7 @@ A contractor plans to import a foreign component for 30,000 for delivery under t
 
 ## Never confuse
 
-The two clauses address different things. One restricts acquisitions that OFAC measures prohibit, and the other sets out notice and price procedures for duty-free entry [@CL-SUP-1262; @CL-SUP-1265]. For the purchasing system that passes clauses to subcontracts, see [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md).
+The two clauses address different things. One restricts acquisitions that OFAC measures prohibit, and the other sets out notice and price procedures for duty-free entry [@CL-SUP-1262; @CL-SUP-1265]. The codified clause has the contractor insert the clause, including its paragraph (c), in all subcontracts [@CL-SUP-1264], while the RFO text of FAR 52.240-91 has the contractor insert the substance of the clause, including paragraph (j) but excluding subparagraphs (d)(1) and (i)(1), in all subcontracts and other contractual instruments, including subcontracts for acquiring commercial products or commercial services [@CL-SUP-3720]. For the purchasing system that passes clauses to subcontracts, see [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md).
 
 ## Company calibration
 
@@ -57,4 +59,5 @@ Whether the purchasing system passes the restrictions clause to every subcontrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on certain foreign purchases and duty-free entry.
