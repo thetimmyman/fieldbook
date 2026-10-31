@@ -23,7 +23,7 @@ Shows how termination liability is computed when utility service is discontinued
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2697] |
 | Codified citation | FAR 52.241-10 and 52.241-12 [@CL-SUP-2697; @CL-SUP-2704] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.241-10 and 52.241-12 [@CL-SUP-2416; @CL-SUP-2470] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2697] |
 | Applies to | Contracts where the clauses are inserted as prescribed [@CL-SUP-2768; @CL-SUP-2770] |
@@ -41,6 +41,8 @@ The Government pays a nonrefundable, nonrecurring charge when the rules and regu
 ## How it works
 
 The contract fixes the cost recovery period and the net facility cost, and the monthly rate is the net cost divided by the period [@CL-SUP-2699; @CL-SUP-2700; @CL-SUP-2777]. The Government owes that rate whether or not it receives service [@CL-SUP-2701]. If service is discontinued early, the charge is the months left in the period multiplied by the rate, and it falls away once the contractor has recovered its capital costs [@CL-SUP-2702; @CL-SUP-2703]. The nonrefundable charge belongs to a different event: a charge that the contractor's own rules require a customer to pay [@CL-SUP-2704].
+
+Under the RFO text, the DoD part 52 class deviation directs DoD contracting officers to use the revised FAR part 52 in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The following rules appear in the RFO text of these clauses. If the Government discontinues utility service before completion of the facilities cost recovery period stated in the clause [@CL-SUP-9185; @CL-SUP-2697], the Government pays termination charges calculated as set forth in the clause, in consideration of the contractor furnishing and installing the new facility at its expense [@CL-SUP-9186; @CL-SUP-2698]. The facilities cost recovery period, a negotiated number of months that the contract inserts, may not exceed the term of the contract and is the period during which the contractor recovers the net cost of the new facility [@CL-SUP-2416; @CL-SUP-2699]. Net facility cost is the cost of the new facility less the agreed salvage value [@CL-SUP-2417; @CL-SUP-2700]. The contract's instruction for the monthly facility cost recovery rate is to divide the net facility cost by the facility's cost recovery period and insert the result [@CL-SUP-2418; @CL-SUP-2777], and the Government pays that rate whether or not service is received [@CL-SUP-2419; @CL-SUP-2701]. The termination charges figure that the contract inserts is the remaining months of the facility's cost recovery period multiplied by the monthly facility cost recovery rate [@CL-SUP-2420; @CL-SUP-2702]. There is no termination liability charge where the contractor has recovered its capital costs at the time of termination [@CL-SUP-2469; @CL-SUP-2703]. As provided in the clause, the Government pays a nonrefundable, nonrecurring charge where the contractor's rules and regulations require a customer to pay a charge for the initiation of service, a contribution in aid of construction, or a nonrefundable membership fee [@CL-SUP-2470; @CL-SUP-2704]. That charge may be in addition to or in lieu of a connection charge [@CL-SUP-9189; @CL-SUP-2705].
 
 ## Worked example
 
@@ -60,4 +62,5 @@ Confirm, for each new facility, the cost recovery period, the monthly rate, the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for utility termination liability and the nonrefundable service charge.

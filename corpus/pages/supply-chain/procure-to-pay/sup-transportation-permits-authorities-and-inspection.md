@@ -23,7 +23,7 @@ Explains the authority and permits that an offeror or contractor must hold under
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2193] |
 | Codified citation | FAR 52.247-2, FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2191; @CL-SUP-2193; @CL-SUP-2201] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.247-2 [@CL-SUP-0643; @CL-SUP-0644; @CL-SUP-0645; @CL-SUP-0646; @CL-SUP-0647]; No RFO equivalent for FAR 52.247-3 or FAR 52.247-4, which the RFO text prints as [Reserved] [@CL-SUP-0648; @CL-SUP-0649] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2191; @CL-SUP-2193; @CL-SUP-2201] |
 | Applies to | The permits clause as prescribed in FAR 47.207-1(a) [@CL-SUP-2241]; the relocation capability clause in solicitations and contracts for transportation or transportation-related services when a Federal office is relocated [@CL-SUP-2202]; the inspection provision in solicitations for transportation or transportation-related services when it is desired for offerors to inspect sites [@CL-SUP-2247] |
@@ -48,6 +48,8 @@ Alternate I applies if a Federal office move is intrastate and the contracting o
 
 Several entries are contract-specific fill-ins. Paragraph (b) of the inspection provision lists the scheduled site visits by location, date and time, and its paragraph (c) names whom offerors may contact, by name and telephone number; both are completed for each solicitation, and this page does not state them [@CL-SUP-2248; @CL-SUP-2249].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.247-2 keeps the insertion of the permits clause as prescribed in FAR 47.207-1(a) [@CL-SUP-0643; @CL-SUP-2241]. It keeps paragraph (a), in which the offeror marks whether it holds authorization from the Federal Highway Administration or another cognizant regulatory body [@CL-SUP-0644; @CL-SUP-2242], and gives the regulatory body's name and the authorization number if authorization is held [@CL-SUP-0645; @CL-SUP-2242]. It keeps the duty to furnish the Government copies of the authorization, if requested, before moving the material under any contract awarded [@CL-SUP-0646; @CL-SUP-2191], and the duty to obtain and maintain, at the offeror's expense, any permits, franchises, licenses and other authorities issued by State and local governments [@CL-SUP-0647; @CL-SUP-2192]. The RFO text prints FAR 52.247-3 as [Reserved] [@CL-SUP-0648] and prints FAR 52.247-4 as [Reserved] [@CL-SUP-0649]. The relocation capability clause and the inspection provision described above are the codified FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2202; @CL-SUP-2247].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -64,7 +66,7 @@ The authorization in paragraph (a) of the permits clause is not the State and lo
 
 The permits clause asks the offeror to state its authorization from the Federal Highway Administration or another cognizant regulatory body [@CL-SUP-2242]. The relocation capability clause requires, for an interstate move that the contractor performs as a carrier, authority from the Federal Motor Carrier Safety Administration, and it applies where a Federal office is relocated [@CL-SUP-2193; @CL-SUP-2202].
 
-The inspection provision concerns conditions that may affect the cost of contract performance, not the authority an offeror must hold [@CL-SUP-2201].
+The inspection provision concerns conditions that may affect the cost of contract performance, not the authority an offeror must hold [@CL-SUP-2201]. The permits clause has an RFO counterpart in FAR 52.247-2 [@CL-SUP-0643; @CL-SUP-2241], but the codified relocation capability clause and inspection provision at FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2202; @CL-SUP-2247] print as [Reserved] in the RFO text [@CL-SUP-0648; @CL-SUP-0649].
 
 ## Company calibration
 
@@ -74,4 +76,5 @@ Confirm which authority and permit documents the company holds for each transpor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for permits, authorities and site inspection.

@@ -24,7 +24,7 @@ Shows how the time of delivery clause states the required delivery schedule, how
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2541] |
 | Codified citation | FAR 52.211-8 [@CL-SUP-2541] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent: the RFO text prints FAR 52.211-8 as [Reserved] [@CL-SUP-0638] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2541] |
 | Applies to | Not established. |
@@ -45,6 +45,8 @@ Alternate II applies where the delivery schedule is expressed in specific calend
 
 Alternate III applies where the delivery schedule is to be based on the actual date the contractor receives a written notice of award, and the contracting officer may then delete paragraph (b) of the basic clause [@CL-SUP-2602]. The same heading, within days after the date of receipt of a written notice of award, may be used for the third column of paragraph (a) [@CL-SUP-2603].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.211-8 as [Reserved] [@CL-SUP-0638]. The clause and its three alternates described above are the codified FAR 52.211-8 [@CL-SUP-2541].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,7 +61,7 @@ Where Alternate I is used with an assumed award date of 1 June and the contract 
 
 An earlier delivery offer is not automatically the better offer. Offers that deliver within the required period are evaluated equally as regards time of delivery [@CL-SUP-2542], so an earlier schedule gives the Government an option rather than a preference [@CL-SUP-2544], while an offer that does not clearly fall within the required period is rejected rather than ranked lower [@CL-SUP-2543].
 
-An alternate changes the event that the delivery dates are tied to, namely an assumed award date, an assumed date of receipt of notice of award, or actual receipt of a written notice of award [@CL-SUP-2594; @CL-SUP-2598; @CL-SUP-2602]. It does not substitute for the paragraph (a) rule that an offer that does not clearly fall within the required delivery period is rejected [@CL-SUP-2543].
+An alternate changes the event that the delivery dates are tied to, namely an assumed award date, an assumed date of receipt of notice of award, or actual receipt of a written notice of award [@CL-SUP-2594; @CL-SUP-2598; @CL-SUP-2602]. It does not substitute for the paragraph (a) rule that an offer that does not clearly fall within the required delivery period is rejected [@CL-SUP-2543]. The codified clause states a required delivery schedule and rejects as nonresponsive an offer that will not clearly fall within the required delivery period [@CL-SUP-2541; @CL-SUP-2543], but the RFO text prints FAR 52.211-8 as [Reserved] [@CL-SUP-0638].
 
 ## Company calibration
 
@@ -69,4 +71,5 @@ Confirm, for each delivery schedule in force, which date the periods run from an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for time of delivery.

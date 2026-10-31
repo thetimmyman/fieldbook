@@ -23,7 +23,7 @@ Shows who furnishes, owns and maintains the utility facilities, what the Governm
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2672] |
 | Codified citation | FAR 52.241-5 and 52.241-6 [@CL-SUP-2672; @CL-SUP-2674] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.241-5 and 52.241-6 [@CL-SUP-0846; @CL-SUP-1379] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2672] |
 | Applies to | Contracts where the clauses are inserted as prescribed [@CL-SUP-2724; @CL-SUP-2738] |
@@ -68,6 +68,8 @@ The contractor must use reasonable diligence to provide a regular and uninterrup
 
 Under the facilities clause the contractor carries the plant: it furnishes, operates and maintains the facilities, holds title, pays the taxes and bears loss or damage, except to the extent Government negligence caused it [@CL-SUP-2672; @CL-SUP-2673; @CL-SUP-2719]. The Government's side is to approve equipment work, to grant the permit, and to limit access where it considers that necessary [@CL-SUP-2716; @CL-SUP-2717; @CL-SUP-2721]. The service provisions turn delivered service into a bill: the contractor's meters measure it, readings are billed, and meter errors are corrected on the next invoice [@CL-SUP-2674; @CL-SUP-2727]. A cause beyond the contractor's control brings no liability in damages, and the billing adjustment applies once the inserted number of hours is passed [@CL-SUP-2677; @CL-SUP-2737].
 
+Under the RFO text, the DoD part 52 class deviation directs DoD contracting officers to use the revised FAR part 52 in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The following rules appear in the RFO text of these clauses. At its expense, unless the contract provides otherwise, the contractor furnishes, installs, operates and maintains all facilities needed to furnish service, and measures service at the delivery point stated in the Service Specifications [@CL-SUP-0846; @CL-SUP-2672]. Title to those facilities stays with the contractor, which is responsible for loss or damage, except that the Government is responsible to the extent its negligent acts or omissions caused the loss or damage [@CL-SUP-0847; @CL-SUP-2673]. All applicable taxes and other charges in connection with those facilities, and all of the contractor's liability in constructing, operating, maintaining and repairing them, are the contractor's obligation [@CL-SUP-0848; @CL-SUP-2719]. Notwithstanding other terms of the clause, the contractor must obtain approval from the Contracting Officer before any equipment installation, construction or removal [@CL-SUP-0849; @CL-SUP-2716]. The Government grants the contractor, free of any rental or similar charge but subject to the limitations in the contract, a revocable permit or license to enter the service location for any proper purpose under the contract [@CL-SUP-1377; @CL-SUP-2717], and it may limit or restrict the contractor's right of access in any manner it considers necessary, for example for national security or public safety [@CL-SUP-1378; @CL-SUP-2721]. Service is measured by suitable metering equipment of standard manufacture, furnished, installed, maintained, repaired, calibrated and read by the contractor at its expense [@CL-SUP-1379; @CL-SUP-2674], and an appropriate adjustment must be made to the next invoice to correct a meter error [@CL-SUP-1380; @CL-SUP-2727]. The contractor is not liable for damages or breach where failure, suspension, diminution or other variation of service is occasioned by any cause beyond its control [@CL-SUP-2298; @CL-SUP-2677]. Those causes include, without limitation, acts of God or of the public enemy, fires, floods, earthquakes or other catastrophe, strikes, and failure or breakdown of transmission or other facilities [@CL-SUP-9270]. If any such failure, suspension, diminution or other variation of service aggregates more than the number of hours the contract inserts during a billing period, an equitable adjustment is made in the monthly billing, including the minimum monthly charge [@CL-SUP-2299; @CL-SUP-2737].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -86,4 +88,5 @@ Confirm which meters serve each site, who reads and tests them, and where meter 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor's facilities and the service provisions.

@@ -24,7 +24,7 @@ Shows the value engineering duties of an architect-engineer contractor, what it 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3113] |
 | Codified citation | FAR 52.248-2 [@CL-SUP-3113] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.248-2 [@CL-SUP-2644] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3113] |
 | Applies to | Contracts that include the architect-engineer value engineering clause [@CL-SUP-3113] |
@@ -50,6 +50,8 @@ Approved proposals are implemented by bilateral modification to the contract [@C
 
 After award the contractor files the fee breakdown schedule and gets the study team approved, and the study follows the design documents at the stage the clause sets or the contracting officer directs [@CL-SUP-3194; @CL-SUP-3195; @CL-SUP-3114]. The team leader gathers the work and signs a final report that holds every proposal, each with the minimum content [@CL-SUP-3197; @CL-SUP-3198; @CL-SUP-3199]. Acceptance is implemented by bilateral modification to the contract [@CL-SUP-3121]. Payment follows the contract for the effort, and no savings share follows an accepted proposal [@CL-SUP-3116].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.248-2 keeps these rules: the contractor performs value engineering services, submits progress reports as specified in the Schedule, and submits to the contracting officer any resulting proposals [@CL-SUP-2644] [@CL-SUP-3113]. The services include evaluation and review and study of design documents immediately following completion of the 35 percent design stage or at such stages as the contracting officer may direct [@CL-SUP-2645] [@CL-SUP-3114]. The contractor is paid as the contract specifies for the effort but does not share in savings which may result from the Government's acceptance and use of proposals [@CL-SUP-2646] [@CL-SUP-3116]. Approved proposals are implemented by bilateral modification to the contract [@CL-SUP-2647] [@CL-SUP-3121].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -68,4 +70,5 @@ Which architect-engineer contracts carry this clause, who approves the value eng
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for value engineering on architect-engineer contracts.

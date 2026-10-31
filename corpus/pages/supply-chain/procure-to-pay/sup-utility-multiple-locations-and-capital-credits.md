@@ -23,7 +23,7 @@ Shows how the Contracting Officer starts or stops service at a location, how the
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2706] |
 | Codified citation | FAR 52.241-11 and 52.241-13 [@CL-SUP-2706; @CL-SUP-2709] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.241-11 and 52.241-13 [@CL-SUP-2300; @CL-SUP-2395] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2706] |
 | Applies to | Contracts where the clauses are inserted as prescribed [@CL-SUP-2771; @CL-SUP-2774] |
@@ -41,6 +41,8 @@ Capital credits are paid by check payable to the agency the contract names and f
 ## How it works
 
 A written order from the Contracting Officer starts or stops service at a location, and a modification records the name and location, any different rate, the point of delivery, different service specifications and any other terms and conditions [@CL-SUP-2706; @CL-SUP-2707]. The monthly charge is prorated from the period in which the change takes effect [@CL-SUP-2708]. Capital credits follow membership: the bylaws set the contractor's obligation and the method and time of payment, the contractor reports accrued credits in writing, and the payment goes by check to the Contracting Officer unless the Contracting Officer directs otherwise in writing [@CL-SUP-2709; @CL-SUP-2772; @CL-SUP-2710].
+
+Under the RFO text, the DoD part 52 class deviation directs DoD contracting officers to use the revised FAR part 52 in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The following rules appear in the RFO text of these clauses. At any time by written order, the Contracting Officer may designate a location within the contractor's service area at which utility service shall commence or be discontinued [@CL-SUP-2300; @CL-SUP-2706]. Changes to the service specifications are made part of the contract by contract modification stating the name and location of the service, any different rate, the point of delivery, different service specifications, and any other terms and conditions [@CL-SUP-2393; @CL-SUP-2707]. The applicable monthly charge is equitably prorated from the period in which commencement or discontinuance of service at a designated location becomes effective [@CL-SUP-2394; @CL-SUP-2708]. The Government is a member of the cooperative and, as any other member, is entitled to capital credits consistent with the bylaws, which state the contractor's obligation to pay and specify the method and time of payment [@CL-SUP-2395; @CL-SUP-2709]. The contractor must furnish the Contracting Officer, or the designated representative, in writing and on the periodic basis the contract inserts, a list of accrued credits by contract number, year and delivery point [@CL-SUP-2396; @CL-SUP-2772]. Capital credits are paid by check payable to the agency the contract names and forwarded to the Contracting Officer at the address the contract inserts, unless the Contracting Officer directs otherwise in writing [@CL-SUP-2397; @CL-SUP-2710].
 
 ## Worked example
 
@@ -60,4 +62,5 @@ Confirm which sites sit on the contract, which modifications added them, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiple service locations and capital credits.

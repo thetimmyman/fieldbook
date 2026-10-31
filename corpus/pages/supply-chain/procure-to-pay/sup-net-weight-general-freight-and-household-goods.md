@@ -23,7 +23,7 @@ Shows how net weight is found, which weight certificates the contractor must att
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2216] |
 | Codified citation | FAR 52.247-10 and FAR 52.247-11 [@CL-SUP-2216; @CL-SUP-2218] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.247-10 [@CL-SUP-0472; @CL-SUP-0473; @CL-SUP-0474] and RFO FAR 52.247-11 [@CL-SUP-0475; @CL-SUP-0476; @CL-SUP-0477; @CL-SUP-0478; @CL-SUP-0479; @CL-SUP-0480] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2216; @CL-SUP-2218] |
 | Applies to | The general freight clause where the weight of shipments of freight other than household goods or office furniture is not known at the time of shipment and the contractor is responsible for determining the net weight [@CL-SUP-2215]; the household goods and office furniture clause in contracts for transportation or transportation-related services when movements of Government employees' household goods or relocations of Government offices are involved [@CL-SUP-2254] |
@@ -35,6 +35,8 @@ Under the household goods and office furniture clause, the net weight of the shi
 ## How it works
 
 For a full load, net weight is the gross weight less the tare weight [@CL-SUP-2216; @CL-SUP-2218; @CL-SUP-2255]. The net weight of the first part load is determined in the same manner as for a full load [@CL-SUP-2256]. For a second part load, the gross weight of the vehicle containing the first part load is the tare weight, and it is deducted from the new gross weight [@CL-SUP-2219]. The new gross weight is determined by having the loaded vehicle weighed again, in the same manner as for the full load [@CL-SUP-2257]. The same procedure applies for each succeeding part load [@CL-SUP-2258].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.247-10 keeps the general freight rule that net weight is the gross weight less the tare weight, with the tare weight taken from the empty vehicle with a full tank of fuel and the gross weight from the loaded vehicle with a full tank of fuel, each weighed by a certified weighmaster on a certified scale [@CL-SUP-0472; @CL-SUP-0473; @CL-SUP-2216; @CL-SUP-2253]. It keeps the requirement to attach the original copies of the empty and loaded weight certificates to the invoice for services [@CL-SUP-0474; @CL-SUP-2217]. RFO FAR 52.247-11 keeps the household goods and office furniture rule for full loads: the tare weight is the empty vehicle with all blankets, pads, chains, dollies, hand trucks and all other necessary equipment inside it, and the gross weight is the fully loaded vehicle weighed before arrival at destination [@CL-SUP-0475; @CL-SUP-0476; @CL-SUP-2218; @CL-SUP-2255]. It keeps the part load rules: the first part load is weighed as for a full load, the gross weight of the vehicle containing the first part load is the tare weight for the second part load, the new gross weight comes from weighing the loaded vehicle again, and the same procedure applies for each succeeding part load [@CL-SUP-0477; @CL-SUP-0478; @CL-SUP-0479; @CL-SUP-2256; @CL-SUP-2219; @CL-SUP-2257; @CL-SUP-2258]. It keeps the requirement to attach the original copy of each weight certificate to the invoice for services [@CL-SUP-0480; @CL-SUP-2220].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Confirm how the company reconciles the weight shown on the shipping document wit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for net weight of general freight, household goods and office furniture.

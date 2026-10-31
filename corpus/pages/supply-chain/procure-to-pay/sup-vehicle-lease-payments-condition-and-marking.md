@@ -24,7 +24,7 @@ Shows what the Government pays for a leased vehicle, when rent stops, what condi
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2929] |
 | Codified citation | FAR 52.208-4, FAR 52.208-5 and FAR 52.208-6 [@CL-SUP-2929; @CL-SUP-2934; @CL-SUP-2936] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.208-4, 52.208-5 and 52.208-6, listed as [Reserved] [@CL-SUP-2830; @CL-SUP-2901; @CL-SUP-2902] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2929] |
 | Applies to | Solicitations and contracts for leasing motor vehicles, unless the vehicles are leased in foreign countries, under each of the three clauses [@CL-SUP-2937; @CL-SUP-2978; @CL-SUP-2979] |
@@ -49,11 +49,13 @@ The condition clause works in a sequence: the Government accepts or rejects prom
 
 Marking is the Government's option, and its markings must be removable without damage to the vehicle. The contractor's temporary placards may not suggest advertising or Government endorsement of the contractor [@CL-SUP-2936; @CL-SUP-2983].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO part 52 text lists section 52.208-4 as [Reserved] [@CL-SUP-2830], section 52.208-5 as [Reserved] [@CL-SUP-2901], and section 52.208-6 as [Reserved] [@CL-SUP-2902]. In the codified text, section 52.208-4 is the vehicle lease payments clause [@CL-SUP-2929], section 52.208-5 is the condition of leased vehicles clause [@CL-SUP-2934], and section 52.208-6 is the marking of leased vehicles clause [@CL-SUP-2936]. The rules described above come from the codified clause text [@CL-SUP-2929] [@CL-SUP-2934] [@CL-SUP-2936].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-Four vans are leased in the United States at 900 a month each, and the contract has no mileage provision. Take a 30-day month. Van A is delivered with 12 days of the month left, so rent is 12 times 1/30th of 900, which is 360. Van B arrives with bald tires, the Contracting Officer determines it does not comply and informs the contractor in writing, and the contractor does not replace the tires that month, so no rent accrues for it. Because the contractor does not correct the defect, the Government arranges the lease of a similar van and the excess cost of 1,200 is set off against the contractor's invoice. Van C is unusable for 5 days because the contractor failed to render the maintenance services the contract prescribes, so rent for those 5 days is not owed: 900 less 5 times 30 is 750. Van D is in service all month at 900. The rent due for the month, before the 1,200 set-off, is 360 plus 0 plus 750 plus 900, which is 2,010.
+Four vans are leased in the United States at 900 a month each, and the contract has no mileage provision. Take a 30-day month. Van A is delivered with 12 days of the month left, so rent is 12 times 1/30th of 900, which is 360. Van B arrives with bald tires, the Contracting Officer determines it does not comply and informs the contractor in writing, and the contractor does not replace the tires that month, so no rent accrues for it. Because the contractor does not correct the defect, the Government arranges the lease of a similar van and the excess cost of 1,200 is set off against the contractor's invoice. Van C is unusable for 5 days because the contractor failed to render the maintenance services the contract prescribes, so rent for those 5 days is not owed: 900 less 5 times 30 is 750. Van D is in service all month at 900. The rent due for the month, before the 1,200 set-off, is 360 plus 0 plus 750 plus 900, which is 2,010. The example applies the codified clause text; the RFO part 52 text lists 52.208-4, 52.208-5 and 52.208-6 as [Reserved] [@CL-SUP-2830] [@CL-SUP-2901] [@CL-SUP-2902].
 
 ## Never confuse
 
@@ -67,4 +69,5 @@ Whether any vehicle lease runs on a Government contract, who tracks delivery, co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for vehicle lease payments, condition and marking.

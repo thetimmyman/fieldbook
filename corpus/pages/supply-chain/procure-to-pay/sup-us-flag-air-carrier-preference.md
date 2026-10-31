@@ -24,7 +24,7 @@ Explains when a contractor must use a United States-flag air carrier for interna
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2022] |
 | Codified citation | FAR 52.247-63 [@CL-SUP-2022] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.247-63 [@CL-SUP-0714; @CL-SUP-0715; @CL-SUP-0716; @CL-SUP-0717; @CL-SUP-0718; @CL-SUP-0719; @CL-SUP-0720; @CL-SUP-0721; @CL-SUP-0722; @CL-SUP-0723] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2022] |
 | Applies to | International air transportation of personnel (and their personal effects) or property in performing work under the contract [@CL-SUP-2023], and subcontracts and purchases under it that may involve international air transportation [@CL-SUP-2026] |
@@ -38,6 +38,8 @@ International air transportation means transportation by air between a place in 
 If the contractor selects a carrier other than a United States-flag air carrier for international air transportation, it includes a statement on the vouchers involving that transportation, essentially in the prescribed form [@CL-SUP-2025]. The statement says that international air transportation by a United States-flag air carrier was not available or that it was necessary to use foreign-flag air carrier service, and it gives the reasons [@CL-SUP-2149]. The clause recites that regulations are to disallow, in the absence of satisfactory proof of the necessity for foreign-flag air transportation, expenditures from funds appropriated or otherwise established for the account of the United States for international air transportation secured aboard a foreign-flag air carrier [@CL-SUP-2150], where a United States-flag air carrier is available to provide such services [@CL-SUP-2183].
 
 The clause travels down: its substance, including the subcontracting paragraph, goes into each subcontract or purchase under the contract that may involve international air transportation [@CL-SUP-2026].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.247-63 keeps the definition of international air transportation [@CL-SUP-0714; @CL-SUP-2022], of United States [@CL-SUP-0715; @CL-SUP-2147] and of a U.S.-flag air carrier [@CL-SUP-0716; @CL-SUP-2148]. It keeps the statement that all Federal agencies and Government contractors and subcontractors use U.S.-flag air carriers for U.S. Government-financed international air transportation, to the extent that service by those carriers is available [@CL-SUP-0717; @CL-SUP-2024], and the recital that regulations are to disallow expenditures absent satisfactory proof of necessity [@CL-SUP-0718; @CL-SUP-2150], if a U.S.-flag air carrier is available to provide such services [@CL-SUP-0719; @CL-SUP-2183]. It keeps the duty, if available, to use U.S.-flag carriers for international air transportation of personnel (and their personal effects) or property in performing work under the contract [@CL-SUP-0720; @CL-SUP-2023]. It keeps the voucher statement duty when the contractor selects another carrier [@CL-SUP-0721; @CL-SUP-2025], with the statement that U.S.-flag service was not available or that foreign-flag service was necessary, for stated reasons [@CL-SUP-0722; @CL-SUP-2149], and the flowdown of the substance of the clause, including paragraph (e), to each subcontract or purchase that may involve international air transportation [@CL-SUP-0723; @CL-SUP-2026].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ How the company books international air travel and shipments, where the statemen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the preference for United States-flag air carriers.

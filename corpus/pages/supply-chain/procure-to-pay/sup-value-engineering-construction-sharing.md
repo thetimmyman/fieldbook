@@ -24,7 +24,7 @@ Shows how instant contract savings and collateral savings are worked out and sha
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3131] |
 | Codified citation | FAR 52.248-3 and its Alternate I [@CL-SUP-3131; @CL-SUP-3223] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.248-3 and its Alternate I [@CL-SUP-2648; @CL-SUP-2654] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3131] |
 | Applies to | Contracts that include the construction value engineering clause, basic or with Alternate I [@CL-SUP-3131; @CL-SUP-3223] |
@@ -42,6 +42,8 @@ The contractor includes an appropriate value engineering clause in any subcontra
 ## How it works
 
 Start from the contractor's estimated cost reduction, subtract allowable development and implementation costs, including subcontractors' allowable costs from a proposal accepted under this contract and without any subcontractor incentive payment, and the result is instant contract savings [@CL-SUP-3133; @CL-SUP-3139; @CL-SUP-3230]. Subtract Government costs, which leave out normal administrative processing, and apply the Government's percentage for the contract type [@CL-SUP-3205; @CL-SUP-3206; @CL-SUP-3131]. The accepting modification then cuts the price or estimated cost by the instant contract savings and adds the contractor's share [@CL-SUP-3222; @CL-SUP-3132]. Collateral savings are a separate addition under the basic clause, and Alternate I removes that paragraph [@CL-SUP-3135; @CL-SUP-3223].
+
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. In RFO FAR 52.248-3, instant contract savings are the estimated reduction in Contractor cost of performance resulting from acceptance of the proposal, minus allowable Contractor's development and implementation costs, including subcontractors' development and implementation costs (see paragraph (h) of this clause) [@CL-SUP-2649] [@CL-SUP-3133]. The substance is the same as the codified text, but the RFO text words that cross-reference as "of this clause" where the codified text says "below" [@CL-SUP-2649] [@CL-SUP-3133]. The Government's share of savings is found by subtracting Government costs from instant contract savings and multiplying the result by 45 percent for fixed-price contracts or 75 percent for cost-reimbursement contracts [@CL-SUP-2650] [@CL-SUP-3131]. If a proposal is accepted, the contracting officer increases the instant contract amount by 20 percent of any projected collateral savings determined to be realized in a typical year of use, after subtracting any Government costs not previously offset [@CL-SUP-2651] [@CL-SUP-3135]. The contractor's share of collateral savings will not exceed the contract's firm-fixed-price or estimated cost at the time the proposal is accepted, or $100,000, whichever is greater [@CL-SUP-2652] [@CL-SUP-3136]. The contractor includes an appropriate value engineering clause in any subcontract of $90,000 or more and may include one in subcontracts of lesser value [@CL-SUP-2653] [@CL-SUP-3138]. Alternate I of the RFO section applies when the head of the contracting activity determines that the cost of calculating and tracking collateral savings will exceed the benefits to be derived in a construction contract, and it then deletes paragraph (g) from the basic clause and redesignates the remaining paragraphs [@CL-SUP-2654] [@CL-SUP-3223].
 
 ## Worked example
 
@@ -67,4 +69,5 @@ Who computes the instant and collateral savings figures, how the company works o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sharing instant and collateral savings on construction value engineering.

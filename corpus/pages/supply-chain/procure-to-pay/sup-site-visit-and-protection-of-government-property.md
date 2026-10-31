@@ -23,7 +23,7 @@ Shows what a services solicitation asks offerors to do about visiting the site, 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2911] |
 | Codified citation | FAR 52.237-1 and FAR 52.237-2 [@CL-SUP-2911; @CL-SUP-2914] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.237-1 [@CL-SUP-0489; @CL-SUP-0490; @CL-SUP-0491] and RFO FAR 52.237-2 [@CL-SUP-0492; @CL-SUP-0493; @CL-SUP-0494; @CL-SUP-0495] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2911] |
 | Applies to | Solicitations and contracts for services performed on a Government installation, unless the work is construction [@CL-SUP-2911; @CL-SUP-2914] |
@@ -44,6 +44,8 @@ The repair or replacement duty arises only when the contractor's failure to use 
 
 If the contractor fails or refuses to repair or replace, the cost becomes the contractor's liability and may be deducted from the contract price [@CL-SUP-2917].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.237-1 keeps the rule that offerors or quoters are urged and expected to inspect the site and satisfy themselves about general and local conditions that may affect the cost of contract performance, to the extent that the information is reasonably obtainable [@CL-SUP-0489; @CL-SUP-2912]. It keeps the rule that failure to inspect the site is in no event grounds for a claim after contract award [@CL-SUP-0490; @CL-SUP-2913]. The RFO prescription line for the provision cites 37.802-5(a) and does not itself mention services on Government installations or construction solicitations [@CL-SUP-0491], while the codified line states both limits [@CL-SUP-2911]. The RFO prescription line for FAR 52.237-2 cites 37.802-5(b) and says to insert the clause in solicitations and contracts for services to be performed on Government installations, unless a construction contract is contemplated [@CL-SUP-0492], which is the scope the codified line gives [@CL-SUP-2914]. RFO FAR 52.237-2 keeps the duty to use reasonable care to avoid damaging existing buildings, equipment and vegetation [@CL-SUP-0493; @CL-SUP-2915]. It keeps the duty to replace or repair damage caused by a failure to use reasonable care at no expense to the Government, as the Contracting Officer directs [@CL-SUP-0494; @CL-SUP-2916]. It keeps the contractor's liability for the cost, which may be deducted from the contract price, if it fails or refuses to repair or replace [@CL-SUP-0495; @CL-SUP-2917].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -54,7 +56,9 @@ During performance, careless handling of a pallet jack by the contractor's crew 
 
 ## Never confuse
 
-The site visit provision is a pre-award expectation with no post-award claim behind it, while the protection clause is a performance duty with a cost attached [@CL-SUP-2912; @CL-SUP-2913; @CL-SUP-2917]. Neither instrument is prescribed where the work is construction, so do not read a construction solicitation as carrying the site visit bar or the protection duty [@CL-SUP-2911; @CL-SUP-2914]. The protection clause applies to damage caused by a failure to use reasonable care, not to every loss on the installation [@CL-SUP-2916].
+The site visit provision is a pre-award expectation with no post-award claim behind it, while the protection clause is a performance duty with a cost attached [@CL-SUP-2912; @CL-SUP-2913; @CL-SUP-2917]. Under the codified text, neither instrument is prescribed where the work is construction, so do not read a construction solicitation as carrying the site visit bar or the protection duty [@CL-SUP-2911; @CL-SUP-2914]. The protection clause applies to damage caused by a failure to use reasonable care, not to every loss on the installation [@CL-SUP-2916].
+
+The codified site visit provision is prescribed for solicitations for services on Government installations, unless the solicitation is for construction [@CL-SUP-2911], but the RFO prescription line for the provision prints neither limit [@CL-SUP-0491]. The RFO prescription line for the protection clause still excludes the case where a construction contract is contemplated [@CL-SUP-0492].
 
 ## Company calibration
 
@@ -64,4 +68,5 @@ Who confirms that each services solicitation on a Government installation carrie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the site visit and protection of Government property.
