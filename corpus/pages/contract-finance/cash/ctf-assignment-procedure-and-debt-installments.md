@@ -24,7 +24,7 @@ Shows what an assignee files to give notice of an assignment of claims or a rele
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1433; @CL-CTF-1435] |
 | Codified citation | FAR 32.805 and FAR 32.607 [@CL-CTF-1433; @CL-CTF-1435] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.805 [@CL-CTF-4107; @CL-CTF-4108; @CL-CTF-4109; @CL-CTF-4110] and RFO FAR 32.607 [@CL-CTF-4111; @CL-CTF-4112; @CL-CTF-4113] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1433] |
 | Applies to | Assignments of claims that are noticed under the filing procedure, and contractor proposals for debt deferment or installment payments where the contractor has not appealed the debt or filed under the Disputes clause [@CL-CTF-1433; @CL-CTF-1436] |
@@ -36,6 +36,8 @@ The contracting officer shall not approve or deny a contractor's request for ins
 ## How it works
 
 The assignee forwards the notice of assignment and the instrument copy to each party specified in FAR 32.802(e) [@CL-CTF-1433]. The linked assignment card states who receives the written notice of assignment; see [Assignment of claims conditions and policies](ctf-assignment-of-claims.md). On a further assignment or reassignment, the assignee files with the same addressees [@CL-CTF-1434]. After the assignee releases the contractor, the contractor files the notice of release [@CL-CTF-1464]. The same section also sets how assignments by corporations, partnerships and individuals are executed, and what the contracting officer should check before acknowledging a notice. This card does not restate those formalities. For debts, the designated office decides on installment or deferment proposals, not the contracting officer [@CL-CTF-1435]. The demand, interest and deferment request steps are in [Contract debts demand deferment and interest](ctf-contract-debts.md).
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.805(b) keeps the filing rule described above: the assignee must forward to each party specified in 32.802(e) an original and three copies of the notice of assignment with one true copy of the instrument of assignment [@CL-CTF-4107]. RFO FAR 32.805(e) keeps the release filings by the assignee and by the contractor [@CL-CTF-4108; @CL-CTF-4109]. RFO FAR 32.805(d) keeps the check that contracting officers should make before acknowledging a notice [@CL-CTF-4110]. RFO FAR 32.607(a) keeps the rule that the contracting officer must not approve or deny an installment or deferment request and that the office designated in agency procedures decides [@CL-CTF-4111]. RFO FAR 32.805(b) says "must" where the codified paragraph says "shall", with the same duty [@CL-CTF-4107; @CL-CTF-1433], and RFO FAR 32.607(a) does the same [@CL-CTF-4111; @CL-CTF-1435].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Whether a financing institution holds an assignment of the company's contract pa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the assignment of claims procedure and installment payments or deferment of contract debts.
