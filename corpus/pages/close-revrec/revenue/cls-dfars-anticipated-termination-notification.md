@@ -31,7 +31,7 @@ Shows who the Contractor must notify, and by when, once the Contracting Officer 
 
 Within 2 weeks after the Contracting Officer notifies the Contractor that contract funding will be terminated or substantially reduced, the Contractor shall provide notice of the anticipated termination or reduction to the listed recipients [@CL-CLS-1158]. One listed recipient is each employee representative of the Contractor's employees whose work is directly related to the defense contract or, if there is no such representative, each such employee [@CL-CLS-1159]. The other listed recipients are the State or the entity it designates for rapid response activities, and the chief elected official of the local government unit where the adverse effect may occur [@CL-CLS-1160]. The notice given an employee has the same effect as a notice of termination to the employee for determining whether the employee is eligible for training, adjustment assistance, and employment services [@CL-CLS-1203].
 
-The clause implements statutory provisions that are intended to help establish benefit eligibility under the Workforce Innovation and Opportunity Act for employees of DoD contractors and subcontractors adversely affected by contract terminations or substantial reductions under major defense programs [@CL-CLS-1202]. A major defense program, as the clause uses the term, is a program carried out to produce or acquire a major system as defined in section 3041(a) of title 10 of the United States Code [@CL-CLS-1218].
+The clause implements section 1372 of the National Defense Authorization Act for Fiscal Year 1994 and section 824 of the National Defense Authorization Act for Fiscal Year 1997 [@CL-CLS-1597], which are intended to help establish benefit eligibility under the Workforce Innovation and Opportunity Act for employees of DoD contractors and subcontractors adversely affected by contract terminations or substantial reductions under major defense programs [@CL-CLS-1202]. A major defense program, as the clause uses the term, is a program carried out to produce or acquire a major system as defined in section 3041(a) of title 10 of the United States Code [@CL-CLS-1218].
 
 Not later than 60 days after the Contractor receives the Contracting Officer's notice, the Contractor shall take the subcontractor notice steps listed in the clause [@CL-CLS-1161]. One step is notice to each first-tier subcontractor whose subcontract equals or exceeds the threshold specified in DFARS 249.7003(c)(1) at the time of the notice [@CL-CLS-1162]. The printed clause does not state any threshold amount.
 
@@ -57,4 +57,5 @@ Which executed contracts carry the clause, and who owns the employee and subcont
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: named the two statutes the clause implements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of anticipated contract termination or reduction.

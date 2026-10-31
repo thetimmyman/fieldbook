@@ -28,7 +28,7 @@ Shows the two routes to a change under the construction changes clause, the writ
 | Text status | Final [@CL-CLS-1088] |
 | Applies to | Contracts containing the Changes clause for construction [@CL-CLS-1088] |
 
-The first route is a written change order. The Contracting Officer may at any time, without notice to the sureties, if any, by written order designated or indicated to be a change order, make changes in the work within the general scope of the contract, including the changes the clause lists [@CL-CLS-1088]. The listed changes are changes in the specifications, in the method or manner of performance of the work, in the Government-furnished property or services, and directing acceleration in the performance of the work [@CL-CLS-1137].
+The first route is a written change order. The Contracting Officer may at any time, without notice to the sureties, if any, by written order designated or indicated to be a change order, make changes in the work within the general scope of the contract, including the changes the clause lists [@CL-CLS-1088]. The changes the clause lists include changes in the specifications (including drawings and designs), in the method or manner of performance of the work, in the Government-furnished property or services, or directing acceleration in the performance of the work [@CL-CLS-1137].
 
 The second route is another written or oral order. Any other written or oral order from the Contracting Officer that causes a change shall be treated as a change order under the clause, followed by a proviso [@CL-CLS-1089]. The proviso is that the Contractor gives the Contracting Officer written notice stating the date, circumstances, and source of the order and that the Contractor regards the order as a change order [@CL-CLS-1090]. Except as the clause provides, no order, statement, or conduct of the Contracting Officer shall be treated as a change under the clause or entitle the Contractor to an equitable adjustment [@CL-CLS-1135].
 
@@ -64,6 +64,7 @@ Where the executed construction contracts and modifications are kept, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: wrote the listed changes as a list joined by or.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the equitable adjustment is made by modifying the contract in writing, citing the remainder of the paragraph (d) sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the changes clause for construction.

@@ -27,11 +27,11 @@ Governs the choice between the preferred inventory basis and the total-cost basi
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0508] |
-| Applies to | Fixed-price contracts terminated for convenience: the section sits in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
+| Applies to | Settlement of contracts terminated for convenience: the additional principles for fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3, and this section, 49.206-2, sits in subpart 49.2 [@CL-CLS-0662]. |
 
 Use of the inventory basis for settlement proposals is preferred, and under this basis the contractor may propose only costs allocable to the terminated portion of the contract [@CL-CLS-0508].
 
-When use of the inventory basis is not practicable or will unduly delay settlement, the total-cost basis on Standard Form 1436 may be used if approved in advance by the termination contracting officer [@CL-CLS-0510].
+When use of the inventory basis is not practicable or will unduly delay settlement, the total-cost basis on Standard Form 1436 may be used if approved in advance by the termination contracting officer, as in the examples the section gives, such as where production has not commenced and the accumulated costs represent planning and preproduction or get ready expenses [@CL-CLS-0510; @CL-CLS-1593].
 
 ## How it works
 
@@ -49,7 +49,7 @@ A contractor suffers a complete termination on a production line where unit cost
 
 ## Never confuse
 
-The inventory basis confines the proposal to costs allocable to the terminated portion, whereas the total-cost basis starts from all costs incurred under the contract and deducts the contract price of delivered and accepted end items [@CL-CLS-0508; @CL-CLS-0651; @CL-CLS-0653]. For how profit and loss are set, see [Termination settlements: profit allowance and adjustment for loss](../revenue/cls-termination-settlements-profit-and-loss.md). For the deduction and ceiling rules that apply to the settlement amount, see [Termination settlements: deductions, completed end items, and settlement limitation](../revenue/cls-termination-settlement-deductions-and-limitations.md). For allowability of the costs themselves, see [Termination costs](cls-termination-costs.md). For progress payment title and recovery, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md). For the clause that sets deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+The inventory basis confines the proposal to costs allocable to the terminated portion, whereas the total-cost basis under a complete termination starts from all costs incurred under the contract up to the effective date of termination and deducts the contract price of delivered and accepted end items [@CL-CLS-0508; @CL-CLS-0651; @CL-CLS-0653]. For how profit and loss are set, see [Termination settlements: profit allowance and adjustment for loss](../revenue/cls-termination-settlements-profit-and-loss.md). For the deduction and ceiling rules that apply to the settlement amount, see [Termination settlements: deductions, completed end items, and settlement limitation](../revenue/cls-termination-settlement-deductions-and-limitations.md). For allowability of the costs themselves, see [Termination costs](cls-termination-costs.md). For progress payment title and recovery, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md). For the clause that sets deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Who selects the proposal basis and reconciles unliquidated financing balances an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: scoped the applies-to row and the total-cost basis, added the examples lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inventory basis and total-cost basis termination settlement proposals.

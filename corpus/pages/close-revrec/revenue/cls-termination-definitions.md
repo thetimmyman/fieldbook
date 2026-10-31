@@ -29,7 +29,7 @@ Fixes the meaning of the terms that the section on definitions gives, so that a 
 | Text status | Final [@CL-CLS-0250] |
 | Applies to | The terms the section defines, as used in part 49; the plant clearance period is defined as used in the subpart [@CL-CLS-0250; @CL-CLS-0252] |
 
-The section says that the terms it defines have the stated meanings as used in part 49, and it words the plant clearance period definition for use in the subpart [@CL-CLS-0250; @CL-CLS-0252]. It defines six terms: other work, plant clearance period, the final phase of the plant clearance period, settlement agreement, settlement proposal and unsettled contract change [@CL-CLS-0251; @CL-CLS-0252; @CL-CLS-0253; @CL-CLS-0254; @CL-CLS-0255; @CL-CLS-0257].
+The section says that the terms it defines have the stated meanings as used in part 49, and it words the plant clearance period definition for use in the subpart [@CL-CLS-0250; @CL-CLS-0252; @CL-CLS-1605]. It defines six terms: other work, plant clearance period, the final phase of the plant clearance period, settlement agreement, settlement proposal and unsettled contract change [@CL-CLS-0251; @CL-CLS-0252; @CL-CLS-0253; @CL-CLS-0254; @CL-CLS-0255; @CL-CLS-0257].
 
 The stored text of the section holds no definition of partial termination or termination inventory. Their meaning is not established here.
 
@@ -38,7 +38,7 @@ The stored text of the section holds no definition of partial termination or ter
 | Term | Full definition |
 |---|---|
 | Other work | Any current or scheduled work of the contractor, whether Government or commercial, other than work related to the terminated contract [@CL-CLS-0251] |
-| Plant clearance period | As used in the subpart, the period beginning on the effective date of contract completion or termination and ending 90 days (or such longer period as may be agreed to) after receipt by the contracting officer of acceptable inventory schedules for each property classification [@CL-CLS-0252] |
+| Plant clearance period | As used in the subpart, the period beginning on the effective date of contract completion or termination and ending 90 days (or such longer period as may be agreed to) after receipt by the contracting officer of acceptable inventory schedules for each property classification [@CL-CLS-1605; @CL-CLS-0252] |
 | Final phase of the plant clearance period | That period after receipt of acceptable inventory schedules [@CL-CLS-0253] |
 | Settlement agreement | A written agreement in the form of a contract modification settling all or a severable portion of a settlement proposal [@CL-CLS-0254] |
 | Settlement proposal | A proposal for effecting settlement of a contract terminated in whole or in part, submitted by a contractor or subcontractor in the form, and supported by the data, required by part 49 [@CL-CLS-0255] |
@@ -52,7 +52,7 @@ The section is only a set of definitions. It imposes no deadline on any party, s
 
 A contractor or subcontractor submits a settlement proposal to settle a contract terminated in whole or in part [@CL-CLS-0255]. A settlement agreement is the written contract modification that settles the proposal [@CL-CLS-0254]. An agreement may settle all of the proposal or only a severable portion of it [@CL-CLS-0254].
 
-The plant clearance period starts on the effective date of contract completion or termination [@CL-CLS-0252]. It ends 90 days after the contracting officer receives acceptable inventory schedules for each property classification, or after a longer period if one is agreed to [@CL-CLS-0252]. The text does not say who agrees to a longer period. The definition is worded for use in the subpart, while the other definitions apply as used in part 49 [@CL-CLS-0252; @CL-CLS-0250].
+The plant clearance period starts on the effective date of contract completion or termination [@CL-CLS-0252]. It ends 90 days after the contracting officer receives acceptable inventory schedules for each property classification, or after a longer period if one is agreed to [@CL-CLS-0252]. The text does not say who agrees to a longer period. The definition is worded for use in the subpart, while the other definitions apply as used in part 49 [@CL-CLS-1605; @CL-CLS-0252; @CL-CLS-0250].
 
 The final phase of the plant clearance period is the period after receipt of acceptable inventory schedules [@CL-CLS-0253].
 
@@ -86,6 +86,7 @@ Which executed termination notices, modifications and inventory schedules the co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: plant clearance period scope cited to its own quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contract modification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contract modification.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions used in contract termination.

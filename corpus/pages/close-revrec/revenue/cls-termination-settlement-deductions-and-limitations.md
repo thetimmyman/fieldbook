@@ -35,7 +35,7 @@ The total amount payable to the contractor for a settlement, before deducting di
 
 ## How it works
 
-A further deduction is the fair value, as determined by the termination contracting officer, of termination inventory that is lost or so damaged as to become undeliverable before transfer of title to the Government or to a buyer [@CL-CLS-0656]. Normal spoilage is excepted, as is inventory for which the Government has expressly assumed the risk of loss [@CL-CLS-0657].
+A further deduction is the fair value, as determined by the termination contracting officer, of termination inventory that is lost or so damaged as to become undeliverable before transfer of title to the Government or to a buyer under part 45 [@CL-CLS-0656]. Normal spoilage is excepted, as is inventory for which the Government has expressly assumed the risk of loss [@CL-CLS-0657].
 
 Promptly after the effective date of termination, the termination contracting officer must have all undelivered completed end items inspected and accepted if they comply with the contract requirements, and must determine which accepted end items are to be delivered under the contract [@CL-CLS-0658]. The contractor invoices accepted and delivered end items at the contract price in the usual manner and does not include them in the settlement proposal [@CL-CLS-0518]. When completed end items, though accepted, are not to be delivered under the contract, the contractor includes them in the settlement proposal at the contract price, adjusted for any saving of freight or other charges, together with any credits for their purchase, retention, or sale [@CL-CLS-0519].
 
@@ -57,4 +57,5 @@ Who tracks completed end items, retention credits, and the contract price ceilin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added under part 45 to the lost-inventory deduction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deductions, completed end items, and settlement limitations.

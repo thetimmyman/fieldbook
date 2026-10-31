@@ -33,7 +33,7 @@ For supplies and services, the contracting officer shall insert the clause at 52
 
 For research and development, the clause at 52.249-9 goes in when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, except for the contracts the sentence goes on to describe [@CL-CLS-1026]. The exception covers research and development contracts with educational or nonprofit institutions on a no-profit basis [@CL-CLS-1059].
 
-For construction, the clause at 52.249-10 goes in when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1027]. If the contract is for dismantling, demolition, or removal of improvements, the contracting officer shall use that clause with its Alternate I [@CL-CLS-1061]. If the contract is to be awarded during a period of national emergency, the contracting officer may use it with its Alternate II when a fixed-price contract for construction is contemplated [@CL-CLS-1062], and may also use its Alternate III when a contract for dismantling, demolition, or removal of improvements is contemplated [@CL-CLS-1063].
+For construction, the clause at 52.249-10 goes in when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1027]. If the contract is for dismantling, demolition, or removal of improvements, the contracting officer shall use that clause with its Alternate I [@CL-CLS-1061]. If the contract is to be awarded during a period of national emergency, the contracting officer may use it with one of two alternatives: its Alternate II when a fixed-price contract for construction is contemplated [@CL-CLS-1062], or its Alternate III when a contract for dismantling, demolition, or removal of improvements is contemplated [@CL-CLS-1063; @CL-CLS-1599].
 
 ## How it works
 
@@ -57,4 +57,5 @@ Which default clause each open fixed-price contract carries, checked against its
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Alternates II and III stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default clauses for fixed-price contracts.

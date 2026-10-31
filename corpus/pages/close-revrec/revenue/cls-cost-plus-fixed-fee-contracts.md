@@ -35,7 +35,7 @@ The fixed fee does not vary with actual cost, but may be adjusted as a result of
 
 ## How it works
 
-A cost-plus-fixed-fee contract is suitable for use when the conditions for cost-reimbursement contracts are present and, for example, the contract is for the performance of research or preliminary exploration or study and the level of effort required is unknown [@CL-CLS-0577]. A further example is a contract for development and test where using a cost-plus-incentive-fee contract is not practical [@CL-CLS-0686].
+A cost-plus-fixed-fee contract is suitable for use when the conditions of FAR 16.301-2 are present and, for example, the contract is for the performance of research or preliminary exploration or study and the level of effort required is unknown [@CL-CLS-0577]. The two examples are alternatives: the other is a contract for development and test where using a cost-plus-incentive-fee contract is not practical [@CL-CLS-0686; @CL-CLS-1596].
 
 The contract may take a completion form or a term form. The completion form describes the scope of work by stating a definite goal or target and specifying an end product [@CL-CLS-0578]. It normally requires the contractor to complete and deliver the specified end product within the estimated cost, if possible, as a condition for payment of the entire fixed fee [@CL-CLS-0687]. If the work cannot be completed within the estimated cost, the Government may require more effort without increase in fee, provided the Government increases the estimated cost [@CL-CLS-0688].
 
@@ -59,4 +59,5 @@ Who determines how fixed fee earnings and the completion or term form affect rev
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: named the two suitability examples as alternatives and the conditions cited.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-plus-fixed-fee contracts.

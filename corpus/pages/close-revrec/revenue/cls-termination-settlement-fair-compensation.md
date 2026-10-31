@@ -27,7 +27,7 @@ Establishes the standard of fair compensation and business judgment for terminat
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0500] |
-| Applies to | Fixed-price contracts terminated for convenience: the section sits in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
+| Applies to | Termination settlements: the fair compensation standard sits in the FAR subpart of additional principles for fixed-price contracts terminated for convenience, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. The cost-principles rule and the rule on unsettled contract changes are worded for termination settlements under contracts with other than educational institutions and for completely terminated contracts, and are not limited to fixed-price contracts in their text [@CL-CLS-0504; @CL-CLS-0505]. |
 
 A settlement should compensate the contractor fairly for the work done and the preparations made for the terminated portions of the contract, including a reasonable allowance for profit [@CL-CLS-0500].
 
@@ -57,4 +57,5 @@ Who reviews termination settlement judgments and the close adjustments that foll
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: applies-to row scope separated by section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fair compensation, cost principles, and unsettled contract changes in termination settlements.

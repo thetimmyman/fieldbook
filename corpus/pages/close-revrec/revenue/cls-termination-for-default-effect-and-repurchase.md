@@ -29,7 +29,7 @@ Explains what a termination for default means for payment, the cure notice and s
 | Text status | Final [@CL-CLS-0942] |
 | Applies to | Contracts containing the Default clause at 52.249-8 [@CL-CLS-0966] |
 
-Under contracts containing the Default clause at 52.249-8, the Government's right to terminate the contract completely or partially for default is subject to the notice requirements of the clause [@CL-CLS-0966]. The section lists three failures: to make delivery of the supplies or perform the services within the time specified in the contract, to perform any other provision of the contract, and to make progress where that failure endangers performance of the contract [@CL-CLS-0967].
+Under contracts containing the Default clause at 52.249-8, the Government's right to terminate the contract completely or partially for default is subject to the notice requirements of the clause [@CL-CLS-0966]. The section lists three alternative failures: to make delivery of the supplies or perform the services within the time specified in the contract, to perform any other provision of the contract, or to make progress where that failure endangers performance of the contract [@CL-CLS-0967].
 
 Under a termination for default, the Government is not liable for the contractor's costs on undelivered work and is entitled to the repayment of advance and progress payments, if any, applicable to that work [@CL-CLS-0942]. The Government may elect, under the Default clause, to require the contractor to transfer title and deliver to the Government completed supplies and manufacturing materials, as directed by the contracting officer [@CL-CLS-0956]. Subject to the lien protection in the section's paragraph on overpayment, the Government shall pay the contractor the contract price for any completed supplies, and the amount agreed upon by the contracting officer and the contractor for any manufacturing materials, acquired by the Government under the Default clause [@CL-CLS-0943]. That paragraph requires that the Government be protected from overpayment that might result from failure to provide for its potential liability to laborers and material suppliers for lien rights outstanding against the completed supplies or materials after it has paid the contractor for them [@CL-CLS-0955].
 
@@ -61,6 +61,7 @@ How potential default exposure, repayable financing and excess reprocurement cos
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: default failures stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the no-notice rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination for default.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of termination for default.

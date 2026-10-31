@@ -33,15 +33,15 @@ The contractor must establish and maintain an acceptable property management sys
 
 The system must be in accordance with paragraphs (b) and (f) of the contract clause at Federal Acquisition Regulation 52.245-1 [@CL-CLS-0103].
 
-Acceptable means compliance with the system criteria in the clause [@CL-CLS-0108].
+Acceptable means compliance with the system criteria in paragraph (c) of the clause [@CL-CLS-0108].
 
 ## How it works
 
-The contracting officer gives an initial written determination of material weaknesses, and the contractor shall respond within 30 days [@CL-CLS-0104] and, if it disagrees, state its rationale in writing [@CL-CLS-0162]. The final determination concerns remaining material weaknesses and the adequacy of any proposed or completed corrective action [@CL-CLS-0160], and system disapproval if one or more material weaknesses remain [@CL-CLS-0161].
+The contractor shall respond within 30 days to a written initial determination from the contracting officer that identifies material weaknesses in the contractor's property management system [@CL-CLS-0104] and, if it disagrees with the initial determination, state its rationale in writing [@CL-CLS-0162]. The contracting officer will evaluate the response and notify the contractor in writing of a final determination concerning remaining material weaknesses and the adequacy of any proposed or completed corrective action [@CL-CLS-0160], and system disapproval if the contracting officer determines that one or more material weaknesses remain [@CL-CLS-0161].
 
-A final determination follows, and the contractor has 45 days from receipt to correct the weaknesses or to submit an acceptable corrective action plan with milestones [@CL-CLS-0105].
+If the contractor receives the contracting officer's final determination of material weaknesses, the contractor shall, within 45 days of receipt, either correct the material weaknesses or submit an acceptable corrective action plan showing milestones and actions to eliminate them [@CL-CLS-1582; @CL-CLS-0105].
 
-If the final determination disapproves the system and the contract carries the Contractor Business Systems clause, payments are withheld in accordance with that clause [@CL-CLS-0106].
+If the final determination disapproves the system and the contract carries the Contractor Business Systems clause, the contracting officer will withhold payments in accordance with that clause [@CL-CLS-0106].
 
 ## Worked example
 
@@ -65,5 +65,6 @@ Who owns the property title and inventory records, and how physical and accounti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the 45-day lead-in and the contracting officer as the actor on determinations and withholding.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that failure to maintain an acceptable property management system may result in disapproval of the system and withholding of payments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Property Management System Administration clause.
