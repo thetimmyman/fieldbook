@@ -36,7 +36,7 @@ The NAICS code assigned to a procurement and its corresponding size standard is 
 
 ## How it works
 
-For a multiple award contract, the contracting officer takes one of two listed routes [@CL-MKT-0526; @CL-MKT-0380]. The first is to assign one code and size standard to the solicitation, but only if that code will also best describe the principal purpose of each order [@CL-MKT-0379]. The other is to divide the solicitation into discrete categories and assign each discrete category the single code and size standard [@CL-MKT-0380]. A concern must then meet the size standard for each category for which it seeks an award as a small business [@CL-MKT-0381]. Each order against a multiple award contract takes a single NAICS code, and that code must be one included in the underlying contract [@CL-MKT-0382].
+For a multiple award contract, the contracting officer takes one of two listed routes [@CL-MKT-0526; @CL-MKT-0380]. The first is to assign one code and size standard to the solicitation, but only if that code will also best describe the principal purpose of each order [@CL-MKT-0379]. The other is to divide the solicitation into discrete categories and assign each discrete category the single code and size standard that best describes the principal purpose of the goods or services to be acquired under that category [@CL-MKT-0380; @CL-MKT-1839]. A concern must then meet the size standard for each category for which it seeks an award as a small business [@CL-MKT-0381]. Each order against a multiple award contract takes a single NAICS code, and that code must be one included in the underlying contract [@CL-MKT-0382].
 
 ## Worked example
 
@@ -56,4 +56,5 @@ Which NAICS codes and size standards the company's products and customers usuall
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the multiple award sentence so the discrete-category route keeps the code that best describes the principal purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the size standard that applies to a federal procurement.

@@ -30,7 +30,7 @@ Shows what the CMMC Program rule is for, which standards it draws on, and the ex
 
 The rule establishes requirements for defense contractors and subcontractors to implement prescribed cybersecurity standards for safeguarding FCI and CUI [@CL-CMP-3200]. It also establishes requirements for conducting an assessment of compliance with the applicable prescribed standard for contractor information systems that process, store, or transmit FCI or CUI, among the system types the paragraph lists [@CL-CMP-3201]. Who the rule binds and how it phases in are on the [program scope and phases](cmp-cmmc-program-scope-and-phases.md) card and are not restated here.
 
-The program utilizes the security standards set forth in 48 CFR 52.204-21 and in NIST SP 800-171 Revision 2 [@CL-CMP-3202]. It also utilizes, as applicable, selected requirements from NIST SP 800-172 [@CL-CMP-3203; @CL-CMP-3202]. The rule defines the CMMC Security Requirements as the 15 Level 1 requirements listed in 48 CFR 52.204-21(b)(1), the 110 Level 2 requirements from NIST SP 800-171 R2, and the 24 Level 3 requirements selected from NIST SP 800-172 [@CL-CMP-3205].
+The program utilizes the security standards set forth in 48 CFR 52.204-21 and in NIST SP 800-171 Revision 2, which includes updates as of January 28, 2021 [@CL-CMP-3202; @CL-CMP-8220]. It also utilizes, as applicable, selected requirements from NIST SP 800-172 [@CL-CMP-3203; @CL-CMP-3202]. The rule defines the CMMC Security Requirements as the 15 Level 1 requirements listed in 48 CFR 52.204-21(b)(1), the 110 Level 2 requirements from NIST SP 800-171 R2, and the 24 Level 3 requirements selected from NIST SP 800-172 [@CL-CMP-3205].
 
 ## How it works
 
@@ -54,5 +54,6 @@ Which contractor information systems and contracts are in the assessed scope, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the standards sentence so the program's use of NIST SP 800-171 Revision 2 keeps the updates it includes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Limited the statement about who performs each kind of assessment to the certification assessments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Program purpose, incorporated standards and key assessment terms.

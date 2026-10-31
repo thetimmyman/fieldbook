@@ -38,7 +38,7 @@ In the reporting clause a biobased product is a product that USDA determines to 
 
 The reporting duty is separate from the certification and falls on the contractor [@CL-CMP-5166].
 
-The contractor reports to the website the clause names, with a copy to the contracting officer, on the product types and dollar value of biobased products in USDA-designated product categories that it purchased during the previous Government fiscal year, which runs between October 1 and September 30 [@CL-CMP-5166].
+The contractor reports to the website the clause names, with a copy to the contracting officer, on the product types and dollar value of biobased products in USDA-designated product categories that it purchased during the previous Government fiscal year, which runs between October 1 and September 30 [@CL-CMP-5166], and it submits the report no later than October 31 of each year during contract performance and at the end of contract performance [@CL-CMP-5167].
 
 The report is due no later than October 31 of each year during contract performance, and again at the end of contract performance [@CL-CMP-5167].
 
@@ -68,5 +68,6 @@ Whether the buying records can produce the product types and dollar value purcha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the codified reporting sentence so the biobased report keeps its submission deadlines.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for biobased product certification and reporting.
