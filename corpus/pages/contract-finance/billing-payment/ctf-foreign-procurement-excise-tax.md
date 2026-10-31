@@ -24,7 +24,7 @@ Explains the excise tax on payments to foreign persons under certain foreign pro
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2553] |
 | Codified citation | FAR 52.229-11 and FAR 52.229-12 [@CL-CTF-2553; @CL-CTF-2556] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.229-11 and RFO FAR 52.229-12 [@CL-CTF-0370; @CL-CTF-0375] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2553] |
 | Applies to | Foreign persons receiving specified Federal procurement payments [@CL-CTF-2553; @CL-CTF-2554] |
@@ -47,6 +47,8 @@ A Contractor that is a foreign person and has indicated in its offer in the offe
 
 Exemptions from withholding under the offer provision are described at 26 CFR 1.5000C-1(d)(5) through (7), and the Offeror would claim an exemption from the withholding by using the Department of the Treasury Internal Revenue Service Form W-14 [@CL-CTF-2827]. Any exemption claimed and self-certified on the IRS Form W-14 is subject to audit by the IRS, and any disputes regarding the imposition and collection of the tax under section 5000C of title 26 of the United States Code are adjudicated by the IRS because that tax is a tax matter, not a contract issue [@CL-CTF-2828]. The clause says the same [@CL-CTF-2835]. The offer provision states that the IRS Form W-14 is provided to the acquiring agency rather than to the IRS [@CL-CTF-2898]. The offer provision also has an informational paragraph: a taxpayer may, for a fee, seek advice from the IRS as to the proper tax treatment of a transaction, which is called a private letter ruling [@CL-CTF-2832]. The same paragraph says the IRS may publish a revenue ruling, which is an official interpretation by the IRS of the Internal Revenue Code, related statutes, tax treaties, and regulations, and is the conclusion of the IRS on how the law is applied to a specific set of facts [@CL-CTF-2899]. That paragraph also directs questions on the interpretation of the IRS regulations to the IRS tax law questions web page [@CL-CTF-2900].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.229-11 keeps the 2 percent tax, unless exempted, on a specified Federal procurement payment received by a foreign person [@CL-CTF-2553; @CL-CTF-0370], the rule that, if the Offeror represents it is a foreign person in paragraph (d)(1), the clause at FAR 52.229-12 will be included in any resulting contract [@CL-CTF-2639; @CL-CTF-9077] and the Offeror submits the IRS Form W-14 with its offer or exemptions are not applied to any resulting contract and the Government withholds a full 2 percent of each payment [@CL-CTF-2560; @CL-CTF-0373], and the withholding under FAR 52.229-12 for an Offeror that selects "is" and "partial or no exemption" [@CL-CTF-2831; @CL-CTF-0374]. It says the Offeror "may claim" an exemption by using the IRS Form W-14, where the codified text says the Offeror "would claim" it [@CL-CTF-0372; @CL-CTF-2827]. The RFO text of FAR 52.229-12 keeps the rules that the clause applies only to foreign persons [@CL-CTF-2833; @CL-CTF-0375], that the withholding is applied at the payment level [@CL-CTF-2556; @CL-CTF-0376], that the default withholding percentage is 2 percent without a completed form [@CL-CTF-2557; @CL-CTF-0377], that the Government withholds a full 2 percent of each payment unless the Contractor claims an exemption [@CL-CTF-2834; @CL-CTF-0381], and that section 5000C taxes may not be included in the contract price or reimbursed [@CL-CTF-2559; @CL-CTF-0382]. For a Contractor that loses a full exemption, it lists the conditions as items (i) to (iii) [@CL-CTF-0378; @CL-CTF-2642] [@CL-CTF-0379; @CL-CTF-2643] and numbers the two duties, notice within 30 days and compliance with paragraph (c)(1), as (A) and (B) where the codified text numbers them (i) and (ii) [@CL-CTF-0380; @CL-CTF-2558].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,6 +61,8 @@ A different contractor certified a full exemption in its offer. Midway through p
 
 The withholding is a payment-level collection of a Federal excise tax on foreign persons, not a price adjustment and not a tax cost that can be added back into the price or reimbursed [@CL-CTF-2556; @CL-CTF-2559]. It is also different from the host-country taxes handled in the foreign fixed-price and foreign cost-reimbursement clauses, which turn on what the price includes or what is allowable. See [Taxes under foreign fixed-price contracts](ctf-foreign-fixed-price-taxes.md). The same tax is barred from the price in the general [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Invoice mechanics sit at [Proper invoice content](ctf-proper-invoice-content.md).
 
+The codified definition says a foreign country does not include an outlying area [@CL-CTF-2824], while the RFO text says it does not include an outlying area of the United States [@CL-CTF-0371].
+
 ## Company calibration
 
 Whether any contract has a foreign contracting party, and who prepares the exemption form for each invoice. [@Q-009]
@@ -67,4 +71,5 @@ Whether any contract has a foreign contracting party, and who prepares the exemp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the excise tax on certain foreign procurements.
