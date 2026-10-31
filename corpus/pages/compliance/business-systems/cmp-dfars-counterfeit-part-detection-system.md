@@ -29,7 +29,7 @@ Shows who must keep a counterfeit electronic part detection and avoidance system
 | Text status | Final [@CL-CMP-3851] |
 | Applies to | Contractors subject to the Cost Accounting Standards [@CL-CMP-3850] |
 
-Paragraphs (a) through (e) of the clause do not apply unless the Contractor is subject to the Cost Accounting Standards as implemented in regulations found at 48 CFR 9903.201-1 [@CL-CMP-3850]. Paragraph (b) is one of those paragraphs, so the condition applies to it: the Contractor shall establish and maintain an acceptable counterfeit electronic part detection and avoidance system [@CL-CMP-3850; @CL-CMP-3851].
+Paragraphs (a) through (e) of the clause do not apply unless the Contractor is subject to the Cost Accounting Standards under federal statute, as implemented in regulations found at 48 CFR 9903.201-1 [@CL-CMP-3850]. Paragraph (b) is one of those paragraphs, so the condition applies to it: the Contractor shall establish and maintain an acceptable counterfeit electronic part detection and avoidance system [@CL-CMP-3850; @CL-CMP-3851].
 
 Under the same condition, failure to maintain an acceptable system, as defined in the clause, may result in disapproval of the purchasing system by the Contracting Officer and/or withholding of payments [@CL-CMP-3850; @CL-CMP-3852]. Failure may also affect the allowability of costs of counterfeit electronic parts or suspect counterfeit electronic parts and the cost of rework or corrective action that may be required to remedy the use or inclusion of such parts [@CL-CMP-3901].
 
@@ -39,7 +39,7 @@ Under the same condition, the system shall include risk-based policies and proce
 
 The Contractor shall include the substance of the clause, excluding the introductory text and including only paragraphs (a) through (e), in subcontracts, including subcontracts for commercial products, for electronic parts or assemblies containing electronic parts [@CL-CMP-3856]. The condition about the Cost Accounting Standards is in the introductory text, which the flowdown excludes [@CL-CMP-3850; @CL-CMP-3856].
 
-Review and evaluation of the Contractor's policies and procedures under the clause will be accomplished as part of the evaluation of the Contractor's purchasing system in accordance with 252.244-7001, basic or Alternate I [@CL-CMP-3902]. The definition of contractor business systems lists the purchasing system, if the contract includes the clause at 252.244-7001 [@CL-CMP-1202]; see [Contractor business systems](cmp-contractor-business-systems.md).
+Government review and evaluation of the Contractor's policies and procedures under the clause will be accomplished as part of the evaluation of the Contractor's purchasing system in accordance with 252.244-7001, basic or Alternate I [@CL-CMP-3902]. The definition of contractor business systems lists the purchasing system, if the contract includes the clause at 252.244-7001 [@CL-CMP-1202]; see [Contractor business systems](cmp-contractor-business-systems.md).
 
 ## Worked example
 
@@ -59,5 +59,6 @@ Whether the company is subject to the Cost Accounting Standards, and the current
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added statute reference and Government as reviewer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the flowdown sentence so the flowdown area keeps the subcontractors that perform authentication testing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DFARS counterfeit electronic part detection and avoidance system.

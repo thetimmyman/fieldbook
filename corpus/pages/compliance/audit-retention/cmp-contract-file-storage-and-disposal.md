@@ -46,7 +46,7 @@ Final payment on a 4,000,000 contract is made at the end of year 2, so the contr
 
 ## Never confuse
 
-The retention table sets periods for contract files and is not the contractor's record-availability rule, which is 3 years after final payment or, for certain records, the period in the specific retention sections, whichever expires first, and is subject to longer periods [@CL-CMP-2418; @CL-CMP-2419]. That rule is on [Contractor records retention policy](cmp-contractor-records-retention-policy.md), and the Government's file contents are on [Government contract files: file types and contents](cmp-government-contract-files.md). A row for pending cases is also not a fixed number of years, because it runs until clearance or settlement or the related document's period, whichever is later [@CL-CMP-2449].
+The retention table sets periods for contract files and is not the contractor's record-availability rule, which is 3 years after final payment or, for certain records, the period in the specific retention sections, whichever expires first, and contractors must keep records longer in certain cases, for example when a contract clause specifies a longer retention period [@CL-CMP-2418; @CL-CMP-2419]. That rule is on [Contractor records retention policy](cmp-contractor-records-retention-policy.md), and the Government's file contents are on [Government contract files: file types and contents](cmp-government-contract-files.md). A row for pending cases is also not a fixed number of years, because it runs until clearance or settlement or the related document's period, whichever is later [@CL-CMP-2449].
 
 ## Company calibration
 
@@ -56,4 +56,5 @@ Where the company keeps its copies of contract files, and which retention approv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor record-availability comparison to say longer periods apply in certain cases such as a contract clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for storage, handling and disposal of contract files.

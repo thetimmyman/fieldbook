@@ -31,7 +31,7 @@ Shows which delivered items need a unique item identifier, how it is marked, and
 
 One listed category requiring a unique item identifier is delivered items for which the Government's unit acquisition cost is $5,000 or more, except for the line items the contract lists as exceptions [@CL-CMP-3870]. A second listed category is items for which the Government's unit acquisition cost is less than $5,000 that are identified in the Schedule or in the clause table [@CL-CMP-3890]. A third is subassemblies, components, and parts embedded within delivered items, items with warranty requirements, and DoD serially managed reparables and nonreparables, as specified in an attachment [@CL-CMP-3891]. A fourth is any item of special tooling or special test equipment, as defined in FAR 2.101, that has been designated for preservation and storage for a Major Defense Acquisition Program as specified in an attachment [@CL-CMP-3892]. A fifth is any item not included in the other listed categories for which the contractor creates and marks a unique item identifier for traceability [@CL-CMP-3893]. The identifier's component data elements shall be marked on an item using two dimensional data matrix symbology that complies with ISO/IEC International Standard 16022 and the ECC200 data matrix specification [@CL-CMP-3871].
 
-The Contractor shall report at the time of delivery, as part of the Material Inspection and Receiving Report, the listed information [@CL-CMP-3873], for each item that requires item unique identification under the listed paragraphs [@CL-CMP-3872]. One listed item is the Government's unit acquisition cost [@CL-CMP-3874].
+For each item that requires item unique identification under paragraph (c)(1)(i), (ii), or (iv) of the clause, or when item unique identification is provided under paragraph (c)(1)(v), and in addition to the information provided as part of the Material Inspection and Receiving Report, the Contractor shall report at the time of delivery, as part of that report, the listed information [@CL-CMP-3872; @CL-CMP-3873]. One listed item is the Government's unit acquisition cost [@CL-CMP-3874].
 
 ## How it works
 
@@ -45,7 +45,7 @@ A fixed-price line item has a unit price of 8,000 at delivery. That is above the
 
 ## Never confuse
 
-Marking an item and reporting it are two duties: the data matrix mark goes on the item, and the information goes in the delivery report [@CL-CMP-3871; @CL-CMP-3873]. The Government's unit acquisition cost is the figure the clause defines, which for a fixed-price type line is the contract unit price, and it is a contractor estimate only for the cost-type, undefinitized and time-and-materials cases [@CL-CMP-3875; @CL-CMP-3894; @CL-CMP-3895]. A marking duty for the reparable items identified as serially managed in the GFP attachment is in a different clause [@CL-CMP-3900], covered on [Management and reporting of Government property clause](cmp-dfars-government-property-management-reporting.md). A warranty tracking clause requires the unique item identifier for each warranted item required by its attachment [@CL-CMP-3883], as described on [Notification of potential safety issues and warranty tracking of serialized items](cmp-dfars-safety-notification-and-warranty-tracking.md).
+Marking an item and reporting it are two duties: the data matrix mark goes on the item, and the information goes in the delivery report [@CL-CMP-3871; @CL-CMP-3873]. The Government's unit acquisition cost is the figure the clause defines, which for a fixed-price type line is the contract unit price, and it is the Contractor's estimated fully burdened unit cost for the cost-type, undefinitized and time-and-materials cases [@CL-CMP-3875; @CL-CMP-3894; @CL-CMP-3895]. A marking duty for the reparable items identified as serially managed in the GFP attachment is in a different clause [@CL-CMP-3900], covered on [Management and reporting of Government property clause](cmp-dfars-government-property-management-reporting.md). A warranty tracking clause requires the unique item identifier for each warranted item required by its attachment [@CL-CMP-3883], as described on [Notification of potential safety issues and warranty tracking of serialized items](cmp-dfars-safety-notification-and-warranty-tracking.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which contracts carry this clause and which delivered line items fall in a liste
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Delivery report scope names the paragraphs; removed unsupported only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS item unique identification and valuation.

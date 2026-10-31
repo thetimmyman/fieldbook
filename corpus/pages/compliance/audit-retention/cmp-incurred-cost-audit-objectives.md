@@ -27,9 +27,9 @@ Defines the core audit objectives and opinion standards applied by contract audi
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The general incurred cost audit guidance in the manual, which covers all types of contracts and cost categories but not institutions of higher education, nonprofit organizations or federally funded research and development centers [@CL-CMP-1851; @CL-CMP-1852] |
+| Applies to | The general incurred cost audit guidance in the manual, which covers general considerations applicable to all types of contracts and cost categories, while guidance for institutions of higher education, nonprofit organizations and federally funded research and development centers is addressed in Chapter 13 [@CL-CMP-1851; @CL-CMP-1852] |
 
-The auditor's primary objective is to examine contractor cost representations, in whatever form they are presented, such as progress payments, incurred cost proposals and termination claims, and to express an opinion on whether the incurred costs meet set criteria [@CL-CMP-1700]. The criteria are that the costs are allowable, reasonable and allocable under FAR 31, consistent with GAAP and the Cost Accounting Standards that apply in the circumstances, and not prohibited by the contract, by statute or regulation, or by previous agreement with or decision of the contracting officer [@CL-CMP-1701; @CL-CMP-1702].
+The auditor's primary objective is to examine contractor cost representations, in whatever form they are presented, such as progress payments, incurred cost proposals and termination claims, and to express an opinion on whether the incurred costs meet set criteria [@CL-CMP-1700]. The criteria are that the costs are allowable, reasonable and allocable to the contract under FAR 31, consistent with GAAP and the Cost Accounting Standards that apply in the circumstances, and not prohibited by the contract, by statute or regulation, or by previous agreement with or decision of the contracting officer [@CL-CMP-1701; @CL-CMP-1702].
 
 ## How it works
 
@@ -53,5 +53,6 @@ Which control findings, corrective actions and external requests are open, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the scope line to say other institution types are addressed in Chapter 13 and added to the contract to the allocability criterion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that a single agency is responsible for establishing final indirect cost rates for each business unit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incurred cost audit objectives.

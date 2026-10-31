@@ -31,7 +31,7 @@ Defines the contractor business systems that the umbrella clause covers, sets ou
 
 The clause applies only to covered contracts that are subject to the Cost Accounting Standards under federal statute as implemented in 48 CFR 9903.201-1 [@CL-CMP-0901]. A material weakness is a deficiency or combination of deficiencies in internal control over information in contractor business systems, such that there is a reasonable possibility that a material misstatement of that information will not be prevented, or detected and corrected, on a timely basis [@CL-CMP-0902]. A reasonable possibility exists when the likelihood of an event occurring is probable, or more than remote but less than likely [@CL-CMP-1203].
 
-The contractor must respond in writing within 30 days to an initial determination that there are one or more material weaknesses in one or more of its business systems [@CL-CMP-0903]. After a final determination notice with intent to withhold payments, the contractor must, within 45 days of receipt of the notice, either correct the weaknesses or submit an acceptable corrective action plan showing milestones and actions to eliminate them [@CL-CMP-0904].
+The contractor must respond in writing within 30 days to an initial determination that there are one or more material weaknesses in one or more of its business systems [@CL-CMP-0903]. If the contracting officer issues the final determination with a notice to withhold payments for material weaknesses, the contractor must, within 45 days of receipt of the notice, either correct the weaknesses or submit an acceptable corrective action plan showing milestones and actions to eliminate them [@CL-CMP-0904].
 
 ## How it works
 
@@ -57,6 +57,7 @@ Determining the current approval status of each contractor business system, moni
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: 45-day condition uses the source term, a final determination with a notice to withhold payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Contractor Business Systems definition and administration.

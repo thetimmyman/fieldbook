@@ -43,7 +43,7 @@ An auditor sets a quantitative materiality threshold of 100,000 for an incurred 
 
 ## Never confuse
 
-Materiality decides which balances need audit procedures within an audit, because procedures are performed on all material balances regardless of assessed risk [@CL-CMP-1712]. It does not decide whether a proposal is audited at all, which is a separate sampling decision. See [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
+Procedures are performed on all material balances regardless of assessed risk [@CL-CMP-1712], and qualitative risks may justify auditing amounts below the quantitative materiality threshold [@CL-CMP-1713]. It does not decide whether a proposal is audited at all, which is a separate sampling decision. See [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which control findings, corrective actions and external requests are open, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the materiality comparison to say what the quotes support about material balances and qualitative risks.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for materiality in incurred cost audits.
