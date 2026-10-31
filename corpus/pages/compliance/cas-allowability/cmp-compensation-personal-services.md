@@ -15,7 +15,7 @@ questions = ["Q-043"]
 
 ## Purpose
 
-Compensation for personal services is allowable only when it meets the cost principle's general criteria, including current-year work, reasonableness, and an established compensation plan.
+Compensation for personal services is allowable subject to the cost principle's general criteria and additional requirements, including current-year work, reasonableness, and conformity to an established compensation plan or practice.
 
 ## The rule
 
@@ -28,7 +28,7 @@ Compensation for personal services is allowable only when it meets the cost prin
 | Text status | Final [@CL-CMP-0451] |
 | Applies to | Compensation for personal services [@CL-CMP-0451] |
 
-Compensation for personal services must be for work performed in the current year and must not be a retroactive adjustment of prior years' salaries or wages, subject to the cross-referenced exceptions in paragraphs (g), (h), (j), (k), (m), and (o) of the codified cost principle [@CL-CMP-0451]. The total compensation for individual employees or job classes must be reasonable for the work performed [@CL-CMP-0452]. No presumption of allowability exists for major revisions of compensation plans when the contractor has not given the cognizant ACO an opportunity to review the changes [@CL-CMP-0453; @CL-CMP-0823]. For owners of closely held companies, compensation in excess of the amount deductible under the Internal Revenue Code is unallowable [@CL-CMP-0454].
+Compensation for personal services must be for work performed in the current year and must not be a retroactive adjustment of prior years' salaries or wages, subject to the cross-referenced exceptions in paragraphs (g), (h), (j), (k), (m), and (o) of the codified cost principle [@CL-CMP-0451]. The total compensation for individual employees or job classes must be reasonable for the work performed [@CL-CMP-0452]. No presumption of allowability exists where the contractor introduces major revisions of existing compensation plans or new plans and has not given the cognizant ACO, either before implementation or within a reasonable period after it, an opportunity to review the allowability of the changes [@CL-CMP-0453; @CL-CMP-0823]. For owners of closely held companies, compensation in excess of the costs that are deductible as compensation under the Internal Revenue Code and regulations under it is unallowable [@CL-CMP-0454].
 
 ## How it works
 
@@ -40,7 +40,7 @@ Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text i
 
 Synthetic example. The numbers are made up.
 
-An employee receives a base salary plus a year-end bonus. The company keeps both within the total compensation its plan pays for comparable jobs in its industry and region. The compensation is allowable only if it is for current-year work, reasonable for the work performed, and in line with the established plan, and the bonus is paid or accrued under a good-faith agreement made before the services were rendered or under an established plan followed consistently, with its basis supported.
+An employee receives a base salary plus a year-end bonus. The company keeps both within the total compensation its plan pays for comparable jobs in its industry and region. The compensation is allowable subject to being for current-year work, reasonable for the work performed, and based on and in conformity with the established plan or practice. The bonus is allowable provided it is paid or accrued under a good-faith agreement made before the services were rendered or under an established plan or policy followed so consistently as to imply an agreement to make the payment, and its basis is supported.
 
 ## Never confuse
 
@@ -54,5 +54,6 @@ Whether each compensation plan is established and consistent, and whether major 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced the only-when framing with subject-to, and added the review timing, new plans and deductible-costs wording to the rule paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for compensation for personal services.

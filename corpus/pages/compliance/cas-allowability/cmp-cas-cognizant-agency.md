@@ -35,7 +35,7 @@ That agency should take the lead role in administering the requirements and coor
 
 ## How it works
 
-Where there are multiple CAS-covered contracts or more than one agency is involved, agencies should discourage contracting officers from administering CAS individually, contract by contract [@CL-CMP-1767]. The section says coordinated actions give greater assurances that a contractor follows its cost accounting practices consistently under all its CAS-covered contracts [@CL-CMP-1902].
+Where there are multiple CAS-covered contracts or more than one agency is involved, agencies should discourage contracting officers from administering CAS individually, contract by contract [@CL-CMP-1767]. The section says coordinated actions give greater assurances that a contractor follows its cost accounting practices consistently under all its CAS-covered contracts [@CL-CMP-1902], and that changes in cost accounting practices or CAS noncompliance issues are resolved, equitably, in a uniform overall manner.
 
 Agencies must prescribe regulations and internal policies and procedures for administering the requirements of CAS-covered contracts, with particular emphasis on inter-agency coordination [@CL-CMP-1768].
 
@@ -45,7 +45,7 @@ Those policies must provide for designating the office or officials responsible 
 
 Synthetic example. The numbers are made up.
 
-A contractor holds CAS-covered work with three agencies across two business units, and one agency negotiates the indirect rates for both units. That agency is the cognizant Federal agency, so it should take the lead and coordinate CAS actions with the others, and each agency's internal policy names the office or official that administers CAS at each business unit. The answer: administration should run through the cognizant agency and the named officials, not through each contract separately.
+A contractor holds CAS-covered work with three agencies across two business units, and one agency negotiates the indirect rates for both units. The agency that negotiates the indirect cost rates is usually the cognizant Federal agency, and here it is taken to be, so it should take the lead and coordinate CAS actions with the others, and each agency's internal policy names the office or official that administers CAS at each business unit. The answer: administration should run through the cognizant agency and the named officials, not through each contract separately.
 
 ## Never confuse
 
@@ -61,5 +61,6 @@ Which agency is cognizant for each business unit, and whether the coverage and D
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the second assurance in the coordination sentence and the usually qualifier in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the agency policies sentence so the delegation of contracting authority keeps its limit to individuals authorized to administer the contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cognizant Federal agency responsibilities for Cost Accounting Standards.
