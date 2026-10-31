@@ -29,7 +29,7 @@ Gives the meaning of the terms that the quality assurance part of the FAR define
 | Text status | Final [@CL-SUP-3980] |
 | Applies to | The defined terms as they are used in part 46 of the FAR [@CL-SUP-3980] |
 
-The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-3980]. It defines each term below. The section does not say who grades a nonconformance or who accepts supplies; other sections do, and the cards linked below cover them. Two rows below, inspection and latent defect, come from the definitions in FAR 2.101 instead [@CL-SUP-9554; @CL-SUP-9555]. The RFO model text of FAR 2.101 defines a latent defect in the same words as the codified definition [@CL-SUP-9596; @CL-SUP-9555]. The RFO model text of FAR 2.101 defines inspection in the same words as the codified definition [@CL-SUP-9595; @CL-SUP-9554].
+The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-3980]. It defines each term below. The section does not say who grades a nonconformance or who decides whether nonconforming supplies are accepted; other sections do, and the cards linked below cover them. Two rows below, inspection and latent defect, come from the definitions in FAR 2.101 instead [@CL-SUP-9554; @CL-SUP-9555]. The RFO model text of FAR 2.101 defines a latent defect in the same words as the codified definition [@CL-SUP-9596; @CL-SUP-9555]. The RFO model text of FAR 2.101 defines inspection in the same words as the codified definition [@CL-SUP-9595; @CL-SUP-9554].
 
 ### Definitions at a glance
 
@@ -58,7 +58,7 @@ The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-39
 
 Acceptance is an act of an authorized representative of the Government [@CL-SUP-3880]. Conditional acceptance covers supplies or services that do not conform or are otherwise incomplete, where the contractor is required to correct or complete them by a specified date [@CL-SUP-3881]. Whether the Government may accept nonconforming supplies, and who decides, is not in this section. It is in the section on rejection, covered in [rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
 
-Three terms grade a nonconformance by its likely effect. A critical nonconformance is likely to cause hazardous or unsafe conditions or to prevent performance of a vital agency mission [@CL-SUP-3888]. A major nonconformance is one other than critical that is likely to cause failure or to materially reduce usability for the intended purpose [@CL-SUP-3892]. A minor nonconformance is one that is not likely to materially reduce usability, or a departure from established standards having little bearing on effective use or operation [@CL-SUP-3893]. The contracting office establishes the significance of a nonconformance when it considers acceptability; that duty is covered in [quality assurance policy and responsibilities](sup-quality-assurance-policy-and-responsibilities.md) [@CL-SUP-3911].
+Three terms grade a nonconformance by its likely effect. A critical nonconformance is likely to cause hazardous or unsafe conditions or to prevent performance of a vital agency mission [@CL-SUP-3888]. A major nonconformance is one other than critical that is likely to cause failure or to materially reduce usability for the intended purpose [@CL-SUP-3892]. A minor nonconformance is one that is not likely to materially reduce usability, or a departure from established standards having little bearing on effective use or operation [@CL-SUP-3893]. The contracting office establishes the significance of a nonconformance when it considers acceptability; that duty is covered in [quality assurance policy and responsibilities](sup-quality-assurance-policy-and-responsibilities.md) [@CL-SUP-3906; @CL-SUP-3911].
 
 Government contract quality assurance means the functions, including inspection, that the Government performs to determine whether the contractor met its quality and quantity obligations [@CL-SUP-3891]. Testing is the element of inspection that determines properties or elements, including functional operation, by established scientific principles and procedures [@CL-SUP-3897].
 
@@ -84,6 +84,7 @@ Which grade (critical, major or minor) the company's receiving inspection gives 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Who accepts wording; contracting office lead-in cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of inspection and latent defect.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of inspection and latent defect.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for quality assurance definitions.

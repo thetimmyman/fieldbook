@@ -31,9 +31,9 @@ Shows what the inspection clause for cost-reimbursement supply contracts asks of
 
 The contractor must provide and maintain an inspection system acceptable to the Government that covers the supplies, fabricating methods and special tooling under the contract [@CL-SUP-1077]. The Government has the right to inspect and test the contract supplies, to the extent practicable, at all places and times, including the period of manufacture, and in any event before acceptance [@CL-SUP-1078]. The Government may also inspect the plant or plants of the contractor or any subcontractor engaged in the contract performance [@CL-SUP-1127]. The contractor must keep complete records of its inspection work and make them available to the Government during contract performance and for as long afterwards as the contract requires [@CL-SUP-1126].
 
-The clause permits the Government to require replacement or correction of supplies at any time during contract performance, but no later than six months after acceptance of the supplies to be delivered, unless the contract specifies another time [@CL-SUP-1128]. The Government may require the contractor to replace or correct supplies that are nonconforming at time of delivery [@CL-SUP-1079]. Supplies are nonconforming when they are defective in material or workmanship or are otherwise not in conformity with contract requirements [@CL-SUP-1129].
+The clause permits the Government to require replacement or correction of nonconforming supplies at any time during contract performance, but no later than six months after acceptance of the supplies to be delivered, unless the contract specifies another time [@CL-SUP-1128; @CL-SUP-1079]. The Government may require the contractor to replace or correct supplies that are nonconforming at time of delivery [@CL-SUP-1079]. Supplies are nonconforming when they are defective in material or workmanship or are otherwise not in conformity with contract requirements [@CL-SUP-1129].
 
-Except as paragraph (h) provides otherwise, the cost of replacement or correction is included in allowable cost under the Allowable Cost and Payment clause, and no additional fee is paid [@CL-SUP-1080]. Paragraph (h) lets the Government at any time require correction or replacement without cost to it where the nonconformances are due to fraud, lack of good faith or willful misconduct by the contractor's managerial personnel, which is one listed cause [@CL-SUP-1081]. Another listed cause is the conduct of employees the contractor selected or retained after its managerial personnel had reasonable grounds to believe the employee was habitually careless or unqualified [@CL-SUP-1131].
+Except as paragraph (h) provides otherwise, the cost of replacement or correction is included in allowable cost under the Allowable Cost and Payment clause, and no additional fee is paid [@CL-SUP-1080]. Notwithstanding paragraphs (f) and (g), paragraph (h) lets the Government at any time require correction or replacement without cost to it where the nonconformances are due to fraud, lack of good faith or willful misconduct by the contractor's managerial personnel, which is one listed cause [@CL-SUP-9778; @CL-SUP-1081]. Another listed cause is the conduct of employees the contractor selected or retained after its managerial personnel had reasonable grounds to believe the employee was habitually careless or unqualified [@CL-SUP-1131].
 
 ## How it works
 
@@ -49,7 +49,7 @@ A cost-reimbursement contract carries a fixed fee of 100,000. After delivery, a 
 
 ## Never confuse
 
-Under this clause the correction cost is included in allowable cost, with no added fee [@CL-SUP-1080]. The no-cost correction the Government may require in the listed fraud and misconduct case is a different outcome [@CL-SUP-1081]. The cost-reimbursement contract framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and the general policy on rejecting nonconforming supplies is on [Rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
+Under this clause the correction cost is included in allowable cost, with no added fee [@CL-SUP-1080]. The no-cost correction the Government may require in the listed cases is a different outcome [@CL-SUP-1081; @CL-SUP-1131]. The cost-reimbursement contract framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and the general policy on rejecting nonconforming supplies is on [Rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Whether the executed contract includes this clause or the fixed-price one, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added nonconforming scope and notwithstanding lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of supplies under cost-reimbursement contracts.

@@ -29,7 +29,7 @@ Shows which situations bar a contractor from a follow-on award, where specificat
 | Text status | Final [@CL-SUP-0944] |
 | Applies to | Contractors that prepare specifications or work statements, or gain access to other companies' proprietary information, for Government acquisitions [@CL-SUP-0944; @CL-SUP-0946; @CL-SUP-0948] |
 
-If a contractor prepares and furnishes complete specifications covering nondevelopmental items to be used in a competitive acquisition, that contractor shall not be allowed to furnish these items, as a prime contractor or as a subcontractor, for a reasonable period of time [@CL-SUP-0944]. That period includes, at least, the duration of the initial production contract [@CL-SUP-0978]. The restriction does not apply to contractors that furnish at Government request specifications or data regarding a product they provide, which is one of the listed exceptions [@CL-SUP-0945].
+If a contractor prepares and furnishes complete specifications covering nondevelopmental items to be used in a competitive acquisition, that contractor shall not be allowed to furnish these items, as a prime contractor or as a subcontractor, for a reasonable period of time [@CL-SUP-0944]. That period includes, at least, the duration of the initial production contract [@CL-SUP-0978]. The restriction does not apply to contractors that furnish at Government request specifications or data regarding a product they provide, even though the specifications or data may have been paid for separately or in the price of the product, which is one of the listed exceptions [@CL-SUP-0945].
 
 The work-statement restriction applies where a contractor prepares, or assists in preparing, a work statement to be used in competitively acquiring a system or services, or provides material leading directly, predictably and without delay to such a work statement [@CL-SUP-0946]. That contractor may not supply the system, major components of the system or the services unless it is the sole source, has participated in the development and design work, or more than one contractor has been involved in preparing the work statement [@CL-SUP-0947]. General rules and principles are on the [Organizational conflicts of interest: general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) card.
 
@@ -61,6 +61,7 @@ Confirm whether the company prepared specifications or work statements, or recei
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added paid-separately clause to the exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on providing evaluation services.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the two proprietary information sentences so the protection agreement keeps the limit on the purpose for which the information may be used.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts in specifications, proprietary information and examples.

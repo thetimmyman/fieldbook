@@ -35,7 +35,7 @@ FAR 2.101 defines an organizational conflict of interest as existing where, beca
 
 ## How it works
 
-If information concerning prospective contractors is necessary to identify and evaluate potential organizational conflicts of interest or to develop recommended actions, contracting officers should first seek it from within the Government or from other readily available sources [@CL-SUP-0941]. When the contracting officer decides that a particular acquisition involves a significant potential organizational conflict of interest, the contracting officer shall, before issuing the solicitation, submit for approval to the chief of the contracting office, unless a higher level official is designated by the agency, the items listed in the paragraph [@CL-SUP-0942]. Among those items are a written analysis, including a recommended course of action for avoiding, neutralizing or mitigating the conflict, and a draft solicitation provision [@CL-SUP-0998].
+If information concerning prospective contractors is necessary to identify and evaluate potential organizational conflicts of interest or to develop recommended actions, contracting officers should first seek it from within the Government or from other readily available sources [@CL-SUP-0941]. If the contracting officer decides that a particular acquisition involves a significant potential organizational conflict of interest, the contracting officer shall, before issuing the solicitation, submit for approval to the chief of the contracting office, unless a higher level official is designated by the agency, the items listed in the paragraph [@CL-SUP-0942]. Among those items are a written analysis, including a recommended course of action for avoiding, neutralizing or mitigating the conflict, and a draft solicitation provision [@CL-SUP-0998].
 
 The approving official shall review the contracting officer's analysis and recommended course of action, including the draft provision and any proposed clause, among the listed steps [@CL-SUP-0943]. Other listed steps are to consider the benefits and detriments to the Government and prospective contractors and to approve, modify or reject the recommendations in writing [@CL-SUP-0999]. The contractor-facing step shown on this card is the notice, the reasons and the reasonable opportunity to respond before award is withheld [@CL-SUP-0940].
 
@@ -59,6 +59,7 @@ Confirm which current engagements could create a conflict, who would answer a co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: If, not when, for the approval trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of organizational conflict of interest.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of organizational conflict of interest.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflict of interest procedures for contracting officers.
