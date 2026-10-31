@@ -29,7 +29,7 @@ Shows what must be manufactured in the United States under the American flag cla
 | Text status | Final [@CL-SUP-1780; @CL-SUP-1782] |
 | Applies to | Contracts that require delivery of American flags, or that deliver supercomputers [@CL-SUP-1780; @CL-SUP-1782] |
 
-If the contractor is required to deliver American flags, the flags, including their materials and components, shall be manufactured in the United States [@CL-SUP-1780]. In the flag clause the United States means the 50 States, the District of Columbia, and outlying areas [@CL-SUP-1832].
+If the contractor is required to deliver American flags, the flags, including their materials and components, shall be manufactured in the United States [@CL-SUP-1780], consistent with the requirements at 10 U.S.C. 4862, commonly known as the Berry Amendment [@CL-SUP-9729]. In the flag clause the United States means the 50 States, the District of Columbia, and outlying areas [@CL-SUP-1832].
 
 Supercomputers delivered under the contract shall be manufactured in the United States or its outlying areas [@CL-SUP-1782].
 
@@ -57,5 +57,7 @@ Whether any executed contract delivers flags or supercomputers, and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Placed the flag-manufacture citation before the Berry Amendment reference
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that the flag requirement is stated to be consistent with the Berry Amendment requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the American flag and supercomputer manufacturing requirements.

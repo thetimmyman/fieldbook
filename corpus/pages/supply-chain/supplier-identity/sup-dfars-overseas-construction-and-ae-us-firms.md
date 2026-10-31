@@ -35,7 +35,7 @@ In the architect-engineer provision, military construction appropriations acts r
 
 ## How it works
 
-A United States firm in the construction provision is a firm incorporated in the United States whose corporate headquarters are in the United States [@CL-SUP-1808]. It must also meet the tax filing and payment condition, which prints a minimum of 2 years of corporate and employment tax returns, if required [@CL-SUP-1809], and employ United States citizens in key management positions [@CL-SUP-1810]. The architect-engineer provision uses the same kind of definition but, as printed, a minimum of 12 years of corporate and employment tax returns [@CL-SUP-1815].
+A United States firm in the construction provision is a firm incorporated in the United States whose corporate headquarters are in the United States [@CL-SUP-1808]. It must also meet all of the remaining conditions, which are joined by "and": the tax filing and payment condition, which prints a minimum of 2 years of corporate and employment tax returns, if required [@CL-SUP-1809], and employing United States citizens in key management positions [@CL-SUP-1810; @CL-SUP-9737]. The architect-engineer provision uses the same kind of definition but, as printed, a minimum of 12 years of corporate and employment tax returns [@CL-SUP-1815].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Whether the solicitation includes either provision, and who confirms the clause 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: US firm conditions cited to the quote joining them with and
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the overseas construction and architect-engineer restrictions to United States firms.

@@ -41,7 +41,7 @@ In debarment actions in which additional proceedings are necessary as to dispute
 
 Before arriving at any debarment decision, the suspending and debarring official should consider factors such as those in the list that follows [@CL-SUP-0918]. One listed factor is whether the contractor had effective standards of conduct and internal control systems in place at the time of the activity that constitutes cause for debarment, or had adopted such procedures before any Government investigation of that activity [@CL-SUP-0919].
 
-The notice of proposed debarment shall state, among other listed items, that debarment is being considered and the reasons for the proposed debarment in terms sufficient to put the contractor on notice of the conduct or transactions upon which it is based [@CL-SUP-0982]. In actions not based upon a conviction or civil judgment, if the contractor's submission in opposition raises a genuine dispute over facts material to the proposed debarment, agencies shall also afford the contractor an opportunity to appear with counsel [@CL-SUP-0922]. In actions based upon a conviction or civil judgment, or in which there is no genuine dispute over material facts, the suspending and debarring official shall make a decision on the basis of all the information in the administrative record, including any submission made by the contractor [@CL-SUP-0923].
+The notice of proposed debarment shall state, among other listed items, that debarment is being considered and the reasons for the proposed debarment in terms sufficient to put the contractor on notice of the conduct or transactions upon which it is based [@CL-SUP-0982]. In actions not based upon a conviction or civil judgment, if it is found that the contractor's submission in opposition raises a genuine dispute over facts material to the proposed debarment, agencies shall also, among other listed items, afford the contractor an opportunity to appear with counsel [@CL-SUP-0922]. In actions based upon a conviction or civil judgment, or in which there is no genuine dispute over material facts, the suspending and debarring official shall make a decision on the basis of all the information in the administrative record, including any submission made by the contractor [@CL-SUP-0923].
 
 If the suspending and debarring official decides to impose debarment, the contractor and any affiliates involved shall be given prompt notice, using the notice procedures cross-referenced there, that refers to the notice of proposed debarment, among other listed items [@CL-SUP-0985]. If debarment is not imposed, the official shall promptly notify the contractor and any affiliates involved, using the notice procedures cross-referenced there [@CL-SUP-0986].
 
@@ -67,6 +67,7 @@ Confirm who owns the response to a notice of proposed debarment, how the respons
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that the genuine dispute must be found before the appearance-with-counsel right applies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of suspending and debarring official.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of suspending and debarring official.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the findings sentence so the decision rule keeps the contractor's submissions and the administrative record.

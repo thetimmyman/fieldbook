@@ -35,7 +35,7 @@ For supplies not identified in the Schedule to be accorded duty-free entry, the 
 
 ## How it works
 
-The first clause is a prohibition with one route around it, which is OFAC authorization [@CL-SUP-1263; @CL-SUP-1262]. The second clause is a notice process. The contractor notifies the Contracting Officer in writing of any purchase of foreign supplies, including raw materials, components, and intermediate assemblies, in excess of $20,000 [@CL-SUP-1266]. The notice duty covers foreign supplies that are to be imported into the customs territory of the United States for delivery to the Government under the contract, either as end products or for incorporation into end products [@CL-SUP-1295]. The notice is due at least 20 calendar days before the importation [@CL-SUP-1267]. Except as otherwise approved by the Contracting Officer, the contract price is reduced by, or the allowable cost does not include, the amount of duty that would be payable if the supplies were not entered duty-free [@CL-SUP-1296].
+The first clause is a prohibition that has an exception for acquisitions authorized by OFAC [@CL-SUP-1263; @CL-SUP-1262]. The second clause is a notice process. The contractor notifies the Contracting Officer in writing of any purchase of foreign supplies, including raw materials, components, and intermediate assemblies, in excess of $20,000 [@CL-SUP-1266]. The notice duty covers foreign supplies that are to be imported into the customs territory of the United States for delivery to the Government under the contract, either as end products or for incorporation into end products [@CL-SUP-1295]. The notice is due at least 20 calendar days before the importation [@CL-SUP-1267]. Except as otherwise approved by the Contracting Officer, the contract price is reduced by, or the allowable cost does not include, the amount of duty that would be payable if the supplies were not entered duty-free [@CL-SUP-1296].
 
 The contractor is not required to give the notice if two listed conditions are met. The first is that the supplies are identical in nature to items purchased by the contractor or any subcontractor in connection with its commercial business [@CL-SUP-1293]. The second is that segregation of these supplies to ensure use only on Government contracts containing duty-free entry provisions is not economical or feasible [@CL-SUP-1294].
 
@@ -59,6 +59,7 @@ Whether the purchasing system passes the restrictions clause to every subcontrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: OFAC clause: stated the authorization as an exception, not the only route
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the duty-free entry sentence so the claim rule keeps the duty owed on supplies diverted to nongovernmental use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on certain foreign purchases and duty-free entry.

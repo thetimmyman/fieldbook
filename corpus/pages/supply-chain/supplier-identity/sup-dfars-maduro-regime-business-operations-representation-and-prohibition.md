@@ -33,11 +33,11 @@ DoD is prohibited from entering into a contract for the procurement of products 
 
 In the clause, person includes a natural person, corporation, company, business association, partnership, society, trust, or any other nongovernmental entity, organization, or group, and any governmental entity or instrumentality of a government [@CL-SUP-1749]. It also includes any successor, subunit, parent entity, or subsidiary of, or any entity under common ownership or control with, such an entity [@CL-SUP-1750]. Business operations means engaging in commerce in any form, including acquiring, developing, maintaining, owning, selling, possessing, leasing, or operating equipment, facilities, personnel, products, services, personal property, real property, or any other apparatus of business or commerce [@CL-SUP-1751].
 
-By submitting its offer, the offeror represents that it either has no such business operations or has that license [@CL-SUP-1714; @CL-SUP-1715]. The clause puts the same either-or on the Contractor: it shall not have any such business operations [@CL-SUP-1752], or it shall have the license [@CL-SUP-1753].
+By submitting its offer, the offeror represents that it either has no business operations with an authority of the Maduro regime or the government of Venezuela that the United States Government does not recognize as the legitimate government of Venezuela, or has that license [@CL-SUP-1714; @CL-SUP-1715]. The clause puts the same either-or on the Contractor: it shall not have any business operations with an authority of the Maduro regime or the government of Venezuela that the United States Government does not recognize as the legitimate government of Venezuela [@CL-SUP-1752], or it shall have the license [@CL-SUP-1753].
 
 ## How it works
 
-The solicitation provision asks the offeror for the representation [@CL-SUP-1714]. The offeror can meet it in one of two ways, by having no business operations with such an authority or by holding the valid license to operate in Venezuela [@CL-SUP-1714; @CL-SUP-1715]. The clause puts the same two ways on the Contractor during performance [@CL-SUP-1752; @CL-SUP-1753]. It also reaches subcontracts, because its substance goes into all subcontracts, including subcontracts for commercial products [@CL-SUP-1716]. Because person reaches parents, subsidiaries and entities under common control, the group structure matters when answering [@CL-SUP-1750].
+The solicitation provision asks the offeror for the representation [@CL-SUP-1714]. The offeror can meet it in one of two ways, by having no business operations with that kind of authority or by holding the valid license to operate in Venezuela [@CL-SUP-1714; @CL-SUP-1715]. The clause puts the same two ways on the Contractor during performance [@CL-SUP-1752; @CL-SUP-1753]. It also reaches subcontracts, because its substance goes into all subcontracts, including subcontracts for commercial products [@CL-SUP-1716]. Because person reaches parents, subsidiaries and entities under common control, the group structure matters when answering [@CL-SUP-1750].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which executed contracts carry the clause and which subcontracts carry the flowd
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: representation and clause duty name the Maduro regime authority as quoted
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business operations with the Maduro regime.

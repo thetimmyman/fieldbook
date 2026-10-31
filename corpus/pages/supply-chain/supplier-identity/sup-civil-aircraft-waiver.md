@@ -40,7 +40,7 @@ Three questions decide whether the waiver reaches an article.
 
 First, is the article one of the defined civil aircraft and related articles? Aircraft bought for use by the Department of Defense or the United States Coast Guard are outside the definition [@CL-SUP-2785]. The engines covered are those of the aircraft in the definition, with parts and components for incorporation into the engines [@CL-SUP-2786]. Other parts, components and subassemblies, and ground flight simulators with their parts and components, are covered when they are for incorporation into the aircraft or for use with respect to the aircraft [@CL-SUP-2787]. Original or replacement use does not take an article out of the definition, and neither does the absence of duty-free treatment [@CL-SUP-2831].
 
-Second, is the article a product of a country for the waiver? It is if it is wholly the growth, product or manufacture of that country [@CL-SUP-2832]. Otherwise it must have been substantially transformed into a new and different article of commerce with a name, character or use distinct from that of the article or articles from which it was transformed [@CL-SUP-2789].
+Second, is the article a product of a country for the waiver? It is if it is wholly the growth, product or manufacture of that country [@CL-SUP-2832]. Otherwise, for an article that consists in whole or in part of materials from another country, it must have been substantially transformed into a new and different article of commerce with a name, character or use distinct from that of the article or articles from which it was transformed [@CL-SUP-2789].
 
 Third, is that country a party to the Agreement on Trade in Civil Aircraft? The waiver covers acquisitions from countries that are parties to that agreement [@CL-SUP-2788]. The provision lists these countries: Albania, Austria, Belgium, Bulgaria, Canada, Croatia, Cyprus, Czech Republic, Denmark, Egypt, Estonia, Finland, France, Georgia, Germany, Greece, Hungary, Ireland, Italy, Japan, Latvia, Lithuania and Luxembourg [@CL-SUP-3031]. It also lists Macao China, Malta, Montenegro, the Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland, Taiwan (Chinese Taipei) and the United Kingdom [@CL-SUP-3032]. For the waiver, the parties are the countries that the provision lists [@CL-SUP-3031; @CL-SUP-3032].
 
@@ -76,5 +76,6 @@ Which items the company classifies as civil aircraft and related articles, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: second product-of-a-country alternative keeps its materials-from-another-country condition
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the civil aircraft waiver.
