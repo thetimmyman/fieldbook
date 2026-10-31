@@ -24,7 +24,7 @@ Explains what the Payments clause pays for, namely supplies delivered and accept
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0200] |
 | Codified citation | FAR 52.232-1 [@CL-CLS-0200] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-1 [@CL-CLS-0140]; the title and risk-of-loss paragraphs described on this page are in RFO FAR 52.246-16 [@CL-CLS-0142] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0200] |
 | Applies to | Fixed-price supply contracts, fixed-price service contracts and contracts for nonregulated communication services [@CL-CLS-0300] |
@@ -39,6 +39,8 @@ The clause pays for supplies delivered and accepted or services rendered and acc
 
 Unless the contract provides otherwise, risk of loss stays with the contractor until it passes to the Government on delivery to a carrier when transportation is f.o.b. origin [@CL-CLS-0301]. When transportation is f.o.b. destination, it passes on acceptance or delivery at the destination, whichever is later [@CL-CLS-0302]. Supplies that fail to conform so as to give a right of rejection stay at the contractor's risk until cure or acceptance [@CL-CLS-0202]. Under the risk-of-loss paragraph, the contractor is not liable for loss or damage caused by the negligence of Government personnel acting within the scope of their employment [@CL-CLS-0203].
 
+Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text in place of the codified FAR part 52 text, as Class Deviation 2026-O0038 directs, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.232-1 keeps the payment rule: the Government shall pay the Contractor, upon the submission of proper invoices or vouchers, the prices stipulated in the contract for supplies delivered and accepted or services rendered and accepted, less any deductions provided in the contract [@CL-CLS-0140; @CL-CLS-0200]. The title and risk-of-loss paragraphs are in RFO FAR 52.246-16, which keeps the rule that title to supplies furnished under the contract passes to the Government upon formal acceptance, regardless of when or where the Government takes physical possession, unless the contract specifically provides for earlier passage of title [@CL-CLS-0142; @CL-CLS-0201]. It keeps the rule that, unless the contract specifically provides otherwise, risk of loss remains with the Contractor until, and passes to the Government upon, delivery to a carrier if transportation is f.o.b. origin [@CL-CLS-0143; @CL-CLS-0301], or acceptance by the Government or delivery at the destination specified in the contract, whichever is later, if transportation is f.o.b. destination [@CL-CLS-0144; @CL-CLS-0302]. It keeps the rule that supplies that so fail to conform to contract requirements as to give a right of rejection stay at the Contractor's risk until cure or acceptance [@CL-CLS-0145; @CL-CLS-0202], and that under paragraph (b) the Contractor is not liable for loss of or damage to supplies caused by the negligence of officers, agents, or employees of the Government acting within the scope of their employment [@CL-CLS-0146; @CL-CLS-0203].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -51,6 +53,8 @@ Physical receipt is not formal acceptance. Title does not pass upon physical del
 
 Title and risk of loss are separate. With f.o.b. origin shipment, risk can pass on delivery to a carrier, before formal acceptance, while title passes on formal acceptance unless the contract provides for earlier passage [@CL-CLS-0201; @CL-CLS-0301].
 
+The codified prescription for the Payments clause says to insert it appropriately modified with respect to payment due date in accordance with agency regulations, in solicitations and contracts when a fixed-price supply contract, a fixed-price service contract, or a contract for nonregulated communication services is contemplated [@CL-CLS-0300], whereas the RFO prescription line for FAR 52.232-1 prints neither the modification wording nor the contract types [@CL-CLS-0141].
+
 ## Company calibration
 
 How accounting revenue recognition criteria align with formal Government acceptance and invoice submission under local policies. [@Q-005]
@@ -59,4 +63,5 @@ How accounting revenue recognition criteria align with formal Government accepta
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price delivery payments and responsibility for supplies.
