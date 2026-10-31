@@ -24,7 +24,7 @@ Sets out when the contracting officer may use performance-based payments, and wh
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3561] |
 | Codified citation | FAR 32.1003 and 32.1005 [@CL-CTF-3561; @CL-CTF-3564] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.1003 [@CL-CTF-4374; @CL-CTF-4375] and RFO FAR 32.1005 [@CL-CTF-4376; @CL-CTF-4377; @CL-CTF-4378] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3561] |
 | Applies to | Individual orders and contracts for which the contracting officer and the offeror agree the payment terms and the other listed conditions are met [@CL-CTF-3561; @CL-CTF-3562; @CL-CTF-3563] |
@@ -40,6 +40,8 @@ The contracting officer decides whether to use performance-based payments, and t
 The criteria are not the only limits. The policy section bars performance-based payments for payments under cost-reimbursement line items [@CL-CTF-3066]. It also bars them for contracts for architect-engineer services or construction, or for shipbuilding or ship conversion, alteration or repair, when those contracts provide for progress payments based on a percentage or stage of completion [@CL-CTF-3159], and for contracts awarded through sealed bid procedures [@CL-CTF-3160]. Meeting the criteria here therefore does not allow use in those cases.
 
 The prescriptions then place the clause in the solicitation and the contract, and the invitation provision in negotiated solicitations that invite proposals [@CL-CTF-3564; @CL-CTF-3565]. Alternate I of the provision follows the intent to adjust prices at evaluation [@CL-CTF-3566].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO section 32.1003 keeps the provisos for use of performance-based payments that the contracting officer and offeror agree on the performance-based payment terms and that the contract, individual order, or line item is a fixed-price type [@CL-CTF-4374], and the conditions that, for indefinite delivery contracts, the individual order does not provide for progress payments and, for other than indefinite-delivery contracts, the contract does not provide for progress payments [@CL-CTF-4375]. RFO section 32.1005 keeps the insertion of the clause at 52.232-32 in solicitations that may result in contracts providing for performance-based payments and in fixed-price contracts under which the Government will provide them [@CL-CTF-4376], and the insertion of the provision at 52.232-28 in negotiated solicitations that invite offerors to propose performance-based payments [@CL-CTF-4377]. It keeps the use of the provision with its Alternate I in competitive negotiated solicitations if the Government intends to adjust proposed prices for proposal evaluation purposes [@CL-CTF-4378].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ Which method of financing each order uses, who agrees the payment terms, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payments, criteria and clause prescriptions.

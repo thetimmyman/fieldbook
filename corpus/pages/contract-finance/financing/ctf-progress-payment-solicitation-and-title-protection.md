@@ -24,7 +24,7 @@ Sets out the provisions a solicitation carries when progress payments are on off
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3093] |
 | Codified citation | FAR 32.502-3 and FAR 32.503-14 [@CL-CTF-3093; @CL-CTF-3097] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.502-3 [@CL-CTF-4439; @CL-CTF-4440; @CL-CTF-4441; @CL-CTF-4442; @CL-CTF-4443] and RFO FAR 32.503-14 [@CL-CTF-4444; @CL-CTF-4445; @CL-CTF-4446; @CL-CTF-4447] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3093] |
 | Applies to | Invitations for bids and requests for proposals that include a Progress Payments clause, and contracts under which progress payments have been made [@CL-CTF-3093; @CL-CTF-3191] |
@@ -39,6 +39,8 @@ Any such encumbrance is a violation of the contractor's obligations under the co
 
 The solicitation provision depends on whether the invitation or request includes a Progress Payments clause and whether availability is restricted to small business concerns [@CL-CTF-3093; @CL-CTF-3094; @CL-CTF-3095; @CL-CTF-3096]. Once progress payments are made, title to the described property is in the Government, and the administrative contracting officer may ordinarily rely on the contractor's certification in each request absent reason to believe otherwise [@CL-CTF-3191; @CL-CTF-3097]. On learning of an impairing arrangement, the officer requires additional protective provisions and may suspend or reduce payments if necessary [@CL-CTF-3098; @CL-CTF-3193].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.502-3 keeps the same solicitation provisions, written as instructions to insert them without naming the contracting officer: the Notice of Progress Payments provision [@CL-CTF-4439], the exclusive small business notice [@CL-CTF-4441; @CL-CTF-4442] and the Progress Payments Not Included provision [@CL-CTF-4443], and it keeps the option to restrict progress payments to small business concerns in an invitation for bids [@CL-CTF-4440]. RFO FAR 32.502-3(b)(2) labels its two conditions (i) and (ii) where the codified text labels them (1) and (2) [@CL-CTF-4442]. RFO FAR 32.503-14 keeps the Government title under the Progress Payments clause [@CL-CTF-4444], the administrative contracting officer's duty to ensure that title is not compromised [@CL-CTF-4445], the duty to require additional protective provisions, now with "must" in place of "shall" [@CL-CTF-4446] and the right to suspend or reduce progress payments for an encumbrance [@CL-CTF-4447].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -49,6 +51,8 @@ An invitation for bids includes a Progress Payments clause, so the contracting o
 
 Title under the Progress Payments clause is not the payment itself. The clause gives the Government title to the described property [@CL-CTF-3191], and the administrative contracting officer may ordinarily rely on the contractor's certification, absent reason to believe otherwise [@CL-CTF-3097]. An encumbrance is a violation of the contractor's obligations under the contract, not a bookkeeping difference [@CL-CTF-3193]. The [progress payment solicitation notices](../billing-payment/ctf-progress-payment-solicitation-notices.md) card covers the notices in detail.
 
+The two conditions for the exclusive small business notice carry the labels (1) and (2) in the codified text [@CL-CTF-3095] and (i) and (ii) in the RFO text [@CL-CTF-4442], so a citation to one label does not match the other text.
+
 ## Company calibration
 
 Which contracts receive progress payments, at what liquidation rate, and how title protection is evidenced in each payment request [@Q-039].
@@ -57,4 +61,5 @@ Which contracts receive progress payments, at what liquidation rate, and how tit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for progress payment solicitation notices and protection of Government title.

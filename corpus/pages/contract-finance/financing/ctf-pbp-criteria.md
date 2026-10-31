@@ -24,7 +24,7 @@ Explains how performance-based payments are tied to defined events or performanc
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0108] |
 | Codified citation | FAR 32.1004 [@CL-CTF-0108] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.1004 [@CL-CTF-4379; @CL-CTF-4380; @CL-CTF-4381; @CL-CTF-4382; @CL-CTF-4383; @CL-CTF-4384; @CL-CTF-4385; @CL-CTF-4386] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0108] |
 | Applies to | Performance-based payments made on a whole contract basis or on a deliverable item basis [@CL-CTF-0108] |
@@ -40,6 +40,8 @@ Each event or criterion that triggers a payment must be an integral and necessar
 Signing a contract or modification, exercising an option, and the passage of time cannot serve as events or criteria [@CL-CTF-0110].
 
 Amounts are recovered by deducting a percentage or a designated dollar amount from the delivery payments [@CL-CTF-0113], and the method of liquidation must ensure complete liquidation no later than final payment [@CL-CTF-0490].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO section 32.1004 keeps payment on a whole contract or deliverable item basis unless agency regulations prescribe otherwise [@CL-CTF-4379], and a basis of specifically described events or a measurable criterion of performance [@CL-CTF-4380]. It keeps the rule that each triggering event or criterion must be an integral and necessary part of performance and identified in the contract [@CL-CTF-4381], and that signing a contract or modification, exercising an option and the passage of time cannot serve as events or criteria [@CL-CTF-4382]. It keeps the limit that total performance-based payments must not exceed 90 percent of the contract price if on a whole contract basis, or 90 percent of the delivery item price if on a delivery item basis [@CL-CTF-4383; @CL-CTF-4384], liquidation by deducting a percentage or designated dollar amount from delivery payments [@CL-CTF-4385], and complete liquidation no later than final payment [@CL-CTF-4386].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Confirm that each performance-based payment schedule in force names verifiable e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payments.

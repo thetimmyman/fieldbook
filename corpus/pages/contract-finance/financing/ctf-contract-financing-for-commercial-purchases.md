@@ -24,7 +24,7 @@ Explains the policy, statutory requirements, and limits for government financing
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0259] |
 | Codified citation | FAR 32.202-1 [@CL-CTF-0259] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.202-1 [@CL-CTF-4249; @CL-CTF-4250; @CL-CTF-4251; @CL-CTF-4252; @CL-CTF-4253; @CL-CTF-4254; @CL-CTF-4255; @CL-CTF-4256; @CL-CTF-4257; @CL-CTF-4258; @CL-CTF-4259] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0259] |
 | Applies to | Contracts for commercial products and commercial services [@CL-CTF-0259] |
@@ -34,6 +34,8 @@ For purchases of commercial products or services, contract financing is normally
 ## How it works
 
 Commercial interim payments and commercial advance payments may be made under the circumstances listed in the section, which include that the contract item financed is a commercial supply or service and that the contract price exceeds the simplified acquisition threshold [@CL-CTF-0260]. The listed circumstances also include that the contracting officer determines that it is appropriate or customary in the commercial marketplace to make financing payments for the item and that this form of financing is in the best interest of the Government [@CL-CTF-0527], and that adequate security is obtained [@CL-CTF-0528]. They further include award on the basis of competitive procedures or, if only one offer is solicited, adequate consideration based on the time value of the additional financing [@CL-CTF-0529], if the financing is expected to be substantially more advantageous to the offeror than its normal method of customer financing [@CL-CTF-0540], and payment office concurrence on liquidation provisions when the regulation requires it [@CL-CTF-0530].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.202-1 keeps the rule described above: financing of a commercial purchase is normally the contractor’s responsibility [@CL-CTF-4249], and the contracting officer may include appropriate financing terms where buyer financing is a commercial practice in some markets and doing so will be in the best interest of the Government [@CL-CTF-4250]. The authorization circumstances are also kept: a commercial supply or service and a contract price above the simplified acquisition threshold [@CL-CTF-4251], the contracting officer’s determination that financing is appropriate or customary in the commercial marketplace and in the best interest of the Government [@CL-CTF-4252], adequate security [@CL-CTF-4253], award on the basis of competitive procedures or, if only one offer is solicited, adequate consideration if the financing is expected to be substantially more advantageous to the offeror than its normal method of customer financing [@CL-CTF-4255; @CL-CTF-4256], and payment office concurrence on liquidation provisions when required by 32.206(e) [@CL-CTF-4257]. The RFO text keeps the 15 percent limit on commercial advance payments before performance and writes it as "must not exceed" where the codified text says "shall not exceed" [@CL-CTF-0261; @CL-CTF-4254]. The RFO text also keeps the statement that statutes do not allow Government contract financing unless it is in the best interest of the United States [@CL-CTF-4259], and the expectation that commercial financing differs from financing for other than commercial purchases [@CL-CTF-4258]. The one cross-reference change is that paragraph (b)(4) points to paragraph (e) of "this section" where the codified text says "this subsection" [@CL-CTF-0527; @CL-CTF-4252].
 
 ## Worked example
 
@@ -53,4 +55,5 @@ Which commercial contracts include financing terms and whether commercial advanc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract financing for commercial purchases.

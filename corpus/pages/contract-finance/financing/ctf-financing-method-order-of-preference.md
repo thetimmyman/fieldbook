@@ -24,7 +24,7 @@ Shows the order in which a contracting officer considers financing methods when 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3522] |
 | Codified citation | FAR 32.106, FAR 32.107 and FAR 32.108 [@CL-CTF-3522; @CL-CTF-3525; @CL-CTF-3527] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.106 [@CL-CTF-4337; @CL-CTF-4338; @CL-CTF-4339], RFO FAR 32.107 [@CL-CTF-4340; @CL-CTF-4341] and RFO FAR 32.108 [@CL-CTF-4342; @CL-CTF-4343] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3522] |
 | Applies to | A contractor's request for contract financing, and an offeror's or contractor's need for contract financing in an award decision [@CL-CTF-3522; @CL-CTF-3525] |
@@ -47,6 +47,8 @@ Private financing leads the list, but a contractor is not pushed to financing at
 
 The need for financing is kept out of the award decision once the offeror meets the responsibility standards [@CL-CTF-3525]. On questions about financial capability or the right form of financing, the contracting officer should consult the appropriate contract financing office [@CL-CTF-3528].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO section 32.106 keeps the order of preference: the contracting officer must consider it when a contractor requests contract financing, unless an exception would be in the Government's best interest in a specific case, and private financing without Government guarantee comes first [@CL-CTF-4337]. It is not intended that the contracting officer require the contractor to obtain private financing at unreasonable terms or from other agencies [@CL-CTF-4338]. The rest of the sequence is customary contract financing other than loan guarantees and certain advance payments, then loan guarantees, then unusual contract financing, then advance payments [@CL-CTF-4339]. RFO section 32.107(a) keeps the rule that, if the contractor or offeror meets the standards prescribed for responsible prospective contractors at 9.104, the contracting officer must not treat its need for contract financing as a handicap for a contract award, for example as a responsibility factor or evaluation criterion [@CL-CTF-4340]. Paragraph (b) keeps the statement that the contractor should not be disqualified from contract financing solely because it failed to indicate a need for contract financing before the contract was awarded [@CL-CTF-4341]. RFO section 32.108 keeps the statement that each contracting office should have available and use the services of contract financing personnel competent to evaluate credit and financial problems [@CL-CTF-4342], and that the contracting officer should consult the appropriate contract financing office on questions about the financial capability of an offeror or contractor to perform a contract or about what form of contract financing is appropriate in a given case [@CL-CTF-4343].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -67,4 +69,5 @@ When the company raised its financing request in the acquisition, and who fields
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the order of preference among financing methods.
