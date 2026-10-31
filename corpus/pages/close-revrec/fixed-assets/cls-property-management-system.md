@@ -29,7 +29,7 @@ Explains the clause that tests the contractor's system for managing and controll
 | Text status | Final [@CL-CLS-0101] |
 | Applies to | Contracts carrying the Contractor Property Management System Administration clause [@CL-CLS-0101] |
 
-The contractor must establish and maintain an acceptable property management system, and the property management system is the contractor's system or systems for managing and controlling Government property [@CL-CLS-0101; @CL-CLS-0107].
+The contractor must establish and maintain an acceptable property management system, and the property management system is the contractor's system or systems for managing and controlling Government property [@CL-CLS-0101; @CL-CLS-0107]. Failure to maintain an acceptable property management system may result in disapproval of the system by the contracting officer and/or withholding of payments [@CL-CLS-0102].
 
 The system must be in accordance with paragraphs (b) and (f) of the contract clause at Federal Acquisition Regulation 52.245-1 [@CL-CLS-0103].
 
@@ -65,4 +65,5 @@ Who owns the property title and inventory records, and how physical and accounti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that failure to maintain an acceptable property management system may result in disapproval of the system and withholding of payments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Property Management System Administration clause.

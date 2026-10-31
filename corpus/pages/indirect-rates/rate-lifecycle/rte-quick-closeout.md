@@ -39,7 +39,7 @@ The contracting officer negotiates a settlement of the contract's direct and ind
 
 The ceiling is the lesser of $1,000,000 or 10 percent of the total contract amount, applied to the unsettled direct and indirect costs allocated to that one contract, task order or delivery order [@CL-RTE-0153; @CL-RTE-0154].
 
-A risk assessment must support the procedure, covering the contractor's systems and the concerns of the cognizant contract auditors, and the parties must agree on a reasonable estimate of allocable dollars [@CL-RTE-0155; @CL-RTE-0157].
+A risk assessment must support the procedure, covering the contractor's systems and the concerns of the cognizant contract auditors, and the parties must agree on a reasonable estimate of allocable dollars [@CL-RTE-0155; @CL-RTE-0157]. The risk assessment may also weigh other pertinent information, such as the documented history of approved indirect cost rate agreements, changes to the contractor's rate structure, volatility of rate fluctuations, and mergers or acquisitions [@CL-RTE-0156].
 
 The resulting determination of final indirect costs is final for the contract it covers, and the rates used are not a binding precedent for other contracts [@CL-RTE-0158; @CL-RTE-0159].
 
@@ -65,5 +65,6 @@ Whether each closing contract's unsettled direct and indirect costs fall under t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the other pertinent information the risk assessment may weigh.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the quick-closeout procedure.

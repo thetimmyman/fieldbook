@@ -33,7 +33,7 @@ The program manager's estimate at completion includes a range of estimates, from
 
 ## How it works
 
-The program manager's estimate at completion includes best case, worst case, and most likely cases, with the most likely treated as the official management estimate at completion [@CL-PRG-0358]. At least monthly, the program manager’s assessment of the contract-level forecast builds upon the performance measurement baseline level estimate at completion, updated monthly, or the comprehensive estimate at completion, and results in the management estimate at completion [@CL-PRG-0359]. The management estimate at completion accounts for dollarized risks and opportunities that are tracked at the program level but not yet realized or incorporated into control accounts [@CL-PRG-0360]. The externally reported estimate at completion and the internal estimate at completion reconcile and have a clear, consistent relationship [@CL-PRG-0362].
+The program manager's estimate at completion includes best case, worst case, and most likely cases, with the most likely treated as the official management estimate at completion [@CL-PRG-0358]. At least monthly, the program manager’s assessment of the contract-level forecast builds upon the performance measurement baseline level estimate at completion, updated monthly, or the comprehensive estimate at completion, and results in the management estimate at completion [@CL-PRG-0359]. The management estimate at completion accounts for dollarized risks and opportunities that are tracked at the program level but not yet realized or incorporated into control accounts [@CL-PRG-0360]. At least annually, or more frequently if performance indicates the current estimate is invalid, a comprehensive or bottom-up estimate at completion is assessed at the contract level [@CL-PRG-0361]. The externally reported estimate at completion and the internal estimate at completion reconcile and have a clear, consistent relationship [@CL-PRG-0362].
 
 ## Worked example
 
@@ -53,5 +53,6 @@ Who owns the program estimate at completion, how often it is refreshed, and how 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the at-least-annual comprehensive estimate at completion at the contract level.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed unsupported purpose wording and fixed the example variance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the program manager estimate at completion.

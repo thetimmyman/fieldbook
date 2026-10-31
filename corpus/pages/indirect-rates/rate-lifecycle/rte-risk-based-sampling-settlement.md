@@ -29,7 +29,7 @@ Explains how incurred cost proposals are sampled for audit and the routes by whi
 | Text status | Not established. |
 | Applies to | Incurred cost proposals assessed under risk-based sampling [@CL-RTE-0318] |
 
-DCAA selects incurred cost proposals for audit under a risk-based sampling policy, assessing eligible proposals on sampling auditable dollar volume and risk factors [@CL-RTE-0318]. Unless an exception applies, proposals with a sampling auditable dollar volume of less than 100 million dollars are eligible for sampling, and proposals of 1 billion dollars or greater are not eligible and will be audited each year [@CL-RTE-0320; @CL-RTE-0321]. This card does not cover the tiers between those two figures.
+DCAA selects incurred cost proposals for audit under a risk-based sampling policy, assessing eligible proposals on sampling auditable dollar volume and risk factors [@CL-RTE-0318]. Unless an exception applies, proposals with a sampling auditable dollar volume of less than 100 million dollars are eligible for sampling [@CL-RTE-0320; @CL-CMP-1715], and proposals of 1 billion dollars or greater are not eligible and will be audited each year [@CL-RTE-0321; @CL-CMP-1716]. This card does not cover the tiers between those two figures.
 
 For proposals not randomly selected for audit, DCAA issues a risk-based sampling memorandum and a rate agreement letter, signed by both DCAA and the contractor, to finalize the indirect rates proposed [@CL-RTE-0319].
 
@@ -55,4 +55,5 @@ Confirm which open fiscal years closed by sampling memorandum, which were audite
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the sampling treatment of incurred cost proposals below 100 million dollars and at or above 1 billion dollars of auditable dollar volume.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for risk-based sampling and the settlement of final indirect rates.

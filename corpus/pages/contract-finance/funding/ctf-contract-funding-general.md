@@ -37,7 +37,7 @@ The section describes what the obligation covers. It does not say who obligates 
 
 Under paragraph (a), a fully funded fixed-price contract has funds obligated for the whole price or target price. A fully funded cost-reimbursement contract has funds obligated for the estimated cost and any fee [@CL-CTF-3687]. Under paragraph (b), an incrementally funded contract has funds obligated for the amount allotted and any corresponding increment of fee [@CL-CTF-3688]. Paragraph (b) names no contract type.
 
-Other cards cover the rules around this section. Before executing any contract, the contracting officer shall either obtain written assurance from responsible fiscal authority that adequate funds are available or expressly condition the contract upon availability of funds [@CL-FPA-0051]; see [Funded versus unfunded contract value: the policy](../../fpa/backlog/fpa-funded-versus-unfunded-policy.md). The DFARS lets a fixed-price contract be incrementally funded only under conditions it lists, and requires an incrementally funded fixed-price contract to be fully funded as soon as funds are available [@CL-FPA-0069; @CL-FPA-0072]; see [DoD incrementally funded fixed-price contracts](../../fpa/backlog/fpa-dod-incrementally-funded-fixed-price.md). For the clauses that govern cost-reimbursement contracts as funds run out, see [Limitation of Funds clause](ctf-limitation-of-funds.md) and [Contract funding: incremental funding policy](ctf-incremental-funding-policy.md).
+Other cards cover the rules around this section. Before executing any contract, the contracting officer shall either obtain written assurance from responsible fiscal authority that adequate funds are available or expressly condition the contract upon availability of funds [@CL-FPA-0051]; see [Funded versus unfunded contract value: the policy](../../fpa/backlog/fpa-funded-versus-unfunded-policy.md). The DFARS lets a fixed-price contract be incrementally funded only under either of two sets of conditions it lists [@CL-FPA-0069; @CL-FPA-0071], and requires an incrementally funded fixed-price contract to be fully funded as soon as funds are available [@CL-FPA-0072]; see [DoD incrementally funded fixed-price contracts](../../fpa/backlog/fpa-dod-incrementally-funded-fixed-price.md). For the clauses that govern cost-reimbursement contracts as funds run out, see [Limitation of Funds clause](ctf-limitation-of-funds.md) and [Contract funding: incremental funding policy](ctf-incremental-funding-policy.md).
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Which contracts are fully or incrementally funded, which notices apply, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named both DFARS sets of conditions for incrementally funding a fixed-price contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract funding in general.

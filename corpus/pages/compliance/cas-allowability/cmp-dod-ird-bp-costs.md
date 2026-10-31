@@ -31,7 +31,7 @@ Adds the DoD supplement details that the general independent research and develo
 
 A covered contract is a DoD prime contract for an amount exceeding the simplified acquisition threshold, except for a fixed-price contract without cost incentives [@CL-CMP-0875]. A subcontract for an amount exceeding the simplified acquisition threshold is also a covered contract, except for a fixed-price subcontract without cost incentives under such a prime contract [@CL-CMP-0876].
 
-The definitions of covered segment and major contractor, the project reporting duty and the cap on allowable independent research and development cost are set out on [IR&D and B&P costs and major contractor thresholds](cmp-ird-and-bp-costs.md). A product division that allocated less than $1,100,000 of independent research and development cost and bid and proposal cost to covered contracts during the preceding fiscal year is not subject to the limitations in paragraph (c) of the section [@CL-CMP-0878]. Segments allocating less than $1,100,000 are also left out when the dollar threshold amounts for the major contractor definition are calculated [@CL-CMP-0880].
+The definitions of covered segment and major contractor, the project reporting duty and the cap on allowable independent research and development cost are set out on [IR&D and B&P costs and major contractor thresholds](cmp-ird-and-bp-costs.md). A covered segment is a product division of the contractor that allocated more than $1,100,000 of independent research and development cost and bid and proposal cost to covered contracts during the preceding fiscal year [@CL-CMP-0877], and for a contractor with no product divisions the term means the contractor as a whole [@CL-CMP-1402]. A major contractor is any contractor whose covered segments allocated a total of more than $11 million of those costs to covered contracts during the preceding fiscal year [@CL-CMP-0879]. A product division that allocated less than $1,100,000 of independent research and development cost and bid and proposal cost to covered contracts during the preceding fiscal year is not subject to the limitations in paragraph (c) of the section [@CL-CMP-0878]. Segments allocating less than $1,100,000 are also left out when the dollar threshold amounts for the major contractor definition are calculated [@CL-CMP-0880].
 
 ## How it works
 
@@ -55,5 +55,6 @@ Whether independent research and development projects and bid and proposal effor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS definitions of covered segment, including a contractor with no product divisions, and major contractor.
 - COMPATIBLE_EXTENSION, 2026-10-29: Cut the covered segment and major contractor definitions to a pointer to the general page, corrected the worked example so that the thresholds add up, and kept the covered contract definition, the divisions outside the limitations, the update deadline and the reporting rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD independent research and development and bid and proposal costs.
