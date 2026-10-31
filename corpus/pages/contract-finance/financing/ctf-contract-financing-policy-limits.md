@@ -24,7 +24,7 @@ Sets the limits on Government financing of contractor work: what may be held bac
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3056] |
 | Codified citation | FAR 32.103, FAR 32.105 and FAR 32.1001 [@CL-CTF-3056; @CL-CTF-3060; @CL-CTF-3063] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.103, RFO FAR 32.105 and RFO FAR 32.1001 [@CL-CTF-4260; @CL-CTF-4265; @CL-CTF-4269] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3056] |
 | Applies to | Construction progress payments, the contract financing methods covered by the same FAR part, and performance-based payments [@CL-CTF-3156; @CL-CTF-3060; @CL-CTF-3063] |
@@ -39,6 +39,8 @@ Performance-based payments are the preferred Government financing method when th
 
 Retainage responds to unsatisfactory progress on a construction contract. The contracting officer decides each case on the contractor's past performance and the likelihood that it continues, and the ceiling and the prompt release at completion limit how much is held and for how long [@CL-CTF-3056; @CL-CTF-3058; @CL-CTF-3059]. Financing methods may not fund facilities expansion or fixed assets, except where the loan guarantee exceptions, agency procedures or Government ownership of the facilities apply [@CL-CTF-3060; @CL-CTF-3061; @CL-CTF-3157; @CL-CTF-3062]. A performance-based payment is financing rather than payment for accepted items, so it is recoverable if the contractor defaults and sits outside the prompt payment interest penalty [@CL-CTF-3064; @CL-CTF-3065].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.103 states the retainage trigger differently, so this card does not treat the trigger as unchanged: a percentage of the progress payment may be retained when there is unsatisfactory progress by a contractor during any period for which a progress payment is to be made, where the codified text says satisfactory progress has not been achieved [@CL-CTF-3156; @CL-CTF-4260]. It also lists improved performance as an adjustment factor where the codified text says better than expected performance [@CL-CTF-3058; @CL-CTF-4263]. The other retainage rules are kept: retainage should not be a substitute for good contract management and funds should not be withheld without cause [@CL-CTF-4261]; the contracting officer decides whether to retain and how much, case by case, on past performance and the likelihood it will continue [@CL-CTF-4262]; the amount withheld must not exceed 10 percent of the approved estimated amount in accordance with the terms of the contract [@CL-CTF-4263]; and retained amounts must be paid promptly on completion of all contract requirements [@CL-CTF-4264]. RFO FAR 32.105 keeps the rule that agencies must only use the financing methods for contractor working capital, not for expanding contractor-owned facilities or acquiring fixed assets [@CL-CTF-4265], with the same two exceptions for facilities expansion under loan guarantees [@CL-CTF-4266; @CL-CTF-4267] and the same non-application to facilities acquired for Government ownership [@CL-CTF-4268]. RFO FAR 32.1001 keeps the performance-based payment rules: they are the preferred method when practical and the contractor agrees [@CL-CTF-4269], they are contract financing payments, not payment for accepted items, and are fully recoverable on default [@CL-CTF-4270], they are outside the prompt payment interest-penalty provisions and must be made in accordance with agency policy [@CL-CTF-4271], and they must not be used for cost-reimbursement line items [@CL-CTF-4272], for architect-engineer, construction, shipbuilding or ship conversion, alteration or repair contracts that provide for progress payments based upon a percentage or stage of completion, or for contracts awarded through sealed bid procedures [@CL-CTF-4273].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -49,6 +51,8 @@ A construction contract has an approved estimated amount of 1,000,000. Progress 
 
 Retainage is not a general right to hold back money. It applies when satisfactory progress has not been achieved, the contracting officer should not withhold funds without cause, and the amount is capped against the approved estimated amount [@CL-CTF-3156; @CL-CTF-3057; @CL-CTF-3058]. A performance-based payment is also not payment for accepted items, so it differs from payment for delivered work [@CL-CTF-3064]. The [performance-based payment criteria](ctf-pbp-criteria.md), the [financing overview](ctf-financing-overview.md) and the [construction payments](../billing-payment/ctf-payments-fixed-price-construction-and-common-carriers.md) cards take the mechanics further.
 
+The two texts word the retainage trigger and adjustment factor differently: the codified section allows retainage when satisfactory progress has not been achieved and lists better than expected performance as an adjustment factor [@CL-CTF-3156; @CL-CTF-3058], while the RFO section allows it when there is unsatisfactory progress by a contractor and lists improved performance [@CL-CTF-4260; @CL-CTF-4263].
+
 ## Company calibration
 
 Which construction contracts allow retainage, which contracts use working-capital financing or performance-based payments, and how those terms enter the cash forecast [@Q-039].
@@ -57,4 +61,5 @@ Which construction contracts allow retainage, which contracts use working-capita
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract financing policy limits.

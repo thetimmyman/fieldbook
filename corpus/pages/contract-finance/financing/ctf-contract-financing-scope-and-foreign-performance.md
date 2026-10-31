@@ -24,7 +24,7 @@ Shows which sections and subparts of the contract financing part apply to which 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3506] |
 | Codified citation | FAR 32.000, FAR 32.002 and FAR 32.004 [@CL-CTF-3506; @CL-CTF-3509; @CL-CTF-3514] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.000, RFO FAR 32.002 and RFO FAR 32.004 [@CL-CTF-4274; @CL-CTF-4276; @CL-CTF-4280; @CL-CTF-4281; @CL-CTF-4285] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3506] |
 | Applies to | All purchases subject to part 32, with the commercial purchase financing subpart limited to purchases of commercial products and commercial services under part 12 authority [@CL-CTF-3509; @CL-CTF-3511] |
@@ -41,6 +41,8 @@ A purchase subject to part 32 is reached by the opening sections and by the firs
 
 Where foreign jurisdictions may become involved, the duty to ensure enforceable security falls on the contracting officer and comes before the financing is provided [@CL-CTF-3514]. Local law and procedure decide whether the security can be enforced [@CL-CTF-3607]. The section names no particular form of security and no approval route. It says only that additional or different security may be required [@CL-CTF-3514].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.000 says the part addresses policies and procedures for contract financing, funding and other payment matters, where the codified section says the part prescribes them for contract financing and other payment matters [@CL-CTF-4274; @CL-CTF-3506]. It adds a sentence naming three statutory chapters that the part implements and that authorize contract financing guarantees [@CL-CTF-4275]. Its topic list keeps payment methods and loan guarantees, advances and cost-based progress payments [@CL-CTF-3507; @CL-CTF-4276], debts and contract funding [@CL-CTF-3508; @CL-CTF-4277], and assignment of claims, selected payment clauses and commercial financing [@CL-CTF-3606; @CL-CTF-4278]. It then lists financing of other than commercial purchases, performance-based payments, electronic funds transfer payments and fast payment procedures as items (h) to (k), so performance-based payments and electronic funds transfer payments move from (h) and (i) to (i) and (j) [@CL-CTF-3606; @CL-CTF-4279]. RFO FAR 32.002(a) says the listed sections are applicable to all purchases, where the codified lead-in says all purchases subject to part 32 [@CL-CTF-4280; @CL-CTF-3509], and its list adds Subpart 32.12, Fast Payment Procedure [@CL-CTF-4281]. The rest of RFO FAR 32.002 keeps the rule: the commercial financing subpart is applicable only to commercial purchases under part 12 authority [@CL-CTF-4282], and the subparts on financing for other than a commercial purchase, advance payments for other than commercial acquisitions, progress payments based on costs and performance-based payments are applicable to all purchases made under any authority other than part 12 [@CL-CTF-4283; @CL-CTF-4284]. RFO FAR 32.004 keeps the foreign jurisdiction rule: enforceability of security depends on local law and procedure [@CL-CTF-4285], and before providing financing where foreign jurisdictions may become involved the contracting officer must ensure the Government’s security is enforceable, which may require additional or different security [@CL-CTF-4286].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,6 +55,8 @@ Applicability is not the order of preference. The authority for the purchase dec
 
 Applicability is also not authority to provide financing. That a subpart applies to a purchase does not by itself settle whether financing is provided, which is covered in [Providing customary contract financing](ctf-providing-customary-contract-financing.md).
 
+The codified lead-in applies the listed sections to all purchases subject to part 32 [@CL-CTF-3509], while the RFO lead-in says all purchases and its list of subparts adds Subpart 32.12, Fast Payment Procedure [@CL-CTF-4280; @CL-CTF-4281].
+
 ## Company calibration
 
 The award authority behind each contract, and whether foreign jurisdictions may become involved in any financing. [@Q-004]
@@ -61,4 +65,5 @@ The award authority behind each contract, and whether foreign jurisdictions may 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the contract financing part and foreign performance.

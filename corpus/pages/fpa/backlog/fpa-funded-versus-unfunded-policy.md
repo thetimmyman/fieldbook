@@ -24,7 +24,7 @@ Shows the funding rule that bears on the line between funded and unfunded contra
 |---|---|
 | Instrument | Codified FAR [@CL-FPA-0050] |
 | Codified citation | FAR 32.702 [@CL-FPA-0050; @CL-FPA-0051] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.702 [@CL-FPA-0272; @CL-FPA-0273] |
 | Edition date | Not established. |
 | Text status | Final [@CL-FPA-0050] |
 | Applies to | Any contract, before the contracting officer executes it [@CL-FPA-0051] |
@@ -34,6 +34,8 @@ No officer or employee of the Government may create or authorize an obligation i
 ## How it works
 
 The rule caps what the Government may commit: an obligation may not exceed the funds available or run ahead of appropriations, unless law says otherwise [@CL-FPA-0050]. The contracting officer then has two routes before executing a contract: written assurance from responsible fiscal authority that adequate funds are available, or an express condition that the contract depends on availability of funds [@CL-FPA-0051]. For what happens as an incrementally funded contract nears its limit, see [Contract funding: incremental funding policy](../../contract-finance/funding/ctf-incremental-funding-policy.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.702 keeps the rule that no officer or employee of the Government may create or authorize an obligation in excess of the funds available, or in advance of appropriations (Anti-Deficiency Act, section 1341 of title 31), unless otherwise authorized by law [@CL-FPA-0272; @CL-FPA-0050]. It keeps the two routes before executing any contract: the contracting officer must obtain written assurance from responsible fiscal authority that adequate funds are available or expressly condition the contract upon availability of funds in accordance with 32.703-2 [@CL-FPA-0273]. The RFO text writes the two routes in one sentence without the codified paragraph letters (a) and (b) and says "must" where the codified text says "shall" [@CL-FPA-0273; @CL-FPA-0051].
 
 ## Worked example
 
@@ -53,4 +55,5 @@ Which open contracts rest on written assurance of funds, which are conditioned o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for funded versus unfunded contract value: the policy.

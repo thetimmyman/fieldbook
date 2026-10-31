@@ -24,7 +24,7 @@ Sets the customary progress payment rates in the FAR and the conditions for rate
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0950] |
 | Codified citation | FAR 32.501-1 [@CL-CTF-0950] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.501-1 [@CL-CTF-4431; @CL-CTF-4432; @CL-CTF-4433; @CL-CTF-4434] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0950] |
 | Applies to | Total costs of performing the contract [@CL-CTF-0950] |
@@ -38,6 +38,8 @@ The DFARS sets the customary rates for DoD contracts, including contracts that c
 The contracting officer must consider any rate higher than the customary rates an unusual progress payment, and must not include a higher rate in a contract unless advance agency approval is obtained as prescribed in the section on unusual progress payments [@CL-CTF-1052]. The contracting officer may provide unusual progress payments only if the contract necessitates predelivery expenditures that are large in relation to contract price and in relation to the contractor's working capital and credit [@CL-CTF-0953], the contractor fully documents an actual need to supplement any private financing available, including guaranteed loans [@CL-CTF-1050], and the request is approved by the head of the contracting activity or a designee [@CL-CTF-1051].
 
 The excess of the unusual rate approved over the customary rate should be the lowest amount possible under the circumstances [@CL-CTF-1053]. When advance payments and progress payments are authorized under the same contract, the contracting officer must not authorize a progress payment rate higher than the customary rate [@CL-CTF-1054].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.501-1 keeps the customary rates of 80 percent and, for small business concerns, 85 percent [@CL-CTF-4431], the rule that a higher rate is an unusual progress payment that needs advance agency approval [@CL-CTF-4432], the bar on a rate above the customary rate when advance payments and progress payments are authorized under the same contract [@CL-CTF-4433] and the 80 percent limit on undefinitized contract actions [@CL-CTF-4434]. RFO FAR 32.501-2 keeps the conditions for unusual progress payments [@CL-CTF-4435; @CL-CTF-4436], the rule that the excess over the customary rate should be the lowest amount possible [@CL-CTF-4437] and the rule that letter contracts alone do not make progress payments unusual [@CL-CTF-4438]. The 85 percent small business rate [@CL-CTF-4431] is the rate in the RFO FAR text; DFARS 232.501-1(a) in the class deviation sets the customary rate for DoD contracts with small business concerns at 90 percent [@CL-CTF-0002].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm the customary progress payment rate and small business status on each co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for progress payment rates and unusual progress payments.

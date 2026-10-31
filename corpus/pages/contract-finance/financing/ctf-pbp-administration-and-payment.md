@@ -24,7 +24,7 @@ Outlines the contracting officer's responsibilities for reviewing, approving and
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0973] |
 | Codified citation | FAR 32.1007 [@CL-CTF-0973] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.1007 [@CL-CTF-4365; @CL-CTF-4366; @CL-CTF-4367; @CL-CTF-4368; @CL-CTF-4369; @CL-CTF-4370; @CL-CTF-4371; @CL-CTF-4372] and RFO FAR 32.1008 [@CL-CTF-4373] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0973] |
 | Applies to | Performance-based payments for the contract that the contracting officer administers [@CL-CTF-0973] |
@@ -40,6 +40,8 @@ Entitlement to a performance-based payment is solely on the basis of successful 
 The contracting officer is responsible for determining what reviews are required for protection of the Government's interests [@CL-CTF-1080], and should consider the contractor's experience, performance record, reliability, financial strength and the adequacy of controls established for administering the payments [@CL-CTF-1081]. Based upon the risk to the Government, post-payment reviews and verifications should normally be arranged as the contracting officer considers appropriate [@CL-CTF-1082], and pre-payment reviews may be required if the contracting officer considers them necessary [@CL-CTF-1083].
 
 When exercising the Government's rights to suspend or reduce performance-based payments, the contracting officer shall apply the policy and procedures in paragraphs (a), (b), (c), and (e) of section 32.503-6 [@CL-CTF-0977]. Those rights are exercised in accordance with paragraph (e) of the Performance-Based Payments clause [@CL-CTF-1085]. The remedies are on [Suspension or reduction of progress payments](ctf-suspension-or-reduction-of-progress-payments.md), the clause-side payment conditions are on [Performance-based payments](ctf-performance-based-payments.md), and the event criteria are on [PBP criteria](ctf-pbp-criteria.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO section 32.1007 keeps the contracting officer's duty to review and approve all performance-based payments for the contract [@CL-CTF-4365] and to receive, approve and transmit the requests unless agency regulations or an agreement with the payment official provide otherwise [@CL-CTF-4366]. It keeps the responsibility for determining what reviews are required for protection of the Government's interests [@CL-CTF-4367], and the rules that, based upon the risk to the Government, post-payment reviews and verifications should normally be arranged as the contracting officer considers appropriate and that pre-payment reviews may be required if the contracting officer considers them necessary [@CL-CTF-4368]. It keeps the bar on approving a payment until the event or criterion is accomplished [@CL-CTF-4369], and for a cumulative event until all identified preceding events or criteria are accomplished [@CL-CTF-4370]. It keeps entitlement solely on successful performance [@CL-CTF-4371] and the option to renegotiate the schedule after a Government-caused delay [@CL-CTF-4372]. RFO section 32.1008 keeps the duty to apply the policy and procedures in paragraphs (a), (b), (c), and (e) of 32.503-6 whenever the contracting officer exercises the Government's rights to suspend or reduce performance-based payments in accordance with paragraph (e) of the clause at 52.232-32 [@CL-CTF-4373].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ Confirm milestone criteria and verification documentation before submitting fina
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payment administration and approval.

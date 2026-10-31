@@ -24,7 +24,7 @@ States when the Government pays by electronic funds transfer, the exceptions the
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1532] |
 | Codified citation | FAR 32.1103 and FAR 32.1108 [@CL-CTF-1532; @CL-CTF-1539] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.1103 and RFO FAR 32.1108 [@CL-CTF-4294; @CL-CTF-4301] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1532] |
 | Applies to | All contract payments, subject to the listed exceptions, and payments made by Governmentwide commercial purchase card [@CL-CTF-1532; @CL-CTF-1539] |
@@ -36,6 +36,8 @@ The exception for deployed and emergency operations has two parts joined by the 
 ## How it works
 
 EFT is the default method for contract payments, and each listed case above is a way out of that default [@CL-CTF-1532]. A Governmentwide commercial purchase card charge authorizes the third party that issued the card to make immediate payment to the contractor, and the Government reimburses the third party at a later date [@CL-CTF-1539]. The contracting officer shall not authorize the card as a method of payment during any period the SAM indicates that the contractor has delinquent debt subject to collection under the TOP [@CL-CTF-1540]. Other purchase card rules in the section, including the clause that governs a contractor's charge, what the contract must identify, and the debt check at award, are not restated on this card. The clauses that carry the EFT and purchase card terms are prescribed in a separate section, covered on [EFT solicitation provision and contract clauses](ctf-eft-solicitation-provision-and-clauses.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.1103 keeps the rule described above: the Government must provide all contract payments through EFT except in the listed cases, one of which is that the office making payment loses the ability to release payment by EFT [@CL-CTF-4294]. It keeps the exceptions for payment received outside the United States and Puerto Rico and for payment in other than United States currency, each with the cross-reference to 32.1106(b) [@CL-CTF-4295], for classified contracts [@CL-CTF-4296], and for deployed contracting officers and emergency operations, with the same condition printed after both parts [@CL-CTF-4297; @CL-CTF-4298]. The exceptions for one payment within a one-year period and for unusual and compelling urgency are kept [@CL-CTF-4299], as are the sole source exception and the exception for Department of the Treasury Regulations at 31 CFR part 208 [@CL-CTF-4300]. RFO FAR 32.1108 keeps the purchase card rules: a charge authorizes the issuing third party to pay the contractor immediately and the Government reimburses it later [@CL-CTF-4301], and the contracting officer must not authorize the card during a period the SAM indicates delinquent debt subject to collection under the TOP [@CL-CTF-4302]. The RFO text writes "must" where the codified text says "shall" [@CL-CTF-1532; @CL-CTF-1540; @CL-CTF-4294; @CL-CTF-4302].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm which contracts are paid by EFT or purchase card and which listed except
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EFT applicability and payment by Governmentwide commercial purchase card.

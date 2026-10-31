@@ -24,7 +24,7 @@ Defines a contract debt and shows what the printed text says about who determine
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1531] |
 | Codified citation | FAR 32.601 [@CL-CTF-1531] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.601 [@CL-CTF-4247; @CL-CTF-4248] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1531] |
 | Applies to | Amounts paid to a contractor to which it is not currently entitled, or otherwise due from it, under the contract terms [@CL-CTF-1531] |
@@ -36,6 +36,8 @@ The printed text of this general section does not say who determines that a cont
 ## How it works
 
 A contract debt arises in one of two ways: the contractor was paid an amount it was not entitled to under the contract terms, or an amount is otherwise due from it under those terms [@CL-CTF-1531]. The definition itself sets no amount threshold or deadline.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.601 keeps the rule described above: contract debts are amounts paid to a contractor to which it is not currently entitled under the terms and conditions of the contract, or otherwise due from it under those terms and conditions [@CL-CTF-4247], and the list of examples is still stated as not limited to the items listed [@CL-CTF-4248].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm how the company records and tracks amounts the Government says are owed 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the general rules on contract debts.
