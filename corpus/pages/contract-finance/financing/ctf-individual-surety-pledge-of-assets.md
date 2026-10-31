@@ -23,7 +23,7 @@ Shows what a contractor must obtain from an individual surety, how long the pled
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2480] |
 | Codified citation | FAR 52.228-11 and FAR 52.228-17 [@CL-CTF-2480; @CL-CTF-2518] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.228-11(a) [@CL-CTF-0896]; RFO FAR 52.228-11(b) [@CL-CTF-0897; @CL-CTF-0898; @CL-CTF-0899]; RFO FAR 52.228-11(c) [@CL-CTF-0984; @CL-CTF-0985; @CL-CTF-0986; @CL-CTF-0987; @CL-CTF-0988]; RFO FAR 52.228-11(d) [@CL-CTF-0989]; RFO FAR 52.228-17 [@CL-CTF-0990; @CL-CTF-0991; @CL-CTF-0992] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2480] |
 | Applies to | Contracts with an individual surety on a performance or payment bond, and offers with an individual surety on a bid guarantee [@CL-CTF-2480; @CL-CTF-2518] |
@@ -41,6 +41,8 @@ For a bid guarantee, offerors shall obtain from each person acting as an individ
 ## How it works
 
 The pledge and the affidavit come from each individual surety, and the Contractor obtains them for a bond, while the Offeror obtains them for a bid guarantee and files them with its offer [@CL-CTF-2480; @CL-CTF-2518; @CL-CTF-2519]. The pledged assets stay under a security interest. For a performance bond or a payment bond the clause sets how long the interest is kept, by contract type, and the Contracting Officer may release part of it after substantial performance, or the surety's assets may be released to a subcontractor or supplier on the stated proof [@CL-CTF-2509; @CL-CTF-2512; @CL-CTF-2513]. For a bid guarantee, the release depends on evidence that the supported offer will not lead to award, and the Contracting Officer decides [@CL-CTF-2482]. After award the Contracting Officer may allow a substitute individual surety, who must meet the pledge and affidavit requirements within the timeframe the Contracting Officer sets [@CL-CTF-2517].
+
+The RFO text applies to DoD contracting because Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.228-11 keeps the pledge of assets and the affidavit in paragraph (a) [@CL-CTF-0896; @CL-CTF-2480]. It keeps the release of part of the security interest after substantial performance and the periods in paragraphs (b)(1) to (b)(3), including the full contract performance period plus 1 year for contracts subject to alternative payment protection [@CL-CTF-0897; @CL-CTF-0898; @CL-CTF-9202; @CL-CTF-0899; @CL-CTF-2509; @CL-CTF-2481; @CL-CTF-2510; @CL-CTF-2511]. It keeps the release of pledged assets to a subcontractor or supplier on a judgment or sworn statement and the periods for a payment bond in paragraphs (c)(1) to (c)(3) [@CL-CTF-0984; @CL-CTF-0985; @CL-CTF-0986; @CL-CTF-0987; @CL-CTF-0988; @CL-CTF-2512; @CL-CTF-2513; @CL-CTF-2514; @CL-CTF-2515; @CL-CTF-2516], and the substitution of an individual surety in paragraph (d) [@CL-CTF-0989; @CL-CTF-2517]. The RFO text of FAR 52.228-17 keeps the pledge of assets and the affidavit for a bid guarantee, the timeframe for including the information with the offer, and the release of the security interest when the offer will not result in award [@CL-CTF-0990; @CL-CTF-0991; @CL-CTF-0992; @CL-CTF-2518; @CL-CTF-2519; @CL-CTF-2482].
 
 ## Worked example
 
@@ -66,4 +68,5 @@ Which contracts and offers rely on individual sureties, and who holds the pledge
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for individual surety pledge of assets for bonds and bid guarantees.

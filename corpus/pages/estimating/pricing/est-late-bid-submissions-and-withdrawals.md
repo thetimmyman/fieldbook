@@ -24,7 +24,7 @@ Explains when a late bid, modification or withdrawal can still be considered, wh
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1968] |
 | Codified citation | FAR 52.214-7 [@CL-EST-1968] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.214-7 [@CL-EST-0326; @CL-EST-0327; @CL-EST-0328; @CL-EST-0329; @CL-EST-0330; @CL-EST-0331; @CL-EST-0332; @CL-EST-0333; @CL-EST-0334; @CL-EST-0335; @CL-EST-0336; @CL-EST-0337; @CL-EST-0338] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1968] |
 | Applies to | Invitations for bids that include the late submissions provision [@CL-EST-2081] |
@@ -48,6 +48,8 @@ A bid may be withdrawn by written notice received at any time before the exact t
 A bid may be withdrawn in person by the bidder or its authorized representative if, before the exact time set for receipt of bids, the identity of the person requesting withdrawal is established and the person signs a receipt for the bid [@CL-EST-1977].
 
 A late bid sample or late descriptive literature sent by mail is considered under this provision, as covered on [Bid samples under sealed bidding](est-bid-samples.md) and [Descriptive literature under sealed bidding](est-descriptive-literature.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026, because the DoD part 52 class deviation directs its use [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.214-7 keeps the bidder's responsibility to reach the designated office by the time specified [@CL-EST-0326; @CL-EST-2082] and the 4:30 p.m. local-time default when the IFB specifies no time [@CL-EST-0327; @CL-EST-1968]. It keeps the rule that a bid, modification or withdrawal received after the exact time specified is late and will not be considered unless it is received before award and the Contracting Officer determines that accepting it would not unduly delay the acquisition [@CL-EST-0328; @CL-EST-9025; @CL-EST-1969; @CL-EST-1970], with the electronic commerce condition [@CL-EST-0329; @CL-EST-1971] and the acceptable-evidence condition as an alternative [@CL-EST-0330; @CL-EST-1972; @CL-EST-2083]. It keeps the rule on a late, more favorable modification of an otherwise successful bid [@CL-EST-0331; @CL-EST-1973], the kinds of acceptable evidence of the time of receipt [@CL-EST-0332; @CL-EST-1974], and the emergency extension [@CL-EST-0333; @CL-EST-2084; @CL-EST-0334; @CL-EST-2085]. It keeps withdrawal by written notice [@CL-EST-0335; @CL-EST-1975] and withdrawal in person with an established identity and a signed receipt [@CL-EST-0338; @CL-EST-1977]. One difference matters: the codified paragraph has a sentence allowing withdrawal by facsimile where the IFB authorizes facsimile bids, subject to FAR 52.214-31 [@CL-EST-1976], but the RFO paragraph goes from the written-notice sentence straight to the in-person sentence [@CL-EST-0336] and ends there [@CL-EST-0337].
 
 ## Worked example
 
@@ -73,6 +75,8 @@ The electronic condition and the evidence condition are alternatives, not two re
 
 A time stamp is one kind of acceptable evidence, not the only kind [@CL-EST-1974].
 
+The codified provision has a facsimile withdrawal sentence [@CL-EST-1976]; the RFO paragraph prints no such sentence between the written-notice and in-person sentences [@CL-EST-0336] or after them [@CL-EST-0337].
+
 The emergency extension moves the time to the same time of day on the first work day on which normal Government processes resume, and it applies only where urgent requirements preclude amending the invitation [@CL-EST-2084; @CL-EST-2085].
 
 ## Company calibration
@@ -83,4 +87,5 @@ Confirm who owns bid delivery and withdrawal authority, and what proof of timely
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications and withdrawals of bids.

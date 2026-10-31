@@ -24,7 +24,7 @@ Shows the data the contractor submits, how the total final price is computed, th
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1659] |
 | Codified citation | FAR 52.216-16 [@CL-EST-1659] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.216-16 [@CL-EST-0273; @CL-EST-0274; @CL-EST-0275; @CL-EST-0276; @CL-EST-0277; @CL-EST-0278; @CL-EST-0279; @CL-EST-0280; @CL-EST-0281; @CL-EST-0282] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1659] |
 | Applies to | Schedule items the clause identifies as subject to price revision [@CL-EST-1660] |
@@ -36,6 +36,8 @@ The contractor submits its data within a number of days set by the contracting o
 ## How it works
 
 The total final price is found by applying an adjustment for profit or loss to the total final negotiated cost, and the adjustment equals the total target profit when total final negotiated cost equals total target cost [@CL-EST-1663]. Above target cost, the adjustment is the total target profit less a stated percent of the overrun [@CL-EST-1664]; below target cost, it is the total target profit plus a stated percent of the underrun [@CL-EST-1665]. Pending the final price, billing prices are the target prices shown in the contract [@CL-EST-1666], and the parties shall negotiate a reduction if it appears from the contractor's information that billing prices will be substantially greater than estimated final prices [@CL-EST-1667]. The parties may negotiate an increase in billing prices by any or all of the difference between target prices and the ceiling price, on factual data showing that final cost will be substantially greater than target cost [@CL-EST-1668].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026, because the DoD part 52 class deviation directs its use [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.216-16 keeps the price revision of the Schedule items the clause identifies [@CL-EST-0273; @CL-EST-1660] and the ceiling on their total final price [@CL-EST-9021; @CL-EST-1660], the timing of the contractor's data submission [@CL-EST-0274; @CL-EST-1661], and the listed data items [@CL-EST-0275; @CL-EST-1662; @CL-EST-0276; @CL-EST-1703]. The RFO sentence on the format of the data names Table 15-1 of FAR 15.408 where the codified sentence names Table 15-2 [@CL-EST-9020]. The RFO text keeps the adjustment for profit or loss applied to the total final negotiated cost [@CL-EST-0277; @CL-EST-1663], with its overrun case [@CL-EST-0278; @CL-EST-1664] and its underrun case [@CL-EST-0279; @CL-EST-1665]. In the billing-price paragraph the RFO text says the billing prices are the target prices shown in the contract, but its cross-reference reads "paragraph (e) of this clause" where the codified text reads "paragraph (e) above" [@CL-EST-0280; @CL-EST-1666]. For a reduction, it says the parties shall negotiate one if the contractor's information shows billing prices will be substantially greater than estimated final prices, with a cross-reference that reads "paragraph (g)(2) of this clause" where the codified text reads "subparagraph (g)(2) below" [@CL-EST-0281; @CL-EST-1667]. It keeps the possible increase in billing prices by any or all of the difference between target prices and the ceiling price, on the contractor's factual data [@CL-EST-0282; @CL-EST-1668].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ Who prepares the final cost statement and the cost-to-complete estimate, and how
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the incentive price revision clause with a firm target.

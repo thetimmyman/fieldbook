@@ -24,7 +24,7 @@ Shows what the Advance Payments clause requires for payment, the special account
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0940] |
 | Codified citation | FAR 52.232-12 [@CL-CTF-0940] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-12(a) [@CL-CTF-0810]; RFO FAR 52.232-12(b) [@CL-CTF-0811; @CL-CTF-0812; @CL-CTF-0813]; RFO FAR 52.232-12(c) [@CL-CTF-0814]; RFO FAR 52.232-12(d) [@CL-CTF-0815]; RFO FAR 52.232-12(e) [@CL-CTF-0816; @CL-CTF-0817]; RFO FAR 52.232-12 Alternate I [@CL-CTF-0818]; RFO FAR 52.232-12 Alternate II(c) and (e) [@CL-CTF-0819; @CL-CTF-0820]; RFO FAR 52.232-12 Alternate V [@CL-CTF-0821] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0940] |
 | Applies to | Contracts that contain the basic Advance Payments clause [@CL-CTF-0940; @CL-CTF-1014] |
@@ -38,6 +38,8 @@ These paragraphs describe the basic clause. Alternate I is for an agency that wa
 ## How it works
 
 When the administering office asks in writing, the contractor shall repay any unliquidated advance payments that the office considers to exceed its current requirements or the amount specified in the clause [@CL-CTF-0945]. In the basic clause, when the sum of all unliquidated advance payments, unpaid interest and other payments exceeds the inserted percent of the contract price, the Government shall withhold further payments [@CL-CTF-0946]. On completion or termination, the Government deducts all unliquidated advance payments and interest charges payable from the amount due [@CL-CTF-0947].
+
+The RFO text applies to DoD contracting because Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.232-12 keeps the payment requirement in paragraph (a) [@CL-CTF-0810; @CL-CTF-0940]. It keeps, in paragraph (b) of the basic clause, the two conditions for the end of the special account paragraph, the rule that payments are made by check marked for deposit only in the special account, and the countersignature rule for withdrawals [@CL-CTF-0811; @CL-CTF-0812; @CL-CTF-0813; @CL-CTF-0941; @CL-CTF-0942; @CL-CTF-0943]. It keeps the use-of-funds rule in paragraph (c) [@CL-CTF-0814; @CL-CTF-0944], the repayment rule in paragraph (d) [@CL-CTF-0815; @CL-CTF-0945], and the withholding and deduction rules in paragraph (e) [@CL-CTF-0816; @CL-CTF-0817; @CL-CTF-0946; @CL-CTF-0947]. Alternate I keeps the waiver of the countersignature requirement [@CL-CTF-0818; @CL-CTF-1010]. The sentence that Alternate I adds to paragraph (b) says that, for the contract, countersignature on behalf of the Government will not be required unless the administering office determines it necessary [@CL-CTF-9185]. Alternate II keeps its paragraph (c) on use of funds and its paragraph (e) on the maximum payment [@CL-CTF-0819; @CL-CTF-0820; @CL-CTF-1012; @CL-CTF-1013], and Alternate V keeps the rule that its clause is inserted instead of the basic clause if the requirement for a special account is eliminated [@CL-CTF-0821; @CL-CTF-1014]. The RFO text of the paragraph (p) covenants says that, to the extent the Government considers it necessary while advance payments remain outstanding, the Contractor, without the prior written consent of the administering office, shall not take the listed actions [@CL-CTF-9186]. The RFO text adds one of them to the basic clause, as item (11): the Contractor shall not deposit any of its funds except in a bank or trust company insured by the Federal Deposit Insurance Corporation or a credit union insured by the National Credit Union Administration [@CL-CTF-9187]. The title of the basic clause prints "(Deviation Date)" and the title of Alternate V prints "(Date Deviation)", so no edition date is recorded for either [@CL-CTF-0810; @CL-CTF-0821].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm the percent and dollar amounts inserted in the clause, the bank holding 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Advance Payments clause.

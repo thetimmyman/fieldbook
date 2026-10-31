@@ -23,7 +23,7 @@ Shows the form and amount of a bid guarantee, when it is returned or used, when 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2471] |
 | Codified citation | FAR 52.228-1, FAR 52.228-2 and FAR 52.228-12 [@CL-CTF-2471; @CL-CTF-2476; @CL-CTF-2479] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.228-1(a) [@CL-CTF-0839]; RFO FAR 52.228-1(b) [@CL-CTF-0840; @CL-CTF-0841]; RFO FAR 52.228-1(c) [@CL-CTF-0842]; RFO FAR 52.228-1(d) [@CL-CTF-0843]; RFO FAR 52.228-1(e) [@CL-CTF-0844]; RFO FAR 52.228-2 [@CL-CTF-0845; @CL-CTF-0846; @CL-CTF-0847; @CL-CTF-0848]; RFO FAR 52.228-12 [@CL-CTF-0849; @CL-CTF-0883] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2471] |
 | Applies to | Solicitations and contracts that contain the bid guarantee provision, the additional bond security clause or the prospective subcontractor request clause [@CL-CTF-2471; @CL-CTF-2476; @CL-CTF-2479] |
@@ -41,6 +41,8 @@ For a contract with a payment bond, upon the request of a prospective subcontrac
 ## How it works
 
 The bid guarantee is due in the proper form and amount by the time set for opening of bids, and a failure may be cause for rejection of the bid [@CL-CTF-2506]. Guarantees other than bid bonds go back to unsuccessful bidders as soon as practicable after bids open, and to the successful bidder once the contract documents and bonds are executed [@CL-CTF-2472]. If the successful bidder does not execute the documents or furnish the bonds in time, the Contracting Officer may terminate for default, and the guarantee is available to offset the excess cost of acquiring the work [@CL-CTF-2474; @CL-CTF-2475]. After award, each event in the additional bond security clause requires the Contractor to furnish additional security, and a letter of credit that is not extended or replaced in time can be drawn at once [@CL-CTF-2476; @CL-CTF-2477; @CL-CTF-2508; @CL-CTF-2478]. A prospective subcontractor or supplier that offers to furnish labor or material on a contract with a payment bond can ask the Contractor for a copy of that bond, and the Contractor provides it promptly [@CL-CTF-2479; @CL-CTF-2741].
+
+The RFO text applies to DoD contracting because Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.228-1 keeps the rejection rule in paragraph (a) [@CL-CTF-0839; @CL-CTF-2506], the forms of bid guarantee and the return rules in paragraph (b) [@CL-CTF-0840; @CL-CTF-0841; @CL-CTF-2471; @CL-CTF-2472; @CL-CTF-2507], the amount in paragraph (c) [@CL-CTF-0842; @CL-CTF-2473], the 10-day default termination rule in paragraph (d) [@CL-CTF-0843; @CL-CTF-2474], and the liability and offset rule in paragraph (e) [@CL-CTF-0844; @CL-CTF-2475]. The RFO text of FAR 52.228-2 keeps the events that require additional security and the right to draw on a letter of credit that is not extended or replaced at least 30 days before its scheduled expiration [@CL-CTF-0845; @CL-CTF-0846; @CL-CTF-0847; @CL-CTF-0848; @CL-CTF-2476; @CL-CTF-2477; @CL-CTF-2508; @CL-CTF-2478]. The RFO text of FAR 52.228-12 keeps the duty that, for a contract for which a payment bond has been furnished to the Government under chapter 31, subchapter III, of title 40, the Contractor promptly provides a copy of the payment bond to a prospective subcontractor or supplier that offers to furnish labor or material for the performance of the contract and asks for it [@CL-CTF-0849; @CL-CTF-0883; @CL-CTF-2741; @CL-CTF-2479].
 
 ## Worked example
 
@@ -66,4 +68,5 @@ Which solicitations and contracts carry these clauses, with the guarantee percen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bid guarantee, additional bond security and prospective subcontractor requests for bonds.
