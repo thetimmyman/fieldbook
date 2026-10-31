@@ -23,7 +23,7 @@ Tells a reader which FAR part defines terms, which part carries provisions and c
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8830] |
 | Codified citation | FAR 2.000, FAR 52.000 and FAR 52.100 [@CL-CMP-8830; @CL-CMP-8833; @CL-CMP-8836] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.000 [@CL-CMP-6888; @CL-CMP-6889; @CL-CMP-6890]; RFO FAR 52.100 [@CL-CMP-6891; @CL-CMP-6892] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8830] |
 | Applies to | Readers and drafters who work with FAR definitions and with provisions and clauses in solicitations and contracts [@CL-CMP-8830; @CL-CMP-8833] |
@@ -43,6 +43,8 @@ Part 52 is where to look for how a provision or clause is used [@CL-CMP-8833]. T
 The matrix lists the provisions and clauses applicable to each principal contract type and purpose [@CL-CMP-8835]. For the required-when-applicable and optional entries the matrix does not provide sufficient information to determine applicability, so contracting officers shall refer to the FAR text cited in the matrix that prescribes the use [@CL-CMP-8846]. The card on [numbering, prescriptions and the matrix](cmp-far-part-52-numbering-prescriptions-and-matrix.md) covers this.
 
 The procedures that subpart 52.1 prescribes [@CL-CMP-8837] each have a card: [incorporating by reference](cmp-incorporating-provisions-and-clauses-by-reference.md), [identifying](cmp-identifying-provisions-and-clauses.md), [modifying and completing](cmp-modifying-and-completing-provisions-and-clauses.md), [using alternates](cmp-using-alternates-to-provisions-and-clauses.md) and [the provisions and clauses the subpart prescribes](cmp-provisions-and-clauses-prescribed-in-subpart-52-1.md). How the FAR is arranged and cited is on the card for [publication, arrangement and numbering](cmp-far-publication-arrangement-and-numbering.md), and agency supplements are on the card for [the FAR System and agency supplements](cmp-far-system-and-agency-supplements.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.000 keeps the statements that part 52 gives instructions for using provisions and clauses in solicitations and/or contracts [@CL-CMP-6888; @CL-CMP-8833], sets forth the solicitation provisions and contract clauses prescribed by the regulation [@CL-CMP-6889; @CL-CMP-8834], and presents a matrix listing the FAR provisions and clauses applicable to each principal contract type and/or purpose [@CL-CMP-6890; @CL-CMP-8835]. RFO FAR 52.100 keeps the statement that subpart 52.1 gives instructions for using part 52, including the explanation and use of provision and clause numbers, prescriptions, prefaces and the matrix [@CL-CMP-6891; @CL-CMP-8836], and keeps the statements that it prescribes procedures for incorporating, identifying and modifying provisions and clauses in solicitations and contracts, and for using alternates, and describes the derivation of FAR provisions and clauses [@CL-CMP-6892; @CL-CMP-8837].
 
 ## Worked example
 
@@ -66,4 +68,5 @@ Which solicitations, contracts and business units the company treats as inside t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of FAR part 2 and FAR part 52.
