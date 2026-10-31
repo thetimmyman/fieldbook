@@ -33,7 +33,7 @@ The auditor's primary objective is to examine contractor cost representations, i
 
 ## How it works
 
-The examination tests the cost representation against the three criteria above [@CL-CMP-1700; @CL-CMP-1701; @CL-CMP-1702]. Discovering fraud or other unlawful activity is not the primary audit objective, but audit work should be designed to provide reasonable assurance of detecting abuse or illegal acts that could significantly affect the audit objective [@CL-CMP-1703]. If illegal activity is suspected, the circumstances should be referred to investigative authorities [@CL-CMP-1704]. Which agency establishes the final indirect cost rates for a business unit is covered on [Purpose and policy for final indirect cost rates and billing rates](../../indirect-rates/rate-lifecycle/rte-final-and-billing-rate-purpose.md).
+The examination tests the cost representation against the three criteria above [@CL-CMP-1700; @CL-CMP-1701; @CL-CMP-1702]. Discovering fraud or other unlawful activity is not the primary audit objective, but audit work should be designed to provide reasonable assurance of detecting abuse or illegal acts that could significantly affect the audit objective [@CL-CMP-1703]. If illegal activity is suspected, the circumstances should be referred to investigative authorities [@CL-CMP-1704]. A single agency is responsible for establishing final indirect cost rates for each business unit under FAR 42.503-1 [@CL-CMP-1705]. Which agency establishes the final indirect cost rates for a business unit is covered on [Purpose and policy for final indirect cost rates and billing rates](../../indirect-rates/rate-lifecycle/rte-final-and-billing-rate-purpose.md).
 
 ## Worked example
 

@@ -25,6 +25,7 @@ Treat CAS 404, 407, 408, 409 and 411 as removed from the codified standards [@CL
 
 - CAS 408 and 411 are wholly rescinded, and most of CAS 404 and 409 is rescinded [@CL-CMP-1500]. CAS 407 is rescinded and one definition moves [@CL-CMP-1516].
 - What remains of CAS 404 and 409 sits in one new paragraph of 9904.405-40 [@CL-CMP-1502; @CL-CMP-1503; @CL-CMP-1504].
+- The rule removes and reserves subpart 9904.404 [@CL-CMP-1505], subparts 9904.408 and 9904.409 [@CL-CMP-1506], and subpart 9904.411 [@CL-CMP-1507]; those subparts held the sections of CAS 404, 408, 409 and 411.
 - What remains of CAS 407 moves to CAS 418 [@CL-CMP-1518; @CL-CMP-1521].
 - Effective dates: August 7, 2026 for CAS 404, 408, 409 and 411 [@CL-CMP-1501]; October 1, 2026 for CAS 407 [@CL-CMP-1517].
 - CAS 408: price and cost adjustment requirements do not apply to conformance changes [@CL-CMP-1508], which must be made in the next fiscal year [@CL-CMP-1528].

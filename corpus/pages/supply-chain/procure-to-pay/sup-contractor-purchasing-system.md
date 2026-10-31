@@ -55,7 +55,7 @@ After award, a contractor changes its subcontract effort so that it reaches 80 p
 
 This is not a subcontract consent decision, and it is not a price reasonableness finding on one purchase.
 
-The clause tests the buying process against the system criteria, one of which is having procedures to timely notify the contracting officer in writing when subcontract effort changes after award to exceed 70 percent of the total cost of the work [@CL-SUP-0104].
+The clause tests the buying process against the system criteria, one of which is having procedures to timely notify the contracting officer in writing when subcontract effort changes after award to exceed 70 percent of the total cost of the work [@CL-SUP-0104]. That notification must identify the revised cost of the subcontract effort and include verification that the contractor will provide added value [@CL-SUP-0105].
 
 Where Alternate I is used, the listed paragraphs reach only contractors subject to the Cost Accounting Standards [@CL-SUP-0109].
 
