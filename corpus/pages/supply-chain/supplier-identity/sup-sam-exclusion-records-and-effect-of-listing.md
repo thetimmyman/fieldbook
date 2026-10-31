@@ -16,7 +16,7 @@ links = ["sup-debarred-suspended-subcontractors", "sup-causes-for-debarment", "s
 
 ## Purpose
 
-Shows what an exclusion record in SAM contains and what a listing does: unless the agency head determines that there is a compelling reason, a listed contractor may not receive contracts, have its offers evaluated or receive subcontract consent, and it may not act as an agent for another contractor.
+Shows what an exclusion record in SAM contains and what a listing does: a listed contractor may not receive contracts, have its offers evaluated or receive subcontract consent unless the agency head determines that there is a compelling reason, and it may not act as an agent for another contractor.
 
 ## The rule
 
@@ -35,7 +35,7 @@ Contractors that are debarred, suspended, proposed for debarment, or voluntarily
 
 ## How it works
 
-A bid from a listed contractor in response to an invitation for bids is entered on the abstract of bids and rejected, unless the agency head determines in writing that there is a compelling reason to consider it [@CL-SUP-0754]. Other offers from a listed contractor are not to be evaluated for award or included in the competitive range, and no discussions are to be held with a listed offeror during a period of ineligibility, unless the agency head determines in writing that there is a compelling reason [@CL-SUP-0755]. If the period of ineligibility expires or is terminated before award, the contracting officer may, but is not required to, consider such proposals, quotations, or offers [@CL-SUP-0800]. Immediately before award, the contracting officer reviews the exclusion records in SAM again to ensure that no award is made to a listed contractor [@CL-SUP-0756].
+A bid from a listed contractor in response to an invitation for bids is entered on the abstract of bids and rejected, unless the agency head determines in writing that there is a compelling reason to consider it [@CL-SUP-0754]. Other offers from a listed contractor are not to be evaluated for award or included in the competitive range, and no discussions are to be held with a listed offeror during a period of ineligibility, unless the agency head determines in writing that there is a compelling reason [@CL-SUP-0755]. If the period of ineligibility expires or is terminated before award, the contracting officer may, but is not required to, consider such proposals, quotations, or offers [@CL-SUP-0800]. Immediately before award, the contracting officer shall again review the exclusion records in SAM to ensure that no award is made to a listed contractor [@CL-SUP-0756].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Confirm how supplier names, addresses and identifiers are matched to SAM exclusi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Attached the compelling-reason exception to the right bar and restored the contracting officer's duty wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAM exclusion records and the effect of listing.

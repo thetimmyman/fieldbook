@@ -37,7 +37,7 @@ For an overseas contingency operation, DoD may not procure fuel in whole or in p
 
 ## How it works
 
-The engine and component rules are origin rules on what the Contractor delivers [@CL-SUP-1732; @CL-SUP-1734]. Their substance goes into subcontracts above the simplified acquisition threshold, including subcontracts for commercial products and commercial services, for large engines used in new construction of auxiliary ships [@CL-SUP-1733] and for the listed components [@CL-SUP-1736]. The fuel text is a solicitation provision in which the offeror marks whether it does or does not certify that the fuel is not sourced from a prohibited nation or region [@CL-SUP-1738]. Only offerors who certify that are eligible for award [@CL-SUP-1739]. These sections print no exception to the origin rules, so none is established here.
+The engine and component rules are origin rules on what the Contractor delivers [@CL-SUP-1732; @CL-SUP-1734]. Their substance goes into subcontracts above the simplified acquisition threshold, including subcontracts for commercial products and commercial services, for large engines used in new construction of auxiliary ships [@CL-SUP-1733] and for the listed components [@CL-SUP-1736]. The fuel text is a solicitation provision in which the offeror marks whether it does or does not certify that the fuel, in whole or in part, or derivatives of such fuel, to be provided under any resulting contract is not sourced from a nation or region prohibited from selling petroleum to the United States [@CL-SUP-1738]. Only offerors who certify that are eligible for award [@CL-SUP-1739]. These sections print no exception to the origin rules, so none is established here.
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which executed contracts carry each clause and which subcontracts above the thre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: fuel certification scope (fuel to be provided under any resulting contract) stated
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for large medium-speed diesel engines, vessel components and overseas contingency operation fuel.
