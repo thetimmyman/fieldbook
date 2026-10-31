@@ -29,11 +29,11 @@ Shows how annual actuarial gains and losses and the value of plan assets are han
 | Text status | Final [@CL-CMP-0562] |
 | Applies to | Segments with participants in a pension plan [@CL-CMP-0564] |
 
-Actuarial gains and losses are calculated every year and assigned to the period of the valuation and to later periods [@CL-CMP-0562]. The actuarial value of plan assets comes from a valuation method that takes unrealized appreciation and depreciation of market value into account, and that value is used in measuring pension cost [@CL-CMP-0563; @CL-CMP-0832]. Pension cost is allocated to every segment that has participants in the plan [@CL-CMP-0564]. A separate segment calculation is required when the conditions set forth in 9904.413-50(c)(2) or (3) are present [@CL-CMP-0565]; when those conditions are not present, allocations may be made by calculating a composite cost for two or more segments and allocating it by means of an allocation base [@CL-CMP-0833]. Where pension costs are separately computed for a segment or segments, then for purposes of 9904.412-50(c)(2)(iii) the amount of pension cost assignable to them shall not exceed a sum whose first item is the maximum tax-deductible amount computed for the plan as a whole [@CL-CMP-0566]; the second item is the accumulated value of prepayment credits not already allocated to segments, apportioned among the segments.
+Actuarial gains and losses are calculated every year and assigned to the period of the valuation and to later periods [@CL-CMP-0562]. The actuarial value of plan assets comes from a valuation method that takes unrealized appreciation and depreciation of market value into account, and that value is used in measuring pension cost [@CL-CMP-0563; @CL-CMP-0832]. Pension cost is allocated to every segment that has participants in the plan [@CL-CMP-0564]. A separate segment calculation is required when the stated conditions are present; otherwise a composite cost may be spread by an allocation base [@CL-CMP-0565; @CL-CMP-0833]. Where cost is computed separately, the assignable amount is capped, and the cap includes the maximum tax-deductible amount for the plan as a whole [@CL-CMP-0566].
 
 ## How it works
 
-Gains and losses are calculated annually and assigned to the period for which the valuation is made and to subsequent periods [@CL-CMP-0562]. Asset value runs through an asset valuation method that must reflect unrealized appreciation and depreciation, including the accumulated value of permitted unfunded accruals [@CL-CMP-0563; @CL-CMP-0832]. Allocation follows participation: every segment with participants receives cost, either from its own calculation or from a composite cost spread on a base [@CL-CMP-0564; @CL-CMP-0565; @CL-CMP-0833]. Where pension costs are separately computed for a segment, the assignable amount is tested against the sum described above [@CL-CMP-0566].
+Gains and losses are handled by assignment to periods rather than being booked in a single year [@CL-CMP-0562]. Asset value runs through an asset valuation method that must reflect unrealized appreciation and depreciation, including the accumulated value of permitted unfunded accruals [@CL-CMP-0563; @CL-CMP-0832]. Allocation follows participation: every segment with participants receives cost, either from its own calculation or from a composite cost spread on a base [@CL-CMP-0564; @CL-CMP-0565; @CL-CMP-0833]. Where a segment has its own calculation, the assignable amount is tested against the cap [@CL-CMP-0566].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ Two segments share a composite pension cost of 8 million, and none of the condit
 
 ## Never confuse
 
-Deciding what pension cost is belongs to the composition standard, while adjusting it for gains and losses, valuing assets and pushing it to segments belongs here [@CL-CMP-0557; @CL-CMP-0562]. A composite allocation is not a separate segment calculation; the standard requires the separate calculation when the conditions set forth in 9904.413-50(c)(2) or (3) are present, and permits a composite allocation when they are not [@CL-CMP-0565; @CL-CMP-0833].
+Deciding what pension cost is belongs to the composition standard, while adjusting it for gains and losses, valuing assets and pushing it to segments belongs here [@CL-CMP-0557; @CL-CMP-0562]. A composite allocation is not a separate segment calculation; the standard requires the separate calculation only when the stated conditions are present [@CL-CMP-0565; @CL-CMP-0833].
 
 ## Company calibration
 
@@ -53,5 +53,4 @@ Whether each segment with plan participants is measured separately or through a 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Made the segment cap a sum with its second item, named the separate-calculation conditions and tied gains and losses to the quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost adjustment and allocation.
