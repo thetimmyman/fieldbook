@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-029"]
-links = ["mna-spac-definitions", "mna-de-spac-transaction-disclosure"]
+links = ["mna-spac-definitions", "mna-de-spac-transaction-disclosure", "mna-roll-up-transaction-disclosure"]
 +++
 
 ## Purpose
@@ -64,7 +64,7 @@ An offering price is 10.00 per share and the offering includes an over-allotment
 
 ## Never confuse
 
-The cover-page table and the dilution disclosure are separate items. Both use the same quartile intervals, but the cover-page table sits in the cover-page paragraph [@CL-MNA-1196] and the dilution disclosure is its own paragraph that must also show each source of dilution [@CL-MNA-1160; @CL-MNA-1199]. A conflict disclosure is a description, not a prohibition: the rules ask the filing to state or describe the conflict [@CL-MNA-1155; @CL-MNA-1163].
+The cover-page table and the dilution disclosure are separate items. Both use the same quartile intervals, but the cover-page table sits in the cover-page paragraph [@CL-MNA-1196] and the dilution disclosure is its own paragraph that must also show each source of dilution [@CL-MNA-1160; @CL-MNA-1199]. A conflict disclosure is a description, not a prohibition: the rules ask the filing to state or describe the conflict [@CL-MNA-1155; @CL-MNA-1163]. A roll-up transaction of partnerships has its own disclosure items, see [Disclosure in a roll-up transaction of partnerships](mna-roll-up-transaction-disclosure.md).
 
 ## Company calibration
 
@@ -74,6 +74,7 @@ Confirm how the company fixes the maximum redemption threshold, the adjusted net
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on roll-up transaction disclosure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims for the general summary rules and the general dilution item.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Items 501, 502, 503 and 506 of Regulation S-K.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure in registered offerings by special purpose acquisition companies.

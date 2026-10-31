@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-017"]
-links = ["cmp-contractor-code-of-business-ethics", "fpa-directors-officers-and-control-persons", "fpa-corporate-governance-disclosure"]
+links = ["cmp-contractor-code-of-business-ethics", "fpa-directors-officers-and-control-persons", "fpa-corporate-governance-disclosure", "fpa-exhibits-general-instructions"]
 +++
 
 ## Purpose
@@ -44,7 +44,7 @@ A company's code applies to its chief executive, chief financial officer and con
 
 ## Never confuse
 
-The code of ethics here is a securities disclosure item about written standards for senior financial officers. It is not the contract clause on a contractor code of business ethics; see [Contractor code of business ethics](../../compliance/regulatory-framework/cmp-contractor-code-of-business-ethics.md). A code of ethics is also not the same as insider trading policies, which are asked for in a separate item [@CL-FPA-0199; @CL-FPA-0205]. Who the directors and officers are is covered in [Directors, executive officers, promoters and control persons](fpa-directors-officers-and-control-persons.md), and board committees in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md).
+The code of ethics here is a securities disclosure item about written standards for senior financial officers. It is not the contract clause on a contractor code of business ethics; see [Contractor code of business ethics](../../compliance/regulatory-framework/cmp-contractor-code-of-business-ethics.md). A code of ethics is also not the same as insider trading policies, which are asked for in a separate item [@CL-FPA-0199; @CL-FPA-0205]. Who the directors and officers are is covered in [Directors, executive officers, promoters and control persons](fpa-directors-officers-and-control-persons.md), and board committees in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md). Which documents are filed as exhibits, and how the exhibit table and index work, is on [Exhibits: the exhibit table, the index and the general instructions](fpa-exhibits-general-instructions.md).
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ How the company documents its code of ethics, its website posting, its trading a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on the exhibit table, the index and the general instructions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for code of ethics and insider trading arrangements and policies.

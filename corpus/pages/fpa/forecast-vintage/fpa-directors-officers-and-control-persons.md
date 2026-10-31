@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-017"]
-links = ["fpa-related-person-transactions", "fpa-security-ownership-and-section-16a-compliance", "fpa-corporate-governance-disclosure"]
+links = ["fpa-related-person-transactions", "fpa-security-ownership-and-section-16a-compliance", "fpa-corporate-governance-disclosure", "fpa-pension-deferred-compensation-termination-and-director-pay"]
 +++
 
 ## Purpose
@@ -44,7 +44,7 @@ A company that has never filed reports prepares its first registration statement
 
 ## Never confuse
 
-This card covers who the people are and what their record is. Transactions between the registrant and those people are a separate disclosure; see [Transactions with related persons](fpa-related-person-transactions.md). The look-back for the listed legal events is ten years for directors, nominees and executive officers, which is longer than the five-year look-back for promoters and control persons [@CL-FPA-0187; @CL-FPA-0189; @CL-FPA-0191]. What those people own is covered in the [security ownership card](fpa-security-ownership-and-section-16a-compliance.md), and director independence and board committees are covered in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md).
+This card covers who the people are and what their record is. Transactions between the registrant and those people are a separate disclosure; see [Transactions with related persons](fpa-related-person-transactions.md). The look-back for the listed legal events is ten years for directors, nominees and executive officers, which is longer than the five-year look-back for promoters and control persons [@CL-FPA-0187; @CL-FPA-0189; @CL-FPA-0191]. What those people own is covered in the [security ownership card](fpa-security-ownership-and-section-16a-compliance.md), and director independence and board committees are covered in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md). What directors and executives are paid is covered in [Pension, deferred compensation, termination payments and director pay](fpa-pension-deferred-compensation-termination-and-director-pay.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How the company keeps current biographies, other directorships and legal-event s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the director compensation card from the Never confuse section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Item 401 sentences so the director and officer disclosure keeps the period of service, the selection arrangements and the framing in light of the registrant's business and structure.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated the five-fiscal-year promoter condition in the scope sentence and in the summary, and limited the promoter screen to a registrant that had a promoter.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for directors, executive officers, promoters and control persons.

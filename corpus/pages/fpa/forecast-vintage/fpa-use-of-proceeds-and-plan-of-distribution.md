@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-028", "Q-017"]
-links = ["fpa-mdna-objective-and-liquidity", "mna-sx-acquired-business-financial-statements", "fpa-description-of-registrants-securities"]
+links = ["fpa-mdna-objective-and-liquidity", "mna-sx-acquired-business-financial-statements", "fpa-description-of-registrants-securities", "fpa-registration-undertakings"]
 +++
 
 ## Purpose
@@ -54,7 +54,7 @@ A company plans a 200 million dollar offering. It states that 150 million will b
 
 ## Never confuse
 
-Use of proceeds says what the money will be spent on; it is not the liquidity discussion in the management discussion, see [Management discussion objective and liquidity](../planning-chain/fpa-mdna-objective-and-liquidity.md). The terms of the securities offered are described in [Description of registrant's securities](fpa-description-of-registrants-securities.md). It also does not decide when separate financial statements of an acquired business are filed; see [Financial statements of acquired businesses](../../mna/diligence/mna-sx-acquired-business-financial-statements.md).
+Use of proceeds says what the money will be spent on; it is not the liquidity discussion in the management discussion, see [Management discussion objective and liquidity](../planning-chain/fpa-mdna-objective-and-liquidity.md). The terms of the securities offered are described in [Description of registrant's securities](fpa-description-of-registrants-securities.md). It also does not decide when separate financial statements of an acquired business are filed; see [Financial statements of acquired businesses](../../mna/diligence/mna-sx-acquired-business-financial-statements.md). The undertakings that a registrant includes in the registration statement are on [Undertakings in a registration statement](fpa-registration-undertakings.md).
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ What acquisition mandate, decision criteria and diligence scope are authorized w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on registration statement undertakings.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the underwriting-agreement provisions that the Item 510 description includes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that the two Item 510 conditions apply together.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the firm-wide scope of expert or counsel in Instruction 1 to Item 509.
