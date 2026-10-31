@@ -32,7 +32,7 @@ This card rests on the Federal Trade Commission's premerger notification transmi
 
 Each acquiring person pays the filing fee that the act requires to the Federal Trade Commission, except as provided in three listed paragraphs of the same section [@CL-MNA-0606]. The waiting period begins on the date the notification is received from the persons the paragraph lists, or on the date the part completed is received with a statement of reasons for noncompliance [@CL-MNA-0607]. For all other acquisitions, those persons are all persons required to file notification [@CL-MNA-0608]. The paragraph lists earlier cases that this card does not restate.
 
-The waiting period expires on the thirtieth calendar day after it begins, or the fifteenth for a cash tender offer or an acquisition covered by 11 USC 363(b), except where section 802.23 applies and provides another day [@CL-MNA-0609]. If that day would be a Saturday, Sunday or legal public holiday, the period is extended to the end of the next regular business day, Eastern Time [@CL-MNA-0651]. The expiry rule applies unless the period is extended or is terminated [@CL-MNA-0610]. A request for additional information can extend it, as the [expiry and withdrawal card](mna-hsr-expiry-withdrawal-and-second-request.md) explains. The agencies may terminate a waiting period in their discretion, on a filing person's written request or on their own initiative [@CL-MNA-0611].
+The waiting period, counted from its beginning as determined under paragraph (a) of section 803.10 [@CL-MNA-0610], expires on the thirtieth calendar day after it begins, or the fifteenth for a cash tender offer or an acquisition covered by 11 USC 363(b), except where section 802.23 applies and provides another day [@CL-MNA-0609]. If that day would be a Saturday, Sunday or legal public holiday, the period is extended to the end of the next regular business day, Eastern Time [@CL-MNA-0651]. The expiry rule applies unless the period is extended or is terminated [@CL-MNA-0610]. A request for additional information can extend it, as the [expiry and withdrawal card](mna-hsr-expiry-withdrawal-and-second-request.md) explains. The agencies may terminate a waiting period in their discretion, on a filing person's written request or on their own initiative [@CL-MNA-0611].
 
 The fee section prints dollar figures only in worked examples marked as adjusted, and this card does not rely on them. The timing section also sets how the date of receipt is fixed and what a deficient filing does, which this card does not restate.
 
@@ -58,4 +58,5 @@ How the value of a planned acquisition is measured and who tracks the waiting pe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the waiting period to say it is counted from its beginning as determined under paragraph (a) of section 803.10.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the premerger filing fee and waiting period.

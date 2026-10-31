@@ -28,7 +28,7 @@ Shows how the annual representations and certifications provision works in a sol
 | Text status | Final [@CL-CMP-3532] |
 | Applies to | Offerors on solicitations that include the annual representations provision, with the SAM paragraph applying as described below [@CL-CMP-3532; @CL-CMP-3533] |
 
-If the System for Award Management provision is included in the solicitation, the SAM paragraph of the annual provision applies [@CL-CMP-3532]. If that provision is not included and the offeror has an active registration in SAM, the offeror may choose to use the SAM paragraph [@CL-CMP-3533].
+If the System for Award Management provision is included in the solicitation, the SAM paragraph of the annual provision applies [@CL-CMP-3532]. If that provision is not included and the offeror has an active registration in SAM, the offeror may choose to use the SAM paragraph instead of completing the corresponding individual representations and certifications in the solicitation [@CL-CMP-3533; @CL-CMP-8538].
 
 By submission of its offer, the offeror verifies that the representations and certifications currently posted electronically that apply to the solicitation, as indicated in the provision's list, have been entered or updated within the last 12 months and are current, accurate and complete [@CL-CMP-3534]. The verification includes the business size standard applicable to the NAICS code referenced for the solicitation as of the date of the offer, and the representations are incorporated in the offer by reference, except for the changes the offeror identifies in the provision [@CL-CMP-3535].
 
@@ -46,7 +46,7 @@ An offeror answers a solicitation that includes the registration provision. Its 
 
 ## Never confuse
 
-Where the registration provision is included, the SAM paragraph applies [@CL-CMP-3532], and where it is not included an offeror with an active registration in SAM may choose that paragraph [@CL-CMP-3533]. The annual provision does not set the registration duty itself; for what an offeror must have registered, see [SAM registration and maintenance clauses: keeping the record current](cmp-sam-registration-and-maintenance-clauses.md) and [SAM registration and the unique entity identifier in awards](../../market/feeds/mkt-sam-registration-and-awards.md). For where the provision is inserted and how long representations stay effective, see [Annual representations and certifications in SAM](../trade-cyber/cmp-annual-representations-and-certifications-in-sam.md).
+Where the registration provision is included, the SAM paragraph applies [@CL-CMP-3532], and where it is not included an offeror with an active registration in SAM may choose that paragraph instead of the individual representations and certifications in the solicitation [@CL-CMP-3533; @CL-CMP-8538]. The annual provision does not set the registration duty itself; for what an offeror must have registered, see [SAM registration and maintenance clauses: keeping the record current](cmp-sam-registration-and-maintenance-clauses.md) and [SAM registration and the unique entity identifier in awards](../../market/feeds/mkt-sam-registration-and-awards.md). For where the provision is inserted and how long representations stay effective, see [Annual representations and certifications in SAM](../trade-cyber/cmp-annual-representations-and-certifications-in-sam.md).
 
 The codified FAR 52.204-8 carries the annual provision and its SAM paragraph, while the RFO text prints that section number as reserved [@CL-CMP-3532; @CL-CMP-0375].
 
@@ -58,5 +58,6 @@ Which representations and certifications in SAM the company relies on for each s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the SAM paragraph option sentences so the option keeps its alternative to the individual representations and certifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the annual representations and certifications provision.

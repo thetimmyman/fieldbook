@@ -27,7 +27,7 @@ Shows who decides on a termination, what the written notice of termination must 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0900] |
-| Applies to | Contracts that provide for termination for the convenience of the Government or for default [@CL-CLS-0963]; commercial product and commercial service contracts awarded using part 12 procedures are outside it, and for them it is administrative guidance that may be followed unless inconsistent with the commercial termination rules [@CL-CLS-0964; @CL-CLS-0971] |
+| Applies to | Contracts that provide for termination for the convenience of the Government or for default [@CL-CLS-0963]; commercial product and commercial service contracts awarded using part 12 procedures are outside it, and for them it is administrative guidance that may be followed unless inconsistent with the requirements and procedures in 12.403 and the clause at 52.212-4 [@CL-CLS-0964; @CL-CLS-0971; @CL-CLS-0600] |
 
 The contracting officer shall terminate contracts, whether for default or convenience, only when it is in the Government's interest [@CL-CLS-0900]. When the price of the undelivered balance is less than $5,000, the contract should not normally be terminated for convenience but should be permitted to run to completion [@CL-CLS-0972]. The contracting officer shall effect a no-cost settlement instead of issuing a termination notice when it is known that the contractor will accept one, Government property was not furnished, and there are no outstanding payments, debts due the Government, or other contractor obligations [@CL-CLS-0965]. After the contracting officer issues the notice of termination, the termination contracting officer (TCO) is responsible for negotiating any settlement with the contractor, including a no-cost settlement if appropriate [@CL-CLS-0901].
 
@@ -59,4 +59,5 @@ Which executed contracts and modifications carry termination clauses, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the commercial contract guidance entry so the guidance for commercial contracts keeps its inconsistency limit for the clause at 52.212-4.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination authority, the notice of termination and the TCO's duties after the notice.
