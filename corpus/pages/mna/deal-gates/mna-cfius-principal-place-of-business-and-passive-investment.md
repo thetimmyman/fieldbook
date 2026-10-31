@@ -39,7 +39,7 @@ The location test looks to where management directs the entity, and the passive 
 
 Start with paragraph (a): find where management directs, controls or coordinates the entity's activities, or, for a fund, where its general partner, managing member or equivalent primarily directs it [@CL-MNA-0029; @CL-MNA-0030].
 
-Paragraph (b) applies only if that location is in the United States [@CL-MNA-0031]. It then looks at the entity's most recent submission or filing, other than one to the Committee, to the United States Government, a subnational government of the United States or any foreign government that identifies a principal place of business, headquarters or equivalent [@CL-MNA-0031; @CL-MNA-0032]. If that filing says any of those is outside the United States, the filed location is deemed the principal place of business [@CL-MNA-0033; @CL-MNA-0034]. The entity can displace the deemed location by demonstrating that the location has changed to the United States since the filing [@CL-MNA-0034].
+Paragraph (b) applies if that location is in the United States [@CL-MNA-0031]. It then looks at the entity's most recent submission or filing, other than one to the Committee, to the United States Government, a subnational government of the United States or any foreign government that identifies a principal place of business, headquarters or equivalent [@CL-MNA-0031; @CL-MNA-0032]. If that filing says any of those is outside the United States, the filed location is deemed the principal place of business [@CL-MNA-0033; @CL-MNA-0034]. The entity can displace the deemed location by demonstrating that the location has changed to the United States since the filing [@CL-MNA-0034].
 
 For the passive test, the holder must not plan or intend to exercise control, and must meet each of the four conditions in the glossary [@CL-MNA-0035; @CL-MNA-0036; @CL-MNA-0037]. The definition refers the reader to § 800.302(b) [@CL-MNA-0037].
 
@@ -67,4 +67,5 @@ How the deal team records where a target's management sits and what a prior fili
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for principal place of business and passive-investment holdings.

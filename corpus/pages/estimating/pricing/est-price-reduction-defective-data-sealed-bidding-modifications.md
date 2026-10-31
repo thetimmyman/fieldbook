@@ -69,7 +69,7 @@ A price reduction and an offset are separate steps: the reduction follows from t
 
 The matters listed in paragraph (d)(1) are barred as defenses to a reduction, and the offset in paragraph (d)(2) is a separate allowance with its own conditions [@CL-EST-2203; @CL-EST-2167].
 
-Interest and the penalty differ. Interest is owed on the overpayment of items already paid for, while the penalty applies only if certified data were knowingly incomplete, inaccurate, or noncurrent [@CL-EST-2173; @CL-EST-2174].
+Interest and the penalty differ. Interest is owed on the overpayment of items already paid for, while the penalty applies if certified data were knowingly incomplete, inaccurate, or noncurrent [@CL-EST-2173; @CL-EST-2174].
 
 This clause is the sealed bidding version. The versions used in negotiated contracts are on [Price reduction for defective certified data and subcontractor certified data clauses for modifications](est-price-reduction-and-subcontractor-data-modification-clauses.md), and wider defective pricing is on [Defective pricing: price reduction for defective certified cost or pricing data](est-defective-pricing.md). The matching subcontractor data requirement is on [Subcontractor certified data on modifications under sealed bidding](est-subcontractor-certified-data-sealed-bidding-modifications.md).
 
@@ -81,5 +81,6 @@ Confirm which executed modifications carry this clause, who confirms that it app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reduction for defective certified cost or pricing data on modifications under sealed bidding.

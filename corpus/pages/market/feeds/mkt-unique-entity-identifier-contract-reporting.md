@@ -43,7 +43,7 @@ A contracting officer awards a 25,000 contract to a student. A generic identifie
 
 ## Never confuse
 
-A generic entity identifier is assigned to a category of vendors and is not specific to any individual or entity [@CL-MKT-0026] and changes only what is reported, not whether the contractor needs its own identifier [@CL-MKT-0156], while the unique entity identifier is the one that corresponds to the successful offeror's name and address as registered [@CL-MKT-0025]. The CAGE code is a different identifier again [@CL-MKT-0101]. For CAGE codes, see the [Commercial and Government Entity Code Reporting provision](../../supply-chain/supplier-identity/sup-cage-code-reporting.md) card.
+A generic entity identifier is assigned to a category of vendors and is not specific to any individual or entity [@CL-MKT-0026] and its use does not supersede the requirement, where the listed provisions are in the solicitation, for the contractor to have its own unique entity identifier assigned [@CL-MKT-0156], while the unique entity identifier is the one that corresponds to the successful offeror's name and address as registered [@CL-MKT-0025]. The CAGE code is a different identifier again [@CL-MKT-0101]. For CAGE codes, see the [Commercial and Government Entity Code Reporting provision](../../supply-chain/supplier-identity/sup-cage-code-reporting.md) card.
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Confirm how supplier and customer identifiers in reported contract data are reco
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unique entity identifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of unique entity identifier.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unique entity identifier in contract reporting.

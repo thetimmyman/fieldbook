@@ -38,11 +38,11 @@ The Defense Federal Acquisition Regulation Supplement directs that the procedure
 
 ## How it works
 
-The status-report duty applies only when the TCO and the contracting officer are in different activities [@CL-CLS-1252]. The report is furnished on request, and the section does not give a reporting interval beyond calling the reports periodic [@CL-CLS-1252]. The contracting office, not the TCO, specifies what information the reports contain [@CL-CLS-1253].
+The status-report duty applies when the TCO and the contracting officer are in different activities [@CL-CLS-1252]. The report is furnished on request, and the section does not give a reporting interval beyond calling the reports periodic [@CL-CLS-1252]. The contracting office, not the TCO, specifies what information the reports contain [@CL-CLS-1253].
 
 The case file is the duty of the TCO who negotiates the final settlement. There is one file per termination, and it holds memoranda and records of all actions relative to the settlement [@CL-CLS-1254; @CL-CLS-1255].
 
-Site cleanup is a direction of the contracting officer, not the TCO, and only on terminated construction contracts [@CL-CLS-1256]. The section sets no threshold or deadline for any of these duties.
+Site cleanup is a direction of the contracting officer, not the TCO, and the section states it for terminated construction contracts [@CL-CLS-1256]. The section sets no threshold or deadline for any of these duties.
 
 ## Worked example
 
@@ -66,4 +66,5 @@ Who maintains the termination case file and who supplies the status report when 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination status reports, the case file and construction site cleanup.

@@ -27,11 +27,11 @@ Shows when the auditor, rather than the contracting officer, establishes final i
 | RFO citation | RFO FAR 42.505-2 [@CL-RTE-0940; @CL-RTE-0941] |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0214] |
-| Applies to | Business units not covered in 42.705-1(a), and covered units only when the listed agreement and circumstances apply [@CL-RTE-0214; @CL-RTE-0262] |
+| Applies to | Business units not covered in 42.705-1(a), and covered units when the listed agreement and circumstances apply [@CL-RTE-0214; @CL-RTE-0262] |
 
 The cognizant Government auditor establishes final indirect cost rates for business units not covered in 42.705-1(a) [@CL-RTE-0214].
 
-Auditor determination may also be used for business units covered in 42.705-1(a), but only when the contracting officer (or cognizant Federal agency official) and the auditor agree that the indirect costs can be settled with little difficulty and any one of four circumstances applies [@CL-RTE-0262]. Two of them are that the unit has primarily fixed-price contracts with only minor involvement in cost-reimbursement contracts, and that the administrative cost of contracting officer determination would exceed the expected benefits [@CL-RTE-0263]. The other two are that the unit has no history of disputes and few cost problems, and that the contracting officer (or cognizant Federal agency official) and the auditor agree that special circumstances require auditor determination [@CL-RTE-0264].
+Auditor determination may also be used for business units covered in 42.705-1(a) when the contracting officer (or cognizant Federal agency official) and the auditor agree that the indirect costs can be settled with little difficulty and any one of four circumstances applies [@CL-RTE-0262]. Two of them are that the unit has primarily fixed-price contracts with only minor involvement in cost-reimbursement contracts, and that the administrative cost of contracting officer determination would exceed the expected benefits [@CL-RTE-0263]. The other two are that the unit has no history of disputes and few cost problems, and that the contracting officer (or cognizant Federal agency official) and the auditor agree that special circumstances require auditor determination [@CL-RTE-0264].
 
 Once the proposal has been determined adequate for audit in support of negotiating final indirect cost rates, the auditor audits it and prepares an advisory audit report listing any relevant advance agreements and restrictive terms of specific contracts [@CL-RTE-0215]. The auditor then seeks agreement with the contractor and prepares a rate agreement that the contractor and the auditor both sign [@CL-RTE-0216].
 
@@ -63,6 +63,7 @@ Which final indirect-rate sets are approved for each purpose and period. [@Q-011
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the auditor determination of final indirect cost rates.

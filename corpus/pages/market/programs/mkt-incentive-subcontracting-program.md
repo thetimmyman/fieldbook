@@ -46,7 +46,7 @@ A contractor plans to spend 1,000,000 under subcontracts and its plan sets a sma
 
 ## Never confuse
 
-The incentive is not a penalty for missing a goal: the clause text provides the percent only on dollars in excess of a goal [@CL-MKT-1111]. It is also not the subcontracting plan: the plan holds the commitments, and the clause supplies the incentive for exceeding the goals [@CL-MKT-1175; @CL-MKT-1111]. Plan content and the remedies for failing to meet a plan are on the [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) card.
+The incentive is not a penalty for missing a goal: the clause text provides the percent on the dollars in excess of a goal [@CL-MKT-1111]. It is also not the subcontracting plan: the plan holds the commitments, and the clause supplies the incentive for exceeding the goals [@CL-MKT-1175; @CL-MKT-1111]. Plan content and the remedies for failing to meet a plan are on the [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) card.
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Whether the purchasing system has been reviewed, and how plan goals and the doll
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the incentive subcontracting program.

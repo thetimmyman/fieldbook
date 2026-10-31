@@ -40,7 +40,7 @@ The cancellation charge is computed, and the claim for it made, as if the claim 
 What the claim may include [@CL-CTF-2287; @CL-CTF-2288; @CL-CTF-2289]:
 
 - Reasonable nonrecurring costs that are applicable to and normally would have been amortized in all supplies or services that are multiyear requirements [@CL-CTF-2287].
-- Allocable portions of the costs of facilities acquired or established for the conduct of the work, but only to the extent that it is impracticable for the Contractor to use the facilities in its commercial work, and only if the costs are not charged to the contract through overhead or otherwise depreciated [@CL-CTF-2288].
+- Allocable portions of the costs of facilities acquired or established for the conduct of the work, but to the extent that it is impracticable for the Contractor to use the facilities in its commercial work, and if the costs are not charged to the contract through overhead or otherwise depreciated [@CL-CTF-2288].
 - Costs incurred for the assembly, training, and transportation to and from the job site of a specialized work force, and costs not amortized solely because the cancellation had precluded anticipated benefits of Contractor or subcontractor learning [@CL-CTF-2289].
 
 The claim shall not include labor, material or other expenses incurred by the Contractor or subcontractors for performance of the canceled work, any cost already paid to the Contractor, or anticipated profit or unearned fee on the canceled work [@CL-CTF-2290]. For service contracts it also excludes the remaining useful commercial life of facilities [@CL-CTF-2291], which means their commercial utility rather than their physical life, with due consideration given to factors such as location of facilities, their specialized nature, and obsolescence [@CL-CTF-2292].
@@ -69,5 +69,6 @@ Confirm which multiyear contracts carry this clause, the ceiling in each Schedul
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cancellation under multiyear contracts.

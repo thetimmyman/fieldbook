@@ -45,7 +45,7 @@ An agency plans to hold a review before award on a contract that requires an EVM
 
 ## Never confuse
 
-The two provisions are notices in solicitations, one for each timing of the review, while the clause also goes into the contract [@CL-PRG-0870; @CL-PRG-0872; @CL-PRG-0873]. The reimbursement of offerors' review costs is not decided here: the text points to FAR Part 31 and only if reimbursement is permitted [@CL-PRG-0868]; for how the cost principles test costs, see [Allowability factors](../../compliance/cas-allowability/cmp-allowability-factors.md). The DoD earned value thresholds are on [Earned value management system requirement](../evms/prg-evms-requirement.md) and are not restated here. What the review assesses is on [Integrated Baseline Reviews under the FAR](prg-far-integrated-baseline-review.md), and when the FAR requires an earned value system is on [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md).
+The two provisions are notices in solicitations, one for each timing of the review, while the clause also goes into the contract [@CL-PRG-0870; @CL-PRG-0872; @CL-PRG-0873]. The reimbursement of offerors' review costs is not decided here: the text points to FAR Part 31 if reimbursement is permitted [@CL-PRG-0868]; for how the cost principles test costs, see [Allowability factors](../../compliance/cas-allowability/cmp-allowability-factors.md). The DoD earned value thresholds are on [Earned value management system requirement](../evms/prg-evms-requirement.md) and are not restated here. What the review assesses is on [Integrated Baseline Reviews under the FAR](prg-far-integrated-baseline-review.md), and when the FAR requires an earned value system is on [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which of the company's contracts carry the earned value clause, and whether a re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Integrated Baseline Review timing, offeror cost reimbursement and the earned value provisions and clause.

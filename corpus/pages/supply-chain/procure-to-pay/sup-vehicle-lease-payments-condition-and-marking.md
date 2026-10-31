@@ -45,7 +45,7 @@ A vehicle that is unavailable or unusable because the contractor failed to rende
 
 Where the contract states rent monthly, each day of Government possession earns 1/30th of the monthly rate, unless a mileage provision makes the Schedule govern the payment [@CL-SUP-2976; @CL-SUP-2977].
 
-The condition clause works in a sequence: the Government accepts or rejects promptly, the Contracting Officer informs the contractor in writing of any noncompliance, and only if the contractor does not replace or correct as required may the Government cure the defect or lease a similar vehicle, charge or set off the excess costs, or terminate under the Default clause [@CL-SUP-2980; @CL-SUP-2981; @CL-SUP-2935; @CL-SUP-3006; @CL-SUP-2982].
+The condition clause works in a sequence: the Government accepts or rejects promptly, the Contracting Officer informs the contractor in writing of any noncompliance, and if the contractor does not replace or correct as required, the Government may cure the defect or lease a similar vehicle, charge or set off the excess costs, or terminate under the Default clause [@CL-SUP-2980; @CL-SUP-2981; @CL-SUP-2935; @CL-SUP-3006; @CL-SUP-2982].
 
 Marking is the Government's option, and its markings must be removable without damage to the vehicle. The contractor's temporary placards may not suggest advertising or Government endorsement of the contractor [@CL-SUP-2936; @CL-SUP-2983].
 
@@ -59,7 +59,7 @@ Four vans are leased in the United States at 900 a month each, and the contract 
 
 ## Never confuse
 
-A vehicle that fails the condition clause earns no rent until it is replaced or corrected, while a vehicle the contractor fails to service earns no rent for as long as it is unavailable or unusable; the two stoppages sit in different paragraphs of the payment clause [@CL-SUP-2932; @CL-SUP-2933]. The right to correct a defect or lease a similar vehicle arises only if the contractor fails to replace or correct as required [@CL-SUP-2935]. Insurance for leased vehicles is a separate question, covered on [Leased vehicles, cargo and public liability insurance](../../contract-finance/financing/ctf-leased-vehicles-cargo-and-public-liability-insurance.md).
+A vehicle that fails the condition clause earns no rent until it is replaced or corrected, while a vehicle the contractor fails to service earns no rent for as long as it is unavailable or unusable; the two stoppages sit in different paragraphs of the payment clause [@CL-SUP-2932; @CL-SUP-2933]. The right to correct a defect or lease a similar vehicle arises if the contractor fails to replace or correct as required [@CL-SUP-2935]. Insurance for leased vehicles is a separate question, covered on [Leased vehicles, cargo and public liability insurance](../../contract-finance/financing/ctf-leased-vehicles-cargo-and-public-liability-insurance.md).
 
 The clauses on tagging of leased vehicles, fleet vehicles and Government supply sources are covered in [Tagging of leased vehicles, fleet vehicles and Government supply sources](sup-tagging-of-leased-vehicles-and-government-supply-sources.md).
 
@@ -71,6 +71,7 @@ Whether any vehicle lease runs on a Government contract, who tracks delivery, co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on tagging of leased vehicles.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for vehicle lease payments, condition and marking.

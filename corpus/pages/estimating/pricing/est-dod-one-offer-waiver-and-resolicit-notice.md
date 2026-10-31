@@ -47,7 +47,7 @@ The provision is the front-end notice. It is used when a competitive solicitatio
 
 Synthetic example. The numbers are made up.
 
-A competitive solicitation will be open for 10 days, which is fewer than 30 days. Assume no exception at 215.371-4 applies and the requirement is not waived when the solicitation is issued. Then the notice of intent to resolicit provision is used [@CL-EST-2805]. The solicitation receives one offer. DoD policy is then to take the required actions to promote competition under 215.371-2 and to ensure a fair and reasonable price [@CL-EST-2800; @CL-EST-2801]. Suppose the head of the contracting activity then waives the requirement at 215.371-2 to resolicit for an additional period of at least 30 days [@CL-EST-2803]. The waiver covers that requirement only [@CL-EST-2803]. The policy on a fair and reasonable price is stated separately [@CL-EST-2801].
+A competitive solicitation will be open for 10 days, which is fewer than 30 days. Assume no exception at 215.371-4 applies and the requirement is not waived when the solicitation is issued. Then the notice of intent to resolicit provision is used [@CL-EST-2805]. The solicitation receives one offer. DoD policy is then to take the required actions to promote competition under 215.371-2 and to ensure a fair and reasonable price [@CL-EST-2800; @CL-EST-2801]. Suppose the head of the contracting activity then waives the requirement at 215.371-2 to resolicit for an additional period of at least 30 days [@CL-EST-2803]. The waiver is of that requirement [@CL-EST-2803]. The policy on a fair and reasonable price is stated separately [@CL-EST-2801].
 
 ## Never confuse
 
@@ -61,4 +61,5 @@ Whether a planned competitive solicitation may draw only one offer, which price 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the one-offer policy, waiver and notice of intent to resolicit.

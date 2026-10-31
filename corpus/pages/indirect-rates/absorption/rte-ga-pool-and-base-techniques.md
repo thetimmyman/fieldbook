@@ -31,7 +31,7 @@ Shows what counts as general and administrative expense, when its pool may be co
 
 General and administrative expense means any management, financial or other expense incurred by or allocated to a business unit for the general management and administration of the business unit as a whole [@CL-RTE-0671]. It does not include management expenses whose beneficial or causal relationship to cost objectives can be more directly measured by a base other than a cost input base representing the total activity of the business unit [@CL-RTE-0672].
 
-The pool may be combined with other expenses for allocation to final cost objectives only if the base used for the combined pool is appropriate both for allocating the pool and for allocating the other expenses and provision is made to identify the components and total of the pool separately from the other expenses in the combined pool [@CL-RTE-0673; @CL-RTE-0674]. Insignificant expenses that are not general and administrative expenses may be included in the pool [@CL-RTE-0679].
+The pool may be combined with other expenses for allocation to final cost objectives provided that the base used for the combined pool is appropriate both for allocating the pool and for allocating the other expenses and provision is made to identify the components and total of the pool separately from the other expenses in the combined pool [@CL-RTE-0673; @CL-RTE-0674]. Insignificant expenses that are not general and administrative expenses may be included in the pool [@CL-RTE-0679].
 
 FAR 2.101 defines general and administrative expense as any management, financial, and other expense which is incurred by or allocated to a business unit and which is for the general management and administration of the business unit as a whole, and says that general and administrative expense does not include those management expenses whose beneficial or causal relationship to cost objectives can be more directly measured by a base other than a cost input base representing the total activity of a business unit during a cost accounting period [@CL-RTE-9078; @CL-RTE-9118]. The RFO text of FAR 2.101 has the same sentence word for word [@CL-RTE-9103; @CL-RTE-9078], and its next sentence says that general and administrative (G&A) expense does not include those management expenses whose beneficial or causal relationship to cost objectives can be more directly measured by a base other than a cost input base representing the total activity of a business unit during a cost accounting period [@CL-RTE-9103; @CL-RTE-9115].
 
@@ -57,6 +57,7 @@ Which cost input base the company uses for its general and administrative pool, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the general and administrative expense definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of general and administrative expense.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of general and administrative expense.

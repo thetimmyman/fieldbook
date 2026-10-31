@@ -51,7 +51,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A letter contract with a value of 2,000,000 is awarded with a target date for definitization, and the contractor proposes 2,400,000. Negotiation does not close by the target date or any extension, so the contracting officer determines a price of 2,200,000 with the approval of the head of the contracting activity, in accordance with the pricing rules in the FAR. The contractor keeps performing throughout, because the only limit on that duty is the Limitation of Government Liability clause. Under the codified clause, Alternate I applies only if the letter contract was awarded on the basis of price competition [@CL-CTF-0610], and the RFO alternate line does not state that condition [@CL-CTF-1140]; the negotiated price ceiling or firm fixed price may then not exceed the proposed price upon which the award was based, which is a separate figure from the 2,400,000 definitization proposal and is not given here.
+A letter contract with a value of 2,000,000 is awarded with a target date for definitization, and the contractor proposes 2,400,000. Negotiation does not close by the target date or any extension, so the contracting officer determines a price of 2,200,000 with the approval of the head of the contracting activity, in accordance with the pricing rules in the FAR. The contractor keeps performing throughout, because the only limit on that duty is the Limitation of Government Liability clause. Under the codified clause, Alternate I applies to a letter contract awarded on the basis of price competition [@CL-CTF-0610], and the RFO alternate line does not state that condition [@CL-CTF-1140]; the negotiated price ceiling or firm fixed price may then not exceed the proposed price upon which the award was based, which is a separate figure from the 2,400,000 definitization proposal and is not given here.
 
 ## Never confuse
 
@@ -71,6 +71,7 @@ Whether each letter contract has a target date, a proposal carrying both kinds o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract definitization.

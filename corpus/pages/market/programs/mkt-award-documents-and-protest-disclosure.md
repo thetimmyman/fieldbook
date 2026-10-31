@@ -47,7 +47,7 @@ Synthetic example. The numbers are made up.
 
 An agency awards a contract in March by furnishing the executed contract to the successful offeror [@CL-MKT-1340]. The award document gives a delivery schedule that differs from the offeror's latest signed proposal as amended by its written correspondence, so, under the codified text, the offeror and the contracting officer both sign [@CL-MKT-1341]. Two items are withheld for later award, so, under the codified text, the notice states that the Government may make later awards on them within the proposal acceptance period [@CL-MKT-1342].
 
-A protest follows in April. In September, within 1 year of the March award, the agency issues a new solicitation on the protested award [@CL-MKT-1345]. The contracting officer gives every prospective offeror for the new solicitation the debriefing information on the former winner's proposal and the other nonproprietary information that the original offerors would have had [@CL-MKT-1346]. The list covers only those two groups, so proprietary information that was not given out in the debriefings, such as the winner's price build-up, is not on it [@CL-MKT-1346]. Had the agency instead asked for revised proposals, only the competitive range offerors asked to revise would receive the information [@CL-MKT-1497].
+A protest follows in April. In September, within 1 year of the March award, the agency issues a new solicitation on the protested award [@CL-MKT-1345]. The contracting officer gives every prospective offeror for the new solicitation the debriefing information on the former winner's proposal and the other nonproprietary information that the original offerors would have had [@CL-MKT-1346]. The list covers only those two groups, so proprietary information that was not given out in the debriefings, such as the winner's price build-up, is not on it [@CL-MKT-1346]. Had the agency instead asked for revised proposals, the competitive range offerors asked to revise would receive the information [@CL-MKT-1497].
 
 ## Never confuse
 
@@ -61,6 +61,7 @@ Who confirms the signature state of each award document and keeps the record of 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.300 postaward scope and its limit for subpart 6.1 procedures.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Limited the contractor's agreement statement on the first page to awards made without Optional Form 307, Standard Form 26 or Standard Form 33, as FAR 15.504(c) does.

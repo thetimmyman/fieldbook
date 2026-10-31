@@ -38,7 +38,7 @@ Contracting officers shall ensure that requirements about the payment of incenti
 
 The construction bar turns on three conditions together: the funding source, the estimate and the place of performance [@CL-MKT-1582]. Work that meets only some of them is not caught by that paragraph (c)(i) prohibition [@CL-MKT-1582]. For contracts in connection with a military construction project or a military family housing project, the separate prohibition at DFARS 216.301-3 says contracting officers shall not use cost-plus-fixed-fee, cost-plus-award-fee, or cost-plus-incentive-fee contract types [@CL-MKT-1632; @CL-MKT-1700]. A contract that is caught needs written approval with reasons, and the approving official depends on whether the work is environmental work only and not classified as construction [@CL-MKT-1633; @CL-MKT-1583; @CL-MKT-1584].
 
-The signing level for the determination and findings depends on the contract type [@CL-MKT-1634; @CL-MKT-1585]. The weapon system requirement reaches the solicitation only when the program side supplies fee or penalty provisions of the described kinds, and a penalty provision is a payment from the contractor to the Government [@CL-MKT-1587; @CL-MKT-1636; @CL-MKT-1638].
+The signing level for the determination and findings depends on the contract type [@CL-MKT-1634; @CL-MKT-1585]. The weapon system requirement reaches the solicitation when the program side supplies fee or penalty provisions of the described kinds, and a penalty provision is a payment from the contractor to the Government [@CL-MKT-1587; @CL-MKT-1636; @CL-MKT-1638].
 
 ## Worked example
 
@@ -60,4 +60,5 @@ Which contracts within the finance remit carry a fee arrangement, and who confir
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost, incentive and award fee contract approvals.

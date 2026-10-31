@@ -57,7 +57,7 @@ Separately, the Schedule prices 20 hours of testing while an attached specificat
 
 ## Never confuse
 
-An information request is not a solicitation for award: its response shall not be used as a proposal [@CL-EST-1919]. A facsimile proposal is the opposite: it is a proposal and follows the paper rules [@CL-EST-1920]. The order of precedence ranks documents only to resolve an inconsistency [@CL-EST-1925]. When proposals are due and how late ones are treated are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md), and when each provision is inserted is on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
+An information request is not a solicitation for award: its response shall not be used as a proposal [@CL-EST-1919]. A facsimile proposal is the opposite: it is a proposal and follows the paper rules [@CL-EST-1920]. The order of precedence is the ranking that resolves an inconsistency [@CL-EST-1925]. When proposals are due and how late ones are treated are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md), and when each provision is inserted is on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
 
 The RFO text prints no provision text under FAR 52.215-3 or FAR 52.215-5 [@CL-EST-0430; @CL-EST-0431], where the codified text of those sections sets out the information-only rule for a response to a request for information [@CL-EST-1919] and the facsimile proposal rules [@CL-EST-1920].
 
@@ -71,6 +71,7 @@ Which provision governs each live solicitation we answer, what its contract-spec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on facsimile bids.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for request for information, facsimile proposals, place of performance and order of precedence.

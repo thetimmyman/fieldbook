@@ -50,7 +50,7 @@ A contractor loans cylinders to the Government on a 30-day loan period at a rent
 
 ## Never confuse
 
-A returnable cylinder is not Government-furnished property. It remains the contractor's property and is loaned to the Government [@CL-SUP-2056], and it becomes Government property only when the Government pays for it as lost or damaged beyond repair [@CL-SUP-2179]. The f.o.b. point for delivery of Government-furnished property does not set the return point: property returns to the point at which it was originally furnished unless the contracting officer directs otherwise or the contract provides otherwise [@CL-SUP-2054; @CL-SUP-2055]. The RFO part 52 text lists 52.247-55 and 52.247-66 as [Reserved] [@CL-SUP-0388; @CL-SUP-0389]; the codified clauses set the delivery point and the cylinder loan terms [@CL-SUP-2051; @CL-SUP-2056].
+A returnable cylinder is not Government-furnished property. It remains the contractor's property and is loaned to the Government [@CL-SUP-2056], and it becomes Government property when the Government pays for it as lost or damaged beyond repair [@CL-SUP-2179]. The f.o.b. point for delivery of Government-furnished property does not set the return point: property returns to the point at which it was originally furnished unless the contracting officer directs otherwise or the contract provides otherwise [@CL-SUP-2054; @CL-SUP-2055]. The RFO part 52 text lists 52.247-55 and 52.247-66 as [Reserved] [@CL-SUP-0388; @CL-SUP-0389]; the codified clauses set the delivery point and the cylinder loan terms [@CL-SUP-2051; @CL-SUP-2056].
 
 ## Company calibration
 
@@ -60,6 +60,7 @@ Which clause versions and delivery points the contracts state for Government-fur
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of Contiguous United States (CONUS).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of the contiguous United States.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the lost-cylinder sentence to state the Government's option to return, and the delivery and return point contrast to what the clause states.

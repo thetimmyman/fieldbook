@@ -45,7 +45,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in pla
 
 Synthetic example. The numbers are made up.
 
-A sealed bid supply prime contract for a non-commercial item asks for an advance payment of 500,000 against a 2,000,000 order. The transaction is not one of the types listed in 32.404 and is not a commercial advance payment, so the policies of the subpart apply to it [@CL-CTF-3556; @CL-CTF-3557; @CL-CTF-3558]. Sealed bid contracts are within the permission, so the agency may authorize the advance if the action is appropriate under chapter 45 of title 41 of the United States Code [@CL-CTF-3559]. The agency authorizes it sparingly, and only after the agency head or designee records written findings that the payment is in the public interest [@CL-CTF-0255; @CL-CTF-0280]. The 500,000 does not exceed the unpaid contract price of 2,000,000, which meets one statutory requirement; the contractor must also give adequate security [@CL-CTF-0257].
+A sealed bid supply prime contract for a non-commercial item asks for an advance payment of 500,000 against a 2,000,000 order. The transaction is not one of the types listed in 32.404 and is not a commercial advance payment, so the policies of the subpart apply to it [@CL-CTF-3556; @CL-CTF-3557; @CL-CTF-3558]. Sealed bid contracts are within the permission, so the agency may authorize the advance if the action is appropriate under chapter 45 of title 41 of the United States Code [@CL-CTF-3559]. The agency authorizes it sparingly, and a statutory requirement is that the agency head or designee determines, based on written findings, that the payment is in the public interest or facilitates the national defense [@CL-CTF-0255; @CL-CTF-0280]. The 500,000 does not exceed the unpaid contract price of 2,000,000, which meets one statutory requirement; the contractor must also give adequate security [@CL-CTF-0257].
 
 ## Never confuse
 
@@ -59,5 +59,6 @@ Which authority supports each advance payment, whether the item is commercial, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payments for non-commercial purchases, scope and statutory authority.

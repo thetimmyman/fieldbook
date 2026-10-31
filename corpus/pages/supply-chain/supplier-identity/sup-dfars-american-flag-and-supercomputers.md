@@ -47,7 +47,7 @@ The flags, including their materials and components, must be manufactured in the
 
 ## Never confuse
 
-A flag is not the equipment used to fly or display it, and flagpoles and accessories are outside the flag clause [@CL-SUP-1781]. The supercomputer clause covers supercomputers only [@CL-SUP-1782]. Other domestic source restrictions are separate clauses; see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md). The uniform components clause for Afghan forces sets its own United States production rule for textile components [@CL-SUP-1805]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). The reporting clause on payment requests is a different duty; see [Identification of expenditures in the United States](sup-dfars-identification-of-expenditures-in-the-united-states.md).
+A flag is not the equipment used to fly or display it, and flagpoles and accessories are outside the flag clause [@CL-SUP-1781]. The supercomputer clause applies to supercomputers delivered under the contract [@CL-SUP-1782]. Other domestic source restrictions are separate clauses; see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md). The uniform components clause for Afghan forces sets its own United States production rule for textile components [@CL-SUP-1805]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). The reporting clause on payment requests is a different duty; see [Identification of expenditures in the United States](sup-dfars-identification-of-expenditures-in-the-united-states.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Whether any executed contract delivers flags or supercomputers, and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the American flag and supercomputer manufacturing requirements.

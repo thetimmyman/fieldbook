@@ -58,7 +58,7 @@ A voluntary notice for the purchase of Company T is accepted on day 0. The revie
 
 ## Never confuse
 
-The review and the investigation are separate stages with separate forty-five-day limits [@CL-MNA-0640; @CL-MNA-0648]. A declaration's thirty-day assessment is neither of them [@CL-MNA-0634]; it is on the [voluntary declarations card](mna-cfius-voluntary-declarations-and-notices.md). The report to the President is not automatic, because it follows only on the listed conditions [@CL-MNA-0649]. Coverage is on the [jurisdiction card](mna-cfius-jurisdiction.md), and the duty to file a declaration is on the [mandatory declarations card](mna-cfius-mandatory-declarations.md).
+The review and the investigation are separate stages with separate forty-five-day limits [@CL-MNA-0640; @CL-MNA-0648]. A declaration's thirty-day assessment is neither of them [@CL-MNA-0634]; it is on the [voluntary declarations card](mna-cfius-voluntary-declarations-and-notices.md). The report to the President is not automatic, because the Committee sends it if one of the listed conditions is met [@CL-MNA-0649]. Coverage is on the [jurisdiction card](mna-cfius-jurisdiction.md), and the duty to file a declaration is on the [mandatory declarations card](mna-cfius-mandatory-declarations.md).
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ Whether a foreign government could control or hold a stake in the company or a c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: The critical-infrastructure ground for an investigation now carries its impairment condition, and the worked example's extension now needs a lead-agency head's written request.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Committee, Chairperson, Staff Chairperson and lead agency definitions and the rule on a determination not to investigate.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review, investigation and report to the President.

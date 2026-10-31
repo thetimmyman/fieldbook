@@ -43,7 +43,7 @@ A DoD solicitation contains the provision. An offeror claims the commercial prod
 
 ## Never confuse
 
-An exception request is not a refusal to supply information: a commercial product or commercial service exception request must include, at a minimum, information adequate for determining commerciality and evaluating the reasonableness of the price for this acquisition [@CL-EST-0244], including the prices at which the same or similar products or services have been sold in the commercial market [@CL-EST-0445]. Certified data and data other than certified are different products; under the basic provision only the minimum information necessary to show a fair and reasonable price is asked for the second [@CL-EST-0239]. The certificate is not the proposal: it is a separate Certificate of Current Cost or Pricing Data submitted as soon as practicable after price agreement but before award, except for unpriced actions such as letter contracts [@CL-EST-0236].
+An exception request is not a refusal to supply information: a commercial product or commercial service exception request must include, at a minimum, information adequate for determining commerciality and evaluating the reasonableness of the price for this acquisition [@CL-EST-0244], including the prices at which the same or similar products or services have been sold in the commercial market [@CL-EST-0445]. Certified data and data other than certified are different products; under the basic provision the second must include the minimum information necessary to permit a determination that the proposed price is fair and reasonable [@CL-EST-0239]. The certificate is not the proposal: it is a separate Certificate of Current Cost or Pricing Data submitted as soon as practicable after price agreement but before award, except for unpriced actions such as letter contracts [@CL-EST-0236].
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD certified data and data other than certified clause.

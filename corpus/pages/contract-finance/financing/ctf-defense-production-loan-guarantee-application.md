@@ -47,7 +47,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in pla
 
 Synthetic example. The numbers are made up.
 
-A contractor has 2,000,000 of items under defense contracts that the asset formula can include, after leaving out amounts for work not yet done, amounts due only from later performance, and cash collateral or bank deposit balances [@CL-CTF-3172; @CL-CTF-3076]. The agency applies a 90 percent formula, so the formula amount before any progress payment deduction is 1,800,000 [@CL-CTF-3075]. Progress payments the contractor has received are also deducted from the asset formula [@CL-CTF-3077], so, unless the agency relaxes the formula because the contractor's working capital and credit are inadequate [@CL-CTF-3173], the limit is lower than 1,800,000, and the section does not give the order of the arithmetic. Before authorization, the contractor wins a further defense production contract, and the agency may adjust the amount or maturity date to meet a significant increase in financing need [@CL-CTF-3078]. If the contractor wins a contract during the loan term, the parties may adjust the existing agreement, and normally a new certificate of eligibility is required [@CL-CTF-3079; @CL-CTF-3175]. This example uses the codified text only, and RFO FAR 32.304 is marked reserved [@CL-CTF-4527].
+A contractor has 2,000,000 of items under defense contracts that the asset formula can include, after leaving out amounts for work not yet done, amounts that would become due as the result of later performance, and cash collateral or bank deposit balances [@CL-CTF-3172; @CL-CTF-3076]. The agency applies a 90 percent formula, so the formula amount before any progress payment deduction is 1,800,000 [@CL-CTF-3075]. Progress payments the contractor has received are also deducted from the asset formula [@CL-CTF-3077], so, unless the agency relaxes the formula because the contractor's working capital and credit are inadequate [@CL-CTF-3173], the limit is lower than 1,800,000, and the section does not give the order of the arithmetic. Before authorization, the contractor wins a further defense production contract, and the agency may adjust the amount or maturity date to meet a significant increase in financing need [@CL-CTF-3078]. If the contractor wins a contract during the loan term, the parties may adjust the existing agreement, and normally a new certificate of eligibility is required [@CL-CTF-3079; @CL-CTF-3175]. This example uses the codified text only, and RFO FAR 32.304 is marked reserved [@CL-CTF-4527].
 
 ## Never confuse
 
@@ -63,5 +63,6 @@ Which defense contracts sit under a guaranteed loan, and how each guarantee, its
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for defense production loan guarantee applications.

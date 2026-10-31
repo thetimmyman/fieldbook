@@ -37,7 +37,7 @@ FAR 2.101 defines an earned value management system as a project management tool
 
 ## How it works
 
-Start with the acquisition: a major acquisition for development carries the requirement, and any other acquisition carries it only where the Government requires it under agency procedures [@CL-PRG-0850; @CL-PRG-0851]. Then look at the offeror's system. If it has not been determined to comply with EIA-748, the offeror must submit a compliance plan [@CL-PRG-0852]. Lacking a compliant system does not remove the offeror from award consideration [@CL-PRG-0852; @CL-PRG-0853]. Where a plan is required in the proposal, the contracting officer rules on its adequacy before award [@CL-PRG-0854].
+Start with the acquisition: a major acquisition for development carries the requirement, and any other acquisition carries it where the Government requires it under agency procedures [@CL-PRG-0850; @CL-PRG-0851]. Then look at the offeror's system. If it has not been determined to comply with EIA-748, the offeror must submit a compliance plan [@CL-PRG-0852]. Lacking a compliant system does not remove the offeror from award consideration [@CL-PRG-0852; @CL-PRG-0853]. Where a plan is required in the proposal, the contracting officer rules on its adequacy before award [@CL-PRG-0854].
 
 ## Worked example
 
@@ -57,6 +57,7 @@ Which contracts carry an earned value requirement, and whether the system offere
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the earned value management system definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of earned value management system.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of earned value management system.

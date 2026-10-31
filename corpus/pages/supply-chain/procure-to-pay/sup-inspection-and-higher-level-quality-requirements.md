@@ -27,7 +27,7 @@ Shows who inspects under the contractor inspection clause, what the Government m
 | RFO citation | RFO FAR 52.246-1 [@CL-SUP-0408]; RFO FAR 52.246-9 [@CL-SUP-0410]; RFO FAR 52.246-11 [@CL-SUP-0412] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
-| Applies to | Contracts that include one or more of the three clauses, each rule below applying only where its own clause is included [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
+| Applies to | Contracts that include one or more of the three clauses, each rule below applying where its own clause is included [@CL-SUP-3105; @CL-SUP-3107; @CL-SUP-3109] |
 
 Contractor Inspection Requirements: the contractor is responsible for performing or having performed all inspections and tests necessary to substantiate that the supplies or services furnished under the contract conform to contract requirements, including any applicable technical requirements for specified manufacturers' parts [@CL-SUP-3105]. This clause takes precedence over any Government inspection and testing required in the contract's specifications, except for specialized inspections or tests specified to be performed solely by the Government [@CL-SUP-3106].
 
@@ -53,7 +53,7 @@ A third contract lists a synthetic Standard X in the higher-level quality clause
 
 ## Never confuse
 
-The standard is not supplied by the higher-level quality clause itself: the contracting officer inserts it, and the contractor's obligation is to meet the listed standard and flow it down [@CL-SUP-3190; @CL-SUP-3109; @CL-SUP-3110]. The Government's right to inspect and evaluate under the short form is also not the contractor's inspection duty under the contractor inspection clause: they sit in different clauses, and each applies only where its clause is in the contract [@CL-SUP-3105; @CL-SUP-3107]. Related cards cover [inspection of research and development](../sourcing-evidence/sup-inspection-of-research-and-development.md), [contractor quality responsibilities](../sourcing-evidence/sup-contractor-quality-responsibilities.md), [contract quality requirements](../sourcing-evidence/sup-contract-quality-requirements.md), [quality assurance on subcontracts](../sourcing-evidence/sup-subcontract-quality-assurance.md) and [inspection of supplies under fixed-price contracts](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
+The standard is not supplied by the higher-level quality clause itself: the contracting officer inserts it, and the contractor's obligation is to meet the listed standard and flow it down [@CL-SUP-3190; @CL-SUP-3109; @CL-SUP-3110]. The Government's right to inspect and evaluate under the short form is also not the contractor's inspection duty under the contractor inspection clause: they sit in different clauses, and each applies where its clause is in the contract [@CL-SUP-3105; @CL-SUP-3107]. Related cards cover [inspection of research and development](../sourcing-evidence/sup-inspection-of-research-and-development.md), [contractor quality responsibilities](../sourcing-evidence/sup-contractor-quality-responsibilities.md), [contract quality requirements](../sourcing-evidence/sup-contract-quality-requirements.md), [quality assurance on subcontracts](../sourcing-evidence/sup-subcontract-quality-assurance.md) and [inspection of supplies under fixed-price contracts](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Which quality standard is written into each contract and purchase order, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection duties and higher-level quality requirements.

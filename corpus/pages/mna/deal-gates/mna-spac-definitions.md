@@ -49,7 +49,7 @@ A SPAC sponsor is any entity and/or person primarily responsible for organizing,
 
 ## How it works
 
-A company can meet the definition by what it has said, not only by what it has done [@CL-MNA-1145; @CL-MNA-1149]. The two alternatives are separate: the second needs only a representation that the company pursues or will pursue the strategy [@CL-MNA-1149]. On the first alternative the business plan must contain all three elements [@CL-MNA-1146]. The sponsor term turns on who is primarily responsible for organizing, directing or managing the company's business and affairs [@CL-MNA-1150]. The exclusion for officers and directors applies only if an entity is a SPAC sponsor, and only to those who are not affiliates of any such entity [@CL-MNA-1192]. An officer or director who is an affiliate of the entity sponsor is therefore not covered by the exclusion [@CL-MNA-1192].
+A company can meet the definition by what it has said, not only by what it has done [@CL-MNA-1145; @CL-MNA-1149]. The two alternatives are separate: the second needs only a representation that the company pursues or will pursue the strategy [@CL-MNA-1149]. On the first alternative the business plan must contain all three elements [@CL-MNA-1146]. The sponsor term turns on who is primarily responsible for organizing, directing or managing the company's business and affairs [@CL-MNA-1150]. The exclusion for officers and directors applies if an entity is a SPAC sponsor, and to those who are not affiliates of any such entity [@CL-MNA-1192]. An officer or director who is an affiliate of the entity sponsor is therefore not covered by the exclusion [@CL-MNA-1192].
 
 ## Worked example
 
@@ -69,5 +69,6 @@ Confirm which business-plan statements and representations the company or a coun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Interactive Data File requirement in Item 1610.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions of special purpose acquisition companies and de-SPAC transactions.
