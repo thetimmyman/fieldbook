@@ -29,7 +29,7 @@ Shows what the DoD supplement says about when a program should-cost review or an
 | Text status | Final [@CL-EST-1535] |
 | Applies to | DoD decisions to perform a program or overhead should-cost review [@CL-EST-1535] |
 
-The section refers to PGI 215.407-4 for guidance on determining whether to perform a program or overhead should-cost review [@CL-EST-1535]. Paragraph (a) of the section gives no test, threshold or trigger for choosing a program review or an overhead review and leaves that choice to the guidance. Major weapon system should-cost program reviews shall be conducted in a manner that is transparent, objective, and provides for the efficiency of the DoD systems acquisition process [@CL-EST-1622]. A solicitation or contract for the development or production of a major weapon system carries the program should-cost clause at 252.215-7015 [@CL-EST-1528].
+The section refers to PGI 215.407-4 for guidance on determining whether to perform a program or overhead should-cost review [@CL-EST-1535]. Paragraph (a) of the section gives no test, threshold or trigger for choosing a program review or an overhead review and leaves that choice to the guidance. Major weapon system should-cost program reviews shall be conducted in a manner that is transparent, objective, and provides for the efficiency of the DoD systems acquisition process [@CL-EST-1622]. The program should-cost clause at 252.215-7015 is used in all solicitations and contracts for the development or production of a major weapon system, as defined in 234.7001 [@CL-EST-1528].
 
 ## How it works
 
@@ -53,4 +53,5 @@ Which bids and estimates may face a Government program or overhead review, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Clause use stated as the prescription (all solicitations and contracts, major weapon system as defined in 234.7001).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD should-cost review section.

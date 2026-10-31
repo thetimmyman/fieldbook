@@ -29,7 +29,7 @@ Shows when the DoD special termination costs clause may be used on an incrementa
 | Text status | Final [@CL-EST-1096] |
 | Applies to | Incrementally funded contracts where the agency head approves use of the clause [@CL-EST-1096] |
 
-The Special Termination Costs clause may be used in an incrementally funded contract when the agency head approves its use [@CL-EST-1096]. Among the conditions for authorizing it are a contract term of 2 years or more, and an estimate of either more than $25 million of total RDT&E financing or more than $100 million of total production investment [@CL-EST-1097]. Another listed condition is that adequate funds are available to cover the contingent reserve liability for special termination costs [@CL-EST-1107].
+The Special Termination Costs clause may be used in an incrementally funded contract when the agency head approves its use [@CL-EST-1096]. The clause is authorized when the listed conditions are met: a contract term of 2 years or more, and an estimate of either more than $25 million of total RDT&E financing or more than $100 million of total production investment [@CL-EST-1097]. The list also requires that adequate funds are available to cover the contingent reserve liability for special termination costs, and it joins that condition to the others with "and" [@CL-EST-1107; @CL-EST-9500].
 
 The contractor and the contracting officer must agree upon their best estimate of the total special termination costs to which the contractor would be entitled on termination, and insert that amount in the clause [@CL-EST-1098].
 
@@ -55,4 +55,5 @@ Which large development or production bids may carry the clause, and who prepare
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the authorizing conditions as a joined list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD special termination costs.

@@ -32,7 +32,7 @@ DFARS directs the reader to its own section for the limitations and prohibitions
 
 ## How it works
 
-Most of the additions are pointers: one to the limits on lowest price technically acceptable source selection, one to separate procedures for follow-on orders, one to the prohibition on reverse auctions, and one to the debriefing procedures [@CL-EST-1565; @CL-EST-1566; @CL-EST-1637; @CL-EST-1638]. The follow-on pointer applies when the earlier order rested on the exception for a unique or highly specialized need or the exception for a logical follow-on [@CL-EST-1566; @CL-EST-1562; @CL-EST-1563]. The remaining addition is a debriefing duty that sits on top of the FAR notice [@CL-EST-1567]. The printed text does not say what the pointed-to procedures contain. The section also has items on orders under non-DoD contracts and on supplier performance risk assessments, which this card does not draft.
+Most of the additions are pointers: one to the limits on lowest price technically acceptable source selection, one to separate procedures for follow-on orders, one to the prohibition on reverse auctions, and one to the debriefing procedures [@CL-EST-1565; @CL-EST-1566; @CL-EST-1637; @CL-EST-1638]. The follow-on pointer applies to an order exceeding the simplified acquisition threshold when the earlier order for the same supply or service rested on the exception for a unique or highly specialized need or the exception for a logical follow-on [@CL-EST-1566; @CL-EST-1562; @CL-EST-1563]. The remaining addition is a debriefing duty that sits on top of the FAR notice [@CL-EST-1567]. The printed text does not say what the pointed-to procedures contain. The section also has items on orders under non-DoD contracts and on supplier performance risk assessments, which this card does not draft.
 
 ## Worked example
 
@@ -52,4 +52,5 @@ Which DoD orders under multiple-award contracts the company holds, and whether a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Follow-on pointer now states the simplified acquisition threshold condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD ordering under multiple award contracts.
