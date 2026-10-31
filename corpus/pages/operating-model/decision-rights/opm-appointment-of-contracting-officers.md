@@ -23,7 +23,7 @@ Shows how a contracting officer's appointment and limits are recorded in writing
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-OPM-0017] |
-| Codified citation | FAR 1.603-3; FAR 1.604 [@CL-OPM-0017; @CL-OPM-0019] |
+| Codified citation | FAR 1.603-3; FAR 1.603-4; FAR 1.604 [@CL-OPM-0017; @CL-OPM-1021; @CL-OPM-1022; @CL-OPM-0019] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-OPM-0017] |
@@ -32,6 +32,8 @@ Shows how a contracting officer's appointment and limits are recorded in writing
 Contracting officers shall be appointed in writing on an SF 1402, Certificate of Appointment, which shall state any limitations on the scope of authority to be exercised, other than limitations contained in applicable law or regulation [@CL-OPM-0017]. Appointing officials shall maintain files containing copies of all appointments that have not been terminated [@CL-OPM-0018]. The same section treats micro-purchase delegations separately, which this card does not cover.
 
 The COR shall maintain a file for each assigned contract, which must include, at a minimum, a copy of the contracting officer's letter of designation and other documents describing the COR's duties and responsibilities [@CL-OPM-0019]. Two further listed items in the COR file are a copy of the contract administration functions delegated to a contract administration office which may not be delegated to the COR, and documentation of COR actions taken in accordance with the delegation of authority [@CL-OPM-0020].
+
+Termination of a contracting officer appointment will be by letter, unless the Certificate of Appointment contains other provisions for automatic termination, and terminations may be for reasons such as reassignment, termination of employment, or unsatisfactory performance [@CL-OPM-1021]. No termination of a contracting officer appointment shall operate retroactively [@CL-OPM-1022].
 
 ## How it works
 
@@ -55,4 +57,5 @@ Where the certificates of appointment and COR designation letters for each execu
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added how a contracting officer appointment is terminated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for appointment of contracting officers and the contract file.

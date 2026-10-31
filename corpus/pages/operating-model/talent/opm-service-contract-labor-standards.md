@@ -21,7 +21,7 @@ Shows when the service contract labor standards clause goes into a contract and 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-OPM-0093] |
-| Codified citation | FAR 22.1006 and FAR 22.1007 [@CL-OPM-0093; @CL-OPM-0096] |
+| Codified citation | FAR 22.1000, FAR 22.1002-1, FAR 22.1006, FAR 22.1007, FAR 22.1014, FAR 22.1023, FAR 22.1024 and FAR 22.1026 [@CL-OPM-0093; @CL-OPM-0096; @CL-OPM-1006; @CL-OPM-1007; @CL-OPM-1008; @CL-OPM-1009; @CL-OPM-1010; @CL-OPM-1012; @CL-OPM-1013; @CL-OPM-1017] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-OPM-0093] |
@@ -31,9 +31,15 @@ The contracting officer shall insert the Service Contract Labor Standards clause
 
 The contracting officer shall obtain wage determinations for each new service solicitation and contract in excess of $2,500, which is one of the listed service contracts [@CL-OPM-0096]. Another listed service contract is each contract modification which brings the contract above $2,500 and either extends the existing contract pursuant to an option clause or otherwise or changes the scope of the contract whereby labor requirements are affected significantly [@CL-OPM-0096; @CL-OPM-0097]. A third is each multiple year contract in excess of $2,500, upon the annual anniversary date if the contract is subject to annual appropriations [@CL-OPM-0098].
 
+Subpart 22.10 prescribes policies and procedures implementing the provisions of chapter 67 of title 41 of the United States Code, Service Contract Labor Standards (formerly known as the Service Contract Act of 1965) [@CL-OPM-1006], the applicable provisions of the Fair Labor Standards Act of 1938, as amended, and related Secretary of Labor regulations and instructions in 29 CFR parts 4, 6, 8, and 1925 [@CL-OPM-1007]. Service contracts over $2,500 shall contain mandatory provisions regarding minimum wages and fringe benefits, safe and sanitary working conditions, notification to employees of the minimum allowable compensation, and equivalent Federal employee classifications and wage rates [@CL-OPM-1008]. Under section 6707(d) of title 41 of the United States Code, service contracts may not exceed 5 years [@CL-OPM-1009].
+
 ## How it works
 
 For a multiple year contract, the list also names a biennial anniversary date if the contract is not subject to annual appropriations and its proposed term exceeds 2 years, unless otherwise advised by the Wage and Hour Division [@CL-OPM-0082]. The contracting officer decides the clause insertion [@CL-OPM-0093] and obtains the wage determinations [@CL-OPM-0096]. The printed sections state when clauses are inserted and when wage determinations are obtained. They give no wage rate that applies to a contract, and the only wage figures in them sit in an example of a price adjustment, so what a contractor must pay is not established here.
+
+If a wage determination came through the e98 process and bid opening, or the start of work under a negotiated contract, is delayed for whatever reason more than 60 days from the date on the earlier e98, the contracting officer must submit a new e98 [@CL-OPM-1010]. A revised wage determination received as a result supersedes the earlier response for that acquisition, subject to the time frames in 22.1012-1(b) and (c) [@CL-OPM-1011]. Any contractor failure to comply with the contract clauses related to the Service Contract Labor Standards statute may be grounds for termination for default [@CL-OPM-1012].
+
+The contracting officer must cooperate with Department of Labor representatives in examining records, interviewing service employees and the other parts of a Department investigation [@CL-OPM-1013]. When asked, agencies must give the Wage and Hour Administrator or a designee any available information on contractors, subcontractors, their contracts and the nature of the services [@CL-OPM-1014]. The contracting officer must promptly refer apparent violations and complaints received, in writing, to the appropriate regional office of the Department of Labor [@CL-OPM-1015], and employee complaints must not be disclosed to the employer [@CL-OPM-1016]. Disputes about the contract's labor standards requirements are handled under paragraph (t) of the clause at 52.222-41, not under the Disputes clause at 52.233-1 [@CL-OPM-1017].
 
 ## Worked example
 
@@ -53,4 +59,6 @@ Which contracts the company treats as subject to the Service Contract Labor Stan
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the e98 resubmission rule, default for noncompliance, Department of Labor investigations and labor standards disputes.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the mandatory provisions and the 5-year limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract labor standards.

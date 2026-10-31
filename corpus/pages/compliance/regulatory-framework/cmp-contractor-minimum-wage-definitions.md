@@ -22,11 +22,13 @@ Defines the two terms FAR 22.1901 prints, United States and worker, as used in F
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8171] |
-| Codified citation | FAR 22.1901 [@CL-CMP-8171; @CL-CMP-8172] |
+| Codified citation | FAR 22.1900 and FAR 22.1901 [@CL-CMP-9530; @CL-CMP-8171; @CL-CMP-8172] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8171] |
 | Applies to | The terms as the subpart uses them; the section states no contract threshold of its own [@CL-CMP-8171] |
+
+The subpart prescribes policies and procedures to implement Executive Order 14026, Increasing the Minimum Wage for Federal Contractors, which requires minimum wages for certain workers, and the Department of Labor implementing regulations are found at 29 CFR part 23 [@CL-CMP-9530].
 
 United States means the 50 States, the District of Columbia, Puerto Rico, the Northern Mariana Islands, American Samoa, Guam, the United States Virgin Islands, Johnston Island, Wake Island, and the outer Continental Shelf as defined in the Outer Continental Shelf Lands Act (title 43 of the United States Code, section 1331 and following) [@CL-CMP-8171].
 
@@ -96,4 +98,5 @@ Which covered contracts, labor categories and headcounts the company counts insi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor minimum wage definitions.

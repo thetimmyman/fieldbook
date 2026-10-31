@@ -21,7 +21,7 @@ Shows the labor standards clauses a prime contractor must pass down, who answers
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5839] |
-| Codified citation | FAR 52.222-11, FAR 52.222-12 and FAR 52.222-13 [@CL-CMP-5839; @CL-CMP-5843; @CL-CMP-5844] |
+| Codified citation | FAR 22.406-5, FAR 52.222-11, FAR 52.222-12 and FAR 52.222-13 [@CL-CMP-5839; @CL-CMP-5843; @CL-CMP-5844; @CL-CMP-7628] |
 | RFO citation | RFO FAR 52.222-11 [@CL-CMP-1396; @CL-CMP-1407], RFO FAR 52.222-12 [@CL-CMP-1415; @CL-CMP-1416] and RFO FAR 52.222-13 [@CL-CMP-1417] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5839] |
@@ -30,6 +30,8 @@ Shows the labor standards clauses a prime contractor must pass down, who answers
 The contractor inserts the listed labor standards clauses in any subcontract for construction, alterations and repairs within the United States [@CL-CMP-5840]. The first group is Construction Wage Rate Requirements, Contract Work Hours and Safety Standards—Overtime Compensation (if the clause is included in the contract), Apprentices and Trainees, Payrolls and Basic Records, a fifth clause whose title begins "Compliance with" and ends "Act Requirements", and Withholding of Funds [@CL-CMP-6180]. The second group is Subcontracts (Labor Standards), Contract Termination—Debarment, Disputes Concerning Labor Standards, Compliance with Construction Wage Rate Requirements and Related Regulations, and Certification of Eligibility [@CL-CMP-6181].
 
 The prime contractor is responsible for compliance by any subcontractor or lower tier subcontractor performing construction within the United States with all the clauses listed in the flowdown paragraph [@CL-CMP-5841]. The contractor also inserts the substance of the subcontracts clause, including paragraph (e), in all subcontracts for construction within the United States [@CL-CMP-6184].
+
+In accordance with the requirements of the clause at 52.222-11, Subcontracts (Labor Standards), the contractor and subcontractors at any tier are required to submit a fully executed SF 1413, Statement and Acknowledgment, upon award of each subcontract [@CL-CMP-7628].
 
 ## How it works
 
@@ -61,6 +63,7 @@ Which construction subcontracts in the United States carry the flowdown, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the statement and acknowledgment rule for subcontracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction labor clause insertion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor standards subcontracts, termination for debarment and incorporated rulings.

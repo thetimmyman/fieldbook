@@ -23,7 +23,7 @@ Explains the Government's discretionary authority to declare a contract void and
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7727] |
-| Codified citation | FAR 3.700, FAR 3.701 and FAR 3.703 [@CL-CMP-7727; @CL-CMP-7756; @CL-CMP-7732] |
+| Codified citation | FAR 3.700, FAR 3.701, FAR 3.702 and FAR 3.703 [@CL-CMP-7727; @CL-CMP-7756; @CL-CMP-9704; @CL-CMP-7732] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7727] |
@@ -40,6 +40,8 @@ The purpose section repeats the same two events. The subpart provides an adminis
 The authority is statutory. Section 1(e) of Public Law 87-849, at section 218 of title 18 of the United States Code (the Act), empowers the President, or the heads of executive agencies acting under regulations prescribed by the President, to declare void and rescind contracts and other transactions enumerated in the Act [@CL-CMP-7732]. The section states this power in relation to a final conviction for bribery, conflict of interest, or any other violation of chapter 11 of title 18 (sections 201 through 224) [@CL-CMP-7733]. Executive Order 12448 delegates the President's authority under the Act to the heads of the executive agencies and military departments [@CL-CMP-7734].
 
 A separate duty falls on the Federal agency. Section 2105(c) of title 41 requires it, on receiving information that a contractor or a person has violated section 2102 of title 41, to consider rescission of a contract with respect to which a listed condition applies [@CL-CMP-7735]. One condition is that the contractor, or someone acting for the contractor, has been convicted for an offense punishable under section 2105(a) of title 41 [@CL-CMP-7736]. The other is that the head of the agency, or a designee, has determined, based upon a preponderance of the evidence, that the contractor or someone acting for the contractor has engaged in conduct constituting such an offense [@CL-CMP-7737].
+
+The subpart defines a final conviction as a conviction, whether entered on a verdict or plea, including a plea of nolo contendere, for which sentence has been imposed [@CL-CMP-9704].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Which contracts sit inside the finance remit, where the executed contract and mo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of final conviction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for voiding and rescinding contracts.

@@ -22,7 +22,7 @@ Shows the Executive Order minimum wage rates stated in this section, the order t
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7997] |
-| Codified citation | FAR 22.403-4 [@CL-CMP-7997] |
+| Codified citation | FAR 22.403-4 and FAR 22.403-5 [@CL-CMP-7997; @CL-CMP-7179] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7997] |
@@ -35,6 +35,8 @@ As of January 30, 2022, Executive Order 13658 is superseded by Executive Order 1
 The wage rate is subject to annual increases by an amount determined by the Secretary of Labor, and the section refers the reader to subpart 22.19 [@CL-CMP-8000].
 
 The clause at 52.222-55, Minimum Wages for Contractor Workers under Executive Order 14026, requires the Executive Order 14026 minimum wage rate to be paid if it is higher than other minimum wage rates, such as the subpart 22.4 statutory wage determination amount [@CL-CMP-8001].
+
+Executive Order 13706 establishes paid sick leave for employees of certain Federal contractors, and the section on it points to subpart 22.21 and the clause at 52.222-62, Paid Sick Leave under Executive Order 13706 [@CL-CMP-7179].
 
 ## How it works
 
@@ -68,4 +70,5 @@ Which of the company's construction contracts carry the minimum wage clause, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to paid sick leave under Executive Order 13706.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order 13658 and 14026 minimum wages on construction contracts.

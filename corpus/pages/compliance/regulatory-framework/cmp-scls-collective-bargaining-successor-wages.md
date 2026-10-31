@@ -22,7 +22,7 @@ Shows when a successor contractor must pay at least the wages and fringe benefit
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3259] |
-| Codified citation | FAR 22.1002-3 and FAR 22.1012-2 [@CL-CMP-3259; @CL-CMP-3263] |
+| Codified citation | FAR 22.1002-2, FAR 22.1002-3 and FAR 22.1012-2 [@CL-CMP-3259; @CL-CMP-3263; @CL-CMP-8069; @CL-CMP-8148] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3259] |
@@ -31,6 +31,8 @@ Shows when a successor contractor must pay at least the wages and fringe benefit
 Successor contractors performing on contracts in excess of $2,500 for substantially the same services performed in the same locality must pay wages and fringe benefits [@CL-CMP-3259]. The wages and fringe benefits must be at least equal to those in any bona fide collective bargaining agreement entered into under the predecessor contract, including accrued wages and benefits and prospective increases [@CL-CMP-3260]. The requirement is self-executing and is not contingent upon incorporating a wage determination or the wage and fringe benefit terms of the predecessor contractor's collective bargaining agreement in the successor contract [@CL-CMP-3360]. The requirement does not apply if the Secretary of Labor determines after a hearing that the wages and fringe benefits are substantially at variance with those prevailing for services of a similar character in the locality [@CL-CMP-3261]. It also does not apply if the Secretary of Labor determines that the wages and fringe benefits are not the result of arm's length negotiations [@CL-CMP-3262].
 
 Timing can also keep a new or changed collective bargaining agreement from taking effect. In sealed bidding, notice received by the contracting agency of its terms less than 10 days before bid opening is one of two joined conditions [@CL-CMP-3263]. The other is that the contracting officer determines there is not reasonable time to incorporate the new or changed terms in the solicitation [@CL-CMP-3357]. For other contractual actions, one condition is receipt of notice after award of a successor contract [@CL-CMP-3264], and that rule carries the proviso that performance starts within 30 days of the award or of the specified modification [@CL-CMP-3265]. If contract performance does not commence within 30 days of the award or of the specified modification, notice received by the agency not less than 10 days before commencement of the work is effective for purposes of the successor contract under section 6707(c) of title 41 of the United States Code [@CL-CMP-3358; @CL-CMP-8209]. These limitations apply only if the timely notification required in section 22.1010 has been given [@CL-CMP-3359].
+
+Contractors performing on service contracts in excess of $2,500 to which no predecessor contractor's collective bargaining agreement applies shall pay their employees at least the wages and fringe benefits found by the Department of Labor to prevail in the locality [@CL-CMP-8069] or, in the absence of a wage determination, the minimum wage set forth in the Fair Labor Standards Act [@CL-CMP-8148].
 
 ## How it works
 
@@ -54,5 +56,6 @@ Which service contracts follow an incumbent's collective bargaining agreement, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the prevailing wage rule where no predecessor agreement applies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the late-start notice sentence so the notice rule keeps its scope, the successor contract under the statute.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for successor pay under a collective bargaining agreement.

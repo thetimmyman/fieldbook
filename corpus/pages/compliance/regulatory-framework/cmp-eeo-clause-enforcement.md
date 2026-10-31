@@ -22,7 +22,7 @@ Shows who may direct enforcement action against a contractor found to be in viol
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8014] |
-| Codified citation | FAR 22.809 [@CL-CMP-8014] |
+| Codified citation | FAR 22.806, FAR 22.808 and FAR 22.809 [@CL-CMP-8014; @CL-CMP-8063; @CL-CMP-8064; @CL-CMP-8065; @CL-CMP-8066] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8014] |
@@ -53,6 +53,8 @@ Referral. Paragraph (d) is a referral by the Deputy Assistant Secretary to the D
 
 Not stated here. The section sets no deadline and no dollar threshold. The linked pages cover the roles and the clause.
 
+An inquiry from a contractor regarding status of its compliance with E.O. 11246, or rights of appeal to any of the actions in 22.809, shall be referred to the regional office of the Office of Federal Contract Compliance Programs (OFCCP) [@CL-CMP-8063]. Labor union inquiries regarding the revision of a collective bargaining agreement in order to comply with E.O. 11246 shall be referred to the Deputy Assistant Secretary [@CL-CMP-8064]. Complaints received by the contracting officer alleging violation of the requirements of E.O. 11246 shall be referred immediately to the OFCCP regional office, and the complainant shall be advised in writing of the referral [@CL-CMP-8065]. The contractor that is the subject of a complaint shall not be advised in any manner or for any reason of the complainant's name, the nature of the complaint, or the fact that the complaint was received [@CL-CMP-8066].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -75,4 +77,5 @@ Whether any open enforcement finding or external request touches the company's e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the referral of contractor inquiries and complaints.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for enforcement of the equal employment opportunity clause.

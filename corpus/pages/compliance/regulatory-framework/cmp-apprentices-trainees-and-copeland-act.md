@@ -22,7 +22,7 @@ Shows when an apprentice or trainee may be paid below the determined rate, the r
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5832] |
-| Codified citation | FAR 52.222-9 and FAR 52.222-10 [@CL-CMP-5832; @CL-CMP-5838] |
+| Codified citation | FAR 22.406-4, FAR 52.222-9 and FAR 52.222-10 [@CL-CMP-5832; @CL-CMP-5838; @CL-CMP-7625; @CL-CMP-7626; @CL-CMP-7627] |
 | RFO citation | RFO FAR 52.222-9 [@CL-CMP-0386] and RFO FAR 52.222-10 [@CL-CMP-0387] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5832] |
@@ -31,6 +31,8 @@ Shows when an apprentice or trainee may be paid below the determined rate, the r
 An apprentice is permitted to work at less than the predetermined rate for the work performed when employed pursuant to and individually registered in a bona fide apprenticeship program registered with the United States Department of Labor [@CL-CMP-5833]. The registration may instead be with a State Apprenticeship Agency recognized by the Office of Apprenticeship Training, Employer, and Labor Services (OATELS) [@CL-CMP-5834]. An apprentice in the first 90 days of probationary employment in such a program may also work below the predetermined rate without individual registration, if OATELS or a State Apprenticeship Agency certifies the apprentice as eligible for probationary employment [@CL-CMP-5835].
 
 Trainees are not permitted to work at less than the predetermined rate for the work performed unless they are employed pursuant to and individually registered in a program that has received prior approval, evidenced by formal certification by the Department of Labor's Office of Apprenticeship Training, Employer, and Labor Services (OATELS), except as provided in 29 CFR 5.16 [@CL-CMP-5837; @CL-CMP-6468].
+
+The contracting officer shall review the contractor's employment and payment records of apprentices and trainees made available pursuant to the clause at 52.222-8, Payrolls and Basic Records, to ensure that the contractor has complied with the clause at 52.222-9, Apprentices and Trainees [@CL-CMP-7625]. If a contractor has classified employees as apprentices or trainees without complying with the requirements of the clause at 52.222-9, the contracting officer shall reject the classification [@CL-CMP-7626] and require the contractor to pay the affected employees at the rates applicable to the classification of the work actually performed [@CL-CMP-7627].
 
 ## How it works
 
@@ -72,5 +74,6 @@ Which covered contracts use apprentices or trainees, and who confirms program re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's review of apprentice and trainee records.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for apprentices, trainees and Copeland Act compliance.

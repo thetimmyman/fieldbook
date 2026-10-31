@@ -22,7 +22,7 @@ Shows what the contracting officer does about contractor labor policies and stri
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2350] |
-| Codified citation | FAR 22.101-2 [@CL-CMP-2350; @CL-CMP-2351] |
+| Codified citation | FAR 22.101-2 and FAR 22.101-3 [@CL-CMP-2350; @CL-CMP-2351; @CL-CMP-7099; @CL-CMP-7163] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2350] |
@@ -35,6 +35,8 @@ All costs incurred during strikes shall be carefully examined to ensure recognit
 ## How it works
 
 The rule works on the cost, not on the dispute. For cost-reimbursement contracts it limits the costs that are allowed, and for fixed-price contracts it limits the costs recognized in pricing [@CL-CMP-2350]. All costs incurred during a strike are carefully examined, and only those necessary for performing the contract in the Government's essential interest are recognized [@CL-CMP-2351]. The same section also deals with excused delay from strikes and with plant inspection during a dispute, and this card does not cover those parts.
+
+The office administering the contract shall report, in accordance with agency procedures, any potential or actual labor disputes that may interfere with performing any contracts under its cognizance [@CL-CMP-7099]. If a contract contains the clause at 52.222-1, Notice to the Government of Labor Disputes, the contractor also must report any actual or potential dispute that may delay contract performance [@CL-CMP-7163].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which pricing and estimate files record the labor policies and strike-cost revie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the duty to report labor disputes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor policies and strike costs in pricing and cost allowance.

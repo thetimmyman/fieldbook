@@ -23,7 +23,7 @@ Shows what the FAR System is, which acquisitions the FAR covers, and how agencie
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2000] |
-| Codified citation | FAR 1.101, FAR 1.104 and FAR 1.301 [@CL-CMP-2000; @CL-CMP-2003; @CL-CMP-2004] |
+| Codified citation | FAR 1.000 [@CL-CMP-9727]; FAR 1.101, FAR 1.104 and FAR 1.301 [@CL-CMP-2000; @CL-CMP-2003; @CL-CMP-2004]; FAR 1.302 [@CL-CMP-9730] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2000] |
@@ -36,6 +36,8 @@ An agency head may issue or authorize agency acquisition regulations that implem
 ## How it works
 
 The FAR System has two layers: the FAR itself and the agency acquisition regulations that implement or supplement it [@CL-CMP-2001]. Internal agency guidance of the type described in paragraph (a)(2) of FAR 1.301 is not part of the FAR System [@CL-CMP-2002]. Issuances under paragraph (a)(2) of FAR 1.301 need not be publicized for public comment [@CL-CMP-2007]. The sections used here do not say how a supplement's clauses reach a particular contract. For how codified text, model text and class deviations fit together, see [The FAR, the DFARS, the overhaul and class deviations](cmp-acquisition-regulations.md).
+
+Part 1 sets forth basic policies and general information about the Federal Acquisition Regulations System including purpose, authority, applicability, issuance, arrangement, numbering, dissemination, implementation, supplementation, maintenance, administration, and deviation [@CL-CMP-9727]. Agency acquisition regulations shall be limited to those necessary to implement FAR policies and procedures within the agency and to additional policies, procedures, solicitation provisions, or contract clauses that supplement the FAR to satisfy the specific needs of the agency [@CL-CMP-9730].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Which contracts are inside the finance remit, and who confirms the agency supple
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of FAR part 1 and the limits on agency acquisition regulations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the FAR System and agency supplements.

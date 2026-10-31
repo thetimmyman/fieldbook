@@ -23,7 +23,7 @@ Sets out what an agency must do before it acts against a contractor for a gratui
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7646] |
-| Codified citation | FAR 3.204 [@CL-CMP-7646] |
+| Codified citation | FAR 3.203 [@CL-CMP-9631]; FAR 3.204 [@CL-CMP-7646] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7646] |
@@ -46,6 +46,8 @@ The duty to provide the hearing rights falls on the agency, whose procedures sha
 The determination has two parts, and the agency head or designee decides both. The first is the offer or gift [@CL-CMP-7647]. The second is intent, which generally must be inferred [@CL-CMP-7648]. The section applies to a contract containing the Gratuities clause [@CL-CMP-7646].
 
 The listed remedies are each something the Government "may" do, not something it must do. The section does not say who in the Government chooses among them [@CL-CMP-7651]. The paragraph states exemplary damages for a contract that uses money appropriated to the Department of Defense [@CL-CMP-7652]. For the clause terms, including termination by written notice and the amount of exemplary damages, see [Gratuities, termination and exemplary damages](cmp-gratuities.md). For debarment and suspension, see [Debarment and suspension: subpart scope and Governmentwide effect](cmp-debarment-and-suspension-scope-and-effect.md).
+
+A separate section covers reports of suspected violations: agency personnel shall report suspected violations of the Gratuities clause to the contracting officer or other designated official in accordance with agency procedures [@CL-CMP-9631].
 
 ## Worked example
 
@@ -71,4 +73,5 @@ The company must confirm which of its contracts contain the Gratuities clause an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the duty to report suspected violations of the Gratuities clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for treatment of gratuities violations.

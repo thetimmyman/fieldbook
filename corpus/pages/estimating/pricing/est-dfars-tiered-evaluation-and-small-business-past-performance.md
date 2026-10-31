@@ -24,7 +24,7 @@ Shows how DoD orders the evaluation of offers by small business tier, when the c
 |---|---|
 | Instrument | Codified DFARS [@CL-EST-2434] |
 | Codified citation | DFARS 215.203-70 [@CL-EST-2434]; DFARS 215.305 [@CL-EST-2439]; FAR 15.101-3 [@CL-EST-2050] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 15.105-3 [@CL-EST-2241] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2434] |
 | Applies to | Solicitations with a tiered evaluation of offers, and solicitations in which FAR 15.304 requires a past performance evaluation and the small business clauses are included [@CL-EST-2436; @CL-EST-2439; @CL-EST-2440] |
@@ -40,6 +40,8 @@ When a past performance evaluation is required by FAR 15.304 and the solicitatio
 The tiers fix the order in which offers are looked at, and that order must be consistent with FAR part 19 [@CL-EST-2434; @CL-EST-2435]. Market research is a condition for issuing a tiered solicitation: the contracting officer researches whether the FAR part 19 set-aside criteria are met or, for a task or delivery order, whether enough qualified small business concerns are available to justify limiting competition [@CL-EST-2436; @CL-EST-2437]. If the contracting officer cannot determine that, the file also carries a written explanation of why not [@CL-EST-2438].
 
 The small business clauses then bring compliance history into the past performance evaluation, and the Test Program adds consideration of any failure by the offeror to make a good faith effort to comply with its comprehensive subcontracting plan [@CL-EST-2439; @CL-EST-2440; @CL-EST-2441]. For a small business offeror responding to a competitive solicitation, the contracting officer must consider relevant past performance information provided for its affiliates [@CL-EST-2442].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. RFO FAR 15.105-3 says that when soliciting for a multiple award contract, agencies must not create a tiered or cascading evaluation of small business offers, as described in 13 CFR 125.2, unless the agency has statutory authority to do so [@CL-EST-2241], which matches the codified FAR sentence on tiered evaluation in multiple-award contracts in substance [@CL-EST-2050].
 
 ## Worked example
 
@@ -61,5 +63,6 @@ That the company can produce the tier order and its own and affiliate past perfo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-3 limit on tiered evaluation for multiple award contracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR limit on tiered evaluation of offers for multiple-award contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tiered evaluation of offers and small business past performance.

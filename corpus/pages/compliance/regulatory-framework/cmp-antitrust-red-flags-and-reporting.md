@@ -23,7 +23,7 @@ Shows the practices and patterns that the FAR treats as possible evidence of an 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6835; @CL-CMP-6837] |
-| Codified citation | FAR 3.301 and 3.303 [@CL-CMP-6835; @CL-CMP-6837] |
+| Codified citation | FAR 3.301, 3.302 and 3.303 [@CL-CMP-6835; @CL-CMP-9700; @CL-CMP-6837] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6835] |
@@ -40,6 +40,8 @@ The antitrust laws are intended to ensure that markets operate competitively, an
 Identical bids must be reported under the section if the agency has some reason to believe that the bids resulted from collusion [@CL-CMP-6844]. For offers from foreign contractors for contracts to be performed outside the United States and its outlying areas, contracting officers may refer suspected collusive offers to the authorities of the foreign government concerned [@CL-CMP-7107]. Agency regulations and procedures govern how a report is made [@CL-CMP-6836; @CL-CMP-6838].
 
 Agency reports go to the Attorney General, Department of Justice, to the attention of the Assistant Attorney General, Antitrust Division [@CL-CMP-6845]. Each report must include a brief statement describing the suspected practice and the reason for the suspicion [@CL-CMP-7108], and the name, address and telephone number of an individual in the agency who can be contacted for further information [@CL-CMP-7109].
+
+Identical bids, as the subpart uses the term, means bids for the same line item that are determined to be identical as to unit price or total line item amount, with or without the application of evaluation factors such as discount or transportation cost [@CL-CMP-9700].
 
 ## Worked example
 
@@ -59,5 +61,6 @@ Which pricing behaviors the company treats as red flags, and who reviews a bid f
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of identical bids.
 - COMPATIBLE_EXTENSION, 2026-10-30: Limited the cross-reference to the Attorney General report to rejections under FAR 3.103-2(b)(1) or (2) and suspected false certificates.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for antitrust red flags and reporting suspected violations.

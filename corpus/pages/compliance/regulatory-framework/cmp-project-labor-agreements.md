@@ -22,7 +22,7 @@ Shows when agencies must require project labor agreements on construction, the c
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3075] |
-| Codified citation | FAR 22.503 and FAR 22.504 [@CL-CMP-3075; @CL-CMP-3077] |
+| Codified citation | FAR 22.501, FAR 22.503 and FAR 22.504 [@CL-CMP-3075; @CL-CMP-3077; @CL-CMP-7708] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3075] |
@@ -31,6 +31,8 @@ Shows when agencies must require project labor agreements on construction, the c
 When awarding a contract in connection with a large-scale construction project, agencies shall require use of project labor agreements for contractors and subcontractors engaged in construction on the project, unless an exception in paragraph (d) of section 22.504 applies [@CL-CMP-3075]. A large-scale construction project means a Federal construction project within the United States for which the total estimated cost of the construction contract to the Federal Government is $35 million or more [@CL-CMP-3450]. For indefinite-delivery indefinite-quantity contracts, the use of a project labor agreement may be required on an order-by-order basis rather than for the entire contract [@CL-CMP-3141]. For an order at or above $35 million an agency shall require the use of a project labor agreement unless an exception applies [@CL-CMP-3076].
 
 A project labor agreement shall bind all contractors and subcontractors engaged in construction on the construction project to comply with the project labor agreement [@CL-CMP-3077]. One listed requirement is that it allow all contractors and subcontractors to compete for contracts and subcontracts without regard to whether they are otherwise parties to collective bargaining agreements, and another is that it contain guarantees against strikes, lockouts, and similar job disruptions [@CL-CMP-3078]. Another listed requirement is that it set forth effective, prompt, and mutually binding procedures for resolving labor disputes arising during its term [@CL-CMP-3079]. An agency may not require contractors or subcontractors to enter into a project labor agreement with any particular labor organization [@CL-CMP-3080]. The senior procurement executive may grant an exception from the project labor agreement requirement, providing a specific written explanation of why at least one of the listed conditions exists with respect to the particular contract [@CL-CMP-3081]. One listed condition is that market research indicates that requiring a project labor agreement on the project would substantially reduce the number of potential offerors to such a degree that adequate competition at a fair and reasonable price could not be achieved [@CL-CMP-3082]. A likely reduction in the number of potential offerors is not, by itself, sufficient to except a contract from the project labor agreement requirement unless it is coupled with the finding that the reduction would not allow for adequate competition at a fair and reasonable price [@CL-CMP-3139]. For contracts other than indefinite-delivery indefinite-quantity contracts, the exception must be granted for a particular contract by the solicitation date [@CL-CMP-3140].
+
+Subpart 22.5 prescribes policies and procedures to implement Executive Order 14063, Use of Project Labor Agreements for Federal Construction Projects, dated February 4, 2022 [@CL-CMP-7708].
 
 ## How it works
 
@@ -54,4 +56,5 @@ Which construction projects the company bids or performs are covered by a projec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the project labor agreement subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for project labor agreements.

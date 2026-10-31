@@ -22,11 +22,13 @@ Shows the trafficking in persons prohibition, when an offeror must certify a com
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2394] |
-| Codified citation | FAR 22.1703, FAR 22.1704 and FAR 52.222-50 [@CL-CMP-2394; @CL-CMP-2398; @CL-CMP-2495] |
+| Codified citation | FAR 22.1700, FAR 22.1701, FAR 22.1703, FAR 22.1704 and FAR 52.222-50 [@CL-CMP-9471; @CL-CMP-9526; @CL-CMP-9527; @CL-CMP-9528; @CL-CMP-2394; @CL-CMP-2398; @CL-CMP-2495] |
 | RFO citation | RFO FAR 52.222-50 [@CL-CMP-6725; @CL-CMP-6876; @CL-CMP-6877] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2394] |
 | Applies to | Government solicitations and contracts, with the compliance plan certification applying where a portion meets the listed conditions [@CL-CMP-2394; @CL-CMP-2395; @CL-CMP-2396] |
+
+The subpart prescribes policy for implementing chapter 78 of title 22 of the United States Code and Executive Order 13627, Strengthening Protections Against Trafficking in Persons in Federal Contracts, dated September 25, 2012 [@CL-CMP-9471]. The subpart applies to all acquisitions [@CL-CMP-9526]. The applicability section also says the requirement at 22.1703(c) for a certification and compliance plan applies only to any portion of a contract or subcontract that is for supplies, other than commercially available off-the-shelf (COTS) items, to be acquired outside the United States, or for services to be performed outside the United States, and that has an estimated value that exceeds $700,000 [@CL-CMP-9527; @CL-CMP-9528].
 
 Government solicitations and contracts shall prohibit contractors, contractor employees, subcontractors, subcontractor employees, and their agents from engaging in severe forms of trafficking in persons during the period of performance of the contract [@CL-CMP-2394]. The same list names further prohibited activities, and this card drafts only the first.
 
@@ -60,5 +62,6 @@ Which contracts and subcontracts meet the certification conditions, and who owns
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the applicability section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for combating trafficking in persons.

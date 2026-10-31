@@ -22,7 +22,7 @@ Explains which contracts and employees the paid sick leave subpart covers, and w
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8180; @CL-CMP-8194] |
-| Codified citation | FAR 22.2103(a) and (b), and FAR 22.2106(a), (b) and (c) [@CL-CMP-8180; @CL-CMP-8194; @CL-CMP-8183; @CL-CMP-8185; @CL-CMP-8186; @CL-CMP-8189] |
+| Codified citation | FAR 22.2103(a) and (b), FAR 22.2106(a), (b) and (c), and FAR 22.2107 [@CL-CMP-8180; @CL-CMP-8194; @CL-CMP-8183; @CL-CMP-8185; @CL-CMP-8186; @CL-CMP-8189; @CL-CMP-9545] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8180; @CL-CMP-8194] |
@@ -41,6 +41,8 @@ Paragraph (a): interfere with an employee's accrual or use of paid sick leave as
 Paragraph (b): discharge or in any other manner discriminate against any employee for using, or attempting to use, paid sick leave as provided for under Executive Order 13706 and 29 CFR part 13 [@CL-CMP-8186]; for filing any complaint, initiating any proceeding, or otherwise asserting any right or claim under them [@CL-CMP-8187]; for cooperating in any investigation or testifying in any proceeding under them [@CL-CMP-8188]; or for informing any other person about his or her rights under them [@CL-CMP-8188].
 
 Paragraph (c): fail to make and maintain, or to make available to authorized representatives of the Wage and Hour Division, records for inspection, copying, and transcription as required by 29 CFR 13.25, or otherwise fail to comply with the requirements of 29 CFR 13.25 [@CL-CMP-8189].
+
+Section 22.2107 is a separate rule on waiver of rights: employees cannot waive, nor may contractors induce employees to waive, their rights under Executive Order 13706 or 29 CFR part 13 (see 29 CFR 13.7) [@CL-CMP-9545].
 
 ## How it works
 
@@ -86,4 +88,5 @@ Whether each service and construction contract the company performs is covered, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rule that employees cannot waive their paid sick leave rights.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for paid sick leave applicability and prohibited acts.

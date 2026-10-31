@@ -23,7 +23,7 @@ States the Government policy against age discrimination by contractors and subco
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8074] |
-| Codified citation | FAR 22.901 [@CL-CMP-8074; @CL-CMP-8077] |
+| Codified citation | FAR 22.901 and FAR 22.902 [@CL-CMP-8074; @CL-CMP-8077; @CL-CMP-8067; @CL-CMP-8068] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8074] |
@@ -36,6 +36,8 @@ Paragraph (a): contractors and subcontractors shall not, in connection with empl
 Paragraph (b): contractors and subcontractors, or persons acting on their behalf, shall not specify in solicitations or advertisements for employees to work on Government contracts a maximum age limit for employment [@CL-CMP-8077]. The bar does not apply where the specified limit is based upon a bona fide occupational qualification, retirement plan, or statutory requirement [@CL-CMP-8078].
 
 Paragraph (c): agencies will bring the policy to the attention of contractors [@CL-CMP-8079]. The use of contract clauses is not required [@CL-CMP-8080].
+
+Agencies shall bring complaints regarding a contractor's compliance with this policy to that contractor's attention (in writing, if appropriate) [@CL-CMP-8067], stating the policy, indicating that the contractor's compliance has been questioned, and requesting that the contractor take any appropriate steps that may be necessary to comply [@CL-CMP-8068].
 
 ## How it works
 
@@ -67,4 +69,5 @@ Whether any employing entity or worksite inside the finance remit states age lim
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added how agencies handle complaints about compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the age nondiscrimination policy.

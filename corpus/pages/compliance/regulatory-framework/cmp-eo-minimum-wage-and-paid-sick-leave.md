@@ -22,7 +22,7 @@ Shows how the annual Executive Order minimum wage rate is published and adjusted
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2390] |
-| Codified citation | FAR 22.1904, FAR 22.1905, FAR 22.2105, FAR 22.2109 and FAR 52.222-55 [@CL-CMP-2390; @CL-CMP-2391; @CL-CMP-2393; @CL-CMP-2491; @CL-CMP-2489] |
+| Codified citation | FAR 22.1904, FAR 22.1905, FAR 22.1906, FAR 22.2105, FAR 22.2109, FAR 22.2110 and FAR 52.222-55 [@CL-CMP-2390; @CL-CMP-2391; @CL-CMP-9531; @CL-CMP-9541; @CL-CMP-2393; @CL-CMP-2491; @CL-CMP-9542; @CL-CMP-9543; @CL-CMP-2489] |
 | RFO citation | RFO FAR 52.222-55 [@CL-CMP-6886; @CL-CMP-6887] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2390] |
@@ -30,7 +30,11 @@ Shows how the annual Executive Order minimum wage rate is published and adjusted
 
 For the Executive Order minimum wage rate that becomes effective on January 30, 2022, and annually thereafter, the Administrator will notify the public of the new rate at least 90 days before it becomes effective by publishing a notice in the Federal Register [@CL-CMP-2390]. The Administrator will also publish and maintain the Executive Order minimum wage rate on Wage Determinations at SAM.gov or any successor site [@CL-CMP-2390; @CL-CMP-2488]. The clause on minimum wages for contractor workers requires the contractor to pay workers, while performing in the United States and performing on or in connection with the contract, a minimum hourly wage rate of $15.00 per hour beginning January 30, 2022 [@CL-CMP-2489]. It also requires the contractor to adjust the minimum wage paid, if necessary, beginning January 1, 2023, and annually thereafter, to meet the applicable annual Executive Order minimum wage [@CL-CMP-2490]. This card states no rate for a later year, because the printed sections point to the annual publication for the applicable rate.
 
+The clause at 52.222-55, Minimum Wages for Contractor Workers Under Executive Order 14026, is to be inserted in solicitations and contracts that include the clause at 52.222-6, Construction Wage Rate Requirements, or 52.222-41, Service Contract Labor Standards, where work is to be performed, in whole or in part, in the United States, and the text names no official who inserts it [@CL-CMP-9531; @CL-CMP-9541].
+
 Contracting officers shall withhold payment at the direction of the Administrator [@CL-CMP-2391]. If the contractor does not remedy an unpaid wage violation, the Administrator may direct withholding of payments due on the contract or any other contract between the contractor and the Federal Government [@CL-CMP-2392].
+
+The clause at 52.222-62, Paid Sick Leave Under Executive Order 13706, is likewise to be inserted in solicitations and contracts that include the clause at 52.222-6, Construction Wage Rate Requirements, or 52.222-41, Service Contract Labor Standards, where work is to be performed, in whole or in part, in the United States (the 50 States and the District of Columbia), and the text names no official who inserts it [@CL-CMP-9542; @CL-CMP-9543].
 
 Contractors are required to permit an employee to accrue not less than 1 hour of paid sick leave for every 30 hours worked on or in connection with a contract covered by the paid sick leave Executive Order [@CL-CMP-2393]. Contractors may instead choose to provide employees with at least 56 hours of paid sick leave at the beginning of each accrual year rather than allowing the employee to accrue such leave based on hours worked over time [@CL-CMP-2499].
 
@@ -60,5 +64,6 @@ Which covered contracts carry these requirements, and who tracks each new annual
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the clause prescriptions for minimum wages and paid sick leave.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order minimum wage and paid sick leave.

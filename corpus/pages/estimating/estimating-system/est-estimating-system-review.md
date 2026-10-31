@@ -24,7 +24,7 @@ Explains how reviewing an estimating system narrows the review work done on indi
 |---|---|
 | Instrument | Codified DFARS [@CL-EST-0768] |
 | Codified citation | DFARS 215.407-5-70 [@CL-EST-0768] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 15.305 [@CL-EST-2253; @CL-EST-2254; @CL-EST-2255] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-0768] |
 | Applies to | Large business contractors meeting the preceding fiscal year thresholds [@CL-EST-0769; @CL-EST-0770] |
@@ -36,6 +36,8 @@ The DoD section defines the estimating system as the contractor's policies, proc
 ## How it works
 
 Review results are documented in survey reports [@CL-EST-0765], and the auditor sends a copy of the survey report and of the official notice of corrective action required to each contracting office and contract administration office having substantial business with the contractor [@CL-EST-0766]. Significant deficiencies not corrected by the contractor are a consideration in later proposal analyses and negotiations [@CL-EST-0767].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. RFO FAR 15.305(a) says that cognizant audit activities, when appropriate, must establish and manage regular programs for reviewing selected contractors' estimating systems or methods, in order to reduce the scope of reviews to be performed on individual proposals, expedite the negotiation process, and increase the reliability of proposals [@CL-EST-2253; @CL-EST-2254]. RFO FAR 15.305(b) says that significant deficiencies not corrected by the contractor must be considered in subsequent proposal analyses and negotiations [@CL-EST-2255], as the codified text says [@CL-EST-0767].
 
 Under the DoD section the auditor conducts the reviews [@CL-EST-0864]. The auditor documents findings and recommendations in a report to the contracting officer, and a report of material weaknesses describes the underlying deficiencies in enough detail for the contracting officer to understand them [@CL-EST-0865]. The contracting officer then decides: if material weaknesses are found, an initial determination follows with a 30-day written response [@CL-EST-0862; @CL-EST-0771], and if a final determination finds that weaknesses remain, the contracting officer requests that the contractor, within 45 days of receipt, either correct them or submit an acceptable corrective action plan [@CL-EST-0863; @CL-EST-0772]. The contractor-side steps and the withholding consequence are on [Contractor estimating system requirements](est-estimating-system-criteria.md).
 
@@ -57,4 +59,5 @@ Which business unit owns the estimating system description, and when the descrip
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.305 estimating system review programs and uncorrected deficiencies.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for estimating system review and the DoD disclosure requirements.

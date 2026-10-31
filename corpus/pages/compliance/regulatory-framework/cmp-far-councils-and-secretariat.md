@@ -23,7 +23,7 @@ Explains which two councils prepare and issue revisions to the FAR, who sits on 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8408] |
-| Codified citation | FAR 1.201-1 and 1.201-2 [@CL-CMP-8408; @CL-CMP-8417] |
+| Codified citation | FAR 1.201-1, 1.201-2 and 1.202 [@CL-CMP-8408; @CL-CMP-8417; @CL-CMP-9729] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8408] |
@@ -32,6 +32,8 @@ Explains which two councils prepare and issue revisions to the FAR, who sits on 
 Subject to the authorities discussed in 1.103, revisions to the FAR will be prepared and issued through the coordinated action of two councils, the Defense Acquisition Regulations Council (DAR Council) and the Civilian Agency Acquisition Council (CAA Council) [@CL-CMP-8408]. The authorities are on [FAR System authority and positive law codification](cmp-far-system-authority-and-positive-law-codification.md).
 
 The General Services Administration is responsible for establishing and operating the FAR Secretariat to publish and distribute the FAR through the Code of Federal Regulations system, including a separate online edition with periodic updates [@CL-CMP-8417].
+
+Agency compliance with the FAR (see FAR 1.304) is the responsibility of the Secretary of Defense (for the military departments and defense agencies), the Administrator of General Services (for civilian agencies other than NASA), and the Administrator of NASA (for NASA activities) [@CL-CMP-9729].
 
 ## How it works
 
@@ -69,4 +71,5 @@ Which council case file the company treats as the record of a rule change it rel
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added who is responsible for agency compliance with the FAR.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two FAR councils and the FAR Secretariat.

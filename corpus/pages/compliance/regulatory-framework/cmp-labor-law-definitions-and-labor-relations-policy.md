@@ -22,7 +22,7 @@ Gives the FAR definition of a service contract and shows how agencies treat labo
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3091] |
-| Codified citation | FAR 22.001, FAR 22.101-1 and FAR 22.102-2 [@CL-CMP-3091; @CL-CMP-3092; @CL-CMP-3143] |
+| Codified citation | FAR 22.000, FAR 22.001, FAR 22.101-1, FAR 22.102-1 and FAR 22.102-2 [@CL-CMP-3091; @CL-CMP-3092; @CL-CMP-3143; @CL-CMP-7098; @CL-CMP-7177; @CL-CMP-7178] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3091] |
@@ -31,6 +31,8 @@ Gives the FAR definition of a service contract and shows how agencies treat labo
 The FAR defines a service contract as any Government contract, or subcontract under it, whose principal purpose is to furnish services in the United States through the use of service employees, except as exempted by the Service Contract Labor Standards statute [@CL-CMP-3091]. Agencies shall remain impartial concerning any dispute between labor and contractor management and not undertake the conciliation, mediation, or arbitration of a labor dispute [@CL-CMP-3092].
 
 Agencies shall cooperate with, and encourage contractors to use to the fullest extent practicable, the Department of Labor Employment and Training Administration and its affiliated local offices in meeting contractors' labor requirements [@CL-CMP-3143]. Contracting officers should contact the Wage and Hour Division's regional offices when required by the subparts relating to the wage and hour statutes unless otherwise specified [@CL-CMP-3144].
+
+FAR part 22 deals with general policies regarding contractor labor relations as they pertain to the acquisition process, prescribes contracting policy and procedures for implementing pertinent labor laws, and prescribes contract clauses with respect to each pertinent labor law [@CL-CMP-7098]. Agencies shall cooperate, and encourage contractors to cooperate, with Federal and State agencies responsible for enforcing labor requirements such as safety, health and sanitation, maximum hours and minimum wages, and equal employment opportunity [@CL-CMP-7177]. The list goes on to child and convict labor, age discrimination, disabled and Vietnam veteran employment, employment of workers with disabilities, and eligibility for employment under United States immigration laws [@CL-CMP-7178].
 
 ## How it works
 
@@ -54,4 +56,5 @@ Which service contracts the company holds, and who owns any notice of a labor di
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 22 and the agency cooperation policy.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor law definitions and labor relations policy.

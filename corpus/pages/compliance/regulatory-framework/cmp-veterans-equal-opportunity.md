@@ -22,11 +22,13 @@ Defines the main veteran categories, states the duty to list openings, and names
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3083] |
-| Codified citation | FAR 22.1301, FAR 22.1302 and FAR 22.1310 [@CL-CMP-3083; @CL-CMP-3085; @CL-CMP-3086] |
+| Codified citation | FAR 22.1300, FAR 22.1301, FAR 22.1302, FAR 22.1307, FAR 22.1308, FAR 22.1309 and FAR 22.1310 [@CL-CMP-8508; @CL-CMP-8509; @CL-CMP-3083; @CL-CMP-3085; @CL-CMP-8589; @CL-CMP-8747; @CL-CMP-8748; @CL-CMP-8749; @CL-CMP-8821; @CL-CMP-8822; @CL-CMP-3086] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3083] |
 | Applies to | Solicitations and contracts with an expected value of $200,000 or more for the veterans clause, subject to the listed exceptions [@CL-CMP-3086; @CL-CMP-3087; @CL-CMP-3088] |
+
+The subpart prescribes policies and procedures for implementing the Vietnam Era Veterans' Readjustment Assistance Act of 1972 (sections 4211 and 4212 of title 38 of the United States Code), called the Act, and the Veterans Employment Opportunities Act of 1998 (Public Law 105-339) [@CL-CMP-8508], together with the Jobs for Veterans Act (Public Law 107-288), Executive Order 11701 of January 24, 1973, and the regulations of the Secretary of Labor at 41 CFR parts 60-300 and 61-300 [@CL-CMP-8509].
 
 The definition of protected veteran specifies a veteran who may be classified as a disabled veteran, a recently separated veteran, an active duty wartime or campaign badge veteran, or an Armed Forces service medal veteran, as defined in the definitions section [@CL-CMP-3083]. A recently separated veteran is any veteran during the three-year period beginning on the date of the veteran's discharge or release from active duty in the military, ground, naval, or air service of the United States [@CL-CMP-3084]. The same section also defines the other listed terms, and this card does not set them out.
 
@@ -34,7 +36,7 @@ Contractors and subcontractors entering into contracts and subcontracts subject 
 
 ## How it works
 
-The veterans clause goes in when the expected value reaches the threshold and neither listed exception applies [@CL-CMP-3086; @CL-CMP-3087; @CL-CMP-3088]. The reporting clause follows the veterans clause, so it goes in whenever the veterans clause is in the contract [@CL-CMP-3089]. The reporting provision depends on the simplified acquisition threshold and on the contract not being for commercial products or commercial services [@CL-CMP-3090], and the figure for that threshold is on [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md). The policy section also covers affirmative action, outreach, a hiring benchmark and a bar on obligating funds when the annual report is missing, and this card does not set those out.
+The veterans clause goes in when the expected value reaches the threshold and neither listed exception applies [@CL-CMP-3086; @CL-CMP-3087; @CL-CMP-3088]. The reporting clause follows the veterans clause, so it goes in whenever the veterans clause is in the contract [@CL-CMP-3089]. The reporting provision depends on the simplified acquisition threshold and on the contract not being for commercial products or commercial services [@CL-CMP-3090], and the figure for that threshold is on [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md). If performance under the veterans clause may necessitate a revision of a collective bargaining agreement, the contracting officer must advise the affected labor unions that the Department of Labor will give them appropriate opportunity to present their views [@CL-CMP-8589]. However, neither the contracting officer nor any representative of the contracting officer may discuss with the contractor or any labor representative any aspect of the collective bargaining agreement [@CL-CMP-8747]. Following agency procedures, the contracting office must forward any complaints received about the administration of the Act to the Veterans' Employment and Training Service of the Department of Labor, or to the Director, Office of Federal Contract Compliance Programs (OFCCP), or to any OFCCP regional, district, or area office or through the local Veterans' Employment Representative or designee, at the local State employment office [@CL-CMP-8748; @CL-CMP-8749]. Upon notification by the appropriate agency official, the contracting officer must take necessary action as soon as possible to implement any sanctions imposed on a contractor by the Department of Labor for violations of the veterans clause [@CL-CMP-8821]. These sanctions (see 41 CFR 60-300.66) may include withholding progress payments, termination or suspension of the contract, or debarment of the contractor [@CL-CMP-8822]. The policy section also covers affirmative action, outreach, a hiring benchmark and a bar on obligating funds when the annual report is missing, and this card does not set those out.
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts carry the veterans clause, and who owns the annual veterans repo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the collective bargaining, complaint and sanction rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal opportunity for veterans.
