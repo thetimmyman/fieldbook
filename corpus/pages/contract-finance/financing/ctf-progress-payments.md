@@ -29,7 +29,7 @@ Gives the customary progress payment rates on DoD contracts for large and small 
 | Text status | Deviation text [@CL-CTF-0001] |
 | Applies to | DoD contracts, from 2026-02-01 [@CL-CTF-0001] |
 
-The customary progress payment rate on DoD contracts is 80 percent for large business concerns [@CL-CTF-0001] and 90 percent for small business concerns [@CL-CTF-0002]. The codified FAR small business rate is lower [@CL-CTF-0002].
+The customary progress payment rates for DoD contracts, including contracts that contain foreign military sales requirements, are 80 percent for large business concerns and 90 percent for small business concerns [@CL-CTF-0001; @CL-CTF-0002; @CL-CTF-9601]. The codified FAR customary rate for contracts with small business concerns is 85 percent, which is lower than the DoD rate for small business concerns [@CL-CTF-0951; @CL-CTF-0002].
 
 ## How it works
 
@@ -53,4 +53,5 @@ Which contracts carry progress or performance-based payments, and at what rates.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: DoD rate sentence carries its full subject; FAR small business rate cited to its own claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD customary progress payment rates.

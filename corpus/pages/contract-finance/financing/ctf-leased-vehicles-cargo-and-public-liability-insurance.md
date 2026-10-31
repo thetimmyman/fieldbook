@@ -56,7 +56,7 @@ A cargo clause fills in 50,000 per vehicle and 200,000 for the whole shipment, a
 
 ## Never confuse
 
-Cargo insurance covers the value of property on a vehicle or in a shipment, while vehicular and general public liability insurance covers the liability limits for injury [@CL-CTF-2504; @CL-CTF-2505]. For leased vehicles, the Government's responsibility for loss or damage is different from the Contractor's duty to carry insurance for its own liabilities [@CL-CTF-2502; @CL-CTF-2503]. Whether insurance cost is allowable is a separate question; see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
+Cargo insurance covers the value of property on a vehicle or in a shipment, while vehicular and general public liability insurance carries limits of liability for bodily injury and for property damage [@CL-CTF-2504; @CL-CTF-2505; @CL-CTF-2608]. For leased vehicles, the Government's responsibility for loss or damage is different from the Contractor's duty to carry insurance for its own liabilities [@CL-CTF-2502; @CL-CTF-2503]. Whether insurance cost is allowable is a separate question; see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
 
 ## Company calibration
 
@@ -66,5 +66,6 @@ Which contracts carry these clauses, and what cargo and liability amounts each o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Public liability limits now include property damage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for leased motor vehicles, cargo insurance and vehicular public liability insurance.
