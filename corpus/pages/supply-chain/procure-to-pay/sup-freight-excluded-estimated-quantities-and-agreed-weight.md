@@ -48,7 +48,7 @@ A solicitation estimates 500 shipments a year, and only 200 turn out to be requi
 
 ## Never confuse
 
-The codified agreed weight clause has the shipping activity determine the weight of each shipment [@CL-SUP-2212], and the codified freight excluded clause excludes shipments that can be more advantageously or economically moved by parcel post or small package carrier [@CL-SUP-2213], but the RFO text prints FAR 52.247-9 and FAR 52.247-7 as [Reserved] [@CL-SUP-0379; @CL-SUP-0378]. An estimate that is not guaranteed is not an empty contract, because orders for required services still go to the contractor [@CL-SUP-2211]. Agreed weight is not net weight: under the agreed weight clause the shipping activity determines the weight of each shipment [@CL-SUP-2212], while under the general freight net weight clause the contractor is responsible for determining the net weight, which is the gross weight less the tare weight of the vehicle [@CL-SUP-2215; @CL-SUP-2216].
+The codified agreed weight clause has the shipping activity determine the weight of each shipment [@CL-SUP-2212], and the codified freight excluded clause excludes shipments that can be more advantageously or economically moved by parcel post or small package carrier [@CL-SUP-2213], but the RFO text prints FAR 52.247-9 and FAR 52.247-7 as [Reserved] [@CL-SUP-0379; @CL-SUP-0378]. An estimate that is not guaranteed is not an empty contract, because orders for required services still go to the contractor [@CL-SUP-2211]. Agreed weight is not net weight: under the agreed weight clause the shipping activity determines the weight of each shipment [@CL-SUP-2212], while the general freight net weight clause is inserted when the weight is not known at the time of shipment and the contractor is responsible for determining the net weight [@CL-SUP-2215], and it has the net weight determined by deducting the tare weight of the vehicle from the gross weight of the vehicle [@CL-SUP-2216].
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Confirm how the company sizes capacity when estimated volume is not guaranteed a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the net weight clause as its prescription and its calculation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for freight excluded, estimated quantities and agreed weight.

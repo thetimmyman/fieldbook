@@ -35,7 +35,7 @@ The consent and advance notification requirements of the subpart on consent to s
 
 ## How it works
 
-A contractor purchasing system review is the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502]. A subcontract is any contract entered into by a subcontractor to furnish supplies or services for performance of a prime contract or a subcontract, and it includes purchase orders and changes and modifications to purchase orders [@CL-SUP-0651]. A contractor can be the total contractor organization or a separate entity of it, such as an affiliate, division, or plant, that performs its own purchasing [@CL-SUP-0652]. The defense supplement defines the purchasing system and an acceptable purchasing system in the terms the clause uses, so those definitions are covered on the [Contractor purchasing system](sup-contractor-purchasing-system.md) card [@CL-SUP-0503; @CL-SUP-0504].
+A contractor purchasing system review is the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502]. A subcontract is any contract, as defined in subpart 2.1 of the FAR, entered into by a subcontractor to furnish supplies or services for performance of a prime contract or a subcontract, and it includes but is not limited to purchase orders, and changes and modifications to purchase orders [@CL-SUP-0651]. A contractor can be the total contractor organization or a separate entity of it, such as an affiliate, division, or plant, that performs its own purchasing [@CL-SUP-0652]. The defense supplement defines the purchasing system and an acceptable purchasing system in the terms the clause uses, so those definitions are covered on the [Contractor purchasing system](sup-contractor-purchasing-system.md) card [@CL-SUP-0503; @CL-SUP-0504].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Confirm whether the company's purchasing system has been reviewed and when a sub
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the not-limited-to wording in the subcontract definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for purchasing system and subcontract consent scope and definitions.

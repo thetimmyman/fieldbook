@@ -38,7 +38,7 @@ The inspection provision is inserted in solicitations for transportation or tran
 
 Paragraph (b) of the relocation clause covers an intrastate move that the contractor is to perform as a carrier wholly within the borders of one State or the District of Columbia [@CL-SUP-2243]. When that State or the District of Columbia requires it, the contractor must have obtained and hold appropriate and current operating authority from that jurisdiction in the form of a certificate, permit or equivalent license to operate [@CL-SUP-2194]. If the State or the District of Columbia requires no authority to operate, the contractor as carrier must maintain facilities, equipment and a business address within the jurisdiction in which the move is to take place [@CL-SUP-2195].
 
-A Commercial Zone alternative applies if the move is to originate or terminate, or both, within an area of one State or the District of Columbia that is part of a recognized Commercial Zone (the clause cites Subpart B of 49 CFR part 372) whose boundaries encompass portions of more than one State or the District of Columbia [@CL-SUP-2244]. In that case it is sufficient for the contractor as carrier to maintain facilities, equipment and a business address within the Commercial Zone and to hold appropriate operating authority, if required, from the jurisdiction within which it maintains them [@CL-SUP-2196].
+The facilities rule is qualified by a Commercial Zone provision that opens with However and applies if the move is to originate or terminate, or both, within an area of one State or the District of Columbia that is part of a recognized Commercial Zone (the clause cites Subpart B of 49 CFR part 372) whose boundaries encompass portions of more than one State or the District of Columbia [@CL-SUP-9715; @CL-SUP-2244]. In that case it is sufficient for the contractor as carrier to maintain facilities, equipment and a business address within the Commercial Zone and to hold appropriate operating authority, if required, from the jurisdiction within which it maintains them [@CL-SUP-2196].
 
 If the move will not be performed by the contractor as carrier, it must be performed for the contractor by a carrier operating under a subcontract with the contractor [@CL-SUP-2197]. In the subcontracted case, the contractor is not subject to the requirements of paragraphs (a) and (b) but is responsible for requiring and ensuring that the subcontractor carrier complies with those requirements in every respect [@CL-SUP-2198].
 
@@ -78,6 +78,7 @@ Confirm which authority and permit documents the company holds for each transpor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the Commercial Zone provision to the facilities rule it qualifies and cited its However lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on familiarization with conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for permits, authorities and site inspection.

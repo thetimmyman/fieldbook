@@ -52,7 +52,7 @@ Had the Contractor delivered 10,220 units, the 20 units above the allowance woul
 
 ## Never confuse
 
-The permitted percentage variation is not the same as an excess quantity. A variation is accepted only if loading, shipping, packing or manufacturing allowances caused it, and only to the extent of the percentages [@CL-SUP-2578; @CL-SUP-2579]. A quantity above the contract quantity after considering any allowable variation is an excess, which the Government may keep without payment up to 250 dollars in value or, above that value, return at the Contractor's expense or keep and pay for at the unit price [@CL-SUP-2582; @CL-SUP-2583; @CL-SUP-2584].
+The permitted percentage variation is not the same as an excess quantity. A variation is accepted only if loading, shipping, packing or manufacturing allowances caused it, and then only to the extent, if any, that paragraph (b) specifies, which is a percent increase and a percent decrease [@CL-SUP-2578; @CL-SUP-2579]. A quantity above the contract quantity after considering any allowable variation is an excess, which the Government may keep without payment up to 250 dollars in value or, above that value, return at the Contractor's expense or keep and pay for at the unit price [@CL-SUP-2582; @CL-SUP-2583; @CL-SUP-2584].
 
 ## Company calibration
 
@@ -62,5 +62,6 @@ Confirm how received quantities are reconciled against the contract quantity and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Kept "if any" in the extent of an accepted variation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variation in quantity and delivery of excess quantities.

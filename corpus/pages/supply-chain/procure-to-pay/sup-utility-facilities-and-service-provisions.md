@@ -46,7 +46,7 @@ Unless the contract specifies otherwise, the contractor must, at its expense, re
 
 ### Metering and billing
 
-All service is measured by suitable metering equipment of standard manufacture, which the contractor furnishes, installs, maintains, repairs, calibrates and reads at its expense [@CL-SUP-2674]. When more than a single meter is installed at a service location, the readings may be billed conjunctively, if appropriate [@CL-SUP-2725]. If a meter fails to register or registers incorrectly, the parties must agree on the length of time of the malfunction and the quantity of service delivered during that time [@CL-SUP-2726], and an appropriate adjustment must be made to the next invoice [@CL-SUP-2727]. A meter that registers not more than the percentage the contract inserts slow or fast is deemed correct [@CL-SUP-2728].
+All service is measured by suitable metering equipment of standard manufacture, which the contractor furnishes, installs, maintains, repairs, calibrates and reads at its expense [@CL-SUP-2674]. When more than a single meter is installed at a service location, the readings may be billed conjunctively, if appropriate [@CL-SUP-2725]. If a meter fails to register or registers incorrectly, the parties must agree on the length of time of the malfunction and the quantity of service delivered during that time [@CL-SUP-2726], and an appropriate adjustment must be made to the next invoice [@CL-SUP-2727]. However, any meter that registers not more than the percentage the contract inserts slow or fast is deemed correct [@CL-SUP-2728].
 
 The contractor reads all meters at periodic intervals of approximately 30 days, or in accordance with the policy of the cognizant regulatory body or applicable bylaws [@CL-SUP-2675]. All billings based on meter readings of fewer than the number of days the contract inserts are prorated accordingly [@CL-SUP-2729].
 
@@ -54,7 +54,7 @@ The contractor reads all meters at periodic intervals of approximately 30 days, 
 
 The contractor must, at its expense, periodically inspect and test the meters it installed at intervals not exceeding the number of years the contract inserts [@CL-SUP-2730]. The Government has the right to have representation during the inspection and test [@CL-SUP-2731]. At the written request of the Contracting Officer, the contractor must make additional tests of any or all of those meters in the presence of Government representatives [@CL-SUP-2732]. The Government bears the cost of those additional tests if the percentage of errors found is not more than the percentage the contract inserts, slow or fast [@CL-SUP-2733]. No meter may be placed in service or allowed to remain in service that has an error in registration in excess of the percentage the contract inserts under normal operating conditions [@CL-SUP-2734].
 
-Each percentage, number of days, number of years and number of hours in these two clauses is a blank that the contract fills in [@CL-SUP-2728; @CL-SUP-2729; @CL-SUP-2730; @CL-SUP-2733; @CL-SUP-2734; @CL-SUP-2737].
+The percentages, the number of days, the number of years and the number of hours that the contract inserts, as described above, are blanks in the printed clauses [@CL-SUP-2728; @CL-SUP-2729; @CL-SUP-2730; @CL-SUP-2733; @CL-SUP-2734; @CL-SUP-2737].
 
 ### Change in volume or character
 
@@ -78,7 +78,7 @@ A site has one meter that the contractor installed and reads about every 30 days
 
 ## Never confuse
 
-Ownership of the facilities is not ownership of the service: title to the facilities stays with the contractor, and the contractor measures the service at the delivery point [@CL-SUP-2672; @CL-SUP-2673]. A service interruption is not by itself a breach, because the contractor is not liable for damages where a cause beyond its control occasions it, yet it is not free of billing consequences once the inserted number of hours is passed [@CL-SUP-2677; @CL-SUP-2737].
+Ownership of the facilities is not ownership of the service: title to the facilities stays with the contractor, and the contractor measures the service at the delivery point [@CL-SUP-2672; @CL-SUP-2673]. The contractor is not liable for damages, breach of contract or otherwise where a cause beyond its control occasions a service failure, suspension, diminution or other variation, yet the monthly billing is subject to an equitable adjustment once the inserted number of hours is passed [@CL-SUP-2677; @CL-SUP-2737].
 
 The clauses on utility service scope, duration and change in class of service are covered in [Utility service scope, duration and change in class of service](sup-utility-scope-duration-and-class-change.md).
 
@@ -90,6 +90,7 @@ Confirm which meters serve each site, who reads and tests them, and where meter 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the meter tolerance to its However lead-in; limited the blanks and interruption statements to what the clauses say.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the meter error adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility service scope and duration.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

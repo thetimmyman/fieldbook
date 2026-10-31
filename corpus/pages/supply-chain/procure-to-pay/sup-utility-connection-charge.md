@@ -40,7 +40,7 @@ The new facilities remain the contractor's property notwithstanding the Governme
 
 The contractor allows the Government, on each monthly bill for service furnished to the service location, a credit of the percentage the contract inserts of each bill as rendered, until the credits accumulated equal the connection charge [@CL-SUP-2693]. The contractor may at any time allow a credit up to 100 percent of each bill [@CL-SUP-2694].
 
-The next two duties arise where the contractor serves a customer other than the Government before any termination of the contract but after completion of the facilities [@CL-SUP-2750]. The contractor must then promptly notify the Government in writing, whether the Government is being served simultaneously, intermittently or not at all [@CL-SUP-2695]. Unless the parties otherwise agree in writing at that time, the contractor must promptly accelerate the credits, up to 100 percent of each monthly bill [@CL-SUP-2751]. The acceleration continues until the contractor has refunded the amount that reflects the Government's connection costs for the portion of the facilities used in serving others [@CL-SUP-2752].
+The next two duties arise where the contractor, before any termination of the contract but after completion of the facilities, serves a customer other than the Government by means of those facilities [@CL-SUP-2750; @CL-SUP-2695]. The contractor must then promptly notify the Government in writing, whether the Government is being served simultaneously, intermittently or not at all [@CL-SUP-2695]. Unless the parties otherwise agree in writing at that time, the contractor must promptly accelerate the credits, up to 100 percent of each monthly bill [@CL-SUP-2751]. The acceleration continues until the contractor has refunded the amount that reflects the Government's connection costs for the portion of the facilities used in serving others [@CL-SUP-2752].
 
 If the contractor terminates the contract or defaults in performance before a connection charge paid by the Government is fully credited, the contractor pays the Government an amount equal to the uncredited balance as of the date of the termination or default [@CL-SUP-2696].
 
@@ -86,5 +86,6 @@ Confirm whether a new site carries a connection charge, how the credit percentag
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added "by means of those facilities" to the other-customer trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the utility connection charge.

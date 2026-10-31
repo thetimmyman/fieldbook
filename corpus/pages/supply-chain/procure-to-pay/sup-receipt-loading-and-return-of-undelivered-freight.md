@@ -56,7 +56,7 @@ At the destination the consignee refuses delivery through no fault of the contra
 
 Tailgate delivery is defined by equipment: a forklift truck or similar equipment, with an operator only, can place or remove cargo from the tailgate [@CL-SUP-2230]. The contractor loads and unloads at no additional expense unless the contract specifies store-door or inside delivery [@CL-SUP-2229]. The clause text does not define store-door or inside delivery.
 
-A return that is not the contractor's fault carries the same charges as the outbound trip, while a return caused by the contractor's fault carries no charge to the Government [@CL-SUP-2233; @CL-SUP-2234].
+A return that is not the contractor's fault carries the same charges as the outbound trip, while a return caused by the contractor's fault carries no charge to the Government [@CL-SUP-2232; @CL-SUP-2233; @CL-SUP-2234].
 
 The codified text prints the receipt clause at FAR 52.247-14 [@CL-SUP-2228] and the returning undelivered freight clause at FAR 52.247-16 [@CL-SUP-2232], but the RFO text prints both numbers as reserved [@CL-SUP-0483; @CL-SUP-0484].
 
@@ -68,5 +68,6 @@ Confirm that the company documents written exceptions at receipt and knows which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the no-fault lead-in for the same-charges return.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for receipt of shipment, loading and unloading, and return of undelivered freight.

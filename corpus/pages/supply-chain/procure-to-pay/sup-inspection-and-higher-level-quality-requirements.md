@@ -33,7 +33,7 @@ Contractor Inspection Requirements: the contractor is responsible for performing
 
 Inspection of Research and Development (Short Form): the Government has the right to inspect and evaluate the work performed or being performed under the contract, and the premises where the work is being performed, at all reasonable times and in a manner that will not unduly delay the work [@CL-SUP-3107]. If the Government inspects or evaluates on the premises of the contractor or a subcontractor, the contractor furnishes, and requires subcontractors to furnish, all reasonable facilities and assistance for the safe and convenient performance of these duties [@CL-SUP-3108].
 
-Higher-Level Contract Quality Requirement: the contractor complies with the higher-level quality standard or standards listed in the clause [@CL-SUP-3109]. The contracting officer inserts the title, number, date and tailoring, if any, of those standards, so the listed standards are contract-specific [@CL-SUP-3190]. The contractor includes the applicable requirements of the listed standards, and the requirement to flow down such standards as applicable, in lower-tier subcontracts of the two kinds described next [@CL-SUP-3110]. The first kind is any subcontract for critical and complex items, a term for which the clause cross-refers to FAR 46.203(b) and (c) [@CL-SUP-3111]. The second kind is a subcontract whose technical requirements require control of such things as design, work operations, in-process control, testing and inspection, or attention to such factors as organization, planning, work instructions, documentation control and advanced metrology [@CL-SUP-3112].
+Higher-Level Contract Quality Requirement: the contractor complies with the higher-level quality standard or standards listed in the clause [@CL-SUP-3109]. The contracting officer inserts the title, number, date and tailoring, if any, of those standards, so the listed standards are contract-specific [@CL-SUP-3190]. The contractor includes the applicable requirements of the listed standards, and the requirement to flow down such standards as applicable, in lower-tier subcontracts of either of the two alternative kinds described next [@CL-SUP-3110]. The first kind is any subcontract for critical and complex items, a term for which the clause cross-refers to FAR 46.203(b) and (c) [@CL-SUP-3111]. The second kind is a subcontract whose technical requirements require control of such things as design, work operations, in-process control, testing and inspection, or attention to such factors as organization, planning, work instructions, documentation control and advanced metrology [@CL-SUP-3112].
 
 ## How it works
 
@@ -63,6 +63,7 @@ Which quality standard is written into each contract and purchase order, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the two subcontract kinds as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection duties and higher-level quality requirements.

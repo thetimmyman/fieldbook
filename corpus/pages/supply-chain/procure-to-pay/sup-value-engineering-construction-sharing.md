@@ -63,11 +63,12 @@ The percentage in the clause is the Government's share of savings, not the contr
 
 ## Company calibration
 
-Who computes the instant and collateral savings figures, how the company works out the contractor's share of instant contract savings, because the sharing paragraph states only the Government's percentage, who approves subcontract incentive arrangements, and where the accepted modifications are held. [@Q-004]
+Who computes the instant and collateral savings figures, how the company works out the contractor's share of instant contract savings, because the sharing paragraph states the Government's percentage of savings, who approves subcontract incentive arrangements, and where the accepted modifications are held. [@Q-004]
 
 ## Sources
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated "only" in the calibration prompt.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sharing instant and collateral savings on construction value engineering.
