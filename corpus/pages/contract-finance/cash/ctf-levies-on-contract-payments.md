@@ -31,7 +31,7 @@ Explains contractor notification duties and DoD evaluation standards when contin
 
 The Levies on Contract Payments clause is the clause to be used as prescribed in DFARS 232.7102 [@CL-CTF-0776]. The clause states that section 6331(h) of title 26 of the United States Code authorizes the Internal Revenue Service to continuously levy up to 100 percent of contract payments, up to the amount of tax debt [@CL-CTF-0777].
 
-When a levy is imposed on a payment and the contractor believes that it may result in an inability to perform, the contractor shall promptly notify the Procuring Contracting Officer in writing, with a copy to the Administrative Contracting Officer [@CL-CTF-0778]. The notice must provide the total dollar amount of the levy, a statement that the contractor believes the levy may result in an inability to perform with rationale and adequate supporting documentation, and advice as to whether the inability to perform may adversely affect national security [@CL-CTF-0868].
+When a levy is imposed on a payment and the contractor believes that it may result in an inability to perform, the contractor shall promptly notify the Procuring Contracting Officer in writing, with a copy to the Administrative Contracting Officer, and shall provide the items the clause lists [@CL-CTF-0778; @CL-CTF-9570]. The notice must provide the total dollar amount of the levy, a statement that the contractor believes the levy may result in an inability to perform with rationale and adequate supporting documentation, and advice as to whether the inability to perform may adversely affect national security, including rationale and adequate supporting documentation [@CL-CTF-0868; @CL-CTF-9571].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Confirm procedures for handling tax levies and identifying potential operational
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the notice lead-in and the supporting documentation for the national security advice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for levies on contract payments.

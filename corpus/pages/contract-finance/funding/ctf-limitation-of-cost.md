@@ -26,9 +26,9 @@ Shows when a contractor must warn the contracting officer that costs are approac
 | RFO citation | RFO FAR 52.232-20(b)(1) [@CL-CTF-0003] |
 | Edition date | 1984-04 [@CL-CTF-0003] |
 | Text status | Final [@CL-CTF-0003] |
-| Applies to | Fully funded cost-reimbursement contracts with the clause [@CL-CTF-0003] |
+| Applies to | Fully funded cost-reimbursement contracts with the clause [@CL-FPA-0091] |
 
-The contractor must notify the contracting officer when costs expected in the next 60 days, added to costs incurred, will exceed 75 percent of the estimated cost [@CL-CTF-2919; @CL-CTF-0003]. The contractor must also notify the contracting officer when it expects the total cost to be greater, or substantially less, than previously estimated [@CL-CTF-0003]. The prescription lets a contract change both figures, so read the clause in the contract [@CL-CTF-0003].
+The contractor must notify the contracting officer in writing whenever it has reason to believe that the costs it expects to incur in the next 60 days, when added to all costs previously incurred, will exceed 75 percent of the estimated cost specified in the Schedule [@CL-CTF-2968; @CL-CTF-2919; @CL-CTF-0003]. The contractor must also notify the contracting officer in writing whenever it has reason to believe that the total cost of performance, exclusive of any fee, will be either greater or substantially less than had been previously estimated [@CL-CTF-2968; @CL-CTF-2920]. The codified prescription lets the 60-day period be varied from 30 to 90 days and the 75 percent from 75 to 85 percent, so read the clause in the contract [@CL-CTF-2917].
 
 ## How it works
 
@@ -52,5 +52,6 @@ Which contracts carry the limitation of cost or limitation of funds clause, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the notice triggers with their lead-in and cited the right claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the next 60 days.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Limitation of Cost notice.

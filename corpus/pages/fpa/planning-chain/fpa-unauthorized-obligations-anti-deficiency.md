@@ -35,7 +35,7 @@ The FAR explains why: many license and terms-of-service agreements contain indem
 
 ## How it works
 
-Where the scope condition is met, a Government indemnity of the kind described is unenforceable against the Government, and the Government is not deemed to have agreed to it merely because it appears in the agreement [@CL-FPA-0104; @CL-FPA-0097; @CL-FPA-0098]. The one exception is indemnification expressly authorized by statute and specifically authorized under applicable agency regulations and procedures [@CL-FPA-0099]. The FAR gives as the reason that such clauses are inconsistent with Federal law and could create an Anti-Deficiency Act violation if agreed to by the Government [@CL-FPA-0095]. The general funding rule is on [Funded versus unfunded contract value: the policy](../backlog/fpa-funded-versus-unfunded-policy.md).
+Where the scope condition is met, a Government indemnity of the kind described is unenforceable against the Government, and the Government is not deemed to have agreed to it merely because it appears in the agreement [@CL-FPA-0104; @CL-FPA-0097; @CL-FPA-0098]. The exception in paragraph (b) is indemnification expressly authorized by statute and specifically authorized under applicable agency regulations and procedures [@CL-FPA-0099]. The FAR gives as the reason that such clauses are inconsistent with Federal law and could create an Anti-Deficiency Act violation if agreed to by the Government [@CL-FPA-0095]. The general funding rule is on [Funded versus unfunded contract value: the policy](../backlog/fpa-funded-versus-unfunded-policy.md).
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.705 keeps the statement that many of the agreements it describes contain indemnification clauses that are inconsistent with Federal law and unenforceable, but which could create a violation of the Anti-Deficiency Act if agreed to by the Government, and adds "et seq." to its citation of section 1341 of title 31, which the codified text cites alone [@CL-FPA-0288; @CL-FPA-0095]. It says computer software and services delivered through the internet (web services) are often subject to license agreements, referred to as End User License Agreements (EULA), Terms of Service (TOS), or other similar legal instruments or agreements [@CL-FPA-0289]. RFO FAR 32.706-3 keeps the rule that the clause at 52.232-39, Unenforceability of Unauthorized Obligations, is inserted in all solicitations and contracts, and states it as an imperative where the codified text says the contracting officer shall insert it [@CL-FPA-0290; @CL-FPA-0096].
 
@@ -59,6 +59,7 @@ Which supplier license agreements or terms of service sit under company-delivere
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'one exception' wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text of the Unenforceability of Unauthorized Obligations clause at FAR 52.232-39.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unauthorized obligations and Anti-Deficiency Act risk.

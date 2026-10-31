@@ -29,9 +29,9 @@ Explains when DoD contracting officers must perform financial reviews of contrac
 | Text status | Final [@CL-CTF-0750] |
 | Applies to | Contractors when the contracting officer lacks sufficient information for a positive determination of financial responsibility [@CL-CTF-0750] |
 
-The contracting officer shall perform a financial review when the contracting officer does not otherwise have sufficient information to make a positive determination of financial responsibility [@CL-CTF-0750]. In addition, the contracting officer shall consider performing a financial review prior to award when the contractor is on a list requiring preaward clearance or other special clearance before award [@CL-CTF-0751].
+The contracting officer shall perform a financial review when the contracting officer does not otherwise have sufficient information to make a positive determination of financial responsibility [@CL-CTF-0750]. In addition, the contracting officer shall consider performing a financial review prior to award when any one of the listed conditions applies, the first being that the contractor is on a list requiring preaward clearance or other special clearance before award [@CL-CTF-0751].
 
-The other preaward conditions are that the contractor is listed on the Hold-Up List or is otherwise known to be indebted to the Government [@CL-CTF-0877], and that the contractor may receive Government assets such as contract financing payments or Government property, is experiencing performance difficulties on other work, or is a new company or a new supplier of the item [@CL-CTF-0753]. At periodic intervals after award, a review is to be considered when the indebtedness, Government assets, performance difficulty or new supplier conditions apply, or when there is any other reason to question the contractor's ability to finance performance and completion of the contract [@CL-CTF-0752; @CL-CTF-0751].
+The other preaward conditions are that the contractor is listed on the Hold-Up List or is otherwise known to be indebted to the Government [@CL-CTF-0877]; that the contractor may receive Government assets such as contract financing payments or Government property; that it is experiencing performance difficulties on other work; or that it is a new company or a new supplier of the item [@CL-CTF-0753]. At periodic intervals after award, a review is to be considered when the indebtedness, Government assets, performance difficulty or new supplier conditions apply, or when there is any other reason to question the contractor's ability to finance performance and completion of the contract [@CL-CTF-0752; @CL-CTF-0751].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Confirm whether preaward or post-award financial reviews have been initiated by 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that any one listed preaward condition suffices.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD required financial reviews of contractors.

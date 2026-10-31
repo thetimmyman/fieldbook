@@ -29,7 +29,7 @@ Sets out who identifies and demands payment of a contract debt, who collects it,
 | Text status | Final [@CL-CTF-3567] |
 | Applies to | Amounts a contractor owes the Government under a contract [@CL-CTF-3571] |
 
-The contracting officer has primary responsibility for identifying and demanding payment of contract debts, except those resulting from errors made by the payment office [@CL-CTF-3567]. The contracting officer shall not collect contract debts or otherwise agree to liquidate them, for example by offsetting a debt against unpaid bills due the contractor or by allowing the contractor to retain a debt to cover amounts that may become payable in future periods [@CL-CTF-3568]. The payment office has primary responsibility for collecting the contract debts that contracting officers identify [@CL-CTF-3569]. It also has primary responsibility for identifying and collecting duplicate and erroneous payments and for authorizing the liquidation of contract debts in accordance with agency procedures [@CL-CTF-3570].
+The contracting officer has primary responsibility for identifying and demanding payment of contract debts, except those resulting from errors made by the payment office [@CL-CTF-3567]. The contracting officer shall not collect contract debts or otherwise agree to liquidate them, for example by offsetting a debt against unpaid bills due the contractor or by allowing the contractor to retain a debt to cover amounts that may become payable in future periods [@CL-CTF-3568]. The payment office has primary responsibility for collecting the contract debts that contracting officers identify [@CL-CTF-3569]. It also has primary responsibility for identifying and collecting duplicate and erroneous payments and for authorizing the liquidation of contract debts in accordance with agency procedures [@CL-CTF-3569; @CL-CTF-3570].
 
 If the contracting officer has any indication that a contractor owes money to the Government under a contract, the contracting officer shall determine promptly whether an actual debt is due and its amount [@CL-CTF-3571]. The amount of indebtedness the contracting officer determines shall be based on the merits of the case and consistent with the contract terms [@CL-CTF-3573].
 
@@ -59,6 +59,7 @@ Who owns the response when a payment office identifies a duplicate or erroneous 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the payment office duties to their lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (c) of FAR 32.604 that the quoted rule refers to.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Corrected the delay sentence to say the funds are lost to the program for which they were provided.

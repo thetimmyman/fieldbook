@@ -44,7 +44,7 @@ Revenue rose from 200 million to 230 million. The discussion says 10 million cam
 
 ## Never confuse
 
-The results discussion explains why the numbers moved, and it must not merely repeat the numbers in the financial statements [@CL-FPA-0034]. The attribution to prices, volume and new products concerns changes in net sales or revenue, not profit [@CL-FPA-0032; @CL-FPA-0033]. For the liquidity side of the same discussion, see [MD&A objective and liquidity](../planning-chain/fpa-mdna-objective-and-liquidity.md).
+The results discussion explains why the numbers moved, and it must not merely repeat the numbers in the financial statements [@CL-FPA-0034]. The attribution to prices, volume and new products concerns changes in net sales or revenue [@CL-FPA-0032; @CL-FPA-0033]. For the liquidity side of the same discussion, see [MD&A objective and liquidity](../planning-chain/fpa-mdna-objective-and-liquidity.md).
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ Which reporting measures management uses to explain revenue and margin changes, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an added 'not profit' contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for MD&A results of operations.
