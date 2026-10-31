@@ -37,7 +37,7 @@ The Contractor shall include the substance of this clause in all subcontracts th
 
 ## How it works
 
-The DoD poster goes in common work areas of the business segments that perform DoD work, and the poster in effect at contract award is the one to display [@CL-CMP-4078]. Two situations change the picture. Work performed outside the United States can move to another way of publicizing the program, if the contracting officer allows it [@CL-CMP-4079], and DHS disaster relief funding adds the DHS poster for work in the United States [@CL-CMP-4080]. A significantly non-English-speaking workforce brings the foreign-language display, and a company Web site brings an electronic version [@CL-CMP-4120; @CL-CMP-4121]. The duty is passed down to subcontracts above the threshold the clause names, other than commercial ones [@CL-CMP-4081; @CL-CMP-4082].
+The DoD poster goes in common work areas of the business segments that perform DoD work, and the poster in effect at contract award is the one to display [@CL-CMP-4078]. Two situations change the picture. For contracts performed outside the United States, when security concerns can be appropriately demonstrated, the contracting officer may provide the option to publicize the program in a manner other than public display of the poster [@CL-CMP-4079], and DHS disaster relief funding adds the DHS poster for work in the United States [@CL-CMP-4080]. A significantly non-English-speaking workforce brings the foreign-language display, and a company Web site brings an electronic version [@CL-CMP-4120; @CL-CMP-4121]. The duty is passed down to subcontracts above the threshold the clause names, other than commercial ones [@CL-CMP-4081; @CL-CMP-4082].
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Which contracts carry the DFARS poster clause, and which sites and subcontracts 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the security-concerns condition for publicizing the program another way.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for display of hotline posters.

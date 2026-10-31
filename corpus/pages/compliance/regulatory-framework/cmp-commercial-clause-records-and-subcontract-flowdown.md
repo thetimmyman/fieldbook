@@ -63,7 +63,7 @@ The Contractor places a commercial subcontract with a large business that offers
 
 ## Never confuse
 
-The examination right in paragraph (d) is not the audit and records negotiation clause, because a contract that contains the clause at 52.215-2 does not meet the paragraph's conditions [@CL-CMP-9052]. Retention is not a single fixed period, since the baseline is 3 years after final payment, a termination and litigation each add their own measures, and a shorter period can apply [@CL-CMP-9054; @CL-CMP-9055; @CL-CMP-9210]. The flowdown cap in paragraph (e)(1) is not a requirement to flow down every listed clause, because the extent is set by the clause unless the list says otherwise [@CL-CMP-9057; @CL-CMP-9216]. A record under paragraph (d) is not limited to paper, because the definition reaches data of any type and form, and it is not an obligation to create new records [@CL-CMP-9056; @CL-CMP-9211]. The codified condition that the contract not contain the clause at 52.215-2 is not printed in RFO FAR 52.212-4(t), whose sentence names only the sealed bid and simplified acquisition threshold conditions [@CL-CMP-9052; @CL-CMP-0633]. The codified reference to FAR Subpart 4.7 is not the RFO reference, which is to FAR part 4 and to a longer period required by statute [@CL-CMP-9054; @CL-CMP-0635].
+The examination right in paragraph (d) is not the audit and records negotiation clause, because a contract that contains the clause at 52.215-2 does not meet the paragraph's conditions [@CL-CMP-9052]. Retention is not a single fixed period, since the baseline is 3 years after final payment, a termination and litigation each add their own measures, and a shorter period can apply [@CL-CMP-9054; @CL-CMP-9055; @CL-CMP-9210]. The flowdown cap in paragraph (e)(1) says the Contractor is not required to flow down any FAR clause other than those it lists, and unless the list indicates otherwise, the extent of the flowdown is as the clause requires [@CL-CMP-9057; @CL-CMP-9216]. A record under paragraph (d) is not limited to paper, because the definition reaches data of any type and form, and it is not an obligation to create new records [@CL-CMP-9056; @CL-CMP-9211]. The codified condition that the contract not contain the clause at 52.215-2 is not printed in RFO FAR 52.212-4(t), whose sentence names only the sealed bid and simplified acquisition threshold conditions [@CL-CMP-9052; @CL-CMP-0633]. The codified reference to FAR Subpart 4.7 is not the RFO reference, which is to FAR part 4 and to a longer period required by statute [@CL-CMP-9054; @CL-CMP-0635].
 
 ## Company calibration
 
@@ -73,6 +73,7 @@ The company must confirm which of its commercial contracts fall inside paragraph
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Limited the flowdown cap sentence to what the cited paragraph says.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Alternate I sentence so the Alternate I description keeps its revision of the reference in the redesignated paragraph (d).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the record examination and subcontract flowdown paragraphs of the commercial statutes and Executive orders clause.
