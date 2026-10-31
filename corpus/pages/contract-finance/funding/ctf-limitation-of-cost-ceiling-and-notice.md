@@ -35,7 +35,7 @@ The Contractor must notify the Contracting Officer in writing whenever it has re
 
 As part of the notification, the Contractor must give the Contracting Officer a revised estimate of the total cost of performing the contract [@CL-CTF-2921].
 
-The prescription lets the notice period be varied from 30 to 90 days and the percentage from 75 to 85 percent, so the figures in the contract may differ from 60 days and 75 percent [@CL-CTF-2917]. It also lets "Task Order" or another appropriate designation replace "Schedule" wherever that word appears in the clause [@CL-CTF-2966].
+The codified prescription lets the notice period be varied from 30 to 90 days and the percentage from 75 to 85 percent, so the figures in the contract may differ from 60 days and 75 percent [@CL-CTF-2917]. The codified prescription also lets "Task Order" or another appropriate designation replace "Schedule" wherever that word appears in the clause [@CL-CTF-2966].
 
 ## How it works
 
@@ -71,5 +71,6 @@ Which live contracts carry the Limitation of Cost clause, who watches the estima
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected two sentences to say the notice period, percentage and "Schedule" substitutions come from the codified prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the limitation of cost estimated cost ceiling and the notice duty.

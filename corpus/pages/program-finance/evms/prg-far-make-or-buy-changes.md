@@ -24,7 +24,7 @@ Shows when the contractor must notify the contracting officer of a change or add
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0935] |
 | Codified citation | FAR 52.215-9 [@CL-PRG-0935] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.215-9 [@CL-PRG-0017; @CL-PRG-0018; @CL-PRG-0019; @CL-PRG-0020], with Alternate I [@CL-PRG-0021; @CL-PRG-0022; @CL-PRG-0023] and Alternate II [@CL-PRG-0024; @CL-PRG-0025; @CL-PRG-0026] |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0935] |
 | Applies to | Contracts that include the clause [@CL-PRG-0935] |
@@ -39,6 +39,8 @@ Alternate II also adds a paragraph (d) for items designated in the contract as s
 
 A proposed change needs advance written notice with justification [@CL-PRG-0936], and a deferred item needs notice at the earliest possible time [@CL-PRG-0937]. A change takes effect when the Contractor receives the Contracting Officer's written approval [@CL-PRG-0971]. The basic clause has no price adjustment; a price adjustment follows approval under the paragraph that Alternate I or Alternate II adds, for items designated as subject to it [@CL-PRG-0938; @CL-PRG-0939; @CL-PRG-0973; @CL-PRG-0974]. This card does not restate the support-data items printed under Alternate II.
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the basic clause keeps the duty, if the Contractor proposes to change the program, to notify the Contracting Officer in writing reasonably in advance and submit justification in sufficient detail to permit evaluation [@CL-PRG-0017; @CL-PRG-0936], and keeps the rule that changes in the place of performance of any make items are subject to that requirement [@CL-PRG-0018; @CL-PRG-0970]. It keeps the notice and justification duty for deferred items at the earliest possible time [@CL-PRG-0019; @CL-PRG-0937] and the rule that a modification takes effect on the Contractor's receipt of the Contracting Officer's written approval [@CL-PRG-0020; @CL-PRG-0971]. For Alternate I, the RFO text keeps the paragraph (d) trigger for items designated in the contract as subject to it [@CL-PRG-0021; @CL-PRG-0938] and the price reduction after approval as paragraph (d)(2) [@CL-PRG-0023; @CL-PRG-0939]. Its support-data item cites FAR 15.408-2, Table 15-1 and FAR 15.403-3, where the codified item cites FAR 15.408, Table 15-2 and FAR 15.403 [@CL-PRG-0022; @CL-PRG-0972]. For Alternate II, the RFO text keeps the same paragraph (d) trigger [@CL-PRG-0024; @CL-PRG-0973] and prints two support items, the second on cost or pricing data to permit evaluation [@CL-PRG-0025]. It prints the equitable reduction under the Incentive Fee clause as paragraph (d)(3) [@CL-PRG-0026; @CL-PRG-0974].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,7 +49,7 @@ A contract designates an item as subject to the Alternate I paragraph. The contr
 
 ## Never confuse
 
-The program itself, who must have one and what it contains, is on [Make-or-buy programs: when they are required and what they contain](../../supply-chain/sourcing-evidence/sup-make-or-buy-programs.md) and is not restated here. Giving notice is also not an approval: a change takes effect when the Contractor receives the Contracting Officer's written approval [@CL-PRG-0971]. The price reduction is not a general rule for every change, because the printed text ties it to the paragraph that an alternate adds [@CL-PRG-0938; @CL-PRG-0973].
+The program itself, who must have one and what it contains, is on [Make-or-buy programs: when they are required and what they contain](../../supply-chain/sourcing-evidence/sup-make-or-buy-programs.md) and is not restated here. Giving notice is also not an approval: a change takes effect when the Contractor receives the Contracting Officer's written approval [@CL-PRG-0971]. The price reduction is not a general rule for every change, because the printed text ties it to the paragraph that an alternate adds [@CL-PRG-0938; @CL-PRG-0973]. The Alternate II price reduction is paragraph (d)(2) in the codified text [@CL-PRG-0974] but paragraph (d)(3) in the RFO text [@CL-PRG-0026].
 
 ## Company calibration
 
@@ -57,4 +59,5 @@ Who decides and approves a change to the make-or-buy program, and whether any co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changes or additions to the make-or-buy program.

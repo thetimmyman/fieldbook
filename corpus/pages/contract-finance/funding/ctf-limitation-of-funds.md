@@ -41,7 +41,7 @@ In the clause as printed, sixty days before the end of the period in the Schedul
 
 If, after notification, funds are not allotted by the end of the scheduled period or another agreed-upon date, then upon the contractor's written request the contracting officer will terminate the contract on that date [@CL-CTF-0120]. If the contractor estimates that its funds last longer, it may specify a later date in its request, and the contracting officer may terminate on that later date [@CL-CTF-0483].
 
-The prescription permits the 60-day period to be varied from 30 to 90 days and the 75 percent figure from 75 to 85 percent [@CL-CTF-0121].
+The codified prescription permits the 60-day period to be varied from 30 to 90 days and the 75 percent figure from 75 to 85 percent [@CL-CTF-0121].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the parties' estimate in paragraph (a) [@CL-CTF-1172; @CL-CTF-0115]. In paragraph (b) it says the Government will allot additional funds incrementally up to the fully estimated cost to the Government specified in the Schedule, exclusive of any fee, where the codified text says the full estimated cost [@CL-CTF-1173; @CL-CTF-0116], and it keeps the Contractor's agreement to perform up to the point at which the total amount paid and payable approximates but does not exceed the total amount actually allotted [@CL-CTF-1174; @CL-CTF-0117]. It keeps the written notice when the costs expected in the next 60 days, added to costs already incurred, will exceed 75 percent of the allotted amount, or of the allotted amount plus the Contractor's corresponding share in a cost-sharing contract [@CL-CTF-1175; @CL-CTF-1176; @CL-CTF-0118; @CL-CTF-0276]. It keeps the written notice sixty days before the end of the period in the Schedule of the estimated additional funds, if any, and when they will be required [@CL-CTF-1177; @CL-CTF-1178; @CL-CTF-0119; @CL-CTF-0277]. It keeps termination on that date on the Contractor's written request when funds are not allotted by the end of the period or another agreed-upon date, and the option to specify a later date [@CL-CTF-1179; @CL-CTF-1180; @CL-CTF-1181; @CL-CTF-0120; @CL-CTF-0483]. It keeps the Government's non-obligation to reimburse costs above the total amount allotted, except as required by other provisions that specifically cite the clause and are stated to be an exception to it [@CL-CTF-1182; @CL-CTF-0122]. The RFO prescription line prints no sentence that lets the 60-day period or the 75 percent be varied [@CL-CTF-1171; @CL-CTF-0121].
 
@@ -67,5 +67,6 @@ Confirm which contracts are incrementally funded, which notice dates and thresho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to say the 60-day and 75 percent variations come from the codified prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Limitation of Funds clause.
