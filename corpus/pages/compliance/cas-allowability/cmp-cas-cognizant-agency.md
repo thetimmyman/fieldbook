@@ -35,7 +35,7 @@ That agency should take the lead role in administering the requirements and coor
 
 ## How it works
 
-Where there are multiple CAS-covered contracts or more than one agency is involved, agencies should discourage contracting officers from administering CAS individually, contract by contract [@CL-CMP-1767]. The section says coordinated actions give greater assurances that a contractor follows its cost accounting practices consistently under all its CAS-covered contracts [@CL-CMP-1902], and that changes in cost accounting practices or CAS noncompliance issues are resolved, equitably, in a uniform overall manner.
+Where there are multiple CAS-covered contracts or more than one agency is involved, agencies should discourage contracting officers from administering CAS individually, contract by contract [@CL-CMP-1767]. The section says coordinated actions give greater assurances that a contractor follows its cost accounting practices consistently under all its CAS-covered contracts [@CL-CMP-1902], and that changes in cost accounting practices or CAS noncompliance issues are resolved, equitably, in a uniform overall manner [@CL-CMP-7686].
 
 Agencies must prescribe regulations and internal policies and procedures for administering the requirements of CAS-covered contracts, with particular emphasis on inter-agency coordination [@CL-CMP-1768].
 
