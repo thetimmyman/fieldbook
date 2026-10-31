@@ -31,7 +31,7 @@ Shows what a lead system integrator may not have, and what an offeror represents
 
 Unless an exception is granted, no contractor performing lead system integrator functions in the acquisition of a major system by the Department of Defense may have any direct financial interest in the development or construction of any individual system or element of any system of systems [@CL-CMP-4107]. The contract clause says the same for the Contractor, who shall not have such an interest while performing lead system integrator functions in the acquisition of a major system, unless an exception is granted [@CL-CMP-4110].
 
-In its representations the offeror states whether it does or does not propose to perform the contract as a lead system integrator with system responsibility, and separately whether it does or does not propose to perform it as a lead system integrator without system responsibility [@CL-CMP-4108]. If the offeror answered in the affirmative to either lead system integrator representation, it also represents whether it does or does not have any direct financial interest as described in paragraph (b) of the provision with respect to a system, subsystem, or system of systems [@CL-CMP-4109].
+In its representations the offeror states whether it does or does not propose to perform the contract as a lead system integrator with system responsibility, and separately whether it does or does not propose to perform it as a lead system integrator without system responsibility [@CL-CMP-4108]. If the offeror answered in the affirmative to either lead system integrator representation, it also represents whether it does or does not have any direct financial interest as described in paragraph (b) of the provision with respect to the system(s), subsystem(s), system of systems, or services described in this solicitation [@CL-CMP-4109; @CL-CMP-7057].
 
 The Contractor agrees that during performance of the contract it will not acquire any direct financial interest as described in paragraph (b) of the clause, or, if it does acquire or plan to acquire such interest, it will immediately notify the Contracting Officer [@CL-CMP-4111]. If the Contracting Officer determines that the Contractor misrepresented its financial interests at the time of award or has violated that agreement, the Government may terminate the contract for default [@CL-CMP-4112].
 
@@ -59,4 +59,5 @@ Whether any current or planned contract makes the company a lead system integrat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added services described in the solicitation to the financial interest representation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for lead system integrator limits and prohibited financial interests.

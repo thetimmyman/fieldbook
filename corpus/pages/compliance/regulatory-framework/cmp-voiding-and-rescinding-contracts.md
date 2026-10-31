@@ -30,7 +30,7 @@ Shows who may void and rescind a contract, the procedure the agency must follow,
 
 Following an assessment of the facts, the agency head or designee may declare void and rescind contracts with respect to which a final conviction has been entered, and recover the amounts expended and the property transferred by the agency under the terms of the contracts involved [@CL-CMP-2317].
 
-A further paragraph is triggered by a final conviction for an offense punishable under section 2105 of title 41 of the United States Code, or by a determination of the head of the agency or designee, based upon a preponderance of the evidence, that the contractor or someone acting for it engaged in conduct constituting such an offense [@CL-CMP-2318]. In those cases the head of the contracting activity shall consider, in addition to any other penalty prescribed by law or regulation, declaring void and rescinding contracts, as appropriate, and recovering the amounts expended using the FAR 3.705 procedures [@CL-CMP-2319].
+A further paragraph is triggered by a final conviction for an offense punishable under section 2105 of title 41 of the United States Code, or by a determination of the head of the agency or designee, based upon a preponderance of the evidence, that the contractor or someone acting for it engaged in conduct constituting such an offense [@CL-CMP-2318]. In those cases the head of the contracting activity shall consider, in addition to any other penalty prescribed by law or regulation, (1) declaring void and rescinding contracts, as appropriate, and recovering the amounts expended using the FAR 3.705 procedures [@CL-CMP-2319], and (2) recommending the initiation of suspension or debarment proceedings in accordance with subpart 9.4 [@CL-CMP-7041].
 
 ## How it works
 
@@ -54,5 +54,6 @@ Which contracts, if any, could be exposed to a recovery demand and who owns the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added recommending suspension or debarment as item (2).
 - COMPATIBLE_EXTENSION, 2026-10-31: voiding and rescinding: scope of the claim sentence and shall-not-be-followed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for voiding and rescinding contracts.

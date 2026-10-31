@@ -33,7 +33,7 @@ Except as specifically provided for in the same subsection, no person or other e
 
 This card does not set out a legend that a contractor must place on proposal pricing. Information that the contractor marked as bid or proposal information in accordance with applicable law or regulation, or marked under the FAR paragraph the definition names, is within the definition of contractor bid or proposal information if it was submitted as part of or in connection with a bid or proposal and has not previously been made available to the public or disclosed publicly [@CL-CMP-2300; @CL-CMP-2302]. Except for technical data marked as proprietary by a contractor, the contracting officer must notify the contractor in writing if the contracting officer believes that proprietary information, contractor bid or proposal information, or information marked under that paragraph has been inappropriately marked [@CL-CMP-2309; @CL-CMP-2469]. For technical data marked as proprietary by a contractor, the contracting officer must instead follow the procedures in a separate FAR section [@CL-CMP-2310].
 
-A contracting officer who receives or obtains information of a violation or possible violation of sections 2102, 2103 or 2104 of title 41 of the United States Code must determine if the reported violation or possible violation has any impact on the pending award or selection of the contractor [@CL-CMP-2312]. If the contracting officer concludes that there is an impact on the procurement, the contracting officer must promptly forward the information to the HCA [@CL-CMP-2313]. A contracting officer who concludes there is no impact follows a different route through an individual designated under agency procedures, which this card does not cover.
+A contracting officer who receives or obtains information of a violation or possible violation of sections 2102, 2103 or 2104 of title 41 of the United States Code must determine if the reported violation or possible violation has any impact on the pending award or selection of the contractor [@CL-CMP-2312]. If the contracting officer concludes that there is an impact on the procurement, the contracting officer must promptly forward the information to the HCA [@CL-CMP-2313]. If the contracting officer concludes that there is no impact on the procurement [@CL-CMP-7053], the contracting officer must forward the information concerning the violation or possible violation and documentation supporting a determination that there is no impact on the procurement to an individual designated in accordance with agency procedures [@CL-CMP-7054].
 
 ## How it works
 
@@ -57,6 +57,7 @@ Who receives a marking notice or a violation inquiry and how the response is tra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added the no-impact forwarding rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statute reference for the gate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory scope of the violation rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Bid or proposal definition and forwarding duty reworded to match the text.
