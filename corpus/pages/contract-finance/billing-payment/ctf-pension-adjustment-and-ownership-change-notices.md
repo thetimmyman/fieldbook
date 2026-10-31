@@ -24,7 +24,7 @@ Says what a contractor must notify when it ends a pension plan, recaptures pensi
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1692; @CL-CTF-1696] |
 | Codified citation | FAR 52.215-15 [@CL-CTF-1692]; FAR 52.215-19 [@CL-CTF-1696] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.215-15 [@CL-CTF-0576; @CL-CTF-0577; @CL-CTF-0578; @CL-CTF-0579; @CL-CTF-0580; @CL-CTF-0581]; RFO FAR 52.215-19 [@CL-CTF-0582; @CL-CTF-0583; @CL-CTF-0584; @CL-CTF-0585] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1692; @CL-CTF-1696] |
 | Applies to | Contracts with the clauses, when the contractor ends a defined-benefit plan, recaptures plan assets or has an ownership change [@CL-CTF-1692; @CL-CTF-1696] |
@@ -36,6 +36,8 @@ When the contractor becomes aware that a change in its ownership has occurred or
 ## How it works
 
 Written notice goes to the Contracting Officer when the contractor determines it will terminate a defined-benefit plan or recapture plan assets [@CL-CTF-1692]. The adjustment for a segment closing, plan termination or curtailment of benefits is then measured as the clause lists [@CL-CTF-1693], using the CAS pension standard for full-coverage contracts [@CL-CTF-1694]. Where assets revert for any other reason, the Government chooses between a refund and a credit [@CL-CTF-1695]. For the full adjustment mechanics see [Pension cost adjustment when a segment is closed](../../mna/diligence/mna-segment-closing-pension-adjustment.md); the measure for contracts not subject to full coverage is stated above [@CL-CTF-1719]. The ownership-change notice is separate and goes to the Administrative Contracting Officer [@CL-CTF-1696].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.215-15 keeps the rule that the contractor must promptly notify the Contracting Officer in writing when it determines that it will terminate a defined-benefit pension plan or otherwise recapture such pension fund assets [@CL-CTF-0576; @CL-CTF-1692]. It keeps the rule that, for segment closings, pension plan terminations, or curtailment of benefits, the amount of the adjustment is as listed, with the CAS pension standard measure for full-coverage contracts and subcontracts [@CL-CTF-0577; @CL-CTF-0578; @CL-CTF-1693; @CL-CTF-1694]. It keeps the measure for contracts and subcontracts not subject to full coverage under the CAS, including the exception on the numerator of the fraction [@CL-CTF-0579; @CL-CTF-0580; @CL-CTF-1719; @CL-CTF-1720]. It keeps the rule that, in all other situations where assets revert to the contractor or are constructively received by it, the contractor makes a refund or gives a credit, at the Government's option [@CL-CTF-0581; @CL-CTF-1695]. RFO FAR 52.215-19 keeps the written notice to the Administrative Contracting Officer within 30 days of an ownership change, and the second 30-day notice of asset valuation and other cost changes [@CL-CTF-0582; @CL-CTF-0583; @CL-CTF-0584; @CL-CTF-1723; @CL-CTF-1696; @CL-CTF-1721]. It keeps the duty to maintain current, accurate, and complete inventory records of assets and their costs and to give the Administrative Contracting Officer or designated representative ready access to them on request [@CL-CTF-0585; @CL-CTF-1722].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm who monitors pension plan decisions and ownership changes, and how any r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension adjustments, asset reversions and notification of ownership changes.

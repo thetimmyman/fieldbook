@@ -24,7 +24,7 @@ Gives the invoice due dates, interest penalties and discount-period rules in the
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1663; @CL-CTF-1668] |
 | Codified citation | FAR 52.232-26 [@CL-CTF-1663]; FAR 52.232-8 [@CL-CTF-1668] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-26 [@CL-CTF-0593; @CL-CTF-0594; @CL-CTF-0595; @CL-CTF-0596; @CL-CTF-0597; @CL-CTF-0598; @CL-CTF-0599; @CL-CTF-0621; @CL-CTF-0622; @CL-CTF-0623]; RFO FAR 52.232-8 [@CL-CTF-0624; @CL-CTF-0625; @CL-CTF-0626] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1663; @CL-CTF-1668] |
 | Applies to | Contracts that include either clause [@CL-CTF-1663; @CL-CTF-1668] |
@@ -36,6 +36,8 @@ The payment office pays an interest penalty automatically, without a request fro
 ## How it works
 
 For any discount offered for prompt payment, time is computed from the date of the invoice [@CL-CTF-1668]. If the contractor has not dated the invoice, the due date is calculated from the date the designated billing office receives a proper invoice, provided the agency annotates the invoice with the date of receipt at the time of receipt [@CL-CTF-1669]. For computing the discount earned, payment is considered made on the date that appears on the payment check or, for an electronic funds transfer, on the specified payment date [@CL-CTF-1670]. See [Prompt payment: determining invoice payment due dates](ctf-prompt-payment-due-dates.md) for the general due-date rules and [Prompt payment interest and clauses](ctf-prompt-payment-interest-and-clauses.md) for interest penalties in general.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.232-26 keeps the due date for invoice payments for work or services completed by the contractor, which is the later of the 30th day after the designated billing office receives a proper invoice (except as provided for a missing receipt annotation) and the 30th day after Government acceptance, with acceptance of a final invoice subject to settlement actions deemed to occur on the effective date of the settlement [@CL-CTF-0593; @CL-CTF-0594; @CL-CTF-1663; @CL-CTF-1664]. It keeps the due date for progress payments, which is the 30th day after Government approval of contractor estimates of work or services accomplished [@CL-CTF-0595; @CL-CTF-1665]. It keeps the fallback to the 30th day after the date of the contractor's invoice or payment request when the billing office does not annotate the date of receipt, provided the office receives a proper invoice or payment request and there is no disagreement over quantity, quality, or contractor compliance with contract requirements [@CL-CTF-0596; @CL-CTF-0597; @CL-CTF-1705; @CL-CTF-1706]. It keeps the automatic interest penalty when payment is not made by the due date and the listed conditions are met, if applicable [@CL-CTF-0598; @CL-CTF-1666], and the additional penalty only if listed conditions are met, one being that the Government owes an interest penalty of $1 or more [@CL-CTF-0599; @CL-CTF-1667]. It keeps the constructive acceptance rules for computing an interest penalty, including acceptance on the 7th day after the contractor completes the work or services and the exception for disagreements over quantity, quality, contractor compliance with a contract provision, or requested progress payment amounts [@CL-CTF-0621; @CL-CTF-0622; @CL-CTF-0623; @CL-CTF-1707; @CL-CTF-1708; @CL-CTF-1709]. RFO FAR 52.232-8 keeps the discount rules: time is computed from the date of the invoice, an undated invoice is dated from the billing office's receipt of a proper invoice if the agency annotates the date of receipt at the time of receipt, and payment is considered made on the date on the check or the specified electronic funds transfer date [@CL-CTF-0624; @CL-CTF-0625; @CL-CTF-0626; @CL-CTF-1668; @CL-CTF-1669; @CL-CTF-1670].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ Confirm which agreements carry prompt payment discount terms, how invoices are d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prompt payment for architect-engineer contracts and discounts for prompt payment.

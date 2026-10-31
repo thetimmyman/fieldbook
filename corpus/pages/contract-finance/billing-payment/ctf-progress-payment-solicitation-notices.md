@@ -24,7 +24,7 @@ Tells what each of the three progress payment notices in a solicitation says to 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2027; @CL-CTF-2029; @CL-CTF-2030] |
 | Codified citation | FAR 52.232-13, FAR 52.232-14 and FAR 52.232-15 [@CL-CTF-2027; @CL-CTF-2029; @CL-CTF-2030] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-13 [@CL-CTF-0586; @CL-CTF-0587; @CL-CTF-0588]; RFO FAR 52.232-14 [@CL-CTF-0589; @CL-CTF-0590]; RFO FAR 52.232-15 [@CL-CTF-0591; @CL-CTF-0592] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2027; @CL-CTF-2029; @CL-CTF-2030] |
 | Applies to | Invitations for bids and requests for proposals that include a Progress Payments clause [@CL-CTF-2148]; invitations for bids where only small business bidders would need progress payments [@CL-CTF-2149]; invitations for bids whose solicitation will not contain one of the provisions prescribed in paragraphs (a) and (b) of FAR 32.502-3 [@CL-CTF-2150] |
@@ -39,6 +39,8 @@ The not-included notice is inserted in invitations for bids if the solicitation 
 
 Each notice states, before award, how progress payments are treated for the solicitation. The first notice says the need for progress payments is no handicap in the award, and it names the accounting system condition that can make the clause inoperative even though it is in the contract [@CL-CTF-2027; @CL-CTF-2028]. The second makes the clause available only to small business concerns and rejects a conditioned bid from any other bidder [@CL-CTF-2029]. The third rejects a bid conditioned on a progress payments clause from any bidder, because no such clause is included or will be added at award [@CL-CTF-2030].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.232-13 keeps the notice that the need for customary progress payments conforming to subpart 32.5 of the FAR will not be considered as a handicap or adverse factor in the award of the contract [@CL-CTF-0586; @CL-CTF-2027]. It keeps the statement that, even though the clause is included in the contract, the clause is inoperative during any time the contractor's accounting system and controls are determined by the Government to be inadequate for segregation and accumulation of contract costs [@CL-CTF-0587; @CL-CTF-2028]. RFO FAR 52.232-14 keeps the notice that the Progress Payments clause will be available only to small business concerns and that a bid conditioned on a progress payment clause will be rejected as nonresponsive if the bidder is not a small business concern [@CL-CTF-0589; @CL-CTF-2029]. RFO FAR 52.232-15 keeps the notice that no progress payments clause is included or will be added at award and that bids conditioned on one will be rejected as nonresponsive [@CL-CTF-0591; @CL-CTF-2030]. The RFO prescription line of each of the three provisions ends after "insert the following provision" and does not name the solicitations, where the codified line for FAR 52.232-13 names invitations for bids and requests for proposals that include a Progress Payments clause [@CL-CTF-0588; @CL-CTF-2148], for FAR 52.232-14 names invitations for bids where only small business bidders would need progress payments [@CL-CTF-0590; @CL-CTF-2149], and for FAR 52.232-15 names invitations for bids whose solicitation will not contain one of the provisions prescribed in paragraphs (a) and (b) of FAR 32.502-3 [@CL-CTF-0592; @CL-CTF-2150].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,7 +49,7 @@ An agency issues three invitations for bids. The first includes a Progress Payme
 
 ## Never confuse
 
-These notices tell offerors whether progress payments will be available, not how much is paid or how it is repaid. For rates, see [Customary progress payment rates (DoD)](../financing/ctf-progress-payments.md), for the clauses themselves see [Progress payments clauses and supervision of progress payments](../financing/ctf-progress-payment-clauses-and-supervision.md), for when progress payments may be reduced or suspended see [Suspension or reduction of progress payments](../financing/ctf-suspension-or-reduction-of-progress-payments.md), and for how requests are approved see [Progress payment administration and accounting system reviews](../financing/ctf-progress-payment-administration.md). The DoD notice on financing is on [DoD financing notice and progress payments for multiple lots](../financing/ctf-dod-financing-notice-and-multiple-lot-progress-payments.md). The construction payments clause makes its own progress payments, described on [Payments under fixed-price construction contracts and communication service contracts with common carriers](ctf-payments-fixed-price-construction-and-common-carriers.md).
+These notices tell offerors whether progress payments will be available, not how much is paid or how it is repaid. For rates, see [Customary progress payment rates (DoD)](../financing/ctf-progress-payments.md), for the clauses themselves see [Progress payments clauses and supervision of progress payments](../financing/ctf-progress-payment-clauses-and-supervision.md), for when progress payments may be reduced or suspended see [Suspension or reduction of progress payments](../financing/ctf-suspension-or-reduction-of-progress-payments.md), and for how requests are approved see [Progress payment administration and accounting system reviews](../financing/ctf-progress-payment-administration.md). The DoD notice on financing is on [DoD financing notice and progress payments for multiple lots](../financing/ctf-dod-financing-notice-and-multiple-lot-progress-payments.md). The construction payments clause makes its own progress payments, described on [Payments under fixed-price construction contracts and communication service contracts with common carriers](ctf-payments-fixed-price-construction-and-common-carriers.md). The codified prescription lines name the solicitations in which each notice is inserted [@CL-CTF-2148; @CL-CTF-2149; @CL-CTF-2150], but the RFO prescription lines end after "insert the following provision" without naming them [@CL-CTF-0588; @CL-CTF-0590; @CL-CTF-0592].
 
 ## Company calibration
 
@@ -57,4 +59,5 @@ Which solicitations carry each notice and which resulting contracts have progres
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the notices of progress payments.

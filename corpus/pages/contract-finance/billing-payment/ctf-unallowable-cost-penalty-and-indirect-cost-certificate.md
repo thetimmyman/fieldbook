@@ -24,7 +24,7 @@ Shows the penalty amounts in the unallowable cost penalty clause and the wording
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1685; @CL-CTF-1689] |
 | Codified citation | FAR 52.242-3 [@CL-CTF-1685]; FAR 52.242-4 [@CL-CTF-1689] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.242-3 [@CL-CTF-0789]; RFO FAR 52.242-4 [@CL-CTF-0795] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1685; @CL-CTF-1689] |
 | Applies to | Costs submitted in a proposal under the penalty clause, and proposals to establish final indirect cost rates under the certification clause [@CL-CTF-1685; @CL-CTF-1716] |
@@ -37,6 +37,8 @@ The contractor shall certify any proposal to establish or modify final indirect 
 
 The Contracting Officer determines whether a cost draws the penalty, and the clause says the Contracting Officer may waive it [@CL-CTF-1685; @CL-CTF-1688]. Paying a penalty does not repay the unallowable cost itself [@CL-CTF-1714]. The certificate speaks to the same kind of cost that draws the penalty, because it states that the proposal includes no expressly unallowable costs [@CL-CTF-1691; @CL-CTF-1685]. The scope of the penalty by contract value is on [Penalties for unallowable costs in final rate proposals](../../compliance/cas-allowability/cmp-unallowable-cost-penalty.md), and the proposal and its deadline are on [Final indirect cost rate proposal deadline](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because DoD's class deviation directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.242-3 keeps the penalty for a cost that the contracting officer determines is expressly unallowable, with "must" in place of "shall" [@CL-CTF-0789; @CL-CTF-1685], and keeps the penalty amount of the disallowed cost allocated to the contract plus simple interest on the excess payment [@CL-CTF-0790; @CL-CTF-1686]. For the interest rate, RFO FAR 52.242-3(d)(2)(ii) says the Secretary of the Treasury prescribes it pursuant to title 41 of the United States Code, section 7109 [@CL-CTF-9144], where the codified paragraph names Public Law 92-41 instead [@CL-CTF-9145]. It keeps the case of a cost previously determined to be unallowable for that contractor [@CL-CTF-0791; @CL-CTF-1718] and the penalty of two times the disallowed cost allocated to the contract [@CL-CTF-0792; @CL-CTF-1687]. It keeps the rule that paying a penalty does not repay the unallowable cost [@CL-CTF-0794; @CL-CTF-1714]. On waiver, RFO FAR 52.242-3(g) says the criteria are those in FAR 42.508-6 [@CL-CTF-0793], where the codified paragraph names FAR 42.709-6 [@CL-CTF-1688]. RFO FAR 52.242-4 keeps the duty to certify any proposal to establish or modify final indirect cost rates, using the certificate format [@CL-CTF-0795; @CL-CTF-1716], and the signature by an individual no lower than a vice president or chief financial officer of the business segment [@CL-CTF-0796; @CL-CTF-1689]. It keeps the effect of failing to submit a signed certificate [@CL-CTF-0797; @CL-CTF-1715], the certifying official's review statement [@CL-CTF-0798; @CL-CTF-1717] and the two certified statements [@CL-CTF-0799; @CL-CTF-0800; @CL-CTF-1690; @CL-CTF-0801; @CL-CTF-1691].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -45,7 +47,7 @@ A final rate proposal includes 30,000 of a cost that a cost principle expressly 
 
 ## Never confuse
 
-The penalty for an expressly unallowable cost, which is measured by the allocated cost plus interest, differs from the penalty for a cost previously determined unallowable for the same contractor, which is two times the allocated cost [@CL-CTF-1686; @CL-CTF-1687]. The certification clause concerns a signed statement about the proposal, while the penalty clause concerns the cost determination and the amount assessed [@CL-CTF-1690; @CL-CTF-1685].
+The penalty for an expressly unallowable cost, which is measured by the allocated cost plus interest, differs from the penalty for a cost previously determined unallowable for the same contractor, which is two times the allocated cost [@CL-CTF-1686; @CL-CTF-1687]. The certification clause concerns a signed statement about the proposal, while the penalty clause concerns the cost determination and the amount assessed [@CL-CTF-1690; @CL-CTF-1685]. The waiver criteria are cited differently in the two texts: the codified paragraph names FAR 42.709-6 [@CL-CTF-1688], and the RFO paragraph names FAR 42.508-6 [@CL-CTF-0793].
 
 ## Company calibration
 
@@ -55,4 +57,5 @@ Confirm who signs the certificate, who screens costs for expressly unallowable i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for penalties for unallowable costs and certification of final indirect costs.

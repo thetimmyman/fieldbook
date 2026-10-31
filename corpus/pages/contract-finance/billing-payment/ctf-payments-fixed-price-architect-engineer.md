@@ -24,7 +24,7 @@ Shows how monthly estimates are paid under the fixed-price architect-engineer pa
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2021; @CL-CTF-2022] |
 | Codified citation | FAR 52.232-10 [@CL-CTF-2021; @CL-CTF-2022] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-10 [@CL-CTF-0478] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2021; @CL-CTF-2022] |
 | Applies to | Fixed-price architect-engineer contracts [@CL-CTF-1521] |
@@ -40,6 +40,8 @@ Upon satisfactory completion by the Contractor and final acceptance by the Contr
 ## How it works
 
 Each month an estimate of the value of the work and services performed is made [@CL-CTF-2021]. The Government pays each substantiated voucher as approved [@CL-CTF-2022]. Withholding is not routine: it is required only where the Contracting Officer determines it is necessary to protect the Government's interest and ensure satisfactory completion, in an amount based on the Contractor's performance record [@CL-CTF-2023; @CL-CTF-2194]. Any amount retained beyond what is adequate is released once the work is substantially complete, and the unpaid balance, including all withheld amounts, is paid after satisfactory completion and final acceptance [@CL-CTF-2024; @CL-CTF-2025; @CL-CTF-2139].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the rule that estimates of the amount and value of the work and services performed that meet the quality standards of the contract are made monthly [@CL-CTF-0478] [@CL-CTF-2021], prepared by the contractor with any supporting data the contracting officer requires and submitted with its voucher [@CL-CTF-0479] [@CL-CTF-2195]. It keeps the rule that, after receipt of each substantiated voucher, the Government pays the voucher as approved by the contracting officer or authorized representative [@CL-CTF-0480] [@CL-CTF-2022]. It keeps the rule that the contracting officer requires a withholding of up to 10 percent only if the contracting officer determines the withholding is necessary to protect the Government's interest and ensure satisfactory completion of the contract [@CL-CTF-0492] [@CL-CTF-2023], in an amount based upon the contractor's performance record [@CL-CTF-0493] [@CL-CTF-2194], and the release of the excess once the work is substantially complete and the amount retained is more than adequate for the protection of the Government [@CL-CTF-0494] [@CL-CTF-2024]. It keeps the rule that, upon satisfactory completion and final acceptance of all the work under the Statement of Architect-Engineer Services, the contractor is paid the unpaid balance of any money due for work under the statement [@CL-CTF-0495] [@CL-CTF-2025], including all withheld amounts [@CL-CTF-0496] [@CL-CTF-2139]. It keeps the release of claims as a condition precedent to final payment or settlement upon termination [@CL-CTF-0497] [@CL-CTF-2196], other than claims specifically excepted in amounts stated in the release [@CL-CTF-0498] [@CL-CTF-2026]. It keeps the limit that, notwithstanding any other provision in the contract and specifically paragraph (b), progress payments shall not exceed 80 percent on work accomplished on undefinitized contract actions [@CL-CTF-0499] [@CL-CTF-2127], and the definition of a contract action as an action resulting in a contract, including modifications for additional supplies or services but not modifications within the scope and under the terms of the contract [@CL-CTF-0500] [@CL-CTF-2197], such as modifications issued pursuant to the Changes clause or funding and other administrative changes [@CL-CTF-0501] [@CL-CTF-2198].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Whether the company holds architect-engineer contracts and how monthly estimates
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price architect-engineer payments.

@@ -23,7 +23,7 @@ Shows how a cost-reimbursement contract is terminated and settled: the grounds a
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0418] |
 | Codified citation | FAR 52.249-6 [@CL-CTF-0418] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.249-6 [@CL-CTF-0681; @CL-CTF-0682] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0418] |
 | Applies to | Contracts that include the cost-reimbursement termination clause, which is inserted as prescribed in FAR 49.503(a)(1) [@CL-CTF-0612] |
@@ -46,6 +46,8 @@ The Government may, under the terms and conditions it prescribes, make partial p
 
 When the parties fail to agree and the contracting officer determines the amount, the fee on a convenience termination is the completion percentage of the fee [@CL-CTF-0614; @CL-CTF-0424]. The percentage excludes subcontract effort included in subcontractors' termination proposals, and previous payments for fee are deducted [@CL-CTF-0615].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because DoD's class deviation directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.249-6 keeps the grounds for termination, including the 10-day cure period for a default [@CL-CTF-0681; @CL-CTF-0682; @CL-CTF-0418; @CL-CTF-0611]. It keeps the Notice of Termination [@CL-CTF-0683; @CL-CTF-0419] and the immediate duty to stop work as specified in the notice [@CL-CTF-0684; @CL-CTF-0420]. It keeps the 120-day deadline for inventory schedules [@CL-CTF-0685; @CL-CTF-0421] and the 1-year deadline for the final settlement proposal, each unless the contracting officer extends it in writing on the contractor's written request made within that period [@CL-CTF-0686; @CL-CTF-0422], and it keeps the rule that a proposal may be received and acted on after 1 year or any extension if the facts justify it [@CL-CTF-0687; @CL-CTF-0613]. It keeps settlement by agreement [@CL-CTF-0688; @CL-CTF-0423], the determination on the basis of information available when the parties fail to agree, and payment of the amount determined [@CL-CTF-0689; @CL-CTF-9147; @CL-CTF-0614], the convenience-termination fee percentage [@CL-CTF-0690; @CL-CTF-0691; @CL-CTF-0424; @CL-CTF-0615] and the default-termination fee proportion [@CL-CTF-0692; @CL-CTF-9141; @CL-CTF-0618]. It also keeps the part 31 cost principles [@CL-CTF-0693; @CL-CTF-0425], the condition on partial payments [@CL-CTF-0694; @CL-CTF-0426; @CL-CTF-0617] and the rule that the fee provisions are inapplicable when the contract includes no fee [@CL-CTF-0695; @CL-CTF-0616].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -66,5 +68,6 @@ Which financing and acceptance terms would drive the cash forecast on a terminat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination settlement on cost-reimbursement contracts.
