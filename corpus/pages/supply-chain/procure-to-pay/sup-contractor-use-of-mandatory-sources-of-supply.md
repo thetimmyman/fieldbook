@@ -24,7 +24,7 @@ Shows which sources the contractor must buy from for Government use, what it mus
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2944] |
 | Codified citation | FAR 52.208-9 [@CL-SUP-2944] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.208-9 [@CL-SUP-0141] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2944] |
 | Applies to | Contracts where the schedule names mandatory sources for supplies or services provided for Government use [@CL-SUP-2946] |
@@ -45,6 +45,8 @@ Where to ask about price and delivery depends on the route: the Contracting Offi
 
 Payments go directly to the source making delivery [@CL-SUP-2989].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.208-9 adds, in paragraph (a), a sentence saying that the Committee operates under the name AbilityOne Commission [@CL-SUP-0142], and in the same paragraph it says that some, where the codified text says certain, of these supplies are available from the Defense Logistics Agency, the General Services Administration or the Department of Veterans Affairs [@CL-SUP-0143; @CL-SUP-2945]. It keeps the requirement that certain supplies or services for Government use be obtained from nonprofit agencies participating in the Committee's program [@CL-SUP-0141; @CL-SUP-2944], and the duty to obtain mandatory supplies or services from the specific sources indicated in the contract schedule [@CL-SUP-0144; @CL-SUP-2946]. It keeps the duty to notify the Contracting Officer immediately if a mandatory source is unable to provide the supplies or services by the time required or the quality is unsatisfactory [@CL-SUP-0145; @CL-SUP-2947], and the bar on purchasing from other sources until the Contracting Officer has notified the Contractor that the Committee or an AbilityOne central nonprofit agency has authorized purchase from other sources [@CL-SUP-0146; @CL-SUP-2948]. It keeps the Contracting Officer as the source of price and delivery information for supplies obtained through the DLA/GSA/VA distribution facilities [@CL-SUP-0147; @CL-SUP-2987], the appropriate central nonprofit agency for mandatory supplies or services not available from them [@CL-SUP-0148; @CL-SUP-2988], and payment directly to the source making delivery [@CL-SUP-0149; @CL-SUP-2989]. It still lists points of contact for AbilityOne central nonprofit agencies with an address and telephone number for each, and adds a web address for each and the name NISH/SourceAmerica for the second [@CL-SUP-0150; @CL-SUP-9030; @CL-SUP-2990].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -63,4 +65,5 @@ Whether each Government-use purchase is checked against the mandatory sources in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor use of mandatory sources of supply or services.

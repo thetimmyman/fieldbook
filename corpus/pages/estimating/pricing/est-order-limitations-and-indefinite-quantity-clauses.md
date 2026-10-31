@@ -28,7 +28,7 @@ Shows the minimum and maximum order rules in the order limitations clause, the g
 | Text status | Final [@CL-EST-1707; @CL-EST-1710] |
 | Applies to | Contracts that include the Order Limitations clause or the Indefinite Quantity clause [@CL-EST-1707; @CL-EST-1710] |
 
-The Order Limitations clause is inserted as a clause substantially the same as the printed text [@CL-EST-1707]. Under it, when the Government requires covered supplies or services in an amount of less than a stated figure, neither the Government nor the contractor is obligated to buy or furnish them under the contract [@CL-EST-1677]. The contractor is not obligated to honor an order for a single item, or for a combination of items, in excess of the stated dollar figure or quantity [@CL-EST-1678]. The contractor is also not obligated to honor a series of orders from the same ordering office within a stated number of days that together call for quantities exceeding the single-item or combination-of-items limitation [@CL-EST-1708].
+The Order Limitations clause is inserted as a clause substantially the same as the printed text [@CL-EST-1707]. Under it, when the Government requires covered supplies or services in an amount of less than a stated figure, neither the Government nor the contractor is obligated to buy or furnish them under the contract [@CL-EST-1677]. The contractor is not obligated to honor an order for a single item, or for a combination of items, in excess of the stated dollar figure or quantity [@CL-EST-1678]. The contractor is also not obligated to honor a series of orders from the same ordering office within a stated number of days that together call for quantities exceeding either of those limitations [@CL-EST-1708].
 
 The contractor shall nevertheless honor an order over the maximum unless it is returned to the ordering office within a stated number of days after issuance with written notice of its intent not to ship and the reasons [@CL-EST-1679]. Upon receiving written notice stating the contractor's intent not to ship the items called for and the reasons, the Government may acquire the supplies or services from another source [@CL-EST-1709].
 
@@ -62,5 +62,6 @@ Which indefinite-quantity contracts carry order limits and the minimum, maximum 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to say a series of orders is measured against either limitation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for order limitations and the indefinite quantity clause.

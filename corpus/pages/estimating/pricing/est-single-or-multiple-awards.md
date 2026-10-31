@@ -47,7 +47,7 @@ A solicitation for task order contracts for the same services draws five offers.
 
 ## Never confuse
 
-The stated intention to award several advisory and assistance contracts is not a promise of several awards, because the determination after evaluation can leave one capable offeror [@CL-EST-1930]. The first provision is not a stated intention at all: it says the Government may elect between a single award and multiple awards [@CL-EST-1929]. Neither provision tells a bidder how many awards will be made. Orders placed under multiple award contracts by the Department of Defense have further rules on [Ordering under multiple award contracts](est-dod-ordering-multiple-award-contracts.md).
+The stated intention to award several advisory and assistance contracts is not a promise of several awards, because the determination after evaluation can leave one capable offeror [@CL-EST-1930]. The first provision is not a stated intention at all: it says the Government may elect between a single award and multiple awards [@CL-EST-1929]. Orders placed under multiple award contracts by the Department of Defense have further rules on [Ordering under multiple award contracts](est-dod-ordering-multiple-award-contracts.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Whether our pricing and bid posture assumes one award or several for each order-
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed a sentence about the number of awards that no claim supports.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for single or multiple awards and multiple awards for advisory and assistance services.

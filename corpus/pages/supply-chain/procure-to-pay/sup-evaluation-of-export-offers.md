@@ -23,7 +23,7 @@ Explains how export offers made on different delivery bases are compared on one 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2443; @CL-SUP-2490] |
 | Codified citation | FAR 52.247-51 [@CL-SUP-2443; @CL-SUP-2490] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent for FAR 52.247-51: the RFO text lists it as [Reserved] [@CL-SUP-0213] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2443; @CL-SUP-2490] |
 | Applies to | Solicitations that include the Evaluation of Export Offers provision [@CL-SUP-2490] |
@@ -68,15 +68,17 @@ When offers are solicited on an f.o.b. destination only basis, Alternate III del
 
 Every offer is reduced to one measure, the lowest laid down cost to the Government at the overseas port of discharge, so that an offer made at origin and an offer made at a port of loading can be ranked against each other [@CL-SUP-2443; @CL-SUP-2498]. An origin offer carries the inland leg, port handling and ocean costs on top of its price [@CL-SUP-2444; @CL-SUP-2494]. A port of loading offer carries port handling and ocean costs on top of its price to the port [@CL-SUP-2446]. The port and ocean figures come from tariffs on file at bid opening or the closing date for offers that are effective for the expected initial shipment, or under Alternate I for the DOD water terminals from the rate information letters on file at that date [@CL-SUP-2449; @CL-SUP-2492; @CL-SUP-2515]. Alternate II and Alternate III remove the paragraphs for the basis that the solicitation does not use [@CL-SUP-2516; @CL-SUP-2517].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.247-51, the Evaluation of Export Offers provision, as [Reserved] [@CL-SUP-0213].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-Two offers compete for one overseas port of discharge, and the solicitation uses the basic provision. The origin offer prices the item at 110,000, with 8,000 of inland freight, 2,000 of port handling at the port of loading and 14,000 of ocean shipping, for a laid down cost of 134,000. The port of loading offer prices the item delivered to the port of loading at 115,000, with 2,000 of port handling and 14,000 of ocean shipping, for a laid down cost of 131,000. The port of loading offer is lower on laid down cost even though its item price is higher, so it wins. A third offer is not limited to f.o.b. origin delivery under Government bills of lading and names none of the listed ports of loading as its place of delivery. That offer may be rendered nonresponsive.
+Two offers compete for one overseas port of discharge, and the solicitation uses the basic provision. The origin offer prices the item at 110,000, with 8,000 of inland freight, 2,000 of port handling at the port of loading and 14,000 of ocean shipping, for a laid down cost of 134,000. The port of loading offer prices the item delivered to the port of loading at 115,000, with 2,000 of port handling and 14,000 of ocean shipping, for a laid down cost of 131,000. The port of loading offer is lower on laid down cost even though its item price is higher, so it wins. A third offer is not limited to f.o.b. origin delivery under Government bills of lading and names none of the listed ports of loading as its place of delivery. That offer may be rendered nonresponsive. This example follows the codified provision, not the RFO text, which lists FAR 52.247-51 as [Reserved] [@CL-SUP-0213].
 
 ## Never confuse
 
-For f.o.b. origin offers, laid down cost is not the item price: the comparison starts from the item price and adds the inland leg, port handling and ocean costs, so a lower item price can still lose; for f.o.b. port of loading offers, it starts from the price to the port and adds port handling and ocean costs [@CL-SUP-2443; @CL-SUP-2444; @CL-SUP-2446]. The two delivery bases are also not the same: on the origin basis ports of loading are treated as destinations, and on the port basis the offeror itself designates the port of loading as its place of delivery [@CL-SUP-2445; @CL-SUP-2447]. For the general method of evaluating f.o.b. offers, see [F.o.b. offer evaluation](sup-fob-offer-evaluation.md).
+For f.o.b. origin offers, laid down cost is not the item price: the comparison starts from the item price and adds the inland leg, port handling and ocean costs, so a lower item price can still lose; for f.o.b. port of loading offers, it starts from the price to the port and adds port handling and ocean costs [@CL-SUP-2443; @CL-SUP-2444; @CL-SUP-2446]. The two delivery bases are also not the same: on the origin basis ports of loading are treated as destinations, and on the port basis the offeror itself designates the port of loading as its place of delivery [@CL-SUP-2445; @CL-SUP-2447]. For the general method of evaluating f.o.b. offers, see [F.o.b. offer evaluation](sup-fob-offer-evaluation.md). The codified text prints the Evaluation of Export Offers provision at FAR 52.247-51 [@CL-SUP-2490], while the RFO text lists that number as [Reserved] [@CL-SUP-0213].
 
 ## Company calibration
 
@@ -86,4 +88,5 @@ Which delivery bases and alternates each export solicitation uses, which ports t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation of export offers.
