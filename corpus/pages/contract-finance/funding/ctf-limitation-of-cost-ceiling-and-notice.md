@@ -24,7 +24,7 @@ Explains the estimated cost ceiling in a contract that carries the Limitation of
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2916] |
 | Codified citation | FAR 52.232-20 [@CL-CTF-2916] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-20 [@CL-CTF-1152] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2916] |
 | Applies to | Contracts in which the clause is inserted under its own prescription [@CL-CTF-2916] |
@@ -45,6 +45,8 @@ Paragraph (d) applies except as required by other provisions of the contract tha
 
 No notice, communication or representation in any form other than that specified in paragraph (d)(2), or from anyone other than the Contracting Officer, affects the contract's estimated cost to the Government [@CL-CTF-2925]. Without the specified notice, the Government is not obligated to reimburse costs above the estimated cost or, in a cost-sharing contract, above the estimated cost to the Government in the Schedule, whether they were incurred during the course of the contract or as a result of termination [@CL-CTF-2971; @CL-CTF-2972]. What follows an increase, including change orders and termination, is on the [costs beyond the estimate](../funding/ctf-limitation-of-cost-costs-beyond-estimate.md) page.
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the estimated cost in the Schedule and the best-efforts duty of paragraph (a) [@CL-CTF-1153; @CL-CTF-1154; @CL-CTF-2918; @CL-CTF-2967]. It keeps the written notice, the two conditions in paragraph (b) and the revised estimate of total cost in paragraph (c) [@CL-CTF-1155; @CL-CTF-1156; @CL-CTF-1157; @CL-CTF-1158; @CL-CTF-2968; @CL-CTF-2919; @CL-CTF-2920; @CL-CTF-2921]. It keeps the paragraph (d) rules, which are the exception for provisions that specifically cite the clause, the Government's non-obligation to reimburse costs above the estimated cost, the Contractor's non-obligation to continue until the written increase and revised estimate, and the allocation formula in a cost-sharing contract [@CL-CTF-1159; @CL-CTF-1160; @CL-CTF-1161; @CL-CTF-1162; @CL-CTF-1163; @CL-CTF-2969; @CL-CTF-2922; @CL-CTF-2923; @CL-CTF-2924; @CL-CTF-2970]. Paragraph (e) says that no notice, communication or representation in any form other than that specified in paragraph (d)(2), or from anyone other than the Contracting Officer, affects the estimated cost, and that without the specified notice costs above the estimate are not reimbursed whether incurred during the course of the contract or as a result of termination [@CL-CTF-1164; @CL-CTF-1165; @CL-CTF-1166; @CL-CTF-2925; @CL-CTF-2971; @CL-CTF-2972]. The RFO text points to paragraph (d)(2) with the words "in this clause" where the codified text says "above" [@CL-CTF-1164; @CL-CTF-2925]. The RFO text keeps the rule that a change order does not authorize costs above the estimated cost unless it contains a statement increasing the estimated cost [@CL-CTF-1169; @CL-CTF-2928]. The RFO prescription line prints no sentence that lets the 60-day period or the 75 percent be varied or lets "Task Order" or another designation replace "Schedule" [@CL-CTF-1152; @CL-CTF-2917; @CL-CTF-2966].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,6 +61,8 @@ Sending the notice and the revised estimate does not raise the estimated cost. T
 
 A change order does not authorize costs above the estimated cost to the Government in the Schedule unless it contains a statement increasing the estimated cost [@CL-CTF-2928].
 
+The codified prescription lets the notice period be varied from 30 to 90 days, the percentage from 75 to 85 percent and "Schedule" be replaced [@CL-CTF-2917; @CL-CTF-2966]. The RFO prescription line prints none of those sentences, although paragraph (b)(1) of the RFO clause still prints 60 days and 75 percent [@CL-CTF-1152; @CL-CTF-1156].
+
 ## Company calibration
 
 Which live contracts carry the Limitation of Cost clause, who watches the estimated cost and the notice triggers in each, and whether the contract changes the notice period or the percentage [@Q-008]
@@ -67,4 +71,5 @@ Which live contracts carry the Limitation of Cost clause, who watches the estima
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the limitation of cost estimated cost ceiling and the notice duty.

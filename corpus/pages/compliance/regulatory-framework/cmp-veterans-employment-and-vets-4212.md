@@ -52,7 +52,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A contractor has one hiring location. It picks an ending date of August 20, which is the end of a pay period between July 1 and August 31 of the year the report is due. The report covers the most recent 12-month period before August 20. It states 18 protected veterans in the workforce by job category, 90 new hires of whom 12 are protected veterans, and a maximum of 640 and a minimum of 570 employees at the location. The contractor files the VETS-4212 report on September 15, before the September 30 due date. Its subcontract of 30,000 is covered if the acquisition regulation threshold on the award date is at or below that amount, and it is exempt if the Secretary of Labor's rules exempt it. A contractor with no such approval from the Equal Employment Opportunity Commission cannot select December 31 as its ending date. Under the RFO text, paragraph (e) prints no ending-date choices [@CL-CMP-6481].
+A contractor has one hiring location. Under the codified text, it picks an ending date of August 20, which is the end of a pay period between July 1 and August 31 of the year the report is due [@CL-CMP-6384]. The report covers the most recent 12-month period before August 20. It states 18 protected veterans in the workforce by job category, 90 new hires of whom 12 are protected veterans, and a maximum of 640 and a minimum of 570 employees at the location. The contractor files the VETS-4212 report on September 15, before the September 30 due date. Its subcontract of 30,000 is covered if the acquisition regulation threshold on the award date is at or below that amount, and it is exempt if the Secretary of Labor's rules exempt it. Under the codified text, a contractor with no such approval from the Equal Employment Opportunity Commission cannot select December 31 as its ending date [@CL-CMP-6385]. Under the RFO text, paragraph (e) prints no ending-date choices [@CL-CMP-6481].
 
 ## Never confuse
 
@@ -66,5 +66,6 @@ Who owns the annual veterans report, where the filed copy is kept, and who signs
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to say the ending-date choices come from the codified text and to cite them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for veterans equal opportunity and the veterans employment report.

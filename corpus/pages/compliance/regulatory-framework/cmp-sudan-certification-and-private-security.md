@@ -72,7 +72,7 @@ A contractor performs a contract at one site in a designated combat operations a
 
 ## Never confuse
 
-The Sudan certification is a representation about business operations, and the private security clause is a performance duty. One is answered when the offer is submitted, and the other governs compliance, reporting and cooperation during performance [@CL-CMP-5427; @CL-CMP-5430]. An operation that falls within a listed category is not a restricted business operation, but only when the person conducting the business can demonstrate it [@CL-CMP-5429]. Under the codified text the Sudan certification is made by submission of the offer [@CL-CMP-5427]; under the RFO text it is made after conducting a reasonable inquiry that looks at any information in the offeror's possession but does not need to include an internal or third-party audit [@CL-CMP-6300].
+The Sudan certification is a certification about business operations, and the private security clause is a performance duty. One is answered when the offer is submitted, and the other governs compliance, reporting and cooperation during performance [@CL-CMP-5427; @CL-CMP-5430]. An operation that falls within a listed category is not a restricted business operation, but only when the person conducting the business can demonstrate it [@CL-CMP-5429]. Under the codified text the Sudan certification is made by submission of the offer [@CL-CMP-5427]; under the RFO text it is made after conducting a reasonable inquiry that looks at any information in the offeror's possession but does not need to include an internal or third-party audit [@CL-CMP-6300].
 
 ## Company calibration
 
@@ -82,5 +82,6 @@ Whether any entity in the group conducts Sudan business operations and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the contrast sentence to call the Sudan certification a certification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Sudan certification and private security functions outside the United States.

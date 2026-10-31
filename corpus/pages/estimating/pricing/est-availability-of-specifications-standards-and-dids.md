@@ -23,7 +23,7 @@ Shows where the solicitation provisions say Federal and Defense specifications a
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186] |
 | Codified citation | FAR 52.211-1 [@CL-EST-2183]; FAR 52.211-2 [@CL-EST-2184]; FAR 52.211-3 [@CL-EST-2186] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent [@CL-EST-0023; @CL-EST-0024; @CL-EST-0025] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186] |
 | Applies to | Solicitations that include the matching availability provision [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186] |
@@ -37,6 +37,8 @@ Under FAR 52.211-3, for specifications not listed in the GSA index, the specific
 ## How it works
 
 The route depends on the kind of document and on who issued the solicitation. Index documents and Federal specifications are downloaded from ASSIST [@CL-EST-2183]. Where the General Services Administration, Department of Agriculture, or Department of Veterans Affairs issued the solicitation, cited specifications, standards and commercial item descriptions can be obtained from ASSIST [@CL-EST-2219]. Most unclassified Defense specifications and standards are also downloaded from ASSIST, and a Defense document that is not there is requested from the Defense Standardization Program Office [@CL-EST-2184; @CL-EST-2185]. A specification outside the index is requested from the activity named in the solicitation, identified by solicitation number and by date, title, and number [@CL-EST-2186; @CL-EST-2222].
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO FAR part 52 text prints FAR 52.211-1 [@CL-EST-0023], FAR 52.211-2 [@CL-EST-0024] and FAR 52.211-3 [@CL-EST-0025] as [Reserved], with no provision text under those numbers. The ASSIST and Defense Standardization Program Office routes described above come from the codified text [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186], so they have no text under those three RFO section numbers.
 
 ## Worked example
 
@@ -56,6 +58,8 @@ Downloading from ASSIST and requesting from the Defense Standardization Program 
 
 The provision for specifications not listed in the GSA index names an activity to obtain copies from [@CL-EST-2186]. That differs from the provision under which cited specifications are not available for distribution and may only be examined at stated locations [@CL-EST-2187], which is covered on [Examining specifications and proposing alternatives to Government-unique standards](est-specification-examination-and-alternative-standards.md).
 
+Codified FAR 52.211-1, 52.211-2 and 52.211-3 each carry availability text [@CL-EST-2183; @CL-EST-2184; @CL-EST-2186], while the RFO FAR part 52 text prints those three numbers as [Reserved] [@CL-EST-0023; @CL-EST-0024; @CL-EST-0025].
+
 ## Company calibration
 
 Confirm how the company records which version of each cited specification and standard it priced against, and where each copy came from [@Q-023].
@@ -64,4 +68,5 @@ Confirm how the company records which version of each cited specification and st
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for availability of specifications, standards and data item descriptions.

@@ -24,7 +24,7 @@ Shows the preliminary notice, the exercise window and the total duration limit f
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2308] |
 | Codified citation | FAR 52.217-9 [@CL-CTF-2308] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.217-9 [@CL-CTF-1354; @CL-CTF-1355; @CL-CTF-1356; @CL-CTF-1357; @CL-CTF-1358] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2308] |
 | Applies to | Contracts that include the option to extend the term clause [@CL-CTF-2308] |
@@ -36,6 +36,8 @@ The total duration of the contract, including the exercise of any options under 
 ## How it works
 
 The Government first sends a preliminary written notice of its intent to extend, at least the inserted number of days before the contract expires, which is 60 days unless a different number is inserted [@CL-CTF-2309]. The preliminary notice is a condition of the extension [@CL-CTF-2309]. That notice does not commit it [@CL-CTF-2310]. The extension itself is by written notice within the period inserted in the clause, which the clause text leaves as a blank with a bracketed instruction to insert it, so the period is contract-specific [@CL-CTF-2308]. The extended contract is treated as including the option clause, and the total duration, including any options exercised, stays within the period stated in the clause [@CL-CTF-2311; @CL-CTF-2312]. The prescription is covered on [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
+
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.217-9(a) keeps the rule that the Government may extend the term of the contract by written notice to the Contractor within the period inserted in the clause [@CL-CTF-1354; @CL-CTF-1355; @CL-CTF-2308]. It keeps the proviso that the Government gives the Contractor a preliminary written notice of its intent to extend at least the inserted number of days before the contract expires, with the bracketed instruction of 60 days unless a different number of days is inserted [@CL-CTF-1355; @CL-CTF-2309]. It keeps the rule that the preliminary notice does not commit the Government to an extension [@CL-CTF-1356; @CL-CTF-2310]. RFO FAR 52.217-9(b) keeps the rule that, if the Government exercises the option, the extended contract shall be considered to include the option clause [@CL-CTF-1357; @CL-CTF-2311]. RFO FAR 52.217-9(c) keeps the rule that the total duration of the contract, including the exercise of any options under the clause, shall not exceed the contract-specific period stated in months or years [@CL-CTF-1358; @CL-CTF-2312].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Confirm which contracts carry this clause, the exercise window, preliminary noti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for option to extend the term of the contract.
