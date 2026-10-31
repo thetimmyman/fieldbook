@@ -45,7 +45,7 @@ A contractor plans to deliver, before the later date, a line item that is a neod
 
 ## Never confuse
 
-The specialty metals clause allows metal melted or produced in the United States, its outlying areas or a qualifying country [@CL-SUP-1324], while this clause bars named covered countries [@CL-SUP-1329]. The restriction on melting and producing samarium-cobalt magnets is in addition to any applicable restrictions on melting of specialty metals if the specialty metals clause is included in the contract [@CL-SUP-1370], as covered on [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
+The specialty metals clause allows metal melted or produced in the United States, its outlying areas or a qualifying country [@CL-SUP-1324], except as paragraph (c) of that clause provides; the restriction does not apply to electronic components, the first listed exception [@CL-SUP-1325], while this clause bars named covered countries [@CL-SUP-1329]. The restriction on melting and producing samarium-cobalt magnets is in addition to any applicable restrictions on melting of specialty metals if the specialty metals clause is included in the contract [@CL-SUP-1370], as covered on [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which executed contracts carry this clause, and whether subcontracts for items c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (c) of the specialty metals clause that the quoted rule refers to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restriction on certain magnets, tantalum and tungsten.

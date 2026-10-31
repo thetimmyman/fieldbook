@@ -50,7 +50,7 @@ Buyer B files in month one, and the agencies issue a request for more informatio
 
 ## Never confuse
 
-Expiry of the waiting period is not expiry of the notification, which lives on for one year after the waiting period expired [@CL-MNA-0612]. Withdrawal is the filing person's act, while termination of the waiting period is the agencies' act, covered on the [fee and waiting period card](mna-hsr-fee-and-waiting-period.md) [@CL-MNA-0615; @CL-MNA-0611]. Who files the form is on the [filing card](mna-hsr-filing-and-who-files.md).
+Expiry of the waiting period is not expiry of the notification, which lives on for one year after the waiting period expired [@CL-MNA-0612]. Withdrawal is the filing person's act, while termination of the waiting period is the agencies' act, covered on the [fee and waiting period card](mna-hsr-fee-and-waiting-period.md) [@CL-MNA-0615; @CL-MNA-0611]. The agencies may terminate the waiting period on their own initiative notwithstanding the conditions in paragraph (a) of that section, which bar termination until the listed notifications, information and conclusions are in place [@CL-MNA-0611; @CL-MNA-1543; @CL-MNA-1547]. Who files the form is on the [filing card](mna-hsr-filing-and-who-files.md).
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Who tracks the notification's life and any outstanding request for more informat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (a) of section 803.11 that the quoted rule refers to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the eighteen-month expiry to include requests outstanding to the entities included in the person and their officers, directors, partners, agents or employees.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for premerger notification expiry, withdrawal and second request.

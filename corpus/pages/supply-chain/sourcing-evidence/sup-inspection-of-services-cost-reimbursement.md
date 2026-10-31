@@ -49,7 +49,7 @@ A cost-reimbursement services contract carries a fixed fee of 50,000. One task i
 
 ## Never confuse
 
-The remedy here reaches any fee payable, while the fixed-price services clause on [Inspection of services, fixed-price](sup-inspection-of-services-fixed-price.md) reduces the contract price [@CL-SUP-1093; @CL-SUP-1087]. The supplies clause for cost-reimbursement contracts, on [Inspection of supplies, cost-reimbursement](sup-inspection-of-supplies-cost-reimbursement.md), instead includes correction cost in allowable cost with no added fee [@CL-SUP-1080]. The services clause text states a no-additional-fee rule for reperformance [@CL-SUP-1092], and the printed clause has no allowable-cost rule for it. The contract type framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and inspection places and methods are on [Government contract quality assurance](sup-government-contract-quality-assurance.md).
+The remedy here reaches any fee payable, while the fixed-price services clause on [Inspection of services, fixed-price](sup-inspection-of-services-fixed-price.md) reduces the contract price [@CL-SUP-1093; @CL-SUP-1087]. The supplies clause for cost-reimbursement contracts, on [Inspection of supplies, cost-reimbursement](sup-inspection-of-supplies-cost-reimbursement.md), instead includes correction cost in allowable cost with no added fee [@CL-SUP-1080], except that, under its paragraph (h), the Government may at any time require the contractor to correct or replace nonconforming supplies, without cost to the Government, if the nonconformances are due to fraud, lack of good faith or willful misconduct on the part of the contractor's managerial personnel, or to the conduct of one or more of the contractor's employees selected or retained by the contractor after any of its managerial personnel has reasonable grounds to believe that the employee is habitually careless or unqualified [@CL-SUP-1081; @CL-SUP-1131]. The services clause text states a no-additional-fee rule for reperformance [@CL-SUP-1092], and the printed clause has no allowable-cost rule for it. The contract type framework is on [Cost-reimbursement contracts](../../close-revrec/revenue/cls-cost-reimbursement-contracts.md), and inspection places and methods are on [Government contract quality assurance](sup-government-contract-quality-assurance.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Whether the executed contract includes this clause, and how the company bills an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (h) of the supplies inspection clause that the quoted rule refers to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection of services under cost-reimbursement contracts.
