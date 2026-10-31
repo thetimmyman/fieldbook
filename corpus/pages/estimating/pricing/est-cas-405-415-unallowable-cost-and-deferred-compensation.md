@@ -57,7 +57,7 @@ A contractor's cost accounting period is its calendar fiscal year. It receives a
 
 Separately, an advance agreement signed before June 2, 2008 covers the costs of an existing ESOP. The awarding agency and the contractor comply with it for that ESOP, even if the ESOP was once subject to CAS 412 [@CL-EST-2509; @CL-EST-2641]. It may be modified by mutual agreement to incorporate the requirements effective on June 2, 2008 [@CL-EST-2510].
 
-A pension plan that is not an ESOP is outside CAS 415, which covers it in other Standards [@CL-EST-2506].
+A pension plan that does not meet the definition of an ESOP is outside CAS 415 and is covered by other Cost Accounting Standards [@CL-EST-2506].
 
 ## Never confuse
 
@@ -75,4 +75,5 @@ Which business units hold full coverage contracts and which advance agreements o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Stated that a pension plan that is not an ESOP is covered by other Cost Accounting Standards, not by CAS 415.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unallowable cost and deferred compensation Standards and the deferred compensation transition.
