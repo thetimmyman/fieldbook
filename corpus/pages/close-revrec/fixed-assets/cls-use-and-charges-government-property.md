@@ -24,7 +24,7 @@ Explains when a contractor may use Government property for commercial or other n
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0222] |
 | Codified citation | FAR 52.245-9 [@CL-CLS-0222] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.245-9 [@CL-CLS-0010] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0222] |
 | Applies to | Contractor use of Government property for work other than rent-free work, with the contracting officer's written permission or a Schedule provision [@CL-CLS-0222] |
@@ -40,6 +40,8 @@ Rental requests go to the Administrative Contracting Officer, identify the prope
 For other Government property, the contractor may elect the appraisal method used for real property, subject to its constraints, or the stated formula [@CL-CLS-0319]. Under the formula, the hourly rental charge is 2 percent of the acquisition cost multiplied by the hours of rental time and divided by 720 [@CL-CLS-0224], with rental time expressed in increments of not less than one hour and portions of hours rounded to the next higher hour [@CL-CLS-0320].
 
 Payment of the rent is made by check payable to the Treasurer of the United States and sent to the contract administration office identified in the contract, unless the contracting officer specifies otherwise [@CL-CLS-0321]. Interest is charged if payment is not made by the due date [@CL-CLS-0322].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.245-9 has the same rental permission rule [@CL-CLS-0010; @CL-CLS-0222], the same 60-day due date [@CL-CLS-0011; @CL-CLS-0225], and the same content for a rental request [@CL-CLS-0013; @CL-CLS-0014; @CL-CLS-0318]. It has the same bar on nongovernmental use until a rental charge or estimated rental charge is agreed upon [@CL-CLS-0015; @CL-CLS-0223], and the same election between the appraisal method and the formula, with rental time in increments of not less than one hour rounded up and the hourly charge of 2 percent of the acquisition cost multiplied by the hours of rental time and divided by 720 [@CL-CLS-0016; @CL-CLS-0017; @CL-CLS-0319; @CL-CLS-0320; @CL-CLS-0224]. Its payment rule [@CL-CLS-0012; @CL-CLS-0321] and its interest rule [@CL-CLS-0018; @CL-CLS-0322] are the same, and so are its rent-free uses for contracts that specifically authorize such use and for other work that the Contracting Officer specifically authorizes in writing [@CL-CLS-0019; @CL-CLS-0020; @CL-CLS-0316; @CL-CLS-0317].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ Who maintains Government property usage logs and reconciles commercial rental ho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Use and Charges clause for Government property.

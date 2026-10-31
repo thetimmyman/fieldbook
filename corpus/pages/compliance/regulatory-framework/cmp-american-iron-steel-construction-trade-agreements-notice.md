@@ -22,7 +22,7 @@ Explains what an offeror does when its offer includes foreign construction mater
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5412] |
 | Codified citation | FAR 52.225-24, basic provision [@CL-CMP-5412] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-24 is marked reserved [@CL-CMP-0373] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5412] |
 | Applies to | Offerors that seek a determination of inapplicability or an exception for foreign construction material [@CL-CMP-5412] |
@@ -45,6 +45,8 @@ Under the basic provision, if the Government determines that a particular except
 
 Alternates. Under Alternate I, an offeror requesting a determination of inapplicability must submit the request with its offer, including the information and applicable supporting data required by paragraphs (c) and (d) of FAR clause 52.225-23 [@CL-CMP-6092]. Under Alternate II, the alternate offer provision applies when an offer includes foreign construction material, except foreign construction material from a Recovery Act designated country other than Bahrain, Mexico, or Oman that is not listed by the Government in paragraph (b)(3) of FAR clause 52.225-23 [@CL-CMP-6093]. Under Alternate II, the offeror also may submit an alternate offer based on use of equivalent domestic or Recovery Act designated country construction material other than Bahraini, Mexican, or Omani construction material [@CL-CMP-6094]. Under Alternate II, if the Government determines that a requested exception does not apply, it will evaluate only those offers based on use of the equivalent domestic or Recovery Act designated country construction material other than Bahraini, Mexican, or Omani construction material [@CL-CMP-6095].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.225-24, the notice provision number, as reserved [@CL-CMP-0373]. It also lists FAR 52.225-23, the required-use clause number, as reserved [@CL-CMP-0374], and the codified notice provision refers to that clause for its definitions [@CL-CMP-6088].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,6 +57,8 @@ Offer A is priced at 1,000,000 and includes foreign manufactured construction ma
 
 The 25 percent is applied to the offered price of the contract, while the 20 percent is applied to the cost of the foreign unmanufactured material [@CL-CMP-5511; @CL-CMP-5414]. This provision does not itself list the excepted materials, which the Government lists in paragraph (b)(3) of FAR clause 52.225-23 [@CL-CMP-5416].
 
+The codified FAR 52.225-24 carries the notice provision and its evaluation rules, while the RFO text prints that section number as reserved [@CL-CMP-5412; @CL-CMP-0373].
+
 ## Company calibration
 
 Whether each solicitation includes this provision and what supporting data goes in with the offer. [@Q-004]
@@ -63,4 +67,5 @@ Whether each solicitation includes this provision and what supporting data goes 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of required use of American iron, steel and manufactured goods under trade agreements.

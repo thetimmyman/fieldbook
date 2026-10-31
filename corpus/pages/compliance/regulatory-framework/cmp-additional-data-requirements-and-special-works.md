@@ -23,7 +23,7 @@ Shows how long the Government may order additional data, who pays for it, and wh
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3705] |
 | Codified citation | FAR 52.227-16 and FAR 52.227-17 [@CL-CMP-3705; @CL-CMP-3708] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-16 [@CL-CMP-0299] and RFO FAR 52.227-17 [@CL-CMP-0300] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3705] |
 | Applies to | Not established. |
@@ -35,6 +35,8 @@ Under the Special Works clause, and except as provided in its copyright paragrap
 ## How it works
 
 The two clauses do different jobs. The Additional Data Requirements clause lets the Contracting Officer order more data than the contract lists, within a time window, and pays the contractor for the conversion, reproduction and delivery work [@CL-CMP-3705; @CL-CMP-3707]. The Special Works clause makes the contractor get written permission both to claim copyright and to use or release the data it first produced [@CL-CMP-3709; @CL-CMP-3710]. If the Government desires to obtain copyright in data first produced in the performance of the contract and permission has not been granted under the copyright paragraph, the Contracting Officer shall direct the Contractor to assign the copyright, with or without registration [@CL-CMP-3752]. This card does not set out the indemnity paragraph of the Special Works clause, its rules on copyright notices, licenses and data not first produced in the contract, or the Contracting Officer's power to release the Contractor from the Additional Data Requirements clause.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO Additional Data Requirements clause keeps the Contracting Officer's right to order, at any time during contract performance or within a period of 3 years after acceptance of all items to be delivered, any data first produced or specifically used in the performance of the contract [@CL-CMP-0315; @CL-CMP-3705]. It keeps the rule that nothing in the clause requires the Contractor to deliver data whose withholding is authorized by the Rights in Data-General or other equivalent clause, or data specifically identified in the contract as not subject to the clause [@CL-CMP-0316; @CL-CMP-3706], and the compensation for converting the data into the prescribed form, for reproduction, and for delivery [@CL-CMP-0317; @CL-CMP-3707]. The RFO Special Works clause keeps the Government's unlimited rights, except as provided in the copyright paragraph, in all data delivered and in all data first produced in the performance of the contract [@CL-CMP-0318; @CL-CMP-3708]. It keeps the bar on asserting or authorizing others to assert copyright in data first produced without the Contracting Officer's prior written permission [@CL-CMP-0319; @CL-CMP-3709]. It keeps the Contracting Officer's direction to assign the copyright, with or without registration, if the Government desires to obtain copyright in data first produced and permission has not been granted as set forth in paragraph (c)(1)(i) of the clause [@CL-CMP-0320; @CL-CMP-0321; @CL-CMP-3752]. It keeps the bar, except as otherwise specifically provided in the contract, on using, releasing, reproducing, distributing or publishing data first produced, or authorizing others to do so, without the Contracting Officer's written permission [@CL-CMP-0322; @CL-CMP-3710].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which executed contracts carry the ordering clause or the special works clause, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for additional data requirements and rights in data for special works.

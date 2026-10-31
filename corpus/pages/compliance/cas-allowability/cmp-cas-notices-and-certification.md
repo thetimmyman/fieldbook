@@ -24,7 +24,7 @@ Shows what an offeror states and certifies about the Cost Accounting Standards a
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5916] |
 | Codified citation | FAR 52.230-1 [@CL-CMP-5917] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.230-1 [@CL-CMP-0260] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5916] |
 | Applies to | Offerors other than small businesses and foreign governments [@CL-CMP-5916] |
@@ -67,6 +67,8 @@ The offeror must indicate whether award of the contemplated contract would, unde
 
 Alternate I adds a further certificate to Part I [@CL-CMP-6505]. It is for an offeror that is an educational institution that, under the transition provisions of the Disclosure Statement rules, is or will be required to submit a Disclosure Statement after receipt of the award, and the offeror checks one option and completes it [@CL-CMP-5928]. The first option certifies that a Disclosure Statement Filing Due Date, shown in a blank, has been established with the cognizant Federal agency [@CL-CMP-6506]. The second option certifies that the Disclosure Statement will be submitted within the 6-month period ending a stated number of months after receipt of the award [@CL-CMP-6507]. The certificate also has a field for the name and address of the cognizant officer or Federal official where the Disclosure Statement is to be filed [@CL-CMP-6508].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the three-part notice, in which the offeror must examine each part and provide the requested information to determine the CAS requirements applicable to any resultant contract [@CL-CMP-0261; @CL-CMP-5917]. It keeps the rule that, for an educational institution, Part II does not apply unless the contemplated contract will be subject to full or modified CAS coverage under 48 CFR 9903.201-2(c)(5) or 9903.201-2(c)(6), respectively [@CL-CMP-0262; @CL-CMP-5918]. It keeps the exception for contracts that are exempt as specified in 48 CFR 9903.201-1 from the Part I(a) coverage [@CL-CMP-0264; @CL-CMP-6487], and the condition of contracting that an offeror whose proposal, if accepted, would result in a contract subject to 48 CFR chapter 99 submits a Disclosure Statement as required by 48 CFR 9903.202 [@CL-CMP-0265; @CL-CMP-5919]. It keeps the monetary exemption certificate, in which the offeror certifies that, together with all divisions, subsidiaries and affiliates under common control, it did not receive net awards of negotiated prime contracts and subcontracts subject to CAS totaling $50 million or more in the cost accounting period immediately preceding the period in which the proposal was submitted [@CL-CMP-0266; @CL-CMP-5923]. It keeps the interim exemption certificate's promise to submit a revised certificate immediately if an award has not been made within 90 days after the end of that period [@CL-CMP-0267; @CL-CMP-5924], in the form specified under paragraph (c)(1) or (c)(2) of Part I, as appropriate, to verify submission of a completed Disclosure Statement [@CL-CMP-0268; @CL-CMP-6497]. It keeps the Part II rule that checking the box means the resulting contract is subject to the Disclosure and Consistency of Cost Accounting Practices clause instead of the Cost Accounting Standards clause [@CL-CMP-0269; @CL-CMP-5925], and the Part III question on a change in established cost accounting practices affecting existing contracts and subcontracts [@CL-CMP-0270; @CL-CMP-5927]. In Part I(a) the RFO text says FAR 30.205(b) for the lower CAS threshold, where the codified text says FAR 30.201-4(b) [@CL-CMP-0263; @CL-CMP-0264; @CL-CMP-6486]. The RFO text of the provision ends with the words (End of provision) [@CL-CMP-0271].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -81,6 +83,8 @@ Absent specific regulations or agreement, a practice disclosed in a Disclosure S
 
 The dollar amounts here are the amounts printed in this provision. The [CAS applicability card](cmp-cas-applicability.md) covers the coverage and Disclosure Statement thresholds now in force, and the offeror reads both. The consequences of modified coverage are on the [modified coverage card](cmp-disclosure-consistency-modified-cas.md).
 
+The codified provision has an Alternate I that adds a certificate to Part I for an educational institution [@CL-CMP-6505; @CL-CMP-5928], while the RFO text of the provision ends with the words (End of provision) [@CL-CMP-0271].
+
 ## Company calibration
 
 Which business units are inside the certification decision for this solicitation, who signs the certification, and who fills in the contract-specific blanks. [@Q-003]
@@ -89,4 +93,5 @@ Which business units are inside the certification decision for this solicitation
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS notices and certification.

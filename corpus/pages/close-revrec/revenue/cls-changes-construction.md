@@ -23,7 +23,7 @@ Shows the two routes to a change under the construction changes clause, the writ
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-1088] |
 | Codified citation | FAR 52.243-4 [@CL-CLS-1088] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.243-4 [@CL-CLS-0047] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-1088] |
 | Applies to | Contracts containing the Changes clause for construction [@CL-CLS-1088] |
@@ -42,6 +42,8 @@ No proposal by the Contractor for an equitable adjustment shall be allowed if as
 
 A change reaches the Contractor either through a written change order or through another written or oral order that the Contractor identifies by notice [@CL-CLS-1088; @CL-CLS-1089; @CL-CLS-1090]. The equitable adjustment follows a change that moves cost or time [@CL-CLS-1091]. On the second route, no adjustment is made for costs incurred more than 20 days before the written notice, except for an adjustment based on defective specifications [@CL-CLS-1092]. The Contractor asserts its right within the assertion period [@CL-CLS-1132; @CL-CLS-1133], and a proposal asserted after final payment is not allowed [@CL-CLS-1093].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.243-4 has the same rule that another written or oral order that causes a change is treated as a change order if the Contractor gives written notice [@CL-CLS-0050; @CL-CLS-0051; @CL-CLS-1089; @CL-CLS-1090], and the same rule that no other order, statement, or conduct is treated as a change or entitles the Contractor to an equitable adjustment [@CL-CLS-0052; @CL-CLS-1135]. It has the same equitable adjustment rule [@CL-CLS-0056; @CL-CLS-0055; @CL-CLS-1091], the same 20-day limit on costs before written notice, with the same exception for defective specifications [@CL-CLS-0053; @CL-CLS-1092], the same rule for defective specifications for which the Government is responsible [@CL-CLS-0054; @CL-CLS-1136], and the same bar on a proposal asserted after final payment [@CL-CLS-0059; @CL-CLS-1093]. Paragraph (a) differs in wording: the RFO text says the Contracting Officer may issue a written order, identified as a change order, to make changes in the work within the scope of the contract [@CL-CLS-0047], where the codified paragraph says a written order designated or indicated to be a change order and the general scope of the contract [@CL-CLS-1088]. The four listed changes are the same [@CL-CLS-0048; @CL-CLS-1137], and the RFO text states in a separate subparagraph that the Contracting Officer does not need to notify any sureties of a written order [@CL-CLS-0049]. The RFO paragraph (e)(1) has the Contractor assert its right by submitting a written statement describing the general nature and amount of proposal within 30 days, unless the Government extends the period, after receipt of a written change order or the furnishing of a written notice [@CL-CLS-0057; @CL-CLS-0058], which is the same assertion period and extension as the codified paragraph (e) [@CL-CLS-1132; @CL-CLS-1133]. Its prescription says that agency procedures may vary the 30-day period, in different words from the codified prescription note [@CL-CLS-0060; @CL-CLS-1134].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -52,6 +54,8 @@ A construction contractor receives an oral instruction to move a wall. It gives 
 
 A written change order is not the same as another order treated as a change order. The written-notice proviso [@CL-CLS-1089; @CL-CLS-1090] and the pre-notice cost limit [@CL-CLS-1092] are stated for the second route. The accounting for change orders is on [Change order accounting](cls-change-order-accounting.md), and the fixed-price clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md). The cost-reimbursement version is on [Changes clause for cost-reimbursement contracts](cls-changes-cost-reimbursement.md), the time-and-materials version is on [Changes clause for time-and-materials and labor-hour contracts](cls-changes-time-and-materials-labor-hours.md), and a separate notice route is on [Notification of changes clause](cls-notification-of-changes.md). The claims process is on [Disputes clause, claims and certification](cls-disputes-clause.md).
 
+The RFO text sets out the written change order and written notice events as (e)(1)(i) and (ii) [@CL-CLS-0058], where the codified clause numbers them (1) and (2) within paragraph (e) [@CL-CLS-1132], and it puts the sureties rule at (a)(2) [@CL-CLS-0049], where the codified clause has it in the lead-in of paragraph (a) [@CL-CLS-1088].
+
 ## Company calibration
 
 Where the executed construction contracts and modifications are kept, and who confirms that the construction changes clause applies. [@Q-004]
@@ -60,4 +64,5 @@ Where the executed construction contracts and modifications are kept, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the changes clause for construction.

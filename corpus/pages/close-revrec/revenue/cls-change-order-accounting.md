@@ -24,7 +24,7 @@ Explains when the contracting officer may require separate cost accounts for inc
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0207] |
 | Codified citation | FAR 52.243-6 [@CL-CLS-0207] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.243-6 [@CL-CLS-0021] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0207] |
 | Applies to | Contracts with the Change Order Accounting clause when estimated change costs exceed $100,000 [@CL-CLS-0207] |
@@ -36,6 +36,8 @@ For each change or series of related changes, the contractor must maintain separ
 ## How it works
 
 Once the contracting officer requires change order accounting for a change or series of related changes above the dollar threshold, the contractor keeps separate accounts for that change [@CL-CLS-0207; @CL-CLS-0208]. The accounts cover the incurred segregable direct costs of both changed and not changed work that are allocable to the change [@CL-CLS-0208]. The contractor must maintain the accounts until the parties agree to an equitable adjustment for the changes ordered or the matter is conclusively disposed of in accordance with the Disputes clause [@CL-CLS-0209].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.243-6 has the same $100,000 rule for requiring change order accounting [@CL-CLS-0021; @CL-CLS-0207], the same separate-accounts rule [@CL-CLS-0022; @CL-CLS-0208], and the same period for maintaining the accounts [@CL-CLS-0023; @CL-CLS-0209].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ How change order accounts and project work breakdown structures are opened and r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Change Order Accounting clause.

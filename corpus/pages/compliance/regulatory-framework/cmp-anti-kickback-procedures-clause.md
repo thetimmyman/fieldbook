@@ -23,7 +23,7 @@ Shows the acts the clause says are prohibited, the procedures and written report
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2608] |
 | Codified citation | FAR 52.203-7 [@CL-CMP-2608] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.203-7 [@CL-CMP-0377] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2608] |
 | Applies to | Solicitations and contracts exceeding $200,000, other than those for commercial products or commercial services [@CL-CMP-2682] |
@@ -36,6 +36,8 @@ The Contractor shall have in place and follow reasonable procedures designed to 
 
 The clause splits the duties. The contractor builds and follows procedures for its own operations and direct business relationships, and reports possible violations in writing [@CL-CMP-2611; @CL-CMP-2612]. The Government's rights are money rights, and each is measured by the amount of the kickback [@CL-CMP-2614]. The Contractor must also cooperate fully with any Federal agency investigating a possible violation [@CL-CMP-2684], and the substance of the clause flows down to subcontracts above a threshold, without the procedures paragraph [@CL-CMP-2683]. The printed clause also has rules on paying withheld money over to the Government and on notice to the Contracting Officer when money is withheld, and this card does not set them out. The definition of a kickback, and when the clause is inserted, are on [Anti-Kickback Act and the Anti-Kickback Procedures clause](cmp-anti-kickback-act.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause is inserted as prescribed in FAR 3.502-3, the same section as the codified clause [@CL-CMP-0377; @CL-CMP-2608]. It keeps the prohibition on any person providing, attempting to provide or offering to provide any kickback and on soliciting, accepting or attempting to accept any kickback [@CL-CMP-0378; @CL-CMP-2609]. It keeps the third prohibited act of including, directly or indirectly, the amount of any kickback in a contract price charged by a prime contractor to the United States or by a subcontractor to a prime contractor or higher tier subcontractor [@CL-CMP-0379; @CL-CMP-2610]. It keeps the duty to have in place and follow reasonable procedures designed to prevent and detect possible violations described in paragraph (b) in the Contractor's own operations and direct business relationships [@CL-CMP-0380; @CL-CMP-2611]. It keeps the duty to report a possible violation promptly in writing when the Contractor has reasonable grounds to believe a violation described in paragraph (b) may have occurred [@CL-CMP-0381; @CL-CMP-2612], to the inspector general of the contracting agency, the head of the contracting agency if the agency does not have an inspector general, or the Attorney General [@CL-CMP-0382; @CL-CMP-2613]. It keeps the duty to cooperate fully with any Federal agency investigating a possible violation described in paragraph (b) [@CL-CMP-0383; @CL-CMP-2684]. It keeps the flowdown of the substance of the clause, including paragraph (c)(5) but excepting paragraph (c)(1), in all subcontracts under the contract that exceed the threshold specified in FAR 3.502-2(i) on the date of subcontract award [@CL-CMP-0385; @CL-CMP-2683]. In the offset and withholding paragraph, the RFO text says the Contracting Officer may direct that the Prime Contractor withhold from sums owed a subcontractor under the prime contract the amount of the kickback, where the codified clause says the amount of any kickback [@CL-CMP-0384; @CL-CMP-2614].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -46,6 +48,8 @@ A prime contractor holds a 5 million contract that is not for commercial product
 
 The prohibited acts reach any person, while the procedures duty is the contractor's own and covers its own operations and direct business relationships [@CL-CMP-2609; @CL-CMP-2611]. The Government's rights recover the kickback amount. The printed clause states no separate monetary penalty.
 
+The codified withholding right is measured by the amount of any kickback, while the RFO text says the amount of the kickback [@CL-CMP-2614; @CL-CMP-0384].
+
 ## Company calibration
 
 Which contracts and subcontracts carry the clause, and who owns the procedures and the reporting channel. [@Q-004]
@@ -54,4 +58,5 @@ Which contracts and subcontracts carry the clause, and who owns the procedures a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Anti-Kickback Procedures clause text.

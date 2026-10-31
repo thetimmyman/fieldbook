@@ -23,7 +23,7 @@ Shows when the Government may terminate a fixed-price construction contract for 
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-1118] |
 | Codified citation | FAR 52.249-10 and FAR 52.249-14 [@CL-CLS-1118; @CL-CLS-1122] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.249-10 and RFO FAR 52.249-14 [@CL-CLS-0061; @CL-CLS-0068] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-1118] |
 | Applies to | Contracts containing the Default (Fixed-Price Construction) clause, and contracts for which the Excusable Delays clause is prescribed [@CL-CLS-1118; @CL-CLS-1123] |
@@ -41,6 +41,8 @@ Except for defaults of subcontractors at any tier, the Contractor shall not be i
 ## How it works
 
 The construction default clause lets the Government terminate the right to proceed for late completion [@CL-CLS-1118]. The right to proceed is not terminated, and damages are not charged, if the cause condition and the notice condition are both met [@CL-CLS-1119; @CL-CLS-1120]. If a default termination is later found wrong, or the delay excusable, the parties stand as if the termination were for convenience [@CL-CLS-1121]. The separate Excusable Delays clause protects a Contractor from default for causes beyond its control, and revises the delivery schedule when the Contracting Officer finds such a cause [@CL-CLS-1122; @CL-CLS-1124].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.249-10 has the same Government right to terminate the right to proceed for failure to complete the work within the time specified in the contract [@CL-CLS-0061; @CL-CLS-1118], the same unforeseeable-cause condition [@CL-CLS-0062; @CL-CLS-1119], and the same first six examples of such causes [@CL-CLS-0063; @CL-CLS-1147], with its list going on to quarantine restrictions, strikes, freight embargoes, unusually severe weather, and delays of subcontractors or suppliers at any tier [@CL-CLS-0064]. It has the same 10-day notice condition [@CL-CLS-0065; @CL-CLS-1120], the same time extension and finality rule [@CL-CLS-0066; @CL-CLS-1148], and the same rule that a default termination later found wrong or excusable is treated as one for convenience [@CL-CLS-0067; @CL-CLS-1121]. RFO FAR 52.249-14 has the same excusable delays rule [@CL-CLS-0068; @CL-CLS-1122], the same prescription [@CL-CLS-0069; @CL-CLS-1123], and the same delivery schedule revision [@CL-CLS-0070; @CL-CLS-1124]. It has the same subcontractor rule [@CL-CLS-0071; @CL-CLS-0072; @CL-CLS-1149], with the conditions after unless being that the subcontracted supplies or services were obtainable from other sources, that the Contracting Officer ordered the Contractor in writing to purchase them from the other source, and that the Contractor failed to comply reasonably with the order [@CL-CLS-0073].
 
 ## Worked example
 
@@ -60,4 +62,5 @@ Which default and excusable-delays clauses each open contract carries, checked a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price construction default and excusable delays.
