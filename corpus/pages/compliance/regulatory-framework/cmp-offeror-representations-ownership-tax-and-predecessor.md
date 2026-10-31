@@ -1,0 +1,70 @@
++++
+id = "cmp-offeror-representations-ownership-tax-and-predecessor"
+title = "Offeror representations on ownership, tax liability, felony convictions and predecessors"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["applicability_record", "entity_resolution_ladder"]
+questions = ["Q-004"]
+links = ["sup-ownership-or-control-of-offeror", "cmp-cage-code-scope-highest-level-and-immediate-owner", "sup-inverted-corporation-and-tax-felony-provisions", "mna-predecessor-of-offeror"]
++++
+
+## Purpose
+
+Explains what an offeror represents in paragraphs (p), (q) and (r) of the commercial offeror representations provision, which cover who owns or controls the offeror, delinquent Federal tax liability and felony convictions, and the offeror's predecessors, and what the provision says follows.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-9018] |
+| Codified citation | FAR 52.212-3(p), (q) and (r) [@CL-CMP-9018; @CL-CMP-9194; @CL-CMP-9028] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-9018] |
+| Applies to | Offerors, for the ownership paragraph in solicitations with a SAM registration or unique entity identifier requirement, for the tax and felony representation, and for the predecessor paragraph in solicitations that include the entity code reporting provision [@CL-CMP-9018; @CL-CMP-9026; @CL-CMP-9027; @CL-CMP-9028] |
+
+An offeror that has completed the annual representations and certification electronically in the System for Award Management completes only paragraph (b) of the provision [@CL-CMP-9250]. An offeror that has not completed them electronically shall complete only paragraphs (c) through (v), which include paragraphs (p), (q) and (r) [@CL-CMP-9251].
+
+Ownership, paragraph (p). The paragraph applies in all solicitations when there is a requirement to be registered in SAM or a requirement to have a unique entity identifier in the solicitation [@CL-CMP-9018]. The offeror represents that it has or does not have an immediate owner [@CL-CMP-9019]. An offeror that has one enters the immediate owner's CAGE code and legal name, without a doing business as name, and states whether that owner is owned or controlled by another entity [@CL-CMP-9020]. If the immediate owner is owned or controlled by another entity, the offeror enters the highest-level owner's CAGE code and legal name, again without a doing business as name [@CL-CMP-9021]. An offeror with more than one immediate owner, such as a joint venture, shall respond to paragraph (p)(2) and, if applicable, paragraph (p)(3) for each participant in the joint venture [@CL-CMP-9019]. The definitions of immediate owner and highest-level owner are in the definitions paragraph of the provision and are covered on the linked cards.
+
+Tax and felony, paragraph (q)(1): As required by sections 744 and 745 of Division E of the Consolidated and Further Continuing Appropriations Act, 2015, and similar provisions in subsequent appropriations acts, the Government will not enter into a contract with any corporation that meets either description in the paragraph [@CL-CMP-9194]. The first description is a corporation that has any unpaid Federal tax liability that has been assessed, for which all judicial and administrative remedies have been exhausted or have lapsed, and that is not being paid in a timely manner pursuant to an agreement with the authority responsible for collecting the tax liability [@CL-CMP-9022]. That description applies where the awarding agency is aware of the unpaid tax liability, unless an agency has considered suspension or debarment of the corporation and made a determination that suspension or debarment is not necessary to protect the interests of the Government [@CL-CMP-9023]. The second description is a corporation that was convicted of a felony criminal violation under any Federal law within the preceding 24 months, where the awarding agency is aware of the conviction [@CL-CMP-9024]. It does not apply if an agency has considered suspension or debarment of the corporation and made a determination that this action is not necessary to protect the interests of the Government [@CL-CMP-9025]. The paragraph names the awarding agency for awareness and says only "an agency" for the suspension or debarment determination [@CL-CMP-9023; @CL-CMP-9025].
+
+Tax and felony, paragraph (q)(2): The offeror represents whether it is, or is not, a corporation that has any unpaid Federal tax liability that has been assessed, for which all judicial and administrative remedies have been exhausted or have lapsed, and that is not being paid in a timely manner [@CL-CMP-9026]. In that representation the liability is one not being paid in a timely manner pursuant to an agreement with the authority responsible for collecting the tax liability [@CL-CMP-9223]. The offeror also represents whether it is, or is not, a corporation that was convicted of a felony criminal violation under a Federal law within the preceding 24 months [@CL-CMP-9027].
+
+Predecessor, paragraph (r). The paragraph applies in all solicitations that include the provision at 52.204-16, Commercial and Government Entity Code Reporting [@CL-CMP-9028]. The offeror represents that it is or is not a successor to a predecessor that held a Federal contract or grant within the last three years [@CL-CMP-9029]. An offeror that has indicated it is a successor enters information for all predecessors that held a Federal contract or grant within the last three years, listing them in reverse chronological order if there is more than one [@CL-CMP-9030]. For each predecessor it enters the CAGE code, or marks Unknown, and the legal name, without a doing business as name [@CL-CMP-9195].
+
+## How it works
+
+The ownership paragraph builds a chain: the offeror first, then its immediate owner, then the highest-level owner, with a joint venture answering for every participant [@CL-CMP-9019; @CL-CMP-9020; @CL-CMP-9021]. Both owner steps use a CAGE code and a legal name, and both bar a doing business as name [@CL-CMP-9020; @CL-CMP-9021].
+
+The tax and felony paragraph has two layers. Paragraph (q)(1) states the Government's bar, and that bar turns on the awarding agency's awareness and on an agency's suspension or debarment determination [@CL-CMP-9194; @CL-CMP-9023; @CL-CMP-9025]. Paragraph (q)(2) asks the offeror for facts about itself, and the representation text does not repeat the awareness and determination conditions [@CL-CMP-9026; @CL-CMP-9027].
+
+The predecessor paragraph repeats the pattern for entities that came before the offeror, with the three-year look-back and the reverse chronological order for more than one predecessor [@CL-CMP-9029; @CL-CMP-9030].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A solicitation requires SAM registration and includes the entity code reporting provision, so the ownership and predecessor paragraphs apply [@CL-CMP-9018; @CL-CMP-9028]. The offeror is a joint venture of two members, so it responds to the immediate owner questions, and where a member's immediate owner is itself owned or controlled by another entity, to the highest-level owner questions, for each participant [@CL-CMP-9019]. One member is owned by a holding company that is owned by a parent, so that member enters the holding company as its immediate owner and the parent as its highest-level owner, each by CAGE code and legal name [@CL-CMP-9020; @CL-CMP-9021].
+
+The offeror marks that it is not a corporation with an assessed, unpaid Federal tax liability that is not being paid in a timely manner, and that it is not a corporation convicted of a Federal felony within the preceding 24 months [@CL-CMP-9026; @CL-CMP-9027]. It became a successor to one predecessor that held a Federal contract two years ago, which is within the look-back, so it marks that it is a successor and enters the predecessor's legal name and CAGE code, or Unknown if the code is not known [@CL-CMP-9029; @CL-CMP-9030; @CL-CMP-9195].
+
+## Never confuse
+
+The immediate owner and the highest-level owner are different entries, because the highest-level owner is entered only when the immediate owner is itself owned or controlled by another entity [@CL-CMP-9020; @CL-CMP-9021]. The Government's bar in paragraph (q)(1) depends on what the awarding agency is aware of, while the offeror's representation in paragraph (q)(2) asks whether the offeror is the described corporation [@CL-CMP-9023; @CL-CMP-9024; @CL-CMP-9026; @CL-CMP-9027]. The predecessor paragraph asks about earlier holders of a Federal contract or grant, while the ownership paragraphs ask about the entities above the offeror [@CL-CMP-9029; @CL-CMP-9020; @CL-CMP-9021].
+
+## Company calibration
+
+The company must confirm which of its offers carry these answers and who assembles the owner and predecessor records [@Q-004].
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ownership, tax liability, felony conviction and predecessor paragraphs of the commercial offeror provision.

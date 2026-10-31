@@ -1,0 +1,80 @@
++++
+id = "cmp-offeror-reps-definitions-and-sam"
+title = "Offeror representations: definitions and the annual SAM certification"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+terms = ["commercial_product", "federal_acquisition_regulation", "applicability_record"]
+questions = ["Q-004"]
+links = ["cmp-annual-representations-and-certifications-in-sam", "cmp-annual-representations-provision-paragraphs", "cmp-sam-registration-and-maintenance-clauses", "cmp-offeror-reps-small-business-status", "cmp-offeror-reps-buy-american-and-trade-agreements", "cmp-offeror-reps-responsibility-and-child-labor", "cmp-offeror-reps-manufacture-labor-standards-and-tin", "cmp-offeror-representations-ownership-tax-and-predecessor", "cmp-offeror-certifications-sudan-inverted-domestic-and-iran", "cmp-offeror-representations-emissions-and-covered-telecom", "mkt-small-business-program-representations-provision"]
++++
+
+## Purpose
+
+Explains how an offeror answers the offeror representations and certifications provision for commercial products and commercial services, which paragraphs it completes, how it updates its annual System for Award Management (SAM) entry for one solicitation, and which business status, child labor and manufacturing terms the definitions paragraph fixes for the representations that follow.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-8960] |
+| Codified citation | FAR 52.212-3, paragraphs (a) and (b) [@CL-CMP-8960; @CL-CMP-9110] |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-8960] |
+| Applies to | Offerors that complete the provision titled Offeror Representations and Certifications—Commercial Products and Commercial Services [@CL-CMP-8962] |
+
+The provision opens with a choice of route, and the choice follows from whether the offeror has completed the annual representations and certification electronically in SAM [@CL-CMP-8960]. An offeror that has completed them shall complete only paragraph (b) [@CL-CMP-8960]. An offeror that has not completed them electronically shall complete only paragraphs (c) through (v) [@CL-CMP-8961].
+
+Paragraph (b), the annual update. By submitting its offer, after reviewing the SAM information, the offeror verifies that the representations and certifications currently posted at FAR 52.212-3 have been entered or updated in the last 12 months [@CL-CMP-8962]. It also verifies that they are current, accurate, complete and applicable to the solicitation, including the business size standards for the NAICS codes referenced, at the time the offer is submitted, and that they are incorporated in the offer by reference except for the paragraphs it identifies [@CL-CMP-9111]. The offeror identifies, in the blank in paragraph (b)(2), the paragraphs among (c) through (v) that it has completed for the purposes of the solicitation only, if any [@CL-CMP-9110]. Those paragraphs are also incorporated in the offer and are current, accurate and complete as of the date of the offer [@CL-CMP-8963]. Any changes the offeror provides apply to that solicitation only and do not update the representations and certifications posted on SAM [@CL-CMP-8963]. The offeror makes each verification by submitting its offer, and the paragraph names no one else who decides [@CL-CMP-8962].
+
+Paragraph (a), business status definitions. A small business concern is a concern, including its affiliates, that is independently owned and operated, not dominant in its field of operation, and qualified as a small business under the criteria in 13 CFR part 121 and the size standards in the solicitation [@CL-CMP-9116]. SBA determines affiliation based on the factors in 13 CFR 121.103, and in determining whether affiliation exists consideration is given to all appropriate factors including common ownership, common management and contractual relationships [@CL-CMP-9117]. Affiliates, as used in the definition, means business concerns, one of whom directly or indirectly controls or has the power to control the others, or a third party or parties control or have the power to control the others [@CL-CMP-9712].
+
+A small disadvantaged business concern, consistent with 13 CFR 124.1001, is a small business concern under the size standard applicable to the acquisition that meets the ownership and control conditions of the definition [@CL-CMP-9118]. It must be at least 51 percent unconditionally and directly owned by one or more socially disadvantaged and economically disadvantaged individuals who are citizens of the United States [@CL-CMP-9119]. Each individual claiming economic disadvantage must have a net worth not exceeding the threshold at 13 CFR 124.104(c)(2) after taking into account the applicable exclusions set forth at 13 CFR 124.104(c)(2) [@CL-CMP-9120]. The management and daily business operations must be controlled by individuals who meet those ownership criteria [@CL-CMP-9121].
+
+A veteran-owned small business concern is a small business concern not less than 51 percent of which is owned and controlled by one or more veterans, or not less than 51 percent of whose stock is owned by one or more veterans if it is publicly owned [@CL-CMP-9122]. Its management and daily business operations must be controlled by one or more veterans [@CL-CMP-9123].
+
+A service-disabled veteran-owned small business (SDVOSB) concern has two routes in the definition. The first requires a small business concern not less than 51 percent of which is owned and controlled by one or more service-disabled veterans, or not less than 51 percent of whose stock is owned by one or more service-disabled veterans if it is publicly owned [@CL-CMP-9124]. That route also requires that management and daily business operations be controlled by one or more service-disabled veterans or, for a service-disabled veteran with permanent and severe disability, by the spouse or permanent caregiver of the veteran [@CL-CMP-9125]. The second route is a small business concern eligible under the SDVOSB Program in accordance with 13 CFR part 128, and a service-disabled veteran, as used in the definition, is a veteran as defined in the cited statute with a disability that is service-connected as defined in that statute [@CL-CMP-9126]. A service-disabled veteran must also be registered as a service-disabled veteran in the Beneficiary Identification and Records Locator Subsystem, or its successor system, maintained by the Veterans Benefits Administration of the Department of Veterans Affairs [@CL-CMP-9127]. One route to eligibility under the SDVOSB Program is to be designated in SAM, effective January 1, 2024, as certified by SBA in accordance with 13 CFR 128.300 [@CL-CMP-9128]. The alternative is that the concern has represented that it is an SDVOSB concern in SAM and submitted a complete application for certification to SBA on or before December 31, 2023 [@CL-CMP-9129]. The SDVOSB Program is a program that authorizes contracting officers to limit competition, including award on a sole-source basis, to SDVOSB concerns eligible under the SDVOSB Program [@CL-CMP-9713].
+
+A women-owned small business concern is a small business concern at least 51 percent owned by one or more women, or at least 51 percent of whose stock is owned by one or more women if it is publicly owned, and whose management and daily business operations are controlled by one or more women [@CL-CMP-9114]. A women-owned business concern is a concern at least 51 percent owned by one or more women, or at least 51 percent of whose stock is owned by one or more women if it is publicly owned, and whose management and daily business operations are controlled by one or more women [@CL-CMP-9115]. A women-owned small business concern eligible under the WOSB Program is a small business concern at least 51 percent directly and unconditionally owned by, and controlled by, one or more women who are citizens of the United States, and certified by SBA or an approved third-party certifier [@CL-CMP-9113]. An economically disadvantaged women-owned small business concern is a small business concern at least 51 percent directly and unconditionally owned by, and whose management and daily business operations are controlled by, one or more women who are citizens of the United States [@CL-CMP-8964]. The women who own and control it must also be economically disadvantaged in accordance with 13 CFR part 127, it must be certified by SBA or an approved third-party certifier in accordance with 13 CFR 127.300, and it automatically qualifies as a women-owned small business eligible under the WOSB Program [@CL-CMP-9112].
+
+Paragraph (a), child labor and manufacturing definitions. One part of the definition of forced or indentured child labor covers all work or service exacted from any person under the age of 18 under the menace of any penalty for its nonperformance and for which the worker does not offer himself voluntarily [@CL-CMP-8965]. The other part covers work or service performed by any person under the age of 18 pursuant to a contract the enforcement of which can be accomplished by process or penalties [@CL-CMP-8966]. A manufactured end product is any end product in product and service codes 1000 to 9999, except lumber and related basic wood materials, agricultural supplies, live animals and subsistence [@CL-CMP-9130]. The remaining listed exceptions are crude grades of plant materials, miscellaneous inedible crude animal products, miscellaneous crude agricultural and forestry products, ores, natural and synthetic minerals and additive metal materials [@CL-CMP-9131]. The place of manufacture is the place where an end product is assembled out of components, or otherwise made or processed from raw materials into the finished product to be provided to the Government [@CL-CMP-8967]. If a product is disassembled and reassembled, the place of reassembly is not the place of manufacture [@CL-CMP-9132].
+
+Other terms in paragraph (a) serve the ownership, predecessor, Sudan, inverted domestic corporation, Iran and telecommunications paragraphs, and the linked cards for those paragraphs explain them.
+
+## How it works
+
+The offeror first decides its route from its SAM status [@CL-CMP-8960; @CL-CMP-8961]. On the paragraph (b) route it reviews the posted entry, verifies it by submitting the offer, and lists in the paragraph (b)(2) blank any paragraph it completed for this solicitation only [@CL-CMP-8962; @CL-CMP-9110]. Paragraphs it lists are incorporated in the offer and apply to that solicitation, while the SAM entry stays as posted [@CL-CMP-8963].
+
+The definitions then feed the later paragraphs. The business status definitions govern the representations on the small business status card, the child labor definition governs the child labor certification, and the manufacturing definitions govern the place of manufacture indication. SBA decides affiliation under 13 CFR 121.103 [@CL-CMP-9117], and SBA or an approved third-party certifier certifies a concern eligible under the WOSB Program [@CL-CMP-9113].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+An offeror entered its annual representations in SAM 8 months before it submits an offer, so the entry was updated within the last 12 months [@CL-CMP-8962]. Because it has completed them electronically, it completes only paragraph (b) [@CL-CMP-8960]. After reviewing SAM it finds that its size answer for this solicitation's NAICS code needs a change, so it lists paragraph (c) in the paragraph (b)(2) blank as completed for this solicitation only [@CL-CMP-9110]. The amended paragraph is incorporated in the offer and is current as of the date of the offer [@CL-CMP-8963]. The change applies to this solicitation only, and the SAM entry still shows the old answer for the next solicitation [@CL-CMP-8963].
+
+A second offeror has not completed the annual representations electronically, so it completes only paragraphs (c) through (v) [@CL-CMP-8961]. It offers 2 end products. The first is assembled at its plant out of components, so the plant is its place of manufacture [@CL-CMP-8967]. The second is built at the plant, disassembled for shipping and reassembled at a warehouse, and the warehouse is not its place of manufacture because the place of reassembly is not the place of manufacture [@CL-CMP-9132].
+
+## Never confuse
+
+The annual SAM entry and the solicitation-specific amendment are different things. The entry is verified as current for the offer, while an amendment made for one solicitation rides with that offer and leaves SAM unchanged [@CL-CMP-8962; @CL-CMP-8963].
+
+This provision is not the annual representations provision at FAR 52.204-8, which the FAR does not insert in part 12 solicitations for commercial products or commercial services [@CL-CMP-2984].
+
+A women-owned small business concern, a women-owned business concern, a concern eligible under the WOSB Program and an economically disadvantaged women-owned small business concern are four definitions. Of those four, only the program definition and the economically disadvantaged definition require certification by SBA or an approved third-party certifier [@CL-CMP-9113; @CL-CMP-9112], and the plain definitions state ownership and control only [@CL-CMP-9114; @CL-CMP-9115].
+
+## Company calibration
+
+Which entity owns the annual SAM entry and who confirms solicitation-specific amendments before an offer is submitted. [@Q-004]
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions and annual SAM representations in the commercial offeror representations provision.
