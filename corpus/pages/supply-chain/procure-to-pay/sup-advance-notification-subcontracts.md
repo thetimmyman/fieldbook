@@ -39,7 +39,7 @@ The section does not say how to notify, what the notice contains or how far ahea
 
 ## How it works
 
-The duty falls on the contractor, and the notice goes to the contracting officer before award [@CL-SUP-3839; @CL-SUP-3840]. Which paragraph applies depends on the agency awarding the contract, because the section sorts contracts by agency [@CL-SUP-3840; @CL-SUP-3842]. For the first group, an approved purchasing system removes the duty. For the second group, the duty applies despite an approved system [@CL-SUP-3840; @CL-SUP-3842]. The threshold stays on the fixed-price subcontract and is measured against the total estimated cost of the contract [@CL-SUP-3841; @CL-SUP-3843]. How a purchasing system comes to be approved is in [purchasing system approval and withdrawal](sup-purchasing-system-approval-and-withdrawal.md).
+The duty falls on the contractor, and the notice goes to the contracting officer before award [@CL-SUP-3839; @CL-SUP-3840]. Which paragraph applies depends on the agency awarding the contract, because the section sorts contracts by agency [@CL-SUP-3840; @CL-SUP-3842]. For the first group, an approved purchasing system removes the duty. For the second group, the duty applies despite an approved system [@CL-SUP-3840; @CL-SUP-3842]. The threshold applies only to the fixed-price subcontract, and its percentage is measured against the total estimated cost of the contract [@CL-SUP-3841; @CL-SUP-3843]. How a purchasing system comes to be approved is in [purchasing system approval and withdrawal](sup-purchasing-system-approval-and-withdrawal.md).
 
 ## Worked example
 
@@ -61,4 +61,5 @@ Whether each cost-reimbursement contract sits with a defense or a civilian agenc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Clarified which part of the fixed-price threshold uses the contract cost.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance notification of subcontracts under FAR 44.201-2.

@@ -37,7 +37,7 @@ The Government is in no event liable or responsible for damage or injury to any 
 
 ## How it works
 
-The solicitation states an estimated quantity or weight for each origin and destination pair, and evaluation treats those figures as the quantities or weights to be shipped [@CL-SUP-2351; @CL-SUP-2301]. The provision allows no other use of the estimates [@CL-SUP-2301]. For liability, the contractor answers for damage or injury arising from its own vehicles, equipment, employees and agents, insures against claims for injury or damage, and insures its own employees and agents under workers' compensation and other legally required cover [@CL-SUP-2303; @CL-SUP-2304; @CL-SUP-2305]. The Government is not liable or responsible for that damage or injury, and the contractor's indemnity protects it against claims [@CL-SUP-2306; @CL-SUP-2307].
+The solicitation states an estimated quantity or weight for each origin and destination pair, and evaluation treats those figures as the quantities or weights to be shipped [@CL-SUP-2351; @CL-SUP-2301]. The provision allows no other use of the estimates [@CL-SUP-2301]. For liability, the contractor answers for damage or injury arising from its own vehicles, equipment, employees and agents, insures against claims for injury or damage, and insures its own employees and agents under workers' compensation and other legally required cover [@CL-SUP-2303; @CL-SUP-2304; @CL-SUP-2305]. The Government is not liable or responsible for that damage or injury, and it is to be indemnified and saved harmless against claims for damage or injury in such cases; the quoted text does not say who indemnifies it [@CL-SUP-2306; @CL-SUP-2307].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.247-20, the estimates provision, as [Reserved] [@CL-SUP-0197]. RFO FAR 52.247-21 keeps the liability rules described above: the contractor's responsibility for damage or injury [@CL-SUP-2303; @CL-SUP-0199], its public liability and property damage insurance [@CL-SUP-2304; @CL-SUP-0200], its workers' compensation and other legally required insurance [@CL-SUP-2305; @CL-SUP-0210], and the Government's non-liability and indemnity [@CL-SUP-2306; @CL-SUP-2307; @CL-SUP-0211; @CL-SUP-0212].
 
@@ -63,5 +63,6 @@ Confirm which awards carry the estimates provision and the liability clause, whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an indemnifier the clause text does not name.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for estimated quantities and contractor liability for injury and property damage.

@@ -30,7 +30,7 @@ Describes the supervision, labor and packing duties of a moving contractor and s
 
 The supervision, labor or materials clause is inserted, substantially as printed, in solicitations and contracts for transportation or transportation-related services when the contractor is required to furnish supervision, labor or materials [@CL-SUP-2259]. The contractor must furnish adequate supervision, labor, materials, supplies and equipment necessary to perform all the services contemplated under the contract in an orderly, timely and efficient manner [@CL-SUP-2222].
 
-The accessorial services clause is inserted, substantially as printed, in solicitations and contracts for the transportation of household goods or office furniture [@CL-SUP-2221]. Under its packing, crating and padding paragraph, the contractor must perform all packing, crating and padding necessary for the protection of the goods to be transported [@CL-SUP-2223], and furnish the packing containers, all crating materials, and all padding materials and equipment [@CL-SUP-2224]. It must furnish or cause to be furnished, when necessary, padding or other protective material for the interior of the buildings, including elevators, from and to which the property will be moved [@CL-SUP-2260]. It must also ensure that all containers and materials are clean and of quality sufficient for protection of the goods [@CL-SUP-2261].
+The accessorial services clause is inserted, substantially as printed, in solicitations and contracts for the transportation of household goods or office furniture [@CL-SUP-2221]. Under its packing, crating and padding paragraph, the contractor must perform all of the packing and/or crating and padding necessary for the protection of the goods to be transported [@CL-SUP-2223], and furnish the packing containers, all crating materials, and all padding materials and equipment [@CL-SUP-2224]. It must furnish or cause to be furnished, when necessary, padding or other protective material for the interior of the buildings, including elevators, from and to which the property will be moved [@CL-SUP-2260]. It must also ensure that all containers and materials are clean and of quality sufficient for protection of the goods [@CL-SUP-2261].
 
 ## How it works
 
@@ -58,5 +58,6 @@ Confirm that the company's move estimate itemizes packing, crating and disassemb
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored "and/or" in the packing and crating duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supervision, labor and accessorial services.
