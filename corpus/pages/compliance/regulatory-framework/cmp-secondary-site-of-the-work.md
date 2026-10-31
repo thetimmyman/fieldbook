@@ -22,7 +22,7 @@ Shows what an offeror must tell the Government when work is planned at a seconda
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5860] |
 | Codified citation | FAR 52.222-5 [@CL-CMP-5860] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-5 [@CL-CMP-5332; @CL-CMP-5333; @CL-CMP-5662; @CL-CMP-5663; @CL-CMP-6202] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5860] |
 | Applies to | Solicitations that carry the provision as prescribed at FAR 22.407(h) [@CL-CMP-5860] |
@@ -34,6 +34,8 @@ The offeror notifies the Government when it intends to perform work at any secon
 Where the wage determination given for the primary site does not apply to the secondary site, the offeror requests a wage determination from the Contracting Officer [@CL-CMP-5863]. The request does not move the closing date, because the due date for offers is not extended for it [@CL-CMP-5864].
 
 A wage determination that is incorporated for the secondary site is effective from the first day on which work under the contract was performed at that site, and it is incorporated without any adjustment in contract price or estimated cost [@CL-CMP-6131].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the rules above: the offeror must notify the Government if it intends to perform work at any secondary site of the work [@CL-CMP-5332; @CL-CMP-5861], and must request a determination from the Contracting Officer if it is unsure whether a planned site meets the criteria [@CL-CMP-5333; @CL-CMP-5862]. It also keeps that the offeror must request a wage determination from the Contracting Officer where the wage determination for the primary site does not apply to the secondary site [@CL-CMP-5662; @CL-CMP-5863], and that the due date for offers is not extended for that request [@CL-CMP-5663; @CL-CMP-5864]. The RFO provision is inserted as prescribed in 22.402-4(g), where the codified provision is inserted as prescribed in FAR 22.407(h) [@CL-CMP-6202; @CL-CMP-5860].
 
 ## Worked example
 
@@ -53,4 +55,5 @@ Which solicitations and offers inside the finance remit contemplate a secondary 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction wage rate requirements at a secondary site of the work.

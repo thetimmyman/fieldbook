@@ -23,7 +23,7 @@ Shows what the segregated facilities prohibition bans, how the construction affi
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5876] |
 | Codified citation | FAR 52.222-21, 52.222-23 and 52.222-24 [@CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882] |
-| RFO citation | Not established. |
+| RFO citation | RFO part 52 prints FAR 52.222-21, 52.222-23 and 52.222-24 as reserved [@CL-CMP-5684; @CL-CMP-5685; @CL-CMP-5686] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5876] |
 | Applies to | Solicitations carrying the construction affirmative action notice or the preaward evaluation provision, and subcontracts subject to the equal opportunity clause [@CL-CMP-5880; @CL-CMP-5882; @CL-CMP-5879] |
@@ -42,6 +42,8 @@ Within 10 working days after awarding any construction subcontract in excess of 
 
 Where a contract of $10 million or more will result from a solicitation, the prospective contractor and its known first-tier subcontractors with anticipated subcontracts of $10 million or more are subject to a preaward compliance evaluation [@CL-CMP-5882]. That evaluation does not apply where, within the preceding 24 months, the Office of Federal Contract Compliance Programs conducted an evaluation and found the prospective contractor and subcontractors in compliance with Executive Order 11246 [@CL-CMP-5883].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints section 52.222-21 as reserved [@CL-CMP-5684], section 52.222-23 as reserved [@CL-CMP-5685] and section 52.222-24 as reserved [@CL-CMP-5686], while the codified text prints the segregated facilities clause, the construction goals notice and the preaward evaluation provision at those sections [@CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -52,6 +54,8 @@ A prime contractor awards two second-tier construction subcontracts for covered 
 
 The segregated facilities clause is about the facilities the contractor maintains or provides for its employees, and the locations under its control where employees perform services [@CL-CMP-5876]. A breach of it is a violation of the equal opportunity clause [@CL-CMP-6370]. The construction goals are percentages for the aggregate workforce in each trade, and compliance with them is measured against total work hours performed [@CL-CMP-5880; @CL-CMP-6375].
 
+The rules on this page come from the codified text, and the RFO text prints the same three section numbers as reserved [@CL-CMP-5684; @CL-CMP-5685; @CL-CMP-5686; @CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882].
+
 ## Company calibration
 
 Whether each covered construction subcontract carries the segregated facilities clause and whether the written notice was sent on time. [@Q-004]
@@ -60,4 +64,5 @@ Whether each covered construction subcontract carries the segregated facilities 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for segregated facilities, construction goals and the preaward evaluation.

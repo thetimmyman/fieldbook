@@ -24,7 +24,7 @@ Shows what a contractor reports each year about services performed under the con
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5945] |
 | Codified citation | FAR 52.204-14 [@CL-CMP-5945] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.204-14 [@CL-CMP-5687] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5945] |
 | Applies to | Contracts that carry the clause, for services performed under the contract [@CL-CMP-5947] |
@@ -45,6 +45,8 @@ A first-tier subcontract is a subcontract awarded directly by the contractor for
 
 The contractor must require each first-tier subcontractor providing services under the contract, with subcontracts each valued at or above the thresholds set forth in FAR 4.1703(a)(2), to provide the detailed information in sufficient time to submit the report [@CL-CMP-5954]. The clause does not print those thresholds, and the company reads them in the FAR section the clause names [@CL-CMP-5954]. The detailed information is the subcontract number, including the subcontractor name and unique entity identifier, and the number of first-tier subcontractor direct-labor hours expended on the services performed during the previous Government fiscal year [@CL-CMP-6531]. The contractor must advise the subcontractor that the information will be made available to the public as required by section 743 of Division C of the Consolidated Appropriations Act, 2010 [@CL-CMP-5955].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the annual report due by October 31 for services performed under the contract during the preceding Government fiscal year [@CL-CMP-5687; @CL-CMP-5947]. It keeps the report contents: the contract number and, as applicable, the order number, and the total dollar amount invoiced [@CL-CMP-5688; @CL-CMP-5948; @CL-CMP-5949], and the contractor direct labor hours and the data reported by subcontractors [@CL-CMP-5689; @CL-CMP-5950; @CL-CMP-5951]. It keeps the filing in SAM [@CL-CMP-5690; @CL-CMP-5952] and the appropriate contractual remedies if the report is late [@CL-CMP-5691; @CL-CMP-5953]. The RFO clause says the Contracting Officer will make the failure to comply a part of the contractor's performance information under the Federal Acquisition Regulation part 42, where the codified clause names FAR subpart 42.15 [@CL-CMP-5692; @CL-CMP-6527]. It says the agency will notify the contractor no later than November 15 [@CL-CMP-5693; @CL-CMP-6529], and that by November 30 the contractor must revise the report or put its reason in writing for the agency, where the codified clause says document its rationale [@CL-CMP-5693; @CL-CMP-6530]. It keeps the definition of a first-tier subcontract [@CL-CMP-5815; @CL-CMP-5945] and its exclusion of supplier agreements with vendors [@CL-CMP-6013; @CL-CMP-5946]. It names the subcontract thresholds in 4.303(b), where the codified clause names 4.1703(a)(2) [@CL-CMP-6014; @CL-CMP-5954], and it keeps the detailed subcontractor information [@CL-CMP-6015; @CL-CMP-6531] and the notice that the information will be made public, now worded as telling the subcontractor [@CL-CMP-6018; @CL-CMP-5955].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,6 +61,8 @@ A first-tier subcontract is not a supplier agreement with a vendor [@CL-CMP-5946
 
 This clause reports for services performed under the contract [@CL-CMP-5947]. For an indefinite-delivery contract the reporting runs for orders that exceed the thresholds [@CL-CMP-5956], and that is on the [indefinite-delivery card](cmp-service-contract-reporting-indefinite-delivery.md).
 
+The codified clause names FAR 4.1703(a)(2) for the subcontract thresholds [@CL-CMP-5954] and FAR subpart 42.15 for performance information [@CL-CMP-6527], while the RFO clause names 4.303(b) for the thresholds [@CL-CMP-6014] and the Federal Acquisition Regulation part 42 for performance information [@CL-CMP-5692].
+
 ## Company calibration
 
 Which contracts for services sit inside the remit, who assembles the annual report, and who requests and checks the subcontractor information. [@Q-003]
@@ -67,4 +71,5 @@ Which contracts for services sit inside the remit, who assembles the annual repo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract reporting requirements.

@@ -21,7 +21,7 @@ Explains what a pre-qualification designation notice does for an offeror, how it
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5592; @CL-CMP-5595] |
 | Codified citation | FAR 52.250-4 and FAR 52.250-5 [@CL-CMP-5592; @CL-CMP-5595] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.250-4 [@CL-CMP-4487; @CL-CMP-4488; @CL-CMP-4489; @CL-CMP-4490; @CL-CMP-4616; @CL-CMP-4617; @CL-CMP-4618]; RFO FAR 52.250-5 [@CL-CMP-4619; @CL-CMP-4620; @CL-CMP-4621; @CL-CMP-4622; @CL-CMP-4623; @CL-CMP-4624; @CL-CMP-4625] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5592; @CL-CMP-5595] |
 | Applies to | Solicitations and contracts in which the provision or clause is inserted as prescribed [@CL-CMP-5592; @CL-CMP-5595] |
@@ -46,6 +46,8 @@ In that clause, prices for the items covered by the pre-qualification designatio
 
 The contracting officer must then either make an equitable adjustment to the contract price based on evidence of the resulting increase or decrease in the contractor's costs, and/or an equitable adjustment to other terms and conditions based on lack of designation or certification [@CL-CMP-5739]. The other option, at the sole option of the Government, is to terminate the contract for the convenience of the Government in place of an equitable adjustment [@CL-CMP-5740]. A failure to agree is a dispute under the Disputes clause, and unless first terminated the contractor continues performance during establishment of any equitable adjustment [@CL-CMP-5741].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the pre-qualification provision keeps the definition of a pre-qualification designation notice, which states that the technology to be procured affirmatively or presumptively satisfies the technical criteria and authorizes streamlined applications with expedited processing [@CL-CMP-4487; @CL-CMP-4488; @CL-CMP-5593; @CL-CMP-5594]. It keeps the rule that neither designation nor certification is a requirement of the action [@CL-CMP-4489; @CL-CMP-5727], and the basic provision's rule that a proposal with pricing or other terms contingent on designation or certification will not be considered for award [@CL-CMP-4490; @CL-CMP-5728]. Its first alternate keeps the rule that the Government may not award a contract based on an offer contingent upon receipt of designation before award unless the offeror demonstrates before award that DHS has issued a designation for its technology [@CL-CMP-4616; @CL-CMP-5731]. Its second alternate keeps the condition that an offeror is eligible for award only if it files its designation application, limited to the scope of the applicable pre-qualification designation notice, within 15 days after submitting the proposal [@CL-CMP-4617; @CL-CMP-5734], together with the conditions of good faith and obtaining the insurance DHS requires [@CL-CMP-4618; @CL-CMP-5735]. The RFO equitable adjustment clause keeps the statement that prices were established presuming DHS will issue a designation [@CL-CMP-4619; @CL-CMP-5596], the duty to pursue designation and the insurance DHS requires in good faith [@CL-CMP-4620; @CL-CMP-4621; @CL-CMP-5737; @CL-CMP-5738], and the 30-day window for requesting an equitable adjustment after DHS denies the application [@CL-CMP-4622; @CL-CMP-5597]. It says the contracting officer "will" either make an equitable adjustment or, at the sole option of the Government, terminate for convenience instead, where the codified clause says "shall" [@CL-CMP-4623; @CL-CMP-4624; @CL-CMP-4625; @CL-CMP-5739; @CL-CMP-5740].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -66,4 +68,5 @@ Which contracts were priced on an expected SAFETY Act designation, and who track
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the SAFETY Act pre-qualification notice and equitable adjustment.
