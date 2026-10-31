@@ -31,7 +31,7 @@ Shows which supplies the sea transport clause covers, what notice the contractor
 
 In the clause, supplies are supplies clearly identifiable for eventual use by or owned by DoD at the time of transportation by sea, or otherwise transported by DoD, regardless of ownership or use by DoD [@CL-SUP-1388]. The contractor shall use U.S.-flag vessels when transporting any supplies by sea under the contract [@CL-SUP-1389].
 
-In the basic clause, a subcontractor must also use U.S.-flag vessels if the contract is a construction contract, if the supplies are other than commercial products, or if they are commercial products of the kinds listed [@CL-SUP-1390]. One listed kind is a commercial product the contractor is reselling or distributing to the Government without adding value [@CL-SUP-1391]. Two more listed kinds of commercial product are products shipped in direct support of contingency operations, exercises, or deployed humanitarian or peacekeeping forces, and commissary or exchange cargoes outside the Defense Transportation System [@CL-SUP-1390; @CL-SUP-1392].
+In the basic clause, a subcontractor must also use U.S.-flag vessels if the contract is a construction contract, if the supplies are other than commercial products, or if they are commercial products of the kinds listed [@CL-SUP-1390]. One listed kind is a commercial product the contractor is reselling or distributing to the Government without adding value [@CL-SUP-1391]. Two more of the listed alternative kinds of commercial product are products shipped in direct support of U.S. military contingency operations, exercises, or forces deployed in humanitarian or peacekeeping operations, or commissary or exchange cargoes transported outside the Defense Transportation System in accordance with section 2643 of title 10 of the United States Code [@CL-SUP-1390; @CL-SUP-1392].
 
 In Alternates I and II, a subcontractor transporting supplies by sea shall use U.S.-flag vessels if the supplies are other than commercial products or are commercial products of the listed kinds [@CL-SUP-1444]. Their lists do not repeat the construction contract ground that the basic clause carries [@CL-SUP-1390; @CL-SUP-1444].
 
@@ -64,4 +64,5 @@ Which contracts carry this clause, whether any supplies will move by sea, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the U.S. military and statute wording and the alternatives in the commercial product kinds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, definitions and the U.S.-flag requirement.

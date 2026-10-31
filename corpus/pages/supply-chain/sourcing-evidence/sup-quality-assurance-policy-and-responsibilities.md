@@ -61,9 +61,9 @@ Contract administration office responsibilities. When a contract is assigned for
 
 These sections put their duties on agencies, contracting offices and the contract administration office. The contractor's own quality duties are in [contractor responsibilities for quality](sup-contractor-quality-responsibilities.md).
 
-Who decides what. The activity responsible for technical requirements prescribes the quality requirements, and the contracting office receives them and includes the appropriate requirements for the contractor's control of quality in the solicitation and contract [@CL-SUP-3906; @CL-SUP-3907; @CL-SUP-3908]. The contracting office establishes the significance of a nonconformance when it considers acceptability [@CL-SUP-3911]. When and by whom nonconforming supplies may be accepted or rejected is in 46.407, which the policy names as the exception to rejection [@CL-SUP-3902]. That section is covered in [rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
+Who decides what. The activity responsible for technical requirements prescribes the quality requirements, and the contracting office receives them and includes the appropriate requirements for the contractor's control of quality in the solicitation and contract [@CL-SUP-3906; @CL-SUP-3907; @CL-SUP-3908]. The contracting office establishes the significance of a nonconformance when it considers acceptability [@CL-SUP-3906; @CL-SUP-3911]. When and by whom nonconforming supplies may be accepted or rejected is in 46.407, which the policy names as the exception to rejection [@CL-SUP-3902]. That section is covered in [rejection of nonconforming supplies](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
 
-Who verifies. If the contracting office retains contract administration, it verifies that the contractor fulfills the contract quality requirements [@CL-SUP-3910]. If the contract is assigned to the cognizant contract administration office, that office performs the actions needed to verify conformance, unless the assignment specifies otherwise [@CL-SUP-3912; @CL-SUP-3914].
+Who verifies. If the contracting office retains contract administration, it verifies that the contractor fulfills the contract quality requirements [@CL-SUP-3910]. If the contract is assigned to the cognizant contract administration office, that office performs the actions needed to verify conformance, unless specified otherwise [@CL-SUP-3912; @CL-SUP-3914].
 
 How the offices work together. The contract administration office applies its procedures in accordance with the contracting office's written direction and implements the contracting office's specific written instructions [@CL-SUP-3913; @CL-SUP-3917]. The contracting office issues any necessary instructions to that office and acts on its recommendations [@CL-SUP-3909]. The contract administration office reports defects it observes in design or technical requirements, and recommends changes to the contract, specifications, instructions or other requirements [@CL-SUP-3918; @CL-SUP-3919].
 
@@ -87,5 +87,6 @@ Which office holds the quality verification duty for each contract, and who owns
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Unless-specified wording; contracting office lead-in cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 46.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for quality assurance policy and office responsibilities.
