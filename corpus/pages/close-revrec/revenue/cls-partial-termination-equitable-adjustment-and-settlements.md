@@ -31,6 +31,8 @@ Governs the equitable adjustment in the price of the continued portion of a part
 
 Under the termination clause, after partial termination, a contractor may request an equitable adjustment in the price or prices of the continued portion of a fixed-price contract [@CL-CLS-0526].
 
+In the FAR's general definitions, the continued portion of the contract means the portion of a contract that the contractor must continue to perform following a partial termination [@CL-CLS-1498].
+
 The termination contracting officer should attempt to settle in one agreement all rights and liabilities of the parties under the contract except those arising from any continued portion of the contract [@CL-CLS-0530].
 
 ## How it works
@@ -57,4 +59,5 @@ Who verifies that costs in a continued-portion adjustment are kept out of the te
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of continued portion of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for partial termination equitable adjustments and partial settlements.

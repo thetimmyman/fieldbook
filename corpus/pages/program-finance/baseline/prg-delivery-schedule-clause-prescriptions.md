@@ -41,6 +41,8 @@ Construction. The contracting officer shall insert the clause at 52.211-10, Comm
 
 The prescriptions are addressed to the contracting officer. Each delivery clause and each alternate is a permission written with may, so the contracting officer chooses among them [@CL-PRG-0457; @CL-PRG-0459; @CL-PRG-0464; @CL-PRG-0461; @CL-PRG-0462; @CL-PRG-0463]. The construction clause itself is written with shall and tied to a contemplated fixed-price construction contract, while its Alternate I and its change for indefinite-delivery orders are written with may [@CL-PRG-0469; @CL-PRG-0470; @CL-PRG-0471].
 
+The FAR's general definitions say an alternate is a substantive variation of a basic provision or clause prescribed for use in a defined circumstance [@CL-PRG-9067].
+
 The Government's need points to the clause. A required delivery by a particular time points to the Time of Delivery clause [@CL-PRG-0459; @CL-PRG-0460]. A desired time with a later required time points to the Desired and Required Time of Delivery clause [@CL-PRG-0464; @CL-PRG-0465]. In both cases the schedule is to be based on the date of the contract [@CL-PRG-0460; @CL-PRG-0465].
 
 The basis of the schedule points to the alternate. Alternates I and II may be used for a schedule expressed in specific calendar dates or specific periods, based on an assumed date of award or an assumed date the contractor will receive notice of award [@CL-PRG-0461; @CL-PRG-0462]. Alternate III may be used for a schedule to be based on the actual date the contractor receives a written notice of award [@CL-PRG-0463]. The Desired and Required Time of Delivery clause has the same three alternates on the same conditions [@CL-PRG-0466; @CL-PRG-0467; @CL-PRG-0468].
@@ -77,4 +79,5 @@ Who in the company confirms which delivery clause and which alternate actually l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of alternate.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for delivery schedule clause prescriptions.

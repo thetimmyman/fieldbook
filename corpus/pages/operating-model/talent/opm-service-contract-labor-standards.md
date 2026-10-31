@@ -41,6 +41,8 @@ If a wage determination came through the e98 process and bid opening, or the sta
 
 The contracting officer must cooperate with Department of Labor representatives in examining records, interviewing service employees and the other parts of a Department investigation [@CL-OPM-1013]. When asked, agencies must give the Wage and Hour Administrator or a designee any available information on contractors, subcontractors, their contracts and the nature of the services [@CL-OPM-1014]. The contracting officer must promptly refer apparent violations and complaints received, in writing, to the appropriate regional office of the Department of Labor [@CL-OPM-1015], and employee complaints must not be disclosed to the employer [@CL-OPM-1016]. Disputes about the contract's labor standards requirements are handled under paragraph (t) of the clause at 52.222-41, not under the Disputes clause at 52.233-1 [@CL-OPM-1017].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the clause at 52.222-41, Service Contract Labor Standards, says to insert it as prescribed in 22.1002-2(b)(1) [@CL-OPM-1063], where the codified prescription is in FAR 22.1006 [@CL-OPM-0093]. Under RFO paragraph (p)(1), by entering into the contract the Contractor, and officials of the Contractor, represent that neither the Contractor nor any person or firm who has a substantial interest in the Contractor's firm is a person or firm ineligible to be awarded Government contracts by virtue of the sanctions imposed under section 6706 of title 41 of the United States Code [@CL-OPM-1064]. The codified paragraph is headed Contractor's Certification and uses the verb certifies; the RFO paragraph is headed Contractor's Representation and uses the verb represents [@CL-OPM-1064].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,6 +61,7 @@ Which contracts the company treats as subject to the Service Contract Labor Stan
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 52.222-41 prescription cross-reference and the Contractor's Representation paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the e98 resubmission rule, default for noncompliance, Department of Labor investigations and labor standards disputes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the mandatory provisions and the 5-year limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract labor standards.

@@ -41,7 +41,7 @@ For foreign supplies for which the Government will issue duty-free entry certifi
 
 ### Customs forms
 
-Except for shipments consigned to a military installation, the contractor prepares any customs forms required for the entry of foreign supplies into the customs territory of the United States [@CL-SUP-1823]. When a shipment holds both supplies to be accorded duty-free entry and supplies that are not, the customs forms identify the eligible items [@CL-SUP-1824].
+Except for shipments consigned to a military installation, the contractor prepares any customs forms required for the entry of foreign supplies into the customs territory of the United States [@CL-SUP-1823]. When a shipment holds both supplies to be accorded duty-free entry and supplies that are not, the customs forms identify the eligible items [@CL-SUP-1824]. In the FAR's general definitions, the customs territory of the United States means the 50 States, the District of Columbia, and Puerto Rico [@CL-SUP-9542].
 
 ### Notice to the Administrative Contracting Officer
 
@@ -77,5 +77,6 @@ Whether the purchasing system flags foreign supplies for notice and flowdown, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of the customs territory of the United States.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the notice sentence so the rule keeps the alternative of import for incorporation in end items to be delivered to the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for duty-free entry.

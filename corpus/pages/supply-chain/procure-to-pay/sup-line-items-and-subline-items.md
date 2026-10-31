@@ -47,6 +47,8 @@ The exceptions are:
 - Item description and PSC data elements are not required in the line item if there are associated deliverable subline items that include the actual detailed identification, and a general narrative description is then used for the line item [@CL-SUP-3377].
 - The requirement for a single unit price or single total price at the line item level does not apply if any listed condition is present: there are associated deliverable subline items that are priced, or the line item or subline item is not separately priced [@CL-SUP-3378]; the supplies or services are being acquired on a cost-reimbursement, time-and-materials or labor-hour basis [@CL-SUP-3379]; or the instrument is for services, firm prices have been established for elements of the total price, and the number of the elements is not known until performance, for example a labor-hour contract for maintenance or repair [@CL-SUP-3380]. For instruments of that last kind, the contracting officer may structure them to reflect a firm or estimated total amount for each line item [@CL-SUP-3381].
 
+FAR 2.101 defines a line item as the basic structural element in a procurement instrument that describes and organizes the required product or service for pricing, delivery, inspection, acceptance, invoicing, and payment [@CL-SUP-9551]. A line item number is either a numeric or alphanumeric format to identify a line item [@CL-SUP-9552].
+
 ## How it works
 
 Each deliverable with the listed characteristics gets its own line item, and subline items are available where colors, sizes, delivery dates, destinations or places of performance differ within a line item [@CL-SUP-3315; @CL-SUP-3370]. A line item that has deliverable subline items is informational [@CL-SUP-3314], and where the subline items carry the actual detailed identification, or are priced, the identification and the price may sit one level down [@CL-SUP-3377; @CL-SUP-3378].
@@ -75,5 +77,6 @@ Confirm how each instrument in force splits deliverables into line items and sub
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of line item and line item number.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules on structuring solicitations for alternative line items and the provision to insert.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for separately identified line items and subline items.

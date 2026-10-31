@@ -39,7 +39,7 @@ Instruction 1 says a registrant need not comply with paragraphs (a) and (b) unti
 
 Instruction 2 says the registrant must maintain evidential matter, including documentation, to provide reasonable support for management's assessment of the effectiveness of its internal control over financial reporting [@CL-FPA-0265].
 
-Item 307 is a neighbouring item on disclosure controls and procedures. It requires disclosure of the conclusions of the registrant's principal executive and principal financial officers, or persons performing similar functions, regarding the effectiveness of the registrant's disclosure controls and procedures [@CL-FPA-1000]. The disclosure controls and procedures are as defined in § 240.13a-15(e) or § 240.15d-15(e) of the same chapter, the conclusions are as of the end of the period covered by the report, and they are based on the evaluation required by paragraph (b) of § 240.13a-15 or § 240.15d-15 [@CL-FPA-1001].
+Item 307 is a neighbouring item on disclosure controls and procedures [@CL-FPA-1000]. It requires disclosure of the conclusions of the registrant's principal executive and principal financial officers, or persons performing similar functions, regarding the effectiveness of the registrant's disclosure controls and procedures [@CL-FPA-1000]. The disclosure controls and procedures are as defined in § 240.13a-15(e) or § 240.15d-15(e) of the same chapter, the conclusions are as of the end of the period covered by the report, and they are based on the evaluation required by paragraph (b) of § 240.13a-15 or § 240.15d-15 [@CL-FPA-1001].
 
 ## How it works
 
@@ -65,5 +65,6 @@ Which framework management uses, how deficiencies are rated, and how quarterly c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the neighbouring item on disclosure controls.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the neighbouring Item 307 rule on disclosure controls and procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for internal control over financial reporting disclosure.

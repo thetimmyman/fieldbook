@@ -31,6 +31,8 @@ The Government will maintain surveillance of contractor performance as necessary
 
 The contract administration office determines the extent of production surveillance on the basis of the criticality the contracting officer assigned to the supplies or services and a list of factors [@CL-OPM-0051]. Contracts at or below the simplified acquisition threshold should not normally require production surveillance [@CL-OPM-0054]. The source text does not state the dollar value of that threshold.
 
+The FAR's general definitions say a contract administration office is an office that performs assigned postaward functions related to the administration of contracts and assigned preaward functions [@CL-OPM-1086].
+
 ## How it works
 
 The administering contracting officer decides the extent of surveillance when the contracting office retains the contract for administration [@CL-OPM-0050], and the contract administration office determines the extent of production surveillance on the basis of criticality and the listed factors [@CL-OPM-0051]. The first statement applies when the contracting office retains the contract for administration, while the second names the contract administration office without that condition, and the printed sections do not say how the two fit together [@CL-OPM-0050; @CL-OPM-0051]. The listed factors are contract requirements for reporting production progress and performance, the contract performance schedule and the contractor's production plan [@CL-OPM-0052], together with the contractor's history of contract performance, its experience with the contract supplies or services, its financial capability and any supplementary written instructions from the contracting office [@CL-OPM-0053]. These two sections name no item that a contractor must supply for surveillance; the contract's own reporting requirements and the contractor's production plan are inputs to the Government's decision [@CL-OPM-0052].
@@ -55,5 +57,6 @@ Which Government office sets surveillance for each production contract, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contract administration office.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for production surveillance.

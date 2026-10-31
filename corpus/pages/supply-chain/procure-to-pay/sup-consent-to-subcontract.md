@@ -29,6 +29,8 @@ Shows when a prime contractor needs customer consent before placing a subcontrac
 | Text status | Final [@CL-SUP-3830] |
 | Applies to | Subcontract consent under prime contracts, whether or not the contractor has an approved purchasing system [@CL-SUP-3830; @CL-SUP-3833] |
 
+The FAR's general definitions say consent to subcontract means the contracting officer's written consent for the prime contractor to enter into a particular subcontract [@CL-SUP-9539].
+
 Paragraph (a) covers a contractor that has an approved purchasing system. Consent is required for subcontracts that the contracting officer specifically identifies in the contract's subcontracts clause [@CL-SUP-3830]. The contracting officer may also require consent to a subcontract if the officer has determined that an individual consent action is required to protect the Government adequately because of the subcontract's type, complexity or value, or because it needs special surveillance [@CL-SUP-3831]. These can be subcontracts for critical systems, subsystems, components or services [@CL-SUP-3856]. Subcontracts may be identified by subcontract number or by class of items, such as engines on a prime contract for airframes [@CL-SUP-3832].
 
 Paragraph (b) covers a contractor that does not have an approved purchasing system. Consent to subcontract is required for cost-reimbursement, time-and-materials, labor-hour or letter contracts [@CL-SUP-3833]. The same sentence adds unpriced actions, including unpriced modifications and unpriced delivery orders, under fixed-price contracts that exceed the simplified acquisition threshold. For those actions it lists cost-reimbursement, time-and-materials and labor-hour subcontracts, and fixed-price subcontracts that exceed a stated amount [@CL-SUP-3834]. For the Department of Defense, the Coast Guard and the National Aeronautics and Space Administration, that amount is the greater of the simplified acquisition threshold or five percent of the total estimated cost of the contract [@CL-SUP-3835]. For other civilian agencies, the text says either the simplified acquisition threshold or five percent of the total estimated cost of the contract, and does not say which of the two governs [@CL-SUP-3836].
@@ -63,4 +65,5 @@ Whether the purchasing system is approved, and how subcontracts and items are id
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of consent to subcontract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for consent to subcontract under FAR 44.201-1.

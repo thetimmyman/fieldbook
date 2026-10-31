@@ -32,6 +32,8 @@ Negotiation of a forward pricing rate agreement may be requested by the contract
 
 The administrative contracting officer should consider whether the benefits are commensurate with the effort of establishing and monitoring the agreement, and agreements are normally negotiated only with contractors having a significant volume of Government contract proposals [@CL-RTE-0162; @CL-RTE-0163].
 
+FAR 2.101 defines a forward pricing rate agreement as a written agreement negotiated between a contractor and the Government to make certain rates available during a specified period for use in pricing contracts or modifications [@CL-RTE-9076]. A forward pricing rate recommendation is a rate set unilaterally by the administrative contracting officer for use by the Government in negotiations or other contract actions when forward pricing rate agreement negotiations have not been completed or when the contractor will not agree to a forward pricing rate agreement [@CL-RTE-9077].
+
 ## How it works
 
 The administrative contracting officer obtains the contractor's forward pricing rate proposal and requires cost or pricing data that are accurate, complete and current as of the date of submission, subject to the cross-reference to 15.407-3(c) [@CL-RTE-0164].
@@ -62,5 +64,6 @@ Which agreement rates the company may use for each proposal purpose and period, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of forward pricing rate agreement and forward pricing rate recommendation.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for forward pricing rate agreements.

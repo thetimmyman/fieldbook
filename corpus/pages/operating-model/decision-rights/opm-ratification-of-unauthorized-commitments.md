@@ -31,6 +31,8 @@ Shows who may ratify an agreement made without authority, how far that authority
 
 Ratification means the act of approving an unauthorized commitment by an official who has the authority to do so [@CL-OPM-0102]. Subject to the limitations in paragraph (c) of the subsection, the head of the contracting activity, unless the agency designates a higher level official, may ratify an unauthorized commitment [@CL-OPM-0010]. The authority to ratify may be delegated in accordance with agency procedures, but in no case below the level of chief of the contracting office [@CL-OPM-0011].
 
+The FAR's general definitions say contracting activity means an element of an agency designated by the agency head and delegated broad authority regarding acquisition functions [@CL-OPM-1087].
+
 Agencies should take positive action to preclude, to the maximum extent possible, the need for ratification actions [@CL-OPM-0103]. The ratification procedures may not be used in a manner that encourages unauthorized commitments by Government personnel [@CL-OPM-0104]. Agencies should process unauthorized commitments using the ratification authority instead of referring such actions to the Government Accountability Office for resolution [@CL-OPM-0105].
 
 The authority to ratify may be exercised only when listed conditions are met, the first being that supplies or services have been provided to and accepted by the Government, or the Government otherwise has obtained or will obtain a benefit resulting from performance of the unauthorized commitment [@CL-OPM-0012].
@@ -57,4 +59,5 @@ Who holds ratification authority in each contracting activity, and how finance l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contracting activity.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for ratification of unauthorized commitments.

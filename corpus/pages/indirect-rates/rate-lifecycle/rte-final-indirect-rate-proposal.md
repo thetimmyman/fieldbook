@@ -35,6 +35,8 @@ The contractor must submit an adequate final indirect cost rate proposal within 
 
 During the year the contractor bills at provisional billing rates. After year end it builds the incurred cost submission from its books, removes unallowable costs, and submits the proposal. The government audits it and negotiates final indirect rates, and the contracts are then adjusted from the billing rates to the final rates. A late or inadequate proposal delays settlement and closeout.
 
+Under the RFO text of the clause, listed supplemental information is not required to determine if a proposal is adequate, but may be required during the audit process [@CL-RTE-9039]. One listed item is general organizational information and limitation on allowability of compensation for certain contractor personnel, with a reference to 31.205-6(p) [@CL-RTE-9040].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,4 +55,5 @@ Which fiscal years are open, and the status of each incurred cost submission. [@
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO supplemental information paragraph of the Allowable Cost and Payment clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the final indirect cost rate proposal deadline.

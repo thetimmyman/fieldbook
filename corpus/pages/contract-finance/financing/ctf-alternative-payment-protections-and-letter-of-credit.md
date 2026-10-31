@@ -44,6 +44,8 @@ The financial institution shall use the format set out in paragraph (f) to confi
 
 The Contracting Officer uses the sight draft format in the clause to draw on the letter of credit, and that format orders payment to the order of the beneficiary agency of a stated sum in United States dollars [@CL-CTF-2576].
 
+FAR 2.101 defines an irrevocable letter of credit as a written commitment by a federally insured financial institution to pay all or part of a stated amount of money, until the expiration date of the letter, upon the Government's (the beneficiary) presentation of a written demand for payment [@CL-CTF-9410]. Neither the financial institution nor the offeror or contractor can revoke or condition the letter of credit [@CL-CTF-9411].
+
 ## How it works
 
 The payment protection is sized at 100 percent of the contract price, is due after award by the contract-specific day count, and covers the full performance period plus a one-year period [@CL-CTF-2483; @CL-CTF-2520]. A supplier's written allegation of nonpayment is the trigger for the Contracting Officer to access the protection, unless the protection is an escrow agreement or payment bond [@CL-CTF-2484]. The Contracting Officer may also withhold those funds pending resolution by proceedings or agreement, subject to the same exception [@CL-CTF-2484; @CL-CTF-2743]. A letter of credit cannot be revoked or conditioned, and it is a written commitment by a federally insured institution to pay on the Government's written demand [@CL-CTF-2744; @CL-CTF-2745]. A letter of credit is drawn by presenting a written demand together with the letter of credit, including any confirming letter, with no other document required, using the sight draft format [@CL-CTF-2485; @CL-CTF-2576]. The issuer creates it in the paragraph (e) format, the confirming institution confirms it in the paragraph (f) format, and the offeror or Contractor gives the Contracting Officer a credit rating as of the date of issuance [@CL-CTF-2746; @CL-CTF-2751; @CL-CTF-2763; @CL-CTF-2749]. Once issued as security for a performance or payment bond, the letter renews automatically each year unless the issuer gives timely notice of non-renewal, and the renewals continue until the required coverage period is completed and the Contracting Officer waives the right to payment in writing [@CL-CTF-2486; @CL-CTF-2748]. Its issuer must meet the rating and confirmation tests, its expiry follows the use it secures, and an extension or replacement that does not arrive in time lets the Contracting Officer draw [@CL-CTF-2487; @CL-CTF-2488; @CL-CTF-2572; @CL-CTF-2574; @CL-CTF-2575; @CL-CTF-2478].
@@ -76,6 +78,7 @@ Which contracts require payment protection or a letter of credit, in what form, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of irrevocable letter of credit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the confirmation format sentence so the confirmation keeps its expiry on the stated date or any automatically extended expiration date.
 - COMPATIBLE_EXTENSION, 2026-10-31: Compared the remaining RFO paragraphs of FAR 52.228-14(e) and (f) with the codified text, all in the same words.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

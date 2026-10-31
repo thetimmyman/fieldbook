@@ -30,6 +30,8 @@ Explains where the Government delivers Government-furnished property and where t
 
 Unless the solicitation provides otherwise, the Government delivers Government-furnished property for use within the contiguous United States or Canada to a point the contractor specifies in the offer [@CL-SUP-2051]. If the Government makes delivery by railroad, the f.o.b. point is private siding at the contractor's plant [@CL-SUP-2173]; if the plant is not served by rail, it is railroad cars in the same or nearest city having rail service [@CL-SUP-2174]. The Government may choose the mode of transportation and the carriers, and bears the cost of all line-haul transportation to the specified destination [@CL-SUP-2052]. Returnable cylinders remain the contractor's property and are loaned without charge to the Government for the loan period the contract states [@CL-SUP-2056], which runs following the day of delivery to the f.o.b. point specified in the contract [@CL-SUP-2177].
 
+The FAR's general definitions say the contiguous United States (CONUS) means the 48 contiguous States and the District of Columbia [@CL-SUP-9543].
+
 ## How it works
 
 Where the destination is a contractor's plant outside the contiguous United States or Canada, the f.o.b. point is a contractor-specified location in the contiguous United States [@CL-SUP-2053]. If the contractor fails to name a point, the Government selects the port city in the contiguous United States nearest to the property that has regular commercial water transportation services to the offshore port nearest the plant [@CL-SUP-2175]. Unless the contracting officer directs otherwise or the contract provides otherwise, the contractor returns all Government-furnished equipment, supplies and property [@CL-SUP-2055], including property not returned in the form of acceptable end items, to the point at which the Government property was originally furnished to the contractor under the contract [@CL-SUP-2054]. Although the Government may have furnished the property at the contractor's plant, the contracting officer may direct the contractor to deliver the returned property to, and load, block and brace it in, railway cars in the city in which the contractor's plant is located [@CL-SUP-2116], or, if that city is not served by rail service, in the nearest city having rail service [@CL-SUP-2190]. Unless the contract specifies otherwise, returned property is packed in containers conforming with the rules of common carrier published tariffs so as to be free of penalty charges by the carrier designated for shipment by the Government [@CL-SUP-2176].
@@ -58,6 +60,7 @@ Which clause versions and delivery points the contracts state for Government-fur
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of the contiguous United States.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the lost-cylinder sentence to state the Government's option to return, and the delivery and return point contrast to what the clause states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the delivery point of Government-furnished property and returnable cylinders.

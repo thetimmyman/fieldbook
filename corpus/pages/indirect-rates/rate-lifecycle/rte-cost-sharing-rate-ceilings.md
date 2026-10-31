@@ -31,6 +31,8 @@ Explains how cost-sharing arrangements and negotiated ceilings limit what the go
 
 Where cost sharing is authorized, the arrangement may call for the contractor to participate in the costs of the contract by accepting rates lower than the anticipated actual rates, and a negotiated rate ceiling may be included in the contract for prospective application [@CL-RTE-0308; @CL-RTE-0309]. Other situations may make a ceiling prudent too, for example a new or recently reorganized company with no past or recent record of incurred indirect costs [@CL-RTE-0310].
 
+In the FAR's general definitions, cost sharing means an explicit arrangement under which the contractor bears some of the burden of reasonable, allocable, and allowable contract cost [@CL-RTE-9065].
+
 When ceiling provisions are used, the contract must also provide that the Government is not obligated to pay any additional amount should the final indirect cost rates exceed the negotiated ceiling rates, and that the negotiated rates are reduced to conform with the lower rates if the final rates come in lower [@CL-RTE-0312; @CL-RTE-0313].
 
 ## How it works
@@ -59,5 +61,6 @@ Confirm whether any contract carries a negotiated indirect cost rate ceiling, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of cost sharing.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-sharing rates and ceilings on indirect cost rates.

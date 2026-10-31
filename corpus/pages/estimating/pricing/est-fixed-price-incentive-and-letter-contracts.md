@@ -36,6 +36,8 @@ A letter contract may be used when the Government's interests demand a binding c
 
 A fixed-price incentive contract adjusts profit and sets the final price by a formula that compares total final negotiated cost with total target cost, and its billing prices may be adjusted, within the ceiling limits, upon request of either party when it becomes apparent that final negotiated cost will be substantially different from the target cost [@CL-EST-1568; @CL-EST-1571]. A letter contract starts work before the definitive contract is agreed, so its schedule sets the path to definitization and its Government liability is limited [@CL-EST-1572; @CL-EST-1573; @CL-EST-1575]. When a letter contract is contemplated, the contracting officer shall insert in solicitations and contracts, among listed clauses, the clause on Execution and Commencement of Work, except that it may be omitted from letter contracts awarded on SF 26 [@CL-EST-1576]. The printed text of the two letter-contract sections covers letter contracts, not time-and-materials contracts, so this card does not establish FAR application or clause rules for time-and-materials contracts; see [Time-and-materials contracts: use, ceiling and surveillance](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.216-24 says to insert the Limitation of Government Liability clause as prescribed in 16.603-4(b)(2) [@CL-EST-9238], without the words in the codified prescription line that say the clause goes in solicitations and contracts when a letter contract is contemplated [@CL-FPA-0093]. Under paragraph (a) of the RFO clause, in performing the contract the Contractor is not authorized to make expenditures or incur obligations exceeding the dollar amount stated in the blank [@CL-EST-9239]. Under paragraph (b), the maximum amount for which the Government shall be liable if the contract is terminated is the dollar amount stated in the blank [@CL-EST-9240].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -54,4 +56,5 @@ Which contracts are fixed-price incentive or letter contracts, and their share o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 52.216-24 prescription and the two dollar limits of the Limitation of Government Liability clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price incentive and letter contracts.

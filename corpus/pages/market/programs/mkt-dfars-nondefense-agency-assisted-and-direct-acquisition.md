@@ -33,6 +33,8 @@ The subpart implements section 854 of the National Defense Authorization Act for
 
 Assisted acquisition is the type of interagency contracting through which acquisition officials of a non-DoD agency award a contract or a task or delivery order for the acquisition of supplies or services on behalf of DoD [@CL-MKT-1918]. Direct acquisition is the type of interagency contracting through which DoD orders a supply or service from a governmentwide acquisition contract maintained by a non-DoD agency [@CL-MKT-1919]. A governmentwide acquisition contract is a task or delivery order contract that is entered into by a non-defense agency and may be used as the contract under which property or services are procured for one or more other departments or agencies of the Federal Government [@CL-MKT-1920].
 
+FAR 2.101 defines direct acquisition as a type of interagency acquisition where a requesting agency places an order directly against a servicing agency's indefinite-delivery contract, and says the servicing agency manages that contract but does not participate in the placement or administration of an order [@CL-MKT-9213]. FAR 2.101 also says the Economy Act does not apply to orders under a Governmentwide acquisition contract [@CL-MKT-9214].
+
 ## How it works
 
 Two labels split the work. In assisted acquisition the officials of the non-DoD agency make the award for DoD, and in direct acquisition DoD itself orders from a governmentwide acquisition contract that a non-DoD agency maintains [@CL-MKT-1918; @CL-MKT-1919]. A contract counts as a governmentwide acquisition contract only if it is a task or delivery order contract, a non-defense agency entered into it, and it may be used for procurements for one or more other departments or agencies [@CL-MKT-1920]. These sections state policy and definitions. They name no official who decides, and they place no duty on the contractor.
@@ -57,4 +59,5 @@ Which orders the company receives are assisted awards by another agency and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of direct acquisition and the Economy Act sentence for Governmentwide acquisition contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interagency acquisitions by nondefense agencies on behalf of DoD.

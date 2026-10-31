@@ -29,7 +29,7 @@ Gives the meaning of the terms that the quality assurance part of the FAR define
 | Text status | Final [@CL-SUP-3980] |
 | Applies to | The defined terms as they are used in part 46 of the FAR [@CL-SUP-3980] |
 
-The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-3980]. It defines each term below. The section does not say who grades a nonconformance or who accepts supplies; other sections do, and the cards linked below cover them.
+The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-3980]. It defines each term below. The section does not say who grades a nonconformance or who accepts supplies; other sections do, and the cards linked below cover them. Two rows below, inspection and latent defect, come from the definitions in FAR 2.101 instead [@CL-SUP-9554; @CL-SUP-9555].
 
 ### Definitions at a glance
 
@@ -44,6 +44,8 @@ The section defines the terms as they are used in part 46 of the FAR [@CL-SUP-39
 | Critical nonconformance | A nonconformance that is likely to result in hazardous or unsafe conditions for individuals using, maintaining or depending upon the supplies or services, or is likely to prevent performance of a vital agency mission [@CL-SUP-3888] |
 | Design activity | An organization, Government or contractor, that has responsibility for the design and configuration of an item, including the preparation or maintenance of design documents; it could be the original organization, or an organization to which design responsibility has been transferred [@CL-SUP-3889; @CL-SUP-3890] |
 | Government contract quality assurance | The various functions, including inspection, performed by the Government to determine whether a contractor has fulfilled the contract obligations pertaining to quality and quantity [@CL-SUP-3891] |
+| Inspection (defined in FAR 2.101) | Examining and testing supplies or services (including, when appropriate, raw materials, components, and intermediate assemblies) to determine whether they conform to contract requirements [@CL-SUP-9554] |
+| Latent defect (defined in FAR 2.101) | A defect that exists at the time of acceptance but cannot be discovered by a reasonable inspection [@CL-SUP-9555] |
 | Major nonconformance | A nonconformance, other than critical, that is likely to result in failure of the supplies or services, or to materially reduce the usability of the supplies or services for their intended purpose [@CL-SUP-3892] |
 | Minor nonconformance | A nonconformance that is not likely to materially reduce the usability of the supplies or services for their intended purpose, or is a departure from established standards having little bearing on the effective use or operation of the supplies or services [@CL-SUP-3893] |
 | Off-the-shelf item | An item produced and placed in stock by a contractor, or stocked by a distributor, before receiving orders or contracts for its sale; the item may be commercial or produced to military or Federal specifications or description [@CL-SUP-3894] |
@@ -82,4 +84,5 @@ Which grade (critical, major or minor) the company's receiving inspection gives 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of inspection and latent defect.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for quality assurance definitions.

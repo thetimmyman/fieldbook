@@ -35,7 +35,7 @@ In the first paragraph of the clauses section, the contracting officer shall ins
 
 The prescription for 52.232-7, the time-and-materials and labor-hour clause, adds a rule on withholding under that clause [@CL-CTF-1520; @CL-CTF-1566]. If the contracting officer determines that it is necessary to withhold payment to protect the Government's interests, paragraph (a)(7) of 52.232-7 permits the contracting officer to unilaterally issue a modification requiring the contractor to withhold 5 percent of amounts due [@CL-CTF-1566]. Under 52.232-7, the withholding is up to a maximum of $50,000 under the contract [@CL-CTF-1567].
 
-The basic authority for the contract financing described in FAR part 32 is contained in 41 U.S.C. chapter 45, Contract Financing, 10 U.S.C. chapter 277, and Title III of the Defense Production Act of 1950 (50 U.S.C. App. 2091) [@CL-CTF-3741].
+The basic authority for the contract financing described in FAR part 32 is contained in chapter 45 of title 41 (Contract Financing), chapter 277 of title 10, and Title III of the Defense Production Act of 1950 (section 2091 of the appendix to title 50 of the United States Code) [@CL-CTF-3741].
 
 ## How it works
 
@@ -63,6 +63,7 @@ Confirm which financing methods and payment clauses each contract carries, since
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: The statutory authority sentence now spells out the United States Code titles.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.101 statutory authority.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.101 statutory authority.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

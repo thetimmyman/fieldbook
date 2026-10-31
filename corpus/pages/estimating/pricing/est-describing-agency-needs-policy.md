@@ -45,6 +45,8 @@ Unless the agency Chief Information Officer waives the requirement, when an agen
 
 Agencies shall not include in a solicitation a requirement that prohibits an offeror from permitting its employees to telecommute, unless the contracting officer executes a written determination in accordance with FAR 7.108(a) [@CL-EST-1003].
 
+FAR 2.101 defines a nondevelopmental item in three paragraphs, and the first covers any previously developed item of supply used exclusively for governmental purposes by a Federal agency, a State or local government, or a foreign government with which the United States has a mutual defense cooperation agreement [@CL-EST-9295]. This card does not summarize the other paragraphs of the definition.
+
 ## How it works
 
 Part 11 prescribes policies and procedures for describing agency needs [@CL-EST-2138].
@@ -75,5 +77,6 @@ The company must confirm, for each requirement set it prices, which version of t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the first paragraph of the FAR 2.101 definition of nondevelopmental item.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 11.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for describing agency needs.

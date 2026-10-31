@@ -29,7 +29,7 @@ Explains what a designated agency and a no-setoff commitment are, and how far th
 | Text status | Final [@CL-CTF-3574] |
 | Applies to | Payments the Government makes to an assignee under a contract assigned in accordance with the Assignment of Claims Act [@CL-CTF-3576; @CL-CTF-3686] |
 
-The assignment of claims subpart prescribes policies and procedures for the assignment of claims under the Assignment of Claims Act of 1940, as amended, which the subpart calls the Act [@CL-CTF-3686]. In that subpart, designated agency means any department or agency of the executive branch of the United States Government [@CL-CTF-3574]. A no-setoff commitment means a contractual undertaking that, to the extent the Act permits, payments by the designated agency to the assignee under an assignment of claims will not be reduced to liquidate the indebtedness of the contractor to the Government [@CL-CTF-3575].
+The assignment of claims subpart prescribes policies and procedures for the assignment of claims under the Assignment of Claims Act of 1940, as amended, which the subpart calls the Act [@CL-CTF-3686]. In that subpart, designated agency means any department or agency of the executive branch of the United States Government [@CL-CTF-3574]. A no-setoff commitment means a contractual undertaking that, to the extent the Act permits, payments by the designated agency to the assignee under an assignment of claims will not be reduced to liquidate the indebtedness of the contractor to the Government [@CL-CTF-3575]. In the FAR's general definitions, assignment of claims means the transfer or making over by the contractor to a bank, trust company, or other financing institution, as security for a loan to the contractor, of its right to be paid by the Government for contract performance [@CL-CTF-9391].
 
 No payment the Government makes to the assignee under a contract assigned in accordance with the Act may be recovered on account of any liability of the contractor to the Government [@CL-CTF-3576]. That immunity applies whether the liability of the contractor arises from the assigned contract or independently of it [@CL-CTF-3577].
 
@@ -61,5 +61,6 @@ Whether each assigned contract carries a no-setoff commitment, whether loans and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of assignment of claims.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for assignment of claims, definitions and assignee protection.
