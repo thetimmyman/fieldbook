@@ -21,8 +21,8 @@ Shows how the fee in a cost-plus-incentive-fee contract moves with cost against 
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-EST-1090] |
-| Codified citation | FAR 16.304, 16.405 and 16.405-1 [@CL-EST-1090; @CL-EST-1091; @CL-EST-2147] |
+| Instrument | Codified FAR and codified DFARS [@CL-EST-1090; @CL-EST-9221] |
+| Codified citation | FAR 16.304, 16.405 and 16.405-1 [@CL-EST-1090; @CL-EST-1091; @CL-EST-2147]; DFARS 216.405-1 [@CL-EST-9221] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1090] |
@@ -34,7 +34,7 @@ The contract type is appropriate for services or development and test programs w
 
 ## How it works
 
-Section 16.405, on cost-reimbursement incentive contracts, refers the reader to 16.301 for requirements applicable to all cost-reimbursement contracts, for use in conjunction with the subsections that follow it [@CL-EST-2147].
+Section 16.405, on cost-reimbursement incentive contracts, refers the reader to 16.301 for requirements applicable to all cost-reimbursement contracts, for use in conjunction with the subsections that follow it [@CL-EST-2147]. The DFARS section 216.405-1 says to see PGI 216.405-1 for guidance on the use of cost-plus-incentive-fee contracts [@CL-EST-9221].
 
 The formula provides, within limits, for fee above target fee when total allowable costs are less than target costs, and fee below target fee when total allowable costs exceed target costs [@CL-EST-1092]. When total allowable cost is outside the range within which the formula operates, the contractor is paid total allowable costs plus the minimum or maximum fee [@CL-EST-1093]. If a high maximum fee is negotiated, the contract shall also provide for a low minimum fee, which may be a zero fee or, in rare cases, a negative fee [@CL-EST-1095]. Cost reimbursement and the billing of fee are covered on the close and contract-finance cards linked here.
 
@@ -56,5 +56,6 @@ How the target cost and the fee limits in a proposal are frozen and later compar
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on cost-plus-incentive-fee contracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer in section 16.405 to the general cost-reimbursement requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-plus-incentive-fee contracts.

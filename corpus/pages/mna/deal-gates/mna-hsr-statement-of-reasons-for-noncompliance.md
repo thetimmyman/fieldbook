@@ -30,6 +30,8 @@ Shows what the person filing notification must do when it cannot answer an item 
 
 A complete response must be supplied to each item on the Notification and Report Form and to any request for additional information made under section 7A(e) and § 803.20 [@CL-MNA-0200]. Whenever the person filing notification is unable to supply a complete response, that person must provide a statement of reasons for noncompliance for each item for which less than a complete response has been supplied [@CL-MNA-0201]. The duty falls on the person filing notification. The section does not say who decides whether a statement is adequate.
 
+All additional information or documentary material requested under section 7A(e) and § 803.20 (or, if the request is not fully complied with, the information or documentary material submitted and a statement of the reasons for the noncompliance in accordance with § 803.3) must be supplied within a reasonable time [@CL-MNA-1383; @CL-MNA-1384]. The text states no number of days and names no official who decides what is reasonable.
+
 The statement must contain all information on which the person relies to explain its noncompliance. It must include at least the items the section lists [@CL-MNA-0202].
 
 - Paragraph (a): why the person is unable to supply a complete response [@CL-MNA-0202].
@@ -59,4 +61,5 @@ Which documents and search steps the deal team must complete so that a statement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the reasonable-time rule for additional information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the statement of reasons for noncompliance.

@@ -23,7 +23,7 @@ Shows how an offeror files a Disclosure Statement, where the copies and amendmen
 | Field | Value |
 |---|---|
 | Instrument | Codified CAS [@CL-EST-2484] |
-| Codified citation | FAR 30.202-5 [@CL-EST-2148], 48 CFR 9903.202-5 and 9903.303 [@CL-EST-2484; @CL-EST-2488] |
+| Codified citation | FAR 30.202-5 [@CL-EST-2148], 48 CFR 9903.202-5, 9903.202-9, 9903.202-10 and 9903.303 [@CL-EST-2484; @CL-EST-9218; @CL-EST-9219; @CL-EST-2488] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2484] |
@@ -31,7 +31,7 @@ Shows how an offeror files a Disclosure Statement, where the copies and amendmen
 
 The FAR section on filing disclosure statements, 30.202-5, refers the reader to 48 CFR 9903.202-5 [@CL-EST-2148].
 
-Disclosure must be on Form Number CASB DS-1 or CASB DS-2, as applicable [@CL-EST-2484]. The forms may be obtained from the cognizant Federal agency, meaning the cognizant administrative contracting officer or the cognizant Federal agency official authorized to act in that capacity, or from the looseleaf version of the Federal Acquisition Regulation [@CL-EST-2629].
+Disclosure must be on Form Number CASB DS-1 or CASB DS-2, as applicable [@CL-EST-2484]. The data that are required to be disclosed are set forth in detail in Form CASB-DS-1 [@CL-EST-9218], and the data required to be disclosed by educational institutions are set forth in detail in Form CASB DS-2 [@CL-EST-9219]; each section illustrates its form after that sentence. The forms may be obtained from the cognizant Federal agency, meaning the cognizant administrative contracting officer or the cognizant Federal agency official authorized to act in that capacity, or from the looseleaf version of the Federal Acquisition Regulation [@CL-EST-2629].
 
 When a contractor requests it in advance, the cognizant Federal agency may authorize disclosure based on computer generated reproductions of the applicable form [@CL-EST-2485]. The request must come in advance, and the agency decides whether to authorize.
 
@@ -75,5 +75,6 @@ Whether a Disclosure Statement is on file for each covered business unit and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the sections that illustrate Disclosure Statement Forms CASB-DS-1 and CASB DS-2.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.202-5 pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Disclosure Statement filing and the effect of filing.

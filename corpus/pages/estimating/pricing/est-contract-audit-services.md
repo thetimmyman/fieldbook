@@ -23,7 +23,7 @@ Shows what an auditor is responsible for, which agency normally audits a contrac
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1446] |
-| Codified citation | FAR 42.101 [@CL-EST-1446] |
+| Codified citation | FAR 42.101 [@CL-EST-1446]; FAR 42.000 [@CL-EST-9201] |
 | RFO citation | RFO FAR 42.101 [@CL-EST-3550; @CL-EST-3551] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1446] |
@@ -32,6 +32,8 @@ Shows what an auditor is responsible for, which agency normally audits a contrac
 The auditor is responsible for, among other listed duties, submitting information and advice to the requesting activity, based on analysis of the contractor's financial and accounting records or other related data, on the acceptability of the contractor's incurred and estimated costs [@CL-EST-1446]. Normally, for contractors other than educational institutions and nonprofit organizations, the Defense Contract Audit Agency is the responsible Government audit agency, although another agency may desire cognizance of a particular contractor [@CL-EST-1447]. Where an agency other than the Defense Contract Audit Agency desires cognizance of a particular contractor, the two agencies shall agree on the most efficient and economical approach to meet contract audit requirements [@CL-EST-1474].
 
 The three audit sections covered by this card state no dollar threshold for requesting audit services.
+
+FAR part 42 prescribes policies and procedures for assigning and performing contract administration and contract audit services [@CL-EST-9201].
 
 ## How it works
 
@@ -59,5 +61,6 @@ Which bids and estimates need an audit request, and what review evidence and app
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.000 part scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract audit services.

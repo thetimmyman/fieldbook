@@ -48,13 +48,13 @@ On completion or termination of an investigation the Committee must send the Pre
 
 ## How it works
 
-An accepted voluntary notice, an agency notice received by the Staff Chairperson, or a notice the Chairperson requested starts the review [@CL-MNA-0639]. After the review the Committee investigates if a member sees an unmitigated threat to national security, if the lead agency recommends it and the Committee concurs, or if the deal is foreign government-controlled or reaches critical infrastructure [@CL-MNA-0641; @CL-MNA-0642; @CL-MNA-0643; @CL-MNA-0644; @CL-MNA-0645]. The investigation commences by the end of the review period and has its own forty-five-day limit [@CL-MNA-0667; @CL-MNA-0648]. The Committee reports to the President when it recommends suspension or prohibition [@CL-MNA-0649].
+An accepted voluntary notice, an agency notice received by the Staff Chairperson, or a notice the Chairperson requested starts the review [@CL-MNA-0639]. After the review the Committee investigates if a member sees an unmitigated threat to national security, if the lead agency recommends it and the Committee concurs, if the deal is foreign government-controlled, or if it would give a foreign person control of critical infrastructure and the Committee determines that it could impair national security and the impairment has not been mitigated [@CL-MNA-0641; @CL-MNA-0642; @CL-MNA-0643; @CL-MNA-0644; @CL-MNA-0645]. The investigation commences by the end of the review period and has its own forty-five-day limit [@CL-MNA-0667; @CL-MNA-0648]. The Committee reports to the President when it recommends suspension or prohibition [@CL-MNA-0649].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A voluntary notice for the purchase of Company T is accepted on day 0. The review ends no later than day 45, or the next business day. The Committee finds that the buyer is controlled by a foreign government, so an investigation follows unless the Chairperson and the lead-agency head find no impairment. The investigation commences by the end of the review, on day 45. It must be completed no later than day 90, or the next business day, unless the Chairperson extends it once for fifteen days in extraordinary circumstances, which would move the limit to day 105. Answer: if the Committee recommends prohibition, it sends the President a report.
+A voluntary notice for the purchase of Company T is accepted on day 0. The review ends no later than day 45, or the next business day. The Committee finds that the buyer is controlled by a foreign government, so an investigation follows unless the Chairperson and the lead-agency head find no impairment. The investigation commences by the end of the review, on day 45. It must be completed no later than day 90, or the next business day, unless, in extraordinary circumstances and on a written request signed by the head of a lead agency, the Chairperson extends it once for fifteen days, which would move the limit to day 105. Answer: if the Committee recommends prohibition, it sends the President a report.
 
 ## Never confuse
 
@@ -68,5 +68,6 @@ Whether a foreign government could control or hold a stake in the company or a c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: The critical-infrastructure ground for an investigation now carries its impairment condition, and the worked example's extension now needs a lead-agency head's written request.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Committee, Chairperson, Staff Chairperson and lead agency definitions and the rule on a determination not to investigate.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review, investigation and report to the President.

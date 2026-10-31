@@ -35,6 +35,8 @@ Compulsory process. If a person refuses to permit a duly authorized representati
 
 Notification of failure to comply. At the conclusion of an audit, investigation or other inquiry, or at any other time, the Department of Commerce may inform the person in writing where compliance with the Defense Production Act, the Selective Service Act and related statutes, or this part was not met [@CL-IND-0316]. Where the Department of Commerce determines that a failure to comply was inadvertent, the person may be informed in writing of the particulars involved and the corrective action to be taken [@CL-IND-0317; @CL-IND-0318]. Failure to take corrective action may then be construed as a willful violation of the Defense Production Act, this part or an official action [@CL-IND-0319].
 
+Compliance conflicts. If compliance with any provision of the Defense Production Act, the Selective Service Act and related statutes, this regulation, or an official action would prevent a person from filling a rated order or from complying with another provision of the Defense Production Act, this regulation, or an official action, the person must immediately notify the Department of Commerce for resolution of the conflict [@CL-IND-1031; @CL-IND-1032].
+
 ## How it works
 
 The Department of Commerce may take compliance actions, including audits and other inquiries, for any reason necessary or appropriate to enforcement or administration [@CL-IND-0309; @CL-IND-0310]. When access is refused, it may go to any forum of appropriate jurisdiction for an inspection warrant or its equivalent [@CL-IND-0312; @CL-IND-0313]. Before any refusal, process may be sought in advance of an audit, investigation or other inquiry if, in the judgment of the Director, in consultation with the Chief Counsel, there is reason to believe that a person will refuse to permit one or that other circumstances make such process desirable or necessary [@CL-IND-0314; @CL-IND-0315]. The Department of Commerce decides whether a failure was inadvertent, and a notice for an inadvertent failure may state the particulars and the corrective action [@CL-IND-0317; @CL-IND-0318]. The sections state no deadline for correction and no dollar threshold.
@@ -57,4 +59,5 @@ Confirm who owns the response to a Commerce access request and to any written fa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the duty to notify the Department of Commerce of a compliance conflict.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS compliance provisions, compulsory process and notification of failure to comply.

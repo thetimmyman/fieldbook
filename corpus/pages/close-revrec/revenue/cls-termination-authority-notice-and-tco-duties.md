@@ -23,7 +23,7 @@ Shows who decides on a termination, what the written notice of termination must 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0900] |
-| Codified citation | FAR 49.002, 49.101, 49.102 and 49.105 [@CL-CLS-0963; @CL-CLS-0900; @CL-CLS-0902; @CL-CLS-0903; @CL-CLS-0904] |
+| Codified citation | FAR 49.002, 49.101, 49.102 and 49.105 [@CL-CLS-0963; @CL-CLS-0900; @CL-CLS-0902; @CL-CLS-0903; @CL-CLS-0904]; FAR 49.000 [@CL-CLS-1467; @CL-CLS-1468] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0900] |
@@ -32,6 +32,8 @@ Shows who decides on a termination, what the written notice of termination must 
 The contracting officer shall terminate contracts, whether for default or convenience, only when it is in the Government's interest [@CL-CLS-0900]. When the price of the undelivered balance is less than $5,000, the contract should not normally be terminated for convenience but should be permitted to run to completion [@CL-CLS-0972]. The contracting officer shall effect a no-cost settlement instead of issuing a termination notice when it is known that the contractor will accept one, Government property was not furnished, and there are no outstanding payments, debts due the Government, or other contractor obligations [@CL-CLS-0965]. After the contracting officer issues the notice of termination, the termination contracting officer (TCO) is responsible for negotiating any settlement with the contractor, including a no-cost settlement if appropriate [@CL-CLS-0901].
 
 The notice of termination shall state, among its listed items, that the contract is being terminated under the clause that authorizes the termination, the effective date of termination, the extent of termination, and any special instructions [@CL-CLS-0902]. Another listed item is the steps the contractor should take to minimize the impact on personnel, which applies if the termination, together with all other outstanding terminations, will result in a significant reduction in the contractor's work force [@CL-CLS-0903].
+
+FAR part 49 establishes policies and procedures relating to the complete or partial termination of contracts for the convenience of the Government or for default [@CL-CLS-1467]. It prescribes contract clauses relating to termination and excusable delay and includes instructions for using termination and settlement forms [@CL-CLS-1468].
 
 ## How it works
 
@@ -59,5 +61,6 @@ Which executed contracts and modifications carry termination clauses, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 49.000 part scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the commercial contract guidance entry so the guidance for commercial contracts keeps its inconsistency limit for the clause at 52.212-4.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination authority, the notice of termination and the TCO's duties after the notice.

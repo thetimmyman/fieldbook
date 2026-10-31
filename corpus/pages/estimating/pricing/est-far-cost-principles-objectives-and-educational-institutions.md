@@ -23,7 +23,7 @@ Shows why the cost principles are grouped by organization type, who must approve
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2513] |
-| Codified citation | FAR 31.101, 31.104 and 31.303 [@CL-EST-2513; @CL-EST-2517; @CL-EST-2520] |
+| Codified citation | FAR 31.101, 31.104 and 31.303 [@CL-EST-2513; @CL-EST-2517; @CL-EST-2520]; FAR 31.002 [@CL-EST-9193]; FAR 31.100 [@CL-EST-9194; @CL-EST-9195]; FAR 31.201-7 [@CL-EST-9196; @CL-EST-9197]; FAR 31.301 [@CL-EST-9198] |
 | RFO citation | RFO FAR 31.100(a), 31.004, 31.104 and 31.303; RFO FAR 31.101 is reserved [@CL-EST-3116; @CL-EST-3117; @CL-EST-3118; @CL-EST-3119; @CL-EST-3120; @CL-EST-3121; @CL-EST-3122; @CL-EST-3123; @CL-EST-3124; @CL-EST-3125; @CL-EST-3126; @CL-EST-3127] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2513] |
@@ -40,6 +40,10 @@ The contracting officer shall incorporate the cost principles and procedures in 
 The cost principles are to be used as a guide in evaluating costs in connection with negotiating fixed-price contracts and termination settlements [@CL-EST-2519].
 
 A contract that refers to subpart 31.3 for determining allowable costs under contracts with educational institutions is deemed to refer to the OMB Uniform Guidance at 2 CFR part 200, subpart E and appendix III, in effect on the date of the contract [@CL-EST-2520; @CL-EST-2654]. The contracting officer determines the allowability of costs in accordance with that guidance [@CL-EST-2654]. Agencies are not expected to place additional restrictions on individual items of cost [@CL-EST-2655].
+
+Subpart 31.1 describes the applicability of the cost principles and procedures in the succeeding subparts of part 31 to various types of contracts and subcontracts [@CL-EST-9194], and it also describes the need for advance agreements [@CL-EST-9195]. Specific principles and procedures for evaluating and determining costs in connection with contracts and subcontracts for construction, and architect-engineer contracts related to construction projects, are in 31.105 [@CL-EST-9196], and the applicability of those principles and procedures is set forth in 31.000 and 31.100 [@CL-EST-9197].
+
+Subpart 31.3 provides the principles for determining the cost of research and development, training, and other work performed by educational institutions under contracts with the Government [@CL-EST-9198]. Contractors needing assistance in developing or improving their accounting systems and procedures may request a copy of Defense Contract Audit Agency Pamphlet No. 7641.90, Information for Contractors [@CL-EST-9193].
 
 ## How it works
 
@@ -85,5 +89,6 @@ Which proposals are priced under educational institution cost principles and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 31.002, 31.100, 31.201-7 and 31.301 scope and pointer sentences.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the organization-type grouping, deviations and the educational institution cost principles.

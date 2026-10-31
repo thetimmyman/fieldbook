@@ -23,7 +23,7 @@ Defines advertising material, a commercial product or commercial service offer a
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2750] |
-| Codified citation | FAR 15.601 and FAR 15.602 [@CL-EST-2750; @CL-EST-2754]; DFARS 215.602 [@CL-EST-2060] |
+| Codified citation | FAR 15.601 and FAR 15.602 [@CL-EST-2750; @CL-EST-2754]; DFARS 215.602 [@CL-EST-2060]; FAR 15.600 [@CL-EST-9192] |
 | RFO citation | RFO FAR 15.501 [@CL-EST-3519]; RFO FAR 15.503-1(a) [@CL-EST-3523] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2750] |
@@ -32,6 +32,8 @@ Defines advertising material, a commercial product or commercial service offer a
 The terms below are defined as used in the unsolicited proposal subpart [@CL-EST-2778]. Advertising material means material designed to acquaint the Government with a prospective contractor's present products, services or potential capabilities, or designed to stimulate the Government's interest in buying such products or services [@CL-EST-2750]. A commercial product or commercial service offer means an offer of a commercial product or commercial service that the vendor wishes to see introduced in the Government's supply system as an alternate or a replacement for an existing supply item [@CL-EST-2751]. That term does not include innovative or unique configurations or uses of commercial products or commercial services that are being offered for further development and that may be submitted as an unsolicited proposal [@CL-EST-2752]. A contribution means a concept, suggestion or idea presented to the Government for its use with no indication that the source intends to devote any further effort to it on the Government's behalf [@CL-EST-2753].
 
 It is the policy of the Government to encourage the submission of new and innovative ideas in response to Broad Agency Announcements, Small Business Innovation Research topics, Small Business Technology Transfer Research topics and Program Research and Development Announcements [@CL-EST-2754], or any other Government-initiated solicitation or program [@CL-EST-2779]. When the new and innovative ideas do not fall under topic areas publicized under those programs or techniques, the ideas may be submitted as unsolicited proposals [@CL-EST-2755].
+
+Subpart 15.6 sets forth policies and procedures concerning the submission, receipt, evaluation, and acceptance or rejection of unsolicited proposals [@CL-EST-9192].
 
 ## How it works
 
@@ -69,6 +71,7 @@ Who owns the pricing and technical content of a submission that goes out as an u
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.600 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the FAR 15.602 policy applies to commercial solutions openings.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unsolicited proposal definitions and policy.

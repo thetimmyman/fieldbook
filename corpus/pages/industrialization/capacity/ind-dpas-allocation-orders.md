@@ -32,6 +32,8 @@ Before using its allocations authority to address a supply problem within its re
 
 Allocation orders may be issued directly to the affected persons, by constructive notice through publication in the Federal Register, or by publication of a temporary final rule in the Federal Register [@CL-IND-0188]. Every allocation order must include a detailed description of the required allocation action, including its relationship to previously or subsequently received DX rated orders, DO rated orders and unrated orders [@CL-IND-0189]. One listed element of every allocation order is specific start and end calendar dates for each required allocation action [@CL-IND-0190]. An allocation order issued directly to affected persons must include a statement that reads in substance that it is an allocation order certified for national defense use [@CL-IND-0191].
 
+An allocation order may be changed or cancelled by an official action from the Department of Commerce [@CL-IND-1017]. Notice of such changes or cancellations may be provided directly to persons to whom the order being cancelled or modified applies, or constructive notice may be provided by publication in the Federal Register [@CL-IND-1018].
+
 The printed section on the elements of an allocation order was revised, effective August 27, 2026, through August 27, 2027 [@CL-IND-0192]. Check the current text of that section before relying on this list.
 
 ## How it works
@@ -56,4 +58,5 @@ Which capacity, materials or output the company could be required to allocate, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added changes or cancellations of allocation orders and how notice may be given.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for allocation orders and their elements.

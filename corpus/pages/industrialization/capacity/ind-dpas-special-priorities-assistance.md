@@ -33,6 +33,8 @@ Once a priority rating has been authorized, further action by the Department of 
 
 When problems occur, a person should immediately contact the appropriate contract administration officer or the Department of Commerce for guidance or assistance [@CL-IND-0230].
 
+Requests for special priorities assistance should be timely, meaning the request has been submitted promptly and enough time exists for the Determination Department, Delegate Agency, or the Department of Commerce to effect a meaningful resolution to the problem [@CL-IND-1019; @CL-IND-1020]. A request must also establish that there is an urgent need for the item and that the applicant has made a reasonable effort to resolve the problem [@CL-IND-1019; @CL-IND-1020].
+
 ## How it works
 
 The route depends on who placed the rated order. If a Delegate Agency placed it and additional formal aid is needed, assistance should be sought from the Delegate Agency through the contract administration officer [@CL-IND-0232]. If other authorized persons placed it and additional formal aid is needed, assistance should be sought from the Department of Commerce [@CL-IND-0234]. The Delegate Agency is defined on [the definitions card](ind-dpas-definitions.md).
@@ -75,4 +77,5 @@ Which officer owns each open assistance request and how the company records the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the criteria for assistance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS special priorities assistance general provisions.

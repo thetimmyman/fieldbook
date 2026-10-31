@@ -23,7 +23,7 @@ Shows how a convenience termination notice may be given electronically or by let
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-1028] |
-| Codified citation | FAR 49.601-1 and 49.601-2 [@CL-CLS-1028; @CL-CLS-1032] |
+| Codified citation | FAR 49.601-1 and 49.601-2 [@CL-CLS-1028; @CL-CLS-1032]; FAR 49.601 [@CL-CLS-1469] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-1028] |
@@ -32,6 +32,8 @@ Shows how a convenience termination notice may be given electronically or by let
 The contracting officer may provide expedited notice of termination by electronic means that includes a requirement for the contractor to confirm receipt [@CL-CLS-1028]. If the contractor does not confirm receipt promptly, the contracting officer shall resend the notice electronically and expedite the letter notice described in FAR 49.601-2 [@CL-CLS-1029]. If confirmation is received and the electronic notice includes all content in FAR 49.601-2, the contracting officer need not send the letter notice [@CL-CLS-1030].
 
 The section suggests a letter notice for use if a contract for supplies is being terminated for convenience, and with appropriate modifications it may be used for other contracts and for subcontracts [@CL-CLS-1032]. The letter shall be sent by certified mail, return receipt requested, or electronically provided the contracting officer receives evidence of receipt [@CL-CLS-1033]. If no prior electronic notice was issued, or if no confirmation of an electronic notice was received, the alternate notice that follows the letter notice is used [@CL-CLS-1065].
+
+The section on notice of termination for convenience refers readers to 49.402-3(g) for notice of termination for default [@CL-CLS-1469].
 
 ## How it works
 
@@ -55,4 +57,5 @@ Who receives and confirms termination notices for the company, and how receipt d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 49.601 pointer to default notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination notices: electronic and letter notice.

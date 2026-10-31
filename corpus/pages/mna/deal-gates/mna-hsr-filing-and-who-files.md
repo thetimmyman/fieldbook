@@ -34,6 +34,10 @@ Each person required to file does so by completing and filing the Notification a
 
 The notification must be certified. A general partner may certify for a partnership, and an officer or director may certify for a corporation [@CL-MNA-0603]. The certifying individual must have actual authority to certify for the person filing [@CL-MNA-0604].
 
+Documentary materials or information in a foreign language that are required to be submitted at the time of filing a Notification and Report Form, and in response to a request for additional information or documentary material, must be submitted with verbatim English language translations [@CL-MNA-1381]. All verbatim translations must be accurate and complete [@CL-MNA-1382].
+
+If any provision of the rules in subchapter H (including the Notification and Report Form), or the application of any such provision to any person or circumstances, is held invalid, neither the other provisions of the rules nor the application of such provision to other persons or circumstances is affected [@CL-MNA-1385; @CL-MNA-1386].
+
 The dollar thresholds that make an acquisition reportable are not set in these printed sections. Dollar figures appear only in dated worked examples marked as adjusted, and this card does not rely on them.
 
 ## How it works
@@ -58,4 +62,5 @@ Which entity is the ultimate parent that would file, and who holds authority to 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added foreign language translations and the separability rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for premerger notification filing and certification.

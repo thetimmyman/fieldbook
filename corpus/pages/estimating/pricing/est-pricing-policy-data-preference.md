@@ -23,7 +23,7 @@ Shows what a contracting officer must do to reach a fair and reasonable price, w
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1250] |
-| Codified citation | FAR 15.402 [@CL-EST-1250] |
+| Codified citation | FAR 15.402 [@CL-EST-1250]; FAR 15.400 [@CL-EST-9191] |
 | RFO citation | RFO FAR 15.202(d) [@CL-EST-3367]; RFO FAR 15.402 [@CL-EST-3368; @CL-EST-3379]; RFO FAR 15.403-1 [@CL-EST-3370]; RFO FAR 15.400 [@CL-EST-2256] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1250] |
@@ -32,6 +32,8 @@ Shows what a contracting officer must do to reach a fair and reasonable price, w
 Contracting officers shall purchase supplies and services from responsible sources at fair and reasonable prices [@CL-EST-1250]. In establishing the reasonableness of offered prices, the contracting officer shall obtain certified cost or pricing data when required by the cross-referenced section, along with data other than certified cost or pricing data as necessary to establish a fair and reasonable price [@CL-EST-1251].
 
 When certified cost or pricing data are not required, the contracting officer shall obtain data other than certified cost or pricing data as necessary, generally using a listed order of preference [@CL-EST-1252]. One listed duty is to obtain the type and quantity of data necessary, but not more data than is necessary [@CL-EST-1256]. Under the codified FAR, certified cost or pricing data are required above $2.5 million for prime contracts awarded on or after July 1, 2018, unless an exception applies [@CL-EST-0001]. For DoD prime contracts awarded after June 30, 2026, they are required when the contract is expected to exceed $10 million, unless an exception applies [@CL-EST-0002]. The threshold is covered on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
+
+Subpart 15.4 prescribes the cost and price negotiation policies and procedures for pricing negotiated prime contracts (including subcontracts) and contract modifications, including modifications to contracts awarded by sealed bidding [@CL-EST-9191].
 
 ## How it works
 
@@ -59,6 +61,7 @@ Which bids and estimates need prior-sale price support first, and who supplies a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.400 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.400 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing policy and the order of preference for data.

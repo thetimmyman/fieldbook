@@ -33,6 +33,8 @@ A person may request the authority to use a priority rating in ordering needed i
 
 Examples of items for which ratings may be authorized include production or construction equipment, computers when not used as production items, and expansion, rebuilding or replacing plant facilities [@CL-IND-0241].
 
+A rating authorization is an official action granting specific priority rating authority that permits a person to place a priority rating on an order for an item, such as an item not normally ratable under this regulation, or that authorizes a person to modify a priority rating on a specific order or series of contracts or orders [@CL-IND-1024; @CL-IND-1025]. To request priority rating authority, the section on rating authorizations points to § 700.51 [@CL-IND-1026].
+
 Under paragraph (b)(1), a request for priority rating authority under the part must be submitted on Form BIS-999 to the Department of Commerce, and the paragraph refers to § 700.50(c) for information on the form [@CL-IND-0243]. Under paragraph (b)(2), a request may be used only to support approved programs [@CL-IND-0244]. The paragraph points to §§ 700.55, 700.57 and 700.58 for information on requesting a determination by the appropriate Determination Department that the request supports a program necessary or appropriate to promote the national defense [@CL-IND-0245]. Section 700.55 is on [the approved program determination card](ind-dpas-approved-program-determination.md) [@CL-IND-0245].
 
 ## How it works
@@ -81,4 +83,5 @@ Whether a planned plant expansion or equipment purchase has the capacity case an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the meaning of a rating authorization and the pointer to the request section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requests for priority rating authority.

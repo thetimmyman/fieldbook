@@ -23,7 +23,7 @@ Explains who approves the source selection plan for high-dollar value and other 
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-EST-2791] |
-| Codified citation | DFARS 215.303(b)(2) [@CL-EST-2791]; DFARS 215.306(c)(1) [@CL-EST-2793]; DFARS 215.209(a) [@CL-EST-2795] |
+| Codified citation | DFARS 215.303(b)(2) [@CL-EST-2791]; DFARS 215.306(c)(1) [@CL-EST-2793]; DFARS 215.209(a) [@CL-EST-2795]; DFARS 215.270 [@CL-EST-9216]; DFARS 215.300 [@CL-EST-9217] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2791] |
@@ -34,6 +34,8 @@ For high-dollar value and other acquisitions, as prescribed by agency procedures
 Section 215.303 is headed Responsibilities [@CL-EST-2812], and section 215.209 is headed Solicitation provisions and contract clauses [@CL-EST-2813]. Section 215.306 is headed Exchanges with offerors after receipt of proposals, and paragraph (c) is headed Competitive range [@CL-EST-2809]. For acquisitions with an estimated value of $100 million or more, contracting officers should conduct discussions [@CL-EST-2793]. That paragraph also directs following the procedures at FAR 15.306(c) and (d) [@CL-EST-2794].
 
 For source selections when the procurement is $100 million or more, contracting officers should use the provision at FAR 52.215-1, Instructions to Offerors—Competitive Acquisition, with its Alternate I [@CL-EST-2795].
+
+Two short sections sit beside these. Section 215.270 says that agency officials shall conduct Peer Reviews in accordance with 201.170 [@CL-EST-9216]. Section 215.300, the scope section for the source selection subpart, says that when conducting negotiated, competitive acquisitions that use FAR part 15 procedures, contracting officers shall follow the principles and procedures in the Director, Defense Pricing and Contracting memorandum provided at PGI 215.300 [@CL-EST-9217].
 
 ## How it works
 
@@ -61,4 +63,5 @@ Which of the company's bids are expected to fall at or above the value line, so 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the Peer Reviews section and the source selection scope section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD source selection responsibilities, discussions after receipt of proposals, and the competitive-acquisition provision.

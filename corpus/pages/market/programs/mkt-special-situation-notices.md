@@ -23,7 +23,7 @@ Shows the advance notice for research and development, the DoD notice of intent 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR and codified DFARS [@CL-MKT-0084; @CL-MKT-0086] |
-| Codified citation | FAR 5.205; DFARS 205.205-70; DFARS 205.205-71 [@CL-MKT-0084; @CL-MKT-0086; @CL-MKT-0089] |
+| Codified citation | FAR 5.205; DFARS 205.205; DFARS 205.205-70; DFARS 205.205-71 [@CL-MKT-0084; @CL-MKT-9161; @CL-MKT-0086; @CL-MKT-0089] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0084; @CL-MKT-0086] |
@@ -35,7 +35,7 @@ The DoD bundling notification duty applies when a proposed acquisition is funded
 
 ## How it works
 
-The research and development advance notice is optional, but the synopsis of the later solicitation is not, unless an exception applies [@CL-MKT-0084; @CL-MKT-0085]. The DoD bundling notice is a separate step tied to the release of the solicitation or an order without one [@CL-MKT-0086]. Before soliciting a proposal without providing for full and open competition under FAR 6.302-1, the DFARS directs the contracting officer to follow the procedures at PGI 206.302-1(d) [@CL-MKT-0089].
+The research and development advance notice is optional, but the synopsis of the later solicitation is not, unless an exception applies [@CL-MKT-0084; @CL-MKT-0085]. The DoD bundling notice is a separate step tied to the release of the solicitation or an order without one [@CL-MKT-0086]. Before soliciting a proposal without providing for full and open competition under FAR 6.302-1, the DFARS directs the contracting officer to follow the procedures at PGI 206.302-1(d) [@CL-MKT-0089]. Section 205.205, Special situations, says to see PGI 205.205 for instructions on the solicitation notice regarding timely definitization of equitable adjustments for change orders under construction contracts [@CL-MKT-9161].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Confirm which product families, customer groups and market segments define the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI instructions on the notice for change orders under construction contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special-situation notices.

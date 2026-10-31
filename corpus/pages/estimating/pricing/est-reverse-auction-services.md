@@ -22,7 +22,7 @@ Sets out what a reverse auction service provider must do, and must not do, when 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2037] |
-| Codified citation | FAR 52.217-12 [@CL-EST-2037] |
+| Codified citation | FAR 52.217-12 [@CL-EST-2037]; FAR 17.800 [@CL-EST-9200] |
 | RFO citation | RFO FAR 52.217-12 [@CL-EST-0546] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2037] |
@@ -39,6 +39,8 @@ The provider shall assert no right or license in the data gathered or generated 
 The provider shall allow offerors to see the successive lowest prices offered in the auction without revealing an offeror's identity [@CL-EST-1950]. It shall not participate as an offeror in any reverse auction that it is hosting on behalf of the Government [@CL-EST-1951]. That prohibition includes participation by any entity with which the provider has a relationship that raises an actual or potential conflict of interest [@CL-EST-1952].
 
 At the close of each auction, the provider shall give the Contracting Officer the successful offer, with information that separately identifies the offeror's price and the price for each provider fee or charge included in the total price [@CL-EST-1953]. It shall also provide the Contracting Officer with all information and documentation received from reverse auction participants in response to the reverse auction [@CL-EST-1954].
+
+Subpart 17.8 prescribes policies and procedures for conducting reverse auctions and utilizing reverse auction service providers [@CL-EST-9200].
 
 ## How it works
 
@@ -64,5 +66,6 @@ Whether each platform we use is bound by these duties on our data, on its fee re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.800 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reverse auction services.

@@ -23,7 +23,7 @@ Shows which first article approval clause goes into a solicitation or contract, 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0763] |
-| Codified citation | FAR 9.308-1; FAR 9.308-2 [@CL-MKT-0763; @CL-MKT-0764] |
+| Codified citation | FAR 9.301; FAR 9.308-1; FAR 9.308-2 [@CL-MKT-9166; @CL-MKT-0763; @CL-MKT-0764] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0763] |
@@ -34,6 +34,8 @@ When the contractor conducts the first article test, the contracting officer sha
 When the Government conducts the test, the contracting officer shall insert the clause at 52.209-4, First Article Approval—Government Testing, in solicitations and contracts when the conditions stated next are met [@CL-MKT-0764; @CL-MKT-0766]. The conditions are that a fixed-price contract is contemplated and that it is intended that the contract require first article approval and that the Government will be responsible for conducting the first article test [@CL-MKT-0764; @CL-MKT-0766].
 
 For a cost-reimbursement contract, the contracting officer shall insert a clause substantially the same as the clause at 52.209-3, First Article Approval—Contractor Testing, in solicitations and contracts when a cost-reimbursement contract is contemplated and the further conditions that follow in the same sentence are met [@CL-MKT-0803]. For a cost-reimbursement contract, the contracting officer shall likewise insert a clause substantially the same as the clause at 52.209-4, First Article Approval—Government Testing, in solicitations and contracts when a cost-reimbursement contract is contemplated and the further conditions that follow in the same sentence are met [@CL-MKT-0804].
+
+Section 9.301 says that, as used in its subpart, approval means the contracting officer's written notification to the contractor accepting the test results of the first article [@CL-MKT-9166].
 
 ## How it works
 
@@ -57,4 +59,5 @@ Confirm which of the company products would need first article approval and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of approval in section 9.301.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for first article testing performed by the contractor and by the government.

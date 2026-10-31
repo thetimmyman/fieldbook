@@ -23,13 +23,15 @@ Shows where the cost principles for contracts and subcontracts with State, local
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2943] |
-| Codified citation | FAR 31.602 [@CL-EST-2943] |
+| Codified citation | FAR 31.602 [@CL-EST-2943]; FAR 31.601 [@CL-EST-9199] |
 | RFO citation | RFO FAR 31.602 [@CL-EST-3147; @CL-EST-3148] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2943] |
 | Applies to | Determining the allowable costs of contracts and subcontracts with State, local and federally recognized Indian tribal governments [@CL-EST-2943] |
 
 The OMB Uniform Guidance at 2 CFR part 200, subpart E and appendices V and VII sets forth the principles for determining the allowable costs of contracts and subcontracts with State, local and federally recognized Indian tribal governments [@CL-EST-2943]. These principles are for cost determination and are not intended to identify the circumstances or dictate the extent of Federal and State or local participation in financing a particular contract [@CL-EST-2944].
+
+Subpart 31.6 provides the principles for determining allowable cost of contracts and subcontracts with State, local, and federally recognized Indian tribal governments [@CL-EST-9199].
 
 ## How it works
 
@@ -57,5 +59,6 @@ Which cost principles apply to each government customer and subcontract line, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 31.601 subpart purpose.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for where the cost principles for State, local and tribal government contracts are set out.

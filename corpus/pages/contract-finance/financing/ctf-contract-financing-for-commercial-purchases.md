@@ -23,13 +23,15 @@ Explains the policy, statutory requirements, and limits for government financing
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0259] |
-| Codified citation | FAR 32.202-1 [@CL-CTF-0259] |
+| Codified citation | FAR 32.202-1 [@CL-CTF-0259]; FAR 32.200 [@CL-CTF-9304] |
 | RFO citation | RFO FAR 32.200 [@CL-CTF-9275]; RFO FAR 32.202-1 [@CL-CTF-4249; @CL-CTF-4250; @CL-CTF-4251; @CL-CTF-4252; @CL-CTF-4253; @CL-CTF-4254; @CL-CTF-4255; @CL-CTF-4256; @CL-CTF-4257; @CL-CTF-4258; @CL-CTF-4259] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0259] |
 | Applies to | Contracts for commercial products and commercial services [@CL-CTF-0259] |
 
 For purchases of commercial products or services, contract financing is normally the contractor's responsibility [@CL-CTF-0259]. Where buyer financing is a commercial practice in a market, the contracting officer may include appropriate financing terms in contracts for commercial purchases when doing so will be in the best interest of the Government [@CL-CTF-0526]. The statutes do not allow Government contract financing unless it is in the best interest of the United States [@CL-CTF-0262]. Prior to any performance of work, the aggregate of commercial advance payments shall not exceed 15 percent of the contract price [@CL-CTF-0261].
+
+Subpart 32.2 provides policies and procedures for commercial financing arrangements under commercial purchases pursuant to Part 12 [@CL-CTF-9304].
 
 ## How it works
 
@@ -57,6 +59,7 @@ Which commercial contracts include financing terms and whether commercial advanc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.200 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.200 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract financing for commercial purchases.
