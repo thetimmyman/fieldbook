@@ -24,7 +24,7 @@ Explains how an offeror answers the offeror representations and certifications p
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8960] |
 | Codified citation | FAR 52.212-3, paragraphs (a) and (b) [@CL-CMP-8960; @CL-CMP-9110] |
-| RFO citation | Not established. |
+| RFO citation | Paragraph (a): RFO FAR 52.219-1(a) [@CL-CMP-9324; @CL-CMP-1575; @CL-CMP-1576; @CL-CMP-1577; @CL-CMP-1578; @CL-CMP-1579; @CL-CMP-1580; @CL-CMP-1581], RFO FAR 52.204-5(a) [@CL-CMP-1582], RFO FAR 52.222-18(a) [@CL-CMP-1583; @CL-CMP-1584] and RFO FAR 52.225-18(a) [@CL-CMP-1585; @CL-CMP-1586; @CL-CMP-1587; @CL-CMP-1588]; paragraph (b): the RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531], and RFO FAR 52.204-7(c)(1) has the Offeror submit entity-level representations with its SAM registration [@CL-CMP-1574] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8960] |
 | Applies to | Offerors that complete the provision titled Offeror Representations and Certifications—Commercial Products and Commercial Services [@CL-CMP-8962] |
@@ -53,6 +53,8 @@ The offeror first decides its route from its SAM status [@CL-CMP-8960; @CL-CMP-8
 
 The definitions then feed the later paragraphs. The business status definitions govern the representations on the small business status card, the child labor definition governs the child labor certification, and the manufacturing definitions govern the place of manufacture indication. SBA decides affiliation under 13 CFR 121.103 [@CL-CMP-9117], and SBA or an approved third-party certifier certifies a concern eligible under the WOSB Program [@CL-CMP-9113].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531], so the definitions sit in the provisions that use them. For the annual representations, RFO FAR 52.204-7(c)(1) says the listed FAR solicitation provisions contain entity-level representations and certifications that the Offeror shall submit as part of its Federal Government contracts registration in SAM, where the codified paragraph (b) has the offeror verify by submitting its offer that the posted representations are current [@CL-CMP-1574; @CL-CMP-8962]. RFO FAR 52.219-1(a) defines a small business concern as a concern, including its affiliates, that is independently owned and operated, not dominant in its field of operation, and qualified under 13 CFR part 121 and the size standard in paragraph (b) of the provision, where the codified definition points to the size standards in the solicitation [@CL-CMP-1575; @CL-CMP-9116]. It keeps the meaning of affiliates and the rule that SBA determines affiliation based on the factors at 13 CFR 121.103 [@CL-CMP-9712; @CL-CMP-9117; @CL-CMP-1576; @CL-CMP-1577]. Its small disadvantaged business definition has an ownership paragraph (1) that runs from the 51 percent ownership condition straight to paragraph (2) on management and daily business operations, and it prints no net worth requirement for each individual claiming economic disadvantage, which the codified definition prints [@CL-CMP-1578; @CL-CMP-1579; @CL-CMP-9120]. The RFO lead-in is a small business concern that meets the conditions that follow, and it prints no reference to 13 CFR 124.1001 or to the size standard applicable to the acquisition, which the codified lead-in prints [@CL-CMP-9324; @CL-CMP-9118]. Its definition of a service-disabled veteran-owned small business (SDVOSB) concern eligible under the SDVOSB Program means an SDVOSB concern designated in SAM as certified by SBA in accordance with 13 CFR 128.300, with no January 1, 2024 effective date and no second route for a concern that represented itself as an SDVOSB concern in SAM and applied for certification by December 31, 2023 [@CL-CMP-1580; @CL-CMP-9128; @CL-CMP-9129]. It keeps the definition of a women-owned small business concern eligible under the WOSB Program [@CL-CMP-9113; @CL-CMP-1581], and RFO FAR 52.204-5(a) keeps the definition of a women-owned business concern [@CL-CMP-9115; @CL-CMP-1582]. RFO FAR 52.222-18(a) keeps both parts of the definition of forced or indentured child labor [@CL-CMP-8965; @CL-CMP-8966; @CL-CMP-1583; @CL-CMP-1584], and RFO FAR 52.225-18(a) keeps the definitions of manufactured end product and place of manufacture, including the rule on disassembly and reassembly [@CL-CMP-9130; @CL-CMP-9131; @CL-CMP-8967; @CL-CMP-9132; @CL-CMP-1585; @CL-CMP-1586; @CL-CMP-1587; @CL-CMP-1588].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -69,6 +71,8 @@ This provision is not the annual representations provision at FAR 52.204-8, whic
 
 A women-owned small business concern, a women-owned business concern, a concern eligible under the WOSB Program and an economically disadvantaged women-owned small business concern are four definitions. Of those four, only the program definition and the economically disadvantaged definition require certification by SBA or an approved third-party certifier [@CL-CMP-9113; @CL-CMP-9112], and the plain definitions state ownership and control only [@CL-CMP-9114; @CL-CMP-9115].
 
+The codified definitions of small disadvantaged business and of SDVOSB eligibility are in paragraph (a) of FAR 52.212-3, but the RFO text puts them in FAR 52.219-1(a), where the small disadvantaged business definition has no net worth requirement and SDVOSB eligibility means designation in SAM as certified by SBA [@CL-CMP-9120; @CL-CMP-9128; @CL-CMP-1578; @CL-CMP-1579; @CL-CMP-1580].
+
 ## Company calibration
 
 Which entity owns the annual SAM entry and who confirms solicitation-specific amendments before an offer is submitted. [@Q-004]
@@ -77,4 +81,5 @@ Which entity owns the annual SAM entry and who confirms solicitation-specific am
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions and annual SAM representations in the commercial offeror representations provision.

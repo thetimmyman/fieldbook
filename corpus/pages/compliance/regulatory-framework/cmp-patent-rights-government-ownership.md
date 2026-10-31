@@ -23,7 +23,7 @@ Shows that the Government takes title to subject inventions under this clause, w
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3642] |
 | Codified citation | FAR 52.227-13 [@CL-CMP-3642] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-13 [@CL-CMP-1866] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3642] |
 | Applies to | Each subject invention under the clause [@CL-CMP-3642] |
@@ -39,6 +39,8 @@ At any time before final payment, the Contracting Officer may, in the Government
 ## How it works
 
 Title starts with the Government, and the Contractor's rights are the exceptions the clause allows, including the license in inventions to which the Government has title and any greater rights the Contractor requests, which must be requested by the stated deadline [@CL-CMP-3642; @CL-CMP-3643; @CL-CMP-3674; @CL-CMP-4227]. Where the Contractor does retain ownership, the rights the clause lists for the Government include a license and the agency's right to require licensing [@CL-CMP-3670; @CL-CMP-3671]. The disclosure and the interim and final reports tell the Contracting Officer which subject inventions exist [@CL-CMP-3645; @CL-CMP-3647; @CL-CMP-3648]. Withholding is the Contracting Officer's remedy where, in the Contracting Officer's opinion, the Contractor fails to take a listed action, and it is capped and does not stack on amounts already withheld under other provisions [@CL-CMP-3649; @CL-CMP-3650; @CL-CMP-4230].
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text in place of the codified FAR part 52 text, as Class Deviation 2026-O0038 directs, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.227-13 keeps the assignment of title to the Government, except to the extent that rights are retained under paragraphs (b)(2) and (d) [@CL-CMP-1866; @CL-CMP-3642]. It keeps the right to request greater rights [@CL-CMP-1867; @CL-CMP-3674] and the deadline for the request, at the first disclosure or within 8 months after, unless the Contracting Officer authorizes a longer period in writing for good cause shown in writing by the Contractor [@CL-CMP-1868; @CL-CMP-4227]. It keeps the Government's license regarding each subject invention to which the Contractor retains ownership [@CL-CMP-9301; @CL-CMP-1869; @CL-CMP-3670] and the agency's right to require licensing [@CL-CMP-9301; @CL-CMP-1870; @CL-CMP-3671]. It keeps the disclosure times [@CL-CMP-1871; @CL-CMP-3645], with the disclosure in any event due before any on sale, public use or publication of the subject invention known to the Contractor [@CL-CMP-9302; @CL-CMP-3646]. It keeps the interim reports [@CL-CMP-1872; @CL-CMP-3647], which also state that all subject inventions have been disclosed, or that there are none, and that the procedures required by the invention identification paragraph have been followed [@CL-CMP-9303; @CL-CMP-4229], and the final report [@CL-CMP-1873; @CL-CMP-3648; @CL-CMP-4228]. It keeps the withholding of a reserve not exceeding $50,000 or 5 percent of the amount of the contract, whichever is less, if in the Contracting Officer's opinion the Contractor fails to take a listed action [@CL-CMP-1874; @CL-CMP-3650], the listed actions [@CL-CMP-1875; @CL-CMP-1876; @CL-CMP-3672; @CL-CMP-3673], and the bar on withholding while the amount is withheld under other provisions of the contract [@CL-CMP-1877; @CL-CMP-4230].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Which contracts carry the Government-ownership clause, and who tracks the interi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent rights with ownership by the Government.

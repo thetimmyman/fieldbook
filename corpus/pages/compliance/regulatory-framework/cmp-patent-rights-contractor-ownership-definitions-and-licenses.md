@@ -23,7 +23,7 @@ Shows what a subject invention is, that the contractor may retain ownership of i
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3629] |
 | Codified citation | FAR 52.227-11 [@CL-CMP-3629] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-11 [@CL-CMP-1846; @CL-CMP-1847] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3629] |
 | Applies to | Subject inventions made in the performance of work under the contract [@CL-CMP-3629] |
@@ -35,6 +35,8 @@ The Contractor shall retain a nonexclusive royalty-free license throughout the w
 ## How it works
 
 Ownership starts with the Contractor, which may keep title to each subject invention [@CL-CMP-3629]. An invention other than a plant variety is made when it is conceived or first actually reduced to practice [@CL-CMP-4232]. If the Contractor keeps title, the Government takes a license in the invention [@CL-CMP-3631]. If the Government instead obtains title, the Contractor keeps a license, unless it failed to disclose on time, and the agency may revoke or modify that license as described [@CL-CMP-3630; @CL-CMP-3678]. The disclosure, election and filing steps, and the Government's right to take title, are on the [companion card for the later paragraphs](cmp-patent-rights-contractor-ownership-deadlines-and-title.md) of this clause.
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text in place of the codified FAR part 52 text, as Class Deviation 2026-O0038 directs, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.227-11 keeps the definition of a subject invention as any invention of the Contractor made in the performance of work under the contract [@CL-CMP-1846; @CL-CMP-3629] and the Contractor's right to retain ownership throughout the world [@CL-CMP-1847; @CL-CMP-3629]. It keeps the meaning of made for an invention other than a plant variety [@CL-CMP-1844; @CL-CMP-4232], and for a plant variety it says made means that the Contractor has at least tentatively determined that the variety has been reproduced with recognized characteristics [@CL-CMP-1845]. It keeps the Government's license where the Contractor retains ownership [@CL-CMP-1848; @CL-CMP-3631], the Contractor's license where the Government obtains title unless the Contractor fails to disclose within the times specified [@CL-CMP-1849; @CL-CMP-3630], and the agency's power to revoke or modify that license [@CL-CMP-1865; @CL-CMP-3678].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts carry this clause, and which inventions the company treats as ma
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor ownership of subject inventions and the licenses.

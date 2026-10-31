@@ -23,7 +23,7 @@ Explains how a solicitation shows that an award will be a rated order, what the 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5995] |
 | Codified citation | FAR 52.211-14; FAR 52.211-15 [@CL-CMP-5995; @CL-CMP-5997] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.211-14; RFO FAR 52.211-15 [@CL-CMP-2155; @CL-CMP-2157] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5995] |
 | Applies to | Any contract awarded as a result of a solicitation that carries the notice, and contracts that carry the clause [@CL-CMP-5995; @CL-CMP-5997] |
@@ -37,6 +37,8 @@ The contract clause states that the order is a rated order certified for nationa
 The solicitation notice names the rating that the awarded contract will carry through the box the contracting officer checks, which is either the DX box or the DO box [@CL-CMP-5995; @CL-CMP-6696]. The same sentence says that the order is certified for the listed uses and that the contractor will be required to follow all of the requirements of the regulation [@CL-CMP-5996].
 
 The contract clause states the certification and the duty again in the contract, and its text does not name a rating level [@CL-CMP-5997]. The duty is to follow all the requirements of the Defense Priorities and Allocations System regulation, which the clause names as 15 CFR part 700 [@CL-CMP-5997]. What a DX or DO rating means, what a rated order must contain, and the duties on acceptance, rejection and flowdown are on [DPAS: rated orders](../../industrialization/capacity/ind-dpas-rated-orders.md) and [DPAS: acceptance, rejection, scheduling and flowdown of rated orders](../../industrialization/capacity/ind-dpas-acceptance-rejection-and-flowdown.md), and this card does not restate them.
+
+Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 published on the Revolutionary FAR Overhaul web page (the RFO text) in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision at 52.211-14 keeps the statement that any contract awarded as a result of the solicitation will be a DX rated order or a DO rated order, and the direction to the contracting officer to check the appropriate box [@CL-CMP-2155; @CL-CMP-2156; @CL-CMP-5995; @CL-CMP-6696]. It keeps the statement that the rated order is certified for national defense, emergency preparedness, and energy program use under the Defense Priorities and Allocations System and that the contractor will be required to follow all of the requirements of that regulation [@CL-CMP-2156; @CL-CMP-5996]. The RFO clause at 52.211-15 keeps the statement that the order is a rated order certified for those uses and that the contractor shall follow all the requirements of the regulation [@CL-CMP-2157; @CL-CMP-5997].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Which awards carry a rating, which box was checked on each solicitation, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for priority ratings and the defense priority and allocation requirements.

@@ -24,7 +24,7 @@ Explains what an offeror represents in paragraphs (p), (q) and (r) of the commer
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-9018] |
 | Codified citation | FAR 52.212-3(p), (q) and (r) [@CL-CMP-9018; @CL-CMP-9194; @CL-CMP-9028] |
-| RFO citation | Not established. |
+| RFO citation | Paragraphs (p) and (r): RFO FAR 52.204-90, paragraphs (c) and (d) [@CL-CMP-1544; @CL-CMP-1545; @CL-CMP-1546; @CL-CMP-1547]; paragraph (q): RFO FAR 52.209-11 [@CL-CMP-1548; @CL-CMP-1549; @CL-CMP-1550; @CL-CMP-1551; @CL-CMP-1552; @CL-CMP-1553; @CL-CMP-1554; @CL-CMP-1555] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-9018] |
 | Applies to | Offerors, for the ownership paragraph in solicitations with a SAM registration or unique entity identifier requirement, for the tax and felony representation, and for the predecessor paragraph in solicitations that include the entity code reporting provision [@CL-CMP-9018; @CL-CMP-9026; @CL-CMP-9027; @CL-CMP-9028] |
@@ -47,6 +47,8 @@ The tax and felony paragraph has two layers. Paragraph (q)(1) states the Governm
 
 The predecessor paragraph repeats the pattern for entities that came before the offeror, with the three-year look-back and the reverse chronological order for more than one predecessor [@CL-CMP-9029; @CL-CMP-9030].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531]. The owner and predecessor information is in RFO FAR 52.204-90, which an Offeror that will not have an active SAM registration when it submits its offer completes in paragraphs (c) and (d) [@CL-CMP-1544]. Paragraph (d)(2) of that provision calls for the CAGE code and legal business name, not a "doing business as" name, for the immediate owner or owners, the highest-level owner and any predecessor, or predecessor of an Offeror's predecessor, that held a Federal contract or grant within the last three years [@CL-CMP-1545]. That paragraph prints no choice of whether the offeror has an immediate owner, no question whether the immediate owner is owned or controlled by another entity and no choice of whether the offeror is a successor, which the codified paragraphs (p) and (r) print [@CL-CMP-1545; @CL-CMP-9019; @CL-CMP-9020; @CL-CMP-9029]. Paragraph (d)(3) keeps the rule that an offeror with more than one immediate owner, such as a joint venture, gives the information for each owner, and the rule that predecessors are listed in reverse chronological order [@CL-CMP-9019; @CL-CMP-9030; @CL-CMP-1546]. The predecessor CAGE code may still be marked "Unknown" [@CL-CMP-9195; @CL-CMP-1547]. The tax and felony bars are in RFO FAR 52.209-11 [@CL-CMP-1548]. Its paragraph (a) opens with "The Government will not enter into a contract" and prints no lead-in naming sections 744 and 745 of Division E of the Consolidated and Further Continuing Appropriations Act, 2015, which the codified paragraph (q)(1) prints [@CL-CMP-1548; @CL-CMP-9194]. Paragraph (a)(1) says the tax bar applies where the awarding agency is aware of the unpaid tax liability [@CL-CMP-1549], and does not apply if an agency has considered suspension or debarment and made a determination that suspension or debarment is not necessary to protect the interests of the Government [@CL-CMP-1550]. Paragraph (a)(2) says the felony bar applies where the awarding agency is aware of a conviction within the preceding 24 months [@CL-CMP-1551], and does not apply if an agency has made the same kind of determination that this action is not necessary [@CL-CMP-1552]. Paragraph (b) says the Offeror represents whether it is or is not a corporation that has any unpaid Federal tax liability that has been assessed, for which all judicial and administrative remedies have been exhausted or have lapsed, and that is not being paid in a timely manner pursuant to an agreement with the authority responsible for collecting the tax liability [@CL-CMP-1553; @CL-CMP-1554] and whether it is or is not a corporation convicted of a felony criminal violation under a Federal law within the preceding 24 months [@CL-CMP-1555].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,6 +61,8 @@ The offeror marks that it is not a corporation with an assessed, unpaid Federal 
 
 The immediate owner and the highest-level owner are different entries, because the highest-level owner is entered only when the immediate owner is itself owned or controlled by another entity [@CL-CMP-9020; @CL-CMP-9021]. The Government's bar in paragraph (q)(1) depends on what the awarding agency is aware of, while the offeror's representation in paragraph (q)(2) asks whether the offeror is the described corporation [@CL-CMP-9023; @CL-CMP-9024; @CL-CMP-9026; @CL-CMP-9027]. The predecessor paragraph asks about earlier holders of a Federal contract or grant, while the ownership paragraphs ask about the entities above the offeror [@CL-CMP-9029; @CL-CMP-9020; @CL-CMP-9021].
 
+The codified paragraphs (p) and (r) have the offeror answer yes-or-no questions about owners and successor status, while the RFO text of FAR 52.204-90(d)(2) asks the Offeror to provide the codes and names directly [@CL-CMP-9019; @CL-CMP-9029; @CL-CMP-1545]. The codified paragraph (q)(1) opens with a statutory lead-in, which the RFO text of FAR 52.209-11(a) does not print [@CL-CMP-9194; @CL-CMP-1548].
+
 ## Company calibration
 
 The company must confirm which of its offers carry these answers and who assembles the owner and predecessor records [@Q-004].
@@ -67,4 +71,5 @@ The company must confirm which of its offers carry these answers and who assembl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ownership, tax liability, felony conviction and predecessor paragraphs of the commercial offeror provision.

@@ -23,7 +23,7 @@ Sets out who must complete privacy training, when it is repeated, what the basic
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5533] |
 | Codified citation | FAR 52.224-3 and Alternate I [@CL-CMP-5533; @CL-CMP-5639] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.224-3 and Alternate I [@CL-CMP-1935; @CL-CMP-1948] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5533] |
 | Applies to | Contracts that include the clause, whose training duty reaches contractor employees who have access to a system of records, handle personally identifiable information on behalf of an agency, or design, develop, maintain or operate a system of records [@CL-CMP-5534] |
@@ -54,6 +54,8 @@ The substance of the clause, including its flowdown paragraph, must be included 
 
 If the agency specifies that only its agency-provided training is acceptable, Alternate I substitutes a new paragraph (c) for paragraph (c) of the basic clause [@CL-CMP-5639]. Under it the contracting agency provides initial privacy training, and annual privacy training thereafter, to contractor employees for the duration of the contract [@CL-CMP-5640]. The content, testing and agency-course rules above sit in paragraph (c) of the basic clause, so Alternate I replaces them [@CL-CMP-5633; @CL-CMP-5536; @CL-CMP-5538; @CL-CMP-5639].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 published on the Revolutionary FAR Overhaul web page (the RFO text) in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO section 52.224-3 keeps the duty that the contractor ensure that initial privacy training, and annual privacy training after that, is completed by contractor employees in the same three groups [@CL-CMP-1935; @CL-CMP-1936; @CL-CMP-5533; @CL-CMP-5534]. It keeps the definition of personally identifiable information [@CL-CMP-2165; @CL-CMP-5632]. The see-also reference printed after the third group points to FAR subpart 24.3 and 39.105 in the RFO text [@CL-CMP-9341]. It keeps the requirement that the training address the key elements, be role-based, provide foundational as well as more advanced levels, and have measures in place to test the knowledge level of users [@CL-CMP-1937; @CL-CMP-5633; @CL-CMP-5536]. It keeps the minimum content of the training, from the Privacy Act provisions through the breach procedures [@CL-CMP-1938; @CL-CMP-1939; @CL-CMP-1940; @CL-CMP-1941; @CL-CMP-1942; @CL-CMP-5535; @CL-CMP-5634; @CL-CMP-5635; @CL-CMP-5636; @CL-CMP-5537]. It keeps the rule that completing an agency-developed or agency-conducted course is deemed to satisfy the elements, and the duty to maintain and, on request, provide completion documentation to the Contracting Officer [@CL-CMP-1943; @CL-CMP-5538; @CL-CMP-5539]. It keeps the bar on access to and handling of records and personally identifiable information unless the employee has completed privacy training [@CL-CMP-1944; @CL-CMP-1945; @CL-CMP-5637; @CL-CMP-5638], and the subcontract flowdown [@CL-CMP-1946; @CL-CMP-1947; @CL-CMP-5540; @CL-CMP-5541]. Its Alternate I keeps the substitute paragraph (c) under which the agency provides the training [@CL-CMP-1948; @CL-CMP-1949; @CL-CMP-5639; @CL-CMP-5640].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -72,4 +74,5 @@ Confirm who owns the training roster, the completion records and the subcontract
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for privacy training.
