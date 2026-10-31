@@ -24,7 +24,7 @@ Shows what the definitization clause requires after a letter contract is awarded
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0412] |
 | Codified citation | FAR 52.216-25 [@CL-CTF-0412] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.216-25 [@CL-CTF-1134; @CL-CTF-1135; @CL-CTF-1136] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0412] |
 | Applies to | Contracts in which a definitive contract is contemplated to supersede a letter contract [@CL-CTF-0412] |
@@ -45,11 +45,13 @@ Work continues regardless, because the contractor's duty to proceed is limited o
 
 Alternate I applies to letter contracts awarded on the basis of price competition [@CL-CTF-0610]. It adds a paragraph stating that the definitive contract will include a negotiated price ceiling or firm fixed price in no event to exceed the proposed price upon which the award was based [@CL-CTF-0417].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.216-25 keeps the Contractor's agreement to begin promptly negotiating with the Contracting Officer the terms of a definitive contract [@CL-CTF-0609] [@CL-CTF-1134], and the clauses that the definitive contract will include: all clauses required by the Federal Acquisition Regulation on the date of execution of the letter contract, all clauses required by law on the date of execution of the definitive contract, and any other mutually agreeable clauses, terms, and conditions [@CL-CTF-0412] [@CL-CTF-1135]. For the proposal data, the RFO text points to FAR 15.408, Table 15-1, where the codified text points to Table 15-2 [@CL-CTF-0413] [@CL-CTF-1136]. It keeps the price-determination path: if agreement is not reached by the target date or within any extension the Contracting Officer grants [@CL-CTF-0415] [@CL-CTF-1137], the Contracting Officer may, with the approval of the head of the contracting activity, determine a reasonable price or fee in accordance with subpart 15.4 and part 31 of the FAR, subject to Contractor appeal under the Disputes clause [@CL-CTF-0414] [@CL-CTF-1138], and the Contractor must proceed with completion in any event, subject only to the Limitation of Government Liability clause [@CL-CTF-0416] [@CL-CTF-1139]. The RFO alternate line says that, as prescribed in 16.603-4(b)(3), paragraph (d) is added to the basic clause, and it does not state the codified condition about letter contracts awarded on the basis of price competition [@CL-CTF-0610] [@CL-CTF-1140]. Paragraph (d) itself keeps the negotiated price ceiling or firm fixed price in no event to exceed the proposed price upon which the award was based [@CL-CTF-0417] [@CL-CTF-1141].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A letter contract with a value of 2,000,000 is awarded with a target date for definitization, and the contractor proposes 2,400,000. Negotiation does not close by the target date or any extension, so the contracting officer determines a price of 2,200,000 with the approval of the head of the contracting activity, in accordance with the pricing rules in the FAR. The contractor keeps performing throughout, because the only limit on that duty is the Limitation of Government Liability clause. Alternate I applies only if the letter contract was awarded on the basis of price competition; the negotiated price ceiling or firm fixed price may then not exceed the proposed price upon which the award was based, which is a separate figure from the 2,400,000 definitization proposal and is not given here.
+A letter contract with a value of 2,000,000 is awarded with a target date for definitization, and the contractor proposes 2,400,000. Negotiation does not close by the target date or any extension, so the contracting officer determines a price of 2,200,000 with the approval of the head of the contracting activity, in accordance with the pricing rules in the FAR. The contractor keeps performing throughout, because the only limit on that duty is the Limitation of Government Liability clause. Under the codified clause, Alternate I applies only if the letter contract was awarded on the basis of price competition [@CL-CTF-0610], and the RFO alternate line does not state that condition [@CL-CTF-1140]; the negotiated price ceiling or firm fixed price may then not exceed the proposed price upon which the award was based, which is a separate figure from the 2,400,000 definitization proposal and is not given here.
 
 ## Never confuse
 
@@ -59,6 +61,8 @@ The only stated limit on the duty to keep performing is the Limitation of Govern
 
 Funding ceilings on incrementally funded work are covered in [Limitation of funds](ctf-limitation-of-funds.md).
 
+The codified text points to FAR 15.408, Table 15-2 for the proposal data [@CL-CTF-0413], while the RFO text points to Table 15-1 [@CL-CTF-1136]. The codified Alternate I applies to letter contracts awarded on the basis of price competition [@CL-CTF-0610], while the RFO alternate line states no such condition [@CL-CTF-1140].
+
 ## Company calibration
 
 Whether each letter contract has a target date, a proposal carrying both kinds of pricing data, and an owner for funding surveillance until the definitive contract is signed. [@Q-008]
@@ -67,5 +71,6 @@ Whether each letter contract has a target date, a proposal carrying both kinds o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract definitization.

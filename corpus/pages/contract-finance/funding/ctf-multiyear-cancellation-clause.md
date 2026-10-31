@@ -24,7 +24,7 @@ Shows when a multiyear contract is cancelled, what the cancellation charge may c
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2276] |
 | Codified citation | FAR 52.217-2 [@CL-CTF-2276] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.217-2 [@CL-CTF-1183] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2276] |
 | Applies to | Contracts that include the cancellation clause [@CL-CTF-2276] |
@@ -47,6 +47,8 @@ The claim shall not include labor, material or other expenses incurred by the Co
 
 The contract may include an Option clause whose exercise period is limited to the date in the contract for notification that funds are available for the next succeeding program year [@CL-CTF-2313]. If so, the Contractor agrees not to include in option quantities any costs of a startup or nonrecurring nature that have been fully set forth in the contract [@CL-CTF-2314], and the option quantities reflect only the recurring costs and a reasonable profit or fee necessary to furnish the additional option quantities [@CL-CTF-2315]. Quantities added through the Option clause are included in the quantity canceled when computing allowable cancellation charges [@CL-CTF-2293].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the definition of cancellation [@CL-CTF-1184; @CL-CTF-2276] and the rule that cancellation occurs by the date or within the time period specified in the Schedule, unless a later date is agreed to, if the Contracting Officer notifies the Contractor that funds are not available for a subsequent program year or fails to notify the Contractor that funds are available for the succeeding program year [@CL-CTF-1185; @CL-CTF-1186; @CL-CTF-2277; @CL-CTF-2278]. It keeps the rule that, except for cancellation under the clause or termination under the Default clause, a reduction by the Contracting Officer in the requirements is considered a termination for convenience [@CL-CTF-1187; @CL-CTF-2279]. It keeps the cancellation charge not over the cancellation ceiling specified in the Schedule [@CL-CTF-1188; @CL-CTF-2280], limited to the listed costs and a reasonable profit or fee [@CL-CTF-1189; @CL-CTF-1190; @CL-CTF-2281; @CL-CTF-2282; @CL-CTF-2283]. It keeps the computation as if made under the Termination for Convenience clause and the claim deadline of 1 year from the earlier of the two dates, unless extensions in writing are granted [@CL-CTF-1191; @CL-CTF-1192; @CL-CTF-1193; @CL-CTF-2284; @CL-CTF-2285; @CL-CTF-2286]. It keeps the facility, work force and learning items the claim may include [@CL-CTF-1195; @CL-CTF-1196; @CL-CTF-2288; @CL-CTF-2289], and the items the claim may not include, with the meaning of useful commercial life [@CL-CTF-1197; @CL-CTF-1198; @CL-CTF-1199; @CL-CTF-2290; @CL-CTF-2291; @CL-CTF-2292]. It keeps the option rules of paragraph (h) [@CL-CTF-1265; @CL-CTF-1266; @CL-CTF-1267; @CL-CTF-2313; @CL-CTF-2314; @CL-CTF-2315] and the inclusion of added option quantities in the quantity canceled [@CL-CTF-1268; @CL-CTF-2293]. Two pointers differ. The prescription line of the RFO text cites FAR 17.106(a), where the codified line cites FAR 17.109(a) [@CL-CTF-1183; @CL-CTF-9163]. In paragraph (f)(1) the RFO text points to part 15 of the Federal Acquisition Regulation after reasonable nonrecurring costs, where the codified text points to Subpart 15.4 [@CL-CTF-1194; @CL-CTF-2287].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -67,4 +69,5 @@ Confirm which multiyear contracts carry this clause, the ceiling in each Schedul
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cancellation under multiyear contracts.

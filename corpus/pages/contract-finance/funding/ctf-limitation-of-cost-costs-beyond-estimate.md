@@ -24,7 +24,7 @@ Shows what the Limitation of Cost clause does when costs pass the estimated cost
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2916] |
 | Codified citation | FAR 52.232-20 [@CL-CTF-2916] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-20 [@CL-CTF-1152] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2916] |
 | Applies to | Contracts in which the clause is inserted under its own prescription [@CL-CTF-2916] |
@@ -44,6 +44,8 @@ When the written increase arrives, excess costs incurred earlier are allowable a
 If the contract is terminated or the estimated cost is not increased, the Government and the Contractor must negotiate an equitable distribution of all property produced or purchased under the contract, based upon the share of costs incurred by each [@CL-CTF-2929].
 
 A change order is not an authorization to exceed the estimated cost to the Government in the Schedule unless it contains a statement increasing the estimated cost [@CL-CTF-2928]. The related clauses on changes are on the [notification of changes](../../close-revrec/revenue/cls-notification-of-changes.md) and [changes in cost-reimbursement contracts](../../close-revrec/revenue/cls-changes-cost-reimbursement.md) pages.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the paragraph (d) exception and the Government's non-obligation to reimburse costs above the estimated cost [@CL-CTF-1159; @CL-CTF-1160; @CL-CTF-2969; @CL-CTF-2922]. It keeps the Contractor's non-obligation to continue performance or incur costs above the estimated cost until the Contracting Officer notifies the Contractor in writing of the increase and provides a revised estimated total cost [@CL-CTF-1161; @CL-CTF-1162; @CL-CTF-2923; @CL-CTF-2924], and the allocation of the increase by the Schedule formula in a cost-sharing contract [@CL-CTF-1163; @CL-CTF-2970]. Paragraph (e) says that no notice, communication or representation in any form other than that specified in paragraph (d)(2), or from anyone other than the Contracting Officer, affects the estimated cost, and that without the specified notice costs above the estimate are not reimbursed whether incurred during the course of the contract or as a result of termination [@CL-CTF-1164; @CL-CTF-1165; @CL-CTF-1166; @CL-CTF-2925; @CL-CTF-2971; @CL-CTF-2972]. The RFO text points to paragraph (d)(2) with the words "in this clause" where the codified text says "above" [@CL-CTF-1164; @CL-CTF-2925]. The RFO text keeps the allowability of earlier excess costs once the estimated cost is increased, unless the Contracting Officer's termination or other notice directs that the increase is solely to cover termination or other specified expenses [@CL-CTF-1167; @CL-CTF-1168; @CL-CTF-2926; @CL-CTF-2927]. It keeps the rule that a change order does not authorize costs above the estimated cost unless it contains a statement increasing it [@CL-CTF-1169; @CL-CTF-2928], and the negotiation of an equitable distribution of property if the contract is terminated or the estimated cost is not increased [@CL-CTF-1170; @CL-CTF-2929].
 
 ## Worked example
 
@@ -67,4 +69,5 @@ How the company records the Contracting Officer's written increase and revised e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for costs beyond the estimated cost, increases and termination.
