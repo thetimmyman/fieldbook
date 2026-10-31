@@ -32,7 +32,7 @@ Pro forma financial information must be filed when any of the listed conditions 
 
 One listed test of a significant business acquisition is the definition of a significant subsidiary with 20 percent substituted for 10 percent each place it appears [@CL-MNA-0687]. The source text printed for this card does not set out the individual tests inside that definition, so this card does not state how each test is computed. The pro forma effects of an acquisition need not be presented if separate statements of the target are not included in the filing, except where the aggregate impact of businesses acquired or to be acquired is significant [@CL-MNA-0688]. The exception turns on the aggregate-impact tests that the acquired-business section and the real estate section set, which this card does not draw out [@CL-MNA-0772].
 
-Section 210.8-05 states a related rule. Pro forma financial information must be disclosed when any of the conditions in § 210.11-01 exist [@CL-MNA-1338]. Its preparation, presentation and disclosure must comply with §§ 210.11-01 through 210.11-03 (Article 11), except that the pro forma financial information may be condensed pursuant to § 210.8-03(a) [@CL-MNA-1339].
+Article 8 (§§ 210.8-01 through 210.8-08) applies to financial statements filed for smaller reporting companies and not to financial statements prepared for Item 17 or Item 18 of Form 20-F [@CL-MNA-0791]. Within Article 8, § 210.8-05 says pro forma financial information must be disclosed when any of the conditions in § 210.11-01 exist [@CL-MNA-1338]. Its preparation, presentation and disclosure must comply with §§ 210.11-01 through 210.11-03 (Article 11), except that the pro forma financial information may be condensed pursuant to § 210.8-03(a) [@CL-MNA-1339].
 
 ## How it works
 
@@ -56,5 +56,6 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that the Article 8 pro forma rule applies to smaller reporting companies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pro forma rule in § 210.8-05.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pro forma financial information presentation requirements.

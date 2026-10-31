@@ -34,7 +34,7 @@ In all cases not covered by the rule for registering an offering to the target's
 
 Separate statements at the middle band need not be presented once the target's operating results have been in the registrant's audited consolidated statements for at least nine months [@CL-MNA-0680]. At the highest band the test is a complete fiscal year [@CL-MNA-0681]. A registrant that omits statements of a recently consummated acquisition from its initial registration statement under the omission rules must, unless it is a foreign private issuer required to file reports on Form 6-K or a shell company other than a business combination related shell company, file them under cover of Form 8-K [@CL-MNA-0770; @CL-MNA-0771]. The filing is due no later than 75 days after consummation of the acquisition, and any pro forma information goes with it [@CL-MNA-0771].
 
-Two companion sections use the same rules by substitution. For the financial statements of businesses acquired or to be acquired, § 210.8-04 applies § 210.3-05 with §§ 210.8-02 and 210.8-03, as applicable, substituted wherever § 210.3-05 references §§ 210.3-01 and 210.3-02 [@CL-MNA-1336]. For real estate operations acquired or to be acquired, § 210.8-06 applies § 210.3-14 with the same substitution wherever § 210.3-14 references §§ 210.3-01 and 210.3-02 [@CL-MNA-1337].
+For smaller reporting companies, two companion sections of Article 8 use the same rules by substitution; Article 8 applies to financial statements filed for smaller reporting companies and not to financial statements prepared for Item 17 or Item 18 of Form 20-F [@CL-MNA-0791]. For the financial statements of businesses acquired or to be acquired, § 210.8-04 applies § 210.3-05 with §§ 210.8-02 and 210.8-03, as applicable, substituted wherever § 210.3-05 references §§ 210.3-01 and 210.3-02 [@CL-MNA-1336]. For real estate operations acquired or to be acquired, § 210.8-06 applies § 210.3-14 with the same substitution wherever § 210.3-14 references §§ 210.3-01 and 210.3-02 [@CL-MNA-1337].
 
 The source text printed for this card does not set out the individual tests inside the significant subsidiary definition, so this card does not state how each test is computed. The section also sets an aggregate-impact disclosure for small acquisitions, further omissions, and special cases for foreign businesses, net assets and oil and gas activities that this card does not draw out.
 
@@ -60,5 +60,6 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated that the Article 8 substitutions apply to smaller reporting companies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the substitution rules for businesses and real estate operations acquired or to be acquired.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements of businesses acquired or to be acquired.
