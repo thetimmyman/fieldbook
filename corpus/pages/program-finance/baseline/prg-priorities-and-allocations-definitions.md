@@ -34,9 +34,9 @@ The definitions are for terms as used in the subpart that contains the section [
 
 | Term | Definition in the section | Claim |
 |---|---|---|
-| Approved program | A program determined as necessary or appropriate for priorities and allocations support to promote the national defense by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security, under the authority of the Defense Production Act, the disaster relief and emergency assistance act (which the definition names by a short title), and Executive Order 12919, or the Selective Service Act and related statutes and Executive Order 12742 | [@CL-PRG-0476; @CL-PRG-0477] |
+| Approved program | A program determined as necessary or appropriate for priorities and allocations support to promote the national defense by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security, under the authority of the Defense Production Act, the disaster relief and emergency assistance act (which the definition names by a short title), and Executive Order 12919, or the Selective Service Act and related statutes and Executive Order 12742 | [@CL-PRG-0476; @CL-PRG-0477; @CL-PRG-0489] |
 | Delegate Agency | A Government agency authorized by delegation from the Department of Commerce to place priority ratings on contracts or orders needed to support approved programs | [@CL-PRG-0478] |
-| National defense | Programs for military and energy production or construction, military assistance to any foreign nation, stockpiling, space, and any directly related activity; the term also includes emergency preparedness activities conducted pursuant to title VI of the disaster relief and emergency assistance act at title 42 of the United States Code, section 5195 et seq., and critical infrastructure protection and restoration | [@CL-PRG-0479; @CL-PRG-0480] |
+| National defense | Programs for military and energy production or construction, military assistance to any foreign nation, stockpiling, space, and any directly related activity; the term also includes emergency preparedness activities conducted pursuant to title VI of the disaster relief and emergency assistance act at title 42 of the United States Code, section 5195 et seq., and critical infrastructure protection and restoration | [@CL-PRG-0479; @CL-PRG-0480; @CL-PRG-0488] |
 | Rated order | A prime contract, a subcontract, or a purchase order in support of an approved program issued in accordance with the provisions of the DPAS regulation (15 CFR part 700) | [@CL-PRG-0481] |
 
 The general section states the authority. Under Title I of the Defense Production Act of 1950, the President is authorized to require preferential acceptance and performance of contracts and orders supporting certain approved national defense and energy programs [@CL-PRG-0482], and to allocate materials, services, and facilities in such a manner as to promote these approved programs [@CL-PRG-0483]. The President delegated the priorities and allocations authorities of the Defense Production Act in Executive Order 12919 [@CL-PRG-0484]. As part of that delegation, the President designated the Secretary of Commerce to administer the DPAS [@CL-PRG-0485]. The paragraph then tells readers to check the DPAS website for more information and gives the address there [@CL-PRG-0487]. This card does not repeat the address.
@@ -47,7 +47,7 @@ Who decides. The Secretary of Defense, the Secretary of Energy or the Secretary 
 
 A rated order has three elements. It is a prime contract, a subcontract or a purchase order. It is in support of an approved program. It is issued in accordance with the provisions of the DPAS regulation, 15 CFR part 700 [@CL-PRG-0481]. A rated order therefore depends on an approved program [@CL-PRG-0476; @CL-PRG-0481].
 
-The national defense definition names five groups of programs and activity, and it includes two further items [@CL-PRG-0479; @CL-PRG-0480]. One of those is emergency preparedness activities conducted pursuant to title VI of the disaster relief and emergency assistance act [@CL-PRG-0480].
+The national defense definition names five groups of programs and activity, and it includes two further items [@CL-PRG-0479; @CL-PRG-0480; @CL-PRG-0488]. One of those is emergency preparedness activities conducted pursuant to title VI of the disaster relief and emergency assistance act [@CL-PRG-0480; @CL-PRG-0488].
 
 This card states the definitions and the authority only. Priority ratings, acceptance and rejection of rated orders, and allocation orders are on [rated orders](../../industrialization/capacity/ind-dpas-rated-orders.md), [allocation orders](../../industrialization/capacity/ind-dpas-allocation-orders.md) and [priority ratings and authority](../../industrialization/capacity/ind-dpas-priority-ratings-and-authority.md).
 
@@ -55,7 +55,7 @@ This card states the definitions and the authority only. Priority ratings, accep
 
 Synthetic example. The numbers are made up.
 
-A purchase order for 200 bearings supports a program that the Secretary of Defense has determined as necessary or appropriate for priorities and allocations support to promote the national defense, under the authority of the Defense Production Act and Executive Order 12919 [@CL-PRG-0477], and it is issued in accordance with the DPAS regulation. It meets each element of the rated order definition [@CL-PRG-0476; @CL-PRG-0481].
+A purchase order for 200 bearings supports a program that the Secretary of Defense has determined as necessary or appropriate for priorities and allocations support to promote the national defense, under the authority of the Defense Production Act and Executive Order 12919 [@CL-PRG-0477; @CL-PRG-0489], and it is issued in accordance with the DPAS regulation. It meets each element of the rated order definition [@CL-PRG-0476; @CL-PRG-0481].
 
 A second purchase order, for 300 bushings, supports no approved program. It does not meet the rated order definition, because the definition requires support of an approved program [@CL-PRG-0481].
 
@@ -67,7 +67,7 @@ An approved program is not a rated order. The program is determined by one of th
 
 A Delegate Agency is not the body that determines approved programs. It places priority ratings under delegation from the Department of Commerce [@CL-PRG-0478]. The determination is made by the Secretary of Defense, the Secretary of Energy or the Secretary of Homeland Security [@CL-PRG-0476].
 
-National defense is wider than military production. It also covers energy production or construction, military assistance to any foreign nation, stockpiling, space and any directly related activity [@CL-PRG-0479]. It includes emergency preparedness activities under title VI of the disaster relief and emergency assistance act and critical infrastructure protection and restoration [@CL-PRG-0480].
+National defense is wider than military production. It also covers energy production or construction, military assistance to any foreign nation, stockpiling, space and any directly related activity [@CL-PRG-0479]. It includes emergency preparedness activities under title VI of the disaster relief and emergency assistance act and critical infrastructure protection and restoration [@CL-PRG-0480; @CL-PRG-0488].
 
 ## Company calibration
 
