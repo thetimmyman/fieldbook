@@ -29,7 +29,7 @@ Shows when a negotiated contract is exempt from the Cost Accounting Standards, w
 | Text status | Final [@CL-CMP-0001] |
 | Applies to | Awards from 2026-10-01 [@CL-CMP-0001] |
 
-Negotiated contracts and subcontracts of $35 million or less are exempt from all CAS requirements, tested at award [@CL-CMP-0001]. A business unit takes full CAS coverage when it receives a single CAS-covered award of $100 million or more, or $100 million or more in net CAS-covered awards in its preceding cost accounting period [@CL-CMP-0002; @CL-CMP-7069]. A business unit selected for a CAS-covered contract or subcontract of $100 million or more must submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment that received net awards of negotiated prime contracts and subcontracts subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit a Disclosure Statement before award of its first CAS-covered contract in the immediately following cost accounting period [@CL-CMP-7070]. These values took effect on 2026-10-01 [@CL-CMP-0001].
+Negotiated contracts and subcontracts of $35 million or less are exempt from all CAS requirements, tested at award [@CL-CMP-0001]. A business unit takes full CAS coverage when it receives a single CAS-covered award of $100 million or more, or $100 million or more in net CAS-covered awards in its preceding cost accounting period [@CL-CMP-0002; @CL-CMP-7069]. A business unit selected for a CAS-covered contract or subcontract of $100 million or more must submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment that received net awards of negotiated prime contracts and subcontracts subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit a Disclosure Statement before award of its first CAS-covered contract in the immediately following cost accounting period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071]. These values took effect on 2026-10-01 [@CL-CMP-0001].
 
 ## How it works
 
@@ -55,6 +55,7 @@ Which business units are CAS-covered, at what level, and whether a Disclosure St
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: added second full-coverage test and second Disclosure Statement test.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a pointer so no figure remains.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the Cost Accounting Standards statute.
