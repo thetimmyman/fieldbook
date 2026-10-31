@@ -65,7 +65,7 @@ A priority rating is an identifying code placed on rated orders [@CL-IND-0076]. 
 
 The text points to the Delegate Agency route or the Commerce route according to who placed the rated order [@CL-IND-0232; @CL-IND-0234]. Paragraph (c) nonetheless lets the request go to the local contract administration representative or to the Department of Commerce [@CL-IND-0237].
 
-Assistance may be provided for any reason consistent with the part, but under § 700.54 it is provided at the discretion of the Determination Departments, Delegate Agencies and the Department of Commerce, and the request must still be submitted on Form BIS-999 [@CL-IND-0235; @CL-IND-0266; @CL-IND-0237].
+Assistance may be provided for any reason consistent with the part, but under § 700.54 it is provided at the discretion of the Determination Departments, Delegate Agencies and the Department of Commerce, and the request must still be submitted on Form BIS-999 [@CL-IND-0235; @CL-IND-0266; @CL-IND-0237]. Section 700.54 also lists instances where assistance will not be provided, such as a request to secure a price advantage or gain competitive advantage [@CL-IND-0278; @CL-IND-0267].
 
 ## Company calibration
 
