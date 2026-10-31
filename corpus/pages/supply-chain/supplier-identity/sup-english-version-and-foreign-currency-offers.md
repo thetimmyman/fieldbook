@@ -23,7 +23,7 @@ Explains which language controls when a contract term and its translation disagr
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2807; @CL-SUP-2808] |
 | Codified citation | FAR 52.225-14 [@CL-SUP-2807]; FAR 52.225-17 [@CL-SUP-2808] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-14 [@CL-SUP-3649]; RFO FAR 52.225-17 [@CL-SUP-3650] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2807; @CL-SUP-2808] |
 | Applies to | Contracts that include the English version clause [@CL-SUP-2807]; solicitations that include the foreign currency provision when offers arrive in more than one currency [@CL-SUP-2808] |
@@ -41,6 +41,8 @@ The foreign currency provision applies only when the Government receives offers 
 The source of the rate is a bracketed fill-in that the Contracting Officer completes in each solicitation, so it is contract-specific and this card cannot name it [@CL-SUP-2808].
 
 The date of the rate depends on the procedure. Under sealed bidding it is the date of bid opening [@CL-SUP-2809]. Under negotiation it is the date specified for receipt of offers if award is based on initial offers, and otherwise the date specified for receipt of proposal revisions [@CL-SUP-2810]. Those dates are the ones the solicitation specifies.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO 52.225-14 keeps the rule that in the event of inconsistency between a term of the contract and a translation into another language, the English language meaning controls [@CL-SUP-3649; @CL-SUP-2807]. RFO 52.225-17 keeps the conversion of offers in more than one currency to United States currency using the source of rate the contracting officer inserts [@CL-SUP-3650; @CL-SUP-2808], the rate on the date of bid opening for sealed bidding [@CL-SUP-3651; @CL-SUP-2809], and for negotiation the rate on the date specified for receipt of offers if award is based on initial offers, otherwise on the date specified for receipt of proposal revisions [@CL-SUP-3652; @CL-SUP-2810].
 
 ## Worked example
 
@@ -70,4 +72,5 @@ Which rate source the solicitation inserts, and whether the company's translated
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for English version control and evaluation of foreign currency offers.
