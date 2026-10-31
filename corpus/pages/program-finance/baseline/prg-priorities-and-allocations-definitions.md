@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-022"]
-links = ["ind-dpas-rated-orders", "ind-dpas-allocation-orders", "ind-dpas-priority-ratings-and-authority", "cmp-rated-order-priority-and-allocation"]
+links = ["ind-dpas-rated-orders", "ind-dpas-allocation-orders", "ind-dpas-priority-ratings-and-authority", "cmp-rated-order-priority-and-allocation", "ind-dpas-definitions"]
 +++
 
 ## Purpose
@@ -77,4 +77,5 @@ Which supplier commitments and lead times in the near-term plan rest on orders t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the card for the defense priorities and allocations system definitions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the priorities and allocations definitions and general rule.

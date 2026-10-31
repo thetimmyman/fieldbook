@@ -31,7 +31,7 @@ Shows how long a contractor must keep contract records available for negotiation
 
 The retention subpart applies to records generated under contracts that contain the Audit and Records, Sealed Bidding clause or the Audit and Records, Negotiation clause [@CL-CMP-2500]. It is not mandatory on Department of Energy contracts for which the Comptroller General allows alternative records retention periods [@CL-CMP-2501].
 
-Except as stated in the paragraph on longer periods, contractors make available records, including books, documents, accounting procedures and practices, and other data [@CL-CMP-2417]. To satisfy contract negotiation, administration and audit requirements of the contracting agencies and the Comptroller General, the records are made available for 3 years after final payment or, for certain records, the period set in the specific retention sections, whichever expires first [@CL-CMP-2417; @CL-CMP-2418].
+Except as stated in the paragraph on longer periods, contractors make available records, including books, documents, accounting procedures and practices, and other data, regardless of type and regardless of whether such items are in written form, in the form of computer data or in any other form, and other supporting evidence [@CL-CMP-2417; @CL-CMP-8206]. To satisfy contract negotiation, administration and audit requirements of the contracting agencies and the Comptroller General, the records are made available for 3 years after final payment or, for certain records, the period set in the specific retention sections, whichever expires first [@CL-CMP-2417; @CL-CMP-2418].
 
 The specific sections apply to the records they identify, for the periods designated, provided retention is required under the applicability section [@CL-CMP-2423; @CL-CMP-2500]. Records are identified in terms of their purpose or use and not by specific name or form number [@CL-CMP-2502].
 
@@ -79,4 +79,5 @@ Which contract clauses set a longer retention period, which years are still open
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records sentence so the retention duty keeps its coverage of records of any type or form and other supporting evidence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor records retention.

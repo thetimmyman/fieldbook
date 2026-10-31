@@ -1,0 +1,99 @@
++++
+id = "ind-dpas-definitions"
+title = "Defined terms for priority ratings and allocation orders"
+area = "ind"
+subarea = "capacity"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-031"]
+links = ["ind-dpas-rated-orders", "ind-dpas-allocation-orders", "ind-dpas-allocation-order-policy-and-acceptance", "ind-dpas-priority-ratings-and-authority"]
++++
+
+## Purpose
+
+Collects the defined terms that the priority, rating and allocation cards use, so that a rating, an allocation order or a program reference is read against one vocabulary. The [priority ratings and rated orders](ind-dpas-rated-orders.md) card and the [allocation orders](ind-dpas-allocation-orders.md) card apply these terms.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Not established. |
+| Codified citation | Not established. |
+| RFO citation | Not established. |
+| Edition date | Not established. |
+| Text status | Not established. |
+| Applies to | Rated orders, allocation orders and the approved programs they reference [@CL-IND-0079; @CL-IND-0064] |
+
+The definitions in 15 CFR 700.8 apply throughout the part [@CL-IND-0063]. The table follows the order of the section and gives each term from the claims named in its row. A term that the section defines in a list is stated in full, including each listed element and exclusion.
+
+Some definitions turn on a condition or an exclusion. Construction does not include maintenance and repair [@CL-IND-0068]. Facilities excludes farms, churches or other houses of worship, and private dwelling houses [@CL-IND-0355]. Industrial resources covers only items whose authority has not been delegated to other agencies under Executive Order 13603 [@CL-IND-0073]. Production equipment needs a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077]. The MRO definition lists items that it does not include [@CL-IND-0360; @CL-IND-0361].
+
+The section also defines the term Resource Department and the term for the disaster relief and emergency assistance statute that the DPAS cites. This card does not state them. The printed section carries an effective-date note on an amendment [@CL-IND-0371].
+
+### Glossary
+
+| Term | Definition |
+|---|---|
+| Allocation | The control of the distribution of materials, services or facilities for a purpose deemed necessary or appropriate to promote the national defense [@CL-IND-0063] |
+| Allocation order | An official action to control the distribution of materials, services, or facilities for a purpose deemed necessary or appropriate to promote the national defense [@CL-IND-0064] |
+| Allotment | An official action that specifies the maximum quantity of a material, service, or facility authorized for a specific use to promote the national defense [@CL-IND-0065] |
+| Approved program | A program determined in writing as necessary or appropriate for priorities and allocations support to promote the national defense by the Secretary of Defense, the Secretary of Energy, or the Secretary of Homeland Security, under the authority of the Defense Production Act and Executive Order 13603, or the Selective Service Act and Executive Order 12742 [@CL-IND-0066; @CL-IND-0067] |
+| Construction | The erection, addition, extension, or alteration of any building, structure, or project, using materials or products which are to be an integral and permanent part of it; it does not include maintenance and repair [@CL-IND-0068] |
+| Critical infrastructure | Any systems and assets, whether physical or cyber-based, so vital to the United States that their degradation or destruction would have a debilitating impact on national security, including, but not limited to, national economic security and national public health or safety [@CL-IND-0069] |
+| Defense Production Act | The Defense Production Act of 1950, as amended, codified at section 4501 and following of title 50 of the United States Code [@CL-IND-0346] |
+| Delegate Agency | A government agency authorized by delegation from the Department of Commerce to place priority ratings on contracts or orders needed to support approved programs [@CL-IND-0070] |
+| Determination Department | Any of the three Federal departments whose head is delegated authority by the President under section 202 of Executive Order 13603 to determine in writing that a program is necessary or appropriate to promote the national defense [@CL-IND-0071]. The heads are the Secretary of Defense, with respect to military production and construction, military assistance to foreign nations, military use of civil transportation, stockpiles managed by the Department of Defense, space, and directly related activities [@CL-IND-0347]; the Secretary of Energy, with respect to energy production and construction, distribution and use, and directly related activities; and the Secretary of Homeland Security, with respect to all other national defense programs, including civil defense and continuity of Government [@CL-IND-0348] |
+| Directive | An official action which requires a person to take or refrain from taking certain actions in accordance with its provisions [@CL-IND-0072] |
+| Emergency preparedness | All activities and measures designed or undertaken to prepare for or minimize the effects of a hazard upon the civilian population, to deal with the immediate emergency conditions which would be created by the hazard, and to effectuate emergency repairs to, or the emergency restoration of, vital utilities and facilities destroyed or damaged by the hazard [@CL-IND-0349; @CL-IND-0350]. It includes (1) measures in preparation for anticipated hazards: the establishment of appropriate organizations, operational plans, and supporting agreements, the recruitment and training of personnel, the conduct of research, the procurement and stockpiling of necessary materials and supplies, the provision of suitable warning systems, the construction or preparation of shelters, shelter areas, and control centers, and, when appropriate, the nonmilitary evacuation of the civilian population [@CL-IND-0350; @CL-IND-0351; @CL-IND-0352]; (2) measures during a hazard: the enforcement of passive defense regulations prescribed by duly established military or civil authorities, the evacuation of personnel to shelter areas, the control of traffic and panic, and the control and use of lighting and civil communications [@CL-IND-0352; @CL-IND-0353]; and (3) measures following a hazard: activities for firefighting, rescue, emergency medical, health and sanitation services, monitoring for specific dangers of special weapons, unexploded bomb reconnaissance, essential debris clearance, emergency welfare measures, and immediately essential emergency repair or restoration of damaged vital facilities [@CL-IND-0353; @CL-IND-0354] |
+| Facilities | The term includes all types of buildings, structures, or other improvements to real property, excluding farms, churches or other houses of worship, and private dwelling houses, and services relating to the use of any such building, structure, or other improvement [@CL-IND-0355] |
+| Hazard | An emergency or disaster resulting from a natural disaster or from an accidental or man-caused event [@CL-IND-0356] |
+| Homeland security | Includes efforts to prevent terrorist attacks within the United States, to reduce the vulnerability of the United States to terrorism, to minimize damage from a terrorist attack in the United States, and to recover from a terrorist attack in the United States [@CL-IND-0357] |
+| Industrial resources | All materials, services, and facilities, including construction materials, the authority for which has not been delegated to other agencies under Executive Order 13603; the term may also be referred to as "item" in the part [@CL-IND-0073] |
+| Maintenance and repair and/or operating supplies (MRO) | Maintenance is the upkeep necessary to continue any plant, facility, or equipment in working condition, and repair is the restoration of any plant, facility, or equipment to working condition when it has been rendered unsafe or unfit for service by wear and tear, damage, or failure of parts [@CL-IND-0358]. Operating supplies are any items carried as operating supplies according to a person's established accounting practice, and may include hand tools and expendable tools, jigs, dies, fixtures used on production equipment, lubricants, cleaners, chemicals and other expendable items [@CL-IND-0359]. MRO does not include items produced or obtained for sale to other persons or for installation upon or attachment to the property of another person, or items required for the production of such items; items needed for the replacement of any plant, facility, or equipment; or items for the improvement of any plant, facility, or equipment by replacing items which are still in working condition with items of a new or different kind, quality, or design [@CL-IND-0360; @CL-IND-0361] |
+| Materials | Includes any raw materials (including minerals, metals, and advanced processed materials), commodities, articles, components (including critical components), products, and items of supply, and any technical information or services ancillary to the use of any such materials, commodities, articles, components, products, or items [@CL-IND-0362; @CL-IND-0363] |
+| National defense | Programs for military and energy production or construction, military or critical infrastructure assistance to any foreign nation, homeland security, stockpiling, space, and any directly related activity; the term includes emergency preparedness activities conducted under Title VI of the disaster relief and emergency assistance statute codified at section 5121 and following of title 42 of the United States Code, and critical infrastructure protection and restoration [@CL-IND-0364; @CL-IND-0365] |
+| Official action | An action taken by the Department of Commerce under the authority of the Defense Production Act, the Selective Service Act and related statutes, and the part [@CL-IND-0074]. Such actions include the issuance of rating authorizations, directives, letters of understanding, demands for information, inspection authorizations, administrative subpoenas, and allocation orders [@CL-IND-0366] |
+| Person | Any individual, corporation, partnership, association, or any other organized group of persons, or legal successor or representative thereof; or any authorized State or local government or agency thereof; and for purposes of administration of the part, includes the United States Government and any authorized foreign government or international organization or agency thereof, delegated authority as provided in the part [@CL-IND-0367; @CL-IND-0368]. The printed text refers to supplement no. 1 to part 700, paragraph (b), for Directive Allocation Orders issued by a temporary final rule [@CL-IND-0368] |
+| Priorities authority | The authority of the Department of Commerce, pursuant to section 101 of the Defense Production Act, to require priority performance of contracts and orders (other than contracts of employment) for industrial resources for use in approved programs [@CL-IND-0075] |
+| Priority rating | An identifying code, consisting of the rating symbol and the program identification symbol, assigned by the Department of Commerce, a Delegate Agency, or authorized person and placed on all rated orders [@CL-IND-0076] |
+| Production equipment | Any item of capital equipment used in producing materials or furnishing services that has a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077] |
+| Program identification symbols | Abbreviations used to indicate which approved program is supported by a rated order [@CL-IND-0078] |
+| Rated order | A prime contract, a subcontract, or a purchase order in support of an approved program issued in accordance with the provisions of the part [@CL-IND-0079] |
+| Selective Service Act | Section 18 of the Selective Service Act of 1948, codified at section 3816 of title 50 of the United States Code [@CL-IND-0369] |
+| Services | Includes any effort that is needed for or incidental to the development, production, processing, distribution, delivery, or use of an industrial resource or a critical technology item, the construction of facilities, or other national defense programs and activities [@CL-IND-0080] |
+| Set-aside | An official action that requires a person to reserve materials, services, or facilities capacity in anticipation of the receipt of rated orders [@CL-IND-0081] |
+| Working day | Any day that the recipient of an order is open for business [@CL-IND-0082] |
+
+## How it works
+
+The priority side rests on two codes. A priority rating is an identifying code made of the rating symbol and the program identification symbol, assigned by the Department of Commerce, a Delegate Agency or an authorized person and placed on all rated orders [@CL-IND-0076]. A rated order is a prime contract, a subcontract or a purchase order in support of an approved program [@CL-IND-0079]. The rated order duties are on the [rated orders](ind-dpas-rated-orders.md) card.
+
+The allocation side uses named official actions. An allocation order controls distribution [@CL-IND-0064]. A set-aside reserves capacity in anticipation of rated orders [@CL-IND-0081]. A directive requires a person to take or refrain from taking certain actions [@CL-IND-0072]. An allotment specifies the maximum quantity authorized for a specific use [@CL-IND-0065]. The [allocation orders](ind-dpas-allocation-orders.md) card and the [allocation order policy and acceptance](ind-dpas-allocation-order-policy-and-acceptance.md) card apply these terms.
+
+Program terms link an order back to an approved program. A Determination Department is any of the three departments whose head is delegated authority by the President under section 202 of Executive Order 13603 to determine in writing that a program is necessary or appropriate to promote the national defense [@CL-IND-0071]. A program so determined is an approved program [@CL-IND-0066; @CL-IND-0347]. A Delegate Agency is different: it is a government agency authorized by delegation from the Department of Commerce to place priority ratings on contracts or orders needed to support approved programs [@CL-IND-0070].
+
+The term person is wide. It includes organized groups, legal successors or representatives, authorized State or local governments, and, for purposes of administration of the part, the United States Government and authorized foreign governments or international organizations or agencies, delegated authority as provided in the part [@CL-IND-0367; @CL-IND-0368]. A working day is any day that the recipient of an order is open for business, so the count depends on the recipient [@CL-IND-0082].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A plant buys a press for $3,000 to use in producing parts, and expects to run it for four years as a capital machine. It meets the $2,500 cost test, its service life exceeds one year, and it can maintain its integrity as a capital item, so it is production equipment [@CL-IND-0077]. A hand tool bought for $1,500 for the same line fails the cost test, so it is not production equipment [@CL-IND-0077]. If the plant carries the tool as an operating supply under its established accounting practice, it is an operating supply, and operating supplies may include hand tools [@CL-IND-0359]. If the plant buys a new press to replace a worn press, the new press is an item needed for the replacement of equipment, and MRO does not include it [@CL-IND-0361].
+
+## Never confuse
+
+An allocation order is not a rated order: a rated order is a contract, subcontract or purchase order in support of an approved program, while an allocation order is an official action to control distribution [@CL-IND-0079; @CL-IND-0064]. Allocation and allotment differ: allocation is the control of distribution, and an allotment is an official action that specifies the maximum quantity authorized for a specific use [@CL-IND-0063; @CL-IND-0065]. A Determination Department determines approved programs, and a Delegate Agency places priority ratings [@CL-IND-0071; @CL-IND-0070]. A directive is one kind of official action, and the list of official actions also names rating authorizations and allocation orders [@CL-IND-0072; @CL-IND-0366].
+
+## Company calibration
+
+Which capacity assumptions and program terms the company maps onto the orders it actually holds, and who confirms each definition before those assumptions are locked [@Q-031].
+
+## Sources
+
+## Change note
+
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Defense Priorities and Allocations System definitions.

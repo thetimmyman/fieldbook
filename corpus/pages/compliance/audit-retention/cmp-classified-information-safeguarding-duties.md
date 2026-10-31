@@ -28,7 +28,7 @@ Shows what the contracting officer does at each phase of a classified acquisitio
 | Text status | Final [@CL-CMP-2410] |
 | Applies to | Solicitations and contracts that may require access to classified information [@CL-CMP-2412; @CL-CMP-2414] |
 
-The National Industrial Security Program Operating Manual, at 32 CFR part 117, is one of the listed publications that implement the program [@CL-CMP-2410]. Nondefense agencies that have industrial security services agreements with DoD, and DoD components, shall use the DD Form 254, Contract Security Classification Specification [@CL-CMP-2411]. That form rule is limited to the agencies named, so it is not a blanket rule for every agency [@CL-CMP-2411]. This card does not restate the manual; its ownership and reporting rules are on [NISPOM foreign ownership, control or influence and its mitigation](../../mna/diligence/mna-nispom-foci-and-mitigation.md) and [NISPOM changed conditions and reportable ownership events](../../mna/diligence/mna-nispom-changed-condition-reporting.md).
+The National Industrial Security Program Operating Manual, at 32 CFR part 117, is one of the listed publications that implement the program [@CL-CMP-2410]. Nondefense agencies that have industrial security services agreements with DoD, and DoD components, shall use the DD Form 254, Contract Security Classification Specification, to provide security classification guidance to United States contractors, and subcontractors as applicable, requiring access to information classified as Confidential, Secret or Top Secret [@CL-CMP-2411; @CL-CMP-8205]. That form rule is limited to the agencies named, so it is not a blanket rule for every agency [@CL-CMP-2411]. This card does not restate the manual; its ownership and reporting rules are on [NISPOM foreign ownership, control or influence and its mitigation](../../mna/diligence/mna-nispom-foci-and-mitigation.md) and [NISPOM changed conditions and reportable ownership events](../../mna/diligence/mna-nispom-changed-condition-reporting.md).
 
 In the solicitation phase, contracting officers ensure that the classified acquisition is conducted as required by the NISP or agency procedures, and include the items listed [@CL-CMP-2413]. Two listed inclusions are an appropriate Security Requirements clause in the solicitation and, as appropriate, a requirement for security safeguards in addition to those in the clause, in solicitations and contracts where the contract may require access to classified information [@CL-CMP-2414].
 
@@ -54,4 +54,5 @@ Which company contracts carry a Security Requirements clause or a classification
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the DD Form 254 sentence so the form rule keeps its purpose, guidance for contractors requiring access to classified information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for safeguarding classified information within industry.

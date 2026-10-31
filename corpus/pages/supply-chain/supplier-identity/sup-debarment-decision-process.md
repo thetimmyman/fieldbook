@@ -33,7 +33,7 @@ The existence of a cause for debarment does not necessarily require debarment, a
 
 The deadlines and the standard of proof in the printed sections are these. The notice of proposed debarment states that the contractor may submit information and argument in opposition within 30 days after receipt of the notice [@CL-SUP-0921; @CL-SUP-0982]. If no suspension is in effect, the decision shall be made within 45 days from the date that the official administrative record is closed, unless the suspending and debarring official extends this period for good cause [@CL-SUP-0924]. That sentence sits in the paragraph that provides for a decision on the administrative record in actions based upon a conviction or civil judgment, or in which there is no genuine dispute over material facts [@CL-SUP-0923]. The official record closes upon the expiration of the contractor's time to submit information and argument in opposition, including any extensions [@CL-SUP-0925]. In any action in which the proposed debarment is not based upon a conviction or civil judgment, the cause for debarment must be established by a preponderance of the evidence [@CL-SUP-0983].
 
-In debarment actions in which additional proceedings are necessary as to disputed material facts, written findings of fact shall be prepared and the suspending and debarring official shall base the decision on the facts as found [@CL-SUP-0984]. The printed section sets no number of days for the decision in those actions.
+In debarment actions in which additional proceedings are necessary as to disputed material facts, written findings of fact shall be prepared and the suspending and debarring official shall base the decision on the facts as found, together with any information and argument submitted by the contractor and any other information in the administrative record [@CL-SUP-0984; @CL-SUP-4050]. The printed section sets no number of days for the decision in those actions.
 
 ## How it works
 
@@ -65,4 +65,5 @@ Confirm who owns the response to a notice of proposed debarment, how the respons
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the findings sentence so the decision rule keeps the contractor's submissions and the administrative record.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the debarment decision process.

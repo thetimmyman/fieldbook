@@ -37,7 +37,7 @@ The Principal Director will promptly evaluate the contractor's rationale and wil
 
 The notice runs from the contractor to the contracting officer [@CL-CTF-3402], then from the contracting officer to the Principal Director [@CL-CTF-3403], then from the Principal Director to the IRS, the contracting officer and the payment office, as appropriate [@CL-CTF-3404], and last from the contracting officer to the contractor [@CL-CTF-3405]. The step to the Principal Director is the contracting officer's, not the contractor's [@CL-CTF-3403].
 
-The clause itself, summarized on [Levies on contract payments](../cash/ctf-levies-on-contract-payments.md), requires the contractor, when a levy is imposed and it believes the levy may result in an inability to perform, to notify the Procuring Contracting Officer promptly in writing, with a copy to the Administrative Contracting Officer [@CL-CTF-0778]. The contractor's notice must give the total dollar amount of the levy, a statement that it believes the levy may result in an inability to perform with rationale and adequate supporting documentation, and advice as to whether the inability may adversely affect national security [@CL-CTF-0868]. DoD reviews the contractor's assessment promptly, and the Procuring Contracting Officer provides a written notification to the contractor [@CL-CTF-0869].
+The clause itself, summarized on [Levies on contract payments](../cash/ctf-levies-on-contract-payments.md), requires the contractor, when a levy is imposed and it believes the levy may result in an inability to perform, to notify the Procuring Contracting Officer promptly in writing, with a copy to the Administrative Contracting Officer [@CL-CTF-0778]. The contractor's notice must give the total dollar amount of the levy, a statement that it believes the levy may result in an inability to perform with rationale and adequate supporting documentation, and advice as to whether the inability may adversely affect national security [@CL-CTF-0868]. DoD reviews the contractor's assessment promptly, and the Procuring Contracting Officer provides a written notification to the contractor that includes a statement as to whether DoD agrees that the levy may result in an inability to perform [@CL-CTF-0869; @CL-CTF-2265] and, depending on the effect on national security, either the total amount of the monies collected that should be returned or a recommendation that the contractor promptly notify the Internal Revenue Service [@CL-CTF-0779; @CL-CTF-0870].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Confirm who watches for tax levies and who notifies the contracting officer and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the DoD review sentence so the written notification keeps its listed contents.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax levies that may stop performance.
