@@ -49,7 +49,7 @@ Separately, the contractor assigns all 500,000 of its unpaid amounts to one bank
 
 ## Never confuse
 
-Interest on amounts payable to the Government is not the late payment interest penalty the payment office pays to a contractor, which is automatic when payment is late and the listed conditions are met [@CL-CTF-1671; @CL-CTF-1666]; see [Prompt payment for architect-engineer contracts and discounts for prompt payment](ctf-prompt-payment-architect-engineer-and-discounts.md). An assignment moves the right to be paid; it does not let the assignee receive classified material without written authorization from the Contracting Officer [@CL-CTF-1675; @CL-CTF-1677]. Payments the contractor owes the Government under the dismantling and demolition payment clauses are on [Payment by the contractor to the Government, including incremental payment](ctf-payment-by-contractor-to-government.md).
+Interest on amounts payable to the Government is not the late payment interest penalty the payment office pays to a contractor, which is automatic when payment is late and the listed conditions are met, except that payment on the following working day when the due date falls on a Saturday, Sunday, or legal holiday does not incur it [@CL-CTF-1671; @CL-CTF-1666; @CL-CTF-9496]; see [Prompt payment for architect-engineer contracts and discounts for prompt payment](ctf-prompt-payment-architect-engineer-and-discounts.md). An assignment moves the right to be paid; it does not let the assignee receive classified material without written authorization from the Contracting Officer [@CL-CTF-1675; @CL-CTF-1677]. Payments the contractor owes the Government under the dismantling and demolition payment clauses are on [Payment by the contractor to the Government, including incremental payment](ctf-payment-by-contractor-to-government.md).
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Confirm whether financing arrangements assign contract payments, who handles Gov
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the interest penalty rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the interest clause and the assignment of claims clause.

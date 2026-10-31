@@ -29,7 +29,7 @@ Shows which contract awards must be synopsized through the Governmentwide point 
 | Text status | Final [@CL-MKT-0036] |
 | Applies to | Contract awards exceeding the stated dollar threshold, other than the excepted actions [@CL-MKT-0036] |
 
-Except for the contract actions in the exceptions paragraph and as provided in the cited section, contracting officers must synopsize through the Governmentwide point of entry (GPE) the contract awards exceeding $25,000 that are in the categories the paragraph lists [@CL-MKT-0036]. The two categories listed under the item for awards exceeding that amount are awards covered by the World Trade Organization Government Procurement Agreement or a Free Trade Agreement, and awards likely to result in the award of any subcontracts [@CL-MKT-0037].
+Except for the contract actions in the exceptions paragraph and as provided in the cited section, contracting officers must synopsize through the Governmentwide point of entry (GPE) the contract awards exceeding $25,000 that are in the categories the paragraph lists [@CL-MKT-0036]. The two categories listed under the item for awards exceeding that amount are awards covered by the World Trade Organization Government Procurement Agreement or a Free Trade Agreement, and awards likely to result in the award of any subcontracts [@CL-MKT-0037]. The dollar threshold is not a prohibition against publicizing an award of a smaller amount when publicizing would be advantageous to industry or to the Government [@CL-MKT-9317].
 
 A further item lists certain contract actions greater than the simplified acquisition threshold, and its first entry is Federal Supply Schedule orders or Blanket Purchase Agreements supported by a limited-source justification (excluding brand name) [@CL-MKT-0038]. Its second entry is task or delivery orders awarded without providing fair opportunity [@CL-MKT-0039].
 
@@ -55,4 +55,5 @@ Confirm which public award notices are relevant market observations for the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the two award categories.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for synopses of contract awards.
