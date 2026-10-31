@@ -24,7 +24,7 @@ Shows how the Trade Agreements clause treats designated country end products, wh
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1252] |
 | Codified citation | FAR 52.225-5 [@CL-SUP-1252] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-5 [@CL-SUP-3790] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1252] |
 | Applies to | Acquisitions where the Contracting Officer has determined that the WTO GPA and FTAs apply [@CL-SUP-1252] |
@@ -34,6 +34,8 @@ The contractor shall deliver only U.S.-made or designated country end products, 
 ## How it works
 
 A designated country end product is a WTO GPA country end product, an FTA country end product, a least developed country end product, or a Caribbean Basin country end product [@CL-SUP-1250]. A U.S.-made end product is an article that is mined, produced, or manufactured in the United States or that is substantially transformed in the United States into a new and different article of commerce with a name, character, or use distinct from that of the article or articles from which it was transformed [@CL-SUP-1251]. The delivery rule therefore admits two kinds of end product, and an offer can specify others [@CL-SUP-1253]. The country lists behind each designated country category are in the clause text and this card does not restate them.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the definition of a designated country end product [@CL-SUP-3787; @CL-SUP-1250]. It keeps the definition of a U.S.-made end product [@CL-SUP-3788; @CL-SUP-1251]. It keeps the statement that the Contracting Officer has determined that the WTO GPA and FTAs apply and that, unless otherwise specified, they apply to all items in the Schedule [@CL-SUP-3789; @CL-SUP-1252]. It keeps the delivery rule and its exception for other end products specified in the offer [@CL-SUP-3790; @CL-SUP-1253].
 
 ## Worked example
 
@@ -53,4 +55,5 @@ Which executed contracts carry this clause, and who confirms that the trade agre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Trade Agreements clause.

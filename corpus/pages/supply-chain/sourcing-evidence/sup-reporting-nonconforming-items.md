@@ -23,7 +23,7 @@ Shows what a contractor must screen and report under the reporting nonconforming
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1187] |
 | Codified citation | FAR 52.246-26 [@CL-SUP-1187; @CL-SUP-1188; @CL-SUP-1189; @CL-SUP-1190; @CL-SUP-1191; @CL-SUP-1192; @CL-SUP-1193; @CL-SUP-1194; @CL-SUP-1206; @CL-SUP-1207; @CL-SUP-1208; @CL-SUP-1209; @CL-SUP-1210; @CL-SUP-1211] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-26 [@CL-SUP-3464; @CL-SUP-3465; @CL-SUP-3466; @CL-SUP-3467; @CL-SUP-3468; @CL-SUP-3469; @CL-SUP-3470; @CL-SUP-3471; @CL-SUP-3472; @CL-SUP-3473; @CL-SUP-9332; @CL-SUP-9333; @CL-SUP-3474; @CL-SUP-3475; @CL-SUP-3476; @CL-SUP-9334; @CL-SUP-3477; @CL-SUP-9335; @CL-SUP-3478] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1187] |
 | Applies to | Contracts that include the clause [@CL-SUP-1187] |
@@ -37,6 +37,8 @@ Except as provided in the exclusions paragraph, the contractor shall insert the 
 ## How it works
 
 Screening is part of the contractor's inspection system or quality-control program [@CL-SUP-1187]. The notice goes to the contracting officer and the report goes to GIDEP, each on a 60-day clock that runs from becoming aware or having reason to suspect [@CL-SUP-1189; @CL-SUP-1191]. The printed clause also has definitions, a further case in which no report is submitted, a bar on trade secrets in reports and a liability protection for certain Department of Defense reports, and this card does not restate those terms. When a nonconforming item is found in supplies offered for acceptance, the rejection rules are on [Rejection of nonconforming supplies and who may accept them](../../operating-model/corrective-action/opm-rejection-of-nonconforming-supplies.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of 52.246-26 keeps the screening duty in paragraph (b)(1), with its purpose [@CL-SUP-3464; @CL-SUP-3465; @CL-SUP-1187; @CL-SUP-1206] and the exception for a foreign corporation or partnership with no office, place of business or fiscal paying agent in the United States [@CL-SUP-3466; @CL-SUP-1188]. It keeps the written notice to the contracting officer within 60 days [@CL-SUP-3467; @CL-SUP-3468; @CL-SUP-1189; @CL-SUP-1190], the duty to retain counterfeit or suspect counterfeit items [@CL-SUP-3469; @CL-SUP-1192] and the GIDEP report within 60 days, with the items that trigger it [@CL-SUP-3470; @CL-SUP-3471; @CL-SUP-1191; @CL-SUP-1207]. It keeps the first two cases in paragraph (c) in which the contractor shall not submit the report [@CL-SUP-3472; @CL-SUP-3473; @CL-SUP-1208; @CL-SUP-1209]. The RFO text of paragraph (c) also lists a third case, for nonconforming items other than counterfeit or suspect counterfeit items, which is that it can be confirmed that the organization where the defect was generated has not released the item to more than one customer [@CL-SUP-9332; @CL-SUP-9333]. It keeps the subcontract rule in paragraph (g), including insertion in subcontracts for items subject to higher-level quality standards [@CL-SUP-3474; @CL-SUP-3475; @CL-SUP-1193], for critical items [@CL-SUP-3476; @CL-SUP-1210] and for electronic parts or end items, components, parts, or materials containing electronic parts, if the subcontract exceeds the simplified acquisition threshold as defined in FAR 2.101 on the date of subcontract award and the contract is by, or for, the Department of Defense [@CL-SUP-9334; @CL-SUP-3477; @CL-SUP-1211]. The RFO text also lists subcontracts for the acquisition of services, if the subcontractor will furnish, as part of the service, any items that meet the criteria specified in paragraphs (g)(1)(i) through (g)(1)(iii) [@CL-SUP-9335]. It keeps the bar on insertion in subcontracts for commercial products and commercial services or certain medical devices [@CL-SUP-3478; @CL-SUP-1194].
 
 ## Worked example
 
@@ -56,4 +58,5 @@ Which contracts carry the clause, who screens GIDEP reports and files the notice
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reporting nonconforming items.

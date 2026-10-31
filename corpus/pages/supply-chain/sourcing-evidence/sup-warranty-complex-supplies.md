@@ -23,7 +23,7 @@ Shows the warranty a contractor gives for complex supplies, the notice rule, who
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1157] |
 | Codified citation | FAR 52.246-18 [@CL-SUP-1157; @CL-SUP-1158; @CL-SUP-1159; @CL-SUP-1160; @CL-SUP-1161; @CL-SUP-1162; @CL-SUP-1163; @CL-SUP-1164; @CL-SUP-1217; @CL-SUP-1218; @CL-SUP-1219] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-18 [@CL-SUP-3479; @CL-SUP-3480; @CL-SUP-3481; @CL-SUP-3482; @CL-SUP-3483; @CL-SUP-3484; @CL-SUP-3485; @CL-SUP-3486; @CL-SUP-9336; @CL-SUP-3487; @CL-SUP-3488; @CL-SUP-9337; @CL-SUP-9338; @CL-SUP-3489] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1157] |
 | Applies to | Supplies furnished under a contract that includes the clause [@CL-SUP-1157] |
@@ -35,6 +35,8 @@ When supplies are returned to the contractor, the contractor bears the transport
 ## How it works
 
 The contracting officer shall notify the contractor in writing of any breach of the warranty within a period of time that the contracting officer inserts in the clause [@CL-SUP-1164]. In the event of a breach of the contractor's warranty, the Government may, at no increase in contract price, take the listed remedies [@CL-SUP-1161]. One listed remedy is to require the contractor, at the place of delivery or at the contractor's plant, to repair or replace defective or nonconforming supplies, at the contractor's election [@CL-SUP-1162]. If the contracting officer does not require correction or replacement, or the contractor is not obligated to correct or replace under the paragraph on unavailable facilities, the Government is entitled to an equitable reduction in the contract price [@CL-SUP-1163; @CL-SUP-1217]. Once the contracting officer directs correction or replacement in writing as in the remedies paragraph of the clause, the contractor shall comply with the direction notwithstanding any disagreement regarding the existence of a breach of warranty [@CL-SUP-1219]. The printed clause also covers the contractor's written recommendation on corrective action, the time limits for that recommendation and for using the warranty remedies, a later price adjustment if no breach is found, and notice periods for corrected or replaced supplies, and this card does not state those terms.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of 52.246-18 keeps the warranty period that the contracting officer states [@CL-SUP-3479; @CL-SUP-1157], the warranty that supplies are free from defects in material and workmanship and conform with all contract requirements [@CL-SUP-3480; @CL-SUP-1158] and the limit for Government-furnished property [@CL-SUP-3481; @CL-SUP-1159]. It keeps the unavailable facilities rule [@CL-SUP-3482; @CL-SUP-1217], the transportation rule [@CL-SUP-3483; @CL-SUP-1160] and the exclusion of implied warranties [@CL-SUP-3484; @CL-SUP-1218]. It keeps the Government remedies at no increase in contract price [@CL-SUP-3485; @CL-SUP-1161], including repair or replacement at the contractor's election [@CL-SUP-3486; @CL-SUP-1162] and the equitable price reduction [@CL-SUP-3487; @CL-SUP-1163]. The RFO text also lists a second remedy, which is to require the contractor to furnish at the contractor's plant the materials or parts and installation instructions required to successfully accomplish the correction [@CL-SUP-9336]. It keeps the written notice of breach [@CL-SUP-3488; @CL-SUP-1164] and the duty to comply with a written direction to correct or replace [@CL-SUP-3489; @CL-SUP-1219]. The RFO text also has the contractor submit a written recommendation on the corrective action within a period that the contracting officer inserts [@CL-SUP-9337], and it places the written direction after the notice of breach but not later than a period that the contracting officer inserts after receipt of that recommendation [@CL-SUP-9338].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Whether each contract carries this clause, what its warranty, notice, recommenda
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the complex supplies warranty.
