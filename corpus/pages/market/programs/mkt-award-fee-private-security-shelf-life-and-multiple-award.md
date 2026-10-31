@@ -48,7 +48,7 @@ An award-fee contract includes the clause at DFARS 252.225-7039, and its award-f
 
 An item has a shelf-life of 4 months, which is less than 6 months, so the contracting officer considers an indefinite-delivery contract with orders placed by users or by central offices delivering direct to users [@CL-MKT-1591]. For an order placed on Day 10, the issuing office must have furnished the data in time for the ordering activity to prepare its report within 3 working days of the order [@CL-MKT-1641; @CL-MKT-1592].
 
-When the determination at FAR 16.504(c)(1)(ii)(D)(1)(i) is that the expected orders are so integrally related that only a single source can perform the work, the senior procurement executive makes it and applies the efficiently-perform wording [@CL-MKT-1643; @CL-MKT-1699; @CL-MKT-1593]. If a justification under FAR subpart 6.3 has already been executed, the determination is not required [@CL-MKT-1644].
+When the determination at FAR 16.504(c)(1)(ii)(D)(1)(i) is that the expected orders are so integrally related that only a single source can perform the work, the senior procurement executive makes it and applies the efficiently-perform wording [@CL-MKT-1643; @CL-MKT-1699; @CL-MKT-1593]. If a justification has already been executed in accordance with FAR subpart 6.3 and DFARS subpart 206.3, the determination is not required [@CL-MKT-1644].
 
 ## Never confuse
 
@@ -62,4 +62,5 @@ Which contracts within the finance remit carry an award-fee plan or the private 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Stated that the justification that removes the need for the single-award determination must follow DFARS subpart 206.3 as well as FAR subpart 6.3.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award fee, shelf-life items and the multiple-award determination.
