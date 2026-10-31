@@ -45,7 +45,7 @@ The agency head may not delegate either authority to any official below the seni
 
 Each agency head reports the waivers granted under those two routes to the Cost Accounting Standards Board on an annual basis, not later than 90 days after the close of the Government's fiscal year [@CL-CMP-1763].
 
-Separately, upon request of an agency head or his designee, the Cost Accounting Standards Board may waive all or any part of the standards clause requirements or of the disclosure and consistency requirements [@CL-CMP-1764], with respect to a contract subject to the Cost Accounting Standards (the source states this limit after the quoted words). A request must contain, among other things, an unequivocal statement that the proposed contractor or subcontractor refuses to accept a contract containing all or a specified part of a CAS clause, with the specific reason for the refusal [@CL-CMP-1901].
+Separately, upon request of an agency head or his designee, the Cost Accounting Standards Board may waive all or any part of the standards clause requirements or of the disclosure and consistency requirements [@CL-CMP-1764]. A request must contain, among other things, an unequivocal statement that the proposed contractor or subcontractor refuses to accept a contract containing all or a specified part of a CAS clause, with the specific reason for the refusal [@CL-CMP-1901].
 
 ## Worked example
 
@@ -67,5 +67,4 @@ Whether each business unit's coverage type and Disclosure Statement position are
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Board waiver sentence now says it concerns a contract subject to the Standards.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for waiver of the Cost Accounting Standards for an individual contract or subcontract.
