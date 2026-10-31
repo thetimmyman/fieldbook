@@ -23,7 +23,7 @@ Lists the reference-incorporation and alteration texts and the two deviation tex
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8874] |
 | Codified citation | FAR 52.107 [@CL-CMP-8874] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.107 [@CL-CMP-2108] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8874] |
 | Applies to | Solicitations and contracts that incorporate provisions or clauses by reference, carry alterations, or use a FAR or supplemental provision or clause with an authorized deviation [@CL-CMP-8874; @CL-CMP-8875; @CL-CMP-8876; @CL-CMP-8877; @CL-CMP-8878; @CL-CMP-8879] |
@@ -45,6 +45,8 @@ The two incorporation texts are the mechanism for incorporation by reference in 
 The alteration texts carry revisions and supplements, and the prescription of each carries an exception for any provision (for the solicitation text) or any clause (for the contract text) authorized for use with a deviation; the section does not elaborate on that exception [@CL-CMP-8876; @CL-CMP-8877]. Provisions or clauses may not be incorporated by reference by being listed in the alterations provision or clause [@CL-CMP-8856].
 
 The deviation provision is inserted in solicitations that include a FAR or supplemental provision with an authorized deviation, the deviation clause in solicitations and contracts that include such a clause, and solicited firms and contractors are advised of the meaning of the "(DEVIATION)" marker through them [@CL-CMP-8878; @CL-CMP-8879; @CL-CMP-8859]. How a marked text is identified is on the card for [identifying provisions and clauses](cmp-identifying-provisions-and-clauses.md). What each of these texts says is on the cards for [incorporation by reference and solicitation alterations](cmp-incorporation-by-reference-and-solicitation-alterations.md) and for [contract alterations and authorized deviations](cmp-contract-alterations-and-authorized-deviations.md).
+
+Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 published on the Revolutionary FAR Overhaul web page (the RFO text) in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO section 52.107 keeps the contracting officer's duty to insert the provision at 52.252-1 in solicitations in order to incorporate provisions by reference, and the clause at 52.252-2 in solicitations and contracts in order to incorporate clauses by reference [@CL-CMP-2108; @CL-CMP-2109; @CL-CMP-8874; @CL-CMP-8875]. It keeps the duty to insert the alterations provision in solicitations and the alterations clause in solicitations and contracts, each with the exception for a provision or clause authorized for use with a deviation [@CL-CMP-2110; @CL-CMP-2111; @CL-CMP-8876; @CL-CMP-8877]. It keeps the duty to insert the authorized deviations provision in solicitations that include any FAR or supplemental provision with an authorized deviation, and the authorized deviations clause in solicitations and contracts that include any FAR or supplemental clause with an authorized deviation [@CL-CMP-2112; @CL-CMP-2115; @CL-CMP-8878; @CL-CMP-8879]. It keeps the identification rule for a provision or clause used with an authorized deviation: the same number, title and date it has without the deviation, the regulation name for any supplemental provision or clause, and "(DEVIATION)" after the date [@CL-CMP-2113; @CL-CMP-2114; @CL-CMP-2116; @CL-CMP-2117; @CL-CMP-8912; @CL-CMP-8913; @CL-CMP-8914; @CL-CMP-8915].
 
 ## Worked example
 
@@ -72,4 +74,5 @@ Which executed contracts and modifications the company holds, and who confirms t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the provisions and clauses prescribed in subpart 52.1.

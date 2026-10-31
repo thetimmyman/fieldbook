@@ -24,7 +24,7 @@ Explains the place of manufacture indication in paragraph (j), the certificates 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-9003] |
 | Codified citation | FAR 52.212-3(j), (k) and (l) [@CL-CMP-9003; @CL-CMP-9004; @CL-CMP-9008] |
-| RFO citation | Not established. |
+| RFO citation | Paragraph (j): RFO FAR 52.225-18(b) [@CL-CMP-1595]; paragraph (k): RFO FAR 52.222-48 [@CL-CMP-1596; @CL-CMP-1597; @CL-CMP-1598; @CL-CMP-1599; @CL-CMP-1606] and RFO FAR 52.222-52 [@CL-CMP-1607]; paragraph (l): RFO FAR 52.204-90(c) [@CL-CMP-1608; @CL-CMP-1609] and RFO FAR 52.204-7(b)(2)(i) [@CL-CMP-9326] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-9003] |
 | Applies to | Solicitations predominantly for manufactured end products for paragraph (j), solicitations where the contracting officer checks paragraph (k)(1) or (k)(2), and offerors not required to give the taxpayer identification information to SAM for paragraph (l) [@CL-CMP-9003; @CL-CMP-9172; @CL-CMP-9008] |
@@ -51,6 +51,8 @@ Paragraph (k) works in three steps. The contracting officer checks the box for p
 
 Paragraph (l) starts with a gate. An offeror required to provide the information to SAM to be eligible for award skips it, and every other offeror gives the paragraph (l)(3) to (l)(5) information [@CL-CMP-9008; @CL-CMP-9182].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531], so each paragraph is a stand-alone provision. RFO FAR 52.225-18(b) says that, for statistical purposes only, the offeror shall indicate whether the place of manufacture of the end products it expects to provide is predominantly in the places the paragraph lists, and it prints no parenthetical limiting it to solicitations predominantly for manufactured end products, which the codified paragraph (j) prints [@CL-CMP-1595; @CL-CMP-9003]. In RFO FAR 52.222-48 and FAR 52.222-52 the offeror itself must check the certification, and the paragraph prints no instruction for the contracting officer to check a box, which the codified paragraph (k) prints [@CL-CMP-1596; @CL-CMP-1607; @CL-CMP-9172]. RFO FAR 52.222-48(b) keeps the rule that the offeror's certification as to its own compliance also constitutes its certification as to compliance by its subcontractor if it subcontracts out the exempt services [@CL-CMP-9004; @CL-CMP-1597]. Its paragraph (c) applies if the offeror does not certify to the conditions in paragraph (a) of the provision [@CL-CMP-1598], and then the offeror must notify the Contracting Officer as soon as possible if the Contracting Officer did not attach a Service Contract Labor Standards wage determination to the solicitation [@CL-CMP-9181; @CL-CMP-1599]. Its paragraph (d) says the Contracting Officer may not make an award to the offeror if the offeror fails to execute the certification in paragraph (a) or to contact the Contracting Officer as required in paragraph (c) [@CL-CMP-1606], where the codified text refers to paragraphs (k)(1), (k)(2) and (k)(3)(i) [@CL-CMP-9007]. The taxpayer identification information is in RFO FAR 52.204-90(c), a provision that an Offeror completes if it will not have an active SAM registration when it submits its offer [@CL-CMP-1544]. Paragraph (c) says the Offeror shall provide with its offer the information necessary to comply with debt collection requirements, reporting requirements and the implementing IRS regulations, and it prints no separate parenthetical excluding offerors required to give the information to SAM, which the codified paragraph (l) prints [@CL-CMP-1608; @CL-CMP-9008; @CL-CMP-9182]. Paragraph (c)(4) says the TIN may be matched with IRS records to verify its accuracy and the Government may use it to collect and report on delinquent amounts, and it prints no condition tied to the payment reporting requirements described in FAR 4.904, which the codified paragraph prints [@CL-CMP-1609; @CL-CMP-9183; @CL-CMP-9184]. RFO FAR 52.204-7(b)(2)(i) has the Offeror provide its TIN or related information for the same debt collection and reporting purposes, and consent to TIN validation, where the codified paragraph (l) says it is not applicable if the offeror is required to provide this information to SAM to be eligible for award [@CL-CMP-9326; @CL-CMP-9008].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -73,6 +75,8 @@ The notice duty in paragraph (k)(3)(i) and the no-award rule in paragraph (k)(3)
 
 A number stated as not required is not the same as a missing number. The paragraph lists the reasons the offeror can give, and the offeror also has the options of entering the number or stating that it has been applied for [@CL-CMP-9009; @CL-CMP-9185; @CL-CMP-9186].
 
+The codified text lets the TIN be matched with IRS records only if the resulting contract is subject to the payment reporting requirements described in FAR 4.904, but the RFO text of FAR 52.204-90(c)(4) prints no such condition [@CL-CMP-9184; @CL-CMP-1609]. The codified paragraph (j) applies only to solicitations predominantly for manufactured end products, but the RFO text of FAR 52.225-18(b) prints no such limit in the paragraph [@CL-CMP-9003; @CL-CMP-1595].
+
 ## Company calibration
 
 Who confirms the commercial pricing and staffing data behind each exemption certificate, and where the taxpayer identification number is held. [@Q-004]
@@ -81,4 +85,5 @@ Who confirms the commercial pricing and staffing data behind each exemption cert
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the place of manufacture indication, the labor standards exemption certificates and the taxpayer identification number entries.

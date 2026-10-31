@@ -24,7 +24,7 @@ Explains the greenhouse gas disclosure representation in paragraph (t), the repr
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-9031] |
 | Codified citation | FAR 52.212-3(t), (u) and (v) [@CL-CMP-9031; @CL-CMP-9253; @CL-CMP-9199] |
-| RFO citation | Not established. |
+| RFO citation | Paragraph (t): RFO part 52 prints no equivalent and marks FAR 52.223-22 as reserved [@CL-CMP-1532]; paragraph (u): RFO FAR 52.203-18(b) to (d) [@CL-CMP-1533; @CL-CMP-1534; @CL-CMP-1535; @CL-CMP-1536; @CL-CMP-1537; @CL-CMP-1538; @CL-CMP-1539]; paragraph (v): RFO FAR 52.240-90(b) and (c) [@CL-CMP-1540; @CL-CMP-1541; @CL-CMP-1542; @CL-CMP-1543] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-9031] |
 | Applies to | Offerors in solicitations that require offerors to register in SAM, for the greenhouse gas paragraph, offerors submitting an offer, for the confidentiality agreement representation, and offerors answering the covered telecommunications paragraph [@CL-CMP-9031; @CL-CMP-9256; @CL-CMP-9037] |
@@ -47,6 +47,8 @@ The confidentiality agreement paragraph has two sides: paragraph (u)(1) limits w
 
 The telecommunications paragraph has a step before the answers, which is the review of the excluded-party list [@CL-CMP-9036]. The answers then split into what the offeror provides to the Government and what it uses after a reasonable inquiry [@CL-CMP-9037; @CL-CMP-9038].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531]. The greenhouse gas representation of paragraph (t) has no RFO text under its stand-alone provision number, because the RFO text marks FAR 52.223-22 as reserved [@CL-CMP-1532]. The confidentiality agreement representation is in RFO FAR 52.203-18 [@CL-CMP-1533]. Its paragraph (b) keeps the statutory basis, the funding limit on Government agencies and the agreements or statements covered [@CL-CMP-9252; @CL-CMP-9253; @CL-CMP-9254; @CL-CMP-1533; @CL-CMP-1534; @CL-CMP-1535]. Its paragraph (c) says the prohibition in paragraph (b) does not contravene requirements applicable to Standard Form 312, where the codified text refers to paragraph (u)(1) [@CL-CMP-1536; @CL-CMP-9255], and it goes on to name Form 4414 and any other form issued by a Federal department or agency governing the nondisclosure of classified information [@CL-CMP-1537]. Its paragraph (d) keeps the offeror's representation, made by submission of its offer, and the scope of the agreements or statements it covers [@CL-CMP-9256; @CL-CMP-9257; @CL-CMP-9259; @CL-CMP-1538; @CL-CMP-1539]. The covered telecommunications representation is in RFO FAR 52.240-90 [@CL-CMP-1540]. Its paragraph (b)(1) keeps the review of the list of excluded parties in SAM [@CL-CMP-9036; @CL-CMP-1540]. Its paragraph (c) puts the reasonable inquiry wording in the lead-in to both representations, where the codified text puts it only before the use representation [@CL-CMP-1541; @CL-CMP-9038]. Paragraph (c)(1) says the Offeror represents that it will not provide covered telecommunications equipment or services to the Government in the performance of any contract, subcontract or other contractual instrument resulting from this solicitation, except as waived by the solicitation or as disclosed in paragraph (g) [@CL-CMP-1542], and paragraph (c)(2) says the Offeror represents that it does not use covered telecommunications equipment or services, or any equipment, system, or service that uses them, with the same exceptions [@CL-CMP-1543]. The codified text has the offeror check whether it does or does not provide and use them [@CL-CMP-9037; @CL-CMP-9038].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -61,6 +63,8 @@ For the telecommunications paragraph, the first offeror reviews the excluded-par
 
 The greenhouse gas representation is about public disclosure of an inventory result or a target, not about the size of the offeror's emissions [@CL-CMP-9196; @CL-CMP-9197]. Providing covered equipment or services to the Government and using them are separate questions with separate answers, and only the second one follows a reasonable inquiry [@CL-CMP-9037; @CL-CMP-9038]. The excluded-party review is a step before the representation, not a substitute for it [@CL-CMP-9036; @CL-CMP-9037]. The agency funding limit in paragraph (u)(1) and the offeror's representation in paragraph (u)(3) are different rules, and the first falls on Government agencies while the second is made by the offeror [@CL-CMP-9253; @CL-CMP-9256].
 
+The codified paragraph (v) has the offeror check whether it does or does not provide covered telecommunications equipment or services, while the RFO text of FAR 52.240-90(c) states what the Offeror will not provide and does not use, except as waived by the solicitation or as disclosed in paragraph (g) [@CL-CMP-9037; @CL-CMP-9038; @CL-CMP-1542; @CL-CMP-1543]. RFO part 52 prints no counterpart to the codified paragraph (t) and marks FAR 52.223-22 as reserved [@CL-CMP-1532].
+
 ## Company calibration
 
 The company must confirm, for each solicitation, whether its emissions disclosure sits with the offeror or with an owner and who records the answer [@Q-004].
@@ -69,4 +73,5 @@ The company must confirm, for each solicitation, whether its emissions disclosur
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the greenhouse gas disclosure and covered telecommunications paragraphs of the commercial offeror provision.

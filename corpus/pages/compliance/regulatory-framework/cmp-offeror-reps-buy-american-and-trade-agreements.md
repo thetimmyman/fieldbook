@@ -24,7 +24,7 @@ Explains the Buy American certificate in paragraph (f), the Buy American-Free Tr
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8983] |
 | Codified citation | FAR 52.212-3(f) and (g) [@CL-CMP-8983; @CL-CMP-8987] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-2 [@CL-CMP-9321; @CL-CMP-1556; @CL-CMP-1557; @CL-CMP-1558; @CL-CMP-1559; @CL-CMP-1560; @CL-CMP-1561]; RFO FAR 52.225-4 and its alternates [@CL-CMP-9322; @CL-CMP-1562; @CL-CMP-1563; @CL-CMP-1564; @CL-CMP-1565; @CL-CMP-1566; @CL-CMP-1567; @CL-CMP-1568]; RFO FAR 52.225-6 [@CL-CMP-9323; @CL-CMP-1569; @CL-CMP-1570; @CL-CMP-1571; @CL-CMP-1572; @CL-CMP-1573] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8983] |
 | Applies to | Solicitations that include FAR 52.225-1, FAR 52.225-3 or FAR 52.225-5, each for its own certificate [@CL-CMP-8983; @CL-CMP-8987; @CL-CMP-8990] |
@@ -47,6 +47,8 @@ Alternate II narrows the paragraph (g)(1)(ii) list to Israeli end products, and 
 
 Under paragraph (g)(4), unless the Contracting Officer determines that there are no offers for United States-made or designated country end products or that those offers are insufficient to fulfill the requirements of the solicitation, the Government considers for award only offers of such products [@CL-CMP-9162]. Each certificate that applies states that the Government will evaluate offers in accordance with FAR part 25 [@CL-CMP-9151; @CL-CMP-9156; @CL-CMP-9161].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text marks FAR 52.212-3 as reserved [@CL-CMP-1531], so each certificate is a stand-alone provision: FAR 52.225-2 for the Buy American certificate [@CL-CMP-1556], FAR 52.225-4 for the Buy American-Free Trade Agreements-Israeli Trade Act certificate [@CL-CMP-1562] and FAR 52.225-6 for the trade agreements certificate [@CL-CMP-1569]. Each certification in these provisions points to paragraphs of the stand-alone provision instead of paragraphs (f) and (g) [@CL-CMP-1556; @CL-CMP-1562; @CL-CMP-1569; @CL-CMP-8984; @CL-CMP-8988; @CL-CMP-8990]. RFO FAR 52.225-2, FAR 52.225-4 and FAR 52.225-6 each say the provision is inserted as prescribed in a paragraph of 25.601 and go from the title straight to the certification, where the codified paragraphs (f), (g)(1) and (g)(4) open with a parenthetical applying the certificate only if the clause at FAR 52.225-1, FAR 52.225-3 or FAR 52.225-5 is included in the solicitation [@CL-CMP-9321; @CL-CMP-9322; @CL-CMP-9323; @CL-CMP-8983; @CL-CMP-8987; @CL-CMP-8990]. RFO FAR 52.225-2 keeps the rules that the Offeror lists as foreign end products those end products manufactured in the United States that do not qualify as domestic end products, answers the 55 percent domestic content question for foreign end products that are not wholly or predominantly iron or steel and are not COTS items, selects "no" if the percentage is unknown, and separately lists the line item numbers of domestic end products that contain a critical component [@CL-CMP-8985; @CL-CMP-8986; @CL-CMP-9149; @CL-CMP-9150; @CL-CMP-1557; @CL-CMP-1558; @CL-CMP-1559; @CL-CMP-1560]. RFO FAR 52.225-4 differs from paragraph (g)(1) [@CL-CMP-1564; @CL-CMP-1565]. Its paragraph (c)(1) has the Offeror list the foreign end products other than those listed in paragraph (b) in a table of line item numbers and countries of origin, and it prints no sentence on end products manufactured in the United States, no 55 percent domestic content question and no answer for an unknown percentage [@CL-CMP-1564; @CL-CMP-1565; @CL-CMP-9153; @CL-CMP-9154]. Its paragraph (c)(2) says the Offeror shall list the line item numbers of domestic end products that contain a critical component [@CL-CMP-1565], and its paragraph (b) keeps the list of Free Trade Agreement country end products and Israeli end products [@CL-CMP-8989; @CL-CMP-1563]. Alternate II says to substitute paragraph (b) of the basic provision with a paragraph certifying that the listed supplies are Israeli end products [@CL-CMP-1567]. Alternate III says to substitute paragraph (b) with a paragraph certifying that the listed supplies are Korean end products or Israeli end products, so it substitutes one paragraph where the codified Alternate III substitutes paragraphs (g)(1)(i)(B) and (g)(1)(ii) [@CL-CMP-1568; @CL-CMP-9158]. RFO FAR 52.225-6 says the offeror lists as other end products those supplies that are not U.S.-made or designated country end products, where the codified text says end products [@CL-CMP-1570; @CL-CMP-9160]. It keeps the evaluation rules under part 25 and without regard to the Buy American statute for line items covered by the WTO GPA [@CL-CMP-9161; @CL-CMP-1571; @CL-CMP-1572], and the rule that the Government considers for award only offers of U.S.-made or designated country end products unless the Contracting Officer determines that there are no offers for such products or that those offers are insufficient to fulfill the requirements [@CL-CMP-9162; @CL-CMP-1573].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -65,6 +67,8 @@ An end product manufactured in the United States is not automatically domestic, 
 
 Alternate II and Alternate III replace the paragraphs they name with substituted text, and the substituted lists name Israeli end products or Korean end products instead of Free Trade Agreement country end products [@CL-CMP-9157; @CL-CMP-9158; @CL-CMP-9159].
 
+The codified text puts the 55 percent domestic content question in the paragraph (g)(1) certificate, but the RFO text of FAR 52.225-4(c)(1) prints no such question, while the RFO text of FAR 52.225-2 still prints it [@CL-CMP-9154; @CL-CMP-1564; @CL-CMP-1565; @CL-CMP-1558]. The codified Alternate III replaces two paragraphs, while the RFO Alternate III replaces paragraph (b) only [@CL-CMP-9158; @CL-CMP-1568].
+
 ## Company calibration
 
 Which source data supports the country of origin and domestic content answers on each line item, and who signs the certificates. [@Q-004]
@@ -73,4 +77,5 @@ Which source data supports the country of origin and domestic content answers on
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American and trade agreements certificates in the commercial offeror representations provision.

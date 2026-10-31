@@ -23,7 +23,7 @@ Shows the deadlines for disclosing, electing and filing on a subject invention, 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3632] |
 | Codified citation | FAR 52.227-11 [@CL-CMP-3632] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-11 [@CL-CMP-1829; @CL-CMP-1830; @CL-CMP-1832] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3632] |
 | Applies to | Each subject invention under the clause [@CL-CMP-3632] |
@@ -41,6 +41,8 @@ If the Contractor is a nonprofit organization, it shall not assign rights to a s
 ## How it works
 
 The steps run in order: disclose to the Contracting Officer, elect whether to keep title, then file [@CL-CMP-3632; @CL-CMP-3633; @CL-CMP-3635]. A statutory period that a publication, sale or public use starts can pull the election and filing dates forward [@CL-CMP-3634; @CL-CMP-3636]. A provisional application filed in that step starts a 10-month period for the nonprovisional application [@CL-CMP-4224]. The Contractor may ask for more time on any of the three steps [@CL-CMP-3664]. Failing to disclose or elect on time lets the agency ask for title, but only within a limited window [@CL-CMP-3638; @CL-CMP-3639]. This card does not cover the remaining paragraphs of the clause, such as the contents of the disclosure, the instruments the Contractor must deliver, the preference for United States industry, and the other nonprofit rules.
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text in place of the codified FAR part 52 text, as Class Deviation 2026-O0038 directs, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.227-11 keeps the rule that the Contractor discloses each subject invention to the Contracting Officer within 2 months after the inventor discloses it in writing to Contractor personnel responsible for patent matters [@CL-CMP-1829; @CL-CMP-3632], and the election in writing within 2 years of disclosure to the agency [@CL-CMP-1830; @CL-CMP-3633]. It keeps the agency's power to shorten the election period where a publication, sale or public use has started the 1-year statutory period [@CL-CMP-1831; @CL-CMP-3634]. It keeps the filing rules: the application within 1 year after election [@CL-CMP-1832; @CL-CMP-3635], the nonprovisional application within 10 months of the provisional one [@CL-CMP-1834; @CL-CMP-4224], filing before the end of the statutory period [@CL-CMP-1833; @CL-CMP-3636], and the two windows for filing in additional countries [@CL-CMP-1835; @CL-CMP-1836; @CL-CMP-3637; @CL-CMP-3663]. It keeps the extension request [@CL-CMP-1837; @CL-CMP-3664] and the notice of a decision not to file, continue prosecution, pay maintenance fees or defend, due not less than 30 days before the patent office period expires [@CL-CMP-1840; @CL-CMP-1841; @CL-CMP-3666; @CL-CMP-3667]. It keeps the agency's right to request title for a failure to disclose or elect, within 60 days after learning of the failure [@CL-CMP-1838; @CL-CMP-1839; @CL-CMP-3638; @CL-CMP-3639], the right to require licensing [@CL-CMP-1842; @CL-CMP-3665], and the subcontract rule for small businesses and nonprofit organizations [@CL-CMP-1843; @CL-CMP-3641].
 
 ## Worked example
 
@@ -60,4 +62,5 @@ Who tracks the disclosure, election and filing dates for each subject invention,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure, election and filing deadlines and the agency's right to title.
