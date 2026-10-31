@@ -58,7 +58,8 @@ That estimate versions, source quotations and assumptions are frozen and compare
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.215-10 paragraph (b) and the (c)(2) offset rules; carried the codified conditions and lead-ins the quotes now support.
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the codified conditions and lead-ins the quotes now support.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.215-10 paragraph (b) and the (c)(2) offset rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 52.215-10 price reduction grounds, the listed defenses and the overpayment interest and penalty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the advisory audit follow-up duty, the treatment of defective subcontract data, the comparison basis, and when the price reduction clause applies, including subcontractor data and reductions on items already paid for.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

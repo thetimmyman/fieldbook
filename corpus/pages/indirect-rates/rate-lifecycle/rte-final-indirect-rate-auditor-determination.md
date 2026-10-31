@@ -63,7 +63,8 @@ Which final indirect-rate sets are approved for each purpose and period. [@Q-011
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state; tied the auditor's agreement duties to the lead-in that names the auditor.
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the auditor's agreement duties to the lead-in that names the auditor.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the auditor determination of final indirect cost rates.

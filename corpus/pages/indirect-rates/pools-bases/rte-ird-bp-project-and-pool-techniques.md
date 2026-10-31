@@ -55,5 +55,6 @@ How the company opens, charges and reports its IR&D and B&P projects, and which 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the allocation sentences so the special allocation keeps its limit to the benefits received and the business unit base keeps its proviso; named subparagraph (f)(1) as the quote does; named subparagraph (f)(1) as the quote does.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named subparagraph (f)(1) as the quote does; named subparagraph (f)(1) as the quote does.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the allocation sentences so the special allocation keeps its limit to the benefits received and the business unit base keeps its proviso.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for IR&D and B&P project accumulation and pool techniques.

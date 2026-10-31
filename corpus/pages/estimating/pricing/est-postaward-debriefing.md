@@ -56,6 +56,7 @@ Who owns the pricing and the cost breakdowns that must stay out of a debriefing,
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.301 meaning of day and the RFO FAR 15.301-2 follow up questions; named whose proposals are compared and the past performance reference names.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named whose proposals are compared and the past performance reference names.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.301 meaning of day and the RFO FAR 15.301-2 follow up questions.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward debriefing of offerors.

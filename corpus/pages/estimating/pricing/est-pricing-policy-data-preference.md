@@ -63,7 +63,8 @@ Which bids and estimates need prior-sale price support first, and who supplies a
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of pricing; tied threshold sentences to their exception and lead-in claims.
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied threshold sentences to their exception and lead-in claims.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of pricing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of pricing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.400 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.400 subpart scope.

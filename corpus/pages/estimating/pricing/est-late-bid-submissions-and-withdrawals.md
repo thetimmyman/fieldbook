@@ -87,5 +87,6 @@ Confirm who owns bid delivery and withdrawal authority, and what proof of timely
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported 'only' from the emergency-extension sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'only' from the emergency-extension sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications and withdrawals of bids.

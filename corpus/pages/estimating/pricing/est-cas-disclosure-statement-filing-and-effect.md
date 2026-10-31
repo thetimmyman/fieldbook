@@ -75,6 +75,7 @@ Whether a Disclosure Statement is on file for each covered business unit and who
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the sections that illustrate Disclosure Statement Forms CASB-DS-1 and CASB DS-2; restated the caution on complete and accurate disclosures as the source words it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the caution on complete and accurate disclosures as the source words it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the sections that illustrate Disclosure Statement Forms CASB-DS-1 and CASB DS-2.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.202-5 pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Disclosure Statement filing and the effect of filing.

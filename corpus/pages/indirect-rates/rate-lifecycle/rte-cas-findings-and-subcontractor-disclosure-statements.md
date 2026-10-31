@@ -57,6 +57,7 @@ Which fiscal years are open for CAS cost-impact adjustments that still need a fi
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Restored the price-or-cost adjustment and similar-information wording; said the required-change finding has a first alternative.
+- COMPATIBLE_EXTENSION, 2026-10-31: Said the required-change finding has a first alternative.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the price-or-cost adjustment and similar-information wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-6 and 30.202-4 pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS findings and subcontractor Disclosure Statements.

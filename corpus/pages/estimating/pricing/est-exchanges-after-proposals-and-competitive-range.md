@@ -58,6 +58,7 @@ How the company freezes each proposal version and records every change an offero
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.203 award without negotiation; added the contracting officer determination that precedes limiting the competitive range; price too high or low statement now names the contracting officer.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer determination that precedes limiting the competitive range; price too high or low statement now names the contracting officer.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.203 award without negotiation.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exchanges with offerors after receipt of proposals.

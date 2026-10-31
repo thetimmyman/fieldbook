@@ -59,5 +59,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; added operative-only lead-in, must insert, certification form, either-bar wording, certified data in penalty, second ground and flow-down cite.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added operative-only lead-in, must insert, certification form, either-bar wording, certified data in penalty, second ground and flow-down cite.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reduction for defective certified data and subcontractor certified data for modifications.

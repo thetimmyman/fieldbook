@@ -59,5 +59,6 @@ Which business unit owns the estimating system description, and when the descrip
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.305 estimating system review programs and uncorrected deficiencies; stated the auditor report conditions as the source does; stated the second band condition as the source does; stated what the notice of remaining material weaknesses must contain.
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the auditor report conditions as the source does; stated the second band condition as the source does; stated what the notice of remaining material weaknesses must contain.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.305 estimating system review programs and uncorrected deficiencies.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for estimating system review and the DoD disclosure requirements.

@@ -77,6 +77,7 @@ The company must confirm, for each requirement set it prices, which version of t
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the first paragraph of the FAR 2.101 definition of nondevelopmental item; removed an uncited paragraph count and aligned the metric guidance wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited paragraph count and aligned the metric guidance wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the first paragraph of the FAR 2.101 definition of nondevelopmental item.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 11.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for describing agency needs.

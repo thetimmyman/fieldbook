@@ -81,7 +81,8 @@ Whether any bid is priced for a State, local or tribal government customer and w
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.601 purpose statement; removed a signing date the cited deviation quote does not state, restored "However" before the statutory unallowability sentence, and gave the nonprofit guidance reference as a pointer to 31.108 rather than a condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed a signing date the cited deviation quote does not state, restored "However" before the statutory unallowability sentence, and gave the nonprofit guidance reference as a pointer to 31.108 rather than a condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.601 purpose statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Uniform Guidance sentence so the nonprofit cost principles keep their scope and the reference to exceptions.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the State, local and tribal government cost principles and the nonprofit subpart reference.

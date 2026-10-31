@@ -59,7 +59,8 @@ How the company assigns a cost as direct versus indirect for the same purpose. [
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the direct cost definition; cut the direct-cost sentence back to what its quote says.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut the direct-cost sentence back to what its quote says.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the direct cost definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of direct cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of direct cost.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

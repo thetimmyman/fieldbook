@@ -63,7 +63,8 @@ Confirm which billing and final rate sets apply to each contract and period, and
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the final indirect cost rate definition; carried the compliance lead-in of the RFO final-rate uses paragraph.
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the compliance lead-in of the RFO final-rate uses paragraph.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the final indirect cost rate definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of final indirect cost rate and indirect cost rate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of final indirect cost rate and indirect cost rate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.700 subpart scope.

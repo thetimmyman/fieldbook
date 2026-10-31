@@ -66,5 +66,6 @@ Where accepted proposal shares are booked, and how the price or fee adjustment a
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Added the accepted-VECP lead-in to the collateral savings rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the accepted-VECP lead-in to the collateral savings rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the value engineering clause sharing rates and savings calculation.

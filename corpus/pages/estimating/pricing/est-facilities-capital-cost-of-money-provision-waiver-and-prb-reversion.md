@@ -61,7 +61,8 @@ Who owns proposal pricing and so decides whether facilities capital cost of mone
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of facilities capital cost of money; added the FAR 31.205-6(o)(5) reference to the refund sentence and restored shall for the RFO subcontract flowdown.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 31.205-6(o)(5) reference to the refund sentence and restored shall for the RFO subcontract flowdown.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of facilities capital cost of money.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of facilities capital cost of money.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for facilities capital cost of money, its waiver and postretirement benefit plan reversion.

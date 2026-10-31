@@ -59,5 +59,6 @@ Whether the purchasing system has been reviewed, and when a subcontract needs cu
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; added FAR 31.2 and price-reduction scope, must insert, and replaced an inference.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 31.2 and price-reduction scope, must insert, and replaced an inference.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Limitations on Pass-Through Charges clause.

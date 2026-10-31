@@ -58,7 +58,8 @@ Which fiscal years are still open for incurred cost, whether not submitted, subm
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Named the officials the cited text names; cut the 75 percent sentence back to its quote; removed the elevation step from the codified auditor sentence; stated the list items without an actor the quotes do not name.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut the 75 percent sentence back to its quote; removed the elevation step from the codified auditor sentence; stated the list items without an actor the quotes do not name.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the officials the cited text names.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of business unit and cognizant Federal agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of business unit and cognizant Federal agency.

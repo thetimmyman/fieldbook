@@ -57,5 +57,6 @@ Who owns proposal pricing and the estimating system description, and when the de
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.003 pointer to the Defense Contract Audit Agency accounting guide; matched technical evaluation wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched technical evaluation wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.003 pointer to the Defense Contract Audit Agency accounting guide.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost accounting system adequacy and estimating methods.

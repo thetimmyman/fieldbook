@@ -55,5 +55,6 @@ How estimate versions, source quotations and assumptions are frozen and compared
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the priced bill of material sentence so the price verification keeps the subcontract type, estimating consistency and CAS considerations; also restored the FAR 15.4 framing, the open lists (basic procedures, pricing sources), the auditor's qualitative review as a should, and the corrective-action recommendation as separate from the decrement condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the FAR 15.4 framing, the open lists (basic procedures, pricing sources), the auditor's qualitative review as a should, and the corrective-action recommendation as separate from the decrement condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the priced bill of material sentence so the price verification keeps the subcontract type, estimating consistency and CAS considerations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for direct material estimates.
