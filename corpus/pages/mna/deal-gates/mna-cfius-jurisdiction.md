@@ -34,6 +34,8 @@ A covered control transaction is any transaction proposed or pending after a sta
 
 A covered investment is a direct or indirect investment by a foreign person other than an excepted investor in an unaffiliated TID U.S. business, proposed or pending on or after a stated date in 2020, that is not a covered control transaction and that affords the foreign person something the paragraph lists next [@CL-MNA-0619]. One listed item is access to material nonpublic technical information of the TID U.S. business, and another is board membership, observer or nomination rights [@CL-MNA-0620]. No investment involving an air carrier that holds a certificate under the cited aviation statute is a covered investment [@CL-MNA-0621]. An excepted investor is a foreign person who is, as of the completion date of the transaction and subject to two later paragraphs of the section, within a list of categories that follows [@CL-MNA-0656]. This card does not restate the categories.
 
+Minimum excepted ownership is a defined term with two parts. For an entity whose equity securities are primarily traded on an exchange in an excepted foreign state or the United States, it means a majority of its voting interest, the right to a majority of its profits, and the right in the event of dissolution to a majority of its assets [@CL-MNA-1361; @CL-MNA-1362]. For an entity whose equity securities are not primarily traded on such an exchange, it means 80 percent or more of its voting interest, the right to 80 percent or more of its profits, and the right in the event of dissolution to 80 percent or more of its assets [@CL-MNA-1362; @CL-MNA-1363].
+
 A covered transaction is any of several listed items, the first two being a covered control transaction and a covered investment [@CL-MNA-0622]. The text lists further items that this card does not restate.
 
 A TID U.S. business is any U.S. business that produces, designs, tests, manufactures, fabricates or develops one or more critical technologies, or that meets another listed description [@CL-MNA-0623]. One listed description is performing the appendix functions for covered investment critical infrastructure, and another is maintaining or collecting sensitive personal data of U.S. citizens [@CL-MNA-0624].
@@ -64,5 +66,6 @@ Whether any foreign person holds or could acquire an interest, board seat or acc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of minimum excepted ownership.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of manufacture, own, service and supply for column 2 of appendix A.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review jurisdiction.

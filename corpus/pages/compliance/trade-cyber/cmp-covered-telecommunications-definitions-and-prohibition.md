@@ -22,11 +22,13 @@ Shows what the Government-wide rule treats as covered telecommunications equipme
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2957] |
-| Codified citation | FAR 4.2101 [@CL-CMP-2950]; FAR 4.2102 [@CL-CMP-2957] |
+| Codified citation | FAR 4.2100 [@CL-SUP-9440]; FAR 4.2101 [@CL-CMP-2950]; FAR 4.2102 [@CL-CMP-2957] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2957] |
 | Applies to | Agency procurements and contracts with entities that use covered telecommunications equipment or services, unless an exception or a waiver applies [@CL-CMP-2957; @CL-CMP-2958; @CL-CMP-2959] |
+
+The subpart implements paragraphs (a)(1)(A) and (a)(1)(B) of section 889 of the National Defense Authorization Act for Fiscal Year 2019 (Public Law 115-232) [@CL-SUP-9440].
 
 The definition of covered telecommunications equipment or services opens with telecommunications equipment produced by two named manufacturers or by any subsidiary or affiliate of such entities [@CL-CMP-2950]. The definition goes on to list further items under that lead-in [@CL-CMP-2950]. One covers video surveillance and telecommunications equipment produced by any of three named manufacturers or by any subsidiary or affiliate of such entities [@CL-CMP-2925], but only for the purposes of public safety, security of Government facilities, physical security surveillance of critical infrastructure, and other national security purposes [@CL-CMP-2951]. Another covers telecommunications or video surveillance services provided by such entities or using such equipment [@CL-CMP-2952]. A last listed item turns on an entity that the Secretary of Defense, in consultation with the Director of National Intelligence or the Director of the Federal Bureau of Investigation, reasonably believes to be owned or controlled by, or otherwise connected to, the government of a covered foreign country [@CL-CMP-2953]. The covered foreign country is the People's Republic of China [@CL-CMP-2954].
 
@@ -56,4 +58,5 @@ Which equipment, systems and services the company sells or uses could contain co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered telecommunications equipment or services.

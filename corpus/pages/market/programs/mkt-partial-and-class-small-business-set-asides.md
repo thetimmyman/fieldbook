@@ -35,7 +35,7 @@ For a multiple-award contract, contracting officers may, at their discretion, se
 
 ## How it works
 
-The two partial set-aside paragraphs differ in force and in scope: the first says shall and applies to a contract other than a multiple-award contract [@CL-MKT-0339; @CL-MKT-0341], and the second says may, at the contracting officer's discretion, and applies to a multiple-award contract [@CL-MKT-0342]. Both exclude construction [@CL-MKT-0339; @CL-MKT-0342]. A class set-aside is a separate tool for a class of acquisitions rather than one acquisition [@CL-MKT-0343]. The multiple-award section has its own paragraphs on the solicitation and on offers, and both sections deal with offers from concerns that do not qualify as small, and this card does not restate those paragraphs. Questions of size go through the [Protesting a small business representation or rerepresentation](../taxonomy/mkt-small-business-size-protests.md) card.
+The two partial set-aside paragraphs differ in force and in scope: the first says shall and applies to a contract other than a multiple-award contract [@CL-MKT-0339; @CL-MKT-0341], and the second says may, at the contracting officer's discretion, and applies to a multiple-award contract [@CL-MKT-0342]. Both exclude construction [@CL-MKT-0339; @CL-MKT-0342]. A class set-aside is a separate tool for a class of acquisitions rather than one acquisition [@CL-MKT-0343]. On size, the size procedures for partial set-asides say a firm is required to meet size standard requirements for the small business set-aside portion of a procurement, and is not required to qualify as a small business for the unrestricted portion [@CL-MKT-9148]. The multiple-award section has its own paragraphs on the solicitation and on offers, and both sections deal with offers from concerns that do not qualify as small, and this card does not restate those paragraphs. Questions of size go through the [Protesting a small business representation or rerepresentation](../taxonomy/mkt-small-business-size-protests.md) card.
 
 When using competitive procedures in accordance with FAR 8.602(a)(4), agencies shall include Federal Prison Industries, Inc., in the solicitation process and consider a timely offer from it [@CL-MKT-2004].
 
@@ -57,5 +57,6 @@ Which product families and customer groups are bought through partial or class s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the size procedure for partial set-asides.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Federal Prison Industries inclusion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for partial set-asides, multiple-award partial set-asides and class set-asides.

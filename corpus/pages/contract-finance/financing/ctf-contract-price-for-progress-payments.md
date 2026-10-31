@@ -24,7 +24,7 @@ Defines the contract price used to make progress payments and to apply their lim
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0955] |
 | Codified citation | FAR 32.501-3 [@CL-CTF-0955] |
-| RFO citation | RFO FAR 32.501-3 [@CL-CTF-4287; @CL-CTF-4288; @CL-CTF-4289; @CL-CTF-4290; @CL-CTF-4291; @CL-CTF-4292; @CL-CTF-4293] |
+| RFO citation | RFO FAR 32.501-3 [@CL-CTF-4287; @CL-CTF-4288; @CL-CTF-4289; @CL-CTF-4290; @CL-CTF-4291; @CL-CTF-4292; @CL-CTF-4293]; RFO FAR 32.503-11 [@CL-CTF-9277; @CL-CTF-9278; @CL-CTF-9279; @CL-CTF-9280] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0955] |
 | Applies to | Making progress payments and determining the limitation on progress payments [@CL-CTF-1057] |
@@ -40,6 +40,8 @@ The contracting officer shall not make progress payments or increase the contrac
 If a retroactive downward price reduction occurs under a redeterminable contract that provides for progress payments, the contracting officer has the duties listed in the paragraph [@CL-CTF-1064]. The contracting officer determines the refund due and obtains repayment from the contractor for the excess of payments made for delivered items over amounts due as recomputed at the reduced prices [@CL-CTF-0958], and increases the unliquidated progress payments amount for overdeductions made from the contractor's billings for items delivered [@CL-CTF-1065]. The contracting officer shall also increase the unliquidated progress payments amount if the contractor makes an interim or voluntary price reduction under a redeterminable or incentive contract [@CL-CTF-0959]. Funding limits are treated in [Limitation of cost](../funding/ctf-limitation-of-cost.md) and [Limitation of funds](../funding/ctf-limitation-of-funds.md).
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.501-3 keeps the rule described above: the contract price for making progress payments and determining their limitation is the current amount fixed plus the not-to-exceed amount for unpriced modifications under firm-fixed price contracts [@CL-CTF-4287], the initial price until modified under redeterminable or economic price adjustment contracts [@CL-CTF-4288], and the target price plus the not-to-exceed amount of unpriced modifications under fixed-price incentive contracts [@CL-CTF-4289], which the contracting officer may provisionally increase up to the ceiling or maximum price if properly incurred costs exceed the target price [@CL-CTF-4290]. Under a letter contract or an unpriced order against a basic ordering agreement it is the maximum amount obligated [@CL-CTF-4291], and cost-only portions are excluded [@CL-CTF-4292]. The contracting officer must not make progress payments or increase the contract price beyond the funds obligated under the contract, as amended [@CL-CTF-4293]. The RFO text writes "must" where the codified text says "shall" in these paragraphs [@CL-CTF-0955; @CL-CTF-0960; @CL-CTF-0956; @CL-CTF-4287; @CL-CTF-4292; @CL-CTF-4293].
+
+RFO FAR 32.503-11 has the same adjustments for a price reduction. If a retroactive downward price reduction occurs under a redeterminable contract that provides for progress payments, the contracting officer must take the steps in the paragraph [@CL-CTF-9277]. The contracting officer must determine the refund due and obtain repayment from the contractor for the excess of payments made for delivered items over amounts due as recomputed at the reduced prices [@CL-CTF-9278], and must increase the unliquidated progress payments amount for overdeductions made from the contractor's billings for items delivered [@CL-CTF-9279]. The contracting officer must also increase the unliquidated progress payments amount if the contractor makes an interim or voluntary price reduction under a redeterminable or incentive contract [@CL-CTF-9280]. The RFO text writes must where the codified text says shall in these paragraphs [@CL-CTF-0959; @CL-CTF-9280].
 
 ## Worked example
 
@@ -59,5 +61,6 @@ Confirm how contract price and obligated funding caps are reconciled for progres
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.503-11 price reduction adjustments.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract price and price reduction adjustments.

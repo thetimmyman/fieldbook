@@ -32,6 +32,8 @@ This card rests on the regulations on certain investments in the United States b
 
 Not covered investments include an investment by a foreign person in an unaffiliated TID U.S. business that does not afford the foreign person any of the access, rights, or involvement specified in the covered investment definition [@CL-MNA-0738]. One listed type is an investment by a foreign person who is an excepted investor in an unaffiliated TID U.S. business [@CL-MNA-0739]. Another listed type is a transaction that results or could result in control by a foreign person of an unaffiliated TID U.S. business [@CL-MNA-0740]. The sections list further types and examples that this card does not restate. Involvement means the right or ability to participate, whether or not exercised, including by doing any of the listed things, two of which are providing input into a final decision and consulting with or providing advice to a decisionmaker [@CL-MNA-1321]. The definition lists further ways that this card does not restate.
 
+An unaffiliated TID U.S. business, with respect to a foreign person, is a TID U.S. business in which that foreign person does not directly hold more than 50 percent of the outstanding voting interest [@CL-MNA-1364]. The foreign person also must not have the right to appoint more than half of the members of the board of directors or equivalent governing body [@CL-MNA-1364; @CL-MNA-1365].
+
 ## How it works
 
 A transaction is a covered investment because of what the definition requires, not because of the size of the stake [@CL-MNA-0736]. An investment that gives none of the listed access, rights or involvement is not a covered investment [@CL-MNA-0738]. In one listed example, a foreign person that is not an excepted investor proposes to acquire a four percent, non-controlling equity interest in an entity in which it has no voting interests or any rights [@CL-MNA-0798]. A proposed transaction with an unaffiliated TID U.S. business is, in that example, a covered investment where a designee of the foreign person will have the right to observe the meetings of the target's board of directors [@CL-MNA-0737]. In another, a proposed purchase that makes the purchaser the sole owner of an unaffiliated TID U.S. business, with the right to elect directors and appoint other primary officers, is not a covered investment but is a covered control transaction, assuming no other relevant facts [@CL-MNA-0741].
@@ -54,5 +56,6 @@ Whether any foreign investor in or of the company holds observer, board, informa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of unaffiliated TID U.S. business.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of involvement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered and non-covered investments.

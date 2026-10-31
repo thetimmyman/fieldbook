@@ -24,7 +24,7 @@ Explains that FAR 32.109 lets the contract financing procedures of FAR part 32 b
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3420] and RFO model text [@CL-CTF-3433] |
 | Codified citation | FAR 32.109 [@CL-CTF-3420] |
-| RFO citation | RFO FAR 32.109 [@CL-CTF-3433] |
+| RFO citation | RFO FAR 32.109 [@CL-CTF-3433]; RFO FAR 32.100 [@CL-CTF-9274] |
 | Edition date | Not established. |
 | Text status | Final for the codified text [@CL-CTF-3420]; deviation text for the RFO text [@CL-CTF-3433] |
 | Applies to | Financing of terminations under the contract financing procedures of FAR part 32, in the subpart for purchases other than commercial products or commercial services under part 12 [@CL-CTF-3420; @CL-CTF-3434] |
@@ -41,7 +41,7 @@ Financing of a termination can follow the part's contract financing procedures [
 
 The codified sentence ends with a pointer to FAR 49.112-1 [@CL-CTF-3420]. The RFO sentence has the same words but points to part 49 instead [@CL-CTF-3420; @CL-CTF-3433]. This card does not state what those termination provisions require.
 
-From February 1, 2026, DoD contracting officers use the RFO text of FAR part 32 in place of the codified text [@CL-CTF-4046].
+From February 1, 2026, DoD contracting officers use the RFO text of FAR part 32 in place of the codified text [@CL-CTF-4046]. The RFO text of the subpart scope says the subpart addresses policies and procedures applicable to contract financing and payment for any purchases other than purchases of commercial products or commercial services in accordance with part 12 [@CL-CTF-9274].
 
 The section does not mention partial payments or subcontractors [@CL-CTF-3420]. The [subcontract termination](../billing-payment/ctf-subcontract-termination-and-direct-settlement.md) card covers terminated subcontracts.
 
@@ -69,4 +69,5 @@ Whether the company's cash forecast separates financing received during a termin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.100 subpart scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination financing.

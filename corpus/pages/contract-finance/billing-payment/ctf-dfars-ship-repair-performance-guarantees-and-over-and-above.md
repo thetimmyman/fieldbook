@@ -23,7 +23,7 @@ Shows the contractor's performance duty, the guarantee on repaired work, and how
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CTF-1967; @CL-CTF-1968; @CL-CTF-1969] |
-| Codified citation | DFARS 252.217-7010, DFARS 252.217-7013 and DFARS 252.217-7028 [@CL-CTF-1967; @CL-CTF-1968; @CL-CTF-1969] |
+| Codified citation | DFARS 252.217-7010, DFARS 252.217-7013 and DFARS 252.217-7028 [@CL-CTF-1967; @CL-CTF-1968; @CL-CTF-1969]; DFARS 217.7701 [@CL-CTF-9281]; DFARS 217.7702 [@CL-CTF-9282] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1967] |
@@ -32,6 +32,8 @@ Shows the contractor's performance duty, the guarantee on repaired work, and how
 Upon the award of a job order, the contractor shall promptly start the work specified and diligently prosecute the work to completion [@CL-CTF-1967]. The contractor may not start work until the job order has been awarded, except for emergency work ordered by the Contracting Officer under the Job Orders and Compensation clause of the Master Agreement [@CL-CTF-2372]. If work performed or materials furnished prove defective or deficient within 90 days from the date of redelivery of the vessel, the contractor, as directed by the Contracting Officer and at its own expense, shall correct and repair the deficiency to the satisfaction of the Contracting Officer [@CL-CTF-1968; @CL-CTF-2178]. If the contractor or any subcontractor has a guarantee that exceeds the 90 day period, the Government is entitled to rely upon the longer guarantee until its expiration [@CL-CTF-1995]. For any individual work item identified as incomplete when the vessel is redelivered, the guarantee period runs from the date the item is completed, not from redelivery [@CL-CTF-2153].
 
 Over and above work is work discovered during overhaul, maintenance and repair efforts that is within the general scope of the contract, not covered by the line items for the basic work, and necessary in order to satisfactorily complete the contract [@CL-CTF-1969; @CL-CTF-2172].
+
+The DFARS subpart on ship repair says to follow the procedures at PGI 217.7701 when acquiring over and above work [@CL-CTF-9281]. It also says to use the clause at 252.217-7028, Over and Above Work, in solicitations and contracts containing requirements for over and above work, except as provided for in subpart 217.71 [@CL-CTF-9282]. The text names no official who follows the procedures or uses the clause [@CL-CTF-9281; @CL-CTF-9282].
 
 ## How it works
 
@@ -65,4 +67,5 @@ Which executed contracts include the over and above work clause, which work-requ
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 217.7701 procedures pointer and the DFARS 217.7702 clause prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ship repair master agreement clauses on performance, guarantees and over and above work.

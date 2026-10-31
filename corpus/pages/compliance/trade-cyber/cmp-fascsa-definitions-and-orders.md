@@ -22,11 +22,13 @@ Shows what a FASCSA order is, who may issue each type, and the agency prohibitio
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2969] |
-| Codified citation | FAR 4.2301 [@CL-CMP-2969]; FAR 4.2303 [@CL-CMP-2973] |
+| Codified citation | FAR 4.2300 [@CL-SUP-9441; @CL-SUP-9442]; FAR 4.2301 [@CL-CMP-2969]; FAR 4.2303 [@CL-CMP-2973] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2969] |
 | Applies to | Executive agencies and acquisitions subject to an applicable FASCSA order [@CL-CMP-2973; @CL-CMP-2974] |
+
+The subpart implements the Federal Acquisition Supply Chain Security Act of 2018 (title II of Public Law 115-390) and the Federal Acquisition Security Council (FASC) regulation at 41 CFR part 201-1 [@CL-SUP-9441]. The authority provided in the subpart expires on December 31, 2033, and the section refers to section 1328 of title 41 of the United States Code [@CL-SUP-9442].
 
 A FASCSA order is any of the listed orders issued under the Federal Acquisition Supply Chain Security Act requiring the removal of covered articles from executive agency information systems or the exclusion of one or more named sources or named covered articles [@CL-CMP-2969]. The Secretary of Homeland Security may issue FASCSA orders applicable to civilian agencies, to the extent not covered by the other listed types of order [@CL-CMP-2970]. The Secretary of Defense may issue FASCSA orders applicable to the Department of Defense and national security systems other than sensitive compartmented information systems [@CL-CMP-2971]. The Director of National Intelligence may issue FASCSA orders applicable to the intelligence community and sensitive compartmented information systems, to the extent not covered by the Secretary of Defense type of order [@CL-CMP-2972].
 
@@ -54,4 +56,5 @@ Which FASCSA orders the company has been told apply to each contract, and who tr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the expiry of its authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FASCSA definitions and orders.

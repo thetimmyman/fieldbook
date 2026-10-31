@@ -23,11 +23,13 @@ Explains how the United States can exclude activities from Additional Protocol i
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7895] |
-| Codified citation | DFARS 204.470-2 [@CL-CMP-7895; @CL-CMP-7896; @CL-CMP-7897; @CL-CMP-7898]; DFARS 204.470-3 [@CL-CMP-7899; @CL-CMP-7900; @CL-CMP-7901] |
+| Codified citation | DFARS 204.470-1 [@CL-SUP-9445]; DFARS 204.470-2 [@CL-CMP-7895; @CL-CMP-7896; @CL-CMP-7897; @CL-CMP-7898]; DFARS 204.470-3 [@CL-CMP-7899; @CL-CMP-7900; @CL-CMP-7901] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7895] |
 | Applies to | Activities, and associated locations or information, with direct national security significance [@CL-CMP-7895]; solicitations and contracts for research and development or major defense acquisition programs involving the listed materials or technologies [@CL-CMP-7900; @CL-CMP-7901] |
+
+Under the United States-International Atomic Energy Agency Additional Protocol, the United States is required to declare a wide range of public and private nuclear-related activities to the International Atomic Energy Agency (IAEA) and potentially provide access to IAEA inspectors for verification purposes [@CL-SUP-9445].
 
 The Additional Protocol permits the United States unilaterally to declare exclusions from inspection requirements for activities, or locations or information associated with them, that have direct national security significance [@CL-CMP-7895]. To ensure that all relevant activities are reviewed for that significance, both current and former activities, and associated locations or information, are to be considered for a national security exclusion [@CL-CMP-7896]. The section does not say who carries out that review.
 
@@ -59,4 +61,5 @@ Whether any activity or location in the company's programs is reportable under t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the general statement of the declaration and access obligations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the national security exclusion under the United States-IAEA Additional Protocol and its contract clause.

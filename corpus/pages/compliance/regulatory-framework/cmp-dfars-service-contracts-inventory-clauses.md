@@ -23,11 +23,13 @@ Defines a first-tier subcontract for the service contracts inventory subpart, an
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7908] |
-| Codified citation | DFARS 204.1701 [@CL-CMP-7908; @CL-CMP-7909]; DFARS 204.1705 [@CL-CMP-7910; @CL-CMP-7911; @CL-CMP-7912; @CL-CMP-7913; @CL-CMP-7914] |
+| Codified citation | DFARS 204.1700 [@CL-MKT-9147]; DFARS 204.1701 [@CL-CMP-7908; @CL-CMP-7909]; DFARS 204.1705 [@CL-CMP-7910; @CL-CMP-7911; @CL-CMP-7912; @CL-CMP-7913; @CL-CMP-7914] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7908] |
 | Applies to | Solicitations, contracts, agreements and orders that meet both the value criterion and the portfolio group criterion [@CL-CMP-7910; @CL-CMP-7911; @CL-CMP-7912] |
+
+The subpart prescribes the requirement to report certain contracted services in accordance with section 4505 of title 10 of the United States Code [@CL-MKT-9147].
 
 As used in the service contracts inventory subpart, a first-tier subcontract is a subcontract awarded directly by the contractor for the purpose of acquiring services for performance of a prime contract [@CL-CMP-7908]. It does not include the contractor's supplier agreements with vendors, such as long-term arrangements for materials or supplies or services that benefit multiple contracts or the costs of which are normally applied to the contractor's general and administrative expenses or indirect costs [@CL-CMP-7909].
 
@@ -61,4 +63,5 @@ Which legal entities, business units and contracts fall under the criteria, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the service contracts inventory definition and the contract clause prescriptions.

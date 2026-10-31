@@ -45,7 +45,7 @@ A control account planned a budget of 100,000 and earned 90,000 for the work acc
 
 Schedule variance and cost variance measure different things; schedule variance compares planned budget to budget earned, while cost variance compares budget earned to actual direct costs for the same work.
 
-The guideline on assessing progress against the plan is covered in [EVMS Guideline 14: assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
+The guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Whether schedule and cost variances are calculated monthly at the control accoun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on EVMS Guideline 14.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 17 schedule and cost variance.

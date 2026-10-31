@@ -24,7 +24,7 @@ Lists the examples of other forms of security that FAR 32.304-6 says may be requ
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3422] |
 | Codified citation | FAR 32.304-6 [@CL-CTF-3422] |
-| RFO citation | RFO FAR 32.304 is marked reserved [@CL-CTF-3436] |
+| RFO citation | RFO FAR 32.300 [@CL-CTF-9276]; RFO FAR 32.304 is marked reserved [@CL-CTF-3436] |
 | Edition date | Not established. |
 | Text status | Final for the codified text [@CL-CTF-3422]; deviation text for the RFO reservation [@CL-CTF-3436] |
 | Applies to | Guaranteed loans where other forms of security are considered necessary for protection of the Government interest [@CL-CTF-3422; @CL-CTF-3435] |
@@ -41,7 +41,7 @@ The section ties the possible requirement to a judgment that the form of securit
 
 The list is of examples, so the section does not limit the possible forms to the five listed [@CL-CTF-3422; @CL-CTF-3423]. It also says they are seldom invoked under guaranteed loans [@CL-CTF-3422].
 
-The subpart as a whole prescribes policies and procedures for designated agencies' guarantees of loans [@CL-CTF-3435]. Other sections of the subpart deal with assignment of claims, surety bonds and other borrowing [@CL-CTF-1523; @CL-CTF-3080; @CL-CTF-3083]. See the [assignment of claims](ctf-loan-guarantee-assignment-and-advance-payment-applicability.md) and [surety bonds and other borrowing](ctf-defense-production-loan-guarantee-surety-and-termination.md) cards.
+The subpart as a whole prescribes policies and procedures for designated agencies' guarantees of loans [@CL-CTF-3435]. Other sections of the subpart deal with assignment of claims, surety bonds and other borrowing [@CL-CTF-1523; @CL-CTF-3080; @CL-CTF-3083]. The RFO text of the subpart scope says the subpart addresses policies and procedures for designated agencies' guarantees of loans made by private financial institutions to borrowers performing contracts related to national defense [@CL-CTF-9276]. See the [assignment of claims](ctf-loan-guarantee-assignment-and-advance-payment-applicability.md) and [surety bonds and other borrowing](ctf-defense-production-loan-guarantee-surety-and-termination.md) cards.
 
 From February 1, 2026, DoD contracting officers use the RFO text of FAR part 32 in place of the codified text [@CL-CTF-4046]. RFO FAR 32.304 is marked reserved [@CL-CTF-3436]. This card states only the codified FAR 32.304-6 text [@CL-CTF-3422]. Whether the codified list applies to a DoD action after that date is not established here.
 
@@ -67,4 +67,5 @@ Which assets the company could pledge if a guaranteed loan needs other collatera
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.300 subpart scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for other collateral security for guaranteed loans.
