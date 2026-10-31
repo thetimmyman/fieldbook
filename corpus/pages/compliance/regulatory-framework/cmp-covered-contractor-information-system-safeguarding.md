@@ -23,7 +23,7 @@ Defines the systems and information the basic safeguarding clause reaches, and s
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7575] |
-| Codified citation | FAR 4.1901 and 4.1903 [@CL-CMP-7575; @CL-CMP-7579] |
+| Codified citation | FAR 4.1901, 4.1902 and 4.1903 [@CL-CMP-7575; @CL-SUP-9438; @CL-CMP-7579] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7575] |
@@ -35,11 +35,13 @@ Federal contract information is information, not intended for public release, th
 
 Information means any communication or representation of knowledge, such as facts, data or opinions, in any medium or form, including textual, numerical, graphic, cartographic, narrative, or audiovisual [@CL-CMP-7720]. An information system is a discrete set of information resources organized for the collection, processing, maintenance, use, sharing, dissemination or disposition of information [@CL-CMP-7721]. Safeguarding means measures or controls that are prescribed to protect information systems [@CL-CMP-7578].
 
+The subpart applies to all acquisitions, including acquisitions of commercial products or commercial services, other than commercially available off-the-shelf items, when a contractor's information system may contain Federal contract information [@CL-SUP-9438].
+
 The contracting officer must insert the clause at FAR 52.204-21, Basic Safeguarding of Covered Contractor Information Systems, in solicitations and contracts when the contractor or a subcontractor at any tier may have Federal contract information residing in or transiting through its information system [@CL-CMP-7579]. The insertion duty falls on the contracting officer. The contractor's safeguarding duties come from the clause, which is on the linked controls card, and not from this prescription.
 
 ## How it works
 
-The trigger is factual. It turns on whether Federal contract information may reside in or pass through an information system of the contractor or of a subcontractor at any tier, and the prescription states no dollar threshold [@CL-CMP-7579].
+The trigger is factual. It turns on whether Federal contract information may reside in or pass through an information system of the contractor or of a subcontractor at any tier, and the prescription states no dollar threshold [@CL-CMP-7579]. The applicability section uses the same fact test: it reaches acquisitions when a contractor's information system may contain Federal contract information, and it names commercially available off-the-shelf items as the acquisitions it leaves out [@CL-SUP-9438].
 
 The definitions fix the scope. The system must be owned or operated by a contractor, and the information must be provided by or generated for the Government under a contract to develop or deliver a product or service and not intended for public release [@CL-CMP-7575; @CL-CMP-7576]. The exclusions take out information the Government gives to the public and simple transactional information, so a system that holds only payment-processing information does not hold Federal contract information [@CL-CMP-7577]. Safeguarding itself is a set of prescribed measures and controls for information systems [@CL-CMP-7578].
 
@@ -61,4 +63,5 @@ Which systems in the finance remit touch Federal contract information, and who k
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability of the safeguarding subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for basic safeguarding of covered contractor information systems.

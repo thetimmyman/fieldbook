@@ -23,7 +23,7 @@ States the scope of the Kaspersky Lab prohibition and of the covered application
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7580] |
-| Codified citation | FAR 4.2002, 4.2004, 4.2202 and 4.2203 [@CL-CMP-7580; @CL-CMP-7583; @CL-CMP-7584; @CL-CMP-9754] |
+| Codified citation | FAR 4.2002, 4.2003, 4.2004, 4.2202 and 4.2203 [@CL-CMP-7580; @CL-SUP-9439; @CL-CMP-7583; @CL-CMP-7584; @CL-CMP-9754] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7580] |
@@ -32,6 +32,8 @@ States the scope of the Kaspersky Lab prohibition and of the covered application
 Federal law prohibits Government use on or after October 1, 2018 of any hardware, software or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580]. That statutory prohibition is on Government use. The section then states two prohibitions on contractors. Contractors are prohibited from providing any Kaspersky Lab covered article that the Government will use on or after October 1, 2018 [@CL-CMP-7581]. Contractors are also prohibited from using any Kaspersky Lab covered article on or after October 1, 2018 in the development of data or deliverables first produced in the performance of the contract [@CL-CMP-7582].
 
 The contracting officer must insert the Kaspersky Lab clause in all solicitations and contracts [@CL-CMP-7583]. The prescription states no threshold, condition or exception.
+
+When a contractor provides notification pursuant to the clause at FAR 52.204-23, the notification section says to follow agency procedures [@CL-SUP-9439]. It names no official who follows them and does not set out the procedures.
 
 The statute and guidance named in the covered application section collectively prohibit the presence or use of a covered application on information technology, including certain equipment used by Federal contractors [@CL-CMP-7722]. The prohibition applies to any information technology owned or managed by the Government, or used or provided by the contractor under a contract, including equipment provided by the contractor's employees, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584]. The section does not say who grants an exception and points to the memorandum for the route.
 
@@ -61,5 +63,6 @@ Which products and applications in use on contract work fall inside either prohi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the notification section that points to agency procedures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added when the contracting officer inserts the covered application clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Kaspersky Lab and covered application prohibitions.

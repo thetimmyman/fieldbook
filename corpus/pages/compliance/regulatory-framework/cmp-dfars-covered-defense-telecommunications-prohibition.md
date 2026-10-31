@@ -23,11 +23,13 @@ Defines covered defense telecommunications equipment or services, covered foreig
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7915] |
-| Codified citation | DFARS 204.2101 [@CL-CMP-7915; @CL-CMP-7916; @CL-CMP-7917; @CL-CMP-7918; @CL-CMP-7919]; DFARS 204.2102 [@CL-CMP-7920; @CL-CMP-7921; @CL-CMP-7922]; DFARS 204.2105 [@CL-CMP-7923; @CL-CMP-7924; @CL-CMP-7925; @CL-CMP-7926; @CL-CMP-8150; @CL-CMP-8151] |
+| Codified citation | DFARS 204.2100 [@CL-SUP-9446]; DFARS 204.2101 [@CL-CMP-7915; @CL-CMP-7916; @CL-CMP-7917; @CL-CMP-7918; @CL-CMP-7919]; DFARS 204.2102 [@CL-CMP-7920; @CL-CMP-7921; @CL-CMP-7922]; DFARS 204.2105 [@CL-CMP-7923; @CL-CMP-7924; @CL-CMP-7925; @CL-CMP-7926; @CL-CMP-8150; @CL-CMP-8151] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7915] |
 | Applies to | Contracting officer decisions to procure, extend or renew for covered missions [@CL-CMP-7920; @CL-CMP-7921]; all solicitations, and resultant awards for the clause [@CL-CMP-7923; @CL-CMP-7925; @CL-CMP-7926] |
+
+The subpart implements section 1656 of the National Defense Authorization Act for Fiscal Year 2018 (Public Law 115-91) and section 889(a)(1)(A) of the National Defense Authorization Act for Fiscal Year 2019 (Public Law 115-232) [@CL-SUP-9446].
 
 Covered defense telecommunications equipment or services includes telecommunications equipment produced by Huawei Technologies Company or ZTE Corporation, or any subsidiary or affiliate of such entities, and telecommunications services provided by such entities or using such equipment [@CL-CMP-7915]. It also includes telecommunications equipment or services produced or provided by an entity that the Secretary of Defense reasonably believes to be an entity owned or controlled by, or otherwise connected to, the government of a covered foreign country [@CL-CMP-7916]. The Secretary of Defense's reasonable belief is what puts such an entity in the definition. A covered foreign country is the People's Republic of China or the Russian Federation [@CL-CMP-7917].
 
@@ -61,4 +63,5 @@ Where the executed contracts and modifications sit, and who confirms whether any
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered defense telecommunications equipment or services, the prohibition, and the solicitation provisions and contract clause.

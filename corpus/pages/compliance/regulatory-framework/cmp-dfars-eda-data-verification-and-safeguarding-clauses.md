@@ -23,7 +23,7 @@ Explains what the supplement says about recording the results of contract data v
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7890] |
-| Codified citation | DFARS 204.270-2 [@CL-CMP-7890; @CL-CMP-7892]; DFARS 204.404-70 [@CL-CMP-7893; @CL-CMP-7894] |
+| Codified citation | DFARS 204.270-2 [@CL-CMP-7890; @CL-CMP-7892]; DFARS 204.403 [@CL-SUP-9443; @CL-SUP-9444]; DFARS 204.404-70 [@CL-CMP-7893; @CL-CMP-7894] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7890] |
@@ -34,6 +34,8 @@ The supplement does not set out the recording steps itself. The procedures at PG
 The procedures at PGI 204.270-2(c) give the details on creating and processing contract deficiency reports, which are used to correct problems with contracts distributed in the system [@CL-CMP-7892].
 
 Two clauses are prescribed under the safeguarding subpart. The clause at 252.204-7000, Disclosure of Information, is to be used in solicitations and contracts when the contractor will have access to or generate unclassified information that may be sensitive and inappropriate for release to the public [@CL-CMP-7893]. The clause at 252.204-7003, Control of Government Personnel Work Product, is to be used in all solicitations and contracts [@CL-CMP-7894].
+
+The safeguarding subpart's section on responsibilities of contracting officers says contracting officers shall ensure that solicitations comply with PGI 204.403(1) [@CL-SUP-9443]. For additional guidance on determining a project to be fundamental research in accordance with 252.204-7000(a)(3), the section points to PGI 204.403(2) [@CL-SUP-9444].
 
 ## How it works
 
@@ -59,4 +61,5 @@ Which data verification exceptions and contract deficiency reports are open, who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer responsibilities section and its PGI pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for recording data verification results in the electronic document access system and the additional DoD safeguarding clauses.
