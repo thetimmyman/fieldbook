@@ -47,7 +47,7 @@ The official must remain disqualified until the agency, at its sole and exclusiv
 
 ### Ethics advisory opinions
 
-An official or former official who does not know whether the statute bars accepting compensation from a particular contractor may ask the appropriate agency ethics official for advice before accepting it [@CL-CMP-7133]. The request must be in writing, include all relevant information reasonably available to the requester, and be dated and signed [@CL-CMP-6852]. It must cover the procurements or decisions involving the contractor in which the individual was or is involved [@CL-CMP-7134], including contract or solicitation numbers, dates, a description of the supplies or services, and contract amount [@CL-CMP-7119]. It must also cover the individual's participation, including dates and the nature of the duties [@CL-CMP-7135], and the contractor, including the products or services of the division or affiliate that would pay the compensation [@CL-CMP-7136].
+An official or former official who does not know whether the statute bars accepting compensation from a particular contractor may ask the appropriate agency ethics official for advice before accepting it [@CL-CMP-7133]. The request must be in writing, include all relevant information reasonably available to the requester, and be dated and signed [@CL-CMP-6852]. It must cover the procurements, or decisions on matters under FAR 3.104-3(d)(1)(iii), involving the contractor in which the individual was or is involved [@CL-CMP-7134], including contract or solicitation numbers, dates, a description of the supplies or services, and contract amount [@CL-CMP-7119]. It must also cover the individual's participation, including dates and the nature of the duties [@CL-CMP-7135], and the contractor, including the products or services of the division or affiliate that would pay the compensation [@CL-CMP-7136].
 
 The ethics official should issue an opinion within 30 days after receiving a request with complete information, or as soon thereafter as practicable [@CL-CMP-6853]. If the request is incomplete, the ethics official may ask the requester, or other persons such as the source selection authority, the contracting officer or the requester's supervisor, for more information [@CL-CMP-7137]. The ethics official may rely on the information furnished unless he or she has reason to believe it is fraudulent, misleading, or otherwise incorrect [@CL-CMP-7138].
 
@@ -73,5 +73,6 @@ How the company logs contacts with agency personnel who may later seek work with
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the decisions-on-matters qualifier in the opinion request.
 - COMPATIBLE_EXTENSION, 2026-10-31: Resumption conditions stated as alternatives; involvement wording matched.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement integrity related statutes, disqualification and ethics advisory opinions.

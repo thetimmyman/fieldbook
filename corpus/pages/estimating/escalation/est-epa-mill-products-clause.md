@@ -45,7 +45,7 @@ A contract unit price for steel bar is 200. The contractor's catalog price rises
 
 ## Never confuse
 
-This clause is not a general escalation clause for cost. It moves with the contractor's own established price for the item, and a decrease follows the contractor's notice while an increase follows the contractor's written request [@CL-EST-1185; @CL-EST-1186]. The steel and foreign-government clauses work differently and are on [Economic price adjustment for nonstandard steel items and foreign-government controlled wages or prices](est-epa-nonstandard-steel-and-foreign-government.md). The offeror's representation is a separate provision that goes in the solicitation, and it states the price position at bid opening or contract date [@CL-EST-1184]. The standard supplies clause under the FAR works on the same principle, as shown on [Economic Price Adjustment, Standard Supplies clause](est-epa-standard-supplies.md), and the auditor's view is on [Economic price adjustments in proposals and proposal audits](est-economic-price-adjustments.md).
+This clause is not a general escalation clause for cost. It moves with the contractor's own established price for the item, and a decrease follows the contractor's notice while an increase follows the contractor's written request [@CL-EST-1185; @CL-EST-1186]. The steel and foreign-government clauses work differently and are on [Economic price adjustment for nonstandard steel items and foreign-government controlled wages or prices](est-epa-nonstandard-steel-and-foreign-government.md). The offeror's representation is a separate provision that is used in solicitations that include the mill products clause [@CL-EST-9601], and it states the price position at bid opening or contract date [@CL-EST-1184]. The standard supplies clause under the FAR works on the same principle, as shown on [Economic Price Adjustment, Standard Supplies clause](est-epa-standard-supplies.md), and the auditor's view is on [Economic price adjustments in proposals and proposal audits](est-economic-price-adjustments.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contracts use this clause and how established prices and written requests 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the prescription of the representation provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the price increase rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustment for basic steel, aluminum, brass, bronze and copper mill products.

@@ -35,7 +35,7 @@ The clause defines the base steel index as the contractor's established price in
 
 ### Foreign-government controlled wages or prices
 
-When the foreign government revises wage rates or material prices, the Contracting Officer shall make an equitable adjustment in the contract price and modify the contract to the extent the contractor's actual costs of performing the contract are increased or decreased as a direct result, subject to listed rules [@CL-EST-1204]. One listed rule is that an increase in contract unit prices is effective on the same date as the government's increase, but only if the Contracting Officer receives the contractor's written request within 10 days of the change [@CL-EST-1196]. If the request is received later than those 10 days, the effective date is the date the Contracting Officer received it [@CL-EST-1196; @CL-EST-1197]. Another listed rule is that a decrease in contract unit prices is effective on the same date the foreign government decreased the wage rate or material price [@CL-EST-1198].
+When the government named in the clause revises wage rates or material prices, the Contracting Officer shall make an equitable adjustment in the contract price and modify the contract to the extent the contractor's actual costs of performing the contract are increased or decreased as a direct result, subject to listed rules [@CL-EST-9600; @CL-EST-1204]. One listed rule is that an increase in contract unit prices is effective on the same date as the government's increase, but only if the Contracting Officer receives the contractor's written request within 10 days of the change [@CL-EST-1196]. If the request is received later than those 10 days, the effective date is the date the Contracting Officer received it [@CL-EST-1196; @CL-EST-1197]. Another listed rule is that a decrease in contract unit prices is effective on the same date the foreign government decreased the wage rate or material price [@CL-EST-1198].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Which contracts use either clause and who tracks the index inputs, the statement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the foreign-government adjustment rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched labor index wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustment for nonstandard steel items and foreign-government controlled wages or prices.

@@ -37,7 +37,7 @@ The provision requires offerors to submit for evaluation a total compensation pl
 
 The contracting officer decides when the provision goes into a solicitation, and the provision is inserted when both conditions are met: the negotiated contract is expected to exceed the dollar amount, and the services need meaningful numbers of professional employees [@CL-CMP-6792; @CL-CMP-7001]. The section does not define meaningful numbers or give a count.
 
-Offerors submit the plan with their offers, and the supporting data shows how the compensation structure was set [@CL-CMP-6793; @CL-CMP-6981]. The Government assesses the plan as part of the award decision. An unrealistically low plan may be assessed adversely as one of the factors considered, so it counts alongside the other award factors [@CL-CMP-6794]. The section does not say that a low plan is rejected.
+Offerors submit the plan for evaluation, and the supporting data shows how the compensation structure was set [@CL-CMP-6793; @CL-CMP-6981]. An unrealistically low plan may be assessed adversely as one of the factors considered in making an award, so it counts alongside the other award factors [@CL-CMP-6794]. The section does not say that a low plan is rejected.
 
 ## Worked example
 
@@ -63,5 +63,6 @@ Whether each negotiated services pursuit is expected to exceed the dollar amount
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched plan submission and adverse assessment wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the evaluation of compensation for professional employees.
