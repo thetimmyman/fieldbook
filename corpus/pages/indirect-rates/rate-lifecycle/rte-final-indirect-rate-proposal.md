@@ -29,7 +29,7 @@ Gives the deadline for the final indirect cost rate proposal under the Allowable
 | Text status | Final [@CL-RTE-0001] |
 | Applies to | Contracts with the Allowable Cost and Payment clause [@CL-RTE-0001] |
 
-The contractor must submit an adequate final indirect cost rate proposal within 6 months after the end of each fiscal year, and the clause allows reasonable extensions for exceptional circumstances only [@CL-RTE-0001].
+The contractor must submit an adequate final indirect cost rate proposal within 6 months after the end of each fiscal year, and the clause allows reasonable extensions for exceptional circumstances only, requested in writing by the contractor and granted in writing by the contracting officer [@CL-RTE-0001; @CL-RTE-9119].
 
 ## How it works
 
@@ -55,5 +55,5 @@ Which fiscal years are open, and the status of each incurred cost submission. [@
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO supplemental information paragraph of the Allowable Cost and Payment clause.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO supplemental information paragraph of the Allowable Cost and Payment clause; cited the clause's own extension sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the final indirect cost rate proposal deadline.
