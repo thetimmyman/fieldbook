@@ -23,7 +23,7 @@ Shows how an alteration to a contract is introduced, and how a provision or clau
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6005] |
 | Codified citation | FAR 52.252-4; FAR 52.252-5; FAR 52.252-6 [@CL-CMP-6005; @CL-CMP-6007; @CL-CMP-6010] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.252-4 [@CL-CMP-0996]; RFO FAR 52.252-5 [@CL-CMP-0999]; RFO FAR 52.252-6 [@CL-CMP-1014] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6005] |
 | Applies to | Solicitations and contracts that carry an alteration, and solicitations and contracts that use a provision or clause with an authorized deviation [@CL-CMP-6005; @CL-CMP-6702; @CL-CMP-6703] |
@@ -36,7 +36,7 @@ When a FAR or supplemental provision or clause is used with an authorized deviat
 
 ### Alterations
 
-The standard text of the alterations clause ends after the statement that portions of the contract are altered as follows, and it does not list any alteration [@CL-CMP-6701]. The clause must include clear identification of what is being altered [@CL-CMP-6006].
+The codified text of the alterations clause ends after the statement that portions of the contract are altered as follows, and it does not list any alteration [@CL-CMP-6701]. The clause must include clear identification of what is being altered [@CL-CMP-6006].
 
 ### Deviations in provisions
 
@@ -53,6 +53,8 @@ In paragraph (b) of both texts, the regulation name and the 48 CFR reference are
 ### Two statements about the marker
 
 The opening sentence of each text says the contracting officer inserts (DEVIATION) after the date [@CL-CMP-6007; @CL-CMP-6010]. Paragraph (b) of each text says the marker for a supplemental provision or clause comes after the name of the regulation [@CL-CMP-6009; @CL-CMP-6011]. This card reports both statements and does not resolve how they fit together.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.252-4 keeps the rule that the alterations clause is inserted in solicitations and contracts to revise or supplement other parts of the contract, or parts of the solicitation that apply after contract award, except for any clause authorized for use with a deviation [@CL-CMP-0996; @CL-CMP-6005], and keeps the instruction to include clear identification of what is being altered [@CL-CMP-0997; @CL-CMP-6006]. The RFO clause text says that portions of the contract are altered as follows and then prints three blank lines, where the codified text ends after the colon [@CL-CMP-0998; @CL-CMP-6701]. RFO FAR 52.252-5 keeps the rule that a provision used with an authorized deviation is identified by the same number, title and date assigned to it when it is used without deviation [@CL-CMP-0999; @CL-CMP-6007], with the regulation name included for a supplemental provision and (DEVIATION) inserted after the date of the provision [@CL-CMP-1000; @CL-CMP-6007]. It also keeps the marker rules: the use of a FAR provision with an authorized deviation is indicated by the addition of (DEVIATION) after the date of the provision [@CL-CMP-1012; @CL-CMP-6008], and the use of a supplemental provision with an authorized deviation by the addition of (DEVIATION) after the name of the regulation [@CL-CMP-1013; @CL-CMP-6009]. RFO FAR 52.252-6 keeps the same rules for a clause used with an authorized deviation [@CL-CMP-1014; @CL-CMP-1015; @CL-CMP-6010], including the marker after the date of a FAR clause [@CL-CMP-1016; @CL-CMP-6012] and after the name of the regulation for a supplemental clause [@CL-CMP-1017; @CL-CMP-6011].
 
 ## Worked example
 
@@ -76,4 +78,5 @@ Which deviations are in force on each contract, who authorized them, and where t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract alterations and authorized deviations.
