@@ -33,7 +33,7 @@ Under FAR 22.1705, the clause at FAR 52.222-50 is inserted in all solicitations 
 
 The provision at FAR 52.222-56 is inserted in solicitations if it is possible that at least $700,000 of the value of the contract may be performed outside the United States, which is one of two conditions that must both be met [@CL-CMP-6813]. The second condition is that the acquisition is not entirely for commercially available off-the-shelf items [@CL-CMP-6814].
 
-Under FAR 22.1803, the clause at FAR 52.222-54 is inserted in all solicitations and contracts that exceed $150,000, except those that are only for work that will be performed outside the United States, those that are for a period of performance of less than 120 days, or those described in paragraph (c) of the section [@CL-CMP-6815]. Paragraph (c) names acquisitions that are only for commercially available off-the-shelf items or only for items that would be commercially available off-the-shelf items but for minor modifications [@CL-CMP-6816]. Its next alternative is acquisitions only for items that would be commercially available off-the-shelf items if they were not bulk cargo [@CL-CMP-6993]. Its last alternative is acquisitions only for commercial services that are part of the purchase of a commercially available off-the-shelf item or an item that would be one but for minor modifications, are performed by the provider of that item, and are normally provided for that item [@CL-CMP-6994].
+Under FAR 22.1803, the clause at FAR 52.222-54 is inserted in all solicitations and contracts that exceed $150,000, except those that are only for work that will be performed outside the United States, those that are for a period of performance of less than 120 days, or those described in paragraph (c) of the section [@CL-CMP-6815]. Paragraph (c) names acquisitions that are only for commercially available off-the-shelf items or only for items that would be commercially available off-the-shelf items but for minor modifications (as defined at paragraph (3)(ii) of definition of “commercial product” at 2.101) [@CL-CMP-6816; @CL-CMP-7050]. Its next alternative is acquisitions only for items that would be commercially available off-the-shelf items if they were not bulk cargo [@CL-CMP-6993]. Its last alternative is acquisitions only for commercial services that are part of the purchase of a commercially available off-the-shelf item or an item that would be one but for minor modifications, are performed by the provider of that item, and are normally provided for that item [@CL-CMP-6994].
 
 ## How it works
 
@@ -67,6 +67,7 @@ Which solicitations and contracts meet the thresholds and exceptions, and who co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added the definition cross-reference for minor modifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: trafficking prescriptions: removed explanatory wording about alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: trafficking prescriptions: exceptions stated as alternatives, unsupported combination sentence removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the trafficking in persons and employment eligibility prescriptions.
