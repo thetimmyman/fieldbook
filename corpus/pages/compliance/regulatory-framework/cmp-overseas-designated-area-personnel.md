@@ -22,7 +22,7 @@ Explains the contractor's duties for personnel who perform outside the United St
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5418] |
 | Codified citation | FAR 52.225-19 [@CL-CMP-5418] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-19 [@CL-CMP-1636] [@CL-CMP-1637] [@CL-CMP-1638] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5418] |
 | Applies to | Contractor personnel required to perform outside the United States in a designated operational area, or when supporting a diplomatic or consular mission [@CL-CMP-5418; @CL-CMP-5454] |
@@ -68,6 +68,8 @@ Changes. In addition to the changes otherwise authorized by the Changes clause, 
 
 Subcontracts. The Contractor must incorporate the substance of the clause, including its subcontract paragraph, in all subcontracts that require subcontractor personnel to perform in the circumstances in paragraph (q) [@CL-CMP-5426]. Those are performance in a designated operational area during contingency, humanitarian or peacekeeping, or other military operations, or military exercises the Combatant Commander designates [@CL-CMP-5487], and performance when supporting a mission that is a danger pay post or that the Contracting Officer has indicated is subject to the clause [@CL-CMP-5488].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.225-19 says the same in substance as the codified clause on when it applies, including military exercises designated by the Combatant Commander and a mission that is a danger pay post or that the Contracting Officer has indicated is subject to the clause [@CL-CMP-5418] [@CL-CMP-1636] [@CL-CMP-5454] [@CL-CMP-1637] [@CL-CMP-5455] [@CL-CMP-1638]. It also says the same in substance on deadly force, with the self-defense rule and the separate security-function authority, which the RFO text ties to the terms and conditions contained in the contract or to the personnel's job description and terms of employment [@CL-CMP-5419] [@CL-CMP-1639] [@CL-CMP-5459] [@CL-CMP-5460] [@CL-CMP-1640], and on the duty to comply with host country and other laws [@CL-CMP-5420] [@CL-CMP-1641]. On removal, weapons, liability and notification, the RFO paragraphs say the same in substance: the Contracting Officer may direct removal and replacement at the Contractor's expense [@CL-CMP-5473] [@CL-CMP-1642]; the authority to issue Contractor-owned weapons [@CL-CMP-5474] [@CL-CMP-1643]; the conditions on authorized personnel [@CL-CMP-5477] [@CL-CMP-1644]; liability for weapon use [@CL-CMP-5479] [@CL-CMP-1645]; and notification of next of kin and the Consul, and the return of personal effects [@CL-CMP-5424] [@CL-CMP-1646] [@CL-CMP-5483] [@CL-CMP-1647].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -86,4 +88,5 @@ Which personnel deploy under this clause and who keeps their clearances, trainin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor personnel in a designated operational area or supporting a diplomatic or consular mission.

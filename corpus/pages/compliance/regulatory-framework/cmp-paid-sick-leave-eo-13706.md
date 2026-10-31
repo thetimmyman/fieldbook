@@ -23,7 +23,7 @@ Shows who is covered by the paid sick leave clause, the accrual rate and the fur
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5910] |
 | Codified citation | FAR 52.222-62 [@CL-CMP-5910] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-62 [@CL-CMP-1699] [@CL-CMP-1695] [@CL-CMP-1696] [@CL-CMP-1697] [@CL-CMP-1698] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5910] |
 | Applies to | Employees performing work on or in connection with the covered contract [@CL-CMP-5910; @CL-CMP-6396] |
@@ -52,6 +52,8 @@ The paragraph on confidential records addresses records relating to medical hist
 
 On a failure to comply with Executive Order 13706, 29 CFR part 13 or the clause, the contracting agency may, on its own action or after authorization or by direction of the Department of Labor and written notification to the contractor, take action [@CL-CMP-6407]. That action is to cause suspension of any further payment, advance or guarantee of funds until the violations have ceased [@CL-CMP-6408]. A failure to comply with the requirements of the clause may be grounds for termination for default or cause [@CL-CMP-5915]. A breach of the clause may be grounds for debarment as a contractor and subcontractor as provided in 29 CFR 13.52 [@CL-CMP-6409]. The Contracting Officer will, on the officer's own action or on written request of an authorized representative of the Department of Labor, withhold or cause to be withheld from the contractor under this or any other Federal contract with the same contractor [@CL-CMP-6404]. The amount withheld is so much of the accrued payments or advances as may be considered necessary to pay employees the full amount owed to compensate for any violation of Executive Order 13706, 29 CFR part 13 or the clause, including the items the clause lists [@CL-CMP-6405]. Those items are any pay or benefits denied or lost by reason of the violation, other actual monetary losses sustained as a direct result of the violation, and liquidated damages [@CL-CMP-6406].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.222-62 says the same in substance as the codified clause on the accrual rate, with the lead-in to the list of duties printing "must" where the codified text prints "shall" [@CL-CMP-5910] [@CL-CMP-1699]. It says the same in substance on the part of the contract performed within the United States, the meaning of United States and the part of the employee definition on wages governed by the Service Contract Labor Standards statute, the Wage Rate Requirements (Construction) statute or the Fair Labor Standards Act [@CL-CMP-6399] [@CL-CMP-1695] [@CL-CMP-6573] [@CL-CMP-1696] [@CL-CMP-6396] [@CL-CMP-1697] [@CL-CMP-6397] [@CL-CMP-1698]. It also says the same in substance on the incorporated accrual and use requirements and the one-pay-period timing of pay and benefits [@CL-CMP-6400] [@CL-CMP-1736] [@CL-CMP-5912] [@CL-CMP-1737], and on paid sick leave being in addition to, and earning no credit toward, the prevailing wage and fringe benefit obligations [@CL-CMP-6584] [@CL-CMP-1738] [@CL-CMP-6410] [@CL-CMP-1739]. The prohibition on interference with accrual or use, the prohibition on discharge or discrimination for using or attempting to use paid sick leave, and the three-year recordkeeping period are also the same in substance [@CL-CMP-6428] [@CL-CMP-1743] [@CL-CMP-6430] [@CL-CMP-1744] [@CL-CMP-5913] [@CL-CMP-1745]. The payment suspension and subcontract paragraphs match too [@CL-CMP-6407] [@CL-CMP-1741] [@CL-CMP-6408] [@CL-CMP-1742] [@CL-CMP-6435] [@CL-CMP-1746]. In the withholding paragraph, the codified text says the Contracting Officer "will" withhold and the RFO text says the Contracting Officer "must" withhold [@CL-CMP-6404] [@CL-CMP-1740], and the amount withheld and the items it includes say the same in substance [@CL-CMP-6405] [@CL-CMP-9285] [@CL-CMP-6406] [@CL-CMP-9286]. Elsewhere the RFO text prints "must" where the codified text prints "shall", as in the recordkeeping paragraph [@CL-CMP-5913] [@CL-CMP-1745].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -62,6 +64,8 @@ A contract is performed partly in the United States and partly abroad, so the cl
 
 The clause sets a floor of 1 hour of paid sick leave for every 30 hours worked [@CL-CMP-5910] and requires the contractor to comply with the accrual, use and other requirements in the incorporated regulations [@CL-CMP-6400]. Paid sick leave under the clause is in addition to the contractor's obligations under the Service Contract Labor Standards and Wage Rate Requirements (Construction) statutes, and it earns no credit toward the prevailing wage or fringe benefit obligations under those Acts [@CL-CMP-6584; @CL-CMP-6410].
 
+The codified withholding paragraph says the Contracting Officer "will" withhold from the contractor, while the RFO text says the Contracting Officer "must" withhold, so the two texts use different words for the Contracting Officer's withholding [@CL-CMP-6404] [@CL-CMP-1740].
+
 ## Company calibration
 
 Which payroll and timekeeping systems hold covered hours and accrued leave, and who reconciles them. [@Q-004]
@@ -70,4 +74,5 @@ Which payroll and timekeeping systems hold covered hours and accrued leave, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for paid sick leave under Executive Order 13706.
