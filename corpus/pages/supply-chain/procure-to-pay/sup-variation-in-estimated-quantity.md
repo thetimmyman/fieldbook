@@ -24,7 +24,7 @@ Shows when a move away from an estimated quantity of a unit-priced item brings a
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2585] |
 | Codified citation | FAR 52.211-18 [@CL-SUP-2585] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.211-18, listed as [Reserved] [@CL-SUP-2827] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2585] |
 | Applies to | Fixed-price construction solicitations and contracts that authorize a variation in the estimated quantity of unit-priced items [@CL-SUP-2585] |
@@ -41,6 +41,8 @@ Either party can demand the price adjustment once the actual quantity varies mor
 
 The time extension is a separate request. The Contractor makes it in writing, the Contracting Officer must receive it within 10 days from the beginning of the delay or within a further period the Contracting Officer grants before final settlement [@CL-SUP-2589; @CL-SUP-2590], and the Contracting Officer then decides the adjustment to the completion date [@CL-SUP-2588].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO part 52 text lists section 52.211-18 as [Reserved] [@CL-SUP-2827]. In the codified text, section 52.211-18 is the variation in estimated quantity clause [@CL-SUP-2585]. The rules described above come from the codified clause text [@CL-SUP-2586] [@CL-SUP-2587] [@CL-SUP-2589].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -49,7 +51,7 @@ A unit-priced item is estimated at 4,000 units. If the actual quantity is 4,800,
 
 If the actual quantity is 4,600, the increase is exactly 15 percent, which is not more than 15 percent, so the clause gives no right to an adjustment. If the actual quantity is 3,000, the quantity is 75 percent of the estimate and the decrease is more than 15 percent. The adjustment is based on the cost effect of the 400 units below 3,400, which is 85 percent of the estimate.
 
-If the extra quantity also lengthens the work, the Contractor requests an extension in writing. If the delay begins on 1 June, the Contracting Officer must receive the request within 10 days unless the Contracting Officer grants a further period before final settlement. The Contracting Officer then ascertains the facts and adjusts the completion date as is justified in the Contracting Officer's judgement.
+If the extra quantity also lengthens the work, the Contractor requests an extension in writing. If the delay begins on 1 June, the Contracting Officer must receive the request within 10 days unless the Contracting Officer grants a further period before final settlement. The Contracting Officer then ascertains the facts and adjusts the completion date as is justified in the Contracting Officer's judgement. The example applies the codified clause text; the RFO part 52 text lists 52.211-18 as [Reserved] [@CL-SUP-2827].
 
 ## Never confuse
 
@@ -63,4 +65,5 @@ Confirm how estimated quantities are tracked against actual quantities and who w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variation in estimated quantity.

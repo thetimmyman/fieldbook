@@ -24,7 +24,7 @@ Shows how a change order grants time for a contract change and how that extensio
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2575] |
 | Codified citation | FAR 52.211-13 [@CL-SUP-2575] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.211-13 [@CL-SUP-0635; @CL-SUP-0636; @CL-SUP-0637] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2575] |
 | Applies to | Not established. |
@@ -36,6 +36,8 @@ The change order granting the time extension may provide that the contract compl
 ## How it works
 
 The extension depends on the delay that the change causes to the elements of construction, not on the fact of a change alone [@CL-SUP-2575]. Because the change order may limit the extension to the elements related to the changed work, the other portions of the work may keep their own completion dates [@CL-SUP-2576]. The same change order may readjust liquidated damages to the new completion schedule, so the date and the daily amount can be settled together [@CL-SUP-2577].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.211-13 keeps the rule that time extensions for contract changes depend upon the extent, if any, by which the changes cause delay in the completion of the various elements of construction [@CL-SUP-0635; @CL-SUP-2575]. It keeps the change order's option to extend the completion date only for the specific elements related to the changed work, leaving the remaining completion dates for all other portions of the work unaltered [@CL-SUP-0636; @CL-SUP-2576], and its option to provide an equitable readjustment of liquidated damages under the new completion schedule [@CL-SUP-0637; @CL-SUP-2577].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Confirm which change orders carry a time extension and whether the liquidated da
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for time extensions.

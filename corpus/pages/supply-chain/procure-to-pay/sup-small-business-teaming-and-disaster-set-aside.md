@@ -23,7 +23,7 @@ Shows who may offer under the small business teaming provision, what makes a Sma
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2956] |
 | Codified citation | FAR 52.207-6 and FAR 52.226-4 [@CL-SUP-2956; @CL-SUP-2960] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.207-6 [@CL-SUP-0544; @CL-SUP-0496; @CL-SUP-0497; @CL-SUP-0498; @CL-SUP-0499; @CL-SUP-0540; @CL-SUP-0541; @CL-SUP-0542; @CL-SUP-0543] and RFO FAR 52.226-4 [@CL-SUP-0545; @CL-SUP-0546] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2956] |
 | Applies to | Solicitations that carry the small business teaming provision, which is titled for multiple-award contracts, and contracts that carry the disaster or emergency area set-aside clause [@CL-SUP-2974; @CL-SUP-2960] |
@@ -48,6 +48,8 @@ The provision keeps the field open to responsible sources and names offers from 
 
 A disaster or emergency area set-aside narrows the field to businesses in the area the Contracting Officer names, and it leaves out offers from elsewhere. Because it is in addition to any small business set-aside in the contract, both limits apply [@CL-SUP-2960; @CL-SUP-2975].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.207-6 keeps the provision's title for multiple-award contracts [@CL-SUP-0544; @CL-SUP-2974] and the definition of a Small Business Teaming Arrangement as a joint venture of two or more small business concerns or an agreement under which a small business offeror has other small business concerns act as its subcontractors under a specified Government contract [@CL-SUP-0496; @CL-SUP-2956]. It keeps the rule that an arrangement between the offeror and its small business subcontractors exists through a written agreement [@CL-SUP-0497; @CL-SUP-3004] that is specifically referred to as a Small Business Teaming Arrangement and sets forth the different responsibilities, roles and percentages or other allocations of work [@CL-SUP-0498; @CL-SUP-2957]. It keeps the civilian agency mentor-protégé case [@CL-SUP-0499; @CL-SUP-2971], the DoD mentor-protégé case [@CL-SUP-0540; @CL-SUP-2972] and the statement that there is no exception to joint venture size affiliation under the DoD program [@CL-SUP-0541; @CL-SUP-2958]. It keeps the reference to 13 CFR 121.103(b)(9) for bundled contracts with a reserve [@CL-SUP-0542; @CL-SUP-2973] and the statement that the Government will consider offers from any responsible source, including Small Business Teaming Arrangements and joint ventures of small business concerns [@CL-SUP-0543; @CL-SUP-2959]. RFO FAR 52.226-4 keeps the limit that offers are solicited only from businesses residing or primarily doing business in the area the Contracting Officer fills in, and offers from other businesses are not considered [@CL-SUP-0545; @CL-SUP-2960]. It keeps the rule that the set-aside is in addition to any small business set-aside in the contract [@CL-SUP-0546; @CL-SUP-2975].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -68,4 +70,5 @@ Whether the company's teaming agreements are in writing, carry the arrangement n
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business teaming arrangements and disaster area set-asides.

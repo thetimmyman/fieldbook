@@ -23,7 +23,7 @@ Shows which variations in quantity the Government accepts, how the contract stat
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2578] |
 | Codified citation | FAR 52.211-16 and FAR 52.211-17 [@CL-SUP-2578; @CL-SUP-2581] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.211-16 and 52.211-17, listed as [Reserved] [@CL-SUP-2828; @CL-SUP-2829] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2578] |
 | Applies to | Not established. |
@@ -38,6 +38,8 @@ The Contractor is responsible for the delivery of each item quantity within allo
 
 If the Contractor delivers and the Government receives quantities of an item in excess of the quantity called for, after considering any allowable variation in quantity, the excess quantities are treated as delivered for the convenience of the Contractor [@CL-SUP-2582]. The Government may retain excess quantities up to 250 dollars in value without compensating the Contractor, and the Contractor waives all right, title or interests in them [@CL-SUP-2583]. Quantities in excess of 250 dollars are, at the option of the Government, either returned at the Contractor's expense or retained and paid for by the Government at the contract unit price [@CL-SUP-2584].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO part 52 text lists section 52.211-16 as [Reserved] [@CL-SUP-2828] and section 52.211-17 as [Reserved] [@CL-SUP-2829]. In the codified text, section 52.211-16 is the variation in quantity clause [@CL-SUP-2578] and section 52.211-17 is the delivery of excess quantities clause [@CL-SUP-2582]. The rules described above come from the codified clause text [@CL-SUP-2578] [@CL-SUP-2582].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -46,7 +48,7 @@ A contract calls for 10,000 units at a contract unit price of 10, with a permitt
 
 The Contractor delivers 10,350 units, and the Government receives them. The 150 units above the allowance are excess quantities treated as delivered for the convenience of the Contractor. They are worth 1,500 at the unit price, which is more than 250, so the Government chooses whether to return them at the Contractor's expense or to retain them and pay for them at the contract unit price.
 
-Had the Contractor delivered 10,220 units, the 20 units above the allowance would be worth 200, which is not more than 250. The Government may retain them without compensating the Contractor, and the Contractor waives all right, title or interests in them.
+Had the Contractor delivered 10,220 units, the 20 units above the allowance would be worth 200, which is not more than 250. The Government may retain them without compensating the Contractor, and the Contractor waives all right, title or interests in them. The example applies the codified clause text; the RFO part 52 text lists 52.211-16 and 52.211-17 as [Reserved] [@CL-SUP-2828] [@CL-SUP-2829].
 
 ## Never confuse
 
@@ -60,4 +62,5 @@ Confirm how received quantities are reconciled against the contract quantity and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variation in quantity and delivery of excess quantities.

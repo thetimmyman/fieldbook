@@ -24,7 +24,7 @@ Shows when a Certificate of Conformance may be shipped in place of source inspec
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1121; @CL-SUP-1125] |
 | Codified citation | FAR 52.246-15 and 52.246-13 [@CL-SUP-1121; @CL-SUP-1125] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.246-15 and 52.246-13 [@CL-SUP-2903; @CL-SUP-2909] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1121; @CL-SUP-1125] |
 | Applies to | Supplies for which the contract would otherwise require inspection at source, once the cognizant office authorizes a certificate in writing [@CL-SUP-1121]; the certificate clause is directed for solicitations and contracts for supplies or services when the conditions in FAR 46.504 apply [@CL-SUP-1143], which allow use of a certificate at the contracting officer's discretion [@CL-SUP-1148]; workmanship on dismantling or demolition work [@CL-SUP-1125]; the dismantling clause is directed for solicitations and contracts for dismantling, demolition, or removal of improvements [@CL-SUP-1146] |
@@ -42,6 +42,8 @@ For dismantling, demolition or removal of improvements, unless the specification
 ## How it works
 
 A certificate is not automatic. It is used at the contracting officer's discretion when the listed conditions apply [@CL-SUP-1148], and the cognizant office must first authorize it in writing for supplies that would otherwise need source inspection [@CL-SUP-1121]. The contractor then ships the supplies with the certificate, whose text is set out in the clause [@CL-SUP-1123; @CL-SUP-1124]. The Government keeps its right to inspect the supplies under the contract's inspection provisions [@CL-SUP-1122], and may reject defective supplies or services within a reasonable time after delivery [@CL-SUP-1144]. For dismantling work, the separate clause makes the workmanship subject to Government inspection wherever the work is performed, unless the specifications designate otherwise [@CL-SUP-1125].
+
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. In RFO FAR 52.246-15 and 52.246-13, which keep these rules, the contractor ships with a Certificate of Conformance, when the cognizant Contract Administration Office authorizes it in writing, any supplies for which the contract would otherwise require inspection at source [@CL-SUP-2903] [@CL-SUP-1121], and in no case is the Government's right to inspect supplies under the inspection provisions of the contract prejudiced [@CL-SUP-2904] [@CL-SUP-1122]. The Government has the right to reject defective supplies or services within a reasonable time after delivery by written notification to the contractor, and the contractor then promptly replaces, corrects or repairs them at its own expense [@CL-SUP-2905] [@CL-SUP-1144]. The certificate states the date, the contractor's name, the contract number, the carrier and the shipping document, and that the supplies or services were furnished in accordance with all applicable requirements [@CL-SUP-2906] [@CL-SUP-1123]. It further states that they are of the quality specified and conform in all respects with the contract requirements, including specifications, drawings, preservation, packaging, packing, marking requirements and physical item identification [@CL-SUP-2907] [@CL-SUP-1124], and that they are in the quantity shown on the document that carries the certificate or on the attached acceptance document [@CL-SUP-2908] [@CL-SUP-1145]. Unless the specifications designate otherwise, all workmanship performed under the contract is subject to Government inspection at all times and places where dismantling or demolition work is being performed [@CL-SUP-2909] [@CL-SUP-1125]. The contractor is responsible for damage to property caused by defective workmanship and promptly segregates and removes from the premises any unsatisfactory facilities, materials and equipment used in contract performance and promptly replaces them with satisfactory items [@CL-SUP-2910] [@CL-SUP-1147].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Whether the cognizant office has authorized certificates in writing under the ex
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Certificate of Conformance and inspection of dismantling, demolition or removal of improvements.
