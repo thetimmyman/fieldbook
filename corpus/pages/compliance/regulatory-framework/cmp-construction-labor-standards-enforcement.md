@@ -28,7 +28,7 @@ Explains the agency program for enforcing labor standards on construction contra
 | Text status | Final [@CL-CMP-6739] |
 | Applies to | Construction contracts with the labor standards clauses [@CL-CMP-6741; @CL-CMP-6904] |
 
-Contracting agencies are responsible for ensuring the full and impartial enforcement of labor standards in the administration of construction contracts [@CL-CMP-6902]. They must maintain an effective program with four elements [@CL-CMP-6903; @CL-CMP-6739; @CL-CMP-6740]. The first is ensuring that contractors and subcontractors are informed, before commencement of work, of their obligations under the labor standards clauses of the contract [@CL-CMP-6903]. The second is adequate payroll reviews, on-site inspections and employee interviews to determine compliance by the contractor and subcontractors, with prompt initiation of corrective action when required [@CL-CMP-6739]. The third and fourth are prompt investigation and disposition of complaints and prompt submission of all reports required by the subpart [@CL-CMP-6740].
+Contracting agencies are responsible for ensuring the full and impartial enforcement of labor standards in the administration of construction contracts [@CL-CMP-6902]. They must maintain an effective program that includes four elements [@CL-CMP-6903; @CL-CMP-6739; @CL-CMP-6740]. The first is ensuring that contractors and subcontractors are informed, before commencement of work, of their obligations under the labor standards clauses of the contract [@CL-CMP-6903]. The second is adequate payroll reviews, on-site inspections and employee interviews to determine compliance by the contractor and subcontractors, with prompt initiation of corrective action when required [@CL-CMP-6739]. The third and fourth are prompt investigation and disposition of complaints and prompt submission of all reports required by the subpart [@CL-CMP-6740].
 
 Before construction begins, the contracting officer must inform the contractor of the labor standards clauses and wage determination requirements of the contract and of the contractor's and any subcontractor's responsibilities under the contract [@CL-CMP-6741]. Unless it is clear that the contractor is fully aware of the requirements, the contracting officer must issue an explanatory letter, arrange a conference with the contractor, or do both, promptly after award of the contract [@CL-CMP-6742].
 
@@ -64,5 +64,6 @@ Confirm who receives the preconstruction information and letter, who attends the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Program sentence now says the program includes the four elements, not that it has only four.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the report after a termination for labor standards violations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for government enforcement of construction labor standards.
