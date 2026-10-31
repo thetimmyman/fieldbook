@@ -50,7 +50,7 @@ If an SBA decision from a current eligibility examination finds that the concern
 
 Synthetic example. The numbers are made up.
 
-A firm represents small disadvantaged business status on a Federal prime contract but does not meet the requirements of 13 CFR 124.1001, so the representation is deemed a misrepresentation [@CL-MKT-1291]. If it made the representation to obtain a contracting opportunity under section 8(d) of the Small Business Act, the person or entity is subject to the penalties imposed by section 16(d) of that Act [@CL-MKT-1292]. In a separate case, a firm bids a WOSB set-aside; the contracting officer verifies its SAM registration and certified designation [@CL-MKT-1297]. A later SBA decision from a current eligibility examination finds the firm did not qualify as a WOSB concern eligible under the WOSB Program. The contracting officer may terminate the contract, shall not exercise its options or place further orders, and the agency removes the award from its goal counts and updates FPDS back to the award date [@CL-MKT-1298; @CL-MKT-1395; @CL-MKT-1396].
+A firm represents small disadvantaged business status on a Federal prime contract but does not meet the requirements of 13 CFR 124.1001, so the representation is deemed a misrepresentation [@CL-MKT-1291]. If it made the representation to obtain a contracting opportunity under section 8(d) of the Small Business Act, the person or entity is subject to the penalties imposed by section 16(d) of that Act [@CL-MKT-1292]. In a separate case, a firm bids a WOSB set-aside; the contracting officer verifies its SAM registration and certified designation [@CL-MKT-1297]. A later SBA decision from a current eligibility examination finds the firm did not qualify as a WOSB concern eligible under the WOSB Program. The contracting officer may terminate the contract, shall not exercise its options or place further orders, and the agency does not count the award toward its small business goals and updates FPDS from the date of award to reflect the final SBA decision [@CL-MKT-1298; @CL-MKT-1395; @CL-MKT-1396].
 
 ## Never confuse
 
@@ -64,4 +64,5 @@ Whether each entity's status designations and supporting records match the progr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the FPDS update wording in the worked example to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small disadvantaged business, HUBZone and women-owned status checks.

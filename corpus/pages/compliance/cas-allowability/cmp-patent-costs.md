@@ -43,7 +43,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in pla
 
 Synthetic example. The numbers are made up.
 
-A contract requires the company to file a United States application and convey a royalty-free license to the Government. Filing and prosecution cost 12,000, the art search before the disclosure costs 3,000, and general patent counseling costs 5,000. All three are allowable, 20,000 in total.
+A contract requires the company to prepare an invention disclosure, file a United States application and convey a royalty-free license to the Government. Filing and prosecution cost 12,000, the art search needed to make the required disclosure costs 3,000, and general patent counseling costs 5,000. The first two are incurred as requirements of the contract and the counseling is general counseling, so all three are allowable, 20,000 in total.
 
 ## Never confuse
 
@@ -57,6 +57,7 @@ Whether contract-required patent work is tagged at the source so that non-requir
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Worked example now states the contract requires the disclosure and filing.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Checked each sentence against the section and removed statements the section does not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent costs.

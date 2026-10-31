@@ -31,7 +31,7 @@ Shows when first article testing and approval may be appropriate, when it is nor
 
 Testing and approval may be appropriate when, as one listed circumstance, the contractor has not previously furnished the product to the Government [@CL-IND-0124]. Another listed circumstance concerns a contractor that previously furnished the product to the Government, but there have been subsequent changes in processes or specifications, production has been discontinued for an extended period of time, or the product acquired under a previous contract developed a problem during its life [@CL-IND-0125; @CL-IND-0124]. The text also lists the case where the product is described by a performance specification, and the case where it is essential to have an approved first article to serve as a manufacturing standard [@CL-IND-0126; @CL-IND-0124].
 
-Normally, testing and approval is not required in contracts for research or development, for products requiring qualification before award, or for products normally sold in the commercial market, among the listed exceptions [@CL-IND-0127]. The text lists one further exception, for products covered by complete and detailed technical specifications, which this card does not draft.
+Normally, testing and approval is not required in contracts for research or development, for products requiring qualification before award, or for products normally sold in the commercial market, among the listed exceptions [@CL-IND-0127]. The text lists one further exception, for products covered by complete and detailed technical specifications, unless the requirements are so novel or exacting that it is questionable whether the products would meet the requirements without testing and approval [@CL-IND-0127; @CL-IND-1083].
 
 A solicitation containing a testing and approval requirement shall inform offerors that the requirement may be waived when supplies identical or similar to those called for have previously been delivered by the offeror and accepted by the Government [@CL-IND-0160; @CL-IND-0128].
 
@@ -59,6 +59,7 @@ Which new products or process changes would need first article approval before c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the condition on the further exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of first article and first article testing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of first article and first article testing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for first article testing and approval.
