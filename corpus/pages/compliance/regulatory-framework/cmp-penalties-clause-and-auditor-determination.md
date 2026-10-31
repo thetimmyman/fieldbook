@@ -24,7 +24,7 @@ Shows which solicitations and contracts carry the penalties for unallowable cost
 |---|---|
 | Instrument | Codified FAR and DFARS [@CL-CMP-7820; @CL-CMP-7822] |
 | Codified citation | FAR 42.709-7 and DFARS 242.705-2 [@CL-CMP-7820; @CL-CMP-7822] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 42.508-7 [@CL-CMP-0125; @CL-CMP-0126] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7820] |
 | Applies to | Solicitations and contracts over $1 million, except the excluded fixed-price types [@CL-CMP-7820]; the DoD auditor determination procedure when agreement cannot be reached with the contractor [@CL-CMP-7822] |
@@ -39,6 +39,8 @@ The clause prescription and the auditor step are separate. The prescription turn
 
 The auditor step belongs to the DoD procedure for final indirect cost rates. The auditor issues the notice in addition to the advisory report, so the report to the administrative contracting officer still goes [@CL-CMP-7822]. Under the FAR procedure, if agreement with the contractor is not reached, the auditor forwards the audit report to the contracting officer, who resolves the disagreement [@CL-RTE-0217]. The auditor procedure is on [Final indirect cost rates: auditor determination procedure](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-auditor-determination.md). The penalty itself, who assesses it and the waiver rules are on [Penalties for unallowable costs in final rate proposals](../cas-allowability/cmp-unallowable-cost-penalty.md) and [Indirect cost rate certification and penalties on unallowable costs](../cas-allowability/cmp-indirect-rate-certification-and-penalty-assessment.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text under Class Deviation 2026-O0050, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.508-7 keeps the rule that the clause at 52.242-3, Penalties for Unallowable Costs, is used in all solicitations and contracts over $1 million, except fixed-price contracts without cost incentives or any firm-fixed-price contract for the purchase of commercial products or commercial services [@CL-CMP-0125; @CL-CMP-7820]. It keeps the statement that covered contracts are generally those that contain one of the clauses at 52.216-7, 52.216-16 or 52.216-17, or a similar clause from an executive agency's supplement to the FAR [@CL-CMP-0126; @CL-CMP-7821]. RFO FAR 42.505-2(b)(2)(iv), in the auditor determination procedure, keeps the step that, if agreement with the contractor is not reached, the audit report is forwarded to the contracting officer (or cognizant Federal agency official) identified in the Directory of Contract Administration Services Components, who will then resolve the disagreement [@CL-CMP-0127; @CL-RTE-0217].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -51,6 +53,8 @@ On a DoD contract, the auditor and the contractor cannot agree on the indirect c
 
 The clause prescription decides whether a solicitation or contract carries the penalties clause [@CL-CMP-7820]. The auditor's notice is a separate step that follows a failure to reach agreement and is issued in addition to the advisory report [@CL-CMP-7822].
 
+Codified FAR 42.709-7 prescribes the penalties clause [@CL-CMP-7820], and the same prescription is numbered FAR 42.508-7 in the RFO text [@CL-CMP-0125].
+
 ## Company calibration
 
 Which awarded contracts exceed the threshold, which of them fall within an exception, and whether the clause was included at award [@Q-004].
@@ -59,4 +63,5 @@ Which awarded contracts exceed the threshold, which of them fall within an excep
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the penalties clause prescription and the DoD auditor determination procedure.

@@ -24,7 +24,7 @@ Shows when a corporate administrative contracting officer (CACO) is assigned, ho
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2207] |
 | Codified citation | FAR 42.602, FAR 42.603 and FAR 42.402 [@CL-CMP-2207; @CL-CMP-2259; @CL-CMP-2213] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 42.402 [@CL-CMP-0096; @CL-CMP-0097; @CL-CMP-0098; @CL-CMP-0099; @CL-CMP-0135]; RFO FAR 42.401 [@CL-CMP-0093]; RFO FAR 42.403 [@CL-CMP-0100; @CL-CMP-0115] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2207] |
 | Applies to | Contractors with at least two locations with resident ACOs, or where the agency head or designee approves the need [@CL-CMP-2207] |
@@ -41,15 +41,19 @@ Government personnel planning to visit a contractor facility on one or more Gove
 
 The decision to assign a CACO looks to the benefits of coordination and liaison at the corporate level [@CL-CMP-2210]. Which agency assigns the CACO depends on how many agencies administer the contractor's locations [@CL-CMP-2211; @CL-CMP-2212]. Notice of a planned visit goes to the cognizant contract administration office so that it can make arrangements [@CL-CMP-2213]. For a visit that involves information about contract administration functions, that office can steer visitors to information the Government already holds [@CL-CMP-2258; @CL-CMP-2215]. The responsible agency designates the functions a CACO performs [@CL-CMP-2259]. Which functions a given CACO has been designated to perform is not printed in this source. For a corporate ACO's role on IR&D and B&P costs, see [DoD IR&D and B&P responsibilities](../cas-allowability/cmp-dod-ird-bp-responsibilities.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in place of the codified text under Class Deviation 2026-O0050, effective March 16, 2026 [@CL-CMP-9759] [@CL-CMP-9761]. RFO FAR 42.402(a) keeps the rule that a CACO may be assigned only when the contractor has at least two locations with resident ACOs or the agency head or designee approves the assignment, where the codified paragraph says the need for a CACO is approved by the agency head or designee [@CL-CMP-0096; @CL-CMP-2207]. RFO paragraph (a) keeps the rule that, for the purpose of paragraph (a)(2), a nonresident ACO is considered as resident if at least 75 percent of the ACO's effort is devoted to a single contractor [@CL-CMP-0097; @CL-CMP-2208]. RFO paragraph (a) goes from the sentence on designating a resident ACO to paragraph (b) [@CL-CMP-0098], where the codified paragraph (a) goes on to the factors for the location of the CACO, such as the corporate records, corporate office, major plant, cognizant government auditor and overall cost effectiveness [@CL-CMP-2209]. RFO paragraph (b) says agencies must base decisions to initiate or discontinue a CACO assignment on such factors as the benefits of coordination and liaison at the corporate level and the volume of Government sales, where the codified paragraph says a decision should be based on them [@CL-CMP-0099; @CL-CMP-2210]. RFO FAR 42.401 says the CFA (an abbreviation that section does not define) may assign a CACO [@CL-CMP-0093], and RFO paragraph (c) of FAR 42.402 says the CASD referenced in 42.203 includes a listing of CACOs and the contractors to whom they are assigned responsibility [@CL-CMP-0135], where codified FAR 42.602(c) says who is responsible for assigning a CACO according to whether the locations are under one agency or more than one [@CL-CMP-2211; @CL-CMP-2212]. RFO FAR 42.403(a) keeps the rule that the CACO performs, on a corporate-wide basis, the contract administration functions as designated by the responsible agency, and says 'will perform' where the codified paragraph says 'shall perform' [@CL-CMP-0100; @CL-CMP-2259]. It keeps the determination of final indirect cost rates for cost-reimbursement contracts as a typical CACO function [@CL-CMP-0115; @CL-CMP-2260]. The RFO section numbered 42.402 is headed Assignment and location [@CL-CMP-0096], where codified FAR 42.402 covers visits to contractors' facilities and prior notice to the cognizant contract administration office [@CL-CMP-2213]. This page cites no RFO text on visits to contractors' facilities, and it does not treat that as a repeal of the codified visit rule.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contractor has plants in two states, each with a resident administrative contracting officer. A CACO may be assigned because there are two such locations. A buying office then plans to visit one plant to ask for rate data that the contract administration office reviewed last month. The office finds the data is already available within the Government, discourages the visit and refers the buying office to where the data is held.
+A contractor has plants in two states, each with a resident administrative contracting officer. A CACO may be assigned because there are two such locations. A buying office then plans to visit one plant to ask for rate data that the contract administration office reviewed last month. The office finds the data is already available within the Government, discourages the visit and refers the buying office to where the data is held. The visit steps in this example follow codified FAR 42.402 [@CL-CMP-2213; @CL-CMP-2215]; the RFO section numbered 42.402 covers the assignment and location of a CACO [@CL-CMP-0096].
 
 ## Never confuse
 
 Visits are not routed through the CACO by this rule. The visit rule sends notice to the cognizant contract administration office, and it does not mention the CACO [@CL-CMP-2213]. For the related cognizant Federal agency role, see [Cognizant Federal agency](../cas-allowability/cmp-cas-cognizant-agency.md). For the wider set of oversight roles, see [Oversight roles](../audit-retention/cmp-oversight-roles.md).
+
+The section number 42.402 is visits to contractors' facilities in the codified text [@CL-CMP-2213] but the assignment and location of a CACO in the RFO text [@CL-CMP-0096]. A decision to start or end a CACO assignment should be based on such factors as the benefits of coordination and liaison at the corporate level and the volume of Government sales under codified FAR 42.602(b) [@CL-CMP-2210], while RFO FAR 42.402(b) says agencies must base such decisions on those factors [@CL-CMP-0099].
 
 ## Company calibration
 
@@ -59,4 +63,5 @@ Which Government visits, reviews and requests are open, and who owns each respon
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for corporate administrative contracting officer assignment and Government visits to contractor facilities.
