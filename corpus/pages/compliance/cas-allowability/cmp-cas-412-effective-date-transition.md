@@ -23,7 +23,7 @@ Says when the revised pension cost standard applies to a contractor and how the 
 | Field | Value |
 |---|---|
 | Instrument | Codified CAS [@CL-CMP-3404] |
-| Codified citation | 48 CFR 9904.412-63 and 48 CFR 9904.412-64 [@CL-CMP-3404; @CL-CMP-3408] |
+| Codified citation | 48 CFR 9904.412-62, 48 CFR 9904.412-63 and 48 CFR 9904.412-64 [@CL-CMP-8658; @CL-CMP-3404; @CL-CMP-3408] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3404] |
@@ -36,6 +36,8 @@ Contractors with contracts or subcontracts subject to the standard that were rec
 The Pension Harmonization Rule Transition Period is the five cost accounting periods beginning with a contractor's first cost accounting period beginning after June 30, 2012, and it is independent of the receipt date of a contract or subcontract subject to the standard [@CL-CMP-3408]. During each successive accounting period of the Transition Period, the contractor shall recognize on a scheduled basis the amount by which the minimum actuarial liability differs from the actuarial accrued liability, and the amount by which the sum of the minimum normal cost plus any expense load differs from the sum of the normal cost plus any expense load [@CL-CMP-3409; @CL-CMP-7358]. The same paragraph lists a schedule of 0 percent for the first cost accounting period, 25 percent for the second, 50 percent for the third, 75 percent for the fourth and 100 percent for the fifth [@CL-CMP-3410]. In each period, the transitional minimum actuarial liability shall be set equal to the actuarial accrued liability adjusted by an amount equal to the difference between the minimum actuarial liability and the actuarial accrued liability, multiplied by the scheduled applicable percentage for that period [@CL-CMP-3449]. The same paragraph also phases in the minimum normal cost plus any expense load, which this card does not claim.
 
 The standard also holds a transition method for an earlier revision of itself. An acceptable transition method must follow the equitable principle that costs which have been previously provided for shall not be redundantly provided for under revised methods, and costs that have not previously been provided for must be provided for under the revised method [@CL-CMP-3437]. In one transition illustration, the contractor shall establish an assignable cost deficit equal to $214,000, being $200,000 multiplied by 1.07, which is the prior unfunded assigned cost plus interest [@CL-CMP-3438]. The other methods and illustrations of that earlier transition are not claimed here.
+
+The exemption section of the pension cost standard says there is no exemption for it [@CL-CMP-8658].
 
 ## How it works
 
@@ -63,5 +65,6 @@ Which contracts and subcontracts are subject to the pension standard, when each 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 412.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the scheduled recognition sentence so the rule keeps the minimum normal cost and expense load difference.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 412 effective date and transition method.

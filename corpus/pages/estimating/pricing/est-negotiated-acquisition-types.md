@@ -22,7 +22,7 @@ Defines the proposal terms used in the negotiated acquisition part of the FAR, s
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2726] |
-| Codified citation | FAR 15.001, FAR 15.002 and FAR 15.101 [@CL-EST-2726; @CL-EST-2731; @CL-EST-2734] |
+| Codified citation | FAR 15.001, FAR 15.002 and FAR 15.101 [@CL-EST-2726; @CL-EST-2731; @CL-EST-2734]; FAR 15.508 [@CL-EST-2057] |
 | RFO citation | RFO FAR 15.001 [@CL-EST-3312; @CL-EST-3313; @CL-EST-3314; @CL-EST-3315]; RFO FAR 15.002 [@CL-EST-3316; @CL-EST-3317; @CL-EST-3318]; RFO FAR 15.103 [@CL-EST-3319; @CL-EST-3320] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2726] |
@@ -52,7 +52,7 @@ For a clearly defined purchase of routine supplies with minimal performance risk
 
 ## Never confuse
 
-A proposal modification is not a proposal revision. A modification can be made before the closing date and time, in response to an amendment, or to correct a mistake before award, while a revision is made after the closing date, at the request of or as allowed by a contracting officer, as the result of negotiations [@CL-EST-2727; @CL-EST-2728].
+A proposal modification is not a proposal revision. A modification can be made before the closing date and time, in response to an amendment, or to correct a mistake before award, while a revision is made after the closing date, at the request of or as allowed by a contracting officer, as the result of negotiations [@CL-EST-2727; @CL-EST-2728]. Separately, mistakes in a contractor's proposal that are disclosed after award shall be processed substantially in accordance with the procedures for mistakes in bids at FAR 14.407-4 [@CL-EST-2057].
 
 Under the codified text, a weakness is not a deficiency. The codified definition of a deficiency lists a material failure to meet a Government requirement or a combination of significant weaknesses that raises the risk to an unacceptable level, and it does not list a single weakness [@CL-EST-2726; @CL-EST-2729; @CL-EST-2730]. In the RFO text, a deficiency is any part of an offer that does not conform to a material requirement of a RFP [@CL-EST-3312]. The best value continuum is codified FAR 15.101 [@CL-EST-2734] but RFO FAR 15.103 [@CL-EST-3319; @CL-EST-3320], and RFO FAR 15.101 holds early exchanges with industry [@CL-EST-3271].
 
@@ -64,5 +64,6 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added mistakes in a proposal disclosed after award.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for negotiated acquisition definitions, the two negotiated settings and the best value continuum.

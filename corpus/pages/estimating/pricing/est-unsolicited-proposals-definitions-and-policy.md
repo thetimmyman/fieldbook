@@ -23,7 +23,7 @@ Defines advertising material, a commercial product or commercial service offer a
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2750] |
-| Codified citation | FAR 15.601 and FAR 15.602 [@CL-EST-2750; @CL-EST-2754] |
+| Codified citation | FAR 15.601 and FAR 15.602 [@CL-EST-2750; @CL-EST-2754]; DFARS 215.602 [@CL-EST-2060] |
 | RFO citation | RFO FAR 15.501 [@CL-EST-3519]; RFO FAR 15.503-1(a) [@CL-EST-3523] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2750] |
@@ -38,6 +38,8 @@ It is the policy of the Government to encourage the submission of new and innova
 The policy has two parts. The Government encourages ideas in response to its own publicized solicitations and programs, and an idea that does not fall under a publicized topic area may be submitted as an unsolicited proposal [@CL-EST-2754; @CL-EST-2779; @CL-EST-2755]. The text says may, so it describes a permitted route and does not say it is the only one [@CL-EST-2755].
 
 The three defined terms describe different things. Advertising material promotes what a contractor already offers or can do. A commercial offer asks that a commercial product or service be introduced into the supply system as an alternate or a replacement for an existing supply item. A contribution hands the Government an idea with no indication of further effort by the source [@CL-EST-2750; @CL-EST-2751; @CL-EST-2753]. Under the general requirements for unsolicited proposals, advertising material, commercial product or commercial service offers and contributions are not unsolicited proposals [@CL-EST-1429]. See [Unsolicited proposals: general requirements](est-unsolicited-proposals-general.md).
+
+The DFARS says the policy at FAR 15.602 applies to commercial solutions openings [@CL-EST-2060].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. RFO FAR 15.501 defines advertising material, a commercial product or commercial service offer and a contribution, as used in the RFO unsolicited proposal subpart, in the same words as the codified definitions [@CL-EST-3519; @CL-EST-3520; @CL-EST-3522; @CL-EST-2750; @CL-EST-2751; @CL-EST-2753; @CL-EST-2778], and it also says a commercial product or commercial service offer does not include innovative or unique configurations or uses of commercial products or commercial services that are being offered for further development and that may be submitted as an unsolicited proposal [@CL-EST-3521; @CL-EST-2752]. On policy, RFO FAR 15.503-1(a) says unsolicited proposals may be submitted for new and innovative ideas that do not already fall under topic areas publicized under BAA, SBIR topics, STTR topics, program research and development announcements, or any other Government-initiated RFP or program, where the codified section opens with a sentence stating a Government policy to encourage the submission of new and innovative ideas [@CL-EST-3523; @CL-EST-2754; @CL-EST-2755; @CL-EST-2779].
 
@@ -67,5 +69,6 @@ Who owns the pricing and technical content of a submission that goes out as an u
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that the FAR 15.602 policy applies to commercial solutions openings.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unsolicited proposal definitions and policy.

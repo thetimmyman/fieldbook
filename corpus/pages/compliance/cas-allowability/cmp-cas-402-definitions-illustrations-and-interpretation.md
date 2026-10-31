@@ -23,7 +23,7 @@ Walks through the printed definitions, illustrations and interpretation for the 
 | Field | Value |
 |---|---|
 | Instrument | CAS [@CL-CMP-2782] |
-| Codified citation | 48 CFR 9904.402-30, 9904.402-60 and 9904.402-61 [@CL-CMP-2782; @CL-CMP-2783; @CL-CMP-2784; @CL-CMP-2789] |
+| Codified citation | 48 CFR 9904.402-30, 9904.402-60, 9904.402-61, 9904.402-62 and 9904.402-63 [@CL-CMP-2782; @CL-CMP-2783; @CL-CMP-2784; @CL-CMP-2789; @CL-CMP-8652; @CL-CMP-8653] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2782] |
@@ -32,6 +32,8 @@ Walks through the printed definitions, illustrations and interpretation for the 
 The definitions section defines a direct cost as any cost identified specifically with a particular final cost objective [@CL-CMP-2782]. It defines an indirect cost as any cost not directly identified with a single final cost objective but identified with two or more final cost objectives or with at least one intermediate cost objective [@CL-CMP-2783]. In the first same-purpose illustration, the contractor normally allocates all travel as an indirect cost, previously disclosed that practice to the Government, and intends for a new proposal to allocate the travel costs of personnel whose time is accounted for as direct labor directly to the contract [@CL-CMP-2877]. Travel costs of personnel whose time is accounted for as direct labor on other contracts are costs incurred for the same purpose, so they may no longer be included in indirect cost pools for allocation to any covered Government contract [@CL-CMP-2784]. In the planning-cost illustration, a proposal for a new contract requires a disproportionate amount of planning costs and the contractor prefers to continue to allocate planning costs indirectly [@CL-CMP-2878]. The contractor may use a method for allocating all such costs that gives an equitable distribution to all final cost objectives, for example the number of planning documents processed rather than direct labor [@CL-CMP-2785].
 
 In the tooling illustration, both accounting practices were previously disclosed to the Government, and the two types of cost were not incurred for the same purpose in accordance with the criteria set forth in the Contractor's Disclosure Statement [@CL-CMP-2786]. The allocation of general purpose tooling costs from the indirect cost pool to the contract, in addition to the directly allocated special tooling costs, is not considered a violation of the standard [@CL-CMP-2787]. In the fire-protection illustration, the contractor's proposed treatment of the two classes of firemen is allowed only on condition that its disclosed practices indicate they serve different purposes and that its practice is to allocate the general firefighting force indirectly and fixed-post firemen directly [@CL-CMP-2788]. The interpretation treats the circumstances of proposals specifically required by an existing contract as different because their costs relate only to that contract while other proposal costs relate to all work of the contractor [@CL-CMP-2789]. It does not preclude allocating the costs of preparing all proposals as indirect costs, but the contractor must follow its cost accounting practices consistently [@CL-CMP-2790], and the method used to reallocate proposal costs must provide an equitable distribution to all final cost objectives [@CL-CMP-2879].
+
+The exemption section of the standard on consistency in allocating costs incurred for the same purpose says there is no exemption for it [@CL-CMP-8652]. The standard is effective as of April 17, 1992 [@CL-CMP-8653].
 
 ## How it works
 
@@ -55,4 +57,5 @@ How the company charges proposal, travel, planning and tooling costs, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exemption and effective date sections of CAS 402.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions, illustrations and interpretation of the same-purpose standard.

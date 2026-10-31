@@ -23,13 +23,13 @@ Shows how DoD orders the evaluation of offers by small business tier, when the c
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-EST-2434] |
-| Codified citation | DFARS 215.203-70 [@CL-EST-2434]; DFARS 215.305 [@CL-EST-2439] |
+| Codified citation | DFARS 215.203-70 [@CL-EST-2434]; DFARS 215.305 [@CL-EST-2439]; FAR 15.101-3 [@CL-EST-2050] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2434] |
 | Applies to | Solicitations with a tiered evaluation of offers, and solicitations in which FAR 15.304 requires a past performance evaluation and the small business clauses are included [@CL-EST-2436; @CL-EST-2439; @CL-EST-2440] |
 
-The tiered or cascading order of precedence used for tiered evaluation of offers must be consistent with FAR part 19 [@CL-EST-2434]. Consideration must be given to the tiers of small businesses, for example 8(a), HUBZone small business, service-disabled veteran-owned small business and small business, before offers from other than small business concerns are evaluated [@CL-EST-2435].
+The tiered or cascading order of precedence used for tiered evaluation of offers must be consistent with FAR part 19 [@CL-EST-2434]. Consideration must be given to the tiers of small businesses, for example 8(a), HUBZone small business, service-disabled veteran-owned small business and small business, before offers from other than small business concerns are evaluated [@CL-EST-2435]. The FAR separately says an agency shall not create a tiered (or "cascading") evaluation of offers, as described in 13 CFR 125.2, for multiple-award contracts unless an agency has statutory authority [@CL-EST-2050].
 
 The contracting officer is prohibited from issuing a solicitation with a tiered evaluation of offers unless the contracting officer conducts market research, in accordance with FAR Part 10 and Part 210, to determine whether the criteria in FAR part 19 are met for setting aside the acquisition for small business [@CL-EST-2436]. For a task or delivery order, the market research may instead determine whether there are a sufficient number of qualified small business concerns available to justify limiting competition under the terms of the contract [@CL-EST-2437]. If the contracting officer cannot determine whether the criteria in paragraph (c)(1) are met, the contracting officer must also include a written explanation in the contract file as to why the determination could not be made [@CL-EST-2438].
 
@@ -61,4 +61,5 @@ That the company can produce the tier order and its own and affiliate past perfo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR limit on tiered evaluation of offers for multiple-award contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tiered evaluation of offers and small business past performance.

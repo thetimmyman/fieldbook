@@ -23,7 +23,7 @@ Walks through the printed illustrations of consistent and inconsistent practices
 | Field | Value |
 |---|---|
 | Instrument | CAS [@CL-CMP-2775] |
-| Codified citation | 48 CFR 9904.401-60 and 9904.401-61 [@CL-CMP-2775; @CL-CMP-2779] |
+| Codified citation | 48 CFR 9904.401-60, 9904.401-61, 9904.401-62 and 9904.401-63 [@CL-CMP-2775; @CL-CMP-2779; @CL-CMP-8650; @CL-CMP-8651] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2775] |
@@ -32,6 +32,8 @@ Walks through the printed illustrations of consistent and inconsistent practices
 The illustrations come in two groups. The first group is described as applications of cost accounting practices that are deemed to be consistent [@CL-CMP-2775]. One listed consistent example pairs an estimated average direct labor rate for manufacturing direct labor by labor category or function with actual cost recorded for each individual and collected by labor category or function [@CL-CMP-2775; @CL-CMP-2776]. The second group is described as applications of cost accounting practices that are deemed not to be consistent [@CL-CMP-2777]. One listed example in that group pairs an estimate of engineering labor by cost function with the accumulation of total engineering labor in one undifferentiated account [@CL-CMP-2777; @CL-CMP-2778]. Another listed example in that group has the contractor estimate a total dollar amount for engineering labor that includes disparate and significant elements or functions of engineering labor and not provide supporting data reconciling that amount to the estimates for the same engineering labor cost functions for which the contractor will separately account in contract performance [@CL-CMP-2777; @CL-CMP-2875; @CL-CMP-8140].
 
 The interpretation says the most serious questions concern percentage factors that the contractor supports neither with accounting, statistical or other relevant data from past experience nor with a program to accumulate actual costs for comparison with the percentage estimates [@CL-CMP-2779]. In that circumstance, accumulating direct costs in an undifferentiated account is a cost accounting practice that is not consistent with estimating a significant part of costs by percentage factors [@CL-CMP-2779; @CL-CMP-2780]. The interpretation leaves the amount of accounting and statistical detail required for the percentage-factor portion of direct material costs to Government procurement authorities, decided on the individual facts and circumstances [@CL-CMP-2781]. It says the standard does not prescribe the amount of detail required in accumulating and reporting costs, and that the amount may vary considerably depending on the percentage factors used, the data presented in justification or lack thereof, and the significance of each situation [@CL-CMP-2876].
+
+The exemption section of the standard on consistency in estimating, accumulating and reporting costs says there is no exemption for it [@CL-CMP-8650]. The standard is effective as of April 17, 1992 [@CL-CMP-8651].
 
 ## How it works
 
@@ -55,5 +57,6 @@ How the company's estimating practices for direct labor, material and machining 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exemption and effective date sections of CAS 401.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the engineering labor example sentence so the cost-function comparison keeps its limit to functions for which the contractor will separately account in contract performance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the illustrations and interpretation of the consistency standard.

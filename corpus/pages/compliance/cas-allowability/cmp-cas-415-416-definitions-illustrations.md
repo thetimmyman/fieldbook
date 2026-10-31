@@ -23,7 +23,7 @@ Gives the definition of deferred compensation and a few illustrations from the d
 | Field | Value |
 |---|---|
 | Instrument | Codified CAS [@CL-CMP-3415] |
-| Codified citation | 48 CFR 9904.415-30, 48 CFR 9904.415-60 and 48 CFR 9904.416-60 [@CL-CMP-3415; @CL-CMP-3417; @CL-CMP-3418] |
+| Codified citation | 48 CFR 9904.415-30, 48 CFR 9904.415-60, 48 CFR 9904.415-62, 48 CFR 9904.416-60 and 48 CFR 9904.416-62 [@CL-CMP-3415; @CL-CMP-3417; @CL-CMP-8661; @CL-CMP-3418; @CL-CMP-8662] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3415] |
@@ -34,6 +34,8 @@ Deferred compensation means an award made by an employer to compensate an employ
 In one deferred compensation illustration, the total cost of the stock options is 1,000 shares multiplied by the difference of the option price and the market price ($26-22), or $4,000 [@CL-CMP-3417].
 
 In one insurance illustration, only one-sixth of the premium should have been included in cost in a cost accounting period within which only one-sixth of the policy term fell [@CL-CMP-3418]. In another, had the contractor's plan been to make a self-insurance charge for such losses, any difference between the self-insurance charge and actual losses in that cost accounting period would not have been allocable as an insurance cost [@CL-CMP-3419].
+
+The exemption section of the deferred compensation standard says there is no exemption for it [@CL-CMP-8661]. The exemption section of the insurance standard says there is no exemption for it [@CL-CMP-8662].
 
 ## How it works
 
@@ -59,4 +61,5 @@ How insurance premiums, self-insurance charges and deferred compensation awards 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exemption sections of CAS 415 and CAS 416.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 415 definitions and illustrations and CAS 416 illustrations.

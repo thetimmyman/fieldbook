@@ -23,7 +23,7 @@ Walks through the five printed illustrations of identifying unallowable and dire
 | Field | Value |
 |---|---|
 | Instrument | CAS [@CL-CMP-2796] |
-| Codified citation | 48 CFR 9904.405-60 [@CL-CMP-2796] |
+| Codified citation | 48 CFR 9904.405-60, 9904.405-62 and 9904.405-63 [@CL-CMP-2796; @CL-CMP-8654; @CL-CMP-8655] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2796] |
@@ -32,6 +32,8 @@ Walks through the five printed illustrations of identifying unallowable and dire
 In the first illustration, the contracting officer issues a written decision which supports the auditor's position that the questioned direct labor and direct material costs are unallowable [@CL-CMP-2882]. Following receipt of the contracting officer's decision, the contractor must clearly identify the disallowed direct labor and direct material costs in its accounting records and in reports covering any subsequent submission that includes such costs [@CL-CMP-2796]. If the contractor's base for allocating any relevant indirect cost pool consists of direct labor, direct material, total prime cost, total cost input and similar bases, the contractor must include the disallowed direct labor and material costs in the allocation base for that pool [@CL-CMP-2883]. In the second illustration, where manufacturing overhead is regularly part of the contractor's base for allocating general and administrative or other indirect expenses, the contractor must allocate those expenses to contracts and other final cost objectives [@CL-CMP-2797], by means of a base which includes the identified unallowable manufacturing overhead costs [@CL-CMP-2798]. In the planning-activity illustration, the contracting officer issues a written decision supporting the auditor's position that the total costs questioned are unallowable under the Federal Acquisition Regulation [@CL-CMP-2884]. After receipt of the contracting officer's decision the contractor must identify the disallowed costs and specific other costs incurred for the same purpose in like circumstances in any subsequent estimating, cost accumulation or reporting for Government contracts, in which such costs are included [@CL-CMP-2799].
 
 In the expansion-and-diversification illustration, during negotiation of interim bidding and billing general and administrative rates, the contractor agreed to classify as unallowable various in-house costs incurred for the expansion program and various directly associated costs of the identifiable unallowable costs [@CL-CMP-2886]. Applying the negotiated interim general and administrative rates to proposals, and on an interim basis to billings, for covered contracts constitutes compliance with the standard [@CL-CMP-2800]. In the entertainment-trip illustration, where the contractor does not regularly include general and administrative expenses in any indirect-expense allocation base, the official's travel and subsistence expenses would be directly associated costs for identification with the unallowable entertainment expense [@CL-CMP-2801]. However, unless this type of activity constituted a significant part of the official's regular duties and responsibilities on which the salary was based, no part of the official's salary would be required to be identified as a directly associated cost of the unallowable entertainment expense [@CL-CMP-2885].
+
+The exemption section of the standard on accounting for unallowable costs says there is no exemption for it [@CL-CMP-8654]. The standard is effective as of April 17, 1992 [@CL-CMP-8655].
 
 ## How it works
 
@@ -55,4 +57,5 @@ How unallowable and directly associated costs are identified in the company's bo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exemption and effective date sections of CAS 405.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the illustrations of identifying unallowable and directly associated costs.
