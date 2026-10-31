@@ -24,7 +24,7 @@ Explains how the contracting officer's indications turn the selection lists in p
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-9045] |
 | Codified citation | FAR 52.212-5(b) and (c) [@CL-CMP-9045; @CL-CMP-9046] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.212-5 is [Reserved] [@CL-CMP-0643] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-9045] |
 | Applies to | Contracts in which the clause is inserted as prescribed in FAR 12.301(b)(4) [@CL-CMP-9201] |
@@ -43,6 +43,8 @@ The Contracting Officer decides which entries apply to the contract and records 
 
 An entry's own limit is written into that entry, so a reader checks both the indication and the limit. The funding source, the agency and the type of item are the limits that appear in the entries above [@CL-CMP-9047; @CL-CMP-9048; @CL-CMP-9050; @CL-CMP-9207]. The entry text for paragraph (b)(40) points to FAR 22.1803 for the excluded types [@CL-CMP-9050]. The HUBZone entry works differently, because the offeror's own election decides whether the preference is waived, and the offeror makes it in its offer [@CL-CMP-9049].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.212-5 is [Reserved], so the codified paragraph (b) and (c) selection lists have no text under that section number in the RFO text [@CL-CMP-0643; @CL-CMP-9045; @CL-CMP-9046].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,7 +55,7 @@ A separate commercial services contract carries the Contracting Officer's checks
 
 ## Never confuse
 
-An indicated entry is not the same as an automatic clause, because the Contractor's duty under paragraph (b) or (c) reaches the entries the Contracting Officer has indicated [@CL-CMP-9045; @CL-CMP-9046]. The by-reference clauses in paragraph (a) need no indication and are covered on the linked card. An entry's own limit is not the Contracting Officer's selection decision, since the limit sits in the entry text and applies alongside the indication [@CL-CMP-9047; @CL-CMP-9050]. The paragraph (c) list is not something that follows automatically from paragraph (b), because each list is selected separately [@CL-CMP-9045; @CL-CMP-9046].
+An indicated entry is not the same as an automatic clause, because the Contractor's duty under paragraph (b) or (c) reaches the entries the Contracting Officer has indicated [@CL-CMP-9045; @CL-CMP-9046]. The by-reference clauses in paragraph (a) need no indication and are covered on the linked card. An entry's own limit is not the Contracting Officer's selection decision, since the limit sits in the entry text and applies alongside the indication [@CL-CMP-9047; @CL-CMP-9050]. The paragraph (c) list is not something that follows automatically from paragraph (b), because each list is selected separately [@CL-CMP-9045; @CL-CMP-9046]. The paragraph (b) and (c) lists are not RFO FAR 52.212-5 text, because the RFO text lists that section as [Reserved] [@CL-CMP-9045; @CL-CMP-9046; @CL-CMP-0643].
 
 ## Company calibration
 
@@ -63,4 +65,5 @@ The company must confirm who reads the Contracting Officer's indications on each
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two selection-list paragraphs of the commercial statutes and Executive orders clause.

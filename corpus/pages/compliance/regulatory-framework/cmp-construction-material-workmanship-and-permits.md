@@ -24,7 +24,7 @@ States what materials may go into the work, which approvals the contracting offi
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-4871] |
 | Codified citation | FAR 52.236-5 and FAR 52.236-7 [@CL-CMP-4871; @CL-CMP-4874] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.236-5 [@CL-CMP-0668]; RFO FAR 52.236-7 [@CL-CMP-0677] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4871] |
 | Applies to | Contracts that include the clauses [@CL-CMP-4871; @CL-CMP-4874] |
@@ -49,6 +49,8 @@ Without additional expense to the Government, the contractor must obtain any nec
 
 The material rule sets a default that the contract may displace, and the contractor may use an item that the contracting officer judges equal to the one named in the specifications unless the contract provides otherwise [@CL-CMP-4871; @CL-CMP-5038]. Approval is a separate step: machinery and equipment need it, and material or articles need it when the contract or the contracting officer requires it [@CL-CMP-4872; @CL-CMP-5040]. Items without the required approval are installed or used at the risk of subsequent rejection [@CL-CMP-5042]. Permits, compliance with laws and damage from fault or negligence sit with the contractor [@CL-CMP-4874; @CL-CMP-4875]. Responsibility for materials delivered and work performed runs to completion and acceptance of the entire work [@CL-CMP-4876].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.236-5 says the same in substance on material: equipment, material and articles incorporated into the work must be new and of the most suitable grade for the purpose intended, unless the contract specifically provides otherwise [@CL-CMP-0668; @CL-CMP-4871]; trade name references establish a standard of quality and do not limit competition [@CL-CMP-0669; @CL-CMP-5037]; and the contractor may use an item the contracting officer judges equal, unless the contract specifically provides otherwise [@CL-CMP-0670; @CL-CMP-5038]. On approval, the contractor must obtain the contracting officer's approval of machinery and mechanical and other equipment [@CL-CMP-0671; @CL-CMP-4872], furnishing the manufacturer's name, the model number and other information [@CL-CMP-0672; @CL-CMP-5039], and must also obtain approval of material or articles when this contract or the contracting officer requires it [@CL-CMP-0673; @CL-CMP-5040]. For material or articles, the RFO text says the contractor must provide appropriate and required information and, when directed, submit samples at its own expense with shipping charges prepaid, where the codified text says full information and all shipping charges prepaid [@CL-CMP-0674; @CL-CMP-5041]. Items without the required approval are installed or used at the risk of subsequent rejection [@CL-CMP-0675; @CL-CMP-5042], and the workmanship rule and the removal of an objectionable employee are the same in substance [@CL-CMP-0676; @CL-CMP-4873]. RFO FAR 52.236-7 says the same in substance on permits and responsibilities: the contractor obtains licenses and permits and complies with applicable laws without additional expense to the Government [@CL-CMP-0677; @CL-CMP-4874], is responsible for damages to persons or property from its fault or negligence [@CL-CMP-0678; @CL-CMP-4875], and is responsible for materials delivered and work performed until completion and acceptance of the entire work, except for any completed unit of work that may have been accepted under the contract [@CL-CMP-0679; @CL-CMP-4876].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,7 +61,7 @@ The contractor installs a boiler without the required approval. The boiler is in
 
 ## Never confuse
 
-Approval is not acceptance. Approval concerns what may be incorporated into the work [@CL-CMP-4872; @CL-CMP-5040], while the contractor's responsibility for the work continues until completion and acceptance of the entire work [@CL-CMP-4876]. A trade name in the specifications is also not a requirement to buy that brand, because such references establish a standard of quality and do not limit competition [@CL-CMP-5037]. The damages duty differs from the responsibility for materials and work: one covers damages to persons or property from the contractor's fault or negligence [@CL-CMP-4875], the other covers materials delivered and work performed until acceptance [@CL-CMP-4876]. When the Government takes possession or use before completion, the contractor is relieved of responsibility for loss or damage resulting from that possession or use [@CL-CMP-4884], as explained on [Operations and storage areas, Government possession and utility services](cmp-construction-operations-areas-and-utility-services.md).
+Approval is not acceptance. Approval concerns what may be incorporated into the work [@CL-CMP-4872; @CL-CMP-5040], while the contractor's responsibility for the work continues until completion and acceptance of the entire work [@CL-CMP-4876]. A trade name in the specifications is also not a requirement to buy that brand, because such references establish a standard of quality and do not limit competition [@CL-CMP-5037]. The damages duty differs from the responsibility for materials and work: one covers damages to persons or property from the contractor's fault or negligence [@CL-CMP-4875], the other covers materials delivered and work performed until acceptance [@CL-CMP-4876]. When the Government takes possession or use before completion, the contractor is relieved of responsibility for loss or damage resulting from that possession or use [@CL-CMP-4884], as explained on [Operations and storage areas, Government possession and utility services](cmp-construction-operations-areas-and-utility-services.md). The information the contractor gives when requesting approval of material or articles is full information in the codified paragraph and appropriate and required information in the RFO paragraph [@CL-CMP-5041; @CL-CMP-0674].
 
 ## Company calibration
 
@@ -69,4 +71,5 @@ Which construction contracts carry these clauses, and who holds the equipment ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material and workmanship, and permits and responsibilities.

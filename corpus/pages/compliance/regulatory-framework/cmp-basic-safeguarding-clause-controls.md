@@ -23,7 +23,7 @@ Shows what a covered contractor information system is, the minimum security cont
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3546] |
 | Codified citation | FAR 52.204-21 [@CL-CMP-3546; @CL-CMP-3547] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.240-93 [@CL-CMP-0495; @CL-CMP-0498] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3546] |
 | Applies to | Contractors with covered contractor information systems [@CL-CMP-3547] |
@@ -36,6 +36,8 @@ Each control group below is part of the minimum controls that the basic safeguar
 
 The subcontracts paragraph tells the contractor to include the substance of the clause, including that paragraph, in subcontracts under the contract [@CL-CMP-3556]. That direction is limited to subcontracts, including those for commercial products or commercial services other than commercially available off-the-shelf items, in which the subcontractor may have Federal contract information residing in or transiting through its information system [@CL-CMP-3557]. The clause does not relieve the contractor of any other specific safeguarding requirements specified by Federal agencies and departments relating to covered contractor information systems generally, or other Federal safeguarding requirements for controlled unclassified information [@CL-CMP-3588]. The defense supplement rules on covered defense information are on [Safeguarding covered defense information and cyber incident reporting](../trade-cyber/cmp-safeguarding-covered-defense-information.md) and are not restated here.
 
+Under the RFO text, the DoD class deviation directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.204-21 as reserved [@CL-CMP-0494], and prints the basic safeguarding clause at FAR 52.240-93 [@CL-CMP-0495]. It keeps the definition of a covered contractor information system [@CL-CMP-0495; @CL-CMP-3546]. It keeps the definition of Federal contract information and its exclusion for information provided by the Government to the public and for simple transactional information [@CL-CMP-0496; @CL-CMP-0497; @CL-CMP-3589; @CL-CMP-3590]. For the controls, paragraph (b)(1) says the Contractor shall safeguard its covered contractor information systems by implementing, at minimum, the listed security controls, in place of the codified wording about applying basic safeguarding requirements and procedures [@CL-CMP-0498; @CL-CMP-3547]. The RFO list keeps the same controls in groups: access limits and external connections [@CL-CMP-0499; @CL-CMP-0500; @CL-CMP-3548; @CL-CMP-3549], authentication and media sanitization [@CL-CMP-0519; @CL-CMP-3550], physical access [@CL-CMP-0520; @CL-CMP-3551], boundary protection [@CL-CMP-0521; @CL-CMP-3552], subnetworks and flaw correction [@CL-CMP-0522; @CL-CMP-3553], malicious code protection [@CL-CMP-0523; @CL-CMP-3554], and scans [@CL-CMP-0524; @CL-CMP-3555]. It keeps the statement that the clause does not relieve the Contractor of other safeguarding requirements, including Federal safeguarding requirements for controlled unclassified information as established by Executive Order 13556 [@CL-CMP-0525; @CL-CMP-0621; @CL-CMP-3588], and keeps the direction to include the substance of the clause in subcontracts under the contract [@CL-CMP-0526; @CL-CMP-3556]. For the subcontracts that may hold Federal contract information, the RFO wording places the exception for commercially available off-the-shelf items between commercial products and commercial services [@CL-CMP-0527; @CL-CMP-3557].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -46,6 +48,8 @@ A contractor keeps Federal contract information on an internal file server and a
 
 The clause sets a basic set of controls for covered contractor information systems [@CL-CMP-3547]; it is not the defense supplement clause on covered defense information, which is on [Safeguarding covered defense information and cyber incident reporting](../trade-cyber/cmp-safeguarding-covered-defense-information.md). The flowdown is tied to subcontractors that may have Federal contract information in their systems [@CL-CMP-3557], so it is not a blanket duty for every subcontract.
 
+In the codified clause the exception for commercially available off-the-shelf items is written after both commercial products and commercial services [@CL-CMP-3557], while the RFO clause writes it after commercial products and before commercial services [@CL-CMP-0527].
+
 ## Company calibration
 
 Which company systems process, store or transmit Federal contract information, and who owns the basic safeguarding controls on them. [@Q-014]
@@ -54,4 +58,5 @@ Which company systems process, store or transmit Federal contract information, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for basic safeguarding of covered contractor information systems.
