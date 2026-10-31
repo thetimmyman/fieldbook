@@ -23,7 +23,7 @@ Covers what an offeror represents about institutional status and about presence 
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1024] |
 | Codified citation | FAR 52.226-2; FAR 52.226-3; FAR 52.226-5 [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.226-2; RFO FAR 52.226-3; RFO FAR 52.226-5 [@CL-MKT-0126; @CL-MKT-0129; @CL-MKT-0138] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1024] |
 | Applies to | Offers that carry the two representation provisions, and contracts that carry the subcontracting restriction clause [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027] |
@@ -39,6 +39,8 @@ An offeror is considered to be residing or primarily doing business in the set-a
 If the offeror represents that it resides or primarily does business in the set-aside area, it shall furnish documentation to support the representation if the contracting officer requests it [@CL-MKT-1098]. The solicitation may require the offeror to submit that documentation with its offer [@CL-MKT-1099]. The blank for the set-aside area and the check boxes are contract-specific fill-ins.
 
 The subcontracting restriction clause sets a work-share limit for each type of contract, and the contractor agrees that in performance of the contract the limit for its type applies [@CL-MKT-1155]. The terms it uses are defined in the Small Business Administration regulations at 13 CFR 125.6(e) [@CL-MKT-1100]. For services other than construction, at least 50 percent of the cost of contract performance incurred for personnel shall be expended for employees of the contractor or employees of other businesses residing or primarily doing business in the area under the notice clause at FAR 52.226-4 [@CL-MKT-1027]. For supplies other than procurement from a nonmanufacturer, the contractor or employees of other businesses residing or primarily doing business in the set-aside area shall perform work for at least 50 percent of the cost of manufacturing the supplies, not including the cost of materials [@CL-MKT-1028; @CL-MKT-1029]. For general construction the contractor will perform at least 15 percent of the cost of the contract, not including the cost of materials, with its own employees or employees of other businesses residing or primarily doing business in the set-aside area [@CL-MKT-1030]. For construction by special trade contractors the figure is at least 25 percent on the same basis [@CL-MKT-1031].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the definitions of a historically black college or university and a minority institution and the representation about them [@CL-MKT-0126; @CL-MKT-1090; @CL-MKT-0127; @CL-MKT-1091; @CL-MKT-0128; @CL-MKT-1024]. The RFO disaster or emergency area provision keeps the set-aside area filled in by the contracting officer with definite geographic boundaries and the representation about residing or primarily doing business there [@CL-MKT-0129; @CL-MKT-1092; @CL-MKT-0130; @CL-MKT-1093], the residence test on the main operating office over the last twelve months [@CL-MKT-0131; @CL-MKT-1025; @CL-MKT-1026], the further factors [@CL-MKT-0132; @CL-MKT-1094; @CL-MKT-0133; @CL-MKT-1095; @CL-MKT-0134; @CL-MKT-1096; @CL-MKT-0135; @CL-MKT-1097] and the documentation rules [@CL-MKT-0136; @CL-MKT-1098; @CL-MKT-0137; @CL-MKT-1099]. The RFO subcontracting restriction clause keeps the source of its definitions in 13 CFR 125.6(e) [@CL-MKT-0138; @CL-MKT-1100] and the limits for supplies, general construction and special trade construction [@CL-MKT-0140; @CL-MKT-1028; @CL-MKT-1029; @CL-MKT-0141; @CL-MKT-1030; @CL-MKT-0142; @CL-MKT-1031]. For services other than construction, the RFO text says at least 50 percent of the cost of contract performance incurred for personnel shall be expended for employees of the Contractor or of other businesses residing or primarily doing business in the area designated in the clause at FAR 52.226-4, where the codified text says "in the clause at FAR 52.226-4" [@CL-MKT-0139; @CL-MKT-1027].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Which institutional and disaster area representations in the finance remit are d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the institutional and disaster area representations.
