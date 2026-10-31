@@ -25,7 +25,7 @@ Admit no report text. Rebuild each consequential finding as a claim quoted from 
 
 - The reports' central finding holds: DoD contracts run on the overhaul's class deviation text, which DoD lists with its supplement parts [@S-0021-v1].
 - Their threshold findings were rebuilt from originals: certified cost or pricing data [@CL-EST-0002], earned value [@CL-PRG-0001; @CL-PRG-0002], CAS exemption [@CL-CMP-0001], and the small-business progress payment rate [@CL-CTF-0002].
-- Secondary material written before the CAS threshold change carries the old values, so its figures were not reused [@CL-CMP-0001].
+- Secondary material that gives a CAS exemption figure other than the original's, negotiated contracts and subcontracts not in excess of $35 million, was not reused [@CL-CMP-0001].
 - One training-site lead named the wrong deviation for the negotiation part; the DoD list contradicts it [@S-0021-v1].
 
 ## Options

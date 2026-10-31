@@ -46,7 +46,7 @@ A civilian agency learns that a DHS order names a source and establishes the pro
 
 ## Never confuse
 
-A FASCSA order is defined by who issues it and who it covers [@CL-CMP-2970; @CL-CMP-2971; @CL-CMP-2972]. The agency prohibition is a separate rule, and it applies if an applicable order establishes it [@CL-CMP-2974].
+A FASCSA order is defined by what it requires, who may issue it and whom it covers [@CL-CMP-2969; @CL-CMP-2970; @CL-CMP-2971; @CL-CMP-2972]. The agency prohibition is a separate rule, and it applies if an applicable order establishes it [@CL-CMP-2974].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which FASCSA orders the company has been told apply to each contract, and who tr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the required-action element to the order definition summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the expiry of its authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FASCSA definitions and orders.

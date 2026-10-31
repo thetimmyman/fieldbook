@@ -44,7 +44,7 @@ A prime holds a contract that requires Level 3 (DIBCAC). Subcontractor A will re
 
 ## Never confuse
 
-The flowdown minimum under a Level 3 prime contract is Level 2 (C3PAO), not Level 3 (DIBCAC) [@CL-CMP-2099]. Affirmation is separate from the assessment: it follows every assessment and recurs annually [@CL-CMP-2094], and a Level 1 contract needs the affirmation submitted into SPRS before award [@CL-CMP-2068].
+The flowdown minimum under a Level 3 prime contract is Level 2 (C3PAO), not Level 3 (DIBCAC) [@CL-CMP-2099]. Affirmation is separate from the assessment: it follows every assessment and recurs annually [@CL-CMP-2094], and before award of a contract or subcontract with a Level 1 (Self) requirement, the OSA must both achieve that status and submit an affirmation of compliance into SPRS for all information systems within the CMMC Assessment Scope [@CL-CMP-2068].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which subcontracts pass FCI or CUI, who signs as Affirming Official for each ent
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Level 1 pre-award sentence with its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Affirming Official definition so the rule keeps the specified security requirements for the respective organizations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC affirmation and subcontractor flowdown.

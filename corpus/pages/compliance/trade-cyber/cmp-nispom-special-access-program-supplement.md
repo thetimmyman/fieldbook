@@ -34,7 +34,7 @@ Under the paragraph on DoD SAP contracts, contractors will implement the securit
 
 ## How it works
 
-The supplement adds requirements that go beyond the baseline rule, and they must be applied, as applicable, through specific contract requirements [@CL-CMP-3490]. The contractor complies with them when the GCA or its designee applies them as part of a contract [@CL-CMP-3521]. A CSA can set still higher standards, which bind both the USG and the contractor once they are in the contract or in other applicable directives [@CL-CMP-3491]. The contractor must accept the contract's security measures before negotiating program participation [@CL-CMP-3494]. For SAPs, a contractor on a DoD contract implements the security requirements codified in SAP-related policy when the contract establishes them [@CL-CMP-3492], and a contractor on a contract from a non-DoD GCA implements the SAP protection requirements imposed in its contract [@CL-CMP-3493]. Participation in an ACCM depends on the access and security plan being identified in DD Form 254 or equivalent [@CL-CMP-3522], and contracts that grant access to NNPI must require compliance with the specific safeguarding requirements [@CL-CMP-3524]. The baseline storage rules are on the [NISPOM safeguarding of classified information](cmp-nispom-safeguarding-classified-information.md) card.
+The supplement adds requirements that go beyond the baseline rule, and they must be applied, as applicable, through specific contract requirements [@CL-CMP-3490]. The contractor complies with them when the GCA or its designee applies them as part of a contract [@CL-CMP-3521]. A CSA can set still higher standards, which bind both the USG and the contractor once they are in the contract or in other applicable directives [@CL-CMP-3491]. Accepting the contract's security measures is a prerequisite to any negotiations leading to program participation and an area accreditation [@CL-CMP-3494]. For SAPs, a contractor on a DoD contract implements the security requirements codified in SAP-related policy when the contract establishes them [@CL-CMP-3492], and a contractor on a contract from a non-DoD GCA implements the SAP protection requirements imposed in its contract [@CL-CMP-3493]. Participation in an ACCM depends on the access and security plan being identified in DD Form 254 or equivalent [@CL-CMP-3522], and contracts that grant access to NNPI must require compliance with the specific safeguarding requirements [@CL-CMP-3524]. The baseline storage rules are on the [NISPOM safeguarding of classified information](cmp-nispom-safeguarding-classified-information.md) card.
 
 ## Worked example
 
@@ -56,4 +56,5 @@ Which contracts carry SAP or other supplement requirements, and whether the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added area accreditation to the acceptance prerequisite.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for NISPOM special access program requirements.

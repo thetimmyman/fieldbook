@@ -34,7 +34,7 @@ The Accreditation Body shall be US-based, remain a member in good standing of th
 
 ## How it works
 
-The Accreditation Body's conflict of interest policy shall include a detailed risk mitigation plan for all potential conflicts of interest that may pose a risk to compliance with ISO/IEC 17011:2017(E) [@CL-CMP-3222]. That sentence opens the list of what the policy must contain. One listed requirement is that employees, Board directors, and members of accreditation or appeals adjudication committees who leave the board or organization enter a cooling off period of one year during which they are prohibited from working with the Accreditation Body [@CL-CMP-3223; @CL-CMP-3222]. The cooling off period also bars them from participating in any and all CMMC activities described in Subpart C [@CL-CMP-3331]. All policies in the Accreditation Body section must be approved by the CMMC PMO prior to effectivity [@CL-CMP-3332]. Oversight sits with the CMMC PMO, which retains the prerogative to review the Accreditation Body's decisions and to evaluate any alleged conflicts of interest purported to influence its objectivity [@CL-CMP-3211]. The printed text lists further policy requirements that this card does not set out.
+The Accreditation Body's conflict of interest policy shall include a detailed risk mitigation plan for all potential conflicts of interest that may pose a risk to compliance with ISO/IEC 17011:2017(E) [@CL-CMP-3222]. That sentence opens the list of what the policy must contain. One listed requirement is that employees, Board directors, and members of accreditation or appeals adjudication committees who leave the board or organization enter a cooling off period of one year during which they are prohibited from working with the Accreditation Body [@CL-CMP-3223; @CL-CMP-3222]. The cooling off period also bars them from participating in any and all CMMC activities described in Subpart C [@CL-CMP-3331]. All policies in the Accreditation Body section must be approved by the CMMC PMO prior to effectivity, in accordance with the requirements that follow in that section [@CL-CMP-3332]. Oversight sits with the CMMC PMO, which retains the prerogative to review the Accreditation Body's decisions and to evaluate any alleged conflicts of interest purported to influence its objectivity [@CL-CMP-3211]. The printed text lists further policy requirements that this card does not set out.
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which third-party assessment organization the company engages, whether it appear
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the following-requirements qualifier to the approval sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC Accreditation Body.

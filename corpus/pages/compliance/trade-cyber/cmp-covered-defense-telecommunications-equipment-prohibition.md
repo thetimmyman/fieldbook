@@ -35,7 +35,7 @@ Subject to the waiver exception, the contractor shall not provide to the Governm
 
 ## How it works
 
-A contractor that identifies covered defense telecommunications equipment or services used as a substantial or essential component of any system, or as critical technology as part of any system, during contract performance must report the information in paragraph (d)(2) of the clause [@CL-CMP-2860; @CL-CMP-8050]. Within 3 business days from the date of identification or notification, the contractor's report includes the contract number, order numbers if applicable, supplier name, brand, model number, and item description [@CL-CMP-2861]. Within 30 business days of submitting that information, the contractor must report any further available information about mitigation actions undertaken or recommended [@CL-CMP-2862]. In addition to the further mitigation information, the contractor shall describe the efforts it undertook to prevent use or submission of covered defense telecommunications equipment or services and any additional efforts that will be incorporated to prevent future use or submission [@CL-CMP-2916]. This card does not set out the full definitions of covered equipment, covered missions or critical technology, which the clause text defines.
+A contractor that identifies covered defense telecommunications equipment or services used as a substantial or essential component of any system, or as critical technology as part of any system, during contract performance must report the information in paragraph (d)(2) of the clause [@CL-CMP-2860; @CL-CMP-8050]. Within 3 business days from the date of identification or notification, the contractor's report includes, among other listed items, the contract number, order numbers if applicable, supplier name, brand, model number, and item description [@CL-CMP-2861]. Within 30 business days of submitting that information, the contractor must report any further available information about mitigation actions undertaken or recommended [@CL-CMP-2862]. In addition to the further mitigation information, the contractor shall describe the efforts it undertook to prevent use or submission of covered defense telecommunications equipment or services and any additional efforts that will be incorporated to prevent future use or submission [@CL-CMP-2916]. This card does not set out the full definitions of covered equipment, covered missions or critical technology, which the clause text defines.
 
 ## Worked example
 
@@ -55,5 +55,6 @@ Which products and services in the bill of materials could use covered equipment
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Marked the three-day report items as a partial list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the reporting sentence so the duty keeps what the contractor must report.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on the acquisition of covered defense telecommunications equipment or services.

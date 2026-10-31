@@ -35,7 +35,7 @@ If the offeror uses the procedures established under the treaties, it agrees tha
 
 ## How it works
 
-The provision gives a permission, not an obligation: Approved Community members may use the treaties in a response but need not [@CL-CMP-4023]. The permission is limited to defense articles that specifically respond to the stated requirements, and to the terms that affect the acceptability of foreign sources [@CL-CMP-4021; @CL-CMP-4022]. An offeror that does use the treaty procedures takes on the listed duties, including compliance with the treaties and regulations and the marking and handling duty before export or transfer, and the offeror checks and signs one of the listed representations [@CL-CMP-4024; @CL-CMP-4056; @CL-CMP-4057; @CL-CMP-4025]. The flowdown reaches only subcontractors intending to use the treaties, and it leaves out the representation [@CL-CMP-4026].
+The provision gives a permission, not an obligation: Approved Community members may use the treaties in a response but need not [@CL-CMP-4023]. The permission is limited to defense articles that specifically respond to the stated requirements, and to the terms that affect the acceptability of foreign sources [@CL-CMP-4021; @CL-CMP-4022]. An offeror that does use the treaty procedures takes on the listed duties, including compliance with the treaties and regulations and the marking and handling duty before export or transfer, and the offeror checks and signs one of the listed representations [@CL-CMP-4024; @CL-CMP-4056; @CL-CMP-4057; @CL-CMP-4025]. The offeror flows the substance of the provision down to any subcontractor at any tier intending to use the treaties in responding to the solicitation, and the flowdown leaves out the representation [@CL-CMP-4026].
 
 ## Worked example
 
@@ -55,5 +55,6 @@ Which entities and facilities are Approved Community members, and who signs the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word from the flowdown summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the marking and handling duty so it keeps the added articles and the treaty and regulation basis.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exports by approved community members in response to a solicitation.

@@ -46,7 +46,7 @@ Suppose a Level 2 assessment has a maximum score of 110. Two requirements are NO
 
 ## Never confuse
 
-Clearing the minimum ratio is not enough on its own, because the point-value limit and the list of barred requirements also apply [@CL-CMP-2081; @CL-CMP-2082; @CL-CMP-2083]. A Conditional status is not a Final status, because the closeout must be confirmed within 180 days [@CL-CMP-2087]. The Level 3 score counts requirements MET [@CL-CMP-2092], while the Level 2 score subtracts values from a maximum [@CL-CMP-2088].
+Clearing the minimum ratio is not enough on its own, because the point-value limit and the list of barred requirements also apply [@CL-CMP-2081; @CL-CMP-2082; @CL-CMP-2083; @CL-CMP-2084]. A Conditional status is not a Final status, because the closeout must be confirmed within 180 days [@CL-CMP-2087]. The Level 3 score counts requirements MET [@CL-CMP-2092], while the Level 2 score subtracts values from a maximum [@CL-CMP-2088].
 
 ## Company calibration
 
@@ -56,4 +56,5 @@ Which NOT MET requirements sit on a POA&M, who owns each fix and when each close
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the rest of the barred requirements list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC POA&M conditions and scoring.

@@ -44,7 +44,7 @@ A contractor with a Level 1 contract finishes its self-assessment at month 0 and
 
 ## Never confuse
 
-A Level 1 self-assessment allows no POA&M, so a missed requirement cannot be carried on a plan of action [@CL-CMP-2066]. A Level 2 assessment can reach a Conditional status through a POA&M that meets the POA&M requirements [@CL-CMP-2070], which is covered on the [Level 2 assessment](cmp-cmmc-level-2-assessment.md) card. Level 1 scope covers systems that handle FCI [@CL-CMP-2061], while Level 2 scope covers CUI Assets [@CL-CMP-2062].
+A Level 1 self-assessment allows no POA&M, so a missed requirement cannot be carried on a plan of action [@CL-CMP-2066]. A Level 2 self-assessment reaches Conditional Level 2 (Self) status if it results in a POA&M and the POA&M meets all the Level 2 POA&M requirements [@CL-CMP-2070], which is covered on the [Level 2 assessment](cmp-cmmc-level-2-assessment.md) card. Level 1 scope covers systems that handle FCI [@CL-CMP-2061], while Level 2 scope covers CUI Assets [@CL-CMP-2062].
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ Who owns the annual self-assessment and affirmation, and which entities and cont
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Level 2 conditional status sentence with its quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Level 1 self-assessment.
