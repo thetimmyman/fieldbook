@@ -21,7 +21,7 @@ Explains the notice a solicitation gives about a Government royalty and how an o
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
 | Codified citation | FAR 52.227-7, FAR 52.227-22 and FAR 52.227-23 [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-7 is reserved [@CL-CMP-1823]; RFO FAR 52.227-23 is reserved [@CL-CMP-1824]; RFO FAR 52.227-22 [@CL-CMP-1825] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
 | Applies to | Solicitations and contracts in which a provision or clause is inserted as prescribed [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750] |
@@ -33,6 +33,8 @@ The minimum rights clause gives the Government unlimited rights in technical dat
 ## How it works
 
 Under the proposal data clause, except for data contained on the identified pages, the Government has unlimited rights in the technical data as a condition of award, notwithstanding any notice appearing on the proposal [@CL-CMP-5610]. Those rights run to the technical data contained in the identified proposal on which the contract is based [@CL-CMP-5611]. Unlimited rights have the meaning given in the Rights in Data—General clause contained in the contract [@CL-CMP-5752]. The identified pages and the proposal date are blanks that differ by contract.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints 52.227-7 as "[Reserved]", so the codified provision on the Government licensee notice has no text under that number [@CL-CMP-5606] [@CL-CMP-1823]. It likewise prints 52.227-23 as "[Reserved]", so the codified clause on rights to proposal data has no text under that number [@CL-CMP-5750] [@CL-CMP-1824]. The RFO minimum rights clause, 52.227-22, says the same as the codified clause: unlimited rights in technical data, other than computer software, developed in the performance of the contract and relating to a major system [@CL-CMP-5608] [@CL-CMP-1826], notwithstanding any other provision of the contract [@CL-CMP-5751] [@CL-CMP-1827], to the extent delivery is required as an element of performance and in addition to the Government's other rights [@CL-CMP-5609] [@CL-CMP-1828].
 
 ## Worked example
 
@@ -48,6 +50,8 @@ On a major system contract, drawings developed in performing the contract that t
 
 Unlimited rights and no rights are not the only two outcomes. The minimum rights clause sets a floor for major system data that the contract requires to be delivered, and it adds to the Government's other rights rather than replacing them [@CL-CMP-5608; @CL-CMP-5609]. Proposal data rights attach as a condition of award and leave only the identified pages outside [@CL-CMP-5610]. The royalty notice and the data rights clauses deal with different subjects: how an offer is evaluated, and the Government's rights in technical data [@CL-CMP-5607; @CL-CMP-5748; @CL-CMP-5608; @CL-CMP-5610].
 
+Of the three numbers on this card, the RFO text gives text only to the minimum rights clause; the royalty notice provision and the proposal data rights clause are printed as reserved under their numbers, where the codified text gives each its own rule [@CL-CMP-5607; @CL-CMP-5610] [@CL-CMP-1823] [@CL-CMP-1824] [@CL-CMP-1825].
+
 ## Company calibration
 
 Which solicitations identify a Government royalty patent or a major system, and who confirms what technical data the contract requires to be delivered. [@Q-004]
@@ -56,4 +60,5 @@ Which solicitations identify a Government royalty patent or a major system, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Government licensee notice and data rights.
