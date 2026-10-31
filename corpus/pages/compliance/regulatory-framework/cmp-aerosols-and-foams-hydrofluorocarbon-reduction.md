@@ -62,6 +62,8 @@ The foams clause adds refrigerant blends containing hydrofluorocarbons, and the 
 
 The codified FAR 52.223-20 and FAR 52.223-21 hold the aerosols and foams duties to reduce when feasible, while the RFO text prints both section numbers as reserved [@CL-CMP-5207; @CL-CMP-5211; @CL-CMP-0349; @CL-CMP-0350].
 
+The clauses on ozone-depleting substances and refrigerant handling are covered in [Ozone-depleting substances and refrigerant handling](cmp-ozone-depleting-substances-and-refrigerant-handling.md).
+
 ## Company calibration
 
 Whether product and process records show which aerosols and foams use high global warming potential hydrofluorocarbons and how feasibility was assessed. [@Q-004]
@@ -70,5 +72,6 @@ Whether product and process records show which aerosols and foams use high globa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on ozone-depleting substances and refrigerant handling.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for aerosols and foams with high global warming potential hydrofluorocarbons.

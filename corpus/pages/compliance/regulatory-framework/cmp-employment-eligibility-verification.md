@@ -62,6 +62,8 @@ A contractor wins a services contract and is not enrolled in E-Verify. It enroll
 
 Enrollment is not verification: a contractor can be enrolled as a Federal Contractor and still owe separate verification duties for new hires and for employees assigned to the contract [@CL-CMP-5256; @CL-CMP-5257; @CL-CMP-5258]. The clause does not require re-checking an employee whose eligibility the contractor already verified through the program [@CL-CMP-5261].
 
+The policy sections on who must verify, which employees and the exceptions are covered in [E-Verify: who must verify, which employees, and the exceptions](cmp-e-verify-policy-and-definitions.md).
+
 ## Company calibration
 
 Which subcontracts cross the value and place-of-performance tests, and who confirms enrollment status. [@Q-004]
@@ -70,5 +72,6 @@ Which subcontracts cross the value and place-of-performance tests, and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on E-Verify policy and definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for employment eligibility verification with E-Verify.

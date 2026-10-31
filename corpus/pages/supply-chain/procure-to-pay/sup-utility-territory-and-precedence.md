@@ -54,6 +54,8 @@ An offeror signs an offer to sell electricity. The Contracting Officer later ask
 
 The representation concerns consistency of the offer with Section 8093, and the precedence clause concerns inconsistency between the contract and the incorporated rate material or the contractor's rules [@CL-SUP-2662; @CL-SUP-2664]. One is made by the offeror when signing, and the other ranks documents after award.
 
+The clauses on rate changes for regulated and unregulated utility service are covered in [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md).
+
 ## Company calibration
 
 Confirm who signs each offer to sell electricity and where the rationale for the territory representation is kept. [@Q-004]
@@ -62,5 +64,6 @@ Confirm who signs each offer to sell electricity and where the rationale for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility rate changes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the electric service territory representation and the utility order of precedence.

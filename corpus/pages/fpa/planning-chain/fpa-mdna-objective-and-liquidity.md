@@ -49,6 +49,8 @@ A contractor has 30 million of cash and a 20 million purchase obligation due in 
 
 The liquidity discussion concerns the registrant's own cash requirements and sources. For the contractor cash flow forecast that a DoD contracting officer may require, see [DoD cash flow forecasts](../../contract-finance/cash/ctf-dod-cash-flow-forecasts.md). For the ways the Government finances work before delivery, see [Financing overview](../../contract-finance/financing/ctf-financing-overview.md). The explanation of results of operations is on [MD&A results of operations](../kpi/fpa-mdna-results-of-operations.md).
 
+The quantitative and qualitative market risk disclosure is covered in [Quantitative and qualitative market risk disclosure](../forecast-vintage/fpa-market-risk-disclosure.md).
+
 ## Company calibration
 
 Which accounting frameworks and cash assumptions management uses to bridge backlog, funding and revenue into the liquidity view. [@Q-018]
@@ -57,4 +59,5 @@ Which accounting frameworks and cash assumptions management uses to bridge backl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on market risk disclosure.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for MD&A objective and liquidity.

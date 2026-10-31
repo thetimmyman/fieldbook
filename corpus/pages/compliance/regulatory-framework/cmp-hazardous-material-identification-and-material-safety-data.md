@@ -68,6 +68,8 @@ The shipping copy duties are in the paragraph that Alternate I adds, so they bin
 
 The codified clause says Material Safety Data Sheet [@CL-CMP-5269], while the RFO clause says Safety Data Sheet in the matching paragraph [@CL-CMP-1266].
 
+The clauses on environmental information and management systems and on notice of radioactive materials are covered in [Environmental information, waste reduction and management systems](cmp-environmental-information-and-management-systems.md) and [Notice of radioactive materials](cmp-notice-of-radioactive-materials.md), and the DFARS clause on hazard warning labels is covered in [Hazard warning labels (DFARS)](cmp-dfars-hazard-warning-labels.md).
+
 ## Company calibration
 
 Whether the company can show, item by item, which delivered materials are hazardous, where each data sheet is held, and whether the contract carries Alternate I. [@Q-004]
@@ -76,5 +78,6 @@ Whether the company can show, item by item, which delivered materials are hazard
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on environmental, radioactive material and hazard label clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hazardous material identification and material safety data.

@@ -53,6 +53,8 @@ The answer: the offeror may leave the fourth item unpriced by writing "no propos
 
 The preconstruction conference is not the site visit, because the conference is a meeting the successful offeror must attend after the Contracting Officer decides to hold one, while the site visit provision urges inspection of the site during the solicitation [@CL-CMP-4929; @CL-CMP-4931]. Alternate proposals are also not alternate prices, because alternate prices are a pricing basis the form may request while an alternate proposal needs express authorization in the solicitation [@CL-CMP-4935; @CL-CMP-4937]. The codified text prints the conference notice, the site visit rule and the proposal rules at FAR 52.236-26 through 52.236-28 [@CL-CMP-4929; @CL-CMP-4931; @CL-CMP-4934], while the RFO text prints each of those sections as reserved [@CL-CMP-0739; @CL-CMP-0740; @CL-CMP-0741].
 
+The preconstruction conference clause, together with the work oversight and designer registration clauses, is covered in [Work oversight, designer registration and the preconstruction conference](cmp-construction-work-oversight-and-designer-registration.md).
+
 ## Company calibration
 
 Who confirms that the proposal form, the site visit record and the conference attendance for each construction solicitation are captured in the contract file? [@Q-004]
@@ -61,5 +63,6 @@ Who confirms that the proposal form, the site visit record and the conference at
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on work oversight and designer registration.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the preconstruction conference, the site visit and preparation of construction proposals.

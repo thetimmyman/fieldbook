@@ -61,6 +61,8 @@ The representation is about revealing emissions and goals, while the sustainabil
 
 The codified part has a separate greenhouse gas representation provision [@CL-CMP-5447], but the RFO text lists that section as reserved [@CL-CMP-1249]. The codified clause defines sustainable products and services through statutory and EPA purchasing programs [@CL-CMP-6289; @CL-CMP-6294], while the RFO clause defines a sustainable product through four listed kinds [@CL-CMP-1250; @CL-CMP-1253].
 
+The certifications for recovered material content and for biobased products are covered in [Recovered material certification and content estimate](cmp-recovered-material-certification-and-estimate.md) and [Biobased product certification and reporting](cmp-biobased-product-certification-and-reporting.md).
+
 ## Company calibration
 
 Whether last year's award total crosses the reporting threshold and which contract items carry sustainability requirements. [@Q-003]
@@ -69,5 +71,6 @@ Whether last year's award total crosses the reporting threshold and which contra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on recovered material and biobased certifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the greenhouse gas representation and sustainable products and services.

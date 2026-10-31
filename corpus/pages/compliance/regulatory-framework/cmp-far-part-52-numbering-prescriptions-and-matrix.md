@@ -70,6 +70,8 @@ A supplemental clause number is not a FAR clause number. It is numbered in the s
 
 The codified text says the matrix may be accessed via the internet [@CL-CMP-8890], while the RFO text says the matrix is in subpart 52.3 [@CL-CMP-1227].
 
+The scope statements of FAR part 2 and FAR part 52 are covered in [What FAR part 2 and FAR part 52 each cover](cmp-far-part-2-and-part-52-scope.md).
+
 ## Company calibration
 
 Which executed contracts and modifications the company holds, and who confirms that each cited provision and clause applies. [@Q-004]
@@ -78,5 +80,6 @@ Which executed contracts and modifications the company holds, and who confirms t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on FAR part 2 and part 52 scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR part 52 numbering, prescriptions and the matrix.

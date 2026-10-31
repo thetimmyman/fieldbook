@@ -66,6 +66,8 @@ A shop drawing approval is not an acceptance of design responsibility, because t
 
 The codified Alternates I and II add sentences to paragraph (g) [@CL-CMP-5109; @CL-CMP-5111], while the RFO Alternates add them to paragraph (j) [@CL-CMP-6197; @CL-CMP-6199].
 
+The architect-engineer clauses on design within funding limitations and design responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limitations-and-architect-engineer-responsibility.md), and the DFARS clause on checking contract drawings and specifications is covered in [Construction drawings, obstruction of navigable waterways, and additive or deductive items](cmp-dfars-construction-drawings-waterways-and-additive-items.md).
+
 ## Company calibration
 
 Which executed construction contracts in the finance remit carry this clause, which alternate applies, and who confirms the clause list and the drawing control step before work starts? [@Q-004]
@@ -74,6 +76,7 @@ Which executed construction contracts in the finance remit carry this clause, wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on architect-engineer design and DFARS drawings.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to keep the difference rule (specifications govern) apart from the discrepancy rule (written determination).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for specifications and drawings for construction.

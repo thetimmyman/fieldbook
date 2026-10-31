@@ -80,6 +80,8 @@ A site has one meter that the contractor installed and reads about every 30 days
 
 Ownership of the facilities is not ownership of the service: title to the facilities stays with the contractor, and the contractor measures the service at the delivery point [@CL-SUP-2672; @CL-SUP-2673]. A service interruption is not by itself a breach, because the contractor is not liable for damages where a cause beyond its control occasions it, yet it is not free of billing consequences once the inserted number of hours is passed [@CL-SUP-2677; @CL-SUP-2737].
 
+The clauses on utility service scope, duration and change in class of service are covered in [Utility service scope, duration and change in class of service](sup-utility-scope-duration-and-class-change.md).
+
 ## Company calibration
 
 Confirm which meters serve each site, who reads and tests them, and where meter records and bills are held. [@Q-021]
@@ -88,5 +90,6 @@ Confirm which meters serve each site, who reads and tests them, and where meter 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility service scope and duration.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor's facilities and the service provisions.

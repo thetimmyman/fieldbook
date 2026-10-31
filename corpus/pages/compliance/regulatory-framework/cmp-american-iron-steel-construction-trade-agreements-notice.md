@@ -59,6 +59,8 @@ The 25 percent is applied to the offered price of the contract, while the 20 per
 
 The codified FAR 52.225-24 carries the notice provision and its evaluation rules, while the RFO text prints that section number as reserved [@CL-CMP-5412; @CL-CMP-0373].
 
+The companion clause on required use is covered in [Required use of American iron, steel and manufactured goods in construction under trade agreements](cmp-american-iron-steel-construction-trade-agreements.md), and the related clause and provision on American iron, steel and manufactured goods in construction are covered in [Required use of American iron, steel and manufactured goods, and its notice provision](../../supply-chain/supplier-identity/sup-american-iron-steel-manufactured-goods.md).
+
 ## Company calibration
 
 Whether each solicitation includes this provision and what supporting data goes in with the offer. [@Q-004]
@@ -67,5 +69,6 @@ Whether each solicitation includes this provision and what supporting data goes 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the companion required-use clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of required use of American iron, steel and manufactured goods under trade agreements.

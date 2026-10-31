@@ -55,6 +55,8 @@ A contract runs for 12 months at a stated minimum monthly charge of 4,000. Servi
 
 The class-of-service clause says which schedule applies after the class changes [@CL-SUP-2670]. A change in rates or terms and conditions follows a separate path; see [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md).
 
+The clauses on the contractor's facilities and the utility service provisions are covered in [Contractor's facilities and utility service provisions](sup-utility-facilities-and-service-provisions.md).
+
 ## Company calibration
 
 Confirm which rate schedule each site is billed on and who checks it against the class of service in the contract. [@Q-004]
@@ -63,5 +65,6 @@ Confirm which rate schedule each site is billed on and who checks it against the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility facilities and service provisions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for utility service scope, duration and change in class of service.

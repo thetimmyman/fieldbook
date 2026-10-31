@@ -70,6 +70,8 @@ A class of worker the wage determination does not list is to be employed. The Co
 
 The site of the work is not every place where the contractor performs support work. A permanent home office or a fabrication plant whose location and continuance in operation are determined wholly without regard to a particular Federal contract is outside it [@CL-CMP-6128], and a secondary site must be located in the United States and established specifically for the performance of the contract or project [@CL-CMP-5818]. The wage determination, not the employer's own pay scale, sets the floor [@CL-CMP-5820]. An unlisted class of worker is also not paid at an employer-chosen rate: it is classified in conformance with the wage determination, and an additional classification needs the Contracting Officer's approval [@CL-CMP-5822; @CL-CMP-5823]. Under the codified clause the contracting officer approves an additional classification only when all the listed criteria are met [@CL-CMP-5823], while the RFO paragraph (c) has the contractor complete and submit Standard Form 1444 and the contracting officer submit a report to the Administrator, and it prints no criteria [@CL-CMP-0936; @CL-CMP-0937; @CL-CMP-0938].
 
+The provision on secondary site of the work notifications and wage determination requests is covered in [Secondary site of the work notifications and wage determination requests](cmp-secondary-site-of-the-work.md).
+
 ## Company calibration
 
 Which executed construction contracts and modifications carry the clause, and who confirms that the clause and its wage determination, including any determination for a secondary site, are in them. [@Q-004]
@@ -78,5 +80,6 @@ Which executed construction contracts and modifications carry the clause, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the secondary site of the work provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction wage rate requirements.

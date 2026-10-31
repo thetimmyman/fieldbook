@@ -62,6 +62,8 @@ A second solicitation uses the block provision with the second alternate. The of
 
 An optional benefit and an award condition are easily mixed up. In the block provision, seeking SAFETY Act benefits is up to the offeror, and in the coverage-not-applicable provision and the basic block provision a proposal made contingent on designation is not considered for award [@CL-CMP-5586; @CL-CMP-5716]. With the first alternate, a contingent proposal may be submitted, but the Government may not award on it unless the offeror shows before award that the designation was issued [@CL-CMP-5589; @CL-CMP-5590]. With the second alternate, the offer presumes designation, and eligibility turns on a timely, good-faith application and agreement to obtain the required insurance [@CL-CMP-5719; @CL-CMP-5591; @CL-CMP-5720].
 
+The pre-qualification designation notice and the equitable adjustment clause are covered in [SAFETY Act pre-qualification notice and equitable adjustment](cmp-safety-act-prequalification-and-equitable-adjustment.md).
+
 ## Company calibration
 
 Whether the solicitation carries either SAFETY Act provision and which alternate applies, and who confirms the clause set in the executed contract. [@Q-004]
@@ -70,5 +72,6 @@ Whether the solicitation carries either SAFETY Act provision and which alternate
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on SAFETY Act pre-qualification and equitable adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAFETY Act coverage and block designation.

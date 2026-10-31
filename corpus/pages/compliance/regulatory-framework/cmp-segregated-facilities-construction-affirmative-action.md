@@ -56,6 +56,8 @@ The segregated facilities clause is about the facilities the contractor maintain
 
 The rules on this page come from the codified text, and the RFO text prints the same three section numbers as reserved [@CL-CMP-5684; @CL-CMP-5685; @CL-CMP-5686; @CL-CMP-5876; @CL-CMP-5880; @CL-CMP-5882].
 
+The equal opportunity clause is covered in [Equal opportunity duties on a covered Federal contract](cmp-equal-opportunity-clause.md), the construction affirmative action compliance clause in [Affirmative action compliance requirements for construction](cmp-affirmative-action-requirements-for-construction.md), and the policy on construction goals and preaward clearance in [Equal employment opportunity: construction goals and preaward clearance](cmp-eeo-construction-affirmative-action-and-preaward-clearance.md).
+
 ## Company calibration
 
 Whether each covered construction subcontract carries the segregated facilities clause and whether the written notice was sent on time. [@Q-004]
@@ -64,5 +66,6 @@ Whether each covered construction subcontract carries the segregated facilities 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on equal opportunity and construction affirmative action.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for segregated facilities, construction goals and the preaward evaluation.

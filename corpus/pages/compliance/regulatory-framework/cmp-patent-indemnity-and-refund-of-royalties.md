@@ -50,6 +50,8 @@ The contract price includes 20,000 for royalties. The final statement shows that
 
 The refund clause is not the allowability test for royalty cost; that test sits in the royalties cost principle covered on its own card. The patent indemnity clause is also not the Government's authorization and consent to use patented inventions, which is a separate clause covered on the [authorization and consent card](cmp-authorization-and-consent-clause.md). The refund clause is likewise not the royalty disclosure that an offeror makes with its offer, which has its own [royalty information card](cmp-royalty-information-provision.md). The indemnity concerns infringement liability, while the refund clause concerns royalties already in the contract price [@CL-CMP-3611; @CL-CMP-3620].
 
+The notice and assistance clause and the construction patent indemnity are covered in [Patent and copyright notice, assistance and indemnity duties](cmp-patent-and-copyright-notice-and-indemnity.md).
+
 ## Company calibration
 
 Which executed contracts carry the indemnity and refund clauses, with any alternates, and where royalties are tracked for the statement due before final payment. [@Q-004]
@@ -58,5 +60,6 @@ Which executed contracts carry the indemnity and refund clauses, with any altern
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on patent and copyright notice and construction indemnity.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent indemnity and refund of royalties.

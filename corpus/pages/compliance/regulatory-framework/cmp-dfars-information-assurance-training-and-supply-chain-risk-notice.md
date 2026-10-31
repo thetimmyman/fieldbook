@@ -47,6 +47,8 @@ Assume a contractor has 40 staff on a help desk, and 12 of them perform informat
 
 The notice provision is not the clause that puts a mitigation duty on the contractor. The provision tells offerors what the Government may consider and that disclosure limits are not reviewable [@CL-CMP-4606; @CL-CMP-4607]. The mitigation clause is covered in [Supply chain risk and telecommunications security equipment](../trade-cyber/cmp-supply-chain-risk-and-telecommunications-security-equipment.md). The training clause is also about certified people, not about the offeror's supply chain [@CL-CMP-4602], and not about the safeguarding of contractor information systems, which is covered in [Basic safeguarding clause controls](cmp-basic-safeguarding-clause-controls.md).
 
+The FAR clause on privacy training for contractor employees is covered in [Privacy training for contractor employees](cmp-privacy-training.md).
+
 ## Company calibration
 
 Which contracts carry the training clause or the notice provision, and who tracks the certification status of personnel who access Department of Defense information systems. [@Q-004]
@@ -55,4 +57,5 @@ Which contracts carry the training clause or the notice provision, and who track
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on privacy training.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for information assurance training and the supply chain risk notice.

@@ -62,6 +62,8 @@ A separate solicitation carries the disaster or emergency area set-aside, with t
 
 A teaming arrangement between an offeror and its small business subcontractors exists through a written agreement that carries the arrangement's name and sets out roles and work shares, not through a loose understanding between firms [@CL-SUP-3004; @CL-SUP-2957]. A disaster or emergency area set-aside limits who may offer by location, so an offer from outside the area is not considered [@CL-SUP-2960]. The area set-aside adds to a small business set-aside and does not replace it [@CL-SUP-2975].
 
+The standard and streamlined competition notices and the right of first refusal clause are covered in [Standard and streamlined competition notices and right of first refusal of employment](sup-competition-notices-and-right-of-first-refusal.md).
+
 ## Company calibration
 
 Whether the company's teaming agreements are in writing, carry the arrangement name, and state the roles and work shares. [@Q-004]
@@ -70,6 +72,7 @@ Whether the company's teaming agreements are in writing, carry the arrangement n
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on competition notices and right of first refusal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the review question to drop a filing deadline the provision does not set.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business teaming arrangements and disaster area set-asides.

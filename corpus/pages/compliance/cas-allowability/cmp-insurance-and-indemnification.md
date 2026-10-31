@@ -50,6 +50,8 @@ A contractor buys business liability insurance for a commercial premium of 100,0
 
 Purchased commercial insurance premiums differ from actual uninsurable losses. Nominal deductibles under sound commercial policies are allowable, but unreserved catastrophic losses and premiums that insure the cost of correcting the contractor's own defects cannot be converted into allowable insurance charges. The codified text states the defect-insurance prohibition and the fortuitous-loss allowance in one paragraph, (e)(3) [@CL-CMP-0844], while the RFO text puts them in separate paragraphs (e)(3) and (e)(4) [@CL-CMP-9433; @CL-CMP-9434].
 
+The clause on indemnification and medical liability insurance for health care services is covered in [Indemnification and medical liability insurance](../regulatory-framework/cmp-medical-liability-indemnity-and-insurance.md).
+
 ## Company calibration
 
 How unallowable insurance charges and unapproved self-insurance reserves are excluded from indirect cost pools. [@Q-044]
@@ -58,5 +60,6 @@ How unallowable insurance charges and unapproved self-insurance reserves are exc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on medical liability indemnity and insurance.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for insurance and indemnification.

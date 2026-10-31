@@ -62,6 +62,8 @@ The contractor notified the contracting officer promptly when the claim arrived 
 
 Insurance and this indemnity are different layers. The policy pays under its own terms, while the clause reaches only the part of a claim that insurance or other compensation does not cover, and it excludes loss of profit from the contractor-property and Government-property items [@CL-CMP-5575; @CL-CMP-5577]. A deductible gap stays with the contractor rather than becoming an indemnified loss [@CL-CMP-5578]. A right to indemnity is also not a right to payment: payment waits for the agency head's determination that the amount is just and reasonable [@CL-CMP-5583]. Alternate I belongs only to cost-reimbursement contracts and is not part of the basic clause [@CL-CMP-5706].
 
+The DFARS clauses on indemnification for unusually hazardous risks are covered in [Indemnification for unusually hazardous risks (DFARS)](../../supply-chain/sourcing-evidence/sup-dfars-indemnification-unusually-hazardous-risks.md), and the cost principle on insurance and indemnification is covered in [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md).
+
 ## Company calibration
 
 Which contracts contain the clause and who confirms that the defined risk and the insurance limits match what the clause assumes. [@Q-004]
@@ -70,5 +72,6 @@ Which contracts contain the clause and who confirms that the defined risk and th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on DFARS indemnification and insurance costs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Public Law 85-804 indemnification.

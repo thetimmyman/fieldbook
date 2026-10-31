@@ -46,6 +46,8 @@ A work package is budgeted at 120,000 and planned to finish in four months. At t
 
 Schedule status and physical progress are not the same measure. Schedule status is time-based, while assessing physical progress is what determines the budget earned [@CL-PRG-0289; @CL-PRG-0287].
 
+The guideline on performance measurement criteria for each work package is covered in [EVMS Guideline 10: performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md), and the guideline on calculating schedule variance and cost variance is covered in [Calculate schedule variance and cost variance](prg-evms-guideline-17-schedule-cost-variance.md).
+
 ## Company calibration
 
 Which contracts the company measures this way, whether the system has been validated, and which earned value technique is documented for each work package. [@Q-037]
@@ -54,5 +56,6 @@ Which contracts the company measures this way, whether the system has been valid
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: replaced unsupported sentences and added the level of effort baseline date claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 14 progress assessment.

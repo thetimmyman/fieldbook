@@ -46,6 +46,8 @@ A prime contractor pays its weekly payroll on a Friday. Copies of the payroll an
 
 The payroll examination is not a labor standards investigation. The examination is the routine reading of the weekly records [@CL-CMP-3038]. An investigation follows a compliance check that indicates substantial or willful violations or violations not corrected [@CL-CMP-3040]. Withholding and suspension of contract payments are on [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md), and this card does not restate them. How a contractor's disagreement with enforcement findings is routed is on [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md), and the pay rules the payrolls are checked against are on [Construction wages, fringe benefits, overtime and additional classifications](cmp-construction-wages-overtime-and-additional-classifications.md).
 
+The clauses on payrolls, basic records and withholding of funds are covered in [Payrolls, basic records and withholding of funds under the labor standards clauses](cmp-payrolls-basic-records-and-withholding.md).
+
 ## Company calibration
 
 Who receives investigation findings and rebuttal deadlines, and who owns the response. [@Q-014]
@@ -54,4 +56,5 @@ Who receives investigation findings and rebuttal deadlines, and who owns the res
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on payrolls, basic records and withholding clauses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction payrolls, statements of compliance and investigations.

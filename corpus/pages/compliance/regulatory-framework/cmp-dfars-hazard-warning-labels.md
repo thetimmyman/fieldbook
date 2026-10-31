@@ -47,6 +47,8 @@ An offeror will deliver two hazardous materials. One is subject to the labelling
 
 The hazard warning label is not the shipping marking: the clause separately requires compliance with MIL-STD-129, Marking for Shipment and Storage [@CL-CMP-4497]. The data sheet is also a separate document, which the Offeror submits together with the label copy [@CL-CMP-4542]. Other hazardous-material duties sit in other clauses, such as the bar on storing or disposing of non-DoD hazardous materials on an installation; see [Prohibition on storage, treatment and disposal of toxic or hazardous materials (DFARS)](cmp-dfars-toxic-hazardous-material-storage-prohibition.md) and [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md).
 
+The FAR clause on hazardous material identification and material safety data is covered in [Hazardous material identification and material safety data](cmp-hazardous-material-identification-and-material-safety-data.md).
+
 ## Company calibration
 
 Which executed contracts carry the clause, and which hazardous materials the company delivers under each. [@Q-004]
@@ -55,4 +57,5 @@ Which executed contracts carry the clause, and which hazardous materials the com
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on hazardous material identification and data sheets.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hazard warning labels.

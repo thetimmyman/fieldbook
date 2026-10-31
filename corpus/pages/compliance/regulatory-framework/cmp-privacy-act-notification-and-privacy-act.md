@@ -64,6 +64,8 @@ The notification and the Privacy Act clause are different clauses. The notificat
 
 The codified prescription conditions each clause on the design, development or operation of a system of records on individuals being required to accomplish an agency function [@CL-CMP-5524; @CL-CMP-5625], but the RFO prescription lines print no such condition [@CL-CMP-1908; @CL-CMP-1909]. In the RFO clause text, the duty to comply still applies when the contract specifically identifies the systems of records and the work the contractor is to perform [@CL-CMP-1913; @CL-CMP-5626].
 
+The privacy training clause is covered in [Privacy training for contractor employees](cmp-privacy-training.md).
+
 ## Company calibration
 
 Confirm which contracts call for designing, developing or operating a system of records, and who verifies that the notification and the clause reach each subcontract. [@Q-004]
@@ -72,5 +74,6 @@ Confirm which contracts call for designing, developing or operating a system of 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on privacy training.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Privacy Act notification and Privacy Act clauses.

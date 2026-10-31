@@ -50,6 +50,8 @@ Another contract's waiver clause identifies one United States patent by number. 
 
 Notice is not indemnity. Reporting a claim and furnishing evidence are duties under the notice clause, while the construction clause shifts liability for infringement to the contractor [@CL-CMP-5599; @CL-CMP-5600; @CL-CMP-5602]. The cost of furnishing evidence is the Government's unless the contractor has agreed to indemnify [@CL-CMP-5601]. A waiver runs the other way: the Government consents to use of the identified patents solely in performing the contract and gives up the contractor's indemnity for them [@CL-CMP-5605; @CL-CMP-5747]. The construction indemnity and its alternate belong only to the construction clause, not to the notice clause [@CL-CMP-5598; @CL-CMP-5744; @CL-CMP-5745].
 
+The patent indemnity and refund of royalties clauses are covered in [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md), and the authorization and consent clause is covered in [Authorization and consent for patent use](cmp-authorization-and-consent-clause.md).
+
 ## Company calibration
 
 Which contracts carry the notice clause, the construction indemnity or a waiver, and who confirms the patent list in each. [@Q-004]
@@ -58,5 +60,6 @@ Which contracts carry the notice clause, the construction indemnity or a waiver,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on patent indemnity and authorization and consent.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for patent and copyright notice, assistance and indemnity.

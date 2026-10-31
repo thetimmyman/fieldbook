@@ -45,6 +45,8 @@ A registrant has variable-rate debt of 100 and chooses the sensitivity analysis 
 
 Sensitivity analysis and value at risk both express potential loss, but sensitivity analysis rests on selected hypothetical changes in rates or prices [@CL-FPA-0133; @CL-FPA-0172], while value at risk is stated over a selected period of time with a selected likelihood of occurrence [@CL-FPA-0134]. Both differ from the tabular alternative, which presents instruments with fair values and contract terms by expected maturity [@CL-FPA-0132]. The qualitative items describe exposures and their management in words and do not replace the quantitative alternatives [@CL-FPA-0131; @CL-FPA-0135].
 
+The management discussion of liquidity is covered in [MD&A objective and liquidity for public registrants](../planning-chain/fpa-mdna-objective-and-liquidity.md), and the risk factor disclosure is covered in [Risk factor disclosure for public registrants](fpa-risk-factors.md).
+
 ## Company calibration
 
 Which market risk sensitive instruments the company holds and how they tie to its ledger and treasury data. [@Q-017]
@@ -53,5 +55,6 @@ Which market risk sensitive instruments the company holds and how they tie to it
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on MD&A liquidity and risk factors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the sensitivity analysis sentence so the alternative keeps the duty to describe the model, assumptions and parameters.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for market risk disclosure.

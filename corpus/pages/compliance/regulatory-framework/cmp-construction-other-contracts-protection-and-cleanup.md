@@ -65,6 +65,8 @@ Later its excavator, operated without reasonable care, cracks a third-party wate
 
 Cooperating with other contractors is not a suspension of work. This clause makes accommodating the additional work part of the contractor's own scheduling and performance [@CL-CMP-4877], and Government suspension or delay of work is a separate mechanism, set out on [Suspension and Government delay of work](cmp-suspension-and-government-delay-of-work.md). Protecting existing facilities is not a guarantee against all damage, because the repair duty attaches to damage resulting from failure to comply with the contract or to exercise reasonable care [@CL-CMP-5047]. Cleaning up is also not repairing damage: one is a duty to keep the area free of waste and to remove non-Government items [@CL-CMP-5048; @CL-CMP-4881], the other is a repair duty for facilities harmed by the work [@CL-CMP-5047]. The codified protection duty covers improvements and utilities whose locations are made known to or should be known by the contractor [@CL-CMP-4879], while the RFO sentence covers existing improvements and utilities at or near the work site, on adjacent property of a third party, and on or near transportation paths and routes, without that qualifier [@CL-CMP-0733; @CL-CMP-0734]. The codified clause ends with leaving the work area clean, neat and orderly in a condition satisfactory to the contracting officer [@CL-CMP-5049], while the RFO clause places the clean, neat, orderly condition in the duty to keep the work area [@CL-CMP-0737].
 
+The corresponding provision and clause for services on Government installations are covered in [Site visit and protection of Government buildings, equipment and vegetation](../../supply-chain/procure-to-pay/sup-site-visit-and-protection-of-government-property.md).
+
 ## Company calibration
 
 Which contracts share the site, and who owns the protection and repair record for adjacent property. [@Q-004]
@@ -73,5 +75,6 @@ Which contracts share the site, and who owns the protection and repair record fo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on site visit and protection of Government property.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for other contracts at the site, protection of existing property and cleaning up.

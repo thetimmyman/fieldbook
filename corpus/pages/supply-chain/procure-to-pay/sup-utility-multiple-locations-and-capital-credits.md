@@ -54,6 +54,8 @@ A contract covers one site. In the third month the Contracting Officer orders se
 
 A change of location is made by written order and a modification, and it prorates the monthly charge from the period the change takes effect [@CL-SUP-2706; @CL-SUP-2707; @CL-SUP-2708]. Capital credits are an entitlement of membership under the bylaws, paid by check, and are not a change to the rate schedule [@CL-SUP-2709; @CL-SUP-2710].
 
+The clauses on termination liability and the nonrefundable service charge are covered in [Utility termination liability and nonrefundable service charge](sup-utility-termination-liability-and-service-charge.md).
+
 ## Company calibration
 
 Confirm which sites sit on the contract, which modifications added them, and where capital credit lists and checks are received. [@Q-004]
@@ -62,5 +64,6 @@ Confirm which sites sit on the contract, which modifications added them, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility termination liability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiple service locations and capital credits.

@@ -48,6 +48,8 @@ A fixed-price building contract to be performed in the United States is worth 3,
 
 The labor standards disputes clause is not the general disputes clause [@CL-CMP-3049]. The approval of wage rates clause has its own insertion rule for cost-reimbursement construction [@CL-CMP-3045], separate from the first listed clauses, which go in solicitations and contracts for construction within the United States above the stated amount [@CL-CMP-3043]. The money rules for withholding and suspension are on [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md), and this card only lists the clause names. The payroll and investigation steps that follow from the payroll clause are on [Construction payrolls and statements of compliance, and labor standards investigations](cmp-construction-payrolls-statements-and-investigations.md).
 
+The clauses on labor standards disputes, certification of eligibility and approval of wage rates are covered in [Labor standards disputes, certification of eligibility and approval of wage rates](cmp-labor-standards-disputes-and-eligibility.md), and the clauses on subcontracts, termination for debarment and incorporated rulings are covered in [Labor standards subcontracts, termination for debarment and incorporated rulings](cmp-labor-standards-subcontracts-and-debarment.md).
+
 ## Company calibration
 
 Which labor standards disputes or appeals are open and who owns each response. [@Q-014]
@@ -56,4 +58,5 @@ Which labor standards disputes or appeals are open and who owns each response. [
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the labor standards clauses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction labor standards disputes and contract clauses.

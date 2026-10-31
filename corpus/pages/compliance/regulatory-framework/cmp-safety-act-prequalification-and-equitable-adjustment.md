@@ -60,6 +60,8 @@ Under the second alternate to the provision, a different offeror files its desig
 
 A pre-qualification designation notice is not a designation. The notice is the Government's statement that the technology affirmatively or presumptively satisfies the technical criteria, and the offeror must still apply [@CL-CMP-5593; @CL-CMP-5594; @CL-CMP-5724]. The notice changes how an application is processed, while the equitable adjustment clause deals with the contract price and other terms when DHS denies the designation on which prices were based [@CL-CMP-5594; @CL-CMP-5596; @CL-CMP-5597; @CL-CMP-5739]. The equitable adjustment clause also gives no automatic payment: the contractor must have pursued designation and insurance in good faith, must request within the time limit, and the contracting officer may terminate for convenience instead [@CL-CMP-5737; @CL-CMP-5597; @CL-CMP-5740].
 
+The coverage and block designation provisions are covered in [SAFETY Act coverage and block designation provisions](cmp-safety-act-coverage-and-block-designation.md).
+
 ## Company calibration
 
 Which contracts were priced on an expected SAFETY Act designation, and who tracks the application and request deadlines. [@Q-004]
@@ -68,5 +70,6 @@ Which contracts were priced on an expected SAFETY Act designation, and who track
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on SAFETY Act coverage and block designation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the SAFETY Act pre-qualification notice and equitable adjustment.

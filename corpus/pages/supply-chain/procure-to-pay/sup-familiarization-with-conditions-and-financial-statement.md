@@ -48,6 +48,8 @@ An offeror prices a household goods move at 18,000 without reading the safety no
 
 Familiarization with conditions is a duty to learn, and failing to learn does not relieve the offeror of responsibility for its estimate [@CL-SUP-2205]. The financial statement is a separate request: the Government uses the information to determine financial responsibility and ability to perform [@CL-SUP-2206; @CL-SUP-2207]. The codified text prints a provision on furnishing a current certified statement of financial condition [@CL-SUP-2206], while the RFO text lists FAR 52.247-6 as [Reserved] [@CL-SUP-0245].
 
+The permits, authorities and site inspection provisions for transportation service contracts are covered in [Permits, authorities and site inspection for transportation service contracts](sup-transportation-permits-authorities-and-inspection.md).
+
 ## Company calibration
 
 Confirm that the company can produce a current certified financial statement on request and records the conditions it reviewed for each bid. [@Q-004]
@@ -56,5 +58,6 @@ Confirm that the company can produce a current certified financial statement on 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on transportation permits and site inspection.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for familiarization with conditions and the financial statement.

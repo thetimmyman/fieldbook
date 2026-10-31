@@ -45,6 +45,8 @@ A business unit wins a negotiated award of 40 million, above an exemption thresh
 
 CAS coverage decides which cost accounting rules apply; Allowability decides whether a cost may be charged at all. A business unit is a segment, or the whole organization if it has no segments.
 
+The Cost Accounting Standards statute itself, and how a contract reaches it through FAR part 30, are covered in [What the Cost Accounting Standards statute requires and who it applies to](cmp-cas-statute-scope-and-application.md).
+
 ## Company calibration
 
 Which business units are CAS-covered, at what level, and whether a Disclosure Statement is on file. [@Q-033]
@@ -53,4 +55,5 @@ Which business units are CAS-covered, at what level, and whether a Disclosure St
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the Cost Accounting Standards statute.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CAS thresholds in force from 2026-10-01.

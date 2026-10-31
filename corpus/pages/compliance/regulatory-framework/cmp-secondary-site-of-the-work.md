@@ -47,6 +47,8 @@ An offeror plans to build 3 of 10 modules at a yard in the United States that it
 
 A secondary site is not any off-site yard. It is a site where a significant portion of the building or work is constructed, located in the United States and established specifically for the performance of the contract or project [@CL-CMP-5818]. A request for a wage determination is also not a request for more time, because the offer due date is not extended for it [@CL-CMP-5864].
 
+The Construction Wage Rate Requirements clause is covered in [Construction wage rate requirements: minimum wages, fringe benefits and posting](cmp-construction-wage-rate-requirements.md), and how general and project wage determinations are requested is covered in [Construction wage determinations: general and project types and how each is requested](cmp-construction-wage-determination-types-and-requests.md).
+
 ## Company calibration
 
 Which solicitations and offers inside the finance remit contemplate a secondary site of the work, and who confirms the notification and the wage determination request. [@Q-003]
@@ -55,5 +57,6 @@ Which solicitations and offers inside the finance remit contemplate a secondary 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction wage rate requirements and wage determinations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction wage rate requirements at a secondary site of the work.

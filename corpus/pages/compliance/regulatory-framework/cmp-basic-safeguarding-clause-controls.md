@@ -50,6 +50,8 @@ The clause sets a basic set of controls for covered contractor information syste
 
 In the codified clause the exception for commercially available off-the-shelf items is written after both commercial products and commercial services [@CL-CMP-3557], while the RFO clause writes it after commercial products and before commercial services [@CL-CMP-0527].
 
+The clause on privacy or security safeguards, with the drone prohibition, is covered in [Privacy or security safeguards and the drone prohibition](cmp-privacy-and-security-safeguards-and-drone-prohibition.md).
+
 ## Company calibration
 
 Which company systems process, store or transmit Federal contract information, and who owns the basic safeguarding controls on them. [@Q-014]
@@ -58,5 +60,6 @@ Which company systems process, store or transmit Federal contract information, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on privacy or security safeguards and the drone prohibition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for basic safeguarding of covered contractor information systems.

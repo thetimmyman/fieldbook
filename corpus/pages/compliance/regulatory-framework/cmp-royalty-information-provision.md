@@ -48,6 +48,8 @@ A response includes royalty charges of 180 on one item and 90 on another, 270 in
 
 Royalty information is a disclosure made with the offer. It does not decide whether the royalty cost is allowable; see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md) and, for other patent costs, [Patent costs](../cas-allowability/cmp-patent-costs.md). It is also not the refund of royalties clause, covered on the [patent indemnity and refund of royalties card](cmp-patent-indemnity-and-refund-of-royalties.md), which works from the statement of royalties furnished before final payment [@CL-CMP-3619].
 
+The Government licensee notice, the major system minimum rights clause and the proposal data clause are covered in [Government licensee notice, major system minimum rights and proposal data](cmp-patent-licensee-notice-and-data-rights.md).
+
 ## Company calibration
 
 How the company totals royalty charges in each response, and who confirms that the provision applies to the solicitation. [@Q-004]
@@ -56,5 +58,6 @@ How the company totals royalty charges in each response, and who confirms that t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on Government licensee notice and data rights.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for royalty information.

@@ -46,6 +46,8 @@ A planned contract has a base price of 6 million and priced options of 2 million
 
 The threshold test uses the final anticipated value including all options [@CL-CMP-2010], so the base price alone is not the test value. The two conditions for a new certification are alternatives, not cumulative [@CL-CMP-2008], while the second condition itself needs both written justification and written approval [@CL-CMP-2009].
 
+The simplified acquisition and micro-purchase thresholds are covered in [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md), the inflation adjustment of thresholds in [Inflation adjustment of acquisition-related dollar thresholds](cmp-inflation-adjustment-of-thresholds.md), and the publication of significant FAR revisions for public comment in [Publication of significant FAR revisions for public comment](cmp-significant-far-revisions-public-comment.md).
+
 ## Company calibration
 
 Which executed contracts carry thresholds measured on a value that includes options, and who confirms the FAR text each contract was awarded under. [@Q-004]
@@ -54,4 +56,5 @@ Which executed contracts carry thresholds measured on a value that includes opti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on thresholds and FAR revisions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for new certification requirements and FAR conventions.

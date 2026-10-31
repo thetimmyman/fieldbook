@@ -56,6 +56,8 @@ A mission needs State tags for six leased trucks, so the contractor sends the Go
 
 Tagging is about plates, while a supply source authorization is about ownership: property bought that way vests in the Government unless the contract says otherwise [@CL-SUP-2938; @CL-SUP-2942]. The fleet vehicle clause governs how authorized vehicles and related services are used, serviced and maintained, while the supply sources clause decides who owns what is bought [@CL-SUP-2986; @CL-SUP-2942]. The codified fleet vehicle clause covers interagency fleet management system vehicles and cites 41 CFR 101-38.301-1, while the RFO clause covers GSA Fleet vehicles and cites 41 CFR 102-34 [@CL-SUP-2940; @CL-SUP-2986; @CL-SUP-0633; @CL-SUP-0634].
 
+The clauses on vehicle lease payments, condition of leased vehicles and marking of leased vehicles are covered in [Vehicle lease payments, condition of leased vehicles and marking of leased vehicles](sup-vehicle-lease-payments-condition-and-marking.md).
+
 ## Company calibration
 
 Who reconciles vehicle tags, fleet authorizations and Government supply source purchases to the property records. [@Q-021]
@@ -64,5 +66,6 @@ Who reconciles vehicle tags, fleet authorizations and Government supply source p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on leased vehicle payments and marking.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tagging of leased vehicles and Government supply sources.

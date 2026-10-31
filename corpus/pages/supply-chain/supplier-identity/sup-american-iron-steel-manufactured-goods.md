@@ -101,6 +101,8 @@ The clause is for performance and the provision is for offers. The clause on con
 
 The codified clause requires American iron, steel and manufactured construction material [@CL-SUP-2811; @CL-SUP-2812], and the codified notice provision sets out the offer evaluation [@CL-SUP-2892; @CL-SUP-2817], but the RFO text prints only reserved headings under FAR 52.225-21 and FAR 52.225-22 [@CL-SUP-3539; @CL-SUP-3540].
 
+The same subject for construction under trade agreements is covered in [Required use of American iron, steel and manufactured goods in construction under trade agreements](../../compliance/regulatory-framework/cmp-american-iron-steel-construction-trade-agreements.md) and [Notice of required use of American iron, steel and manufactured goods in construction under trade agreements](../../compliance/regulatory-framework/cmp-american-iron-steel-construction-trade-agreements-notice.md).
+
 ## Company calibration
 
 How the company evidences where its iron and steel were produced, and who approves a request to use foreign material. [@Q-021]
@@ -109,5 +111,6 @@ How the company evidences where its iron and steel were produced, and who approv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on American iron and steel in construction under trade agreements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for required use of American iron, steel and manufactured goods.

@@ -47,6 +47,8 @@ The company pays 5,000 to a local school and 3,000 to a national charity, and bo
 
 Contributions and donations are often relabelled as marketing, community relations or employee relations spend. The section tests neither the label nor the recipient, so a renamed donation stays unallowable. Barred balances are screened out before they reach a rate, as described in [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
 
+The clause that encourages donating excess food, with its subcontract flowdown, is covered in [Promoting excess food donation and encouraging policies against text messaging while driving](../regulatory-framework/cmp-excess-food-donation-and-texting-policy.md).
+
 ## Company calibration
 
 Which ledger accounts carry donations, sponsorships and community payments, and who clears those balances before they reach a rate pool. [@Q-044]
@@ -55,4 +57,5 @@ Which ledger accounts carry donations, sponsorships and community payments, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on excess food donation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contributions and donations.

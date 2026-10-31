@@ -58,6 +58,8 @@ The compliance requirement in the right-to-know clause is stated for Federal fac
 
 In the codified text, FAR 52.223-10 carries the waste reduction program duty and FAR 52.223-19 carries the duty to conform with environmental management systems controls [@CL-CMP-5185; @CL-CMP-5187], but the RFO text prints both of those numbers as [Reserved] [@CL-CMP-1117; @CL-CMP-1118].
 
+The clauses on hazardous material identification and material safety data and on notice of radioactive materials are covered in [Hazardous material identification and material safety data](cmp-hazardous-material-identification-and-material-safety-data.md) and [Notice of radioactive materials](cmp-notice-of-radioactive-materials.md).
+
 ## Company calibration
 
 Which contracts carry each of these clauses, which sites are Federal facilities, and who signs off the waste reduction program and the monitoring data. [@Q-004]
@@ -66,5 +68,6 @@ Which contracts carry each of these clauses, which sites are Federal facilities,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on hazardous material and radioactive material clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for environmental information, waste reduction and management systems.

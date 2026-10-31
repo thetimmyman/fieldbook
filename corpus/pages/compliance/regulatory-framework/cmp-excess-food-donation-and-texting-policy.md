@@ -59,6 +59,8 @@ Encouraged is not the same as required. The donation and the driving policies ar
 
 The codified food clause carries a paragraph that requires inserting the clause in covered subcontracts for the provision, service or sale of food in the United States [@CL-CMP-5443; @CL-CMP-5522], but in the RFO text (End of clause) follows directly after the sentence on State or local health regulations, with no subcontract paragraph printed between them [@CL-CMP-1154]. The codified text encourages donation to the maximum extent practicable and safe, and the RFO text encourages it where practical and safe [@CL-CMP-5441; @CL-CMP-1122].
 
+The cost principle on contributions and donations is covered in [Contributions and donations as unallowable costs](../cas-allowability/cmp-contributions-donations.md).
+
 ## Company calibration
 
 Which subcontracts cross the flowdown thresholds and who confirms each clause is inserted. [@Q-004]
@@ -67,6 +69,7 @@ Which subcontracts cross the flowdown thresholds and who confirms each clause is
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on contributions and donations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the food donation statute by its U.S. Code location and split its liability claim to match.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for excess food donation and text messaging policies.

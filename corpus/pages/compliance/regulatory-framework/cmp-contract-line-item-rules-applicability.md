@@ -44,6 +44,8 @@ A task order is placed against a multiple-award contract with a ceiling of 50 mi
 
 The line item rules are not the identifier rules for the procurement instrument itself: the subpart on line items covers the identifiers of line items and subline items, while the separate subpart on procurement instrument identifiers covers the unique identifier of each solicitation, contract, agreement, or order [@CL-CMP-8597; @CL-CMP-8599]. This card covers the first of those two; for the second, see [Procurement instrument identifiers and supplementary identifiers](../trade-cyber/cmp-piid-and-supplementary-piid.md). The part-wide definitions of a unique identifier and a supplementary identifier are on [Scope of FAR part 4 and its identifier definitions](cmp-part-4-administrative-matters-scope-and-definitions.md) [@CL-CMP-8283; @CL-CMP-8284].
 
+Alternative line item proposals, and the market research duty before certain subcontract awards, are covered in [Market research and alternative line item proposals](../../estimating/pricing/est-market-research-and-alternative-line-items.md).
+
 ## Company calibration
 
 Where the company keeps the executed contracts and modifications, and who confirms which line item rules reached each one. [@Q-004]
@@ -52,4 +54,5 @@ Where the company keeps the executed contracts and modifications, and who confir
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on market research and alternative line items.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for which procurement instruments the contract line item and subline item rules apply to.

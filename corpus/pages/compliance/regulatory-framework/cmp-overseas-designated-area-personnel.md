@@ -80,6 +80,8 @@ A team of 12 deploys to a designated operational area during a contingency opera
 
 This clause is separate from the clause on private security functions. Its personnel are civilians, and deadly force is confined to self-defense except for the security-function authority stated above [@CL-CMP-5419; @CL-CMP-5459]. Liability for the use of a weapon rests with the Contractor and the employee using it, even when the weapon is Government-furnished [@CL-CMP-5479].
 
+The FAR clause on private security functions outside the United States is covered in [Sudan restricted business operations certification and private security functions outside the United States](cmp-sudan-certification-and-private-security.md), the DFARS clause on private security functions in [Defense contractors performing private security functions outside the United States](cmp-private-security-functions-outside-the-united-states.md), and the DFARS clause on contractor personnel supporting deployed forces in [Contractor personnel supporting deployed forces: definitions, support, compliance and pre-deployment duties](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
+
 ## Company calibration
 
 Which personnel deploy under this clause and who keeps their clearances, training and registration current. [@Q-003]
@@ -88,5 +90,6 @@ Which personnel deploy under this clause and who keeps their clearances, trainin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on private security and deployed personnel clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor personnel in a designated operational area or supporting a diplomatic or consular mission.
