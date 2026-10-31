@@ -35,7 +35,7 @@ Notwithstanding any other payment clause in the contract, the Government will ma
 
 ## How it works
 
-The Government considers payment as made on the day a check is dated or the date of an electronic funds transfer [@CL-CTF-1754]. If the contract provides for contract financing, contract financing payments are made in accordance with the applicable contract financing clause, so the financing clause continues to govern [@CL-CTF-1757]. If the contractor becomes aware of a duplicate contract financing or invoice payment, or that the Government has otherwise overpaid on a contract financing or invoice payment, it shall remit the overpayment amount to the payment office cited in the contract [@CL-CTF-1759]. The clause text sets no fixed number of days for payment, so the due date is the matching event described above rather than a fixed period.
+The Government considers payment as made on the day a check is dated or the date of an electronic funds transfer [@CL-CTF-1754]. If the contract provides for contract financing, contract financing payments are made in accordance with the applicable contract financing clause, so the financing clause continues to govern [@CL-CTF-1757]. If the contractor becomes aware of a duplicate contract financing or invoice payment, or that the Government has otherwise overpaid on a contract financing or invoice payment, it shall remit the overpayment amount to the payment office cited in the contract, along with a description of the overpayment that includes the circumstances of the overpayment, the affected contract number and delivery order number if applicable, the affected line item if applicable and the contractor point of contact, and provide a copy of the remittance and supporting documentation to the Contracting Officer [@CL-CTF-1759; @CL-CTF-2258; @CL-CTF-2259]. The clause text sets no fixed number of days for payment, so the due date is the matching event described above rather than a fixed period.
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which contracts carry the emergencies and contingency operations clause, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the overpayment sentence so the remittance duty keeps the description of the overpayment and the copy to the Contracting Officer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payments in support of emergencies and contingency operations.

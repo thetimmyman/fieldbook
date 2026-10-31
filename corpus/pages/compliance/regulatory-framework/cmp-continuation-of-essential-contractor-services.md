@@ -31,7 +31,7 @@ Shows what the essential-services clause makes a contractor do in a crisis, how 
 
 The Government has identified all or a portion of the contractor services performed under the contract as essential contractor services in support of mission-essential functions, and it lists them in an attachment to the contract [@CL-CMP-4314]. The contractor's Mission-Essential Contractor Services Plan is incorporated in the contract, and the contractor shall maintain and update the plan as necessary and give all updates to the contracting officer for approval [@CL-CMP-4315].
 
-Notwithstanding any other clause, the contractor is responsible for performing the services identified as essential during crisis situations, as directed by the contracting officer and in accordance with its plan [@CL-CMP-4316]. If the contractor anticipates not being able to perform any of those services during a crisis situation, it shall notify the contracting officer or other designated representative [@CL-CMP-4317]. In such crisis situations the Government reserves the right to use Federal employees, military personnel, or contract support from other contractors, or to enter into new contracts for essential contractor services [@CL-CMP-4404]. The clause itself does not list what the plan must contain, and the conditions for using it sit in the prescribing section, which this card does not restate [@CL-CMP-4389].
+Notwithstanding any other clause, the contractor is responsible for performing the services identified as essential during crisis situations, as directed by the contracting officer and in accordance with its plan [@CL-CMP-4316]. If the contractor anticipates not being able to perform any of those services during a crisis situation, it shall notify the contracting officer or other designated representative as expeditiously as possible and use its best efforts to cooperate with the Government in the Government's efforts to maintain the continuity of operations [@CL-CMP-4317; @CL-CMP-8053]. In such crisis situations the Government reserves the right to use Federal employees, military personnel, or contract support from other contractors, or to enter into new contracts for essential contractor services [@CL-CMP-4404]. The clause itself does not list what the plan must contain, and the conditions for using it sit in the prescribing section, which this card does not restate [@CL-CMP-4389].
 
 ## How it works
 
@@ -57,4 +57,5 @@ Which contracts carry the clause, which services sit in the essential-services a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the crisis notice sentence so the duty keeps the timing and the best-efforts cooperation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for continuation of essential contractor services.

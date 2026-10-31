@@ -31,7 +31,7 @@ Shows how the DoD clause for SBIR and STTR contracts defines SBIR/STTR data, wha
 
 The clause defines SBIR/STTR data as all technical data or computer software developed or generated in the performance of a phase I, II, or III SBIR/STTR contract or subcontract [@CL-CMP-3914]. The clause states that it governs all SBIR/STTR data [@CL-CMP-3917].
 
-The protection period begins on the date of award of the contract under which the data are developed or generated and ends 20 years after that date, unless the agency and the Contractor negotiate some other protection period after the award [@CL-CMP-3915]. During the protection period, the Government's SBIR/STTR data rights are limited rights in the covered technical data and restricted rights in the covered computer software [@CL-CMP-3916]. Except for technical data, including computer software documentation, or computer software in which the Government has unlimited rights under paragraph (c)(1) of the clause, the Government shall have SBIR/STTR data rights during the SBIR/STTR data protection period of the contract [@CL-CMP-3964].
+The protection period begins on the date of award of the contract under which the data are developed or generated and ends 20 years after that date, unless the agency and the Contractor negotiate some other protection period after the award [@CL-CMP-3915]. During the protection period, the Government's SBIR/STTR data rights are limited rights in the covered technical data and restricted rights in the covered computer software [@CL-CMP-3916]. Except for technical data, including computer software documentation, or computer software in which the Government has unlimited rights under paragraph (c)(1) of the clause, the Government shall have SBIR/STTR data rights during the SBIR/STTR data protection period of the contract, in all SBIR/STTR data developed or generated under the contract [@CL-CMP-3964; @CL-CMP-7387].
 
 For the SBIR/STTR data described in paragraph (c)(2)(i)(B) of the clause, the Government shall have government purpose rights perpetually, and that period commences upon the expiration of the SBIR/STTR data protection period [@CL-CMP-3965]. The protection period is not extended by any subsequent SBIR/STTR contracts under which any portion of that data is used or delivered [@CL-CMP-3966].
 
@@ -71,4 +71,5 @@ Which executed SBIR or STTR contracts carry this clause, whether the agency and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the protection period sentence so the data rights rule keeps its scope of all SBIR/STTR data developed or generated under the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD rights in technical data and computer software under the SBIR and STTR programs.

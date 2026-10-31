@@ -39,7 +39,7 @@ Where there are multiple CAS-covered contracts or more than one agency is involv
 
 Agencies must prescribe regulations and internal policies and procedures for administering the requirements of CAS-covered contracts, with particular emphasis on inter-agency coordination [@CL-CMP-1768].
 
-Those policies must provide for designating the office or officials responsible for administering CAS under the agency's CAS-covered contracts at each contractor business unit, and for delegating the necessary contracting authority [@CL-CMP-1769].
+Those policies must provide for designating the office or officials responsible for administering CAS under the agency's CAS-covered contracts at each contractor business unit, and for delegating the necessary contracting authority to agency individuals authorized to administer the terms and conditions of CAS-covered contracts, such as administrative contracting officers or other agency officials authorized to perform in that capacity [@CL-CMP-1769; @CL-CMP-8047].
 
 ## Worked example
 
@@ -61,4 +61,5 @@ Which agency is cognizant for each business unit, and whether the coverage and D
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the agency policies sentence so the delegation of contracting authority keeps its limit to individuals authorized to administer the contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cognizant Federal agency responsibilities for Cost Accounting Standards.
