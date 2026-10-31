@@ -31,7 +31,7 @@ Sets out which memberships, subscriptions and meeting costs are allowable as tra
 
 Memberships in trade, business, technical and professional organizations, and subscriptions to trade, business, professional or other technical periodicals, are allowable [@CL-CMP-0364; @CL-CMP-0365].
 
-For meetings, conventions, conferences, symposia and seminars the section adds a purpose test: the principal purpose must be disseminating trade, business, technical or professional information or stimulating production or improved productivity [@CL-CMP-0366]. Inside that test, the cost of organizing, setting up and sponsoring the event and the cost of employee attendance including travel are allowable [@CL-CMP-0367; @CL-CMP-0368]. Attendance by people who are not employees is allowable provided the cost is not also reimbursed by their own employer and their attendance is essential to the purpose of the event [@CL-CMP-0369; @CL-CMP-0370].
+For meetings, conventions, conferences, symposia and seminars the section adds a purpose test: the principal purpose must be disseminating trade, business, technical or professional information or stimulating production or improved productivity [@CL-CMP-0366]. Inside that test, the cost of organizing, setting up and sponsoring the event and the cost of employee attendance including travel are allowable [@CL-CMP-0367; @CL-CMP-0368]. Attendance by people who are not employees is allowable provided both that the cost is not also reimbursed to the individual by the employing company or organization and that the individual's attendance is essential to achieve the purpose of the event [@CL-CMP-8582; @CL-CMP-0369; @CL-CMP-0370].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Who approves memberships, subscriptions and conference attendance, and which poo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that carries the provided lead-in for attendance by individuals who are not employees.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for trade, business, technical and professional activity costs.

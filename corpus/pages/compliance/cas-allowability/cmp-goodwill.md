@@ -30,13 +30,13 @@ Explains the absolute cost principle prohibition against charging goodwill amort
 
 Any costs for amortization, expensing, write-off, or write-down of goodwill, however represented, are unallowable [@CL-CMP-0507].
 
-Goodwill originates under the purchase method of accounting for a business combination when the acquisition price exceeds the fair value of net identifiable assets acquired [@CL-CMP-0508].
+Goodwill originates under the purchase method of accounting for a business combination when the price paid by the acquiring company exceeds the sum of the identifiable individual assets acquired less liabilities assumed, based upon their fair values [@CL-CMP-0508].
 
 Goodwill may arise from the acquisition of a company as a whole or a portion of an entity [@CL-CMP-0509].
 
 ## How it works
 
-Goodwill is an unidentifiable intangible asset that represents the premium paid over the fair market value of net assets acquired in a business combination. Under the cost principles, the government does not pay for this acquisition premium through contract reimbursement. Contractors cannot amortize goodwill into indirect expense pools or write off goodwill impairments against contract revenues. Costs for amortization, expensing, write-off, or write-down of goodwill, however represented, are unallowable [@CL-CMP-0507].
+Goodwill is an unidentifiable intangible asset that originates under the purchase method of accounting for a business combination [@CL-CMP-9413]. Costs for amortization, expensing, write-off, or write-down of goodwill, however represented, are unallowable [@CL-CMP-0507].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-49 keeps the rule that any costs for amortization, expensing, write-off, or write-down of goodwill are unallowable [@CL-CMP-9412]. It also keeps the definition of goodwill in paragraph (a) [@CL-CMP-9413] and the point that goodwill may arise from the acquisition of a company as a whole or a portion thereof in paragraph (c) [@CL-CMP-9414]. The wording change to the unallowability rule is that paragraph (d) does not repeat the codified words "however represented" [@CL-CMP-9412].
 
@@ -48,7 +48,7 @@ A contractor acquires a business unit for 15,000,000, with net identifiable asse
 
 ## Never confuse
 
-Goodwill is an unidentifiable intangible asset, so it must not be confused with the identifiable individual assets whose fair values are used to measure it. Goodwill represents only the unidentifiable excess purchase price and is completely unallowable. The codified sentence makes goodwill costs unallowable "however represented" [@CL-CMP-0507], while RFO paragraph (d) states the unallowability without those words [@CL-CMP-9412].
+Goodwill is an unidentifiable intangible asset, so it must not be confused with the identifiable individual assets whose fair values are used to measure it. Any costs for amortization, expensing, write-off, or write-down of goodwill are unallowable [@CL-CMP-0507]. The codified sentence makes goodwill costs unallowable "however represented" [@CL-CMP-0507], while RFO paragraph (d) states the unallowability without those words [@CL-CMP-9412].
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ How goodwill amortization, expensing, and impairment write-offs are tracked and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the goodwill origin, definition and unallowability wording to the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for goodwill.

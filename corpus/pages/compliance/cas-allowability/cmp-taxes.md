@@ -49,7 +49,7 @@ A contractor pays 80,000 of State property tax on a building used equally on Gov
 
 ## Never confuse
 
-A fine or penalty is not a tax, so the tax allowability rule does not make it chargeable [@CL-CMP-0781]. An available exemption is not a saving the contractor keeps: it reduces what may be charged unless the contracting officer finds the administrative burden outweighs the benefit [@CL-CMP-0784; @CL-CMP-0788]. A refunded tax that was allowed as a contract cost is not retained, because it is credited or paid to the Government [@CL-CMP-0786]. Unallowable taxes sit with the other unallowable costs; see [Unallowable costs under CAS](cmp-cas-405-unallowable-costs.md) [@CL-CMP-0782]. The codified text makes the allowable taxes subject to the paragraph that lists unallowable taxes [@CL-CMP-0780], but RFO item (b)(1) prints no words making it subject to another paragraph [@CL-CMP-9636]. The codified text says fines and penalties are not considered taxes [@CL-CMP-0781], but RFO paragraph (b)(1) prints no such sentence [@CL-CMP-9637]. The codified text ends its partial-exemption sentence with the words are unallowable [@CL-CMP-0784], but the RFO sentence as printed ends without them [@CL-CMP-9642].
+A fine or penalty is not a tax, so the tax allowability rule does not make it chargeable [@CL-CMP-0781]. An available exemption is not a saving the contractor keeps: it reduces what may be charged unless the contracting officer finds the administrative burden outweighs the benefit [@CL-CMP-0784; @CL-CMP-0788]. A refunded tax that was allowed as a contract cost is not retained, because it is credited or paid to the Government [@CL-CMP-0786]. Federal income and excess profits taxes are among the listed unallowable costs [@CL-CMP-0782]; for unallowable costs generally, see [Unallowable costs under CAS](cmp-cas-405-unallowable-costs.md). The codified text makes the allowable taxes subject to the paragraph that lists unallowable taxes [@CL-CMP-0780], but RFO item (b)(1) prints no words making it subject to another paragraph [@CL-CMP-9636]. The codified text says fines and penalties are not considered taxes [@CL-CMP-0781], but RFO paragraph (b)(1) prints no such sentence [@CL-CMP-9637]. The codified text ends its partial-exemption sentence with the words are unallowable, but the RFO sentence as printed ends without them [@CL-CMP-9642].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether the company identifies exempt, income and non-Government property taxes 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed a citation to a claim that does not quote the partial-exemption sentence and kept the unallowable-costs pointer out of a claim-cited sentence.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxes.
