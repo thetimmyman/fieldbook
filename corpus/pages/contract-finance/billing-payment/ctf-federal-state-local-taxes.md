@@ -23,7 +23,7 @@ Shows how the Federal, State, and Local Taxes clause puts applicable taxes insid
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0427] |
 | Codified citation | FAR 52.229-3 [@CL-CTF-0427] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.229-3 [@CL-CTF-0242] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0427] |
 | Applies to | Contracts that include the Federal, State, and Local Taxes clause [@CL-CTF-0427] |
@@ -41,6 +41,10 @@ The clause measures from the contract date, which is the bid opening date or, fo
 Taxes and duties in effect on that date that the taxing authority is imposing and collecting on the transactions or property covered by the contract sit inside the price [@CL-CTF-0619]. Later Federal tax changes are trued up through the price, upward for an after-imposed tax and downward for an after-relieved tax [@CL-CTF-0429; @CL-CTF-0430].
 
 An upward adjustment needs the written warranty that the tax was not already built in [@CL-CTF-0429], and an adjustment that does not exceed $250 is not made [@CL-CTF-0431].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the rule that the contract price includes all applicable Federal, State, and local taxes and duties, except as provided in subparagraph (b)(2)(i) of the clause [@CL-CTF-0242] [@CL-CTF-0427], and that taxes imposed under 26 U.S.C. 5000C may not be included in the contract price and may not be reimbursed [@CL-CTF-0243] [@CL-CTF-0428]. It keeps the meaning of all applicable Federal, State, and local taxes and duties, those in effect on the contract date that the taxing authority is imposing and collecting on the transactions or property covered by the contract [@CL-CTF-0249] [@CL-CTF-0619], and the meaning of contract date [@CL-CTF-0248] [@CL-CTF-0432]. The definition of an after-imposed Federal tax still does not include social security tax or other employment taxes [@CL-CTF-0247] [@CL-CTF-0620].
+
+The RFO wording of the three price adjustments differs from the codified wording. The RFO clause says the Government will increase the contract price by the amount of any after-imposed Federal tax, provided the contractor warrants in writing that no amount for the newly imposed tax or rate increase was included in the contract price as a contingency reserve or otherwise [@CL-CTF-0244]. It says the Government will decrease the contract price by the amount of any after-relieved Federal tax [@CL-CTF-0245], and will not adjust the contract price unless the amount of the adjustment exceeds $250 [@CL-CTF-0246]. The codified clause says the contract price shall be increased or decreased by those amounts, and that no adjustment shall be made unless the amount exceeds $250, without naming the Government as the actor [@CL-CTF-0429] [@CL-CTF-0430] [@CL-CTF-0431]. Because the actor and the verb form change, this card records the three RFO sentences as deviation text rather than as the same text [@CL-CTF-0244] [@CL-CTF-0245] [@CL-CTF-0246]. The warranty condition and the $250 threshold are stated in both versions [@CL-CTF-0244] [@CL-CTF-0246] [@CL-CTF-0429] [@CL-CTF-0431].
 
 ## Worked example
 
@@ -62,5 +66,6 @@ Which tax changes the company would push through the contract price, and how the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Federal, State, and Local Taxes clause.

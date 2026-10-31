@@ -24,7 +24,7 @@ Shows what an offeror may propose for contract financing and what electronic fun
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1678; @CL-CTF-1682] |
 | Codified citation | FAR 52.232-31 [@CL-CTF-1678]; FAR 52.232-38 [@CL-CTF-1682] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-31 [@CL-CTF-0250]; RFO FAR 52.232-38 [@CL-CTF-0287] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1678; @CL-CTF-1682] |
 | Applies to | Offerors responding to a solicitation that contains the provisions [@CL-CTF-1678; @CL-CTF-1682] |
@@ -36,6 +36,10 @@ The offeror shall provide with its offer the listed information required to make
 ## How it works
 
 The offeror may propose financing terms, and those terms count in the evaluation of its proposal [@CL-CTF-1678]. A proposal whose financing does not meet the listed limitations is not acceptable [@CL-CTF-1679; @CL-CTF-1712]. The EFT information is submitted with the offer, so that payment can be made by electronic funds transfer under any resulting contract [@CL-CTF-1682].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision at FAR 52.232-31 keeps the invitation to propose terms under which the Government makes contract financing payments during contract performance, with the proposed financing terms a factor in the evaluation of the proposal [@CL-CTF-0250] [@CL-CTF-1678]. Proposed financing is not acceptable if it does not conform to the listed limitations, the first being that delivery payments are made only for supplies delivered and accepted, or services rendered and accepted, in accordance with the payment terms of the contract [@CL-CTF-0282] [@CL-CTF-1679]. Another limitation is that contract financing payments may not exceed 15 percent of the contract price in advance of any performance of work under the contract [@CL-CTF-0283] [@CL-CTF-1680]. The terms must be appropriate or customary in the commercial marketplace and in the best interests of the United States [@CL-CTF-0284] [@CL-CTF-1712]. The RFO provision lists for the proposal the proposed contractual language and a listing of the earliest date and greatest amount at which each contract financing payment may be payable and the amount of each delivery payment [@CL-CTF-0285] [@CL-CTF-1681]. Any resulting contract provides that no contract financing payment is made at an earlier date or in a greater amount than shown in the listing [@CL-CTF-0286] [@CL-CTF-1713].
+
+The RFO provision at FAR 52.232-38 keeps the requirement that the offeror provide, with its offer, the listed information required to make payment by EFT under any resulting contract [@CL-CTF-0287] [@CL-CTF-1682]. The listed information includes the solicitation number, the offeror's name and remittance address as stated in the offer, and the signature, title and telephone number of the official authorized to provide it [@CL-CTF-0288] [@CL-CTF-1683], and the name, address and 9-digit Routing Transit Number of the financial agent, the account number and type of account and, if applicable, the Fedwire telegraphic abbreviation [@CL-CTF-0289] [@CL-CTF-1684].
 
 ## Worked example
 
@@ -55,4 +59,5 @@ Confirm which financing terms the company proposes in offers and who prepares an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the invitation to propose financing terms and EFT information with an offer.
