@@ -28,7 +28,7 @@ Explains the notice a solicitation gives about a Government royalty and how an o
 
 The provision tells offerors that the Government is obligated to pay a royalty applicable to the proposed acquisition because of a license agreement between the Government and the patent owner, and the contracting officer fills in the patent number and the royalty rate [@CL-CMP-5607]. An offeror that is the owner of, or a licensee under, the patent indicates which, and if an offeror does not indicate that it is the owner or a licensee, its offer will be evaluated by adding an amount equal to the royalty [@CL-CMP-5748].
 
-The minimum rights clause gives the Government unlimited rights in technical data, other than computer software, developed in the performance of the contract and relating to a major system or supplies for a major system procured or to be procured by the Government [@CL-CMP-5608]. Notwithstanding any other provision of the contract, the Government has those rights [@CL-CMP-5751]. They extend to the data to the extent that delivery is required as an element of performance under the contract, and they are in addition to and not in lieu of the Government's rights under the other provisions of the contract [@CL-CMP-5609].
+The minimum rights clause gives the Government unlimited rights in technical data, other than computer software, developed in the performance of the contract and relating to a major system or supplies for a major system procured or to be procured by the Government, to the extent that delivery of such data is required as an element of performance under the contract [@CL-CMP-5608; @CL-CMP-5609]. Notwithstanding any other provision of the contract, the Government has those rights [@CL-CMP-5751]. The rights of the Government under the clause are in addition to and not in lieu of its rights under the other provisions of the contract [@CL-CMP-5609].
 
 ## How it works
 
@@ -62,6 +62,7 @@ Which solicitations identify a Government royalty patent or a major system, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the delivery condition in the first minimum rights sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on royalty information and rights in data.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
