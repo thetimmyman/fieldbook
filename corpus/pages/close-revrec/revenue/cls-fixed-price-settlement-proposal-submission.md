@@ -35,7 +35,7 @@ The proposal must cover all cost elements, including settlements with subcontrac
 
 ## How it works
 
-Settlement proposals must be on the forms prescribed in FAR 49.602 unless the forms are inadequate for a particular contract [@CL-CLS-1004]. The contractor may use the Settlement Proposal (Short Form), SF 1438, when the total proposal is less than $10,000, unless the TCO instructs otherwise [@CL-CLS-1005]. The Schedule of Accounting Information, SF 1439, must be submitted for each termination under a contract for which a settlement proposal is submitted, except when the Standard Form 1438 is used [@CL-CLS-1006]. Which cost basis the proposal uses is a separate question, covered on the proposal-bases card.
+Settlement proposals must be on the forms prescribed in FAR 49.602 unless the forms are inadequate for a particular contract [@CL-CLS-1004]. The contractor may use the Settlement Proposal (Short Form), SF 1438, when the total proposal is less than $10,000, unless the TCO instructs otherwise [@CL-CLS-1005]. The Schedule of Accounting Information, SF 1439, must be submitted for each termination under a contract for which a settlement proposal is submitted, except when the Standard Form 1438 is used [@CL-CLS-1006]. Although several interim proposals may be submitted, SF 1439 need be submitted only once unless major changes occur in the information after the original form is filed [@CL-CLS-1571]. Which cost basis the proposal uses is a separate question, covered on the proposal-bases card.
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Who files termination settlement proposals, on which forms, and how the company 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the SF 1439 submission rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for submission of settlement proposals for fixed-price contracts.

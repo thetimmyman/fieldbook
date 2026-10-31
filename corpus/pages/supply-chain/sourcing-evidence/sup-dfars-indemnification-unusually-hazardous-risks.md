@@ -33,7 +33,7 @@ The fixed-price clause provides indemnification under section 3861 of title 10 o
 
 ## How it works
 
-The claim, loss or damage must arise from direct performance, must not be compensated by insurance or other means or fall within deductibles, and must result from an unusually hazardous risk the contract specifically defines [@CL-SUP-1420]. Other listed conditions are no willful misconduct or lack of good faith by the contractor's directors, officers, managers, superintendents or equivalent representatives [@CL-SUP-1421], and no liability assumed under a contract or agreement without contracting officer approval, except for covered subcontracts [@CL-SUP-1422]. The contractor shall promptly notify the contracting officer of any occurrence, action or claim that might trigger the Government's liability [@CL-SUP-1423]. The cost-reimbursement clause adds that the Limitation of Cost clause does not apply to the Government's obligations, and that those obligations are excepted from the release required by the Allowable Cost, Fee, and Payment clause [@CL-SUP-1424]. This card claims only the points listed; the clause holds further conditions and duties on certification, insurance, settlement and subcontract flowdown.
+The claim, loss or damage must arise from direct performance, must not be compensated by insurance or other means or fall within deductibles, and must result from an unusually hazardous risk the contract specifically defines [@CL-SUP-1420]. Other listed conditions are no willful misconduct or lack of good faith by the contractor's directors, officers, managers, superintendents or other equivalent representatives who have supervision or direction of all or substantially all of the business, of all or substantially all of the operations at any one plant or separate location where the contract is being performed, or of a separate and complete major industrial operation connected with performing the contract [@CL-SUP-1421], and no liability assumed under a contract or agreement, except for covered subcontracts, unless the contracting officer (or, in contracts with the Department of the Navy, the Department) specifically approved the assumption of liability [@CL-SUP-1422]. The contractor shall promptly notify the contracting officer of any occurrence, action or claim that might trigger the Government's liability [@CL-SUP-1423]. The cost-reimbursement clause adds that the Limitation of Cost clause does not apply to the Government's obligations, and that those obligations are excepted from the release required by the Allowable Cost, Fee, and Payment clause [@CL-SUP-1424]. This card claims only the points listed; the clause holds further conditions and duties on certification, insurance, settlement and subcontract flowdown.
 
 ## Worked example
 
@@ -56,6 +56,7 @@ Whether the contract defines any unusually hazardous risk, which of the two clau
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Indemnification conditions now include the supervision scope and the specific approval alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the pointer sentence to avoid an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on indemnification under Public Law 85-804.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indemnification for unusually hazardous risks.

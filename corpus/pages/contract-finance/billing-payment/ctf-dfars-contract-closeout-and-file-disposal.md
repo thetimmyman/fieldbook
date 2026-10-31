@@ -35,7 +35,7 @@ Contracting officers may close out contracts or groups of contracts through modi
 
 Any contract or group of contracts meeting the requirements of paragraph (3)(i) may be closed out through a negotiated settlement with the contractor [@CL-CTF-1643]. Except as provided in paragraph (3)(ii)(B), the closeout process shall include a bilateral modification of the affected contract, including contracts closed out in accordance with a negotiated settlement [@CL-CTF-1644]. For contract closeout actions under paragraph (3), remaining contract balances may be offset with balances in other contract line items within the same contract, regardless of the year or type of appropriation obligated to fund each contract line item [@CL-CTF-1645]. This card does not set out the other rules for groups of contracts, the settlement memorandum, offsets against other contracts or the waiver authority.
 
-Completed contract files are held in the office responsible for maintaining them for 12 months after completion and are then sent to the local records holding or staging area until they are eligible for destruction [@CL-CTF-1616]. Pricing review files, containing documents related to reviews of the contractor's price proposals subject to certified cost or pricing data, are retained for six years [@CL-CTF-1617]. If it is impossible to determine the final payment date in order to measure the six year period, the files are retained for nine years [@CL-CTF-1646]. The FAR storage and disposal table is on [Contract file storage and disposal](../../compliance/audit-retention/cmp-contract-file-storage-and-disposal.md).
+Completed contract files are held in the office responsible for maintaining them for 12 months after completion and are then sent to the local records holding or staging area until they are eligible for destruction [@CL-CTF-1616]; if no space is available locally, the files are to be transferred to the General Services Administration Federal Records Center that services the area [@CL-CTF-9522]. Pricing review files, containing documents related to reviews of the contractor's price proposals subject to certified cost or pricing data, are retained for six years [@CL-CTF-1617]. If it is impossible to determine the final payment date in order to measure the six year period, the files are retained for nine years [@CL-CTF-1646]. The FAR storage and disposal table is on [Contract file storage and disposal](../../compliance/audit-retention/cmp-contract-file-storage-and-disposal.md).
 
 ## How it works
 
@@ -61,4 +61,5 @@ Which completed contracts the company expects to be closed out, and how the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the local records area transfer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS closeout and disposal of contract files.

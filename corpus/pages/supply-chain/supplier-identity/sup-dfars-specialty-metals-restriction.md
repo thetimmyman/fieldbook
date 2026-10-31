@@ -37,7 +37,7 @@ The clause also has an alternative for commercial derivative military articles. 
 
 ## How it works
 
-The restriction attaches to the specialty metal in each delivered item, and the allowed places are the United States, its outlying areas or a qualifying country [@CL-SUP-1324]. The exceptions remove whole categories of items, such as electronic components and commercially available off-the-shelf items with carve-outs, or small quantities by weight [@CL-SUP-1325; @CL-SUP-1327; @CL-SUP-1326]. The Contractor inserts the definitions, restriction and exceptions paragraphs, with the flowdown paragraph itself, in subcontracts, including subcontracts for commercial products, that are for items containing specialty metals [@CL-SUP-1328]. When flowing the clause down, the Contractor excludes and reserves the commercial derivative military article paragraph [@CL-SUP-1367].
+The restriction attaches to the specialty metal in each delivered item, and the allowed places are the United States, its outlying areas or a qualifying country [@CL-SUP-1324]. The exceptions remove whole categories of items, such as electronic components and commercially available off-the-shelf items with carve-outs, or small quantities by weight [@CL-SUP-1325; @CL-SUP-1327; @CL-SUP-1326]. The Contractor inserts the definitions, restriction and exceptions paragraphs, with the flowdown paragraph itself, in subcontracts, including subcontracts for commercial products, that are for items containing specialty metals; in doing so it modifies paragraph (c)(6) only as necessary to facilitate management of the minimal content exception at the prime contract level (the minimal content exception does not apply to specialty metals contained in high-performance magnets), and does not further alter the clause other than to identify the appropriate parties [@CL-SUP-1328; @CL-SUP-9669; @CL-SUP-9670]. When flowing the clause down, the Contractor excludes and reserves the commercial derivative military article paragraph [@CL-SUP-1367].
 
 ## Worked example
 
@@ -61,4 +61,5 @@ Which executed contracts carry this clause, and whether subcontracts for items c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the flowdown insertion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the specialty metals restriction.

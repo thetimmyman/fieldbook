@@ -44,7 +44,7 @@ In a standard competition a private sector win produces a contract award, and an
 
 In a streamlined competition a private sector win produces an award or a competitive solicitation for private sector offers, and an Agency or public reimbursable win produces a letter of obligation or a fee-for-service agreement [@CL-SUP-2952; @CL-SUP-2969].
 
-The employment duty follows the award. The Contracting Officer supplies the list of affected personnel, the contractor gives those who are qualified first refusal of the openings, and the contractor reports the listed people it hires within 90 days after performance begins and forwards that report within 120 days after performance begins [@CL-SUP-2953; @CL-SUP-2970; @CL-SUP-2955].
+The employment duty follows the award. The Contracting Officer supplies the list of affected personnel, the contractor gives those who are qualified first refusal of the openings if that employment is consistent with post-Government employment conflict of interest standards, and the contractor reports the listed people it hires within 90 days after performance begins and forwards that report within 120 days after performance begins [@CL-SUP-2953; @CL-SUP-2954; @CL-SUP-2970; @CL-SUP-2955].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.207-1 as [Reserved] [@CL-SUP-0114], FAR 52.207-2 as [Reserved] [@CL-SUP-0115] and FAR 52.207-3 as [Reserved] [@CL-SUP-0116], so the notices and the clause described above have no text under those numbers in the RFO text.
 
@@ -70,6 +70,7 @@ Who checks whether an award came from a competition and where the displaced-pers
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Right of first refusal sentence now includes the post-Government employment conflict of interest condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the pointer sentence to avoid an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on other FAR 52.207 provisions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
