@@ -37,7 +37,7 @@ Certification attaches to the indirect cost rates proposed for final payment pur
 
 A penalty is possible when unallowable costs are included in a final indirect cost settlement proposal. The word is "may": the section makes the assessment discretionary on its face and does not say who assesses it, in what amount, on which contracts, or with what exceptions; the reader goes to the administrative procedures at FAR 42.709 [@CL-CMP-7507].
 
-The section sets no amount, threshold or deadline of its own. The exposure to a penalty arises from including unallowable costs in the proposal, which the party submitting the proposal controls [@CL-CMP-7507].
+The section sets no amount, threshold or deadline of its own. The exposure to a penalty arises from including unallowable costs in a final indirect cost settlement proposal [@CL-CMP-7507].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Who signs the indirect rate certification and how unallowable costs are screened
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Removed an unsupported statement about who controls the proposal's contents.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost rate certification and penalties on unallowable costs.

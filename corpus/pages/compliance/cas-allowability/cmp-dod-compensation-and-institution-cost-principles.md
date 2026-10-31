@@ -59,7 +59,7 @@ In a second case, a contractor pays 30,000 to an employee as a bonus in excess o
 
 ## Never confuse
 
-The 26 percent administrative indirect cost limitation is not a general DoD cap: the section says it shall not be applied to these contracts, because other organizations are not subject to the same limitation [@CL-CMP-7536]. Disallowing a restructuring bonus is not the same as disallowing a severance payment, because severance and early retirement incentives sit outside that limitation [@CL-CMP-7531; @CL-CMP-7532]. The principles that FAR 31.302 gives for educational institutions are those of the OMB Uniform Guidance [@CL-CMP-7539]; see [cost principles for commercial organizations](../cas-allowability/cmp-cost-principles-commercial-organizations.md), [cost principles for State, local and tribal governments](../cas-allowability/cmp-cost-principles-state-local-tribal-governments.md) and [allowable compensation for personal services](../cas-allowability/cmp-compensation-personal-services.md). For restructuring costs after a business combination, see [DoD external restructuring costs](../../mna/valuation/mna-dod-external-restructuring-costs.md).
+The 26 percent administrative indirect cost limitation is not a general DoD cap: the section says it shall not be applied to these contracts, because the same limitation is not applied to other organizations performing similar work [@CL-CMP-7536]. Disallowing a restructuring bonus is not the same as disallowing a severance payment, because severance and early retirement incentives sit outside that limitation [@CL-CMP-7531; @CL-CMP-7532]. The principles that FAR 31.302 gives for educational institutions are those of the OMB Uniform Guidance [@CL-CMP-7539]; see [cost principles for commercial organizations](../cas-allowability/cmp-cost-principles-commercial-organizations.md), [cost principles for State, local and tribal governments](../cas-allowability/cmp-cost-principles-state-local-tribal-governments.md) and [allowable compensation for personal services](../cas-allowability/cmp-compensation-personal-services.md). For restructuring costs after a business combination, see [DoD external restructuring costs](../../mna/valuation/mna-dod-external-restructuring-costs.md).
 
 ## Company calibration
 
@@ -69,4 +69,5 @@ Which cost principle set applies to each entity type billed, and whether any adv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Restated the reason the 26 percent limitation is not applied, as the section gives it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD compensation and the cost principles for educational institutions and State, local and tribal governments.
