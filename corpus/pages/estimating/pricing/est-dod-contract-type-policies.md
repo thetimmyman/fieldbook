@@ -28,7 +28,7 @@ Collects the DFARS contract type rules in the sections for contract type policie
 | Text status | Final [@CL-EST-2985] |
 | Applies to | Cost-reimbursement line items for production of major defense acquisition programs [@CL-EST-2985]; contracting officers selecting and negotiating contract type [@CL-EST-2986]; research and development contract type selection [@CL-EST-2988]; solicitations and contracts containing award-fee provisions [@CL-EST-2989]; letter contract definitization schedules [@CL-EST-2990]; basic ordering agreements [@CL-EST-2991; @CL-EST-2992] |
 
-Production prohibition. In accordance with section 811 of the National Defense Authorization Act for Fiscal Year 2013, use of any cost-reimbursement line item for the acquisition of production of major defense acquisition programs is prohibited, unless the exception at 234.004(2)(ii) applies [@CL-EST-2985]. The section names no official who decides whether the exception applies and does not set it out.
+Production prohibition. In accordance with section 811 of the National Defense Authorization Act for Fiscal Year 2013, use of any cost-reimbursement line item for the acquisition of production of major defense acquisition programs is prohibited, unless the exception at 234.004(2)(ii) applies [@CL-EST-2985].
 
 Selection memorandum. Contracting officers shall follow the principles and procedures in the Director, Defense Procurement and Acquisition Policy memorandum dated April 1, 2016 [@CL-EST-2986], entitled Guidance on Using Incentive and Other Contract Types, when selecting and negotiating the most appropriate contract type for a given procurement [@CL-EST-2987]. The section also directs the reader to PGI 216.104 [@CL-EST-2994].
 
@@ -42,9 +42,9 @@ Basic ordering agreements. The period during which orders may be placed against 
 
 ## How it works
 
-Only one rule is addressed to a named party: contracting officers must follow the memorandum when selecting and negotiating contract type [@CL-EST-2986; @CL-EST-2987]. The other rules are imperatives or prohibitions that name no official, and none states a dollar threshold or a deadline [@CL-EST-2985; @CL-EST-2988; @CL-EST-2989; @CL-EST-2990; @CL-EST-2992]. The one number in the sections is the 5-year limit on the period for placing orders [@CL-EST-2991].
+Contracting officers shall follow the memorandum when selecting and negotiating contract type [@CL-EST-2986; @CL-EST-2987]. The period during which orders may be placed against a basic ordering agreement may not exceed 5 years [@CL-EST-2991].
 
-The production prohibition has one stated exception, at 234.004(2)(ii) [@CL-EST-2985]. The selection rule and the research and development rule send the reader to documents that the sections do not reproduce: the memorandum, PGI 216.104, PGI 216.104-70 and 235.006(b) [@CL-EST-2986; @CL-EST-2994; @CL-EST-2988]. The award fee clause is required wherever award-fee provisions are present, and the section states no exception [@CL-EST-2989]. For the letter contract schedule, the DFARS rule replaces the FAR requirement in the paragraph it names [@CL-EST-2990].
+The production prohibition has one stated exception, at 234.004(2)(ii) [@CL-EST-2985]. The selection rule and the research and development rule refer to the memorandum, PGI 216.104, PGI 216.104-70 and 235.006(b) [@CL-EST-2986; @CL-EST-2994; @CL-EST-2988]. The award fee clause is to be used in all solicitations and contracts containing award-fee provisions [@CL-EST-2989]. For the letter contract schedule, the DFARS rule replaces the FAR requirement in the paragraph it names [@CL-EST-2990].
 
 See [selecting contract types](est-selecting-contract-types.md) for the FAR range of types and [award-fee contracts](est-award-fee-contracts.md) and [DoD cost-plus-award-fee requirements](est-dod-cost-plus-award-fee-requirements.md) for award fee. For the schedule that replaces the FAR rule, see [DoD undefinitized contract actions](est-dod-undefinitized-contract-actions.md), and for letter contract limits, [letter contract limitations](est-letter-contract-limitations.md). For what a basic ordering agreement must contain, see [basic agreements and basic ordering agreements](../../contract-finance/funding/ctf-basic-and-basic-ordering-agreements.md).
 
@@ -60,7 +60,7 @@ A basic ordering agreement for spare parts allows orders to be placed for 4 year
 
 ## Never confuse
 
-The prohibition covers a cost-reimbursement line item for production of a major defense acquisition program, and it has a stated exception [@CL-EST-2985]. The selection rule does not prohibit a type. It directs contracting officers to follow a memorandum when selecting and negotiating contract type [@CL-EST-2986; @CL-EST-2987]. The 5-year limit is on the period during which orders may be placed [@CL-EST-2991]. It is not stated as a limit on the work the orders call for.
+The prohibition covers a cost-reimbursement line item for production of a major defense acquisition program, and it has a stated exception [@CL-EST-2985]. The selection rule directs contracting officers to follow a memorandum when selecting and negotiating contract type [@CL-EST-2986; @CL-EST-2987]. The 5-year limit is on the period during which orders may be placed against a basic ordering agreement [@CL-EST-2991].
 
 ## Company calibration
 
@@ -70,4 +70,5 @@ Whether each DoD proposal in the pipeline is priced under an approved contract t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the sections do not name, state or prohibit; reworded the how-it-works summary to the rules' own words.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract type policies.

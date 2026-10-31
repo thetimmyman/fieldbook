@@ -16,7 +16,7 @@ links = ["est-subcontract-pricing-considerations", "est-price-negotiation-docume
 
 ## Purpose
 
-Explains the three DoD sections that send the reader to PGI procedures: reviewing a subcontractor's proposal, establishing prenegotiation objectives, and documenting the negotiation. The linked cards cover subcontract pricing considerations in prime proposals and the content of price negotiation documentation. The DFARS sections state no procedure of their own [@CL-EST-2806; @CL-EST-2807; @CL-EST-2808].
+Explains the three DoD sections that send the reader to PGI procedures: reviewing a subcontractor's proposal, establishing prenegotiation objectives, and documenting the negotiation. The linked cards cover subcontract pricing considerations in prime proposals and the content of price negotiation documentation.
 
 ## The rule
 
@@ -33,21 +33,21 @@ When reviewing a subcontractor's proposal, follow the procedures at PGI 215.404-
 
 ## How it works
 
-Each section is a pointer. It sends the reader to a PGI section for the mechanics [@CL-EST-2806; @CL-EST-2807; @CL-EST-2808]. None of the three sentences names who follows the procedures, sets a threshold or a deadline, or states an exception [@CL-EST-2806; @CL-EST-2807; @CL-EST-2808].
+Each section directs the reader to follow procedures at a PGI section [@CL-EST-2806; @CL-EST-2807; @CL-EST-2808].
 
-The first pointer is tied to the moment a subcontractor's proposal is reviewed [@CL-EST-2806]. The second is tied to establishing prenegotiation objectives [@CL-EST-2807]. The third covers two tasks: documenting the negotiation, and uploading sole source business clearance documentation into the Contract Business Analysis Repository [@CL-EST-2808]. The procedures themselves are in PGI and are not stated in these DFARS sections [@CL-EST-2806; @CL-EST-2807; @CL-EST-2808].
+The first applies when reviewing a subcontractor's proposal [@CL-EST-2806]. The second applies for establishing prenegotiation objectives [@CL-EST-2807]. The third applies for documenting the negotiation and uploading sole source business clearance documentation into the Contract Business Analysis Repository [@CL-EST-2808].
 
-The detail on subcontract pricing considerations is on [that card](est-subcontract-pricing-considerations.md), and the content of the negotiation documentation is on [the documentation card](est-price-negotiation-documentation.md). This card does not restate them.
+The detail on subcontract pricing considerations is on [that card](est-subcontract-pricing-considerations.md), and the content of the negotiation documentation is on [the documentation card](est-price-negotiation-documentation.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A subcontractor's proposal for a component priced at 2 million dollars is under review. The procedures at PGI 215.404-3 apply to that review [@CL-EST-2806]. Prenegotiation objectives are established following the procedures at PGI 215.406-1 [@CL-EST-2807]. The negotiation is documented following the procedures at PGI 215.406-3, which also cover uploading sole source business clearance documentation into the Contract Business Analysis Repository [@CL-EST-2808]. The example states no further steps, because the DFARS sections give none.
+A subcontractor's proposal for a component priced at 2 million dollars is under review. The procedures at PGI 215.404-3 apply to that review [@CL-EST-2806]. Prenegotiation objectives are established following the procedures at PGI 215.406-1 [@CL-EST-2807]. The negotiation is documented following the procedures at PGI 215.406-3, which also cover uploading sole source business clearance documentation into the Contract Business Analysis Repository [@CL-EST-2808].
 
 ## Never confuse
 
-A prenegotiation objective is a separate step from documenting the negotiation. The text gives each its own PGI procedure [@CL-EST-2807; @CL-EST-2808]. The subcontract review pointer is not a pricing method. It sends the reader to PGI procedures and does not state an analysis technique [@CL-EST-2806]. The upload of sole source business clearance documentation sits in the documentation section, not in the objectives section [@CL-EST-2807; @CL-EST-2808].
+Establishing prenegotiation objectives follows the procedures at PGI 215.406-1 [@CL-EST-2807], and documenting the negotiation follows the procedures at PGI 215.406-3 [@CL-EST-2808]. Reviewing a subcontractor's proposal follows the procedures at PGI 215.404-3 [@CL-EST-2806]. Uploading sole source business clearance documentation into the Contract Business Analysis Repository is part of the procedures at PGI 215.406-3 [@CL-EST-2808].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Who owns the subcontract pricing review and the prenegotiation objective file, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited negatives, contrasts and meta sentences and stated each PGI pointer as the provision does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontract pricing review, prenegotiation objectives and negotiation documentation.

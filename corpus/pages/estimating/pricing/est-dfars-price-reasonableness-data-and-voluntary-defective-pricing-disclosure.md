@@ -37,7 +37,7 @@ A voluntary disclosure of defective pricing is not a voluntary refund as defined
 
 ## How it works
 
-The contracting officer's judgement is the control: the contracting officer determines whether the information provided is sufficient to determine price reasonableness and, where price information is not adequate, the extent of uncertified cost data to require, which must be provided in the form regularly maintained in the offeror's business operations [@CL-EST-2443; @CL-EST-2445; @CL-EST-2447]. Contract terms that preclude obtaining necessary supporting information may not be agreed, so the negotiation cannot trade away the data the determination rests on [@CL-EST-2446].
+The contracting officer determines whether the information provided is sufficient to determine price reasonableness and, where price information is not adequate, the extent of uncertified cost data to require, which must be provided in the form regularly maintained in the offeror's business operations [@CL-EST-2443; @CL-EST-2445; @CL-EST-2447]. The contracting officer shall not limit the Government's ability to obtain any data that may be necessary to support a determination of fair and reasonable pricing by agreeing to contract terms that preclude obtaining necessary supporting information [@CL-EST-2446].
 
 On a voluntary disclosure the contracting officer discusses it with DCAA, and that discussion informs the contracting officer's decision on DCAA's involvement, whether a limited-scope audit, a full-scope audit or technical assistance [@CL-EST-2449; @CL-EST-2450]. The discussion covers at least completeness, the cost impact calculation and the effect on other contracts, orders and proposals [@CL-EST-2451; @CL-EST-2452]. The Government's entitlement to the overpayment plus interest and its right to pursue defective pricing claims on the affected contract or any other Government contract both remain [@CL-EST-2453; @CL-EST-2454].
 
@@ -61,5 +61,6 @@ That the pricing file records why the information was sufficient and who handles
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the how-it-works data-access sentence to the rule's own limit on the contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "any data that may be necessary" in the data-access limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reasonableness data and voluntary disclosure of defective pricing after award.

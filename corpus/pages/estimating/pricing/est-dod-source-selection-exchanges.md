@@ -29,21 +29,21 @@ Explains who approves the source selection plan for high-dollar value and other 
 | Text status | Final [@CL-EST-2791] |
 | Applies to | High-dollar value and other DoD acquisitions, as prescribed by agency procedures, for plan approval [@CL-EST-2791]; acquisitions with an estimated value of $100 million or more, for discussions [@CL-EST-2793]; source selections when the procurement is $100 million or more, for the provision [@CL-EST-2795] |
 
-For high-dollar value and other acquisitions, as prescribed by agency procedures, the source selection authority shall approve a source selection plan before the solicitation is issued [@CL-EST-2791]. The same paragraph directs following the procedures at PGI 215.303(b)(2) for preparation of the plan [@CL-EST-2792].
+For high-dollar value and other acquisitions, as prescribed by agency procedures, the source selection authority shall approve a source selection plan before the solicitation is issued [@CL-EST-2791]. Follow the procedures at PGI 215.303(b)(2) for preparation of the source selection plan [@CL-EST-2792].
 
-Section 215.303 is headed Responsibilities [@CL-EST-2812], and section 215.209 is headed Solicitation provisions and contract clauses [@CL-EST-2813]. Section 215.306 is headed Exchanges with offerors after receipt of proposals, and paragraph (c) is headed Competitive range [@CL-EST-2809]. For acquisitions with an estimated value of $100 million or more, contracting officers should conduct discussions [@CL-EST-2793]. That paragraph also directs following the procedures at FAR 15.306(c) and (d) [@CL-EST-2794].
+Section 215.303 is headed Responsibilities [@CL-EST-2812], and section 215.209 is headed Solicitation provisions and contract clauses [@CL-EST-2813]. Section 215.306 is headed Exchanges with offerors after receipt of proposals, and paragraph (c) is headed Competitive range [@CL-EST-2809]. For acquisitions with an estimated value of $100 million or more, contracting officers should conduct discussions [@CL-EST-2793]. Follow the procedures at FAR 15.306(c) and (d) [@CL-EST-2794].
 
 For source selections when the procurement is $100 million or more, contracting officers should use the provision at FAR 52.215-1, Instructions to Offerors—Competitive Acquisition, with its Alternate I [@CL-EST-2795].
 
-Two short sections sit beside these. Section 215.270 says that agency officials shall conduct Peer Reviews in accordance with 201.170 [@CL-EST-9216]. Section 215.300, the scope section for the source selection subpart, says that when conducting negotiated, competitive acquisitions that use FAR part 15 procedures, contracting officers shall follow the principles and procedures in the Director, Defense Pricing and Contracting memorandum provided at PGI 215.300 [@CL-EST-9217].
+Section 215.270 provides that agency officials shall conduct Peer Reviews in accordance with 201.170 [@CL-EST-9216]. Section 215.300 is headed Scope of subpart [@CL-EST-9664] and provides that when conducting negotiated, competitive acquisitions utilizing FAR part 15 procedures, contracting officers shall follow the principles and procedures in the Director, Defense Pricing and Contracting memorandum provided at PGI 215.300 [@CL-EST-9217].
 
 ## How it works
 
-Three duties sit with two actors. The source selection authority approves the plan, and the approval comes before the solicitation is issued [@CL-EST-2791]. The sentence covers high-dollar value and other acquisitions, as prescribed by agency procedures, and names no dollar figure for high-dollar value [@CL-EST-2791]. The direction to follow the preparation procedures names no actor [@CL-EST-2792].
+The source selection authority shall approve the plan before the solicitation is issued [@CL-EST-2791]. The requirement covers high-dollar value and other acquisitions, as prescribed by agency procedures [@CL-EST-2791].
 
-Contracting officers carry the other two. They should conduct discussions where the estimated value of the acquisition is $100 million or more [@CL-EST-2793], following the FAR procedures the paragraph cites [@CL-EST-2794]. They should use the instructions-to-offerors provision with Alternate I where the procurement is $100 million or more [@CL-EST-2795].
+Contracting officers should conduct discussions for acquisitions with an estimated value of $100 million or more [@CL-EST-2793], and follow the procedures at FAR 15.306(c) and (d) [@CL-EST-2794]. For source selections when the procurement is $100 million or more, contracting officers should use the provision at FAR 52.215-1, Instructions to Offerors—Competitive Acquisition, with its Alternate I [@CL-EST-2795].
 
-The FAR rules on these topics are on other cards: [source selection responsibilities and evaluation](est-source-selection-responsibilities-and-evaluation.md), [exchanges after proposals and the competitive range](est-exchanges-after-proposals-and-competitive-range.md) and [instructions to offerors](est-instructions-to-offerors-competitive-acquisition.md). This card does not restate them.
+The FAR rules on these topics are on other cards: [source selection responsibilities and evaluation](est-source-selection-responsibilities-and-evaluation.md), [exchanges after proposals and the competitive range](est-exchanges-after-proposals-and-competitive-range.md) and [instructions to offerors](est-instructions-to-offerors-competitive-acquisition.md).
 
 ## Worked example
 
@@ -53,7 +53,7 @@ An agency plans a competitive acquisition with an estimated value of 250 million
 
 ## Never confuse
 
-The text uses "should" for discussions and for the provision, and "shall" for the plan approval [@CL-EST-2793; @CL-EST-2795; @CL-EST-2791]. The plan approval is not the contracting officer's act; the text assigns it to the source selection authority [@CL-EST-2791]. The discussions test is the estimated value of the acquisition, and the provision test is the value of the procurement [@CL-EST-2793; @CL-EST-2795]. The plan approval sentence ties the requirement to high-dollar value and other acquisitions, as prescribed by agency procedures, and states no $100 million figure [@CL-EST-2791].
+Discussions and the provision use "should" [@CL-EST-2793; @CL-EST-2795], and the plan approval uses "shall" [@CL-EST-2791]. The plan approval is assigned to the source selection authority [@CL-EST-2791]. The discussions test is the estimated value of the acquisition, and the provision test is the value of the procurement [@CL-EST-2793; @CL-EST-2795]. The plan approval applies to high-dollar value and other acquisitions, as prescribed by agency procedures [@CL-EST-2791].
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Which of the company's bids are expected to fall at or above the value line, so 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Worded the plan approval and procedure directions as the provisions state them, cited the scope heading, and cut uncited negatives and meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Peer Reviews section and the source selection scope section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD source selection responsibilities, discussions after receipt of proposals, and the competitive-acquisition provision.

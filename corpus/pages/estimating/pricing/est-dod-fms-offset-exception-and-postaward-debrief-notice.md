@@ -29,13 +29,13 @@ Shows what the DoD clause on the exception from certified cost or pricing data f
 | Text status | Final [@CL-EST-1546; @CL-EST-1547] |
 | Applies to | Solicitations and contracts that contain 252.215-7010 where the further conditions are met [@CL-EST-1526; @CL-EST-1527]; postaward debriefings for awards valued at 15 million dollars or more [@CL-EST-1547] |
 
-Under the clause at 252.215-7014, submission of certified cost or pricing data shall not be required to the extent such data relates to an indirect offset [@CL-EST-1546]. One condition for using that clause is that the solicitation or contract contains the provision at 252.215-7010 [@CL-EST-1526]. A further condition is that it is reasonably certain that the contract is expected to include costs associated with an indirect offset and that certified or other data will be required [@CL-EST-1527]. Where the clause sits among the other DoD provisions is on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md).
+Under the clause at 252.215-7014, notwithstanding the requirements of FAR 52.215-20 in the case of the contract or a subcontract [@CL-EST-9651] and of FAR 52.215-21 in the case of modification of the contract or a subcontract [@CL-EST-9652], submission of certified cost or pricing data shall not be required to the extent such data relates to an indirect offset [@CL-EST-1546]. The clause is used in solicitations and contracts that contain the provision at 252.215-7010 [@CL-EST-1526], when it is reasonably certain that the contract is expected to include costs associated with an indirect offset and that the submission of certified cost or pricing data or data other than certified cost or pricing data will be required [@CL-EST-1527]. Where the clause sits among the other DoD provisions is on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md).
 
 Under the provision at 252.215-7016, upon timely request, the Government will provide a written or oral postaward debriefing to successful or unsuccessful offerors for contract awards valued at 15 million dollars or more, while protecting the confidential and proprietary information of other offerors [@CL-EST-1547]. A request is considered timely if it is received within 3 days of notification of contract award [@CL-EST-1548]. The Government may suspend performance of or terminate the awarded contract upon notice from the Government Accountability Office of a protest filed within the time periods listed in the provision, whichever is later [@CL-EST-1549].
 
 ## How it works
 
-The offset clause removes a data burden: certified data are not required for the part that relates to an indirect offset [@CL-EST-1546]. It does not by itself say the rest of the proposal is exempt. The debriefing provision is a notice to offerors: it states the debriefing right, the time limit to ask, and the Government's right to suspend or terminate after a protest notice [@CL-EST-1547; @CL-EST-1548; @CL-EST-1549]. The provision also sets minimum postaward debriefing information for required debriefings, which this card does not set out.
+The offset clause removes a data burden: certified data are not required for the part that relates to an indirect offset [@CL-EST-1546]. The debriefing provision is a notice to offerors that includes the debriefing right, the time limit to ask, and the Government's right to suspend or terminate after a protest notice [@CL-EST-1547; @CL-EST-1548; @CL-EST-1549].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A foreign military sale contract expects 5 million of cost tied to an indirect o
 
 ## Never confuse
 
-The offset exception is not a general exception from certified data. It applies to the extent the data relate to an indirect offset [@CL-EST-1546]. The debriefing provision is a notice of rights and timing; the general debriefing rules are on [Postaward debriefing of offerors](est-postaward-debriefing.md), and the threshold for certified data is on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
+The offset exception applies to the extent the certified cost or pricing data relate to an indirect offset [@CL-EST-1546]. The debriefing provision is a notice of rights and timing; the general debriefing rules are on [Postaward debriefing of offerors](est-postaward-debriefing.md), and the threshold for certified data is on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the notwithstanding scope of the offset exception; stated the clause conditions together; cut statements about what the clause and provision leave unsaid or are not.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign military sales offset exception and the postaward debriefing notice.

@@ -33,7 +33,7 @@ As prescribed in DFARS 216.601(e), the paragraph is substituted for paragraph (c
 
 ## How it works
 
-The paragraph works by source of labor. The offeror establishes fixed hourly rates using separate rates for each labor category to be performed by each subcontractor, for each category the offeror performs, and for each category transferred between divisions, subsidiaries, or affiliates under common control [@CL-EST-1745; @CL-EST-1746]. The printed paragraph speaks only of rates. It does not say how subcontractor or affiliate hours are stated or limited, so the source does not establish a rule on hours. The instruction substitutes one paragraph for paragraph (c) of the FAR provision, so the rest of that provision is not replaced by this text [@CL-EST-1780].
+The paragraph works by source of labor. The offeror establishes fixed hourly rates using separate rates for each labor category to be performed by each subcontractor, for each category the offeror performs, and for each category transferred between divisions, subsidiaries, or affiliates under common control [@CL-EST-1745; @CL-EST-1746]. The instruction substitutes this paragraph (c) for paragraph (c) of the provision at FAR 52.216-29 [@CL-EST-1780].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ An offeror will perform one labor category itself, use a subcontractor for a sec
 
 ## Never confuse
 
-This alternate replaces one paragraph of the FAR provision, which is covered on [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md). The contract type itself is on [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md), and DoD limits on using the type are on [DoD time-and-materials limitations](est-dod-time-and-materials-limitations.md). The alternate sets rates by source and does not set the number of hours.
+This alternate is substituted for paragraph (c) of the FAR provision [@CL-EST-1780], which is covered on [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md). The contract type itself is on [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md), and DoD limits on using the type are on [DoD time-and-materials limitations](est-dod-time-and-materials-limitations.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Who owns the rate build-up by labor category and by source, including affiliate 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about hours and about what the rest of the FAR provision keeps, which no quote states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Alternate A of the time-and-materials and labor-hour proposal provision.

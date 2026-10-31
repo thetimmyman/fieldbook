@@ -39,7 +39,7 @@ In the make-or-buy program requirements for items and work included, the minimum
 
 The fee objective for a cost-plus-award-fee contract is developed without the weighted guidelines method or alternate structured approach and without completing a DD Form 1547 [@CL-EST-2772; @CL-EST-2774]. The contracting officer instead follows the guidance in FAR 16.405-2 and 216.405-2 and applies the facilities capital offset, which lowers the base fee by the amount of facilities capital cost of money [@CL-EST-2771; @CL-EST-2773]. All four duties fall on the contracting officer [@CL-EST-2787].
 
-The make-or-buy paragraph gives one figure for items and work included [@CL-EST-2775]. The text printed in this section does not say what a plan must contain for an item above or below that amount, and this card does not establish it. The award-fee distribution and base fee limits are on [DoD cost-plus-award-fee contracts](est-dod-cost-plus-award-fee-requirements.md).
+The make-or-buy paragraph gives one figure for items and work included [@CL-EST-2775]. The award-fee distribution and base fee limits are on [DoD cost-plus-award-fee contracts](est-dod-cost-plus-award-fee-requirements.md).
 
 ## Worked example
 
@@ -53,9 +53,9 @@ A make-or-buy plan lists one item valued at 2 million and another valued at 1 mi
 
 ## Never confuse
 
-Market prices and relevant sales data are different evidence. Market prices are current prices established in ordinary trade between buyers and sellers free to bargain, substantiated through competition or from sources independent of the offerors. Relevant sales data are information an offeror provides on sales of the same or similar items [@CL-EST-2769; @CL-EST-2770].
+Market prices and relevant sales data are separate defined terms. Market prices are current prices established in ordinary trade between buyers and sellers free to bargain, substantiated through competition or from sources independent of the offerors. Relevant sales data are information an offeror provides on sales of the same or similar items [@CL-EST-2769; @CL-EST-2770].
 
-The cost-plus-award-fee fee objective is not set with the weighted guidelines method. For that method elsewhere, see [DoD profit policy: structured approaches and when weighted guidelines are not used](est-dod-profit-structured-approaches.md) [@CL-EST-2772].
+In developing a fee objective for cost-plus-award-fee contracts, the contracting officer shall not use the weighted guidelines method or alternate structured approach [@CL-EST-2787; @CL-EST-2772]. For that method elsewhere, see [DoD profit policy: structured approaches and when weighted guidelines are not used](est-dod-profit-structured-approaches.md).
 
 ## Company calibration
 
@@ -65,5 +65,6 @@ Who owns the proposal pricing that a cost-plus-award-fee fee objective and a mak
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section leaves unsaid and a contrast no quote states; added the alternate structured approach.
 - COMPATIBLE_EXTENSION, 2026-10-31: Relevant sales data described as information an offeror provides, not its own sales.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD pricing definitions, award-fee fee objectives and the make-or-buy minimum.
