@@ -42,7 +42,7 @@ The card does not restate the other provisos that follow the first undertaking u
 
 ## How it works
 
-The registrant picks the undertakings that fit the offering [@CL-FPA-1151]. For securities registered under Rule 415 it undertakes to file a post-effective amendment for a required prospectus, a fundamental change and new or changed plan of distribution information, subject to provisos, including one for certain forms and incorporated reports [@CL-FPA-1152; @CL-FPA-1153; @CL-FPA-1154; @CL-FPA-1158; @CL-FPA-1227], and to remove unsold securities at the end of the offering [@CL-FPA-1161]. Small volume and price moves can be reflected in a prospectus filed under Rule 424(b) while they stay within the stated limit [@CL-FPA-1155; @CL-FPA-1156]. If the registration statement incorporates later annual reports, each of those filings is treated as a new registration statement [@CL-FPA-1162; @CL-FPA-1165].
+The registrant picks the undertakings that fit the offering [@CL-FPA-1151]. For securities registered under Rule 415 it undertakes to file a post-effective amendment for a required prospectus, a fundamental change and new or changed plan of distribution information, subject to provisos, including one for certain forms and incorporated reports [@CL-FPA-1152; @CL-FPA-1153; @CL-FPA-1154; @CL-FPA-1158; @CL-FPA-1227], and to remove unsold securities at the end of the offering [@CL-FPA-1161]. Small volume and price moves can be reflected in a prospectus filed under Rule 424(b) while they stay within the stated limit [@CL-FPA-1155; @CL-FPA-1156]. If the registration statement incorporates by reference any Exchange Act document filed after its effective date, the paragraph (b) undertaking applies [@CL-FPA-1162]; it treats each filing of the registrant's annual report (and, where applicable, an employee benefit plan's annual report) that is incorporated by reference as a new registration statement [@CL-FPA-1163; @CL-FPA-1164; @CL-FPA-1165].
 
 ## Worked example
 
@@ -62,6 +62,7 @@ How the company would track which undertakings apply to each registration and re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Later-document sentence now says the undertaking applies to any later Exchange Act document and that each incorporated annual report filing is deemed a new registration statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: One proviso of several stated as the only proviso.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the plan of distribution amendment.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for registration statement undertakings.

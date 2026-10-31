@@ -47,7 +47,7 @@ A supplier with a 500,000 defense contract that does not prohibit assignment obt
 
 ## Never confuse
 
-An assignment of claims concerns moneys due or to become due under a contract and goes to a financing institution; it is not a general power to transfer the contract to anyone [@CL-CTF-0771; @CL-CTF-0772]. The conditions also differ from the policy that a contract may prohibit assignment [@CL-CTF-0775].
+An assignment of claims concerns moneys due or to become due under a contract and, among the other conditions, must be made to a bank, trust company, or other financing institution, including any Federal lending agency [@CL-CTF-0771; @CL-CTF-0772]. The condition that the contract not prohibit the assignment [@CL-CTF-0772] is separate from the policy that a contract may prohibit the assignment of claims if the agency determines the prohibition to be in the Government's interest [@CL-CTF-0775].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm whether financing arrangements involve assignment of contract payments a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the never-confuse paragraph to what the cited text says.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the single-party rule to its lead-in and used the section's own reference for reassignment conditions.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for assignment of claims conditions and policies.

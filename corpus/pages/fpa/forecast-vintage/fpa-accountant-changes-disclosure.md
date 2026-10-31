@@ -46,7 +46,7 @@ A registrant dismisses its auditor. Before the dismissal, the finance lead and t
 
 ## Never confuse
 
-A disagreement is not only an argument: a difference of opinion is enough if it meets the report-reference test [@CL-FPA-0126]. An initial difference of opinion based on incomplete facts or preliminary information is excluded where it was later resolved to the former accountant's satisfaction on additional facts, providing no difference of opinion continues [@CL-FPA-0169; @CL-FPA-0170]. A change of accountant alone is also different from a disagreement: the change calls for the statement of what occurred and the date [@CL-FPA-0123], while a disagreement is a separate matter tested under the instruction [@CL-FPA-0125]. The former accountant's letter to the Commission is likewise different from the attestation report of the registered public accounting firm on internal control, which is provided in the annual report of an accelerated filer or large accelerated filer [@CL-FPA-0129; @CL-FPA-0143]; see [Internal control over financial reporting disclosure](fpa-icfr-disclosure.md).
+A disagreement is not only an argument: a difference of opinion is enough if it meets the report-reference test [@CL-FPA-0126]. An initial difference of opinion based on incomplete facts or preliminary information is excluded where it was later resolved to the former accountant's satisfaction on additional facts, providing no difference of opinion continues [@CL-FPA-0169; @CL-FPA-0170]. A change of accountant alone is also different from a disagreement: the change calls for the statement of what occurred and the date [@CL-FPA-0123], while a disagreement is a separate matter tested under the instruction [@CL-FPA-0125]. The former accountant's letter to the Commission is likewise different from the attestation report of the registered public accounting firm on internal control, which is provided in the annual report of a registrant, other than an emerging growth company, that is an accelerated filer or a large accelerated filer [@CL-FPA-0129; @CL-FPA-0142; @CL-FPA-0143]; see [Internal control over financial reporting disclosure](fpa-icfr-disclosure.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ How the company would record differences of opinion with its auditor and decide 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Attestation report sentence now carries the emerging growth company exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the two business day letter period.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changes in and disagreements with accountants.

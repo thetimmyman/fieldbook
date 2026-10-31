@@ -39,7 +39,7 @@ In the clause as printed, when the contractor has reason to believe that the cos
 
 In the clause as printed, sixty days before the end of the period in the Schedule the contractor must notify the contracting officer in writing of the estimated amount of additional funds, if any, required to continue timely performance under the contract or for any further period specified in the Schedule or otherwise agreed upon, and when the funds will be required [@CL-CTF-0119; @CL-CTF-0277].
 
-If, after notification, funds are not allotted by the end of the scheduled period or another agreed-upon date, then upon the contractor's written request the contracting officer will terminate the contract on that date in accordance with the provisions of the Termination clause of the contract [@CL-CTF-0120; @CL-CTF-9564]. If the contractor estimates that its funds last longer, it may specify a later date in its request, and the contracting officer may terminate on that later date [@CL-CTF-0483].
+If, after notification, funds are not allotted by the end of the scheduled period or another agreed-upon date, then upon the contractor's written request the contracting officer will terminate the contract on that date in accordance with the provisions of the Termination clause of the contract [@CL-CTF-0120; @CL-CTF-9564]. If the contractor estimates that the funds available will allow it to continue to discharge its obligations beyond that date, it may specify a later date in its request, and the contracting officer may terminate the contract on that later date [@CL-CTF-0483].
 
 The codified prescription permits the 60-day period to be varied from 30 to 90 days and the 75 percent figure from 75 to 85 percent [@CL-CTF-0121].
 
@@ -67,6 +67,7 @@ Confirm which contracts are incrementally funded, which notice dates and thresho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's wording for the later termination date condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the 75 percent base, the funds-notice scope and the Termination clause tie.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to say the 60-day and 75 percent variations come from the codified prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

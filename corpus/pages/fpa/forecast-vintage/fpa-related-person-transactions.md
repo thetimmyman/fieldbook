@@ -38,7 +38,7 @@ Item 404(b)(1) requires the registrant to describe its policies and procedures f
 
 ## How it works
 
-The registrant tests each transaction against the amount involved and its own participation, using the smaller reporting company threshold, and the longer disclosure period that comes with it, if it qualifies [@CL-FPA-0146; @CL-FPA-0178; @CL-FPA-0257]. It then asks whether a related person had or will have a direct or indirect material interest [@CL-FPA-0147] and whether that person falls in a listed category [@CL-FPA-0148; @CL-FPA-0149]. A registrant that is not a smaller reporting company then describes its review policies and names any transaction the policies did not cover or that skipped them [@CL-FPA-0150; @CL-FPA-0151]. A smaller reporting company follows the paragraph (d) list instead, which gives paragraph (a) information, paragraph (c) information and a parent list, and does not list the paragraph (b) policy disclosures [@CL-FPA-0177; @CL-FPA-0178; @CL-FPA-0258].
+The registrant tests each transaction against the amount involved and its own participation, using the smaller reporting company threshold, and the longer disclosure period that comes with it, if it qualifies [@CL-FPA-0146; @CL-FPA-0178; @CL-FPA-0257]. It then asks whether a related person had or will have a direct or indirect material interest [@CL-FPA-0147] and whether that person falls in a listed category [@CL-FPA-0148; @CL-FPA-0149]. A registrant that is not a smaller reporting company then describes its review policies and identifies any transaction required to be reported under paragraph (a) where those policies did not require review, approval or ratification or were not followed [@CL-FPA-0150; @CL-FPA-0151]. A smaller reporting company follows the paragraph (d) list instead, which gives paragraph (a) information, paragraph (c) information and a parent list, and does not list the paragraph (b) policy disclosures [@CL-FPA-0177; @CL-FPA-0178; @CL-FPA-0258].
 
 ## Worked example
 
@@ -58,4 +58,5 @@ How the company would identify related persons and tie transaction amounts to le
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Policy-exception wording now follows the source (did not require review or were not followed).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transactions with related persons.
