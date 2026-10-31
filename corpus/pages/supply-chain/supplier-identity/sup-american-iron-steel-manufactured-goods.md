@@ -24,7 +24,7 @@ Explains the required use of American iron, steel and manufactured goods in cons
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2811] |
 | Codified citation | FAR 52.225-21 [@CL-SUP-2811]; FAR 52.225-22 [@CL-SUP-2820]; FAR 52.225-22, Alternate I [@CL-SUP-2900] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent [@CL-SUP-3539; @CL-SUP-3540] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2811] |
 | Applies to | Construction contracts that include the clause, and solicitations that include the notice provision [@CL-SUP-2811; @CL-SUP-2820] |
@@ -69,9 +69,11 @@ Alternate offers. An offeror whose offer includes foreign construction material 
 
 Alternate I. Under Alternate I the request goes with the offer [@CL-SUP-2900].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.225-21 as reserved and prints no clause text under that number [@CL-SUP-3539], and lists FAR 52.225-22 as reserved and prints no text under that number [@CL-SUP-3540].
+
 ## Worked example
 
-Synthetic example. The numbers are made up.
+Synthetic example. The numbers are made up. The example applies the codified text, and the RFO text prints no text under these section numbers [@CL-SUP-3539; @CL-SUP-3540].
 
 A negotiated construction solicitation includes the notice provision, with no alternate, and the contract will include the clause. The Government's list in paragraph (b)(3) of the clause says none. Award is on price alone, so paragraph (c)(2) of the provision does not apply. Each offer states whether it uses foreign material, and each request for an exception is submitted with the offer and carries the market survey, the cost comparison table and delivered costs.
 
@@ -97,6 +99,8 @@ The two 20 percent figures also differ [@CL-SUP-2815; @CL-SUP-2818]. In the clau
 
 The clause is for performance and the provision is for offers. The clause on construction materials under trade agreements uses different tests and is covered on [Buy American, construction materials under trade agreements](sup-buy-american-construction-trade-agreements.md). Its notice provision is covered on [Notice of Buy American requirement, construction materials under trade agreements](sup-notice-buy-american-construction-trade-agreements.md). The plain construction materials clause is covered on [Buy American, construction materials](sup-buy-american-construction-materials.md).
 
+The codified clause requires American iron, steel and manufactured construction material [@CL-SUP-2811; @CL-SUP-2812], and the codified notice provision sets out the offer evaluation [@CL-SUP-2892; @CL-SUP-2817], but the RFO text prints only reserved headings under FAR 52.225-21 and FAR 52.225-22 [@CL-SUP-3539; @CL-SUP-3540].
+
 ## Company calibration
 
 How the company evidences where its iron and steel were produced, and who approves a request to use foreign material. [@Q-021]
@@ -105,4 +109,5 @@ How the company evidences where its iron and steel were produced, and who approv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for required use of American iron, steel and manufactured goods.

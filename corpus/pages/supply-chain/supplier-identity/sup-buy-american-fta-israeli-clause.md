@@ -24,7 +24,7 @@ Shows which end products a contractor may deliver under the Buy American, Free T
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1246] |
 | Codified citation | FAR 52.225-3 [@CL-SUP-1246] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.225-3 [@CL-SUP-3579; @CL-SUP-3580; @CL-SUP-3581; @CL-SUP-3582; @CL-SUP-3583; @CL-SUP-3584; @CL-SUP-3585]; Alternate II [@CL-SUP-3586]; Alternate III [@CL-SUP-3587] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1246] |
 | Applies to | Acquisitions where the Contracting Officer has determined that the listed FTAs and the Israeli Trade Act apply [@CL-SUP-1246] |
@@ -36,6 +36,8 @@ The clause states that the Contracting Officer has determined that the FTAs (exc
 ## How it works
 
 The clause defines Free Trade Agreement country by a list of named countries that runs from Australia to Singapore and includes Korea (Republic of) [@CL-SUP-1244]. An Israeli end product is an article that is wholly the growth, product, or manufacture of Israel [@CL-SUP-1245]. It is also an article that consists in whole or in part of materials from another country and has been substantially transformed in Israel into a new and different article of commerce with a name, character, or use distinct from that of the article or articles from which it was transformed [@CL-SUP-1284]. The delivery rule then works in two steps. The default limits delivery to domestic end products [@CL-SUP-1247], and an offer that specified a Free Trade Agreement country end product or an Israeli end product widens the choice [@CL-SUP-1249]. The clause also carries definitions of domestic end product, component and COTS item, which this card does not restate; they are covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.225-3 keeps the statement that the Contracting Officer has determined that the FTAs (except the Bahrain, Morocco, Oman, Panama, and Peru FTAs) and the Israeli Trade Act apply to the acquisition, and that unless otherwise specified they apply to all items in the Schedule [@CL-SUP-3579; @CL-SUP-1246]. It keeps the rule that the contractor shall deliver only domestic end products, except to the extent that, in its offer, it specified delivery of foreign end products in the certificate provision [@CL-SUP-3580; @CL-SUP-1247]. It keeps the further supply rule for an offer that specified a Free Trade Agreement country end product (other than a Bahraini, Moroccan, Omani, Panamanian, or Peruvian end product) or an Israeli end product [@CL-SUP-3581; @CL-SUP-1248], under which the contractor shall supply a Free Trade Agreement country end product (other than a Bahraini, Moroccan, Omani, Panamanian, or Peruvian end product), an Israeli end product or, at its option, a domestic end product [@CL-SUP-3582; @CL-SUP-1249]. It keeps the list of Free Trade Agreement countries [@CL-SUP-3583; @CL-SUP-1244] and both alternatives in the definition of an Israeli end product [@CL-SUP-3584; @CL-SUP-1245; @CL-SUP-3585; @CL-SUP-1284]. RFO Alternate II keeps the substitution of its own paragraph (c) for paragraph (c) of the basic clause [@CL-SUP-3586; @CL-SUP-1285], and RFO Alternate III keeps the deletion of the definition of Bahraini, Moroccan, Omani, Panamanian, or Peruvian end product and the addition of the definition of Korean end product [@CL-SUP-3587; @CL-SUP-1286]. The same RFO Alternate III instruction goes on to substitute the following paragraph (c) for paragraph (c) of the basic clause [@CL-SUP-9366].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Which executed contracts carry this clause rather than the plain supplies clause
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American, Free Trade Agreements and Israeli Trade Act clause.
