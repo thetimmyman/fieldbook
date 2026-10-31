@@ -41,7 +41,7 @@ Duties fall on the contracting officer: the pre-award assurance, the periodic re
 
 The review is a recurring oversight duty and is separate from any renewal decision. An extension or renewal needs its own authorization [@CL-MKT-1748; @CL-MKT-1749].
 
-The original authorization is made by the head of the agency and cannot be delegated [@CL-MKT-1735; @CL-MKT-1736]. The renewal rule refers back to the level of that original authorization, so a renewal approved lower in the agency does not satisfy it [@CL-MKT-1749].
+The original authorization is a written determination that the head of an agency with requisite statutory authority may make, and that authority cannot be delegated [@CL-MKT-1735; @CL-MKT-1736]. The renewal rule refers back to the level of that original authorization, so a renewal approved lower in the agency does not satisfy it [@CL-MKT-1749].
 
 ## Worked example
 
@@ -63,4 +63,5 @@ How each management and operating contract is reviewed, who signs any renewal or
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the written determination and requisite statutory authority conditions to the authorization sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award, renewal and extension of management and operating contracts.
