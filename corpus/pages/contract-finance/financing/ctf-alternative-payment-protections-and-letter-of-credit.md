@@ -78,7 +78,8 @@ Which contracts require payment protection or a letter of credit, in what form, 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the irrevocable letter of credit definition; cited the codified text for the end of the confirmation format sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified text for the end of the confirmation format sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the irrevocable letter of credit definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of irrevocable letter of credit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of irrevocable letter of credit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the confirmation format sentence so the confirmation keeps its expiry on the stated date or any automatically extended expiration date.

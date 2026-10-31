@@ -59,7 +59,8 @@ How the company defines and reconciles its pools, bases and service-center charg
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of indirect cost; matched the indirect-cost sentences to their quotes; restored "appropriate" and the fragmenting limit; cited the codified text for two RFO comparisons.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the indirect-cost sentences to their quotes; restored "appropriate" and the fragmenting limit; cited the codified text for two RFO comparisons.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of indirect cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of indirect cost.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.

@@ -54,5 +54,6 @@ Which award-fee contracts the company holds, how much of each pool is set aside 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on other applications of award fees, the PGI pointer for these contracts, and the gross negligence limb of the covered incident definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: The PGI pointer for these contracts, and the gross negligence limb of the covered incident definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on other applications of award fees.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD cost-plus-award-fee requirements.

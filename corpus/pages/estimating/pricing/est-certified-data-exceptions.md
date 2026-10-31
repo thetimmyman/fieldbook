@@ -59,7 +59,8 @@ Which upcoming proposals may need certified cost or pricing data, and whether ea
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the data other than certified cost or pricing data definition; carried the adequate-price-competition lead-in and finding approval; added data-other-than parenthetical.
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the adequate-price-competition lead-in and finding approval; added data-other-than parenthetical.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the data other than certified cost or pricing data definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of data other than certified cost or pricing data.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of data other than certified cost or pricing data.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

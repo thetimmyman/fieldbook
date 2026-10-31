@@ -57,5 +57,6 @@ Confirm which contracts carry the clause, whether each year's final rate proposa
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; restored 'may' for extensions; matched agreement contents; cited extension claim.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored 'may' for extensions; matched agreement contents; cited extension claim.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Predetermined Indirect Cost Rates clause.

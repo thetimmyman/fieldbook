@@ -59,5 +59,6 @@ Which CAS clauses each contract carries and which Disclosure Statement determina
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the part 30 scope and the Disclosure Statement pointer sections; added the foreign concerns exclusion that follows the clause prescription.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign concerns exclusion that follows the clause prescription.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the part 30 scope and the Disclosure Statement pointer sections.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR 30 CAS clauses, waiver authority and Disclosure Statement determinations.

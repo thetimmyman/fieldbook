@@ -58,7 +58,8 @@ Which contracts carry the value engineering clause, who prepares and approves ch
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of value engineering; Added the Schedule and VECP submission duties of Alternate I.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the Schedule and VECP submission duties of Alternate I.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of value engineering.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of value engineering.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the value engineering clause definition and submission rules.

@@ -55,5 +55,6 @@ Which contracts with an earned value requirement have a system the cognizant age
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the material weakness sentence so the initial determination keeps the written notice to the contractor; Fixed corrective-action wording and who approves a previously disapproved system.
+- COMPATIBLE_EXTENSION, 2026-10-31: Fixed corrective-action wording and who approves a previously disapproved system.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the material weakness sentence so the initial determination keeps the written notice to the contractor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS approval and disapproval.

@@ -56,5 +56,6 @@ Which contracts carry the veterans clause, and who owns the annual veterans repo
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the collective bargaining, complaint and sanction rules; stated the Alternate I rule without naming an actor the text does not name.
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the Alternate I rule without naming an actor the text does not name.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the collective bargaining, complaint and sanction rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal opportunity for veterans.

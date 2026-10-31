@@ -58,7 +58,8 @@ Which bids and task order proposals need immediate support and the approval rout
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of task order; removed unquoted actor, added provisos, urgency condition and contract exceptions.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted actor, added provisos, urgency condition and contract exceptions.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of task order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of task order.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ordering, definite quantity and requirements clauses.

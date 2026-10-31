@@ -60,6 +60,7 @@ Who in the company may speak with the Government about a planned acquisition and
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.200 subpart scope; RFO comparison no longer says the texts match; worked example states the condition for public release.
+- COMPATIBLE_EXTENSION, 2026-10-31: RFO comparison no longer says the texts match; worked example states the condition for public release.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.200 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exchanges with industry before receipt of proposals.

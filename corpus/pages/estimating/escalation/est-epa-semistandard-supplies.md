@@ -57,6 +57,7 @@ That each semistandard line item price gap to the established price is attributa
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow; cited the lead-in of the price increase rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the price increase rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Economic Price Adjustment clause for semistandard supplies.

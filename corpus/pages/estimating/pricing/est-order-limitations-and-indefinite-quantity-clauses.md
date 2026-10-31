@@ -62,6 +62,7 @@ Which indefinite-quantity contracts carry order limits and the minimum, maximum 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to say a series of orders is measured against either limitation; framed delivery-date limit as a proviso and cited the clauses that print the blanks.
+- COMPATIBLE_EXTENSION, 2026-10-31: Framed delivery-date limit as a proviso and cited the clauses that print the blanks.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to say a series of orders is measured against either limitation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for order limitations and the indefinite quantity clause.

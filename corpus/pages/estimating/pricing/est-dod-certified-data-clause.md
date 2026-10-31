@@ -53,5 +53,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state; replaced the applies-to row with claims that support it; kept the purpose of the 10-day request; worked example no longer says the minimum is the whole requirement.
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced the applies-to row with claims that support it; kept the purpose of the 10-day request; worked example no longer says the minimum is the whole requirement.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD certified data and data other than certified clause.

@@ -60,7 +60,8 @@ Where the market research record for each subcontract award is kept and reviewed
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text; kept the 'for which proposals are requested in the solicitation' scope of the alternative line item invitation.
+- COMPATIBLE_EXTENSION, 2026-10-31: Kept the 'for which proposals are requested in the solicitation' scope of the alternative line item invitation.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of market research.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of market research.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on line item rules.

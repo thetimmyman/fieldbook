@@ -61,5 +61,6 @@ When the negotiation point for firm targets falls and who prepares the supportin
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; added the data-submission timing and the receipt-of-data trigger.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the data-submission timing and the receipt-of-data trigger.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the incentive price revision clause with successive targets.

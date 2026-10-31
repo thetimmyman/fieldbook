@@ -55,6 +55,7 @@ Whether indirect cost variances are evaluated and their program impact is visibl
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse; Removed an exclusive "only" the cited text does not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on EVMS Guideline 11.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 19 indirect cost variance.

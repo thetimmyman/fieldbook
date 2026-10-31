@@ -91,7 +91,8 @@ Which proposals are priced under educational institution cost principles and who
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.000, 31.301 and 31.302 text; restored must for the DoD class deviation and removed a signing date its cited quote does not give.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored must for the DoD class deviation and removed a signing date its cited quote does not give.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.000, 31.301 and 31.302 text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 31.002, 31.100, 31.201-7 and 31.301 scope and pointer sentences.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the organization-type grouping, deviations and the educational institution cost principles.

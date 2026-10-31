@@ -68,7 +68,8 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Codified proposal revision definition now includes the contracting officer request and negotiation conditions; marked the cost-or-price dominant role case as the FAR's example.
+- COMPATIBLE_EXTENSION, 2026-10-31: Marked the cost-or-price dominant role case as the FAR's example.
+- COMPATIBLE_EXTENSION, 2026-10-31: Codified proposal revision definition now includes the contracting officer request and negotiation conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of best value.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of best value.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.000 part scope and the FAR 15.100 subpart scope.

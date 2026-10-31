@@ -52,6 +52,7 @@ Who owns proposal pricing and the estimating system description, and when that d
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $10 million and $50 million prior-year amounts; cited the clause text for the $10 million to $50 million band and its preceding fiscal year window; matched the definition of an acceptable estimating system; stated the second applicability condition as two parts; cited both disclosure acceptability requirements; matched system functions to the clause.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the definition of an acceptable estimating system; stated the second applicability condition as two parts; cited both disclosure acceptability requirements; matched system functions to the clause.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $10 million and $50 million prior-year amounts; cited the clause text for the $10 million to $50 million band and its preceding fiscal year window.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how a contractor asks the Government to protect proprietary estimating system data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor estimating system requirements.

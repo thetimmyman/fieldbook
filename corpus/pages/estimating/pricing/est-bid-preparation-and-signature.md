@@ -73,6 +73,7 @@ Confirm who signs bids, who initials changes, and what evidence of agent authori
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of signature or signed; cited the codified lead-in that states the per-item duty as bidders shall.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified lead-in that states the per-item duty as bidders shall.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of signature or signed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing and signing a sealed bid.

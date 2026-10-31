@@ -58,7 +58,8 @@ Who sends these notices for proposals the company submits, and who owns the prop
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.206(b) applicability; tightened exclusion-notice, impracticability and debriefing wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Tightened exclusion-notice, impracticability and debriefing wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.206(b) applicability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability of FAR subpart 15.5.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notices to unsuccessful offerors.

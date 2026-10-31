@@ -57,5 +57,6 @@ Whether the cognizant agency has determined the contract's system compliant, whi
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Matched the access-to-records wording to the clause.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the access-to-records wording to the clause.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the earned value management system clause.

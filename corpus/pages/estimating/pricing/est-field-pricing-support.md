@@ -57,5 +57,6 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Matched the partial audit sentence to the wording of the manual; reworded the audit coordination sentence to the manual's customer-needs wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the audit coordination sentence to the manual's customer-needs wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the partial audit sentence to the wording of the manual.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for field pricing support by the audit agency.

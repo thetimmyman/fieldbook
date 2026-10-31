@@ -58,5 +58,6 @@ Which equipment, systems and services the company sells or uses could contain co
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence; matched the video surveillance item to the wording of the definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the video surveillance item to the wording of the definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered telecommunications equipment or services.

@@ -56,7 +56,8 @@ Which work packages the company measures as level of effort, and whether the sys
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state; Cited the PERT claim for the BCWP formula and stated the apportioned-effort documentation condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the PERT claim for the BCWP formula and stated the apportioned-effort documentation condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restated the material and apportioned effort sentences to match the guide.

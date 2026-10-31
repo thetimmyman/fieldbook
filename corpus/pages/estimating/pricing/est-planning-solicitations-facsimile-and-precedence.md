@@ -71,7 +71,8 @@ Which provision governs each live solicitation we answer, what its contract-spec
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state; cited the no-award intent sentence for the information-request contrast.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the no-award intent sentence for the information-request contrast.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on facsimile bids.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for request for information, facsimile proposals, place of performance and order of precedence.

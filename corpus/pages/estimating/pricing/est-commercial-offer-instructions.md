@@ -93,6 +93,7 @@ Which offers need an approved review record before signature and submission. [@Q
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to use the provision's wording for the initial offer; cited the minimum-contents lead-in.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the minimum-contents lead-in.
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected one sentence to use the provision's wording for the initial offer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for instructions to offerors on commercial solicitations.

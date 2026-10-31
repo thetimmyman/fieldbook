@@ -62,7 +62,8 @@ Who prepares the evaluation material for a debriefing request and who owns the p
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.206(a) meaning of day; scoped the one-debriefing limit to offerors generally.
+- COMPATIBLE_EXTENSION, 2026-10-31: Scoped the one-debriefing limit to offerors generally.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.206(a) meaning of day.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the meaning of day in FAR subpart 15.5.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preaward debriefing of offerors.

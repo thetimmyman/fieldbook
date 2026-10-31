@@ -55,5 +55,6 @@ Which fiscal years are open, and the status of each incurred cost submission. [@
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO supplemental information paragraph of the Allowable Cost and Payment clause; cited the clause's own extension sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the clause's own extension sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO supplemental information paragraph of the Allowable Cost and Payment clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the final indirect cost rate proposal deadline.

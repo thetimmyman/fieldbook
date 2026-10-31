@@ -57,6 +57,7 @@ Which upcoming proposals may need a Certificate of Current Cost or Pricing Data.
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on the certificate; added the codified lead-in, signer statement, date footnote and accuracy sentence for the certificate.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the codified lead-in, signer statement, date footnote and accuracy sentence for the certificate.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on the certificate.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Certificate of Current Cost or Pricing Data.
