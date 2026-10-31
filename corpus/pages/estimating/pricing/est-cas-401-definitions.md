@@ -37,7 +37,7 @@ Other terms defined elsewhere in part 99 have the meanings given in those defini
 
 ## How it works
 
-The definitions separate a forecast from an incurred amount: estimating costs is forecasting a future result from the information available at the time, while actual cost rests on cost incurred as distinguished from forecasted cost [@CL-EST-2858; @CL-EST-2857]. Standard cost is included in actual cost when it is properly adjusted for applicable variance [@CL-EST-2857]. A proposal is wider than a bid for a new contract: it also covers any submission used as a basis for pricing a contract modification or a termination settlement, or for securing payments [@CL-EST-2861]. Accumulating collects cost data in an organized manner, and reporting provides cost information to others [@CL-EST-2856; @CL-EST-2862]. The definitions create no duty by themselves; the duties sit in the Standard's requirements.
+The definitions separate a forecast from an incurred amount: estimating costs is forecasting a future result from the information available at the time, while actual cost rests on cost incurred as distinguished from forecasted cost [@CL-EST-2858; @CL-EST-2857]. Standard cost is included in actual cost when it is properly adjusted for applicable variance [@CL-EST-2857]. A proposal covers any offer or other submission used as a basis for pricing a contract, contract modification or termination settlement, or for securing payments under it [@CL-EST-2861]. Accumulating collects cost data in an organized manner, and reporting provides cost information to others [@CL-EST-2856; @CL-EST-2862].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ An estimator forecasts 500,000 of engineering cost for a follow-on lot from the 
 
 ## Never confuse
 
-Estimating costs is not actual cost: one forecasts a future result from information available at the time, and the other rests on cost incurred [@CL-EST-2858; @CL-EST-2857]. Pricing is not estimating: pricing establishes the amount to be paid, while estimating forecasts a cost result [@CL-EST-2860; @CL-EST-2858]. Accumulating costs is not reporting costs: accumulating is collecting cost data in an organized manner, and reporting is providing cost information to others [@CL-EST-2856; @CL-EST-2862]. The consistency requirement that ties these activities together is on the [consistency card](../../compliance/cas-allowability/cmp-cas-401-consistency.md), not in these definitions.
+Estimating costs is not actual cost: one forecasts a future result from information available at the time, and the other rests on cost incurred [@CL-EST-2858; @CL-EST-2857]. Pricing is not estimating: pricing establishes the amount to be paid, while estimating forecasts a cost result [@CL-EST-2860; @CL-EST-2858]. Accumulating costs is not reporting costs: accumulating is collecting cost data in an organized manner, and reporting is providing cost information to others [@CL-EST-2856; @CL-EST-2862]. The consistency requirement is on the [consistency card](../../compliance/cas-allowability/cmp-cas-401-consistency.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Confirm who owns proposal pricing and the estimating system description, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Proposal definition restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the consistency Standard definitions.

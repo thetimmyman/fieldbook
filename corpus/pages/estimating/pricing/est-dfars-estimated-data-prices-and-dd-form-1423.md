@@ -35,9 +35,9 @@ The contracting officer must ensure that the contract does not include a require
 
 ## How it works
 
-The estimate gives a value to the data item itself, measured by its management, product or engineering value, so the Government can evaluate what the item costs it [@CL-EST-2460]. The Contract Data Requirements List is the vehicle, because DD Form 1423 goes into the solicitation whenever data are required to be delivered under the contract [@CL-EST-2461].
+DoD requires estimates of the prices of data in order to evaluate the cost to the Government of data items in terms of their management, product, or engineering value [@CL-EST-2460]. When data are required to be delivered under a contract, DD Form 1423, Contract Data Requirements List, must be included in the solicitation [@CL-EST-2461].
 
-The contracting officer's check is on the contract itself: it must not require data the contractor has delivered, or is obligated to deliver, under another contract or subcontract, and the contracting officer must ensure that the successful offeror identifies any such data that the solicitation requires [@CL-EST-2462]. Where duplicate data are desired, the contract price includes the costs of duplication and not the costs of preparation [@CL-EST-2463].
+The contracting officer must ensure that the contract does not include a requirement for data that the contractor has delivered or is obligated to deliver to the government under another contract or subcontract, and that the successful offeror identifies any such data required by the solicitation [@CL-EST-2462]. Where duplicate data are desired, the contract price must include the costs of duplication, but not of preparation, of such data [@CL-EST-2463].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A solicitation requires data under a contract and includes DD Form 1423 [@CL-EST
 
 ## Never confuse
 
-An estimate of a data price is not a charge for the same data twice, because the contracting officer must ensure the contract does not require data already delivered or owed under another contract or subcontract, except where duplicate data are desired and the price covers the costs of duplication but not of preparation [@CL-EST-2462; @CL-EST-2463]. Nor is a duplicate priced as new work where duplicate data are desired, since the price includes duplication and not preparation [@CL-EST-2463]. The deferred delivery and previously delivered data card covers the ordering mechanics and is not repeated here.
+The contracting officer must ensure that the contract does not include a requirement for data that the contractor has delivered or is obligated to deliver to the government under another contract or subcontract [@CL-EST-2462]. However, where duplicate data are desired, the contract price must include the costs of duplication, but not of preparation, of such data [@CL-EST-2463]. For deferred delivery and technical data previously delivered, see [Deferred delivery, deferred ordering and technical data previously delivered](../../compliance/regulatory-framework/cmp-dfars-deferred-delivery-ordering-and-previously-delivered-data.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ That each proposal with data deliverables prices them and checks them against da
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to track the DFARS text; uncited contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for estimated data prices and the Contract Data Requirements List.

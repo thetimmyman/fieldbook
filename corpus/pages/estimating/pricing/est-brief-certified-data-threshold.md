@@ -23,7 +23,7 @@ Check the exceptions first. Then test the expected value against the DoD deviati
 
 ## Evidence
 
-- The codified FAR sets the threshold at $2.5 million for prime contracts awarded on or after July 1, 2018 [@CL-EST-0001]. Unless an exception applies, certified cost or pricing data are required before the listed actions expected to exceed the current threshold [@CL-EST-9458].
+- The codified FAR sets the threshold at $2.5 million for prime contracts awarded on or after July 1, 2018 [@CL-EST-0001]. Unless an exception applies, certified cost or pricing data are required before the listed actions expected to exceed the current threshold or, in the case of existing contracts, the threshold specified in the contract [@CL-EST-9458].
 - For DoD prime contracts awarded after June 30, 2026, the deviation says to obtain them when a prime contract is expected to exceed $10 million, unless an exception at FAR 15.403-2 or DFARS 215.403-71 applies [@CL-EST-0002; @CL-EST-9456; @CL-EST-9457].
 - The same deviation sets the threshold at $2.5 million for a prime contract awarded on or before June 30, 2026, unless otherwise stated in the contract [@CL-EST-9457]. Its subcontract rule turns on the prime's date and on whether the prime and each higher tier must submit certified data [@S-0022-v1, pp. 23-24].
 - DoD lists the deviation as its current text for the negotiation part [@S-0021-v1].
