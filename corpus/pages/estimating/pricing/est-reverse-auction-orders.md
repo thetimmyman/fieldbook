@@ -50,7 +50,7 @@ Three blanket purchase agreement holders quote for an order in a reverse auction
 
 ## Never confuse
 
-An order auction is not the solicitation-level provision: this clause concerns an order under the contract or blanket purchase agreement [@CL-EST-1938], while the provision on [Reverse auction under a solicitation](est-reverse-auction.md) concerns a contract or blanket purchase agreement awarded under a solicitation [@CL-EST-1932]. Withdrawing agreement is done by withdrawing the offer, and the request is notified to the Contracting Officer [@CL-EST-2028; @CL-EST-1940]. Showing prices to all offerors is allowed, but price or proposal information may not be released outside the Government unless the law requires it [@CL-EST-2030; @CL-EST-1942]. The provider's own duties are on [Duties of a reverse auction service provider](est-reverse-auction-services.md), and the defense supplement's pointer is on [Ordering under multiple award contracts](est-dod-ordering-multiple-award-contracts.md).
+An order auction is not the solicitation-level provision: this clause concerns an order under the contract or blanket purchase agreement [@CL-EST-1938], while the provision on [Reverse auction under a solicitation](est-reverse-auction.md) concerns a contract or blanket purchase agreement awarded under a solicitation [@CL-EST-1932]. Withdrawing agreement is done by withdrawing the offer, and the request is notified to the Contracting Officer [@CL-EST-2028; @CL-EST-1940]. Showing the offered prices to all contractors or blanket purchase agreement holders is allowed, but price or proposal information received by the reverse auction service provider may not be released outside the Government unless otherwise required by law [@CL-EST-2030; @CL-EST-1942]. The provider's own duties are on [Duties of a reverse auction service provider](est-reverse-auction-services.md), and the defense supplement's pointer is on [Ordering under multiple award contracts](est-dod-ordering-multiple-award-contracts.md).
 
 ## Company calibration
 
@@ -60,5 +60,5 @@ Who confirms that our order quotes count as auction agreements and that a withdr
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Carried the provider qualification on the release bar.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reverse auction for orders.

@@ -33,7 +33,7 @@ TINA Lite is the informal name for the authority to tailor the type and extent o
 
 ## How it works
 
-TINA Lite is not a waiver of the truthful cost or pricing data requirements and is not an exception to them [@CL-EST-0741]. Certified cost or pricing data is still required and certified through a tailored certificate, and the Government retains its remedies for defective certified cost or pricing data [@CL-EST-0742]. What changes is whether the contractor provides the full traditional set of certified cost or pricing data or what the contracting officer determines is necessary [@CL-EST-0743]. Historical actuals are not a reliable basis for pricing non-recurring effort, changed requirements, or new work not represented in the historical record [@CL-EST-0744]. The authority may be flowed down to subcontracts subject to TINA at the contracting officer's discretion [@CL-EST-0745]. A post-award defective pricing review remains available and is scoped to the tailored data the contractor was required to submit and certify [@CL-EST-0746].
+TINA Lite is not a waiver of the truthful cost or pricing data requirements and is not an exception to them [@CL-EST-0741]. Certified cost or pricing data is still required and certified through a tailored certificate, and the Government retains its remedies for defective certified cost or pricing data [@CL-EST-0742]. What changes is whether the contractor provides the full traditional set of certified cost or pricing data or what the contracting officer determines is necessary [@CL-EST-0743]. Historical actuals are not a reliable basis for pricing non-recurring effort, changed requirements, or new work not represented in the historical record [@CL-EST-0744]. The authority may be flowed down to subcontracts subject to TINA at the contracting officer's discretion [@CL-EST-0745]. A post-award defective pricing review remains available and should likewise be scoped to the tailored certified cost or pricing data the contractor was required to submit and certify [@CL-EST-0746].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ Which bids need immediate support, and the review and approval route for tailore
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Post-award defective pricing review scope now says should, as the source does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tailored certified cost or pricing data (TINA Lite).

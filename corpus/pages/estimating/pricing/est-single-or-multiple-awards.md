@@ -27,7 +27,7 @@ Explains when the Government keeps the choice between one award and several for 
 | RFO citation | RFO FAR 52.216-27 [@CL-EST-0616]; RFO FAR 52.216-28 [@CL-EST-0617]; RFO FAR 2.101 [@CL-EST-9376] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1929] |
-| Applies to | Solicitations for indefinite-quantity contracts that may result in multiple contract awards, for the single or multiple awards provision [@CL-CTF-1227]; solicitations that include the advisory and assistance services provision [@CL-EST-1930] |
+| Applies to | Solicitations for indefinite-quantity contracts that may result in multiple contract awards, for the single or multiple awards provision [@CL-CTF-1227], which is not to be used for advisory and assistance services contracts that exceed 3 years and $20 million (including all options) [@CL-CTF-1256]; solicitations that include the advisory and assistance services provision [@CL-EST-1930] |
 
 Under the single or multiple awards provision, the Government may elect to award a single delivery order contract or task order contract, or to award multiple delivery order contracts or task order contracts for the same or similar supplies or services to two or more sources under the solicitation [@CL-EST-1929].
 
@@ -59,7 +59,7 @@ Whether our pricing and bid posture assumes one award or several for each order-
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition; added the advisory-services exception to the single or multiple awards provision scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of advisory and assistance services.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of advisory and assistance services.

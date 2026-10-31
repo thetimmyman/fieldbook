@@ -45,7 +45,7 @@ A technical weight of 60 percent at a value of 5.0 and a management/cost control
 
 ## Never confuse
 
-Performance risk is only one of four factors: it covers technical uncertainties and management effort, while the cost risk accepted under the contract type is a separate factor [@CL-EST-0773; @CL-EST-0776]. The cost efficiency special factor has no normal value at all, while each other factor has a normal value and a designated range [@CL-EST-0774]. The contracting officer need not explain assignment of the normal value, but should address the conditions that justify any other value [@CL-EST-0775]. These factor results feed the wider profit analysis; see [Profit analysis](est-profit-analysis.md).
+Performance risk is only one of four factors: it covers technical uncertainties and management effort, while the cost risk accepted under the contract type is a separate factor [@CL-EST-0773; @CL-EST-0776; @CL-EST-0867]. The cost efficiency special factor has no normal value at all, while each other factor has a normal value and a designated range [@CL-EST-0774]. The contracting officer need not explain assignment of the normal value, but should address the conditions that justify any other value [@CL-EST-0775]. These factor results feed the wider profit analysis; see [Profit analysis](est-profit-analysis.md).
 
 ## Company calibration
 
@@ -55,5 +55,5 @@ Which factors the company's profit model moves away from normal on, and where th
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range; cited the contract type risk claim for the degree of cost risk accepted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the weighted guidelines general policy and performance risk.
