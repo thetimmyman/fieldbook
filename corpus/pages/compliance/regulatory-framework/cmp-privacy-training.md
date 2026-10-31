@@ -66,6 +66,8 @@ Under the basic clause, a contractor assigns 40 staff to a benefits system of re
 
 Privacy training is not general security awareness. The basic clause names its own minimum content, including the Privacy Act and its penalties and the breach procedures [@CL-CMP-5535; @CL-CMP-5537], and it deems an agency-developed or agency-conducted course to satisfy those elements [@CL-CMP-5538].
 
+The Privacy Act notification and Privacy Act clauses are covered in [Privacy Act notification and Privacy Act clauses](cmp-privacy-act-notification-and-privacy-act.md), and the DFARS information assurance training clause is covered in [Information assurance training and supply chain risk notice (DFARS)](cmp-dfars-information-assurance-training-and-supply-chain-risk-notice.md).
+
 ## Company calibration
 
 Confirm who owns the training roster, the completion records and the subcontract flowdown check, and whether the contract uses the basic clause or Alternate I. [@Q-014]
@@ -74,5 +76,6 @@ Confirm who owns the training roster, the completion records and the subcontract
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on Privacy Act clauses and information assurance training.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for privacy training.

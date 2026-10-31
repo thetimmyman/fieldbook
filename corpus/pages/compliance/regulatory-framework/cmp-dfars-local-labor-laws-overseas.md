@@ -47,6 +47,8 @@ An overseas contract is subject to a local rule on work hours. A union claims th
 
 The indemnity in paragraph (b) puts claims on the Contractor, and paragraph (c) is the stated exception for fines, penalties and litigation expenses that follow from contract terms or written instructions. For the FAR treatment of agency impartiality in labor disputes, see [Labor law definitions and labor relations policy](cmp-labor-law-definitions-and-labor-relations-policy.md). For which law and forum govern an overseas contract, see [DFARS foreign wage, whistleblower legal costs and choice of law](../../close-revrec/revenue/cls-dfars-foreign-wage-price-whistleblower-legal-costs-and-choice-of-law.md). Duties tied to one country sit in their own clauses: the Italian work permit is in [Permit from the Italian Inspectorate of Labor](cmp-dfars-italian-labor-permit.md), and Spanish social security proof and insurance are in [Spanish social security laws and Spanish laws and insurance](cmp-dfars-spanish-social-security-and-insurance.md). The duty to employ residents of a named place is in [Restrictions on employment of personnel](cmp-dfars-restrictions-on-employment-of-personnel.md).
 
+The restriction on severance payments to foreign nationals, and its waiver, are covered in [Severance payments to foreign nationals: restriction and waiver](cmp-severance-payments-to-foreign-nationals.md).
+
 ## Company calibration
 
 Which local labor claims or litigation are open under overseas contracts, and who owns each response. [@Q-014]
@@ -55,4 +57,5 @@ Which local labor claims or litigation are open under overseas contracts, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on severance payments to foreign nationals.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for compliance with local labor laws overseas.

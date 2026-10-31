@@ -65,6 +65,8 @@ Site B is unregulated. The contract inserts 1 January as the date after which ei
 
 A regulated change is not a negotiation. Its effective date is the regulatory body's date, and only factors the regulatory body does not govern take a date the parties agree [@CL-SUP-2683; @CL-SUP-2742]. An unregulated change is not a unilateral right either: either party may request it, both parties enter negotiations, and a failure to agree after a reasonable period becomes a dispute [@CL-SUP-2685; @CL-SUP-2744; @CL-SUP-2687]. A change in class of service follows its own clause; see [Utility service scope, duration and change in class of service](sup-utility-scope-duration-and-class-change.md).
 
+The electric service territory representation and the order of precedence clause are covered in [Electric service territory representation and order of precedence](sup-utility-territory-and-precedence.md).
+
 ## Company calibration
 
 Confirm, for each site, whether a regulatory body regulates the rate, who receives the notices and copies the contract names, and who forwards approved changes to the Contracting Officer. [@Q-004]
@@ -73,5 +75,6 @@ Confirm, for each site, whether a regulatory body regulates the rate, who receiv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on electric service territory and precedence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rate changes in regulated and unregulated utility service.

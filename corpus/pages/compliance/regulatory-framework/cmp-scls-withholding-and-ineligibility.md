@@ -47,6 +47,8 @@ Separately, once the contractor is found in violation, it has an active exclusio
 
 Withholding is not an exclusion. Withholding holds back money to pay underpaid employees, and it is the contracting officer's option unless the Department of Labor makes a written request from the stated level, which makes it mandatory [@CL-CMP-6766]. An exclusion blocks award to the violator and to a firm in which the violator holds a substantial interest unless the Secretary of Labor approves [@CL-CMP-6771].
 
+The Secretary of Labor's responsibilities for service contracts are covered in [Department of Labor responsibilities and regulations for service contracts](cmp-department-of-labor-service-contract-roles.md), and the construction rules on withholding and suspension of contract payments are covered in [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md).
+
 ## Company calibration
 
 Confirm which contracts carry the clause and who handles a withholding request or an exclusion question. [@Q-014]
@@ -55,4 +57,5 @@ Confirm which contracts carry the clause and who handles a withholding request o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on Department of Labor roles and construction withholding.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for withholding payments and ineligibility of violators.

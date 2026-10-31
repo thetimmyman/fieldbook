@@ -58,6 +58,8 @@ The estimated construction contract price is not the design contract price. The 
 
 The estimated construction contract price is in paragraph (c) of the codified clause [@CL-CMP-5118] and in paragraph (d) of the RFO clause [@CL-CMP-1061], and the RFO clause asks for written notice where the codified clause asks the contractor to advise [@CL-CMP-1056; @CL-CMP-4917].
 
+The clauses on work oversight and designer registration are covered in [Work oversight, designer registration and the preconstruction conference](cmp-construction-work-oversight-and-designer-registration.md), and the construction specifications and drawings clause is covered in [Specifications and drawings for construction](cmp-specifications-and-drawings-construction.md).
+
 ## Company calibration
 
 Which design entities in the finance remit hold these clauses, and who confirms the estimated construction price and the redesign cost treatment for each? [@Q-003]
@@ -66,5 +68,6 @@ Which design entities in the finance remit hold these clauses, and who confirms 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on work oversight and construction specifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for design within funding limitations and architect-engineer responsibility.

@@ -46,6 +46,8 @@ A program carries 500,000 of direct labour budget. The responsible organization 
 
 An indirect budget is not a direct resource budget. The direct resource budgets are the base the rates are applied to, and the indirect budget is what applying those rates at the applicable level produces [@CL-PRG-0262].
 
+The guideline on evaluating indirect cost variances is covered in [Evaluate indirect cost variances](prg-evms-guideline-19-indirect-cost-variances.md), and the guideline on recording costs by element of cost is covered in [Record costs by element of cost](prg-evms-guideline-15-record-costs.md).
+
 ## Company calibration
 
 Whether each pool carries an indirect budget in the baseline at the level the responsible organization manages it, and which rate vintage was used. [@Q-037]
@@ -54,5 +56,6 @@ Whether each pool carries an indirect budget in the baseline at the level the re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed two sentences the cited claims did not support and aligned the wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 11 indirect budgets.

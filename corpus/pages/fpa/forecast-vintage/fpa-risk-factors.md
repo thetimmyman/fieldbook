@@ -46,6 +46,8 @@ A contractor lists a risk that its main Government program may be terminated ear
 
 A risk factor is a material factor that makes an investment speculative or risky [@CL-FPA-0041]. The printed text asks for no forecast and no reserve amount. Risk factors also differ from the critical estimates discussion, which explains estimation uncertainty in reported amounts [@CL-FPA-0036]; see [Critical accounting estimates in MD&A](fpa-critical-accounting-estimates.md).
 
+The description of cybersecurity risk management, strategy and governance is covered in [Cybersecurity disclosure in Regulation S-K](fpa-cybersecurity-disclosure.md).
+
 ## Company calibration
 
 Which open accounting judgments and close deadlines feed the risk discussion, and how they are reviewed before it is issued. [@Q-006]
@@ -54,4 +56,5 @@ Which open accounting judgments and close deadlines feed the risk discussion, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on cybersecurity disclosure.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for risk factor disclosure.

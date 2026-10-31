@@ -49,6 +49,8 @@ A solicitation names a receiving number and sets bid opening at 14:00. Bidder A 
 
 A facsimile bid is not an informal or unsigned submission: it must carry the required signatures, and it may be excluded for missing representations or information or for rejecting terms [@CL-MKT-1131; @CL-MKT-1132]. A facsimile bid is also not only an original offer: the definition covers a modification of a bid and a withdrawal of a bid [@CL-MKT-1129]. Choosing to transmit one does not shift the risk of a failed transmission to the Government [@CL-MKT-1134]. The codified provision sets the facsimile bid rules [@CL-MKT-1129], but RFO FAR part 52 lists the same section number as "[Reserved]" [@CL-MKT-0125].
 
+The facsimile proposal provision for negotiated procurements is covered in [Request for information, facsimile proposals and order of precedence](../../estimating/pricing/est-planning-solicitations-facsimile-and-precedence.md), and late bids, modifications and withdrawals are covered in [Late submissions, modifications and withdrawals of bids](../../estimating/pricing/est-late-bid-submissions-and-withdrawals.md).
+
 ## Company calibration
 
 Which solicitations the company answers by facsimile, and which legal entities submit them. [@Q-003]
@@ -57,5 +59,6 @@ Which solicitations the company answers by facsimile, and which legal entities s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on facsimile proposals and late bids.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for facsimile bids.

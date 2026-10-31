@@ -68,6 +68,8 @@ The permits clause asks the offeror to state its authorization from the Federal 
 
 The inspection provision concerns conditions that may affect the cost of contract performance, not the authority an offeror must hold [@CL-SUP-2201]. The permits clause has an RFO counterpart in FAR 52.247-2 [@CL-SUP-0643; @CL-SUP-2241], but the codified relocation capability clause and inspection provision at FAR 52.247-3 and FAR 52.247-4 [@CL-SUP-2202; @CL-SUP-2247] print as [Reserved] in the RFO text [@CL-SUP-0648; @CL-SUP-0649].
 
+The familiarization with conditions clause and the financial statement provision are covered in [Familiarization with conditions and the financial statement](sup-familiarization-with-conditions-and-financial-statement.md).
+
 ## Company calibration
 
 Confirm which authority and permit documents the company holds for each transportation award and who confirms that the clause applies. [@Q-004]
@@ -76,5 +78,6 @@ Confirm which authority and permit documents the company holds for each transpor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on familiarization with conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for permits, authorities and site inspection.

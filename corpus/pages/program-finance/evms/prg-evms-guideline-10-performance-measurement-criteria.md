@@ -46,6 +46,8 @@ A work package to build a test fixture is budgeted at 40,000 and planned to fini
 
 Level of effort is not apportioned effort. Level of effort earns value with the passage of time and never carries a schedule variance, while apportioned effort is reserved for supporting work that ties directly to a discrete technical activity and must be described and documented [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257].
 
+The guideline on planning work packages and planning packages is covered in [EVMS Guideline 9: plan work packages and planning packages](prg-evms-guideline-9-work-and-planning-packages.md), and the guideline on assessing progress against the plan is covered in [EVMS Guideline 14: assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
+
 ## Company calibration
 
 Which work packages the company measures as level of effort, and whether the system description documents each technique and the evidence behind it. [@Q-037]
@@ -54,5 +56,6 @@ Which work packages the company measures as level of effort, and whether the sys
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restated the material and apportioned effort sentences to match the guide.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 10 performance measurement criteria.

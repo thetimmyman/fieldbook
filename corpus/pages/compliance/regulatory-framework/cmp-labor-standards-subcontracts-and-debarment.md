@@ -51,6 +51,8 @@ A prime contractor is awarded a construction contract on day 0 and has 4 constru
 
 Flowdown is not delegation. The subcontractor owes the labor standards, but the prime contractor stays responsible for that subcontractor's compliance [@CL-CMP-5841]. The termination clause is also not a separate obligation, because it attaches consequences to the clauses that are already in the contract [@CL-CMP-5843; @CL-CMP-6185]. Not every flowdown clause appears on the termination list: Withholding of Funds, Disputes Concerning Labor Standards and Contract Termination—Debarment itself are in the flowdown list [@CL-CMP-6180; @CL-CMP-6181] but are not named in the termination clause [@CL-CMP-6185; @CL-CMP-5843].
 
+The insertion rules for these clauses are covered in [Construction labor standards disputes and the contract clauses and provision to insert](cmp-construction-labor-disputes-and-contract-clauses.md), and the companion clauses on disputes, certification of eligibility and approval of wage rates are covered in [Labor standards disputes, certification of eligibility and approval of wage rates](cmp-labor-standards-disputes-and-eligibility.md).
+
 ## Company calibration
 
 Which construction subcontracts in the United States carry the flowdown, and who confirms delivery of a completed Statement and Acknowledgment form for each award. [@Q-004]
@@ -59,5 +61,6 @@ Which construction subcontracts in the United States carry the flowdown, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction labor clause insertion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor standards subcontracts, termination for debarment and incorporated rulings.

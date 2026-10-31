@@ -51,6 +51,8 @@ A Contractor has 200 employees. Of these, 30 hold access to classified informati
 
 The required testing covers employees in sensitive positions. Testing on reasonable suspicion, after an accident, or of applicants is something the Contractor may add, not something the clause requires [@CL-CMP-4456; @CL-CMP-4477]. The listed program elements may be replaced by appropriate alternatives, which is different from dropping the program [@CL-CMP-4452]. A controlled substance taken under a valid prescription is outside the definition of illegal drugs [@CL-CMP-4475]. The clause is about the Contractor's own program for its employees; the demonstration project provision is about whether an offeror is eligible for award, see [Representation for the demonstration project for contractors employing persons with disabilities](cmp-dfars-disabilities-demonstration-project-representation.md).
 
+The FAR clause on a drug-free workplace is covered in [Drug-free workplace](cmp-drug-free-workplace.md).
+
 ## Company calibration
 
 Which contracts carry the clause, and who owns the program and its testing criteria for each. [@Q-004]
@@ -59,5 +61,6 @@ Which contracts carry the clause, and who owns the program and its testing crite
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the FAR drug-free workplace clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the required-testing sentence so the considerations keep the risks to health, safety or national security.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the drug-free work force clause.

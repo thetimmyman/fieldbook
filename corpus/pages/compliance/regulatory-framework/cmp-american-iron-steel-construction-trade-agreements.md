@@ -75,6 +75,8 @@ The clause is not a flat ban on foreign construction material. Designated countr
 
 The codified FAR 52.225-23 carries the required-use clause and its exception tests, while the RFO text prints that section number as reserved [@CL-CMP-5404; @CL-CMP-0374].
 
+The companion notice provision is covered in [Notice of required use of American iron, steel and manufactured goods in construction under trade agreements](cmp-american-iron-steel-construction-trade-agreements-notice.md), and the related clause and provision on American iron, steel and manufactured goods in construction are covered in [Required use of American iron, steel and manufactured goods, and its notice provision](../../supply-chain/supplier-identity/sup-american-iron-steel-manufactured-goods.md).
+
 ## Company calibration
 
 Which contracts carry the clause and which excepted materials each contract lists. [@Q-004]
@@ -83,5 +85,6 @@ Which contracts carry the clause and which excepted materials each contract list
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the companion notice provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for required use of American iron, steel and manufactured goods under trade agreements.

@@ -45,6 +45,8 @@ A private company hires 40 people this year, and 10 of them are assigned to a co
 
 The new hire rule and the assigned employee rule are two separate listed requirements: the first covers new hires working in the United States [@CL-CMP-3289], and the second covers employees assigned to the contract [@CL-CMP-3291]. A waiver is not an exception. A waiver is granted by the head of the contracting activity in exceptional cases [@CL-CMP-3294], while the clearance carve-out and the background investigation carve-out are stated in the section itself [@CL-CMP-3293; @CL-CMP-3369].
 
+The clause text is covered in [Employment eligibility verification with E-Verify](cmp-employment-eligibility-verification.md), and the clause and provision prescriptions are covered in [Clause and provision prescriptions for trafficking in persons and employment eligibility](cmp-trafficking-and-employment-eligibility-prescriptions.md).
+
 ## Company calibration
 
 Which contracts carry the E-Verify requirements, and who enrolls and verifies for each legal entity. [@Q-003]
@@ -53,4 +55,5 @@ Which contracts carry the E-Verify requirements, and who enrolls and verifies fo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the E-Verify clause and its prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for E-Verify definitions and policy.

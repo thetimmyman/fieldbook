@@ -49,6 +49,8 @@ A drawing shows a dimension that disagrees with the specification. The contracto
 
 The drawing-check duties are not the clause that makes drawings Government property, which is on [Drawings, shop drawings and restricted designs](cmp-dfars-drawings-property-shop-drawings-and-restricted-designs.md). The priority list in the bid schedule only identifies the low offeror [@CL-CMP-4677], and the payment rule for bidding schedule items is on [Price breakdown and bidding schedules](../../estimating/pricing/est-dfars-modification-price-breakdown-and-bidding-schedules.md). Changes to a construction contract are handled by a different clause, on [Changes clause for construction contracts](../../close-revrec/revenue/cls-changes-construction.md). Work on or near airfields has its own clause, on [Airfield safety precautions](cmp-dfars-airfield-safety-precautions.md).
 
+The FAR clause on specifications and drawings for construction is covered in [Specifications and drawings for construction](cmp-specifications-and-drawings-construction.md).
+
 ## Company calibration
 
 Which construction contracts and solicitations carry these clauses, and who confirms it. [@Q-004]
@@ -57,4 +59,5 @@ Which construction contracts and solicitations carry these clauses, and who conf
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on FAR specifications and drawings for construction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction contract drawings, obstruction of navigable waterways and additive or deductive items.

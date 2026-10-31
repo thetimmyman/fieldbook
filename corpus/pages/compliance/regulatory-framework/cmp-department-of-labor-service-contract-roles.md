@@ -64,6 +64,8 @@ This section describes the Secretary of Labor's authority, not a contracting off
 
 The list of regulations is a list of matters the Department of Labor has issued regulations on. The section does not restate the content of those regulations [@CL-CMP-8100; @CL-CMP-8101; @CL-CMP-8102].
 
+Withholding of contract payments and ineligibility for Service Contract Labor Standards violations are covered in [Withholding contract payments and ineligibility of Service Contract Labor Standards violators](cmp-scls-withholding-and-ineligibility.md).
+
 ## Company calibration
 
 Who owns the response when the Department of Labor raises an enforcement or wage determination question on a covered contract. [@Q-014]
@@ -72,4 +74,5 @@ Who owns the response when the Department of Labor raises an enforcement or wage
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on withholding and ineligibility for violations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Department of Labor service contract roles.

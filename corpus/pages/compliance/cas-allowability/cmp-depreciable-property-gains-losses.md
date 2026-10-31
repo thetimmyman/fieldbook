@@ -50,6 +50,8 @@ A contractor sells manufacturing machinery for 40,000 cash when its undepreciate
 
 Gains on depreciable property adjust prior depreciation and flow to overhead pools, whereas gains and losses on non-depreciable capital assets like land or securities are entirely excluded from contract costing. In addition, an impairment write-down is not allowed as a loss, and on later disposition the gain or loss is the amount that would have been allowed had the asset not been written down. The codified text prints the rule on write-downs for impairments as paragraph (i) [@CL-CMP-0512], while the RFO text prints that rule as subparagraph (h)(1) and the rule on gains or losses upon later disposition as subparagraph (h)(2), both under the paragraph on non-depreciable capital assets [@CL-CMP-9397; @CL-CMP-9398].
 
+The cost principles on allowable depreciation and on idle facilities and idle capacity are covered in [Allowable depreciation](cmp-depreciation.md) and [Idle facilities and idle capacity costs](cmp-idle-facilities-and-capacity.md).
+
 ## Company calibration
 
 How asset sales, involuntary conversions, and impairment reversals are reconciled across depreciation accounts and overhead pools. [@Q-024]
@@ -58,5 +60,6 @@ How asset sales, involuntary conversions, and impairment reversals are reconcile
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on allowable depreciation and idle facilities.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for gains and losses on disposition or impairment of depreciable property.

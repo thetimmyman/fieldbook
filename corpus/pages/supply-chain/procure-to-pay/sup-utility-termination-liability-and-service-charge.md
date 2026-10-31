@@ -54,6 +54,8 @@ A new facility costs 240,000 and the agreed salvage value is 40,000, so the net 
 
 Termination liability applies when the Government discontinues service before the cost recovery period is complete [@CL-SUP-2697]. The connection charge is a different clause; see [Utility connection charge for new facilities](sup-utility-connection-charge.md). The nonrefundable, nonrecurring charge is a separate charge that may be in addition to or in lieu of a connection charge [@CL-SUP-2705].
 
+The clauses on multiple service locations and capital credits are covered in [Multiple service locations and capital credits](sup-utility-multiple-locations-and-capital-credits.md).
+
 ## Company calibration
 
 Confirm, for each new facility, the cost recovery period, the monthly rate, the remaining exposure at any exit date, and any nonrefundable charge in the contractor's rules. [@Q-022]
@@ -62,5 +64,6 @@ Confirm, for each new facility, the cost recovery period, the monthly rate, the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on multiple service locations and capital credits.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for utility termination liability and the nonrefundable service charge.

@@ -47,6 +47,8 @@ A registrant has an outside firm that tests its systems each year and a risk com
 
 A cybersecurity threat is any potential unauthorized occurrence, while an incident is an unauthorized occurrence that jeopardizes the confidentiality, integrity, or availability of the systems or of any information residing in them [@CL-FPA-0117; @CL-FPA-0118; @CL-FPA-0165]. Describing board oversight is also different from describing management's role: each has its own paragraph [@CL-FPA-0121; @CL-FPA-0122]. The question whether cybersecurity risks have materially affected the registrant is different from how the registrant manages them: the first is its own paragraph [@CL-FPA-0166], and the second is the risk management description [@CL-FPA-0119].
 
+The risk factor disclosure is covered in [Risk factor disclosure for public registrants](fpa-risk-factors.md), and the corporate governance disclosure is covered in [Corporate governance disclosure](fpa-corporate-governance-disclosure.md).
+
 ## Company calibration
 
 Which security processes, board reporting lines and management roles exist and are documented well enough to be described. [@Q-017]
@@ -55,4 +57,5 @@ Which security processes, board reporting lines and management roles exist and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on risk factors and corporate governance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cybersecurity disclosure.

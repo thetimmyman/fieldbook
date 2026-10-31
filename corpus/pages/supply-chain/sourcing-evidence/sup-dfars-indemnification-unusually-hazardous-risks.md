@@ -45,6 +45,8 @@ A contractor on a fixed-price contract faces a third-party injury claim from a r
 
 The indemnity depends on the contractor meeting all the terms and conditions of the clause [@CL-SUP-1417], and loss that insurance compensates is outside it [@CL-SUP-1420]. The cost-reimbursement clause sets aside the Limitation of Cost clause for these obligations [@CL-SUP-1424]; see [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md), [Liability and insurance for vessel repair](sup-dfars-ship-repair-liability-and-insurance.md), [Ground and flight risk](sup-dfars-ground-and-flight-risk.md) and [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md).
 
+The FAR clause on indemnification under Public Law 85-804 is covered in [Indemnification under Public Law 85-804](../../compliance/regulatory-framework/cmp-pub-law-85-804-indemnification.md).
+
 ## Company calibration
 
 Whether the contract defines any unusually hazardous risk, which of the two clauses it carries, and what insurance the company holds against that risk. [@Q-004]
@@ -54,4 +56,5 @@ Whether the contract defines any unusually hazardous risk, which of the two clau
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on indemnification under Public Law 85-804.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indemnification for unusually hazardous risks.

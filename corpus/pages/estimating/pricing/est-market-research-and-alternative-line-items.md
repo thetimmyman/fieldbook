@@ -48,6 +48,8 @@ In a separate solicitation, an offeror whose own practice bills three of the spe
 
 Market research is the contractor's own duty before placing certain subcontracts [@CL-EST-2297], while alternative line items are an offeror's proposals in a solicitation, which the Government may decline [@CL-EST-2300; @CL-EST-2301]. An alternative proposal is not an offer that ignores the specified line items, which may be determined to be nonresponsive or unacceptable [@CL-EST-2387]. The research list is built differently in the two texts: the RFO list runs in a stated order of priority and ends by asking whether the requirement can only be satisfied by a nondevelopmental item [@CL-EST-0339; @CL-EST-0341], while the codified list asks about nondevelopmental items to the extent suitable commercial products are not available [@CL-EST-2385].
 
+The alternative line items must be consistent with FAR subpart 4.10 [@CL-EST-2300], and the instruments that the line item rules cover are described in [Which procurement instruments the line item rules cover](../../compliance/regulatory-framework/cmp-contract-line-item-rules-applicability.md).
+
 ## Company calibration
 
 Where the market research record for each subcontract award is kept and reviewed. [@Q-023]
@@ -56,5 +58,6 @@ Where the market research record for each subcontract award is kept and reviewed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on line item rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for market research and alternative line items.

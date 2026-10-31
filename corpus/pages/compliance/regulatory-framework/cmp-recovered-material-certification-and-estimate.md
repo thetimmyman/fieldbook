@@ -56,6 +56,8 @@ The estimate at completion does not replace the certification at offer, and the 
 
 Recovered material content is not biobased content: the recovered material provisions concern EPA-designated items [@CL-CMP-5176], while the biobased certification concerns products in categories that the United States Department of Agriculture lists [@CL-CMP-5164].
 
+The certification and reporting duties for biobased products are covered in [Biobased product certification and reporting](cmp-biobased-product-certification-and-reporting.md).
+
 ## Company calibration
 
 Whether item records can produce the recovered and postconsumer percentages for each EPA-designated item at contract completion, who completes the submission blank under agency procedures, and whether the contract uses Alternate I. [@Q-004]
@@ -64,5 +66,6 @@ Whether item records can produce the recovered and postconsumer percentages for 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on biobased product certification and reporting.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for recovered material certification and content estimate.

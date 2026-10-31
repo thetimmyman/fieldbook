@@ -58,6 +58,8 @@ Marking is a separate duty from the notice. The notice has two triggers, licensi
 
 The clause does not fix the notice period: the number of days is a blank that the contracting officer fills in for the contract [@CL-CMP-5292].
 
+The clause on hazardous material identification and material safety data is covered in [Hazardous material identification and material safety data](cmp-hazardous-material-identification-and-material-safety-data.md).
+
 ## Company calibration
 
 Whether shipping records identify every item that meets the licensing or activity triggers and can produce the notice before each delivery or servicing, and which subcontracts for radioactive materials need the clause. [@Q-004]
@@ -66,6 +68,7 @@ Whether shipping records identify every item that meets the licensing or activit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on hazardous material identification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the waiver sentence so the waiver request keeps the notice requirement in paragraph (a) that it applies to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of radioactive materials.

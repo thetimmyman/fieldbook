@@ -60,6 +60,8 @@ The site visit provision is a pre-award expectation with no post-award claim beh
 
 The codified site visit provision is prescribed for solicitations for services on Government installations, unless the solicitation is for construction [@CL-SUP-2911], but the RFO prescription line for the provision prints neither limit [@CL-SUP-0491]. The RFO prescription line for the protection clause still excludes the case where a construction contract is contemplated [@CL-SUP-0492].
 
+The construction counterparts, the preconstruction site visit provision and the protection of existing vegetation, structures and equipment, are covered in [Preconstruction conference, site visit and preparation of construction proposals](../../compliance/regulatory-framework/cmp-construction-preconstruction-conference-site-visit-and-proposals.md) and [Other contracts at the site, protection of existing property and cleaning up](../../compliance/regulatory-framework/cmp-construction-other-contracts-protection-and-cleanup.md).
+
 ## Company calibration
 
 Who confirms that each services solicitation on a Government installation carried both instruments, and how the care standard is carried into the site plan. [@Q-004]
@@ -68,6 +70,7 @@ Who confirms that each services solicitation on a Government installation carrie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction site visit and protection.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Applies to row to say the site visit provision goes in solicitations only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the site visit and protection of Government property.

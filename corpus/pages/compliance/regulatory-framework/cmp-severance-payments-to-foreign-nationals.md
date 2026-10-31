@@ -48,6 +48,8 @@ A limit on cost allowability is a limit on cost, not a statement about the payme
 
 The codified waiver clause waives the limitations in FAR 31.205-6(g)(6) [@CL-CMP-5623], while the RFO waiver clause waives those in FAR 31.205-6(f)(6) [@CL-CMP-6038].
 
+The DFARS clause on compliance with local labor laws overseas is covered in [Compliance with local labor laws overseas (DFARS clause)](cmp-dfars-local-labor-laws-overseas.md).
+
 ## Company calibration
 
 Which foreign service contracts pay severance, and who confirms whether a waiver was granted before award. [@Q-003]
@@ -56,5 +58,6 @@ Which foreign service contracts pay severance, and who confirms whether a waiver
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on local labor laws overseas.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for severance payments to foreign nationals.

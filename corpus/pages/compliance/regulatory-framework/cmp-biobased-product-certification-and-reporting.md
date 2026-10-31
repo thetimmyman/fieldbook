@@ -60,6 +60,8 @@ Biobased content is not recovered material content: recovered material content i
 
 A USDA-designated product category is described with USDA purchasing recommendations in the codified clause [@CL-CMP-5267], but with minimum biobased content standards in the RFO clause [@CL-CMP-0533].
 
+The separate certification and estimate for recovered material content are covered in [Recovered material certification and content estimate](cmp-recovered-material-certification-and-estimate.md).
+
 ## Company calibration
 
 Whether the buying records can produce the product types and dollar value purchased in each USDA-designated product category for the Government fiscal year, and which contracts carry the reporting clause. [@Q-004]
@@ -68,6 +70,7 @@ Whether the buying records can produce the product types and dollar value purcha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on recovered material certification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the codified reporting sentence so the biobased report keeps its submission deadlines.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for biobased product certification and reporting.

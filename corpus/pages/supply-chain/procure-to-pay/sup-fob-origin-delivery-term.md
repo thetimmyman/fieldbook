@@ -51,6 +51,8 @@ A contract is f.o.b. origin at the contractor's plant, with carrier equipment no
 
 F.o.b. origin is not f.o.b. destination. Under f.o.b. destination the contractor pays and bears all charges to the specified point of delivery [@CL-SUP-1983], is responsible for loss before the consignee receives the shipment there [@CL-SUP-1982], and prepares and distributes commercial bills of lading [@CL-SUP-2076]. Under f.o.b. origin the contractor completes the Government bill of lading when one is supplied [@CL-SUP-1968]. The clause text states who answers for loss or damage; it does not say when title passes.
 
+The minimum shipment terms for carload and truckload, guaranteed shipping characteristics and minimum size of shipments are covered in [F.o.b. origin minimum shipment terms: carload, guaranteed characteristics, minimum size](sup-fob-origin-minimum-shipment-terms.md).
+
 ## Company calibration
 
 Confirm which delivery term each contract carries, who loads at each shipping point, and who supplies the Government bill of lading. [@Q-022]
@@ -59,5 +61,6 @@ Confirm which delivery term each contract carries, who loads at each shipping po
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on f.o.b. origin minimum shipment terms.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the f.o.b. origin delivery term.

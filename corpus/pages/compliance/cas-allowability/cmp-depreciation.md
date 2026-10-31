@@ -47,6 +47,8 @@ A contractor buys a machine for 100,000 and estimates a residual value of 5,000.
 
 Depreciation is not rental: a capital lease is treated as a purchased asset and depreciated, while an operating lease is rented use whose rates are tested for reasonableness. Depreciation for covered contracts must also stay consistent with the CAS depreciation standard when it applies; see [CAS applicability](cmp-cas-applicability.md). The codified text speaks of a capital lease under FASB ASC 840 [@CL-CMP-9407], while the RFO text speaks of a finance lease under FASB ASC 842 [@CL-CMP-9406]. The codified text goes on to say that FASB ASC 840 requires capital leases to be treated as purchased assets [@CL-CMP-9411], a sentence the RFO paragraph does not repeat [@CL-CMP-9406].
 
+Gains and losses on the disposition or impairment of depreciable property are covered in [Gains and losses on disposition or impairment of depreciable property](cmp-depreciable-property-gains-losses.md).
+
 ## Company calibration
 
 How depreciation policies and bases are kept consistent across segments and Government business. [@Q-024]
@@ -55,5 +57,6 @@ How depreciation policies and bases are kept consistent across segments and Gove
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on gains and losses on depreciable property.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for depreciation.

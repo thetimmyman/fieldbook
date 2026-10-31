@@ -61,6 +61,8 @@ Four vans are leased in the United States at 900 a month each, and the contract 
 
 A vehicle that fails the condition clause earns no rent until it is replaced or corrected, while a vehicle the contractor fails to service earns no rent for as long as it is unavailable or unusable; the two stoppages sit in different paragraphs of the payment clause [@CL-SUP-2932; @CL-SUP-2933]. The right to correct a defect or lease a similar vehicle arises only if the contractor fails to replace or correct as required [@CL-SUP-2935]. Insurance for leased vehicles is a separate question, covered on [Leased vehicles, cargo and public liability insurance](../../contract-finance/financing/ctf-leased-vehicles-cargo-and-public-liability-insurance.md).
 
+The clauses on tagging of leased vehicles, fleet vehicles and Government supply sources are covered in [Tagging of leased vehicles, fleet vehicles and Government supply sources](sup-tagging-of-leased-vehicles-and-government-supply-sources.md).
+
 ## Company calibration
 
 Whether any vehicle lease runs on a Government contract, who tracks delivery, condition and servicing dates, and who owns the decision to stop rent. [@Q-022]
@@ -69,5 +71,6 @@ Whether any vehicle lease runs on a Government contract, who tracks delivery, co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on tagging of leased vehicles.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for vehicle lease payments, condition and marking.

@@ -55,6 +55,8 @@ On a fixed-price construction line item estimated at 4,000 cubic yards, the actu
 
 Variation in quantity is a tolerance that a fixed-price supply contract may itself authorize, stated as a percentage [@CL-SUP-3306; @CL-SUP-3358]. It is also not an excess-delivery rule: a delivery above the contract requirements plus any allowable variation is the case that the Delivery of Excess Quantities clause, which the contract may include, addresses [@CL-SUP-3395; @CL-SUP-3308; @CL-SUP-3367].
 
+The invitation to comment on economic purchase quantities, and the option to purchase leased or rented equipment, are covered in [Economic purchase quantity for supplies and option to purchase equipment](../../estimating/pricing/est-economic-purchase-quantity-and-equipment-option.md).
+
 ## Company calibration
 
 Confirm the variation percentages and excess-quantity terms in each supply contract, and the estimated quantities and unit prices behind each construction line item. [@Q-022]
@@ -63,4 +65,5 @@ Confirm the variation percentages and excess-quantity terms in each supply contr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on economic purchase quantity.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variation in quantity in supply and construction contracts.

@@ -47,6 +47,8 @@ A statutory acquisition-related dollar threshold that the FAR applies to a claus
 
 Unless otherwise specified, a general FAR change reaches an existing contract when the contracting officer chooses to include it, with appropriate consideration [@CL-CMP-2012; @CL-CMP-2014], whereas an inflation-adjusted threshold applies throughout the remaining term of the contract [@CL-CMP-2019]. The excluded thresholds are not escalated at all [@CL-CMP-2017; @CL-CMP-2018].
 
+How a threshold is measured and how a new certification enters the FAR are covered in [New certification requirements and FAR conventions](cmp-new-certifications-and-far-conventions.md).
+
 ## Company calibration
 
 Which running contracts hold a threshold that has since been adjusted, and who confirms the value now in force. [@Q-004]
@@ -55,4 +57,5 @@ Which running contracts hold a threshold that has since been adjusted, and who c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on new certifications and FAR conventions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the inflation adjustment of acquisition-related dollar thresholds.

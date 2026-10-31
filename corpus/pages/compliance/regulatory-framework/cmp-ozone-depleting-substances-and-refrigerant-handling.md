@@ -60,6 +60,8 @@ The reduction duty applies unless the contract specifies otherwise, and only the
 
 The codified equipment clause requires the contractor, unless the contract specifies otherwise, to reduce the use, release or emissions of high global warming potential hydrofluorocarbons by the listed routes, but the RFO text of that clause is a single sentence on Clean Air Act sections 608 and 609 [@CL-CMP-5202] [@CL-CMP-1694].
 
+The clauses on aerosols and foams that use high global warming potential hydrofluorocarbons are covered in [Aerosols and foams with high global warming potential hydrofluorocarbons](cmp-aerosols-and-foams-hydrofluorocarbon-reduction.md).
+
 ## Company calibration
 
 Whether the company tracks which supplied products contain or are manufactured with ozone-depleting substances and which equipment holds high global warming potential refrigerant. [@Q-004]
@@ -68,5 +70,6 @@ Whether the company tracks which supplied products contain or are manufactured w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on aerosols and foams with hydrofluorocarbons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for ozone-depleting substances and refrigerant handling.

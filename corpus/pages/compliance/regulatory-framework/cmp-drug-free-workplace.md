@@ -59,6 +59,8 @@ An employee is convicted on 3 March and tells the employer in writing on 6 March
 
 The clause is not a drug testing rule. It requires a published prohibition, an awareness program, and a chain of notices that starts when an employee is convicted [@CL-CMP-5435]. The 5 day period runs from the conviction, while the 10 day and 30 day periods run from the contractor's receipt of notice [@CL-CMP-5437; @CL-CMP-5438; @CL-CMP-5439].
 
+The DFARS clause on a drug-free work force is covered in [Drug-free work force (DFARS clause)](cmp-dfars-drug-free-work-force.md).
+
 ## Company calibration
 
 How a conviction notice reaches the contracting officer and who owns the awareness program. [@Q-014]
@@ -67,5 +69,6 @@ How a conviction notice reaches the contracting officer and who owns the awarene
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the DFARS drug-free work force clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the drug-free workplace clause.

@@ -62,6 +62,8 @@ The safeguards clause is not the drone prohibition. The first governs disclosure
 
 The codified safeguards clause is FAR 52.239-1 [@CL-CMP-5641], which the RFO text lists as reserved [@CL-CMP-1920]. The codified drone clause is FAR 52.240-1 [@CL-CMP-5642], which the RFO text lists as reserved, with the drone prohibition printed in FAR 52.240-91 [@CL-CMP-1921; @CL-CMP-1927]. The RFO exception for exemptions, exceptions and waivers names only the prohibitions in paragraph (c) of FAR 52.240-91 [@CL-CMP-1932], where the codified exception covers the prohibitions in the clause [@CL-CMP-5552]. The RFO subcontract rule excludes subparagraphs (d)(1) and (i)(1) from what is inserted [@CL-CMP-1934], while the codified drone clause requires the substance of the clause, including its flowdown paragraph, in all subcontracts and other contractual instruments [@CL-CMP-5553].
 
+The basic safeguarding clause for covered contractor information systems is covered in [Basic safeguarding of covered contractor information systems: controls and flowdown](cmp-basic-safeguarding-clause-controls.md), and the Kaspersky and ByteDance prohibitions are covered in [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md).
+
 ## Company calibration
 
 Confirm which contracts carry each clause and who checks the Government list before any unmanned aircraft system is proposed or used. [@Q-004]
@@ -70,5 +72,6 @@ Confirm which contracts carry each clause and who checks the Government list bef
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on basic safeguarding and Kaspersky and ByteDance prohibitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for privacy or security safeguards and the drone prohibition.

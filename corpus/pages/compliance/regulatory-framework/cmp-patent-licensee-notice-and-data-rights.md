@@ -52,6 +52,8 @@ Unlimited rights and no rights are not the only two outcomes. The minimum rights
 
 Of the three numbers on this card, the RFO text gives text only to the minimum rights clause; the royalty notice provision and the proposal data rights clause are printed as reserved under their numbers, where the codified text gives each its own rule [@CL-CMP-5607; @CL-CMP-5610] [@CL-CMP-1823] [@CL-CMP-1824] [@CL-CMP-1825].
 
+The royalty information that an offeror gives with its offer is covered in [Royalty information in offers](cmp-royalty-information-provision.md), and the Rights in Data—General clause is covered in [Rights in data, general: definitions and allocation of rights](cmp-rights-in-data-general-definitions-and-allocation.md).
+
 ## Company calibration
 
 Which solicitations identify a Government royalty patent or a major system, and who confirms what technical data the contract requires to be delivered. [@Q-004]
@@ -60,5 +62,6 @@ Which solicitations identify a Government royalty patent or a major system, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on royalty information and rights in data.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Government licensee notice and data rights.

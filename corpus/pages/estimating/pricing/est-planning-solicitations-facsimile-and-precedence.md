@@ -61,6 +61,8 @@ An information request is not a solicitation for award: its response shall not b
 
 The RFO text prints no provision text under FAR 52.215-3 or FAR 52.215-5 [@CL-EST-0430; @CL-EST-0431], where the codified text of those sections sets out the information-only rule for a response to a request for information [@CL-EST-1919] and the facsimile proposal rules [@CL-EST-1920].
 
+The facsimile bid provision for sealed bidding is covered in [Facsimile bids: conditions, receipt rules and the original bid](../../market/programs/mkt-facsimile-bids.md).
+
 ## Company calibration
 
 Which provision governs each live solicitation we answer, what its contract-specific fill-ins say, and who confirms the clause set behind that answer. [@Q-004]
@@ -69,5 +71,6 @@ Which provision governs each live solicitation we answer, what its contract-spec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on facsimile bids.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for request for information, facsimile proposals, place of performance and order of precedence.

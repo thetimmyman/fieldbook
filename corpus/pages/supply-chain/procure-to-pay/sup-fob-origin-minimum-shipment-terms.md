@@ -49,6 +49,8 @@ Under a carload and truckload clause, the lowest published freight rate on the b
 
 The codified text has carload and truckload, guaranteed shipping characteristics and minimum size of shipments clauses at FAR 52.247-59, FAR 52.247-60 and FAR 52.247-61 [@CL-SUP-2002; @CL-SUP-2006; @CL-SUP-2094], but the RFO text of FAR part 52 prints those three section numbers as [Reserved] [@CL-SUP-0321; @CL-SUP-0322; @CL-SUP-0323]. Guaranteed shipping characteristics are not shipping instructions. They do not establish actual transportation requirements, which are specified elsewhere in the solicitation [@CL-SUP-2009]. They exist to evaluate offers and to establish liability for increased transportation costs when the actual characteristics differ [@CL-SUP-2104].
 
+The f.o.b. origin delivery term and its variants are covered in [F.o.b. origin delivery term](sup-fob-origin-delivery-term.md) and [F.o.b. origin variants: contractor's facility, freight allowed, freight prepaid](sup-fob-origin-variants.md).
+
 ## Company calibration
 
 Confirm the load sizes and package data the company can guarantee at each shipping point before offering. [@Q-022]
@@ -57,5 +59,6 @@ Confirm the load sizes and package data the company can guarantee at each shippi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on f.o.b. origin delivery terms.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for f.o.b. origin minimum shipment terms.

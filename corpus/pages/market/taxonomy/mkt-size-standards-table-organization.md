@@ -15,7 +15,7 @@ links = ["mkt-size-standards-and-naics-codes", "mkt-size-standards-and-identific
 
 ## Purpose
 
-Shows how the SBA size standards table is laid out: one standard per industry code, stated either in employees or in annual receipts in millions of dollars, with exceptions printed as their own rows. It also states what the sector notes say and what the footnotes that this card covers say. The related card on [the size standards and industry codes](mkt-size-standards-and-naics-codes.md) covers where the standards come from and how the contracting officer assigns the code.
+Shows how the SBA size standards table is laid out: a standard for each industry code, stated either in employees or in annual receipts in millions of dollars, with exceptions printed as their own rows that carry their own standards. It also states what the sector notes say and what the footnotes that this card covers say. The related card on [the size standards and industry codes](mkt-size-standards-and-naics-codes.md) covers where the standards come from and how the contracting officer assigns the code.
 
 ## The rule
 
@@ -91,4 +91,5 @@ Which industry code each product line and customer group falls under, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the purpose line: an industry code can carry exception rows with their own standards.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for how the size standards table is organized.

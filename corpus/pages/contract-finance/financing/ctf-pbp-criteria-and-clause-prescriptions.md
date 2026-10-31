@@ -53,6 +53,8 @@ A competitive negotiated solicitation for a fixed-price order under an indefinit
 
 Performance-based payments are often confused with progress payments. Both are contract financing, but the criteria exclude an indefinite delivery order that provides for progress payments and any contract other than an indefinite delivery contract that provides for them [@CL-CTF-3563]. The invitation provision is also mistaken for the clause. The clause at 52.232-32 goes in solicitations that may result in contracts providing for the payments and in fixed-price contracts that provide them [@CL-CTF-3564]. The provision at 52.232-28 goes in negotiated solicitations that invite offerors to propose them [@CL-CTF-3565]. The [procedure card](ctf-pbp-criteria.md) covers the payment bases and liquidation.
 
+The Defense supplement's condition for receiving performance-based payments is covered in [DoD criteria for using performance-based payments](ctf-performance-based-payment-criteria.md).
+
 ## Company calibration
 
 Which method of financing each order uses, who agrees the payment terms, and whether any order carries both progress payments and performance-based payments. [@Q-039]
@@ -61,5 +63,6 @@ Which method of financing each order uses, who agrees the payment terms, and whe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the DoD condition for performance-based payments.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payments, criteria and clause prescriptions.

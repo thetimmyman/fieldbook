@@ -53,6 +53,8 @@ An economic purchase quantity is the quantity at which a significant price break
 
 Exercising the equipment option is done only by unilateral modification [@CL-EST-2305], and the purchase option credits reduce the purchase price rather than adding to it [@CL-EST-2306].
 
+The variation in quantity policy is covered in [Variation in quantity policy for supply and construction contracts](../../supply-chain/procure-to-pay/sup-variation-in-quantity-policy.md), and the option provisions and clauses of FAR 17.208 are covered in [Option solicitation provisions and contract clauses](../../contract-finance/funding/ctf-option-clauses-and-provisions.md).
+
 ## Company calibration
 
 How the quantity assumptions and option credits are held so the conversion cost can be recomputed later. [@Q-023]
@@ -61,5 +63,6 @@ How the quantity assumptions and option credits are held so the conversion cost 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on variation in quantity and option clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic purchase quantities and equipment options.

@@ -61,6 +61,8 @@ Keeping records is not the same as sending them. The maintained records hold eac
 
 The codified payrolls clause is prescribed at FAR 22.407(a) [@CL-CMP-5824], but the RFO text prints its prescription as FAR 22.402-4(a)(3) [@CL-CMP-1878]. Likewise, the codified withholding clause is prescribed at FAR 22.407(a) [@CL-CMP-9305], but the RFO text prints its prescription as FAR 22.402-4(a)(2) [@CL-CMP-9304].
 
+The policy sections on construction payrolls and statements of compliance, and on withholding and suspension of contract payments, are covered in [Construction payrolls and statements of compliance, and labor standards investigations](cmp-construction-payrolls-statements-and-investigations.md) and [Construction wage rate requirements: withholding from and suspension of contract payments](cmp-construction-wage-withholding-and-suspension.md).
+
 ## Company calibration
 
 That recordkeeping and weekly submission duties are assigned for every covered contract, and who owns the response to any recordkeeping finding. [@Q-014]
@@ -69,6 +71,7 @@ That recordkeeping and weekly submission duties are assigned for every covered c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction payrolls and withholding.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records sentence so the fringe benefit rate keeps the statutory types.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payrolls, basic records and withholding of funds.

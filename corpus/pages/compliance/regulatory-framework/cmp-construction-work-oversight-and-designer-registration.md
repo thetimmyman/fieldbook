@@ -54,6 +54,8 @@ Registration is not the same as oversight, because the registered professional p
 
 The codified FAR 52.236-26 is the Preconstruction Conference clause [@CL-CMP-5123], but the RFO text prints section 52.236-26 as reserved [@CL-CMP-0995].
 
+The clauses on design within funding limitations and architect-engineer responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limitations-and-architect-engineer-responsibility.md), and the preconstruction conference and site visit provisions are covered in [Preconstruction conference, site visit and preparation of construction proposals](cmp-construction-preconstruction-conference-site-visit-and-proposals.md).
+
 ## Company calibration
 
 Which cost-reimbursement construction contracts and design contracts sit in the finance remit, and who confirms the oversight, registration and conference clauses recorded for each? [@Q-004]
@@ -62,5 +64,6 @@ Which cost-reimbursement construction contracts and design contracts sit in the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on design funding limitations and the preconstruction conference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction work oversight, designer registration and the preconstruction conference.

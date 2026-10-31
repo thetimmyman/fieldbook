@@ -82,6 +82,8 @@ The goals are not fixed headcounts: the solicitation states them as percentages 
 
 The codified FAR 52.222-27 carries the construction affirmative action clause, while the RFO text prints that section number as reserved [@CL-CMP-5229; @CL-CMP-0372].
 
+The segregated facilities prohibition, the construction notice of goals and the preaward evaluation provision are covered in [Segregated facilities, construction goals and preaward equal opportunity evaluation](cmp-segregated-facilities-construction-affirmative-action.md).
+
 ## Company calibration
 
 Which construction contracts and subcontracts carry this clause, and who owns the applicant file and the annual reviews. [@Q-004]
@@ -90,5 +92,6 @@ Which construction contracts and subcontracts carry this clause, and who owns th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on segregated facilities and construction goals.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction affirmative action requirements.
