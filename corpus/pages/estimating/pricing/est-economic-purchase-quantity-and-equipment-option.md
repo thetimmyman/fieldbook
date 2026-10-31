@@ -22,7 +22,7 @@ Shows the invitation to comment on purchase quantities and the mechanics of an o
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2302] |
 | Codified citation | FAR 52.207-4 [@CL-EST-2302]; FAR 52.207-5 [@CL-EST-2305] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.207-4 [@CL-EST-0189] and RFO FAR 52.207-5 [@CL-EST-0193] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2302] |
 | Applies to | Solicitations that invite opinions on the quantity of supplies [@CL-EST-2302], and contracts under which equipment is provided on a lease or rental basis [@CL-EST-2391] |
@@ -36,6 +36,8 @@ The information is requested to avoid acquisitions in disadvantageous quantities
 The Government may purchase the equipment provided on a lease or rental basis under the contract [@CL-EST-2391]. The contracting officer may exercise the option only by a unilateral modification to the contractor, and the modification states the effective date of the purchase, which may be any time during the contract period including extensions [@CL-EST-2305]. Except for final payment and transfer of title, the lease or rental portion is complete, and lease or rental charges are discontinued, on the day immediately preceding the effective date of purchase stated in the modification [@CL-EST-2392].
 
 The purchase conversion cost is computed as of the effective date stated in the modification [@CL-EST-2393]. It is based on the purchase price set out in the contract less the total purchase option credits accumulated during the lease or rental, calculated by the formula contained elsewhere in the contract [@CL-EST-2306]. The credits also include credits accrued during a lease or rental of the equipment under any previous Government contract if the equipment has been on continuous lease or rental [@CL-EST-2394], and moving equipment from one site to another site is continuous rental [@CL-EST-2395].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO economic purchase quantity provision keeps the invitation to state an opinion on whether the quantity of supplies is economically advantageous [@CL-EST-0189] [@CL-EST-2302], the invitation to recommend an economic purchase quantity, with a total and a unit price quoted for applicable items where different quantities are recommended [@CL-EST-0190] [@CL-EST-2303], the meaning of an economic purchase quantity and the request for information on price breaks at different quantity points [@CL-EST-0191] [@CL-EST-2304] [@CL-EST-2388], and the Government's right to amend or cancel the solicitation and resolicit with respect to any individual item in the event quotations received and its requirements indicate that different quantities should be acquired [@CL-EST-0192] [@CL-EST-2390]. It also keeps the statement that the information is solicited to avoid acquisitions in disadvantageous quantities and to assist the Government in developing a data base for future acquisitions of these items [@CL-EST-9071] [@CL-EST-2389]. The RFO equipment option clause keeps the Government's option to purchase equipment provided on a lease or rental basis, exercised only by a unilateral modification that states the effective date [@CL-EST-0193] [@CL-EST-0194] [@CL-EST-2391] [@CL-EST-2305], the end of lease or rental charges, except for final payment and transfer of title to the Government, on the day immediately preceding the effective date of purchase [@CL-EST-0195] [@CL-EST-2392], the computation of the purchase conversion cost as of the effective date specified in the unilateral modification [@CL-EST-9072] [@CL-EST-2393], on the basis of the purchase price less the accumulated purchase option credits, calculated by the formula contained elsewhere in the contract [@CL-EST-0196] [@CL-EST-2306], the inclusion of credits accrued under a previous Government contract on continuous lease or rental [@CL-EST-0197] [@CL-EST-2394] and the rule that moving equipment from one site to another is continuous rental [@CL-EST-0198] [@CL-EST-2395].
 
 ## Worked example
 
@@ -59,4 +61,5 @@ How the quantity assumptions and option credits are held so the conversion cost 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic purchase quantities and equipment options.

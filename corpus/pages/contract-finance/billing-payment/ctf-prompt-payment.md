@@ -45,7 +45,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A proper invoice for 60,000 is received on the first day of a month and no acceptance question arises, so payment is due on the 30th day after receipt. Payment is made on day 40, and an interest penalty for the 10 late days is computed automatically and paid without any request.
+A proper invoice for 60,000 is received on the first day of a month and no acceptance question arises, so payment is due on the 30th day after receipt, which is day 31 counting the day of receipt as day 1. Payment is made on day 41, and an interest penalty for the 10 late days is computed automatically and paid without any request.
 
 ## Never confuse
 
@@ -61,5 +61,6 @@ Confirm the billing-to-collection workflow, who tracks invoice due dates, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the day count in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prompt payment for invoices.

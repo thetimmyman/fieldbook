@@ -24,7 +24,7 @@ Explains when a sealed bid must be supported by descriptive literature, what tha
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2010] |
 | Codified citation | FAR 52.214-21 [@CL-EST-2011] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.214-21 [@CL-EST-0160; @CL-EST-0182] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2010] |
 | Applies to | Solicitations that include the descriptive literature provision [@CL-EST-2120], and those that add its Alternate I [@CL-EST-2124] |
@@ -40,6 +40,8 @@ Descriptive literature required elsewhere in the solicitation must be identified
 Alternate I adds two paragraphs to the basic provision [@CL-EST-2124]. Under the first, the Contracting Officer may waive the requirement for furnishing descriptive literature if the offeror has supplied a product that is the same as that required by the solicitation under a prior contract [@CL-EST-2125]. A bidder that requests the waiver must provide the prior contract number, the date of the prior contract, the line item number of the product supplied, the name and address of the Government activity to which delivery was made, and the date of final delivery [@CL-EST-2126].
 
 Under the second, bidders must submit bids on the basis of required descriptive literature or on the basis of a previously supplied product under the waiver paragraph [@CL-EST-2127]. A bidder submitting a bid on one of these two bases may not elect to have its bid considered on the alternative basis after the time specified for receipt of bids [@CL-EST-2128]. The Government will disregard a bidder's request for a waiver if that bidder has submitted the descriptive literature requested under the solicitation [@CL-EST-2129].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the definition of descriptive literature [@CL-EST-0160] [@CL-EST-2010], including that the term includes only the information required to evaluate the acceptability of the product and excludes other information for operating or maintaining it [@CL-EST-0161] [@CL-EST-2121]. It keeps the rule that descriptive literature required elsewhere in the solicitation must be identified to show the items of the offer to which it applies and received by the time specified [@CL-EST-0182] [@CL-EST-2123], the rejection of a bid for late literature, except that late literature sent by mail may be considered under the late submissions provision [@CL-EST-0183] [@CL-EST-2012], and the rejection of a bid whose literature fails to show that the product conforms [@CL-EST-0184] [@CL-EST-2013]. Alternate I keeps the Contracting Officer's authority to waive the requirement when the offeror has supplied the same product under a prior contract [@CL-EST-0185] [@CL-EST-2125], the requirement to bid on the basis of the literature or of a previously supplied product [@CL-EST-0186] [@CL-EST-2127], the bar on switching bases after the time for receipt of bids [@CL-EST-0187] [@CL-EST-2128] and the rule that a waiver request is disregarded if the bidder submitted the literature [@CL-EST-0188] [@CL-EST-2129].
 
 ## Worked example
 
@@ -69,4 +71,5 @@ Confirm who assembles descriptive literature for a bid and who checks it against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for descriptive literature under sealed bidding.

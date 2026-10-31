@@ -24,7 +24,7 @@ Separates three rules that decide how an offeror answers a solicitation: the inf
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1918; @CL-EST-1920; @CL-EST-1925] |
 | Codified citation | FAR 52.215-3 [@CL-EST-1918]; FAR 52.215-5 [@CL-EST-1920]; FAR 52.215-8 [@CL-EST-1925] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.215-8 [@CL-EST-0432]; RFO part 52 lists FAR 52.215-3 as reserved [@CL-EST-0430] and FAR 52.215-5 as reserved [@CL-EST-0431] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1918] |
 | Applies to | Solicitations that include the information or planning provision [@CL-EST-1397]; solicitations that include the facsimile provision, which is inserted if facsimile proposals are authorized [@CL-EST-1496]; solicitations and contracts that include the order of precedence clause [@CL-EST-1382] |
@@ -45,6 +45,8 @@ The place of performance provision is covered on [Place of performance in a soli
 
 The information provision changes what a response is: it is information only and cannot be used as a proposal [@CL-EST-1919]. The facsimile provision keeps a facsimile submission a proposal, subject to the paper rules [@CL-EST-1920]. Award may rest on the facsimile proposal alone, and the Contracting Officer may ask the apparently successful offeror for the signed original [@CL-EST-1924]. The order of precedence clause ranks the document classes so that an inconsistency is resolved by class [@CL-EST-1925]. The purpose statement and the facsimile telephone number are filled in for each solicitation [@CL-EST-1965; @CL-EST-1967].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.215-3 as reserved [@CL-EST-0430] and FAR 52.215-5 as reserved [@CL-EST-0431], with no provision text under those numbers. RFO FAR 52.215-8 says that an inconsistency in the request for proposal or contract is resolved by giving precedence in the same order as the codified clause: the Schedule excluding the specifications, representations and other instructions, contract clauses, other documents, exhibits and attachments, and the specifications [@CL-EST-0432; @CL-EST-1925]. Where the codified clause says an inconsistency in the solicitation or contract, the RFO clause says in the request for proposal or contract [@CL-EST-0432; @CL-EST-1925].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -57,6 +59,8 @@ Separately, the Schedule prices 20 hours of testing while an attached specificat
 
 An information request is not a solicitation for award: its response shall not be used as a proposal [@CL-EST-1919]. A facsimile proposal is the opposite: it is a proposal and follows the paper rules [@CL-EST-1920]. The order of precedence ranks documents only to resolve an inconsistency [@CL-EST-1925]. When proposals are due and how late ones are treated are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md), and when each provision is inserted is on [Advisory multi-step process and source selection provisions and clauses](est-advisory-multi-step-and-source-selection-provisions.md).
 
+The RFO text prints no provision text under FAR 52.215-3 or FAR 52.215-5 [@CL-EST-0430; @CL-EST-0431], where the codified text of those sections sets out the information-only rule for a response to a request for information [@CL-EST-1919] and the facsimile proposal rules [@CL-EST-1920].
+
 ## Company calibration
 
 Which provision governs each live solicitation we answer, what its contract-specific fill-ins say, and who confirms the clause set behind that answer. [@Q-004]
@@ -65,4 +69,5 @@ Which provision governs each live solicitation we answer, what its contract-spec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for request for information, facsimile proposals, place of performance and order of precedence.

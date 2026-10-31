@@ -24,7 +24,7 @@ Shows the exception route an offeror or Contractor can use instead of certified 
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1819] |
 | Codified citation | FAR 52.215-20 and FAR 52.215-21 [@CL-EST-1819; @CL-EST-1824] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.215-20 [@CL-EST-0075; @CL-EST-0079] and RFO FAR 52.215-21 [@CL-EST-0085; @CL-EST-0087] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1819] |
 | Applies to | Offerors under the solicitation provision, and Contractors with modifications above the certified data threshold [@CL-EST-1819; @CL-EST-1824] |
@@ -37,6 +37,8 @@ For modifications under the contract with price adjustments expected to exceed t
 
 The offeror first decides whether to ask for an exception [@CL-EST-1819]. If none is granted, the data go in the FAR table format, which is mandatory unless the Contracting Officer and the Contractor agree to a different format and change the clause to use Alternate I [@CL-EST-1821]. The certificate follows once price is agreed [@CL-EST-1823]. Alternate II adds a paragraph requiring that, when the proposal is submitted, the offeror also submit one copy each to the Administrative Contracting Officer and the Contract Auditor [@CL-EST-1825]. The modifications clause opens the same exception route for price adjustments above the threshold [@CL-EST-1824].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the written request for exception in lieu of certified cost or pricing data [@CL-EST-0075] [@CL-EST-1819], the limit that the Contracting Officer may require additional supporting information only to the extent necessary to determine whether an exception should be granted and whether the price is fair and reasonable [@CL-EST-0076] [@CL-EST-1887], and the identification of the law or regulation establishing the price offered, with a copy of the controlling document unless it was previously submitted [@CL-EST-0077] [@CL-EST-1864]. It also keeps the minimum price information for the commercial product and commercial service exception [@CL-EST-0078] [@CL-EST-1820], the right to examine records at any time before award [@CL-EST-0079] [@CL-EST-1865] and the limit on that access for items priced using catalog or market prices, or law or regulation [@CL-EST-0080] [@CL-EST-1885]. The RFO modifications clause keeps the same right to examine records [@CL-EST-0087] [@CL-EST-1867] and the same limit on access [@CL-EST-0088] [@CL-EST-1886]. Alternate II to the RFO provision adds the same paragraph (c) requiring one copy each to the Administrative Contracting Officer and the Contract Auditor, but it is prescribed in FAR 15.110(t)(2) where the codified Alternate II is prescribed in FAR 15.408(l) [@CL-EST-0084] [@CL-EST-1825]. The RFO provision says the instructions in Table 15-1 are a mandatory format unless the Contracting Officer and the Contractor agree to a different format and change the clause to use Alternate I, where the codified provision names Table 15-2 [@CL-EST-0082] [@CL-EST-1821]. The RFO provision names Table 15-1 of FAR 15.408-2 and incorporates it by reference with the same force and effect as though it were inserted in full text [@CL-EST-0081] [@CL-EST-9067]. It says the Certificate of Current Cost or Pricing Data is as prescribed by FAR 15.403-4, where the codified provision cites FAR 15.406-2 [@CL-EST-0083] [@CL-EST-1823]. The RFO modifications clause says the threshold is the one set forth in FAR 15.403-3(a), where the codified clause cites FAR 15.403-4(a)(1) [@CL-EST-0085] [@CL-EST-1824], and says an inflation-adjusted threshold applies throughout the remaining term of the contract unless there is a subsequent threshold adjustment, citing FAR part 1 where the codified clause cites FAR 1.109(a) and FAR 1.109(d) [@CL-EST-0086] [@CL-EST-1889].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,6 +49,8 @@ An offeror proposes a catalog item at 80,000 and asks for the commercial excepti
 
 Certified cost or pricing data and data other than certified cost or pricing data are named separately in the submission requirement [@CL-EST-1822]. The provision speaks to offerors [@CL-EST-1819], while the modifications clause speaks to the Contractor on awarded work [@CL-EST-1824]. Neither is the price reduction clause: that clause reduces a modification price after the fact when certified data prove defective, and it is covered in [Price reduction for defective certified data](est-price-reduction-and-subcontractor-data-modification-clauses.md). The general exceptions are covered in [Exceptions to the requirement for certified cost or pricing data](est-certified-data-exceptions.md), format rules are in [Instructions for submitting cost or pricing data](est-data-submission-format-and-instructions.md), and the general proposal instructions are in [Instructions to offerors in competitive acquisitions](est-instructions-to-offerors-competitive-acquisition.md).
 
+The table and the threshold cross-reference differ between the two texts. The codified provision incorporates Table 15-2 [@CL-EST-1821] and the RFO provision incorporates Table 15-1 of FAR 15.408-2 [@CL-EST-0081] [@CL-EST-9067]. The codified modifications clause refers to the threshold in FAR 15.403-4(a)(1) [@CL-EST-1889], while the RFO modifications clause refers to the threshold in FAR 15.403-3(a) [@CL-EST-0086].
+
 ## Company calibration
 
 Which proposals expected in the next two quarters may need certified cost or pricing data. [@Q-047]
@@ -55,4 +59,5 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certified data requirements provision and the modifications clause.
