@@ -29,7 +29,7 @@ Governs the allowability of independent research and development and bid and pro
 | Text status | Final [@CL-CMP-0112] |
 | Applies to | Contracts with the cost principles clause [@CL-CMP-0112] |
 
-Costs for independent research and development and bid and proposal efforts are allowable as indirect expenses on contracts to the extent that those costs are allocable and reasonable [@CL-CMP-0112], except as provided in paragraphs (d) and (e) of FAR 31.205-18 or as provided in agency regulations. Under defense rules, a major contractor is any contractor whose covered segments allocated a total of more than $11 million in these costs to covered contracts in the preceding fiscal year [@CL-CMP-0113]. A covered segment is a product division of the contractor that allocated more than $1,100,000 in IR&D and B&P costs to covered contracts during the preceding fiscal year [@CL-CMP-0114]. For a contractor with no product divisions, the term means the contractor as a whole.
+Costs for independent research and development and bid and proposal efforts are allowable as indirect expenses on contracts to the extent that those costs are allocable and reasonable, except as provided in paragraphs (d) and (e) of FAR 31.205-18 or as provided in agency regulations [@CL-CMP-0112]. Under defense rules, a major contractor is any contractor whose covered segments allocated a total of more than $11 million in these costs to covered contracts in the preceding fiscal year [@CL-CMP-0113]. A covered segment is a product division of the contractor that allocated more than $1,100,000 in IR&D and B&P costs to covered contracts during the preceding fiscal year [@CL-CMP-0114]. For a contractor with no product divisions, the term means the contractor as a whole [@CL-CMP-1402].
 
 ## How it works
 
@@ -57,6 +57,6 @@ How research and proposal projects are opened, authorized, tracked and reported 
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Moved the codified paragraph (c) exceptions and the no-product-divisions fallback outside the sentences cited to claims that do not quote them.
+- COMPATIBLE_EXTENSION, 2026-10-31: Codified paragraph (c) exceptions and the no-product-divisions fallback now each cite a claim quoting them.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal costs.
