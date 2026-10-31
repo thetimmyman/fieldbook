@@ -33,7 +33,7 @@ Indirect costs are the costs remaining after direct costs are determined and cha
 
 Once a base is accepted it may not be fragmented, and every item properly in the base bears its pro rata share whether or not it is an accepted Government contract cost [@CL-RTE-0211; @CL-RTE-0212]. For contracts subject to full or modified CAS coverage, the contractor follows the criteria and guidance in the CAS rule on cost accounting periods when selecting the periods used to allocate indirect costs [@CL-RTE-0260]. For other contracts, the base period is the contractor's fiscal year used for financial reporting in accordance with generally accepted accounting principles [@CL-RTE-0213]. That year will normally be 12 months, but a different period may be appropriate, for example after a change in fiscal year caused by a business combination [@CL-RTE-0261].
 
-FAR 2.101 defines an indirect cost as any cost not directly identified with a single final cost objective, but identified with two or more final cost objectives or with at least one intermediate cost objective [@CL-RTE-9075].
+FAR 2.101 defines an indirect cost as any cost not directly identified with a single final cost objective, but identified with two or more final cost objectives or with at least one intermediate cost objective [@CL-RTE-9075]. The RFO model text of FAR 2.101 defines an indirect cost in the same words as the codified definition [@CL-RTE-9093; @CL-RTE-9075].
 
 ## How it works
 
@@ -59,6 +59,7 @@ How the company defines and reconciles its pools, bases and service-center charg
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of indirect cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of indirect cost.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.

@@ -45,7 +45,7 @@ Synthetic example. The numbers are made up.
 
 A contractor expects 60 million in sales to the Government over the next 12 months, none of it in the excluded categories. It performs mainly defense work.
 
-Answer: the sales exceed the FAR level of 25 million, so a review would be performed to decide if a CPSR is needed. For the defense supplement, which applies in lieu of that threshold, the sales also exceed 50 million, so the administrative contracting officer determines the need for a CPSR.
+Answer: under the defense supplement, which applies in lieu of the FAR threshold, the sales exceed 50 million, so the administrative contracting officer determines the need for a CPSR [@CL-SUP-0521]. The FAR level of 25 million is not the trigger here.
 
 ## Never confuse
 
@@ -59,5 +59,6 @@ Confirm whether expected sales to the Government cross the FAR or the defense re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the example so the defense level applies in lieu of the FAR level.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the defense supplement sections on who initiates a review and on the extent of review.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor purchasing system review objectives, thresholds and extent.

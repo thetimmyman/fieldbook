@@ -29,7 +29,7 @@ Shows which identifier the contracting officer reports for the successful offero
 | Text status | Final [@CL-MKT-0024] |
 | Applies to | Contract actions with a successful offeror [@CL-MKT-0024] |
 
-The contracting officer shall identify and report a unique entity identifier for the successful offeror on a contract action [@CL-MKT-0024]. The identifier shall correspond to the successful offeror's name and address as stated in the offer and resultant contract, and as registered in the System for Award Management in accordance with the provision on that system [@CL-MKT-0025]. The FAR definitions section describes a unique entity identifier as a number or other identifier used to identify a specific commercial, nonprofit, or Government entity [@CL-MKT-9227].
+The contracting officer shall identify and report a unique entity identifier for the successful offeror on a contract action [@CL-MKT-0024]. The identifier shall correspond to the successful offeror's name and address as stated in the offer and resultant contract, and as registered in the System for Award Management in accordance with the provision on that system [@CL-MKT-0025]. The FAR definitions section describes a unique entity identifier as a number or other identifier used to identify a specific commercial, nonprofit, or Government entity [@CL-MKT-9227]. The RFO text of FAR 2.101 defines a unique entity identifier as a number or other identifier used to identify a specific commercial, nonprofit, or Government entity, the same in substance as the codified definition [@CL-MKT-9277; @CL-MKT-9227].
 
 ## How it works
 
@@ -53,5 +53,6 @@ Confirm how supplier and customer identifiers in reported contract data are reco
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unique entity identifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of unique entity identifier.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unique entity identifier in contract reporting.

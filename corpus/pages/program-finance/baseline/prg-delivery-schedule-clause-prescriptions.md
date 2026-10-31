@@ -41,7 +41,7 @@ Construction. The contracting officer shall insert the clause at 52.211-10, Comm
 
 The prescriptions are addressed to the contracting officer. Each delivery clause and each alternate is a permission written with may, so the contracting officer chooses among them [@CL-PRG-0457; @CL-PRG-0459; @CL-PRG-0464; @CL-PRG-0461; @CL-PRG-0462; @CL-PRG-0463]. The construction clause itself is written with shall and tied to a contemplated fixed-price construction contract, while its Alternate I and its change for indefinite-delivery orders are written with may [@CL-PRG-0469; @CL-PRG-0470; @CL-PRG-0471].
 
-The FAR's general definitions say an alternate is a substantive variation of a basic provision or clause prescribed for use in a defined circumstance [@CL-PRG-9067].
+The FAR's general definitions say an alternate is a substantive variation of a basic provision or clause prescribed for use in a defined circumstance, and goes on to say that it adds wording to, deletes wording from, or substitutes specified wording for a portion of the basic provision or clause, and that the alternate version of a provision or clause is the basic provision or clause as changed by the addition, deletion, or substitution (see 52.105(a)) [@CL-PRG-9067; @CL-PRG-9130]. The first sentence of the RFO model text definition of an alternate in FAR 2.101 reads the same as the codified first sentence [@CL-PRG-9101; @CL-PRG-9067], and the RFO text also goes on to say that an alternate adds wording to, deletes wording from, or substitutes specified wording for a portion of the basic provision or clause, and that the alternate version of a provision or clause is the basic provision or clause as changed by the addition, deletion, or substitution (see 52.105(a)) [@CL-PRG-9101; @CL-PRG-9128].
 
 The Government's need points to the clause. A required delivery by a particular time points to the Time of Delivery clause [@CL-PRG-0459; @CL-PRG-0460]. A desired time with a later required time points to the Desired and Required Time of Delivery clause [@CL-PRG-0464; @CL-PRG-0465]. In both cases the schedule is to be based on the date of the contract [@CL-PRG-0460; @CL-PRG-0465].
 
@@ -79,5 +79,7 @@ Who in the company confirms which delivery clause and which alternate actually l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the alternate definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of alternate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of alternate.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for delivery schedule clause prescriptions.

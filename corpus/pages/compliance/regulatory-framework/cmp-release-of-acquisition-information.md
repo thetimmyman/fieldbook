@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["decision_right", "federal_acquisition_regulation"]
 questions = ["Q-004"]
+links = ["cmp-procurement-integrity-prohibitions"]
 +++
 
 ## Purpose
@@ -56,4 +57,5 @@ Which company submissions a contracting officer treats as received in confidence
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the procurement integrity card.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of acquisition information.

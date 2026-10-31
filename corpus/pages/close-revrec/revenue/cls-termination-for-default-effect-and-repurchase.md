@@ -35,7 +35,7 @@ Under a termination for default, the Government is not liable for the contractor
 
 The contractor is liable to the Government for any excess costs incurred in acquiring supplies and services similar to those terminated for default, and for any other damages, whether or not repurchase is effected [@CL-CLS-0944]. Excess cost may not be charged against the defaulting contractor for more than the undelivered quantity terminated for default, including variations in quantity permitted by the terminated contract [@CL-CLS-0957]. If repurchase is made at a price over the price of the supplies or services terminated, the contracting officer shall, after completion and final payment of the repurchase contract, make a written demand on the contractor for the total amount of the excess [@CL-CLS-0949]. In making that demand, the contracting officer gives consideration to any increases or decreases in other costs such as transportation and discounts [@CL-CLS-0970].
 
-The FAR definitions section describes termination for default as the exercise of the Government's right to completely or partially terminate a contract because of the contractor's actual or anticipated failure to perform its contractual obligations [@CL-CLS-1522].
+The FAR definitions section describes termination for default as the exercise of the Government's right to completely or partially terminate a contract because of the contractor's actual or anticipated failure to perform its contractual obligations [@CL-CLS-1522]. The RFO text of FAR 2.101 defines termination for default as the exercise of the Government's right to completely or partially terminate a contract because of the contractor's actual or anticipated failure to perform its contractual obligations, the same in substance as the codified definition [@CL-CLS-1541; @CL-CLS-1522].
 
 ## How it works
 
@@ -61,5 +61,6 @@ How potential default exposure, repayable financing and excess reprocurement cos
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination for default.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of termination for default.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for default.

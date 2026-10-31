@@ -31,7 +31,7 @@ The Government will maintain surveillance of contractor performance as necessary
 
 The contract administration office determines the extent of production surveillance on the basis of the criticality the contracting officer assigned to the supplies or services and a list of factors [@CL-OPM-0051]. Contracts at or below the simplified acquisition threshold should not normally require production surveillance [@CL-OPM-0054]. The source text does not state the dollar value of that threshold.
 
-The FAR's general definitions say a contract administration office is an office that performs assigned postaward functions related to the administration of contracts and assigned preaward functions [@CL-OPM-1086].
+The FAR's general definitions say a contract administration office is an office that performs assigned postaward functions related to the administration of contracts and assigned preaward functions [@CL-OPM-1086]. The RFO model text of FAR 2.101 defines a contract administration office in the same words as the codified definition, apart from the printed form of the dash [@CL-OPM-1114; @CL-OPM-1086].
 
 ## How it works
 
@@ -57,6 +57,7 @@ Which Government office sets surveillance for each production contract, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contract administration office.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contract administration office.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for production surveillance.

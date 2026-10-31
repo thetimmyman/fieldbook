@@ -33,7 +33,7 @@ Contracting officers may transmit to the GPE advance notices of their interest i
 
 The DoD bundling notification duty applies when a proposed acquisition is funded entirely using DoD funds and potentially involves bundling [@CL-MKT-0087]. Where that duty applies, the contracting officer shall publish in the Governmentwide point of entry a notification of the intent to bundle at least 30 days before the release of a solicitation or 30 days before placing an order without a solicitation [@CL-MKT-0086; @CL-MKT-0087]. If the agency has determined that measurably substantial benefits are expected from bundling, the notification shall include a brief description of those benefits [@CL-MKT-0088].
 
-The FAR's general definitions say that, under paragraph (1), bundling is a subset of consolidation that combines two or more requirements for supplies or services, previously provided or performed under separate smaller contracts (see paragraph (2) of the definition), into a solicitation for a single contract, a multiple-award contract, or a task or delivery order that is likely to be unsuitable for award to a small business concern, even if it is suitable for award to a small business with a Small Business Teaming Arrangement [@CL-MKT-9198; @CL-MKT-9199]. The listed reasons are the diversity, size, or specialized nature of the elements of the performance specified, the aggregate dollar value of the anticipated award, the geographical dispersion of the contract performance sites, or any combination of those factors [@CL-MKT-9200; @CL-MKT-9201].
+The FAR's general definitions say that, under paragraph (1), bundling is a subset of consolidation that combines two or more requirements for supplies or services, previously provided or performed under separate smaller contracts (see paragraph (2) of the definition), into a solicitation for a single contract, a multiple-award contract, or a task or delivery order that is likely to be unsuitable for award to a small business concern, even if it is suitable for award to a small business with a Small Business Teaming Arrangement [@CL-MKT-9198; @CL-MKT-9199]. The listed reasons are the diversity, size, or specialized nature of the elements of the performance specified, the aggregate dollar value of the anticipated award, the geographical dispersion of the contract performance sites, or any combination of those factors [@CL-MKT-9200; @CL-MKT-9201], and paragraph (2) of the definition says that "separate smaller contract", as used in the definition, means a contract that has been performed by one or more small business concerns or that was suitable for award to one or more small business concerns [@CL-MKT-9201; @CL-MKT-9310].
 
 ## How it works
 
@@ -57,6 +57,7 @@ Confirm which product families, customer groups and market segments define the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the bundling definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of bundling, paragraph (1).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI instructions on the notice for change orders under construction contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special-situation notices.

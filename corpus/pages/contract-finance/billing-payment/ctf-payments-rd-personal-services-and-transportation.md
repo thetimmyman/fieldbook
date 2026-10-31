@@ -31,7 +31,7 @@ Shows what the Government pays under the fixed-price research and development, p
 
 Under the research and development clause, the Government pays the contract prices for work delivered or rendered and accepted, on proper invoices or vouchers, less any deductions the contract provides [@CL-CTF-2001]. Unless the contract says otherwise, payment is made on acceptance of any portion of the work that has a separately stated price [@CL-CTF-2002].
 
-Under the personal services clause, payment is for the services performed, as set forth in the Schedule, at the rates prescribed, on proper invoices or time statements sent to the office or officer designated and at the time the contract provides [@CL-CTF-2003]. The Government also pays a per diem rate in lieu of subsistence for each day the Contractor is in travel status away from home or the regular place of employment, in accordance with the Federal Travel Regulations as authorized in appropriate Travel Orders [@CL-CTF-2004].
+Under the personal services clause, payment is for the services performed, as set forth in the Schedule, at the rates prescribed, on proper invoices or time statements sent to the office or officer designated and at the time the contract provides [@CL-CTF-2003]. The Government also pays a per diem rate in lieu of subsistence for each day the Contractor is in travel status away from home or the regular place of employment, in accordance with the Federal Travel Regulations as authorized in appropriate Travel Orders [@CL-CTF-2004]. The FAR's general definitions say a personal services contract means a contract that, by its express terms or as administered, makes the contractor personnel appear to be, in effect, Government employees (see 37.104) [@CL-CTF-9471]. The RFO model text of FAR 2.101 defines it in the same words [@CL-CTF-9472; @CL-CTF-9471].
 
 Under the transportation clause, the Government pays on properly certified invoices or vouchers the amount due for services rendered and accepted, less any deductions the clause provides [@CL-CTF-2005].
 
@@ -61,5 +61,6 @@ How invoices and time statements under these clauses are submitted, who approves
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of personal services contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price research and development, personal services and transportation payments.

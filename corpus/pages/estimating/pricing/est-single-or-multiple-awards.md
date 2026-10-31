@@ -24,7 +24,7 @@ Explains when the Government keeps the choice between one award and several for 
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1929; @CL-EST-1930] |
 | Codified citation | FAR 52.216-27 [@CL-EST-1929]; FAR 52.216-28 [@CL-EST-1930] |
-| RFO citation | RFO FAR 52.216-27 [@CL-EST-0616]; RFO FAR 52.216-28 [@CL-EST-0617] |
+| RFO citation | RFO FAR 52.216-27 [@CL-EST-0616]; RFO FAR 52.216-28 [@CL-EST-0617]; RFO FAR 2.101 [@CL-EST-9376] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1929] |
 | Applies to | Solicitations for indefinite-quantity contracts that may result in multiple contract awards, for the single or multiple awards provision [@CL-CTF-1227]; solicitations that include the advisory and assistance services provision [@CL-EST-1930] |
@@ -33,7 +33,7 @@ Under the single or multiple awards provision, the Government may elect to award
 
 Under the advisory and assistance services provision, the Government intends to award multiple contracts for the same or similar advisory and assistance services to two or more sources, unless it determines after evaluation of offers that only one offeror is capable of providing the services at the level of quality required [@CL-EST-1930].
 
-The FAR's general definitions say advisory and assistance services means those services provided under contract by nongovernmental sources to support or improve organizational policy development, decision-making, management and administration, program and/or project management and administration, or R&D activities [@CL-EST-9273].
+The FAR's general definitions say advisory and assistance services means those services provided under contract by nongovernmental sources to support or improve organizational policy development, decision-making, management and administration, program and/or project management and administration, or R&D activities [@CL-EST-9273]. The RFO text of FAR 2.101 has the same sentence word for word, and goes on to say that advisory and assistance services can also mean the furnishing of professional advice or assistance rendered to improve the effectiveness of Federal management processes or procedures (including those of an engineering and technical nature), and that, in rendering the foregoing services, outputs may take the form of information, advice, opinions, alternatives, analyses, evaluations, recommendations, training and the day-to-day aid of support personnel needed for the successful performance of ongoing Federal operations [@CL-EST-9376; @CL-EST-9397; @CL-EST-9398; @CL-EST-9273].
 
 ## How it works
 
@@ -59,6 +59,8 @@ Whether our pricing and bid posture assumes one award or several for each order-
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the advisory and assistance services definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of advisory and assistance services.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of advisory and assistance services.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a sentence about the number of awards that no claim supports.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

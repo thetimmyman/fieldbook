@@ -22,13 +22,13 @@ Covers what an offeror represents about institutional status and about presence 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1024] |
-| Codified citation | FAR 52.226-2; FAR 52.226-3; FAR 52.226-5 [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027] |
+| Codified citation | FAR 52.226-2; FAR 52.226-3; FAR 52.226-5 [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027]; FAR 2.101 [@CL-MKT-9298] |
 | RFO citation | RFO FAR 52.226-2; RFO FAR 52.226-3; RFO FAR 52.226-5 [@CL-MKT-0126; @CL-MKT-0129; @CL-MKT-0138] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1024] |
 | Applies to | Offers that carry the two representation provisions, and contracts that carry the subcontracting restriction clause [@CL-MKT-1024; @CL-MKT-1093; @CL-MKT-1027] |
 
-The offeror represents that it is or is not a historically black college or university, and that it is or is not a minority institution [@CL-MKT-1024]. A historically black college or university is an institution determined by the Secretary of Education to meet the requirements of 34 CFR 608.2 [@CL-MKT-1090]. A minority institution is an institution of higher education meeting the requirements of section 365(3) of the Higher Education Act of 1965, including a Hispanic-serving institution of higher education as defined in section 502(a) of that Act [@CL-MKT-1091].
+The offeror represents that it is or is not a historically black college or university, and that it is or is not a minority institution [@CL-MKT-1024]. A historically black college or university is an institution determined by the Secretary of Education to meet the requirements of 34 CFR 608.2 [@CL-MKT-1090]. A minority institution is an institution of higher education meeting the requirements of section 365(3) of the Higher Education Act of 1965, including a Hispanic-serving institution of higher education as defined in section 502(a) of that Act [@CL-MKT-1091]. The FAR's general definitions say a minority institution means an institution of higher education meeting the requirements of section 365(3) of the Higher Education Act of 1965, including a Hispanic-serving institution of higher education as defined in section 502(a) of the Act [@CL-MKT-9298]. The RFO model text of FAR 2.101 states it in the same words [@CL-MKT-9299; @CL-MKT-9298].
 
 In the disaster or emergency area provision, the set-aside area is filled in by the contracting officer with definite geographic boundaries [@CL-MKT-1092]. The offeror represents that it does or does not reside or primarily do business in that area [@CL-MKT-1093].
 
@@ -60,5 +60,6 @@ Which institutional and disaster area representations in the finance remit are d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of minority institution.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the institutional and disaster area representations.

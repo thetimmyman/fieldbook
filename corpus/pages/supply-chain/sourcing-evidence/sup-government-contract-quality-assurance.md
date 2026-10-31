@@ -47,7 +47,7 @@ Reports. Agencies shall prescribe procedures and instructions for the use, prepa
 
 Synthetic example. The numbers are made up.
 
-A contract for 200 units provides for delivery and acceptance at destination, and the Government inspects the units at the supplier's plant. At the destination, the receiving office counts the units and checks for transit damage. The answer: the units are not ordinarily reinspected in full at destination, and the destination check covers quantity, damage in transit and possible substitution or fraud. The supplier keeps the inspection or receiving report with its invoice file.
+A contract for 200 units provides for delivery and acceptance at destination, and the Government inspects the units at the supplier's plant. At the destination, the receiving office counts the units and checks for transit damage. The answer: the units are not ordinarily reinspected in full at destination, and the destination check covers quantity, damage in transit and possible substitution or fraud. The inspection is documented on an inspection or receiving report form or commercial shipping document/packing list, under agency procedures [@CL-SUP-0865].
 
 ## Never confuse
 
@@ -61,5 +61,6 @@ Which contracts designate source or destination inspection, and where the inspec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced an unsupported filing statement in the example with the documentation rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added support for foreign governments, single-agency assignments and inspection reports.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government contract quality assurance.

@@ -45,7 +45,7 @@ A contract sets an initial target cost of 1,000,000 and an initial target profit
 
 ## Never confuse
 
-A firm target contract sets its target cost and target profit at the outset and has a price ceiling but no profit ceiling or floor [@CL-EST-1076]. A successive targets contract sets initial targets at the outset, and it includes a ceiling and floor for the firm target profit [@CL-EST-1082; @CL-EST-1083]. The firm targets come later, at the production point, from cost experience and other pertinent factors [@CL-EST-1085].
+A firm target contract sets its target cost and target profit at the outset and has a price ceiling but no profit ceiling or floor [@CL-EST-1076]. A successive targets contract sets initial targets at the outset, and it includes a ceiling and floor for the firm target profit [@CL-EST-1082; @CL-EST-1083]. The firm target cost is negotiated later, at the production point, giving consideration to cost experience and other pertinent factors, and the formula establishes the firm target profit [@CL-EST-1085].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ How the initial targets, and the cost experience later used for the firm target 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Separated the firm target cost from the formula-set firm target profit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on successive targets contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price incentive (successive targets) contracts.

@@ -33,7 +33,7 @@ A cost may not be charged as a direct cost to a final cost objective if other co
 
 For reasons of practicality the contractor may treat a direct cost of a minor dollar amount as indirect, if the accounting treatment is consistently applied to all final cost objectives and produces substantially the same results as treating the cost as direct [@CL-RTE-0204; @CL-RTE-0205].
 
-FAR 2.101 defines a direct cost as any cost that is identified specifically with a particular final cost objective, and says direct costs are not limited to items that are incorporated in the end product as material or labor [@CL-RTE-9074].
+FAR 2.101 defines a direct cost as any cost that is identified specifically with a particular final cost objective, and says direct costs are not limited to items that are incorporated in the end product as material or labor, that costs identified specifically with a contract are direct costs of that contract, and that all costs identified specifically with other final cost objectives of the contractor are direct costs of those cost objectives [@CL-RTE-9074; @CL-RTE-9117]. The first sentence of the RFO model text definition of a direct cost in FAR 2.101 reads the same as the codified first sentence [@CL-RTE-9090; @CL-RTE-9074], and the RFO text goes on to say that direct costs are not limited to items that are incorporated in the end product as material or labor, that costs identified specifically with a contract are direct costs of that contract, and that all costs identified specifically with other final cost objectives of the contractor are direct costs of those cost objectives [@CL-RTE-9090; @CL-RTE-9109; @CL-RTE-9110].
 
 ## How it works
 
@@ -59,6 +59,8 @@ How the company assigns a cost as direct versus indirect for the same purpose. [
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the direct cost definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of direct cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of direct cost.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.

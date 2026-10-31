@@ -33,7 +33,7 @@ A solicitation containing option provisions shall state the basis of evaluation,
 
 Unless otherwise approved in accordance with agency procedures, the total of the basic and option periods shall not exceed 5 years in the case of services, and the total of the basic and option quantities shall not exceed the requirement for 5 years in the case of supplies [@CL-CTF-1309]. These limitations do not apply to information technology contracts, although statutes applicable to various classes of contracts may place additional restrictions on the length of contracts [@CL-CTF-1309; @CL-CTF-1310]. The sections also cover how offerors may vary option prices, how option quantities and extensions are expressed, the period within which an option may be exercised, and the value of options for trade agreement thresholds; this card does not state those rules.
 
-FAR 2.101 defines an option as a unilateral right in a contract by which, for a specified time, the Government may elect to purchase additional supplies or services called for by the contract, or may elect to extend the term of the contract [@CL-CTF-9412].
+FAR 2.101 defines an option as a unilateral right in a contract by which, for a specified time, the Government may elect to purchase additional supplies or services called for by the contract, or may elect to extend the term of the contract [@CL-CTF-9412]. The RFO text of FAR 2.101 defines an option as a unilateral right in a contract by which, for a specified time, the Government may elect to purchase additional supplies or services called for by the contract, or may elect to extend the term of the contract, the same in substance as the codified definition [@CL-CTF-9451; @CL-CTF-9412].
 
 ## How it works
 
@@ -59,5 +59,6 @@ Confirm where the executed contracts and modifications sit, and who confirms whi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of option.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of option.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for options in solicitations and contracts.

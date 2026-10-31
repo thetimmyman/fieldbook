@@ -22,13 +22,13 @@ Shows how an offeror takes part in a reverse auction under a solicitation, what 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1931] |
-| Codified citation | FAR 52.217-10 [@CL-EST-1931] |
-| RFO citation | RFO FAR 52.217-10 [@CL-EST-0555] |
+| Codified citation | FAR 52.217-10 [@CL-EST-1931]; FAR 2.101 [@CL-EST-9372] |
+| RFO citation | RFO FAR 52.217-10 [@CL-EST-0555]; RFO FAR 2.101 [@CL-EST-9373] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1931] |
 | Applies to | Solicitations under which the Government intends to conduct a reverse auction to award a contract or blanket purchase agreement [@CL-EST-1932] |
 
-A reverse auction is the process for obtaining pricing, usually supported by an electronic tool, in which offerors see competing offerors' prices without disclosure of the competing offerors' identity and have the opportunity to submit lower priced offers until the close of the auction [@CL-EST-1931]. The Government states that it intends to conduct a reverse auction under the solicitation to award a contract or blanket purchase agreement [@CL-EST-1932].
+A reverse auction is the process for obtaining pricing, usually supported by an electronic tool, in which offerors see competing offerors' prices without disclosure of the competing offerors' identity and have the opportunity to submit lower priced offers until the close of the auction [@CL-EST-1931]. The FAR definitions section also defines a reverse auction in those terms [@CL-EST-9372], and the RFO text of FAR 2.101 has the same sentence word for word [@CL-EST-9373; @CL-EST-9372]. The Government states that it intends to conduct a reverse auction under the solicitation to award a contract or blanket purchase agreement [@CL-EST-1932].
 
 By submitting a quote or proposal in response to the solicitation, the offeror agrees to participate in the reverse auction and agrees that the Government may reveal the offered prices in the auction to all offerors without revealing any offeror's identity [@CL-EST-1933]. The Government reveals no offeror's identity this way, except for the awardee's identity subsequent to an award resulting from the auction [@CL-EST-1934]. The offeror may withdraw its agreement to further participate by withdrawing its offer before the close of the auction, notifying the Contracting Officer via the contact method identified in the solicitation [@CL-EST-1935]. If the reverse auction produces only one offer, the Government reserves the right to cancel the auction [@CL-EST-1936].
 
@@ -58,5 +58,6 @@ Who confirms, for each auction we enter, that a quote is an agreement to take pa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of reverse auction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the reverse auction provision.

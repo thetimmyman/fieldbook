@@ -23,8 +23,8 @@ Gives the prompt payment definitions that set payment dates, and shows where a c
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3584] |
-| Codified citation | FAR 32.901, 32.902 and 32.909 [@CL-CTF-3745; @CL-CTF-3746; @CL-CTF-3584; @CL-CTF-3588]; FAR 32.900 [@CL-CTF-9305] |
-| RFO citation | RFO FAR 32.900 [@CL-CTF-3041]; RFO FAR 32.901 [@CL-CTF-3042]; RFO FAR 32.902 [@CL-CTF-4055; @CL-CTF-4056; @CL-CTF-4057; @CL-CTF-4058]; RFO FAR 32.909 [@CL-CTF-4059; @CL-CTF-4060; @CL-CTF-4061] |
+| Codified citation | FAR 32.901, 32.902 and 32.909 [@CL-CTF-3745; @CL-CTF-3746; @CL-CTF-3584; @CL-CTF-3588]; FAR 32.900 [@CL-CTF-9305]; FAR 2.101 [@CL-CTF-9407; @CL-CTF-9408] |
+| RFO citation | RFO FAR 32.900 [@CL-CTF-3041]; RFO FAR 32.901 [@CL-CTF-3042]; RFO FAR 32.902 [@CL-CTF-4055; @CL-CTF-4056; @CL-CTF-4057; @CL-CTF-4058]; RFO FAR 32.909 [@CL-CTF-4059; @CL-CTF-4060; @CL-CTF-4061]; RFO FAR 2.101 [@CL-CTF-9464; @CL-CTF-9465] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3584] |
 | Applies to | Contractor questions about delinquent payments and about disagreements in payment amount or timing [@CL-CTF-3588; @CL-CTF-3589] |
@@ -37,7 +37,7 @@ Questions about delinquent payments are directed to the designated billing offic
 
 Subpart 32.9 prescribes policies, procedures, and clauses for implementing Office of Management and Budget (OMB) prompt payment regulations at 5 CFR part 1315 [@CL-CTF-9305].
 
-FAR 2.101 defines an electronic funds transfer as any transfer of funds, other than a transaction originated by cash, check, or similar paper instrument, that is initiated through an electronic terminal, telephone, computer, or magnetic tape, for the purpose of ordering, instructing, or authorizing a financial institution to debit or credit an account [@CL-CTF-9407; @CL-CTF-9408].
+FAR 2.101 defines an electronic funds transfer as any transfer of funds, other than a transaction originated by cash, check, or similar paper instrument, that is initiated through an electronic terminal, telephone, computer, or magnetic tape, for the purpose of ordering, instructing, or authorizing a financial institution to debit or credit an account [@CL-CTF-9407; @CL-CTF-9408]. The RFO text of FAR 2.101 defines an electronic funds transfer the same way, word for word [@CL-CTF-9464; @CL-CTF-9465], and goes on to say that the term includes Automated Clearing House transfers, Fedwire transfers, and transfers made at automatic teller machines and point-of-sale terminals, and that, for purposes of compliance with 31 U.S.C.3332 and implementing regulations at 31 CFR part 208, it includes a Governmentwide commercial purchase card transaction [@CL-CTF-9465; @CL-CTF-9486; @CL-CTF-9487].
 
 ## How it works
 
@@ -65,6 +65,8 @@ Which office the company contacts about a late payment, who owns a disagreement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the electronic funds transfer definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of electronic funds transfer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of electronic funds transfer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.900 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.900 scope and 32.901 applicability.

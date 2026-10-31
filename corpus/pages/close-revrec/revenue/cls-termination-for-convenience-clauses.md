@@ -37,7 +37,7 @@ The clause at 52.249-3 goes in solicitations and contracts for dismantling, demo
 
 The clause at 52.249-5, titled for educational and other nonprofit institutions, goes in when either a fixed-price or cost-reimbursement contract is contemplated for research and development work [@CL-CLS-1021], with an educational or nonprofit institution on a no-profit or no-fee basis [@CL-CLS-1056]. The clause at 52.249-6 is inserted when a cost-reimbursement contract is contemplated, except contracts for research and development with an educational or nonprofit institution on a no-fee basis [@CL-CLS-1022]. If the contract is for construction, the contracting officer shall use it with its Alternate I [@CL-CLS-1057]. If the contract is a time-and-material or labor-hour contract, the contracting officer shall use it with its Alternate IV [@CL-CLS-1058]. The clause at 52.249-7 is inserted for architect-engineer services when a fixed-price contract is contemplated [@CL-CLS-1023].
 
-The FAR definitions section describes termination for convenience as the exercise of the Government's right to completely or partially terminate performance of work under a contract when it is in the Government's interest [@CL-CLS-1521].
+The FAR definitions section describes termination for convenience as the exercise of the Government's right to completely or partially terminate performance of work under a contract when it is in the Government's interest [@CL-CLS-1521]. The RFO text of FAR 2.101 defines termination for convenience as the exercise of the Government's right to completely or partially terminate performance of work under a contract when it is in the Government's interest, the same in substance as the codified definition [@CL-CLS-1540; @CL-CLS-1521].
 
 ## How it works
 
@@ -61,5 +61,6 @@ Which termination clause each open contract carries, checked against its contrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination for convenience.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of termination for convenience.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for convenience clauses.
