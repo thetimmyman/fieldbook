@@ -33,7 +33,7 @@ Upon the award of a job order, the contractor shall promptly start the work spec
 
 Over and above work is work discovered during overhaul, maintenance and repair efforts that is within the general scope of the contract, not covered by the line items for the basic work, and necessary in order to satisfactorily complete the contract [@CL-CTF-1969; @CL-CTF-2172].
 
-The DFARS subpart on ship repair says to follow the procedures at PGI 217.7701 when acquiring over and above work [@CL-CTF-9281]. It also says to use the clause at 252.217-7028, Over and Above Work, in solicitations and contracts containing requirements for over and above work, except as provided for in subpart 217.71 [@CL-CTF-9282]. The text names no official who follows the procedures or uses the clause [@CL-CTF-9281; @CL-CTF-9282].
+DFARS subpart 217.77, Over and Above Work, which is separate from the ship repair provisions on this card, says to follow the procedures at PGI 217.7701 when acquiring over and above work [@CL-CTF-9281]. It also says to use the clause at 252.217-7028, Over and Above Work, in solicitations and contracts containing requirements for over and above work, except as provided for in subpart 217.71 [@CL-CTF-9282]. The text names no official who follows the procedures or uses the clause [@CL-CTF-9281; @CL-CTF-9282].
 
 ## How it works
 
@@ -67,5 +67,6 @@ Which executed contracts include the over and above work clause, which work-requ
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named subpart 217.77 as the general over-and-above-work subpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 217.7701 procedures pointer and the DFARS 217.7702 clause prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ship repair master agreement clauses on performance, guarantees and over and above work.
