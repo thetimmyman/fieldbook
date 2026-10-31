@@ -37,7 +37,7 @@ The CFAO makes all CAS-related required determinations and findings for all CAS-
 
 In determining materiality, the CFAO uses the criteria in 48 CFR 9903.305 [@CL-RTE-0602]. The criteria themselves are set out on the CAS materiality page. A CFAO determination of materiality may be made before or after a general dollar magnitude proposal has been submitted, depending on the particular facts and circumstances, and must be based on adequate documentation [@CL-RTE-0702].
 
-When the CFAO determines that a cost impact is immaterial, the CFAO makes no contract adjustments, concludes the cost impact process and documents the rationale for the determination [@CL-RTE-0603]. When the cost impact of a noncompliance is immaterial, the CFAO also informs the contractor in writing that the noncompliance should be corrected and that, if the noncompliance is not corrected, the Government reserves the right to make appropriate contract adjustments should the noncompliance become material in the future [@CL-RTE-0704]. When the amount involved is material, the CFAO follows the applicable provisions on required, unilateral and desirable changes and on noncompliances, which the neighbouring cards describe [@CL-RTE-0703].
+When the CFAO determines that a cost impact is immaterial, the CFAO makes no contract adjustments, concludes the cost impact process and documents the rationale for the determination [@CL-RTE-0603]. When the cost impact of a noncompliance is immaterial, the CFAO also informs the contractor in writing that the noncompliance should be corrected and that, if the noncompliance is not corrected, the Government reserves the right to make appropriate contract adjustments should the noncompliance become material in the future [@CL-RTE-0704; @CL-RTE-0024]. When the amount involved is material, the CFAO follows the applicable provisions on required, unilateral and desirable changes and on noncompliances, which the neighbouring cards describe [@CL-RTE-0703].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which business units have full coverage, modified coverage or neither, and so wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the immaterial cost impact sentence so the rule keeps the reservation of the right to make contract adjustments if the impact becomes material.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CFAO CAS administration and materiality.

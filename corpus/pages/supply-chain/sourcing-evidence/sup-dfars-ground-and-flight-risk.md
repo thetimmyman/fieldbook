@@ -37,7 +37,7 @@ Except for loss or damage caused by negligence of Government personnel, the cont
 
 The assumption can be revoked. When the contracting officer finds that the contractor's managerial personnel failed to comply with the combined regulation and instruction, the contracting officer will issue a preliminary notice of revocation requiring compliance within a specified timeframe [@CL-SUP-1446]. If the contracting officer finds that the contractor failed to correct the cited noncompliance or conditions within that timeframe, the contracting officer will issue a notice of revocation of the assumption of risk for any covered aircraft [@CL-SUP-1447]. After a notice of revocation, the contractor shall thereafter assume the entire risk for the previously covered aircraft [@CL-SUP-1448].
 
-Unless the flight and crewmembers have been approved in writing by the Government flight representative, the contractor shall not be reimbursed for liability to third parties for property loss or damage, death, or bodily injury caused by covered aircraft during flight [@CL-SUP-1449]. For flowdown, the contractor shall incorporate the requirements of the clause in subcontracts, including subcontracts for commercial products and commercial services, subject to the exceptions that follow [@CL-SUP-1450]. One exception is that the contractor shall not include paragraph (f) of the clause in subcontracts for commercial products or commercial services [@CL-SUP-1451]. The clause lists a second exception that this card does not restate. The clause also holds further procedures and duties that this card does not claim.
+Unless the flight and crewmembers have been approved in writing by the Government flight representative, the contractor shall not be reimbursed for liability to third parties for property loss or damage, death, or bodily injury caused by covered aircraft during flight, even if the Government has accepted such liability under any other provisions of the contract [@CL-SUP-1449; @CL-SUP-4028]. For flowdown, the contractor shall incorporate the requirements of the clause in subcontracts, including subcontracts for commercial products and commercial services, subject to the exceptions that follow [@CL-SUP-1450]. One exception is that the contractor shall not include paragraph (f) of the clause in subcontracts for commercial products or commercial services [@CL-SUP-1451]. The clause lists a second exception that this card does not restate. The clause also holds further procedures and duties that this card does not claim.
 
 ## Worked example
 
@@ -58,4 +58,5 @@ Which aircraft the Schedule names as covered, who the Government flight represen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the non-reimbursement sentence so the rule keeps its application even where the Government has accepted the liability under another provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for ground and flight risk.

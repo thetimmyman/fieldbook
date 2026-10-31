@@ -29,7 +29,7 @@ Covers the notice steps, time limits and interest rule when the auditor reports 
 | Text status | Final [@CL-RTE-0617] |
 | Applies to | Reports of alleged noncompliance that the CFAO receives from the auditor [@CL-RTE-0617] |
 
-Within 15 days of receiving a report of alleged noncompliance from the auditor, the CFAO must either notify the auditor that the CFAO disagrees or issue a notice of potential noncompliance to the contractor and provide a copy to the auditor [@CL-RTE-0617]. The notice must notify the contractor in writing of the exact nature of the noncompliance and allow the contractor 60 days, or another mutually agreeable date, to agree or submit reasons why the contractor considers the existing practices to be in compliance [@CL-RTE-0618].
+Within 15 days of receiving a report of alleged noncompliance from the auditor, the CFAO must either notify the auditor that the CFAO disagrees or issue a notice of potential noncompliance to the contractor and provide a copy to the auditor [@CL-RTE-0617]. The notice must notify the contractor in writing of the exact nature of the noncompliance and allow the contractor 60 days, or another mutually agreeable date, to agree or submit reasons why the contractor considers the existing practices to be in compliance, and to submit rationale to support any written statement that the cost impact of the noncompliance is immaterial [@CL-RTE-0618; @CL-RTE-0025].
 
 ## How it works
 
@@ -47,7 +47,7 @@ The auditor reports an alleged estimating noncompliance, and the CFAO issues a n
 
 ## Never confuse
 
-A noncompliance is processed under its own section and notice steps. A unilateral change made without the required notice may still be processed as a noncompliance [@CL-RTE-0712]. A noncompliance with an immaterial cost impact ends with no contract adjustments [@CL-RTE-0603], but the contractor is told in writing to correct it [@CL-RTE-0704]. See [Processing cost accounting practice changes](rte-processing-accounting-changes-gdm-dci.md) and [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md).
+A noncompliance is processed under its own section and notice steps. A unilateral change made without the required notice may still be processed as a noncompliance [@CL-RTE-0712]. A noncompliance with an immaterial cost impact ends with no contract adjustments [@CL-RTE-0603], but the contractor is told in writing to correct it and that the Government reserves the right to make appropriate contract adjustments if the cost impact becomes material in the future [@CL-RTE-0704; @CL-RTE-0024]. See [Processing cost accounting practice changes](rte-processing-accounting-changes-gdm-dci.md) and [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ How notices of potential noncompliance are tracked and answered within the notic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the notice and immaterial cost impact sentences so each keeps the rationale for an immaterial impact and the reservation of contract adjustments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for processing cost accounting practice noncompliances.
