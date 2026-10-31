@@ -23,7 +23,7 @@ Shows how a provision or clause number is built, how supplemental texts are numb
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8839] |
 | Codified citation | FAR 52.101 [@CL-CMP-8839] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.101 [@CL-CMP-1219; @CL-CMP-1227] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8839] |
 | Applies to | FAR provisions and clauses, and supplemental provisions and clauses published in agency acquisition regulations [@CL-CMP-8838; @CL-CMP-8841] |
@@ -48,6 +48,8 @@ The full-text and numbering rules apply to supplemental texts that an agency pub
 
 The section names the contracting officer only in the rule on the matrix [@CL-CMP-8846], and names agencies in the permission to reproduce the matrix and in the rules on supplemental texts [@CL-CMP-8894; @CL-CMP-8841]. It sets no dollar threshold or deadline. How a FAR citation number is built is a different question, covered on the card for [FAR publication, arrangement and numbering](cmp-far-publication-arrangement-and-numbering.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.101 keeps the rule that a FAR provision or clause number begins with 52.2, is followed by two digits for the FAR subject part, and is completed by a hyphen and a sequential number [@CL-CMP-1219; @CL-CMP-1221; @CL-CMP-8839; @CL-CMP-8840]. It keeps the rule that subpart 52.2 sets forth the text of all FAR provisions and clauses, each in its own separate subsection, and that each is uniquely identified [@CL-CMP-1220; @CL-CMP-8838; @CL-CMP-8880]. It keeps the rules that supplemental provisions or clauses published in agency acquisition regulations must be in full text with their prescriptions, that the number is preceded by the chapter number when the regulation is published in the Federal Register and codified in 48 CFR, and that the sequential number is 70 or a higher number [@CL-CMP-1222; @CL-CMP-1223; @CL-CMP-1224; @CL-CMP-8841; @CL-CMP-8842; @CL-CMP-8843]. It keeps the rule that a prescription sits where the subject matter receives its primary treatment and includes all conditions, requirements and instructions for the provision or clause and its alternates, if any [@CL-CMP-1225; @CL-CMP-1226; @CL-CMP-8844; @CL-CMP-8887]. It keeps the rule that contracting officers refer to the prescribing FAR text because the matrix does not provide sufficient information in the required-when-applicable and optional categories [@CL-CMP-1228; @CL-CMP-8846]. It keeps the rule that all provisions, clauses and alternates are dated and that the date is included whether the text is incorporated by reference or in full text [@CL-CMP-1229; @CL-CMP-1230; @CL-CMP-8847; @CL-CMP-8896], and the definition of modification [@CL-CMP-1231; @CL-CMP-8864]. The RFO paragraph on the matrix says the matrix is in subpart 52.3 [@CL-CMP-1227], where the codified paragraph says the matrix may be accessed via the internet [@CL-CMP-8890].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -66,6 +68,8 @@ A matrix entry does not settle applicability in the required-when-applicable and
 
 A supplemental clause number is not a FAR clause number. It is numbered in the same manner, but its sequential number is 70 or higher [@CL-CMP-8843], and it takes a chapter number prefix where the regulation is published in the Federal Register and codified in 48 CFR [@CL-CMP-8842].
 
+The codified text says the matrix may be accessed via the internet [@CL-CMP-8890], while the RFO text says the matrix is in subpart 52.3 [@CL-CMP-1227].
+
 ## Company calibration
 
 Which executed contracts and modifications the company holds, and who confirms that each cited provision and clause applies. [@Q-004]
@@ -74,4 +78,5 @@ Which executed contracts and modifications the company holds, and who confirms t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR part 52 numbering, prescriptions and the matrix.

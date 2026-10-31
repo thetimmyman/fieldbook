@@ -23,7 +23,7 @@ Sets out what an offeror must list about hazardous material it will deliver, whe
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5168] |
 | Codified citation | FAR 52.223-3 [@CL-CMP-5168] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.223-3 [@CL-CMP-1264; @CL-CMP-1265] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5168] |
 | Applies to | Offerors and contractors under contracts that carry the clause, for hazardous material to be delivered [@CL-CMP-5169] |
@@ -48,6 +48,8 @@ The Government has the right to use, duplicate and disclose any data to which th
 
 Alternate I adds a paragraph to the basic clause [@CL-CMP-5276]. Under it, except as the depot rule below provides, the contractor prepares and submits a sufficient number of data sheets [@CL-CMP-5277]. They must meet the same regulation and Federal Standard and cover all hazardous materials on the list [@CL-CMP-5278]. For items shipped to consignees, a copy goes with the packing list or other suitable shipping document that accompanies each shipment [@CL-CMP-5279]. The contractor may instead transmit data sheets to consignees in advance of receipt of shipments, if the contracting officer authorizes that in writing [@CL-CMP-5280]. For items shipped to consignees identified by mailing address as agency depots, distribution centers or customer supply centers, the contractor provides one copy in or on each shipping container [@CL-CMP-5281]. A copy affixed to the outside of a container must be in a weather resistant envelope [@CL-CMP-5282].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the definition of hazardous material by the latest version of Federal Standard No. 313, including revisions adopted during the term of the contract [@CL-CMP-1264; @CL-CMP-5168], and the offeror's list of hazardous material to be delivered, properly identified with any applicable identification number [@CL-CMP-1265; @CL-CMP-5169]. It keeps the update of the list during performance whenever the contractor determines that any other material to be delivered is hazardous [@CL-CMP-1267; @CL-CMP-5170]. Under the RFO text the apparently successful offeror agrees to submit, for each item as required prior to award, a Safety Data Sheet [@CL-CMP-1268], where the codified text names a material safety data sheet [@CL-CMP-5171]. It keeps the submission in accordance with the Federal Standard whether or not the offeror is the manufacturer [@CL-CMP-1269; @CL-CMP-5172]. Under the RFO text, failure to submit the Safety Data Sheet prior to award may leave the offeror nonresponsible and ineligible for award [@CL-CMP-1270], where the codified text names the Material Safety Data Sheet [@CL-CMP-5173]. It keeps the duty after award to notify the Contracting Officer promptly and resubmit the data when a change in composition or a revision to the Federal Standard makes the data incomplete or inaccurate [@CL-CMP-1271; @CL-CMP-5174]. It keeps the rules that neither the clause nor any Government act or failure to act relieves the contractor of responsibility or liability for safety [@CL-CMP-1272; @CL-CMP-5175], and that the clause does not relieve the contractor from complying with applicable laws, codes, ordinances and regulations [@CL-CMP-1273; @CL-CMP-5270]. It keeps the Government's right to use, duplicate and disclose any data to which the clause applies [@CL-CMP-1274; @CL-CMP-5271], and the rule that the Government is not precluded from using similar or identical data acquired from other sources [@CL-CMP-1275; @CL-CMP-5275]. The RFO text says the identification information shall also be included on the Safety Data Sheet, where the codified text says Material Safety Data Sheet [@CL-CMP-1266; @CL-CMP-5269]. In RFO Alternate I, paragraph (i) provides that, except as provided in paragraph (i)(2), the contractor shall prepare and submit a sufficient number of Safety Data Sheets (SDS's) for all hazardous materials identified in paragraph (b) [@CL-CMP-1276], where the codified Alternate I adds a paragraph (i) [@CL-CMP-5276] that requires material safety data sheets [@CL-CMP-5277; @CL-CMP-5278]. For items shipped to consignees, the RFO text has the contractor include a copy of the SDS with the packing list or other suitable shipping document [@CL-CMP-1277], where the codified text names the data sheet [@CL-CMP-5279]; the contractor is also permitted to transmit Safety Data Sheets to consignees in advance of receipt of shipments, if authorized in writing by the Contracting Officer [@CL-CMP-1302; @CL-CMP-5280]. For consignees identified by mailing address as agency depots, distribution centers or customer supply centers, the RFO text has the contractor provide one copy of the SDS's in or on each shipping container [@CL-CMP-1278; @CL-CMP-5281], and an SDS affixed to the outside of a container must be placed in a weather resistant envelope [@CL-CMP-1279; @CL-CMP-5282].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -64,6 +66,8 @@ The Government's right to use the data is not exclusive, because it may also use
 
 The shipping copy duties are in the paragraph that Alternate I adds, so they bind only contracts that include that alternate [@CL-CMP-5276; @CL-CMP-5279].
 
+The codified clause says Material Safety Data Sheet [@CL-CMP-5269], while the RFO clause says Safety Data Sheet in the matching paragraph [@CL-CMP-1266].
+
 ## Company calibration
 
 Whether the company can show, item by item, which delivered materials are hazardous, where each data sheet is held, and whether the contract carries Alternate I. [@Q-004]
@@ -72,4 +76,5 @@ Whether the company can show, item by item, which delivered materials are hazard
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hazardous material identification and material safety data.
