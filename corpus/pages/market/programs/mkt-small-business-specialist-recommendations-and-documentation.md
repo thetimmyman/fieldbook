@@ -36,7 +36,7 @@ Agencies shall establish procedures, including dollar thresholds, for review of 
 
 The contracting officer documents the rationale when a contract is not totally set aside for small business in accordance with 19.502-2 [@CL-MKT-1308]. The contracting officer also documents the rationale when a multiple-award contract is not partially set aside, not reserved, and does not allow for setting aside of orders, when these authorities could have been used [@CL-MKT-1309].
 
-The contracting officer documents the contract file whenever the Director's recommendations are not accepted, in accordance with 19.506 [@CL-MKT-1406]. Under 19.506, the documentation includes, if applicable, the rationale for not accepting the recommendations made by the Director or, for the Department of Defense, the Director of the Office of Small Business Programs [@CL-MKT-1407].
+The contracting officer documents the contract file whenever the Director's recommendations are not accepted, in accordance with 19.506 [@CL-MKT-1406]. Under 19.506, the documentation includes, if applicable, the rationale for not accepting the recommendations made by the Director or, for the Department of Defense, the Director of the Office of Small Business Programs, or the Director's designee, as to whether a particular acquisition should be awarded under subparts 19.5, 19.8, 19.13, 19.14, or 19.15 [@CL-MKT-1407; @CL-MKT-1606].
 
 Documentation under 19.506 is not required if a contract award is anticipated to a small business under subpart 19.5, 19.8, 19.13, 19.14, or 19.15 [@CL-MKT-1408].
 
@@ -58,4 +58,5 @@ Whether the acquisition file holds the documented rationale wherever a set-aside
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the documentation sentence so the rule keeps the designee and the subparts the recommendations address.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business specialist recommendations and file documentation.

@@ -27,7 +27,7 @@ Shows the payroll records a contractor must keep, the weekly submission and Stat
 | Text status | Final [@CL-CMP-5824] |
 | Applies to | Contracts that carry the payrolls clause as prescribed at FAR 22.407(a) [@CL-CMP-5824] |
 
-Payrolls and basic records relating to the work are maintained by the contractor during the course of the work and preserved for 3 years afterwards for all laborers and mechanics working at the site of the work [@CL-CMP-5825]. The records contain the name, address and social security number of each worker, the worker's correct classification, and the hourly rates of wages paid, including rates of contributions or costs anticipated for bona fide fringe benefits or cash equivalents [@CL-CMP-6152]. They also show the daily and weekly number of hours worked, the deductions made and the actual wages paid [@CL-CMP-5826].
+Payrolls and basic records relating to the work are maintained by the contractor during the course of the work and preserved for 3 years afterwards for all laborers and mechanics working at the site of the work [@CL-CMP-5825]. The records contain the name, address and social security number of each worker, the worker's correct classification, and the hourly rates of wages paid, including rates of contributions or costs anticipated for bona fide fringe benefits or cash equivalents of the types described in 40 United States Code 3141(2)(B) [@CL-CMP-6152; @CL-CMP-7369]. They also show the daily and weekly number of hours worked, the deductions made and the actual wages paid [@CL-CMP-5826; @CL-CMP-7369].
 
 An added record duty applies whenever the Secretary of Labor has found, under the Construction Wage Rate Requirements clause, that the wages of a laborer or mechanic include costs reasonably anticipated in providing benefits under a plan or program described in the Construction Wage Rate Requirements statute [@CL-CMP-6153]. In that case the contractor maintains records which show that the commitment to provide the benefits is enforceable, that the plan or program is financially responsible, and that it has been communicated in writing to the laborers or mechanics affected [@CL-CMP-6154]. The contractor also maintains records which show the costs anticipated or the actual cost incurred in providing those benefits [@CL-CMP-6446]. A contractor employing apprentices or trainees under approved programs also maintains written evidence of the registration of apprenticeship programs and certification of trainee programs, the registration of the apprentices and trainees, and the ratios and wage rates prescribed in the applicable programs [@CL-CMP-6155; @CL-CMP-6467].
 
@@ -69,5 +69,6 @@ That recordkeeping and weekly submission duties are assigned for every covered c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records sentence so the fringe benefit rate keeps the statutory types.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payrolls, basic records and withholding of funds.

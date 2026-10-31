@@ -35,7 +35,7 @@ The total amount payable on termination for convenience includes costs, profit, 
 
 ## How it works
 
-The contractor must notify the Contracting Officer in writing at least ninety days before the date when, in its best judgment, the work will reach the notice point [@CL-FPA-0085]. The notice point is where the total amount payable, including any termination cost, will approximate 85 percent of the total amount then allotted [@CL-FPA-0086]. The notice states the estimated date and the additional funding, if any, needed to reach the next scheduled allotment date or a mutually agreed substitute date [@CL-FPA-0087; @CL-FPA-0103]. If funds are not allotted by the date in the notice or an agreed substitute date, the Contracting Officer will terminate any items without additional funds [@CL-FPA-0088]. The clause stops applying once the contract is fully funded, except for rights and obligations concerning equitable adjustments negotiated under it [@CL-FPA-0089].
+The contractor must notify the Contracting Officer in writing at least ninety days before the date when, in its best judgment, the work will reach the notice point [@CL-FPA-0085]. The notice point is where the total amount payable, including any termination cost, will approximate 85 percent of the total amount then allotted for performance of the applicable items [@CL-FPA-0086; @CL-FPA-0341]. The notice states the estimated date and the additional funding, if any, needed to reach the next scheduled allotment date or a mutually agreed substitute date [@CL-FPA-0087; @CL-FPA-0103]. If funds are not allotted by the date in the notice or an agreed substitute date, the Contracting Officer will terminate any items without additional funds [@CL-FPA-0088]. The clause stops applying once the contract is fully funded, except for rights and obligations concerning equitable adjustments negotiated under it [@CL-FPA-0089].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which contract line items are incrementally funded, where the allotment schedule
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the notice point sentence so the notice point keeps the scope of the applicable items.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limitation of Government's obligation clause.

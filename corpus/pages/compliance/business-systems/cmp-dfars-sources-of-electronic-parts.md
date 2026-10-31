@@ -29,7 +29,7 @@ Shows the order in which a contractor must look for electronic parts, the tracea
 | Text status | Final [@CL-CMP-3857] |
 | Applies to | Electronic parts the Contractor obtains under contracts with the clause [@CL-CMP-3857] |
 
-One listed step of supplier selection is to first obtain electronic parts that are in production by the original manufacturer or an authorized aftermarket manufacturer or currently available in stock from, among listed sources, the original manufacturers of the parts or their authorized suppliers [@CL-CMP-3857]. Paragraph (b)(2) covers electronic parts that are not in production by the original manufacturer or an authorized aftermarket manufacturer and are not currently available in stock from a source listed in paragraph (b)(1), which the Contractor obtains from suppliers it identifies as contractor-approved suppliers [@CL-CMP-3858]. The paragraph states conditions for this route; two of them are that the Contractor assumes responsibility for the authenticity of the parts those suppliers provide and that the Contractor's selection of them is subject to review, audit, and approval by the Government [@CL-CMP-3859].
+One listed step of supplier selection is to first obtain electronic parts that are in production by the original manufacturer or an authorized aftermarket manufacturer or currently available in stock from, among listed sources, the original manufacturers of the parts or their authorized suppliers [@CL-CMP-3857]. Paragraph (b)(2) covers electronic parts that are not in production by the original manufacturer or an authorized aftermarket manufacturer and are not currently available in stock from a source listed in paragraph (b)(1), which the Contractor obtains from suppliers it identifies as contractor-approved suppliers [@CL-CMP-3858], provided that, in identifying and approving those suppliers, the Contractor uses established counterfeit prevention industry standards and processes, including inspection, testing and authentication [@CL-CMP-7079]. The paragraph states further conditions for this route; two of them are that the Contractor assumes responsibility for the authenticity of the parts those suppliers provide and that the Contractor's selection of them is subject to review, audit, and approval by the Government [@CL-CMP-3859].
 
 ## How it works
 
@@ -53,4 +53,5 @@ Which contracts carry this clause and which subcontracts for electronic parts ha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the paragraph (b)(2) sentence so the contractor-approved supplier route keeps the proviso on industry standards and processes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DFARS sources of electronic parts clause.

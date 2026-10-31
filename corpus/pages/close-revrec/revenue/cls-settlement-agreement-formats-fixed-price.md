@@ -31,11 +31,11 @@ Shows which settlement agreement format applies to a fixed-price contract after 
 
 The complete-termination format is inserted in Block 14 of SF 30 for settlements of fixed-price contracts completely terminated [@CL-CLS-1037]. The partial-termination format is inserted in Block 14 of SF 30 for settlements of fixed-price contracts partially terminated [@CL-CLS-1041]. The subcontractors-only format is inserted in Block 14 of SF 30 for settlements of fixed-price contracts covering only settlements with subcontractors [@CL-CLS-1043].
 
-The complete-termination format has the contractor certify that all termination inventory, including scrap, is properly accounted for [@CL-CLS-1038], and it reserves listed rights and liabilities regardless of any other provision [@CL-CLS-1040]. The partial-termination format has the parties specify the terminated portion by line item, description, quantity, unit price and total price [@CL-CLS-1042]. The subcontractors-only format settles the part of the proposal based on a listed set of subcontracts [@CL-CLS-1044].
+The complete-termination format has the contractor certify that all termination inventory, including scrap, is properly accounted for, and that all proceeds and retention credits were used in arriving at the agreement [@CL-CLS-1038; @CL-CLS-0185], and it reserves listed rights and liabilities regardless of any other provision [@CL-CLS-1040]. The partial-termination format has the parties specify the terminated portion by line item, description, quantity, unit price and total price [@CL-CLS-1042]. The subcontractors-only format settles the part of the proposal based on a listed set of subcontracts [@CL-CLS-1044].
 
 ## How it works
 
-The complete-termination format has the Government pay the net amount of settlement on a proper invoice or voucher, arrived at by deducting from a stated sum [@CL-CLS-1039]. The deductions include unliquidated partial or progress payments, unliquidated advance payments with any interest, and applicable property disposal credits [@CL-CLS-1068]. The partial-termination format provides that nothing in the agreement impairs or affects the contract's covenants, terms, or conditions relating to the completed or continued portion of the contract [@CL-CLS-1069]. The choice of format follows what was terminated: the whole contract, a portion of it, or only the subcontracts [@CL-CLS-1037; @CL-CLS-1041; @CL-CLS-1043].
+The complete-termination format has the Government pay the net amount of settlement on a proper invoice or voucher, arrived at by deducting from a stated sum, which the form's bracketed instruction makes the gross amount of settlement for proposals on an inventory basis and that amount less the amount shown in subdivision (6)(i) for proposals on a total cost basis [@CL-CLS-1039; @CL-CLS-0186]. The deductions include unliquidated partial or progress payments, unliquidated advance payments with any interest, and applicable property disposal credits [@CL-CLS-1068]. The partial-termination format provides that nothing in the agreement impairs or affects the contract's covenants, terms, or conditions relating to the completed or continued portion of the contract [@CL-CLS-1069]. The choice of format follows what was terminated: the whole contract, a portion of it, or only the subcontracts [@CL-CLS-1037; @CL-CLS-1041; @CL-CLS-1043].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Who prepares and signs the settlement agreement for each terminated contract, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the complete-termination format paragraphs so the certification and the net settlement keep the proceeds and retention credits statement and the inventory-basis and total-cost-basis sums.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for settlement agreement formats for fixed-price contracts.

@@ -28,7 +28,7 @@ Shows which ownership and control events a contractor with access to classified 
 | Text status | Not established. |
 | Applies to | Contractors with an entity eligibility determination for access to classified information [@CL-MNA-0536] |
 
-This card rests on the NISPOM, 32 CFR 117.8, a DoD rule for classified work, and not on the FAR [@CL-MNA-0536]. Contractors are required to report certain events that affect the status of the entity eligibility determination [@CL-MNA-0536]. A change of ownership or control of the contractor, including stock transfers that affect control of the entity, is among the events listed in the changed-conditions paragraph [@CL-MNA-0537].
+This card rests on the NISPOM, 32 CFR 117.8, a DoD rule for classified work, and not on the FAR [@CL-MNA-0536]. Contractors are required to report certain events that affect the status of the entity eligibility determination (for example the FCL), affect the status of an employee's PCL, may indicate an employee poses an insider threat, affect the proper safeguarding of classified information, or indicate classified information has been lost or compromised [@CL-MNA-0536; @CL-MNA-0079; @CL-MNA-0537]. A change of ownership or control of the contractor, including stock transfers that affect control of the entity, is among the events listed in the changed-conditions paragraph [@CL-MNA-0537].
 
 A material change concerning the information previously reported on foreign ownership, control or influence is reported by submitting an updated SF 328 in accordance with CSA-provided guidance [@CL-MNA-0538].
 
@@ -56,4 +56,5 @@ Who owns the duty to report ownership changes and foreign-interest talks, and ho
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the reporting sentence so the requirement keeps the other kinds of reportable events listed in the same sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changed conditions and reportable events under the NISPOM.
