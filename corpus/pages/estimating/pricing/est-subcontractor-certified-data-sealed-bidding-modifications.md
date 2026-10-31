@@ -43,7 +43,7 @@ The Contractor shall require the subcontractor to certify, in substantially the 
 
 The Contractor shall insert the substance of the clause, including its paragraph (d), in each subcontract that, when entered into, exceeds the threshold for submission of certified cost or pricing data in FAR 15.403-4(a)(1) [@CL-EST-2180]. Because the insertion includes paragraph (d) itself, the flowdown instruction is repeated in each subcontract that receives the clause [@CL-EST-2180].
 
-Alternate I (OCT 2025) is prescribed to be substituted for paragraph (b) of the basic clause where the prescription in FAR 14.201-7(c)(1)(ii) applies [@CL-EST-2214]. Which version a contract carries is shown by its clause text, so it is contract-specific. Under Alternate I, unless an exception under FAR 15.403-1(b) applies, the Contractor shall require the subcontractor to submit certified cost or pricing data, actually or by specific identification in writing, as part of the subcontractor's proposal in accordance with FAR 15.408, Table 15-2, at the times that the next two sentences state [@CL-EST-2215]. Alternate I repeats the parenthetical requirement for information explaining the subcontractor's estimating process [@CL-EST-2216; @CL-EST-2236].
+Alternate I (OCT 2025), as prescribed in FAR 14.201-7(c)(1)(ii), is substituted for paragraph (b) of the basic clause [@CL-EST-2214]. Under Alternate I, unless an exception under FAR 15.403-1(b) applies, the Contractor shall require the subcontractor to submit certified cost or pricing data, actually or by specific identification in writing, as part of the subcontractor's proposal in accordance with FAR 15.408, Table 15-2, at the times that the next two sentences state [@CL-EST-2215]. Alternate I repeats the parenthetical requirement for information explaining the subcontractor's estimating process [@CL-EST-2216; @CL-EST-2236].
 
 One time under Alternate I is before modifying any subcontract that was awarded before July 1, 2018, involving a pricing adjustment expected to exceed $950,000 [@CL-EST-2217]. The other is before awarding any subcontract expected to exceed $2.5 million on or after July 1, 2018, or modifying any subcontract that was awarded on or after July 1, 2018, involving a pricing adjustment expected to exceed $2.5 million [@CL-EST-2218]. Alternate I therefore states dollar figures where the basic paragraph (b) refers to the threshold [@CL-EST-2217; @CL-EST-2218].
 
@@ -87,5 +87,6 @@ Confirm which subcontracts under modified sealed bidding contracts crossed the t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Alternate I prescription sentence with its quote and removed an unsupported contract-specific gloss.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor certified cost or pricing data on modifications under sealed bidding.

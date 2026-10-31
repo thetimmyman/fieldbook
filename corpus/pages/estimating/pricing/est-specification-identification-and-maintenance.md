@@ -31,7 +31,7 @@ Shows how a solicitation must identify the requirements documents it cites, when
 
 Solicitations citing requirements documents listed in the GSA Index of Federal Specifications, Standards and Commercial Item Descriptions, available on the ASSIST website [@CL-EST-1112], or listed in another agency index shall identify each document's approval date and the dates of any applicable amendments and revisions [@CL-EST-1016]. Solicitations must not use general identification references, such as the issue in effect on the date of the solicitation [@CL-EST-1017].
 
-Contracting offices will not normally furnish these cited documents with the solicitation [@CL-EST-1018]. There are three exceptions. The first is when the requirements document must be furnished with the solicitation to enable prospective contractors to make a competent evaluation of it [@CL-EST-1018]. The second is when, in the judgment of the contracting officer, it would be impracticable for prospective contractors to obtain the documents in reasonable time to respond to the solicitation [@CL-EST-1019]. The third is when a prospective contractor requests a copy of a Government promulgated requirements document [@CL-EST-1019].
+Contracting offices will not normally furnish these cited documents with the solicitation [@CL-EST-1018]. There are three exceptions. The first is when the requirements document must be furnished with the solicitation to enable prospective contractors to make a competent evaluation of the solicitation [@CL-EST-1018]. The second is when, in the judgment of the contracting officer, it would be impracticable for prospective contractors to obtain the documents in reasonable time to respond to the solicitation [@CL-EST-1019]. The third is when a prospective contractor requests a copy of a Government promulgated requirements document [@CL-EST-1019].
 
 Contracting offices shall clearly identify in the solicitation any pertinent documents not listed in the GSA Index or ASSIST [@CL-EST-1020]. Such documents shall be furnished with the solicitation, or specific instructions shall be furnished for obtaining or examining them [@CL-EST-1021].
 
@@ -47,9 +47,9 @@ Recommendations for changes to standardization documents listed in the GSA Index
 
 The text states the identification duty for the solicitation and does not name an official for it. The identification shows which approval date and which amendments and revisions the solicitation cites [@CL-EST-1016].
 
-For indexed documents the starting point is that the office does not furnish the document [@CL-EST-1018]. Three exceptions turn on competent evaluation, the contracting officer's judgment about timing, or a contractor's request [@CL-EST-1018; @CL-EST-1019]. For documents outside the GSA Index and ASSIST, the solicitation must identify the document and either furnish it or give specific instructions for obtaining or examining it [@CL-EST-1020; @CL-EST-1021]. References inside a cited document are bounded, and the first tier references must be listed [@CL-EST-1022; @CL-EST-1023].
+For indexed documents the starting point is that contracting offices will not normally furnish the cited documents with the solicitation [@CL-EST-1018]. Three exceptions turn on competent evaluation, the contracting officer's judgment about timing, or a contractor's request [@CL-EST-1018; @CL-EST-1019]. For documents outside the GSA Index and ASSIST, the solicitation must identify the document and either furnish it or give specific instructions for obtaining or examining it [@CL-EST-1020; @CL-EST-1021]. References inside a cited document are bounded, and the first tier references must be listed [@CL-EST-1022; @CL-EST-1023].
 
-The duties on changing standardization documents fall on agencies, not on offerors [@CL-EST-1027; @CL-EST-1028]. The text uses "should" for changes to documents in the GSA Index and "shall" for documents at the ASSIST website [@CL-EST-1026; @CL-EST-1027].
+The duties on changing standardization documents that the text states in the recommendation and modification paragraphs name agencies as the actor [@CL-EST-1027; @CL-EST-1028]. The text uses "should" for changes to documents in the GSA Index and "shall" for documents at the ASSIST website [@CL-EST-1026; @CL-EST-1027].
 
 Section 11.203 adds a customer check [@CL-EST-2142]. Acquisition organizations shall communicate with customers to determine how well the requirements document reflects the customer's needs and to obtain suggestions for corrective actions [@CL-EST-2142]. Whenever practicable, the agency may provide affected industry an opportunity to comment on the requirements documents [@CL-EST-2143].
 
@@ -75,6 +75,7 @@ The company must confirm which approval date, amendment and revision of each cit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the competent-evaluation object, restored not normally furnished, and removed an unstated actor contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the customer check sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added customer communication on requirements documents.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the identification, availability and maintenance of specifications and standards.

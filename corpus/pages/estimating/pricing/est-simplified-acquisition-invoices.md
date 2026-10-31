@@ -50,7 +50,7 @@ This example applies the codified clauses at FAR 52.213-2 and FAR 52.213-3 [@CL-
 
 A firm order is conditional: the order is firm only if the price does not exceed the Schedule maximum [@CL-EST-2295]. A supplier that cannot perform in exact accordance with the order withholds performance and notifies the contracting officer immediately, giving its quotation [@CL-EST-2296].
 
-An invoice must be submitted before payment can be made, and the invoice states either that orders are already in effect or that they will be placed in effect on receipt of payment [@CL-EST-2293; @CL-EST-2294]. See [Commercial contract terms: invoice content and overpayments](../../contract-finance/billing-payment/ctf-commercial-terms-invoice-content-and-overpayments.md).
+An invoice must be submitted before payment can be made, and the invoice must state the starting and ending dates of the subscription delivery and either that orders have been placed in effect for the addressees required or that they will be placed in effect upon receipt of payment [@CL-EST-2293; @CL-EST-2294]. See [Commercial contract terms: invoice content and overpayments](../../contract-finance/billing-payment/ctf-commercial-terms-invoice-content-and-overpayments.md).
 
 The codified clauses at FAR 52.213-2 and FAR 52.213-3 print the invoice contents and the notice to supplier [@CL-EST-2293] [@CL-EST-2295], but the RFO text lists both numbers as [Reserved] with no clause text [@CL-EST-0588] [@CL-EST-0589].
 
@@ -62,5 +62,6 @@ How the delivery dates and ordering status stated on the invoice are supported b
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the delivery dates and addressee scope in the invoice-content sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for simplified acquisition invoices.

@@ -35,7 +35,7 @@ The factor has no normal value, and the contracting officer exercises sound busi
 
 ## How it works
 
-The contracting officer considers criteria such as participation in Single Process Initiative improvements and actual cost reductions achieved on prior contracts [@CL-EST-0796]. Selecting the percentage is a matter of maximum flexibility [@CL-EST-0798], but the contracting officer must consider how quantity differences, learning, changes in scope and inflation or deflation affect the reduction [@CL-EST-0797]. DD Form 1547 is the Record of Weighted Guidelines Application [@CL-EST-0789]. The Pricing and Contracting guidance procedures for that form are followed whenever a structured approach to profit analysis is required [@CL-EST-0799].
+To determine whether the factor is appropriate, the contracting officer considers criteria such as participation in Single Process Initiative improvements and actual cost reductions achieved on prior contracts [@CL-EST-0796]. Selecting the percentage is a matter of maximum flexibility [@CL-EST-0798], but the contracting officer must consider how quantity differences, learning, changes in scope and inflation or deflation affect the reduction [@CL-EST-0797]. DD Form 1547 is the Record of Weighted Guidelines Application [@CL-EST-0789]. The procedures at PGI 215.404-70 for DD Form 1547 are followed whenever a structured approach to profit analysis is required [@CL-EST-0799].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Whether the company can evidence cost reduction efforts that benefit a specific 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the purpose of the criteria and named the procedures at PGI 215.404-70 as the source says.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost efficiency factor and the record of the method.

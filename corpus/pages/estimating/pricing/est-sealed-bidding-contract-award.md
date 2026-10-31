@@ -61,9 +61,9 @@ Bidder B offers 100 units of item 1 at 40 each and 100 units of item 2 at 50 eac
 
 Rejecting a bid as unbalanced is a right, not a duty: the provisions say the Government may reject it [@CL-EST-1981; @CL-EST-1986]. The low evaluated bid is not protected by being low, because a bid can be materially unbalanced even though it may be the low evaluated bid [@CL-EST-2135].
 
-A bid for a smaller quantity is not a different bid: unless the bidder specifies otherwise, the Government may award on any item for a quantity less than the quantity offered, at the unit prices offered [@CL-EST-2089].
+Unless the bidder specifies otherwise in the bid, the Government reserves the right to make an award on any item for a quantity less than the quantity offered, at the unit prices offered, so the quantity offered is not necessarily the quantity awarded [@CL-EST-2089].
 
-A decision to award is not itself a contract: the binding effect comes from a written award or acceptance mailed or furnished within the time for acceptance specified in the bid [@CL-EST-2090].
+A written award or acceptance of a bid, mailed or otherwise furnished to the successful bidder within the time for acceptance specified in the bid, results in a binding contract without further action by either party [@CL-EST-2090].
 
 ## Company calibration
 
@@ -73,5 +73,6 @@ Confirm who checks bid prices for unbalance, who decides whether to limit a bid 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated two warnings as the provision words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract award under sealed bidding.

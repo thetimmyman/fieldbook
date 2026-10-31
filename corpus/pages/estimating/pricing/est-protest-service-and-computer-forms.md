@@ -28,13 +28,13 @@ Shows how a protest is served on the contracting officer and when a computer gen
 | Text status | Final [@CL-EST-2307] |
 | Applies to | Protests filed directly with an agency and copies of protests filed with the Government Accountability Office [@CL-EST-2307], and data required on forms prescribed by the FAR or an agency supplement [@CL-EST-2397; @CL-EST-2398] |
 
-Protests as defined in FAR 33.101 that are filed directly with an agency, and copies of protests filed with the Government Accountability Office, are served on the contracting officer [@CL-EST-2307]. Service is made by obtaining written and dated acknowledgment of receipt from a person or office that the contracting officer designates in a blank, so the designation is contract-specific [@CL-EST-2396]. The copy of any protest filed with the Government Accountability Office is received in the designated office within one day of filing [@CL-EST-2308].
+Protests as defined in FAR 33.101 that are filed directly with an agency, and copies of protests filed with the Government Accountability Office, shall be served on the contracting officer [@CL-EST-2307]. Service is made by obtaining written and dated acknowledgment of receipt from the official or location that the contracting officer designates in a blank as the place where a protest may be served on the contracting officer [@CL-EST-2396]. The copy of any protest filed with the Government Accountability Office shall be received in the designated office within one day of filing [@CL-EST-2308].
 
 ## How it works
 
 Any data required to be submitted on a Standard or Optional Form prescribed by the FAR may be submitted on a computer generated version of the form [@CL-EST-2397]. That is allowed provided there is no change to the name, content or sequence of the data elements and the form carries the form number and edition date [@CL-EST-2309].
 
-Unless agency regulations prohibit it, data required on an agency unique form prescribed by an agency supplement to the FAR may be submitted on a computer generated version of the form [@CL-EST-2398]. That version is allowed only with no change to the name, content or sequence of the data elements and with the agency form number and edition date on the form [@CL-EST-2399].
+Unless agency regulations prohibit it, data required on an agency unique form prescribed by an agency supplement to the FAR may be submitted on a computer generated version of the form [@CL-EST-2398]. That version is allowed provided there is no change to the name, content or sequence of the data elements on the form and provided the form carries the agency form number and edition date [@CL-EST-2399].
 
 If the contractor submits a computer generated version that is different from the required form, the rights and obligations of the parties are determined based on the content of the required form [@CL-EST-2310].
 
@@ -64,5 +64,6 @@ Who keeps the dated acknowledgment of service and the form edition evidence for 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Used shall, official or location and the provided conditions as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service of protest and computer generated forms.

@@ -49,9 +49,9 @@ Under the second provision, it states separate fixed hourly rates for each categ
 
 ## Never confuse
 
-These provisions govern what an offeror proposes. The contract-type card covers how a time-and-materials contract works once awarded. The two provisions differ by whether their titles say with or without adequate price competition [@CL-EST-1683; @CL-EST-1684].
+These provisions govern what an offeror proposes. The contract-type card covers how a time-and-materials contract works once awarded. The two provisions are titled for acquisitions with and without adequate price competition [@CL-EST-1683; @CL-EST-1684], and their paragraph (b) requirements differ: the first has the offeror specify whether the fixed hourly rate for each labor category applies to labor performed by the listed sources [@CL-EST-1685], while the second has it specify separate fixed hourly rates for each category of labor by source [@CL-EST-1686].
 
-Uncompensated overtime changes the hourly rate that is applied to proposed hours, under a separate provision covered on its own card: [Integrity of unit prices and identification of uncompensated overtime](est-unit-price-integrity-and-uncompensated-overtime.md) [@CL-EST-1697].
+Whenever there is uncompensated overtime, the adjusted hourly rate (including uncompensated overtime), rather than the hourly rate, is applied to all proposed hours, whether regular or overtime hours, under a separate provision covered on its own card: [Integrity of unit prices and identification of uncompensated overtime](est-unit-price-integrity-and-uncompensated-overtime.md) [@CL-EST-1697].
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Who owns the proposal rate build-up by labor category and source, and where it i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Described the paragraph (b) difference between the two proposal provisions and aligned the uncompensated-overtime sentence with its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the time-and-materials and labor-hour proposal provisions.

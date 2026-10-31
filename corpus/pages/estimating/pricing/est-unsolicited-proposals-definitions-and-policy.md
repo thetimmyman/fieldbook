@@ -41,7 +41,7 @@ Subpart 15.6 sets forth policies and procedures concerning the submission, recei
 
 The policy has two parts. The Government encourages ideas in response to its own publicized solicitations and programs, and an idea that does not fall under a publicized topic area may be submitted as an unsolicited proposal [@CL-EST-2754; @CL-EST-2779; @CL-EST-2755]. The text says may, so it describes a permitted route and does not say it is the only one [@CL-EST-2755].
 
-The three defined terms describe different things. Advertising material promotes what a contractor already offers or can do. A commercial offer asks that a commercial product or service be introduced into the supply system as an alternate or a replacement for an existing supply item. A contribution hands the Government an idea with no indication of further effort by the source [@CL-EST-2750; @CL-EST-2751; @CL-EST-2753]. Under the general requirements for unsolicited proposals, advertising material, commercial product or commercial service offers and contributions are not unsolicited proposals [@CL-EST-1429]. See [Unsolicited proposals: general requirements](est-unsolicited-proposals-general.md).
+The three defined terms describe different things. Advertising material promotes what a contractor already offers or can do. A commercial offer asks that a commercial product or service be introduced into the supply system as an alternate or a replacement for an existing supply item. A contribution hands the Government an idea with no indication of further effort by the source [@CL-EST-2750; @CL-EST-2751; @CL-EST-2753]. Under the general requirements for unsolicited proposals, advertising material, commercial product or commercial service offers, contributions and routine correspondence on technical issues are not unsolicited proposals [@CL-EST-1429]. See [Unsolicited proposals: general requirements](est-unsolicited-proposals-general.md).
 
 The DFARS says the policy at FAR 15.602 applies to commercial solutions openings [@CL-EST-2060].
 
@@ -73,6 +73,7 @@ Who owns the pricing and technical content of a submission that goes out as an u
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored routine correspondence to the list of submissions that are not unsolicited proposals.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of broad agency announcement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of broad agency announcement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.600 subpart scope.
