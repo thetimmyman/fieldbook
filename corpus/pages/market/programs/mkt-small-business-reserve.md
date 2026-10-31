@@ -23,7 +23,7 @@ Explains what the reserve notice in a solicitation says, what an eligible concer
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1120] |
 | Codified citation | FAR 52.219-31 and FAR 52.219-32 [@CL-MKT-1120; @CL-MKT-1122] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.219-31 [@CL-MKT-1181]; FAR 52.219-32: No RFO equivalent [@CL-MKT-1183] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1120] |
 | Applies to | Solicitations that contain a reserve, and contracts that were reserved for the identified small business concerns [@CL-MKT-1120; @CL-MKT-1122] |
@@ -36,15 +36,17 @@ The orders clause applies only to contracts that were reserved for any of those 
 
 Two texts work together: the provision goes in the solicitation, and the orders clause applies to the resulting reserved contracts [@CL-MKT-1120; @CL-MKT-1122]. The provision tells eligible concerns to submit a single offer that covers every portion they want, and the award criteria stay those identified elsewhere in the solicitation [@CL-MKT-1121]. The direct-order authority turns on a count: one contract award to one type of concern as a result of the reserve [@CL-MKT-1123]. The authority is permissive, because the text says the contracting officer may issue orders directly [@CL-MKT-1123]. The clause texts do not say how orders are issued when a type receives more than one award, but FAR 19.504(c)(1)(i) separately provides that the contracting officer may set aside orders for the small business concerns identified in FAR 19.000(a)(3) when there are two or more contract awards for that type of concern [@CL-MKT-1245]. FAR 19.504(c)(1)(ii) states the direct-order authority for work that the concern can perform [@CL-MKT-1246]. Who decides to use a reserve is on the [Set-aside determinations, rejected SBA recommendations and small business reserves](mkt-set-aside-determinations-sba-recommendations-and-reserves.md) card.
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the provision keeps the statement that the solicitation contains a reserve and that the small business program eligibility requirements apply [@CL-MKT-1120; @CL-MKT-1181], and the rule that an eligible concern submits one offer addressing each portion it wants to compete for, with award based on criteria identified elsewhere in the solicitation [@CL-MKT-1121; @CL-MKT-1182]. The RFO text lists section 52.219-32 as [Reserved] and prints no clause text there [@CL-MKT-1183], where the codified orders clause applies only to reserved contracts and lets the contracting officer issue orders directly [@CL-MKT-1122; @CL-MKT-1123].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A solicitation contains a reserve for two types of small business concern, type A and type B. Each eligible concern submits one offer covering the portions it wants [@CL-MKT-1121]. The result is one contract award to a type A concern and three contract awards to type B concerns. The contracting officer may issue an order directly to the single type A awardee, because there is only one award to that type [@CL-MKT-1123]. The direct-issue sentence does not apply to the type B awardees, because there is more than one award to that type; for those awardees the contracting officer may instead set aside orders under FAR 19.504(c)(1)(i) [@CL-MKT-1245]. A contract that was not reserved is outside the orders clause [@CL-MKT-1122].
+A solicitation contains a reserve for two types of small business concern, type A and type B. Each eligible concern submits one offer covering the portions it wants [@CL-MKT-1121]. The result is one contract award to a type A concern and three contract awards to type B concerns. The contracting officer may issue an order directly to the single type A awardee, because there is only one award to that type [@CL-MKT-1123]. The direct-issue sentence does not apply to the type B awardees, because there is more than one award to that type; for those awardees the contracting officer may instead set aside orders under FAR 19.504(c)(1)(i) [@CL-MKT-1245]. A contract that was not reserved is outside the orders clause [@CL-MKT-1122]. Under the RFO text, section 52.219-32 is listed as [Reserved] with no clause text [@CL-MKT-1183].
 
 ## Never confuse
 
-A reserve is not a set-aside of individual orders: the reserve is stated in the solicitation and shapes which concerns submit offers for the contract, while the notice of set-aside of orders concerns specific orders [@CL-MKT-1120; @CL-MKT-1121]. The [Notice of set-aside of orders](mkt-set-aside-of-orders.md) card covers that notice. A reserve is also not a promise of orders to the awardee, because direct issuance is permitted rather than required [@CL-MKT-1123].
+A reserve is not a set-aside of individual orders: the reserve is stated in the solicitation and shapes which concerns submit offers for the contract, while the notice of set-aside of orders concerns specific orders [@CL-MKT-1120; @CL-MKT-1121]. The [Notice of set-aside of orders](mkt-set-aside-of-orders.md) card covers that notice. A reserve is also not a promise of orders to the awardee, because direct issuance is permitted rather than required [@CL-MKT-1123]. The codified orders clause lets the contracting officer issue orders directly when there is only one contract award to one type of concern [@CL-MKT-1123], but the RFO text lists section 52.219-32 as [Reserved] [@CL-MKT-1183].
 
 ## Company calibration
 
@@ -54,4 +56,5 @@ How a reserve and any direct orders are recorded against the purchasing system a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the small business reserve and direct orders under it.

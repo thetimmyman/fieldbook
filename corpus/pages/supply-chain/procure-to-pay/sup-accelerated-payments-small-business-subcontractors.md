@@ -24,7 +24,7 @@ Shows how a prime contractor passes accelerated payments from the Government on 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0570] |
 | Codified citation | FAR 52.232-40 [@CL-SUP-0570] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-40 [@CL-SUP-0001; @CL-SUP-0002; @CL-SUP-0003; @CL-SUP-0004; @CL-SUP-0005] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0570] |
 | Applies to | Contracts with the clause inserted as prescribed in FAR 32.009-2 [@CL-SUP-0704] |
@@ -34,6 +34,8 @@ Within 15 days after receipt of accelerated payments from the Government, the co
 ## How it works
 
 The acceleration of payments under the clause does not provide any new rights under the Prompt Payment Act [@CL-SUP-0572]. The FAR text on accelerated payments adds that the acceleration does not affect the application of the late payment interest provisions of the Act [@CL-SUP-0706]. The contractor shall include the substance of the clause in all subcontracts with small business concerns, including subcontracts for commercial products or commercial services [@CL-SUP-0573]. On the Government side, agencies other than DoD shall provide accelerated payments, to the fullest extent permitted by law, with a goal of 15 days after receipt of a proper invoice and all other required documentation, if a specific payment date is not established by contract, to the recipients listed in the same paragraph [@CL-SUP-0575]. Those recipients include small business contractors and prime contractors that subcontract with a small business concern, if the prime contractor agrees to make payments to the small business subcontractor within 15 days of receiving the accelerated payment from the Government [@CL-SUP-0707]. Under the defense supplement, the statute requires DoD to provide accelerated payments to small business contractors and subcontractors, to the fullest extent permitted by law, with a goal of 15 days [@CL-SUP-0574].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.232-40 keeps the rule described above: within 15 days after receipt of accelerated payments from the Government, the contractor makes accelerated payments to its small business subcontractors under the contract, to the maximum extent practicable and prior to when such payment is otherwise required under the applicable contract [@CL-SUP-0001] [@CL-SUP-0570] or subcontract [@CL-SUP-0002] [@CL-SUP-0713], after receipt of a proper invoice and all other required documentation from the small business subcontractor [@CL-SUP-0002] [@CL-SUP-0705]. It keeps the rule that the contractor makes those payments without any further consideration from or fees charged to the subcontractor [@CL-SUP-0003] [@CL-SUP-0571], and the rule that the acceleration of payments does not provide any new rights under the Prompt Payment Act [@CL-SUP-0004] [@CL-SUP-0572]. It also keeps the rule that the contractor includes the substance of the clause, including paragraph (c), in all subcontracts with small business concerns, including subcontracts for commercial products or commercial services [@CL-SUP-0005] [@CL-SUP-0573].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Confirm how disbursements are scheduled so accelerated receipts reach small busi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accelerated payments to small business subcontractors.

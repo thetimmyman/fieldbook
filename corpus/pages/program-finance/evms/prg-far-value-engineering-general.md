@@ -23,7 +23,7 @@ Shows what a value engineering change proposal is under the value engineering cl
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0919] |
 | Codified citation | FAR 52.248-1 [@CL-PRG-0919] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.248-1 [@CL-PRG-0038; @CL-PRG-0041; @CL-PRG-0042; @CL-PRG-0043; @CL-PRG-0044; @CL-PRG-0045; @CL-PRG-0046; @CL-PRG-0047; @CL-PRG-0048], with Alternate I [@CL-PRG-0039; @CL-PRG-0040] |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0919] |
 | Applies to | Contracts that include the clause [@CL-PRG-0919] |
@@ -35,6 +35,8 @@ As a minimum, each VECP must carry the information in the eight listed subparagr
 ## How it works
 
 Under the basic clause the Contractor decides whether to propose a change [@CL-PRG-0920]. It builds the proposal with the minimum information and sends it to the Contracting Officer [@CL-PRG-0923; @CL-PRG-0924]. The Contracting Officer will notify the Contractor of the status within 45 calendar days after the contracting office receives it [@CL-PRG-0925]. If additional time is required, the Contracting Officer will notify the Contractor within that period and give the reason for the delay and the expected date of the decision [@CL-PRG-0969]. Until a contract modification applies the proposal, the Contractor performs the existing contract, and accepting or rejecting all or part of it is the Contracting Officer's unilateral decision [@CL-PRG-0926]. This card does not restate the clause's other defined terms; sharing is on [Value engineering clause: sharing rates and savings calculation](prg-far-value-engineering-sharing.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of paragraph (a) says the Contractor is encouraged to submit value engineering change proposals voluntarily and shall share in net acquisition savings from accepted proposals in accordance with the incentive sharing rates in paragraph (f) of the clause, where the codified text says paragraph (f) below [@CL-PRG-0038; @CL-PRG-0920]. It keeps the Alternate I rule for a mandatory value engineering program requirement [@CL-PRG-0039; @CL-PRG-0040; @CL-PRG-0958], the definition of a VECP [@CL-PRG-0041; @CL-PRG-0921] and its proviso [@CL-PRG-0042; @CL-PRG-0922]. Its preparation paragraph cites paragraphs (c)(1) through (8) of the clause for the minimum information, where the codified paragraph cites subparagraphs (1) through (8) below [@CL-PRG-0043; @CL-PRG-0923]. It keeps the rule that the Contractor submits VECPs to the Contracting Officer unless the contract states otherwise [@CL-PRG-0044; @CL-PRG-0924] and sends a copy to the Administrative Contracting Officer where the contract is administered by other than the contracting office [@CL-PRG-0045; @CL-PRG-0924]. It keeps the 45 calendar day status notice [@CL-PRG-0046; @CL-PRG-0925], the notice within that period giving the reason for the delay and the expected date of the decision [@CL-PRG-0047; @CL-PRG-0969], and the unilateral decision of the Contracting Officer to accept or reject [@CL-PRG-0048; @CL-PRG-0926].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts carry the value engineering clause, who prepares and approves ch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the value engineering clause definition and submission rules.

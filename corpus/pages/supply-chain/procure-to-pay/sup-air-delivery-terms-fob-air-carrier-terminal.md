@@ -23,7 +23,7 @@ Shows where delivery happens under the two air terminal terms, what the contract
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2428; @CL-SUP-2432] |
 | Codified citation | FAR 52.247-43 and FAR 52.247-44 [@CL-SUP-2428; @CL-SUP-2432] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent; the RFO text prints FAR 52.247-43 and FAR 52.247-44 each as [Reserved] [@CL-SUP-0016; @CL-SUP-0017] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2428; @CL-SUP-2432] |
 | Applies to | Solicitations and contracts when the delivery term is f.o.b. designated air carrier's terminal, point of exportation [@CL-SUP-2480], or point of importation [@CL-SUP-2484] |
@@ -46,15 +46,19 @@ The contractor pays and bears all charges incurred up to the delivery point spec
 
 The delivery point sets what the contractor pays and answers for: the named terminal at the point of exportation under the first clause and the named terminal at the point of importation under the second [@CL-SUP-2428; @CL-SUP-2432]. The terminal, the delivery point and the packing specifications are contract-specific, and the exportation-point clause also refers to a date or period specified in the contract [@CL-SUP-2428; @CL-SUP-2429; @CL-SUP-2432; @CL-SUP-2481]. The exportation-point clause treats assistance with export documents as a service at the Government's request and expense [@CL-SUP-2483], whereas the importation-point clause puts document, duty and landing costs among the contractor's charges up to delivery [@CL-SUP-2434].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.247-43 as [Reserved] [@CL-SUP-0016] and FAR 52.247-44 as [Reserved] [@CL-SUP-0017], where the codified text prints the exportation-point clause [@CL-SUP-2428] and the importation-point clause [@CL-SUP-2432].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
 An air shipment priced at 50,000 moves on the exportation-point term. The contractor pays and bears 4,000 of charges up to delivery at the terminal named in the contract and provides an air waybill. The Government asks for help in obtaining export documents, and the contractor assists at the Government's expense. If the goods are damaged before delivery at the named terminal, the damage is the contractor's responsibility. On the importation-point term the same contractor would also pay 2,500 of customs duties and 500 of landing costs, and it would stay responsible for loss or damage until delivery to the Government at the designated terminal.
 
+This example applies the codified clauses [@CL-SUP-2428; @CL-SUP-2432]; the RFO text prints those two section numbers as [Reserved] [@CL-SUP-0016; @CL-SUP-0017].
+
 ## Never confuse
 
-The two terms deliver at different terminals. The exportation-point term delivers at the terminal named in the contract at the point of exportation and the contractor's charges run up to that point [@CL-SUP-2428; @CL-SUP-2430]. The importation-point term delivers at the terminal named at the point of importation, so import fees, landing costs and duties fall among the contractor's charges [@CL-SUP-2432; @CL-SUP-2434]. These air terms also differ from the ocean terms; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md) and [Import delivery terms](sup-import-delivery-terms-cf-cif.md).
+The two terms deliver at different terminals. The exportation-point term delivers at the terminal named in the contract at the point of exportation and the contractor's charges run up to that point [@CL-SUP-2428; @CL-SUP-2430]. The importation-point term delivers at the terminal named at the point of importation, so import fees, landing costs and duties fall among the contractor's charges [@CL-SUP-2432; @CL-SUP-2434]. These air terms also differ from the ocean terms; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md) and [Import delivery terms](sup-import-delivery-terms-cf-cif.md). The rules above come from the codified clauses at FAR 52.247-43 and 52.247-44 [@CL-SUP-2428; @CL-SUP-2432]; the RFO text prints those two section numbers as [Reserved] [@CL-SUP-0016; @CL-SUP-0017].
 
 ## Company calibration
 
@@ -64,4 +68,5 @@ Which air term each shipment carries and where the named terminal sits, because 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for air delivery terms at the designated air carrier's terminal.
