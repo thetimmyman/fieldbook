@@ -27,7 +27,7 @@ Explains the scope of reutilization of Government property that is not required 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-1398] |
-| Applies to | Reutilization of Government property not required for continued performance of a contract; sale of surplus personal property that has completed screening [@CL-CLS-1398; @CL-CLS-1400] |
+| Applies to | Reutilization of Government property not required for continued performance of a contract; sale of surplus personal property that has completed screening in accordance with 45.602-3(a) [@CL-CLS-1398; @CL-CLS-1400] |
 
 Reutilization section. The section on reutilization applies to the reutilization, including transfer and donation, of Government property that is not required for continued performance of a Government contract [@CL-CLS-1398]. Except for 45.602-1, it does not apply to scrap other than scrap aircraft parts [@CL-CLS-1399].
 
@@ -45,9 +45,9 @@ Exchange/sale authority. Agencies should consider the sale of property under the
 
 The reutilization section covers Government property that the contract no longer requires, including transfer and donation of that property [@CL-CLS-1398]. For the schedules and screening steps that precede a sale, see [Inventory disposal schedules and reutilization priorities](../inventory-wip/cls-inventory-disposal-schedules-and-reutilization.md) and [Excess inventory standard screening](cls-excess-inventory-standard-screening.md).
 
-Once surplus personal property has completed screening, it shall be sold under the Federal Management Regulation policy at 41 CFR part 102-38 [@CL-CLS-1400]. Agencies may add implementing procedures [@CL-CLS-1401]. Agencies may use sales center services (GSA sponsored sales centers), and that use is authorized when it is in the best interest of the Government and consistent with contract terms and conditions [@CL-CLS-1402; @CL-CLS-1403].
+Once surplus personal property has completed screening in accordance with 45.602-3(a), it shall be sold under the Federal Management Regulation policy at 41 CFR part 102-38 [@CL-CLS-1400]. Agencies may add implementing procedures [@CL-CLS-1401]. Agencies may use sales center services (GSA sponsored sales centers), and that use is authorized when it is in the best interest of the Government and consistent with contract terms and conditions [@CL-CLS-1402; @CL-CLS-1403].
 
-The default for proceeds of a sale of surplus property is the Treasury, as miscellaneous receipts [@CL-CLS-1404]. Two exceptions are stated: a statute may otherwise authorize a different treatment, and the contract or any subcontract under it may authorize crediting the proceeds to the price or cost of the work [@CL-CLS-1404]. The contract or subcontract route is the one place where these sections reach a contractor's price or cost of the work [@CL-CLS-1404]. The sentences quoted from 45.604-1 to 45.604-4 state no duty for a contractor [@CL-CLS-1400; @CL-CLS-1401; @CL-CLS-1402; @CL-CLS-1403; @CL-CLS-1404; @CL-CLS-1405].
+The default for proceeds of a sale of surplus property is the Treasury, as miscellaneous receipts [@CL-CLS-1404]. Two exceptions are stated: a statute may otherwise authorize a different treatment, and the contract or any subcontract under it may authorize crediting the proceeds to the price or cost of the work [@CL-CLS-1404]. The contract or subcontract exception is the one that refers to crediting the proceeds to the price or cost of the work [@CL-CLS-1404]. The sentences quoted from 45.604-1 to 45.604-4 state no duty for a contractor [@CL-CLS-1400; @CL-CLS-1401; @CL-CLS-1402; @CL-CLS-1403; @CL-CLS-1404; @CL-CLS-1405].
 
 Exchange/sale is a route that agencies should consider while they are acquiring or planning to acquire similar products, if the other requirements of the authority are satisfied [@CL-CLS-1405]. It is not a disposal the agency must use [@CL-CLS-1405].
 
@@ -59,7 +59,7 @@ A contract holds property worth 20,000 that it no longer needs, and the property
 
 ## Never confuse
 
-Reutilization is not the same as a sale: reutilization includes transfer and donation of property the contract no longer requires, while the sales rules speak of surplus personal property that has completed screening [@CL-CLS-1398; @CL-CLS-1400]. Authorization to use a sales center is not a duty to use one, because the text says agencies may use sales center services [@CL-CLS-1402]. Exchange/sale is not a disposal the agency must use, because the text says agencies should consider it when similar products are being acquired and the other requirements of the authority are satisfied [@CL-CLS-1405]. The exclusion of scrap other than scrap aircraft parts, apart from 45.602-1, is a scope limit on the reutilization section, not a statement of what happens to that scrap [@CL-CLS-1399]. For scrap, see [Abandonment, destruction and contractor scrap](../inventory-wip/cls-abandonment-destruction-and-contractor-scrap.md).
+Reutilization is not the same as a sale: reutilization includes transfer and donation of property the contract no longer requires, while the sales rules speak of surplus personal property that has completed screening in accordance with 45.602-3(a) [@CL-CLS-1398; @CL-CLS-1400]. Authorization to use a sales center is not a duty to use one, because the text says agencies may use sales center services [@CL-CLS-1402]. Exchange/sale is not a disposal the agency must use, because the text says agencies should consider it when similar products are being acquired and the other requirements of the authority are satisfied [@CL-CLS-1405]. The exclusion of scrap other than scrap aircraft parts, apart from 45.602-1, is a scope limit on the reutilization section, not a statement of what happens to that scrap [@CL-CLS-1399]. For scrap, see [Abandonment, destruction and contractor scrap](../inventory-wip/cls-abandonment-destruction-and-contractor-scrap.md).
 
 ## Company calibration
 
@@ -69,4 +69,5 @@ Confirm who owns the inventory and Government property title records and how phy
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Kept the 45.602-3(a) screening scope on the sales rule and softened one inference.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reutilization and disposal of Government property.

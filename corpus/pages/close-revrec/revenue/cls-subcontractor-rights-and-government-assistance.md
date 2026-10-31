@@ -40,7 +40,7 @@ Authorization for subcontract settlements and the awards that follow them are ha
 
 The settlement duty follows the chain of contracts. The subcontractor's rights run to the party it contracted with, and the prime contractor and each subcontractor are responsible for the prompt settlement of the proposals of their immediate subcontractors [@CL-CLS-1258; @CL-CLS-1259; @CL-CLS-1260].
 
-When a stuck subcontractor proposal delays the prime settlement, the TCO decides whether to settle with the prime contractor [@CL-CLS-1261]. The section then directs the TCO to except the subcontractor proposal, in whole or part, and to reserve the rights of the Government and the prime contractor on that proposal [@CL-CLS-1262].
+When a stuck subcontractor proposal delays the prime settlement, the TCO may settle with the prime contractor [@CL-CLS-1261]. The section then directs the TCO to except the subcontractor proposal, in whole or part, and to reserve the rights of the Government and the prime contractor on that proposal [@CL-CLS-1262].
 
 Government assistance is the exception. In unusual cases the TCO may determine, with the consent of the prime contractor, that assistance is in the Government's interest [@CL-CLS-1263]. The three parties may then agree on settling one or more subcontracts [@CL-CLS-1264]. The subcontractor is paid through the prime contractor as part of the overall settlement [@CL-CLS-1265]. The section sets no threshold or deadline for these steps.
 
@@ -66,4 +66,5 @@ How prime and subcontractor termination proposals are kept paired, and who appro
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: delay rule stated as may settle.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor rights, delayed subcontractor proposals and Government assistance in settling subcontracts.

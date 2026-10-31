@@ -42,9 +42,9 @@ The DFARS directs that the procedures at PGI 249.109-7 be followed for settlemen
 | Execute the settlement agreement on Standard Form 30 | The contractor and the TCO [@CL-CLS-1298] | A settlement has been negotiated and all required reviews have been obtained [@CL-CLS-1298] |
 | Cover Government setoffs | The settlement; the section does not name who computes them [@CL-CLS-1299] | Setoffs that the Government has against the contractor and that may be applied against the terminated contract [@CL-CLS-1299] |
 | Cover subcontractor proposals | The settlement [@CL-CLS-1300] | All subcontractor settlement proposals, except those specifically excepted from the agreement and reserved for separate settlement [@CL-CLS-1300] |
-| Execute a no-cost settlement agreement | The TCO [@CL-CLS-1331] | The three conditions of the section [@CL-CLS-1301] |
+| Execute a no-cost settlement agreement | The TCO [@CL-CLS-1331] | The conditions of the section, listed as (a), (b) and (c) [@CL-CLS-1301] |
 
-The settlement agreement comes after negotiation and after every required review [@CL-CLS-1298]. The sections print no deadline and no dollar threshold, and they do not say what the required reviews are. The no-cost duty falls on the TCO alone, and the section does not say who decides whether the conditions hold [@CL-CLS-1331; @CL-CLS-1301]. The DFARS sections give only a pointer to guidance [@CL-CLS-1302; @CL-CLS-1303].
+The settlement agreement comes after negotiation and after every required review [@CL-CLS-1298]. The sections print no deadline and no dollar threshold, and they do not say what the required reviews are. The no-cost duty is stated for the TCO, and the section does not say who decides whether the conditions hold [@CL-CLS-1331; @CL-CLS-1301]. The DFARS sections give only a pointer to guidance [@CL-CLS-1302; @CL-CLS-1303].
 
 ## Worked example
 
@@ -68,4 +68,5 @@ Whether every required review is obtained and evidenced before a settlement agre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: no-cost conditions and actor stated as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for settlement agreements in general and the no-cost settlement.

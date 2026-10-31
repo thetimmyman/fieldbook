@@ -35,7 +35,7 @@ Plant clearance officers shall initiate reutilization actions for all property n
 
 ## How it works
 
-Disposition instructions for property identified on an acceptable inventory disposal schedule are to be provided to the contractor within 120 days, and a failure to provide timely disposition instructions may entitle the contractor to an equitable adjustment [@CL-CLS-0735]. This section as printed covers the officer's handling of schedules after receipt, so the contractor's own submission deadline is not established here. When property is transferred to another agency, the transferring agency shall not be reimbursed for the property in any manner unless the circumstances of the cited regulation apply [@CL-CLS-0740]. The receiving agency shall pay any transportation costs that are not the contractor's responsibility and any costs to pack, crate, or otherwise prepare the property for shipment [@CL-CLS-0741]. For schedules after a termination, see [Termination inventory: disposal schedules and government property accounting](cls-termination-inventory-schedules-and-property-accounting.md).
+Plant clearance officers shall provide the contractor disposition instructions for property identified on an acceptable inventory disposal schedule within 120 days, and a failure to provide timely disposition instructions may entitle the contractor to an equitable adjustment [@CL-CLS-0734; @CL-CLS-0735]. This section as printed covers the officer's handling of schedules after receipt, so the contractor's own submission deadline is not established here. When property is transferred to another agency, the transferring agency shall not be reimbursed for the property in any manner unless the circumstances of the cited regulation apply [@CL-CLS-0740]. The receiving agency shall pay any transportation costs that are not the contractor's responsibility and any costs to pack, crate, or otherwise prepare the property for shipment [@CL-CLS-0741]. For schedules after a termination, see [Termination inventory: disposal schedules and government property accounting](cls-termination-inventory-schedules-and-property-accounting.md).
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Who prepares inventory disposal schedules and tracks the plant clearance officer
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: named the plant clearance officer as the actor for the 120-day instructions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inventory disposal schedules and reutilization priorities.

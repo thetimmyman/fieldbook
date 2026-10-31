@@ -35,9 +35,9 @@ These contracts establish an estimate of total cost for the purpose of obligatin
 
 ## How it works
 
-The contracting officer must use cost-reimbursement contracts only in two listed cases [@CL-CLS-0568]. The first is circumstances that do not allow the agency to define its requirements sufficiently to allow for a fixed-price type contract [@CL-CLS-0568]. The second is uncertainties in contract performance that do not permit costs to be estimated with sufficient accuracy to use any type of fixed-price contract [@CL-CLS-0681]. The contracting officer must document the rationale for the contract type in the written acquisition plan and ensure that the plan is approved and signed at least one level above the contracting officer [@CL-CLS-0682].
+The contracting officer must use cost-reimbursement contracts only when one of two alternative listed cases applies [@CL-CLS-0568; @CL-CLS-0681]. The first is circumstances that do not allow the agency to define its requirements sufficiently to allow for a fixed-price type contract [@CL-CLS-0568]. The second is uncertainties in contract performance that do not permit costs to be estimated with sufficient accuracy to use any type of fixed-price contract [@CL-CLS-0681]. The contracting officer must document the rationale for the contract type in the written acquisition plan and ensure that the plan is approved and signed at least one level above the contracting officer [@CL-CLS-0682].
 
-A cost-reimbursement contract may be used only when, among other conditions, the factors in the cross-referenced section have been considered, a written acquisition plan has been approved and signed at least one level above the contracting officer, and the contractor's accounting system is adequate for determining costs applicable to the contract or order [@CL-CLS-0569]. A further listed condition is that, prior to award, adequate Government resources are available to award and manage a contract other than firm-fixed-priced [@CL-CLS-0570]. That condition includes appropriate Government surveillance during performance to provide reasonable assurance that efficient methods and effective cost controls are used [@CL-CLS-0683]. The use of cost-reimbursement contracts is prohibited for the acquisition of commercial products and commercial services [@CL-CLS-0571].
+A cost-reimbursement contract may be used only when all four listed conditions are met. The first three are that the factors in the cross-referenced section have been considered, a written acquisition plan has been approved and signed at least one level above the contracting officer, and the contractor's accounting system is adequate for determining costs applicable to the contract or order [@CL-CLS-0569]. The fourth is that, prior to award, adequate Government resources are available to award and manage a contract other than firm-fixed-priced [@CL-CLS-0570]. That condition includes appropriate Government surveillance during performance to provide reasonable assurance that efficient methods and effective cost controls are used [@CL-CLS-0683]. The use of cost-reimbursement contracts is prohibited for the acquisition of commercial products and commercial services [@CL-CLS-0571].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Who confirms accounting system adequacy for cost determination and monitors cost
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: described the two cases as alternatives and the four conditions as all required.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-reimbursement contracts.

@@ -49,7 +49,7 @@ The prime contractor is also responsible for requiring that each subcontractor p
 
 The duty starts with the funding act. Departments and agencies are responsible for establishing procedures to identify affected contracts from the funding levels the act provides [@CL-CLS-0295].
 
-The notice follows on two routes. One runs directly to the Secretary of Labor. The other runs through the contracting officer to each prime contractor [@CL-CLS-0296]. The Secretary of Labor receives the notice from the department or agency, not from the prime contractor [@CL-CLS-0296].
+The notice follows on two routes. One runs directly to the Secretary of Labor. The other runs through the contracting officer to each prime contractor [@CL-CLS-0296]. The notice to the Secretary of Labor is the one that goes directly [@CL-CLS-0296].
 
 The two subcontract tests use different words. The first-tier test is "equal to or greater than" $700,000, and the later tests are "greater than" $150,000 [@CL-CLS-0297; @CL-CLS-0298]. A first-tier subcontract of exactly $700,000 meets the first test [@CL-CLS-0297]. A subcontract of exactly $150,000 does not meet the second [@CL-CLS-0298].
 
@@ -83,5 +83,6 @@ Which prime contracts and subcontracts the company holds above the notice thresh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed a statement the cited text does not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $700,000 first-tier test.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of anticipated contract terminations or reductions.

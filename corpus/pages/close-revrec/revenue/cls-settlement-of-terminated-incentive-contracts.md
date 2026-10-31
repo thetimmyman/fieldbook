@@ -29,7 +29,7 @@ Prescribes how terminated fixed-price incentive and cost-plus-incentive-fee cont
 | Text status | Final [@CL-CLS-0532] |
 | Applies to | Terminated fixed-price incentive contracts and terminated cost-plus-incentive-fee contracts [@CL-CLS-0532; @CL-CLS-0661] |
 
-Under a partially terminated fixed-price incentive contract, the termination contracting officer reimburses the contractor at target price for completed articles included in the settlement proposal for which a final price has not been established, and incorporates in the settlement agreement an appropriate reservation as to final price for those articles [@CL-CLS-0532].
+Under a partially terminated fixed-price incentive contract, the termination contracting officer negotiates a settlement as provided in the termination clause and paragraph (j) of the firm target incentive price revision clause or, as the alternative, paragraph (1) of the successive targets clause [@CL-CLS-1601; @CL-CLS-1607]. The termination contracting officer reimburses the contractor at target price for completed articles included in the settlement proposal for which a final price has not been established, and incorporates in the settlement agreement an appropriate reservation as to final price for those articles [@CL-CLS-0532].
 
 Under a partial termination of a cost-plus-incentive-fee contract, the termination contracting officer limits the settlement to an adjustment of target fee as provided in the incentive fee clause [@CL-CLS-0535].
 
@@ -37,7 +37,7 @@ Under a partial termination of a cost-plus-incentive-fee contract, the terminati
 
 On the complete termination of a fixed-price incentive contract, if any items were delivered and accepted by the Government, the contracting officer establishes prices for them under the incentive provisions of the contract [@CL-CLS-0659]. On the terminated portion, the provisions of the termination clause govern and the provisions of the incentive clause do not apply [@CL-CLS-0533]. The termination contracting officer responsible for the settlement ensures, on the basis of evidence considered proper including coordination with the contracting officer, that no portion of the costs considered in the incentive negotiations is included in the termination settlement [@CL-CLS-0534].
 
-For a cost-plus-incentive-fee contract, the termination contracting officer settles under the cost-reimbursement termination clause [@CL-CLS-0661]. Under a partial termination, the settlement agreement includes a reservation regarding any adjustment of target cost resulting from the partial termination, and the contracting officer adjusts the target cost if required [@CL-CLS-0536]. Under a complete termination, the fee is adjusted on the basis of the target fee, and the incentive provisions are not applied or considered [@CL-CLS-0537].
+For a cost-plus-incentive-fee contract, the termination contracting officer settles under the cost-reimbursement termination clause [@CL-CLS-0661]. Under a partial termination, the settlement agreement includes a reservation regarding any adjustment of target cost resulting from the partial termination, and the contracting officer adjusts the target cost if required [@CL-CLS-0536]. Under a complete termination, the parties negotiate the settlement under subpart 49.3 and the cost-reimbursement termination clause [@CL-CLS-1602]; the fee is adjusted on the basis of the target fee, and the incentive provisions are not applied or considered [@CL-CLS-0537].
 
 ## Worked example
 
@@ -57,4 +57,6 @@ Who audits target fee adjustments and the separation of incentive costs from ter
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: named the two alternative incentive price revision paragraphs.
+- COMPATIBLE_EXTENSION, 2026-10-31: added partial-termination negotiation and complete-termination negotiation lead-ins.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for settlement of terminated incentive contracts.

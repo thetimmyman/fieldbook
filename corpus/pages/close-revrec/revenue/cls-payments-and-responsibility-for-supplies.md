@@ -35,9 +35,9 @@ Title to supplies furnished under the contract passes to the Government upon for
 
 ## How it works
 
-The clause pays for supplies delivered and accepted or services rendered and accepted, on submission of proper invoices or vouchers [@CL-CLS-0200], and, unless the contract specifies otherwise, also on accepted partial deliveries on the two conditions the clause sets [@CL-CLS-1559; @CL-CLS-1560]. The clause is inserted appropriately modified with respect to payment due date in accordance with agency regulations [@CL-CLS-0300]. Payment timing under the Prompt Payment clause is covered in [Prompt payment](../../contract-finance/billing-payment/ctf-prompt-payment.md).
+The clause pays for supplies delivered and accepted or services rendered and accepted, on submission of proper invoices or vouchers [@CL-CLS-0200], and, unless the contract specifies otherwise, also on accepted partial deliveries on either of two alternative grounds the clause sets: the amount due on the deliveries warrants it, or the Contractor requests it and the amount due is at least $1,000 or 50 percent of the total contract price [@CL-CLS-1559; @CL-CLS-1560]. The clause is inserted appropriately modified with respect to payment due date in accordance with agency regulations [@CL-CLS-0300]. Payment timing under the Prompt Payment clause is covered in [Prompt payment](../../contract-finance/billing-payment/ctf-prompt-payment.md).
 
-Unless the contract provides otherwise, risk of loss stays with the contractor until it passes to the Government on delivery to a carrier when transportation is f.o.b. origin [@CL-CLS-0301]. When transportation is f.o.b. destination, it passes on acceptance or delivery at the destination, whichever is later [@CL-CLS-0302]. Supplies that fail to conform so as to give a right of rejection stay at the contractor's risk until cure or acceptance [@CL-CLS-0202]. Under the risk-of-loss paragraph, the contractor is not liable for loss or damage caused by the negligence of Government personnel acting within the scope of their employment [@CL-CLS-0203].
+Unless the contract specifically provides otherwise, risk of loss of or damage to supplies stays with the contractor until it passes to the Government on delivery to a carrier when transportation is f.o.b. origin [@CL-CLS-0301]. When transportation is f.o.b. destination, it passes on acceptance or delivery at the destination, whichever is later [@CL-CLS-0302]. Supplies that fail to conform so as to give a right of rejection stay at the contractor's risk until cure or acceptance [@CL-CLS-0202]. Under the risk-of-loss paragraph, the contractor is not liable for loss or damage caused by the negligence of Government personnel acting within the scope of their employment [@CL-CLS-0203].
 
 The prescription for the Responsibility for Supplies clause is in section 46.316 [@CL-CLS-1232]. The contracting officer shall insert the clause at 52.246-16 in solicitations and contracts for supplies, services involving the furnishing of supplies, or research and development, when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1232; @CL-CLS-1233]. The contracting officer may insert it when the amount is not expected to exceed the threshold and agency procedures authorize inclusion of the clause [@CL-CLS-1234].
 
@@ -65,6 +65,7 @@ How accounting revenue recognition criteria align with formal Government accepta
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: partial-delivery grounds stated as alternatives and risk-of-loss lead-in as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the payment rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on the clause prescription section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prescription for the Responsibility for Supplies clause.

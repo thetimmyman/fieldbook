@@ -31,7 +31,7 @@ Covers the fixed-ceiling-price contract with retroactive price redetermination: 
 
 A fixed-ceiling-price contract with retroactive price redetermination provides for a fixed ceiling price and retroactive price redetermination within the ceiling after completion of the contract [@CL-CLS-0556].
 
-The contract type is appropriate for research and development contracts estimated at the simplified acquisition threshold or less when it is established at the outset that a fair and reasonable firm fixed price cannot be negotiated [@CL-CLS-0557]. The same sentence also requires that it be established at the outset that the amount involved and short performance period make the use of any other fixed-price contract type impracticable [@CL-CLS-0676].
+The contract type is appropriate for research and development contracts estimated at the simplified acquisition threshold or less when it is established at the outset that a fair and reasonable firm fixed price cannot be negotiated [@CL-CLS-0557]. The same sentence adds, as a second condition, that it be established at the outset that the amount involved and short performance period make the use of any other fixed-price contract type impracticable [@CL-CLS-0676].
 
 ## How it works
 
@@ -39,7 +39,7 @@ A ceiling price shall be negotiated for the contract at a level that reflects a 
 
 This contract type provides the contractor no cost control incentive except the ceiling price [@CL-CLS-0679]. The contracting officer should therefore make clear to the contractor during discussion before award that the contractor's management effectiveness and ingenuity will be considered in retroactively redetermining the price [@CL-CLS-0678].
 
-This contract type shall not be used unless, among other conditions, the contract is for research and development and the estimated cost is the simplified acquisition threshold or less and the contractor's accounting system is adequate for price redetermination [@CL-CLS-0560]. The same list also names reasonable assurance that the price redetermination will take place promptly at the specified time, and written approval of its use by the head of the contracting activity or a higher-level official if agency procedures require [@CL-CLS-0561].
+This contract type shall not be used unless, among other conditions, the contract is for research and development and the estimated cost is the simplified acquisition threshold or less and the contractor's accounting system is adequate for price redetermination [@CL-CLS-0560]. The same list also names reasonable assurance that the price redetermination will take place promptly at the specified time, and approval of its use in writing by the head of the contracting activity (or a higher-level official, if required by agency procedures) [@CL-CLS-0561].
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Who reviews unbilled amounts, billing price variances, and retroactive redetermi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: second appropriateness condition and approver stated as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-ceiling-price contracts with retroactive price redetermination.

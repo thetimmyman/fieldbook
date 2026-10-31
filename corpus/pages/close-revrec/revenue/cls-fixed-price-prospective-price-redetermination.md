@@ -27,7 +27,7 @@ Explains what a fixed-price contract with prospective price redetermination prov
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0550] |
-| Applies to | Acquisitions of quantity production or services for which a firm fixed price can be negotiated for an initial period but not for later periods [@CL-CLS-0551] |
+| Applies to | Acquisitions of quantity production or services for which it is possible to negotiate a fair and reasonable firm fixed price for an initial period, but not for subsequent periods of contract performance [@CL-CLS-0551] |
 
 A fixed-price contract with prospective price redetermination provides for a firm fixed price for an initial period of contract deliveries or performance and prospective redetermination, at a stated time or times during performance, of the price for subsequent periods of performance [@CL-CLS-0550].
 
@@ -57,5 +57,6 @@ Who confirms that the accounting system is adequate for price redetermination an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: applies-to row restored fair and reasonable firm fixed price.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the price redetermination sentence so the reasonable-assurance limitation keeps its specified times.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price contracts with prospective price redetermination.

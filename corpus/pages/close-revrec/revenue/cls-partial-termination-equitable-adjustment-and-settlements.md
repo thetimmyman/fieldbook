@@ -49,7 +49,7 @@ A fixed-price production contract for 100 units is partially terminated, cancell
 
 ## Never confuse
 
-An equitable adjustment changes the price of the continued portion, whereas a termination settlement covers the terminated portion, and neither may include the same increase or cost as the other [@CL-CLS-0526; @CL-CLS-0528; @CL-CLS-0529]. A partial settlement, which settles part of a settlement proposal early, is not a partial termination, which leaves a continued portion of the contract [@CL-CLS-0531; @CL-CLS-0530]. For change order accounting, see [Change order accounting](cls-change-order-accounting.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For the clause that sets partial termination adjustment deadlines, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+An equitable adjustment changes the price of the continued portion, whereas a termination settlement covers the terminated portion, and the termination settlement must not include any portion of an increase in price or of the costs included in the equitable adjustment [@CL-CLS-0526; @CL-CLS-0528; @CL-CLS-0529]. A partial settlement, which settles part of a settlement proposal early, is not a partial termination, which leaves a continued portion of the contract [@CL-CLS-0531; @CL-CLS-0530]. For change order accounting, see [Change order accounting](cls-change-order-accounting.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For the clause that sets partial termination adjustment deadlines, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Who verifies that costs in a continued-portion adjustment are kept out of the te
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: stated the no-overlap rule as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of continued portion of the contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of continued portion of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for partial termination equitable adjustments and partial settlements.

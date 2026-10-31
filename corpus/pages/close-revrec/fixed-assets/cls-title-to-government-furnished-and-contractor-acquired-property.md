@@ -35,7 +35,7 @@ Under fixed-price type contracts, in the absence of financing provisions or othe
 
 ## How it works
 
-The contract's financing provisions or other specific passage-of-title terms are the first thing to check, because where they exist title vests in the Government [@CL-CLS-0713]. If a deliverable item is to be retained by the contractor for use after inspection and acceptance by the Government, it shall be made accountable to the contract through a contract modification listing the item as Government-furnished property [@CL-CLS-0715]. The clause repeats the fixed-price rule and sets title for reimbursable property, so read this card with [Government Property clause](cls-government-property-clause.md).
+The contract's financing provisions or other specific passage-of-title terms are the first thing to check, because where they exist, title vests in the Government for property acquired or fabricated by the contractor in accordance with them [@CL-CLS-0713]. If a deliverable item is to be retained by the contractor for use after inspection and acceptance by the Government, it shall be made accountable to the contract through a contract modification listing the item as Government-furnished property [@CL-CLS-0715]. The clause repeats the fixed-price rule and sets title for reimbursable property, so read this card with [Government Property clause](cls-government-property-clause.md).
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Who keeps the title records for Government-furnished and contractor-acquired pro
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the financing-provisions title rule to property acquired or fabricated by the contractor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for title to Government-furnished and contractor-acquired property.

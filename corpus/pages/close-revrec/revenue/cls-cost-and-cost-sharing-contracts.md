@@ -37,7 +37,7 @@ A cost-sharing contract is a cost-reimbursement contract in which the contractor
 
 A cost contract may be appropriate for research and development work, particularly with nonprofit educational institutions or other nonprofit organizations [@CL-CLS-0573]. A cost-sharing contract may be used when the contractor agrees to absorb a portion of the costs, in the expectation of substantial compensating benefits [@CL-CLS-0575].
 
-For the limitations on each type, the regulation points to the limitations for cost-reimbursement contracts [@CL-CLS-0684; @CL-CLS-0685]. Those limitations include that the contractor's accounting system is adequate for determining costs applicable to the contract or order [@CL-CLS-0569].
+For the limitations on each type, the regulation points to the limitations for cost-reimbursement contracts [@CL-CLS-0684; @CL-CLS-0685]. Those limitations say a cost-reimbursement contract may be used only when all four listed conditions are met: the factors in FAR 16.104 have been considered, a written acquisition plan has been approved and signed at least one level above the contracting officer, the contractor's accounting system is adequate for determining costs applicable to the contract or order, and, prior to award, adequate Government resources are available to award and manage a contract other than firm-fixed-priced [@CL-CLS-0569; @CL-CLS-0570]. The use of cost-reimbursement contracts is also prohibited for the acquisition of commercial products and commercial services [@CL-CLS-0571].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Who decides how cost-share absorption and the absence of fee are recorded in the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: stated the cost-reimbursement limitations as all four conditions plus the commercial prohibition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost contracts and cost-sharing contracts.
