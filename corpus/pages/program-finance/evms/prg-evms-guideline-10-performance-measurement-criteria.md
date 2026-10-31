@@ -34,7 +34,7 @@ Where a long-duration work package is unavoidable, interim milestones that model
 
 ## How it works
 
-The control account manager assesses each assigned work package and looks for a discrete way to measure progress towards its completion [@CL-PRG-0254]. The criterion is objective and set per work package, consistent with how the work is expected to be accomplished [@CL-PRG-0252]. Level of effort earns value only as time passes, so it never shows a schedule variance and always equals the budgeted cost for work scheduled [@CL-PRG-0258]. Earned value for discrete material items may be claimed on receipt, inspection and acceptance, provided the items go into use within a reasonable time or are identified to a serially numbered end item [@CL-PRG-0260]. The program evaluation and review technique cost formula is a non-discrete material method [@CL-PRG-0764]. It computes BCWP as (ACWP/EAC) x BAC and needs the estimate at completion evaluated and updated every month [@CL-PRG-0259]. It is appropriate only for high-quantity, low-value, low-risk items where measurement is impracticable [@CL-PRG-0763].
+The control account manager assesses each assigned work package and looks for a discrete way to measure progress towards its completion [@CL-PRG-0254]. The criterion is objective and set per work package, consistent with how the work is expected to be accomplished [@CL-PRG-0252]. Level of effort earns value only as time passes, so it never shows a schedule variance and always equals the budgeted cost for work scheduled [@CL-PRG-0258]. Earned value for discrete material items may be claimed on receipt, inspection and acceptance, provided the items go into use within a reasonable time or are identified to a serially numbered end item [@CL-PRG-0260]. The program evaluation and review technique cost formula is a non-discrete material method [@CL-PRG-0764]. It computes BCWP as (ACWP/EAC) x BAC and needs the estimate at completion evaluated and updated every month [@CL-PRG-0764; @CL-PRG-0259]. It is appropriate only for high-quantity, low-value, low-risk items where measurement is impracticable [@CL-PRG-0763].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A work package to build a test fixture is budgeted at 40,000 and planned to fini
 
 ## Never confuse
 
-Level of effort is not apportioned effort. Level of effort earns value with the passage of time and never carries a schedule variance, while apportioned effort is reserved for supporting work that ties directly to a discrete technical activity and must be described and documented [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257].
+Level of effort is not apportioned effort. Level of effort earns value with the passage of time and never carries a schedule variance, while apportioned effort is for supporting work that ties directly to a discrete technical activity and, if the contractor uses it, the system documentation must cover the technique and the factor that establishes the relationship [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257].
 
 The guideline on planning work packages and planning packages is covered in [plan work packages and planning packages](prg-evms-guideline-9-work-and-planning-packages.md), and the guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
 
@@ -56,7 +56,7 @@ Which work packages the company measures as level of effort, and whether the sys
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state; Cited the PERT claim for the BCWP formula and stated the apportioned-effort documentation condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restated the material and apportioned effort sentences to match the guide.
