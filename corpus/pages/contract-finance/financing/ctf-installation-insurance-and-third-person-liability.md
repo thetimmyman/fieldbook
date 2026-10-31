@@ -54,13 +54,13 @@ The schedule requires general liability insurance of 1,000,000. The contractor b
 
 A third person wins a final judgment of 400,000 that arose out of performance of the contract, and insurance does not pay it. No excluded case applies, so it meets the conditions stated above and is reimbursable, as an exception to the limitation of cost clause, subject to the availability of appropriated funds at the time the contingency occurs. A second claim is settled for 90,000 without the Government's written approval, so it is not a settlement approved in writing and does not meet the condition. The 400,000 judgment is for injury to a third person, which is a listed kind. A judgment for damage to property in the contractor's own care, custody or control is not property damage of the listed kind. A third liability arose because the contractor let a required policy lapse, so it is a case in which the contractor failed to maintain insurance as the Contracting Officer required, and it is not reimbursed.
 
-A suit is filed against the contractor for 500,000, and its insurance covers 300,000. The risk is insured for less than the amount claimed, so the contractor notifies the Contracting Officer at once, furnishes copies of the papers received, and authorizes Government representatives to collaborate with the carrier's counsel because the claim exceeds the coverage. The contractor may, at its own expense, be associated with them in the litigation.
+A suit is filed against the contractor for 500,000, and its insurance covers 300,000. The cost and expense of the suit may be reimbursable under the contract and the risk is insured for less than the amount claimed, so the contractor notifies the Contracting Officer at once, furnishes copies of the papers received, and authorizes Government representatives to collaborate with the carrier's counsel because the claim exceeds the coverage. The contractor may, at its own expense, be associated with them in the litigation.
 
 The Contracting Officer also requires one more kind of cover, and the contractor buys it from an insurer the Contracting Officer approves. The contractor also carries extra insurance of its own choosing and submits it to the Contracting Officer for approval because it wants reimbursement. A self-insurance program needs the Contracting Officer's approval, and for workers' compensation the contractor must be qualified under statutory authority.
 
 ## Never confuse
 
-Reimbursement of a third person liability under the clause is different from allowability of insurance cost under the cost principles; see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md). Insurance required for work on an installation is also different from liability to third persons under the other clause, which adds a reimbursement right for uninsured third person liabilities [@CL-CTF-2500]. Limits on liability elsewhere are on [Limitation of liability clauses](../../supply-chain/sourcing-evidence/sup-limitation-of-liability-clauses.md).
+Reimbursement of a third person liability under the clause is different from allowability of insurance cost under the cost principles; see [Insurance and indemnification](../../compliance/cas-allowability/cmp-insurance-and-indemnification.md). Insurance required for work on an installation is also different from liability to third persons under the other clause, which adds a reimbursement right for certain third person liabilities not compensated by insurance or otherwise [@CL-CTF-2500]. Limits on liability elsewhere are on [Limitation of liability clauses](../../supply-chain/sourcing-evidence/sup-limitation-of-liability-clauses.md).
 
 ## Company calibration
 
@@ -70,6 +70,7 @@ Which contracts carry these clauses, what kinds and amounts of insurance the sch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the reimbursable condition and the third person liability right.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of insurance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of insurance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Compared the remaining RFO paragraphs of FAR 52.228-7, the reimbursement of insurance cost in (c)(1) and the Contractor's association with Government representatives, with the codified text, both in the same words.

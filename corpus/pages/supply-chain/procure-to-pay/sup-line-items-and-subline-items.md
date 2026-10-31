@@ -67,7 +67,7 @@ A fixed-price order buys 4,000 parts that share one manufacturer's part number, 
 
 ## Never confuse
 
-A subline item is not a second contract line: it is a subset of a line item used to ease administration, and the presence of deliverable subline items makes the parent line item informational [@CL-SUP-3369; @CL-SUP-3314]. An informational line item is not an unpriced one either: the single price requirement at line item level falls away where the subline items are priced, and the price sits on them [@CL-SUP-3378].
+A subline item is not a second contract line: it is a subset of a line item used to ease administration, and the presence of deliverable subline items makes the parent line item informational [@CL-SUP-3369; @CL-SUP-3314]. Having subline items does not by itself mean nothing is priced: the single price requirement at line item level does not apply where associated deliverable subline items are priced, and the price sits on them [@CL-SUP-3378].
 
 ## Company calibration
 
@@ -77,6 +77,7 @@ Confirm how each instrument in force splits deliverables into line items and sub
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the informational line item contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the line item definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of line item.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of line item and line item number.

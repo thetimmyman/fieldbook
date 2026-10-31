@@ -31,7 +31,7 @@ Explains how the CFAO asks for, receives and evaluates general dollar magnitude 
 
 If the description of a change in cost accounting practice is both adequate and compliant, the CFAO must notify the contractor in writing [@CL-RTE-0715]. For required or unilateral changes, except those requested to be determined desirable changes, the CFAO requests that the contractor submit a GDM proposal by a specified date unless the CFAO determines the cost impact is immaterial [@CL-RTE-0716].
 
-A contractor may submit a DCI proposal in lieu of a GDM proposal provided the DCI proposal is in accordance with the section's requirements for detailed cost-impact proposals [@CL-RTE-0612]. The CFAO may request a DCI proposal by a specified date if the CFAO determines that the GDM proposal is not sufficient to resolve the cost impact [@CL-RTE-0717].
+A contractor may submit a DCI proposal in lieu of a GDM proposal provided the DCI proposal is in accordance with the section's requirements for detailed cost-impact proposals [@CL-RTE-0612]. The second of two listed alternatives is for the CFAO to request a DCI proposal by a specified date if the CFAO determines that the GDM proposal is not sufficient to resolve the cost impact [@CL-RTE-0717].
 
 ## How it works
 
@@ -49,7 +49,7 @@ A contractor makes a unilateral change and submits a GDM proposal covering its a
 
 ## Never confuse
 
-A GDM proposal gives the CFAO an estimate of the overall impact of a change [@CL-RTE-0713]. A DCI proposal shows the estimated impact for each affected contract, unless the CFAO and contractor agree otherwise [@CL-RTE-0714]. For required or unilateral changes the CFAO asks for the GDM proposal first [@CL-RTE-0716] and asks for a DCI proposal only if the GDM proposal is not sufficient [@CL-RTE-0717]. For materiality, see [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md). For how the Defense Contract Audit Agency tests cost impact proposals, see [DCAA audits that test Cost Accounting Standards compliance](../../compliance/cas-allowability/cmp-dcaa-cas-audits.md).
+A GDM proposal gives the CFAO an estimate of the overall impact of a change [@CL-RTE-0713]. A DCI proposal shows the estimated impact for each affected contract, unless the CFAO and contractor agree otherwise [@CL-RTE-0714]. For required or unilateral changes the CFAO requests a GDM proposal [@CL-RTE-0716], and may request a DCI proposal if the CFAO determines that the GDM proposal is not sufficient to resolve the cost impact [@CL-RTE-0717]. The contractor may also submit a DCI proposal in lieu of a GDM proposal [@CL-RTE-0612]. For materiality, see [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md). For how the Defense Contract Audit Agency tests cost impact proposals, see [DCAA audits that test Cost Accounting Standards compliance](../../compliance/cas-allowability/cmp-dcaa-cas-audits.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Which fiscal years are still open, because the cost impact calculation reaches a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated DCI request as a listed alternative; removed 'first' and 'only'.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for processing cost accounting practice changes with GDM and DCI proposals.

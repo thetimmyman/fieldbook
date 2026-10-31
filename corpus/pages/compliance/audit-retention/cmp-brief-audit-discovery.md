@@ -25,9 +25,9 @@ Open with business-system status, incurred-cost status and unallowable cost scre
 
 - A final determination of material weaknesses with a notice to withhold takes 5 percent of payments [@CL-CMP-0004], up to 10 percent across several systems [@CL-CMP-0006]. Ask the compliance owner for each system's status and latest determination letter.
 - A final indirect cost rate proposal is due within 6 months of year end [@CL-RTE-0001]. Ask the rates owner for the incurred-cost status by year and the submission log.
-- The unallowable cost penalty reaches contracts over $1 million [@CL-CMP-0005]. Ask the accounting owner for the unallowable account list and how proposals are screened.
+- The unallowable cost penalty reaches contracts over $1 million, except fixed-price contracts without cost incentives and firm-fixed-price contracts for commercial products or commercial services [@CL-CMP-0005]. Ask the accounting owner for the unallowable account list and how proposals are screened.
 - Full CAS coverage and the Disclosure Statement start at $100 million [@CL-CMP-0002; @CL-CMP-0003]. Ask for each unit's coverage and Disclosure Statement.
-- Earned value systems must follow the industry guidelines from $50 million, and from $100 million the cognizant agency must have determined the system compliant [@CL-PRG-0001; @CL-PRG-0002]. Ask the program finance owner which contracts fall in each band, and for any determination letter.
+- For DoD cost or incentive contracts and subcontracts, except the exempt contracts, the earned value system must follow the EIA-748 guidelines at $50 million or more, and at $100 million or more the cognizant agency must have determined the system compliant [@CL-PRG-0001; @CL-PRG-0002]. Ask the program finance owner which contracts fall in each band, and for any determination letter.
 
 ## Options
 

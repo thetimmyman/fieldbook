@@ -29,7 +29,7 @@ Shows how direct costs are assigned to final cost objectives and when a minor di
 | Text status | Final [@CL-RTE-0201] |
 | Applies to | Not established. |
 
-A cost may not be charged as a direct cost to a final cost objective if other costs incurred for the same purpose in like circumstances sit in an indirect cost pool allocated to that or any other final cost objective [@CL-RTE-0201]. Direct costs of the contract are charged directly to the contract, and costs specifically identified with other final cost objectives are direct costs of those objectives, not charged to the contract directly or indirectly [@CL-RTE-0202; @CL-RTE-0203].
+A cost may not be charged as a direct cost to a final cost objective if other costs incurred for the same purpose in like circumstances have been included in any indirect cost pool [@CL-RTE-0201]. Direct costs of the contract are charged directly to the contract, and costs specifically identified with other final cost objectives are direct costs of those objectives, not charged to the contract directly or indirectly [@CL-RTE-0202; @CL-RTE-0203].
 
 For reasons of practicality the contractor may treat a direct cost of a minor dollar amount as indirect, if the accounting treatment is consistently applied to all final cost objectives and produces substantially the same results as treating the cost as direct [@CL-RTE-0204; @CL-RTE-0205].
 
@@ -59,7 +59,7 @@ How the company assigns a cost as direct versus indirect for the same purpose. [
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the direct cost definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the direct cost definition; cut the direct-cost sentence back to what its quote says.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of direct cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of direct cost.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

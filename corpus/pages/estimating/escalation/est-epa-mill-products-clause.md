@@ -31,7 +31,7 @@ Explains how the unit price moves with the contractor's established price under 
 
 By its offer, the offeror represents that the unit price stated for the identified item is not in excess of its established price in effect on the date set for opening of bids, or on the contract date if the contract is to be negotiated, for like quantities of the same item [@CL-EST-1184].
 
-The contractor shall promptly notify the Contracting Officer of the amount and effective date of each decrease in any established price, and each corresponding contract unit price shall be decreased by the same percentage that the established price is decreased [@CL-EST-1185]. If the established price is increased after the date set for opening of bids, or after the contract date for a negotiated contract, the unit price is to be increased by the same percentage upon the contractor's written request to the Contracting Officer, and the contract modified accordingly, provided the conditions listed in the clause are met [@CL-EST-1186; @CL-EST-1200].
+The contractor shall promptly notify the Contracting Officer of the amount and effective date of each decrease in any established price, and each corresponding contract unit price shall be decreased by the same percentage that the established price is decreased [@CL-EST-1185]. If the established price is increased after the date set for opening of bids, or after the contract date for a negotiated contract, the unit price is to be increased by the same percentage upon the contractor's written request to the Contracting Officer, and the contract modified accordingly, provided the conditions listed in the clause are met [@CL-EST-9439; @CL-EST-1186; @CL-EST-1200].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Which contracts use this clause and how established prices and written requests 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the price increase rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustment for basic steel, aluminum, brass, bronze and copper mill products.

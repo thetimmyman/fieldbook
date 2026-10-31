@@ -16,7 +16,7 @@ links = ["est-source-selection-responsibilities-and-evaluation", "est-dod-lpta-l
 
 ## Purpose
 
-Shows the two DoD duties that sit alongside the general best value and tradeoff rules: the contracting officer must award contracts for tents and other temporary structures for the Armed Forces that provide the best value, and must consider using a tradeoff process when conducting a source selection for fuel for an overseas contingency operation [@CL-EST-2426; @CL-EST-2430].
+Shows the two DoD duties that sit alongside the general best value and tradeoff rules: the contracting officer must award contracts for tents and other temporary structures for the Armed Forces that provide the best value, and must consider using a tradeoff process when conducting a source selection for fuel that is for an overseas contingency operation and is expected to exceed the simplified acquisition threshold [@CL-EST-2426; @CL-EST-2430].
 
 ## The rule
 
@@ -59,4 +59,5 @@ That the program records a life-cycle comparison for shelter buys and a tradeoff
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the simplified acquisition threshold condition to the fuel tradeoff duty in the purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for best value for tents and temporary structures, and the contingency fuel tradeoff process.

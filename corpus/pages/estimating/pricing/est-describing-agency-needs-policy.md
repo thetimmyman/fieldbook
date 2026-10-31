@@ -45,13 +45,13 @@ Unless the agency Chief Information Officer waives the requirement, when an agen
 
 Agencies shall not include in a solicitation a requirement that prohibits an offeror from permitting its employees to telecommute, unless the contracting officer executes a written determination in accordance with FAR 7.108(a) [@CL-EST-1003].
 
-FAR 2.101 defines a nondevelopmental item in three paragraphs, and the first covers any previously developed item of supply used exclusively for governmental purposes by a Federal agency, a State or local government, or a foreign government with which the United States has a mutual defense cooperation agreement [@CL-EST-9295]. This card does not summarize the other paragraphs of the definition.
+FAR 2.101 defines a nondevelopmental item through numbered paragraphs, and paragraph (1) covers any previously developed item of supply used exclusively for governmental purposes by a Federal agency, a State or local government, or a foreign government with which the United States has a mutual defense cooperation agreement [@CL-EST-9295]. This card does not summarize the other paragraphs of the definition.
 
 ## How it works
 
 Part 11 prescribes policies and procedures for describing agency needs [@CL-EST-2138].
 
-The agency, through its acquisition officials, shapes the requirement. The contracting officer makes the written determination that allows a solicitation to prohibit telework, and obtains the accessibility requirement documents from the requiring activity [@CL-EST-1003; @CL-EST-1004]. The agency Chief Information Officer may waive the Internet Protocol reference [@CL-EST-1110]. Requiring activities write the metric guidance [@CL-EST-1002].
+The agency, through its acquisition officials, shapes the requirement. The contracting officer makes the written determination that allows a solicitation to prohibit telework, and obtains the accessibility requirement documents from the requiring activity [@CL-EST-1003; @CL-EST-1004]. The agency Chief Information Officer may waive the Internet Protocol reference [@CL-EST-1110]. Requiring activities are responsible for establishing the metric guidance in formulating their requirements [@CL-EST-1002].
 
 The duties on stating requirements, commercial items, competition for them, subcontract flow-down and modifying requirements all carry the lead-in "to the maximum extent practicable" [@CL-EST-0992]. The flow-down duty reaches contractors: acquisition officials are to require the prime contractor and its subcontractors at all tiers to incorporate commercial products, commercial services or nondevelopmental items as components of what they supply [@CL-EST-0995].
 
@@ -77,6 +77,6 @@ The company must confirm, for each requirement set it prices, which version of t
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the first paragraph of the FAR 2.101 definition of nondevelopmental item.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the first paragraph of the FAR 2.101 definition of nondevelopmental item; removed an uncited paragraph count and aligned the metric guidance wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 11.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for describing agency needs.

@@ -29,7 +29,7 @@ Outlines what the CFAO must determine before an equitable adjustment for a requi
 | Text status | Final [@CL-RTE-0604] |
 | Applies to | Required changes under the cost accounting standards clauses [@CL-RTE-0730] |
 
-Prior to making an equitable adjustment for a required change under the applicable paragraphs of the cost accounting standards clauses [@CL-RTE-0730], the CFAO must determine one of two things. The first is that the cost accounting practice change is required to comply with a CAS, or a modification or interpretation thereof, that subsequently became applicable to one or more contracts or subcontracts [@CL-RTE-0604]. The second is that the former cost accounting practice was in compliance with applicable CAS and the change is necessary to remain in compliance [@CL-RTE-0705].
+Prior to making an equitable adjustment for a required change under the applicable paragraphs that address a required change, beginning with the Cost Accounting Standards clause at FAR 52.230-2 [@CL-RTE-0730], the CFAO must determine one of two things. The first is that the cost accounting practice change is required to comply with a CAS, or a modification or interpretation thereof, that subsequently became applicable to one or more contracts or subcontracts [@CL-RTE-0604]. The second is that the former cost accounting practice was in compliance with applicable CAS and the change is necessary to remain in compliance [@CL-RTE-0705].
 
 When a change is required to remain in compliance for reasons other than a contract award, or to comply with a new or modified standard, the clause at FAR 52.230-6 requires the contractor to take listed steps [@CL-RTE-0706]. One step is to submit a description of the change to the CFAO not less than 60 days, or another mutually agreeable date, before implementation of the change [@CL-RTE-0605].
 
@@ -45,7 +45,7 @@ A new Cost Accounting Standard becomes applicable to a business unit, and the co
 
 ## Never confuse
 
-A required change is driven by a new or modified standard or by the need to remain in compliance. A unilateral change is one the contractor may make on its own, with no payment by the Government of any increased cost in the aggregate [@CL-RTE-0608]. A required change that the contractor implements before the applicability date is administered as a unilateral change [@CL-RTE-0607]. See [Unilateral and desirable changes](rte-unilateral-and-desirable-changes.md) and [Disclosure and Consistency of Cost Accounting Practices clause](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md).
+A required change is driven by a new or modified standard or by the need to remain in compliance. A unilateral change is one the contractor may make on its own, with no payment by the Government of any increased cost in the aggregate [@CL-RTE-0608]. A required change made to comply with a new or modified standard that the contractor elects to implement before the applicability date of the standard is administered as a unilateral change [@CL-RTE-0607]. See [Unilateral and desirable changes](rte-unilateral-and-desirable-changes.md) and [Disclosure and Consistency of Cost Accounting Practices clause](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ How planned practice changes are checked against new or modified standards and s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the clause list as the quote does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for required changes to cost accounting practices.
