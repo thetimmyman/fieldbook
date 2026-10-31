@@ -56,7 +56,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-The specifications call for a 12-inch base plate and the drawings show a 10-inch plate. The specifications govern the difference. The contractor still reports it promptly to the Contracting Officer, because resizing the plate on its own before a written determination would be at its own risk and expense.
+The specifications call for a 12-inch base plate and the drawings show a 10-inch plate. That is a difference between drawings and specifications, so the specifications govern and the contractor uses the 12-inch plate [@CL-CMP-4906]. If instead two drawing sheets showed different plate sizes, that discrepancy would go promptly to the Contracting Officer for a written determination, and resizing the plate without it would be at the contractor's own risk and expense [@CL-CMP-4907] [@CL-CMP-4908].
 
 The contractor then prepares a shop drawing for the plate and, after its own review, marks its approval on the sheet. The drawing shows a 14-inch plate, so the contractor sends a separate written note describing that variation with the submission. It submits four copies, and the Contracting Officer keeps three and returns one. If the Contracting Officer approves the variation, a modification follows, unless the variation is minor or changes neither price nor time. If the note had been left out, the approval would not cover the 14-inch plate, and the contractor would stay responsible for complying with the contract. Fabrication started before approval would also be at the contractor's risk.
 
@@ -74,5 +74,6 @@ Which executed construction contracts in the finance remit carry this clause, wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to keep the difference rule (specifications govern) apart from the discrepancy rule (written determination).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for specifications and drawings for construction.
