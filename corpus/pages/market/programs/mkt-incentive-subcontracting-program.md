@@ -23,7 +23,7 @@ Shows the incentive a contractor can receive for exceeding its subcontracting pl
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1110] |
 | Codified citation | FAR 52.219-10 [@CL-MKT-1110] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.219-10 [@CL-MKT-0166] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1110] |
 | Applies to | Contracts with the clause, where the contractor has committed to goals in its subcontracting plan [@CL-MKT-1175] |
@@ -35,6 +35,8 @@ The contractor does not receive that percent if the contracting officer determin
 ## How it works
 
 The inserted percent applies to the dollars in excess of each goal in the plan [@CL-MKT-1111]. The text names the six categories in one condition and then speaks of each goal, and it does not say in terms whether each goal is tested alone or whether the condition needs all six goals to be exceeded, so confirm the reading with the contracting officer where only some goals are exceeded [@CL-MKT-1176; @CL-MKT-1111]. The contracting officer can deny the percent on an excess by determining that the excess was not due to the contractor's efforts, and that determination is the Government's alone to make [@CL-MKT-1112; @CL-MKT-1114]. The clause text does not itself provide a route to challenge that determination. A separate paragraph limits the fixed fee plus the incentive fee earned on a cost-plus-fixed-fee contract [@CL-MKT-1115]. The clause text does not say when or how the amount is paid.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps paragraphs (a) and (b): the percentages in the subcontracting plan, the condition that the contractor exceed its goals, the inserted percent between 0 and 10 of the dollars in excess of each goal, the exception for an excess not due to the contractor's efforts, the two examples and the Government's unilateral decision [@CL-MKT-0166; @CL-MKT-1175; @CL-MKT-1110; @CL-MKT-0167; @CL-MKT-1176; @CL-MKT-0168; @CL-MKT-1111; @CL-MKT-1112; @CL-MKT-0169; @CL-MKT-1113; @CL-MKT-0170; @CL-MKT-1114]. Its paragraph (c) limits the sum of the fixed fee and the incentive fee earned under a cost-plus-fixed-fee contract by pointing to 15.4 of the Federal Acquisition Regulation, where the codified paragraph points to 15.404-4 [@CL-MKT-0171; @CL-MKT-1115].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Whether the purchasing system has been reviewed, and how plan goals and the doll
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the incentive subcontracting program.
