@@ -24,7 +24,7 @@ Defines advertising material, a commercial product or commercial service offer a
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2750] |
 | Codified citation | FAR 15.601 and FAR 15.602 [@CL-EST-2750; @CL-EST-2754] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 15.501 [@CL-EST-3519]; RFO FAR 15.503-1(a) [@CL-EST-3523] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2750] |
 | Applies to | Terms used in the unsolicited proposal subpart, and new and innovative ideas that do not fall under publicized topic areas [@CL-EST-2778; @CL-EST-2755] |
@@ -39,6 +39,8 @@ The policy has two parts. The Government encourages ideas in response to its own
 
 The three defined terms describe different things. Advertising material promotes what a contractor already offers or can do. A commercial offer asks that a commercial product or service be introduced into the supply system as an alternate or a replacement for an existing supply item. A contribution hands the Government an idea with no indication of further effort by the source [@CL-EST-2750; @CL-EST-2751; @CL-EST-2753]. Under the general requirements for unsolicited proposals, advertising material, commercial product or commercial service offers and contributions are not unsolicited proposals [@CL-EST-1429]. See [Unsolicited proposals: general requirements](est-unsolicited-proposals-general.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. RFO FAR 15.501 defines advertising material, a commercial product or commercial service offer and a contribution, as used in the RFO unsolicited proposal subpart, in the same words as the codified definitions [@CL-EST-3519; @CL-EST-3520; @CL-EST-3522; @CL-EST-2750; @CL-EST-2751; @CL-EST-2753; @CL-EST-2778], and it also says a commercial product or commercial service offer does not include innovative or unique configurations or uses of commercial products or commercial services that are being offered for further development and that may be submitted as an unsolicited proposal [@CL-EST-3521; @CL-EST-2752]. On policy, RFO FAR 15.503-1(a) says unsolicited proposals may be submitted for new and innovative ideas that do not already fall under topic areas publicized under BAA, SBIR topics, STTR topics, program research and development announcements, or any other Government-initiated RFP or program, where the codified section opens with a sentence stating a Government policy to encourage the submission of new and innovative ideas [@CL-EST-3523; @CL-EST-2754; @CL-EST-2755; @CL-EST-2779].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -50,6 +52,8 @@ A third submission describes an innovative configuration of the same item that i
 A researcher emails a one-paragraph idea and says nothing about doing further work on it. That is a contribution [@CL-EST-2753]. Another researcher has a new and innovative idea that falls under no publicized topic area. The idea may be submitted as an unsolicited proposal [@CL-EST-2755].
 
 ## Never confuse
+
+Codified FAR 15.602 states a Government policy to encourage new and innovative ideas [@CL-EST-2754], while RFO FAR 15.503-1(a) is one sentence saying that unsolicited proposals may be submitted for new and innovative ideas that do not already fall under publicized topic areas [@CL-EST-3523].
 
 A commercial product or commercial service offer is not the same as an innovative or unique configuration or use offered for further development. The second is outside the definition of the first and may be submitted as an unsolicited proposal [@CL-EST-2751; @CL-EST-2752].
 
@@ -63,4 +67,5 @@ Who owns the pricing and technical content of a submission that goes out as an u
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unsolicited proposal definitions and policy.
