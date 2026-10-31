@@ -24,7 +24,7 @@ Sets out which Afghan taxes, customs, duties, fees and similar charges a Contrac
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2561] |
 | Codified citation | FAR 52.229-13 and FAR 52.229-14 [@CL-CTF-2561; @CL-CTF-2564] |
-| RFO citation | Not established. |
+| RFO citation | No RFO equivalent for either clause: RFO part 52 lists FAR 52.229-13 and FAR 52.229-14 as [Reserved] [@CL-CTF-0004; @CL-CTF-0005] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2561] |
 | Applies to | Activities in Afghanistan on behalf of or in support of United States Forces under the security agreement clause, or NATO Forces under the status of forces clause [@CL-CTF-2646; @CL-CTF-2649] |
@@ -41,17 +41,19 @@ The Agreement does not exempt Afghan employees of Government contractors and sub
 
 Each clause requires the Contractor to include its substance, including its paragraph on subcontracts, in all subcontracts, including subcontracts for commercial products or commercial services [@CL-CTF-2648; @CL-CTF-2650].
 
+Under the RFO text, which DoD contracting officers use in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762], the comparison with the codified text is as follows. The RFO text lists FAR 52.229-13 and FAR 52.229-14 as [Reserved] [@CL-CTF-0004; @CL-CTF-0005], where the codified text has the Security and Defense Cooperation Agreement tax clause and the status of forces agreement tax clause [@CL-CTF-2561; @CL-CTF-2564].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
 A contract supporting United States Forces imports 80,000 of supplies into Afghanistan, and Afghanistan assesses a 5,000 customs charge on them. The Contractor excludes the 5,000 from the contract price. A separate 2,000 charge is assessed on an Afghan legal entity, so the exclusion duty does not reach it. The Contractor withholds 900 of Afghan tax from an Afghan employee's wages as Afghan law requires and remits it to the Afghan taxing authority. The 900 is the employee's liability, not a tax against the Contractor. The importation and use of the supplies in Afghanistan on behalf of United States Forces are exempt from Afghan taxes, customs, duties, fees, or similar charges, and equipment of the United States Armed Forces present in Afghanistan counts as part of United States Forces.
 
-On a contract supporting NATO Forces, the Contractor excludes a 3,000 Afghan fee from the price in the same way. It withholds 700 from an Afghan citizen employee's wages as Afghan law requires and remits it, and the 700 is the individual's liability, not a tax against the Contractor. The acquisition of 12,000 of services in Afghanistan on behalf of NATO Forces is exempt from all Afghan taxes, customs, duties, fees, or similar charges, and the property of NATO Member States present in Afghanistan counts as part of NATO Forces.
+On a contract supporting NATO Forces, the Contractor excludes a 3,000 Afghan fee from the price in the same way. It withholds 700 from an Afghan citizen employee's wages as Afghan law requires and remits it, and the 700 is the individual's liability, not a tax against the Contractor. The acquisition of 12,000 of services in Afghanistan on behalf of NATO Forces is exempt from all Afghan taxes, customs, duties, fees, or similar charges, and the property of NATO Member States present in Afghanistan counts as part of NATO Forces. The two clause numbers that the example applies, FAR 52.229-13 and FAR 52.229-14, are listed as [Reserved] in the RFO text [@CL-CTF-0004; @CL-CTF-0005].
 
 ## Never confuse
 
-The exemption covers the United States Government or NATO Forces and their contractors and subcontractors, other than Afghan legal entities or residents, so charges to those entities and residents are outside the exclusion duty [@CL-CTF-2561; @CL-CTF-2564]. Tax withheld from an Afghan employee's wages under the security agreement clause is the individual's liability, not a tax against the Contractor [@CL-CTF-2563]. A view of host-country tax relief elsewhere sits at [Germany tax relief, customs and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md).
+The exemption covers the United States Government or NATO Forces and their contractors and subcontractors, other than Afghan legal entities or residents, so charges to those entities and residents are outside the exclusion duty [@CL-CTF-2561; @CL-CTF-2564]. Tax withheld from an Afghan employee's wages under the security agreement clause is the individual's liability, not a tax against the Contractor [@CL-CTF-2563]. A view of host-country tax relief elsewhere sits at [Germany tax relief, customs and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md). The codified text carries two Afghanistan tax clauses with the rules described above [@CL-CTF-2561; @CL-CTF-2564], but the RFO text prints no clause at either number: both are listed as [Reserved] [@CL-CTF-0004; @CL-CTF-0005].
 
 ## Company calibration
 
@@ -61,4 +63,5 @@ Whether the work supports United States Forces or NATO Forces, and who screens A
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Afghan tax exemptions.

@@ -24,7 +24,7 @@ Shows when the contractor indemnifies the Government for infringement claims, wh
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2439] |
 | Codified citation | FAR 52.212-4(h), (j), (k) and (n) [@CL-CTF-2439; @CL-CTF-2441; @CL-CTF-2442; @CL-CTF-2443] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.212-4(h) [@CL-CTF-0140; @CL-CTF-0141]; RFO FAR 52.212-4(j) [@CL-CTF-0142; @CL-CTF-0143]; RFO FAR 52.212-4(k) [@CL-CTF-0143]; RFO FAR 52.212-4(n) [@CL-CTF-0144] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2439] |
 | Applies to | Contracts that contain the commercial products and services terms clause, as to the paragraphs quoted [@CL-CTF-2439] |
@@ -36,6 +36,8 @@ Unless the contract specifically provides otherwise, risk of loss or damage to t
 ## How it works
 
 Risk of loss follows the transportation term. With a contract that does not provide otherwise, it stays with the contractor until delivery to a carrier under an origin term, or until delivery to the Government at the destination under a destination term [@CL-CTF-2441; @CL-CTF-2442]. Title follows acceptance, not delivery or possession, unless the contract says otherwise elsewhere [@CL-CTF-2443]. The contractor prices the work with all applicable taxes and duties inside the contract price [@CL-CTF-2442]. The indemnity is provided on the condition that the contractor is reasonably notified of such claims and proceedings [@CL-CTF-2440].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text keeps the patent indemnity in paragraph (h), the risk of loss and taxes rules in paragraphs (j) and (k), and the title rule in paragraph (n), under the same letters as the codified text [@CL-CTF-0140; @CL-CTF-0141; @CL-CTF-0142; @CL-CTF-0143; @CL-CTF-0144; @CL-CTF-2439; @CL-CTF-2440; @CL-CTF-2441; @CL-CTF-2442; @CL-CTF-2443].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Confirm the transportation term and any title term in each executed contract. [@
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for commercial contract terms on patent indemnity, risk of loss, taxes and title.

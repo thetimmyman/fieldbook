@@ -24,7 +24,7 @@ Shows what the contractor must register or provide for payment by electronic fun
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2041; @CL-CTF-2046; @CL-CTF-2049] |
 | Codified citation | FAR 52.232-33, FAR 52.232-34 and FAR 52.232-35 [@CL-CTF-2041; @CL-CTF-2046; @CL-CTF-2049] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-33 [@CL-CTF-0200]; RFO FAR 52.232-34 [@CL-CTF-0215]; RFO FAR 52.232-35 [@CL-CTF-0220] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2041; @CL-CTF-2046; @CL-CTF-2049] |
 | Applies to | Solicitations and contracts that include the System for Award Management provision or an agency clause requiring registration [@CL-CTF-1541], that require EFT as the payment method without them [@CL-CTF-1543; @CL-CTF-1544], or that send EFT information to an office other than the payment office [@CL-CTF-1545] |
@@ -49,6 +49,12 @@ Under the designation clause, the Contractor sends all EFT information and chang
 
 The System for Award Management clause relies on one record: payment goes to the EFT information in SAM, and the Contractor keeps it current [@CL-CTF-2042]. The other-than-SAM clause relies on the designated office, which receives the information directly from the Contractor [@CL-CTF-2046]. Under either clause, payment need not be made while the information is incorrect or has not been received [@CL-CTF-2043; @CL-CTF-2047]. Timeliness is judged by the settlement date in the instruction released to the Federal Reserve System [@CL-CTF-2044].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause at FAR 52.232-33 keeps the rule that all payments are made by EFT except as provided in paragraph (a)(2) of the clause [@CL-CTF-0200] [@CL-CTF-2041], and if the Government is unable to release a payment by EFT the contractor agrees to accept payment by check or another mutually agreeable method or to request an extension of the payment due date until the Government can pay by EFT (but see paragraph (d) of the clause) [@CL-CTF-0206] [@CL-CTF-9027] [@CL-CTF-2201]. The Government pays using the EFT information in SAM, and the contractor is responsible for providing updated information to SAM if it changes [@CL-CTF-0207] [@CL-CTF-2042]. If the EFT information in SAM is incorrect, the Government need not pay until correct information is entered [@CL-CTF-0208] [@CL-CTF-2043], and any invoice or contract financing request is deemed not to be a proper invoice, with the prompt payment terms on notice of an improper invoice and delays in accrual of interest penalties applying [@CL-CTF-0209] [@CL-CTF-2147].
+
+The liability rules are the same: if the Government used the information incorrectly, it remains responsible for making a correct payment, paying any prompt payment penalty due and recovering any erroneously directed funds [@CL-CTF-0210] [@CL-CTF-2203]. Where the contractor's information was incorrect, or was revised within 30 days of release of the instruction, and the funds are no longer under the control of the payment office, the Government is deemed to have made payment and the contractor is responsible for recovery of any erroneously directed funds [@CL-CTF-0211] [@CL-CTF-9026] [@CL-CTF-2045]; if the funds remain under its control, the Government does not make payment and the suspension of payment paragraph applies [@CL-CTF-0212] [@CL-CTF-2202]. Payment is timely if the settlement date in the instruction released to the Federal Reserve System is on or before the prompt payment due date [@CL-CTF-0213] [@CL-CTF-2044], provided the specified date is a valid date under the rules of the Federal Reserve System [@CL-CTF-0214] [@CL-CTF-2135].
+
+The RFO clause at FAR 52.232-34 keeps the requirement that the contractor provide the information required for EFT payment directly to the office designated in the contract [@CL-CTF-0215] [@CL-CTF-2046]. That information includes the name, address and 9-digit Routing Transit Number of the financial agent, the account number and type of account, and, if applicable, the Fedwire telegraphic abbreviation [@CL-CTF-0219] [@CL-CTF-2146]. The Government is not required to pay until the designated office receives the correct information [@CL-CTF-0218] [@CL-CTF-2047]. The bracketed instruction to the contracting officer lists the same date options [@CL-CTF-0216] [@CL-CTF-2204] and the same default of no later than 15 days prior to submission of the first request for payment [@CL-CTF-0217] [@CL-CTF-2048]. The RFO clause at FAR 52.232-35 keeps the rule that the contractor sends all EFT information and changes to the designated office and not to the payment office or any other office [@CL-CTF-0220] [@CL-CTF-2049], and that the Government need not use information sent elsewhere [@CL-CTF-0221] [@CL-CTF-2050].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -69,4 +75,5 @@ Whose bank details are in SAM, who keeps them current, and which contracts name 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic funds transfer payment and the designated office.

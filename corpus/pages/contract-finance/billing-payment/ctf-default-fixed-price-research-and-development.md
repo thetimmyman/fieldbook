@@ -24,7 +24,7 @@ Shows when the Government may terminate a fixed-price research and development c
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2089] |
 | Codified citation | FAR 52.249-9 [@CL-CTF-2089] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.249-9 [@CL-CTF-0154; @CL-CTF-0155; @CL-CTF-0156; @CL-CTF-0157; @CL-CTF-0158; @CL-CTF-0159; @CL-CTF-0160; @CL-CTF-0161; @CL-CTF-0162; @CL-CTF-0163; @CL-CTF-0164; @CL-CTF-0165; @CL-CTF-0166; @CL-CTF-0167; @CL-CTF-0168; @CL-CTF-0169; @CL-CTF-0170] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2089] |
 | Applies to | Solicitations and contracts for research and development when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, except for the contracts the prescription goes on to describe [@CL-CLS-1026]. Research and development contracts with educational or nonprofit institutions on a no-profit basis are excepted [@CL-CLS-1059] |
@@ -42,6 +42,8 @@ If the Government terminates the contract in whole or in part, it may acquire, u
 On payment, the Government pays the contract price, if separately stated, for completed work it has accepted, and the amount agreed upon by the contractor and the contracting officer for completed work for which no separate price is stated and for partially completed work [@CL-CTF-2106]. The same list also includes other property described above that the Government accepts and the protection and preservation of the property [@CL-CTF-2250]. Failure to agree will be a dispute under the Disputes clause, and the Government may withhold from these amounts any sum the contracting officer determines to be necessary to protect the Government against loss from outstanding liens or claims of former lien holders [@CL-CTF-2108]. The Disputes clause is on [Disputes clause](../../close-revrec/revenue/cls-disputes-clause.md).
 
 In the paragraph on a subcontractor's default, the conditions are that the failure to perform is caused by the default of a subcontractor at any tier, the cause of the default is beyond the control of both the contractor and the subcontractor, and the cause is without the fault or negligence of either [@CL-CTF-2110]. Then the contractor is not liable for any excess costs for failure to perform, unless the subcontracted supplies or services were obtainable from other sources in sufficient time for the contractor to meet the required delivery schedule or other performance requirements [@CL-CTF-2111]. The excusable-delay rule turns on causes beyond the control and without the fault or negligence of the contractor [@CL-CTF-2093].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. It keeps the Notice of Default grounds, which are failing to perform the work in time, failing to prosecute the work so as to endanger performance, and failing to perform any other provision [@CL-CTF-0154; @CL-CTF-0155; @CL-CTF-2089; @CL-CTF-2090], and the 10-day cure period after receipt of the notice for the last two grounds [@CL-CTF-0156; @CL-CTF-0157; @CL-CTF-2091; @CL-CTF-2248]. It keeps the right to acquire similar work with the contractor liable for excess costs, and the duty to continue the work not terminated [@CL-CTF-0158; @CL-CTF-0159; @CL-CTF-2244; @CL-CTF-2245], the excess-cost excuse for causes beyond the contractor's control and without its fault or negligence, with the same examples [@CL-CTF-0160; @CL-CTF-0161; @CL-CTF-0162; @CL-CTF-2093; @CL-CTF-2246; @CL-CTF-2247], and the subcontractor default rule [@CL-CTF-0163; @CL-CTF-0164; @CL-CTF-2110; @CL-CTF-2111]. It keeps the transfer of title to completed and partially completed work and other property, and the duty to protect and preserve property [@CL-CTF-0165; @CL-CTF-0166; @CL-CTF-0167; @CL-CTF-2092; @CL-CTF-2109; @CL-CTF-2249], and the payment, dispute and withholding rules [@CL-CTF-0168; @CL-CTF-0169; @CL-CTF-0170; @CL-CTF-2106; @CL-CTF-2250; @CL-CTF-2108].
 
 ## Worked example
 
@@ -63,4 +65,5 @@ Which fixed-price research and development contracts carry this clause, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default under fixed-price research and development contracts.

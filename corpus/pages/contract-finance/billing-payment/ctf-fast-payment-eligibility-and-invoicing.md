@@ -24,7 +24,7 @@ Sets out where the Fast Payment Procedure clause is inserted, what delivery even
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2930] |
 | Codified citation | FAR 52.213-1 [@CL-CTF-2930] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.232-90 [@CL-CTF-0222]; FAR 52.213-1 is [Reserved] in the RFO text [@CL-CTF-0241] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2930] |
 | Applies to | Purchases in which the clause is inserted under FAR 13.404 [@CL-CTF-2930] |
@@ -47,6 +47,10 @@ Certification. By submitting an invoice the Contractor certifies that the suppli
 
 Containers. The Contractor must mark all outer shipping containers "FAST PAY", and where a container is not so marked the payment office may still make fast payment [@CL-CTF-2944]. If the payment office declines to make fast payment, the Contractor is paid under the procedures that apply to invoices outside the Fast Payment clause [@CL-CTF-2973].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints the Fast Payment Procedure clause as FAR 52.232-90 and says to insert it as prescribed in 32.1204, where the codified clause says 13.404 [@CL-CTF-0222] [@CL-CTF-2930]. FAR 52.213-1 is marked [Reserved] in the RFO text [@CL-CTF-0241]. The RFO clause keeps the payment basis: delivery to a post office or common carrier or, if shipped by other means, to the point of first receipt by the Government [@CL-CTF-0223] [@CL-CTF-2931]. It keeps the invoice rule on that delivery, to prepare an invoice as the contract, order or blanket purchase agreement provides and display "FAST PAY" prominently [@CL-CTF-0224] [@CL-CTF-2932], the acceptance of invoices not marked "FAST PAY" [@CL-CTF-0225] [@CL-CTF-2933], and payment under the procedures for invoices outside the clause if the payment office declines [@CL-CTF-0226] [@CL-CTF-2934].
+
+The transportation rules are the same: the prepaid shipping cost as a separate item and no parcel post insurance [@CL-CTF-0227] [@CL-CTF-2935], and retention of paid freight bills for 3 years, which the RFO text writes as three years [@CL-CTF-0228] [@CL-CTF-2936]. The receiving report rule is the same [@CL-CTF-0229] [@CL-CTF-2937], with the same listed information [@CL-CTF-0230] [@CL-CTF-2938]. Where no receiving report on a prescribed form is required, the invoice carries the listed line item information in addition to what paragraph (c)(1) requires [@CL-CTF-0231] [@CL-CTF-2939], namely the ship-to point, the mark-for point and, if in the contract, the document number [@CL-CTF-0232] [@CL-CTF-2940], and a copy of the invoice goes in each shipment [@CL-CTF-0233] [@CL-CTF-2941]. The certification covers shipment or delivery in accordance with the ordering officer's shipping instructions and in the quantities shown [@CL-CTF-0234] [@CL-CTF-2942], and the quantity and quality the contract, order or blanket purchase agreement designates [@CL-CTF-0235] [@CL-CTF-2943]. Outer shipping containers are marked "FAST PAY", and the payment office may still make fast payment if one is not marked [@CL-CTF-0236] [@CL-CTF-2944], and if it declines the contractor is paid under the procedures for invoices outside the clause [@CL-CTF-0237] [@CL-CTF-2973].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,7 +63,7 @@ The delivery that triggers payment is not the transfer of responsibility for the
 
 A missing "FAST PAY" mark does not by itself bar fast payment, because the payment office may still accept the invoice or make fast payment [@CL-CTF-2933; @CL-CTF-2944]. If it declines, the Contractor is paid under the procedures that apply to invoices outside the clause [@CL-CTF-2934; @CL-CTF-2973].
 
-Whether the order requires a receiving report changes what the invoice must carry [@CL-CTF-2937; @CL-CTF-2939].
+Whether the order requires a receiving report changes what the invoice must carry [@CL-CTF-2937; @CL-CTF-2939]. The codified clause is FAR 52.213-1 [@CL-CTF-2930], but the RFO text prints it as FAR 52.232-90 [@CL-CTF-0222] and marks FAR 52.213-1 [Reserved] [@CL-CTF-0241].
 
 ## Company calibration
 
@@ -69,4 +73,5 @@ Which orders carry the clause, how invoices and containers are marked and routed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fast payment eligibility and invoicing.

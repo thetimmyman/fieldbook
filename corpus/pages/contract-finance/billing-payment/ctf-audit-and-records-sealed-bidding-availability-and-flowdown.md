@@ -24,7 +24,7 @@ States how long the materials must stay available under the sealed bidding audit
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2948] |
 | Codified citation | FAR 52.214-26 [@CL-CTF-2948] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.214-26 [@CL-CTF-0011; @CL-CTF-0012; @CL-CTF-0013; @CL-CTF-0014; @CL-CTF-0015]; No RFO equivalent for Alternate I, which the RFO section does not print [@CL-CTF-0016] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2948] |
 | Applies to | Sealed bidding contracts in which the clause is inserted under its own prescription [@CL-CTF-2948] |
@@ -45,11 +45,13 @@ Alternate I substitutes only its paragraphs (c) and (e), so the availability par
 
 The flowdown in the basic clause tests the certified cost or pricing data threshold on the date of subcontract award [@CL-CTF-2958]. Alternate I covers all subcontracts, but the Inspector General's authority in paragraph (c)(2) does not flow down to them [@CL-CTF-2959; @CL-CTF-2960].
 
+Under the RFO text, which DoD contracting officers use in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762], the comparison with the codified text is as follows. RFO FAR 52.214-26 keeps the availability rules: the materials described in paragraph (b) stay available at the contractor's office at all reasonable times until 3 years after final payment [@CL-CTF-2954; @CL-CTF-0011], or for any other period specified in subpart 4.7, which is incorporated by reference [@CL-CTF-2955; @CL-CTF-0012]; records of terminated work stay available for 3 years after any resulting final termination settlement [@CL-CTF-2956; @CL-CTF-0013]; and records on appeals, litigation or claims stay available until their disposition [@CL-CTF-2957; @CL-CTF-0014]. It also keeps the flowdown to subcontracts expected to exceed the certified cost or pricing data threshold in FAR 15.403-4(a)(1) on the date of subcontract award [@CL-CTF-2958; @CL-CTF-0015]. The RFO section ends after paragraph (e) and prints no Alternate I [@CL-CTF-0016], where the codified text has an Alternate I with its own flowdown paragraph and the Inspector General carve-out [@CL-CTF-2959; @CL-CTF-2960].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A sealed bid contract with the basic clause runs from month 0. Part of the work is terminated and the final termination settlement comes in month 12. Final payment is made in month 30. A claim under the Disputes clause is disposed of in month 40. Assume subpart 4.7 specifies no other period for these records. The materials described in paragraph (b) must be available until month 66, which is 3 years after final payment. Terminated-work records that are not among the paragraph (b) materials must be available until month 48, which is 3 years after the settlement, and claim records that are not among them must be available until month 40, when the claim is disposed of. A record that is both a paragraph (b) material and a terminated-work or claim record meets every period that applies to it, so it stays available until month 66; the earlier endpoints do not release it from the paragraph (b) period. The Contractor awards one subcontract expected to exceed the certified cost or pricing data threshold on its award date and another expected to stay below it. The basic clause requires the clause in the first subcontract. Under Alternate I the clause would go into both, but the Inspector General's interview authority would not flow down to either.
+A sealed bid contract with the basic clause runs from month 0. Part of the work is terminated and the final termination settlement comes in month 12. Final payment is made in month 30. A claim under the Disputes clause is disposed of in month 40. Assume subpart 4.7 specifies no other period for these records. The materials described in paragraph (b) must be available until month 66, which is 3 years after final payment. Terminated-work records that are not among the paragraph (b) materials must be available until month 48, which is 3 years after the settlement, and claim records that are not among them must be available until month 40, when the claim is disposed of. A record that is both a paragraph (b) material and a terminated-work or claim record meets every period that applies to it, so it stays available until month 66; the earlier endpoints do not release it from the paragraph (b) period. The Contractor awards one subcontract expected to exceed the certified cost or pricing data threshold on its award date and another expected to stay below it. The basic clause requires the clause in the first subcontract. Under Alternate I the clause would go into both, but the Inspector General's interview authority would not flow down to either. The RFO section prints no Alternate I, so that last case has no counterpart in the RFO text [@CL-CTF-0016].
 
 ## Never confuse
 
@@ -57,7 +59,7 @@ Availability is not the examination right. The examination right attaches to rec
 
 The period of 3 years after final payment is not the only one: subpart 4.7 can specify another, terminated work runs from the final termination settlement, and appeals, litigation and claims run until disposition [@CL-CTF-2954; @CL-CTF-2955; @CL-CTF-2956; @CL-CTF-2957].
 
-The flowdown differs by version. The basic clause covers subcontracts expected to exceed the certified cost or pricing data threshold on the award date, and Alternate I covers all subcontracts, except that the Inspector General's authority in paragraph (c)(2) does not flow down [@CL-CTF-2958; @CL-CTF-2959; @CL-CTF-2960].
+The flowdown differs by version. The basic clause covers subcontracts expected to exceed the certified cost or pricing data threshold on the award date, and Alternate I covers all subcontracts, except that the Inspector General's authority in paragraph (c)(2) does not flow down [@CL-CTF-2958; @CL-CTF-2959; @CL-CTF-2960]. In the codified text the flowdown differs by version because Alternate I exists [@CL-CTF-2958; @CL-CTF-2959], but the RFO section prints one flowdown paragraph, (e), and no Alternate I [@CL-CTF-0015; @CL-CTF-0016].
 
 ## Company calibration
 
@@ -67,4 +69,5 @@ Where modification records are kept, when final payment is recorded, and which s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for record availability periods and subcontract flowdown under sealed bidding.
