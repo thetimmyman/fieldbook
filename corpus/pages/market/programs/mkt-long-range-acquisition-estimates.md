@@ -47,7 +47,7 @@ An agency head releases an estimate of 2,000 units of an item for a fiscal year.
 
 ## Never confuse
 
-A long-range estimate is not a notice of a proposed action. The release states that more specific information on an item is not furnished until the proposed action is synopsized or the solicitation is issued, so the estimate is an early planning signal only [@CL-MKT-0093; @CL-MKT-0154]. The synopsis of an award is a further, different notice, covered on the [Synopses of contract awards](../feeds/mkt-contract-award-synopses.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+A long-range estimate is not a notice of a proposed action. The release states that more specific information on an item is not furnished until the proposed action is synopsized through the GPE or the solicitation is issued, and the estimate is in no way binding on the Government [@CL-MKT-0093; @CL-MKT-0154]. The synopsis of an award is a further, different notice, covered on the [Synopses of contract awards](../feeds/mkt-contract-award-synopses.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Confirm which product families, customer groups and market segments define the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the GPE synopsis condition and dropped the unsupported planning-signal wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the introductory statement on publicizing long-range estimates.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of long-range acquisition estimates.

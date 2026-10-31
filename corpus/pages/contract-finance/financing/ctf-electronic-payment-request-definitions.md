@@ -23,17 +23,17 @@ Fixes the meaning of electronic form, payment request and receiving report for t
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CTF-3842] |
-| Codified citation | DFARS 232.7000 and DFARS 232.7001 [@CL-CTF-3752; @CL-CTF-3842] |
+| Codified citation | DFARS 232.7000 and DFARS 232.7001 [@CL-CTF-3752; @CL-CTF-3842]; FAR 2.101 [@CL-CTF-9422] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3842] |
 | Applies to | The terms used in the subpart on electronic submission and processing of payment requests and receiving reports [@CL-CTF-3842; @CL-CTF-3843; @CL-CTF-3844] |
 
-The subpart prescribes policies and procedures for submitting and processing payment requests in electronic form to comply with 10 U.S.C. 4601 [@CL-CTF-3752].
+The subpart prescribes policies and procedures for submitting and processing payment requests in electronic form to comply with section 4601 of title 10 of the United States Code [@CL-CTF-3752].
 
 The definitions apply as used in the subpart on electronic submission and processing of payment requests and receiving reports [@CL-CTF-3842]. An electronic form is any automated system that transmits information electronically from the initiating system to affected systems [@CL-CTF-3842].
 
-A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of the chapter, Material Inspection and Receiving Report [@CL-CTF-3844].
+A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of the chapter, Material Inspection and Receiving Report [@CL-CTF-3844]. The FAR definitions section separately describes a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed, with a cross-reference to subpart 46.6, and says receiving reports must meet the requirements of 32.905(c) [@CL-CTF-9422].
 
 ## How it works
 
@@ -59,5 +59,7 @@ Whether the company's systems for submitting payment requests and receiving repo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded a U.S.C. citation so the sentence keeps its claim.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of receiving report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.7000 scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD definitions of electronic form, payment request and receiving report.

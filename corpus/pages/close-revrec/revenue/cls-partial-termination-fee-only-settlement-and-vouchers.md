@@ -23,13 +23,15 @@ Shows when the terminating contracting officer (TCO) limits the settlement of a 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-1312] |
-| Codified citation | FAR 49.304-1, 49.304-2 and 49.304-3 [@CL-CLS-1312; @CL-CLS-1316; @CL-CLS-1320] |
+| Codified citation | FAR 49.304-1, 49.304-2 and 49.304-3 [@CL-CLS-1312; @CL-CLS-1316; @CL-CLS-1320]; FAR 2.101 [@CL-CLS-1518] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-1312] |
 | Applies to | Partial terminations of cost-reimbursement contracts; the voucher sentence applies where the settlement is limited to adjustment of fee [@CL-CLS-1312; @CL-CLS-1316; @CL-CLS-1320] |
 
 In a partial termination, the TCO shall limit the settlement to an adjustment of the fee, if any, and, with the concurrence of the contracting office, to a reduction in the estimated cost [@CL-CLS-1312]. The TCO shall adjust the fee as provided in 49.304-2 and 49.305 unless the terminated portion is clearly severable from the balance of the contract [@CL-CLS-1313], or performance of the contract is virtually complete, or performance of any continued portion is only on subsidiary items or spare parts, or is otherwise not substantial [@CL-CLS-1314]. In the case of those exceptions, the procedures in 49.302 and 49.303 apply [@CL-CLS-1315].
+
+The FAR definitions section describes the terminated portion of the contract as the portion of a contract that the contractor is not to perform following a partial termination [@CL-CLS-1518].
 
 The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. The final settlement proposal shall be submitted to the TCO within one year from the effective date of termination, unless the TCO extends the period [@CL-CLS-1317]. The proposal may be submitted in the form prescribed in 49.602-1 or by letter appropriately certified [@CL-CLS-1318]. The contractor shall substantiate the amount of fee claimed, and the section refers to 49.305 for the fee [@CL-CLS-1319].
 
@@ -75,4 +77,5 @@ Whether the fee-only route is confirmed in writing, with the fee reduction subst
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of terminated portion of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for partial termination for convenience of cost-reimbursement contracts.

@@ -36,7 +36,7 @@ The note to the schedule gives the listing rules. All valuation and qualifying a
 
 ## How it works
 
-Section 5-04 says when Schedule II is filed, and § 12-09 gives its form; §§ 6-10 and 7-05 call for the same form under their own schedule numbers [@CL-CLS-0405; @CL-CLS-0406; @CL-CLS-0411; @CL-CLS-0412]. The columns run from the balance at the beginning of the period, through additions and deductions, to the balance at the end of the period [@CL-CLS-0399]. Additions are split between amounts charged to costs and expenses and amounts charged to other accounts, which are described [@CL-CLS-0400]. Deductions are described [@CL-CLS-0399]. The classes are listed, titled and grouped under the note [@CL-CLS-0401; @CL-CLS-0402; @CL-CLS-0403]. The paragraph on small accounts sets no figure for "individually significant" and does not say who judges it [@CL-CLS-0404].
+Section 5-04 says when Schedule II is filed, and § 12-09 gives its form [@CL-CLS-0405; @CL-CLS-0406]; §§ 6-10 and 7-05 call for the same form under their own schedule numbers [@CL-CLS-0405; @CL-CLS-0406; @CL-CLS-0411; @CL-CLS-0412]. The columns run from the balance at the beginning of the period, through additions and deductions, to the balance at the end of the period [@CL-CLS-0399]. Additions are split between amounts charged to costs and expenses and amounts charged to other accounts, which are described [@CL-CLS-0400]. Deductions are described [@CL-CLS-0399]. The classes are listed, titled and grouped under the note [@CL-CLS-0401; @CL-CLS-0402; @CL-CLS-0403]. The paragraph on small accounts sets no figure for "individually significant" and does not say who judges it [@CL-CLS-0404].
 
 ## Worked example
 
@@ -56,4 +56,5 @@ Which valuation and qualifying accounts and reserves the company carries, their 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the Schedule II sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the valuation and qualifying accounts schedule.

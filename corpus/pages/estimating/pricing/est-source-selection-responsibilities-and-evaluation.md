@@ -53,7 +53,7 @@ An agency runs a competition for a firm-fixed-price supply item. The contracting
 
 ## Never confuse
 
-Competition normally establishes price reasonableness, so in a fixed-price source selection the comparison of proposed prices usually satisfies the price analysis requirement [@CL-EST-1380]. See [Proposal analysis techniques](est-proposal-analysis.md). The source selection authority role belongs to the contracting officer by default, but the agency head may appoint another individual [@CL-EST-1376].
+Competition normally establishes price reasonableness, so when contracting on a firm-fixed-price or fixed-price with economic price adjustment basis, the comparison of proposed prices will usually satisfy the price analysis requirement [@CL-EST-1380]. See [Proposal analysis techniques](est-proposal-analysis.md). The source selection authority role belongs to the contracting officer by default, but the agency head may appoint another individual [@CL-EST-1376].
 
 In a firm-fixed-price or fixed-price with economic price adjustment acquisition, the codified text says comparison of the proposed prices will usually satisfy the requirement to perform a price analysis and a cost analysis need not be performed [@CL-EST-1380], while RFO FAR 15.404(a)(2) says price analysis must be used when certified cost or pricing data are not required [@CL-EST-3469] and that cost analysis may also be used when a fair and reasonable price cannot be determined through price analysis alone [@CL-EST-3470].
 
@@ -65,6 +65,7 @@ Which proposals need cost realism support because they are cost-reimbursement, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Limited the price-analysis sentence to firm-fixed-price and economic-price-adjustment contracting.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.300 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 11.801 preaward in-use evaluation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.200 subpart scope.

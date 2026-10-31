@@ -23,13 +23,15 @@ Shows that a warranty is optional, what the contracting officer considers in dec
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0872] |
-| Codified citation | FAR 46.703, 46.704, 46.706, 46.707 and 46.709 [@CL-SUP-0872; @CL-SUP-0960; @CL-SUP-0874; @CL-SUP-4144; @CL-SUP-4145; @CL-SUP-4146; @CL-SUP-4148] |
+| Codified citation | FAR 46.703, 46.704, 46.706, 46.707 and 46.709 [@CL-SUP-0872; @CL-SUP-0960; @CL-SUP-0874; @CL-SUP-4144; @CL-SUP-4145; @CL-SUP-4146; @CL-SUP-4148]; FAR 2.101 [@CL-SUP-9568] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0872] |
 | Applies to | Acquisitions where the contracting officer decides a warranty is appropriate, and where use of a warranty is approved under agency procedures [@CL-SUP-0872; @CL-SUP-0960] |
 
 The use of warranties is not mandatory, and in determining whether a warranty is appropriate for a specific acquisition the contracting officer shall consider the listed factors [@CL-SUP-0872]. The use of a warranty in an acquisition shall be approved in accordance with agency procedures [@CL-SUP-0960]. The factors include the nature and use of the supplies or services, such as complexity and function, degree of development, state of the art, end use, difficulty in detecting defects before acceptance, and potential harm to the Government if the item is defective [@CL-SUP-0963]. They also include cost, because warranty costs arise from the contractor's charge for accepting the deferred liability created by the warranty and from Government administration and enforcement of the warranty [@CL-SUP-0873]. The Government's ability to enforce a warranty is essential to its effectiveness, and there must be some assurance that an adequate administrative system for reporting defects exists or can be established [@CL-SUP-0964]. Where an item is customarily warranted in the trade and its cost to the Government is the same whether or not a warranty is included, it would be in the Government's interest to include such a warranty [@CL-SUP-0965]. The contractor's charge for assumption of added liability may be partially or completely offset by reducing the Government's contract quality assurance requirements where the warranty provides adequate assurance of a satisfactory product [@CL-SUP-0966].
+
+The FAR definitions section describes a warranty as a promise or affirmation given by a contractor to the Government regarding the nature, usefulness, or condition of the supplies or performance of services furnished under the contract [@CL-SUP-9568].
 
 To facilitate the pricing and enforcement of warranties, the contracting officer shall ensure that warranties clearly state, among listed items, the exact nature of the item and its components and characteristics that the contractor warrants [@CL-SUP-0874]. Three further listed items are the extent of the contractor's warranty including all of the contractor's obligations to the Government for breach of warranty, the specific remedies available to the Government, and the scope and duration of the warranty [@CL-SUP-0874; @CL-SUP-0875].
 
@@ -59,5 +61,6 @@ How warranty obligations and expected defect costs are recorded for each contrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of warranty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added fixed-price incentive warranty pricing and commercial warranties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for warranty criteria, terms and remedies.

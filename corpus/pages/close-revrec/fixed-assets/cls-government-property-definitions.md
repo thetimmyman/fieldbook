@@ -23,7 +23,7 @@ Fixes the meaning of the property terms as they are used in the Government prope
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0340] |
-| Codified citation | FAR 45.101 [@CL-CLS-0340] |
+| Codified citation | FAR 45.101 [@CL-CLS-0340]; FAR 2.101 [@CL-CLS-1523; @CL-CLS-1524] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0340] |
@@ -58,6 +58,8 @@ The section defines each term below except real property, for which it gives onl
 | Unit acquisition cost | For Government-furnished property, the dollar value assigned by the Government and identified in the contract. For contractor-acquired property, the cost derived from the contractor's records that reflect consistently applied generally accepted accounting principles | [@CL-CLS-0360; @CL-CLS-0361] |
 
 The section as printed gives no separate definition of acquisition cost (apart from unit acquisition cost), plant equipment, special tooling or special test equipment. It names special tooling and special test equipment only inside the definitions of equipment, material and Government property [@CL-CLS-0339; @CL-CLS-0344; @CL-CLS-0350].
+
+The definitions section of FAR part 2 does define special tooling as jigs, dies, fixtures, molds, patterns, taps, gauges, and all components of these items including foundations and similar improvements necessary for installing special tooling [@CL-CLS-1523], of such a specialized nature that without substantial modification or alteration their use is limited to the development or production of particular supplies or parts thereof or to the performance of particular services [@CL-CLS-1524]. It does not include material, special test equipment, real property, equipment, machine tools, or similar capital items, so an item in any of those classes is not special tooling even if it is specialized [@CL-CLS-1527].
 
 ## How it works
 
@@ -103,4 +105,5 @@ Which of the company's property records use these defined terms unaltered, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of special tooling, including its exclusions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions used for Government property.

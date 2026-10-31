@@ -23,13 +23,15 @@ Shows when subline items are used and what data each line item or subline item m
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0344] |
-| Codified citation | FAR 4.1004 and FAR 4.1005-1 [@CL-MKT-0344; @CL-MKT-0345; @CL-MKT-0370; @CL-MKT-0371; @CL-MKT-0372] |
+| Codified citation | FAR 4.1004 and FAR 4.1005-1 [@CL-MKT-0344; @CL-MKT-0345; @CL-MKT-0370; @CL-MKT-0371; @CL-MKT-0372]; FAR 2.101 [@CL-MKT-9236] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0344] |
 | Applies to | Each line item or subline item in the schedule or a comparable section of a procurement instrument, except as the section provides [@CL-MKT-0345] |
 
 Subline items may be used to facilitate tracking of performance, deliverables, payment, and contract funds accounting or for other management purposes [@CL-MKT-0344]. Subline items may be either deliverable or informational [@CL-MKT-0344].
+
+The FAR definitions section describes a subline item as a subset of a line item [@CL-MKT-9236].
 
 Except as the section provides, each line item or subline item shall include in the schedule, at a minimum, the listed information as separate, distinct data elements [@CL-MKT-0345]. The listed elements start with the line item or subline item number established in accordance with agency procedures, a description of what is being purchased, and the Product or Service Code [@CL-MKT-0346]. The next is the accounting classification citation for line items or deliverable subline items, and if multiple accounting classifications for a single deliverable apply, the dollar amount for each is included [@CL-MKT-0347]. For informational subline items, an accounting classification citation is not required [@CL-MKT-0370]. Fixed-price line items show unit of measure, quantity, unit price and total price [@CL-MKT-0348]. Cost-reimbursement line items show unit of measure, quantity, estimated cost, fee if any, and total estimated cost plus any fee [@CL-MKT-0348]. Each deliverable line item or deliverable subline item shall have its own delivery schedule, destination, period of performance, or place of performance expressly stated in the appropriate section of the procurement instrument [@CL-MKT-0349]. When a line item has deliverable subline items, those terms shall be identified at the subline item level, rather than the line item level [@CL-MKT-0372]. If a contract contains a combination of fixed-price, time-and-materials, labor-hour, or cost-reimbursable line items, the contract type for each line item must be identified in the schedule or a comparable section of the procurement instrument to facilitate payment [@CL-MKT-0371].
 
@@ -55,4 +57,5 @@ Which contracts and line structures are inside the finance remit, and which line
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of subline item.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract line items, subline items and required data elements.

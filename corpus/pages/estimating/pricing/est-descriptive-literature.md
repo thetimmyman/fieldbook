@@ -23,13 +23,13 @@ Explains when a sealed bid must be supported by descriptive literature, what tha
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2010] |
-| Codified citation | FAR 52.214-21 [@CL-EST-2011] |
+| Codified citation | FAR 52.214-21 [@CL-EST-2011]; FAR 2.101 [@CL-EST-9333] |
 | RFO citation | RFO FAR 52.214-21 [@CL-EST-0160; @CL-EST-0182] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2010] |
 | Applies to | Solicitations that include the descriptive literature provision [@CL-EST-2120], and those that add its Alternate I [@CL-EST-2124] |
 
-Descriptive literature is information furnished by a bidder, such as cuts, illustrations, drawings and brochures, that shows a product's characteristics or construction or explains its operation [@CL-EST-2010]. The term includes only that information required to evaluate the acceptability of the product and excludes other information for operating or maintaining the product [@CL-EST-2121].
+Descriptive literature is information furnished by a bidder, such as cuts, illustrations, drawings and brochures, that shows a product's characteristics or construction or explains its operation [@CL-EST-2010]. The term includes only that information required to evaluate the acceptability of the product and excludes other information for operating or maintaining the product [@CL-EST-2121]. The FAR definitions section defines the term for the whole FAR as information provided by an offeror, such as cuts, illustrations, drawings, and brochures, that shows a product's characteristics or construction of a product or explains its operation [@CL-EST-9333]. The provision on this card says information furnished by a bidder [@CL-EST-2010].
 
 It is required to establish, for the purpose of evaluation and award, details of the product offered that are specified elsewhere in the solicitation and pertain to significant elements [@CL-EST-2011]. The significant elements include design, materials, components, performance characteristics, and methods of manufacture, assembly, construction or operation [@CL-EST-2122].
 
@@ -71,5 +71,6 @@ Confirm who assembles descriptive literature for a bid and who checks it against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of descriptive literature.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for descriptive literature under sealed bidding.

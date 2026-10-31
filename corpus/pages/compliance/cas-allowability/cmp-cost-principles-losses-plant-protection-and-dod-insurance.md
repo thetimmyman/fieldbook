@@ -33,11 +33,11 @@ Losses on other contracts. The codified section says that an excess of costs ove
 
 Plant protection costs. The codified section says that costs of items such as wages, uniforms and equipment of personnel engaged in plant protection, depreciation on plant protection capital assets, and necessary expenses to comply with military requirements are allowable [@CL-CMP-8699]. The RFO section says that allowable plant protection costs include the same three kinds of cost [@CL-CMP-8700]. Both lists are open: the codified text says "items such as" and the RFO text says "include" [@CL-CMP-8699; @CL-CMP-8700].
 
-Insurance (DFARS 231.205-19(e)). In addition to the cost limitations in FAR 31.205-19(e), self-insurance and purchased insurance costs are subject to the requirements of the clauses at 252.217-7012, Liability and Insurance, and 252.228-7001, Ground and Flight Risk [@CL-CMP-8701]. The paragraph does not set out those clause requirements.
+Insurance (DFARS 231.205-19(e)): In addition to the cost limitations in FAR 31.205-19(e), self-insurance and purchased insurance costs are subject to the requirements of the clauses at 252.217-7012, Liability and Insurance, and 252.228-7001, Ground and Flight Risk [@CL-CMP-8701]. The paragraph does not set out those clause requirements.
 
-Clause prescription (DFARS 231.100-70). The instruction is to use the clause at 252.231-7000, Supplemental Cost Principles, in all solicitations and contracts which are subject to the principles and procedures described in FAR subpart 31.1, 31.2, 31.6 or 31.7 [@CL-CMP-8702]. The section names no official and does not say who is to insert the clause [@CL-CMP-8702].
+Clause prescription (DFARS 231.100-70): The instruction is to use the clause at 252.231-7000, Supplemental Cost Principles, in all solicitations and contracts which are subject to the principles and procedures described in FAR subpart 31.1, 31.2, 31.6 or 31.7 [@CL-CMP-8702]. The section names no official and does not say who is to insert the clause [@CL-CMP-8702].
 
-Statutory unallowability (DFARS 231.603 and 231.703). Each section says that, under section 4652 of title 10 of the United States Code, the costs cited in 231.205-22(a) are unallowable [@CL-CMP-8703; @CL-CMP-8704]. Those costs are the costs associated with preparing any material, report, list, or analysis on the actual or projected economic or employment impact in a particular State or congressional district [@CL-CMP-8705], where the impact is that of an acquisition program for which all research, development, testing, and evaluation has not been completed, and that paragraph calls them also unallowable [@CL-CMP-8706]. DFARS 231.603 is printed in the subpart for contracts with State, local, and federally recognized Indian tribal governments [@CL-CMP-8709], and DFARS 231.703 in the subpart for contracts with nonprofit organizations [@CL-CMP-8710].
+Statutory unallowability (DFARS 231.603 and 231.703): Each section says that, under section 4652 of title 10 of the United States Code, the costs cited in 231.205-22(a) are unallowable [@CL-CMP-8703; @CL-CMP-8704]. Those costs are the costs associated with preparing any material, report, list, or analysis on the actual or projected economic or employment impact in a particular State or congressional district [@CL-CMP-8705], where the impact is that of an acquisition program for which all research, development, testing, and evaluation has not been completed, and that paragraph calls them also unallowable [@CL-CMP-8706]. DFARS 231.603 is printed in the subpart for contracts with State, local, and federally recognized Indian tribal governments [@CL-CMP-8709], and DFARS 231.703 in the subpart for contracts with nonprofit organizations [@CL-CMP-8710].
 
 None of these sections names an official who decides, and none prints a dollar threshold or a deadline.
 
@@ -61,7 +61,7 @@ A company's costs on another contract exceed that contract's income by 25,000, o
 
 Plant protection costs are not a loss on another contract. The plant protection sections call listed kinds of cost allowable, and the loss sections call an excess of costs over income under another contract unallowable [@CL-CMP-8699; @CL-CMP-8700; @CL-CMP-8697; @CL-CMP-8698].
 
-The codified text speaks of an excess of costs over income under any other contract [@CL-CMP-8697]. The unallowable cost card at [CAS 405 unallowable costs](../cas-allowability/cmp-cas-405-unallowable-costs.md) covers the separate unallowable cost classes.
+The codified text speaks of an excess of costs over income under any other contract [@CL-CMP-8697]. The unallowable cost card at [Accounting for unallowable costs](../cas-allowability/cmp-cas-405-unallowable-costs.md) covers the separate unallowable cost classes.
 
 ## Company calibration
 
@@ -71,4 +71,5 @@ How unallowable costs are kept out of rate and billing pools: accounts, review a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Joined three lead-ins to their cited sentences; renamed one link text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for losses on other contracts, plant protection costs and the DoD insurance requirements.

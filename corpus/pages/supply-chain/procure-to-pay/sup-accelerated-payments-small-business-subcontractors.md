@@ -23,13 +23,13 @@ Shows how a prime contractor passes accelerated payments from the Government on 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0570] |
-| Codified citation | FAR 52.232-40, FAR 32.009-1 and FAR 32.009-2 [@CL-SUP-0570; @CL-SUP-0575; @CL-SUP-0706; @CL-SUP-0707; @CL-SUP-4110] |
+| Codified citation | FAR 52.232-40, FAR 32.009-1 and FAR 32.009-2 [@CL-SUP-0570; @CL-SUP-0575; @CL-SUP-0706; @CL-SUP-0707; @CL-SUP-4110]; FAR 2.101 [@CL-SUP-9569] |
 | RFO citation | RFO FAR 52.232-40 [@CL-SUP-0001; @CL-SUP-0002; @CL-SUP-0003; @CL-SUP-0004; @CL-SUP-0005], RFO FAR 32.009-1 [@CL-SUP-4103; @CL-SUP-4104; @CL-SUP-4105; @CL-SUP-4106; @CL-SUP-4107; @CL-SUP-4108] and RFO FAR 32.009-2 [@CL-SUP-4109] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0570] |
 | Applies to | Contracts with the clause inserted as prescribed in FAR 32.009-2 [@CL-SUP-0704; @CL-SUP-4110] |
 
-Within 15 days after receipt of accelerated payments from the Government, the contractor shall make accelerated payments to its small business subcontractors under the contract, to the maximum extent practicable and prior to when such payment is otherwise required under the applicable contract [@CL-SUP-0570] or subcontract [@CL-SUP-0713]. The payment to a small business subcontractor follows receipt of a proper invoice and all other required documentation from that subcontractor [@CL-SUP-0705]. The contractor agrees to make such payments without any further consideration from or fees charged to the subcontractor [@CL-SUP-0571].
+Within 15 days after receipt of accelerated payments from the Government, the contractor shall make accelerated payments to its small business subcontractors under the contract, to the maximum extent practicable and prior to when such payment is otherwise required under the applicable contract [@CL-SUP-0570] or subcontract [@CL-SUP-0713]. The payment to a small business subcontractor follows receipt of a proper invoice and all other required documentation from that subcontractor [@CL-SUP-0705]. The contractor agrees to make such payments without any further consideration from or fees charged to the subcontractor [@CL-SUP-0571]. The FAR definitions section describes a small business subcontractor as a concern that does not exceed the size standard for the North American Industry Classification Systems code that the prime contractor determines best describes the product or service being acquired by the subcontract [@CL-SUP-9569].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Confirm how disbursements are scheduled so accelerated receipts reach small busi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of small business subcontractor.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR and RFO FAR 32.009-1 and 32.009-2 accelerated payment policy and clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accelerated payments to small business subcontractors.

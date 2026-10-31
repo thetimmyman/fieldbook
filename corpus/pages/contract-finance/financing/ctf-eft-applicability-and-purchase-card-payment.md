@@ -29,7 +29,7 @@ States when the Government pays by electronic funds transfer, the exceptions the
 | Text status | Final [@CL-CTF-1532] |
 | Applies to | All contract payments, subject to the listed exceptions, and payments made by Governmentwide commercial purchase card [@CL-CTF-1532; @CL-CTF-1539] |
 
-31 U.S.C. 3332 requires, subject to implementing regulations of the Secretary of the Treasury at 31 CFR part 208, that EFT be used to make all contract payments [@CL-CTF-3747].
+Section 3332 of title 31 of the United States Code requires, subject to implementing regulations of the Secretary of the Treasury at 31 CFR part 208, that EFT be used to make all contract payments [@CL-CTF-3747].
 
 The Government shall provide all contract payments through EFT except in the listed cases [@CL-CTF-1532]. One listed case is that the office making payment under a contract that requires payment by EFT loses the ability to release payment by EFT, and the paragraph then says what the payment office does until it can make EFT payments, which this card does not restate [@CL-CTF-1532]. Two further listed cases are a payment to be received by or on behalf of the contractor outside the United States and Puerto Rico and a contract paid in other than United States currency, each marked in the text with a cross-reference to 32.1106(b) [@CL-CTF-1533]. A further listed case is payment by EFT under a classified contract that could compromise the safeguarding of classified information or national security, or for which arrangements for appropriate EFT payments would be impractical due to security considerations [@CL-CTF-1534].
 
@@ -63,6 +63,7 @@ Confirm which contracts are paid by EFT or purchase card and which listed except
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded a U.S.C. citation so the sentence keeps its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.1100 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1100 scope and 32.1101 statutory EFT requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.1101 statutory EFT requirement.

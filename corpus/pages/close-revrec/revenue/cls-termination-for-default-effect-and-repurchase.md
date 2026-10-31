@@ -23,7 +23,7 @@ Explains what a termination for default means for payment, the cure notice and s
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0942] |
-| Codified citation | FAR 49.402-1, 49.402-2, 49.402-3 and 49.402-6 [@CL-CLS-0966; @CL-CLS-0942; @CL-CLS-0947; @CL-CLS-0949] |
+| Codified citation | FAR 49.402-1, 49.402-2, 49.402-3 and 49.402-6 [@CL-CLS-0966; @CL-CLS-0942; @CL-CLS-0947; @CL-CLS-0949]; FAR 2.101 [@CL-CLS-1522] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0942] |
@@ -34,6 +34,8 @@ Under contracts containing the Default clause at 52.249-8, the Government's righ
 Under a termination for default, the Government is not liable for the contractor's costs on undelivered work and is entitled to the repayment of advance and progress payments, if any, applicable to that work [@CL-CLS-0942]. The Government may elect, under the Default clause, to require the contractor to transfer title and deliver to the Government completed supplies and manufacturing materials, as directed by the contracting officer [@CL-CLS-0956]. Subject to the lien protection in the section's paragraph on overpayment, the Government shall pay the contractor the contract price for any completed supplies, and the amount agreed upon by the contracting officer and the contractor for any manufacturing materials, acquired by the Government under the Default clause [@CL-CLS-0943]. That paragraph requires that the Government be protected from overpayment that might result from failure to provide for its potential liability to laborers and material suppliers for lien rights outstanding against the completed supplies or materials after it has paid the contractor for them [@CL-CLS-0955].
 
 The contractor is liable to the Government for any excess costs incurred in acquiring supplies and services similar to those terminated for default, and for any other damages, whether or not repurchase is effected [@CL-CLS-0944]. Excess cost may not be charged against the defaulting contractor for more than the undelivered quantity terminated for default, including variations in quantity permitted by the terminated contract [@CL-CLS-0957]. If repurchase is made at a price over the price of the supplies or services terminated, the contracting officer shall, after completion and final payment of the repurchase contract, make a written demand on the contractor for the total amount of the excess [@CL-CLS-0949]. In making that demand, the contracting officer gives consideration to any increases or decreases in other costs such as transportation and discounts [@CL-CLS-0970].
+
+The FAR definitions section describes termination for default as the exercise of the Government's right to completely or partially terminate a contract because of the contractor's actual or anticipated failure to perform its contractual obligations [@CL-CLS-1522].
 
 ## How it works
 
@@ -59,4 +61,5 @@ How potential default exposure, repayable financing and excess reprocurement cos
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of termination for default.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for default.

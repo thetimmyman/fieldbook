@@ -48,7 +48,7 @@ The list identifies products, by their country of origin, that the Departments o
 
 ## How it works
 
-Both alternatives set the same age line, a person under the age of 18. Work that meets either alternative is forced or indentured child labor [@CL-CMP-8162; @CL-CMP-8163].
+Both alternatives set the same age line, a person under the age of 18 [@CL-CMP-8162; @CL-CMP-8163]. Work that meets either alternative is forced or indentured child labor [@CL-CMP-8162; @CL-CMP-8163].
 
 The first alternative turns on coercion. The work or service is exacted under the menace of a penalty for its nonperformance, and the worker does not offer himself voluntarily [@CL-CMP-8162].
 
@@ -84,5 +84,6 @@ Who confirms, before the certification is signed, that every supplier and countr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the shared age line.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the agency policy on forced or indentured child labor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forced or indentured child labor definitions.

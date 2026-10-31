@@ -32,7 +32,7 @@ Section 22.2103(a) covers contracts that meet two conditions [@CL-CMP-8195]. The
 
 When performance is in part within and in part outside the United States, the subpart applies to the part of the contract that is performed within the United States [@CL-CMP-8182].
 
-Section 22.2103(b) covers employees performing on or in connection with such contracts whose wages are governed by the Service Contract Labor Standards statute, the Wage Rate Requirements (Construction) statute, or the Fair Labor Standards Act. It includes employees who qualify for an exemption from the Fair Labor Standards Act's minimum wage and overtime provisions [@CL-CMP-8195; @CL-CMP-8183; @CL-CMP-8184].
+Section 22.2103(b) covers employees performing on or in connection with such contracts whose wages are governed by the Service Contract Labor Standards statute, the Wage Rate Requirements (Construction) statute, or the Fair Labor Standards Act [@CL-CMP-8183]. It includes employees who qualify for an exemption from the Fair Labor Standards Act's minimum wage and overtime provisions [@CL-CMP-8195; @CL-CMP-8183; @CL-CMP-8184].
 
 Section 22.2106 begins that, in accordance with 29 CFR 13.6 and by operation of the clause at 52.222-62, a contractor may not do the following [@CL-CMP-8185].
 
@@ -88,5 +88,6 @@ Whether each service and construction contract the company performs is covered, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on section 22.2103(b) coverage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule that employees cannot waive their paid sick leave rights.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for paid sick leave applicability and prohibited acts.

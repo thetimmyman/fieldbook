@@ -23,13 +23,15 @@ Shows who may protest a firm's status as an economically disadvantaged women-own
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0589] |
-| Codified citation | FAR 19.308 [@CL-MKT-0589] |
+| Codified citation | FAR 19.308 [@CL-MKT-0589]; FAR 2.101 [@CL-MKT-9232; @CL-MKT-9233] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0589] |
 | Applies to | Protests of an offeror's EDWOSB or WOSB status [@CL-MKT-0589; @CL-MKT-0590] |
 
 For sole source acquisitions, the contracting officer or SBA may protest the offeror's status as an economically disadvantaged women-owned small business concern or as a women-owned small business concern eligible under the Women-Owned Small Business Program [@CL-MKT-0589]. For all other acquisitions, an interested party may protest the apparent successful offeror's status [@CL-MKT-0590]. An interested party that wants to protest both size and WOSB or EDWOSB status shall file two separate protests [@CL-MKT-0654].
+
+The FAR definitions section describes a women-owned small business concern eligible under the WOSB Program as a small business concern that is at least 51 percent directly and unconditionally owned by, and whose management and daily business operations are controlled by, one or more women who are citizens of the United States [@CL-MKT-9232], and that is certified by SBA or an approved third-party certifier in accordance with 13 CFR 127.300 [@CL-MKT-9233].
 
 An offeror shall submit its protest to the contracting officer to be received by the close of business by the fifth business day after bid opening for sealed bid acquisitions [@CL-MKT-0591]. For negotiated acquisitions, one listed deadline is the close of business by the fifth business day after receipt of the special notification that identifies the apparently successful offeror [@CL-MKT-0592]. Any protest received after the designated time limit is untimely, unless it is from the contracting officer or SBA [@CL-MKT-0593].
 
@@ -55,4 +57,5 @@ Which bids need immediate support when a status protest could be filed or answer
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of WOSB concern eligible under the WOSB Program.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protests of economically disadvantaged or women-owned small business status.

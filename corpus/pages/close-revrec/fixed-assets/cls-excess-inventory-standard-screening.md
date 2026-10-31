@@ -23,13 +23,15 @@ Shows when screening of excess contractor inventory begins, how long standard sc
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0362] |
-| Codified citation | FAR 45.602-3 [@CL-CLS-0362] |
+| Codified citation | FAR 45.602-3 [@CL-CLS-0362]; FAR 2.101 [@CL-CLS-1525] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0362] |
 | Applies to | Inventory disposal schedules that the plant clearance officer has accepted [@CL-CLS-0362] |
 
 The screening period begins when the plant clearance officer accepts an inventory disposal schedule [@CL-CLS-0362]. That officer decides whether standard or special screening is appropriate and starts the screening actions [@CL-CLS-0362]. The standard screening period is 46 days [@CL-CLS-0363].
+
+The FAR definitions section describes a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site [@CL-CLS-1525].
 
 ## How it works
 
@@ -44,11 +46,11 @@ Standard screening runs in two stages.
 
 The heading of the second stage describes days 21 through 46 as 21 days of concurrent screening plus 5 days of donation processing [@CL-CLS-0471]. With the 20 days of the first stage [@CL-CLS-0364], the stages add up to the 46-day standard period [@CL-CLS-0363].
 
-In the first 20 days the contracting agency screens the property reported on the schedule for other use within the agency. It also screens for transfer of educationally useful equipment to other Federal agencies that have expressed a need, and to schools and nonprofit organizations if a Federal agency has not expressed a need [@CL-CLS-0364; @CL-CLS-0365]. In that stage, excess personal property that meets the conditions of 45.603 may be abandoned, destroyed, or donated to public bodies [@CL-CLS-0366].
+In the first 20 days the contracting agency screens the property reported on the schedule for other use within the agency [@CL-CLS-0364]. It also screens for transfer of educationally useful equipment to other Federal agencies that have expressed a need, and to schools and nonprofit organizations if a Federal agency has not expressed a need [@CL-CLS-0364; @CL-CLS-0365]. In that stage, excess personal property that meets the conditions of 45.603 may be abandoned, destroyed, or donated to public bodies [@CL-CLS-0366].
 
 The plant clearance officer must submit the four copies of the revised schedules and SF 120, or an electronic equivalent, to GSA no later than the 21st day [@CL-CLS-0367].
 
-From the 21st day [@CL-CLS-0471], GSA will normally honor requests for transfers on a first-come-first-served basis through the 41st day. When a request is honored, the GSA regional office must promptly send the plant clearance officer an approved transfer order that includes shipping instructions [@CL-CLS-0368]. Screening for donation is also completed during days 21 through 41. Property is not available for allocation to donees until screening is complete, and days 42 through 46 are reserved for GSA to make that allocation [@CL-CLS-0369].
+From the 21st day [@CL-CLS-0471], GSA will normally honor requests for transfers on a first-come-first-served basis through the 41st day. When a request is honored, the GSA regional office must promptly send the plant clearance officer an approved transfer order that includes shipping instructions [@CL-CLS-0368]. Screening for donation is also completed during days 21 through 41 [@CL-CLS-0369]. Property is not available for allocation to donees until screening is complete, and days 42 through 46 are reserved for GSA to make that allocation [@CL-CLS-0369].
 
 If an agency receives an intra-agency transfer request during the screening periods in paragraph (a)(2), the plant clearance officer must request GSA approval to withdraw the item from the inventory disposal schedule [@CL-CLS-0370].
 
@@ -98,4 +100,6 @@ Which of the company's excess inventory schedules are under screening, and what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the first-stage and donation screening sentences.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of plant clearance officer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for screening of excess contractor inventory.

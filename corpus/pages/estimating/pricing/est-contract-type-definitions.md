@@ -23,7 +23,7 @@ Collects the terms that the definitions section of the contract-types part defin
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-0973] |
-| Codified citation | FAR 16.001 [@CL-EST-0973] |
+| Codified citation | FAR 16.001 [@CL-EST-0973]; FAR 2.101 [@CL-EST-9331; @CL-EST-9332] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-0973] |
@@ -62,7 +62,7 @@ An award-fee plan names a board of five people. The plan sets evaluation periods
 
 ## Never confuse
 
-The section as stored here defines the four terms above. It prints no definition of base fee or of an award-fee evaluation period, so those two terms are not defined by this card. A catalog price is not by itself an established price, because the price must also be the net price after the standard trade discounts that the contractor offers [@CL-EST-0941]. The board assists in making award-fee determinations, and the Fee-Determining Official reviews the board's recommendations in determining the award fee to be earned [@CL-EST-0940; @CL-EST-0942].
+The section as stored here defines the four terms above. It prints no definition of base fee or of an award-fee evaluation period, so those two terms are not defined by this card. A catalog price is not by itself an established price, because the price must also be the net price after the standard trade discounts that the contractor offers [@CL-EST-0941]. The FAR definitions section defines a catalog price for purposes of the services described in paragraph (2) of its definition of commercial service, as a price included in a catalog, price list, schedule, or other form that is regularly maintained by the manufacturer or vendor [@CL-EST-9331]. Under that definition the price is also either published or otherwise available for inspection by customers, and it states prices at which sales are currently, or were last, made to a significant number of buyers constituting the general public [@CL-EST-9332]. The section on this card does not say that this definition governs the established price for a commercial product. The board assists in making award-fee determinations, and the Fee-Determining Official reviews the board's recommendations in determining the award fee to be earned [@CL-EST-0940; @CL-EST-0942].
 
 ## Company calibration
 
@@ -72,4 +72,5 @@ Which contract types the company holds by revenue, so these definitions are appl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of catalog price.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract-type definitions.

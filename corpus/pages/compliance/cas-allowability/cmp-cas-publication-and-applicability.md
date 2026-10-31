@@ -31,7 +31,7 @@ Shows where the Cost Accounting Standards Board standards and regulations are pr
 
 Under FAR 30.102, the CASB Standards and Regulations are printed in title 48 of the Code of Federal Regulations, chapter 99, and copies may be obtained by writing the Superintendent of Documents, or by calling the Washington, DC, ordering desk at the telephone number the section prints [@CL-CMP-8677; @CL-CMP-8678]. That section places no duty on a contractor, an acquirer or a filer, and it sets no deadline or threshold [@CL-CMP-8677].
 
-FAR 30.201 says that 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. A negotiated contract that is not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. A CAS-covered contract may be subject to either full or modified coverage [@CL-CMP-8681]. The rules for determining which applies are in 48 CFR 9903.201-2 [@CL-CMP-8682]. FAR 30.201 names no official who decides, and it prints no dollar threshold, deadline or exception; those sit in the rules it cites [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681; @CL-CMP-8682].
+FAR 30.201 says that 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. A negotiated contract that is not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. A CAS-covered contract may be subject to either full or modified coverage [@CL-CMP-8681]. The rules for determining which applies are in 48 CFR 9903.201-2 [@CL-CMP-8682]. FAR 30.201 names no official who decides, and it prints no dollar threshold, deadline or exception [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681; @CL-CMP-8682]; those sit in the rules it cites [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681; @CL-CMP-8682].
 
 In FAR 30.201-1, paragraph (a) refers the reader to 48 CFR 9903.201-1 [@CL-CMP-8684]. Paragraph (b), in accordance with section 1502(b)(1)(B) of title 41 of the United States Code, sets the threshold for determining the tentative applicability of CAS at the contract level as the amount set forth in section 3702(a)(1)(A) of title 10 of the United States Code, as adjusted for inflation in accordance with section 1908 of title 41 of the United States Code [@CL-CMP-8683]. Paragraph (b) prints no dollar figure and names no official who decides [@CL-CMP-8683].
 
@@ -53,7 +53,7 @@ A company has 2 proposed negotiated contracts, A and B. Under 48 CFR 9903.201-1(
 
 Ordering the printed standards is not the same step as deciding that a contract is covered. The publication section states where the text is printed and how copies may be obtained, while coverage turns on the exemption rules and on the coverage rules [@CL-CMP-8677; @CL-CMP-8679; @CL-CMP-8682].
 
-The exemption rules and the coverage rules are separate questions. Exemption decides whether a proposed contract or subcontract is exempt from CAS. FAR 30.201 makes a negotiated contract that is not exempt subject to CAS, and a CAS-covered contract then moves on to the full or modified coverage question; the section does not say what follows for a contract that is not negotiated [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681]. The exemption detail itself lives in the existing card [CAS applicability](../cas-allowability/cmp-cas-applicability.md) and is not restated here.
+The exemption rules and the coverage rules are separate questions. Exemption decides whether a proposed contract or subcontract is exempt from CAS. FAR 30.201 makes a negotiated contract that is not exempt subject to CAS, and a CAS-covered contract then moves on to the full or modified coverage question [@CL-CMP-8680; @CL-CMP-8681]; the section does not say what follows for a contract that is not negotiated [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681]. The exemption detail itself lives in the existing card [CAS applicability](../cas-allowability/cmp-cas-applicability.md) and is not restated here.
 
 ## Company calibration
 
@@ -63,4 +63,5 @@ Whether the company has an advance agreement with the government on any cost. Th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited claims before two semicolon breaks.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Board publication and CAS applicability, with the coverage rules.

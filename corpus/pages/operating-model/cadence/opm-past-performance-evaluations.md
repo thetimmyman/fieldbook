@@ -23,13 +23,15 @@ Shows which contracts get a past performance evaluation, the deadlines that run 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-OPM-0038] |
-| Codified citation | FAR 42.1502; FAR 42.1503 [@CL-OPM-0038; @CL-OPM-0046] |
+| Codified citation | FAR 42.1502; FAR 42.1503 [@CL-OPM-0038; @CL-OPM-0046]; FAR 2.101 [@CL-OPM-1103] |
 | RFO citation | RFO FAR 42.1102 [@CL-OPM-0131; @CL-OPM-0132; @CL-OPM-0133]; RFO FAR 42.1103 [@CL-OPM-0142; @CL-OPM-0145; @CL-OPM-0148] |
 | Edition date | Not established. |
 | Text status | Final [@CL-OPM-0038] |
 | Applies to | Contracts and orders above the simplified acquisition threshold, subject to listed exceptions [@CL-OPM-0039] |
 
 Past performance evaluations shall be prepared at least annually and at the time the work under a contract or order is completed [@CL-OPM-0038]. Except as provided in the listed exception paragraphs, agencies shall prepare evaluations of contractor performance for each contract that exceeds the simplified acquisition threshold and for each order that exceeds the simplified acquisition threshold [@CL-OPM-0039]. Agencies shall not evaluate performance for contracts awarded under FAR subpart 8.7 [@CL-OPM-0112]. Past performance evaluations shall also be prepared for each construction contract of $900,000 or more and each construction contract terminated for default regardless of contract value [@CL-OPM-0040]. The same applies to each architect-engineer services contract of $45,000 or more and each such contract terminated for default regardless of contract value [@CL-OPM-0041]. The threshold amount is on [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md), because these sections do not state it.
+
+The FAR definitions section describes past performance as an offeror's or contractor's performance on active and physically completed contracts, with a cross-reference to 4.804-4 [@CL-OPM-1103].
 
 Past performance evaluations shall include an assessment of the contractor's performance against, and efforts to achieve, the goals identified in the small business subcontracting plan when the contract includes the listed clause [@CL-OPM-0042]. One listed item to assess is reduced or untimely payments made to small business subcontractors that the contracting officer determines to be unjustified [@CL-OPM-0043]. The contracting officer shall consider and evaluate the contractor's written explanation when determining whether such a payment is justified [@CL-OPM-0044]. One listed duty is to determine that a history of unjustified reduced or untimely payments has occurred when the contractor has reported three or more occasions under a single contract within a 12-month period [@CL-OPM-0045]. Three listed payment or nonpayment situations that are not considered unjustified are a contract dispute on performance, a partial payment made for amounts not in dispute, and a payment reduced due to past overpayments [@CL-OPM-0115]. Two further listed situations are an administrative mistake and late performance by the subcontractor that leads to later payment by the prime contractor [@CL-OPM-0116].
 
@@ -57,5 +59,6 @@ Which contracts the company expects to be evaluated, who responds to each notice
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of past performance.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for past performance evaluations.

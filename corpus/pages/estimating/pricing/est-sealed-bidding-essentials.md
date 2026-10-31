@@ -23,7 +23,7 @@ Covers bidder duties in sealed bidding: acknowledging amendments, giving complet
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
-| Codified citation | FAR 52.214-3 [@CL-EST-1955]; FAR 52.214-4 [@CL-EST-2151]; FAR 52.214-5 [@CL-EST-1959]; FAR 52.214-6 [@CL-EST-1962] |
+| Codified citation | FAR 52.214-3 [@CL-EST-1955]; FAR 52.214-4 [@CL-EST-2151]; FAR 52.214-5 [@CL-EST-1959]; FAR 52.214-6 [@CL-EST-1962]; FAR 2.101 [@CL-EST-9341] |
 | RFO citation | RFO FAR 52.214-3 [@CL-EST-0578]; RFO FAR 52.214-4 [@CL-EST-0581]; RFO FAR 52.214-5 [@CL-EST-0582]; RFO FAR 52.214-6 [@CL-EST-0585] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1955] |
@@ -51,7 +51,7 @@ An invitation for bids is amended twice, and bids are due at 2 pm. The bidder si
 
 ## Never confuse
 
-Acknowledging an amendment is not agreeing to it: the acknowledgement confirms receipt, and the terms that are not modified stay unchanged [@CL-EST-1956; @CL-EST-1955]. An oral answer is not an amendment: oral explanations before award are not binding, while information that is necessary for bids is furnished to all as an amendment [@CL-EST-1963; @CL-EST-1964]. The allowance for electronic means in the sealed envelope rule is not permission to bid electronically: a bid by electronic commerce is considered only if the solicitation stipulated or permitted the method [@CL-EST-1959; @CL-EST-1961]. Reverse auctions, in which offerors see competing prices, are on [Reverse auction under a solicitation](est-reverse-auction.md), and negotiated proposals are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md).
+Acknowledging an amendment is not agreeing to it: the acknowledgement confirms receipt, and the terms that are not modified stay unchanged [@CL-EST-1956; @CL-EST-1955]. An oral answer is not an amendment: oral explanations before award are not binding, while information that is necessary for bids is furnished to all as an amendment [@CL-EST-1963; @CL-EST-1964]. The allowance for electronic means in the sealed envelope rule is not permission to bid electronically: a bid by electronic commerce is considered only if the solicitation stipulated or permitted the method [@CL-EST-1959; @CL-EST-1961]. The FAR definitions section defines electronic commerce as electronic techniques for accomplishing business transactions including electronic mail or messaging, World Wide Web technology, electronic bulletin boards, purchase cards, electronic funds transfer, and electronic data interchange [@CL-EST-9341]. Reverse auctions, in which offerors see competing prices, are on [Reverse auction under a solicitation](est-reverse-auction.md), and negotiated proposals are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md).
 
 Facsimile is where the two texts part. The codified text allows acknowledgement of an amendment by facsimile if facsimile bids are authorized in the solicitation, and says facsimile bids, modifications or withdrawals will not be considered unless authorized by the solicitation [@CL-EST-1957] [@CL-EST-1960]. The RFO text lists no facsimile way to acknowledge an amendment and prints no paragraph on facsimile bids [@CL-EST-0579] [@CL-EST-0584]. The electronic commerce rule is paragraph (d) of the codified provision and paragraph (c) of the RFO provision [@CL-EST-1961] [@CL-EST-0584].
 
@@ -63,5 +63,6 @@ Who tracks amendment acknowledgements and written clarification requests against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of electronic commerce.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sealed bidding amendments, bid submission and explanations.

@@ -23,13 +23,13 @@ Shows who carries the competition duty during a major system acquisition, what n
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-PRG-0406] |
-| Codified citation | FAR 34.005-1 [@CL-PRG-0406]; FAR 34.001 [@CL-PRG-9045; @CL-PRG-9046] |
+| Codified citation | FAR 34.005-1 [@CL-PRG-0406]; FAR 34.001 [@CL-PRG-9045; @CL-PRG-9046]; FAR 2.101 [@CL-PRG-9094] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-PRG-0406] |
 | Applies to | The program manager and the contracting officer in a major system acquisition [@CL-PRG-0406; @CL-PRG-0409] |
 
-The program manager must, throughout the acquisition process, promote full and open competition and sustain effective competition between alternative major system concepts and sources, as long as it is economically beneficial and practicable to do so [@CL-PRG-0406].
+The program manager must, throughout the acquisition process, promote full and open competition and sustain effective competition between alternative major system concepts and sources, as long as it is economically beneficial and practicable to do so [@CL-PRG-0406]. The FAR definitions section defines full and open competition, when used with respect to a contract action, to mean that all responsible sources are permitted to compete [@CL-PRG-9094].
 
 Notice of the proposed acquisition must be given the broadest and most effective circulation practicable throughout the business, academic, and Government communities [@CL-PRG-0407]. Foreign contractors, technology, and equipment may be considered when it is feasible and permissible to do so [@CL-PRG-0408].
 
@@ -69,5 +69,6 @@ What work breakdown and control account standards, and which scheduling tool, pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of full and open competition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.001 definition of effective competition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for competition throughout a major system acquisition.

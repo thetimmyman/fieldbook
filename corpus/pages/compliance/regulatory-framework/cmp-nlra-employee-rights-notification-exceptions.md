@@ -68,7 +68,7 @@ A second subcontract is worth 12,000 dollars, and some of its work is performed 
 
 Never confuse the listed exclusions with an exemption by the Secretary. The exclusions apply by the terms of the section to the contracts and subcontracts it names. An exemption depends on a finding by the Secretary, may be shaped to a particular contract or a class of contracts, and may be requested [@CL-CMP-8166; @CL-CMP-8167; @CL-CMP-8168; @CL-CMP-8170].
 
-Never read the subcontract line as a contract line. The $10,000 line is for subcontracts. For contracts the section uses the simplified acquisition threshold [@CL-CMP-8191; @CL-CMP-8192].
+Never read the subcontract line as a contract line. The $10,000 line is for subcontracts [@CL-CMP-8192]. For contracts the section uses the simplified acquisition threshold [@CL-CMP-8191; @CL-CMP-8192].
 
 ## Company calibration
 
@@ -78,5 +78,6 @@ Which contracts and subcontracts sit inside the excluded categories, and who tra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on the subcontract line.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the policy section on the employee rights notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the employee rights notification exceptions.
