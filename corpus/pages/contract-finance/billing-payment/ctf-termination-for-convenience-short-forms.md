@@ -24,7 +24,7 @@ Shows how the two short-form clauses let the contracting officer end a fixed-pri
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2051] |
 | Codified citation | FAR 52.249-1 and FAR 52.249-4 [@CL-CTF-2051; @CL-CTF-2056] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.249-1 and RFO FAR 52.249-4 [@CL-CTF-0736; @CL-CTF-0739] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2051] |
 | Applies to | The fixed-price short form goes into solicitations and contracts when a fixed-price contract is contemplated and the contract amount is not expected to exceed the simplified acquisition threshold, except in the listed cases [@CL-CLS-1014]. The services short form goes into solicitations and contracts for services, regardless of value, when a fixed-price contract is contemplated and the contracting officer makes the determination described in the prescription [@CL-CTF-2053; @CL-CLS-1019] |
@@ -42,6 +42,8 @@ The services short form is used only after the contracting officer determines th
 The prescription for the fixed-price short form excepts cases where the services short form is appropriate and research and development work with an educational or nonprofit institution on a no-profit basis [@CL-CLS-1051]. Those institutions have their own clause, on [Termination for convenience: educational and other nonprofit institutions](ctf-termination-for-convenience-educational-nonprofit.md).
 
 If the contract is for dismantling, demolition or removal of improvements, the contracting officer uses the fixed-price short form with its Alternate I [@CL-CLS-1053]. Alternate I adds a paragraph under which, on receipt of the termination notice, title to property vested in the contractor revests in the Government regardless of any other clause of the contract, except for property the contractor disposed of by bona fide sale or removed from the site [@CL-CTF-2124]. Above the simplified acquisition threshold, that work has a long-form clause, on [Termination for convenience: dismantling, demolition or removal of improvements](ctf-termination-for-convenience-dismantling-demolition-removal.md) [@CL-CLS-1018].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because DoD's class deviation directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.249-1 keeps the power of the contracting officer, by written notice, to terminate in whole or in part when it is in the Government's interest [@CL-CTF-0736; @CL-CTF-2051], and keeps the rule that compensation follows part 49 of the Federal Acquisition Regulation in effect on the date of the contract [@CL-CTF-0737; @CL-CTF-2052]. Its Alternate I keeps the added paragraph under which title revests in the Government, except for property disposed of by bona fide sale or removed from the site [@CL-CTF-0738; @CL-CTF-2124]. RFO FAR 52.249-4 keeps the same written-notice power [@CL-CTF-0739; @CL-CTF-2056] and keeps the limit that the Government is liable only for payment under the payment provisions for services rendered before the effective date of termination [@CL-CTF-0740; @CL-CTF-2057].
 
 ## Worked example
 
@@ -63,4 +65,5 @@ Which short form, if either, each fixed-price contract actually carries, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the fixed-price and services short-form termination for convenience clauses.

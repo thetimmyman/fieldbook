@@ -24,7 +24,7 @@ Shows what a contractor must do after a termination notice on a dismantling, dem
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-2058] |
 | Codified citation | FAR 52.249-3 [@CL-CTF-2058] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.249-3 [@CL-CTF-0696; @CL-CTF-0713] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2058] |
 | Applies to | Solicitations and contracts for dismantling, demolition or removal of improvements [@CL-CLS-1017], when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-CLS-1018] |
@@ -49,6 +49,8 @@ The clause provides for partial payments and payments against cost incurred by t
 
 Unless the contract or a statute provides otherwise, the contractor must maintain all records and documents relating to the terminated portion of the contract for 3 years after final settlement [@CL-CTF-2119]. Retention policy is on [Contractor records retention policy](../../compliance/audit-retention/cmp-contractor-records-retention-policy.md).
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because DoD's class deviation directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.249-3 keeps the termination ground [@CL-CTF-0696; @CL-CTF-2058] and the revesting of title in the Government, except for property that the contractor disposed of by bona fide sale or removed from the site [@CL-CTF-0697; @CL-CTF-2060]. It keeps the duty to stop work as specified in the notice, regardless of delay in determining or adjusting any amounts due [@CL-CTF-0698; @CL-CTF-2061], the 120-day deadline for inventory schedules [@CL-CTF-0699; @CL-CTF-2063] and the 1-year deadline for the final settlement proposal [@CL-CTF-0705; @CL-CTF-2064], each unless the contracting officer extends it in writing on the contractor's written request made within that period. It keeps the cap on the agreed amount, exclusive of settlement costs [@CL-CTF-0706; @CL-CTF-2066], and the rule that, if the contractor would have sustained a loss on the entire contract, no profit is allowed and the settlement is reduced to reflect the indicated rate of loss [@CL-CTF-0707; @CL-CTF-2113]. It keeps the 90-day request period for an equitable adjustment [@CL-CTF-0709; @CL-CTF-2116], partial payments [@CL-CTF-0710; @CL-CTF-2117], repayment of excess payments on demand with interest [@CL-CTF-0711; @CL-CTF-2118], the deletion of the interest paragraph under Alternate I in the listed cases [@CL-CTF-0713; @CL-CTF-2236] and the 3-year records rule [@CL-CTF-0712; @CL-CTF-2119]. One cross-reference differs: RFO FAR 52.249-3(j) says there is no right of appeal if the contractor failed to submit the termination settlement proposal within the time provided in paragraph (e) or (l) and failed to request a time extension [@CL-CTF-0708], where the codified paragraph says paragraph (e) or (f) [@CL-CTF-2233].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -59,7 +61,7 @@ If instead the parties cannot agree, the contracting officer determines the amou
 
 ## Never confuse
 
-Revesting of title is not a forfeiture of every item. Property the contractor disposed of by bona fide sale or removed from the site stays outside it [@CL-CTF-2060]. The cap on the agreed amount leaves out settlement costs, so those costs are not counted against it [@CL-CTF-2066]. Profit on the cost of work is not guaranteed: the same subdivision that allows it takes it away when the contract would have run at a loss [@CL-CTF-2113]. Partial payments are payments against cost, and any excess over the final amount comes back on demand with interest [@CL-CTF-2118], although interest on an excess caused by retention or disposition of termination inventory is held off for the period described above [@CL-CTF-2235; @CL-CTF-2256]. The short-form clause with Alternate I is a different clause, on [Termination for convenience: fixed-price and services short forms](ctf-termination-for-convenience-short-forms.md) [@CL-CLS-1053]. For the general fixed-price convenience settlement, see [Termination for Convenience of the Government (Fixed-Price): settlement](ctf-termination-for-convenience-settlement.md).
+Revesting of title is not a forfeiture of every item. Property the contractor disposed of by bona fide sale or removed from the site stays outside it [@CL-CTF-2060]. The cap on the agreed amount leaves out settlement costs, so those costs are not counted against it [@CL-CTF-2066]. Profit on the cost of work is not guaranteed: the same subdivision that allows it takes it away when the contract would have run at a loss [@CL-CTF-2113]. Partial payments are payments against cost, and any excess over the final amount comes back on demand with interest [@CL-CTF-2118], although interest on an excess caused by retention or disposition of termination inventory is held off for the period described above [@CL-CTF-2235; @CL-CTF-2256]. The short-form clause with Alternate I is a different clause, on [Termination for convenience: fixed-price and services short forms](ctf-termination-for-convenience-short-forms.md) [@CL-CLS-1053]. For the general fixed-price convenience settlement, see [Termination for Convenience of the Government (Fixed-Price): settlement](ctf-termination-for-convenience-settlement.md). The paragraph that sets the time whose miss ends the right of appeal is a real change between the two texts, not a renumbering: the codified text names paragraph (e) or (f) [@CL-CTF-2233], and the RFO text names paragraph (e) or (l) [@CL-CTF-0708]. Codified paragraph (f) is where the parties may agree on the amount to be paid [@CL-CTF-2065], while RFO paragraph (l) sets the 90-day period for requesting an equitable adjustment [@CL-CTF-0709].
 
 ## Company calibration
 
@@ -69,4 +71,5 @@ Whether any contract carries this clause and who tracks the schedule and proposa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for convenience of dismantling, demolition or removal contracts.

@@ -24,7 +24,7 @@ Says when a contractor pays the Government under the dismantling and demolition 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1698; @CL-CTF-1699] |
 | Codified citation | FAR 52.237-5 [@CL-CTF-1698]; FAR 52.237-6 [@CL-CTF-1699] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.237-5 [@CL-CTF-0448]; RFO FAR 52.237-6 [@CL-CTF-0449] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1698; @CL-CTF-1699] |
 | Applies to | Contracts with the clause, in the cases described in the prescriptions for the payment clause and the incremental payment clause [@CL-CTF-1697; @CL-CTF-1724] |
@@ -36,6 +36,8 @@ Under the incremental clause, after the initial payment the contractor shall mak
 ## How it works
 
 The contractor pays the stated amount within the days after receipt of notice of award that the clause states and before proceeding with the work [@CL-CTF-1698]. Under the incremental version, the initial payment is followed by payments in the amount and frequency in the Schedule [@CL-CTF-1699]. The prescription for the payment clause excepts the case where the contracting officer determines that payment in increments would be advantageous to the Government [@CL-CTF-1697].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO payment clause keeps the rule that the contractor shall perform the work called for under the contract and, within the stated number of days of receipt of notice of award unless otherwise provided in the Schedule and before proceeding with the work, shall pay the stated amount [@CL-CTF-0448] [@CL-CTF-1698]. The RFO incremental clause keeps the rule that, after the initial payment, the contractor shall make payment to the Government in the amount and frequency specified in the Schedule [@CL-CTF-0449] [@CL-CTF-1699].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Confirm which demolition or removal contracts carry these clauses and who tracks
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payment by the contractor to the Government and incremental payment.
