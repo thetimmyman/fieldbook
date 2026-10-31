@@ -24,7 +24,7 @@ Shows how service reporting works when the contract is indefinite-delivery: what
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5956] |
 | Codified citation | FAR 52.204-15 [@CL-CMP-5956] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.204-15 [@CL-CMP-6019] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5956] |
 | Applies to | Indefinite-delivery contracts that carry the clause, for orders that exceed the thresholds established in FAR 4.1703(a)(2) [@CL-CMP-5956] |
@@ -45,6 +45,8 @@ A first-tier subcontract is a subcontract awarded directly by the contractor for
 
 The contractor must require each first-tier subcontractor providing services under the contract, with subcontracts each valued at or above the thresholds set forth in FAR 4.1703(a)(2), to provide the detailed information in sufficient time to submit the report [@CL-CMP-5962]. The clause does not print those thresholds, and the company reads them in the FAR section the clause names [@CL-CMP-5962]. The detailed information is the subcontract number, including the subcontractor name and unique entity identifier, and the number of first-tier subcontractor direct-labor hours expended on the services performed during the previous Government fiscal year [@CL-CMP-6539]. The contractor must advise the subcontractor that the information will be made available to the public as required by section 743 of Division C of the Consolidated Appropriations Act, 2010 [@CL-CMP-5963].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause says the contractor must report annually by October 31 for services performed during the preceding Government fiscal year under the contract for orders that exceed the thresholds established in 4.303(b), where the codified clause names FAR 4.1703(a)(2) [@CL-CMP-6019; @CL-CMP-5956]. It keeps the report contents: the contract number and the order number, and the total dollar amount invoiced under the order [@CL-CMP-6020; @CL-CMP-5957; @CL-CMP-5958], and the contractor direct labor hours and the data reported by subcontractors [@CL-CMP-6021; @CL-CMP-5959; @CL-CMP-5960]. It keeps the filing in SAM [@CL-CMP-6022; @CL-CMP-5961] and the appropriate contractual remedies if the report is late [@CL-CMP-6023; @CL-CMP-6534]. The RFO clause says the Contracting Officer will make the failure to comply a part of the contractor's performance information under the Federal Acquisition Regulation part 42, where the codified clause names FAR subpart 42.15 [@CL-CMP-6024; @CL-CMP-6535]. It says the agency will notify the contractor no later than November 15 [@CL-CMP-6025; @CL-CMP-6537], and that by November 30 the contractor must revise the report or put its reason in writing for the agency, where the codified clause says document its rationale [@CL-CMP-6025; @CL-CMP-6538]. It keeps the definition of a first-tier subcontract [@CL-CMP-6026; @CL-CMP-6532] and its exclusion of supplier agreements with vendors [@CL-CMP-6027; @CL-CMP-6533]. It names the subcontract thresholds in 4.303(b), where the codified clause names 4.1703(a)(2) [@CL-CMP-6028; @CL-CMP-5962], and it keeps the detailed subcontractor information [@CL-CMP-6029; @CL-CMP-6539] and the notice that the information will be made public, now worded as telling the subcontractor [@CL-CMP-6030; @CL-CMP-5963].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -57,6 +59,8 @@ Orders A and B are above the order threshold, so the contractor reports each by 
 
 This clause reports for orders that exceed the thresholds [@CL-CMP-5956], while the basic clause reports for services performed under the contract [@CL-CMP-5947]; the basic clause is on the [service contract reporting card](cmp-service-contract-reporting.md). The subcontractor duty still turns on subcontracts at or above the thresholds, and the contractor files the report [@CL-CMP-5962; @CL-CMP-5961].
 
+The codified clause names FAR 4.1703(a)(2) for the order thresholds [@CL-CMP-5956] and for the subcontract thresholds [@CL-CMP-5962], and FAR subpart 42.15 for performance information [@CL-CMP-6535], while the RFO clause names 4.303(b) for both thresholds [@CL-CMP-6019; @CL-CMP-6028] and the Federal Acquisition Regulation part 42 for performance information [@CL-CMP-6024].
+
 ## Company calibration
 
 Which indefinite-delivery orders sit inside the remit, who keeps the invoiced amount and the hours for each order, and who requests and checks the subcontractor information. [@Q-003]
@@ -65,4 +69,5 @@ Which indefinite-delivery orders sit inside the remit, who keeps the invoiced am
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract reporting on indefinite-delivery contracts.

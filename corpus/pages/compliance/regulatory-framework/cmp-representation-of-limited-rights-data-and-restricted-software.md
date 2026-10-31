@@ -23,7 +23,7 @@ Shows what an offeror represents and identifies about limited rights data and re
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3700] |
 | Codified citation | FAR 52.227-15 [@CL-CMP-3700; @CL-CMP-3702] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-15 [@CL-CMP-2166; @CL-CMP-2167; @CL-CMP-2168; @CL-CMP-2169; @CL-CMP-2170; @CL-CMP-2171] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3700] |
 | Applies to | Offerors that complete the representation paragraph of the provision [@CL-CMP-3700] |
@@ -35,6 +35,8 @@ Any identification of limited rights data or restricted computer software in the
 ## How it works
 
 The provision tells the offeror how data will be handled after award. Data delivered under the resulting contract will be subject to the [Rights in Data—General clause](cmp-rights-in-data-general-definitions-and-allocation.md) [@CL-CMP-3703], under which a contractor may withhold qualifying data and deliver form, fit, and function data instead [@CL-CMP-3746]. That clause also may be used with its Alternates II and/or III to obtain delivery of limited rights data or restricted computer software, marked with limited rights or restricted rights notices as appropriate [@CL-CMP-3704]. The alternates are described on [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). The offeror then ticks one block, and lists the data if it ticks the second. The listing is a statement made at offer time, and it does not fix the data's status later [@CL-CMP-3702].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO paragraph (a) keeps the statement that any data delivered under the resulting contract will be subject to the Rights in Data—General clause [@CL-CMP-2166; @CL-CMP-3703], the description of that clause as one under which a Contractor may withhold from delivery data that qualify as limited rights data or restricted computer software and deliver form, fit, and function data instead [@CL-CMP-2167; @CL-CMP-3746], and the statement that the clause also may be used with its Alternates II and/or III to obtain delivery of limited rights data or restricted computer software, marked with limited rights or restricted rights notices as appropriate [@CL-CMP-2168; @CL-CMP-3704]. RFO paragraph (b) keeps the offeror's representation that it has reviewed the requirements for the delivery of technical data or computer software and states which of two listed blocks applies [@CL-CMP-2169; @CL-CMP-3700], and the two blocks, which are that none of the data proposed for fulfilling the data delivery requirements qualifies as limited rights data or restricted computer software, or that proposed data qualify as limited rights data or restricted computer software and are identified [@CL-CMP-2170; @CL-CMP-3701]. RFO paragraph (c) keeps the rule that any identification of limited rights data or restricted computer software in the offeror's response is not determinative of the status of the data should a contract be awarded to the offeror [@CL-CMP-2171; @CL-CMP-3702].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which solicitations carry this provision, and who confirms which proposed data q
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the representation of limited rights data and restricted computer software.

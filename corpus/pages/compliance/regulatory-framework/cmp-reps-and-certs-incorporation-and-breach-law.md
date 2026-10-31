@@ -23,7 +23,7 @@ Shows which representations and certifications the contract reads in by referenc
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5964] |
 | Codified citation | FAR 52.204-19 and FAR 52.233-4 [@CL-CMP-5964; @CL-CMP-5965] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.204-19 [@CL-CMP-2172]; RFO FAR 52.233-4 [@CL-CMP-2173] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5964] |
 | Applies to | Contracts that carry the two clauses [@CL-CMP-5964; @CL-CMP-5965] |
@@ -33,6 +33,8 @@ The contractor's representations and certifications, including those completed e
 ## How it works
 
 The first clause names the contractor's representations and certifications as incorporated into the contract [@CL-CMP-5964]. Those completed electronically via the System for Award Management are included [@CL-CMP-5964]. The second clause states the law for a claim of breach of the contract [@CL-CMP-5965].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.204-19 keeps the rule that the Contractor's representations and certifications, including those completed electronically via the System for Award Management, are incorporated by reference into the contract [@CL-CMP-2172; @CL-CMP-5964]. RFO FAR 52.233-4 keeps the rule that United States law will apply to resolve any claim of breach of the contract [@CL-CMP-2173; @CL-CMP-5965].
 
 ## Worked example
 
@@ -52,4 +54,5 @@ Which entity's representations and certifications are completed electronically f
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incorporation of representations and certifications and the law for a breach claim.

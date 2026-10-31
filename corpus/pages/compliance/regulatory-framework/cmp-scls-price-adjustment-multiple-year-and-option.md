@@ -24,7 +24,7 @@ Shows how the price of a multiple year or option year service contract is adjust
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-4804] |
 | Codified citation | FAR 52.222-43 [@CL-CMP-4804] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-43 [@CL-CMP-5159; @CL-CMP-5160; @CL-CMP-9808; @CL-CMP-9809; @CL-CMP-5161; @CL-CMP-5162; @CL-CMP-5163; @CL-CMP-5308; @CL-CMP-5309; @CL-CMP-5310; @CL-CMP-5311; @CL-CMP-5312; @CL-CMP-5313; @CL-CMP-5314; @CL-CMP-5315] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4804] |
 | Applies to | Contracts subject to area prevailing wage determinations and contracts subject to collective bargaining agreements [@CL-CMP-4804] |
@@ -42,6 +42,8 @@ The clause's own example shows the measure of an increase. The prior wage determ
 The contractor must notify the contracting officer of any increase claimed within 30 days after receiving a new wage determination, unless the contracting officer extends that period in writing [@CL-CMP-4811]. The contractor must promptly notify the contracting officer of any decrease, and nothing in the clause stops the government from asserting a claim within the period the law permits [@CL-CMP-4812]. The notice states the amount claimed and, for a time-and-materials or labor-hour contract, the change in fixed hourly rates, with any relevant supporting data, including payroll records, that the contracting officer may reasonably require [@CL-CMP-4813]. Upon agreement of the parties, the price or rates are modified in writing [@CL-CMP-4961]. The contractor must continue performance pending agreement on or determination of the adjustment and its effective date [@CL-CMP-4962].
 
 The contracting officer or an authorized representative may examine the contractor's directly pertinent books, documents, papers and records until 3 years after final payment under the contract [@CL-CMP-4814].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the clause keeps its coverage of contracts subject to area prevailing wage determinations and contracts subject to collective bargaining agreements [@CL-CMP-5159; @CL-CMP-4804], and the rule that the wage determination current on the anniversary date or at the beginning of each renewal option period applies [@CL-CMP-5160; @CL-CMP-4955], and the rule that if no such determination has been made applicable, the Federal minimum wage as established by section 6(a)(1) of the Fair Labor Standards Act of 1938, as amended, current on that date applies [@CL-CMP-9808; @CL-CMP-9809; @CL-CMP-4956; @CL-CMP-4957]. It keeps the adjustment to reflect the contractor's actual increase or decrease in applicable wages and fringe benefits [@CL-CMP-5161; @CL-CMP-4954], but only to the extent the increase is made to comply with, or the decrease is voluntarily made as a result of, a covered cause [@CL-CMP-5162; @CL-CMP-4806]. It keeps the three covered causes [@CL-CMP-5163; @CL-CMP-4807] [@CL-CMP-5310; @CL-CMP-4808] [@CL-CMP-5311; @CL-CMP-4960] and the clause's own example [@CL-CMP-5308; @CL-CMP-5309; @CL-CMP-4958; @CL-CMP-4959]. It keeps the limit of the adjustment to those wage and fringe benefit changes and the accompanying taxes and insurance [@CL-CMP-5312; @CL-CMP-4809], and the bar on any other amount for general and administrative costs, overhead or profit [@CL-CMP-5313; @CL-CMP-4810]. It keeps the 30-day notice of any increase after receiving a new wage determination, unless extended in writing [@CL-CMP-5314; @CL-CMP-4811], and the 3-year examination right [@CL-CMP-5315; @CL-CMP-4814].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Which contracts carry the clause and who confirms the wage determination that ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the price adjustment in multiple year and option contracts.

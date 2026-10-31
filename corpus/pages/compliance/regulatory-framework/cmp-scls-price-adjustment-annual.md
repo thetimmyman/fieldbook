@@ -24,7 +24,7 @@ Shows how the price of a service contract is adjusted when a wage determination 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-4815] |
 | Codified citation | FAR 52.222-44 [@CL-CMP-4815] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-44 [@CL-CMP-5020; @CL-CMP-5021; @CL-CMP-5022; @CL-CMP-5023; @CL-CMP-5093; @CL-CMP-5154; @CL-CMP-5155; @CL-CMP-5156; @CL-CMP-5157; @CL-CMP-5158] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4815] |
 | Applies to | Contracts subject to area prevailing wage determinations and contracts subject to contractor collective bargaining agreements [@CL-CMP-4815] |
@@ -38,6 +38,8 @@ The contractor warrants that the prices include no allowance for any contingency
 The contractor must notify the contracting officer of any increase claimed within 30 days after the effective date of the wage change, unless the contracting officer extends that period in writing [@CL-CMP-4821]. The contractor must promptly notify the contracting officer of any decrease, and nothing in the clause stops the government from asserting a claim within the period the law permits [@CL-CMP-4964]. The notice states the amount and, for a time-and-materials or labor-hour contract, the change in fixed hourly rates, with any relevant supporting data that the contracting officer may reasonably require [@CL-CMP-4965]. Upon agreement of the parties, the price or rates are modified in writing [@CL-CMP-4966]. The contractor must continue performance pending agreement on or determination of the adjustment and its effective date [@CL-CMP-4967].
 
 The contracting officer or an authorized representative may examine the contractor's directly pertinent books, documents, papers and records until 3 years after final payment under the contract [@CL-CMP-4822].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the clause keeps its coverage of contracts subject to area prevailing wage determinations and contracts subject to contractor collective bargaining agreements [@CL-CMP-5020; @CL-CMP-4815], and the contractor's warranty that the prices include no allowance for contingencies [@CL-CMP-5021; @CL-CMP-4816]. It keeps the adjustment of the contract price or rates to reflect the contractor's increases or decreases in wages and fringe benefits to the extent they are made to comply with a covered cause [@CL-CMP-5022; @CL-CMP-4963], and the two covered causes [@CL-CMP-5023; @CL-CMP-4817] [@CL-CMP-5093; @CL-CMP-4818]. It keeps the limit of the adjustment to those wage and fringe benefit changes and the accompanying taxes and insurance [@CL-CMP-5154; @CL-CMP-4819], and the bar on any other amount for general and administrative costs, overhead or profit [@CL-CMP-5155; @CL-CMP-4820]. It keeps the 30-day notice of any increase, unless extended in writing [@CL-CMP-5156; @CL-CMP-4821], the prompt notice of any decrease with the Government's claim preserved [@CL-CMP-5157; @CL-CMP-4964], and the 3-year examination right [@CL-CMP-5158; @CL-CMP-4822].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Which contracts carry the clause and who confirms the wage determination that ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the price adjustment.

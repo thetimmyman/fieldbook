@@ -21,7 +21,7 @@ Explains the limit on the cost allowability of severance payments to foreign nat
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5618; @CL-CMP-5762] |
 | Codified citation | FAR 52.237-8 and FAR 52.237-9 [@CL-CMP-5618; @CL-CMP-5762] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.237-8 and RFO FAR 52.237-9 [@CL-CMP-6031; @CL-CMP-6038] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5618; @CL-CMP-5762] |
 | Applies to | Service contracts performed outside the United States, through the provision and the waiver clause used as prescribed [@CL-CMP-5619; @CL-CMP-5618; @CL-CMP-5762] |
@@ -34,6 +34,8 @@ In making the determination concerning the granting of a waiver, the agency will
 
 In the waiver clause, the cost allowability limitations in FAR 31.205-6(g)(6) are waived under the statutory provision that the clause cites, as applicable [@CL-CMP-5623]. The waiver clause may be incorporated into subcontracts issued under the contract, if approved by the contracting officer [@CL-CMP-5763].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision says the FAR limits the cost allowability of severance payments to foreign nationals employed under a service contract performed outside the United States unless the agency grants a waiver before contract award, but it names FAR 31.205-6(f)(6) for the limit and FAR 37.802-3 for the waiver [@CL-CMP-6031; @CL-CMP-5619]. It keeps the lead-in to the matters the agency determines [@CL-CMP-6032; @CL-CMP-5761], the program support matter [@CL-CMP-6033; @CL-CMP-6034; @CL-CMP-5620], the contractor's actions to minimize severance payments [@CL-CMP-6035; @CL-CMP-5621] and the compliance matter [@CL-CMP-6036; @CL-CMP-6037; @CL-CMP-5622]. In the waiver clause, the RFO text waives the cost allowability limitations in FAR 31.205-6(f)(6) under the same statutory provisions [@CL-CMP-6038; @CL-CMP-5623], and it keeps that the clause may be incorporated into subcontracts if approved by the Contracting Officer [@CL-CMP-6039; @CL-CMP-5763].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -44,6 +46,8 @@ A service contract performed abroad covers 60 local employees, and severance wou
 
 A limit on cost allowability is a limit on cost, not a statement about the payment itself. The limit applies unless the agency grants a waiver before contract award [@CL-CMP-5619]. The waiver is not a contract-type formality: it rests on the matters the agency determines and takes effect through the waiver clause [@CL-CMP-5761; @CL-CMP-5620; @CL-CMP-5623]. The waiver clause may be incorporated into a subcontract if the contracting officer approves, so approval is a separate step [@CL-CMP-5763].
 
+The codified waiver clause waives the limitations in FAR 31.205-6(g)(6) [@CL-CMP-5623], while the RFO waiver clause waives those in FAR 31.205-6(f)(6) [@CL-CMP-6038].
+
 ## Company calibration
 
 Which foreign service contracts pay severance, and who confirms whether a waiver was granted before award. [@Q-003]
@@ -52,4 +56,5 @@ Which foreign service contracts pay severance, and who confirms whether a waiver
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for severance payments to foreign nationals.

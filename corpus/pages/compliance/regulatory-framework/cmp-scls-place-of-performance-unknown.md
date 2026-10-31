@@ -24,7 +24,7 @@ Shows how wage determinations are handled when the place of performance of a Ser
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-4851] |
 | Codified citation | FAR 52.222-49 [@CL-CMP-4851] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-49 [@CL-CMP-5015; @CL-CMP-5016; @CL-CMP-5017; @CL-CMP-5018; @CL-CMP-5019] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4851] |
 | Applies to | Contracts subject to the statute where the place of performance was unknown at solicitation [@CL-CMP-4851] |
@@ -36,6 +36,8 @@ Offerors who intend to perform in a place or area of performance for which a wag
 ## How it works
 
 An offeror can ask the contracting officer in writing, by the inserted time and date, to request wage determinations for additional places or areas of performance [@CL-CMP-4852]. An offeror that intends to perform in a place with no attached or requested determination can still bid or propose [@CL-CMP-5005]. In that case the determination is requested and incorporated retroactive to the award date, and the contract price is not adjusted [@CL-CMP-4853].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the clause keeps the statement that the contract is subject to the statute and that the place of performance was unknown when the solicitation was issued [@CL-CMP-5015; @CL-CMP-4851], and that wage determinations have also been requested for the places or areas inserted in the clause, in addition to those in wage determinations attached to the solicitation [@CL-CMP-5016; @CL-CMP-5004]. It keeps the rule that the contracting officer will request wage determinations for additional places or areas if asked in writing by the time and date inserted in the clause [@CL-CMP-5017; @CL-CMP-4852], and that offerors may still submit bids or proposals for a place with no attached or requested determination [@CL-CMP-5018; @CL-CMP-5005]. It keeps the rule that a determination is then requested and incorporated in the resultant contract retroactive to the date of contract award, with no adjustment in the contract price [@CL-CMP-5019; @CL-CMP-4853].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Which solicitations leave the place of performance open and who tracks the deter
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Service Contract Labor Standards with an unknown place of performance.
