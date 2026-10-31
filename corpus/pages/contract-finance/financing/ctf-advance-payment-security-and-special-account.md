@@ -24,7 +24,7 @@ Shows the agreement, supervision and lien that protect the Government when advan
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-0935; @CL-CTF-0938] |
 | Codified citation | FAR 32.409-3 and FAR 32.411 [@CL-CTF-0935; @CL-CTF-0938] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.409-3 [@CL-CTF-4190; @CL-CTF-4191; @CL-CTF-4192; @CL-CTF-4193; @CL-CTF-4194] and RFO FAR 32.411 [@CL-CTF-4195; @CL-CTF-4196] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0935] |
 | Applies to | Approved advance payments [@CL-CTF-0935] |
@@ -36,6 +36,8 @@ In the terms of the agreement, the contracting officer should provide for a para
 ## How it works
 
 The agreement covers special accounts, and the agency closely supervises the contractor's withdrawals from the accounts in which advance payments are deposited [@CL-CTF-0935; @CL-CTF-0936]. In the prescribed form, the Government has a lien on the credit balance in the account to secure repayment of all advance payments, and that lien is paramount to any lien or claim of the financial institution regarding the account [@CL-CTF-0939].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.409-3 keeps the rules described above: if advance payments are approved, the contracting officer must enter into an agreement covering special accounts and suitable covenants protecting the Government’s interest [@CL-CTF-4190], and that requirement generally applies under all statutory authorities, with modified requirements for certain specific cases [@CL-CTF-4191]. The agency must ensure that the amount of advance payments does not exceed the contractor’s financial needs and closely supervise the contractor’s withdrawals from the special accounts [@CL-CTF-4192]. The paramount lien should cover supplies being acquired [@CL-CTF-4193], any credit balance in the special account, and all property the contractor acquires for performing the contract, except to the extent the Government otherwise has valid title [@CL-CTF-4194]. RFO FAR 32.411 keeps the requirement to use substantially the form of agreement for a special account [@CL-CTF-4195], in which the Government must have a lien on the credit balance that is paramount to any lien or claim of the financial institution regarding the account [@CL-CTF-4196].
 
 ## Worked example
 
@@ -55,4 +57,5 @@ Confirm which bank holds the special account, who approves withdrawals, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment security, supervision and the special account.

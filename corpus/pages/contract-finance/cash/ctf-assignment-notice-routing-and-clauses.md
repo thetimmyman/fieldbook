@@ -24,7 +24,7 @@ Sets out where the assignee of a claim sends the notice of assignment and who fi
 |---|---|
 | Instrument | Codified DFARS and codified FAR [@CL-CTF-3371; @CL-CTF-3377] |
 | Codified citation | DFARS 232.805 and FAR 32.806 [@CL-CTF-3371; @CL-CTF-3377] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.806 [@CL-CTF-4616; @CL-CTF-4619] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3371] |
 | Applies to | Assignments of claims noticed under the DoD procedure, and solicitations and contracts expected to exceed the micro-purchase threshold unless the contract will prohibit assignment [@CL-CTF-3371; @CL-CTF-3377] |
@@ -40,6 +40,8 @@ The contracting officer must insert the clause at FAR 52.232-23, Assignment of C
 If a no-setoff commitment has been authorized, the contracting officer must use the clause at FAR 52.232-23 with its Alternate I [@CL-CTF-3379]. A contract of a designated agency, except one under which full payment has been made, may include a no-setoff commitment only when the head of the agency makes a determination of need [@CL-CTF-3415]. The determination must be made in accordance with the Presidential delegation of authority dated October 3, 1995, and the contract may include the commitment only after the determination has been published in the Federal Register [@CL-CTF-3416]. When an assigned contract does not include a no-setoff commitment, the Government may apply against payments to the assignee any liability of the contractor to the Government arising independently of the assigned contract if the liability existed at the time notice of the assignment was received [@CL-CTF-3495]. Under a requirements or indefinite quantity type contract that authorizes ordering and payment by multiple Government activities, amounts due for individual orders for $1,000 or more may be assigned [@CL-CTF-3494].
 
 The contracting officer must insert the clause at FAR 52.232-24, Prohibition of Assignment of Claims, in solicitations and contracts for which a determination has been made under agency regulations that the prohibition of assignment of claims is in the Government's interest [@CL-CTF-3380].
+
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified FAR part 32 text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.806 keeps the FAR clause prescriptions described above [@CL-CTF-4616; @CL-CTF-4617; @CL-CTF-4618; @CL-CTF-4619]. The contracting officer must insert the clause at FAR 52.232-23, Assignment of Claims, in solicitations and contracts expected to exceed the micro-purchase threshold, unless the contract will prohibit the assignment of claims (see 32.803(b)) [@CL-CTF-4616]. The clause is not required for purchase orders, but it may be used in purchase orders expected to exceed the micro-purchase threshold that the contractor accepts in writing, if that use is consistent with agency policies and regulations [@CL-CTF-4617]. If a no-setoff commitment has been authorized (see FAR 32.803(d)), the contracting officer must use the clause at FAR 52.232-23 with its Alternate I [@CL-CTF-4618]. The contracting officer must insert the clause at FAR 52.232-24, Prohibition of Assignment of Claims, in solicitations and contracts for which a determination has been made under agency regulations that the prohibition of assignment of claims is in the Government's interest [@CL-CTF-4619].
 
 ## Worked example
 
@@ -61,4 +63,5 @@ Confirm whether each contract carries the assignment clause or its alternate, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for assignment notice routing and clause prescriptions.

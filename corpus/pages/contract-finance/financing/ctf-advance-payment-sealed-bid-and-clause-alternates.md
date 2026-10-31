@@ -24,7 +24,7 @@ Explains when advance payments may be offered on sealed bid contracts under the 
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-3087] |
 | Codified citation | FAR 32.405 and FAR 32.412 [@CL-CTF-3087; @CL-CTF-3091] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 32.405 [@CL-CTF-4178; @CL-CTF-4182] and RFO FAR 32.412 [@CL-CTF-4184] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3087] |
 | Applies to | Sealed bid contracts, and solicitations and contracts under which the Government will provide advance payments [@CL-CTF-3087; @CL-CTF-3091] |
@@ -39,15 +39,17 @@ The contracting officer inserts the clause at FAR 52.232-12, Advance Payments, i
 
 A sealed bid contract can carry advance payments under the national defense authority, but a bid cannot make advance payments a condition of acceptance [@CL-CTF-3184; @CL-CTF-3087; @CL-CTF-3089]. A bidder may ask before or after award even when the invitation is silent [@CL-CTF-3088]. On a request, the agency chooses between awarding with conforming advance payments, awarding without them where they are not actually needed, and, in the stated case, denying award [@CL-CTF-3090; @CL-CTF-3185]. The contracting officer then uses the basic clause or the alternate that matches the terms [@CL-CTF-3091; @CL-CTF-3186; @CL-CTF-3092].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.405 keeps the rules described above: advance payments may be made at or after award of sealed bid contracts, as well as negotiated contracts [@CL-CTF-4178]; bidders may request advance payments before or after award [@CL-CTF-4179]; and the contracting officer must reject any bid requiring that advance payments be provided as a basis for acceptance [@CL-CTF-4180]. RFO FAR 32.412 keeps the same clause and alternates: the clause at 52.232-12 is inserted in solicitations and contracts under which the Government will provide advance payments, except as provided in 32.412(b) [@CL-CTF-4184]; the contracting officer must use Alternate I if the agency desires to waive the countersignature requirement because of the contractor’s financial strength, good performance record, and favorable experience concerning cost disallowances [@CL-CTF-4185], Alternate II if a cost-reimbursement contract is contemplated [@CL-CTF-4186], Alternate III if the agency considers a more rapid liquidation appropriate [@CL-CTF-4187], and Alternate IV if the agency provides advance payments under the contract at no interest to the prime contractor [@CL-CTF-4188]; and the contracting officer must insert Alternate V instead of the basic clause if the requirement for a special account is eliminated in accordance with 32.409-3(e) or (g) [@CL-CTF-4189]. One difference: RFO FAR 32.405(c)(3) lets the agency deny award if the request has been disapproved under 32.408-2 and funds adequate for performance are not otherwise available to the offeror [@CL-CTF-4182], where the codified paragraph names 32.409-2 [@CL-CTF-3185], and the RFO section titled Recommendation for disapproval is numbered 32.409-2 [@CL-CTF-4183].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-An invitation for bids says nothing about advance payments. One bidder asks for an advance of 200,000 before performance starts, and the bidder may ask even though the invitation is silent [@CL-CTF-3088]. The agency may award with conforming advance payments, or award without them if the bidder does not actually need them [@CL-CTF-3090]. If the request was disapproved under FAR 32.409-2 and adequate funds are not otherwise available to the bidder, the agency may deny award [@CL-CTF-3185]. A second bid states that it can be accepted only if advance payments are provided, and the contracting officer rejects it [@CL-CTF-3089]. For the awarded contract, the agency considers a more rapid liquidation appropriate, so the officer uses the Advance Payments clause with Alternate III [@CL-CTF-3188].
+An invitation for bids says nothing about advance payments. One bidder asks for an advance of 200,000 before performance starts, and the bidder may ask even though the invitation is silent [@CL-CTF-3088]. The agency may award with conforming advance payments, or award without them if the bidder does not actually need them [@CL-CTF-3090]. If the request was disapproved under FAR 32.409-2 and adequate funds are not otherwise available to the bidder, the agency may deny award [@CL-CTF-3185]; under the RFO text the paragraph names 32.408-2 instead, with the same condition on adequate funds [@CL-CTF-4182]. A second bid states that it can be accepted only if advance payments are provided, and the contracting officer rejects it [@CL-CTF-3089]. For the awarded contract, the agency considers a more rapid liquidation appropriate, so the officer uses the Advance Payments clause with Alternate III [@CL-CTF-3188].
 
 ## Never confuse
 
-An advance payment is not a progress payment based on costs. These rules concern advance payments, which the Government provides under the Advance Payments clause [@CL-CTF-3091]. The alternates adjust the terms of the clause, namely the countersignature, the contract type, the liquidation speed, interest and the special account [@CL-CTF-3186; @CL-CTF-3187; @CL-CTF-3188; @CL-CTF-3189; @CL-CTF-3092]. The [advance payments clause](ctf-advance-payments-clause.md) card covers the clause itself.
+An advance payment is not a progress payment based on costs. These rules concern advance payments, which the Government provides under the Advance Payments clause [@CL-CTF-3091]. The alternates adjust the terms of the clause, namely the countersignature, the contract type, the liquidation speed, interest and the special account [@CL-CTF-3186; @CL-CTF-3187; @CL-CTF-3188; @CL-CTF-3189; @CL-CTF-3092]. The [advance payments clause](ctf-advance-payments-clause.md) card covers the clause itself. The codified FAR 32.405(c)(3) points to FAR 32.409-2 for the disapproved request [@CL-CTF-3185], while the RFO text of 32.405(c)(3) points to 32.408-2 [@CL-CTF-4182].
 
 ## Company calibration
 
@@ -57,4 +59,5 @@ Which awarded contracts provide advance payments, and which clause alternates we
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payments on sealed bid contracts and the clause alternates.
