@@ -29,7 +29,7 @@ Defines replenishment parts for the DFARS subpart whose scope is guidance on add
 | Text status | Final [@CL-EST-3049] |
 | Applies to | Replenishment parts as defined [@CL-EST-3049]; spare parts acquired concurrently with the end item [@CL-EST-3050]; parts for which the Government does not have the necessary data [@CL-EST-3051]; contracts with provisioning requirements [@CL-EST-3052] |
 
-Definition. As used in DFARS subpart 217.75, replenishment parts means repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049]. The definition lists no exclusion [@CL-EST-3049].
+Definition. As used in DFARS subpart 217.75, replenishment parts means repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049].
 
 Spares acquisition integrated with production. The section with that heading says to follow the procedures at PGI 217.7503 for acquiring spare parts concurrently with the end item [@CL-EST-3050].
 
@@ -39,18 +39,16 @@ Provisioning. Paragraph (a) of the section with that heading says to follow the 
 
 ### Terms at a glance
 
-| Term | What the printed text says |
+| Term | Meaning or direction |
 |---|---|
 | Replenishment parts | Repairable or consumable parts acquired after the initial provisioning process, as used in the subpart [@CL-EST-3049] |
-| Exclusions from the definition | None printed [@CL-EST-3049] |
-| Repairable; consumable; initial provisioning process | Used in the definition; the cited sections do not define them |
-| Spares acquisition integrated with production | A section heading, not a defined term; the section says to follow the procedures at PGI 217.7503 for acquiring spare parts concurrently with the end item [@CL-EST-3050] |
-| Acquisition of parts when data is not available | A section heading, not a defined term; the section says to follow the procedures at PGI 217.7504 when acquiring parts for which the Government does not have the necessary data [@CL-EST-3051] |
-| Provisioning | A section heading, not a defined term; the section says to follow the procedures at PGI 217.7601 for contracts with provisioning requirements and points to DoD Manual 4140.01, Volume 2, for technical requirements [@CL-EST-3052; @CL-EST-3053] |
+| Spares acquisition integrated with production | Section heading; follow the procedures at PGI 217.7503 for acquiring spare parts concurrently with the end item [@CL-EST-3050] |
+| Acquisition of parts when data is not available | Section heading; follow the procedures at PGI 217.7504 when acquiring parts for which the Government does not have the necessary data [@CL-EST-3051] |
+| Provisioning | Section heading; follow the procedures at PGI 217.7601 for contracts with provisioning requirements, and see DoD Manual 4140.01, Volume 2, for technical requirements of provisioning [@CL-EST-3052; @CL-EST-3053] |
 
 ## How it works
 
-Only the first section defines anything: replenishment parts are repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049]. Each of the next three sections gives an imperative with no named subject, so the sections do not say who must follow the procedures [@CL-EST-3050; @CL-EST-3051; @CL-EST-3052]. What each procedure requires is in the PGI and is not stated in the sections [@CL-EST-3050; @CL-EST-3051; @CL-EST-3052]. Provisioning technical requirements are in a DoD manual volume on demand and supply planning [@CL-EST-3053]. The sections set no dollar threshold or deadline and state no duty for a contractor [@CL-EST-3049; @CL-EST-3050; @CL-EST-3051; @CL-EST-3052; @CL-EST-3053].
+The first section defines replenishment parts as repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049]. Each of the next three sections says to follow the procedures at the PGI section it names [@CL-EST-3050; @CL-EST-3051; @CL-EST-3052]. For technical requirements of provisioning, the provisioning section says to see a DoD manual volume on demand and supply planning [@CL-EST-3053].
 
 The general rules for acquiring replenishment parts, including competition, are on [Orders under non-DoD contracts, source identification and replenishment parts](../../market/programs/mkt-non-dod-order-review-source-identification-and-replenishment-parts.md). The limit on price increases for centrally managed replenishment parts is on [DoD multiyear contracts for services and limits on spare-part price increases](est-dod-multiyear-services-and-spare-parts-price-limits.md).
 
@@ -64,7 +62,7 @@ A new engine contract also covers 40 spare gearboxes bought concurrently with th
 
 ## Never confuse
 
-The definition reaches repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049]. It does not say anything else about which parts count.
+The definition reaches repairable or consumable parts acquired after the initial provisioning process [@CL-EST-3049].
 
 Provisioning is a separate section from the definition. The definition says what replenishment parts are, and the provisioning section says what to follow for contracts with provisioning requirements and where the technical requirements are [@CL-EST-3049; @CL-EST-3052; @CL-EST-3053]. The three PGI directions apply in different situations, each stated in its own section [@CL-EST-3050; @CL-EST-3051; @CL-EST-3052].
 
@@ -76,4 +74,5 @@ Whether the company prices later parts buys through the PGI procedures, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the sections leave unsaid, an exclusions row and the word only; reworded the glance table to the sections' own words.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD replenishment parts, spares integrated with production and provisioning.

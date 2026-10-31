@@ -37,9 +37,9 @@ General multiyear sentence. The general DFARS multiyear section says that before
 
 ## How it works
 
-The housing section is permissive. The head of the agency decides whether to enter into the contract, and the period may be up to 4 years [@CL-EST-3046]. The section sets no dollar threshold and no deadline [@CL-EST-3046; @CL-EST-3047]. Each year's cost may be paid from the annual appropriations for that year [@CL-EST-3047]. For a contractor, the two sentences bear on the length of the contract and on the funds that may pay each year [@CL-EST-3046; @CL-EST-3047].
+The housing section is permissive. The head of the agency decides whether to enter into the contract, and the period may be up to 4 years [@CL-EST-3046]. Each year's cost may be paid from the annual appropriations for that year [@CL-EST-3047]. For a contractor, the two sentences bear on the length of the contract and on the funds that may pay each year [@CL-EST-3046; @CL-EST-3047].
 
-The assisted-acquisition sentence is an imperative with no named subject. Its trigger is a contracting activity from one DoD Component providing acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048]. The procedures are in the PGI and are not stated in the section [@CL-EST-3048]. Neither section states a duty for a contractor [@CL-EST-3046; @CL-EST-3047; @CL-EST-3048].
+The assisted-acquisition sentence is an imperative with no named subject. Its trigger is a contracting activity from one DoD Component providing acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048]. The procedures are in the PGI and are not stated in the section [@CL-EST-3048].
 
 This card covers only these two sections and the cost comparison. The other conditions and notices for multiyear contracts are on [Multiyear contracting: definition, term limit and approval conditions](../../industrialization/ramp/ind-multiyear-contracting.md) and [Multiyear contracts: congressional notification and advance procurement](../../industrialization/ramp/ind-multiyear-congressional-notification-and-advance-procurement.md). The scope and ordering rules for DoD interagency acquisitions are on [DoD interagency acquisitions: scope and ordering procedures](../../market/programs/mkt-dfars-interagency-acquisition-scope-and-ordering.md). The DFARS rules for assisted and direct acquisition through non-DoD agencies are on [Acquisitions through nondefense agencies: assisted and direct acquisition](../../market/programs/mkt-dfars-nondefense-agency-assisted-and-direct-acquisition.md).
 
@@ -55,7 +55,7 @@ Separately, a contracting activity from one DoD Component provides acquisition a
 
 The housing authority is not a general multiyear authority. It covers supplies and services required for management, maintenance and operation of military family housing, for periods up to 4 years [@CL-EST-3046].
 
-The word "may" in the funding sentence does not guarantee payment from annual appropriations in any year [@CL-EST-3047]. The assisted-acquisition rule is about a contracting activity from one DoD Component helping another DoD Component's deployed units or personnel, and the sentence says nothing about an acquisition by a non-DoD agency [@CL-EST-3048].
+The word "may" in the funding sentence does not guarantee payment from annual appropriations in any year [@CL-EST-3047]. The assisted-acquisition rule is about a contracting activity from one DoD Component providing acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048].
 
 ## Company calibration
 
@@ -65,4 +65,5 @@ Whether any housing maintenance order the company holds sits under a multiyear c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed negative statements about thresholds, deadlines, contractor duties and non-DoD agencies that no quote states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD multiyear contracts for military family housing and assisted acquisitions.

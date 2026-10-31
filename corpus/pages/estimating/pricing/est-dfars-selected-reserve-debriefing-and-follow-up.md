@@ -36,7 +36,7 @@ When providing a required postaward debriefing to successful and unsuccessful of
 
 ## How it works
 
-The Selected Reserve factor is discretionary, because the text says the contracting officer may use it [@CL-EST-2763]. The provision is tied to the value of the contract award and the type of solicitation: a competitive negotiated solicitation, valued at $15 million or more, including one that uses FAR part 12 procedures [@CL-EST-2764].
+The contracting officer may use the Selected Reserve evaluation factor [@CL-EST-2763]. The provision is tied to the value of the contract award and the type of solicitation: a competitive negotiated solicitation, valued at $15 million or more, including one that uses FAR part 12 procedures [@CL-EST-2764].
 
 After a required postaward debriefing, two periods run for the contracting officer. The first is the opportunity to submit written questions, which runs to not later than 2 business days after receiving the postaward debriefing [@CL-EST-2766]. The second is the written response, due within 5 business days after receipt of the questions, and the duty covers timely submitted questions [@CL-EST-2767]. The debriefing is concluded at the later of its delivery or, where timely written questions were received, the delivery of the written response [@CL-EST-2768]. For the full debriefing rules, see [Postaward debriefing of offerors](est-postaward-debriefing.md).
 
@@ -66,4 +66,5 @@ Which expected debriefings need written questions prepared before the question w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the Selected Reserve factor sentence to state the rule without describing the text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD selected reserve evaluation factor, the postaward debriefing provision and follow-up questions.

@@ -33,7 +33,7 @@ The offeror shall complete the checklist, providing the location of the requeste
 
 ## How it works
 
-The checklist has columns for the submission item, the proposal page number and an explanation if the item is not provided, and the explanation may use continuation pages [@CL-EST-1507]. Its first general instruction asks whether there is a properly completed first page of the proposal per FAR 15.408 Table 15-2 or as specified in the solicitation [@CL-EST-1507]. Later items ask about other parts of the proposal; one asks, where the offeror intends to subcontract more than 70 percent of the total cost of work to be performed, whether the proposal identifies, as its first item, the amount of the offeror's indirect costs and profit applicable to the subcontracted work [@CL-EST-1545], and its second item asks for a description of the added value the offeror provides as related to that work [@CL-EST-1624]. This card does not set out the other items.
+The checklist has columns for the submission item, the proposal page number and an explanation if the item is not provided, and the explanation may use continuation pages [@CL-EST-1507]. Its first general instruction asks whether there is a properly completed first page of the proposal per FAR 15.408 Table 15-2 or as specified in the solicitation [@CL-EST-1507]. Later items ask about other parts of the proposal; one asks, where the offeror intends to subcontract more than 70 percent of the total cost of work to be performed, whether the proposal identifies, as its first item, the amount of the offeror's indirect costs and profit applicable to the subcontracted work [@CL-EST-1545], and its second item asks for a description of the added value the offeror provides as related to that work [@CL-EST-1624].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ An offeror prepares a proposal for a solicitation that includes the checklist. F
 
 ## Never confuse
 
-Completing the checklist is not the same as the auditor's adequacy review, and the contracting officer's decision to include it is a separate step on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md). The offeror completes the checklist [@CL-EST-1543]; the auditor's use of it, and what follows from an inadequate proposal, are on [Proposal adequacy, the audit opinion and denial of access](est-proposal-adequacy-audit-opinion.md). The checklist is also not the certified data threshold, which is on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
+The contracting officer's decision to include the checklist in the solicitation [@CL-EST-1521] is covered on [DFARS solicitation provisions and contract clauses for negotiated contracts](est-dfars-solicitation-provisions-negotiated.md). The offeror completes the checklist [@CL-EST-1543]; the auditor's use of it, and what follows from an inadequate proposal, are on [Proposal adequacy, the audit opinion and denial of access](est-proposal-adequacy-audit-opinion.md). The certified data threshold is on [Certified cost or pricing data threshold](est-certified-cost-or-pricing-data.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which bids and estimates need the checklist completed now, and what review evide
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts and a meta sentence and cited the contracting officer inclusion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the proposal adequacy checklist provision.

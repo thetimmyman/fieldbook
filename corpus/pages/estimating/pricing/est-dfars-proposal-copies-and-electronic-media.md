@@ -35,7 +35,7 @@ The electronic media provision is the one to use as prescribed at DFARS 215.408(
 
 ## How it works
 
-The copy provision names two recipients and one moment: the copies go out when the proposal is submitted [@CL-EST-1731]. The electronic media provision covers only the cost portion of the proposal, and the media format is an insert that the solicitation fills in [@CL-EST-1732]. Spreadsheet and electronic mail are examples in the insert, and the format is whatever the solicitation inserts [@CL-EST-1732]. The electronic media provision prints no due date and no file layout of its own, so the source does not establish either.
+The copy provision names two recipients and one moment: the copies go out when the proposal is submitted [@CL-EST-1731]. The electronic media provision covers the cost portion of the proposal, and the media format is an insert that the solicitation fills in [@CL-EST-1732]. Spreadsheet and electronic mail are examples in the insert, and the format is whatever the solicitation inserts [@CL-EST-1732].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A solicitation includes both provisions and fills in the media format as a sprea
 
 ## Never confuse
 
-The word also in the copy provision shows that these copies come in addition to the proposal submission itself [@CL-EST-1731]. The electronic media provision is about the cost portion only, not the whole proposal [@CL-EST-1732]. The general format rules for cost data are on [Data submission format and instructions](est-data-submission-format-and-instructions.md), and late submission is on [Proposal submission and late proposals](est-proposal-submission-and-late-proposals.md).
+Under the copy provision, when the proposal is submitted the Offeror shall also submit one copy each to the Administrative Contracting Officer and to the Contract Auditor [@CL-EST-1731]. Under the electronic media provision, the Offeror shall submit the cost portion of the proposal via the electronic media format the solicitation inserts [@CL-EST-1732]. The general format rules for cost data are on [Data submission format and instructions](est-data-submission-format-and-instructions.md), and late submission is on [Proposal submission and late proposals](est-proposal-submission-and-late-proposals.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Who owns sending the proposal copies and building the cost portion in the format
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the provisions leave unsaid; reworded the never-confuse lines to the provisions' own words.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proposal copies to the administrative contracting officer and auditor, and electronic media.

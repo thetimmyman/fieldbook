@@ -28,11 +28,11 @@ Shows what DoD adds to the FAR ordering rules for orders placed against multiple
 | Text status | Final [@CL-EST-1565] |
 | Applies to | Orders placed against multiple award indefinite delivery contracts [@CL-EST-1565] |
 
-DFARS directs the reader to its own section for the limitations and prohibitions on the lowest price technically acceptable source selection process, which apply to orders placed against multiple award indefinite delivery contracts [@CL-EST-1565]. For an order exceeding the simplified acquisition threshold that follows an order previously issued for the same supply or service on a justification citing the authority at FAR 16.505(b)(2)(i)(B) or (C), DFARS says to follow the procedures at PGI 216.505(b)(2) [@CL-EST-1566]. In addition to the notice required by the FAR, a written or oral postaward debriefing of successful and unsuccessful awardees is required for task orders and delivery orders valued at $15 million or more [@CL-EST-1567]. For task orders or delivery orders valued at $15 million or more, DFARS says to follow the procedures at its own sections on debriefing when providing the postaward debriefing to successful and unsuccessful awardees [@CL-EST-1638]. DFARS also directs the reader to its own section for the prohibition on the use of reverse auctions for personal protective equipment and aviation critical safety items [@CL-EST-1637].
+See DFARS 215.101-2-70 for the limitations and prohibitions on the use of the lowest price technically acceptable source selection process, which are applicable to orders placed against multiple award indefinite delivery contracts [@CL-EST-1565]. For an order exceeding the simplified acquisition threshold that is a follow-on to an order previously issued for the same supply or service based on a justification for an exception to fair opportunity citing the authority at FAR 16.505(b)(2)(i)(B) or (C), follow the procedures at PGI 216.505(b)(2) [@CL-EST-1566]. In addition to the notice required at FAR 16.505(b)(6), a written or oral postaward debriefing of successful and unsuccessful awardees is required for task orders and delivery orders valued at $15 million or more [@CL-EST-1567]. For task orders or delivery orders valued at $15 million or more, follow the procedures at 215.506 and 215.506-70 when providing the postaward debriefing to successful and unsuccessful awardees [@CL-EST-1638]. See 217.7801 for the prohibition on the use of reverse auctions for personal protective equipment and aviation critical safety items [@CL-EST-1637].
 
 ## How it works
 
-Most of the additions are pointers: one to the limits on lowest price technically acceptable source selection, one to separate procedures for follow-on orders, one to the prohibition on reverse auctions, and one to the debriefing procedures [@CL-EST-1565; @CL-EST-1566; @CL-EST-1637; @CL-EST-1638]. The follow-on pointer applies to an order exceeding the simplified acquisition threshold when the earlier order for the same supply or service rested on the exception for a unique or highly specialized need or the exception for a logical follow-on [@CL-EST-1566; @CL-EST-1562; @CL-EST-1563]. The remaining addition is a debriefing duty that sits on top of the FAR notice [@CL-EST-1567]. The printed text does not say what the pointed-to procedures contain. The section also has items on orders under non-DoD contracts and on supplier performance risk assessments, which this card does not draft.
+Four of the additions point elsewhere: one to the limits on lowest price technically acceptable source selection, one to separate procedures for follow-on orders, one to the prohibition on reverse auctions, and one to the debriefing procedures [@CL-EST-1565; @CL-EST-1566; @CL-EST-1637; @CL-EST-1638]. The follow-on pointer applies to an order exceeding the simplified acquisition threshold when the earlier order for the same supply or service was based on a justification for an exception to fair opportunity citing one of two authorities: the exception for supplies or services that are unique or highly specialized [@CL-EST-1566; @CL-EST-1562] or the exception for a logical follow-on [@CL-EST-1566; @CL-EST-1563]. The remaining addition is a debriefing duty that sits on top of the FAR notice [@CL-EST-1567].
 
 ## Worked example
 
@@ -42,7 +42,7 @@ A DoD task order under a multiple-award contract is valued at 20 million, and th
 
 ## Never confuse
 
-The DFARS debriefing duty adds to the FAR notice and does not replace it [@CL-EST-1567]. The pointers are not restated rules: fair opportunity and its exceptions are on [Ordering under indefinite-delivery contracts: fair opportunity, exceptions and thresholds](est-far-ordering-indefinite-delivery-contracts.md), and the contract types are on [Indefinite-delivery and indefinite-quantity contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md).
+The DFARS debriefing duty is in addition to the notice required at FAR 16.505(b)(6) [@CL-EST-1567]. Fair opportunity and its exceptions are on [Ordering under indefinite-delivery contracts: fair opportunity, exceptions and thresholds](est-far-ordering-indefinite-delivery-contracts.md), and the contract types are on [Indefinite-delivery and indefinite-quantity contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md).
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Which DoD orders under multiple-award contracts the company holds, and whether a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Worded the pointers and the follow-on justification as the provisions state them and cut uncited contrasts and notes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Follow-on pointer now states the simplified acquisition threshold condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD ordering under multiple award contracts.

@@ -29,13 +29,13 @@ Shows when the DoD special termination costs clause may be used on an incrementa
 | Text status | Final [@CL-EST-1096] |
 | Applies to | Incrementally funded contracts where the agency head approves use of the clause [@CL-EST-1096] |
 
-The Special Termination Costs clause may be used in an incrementally funded contract when the agency head approves its use [@CL-EST-1096]. The clause is authorized when the listed conditions are met: a contract term of 2 years or more, and an estimate of either more than $25 million of total RDT&E financing or more than $100 million of total production investment [@CL-EST-1097]. The list also requires that adequate funds are available to cover the contingent reserve liability for special termination costs, and it joins that condition to the others with "and" [@CL-EST-1107; @CL-EST-9500].
+The Special Termination Costs clause may be used in an incrementally funded contract when the agency head approves its use [@CL-EST-1096]. The clause is authorized when all of these apply: the contract term is 2 years or more [@CL-EST-1097]; the contract is estimated to require either total RDT&E financing in excess of $25 million or total production investment in excess of $100 million [@CL-EST-1097; @CL-EST-9500]; and adequate funds are available to cover the contingent reserve liability for special termination costs [@CL-EST-9500; @CL-EST-1107].
 
-The contractor and the contracting officer must agree upon their best estimate of the total special termination costs to which the contractor would be entitled on termination, and insert that amount in the clause [@CL-EST-1098].
+The contractor and the contracting officer must agree upon their best estimate of the total special termination costs to which the contractor would be entitled on termination, and insert that amount in paragraph (c) of the clause [@CL-EST-1098].
 
 ## How it works
 
-The clause may be used in an incrementally funded contract, and the agreed amount is the parties' best estimate of the total special termination costs to which the contractor would be entitled if the contract were terminated [@CL-EST-1096; @CL-EST-1098]. On a termination for convenience, partial or whole, or a change that reduces scope, the procedures at PGI for the limitation on pricing of the terminated or reduced effort are to be followed [@CL-EST-1099]. The printed DFARS text does not set out those procedures.
+The clause may be used in an incrementally funded contract, and the agreed amount is the parties' best estimate of the total special termination costs to which the contractor would be entitled if the contract were terminated [@CL-EST-1096; @CL-EST-1098]. On a termination for convenience, partial or whole, or a change that reduces scope, follow the procedures at PGI 249.109-70 for limitation on pricing of the terminated or reduced effort [@CL-EST-1099].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A development contract is funded in increments, has a term of 3 years, and is es
 
 ## Never confuse
 
-The agreed special termination cost amount is an estimate of the costs to which the contractor would be entitled on termination [@CL-EST-1098]. Settling an actual termination is a separate step. For settlement, see [Termination costs](../../close-revrec/inventory-wip/cls-termination-costs.md) and [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+The agreed special termination cost amount is an estimate of the costs to which the contractor would be entitled on termination [@CL-EST-1098]. For settlement, see [Termination costs](../../close-revrec/inventory-wip/cls-termination-costs.md) and [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which large development or production bids may carry the clause, and who prepare
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the authorizing conditions as all applying and cited them, worded the pricing limit pointer as the provision states it, and cut uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the authorizing conditions as a joined list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD special termination costs.
