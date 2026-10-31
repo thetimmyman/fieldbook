@@ -23,7 +23,7 @@ Shows what an offeror certifies about how its prices were reached, what a contra
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2600; @CL-CMP-2605] |
 | Codified citation | FAR 52.203-2 and FAR 52.203-5 [@CL-CMP-2600; @CL-CMP-2605] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.203-2 [@CL-CMP-1342; @CL-CMP-1343] and RFO FAR 52.203-5 [@CL-CMP-1349; @CL-CMP-1350] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2600; @CL-CMP-2605] |
 | Applies to | Solicitations where a firm-fixed-price contract or fixed-price contract with economic price adjustment is contemplated, subject to listed exceptions, and solicitations and contracts exceeding the simplified acquisition threshold other than those for commercial products or commercial services [@CL-CMP-2679; @CL-CMP-2680; @CL-CMP-2681] |
@@ -35,6 +35,10 @@ The covenant clause is inserted as prescribed in FAR 3.404 [@CL-CMP-2605]. The c
 ## How it works
 
 The independent price provision is a set of certifications made with the offer. The section prints no remedy for a false certification, so what follows a breach of it is not established here. The provision also has paragraphs on the effect of a signature and on deleting or modifying one certification, and this card does not set them out. The covenant clause is different, because it prints its own remedy for breach of the warranty [@CL-CMP-2607]. The amount the Government may deduct or recover is the full amount of the contingent fee [@CL-CMP-2607]. The clause also defines bona fide employee, bona fide agency and improper influence, and this card does not set those definitions out.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.203-2 keeps the insertion of the independent price provision as prescribed in FAR 3.103-1 [@CL-CMP-1342; @CL-CMP-2600] and the list of matters that the offeror certifies in paragraph (a) [@CL-CMP-1343; @CL-CMP-2601]. It keeps the certification that the prices were arrived at independently, without, for the purpose of restricting competition, any consultation, communication, or agreement with any other offeror or competitor relating to those prices, the intention to submit an offer, or the methods or factors used to calculate the prices offered [@CL-CMP-1344; @CL-CMP-1345; @CL-CMP-2602]. It keeps the certification that the prices have not been and will not be knowingly disclosed to any other offeror or competitor before bid opening for a sealed bid solicitation or before contract award for a negotiated solicitation, unless otherwise required by law [@CL-CMP-1346; @CL-CMP-1347; @CL-CMP-2603], and the certification that no attempt has been or will be made to induce any other concern to submit or not to submit an offer for the purpose of restricting competition [@CL-CMP-1348; @CL-CMP-2604].
+
+The RFO text of FAR 52.203-5 keeps the insertion of the covenant clause as prescribed in FAR 3.404 [@CL-CMP-1349; @CL-CMP-2605] and the warranty that no person or agency has been employed or retained to solicit or obtain the contract upon an agreement or understanding for a contingent fee, except a bona fide employee or agency [@CL-CMP-1350; @CL-CMP-2606]. It keeps the Government's right to annul the contract without liability or to deduct from the contract price or consideration, or otherwise recover, the full amount of the contingent fee [@CL-CMP-1351; @CL-CMP-2607].
 
 ## Worked example
 
@@ -54,4 +58,5 @@ Which solicitations carry the price certification provision, which contracts car
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certificate of independent price determination and the covenant against contingent fees.

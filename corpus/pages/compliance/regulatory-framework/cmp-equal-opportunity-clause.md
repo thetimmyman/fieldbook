@@ -23,7 +23,7 @@ Shows the equal opportunity duties a contractor carries on a covered Federal con
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5866] |
 | Codified citation | FAR 52.222-26 [@CL-CMP-5866] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-26 prints as [Reserved] [@CL-CMP-1119] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5866] |
 | Applies to | Contractors holding nonexempt Federal contracts or subcontracts above the coverage threshold [@CL-CMP-5866] |
@@ -52,6 +52,8 @@ The contractor must include the terms and conditions of the clause in every subc
 
 Alternate I adds a preamble stating that the terms of the clause which the contracting officer lists are waived for the contract, and the list is filled in per contract [@CL-CMP-6368]. Bracketed fill-ins in the clause text are contract-specific and are not established by this card.
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.222-26 as [Reserved] [@CL-CMP-1119].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -62,6 +64,8 @@ A contractor wins a contract worth 80,000 and, in the same 12 months, holds othe
 
 The equal opportunity clause is often treated as the same thing as affirmative action. Two of its duties are run together: it bars discrimination on the listed bases, and it separately requires affirmative action so that applicants are employed and employees are treated without regard to those bases [@CL-CMP-5867; @CL-CMP-5868]. Pay transparency is narrower again, protecting the act of asking about, discussing or disclosing compensation, with the exception for an employee whose essential job functions include access to compensation information [@CL-CMP-5870; @CL-CMP-6355]. A finding of noncompliance makes cancellation, termination, suspension and ineligibility possible; the clause says the contract may be canceled, terminated or suspended, not that it must be [@CL-CMP-5874].
 
+In the codified text, FAR 52.222-26 is the equal opportunity clause that carries the duties described on this page [@CL-CMP-5866; @CL-CMP-5867], but the RFO text prints that number as [Reserved] [@CL-CMP-1119].
+
 ## Company calibration
 
 Which contracts and business units sit inside the equal opportunity population whose notices, equal employment filings and pay-transparency dissemination the finance team tracks. [@Q-004]
@@ -70,4 +74,5 @@ Which contracts and business units sit inside the equal opportunity population w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the equal opportunity clause.
