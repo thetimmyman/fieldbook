@@ -23,7 +23,7 @@ Shows what an offeror represents about internal confidentiality agreements and w
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2640; @CL-CMP-2642] |
 | Codified citation | FAR 52.203-18 and FAR 52.203-19 [@CL-CMP-2640; @CL-CMP-2642] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.203-18 [@CL-CMP-1352; @CL-CMP-1353] and RFO FAR 52.203-19 [@CL-CMP-1355; @CL-CMP-1356] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2640; @CL-CMP-2642] |
 | Applies to | Solicitations and contracts when using funding subject to the prohibitions in the cited FAR section, other than personal services contracts with individuals [@CL-CMP-2696; @CL-CMP-2698; @CL-CMP-2697] |
@@ -35,6 +35,10 @@ The clause is inserted as prescribed in FAR 3.909-3(b) [@CL-CMP-2642]. Under the
 ## How it works
 
 The provision and the clause use the same words for what is barred. The provision is a representation made with the offer, and the clause is the duty that applies during the contract. The provision's own text goes on to describe the protected reporting in the same words as the clause. Both carry a carve-out for classified-information nondisclosure forms, and the clause defines the term internal confidentiality agreement or statement with listed exclusions, and this card does not set those out. The clause also requires the Contractor to notify current employees and subcontractors that inconsistent restrictions in preexisting agreements are no longer in effect, and it ties a funding prohibition to a Government finding of non-compliance, and this card does not set those out either.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.203-18 keeps the insertion of the representation provision as prescribed in FAR 3.909-3(a) [@CL-CMP-1352; @CL-CMP-2640]. It keeps the representation that, by submission of its offer, the Offeror will not require its employees or subcontractors to sign or comply with internal confidentiality agreements or statements prohibiting or otherwise restricting them from lawfully reporting waste, fraud, or abuse [@CL-CMP-1353; @CL-CMP-2641].
+
+The RFO text of FAR 52.203-19 keeps the insertion of the clause as prescribed in FAR 3.909-3(b) [@CL-CMP-1355; @CL-CMP-2642] and the rule that the Contractor shall not require its employees or subcontractors to sign or comply with the same kind of agreements or statements [@CL-CMP-1356; @CL-CMP-2643]. Both RFO texts describe the protected reporting in the same words: reporting related to the performance of a Government contract to a designated investigative or law enforcement representative of a Federal department or agency authorized to receive such information, for example the agency Office of the Inspector General [@CL-CMP-1354; @CL-CMP-1357; @CL-CMP-2644].
 
 ## Worked example
 
@@ -54,4 +58,5 @@ Which offers include the provision, which contracts carry the clause, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause cards for the internal confidentiality agreement representation and clause.

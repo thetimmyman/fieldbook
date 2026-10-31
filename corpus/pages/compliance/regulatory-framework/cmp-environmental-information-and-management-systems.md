@@ -23,7 +23,7 @@ Collects three separate environmental duties from three clauses: the information
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5181] |
 | Codified citation | FAR 52.223-5, FAR 52.223-10 and FAR 52.223-19 [@CL-CMP-5181; @CL-CMP-5185; @CL-CMP-5187] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.223-5 [@CL-CMP-1105]; RFO FAR 52.223-10 and RFO FAR 52.223-19 print as [Reserved] [@CL-CMP-1117; @CL-CMP-1118] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5181] |
 | Applies to | Contractors whose contracts carry the pollution prevention and right-to-know clause, the waste reduction clause or the environmental management systems clause [@CL-CMP-5182; @CL-CMP-5185; @CL-CMP-5187] |
@@ -42,6 +42,8 @@ The program's compliance with applicable requirements must specifically include 
 
 The monitoring and measurement information is what lets the Government address environmental performance relative to the goals of the environmental management systems [@CL-CMP-5188].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.223-5 keeps the statement that Federal facilities are required to comply with the Emergency Planning and Community Right-to-Know Act and the Pollution Prevention Act [@CL-CMP-1105; @CL-CMP-5181]. It keeps the contractor's duty to provide all information the Federal facility needs for the emergency planning reporting requirements, the emergency notice requirements, the list of material safety data sheets, the emergency and hazardous chemical inventory forms, and the toxic chemical release inventory with its reduction and recycling information [@CL-CMP-1106; @CL-CMP-1107; @CL-CMP-1108; @CL-CMP-5182; @CL-CMP-5183; @CL-CMP-5184]. It keeps the toxic chemical definition [@CL-CMP-1109; @CL-CMP-5288]. The RFO text prints FAR 52.223-10 as [Reserved] [@CL-CMP-1117], and prints FAR 52.223-19 as [Reserved] [@CL-CMP-1118].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -54,6 +56,8 @@ Conformity with environmental management systems differs from a waste reduction 
 
 The compliance requirement in the right-to-know clause is stated for Federal facilities, and the contractor's own duty there is to provide the information the facility needs [@CL-CMP-5181; @CL-CMP-5182].
 
+In the codified text, FAR 52.223-10 carries the waste reduction program duty and FAR 52.223-19 carries the duty to conform with environmental management systems controls [@CL-CMP-5185; @CL-CMP-5187], but the RFO text prints both of those numbers as [Reserved] [@CL-CMP-1117; @CL-CMP-1118].
+
 ## Company calibration
 
 Which contracts carry each of these clauses, which sites are Federal facilities, and who signs off the waste reduction program and the monitoring data. [@Q-004]
@@ -62,4 +66,5 @@ Which contracts carry each of these clauses, which sites are Federal facilities,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for environmental information, waste reduction and management systems.

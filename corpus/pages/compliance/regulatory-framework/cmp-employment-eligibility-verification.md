@@ -23,7 +23,7 @@ Shows which employees the E-Verify clause reaches, when enrollment and verificat
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5255] |
 | Codified citation | FAR 52.222-54 [@CL-CMP-5255] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.222-54 [@CL-CMP-1091] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5255] |
 | Applies to | Contracts that include the clause, and subcontracts for services or construction that meet the value and place-of-performance tests [@CL-CMP-5262; @CL-CMP-5263] |
@@ -50,6 +50,8 @@ The contractor must comply, for the period of performance of the contract, with 
 
 Information on registration for and use of the E-Verify program can be obtained through the Internet at the Department of Homeland Security Web site, https://www.e-Verify.gov [@CL-CMP-5773].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.222-54 keeps the requirement that a contractor not enrolled at award enroll within 30 calendar days of contract award [@CL-CMP-1091; @CL-CMP-5256]. For that contractor it keeps the step of beginning, within 90 calendar days of enrollment, to use E-Verify for all new hires within 3 business days after the date of hire, with its pointer to paragraph (b)(3) [@CL-CMP-1092; @CL-CMP-1185; @CL-CMP-5257], and the verification of each assigned employee within 90 calendar days after the date of enrollment or 30 calendar days of assignment, whichever date is later, with its pointer to paragraph (b)(4) [@CL-CMP-1093; @CL-CMP-5258]. For a contractor already enrolled at award, it keeps the split between enrolled 90 calendar days or more [@CL-CMP-1094; @CL-CMP-5393], enrolled less than 90 calendar days [@CL-CMP-1095; @CL-CMP-1186; @CL-CMP-5394], and verification of assigned employees within 90 calendar days after the date of contract award or 30 days after assignment, whichever date is later [@CL-CMP-1096; @CL-CMP-5396]. It keeps the option to verify all existing employees hired after November 6, 1986, or after November 27, 2009 in the Northern Mariana Islands [@CL-CMP-1187; @CL-CMP-5260], the duty to initiate verification for each such employee [@CL-CMP-1188; @CL-CMP-5399], and the 180 calendar day period that runs from enrollment in E-Verify or from notification to E-Verify Operations of the decision to exercise the option [@CL-CMP-1097; @CL-CMP-5400]. It keeps the excuse during a Memorandum of Understanding termination followed by reenrollment if the contractor is not suspended, debarred or subject to a voluntary exclusion [@CL-CMP-1098; @CL-CMP-1099; @CL-CMP-5771; @CL-CMP-5772]. It keeps the flow-down into each subcontract that is for services, other than the listed commercial services of a COTS provider, or for construction, that has a value of more than $3,500, and that includes work performed in the United States [@CL-CMP-1103; @CL-CMP-1189; @CL-CMP-1104; @CL-CMP-5403; @CL-CMP-5262; @CL-CMP-5263].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -68,4 +70,5 @@ Which subcontracts cross the value and place-of-performance tests, and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for employment eligibility verification with E-Verify.

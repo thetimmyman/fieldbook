@@ -22,7 +22,7 @@ Explains the steps a contractor other than an individual must take to keep a dru
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5434] |
 | Codified citation | FAR 52.226-7 [@CL-CMP-5434] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.226-7 [@CL-CMP-1083] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5434] |
 | Applies to | Contractors other than an individual, for employees directly engaged in contract performance [@CL-CMP-5434; @CL-CMP-5440] |
@@ -47,6 +47,8 @@ Remedies. In addition to other remedies available to the Government [@CL-CMP-632
 
 Definitions. Controlled substance means a controlled substance in schedules I through V of section 202 of the Controlled Substances Act and as further defined in regulation at 21 CFR 1308.11-1308.15 [@CL-CMP-6075]. Conviction means a finding of guilt (including a plea of nolo contendere) or imposition of sentence, or both, by any judicial body charged with the responsibility to determine violations of the Federal or State criminal drug statutes [@CL-CMP-6076]. Criminal drug statute means a Federal or non-Federal criminal statute involving the manufacture, distribution, dispensing, possession or use of any controlled substance [@CL-CMP-6077]. A drug-free workplace is the site or sites for the performance of work done by the Contractor in connection with a specific contract where employees of the Contractor are prohibited from engaging in the unlawful manufacture, distribution, dispensing, possession, or use of a controlled substance [@CL-CMP-6078].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.226-7 keeps the timing of the paragraph (b) steps, within 30 days after award, unless a longer period is agreed to in writing for contracts of 30 days or more performance duration, and as soon as possible for contracts of less than 30 days performance duration [@CL-CMP-1083; @CL-CMP-5434]. It keeps the 5 day period for an employee to notify the employer after a conviction, and the 10 day written notice to the Contracting Officer that includes the position title of the employee [@CL-CMP-1084; @CL-CMP-1085; @CL-CMP-5437; @CL-CMP-5438]. It keeps the 30 day period to take either personnel action up to and including termination or require participation in an approved assistance or rehabilitation program [@CL-CMP-1086; @CL-CMP-1087; @CL-CMP-1088; @CL-CMP-5439; @CL-CMP-5519; @CL-CMP-5520]. It keeps the definition of directly engaged employees [@CL-CMP-1090; @CL-CMP-5440] and the remedies for failure to comply with paragraph (b) or (c), including suspension of contract payments, termination for default and suspension or debarment [@CL-CMP-1089; @CL-CMP-6109].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -65,4 +67,5 @@ How a conviction notice reaches the contracting officer and who owns the awarene
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the drug-free workplace clause.

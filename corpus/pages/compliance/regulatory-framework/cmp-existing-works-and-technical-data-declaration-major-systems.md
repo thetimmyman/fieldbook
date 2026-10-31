@@ -23,7 +23,7 @@ Shows the license the Government takes in existing works, and what a contractor 
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3722] |
 | Codified citation | FAR 52.227-18 and FAR 52.227-21 [@CL-CMP-3722; @CL-CMP-3723] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.227-21 [@CL-CMP-1175]; RFO FAR 52.227-18 prints as [Reserved] [@CL-CMP-1184] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3722] |
 | Applies to | Technical data that relate to a major system and are delivered or required to be delivered under the contract, for the declaration clause [@CL-CMP-3723] |
@@ -38,6 +38,8 @@ At the Contracting Officer's request, the Contractor shall revise technical data
 
 The declaration clause works in three steps: the contractor declares the technical data complete, accurate and compliant when it delivers [@CL-CMP-3724], the Government may direct correction of deficiencies at the contractor's expense [@CL-CMP-3725], and the contractor revises the data when the Contracting Officer asks, after design changes that affect form, fit, and function [@CL-CMP-3726]. The withholding is a reserve that the Contracting Officer may hold back, capped at the lesser of two amounts, and the Contracting Officer may hold it until the contractor complies or the Contracting Officer determines that the cause was outside the contractor's control [@CL-CMP-3727; @CL-CMP-3728].
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.227-21 keeps the declaration, which the contractor provides in accordance with section 2302(e)(7) of title 41 of the United States Code, for technical data that relate to a major system and are delivered or required to be delivered, or delivered within 3 years after acceptance of all items other than technical data unless a different period is set [@CL-CMP-1196; @CL-CMP-1175; @CL-CMP-3723]. It keeps the declaration that, to the best of the contractor's knowledge and belief, the technical data are complete, accurate, and comply with the contract requirements concerning such technical data [@CL-CMP-1176; @CL-CMP-3724]. It keeps the Government's right to direct correction of deficiencies at the contractor's expense [@CL-CMP-1177; @CL-CMP-3725], and the rule that unauthorized markings are not a deficiency but are treated under paragraph (e) of the Rights in Data-General clause [@CL-CMP-1178; @CL-CMP-3749]. It keeps the revision at the request of the Contracting Officer [@CL-CMP-1179; @CL-CMP-3726] and the request for an equitable adjustment [@CL-CMP-1180; @CL-CMP-3750]. It keeps the reserve of up to $100,000 or 5 percent of the amount of the contract, whichever is less, before final payment, for the four listed failures [@CL-CMP-1181; @CL-CMP-1182; @CL-CMP-3727; @CL-CMP-3748], and the hold until the contractor complies or the Contracting Officer determines the cause was beyond the contractor's control [@CL-CMP-1183; @CL-CMP-3728]. The RFO text prints FAR 52.227-18 as [Reserved] [@CL-CMP-1184].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -48,6 +50,8 @@ A contract for a major system has a price of 1,000,000. The contractor fails to 
 
 The withholding here is a reserve held against technical data failures, and it is not the same as the entitlement to payment for accepted deliveries; for that, see [Making payments: due dates, partial payments and early payment](../../contract-finance/billing-payment/ctf-making-payments.md). The existing works license also differs from [unlimited rights](cmp-rights-in-data-general-definitions-and-allocation.md): its wording covers reproducing, preparing derivative works, and performing and displaying publicly, and does not list distributing copies to the public [@CL-CMP-3722; @CL-CMP-3679].
 
+In the codified text, FAR 52.227-18 carries the existing works license [@CL-CMP-3722], but the RFO text prints that number as [Reserved] [@CL-CMP-1184].
+
 ## Company calibration
 
 Which executed contracts carry the declaration clause for a major system, and who confirms the contract price used to cap the withholding. [@Q-004]
@@ -56,4 +60,5 @@ Which executed contracts carry the declaration clause for a major system, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rights in data for existing works and the technical data declaration, revision and withholding of payment for major systems.

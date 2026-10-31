@@ -23,7 +23,7 @@ Explains when a provision or clause is brought into a solicitation or contract b
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8848] |
 | Codified citation | FAR 52.102 [@CL-CMP-8851] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.102 [@CL-CMP-1319; @CL-CMP-1324] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8848] |
 | Applies to | Solicitations and contracts that incorporate FAR provisions and clauses, or agency provisions and clauses, by reference or in full text [@CL-CMP-8851; @CL-CMP-8855] |
@@ -46,6 +46,10 @@ Provisions or clauses may not be incorporated by reference by being listed in th
 
 The reference-incorporation texts that a solicitation or contract carries are on the card for [the provisions and clauses prescribed in this subpart](cmp-provisions-and-clauses-prescribed-in-subpart-52-1.md). An incorporated FAR text is still identified by number, title and date [@CL-CMP-8857]. Where a modification or fill-in is needed, the card on [modifying and completing](cmp-modifying-and-completing-provisions-and-clauses.md) says where it goes.
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.102(a) keeps the preference for incorporating provisions and clauses by reference to the maximum practical extent, including where they are used with alternates or on an optional basis [@CL-CMP-1319; @CL-CMP-8848], are prescribed on a "substantially as follows" or "substantially the same as" basis and used verbatim [@CL-CMP-1320; @CL-CMP-8849], need modification, fill-in material or completion [@CL-CMP-1320; @CL-CMP-8850], or are completed as annual representations and certifications [@CL-CMP-1321; @CL-CMP-8897]. It keeps the permission in paragraph (b) to incorporate by reference a provision or clause that can be accessed electronically, except those prescribed in 52.107 [@CL-CMP-1322; @CL-CMP-8851], and the duty of the contracting officer to provide the full text on request [@CL-CMP-1323; @CL-CMP-8852].
+
+The RFO text of paragraph (c) says agency approved provisions and clauses prescribed in agency acquisition regulations, and provisions and clauses not authorized by subpart 52.3 to be incorporated by reference, need not be incorporated in full text, provided the contracting officer includes a statement in the solicitation and contract [@CL-CMP-1324; @CL-CMP-1325]. It keeps the three things the statement does: it identifies the provisions and clauses that require completion [@CL-CMP-1326; @CL-CMP-8898], specifies that they must be completed and submitted with the quotation or offer [@CL-CMP-1326; @CL-CMP-8899], and identifies at least one electronic address where the full text may be accessed [@CL-CMP-1327; @CL-CMP-8900]. The RFO text keeps the agency group listing rule in paragraph (d) [@CL-CMP-1328; @CL-CMP-1329; @CL-CMP-8902; @CL-CMP-8854], the full-text rule in paragraph (e) [@CL-CMP-1330; @CL-CMP-1331; @CL-CMP-8855; @CL-CMP-8903] and the prohibition in paragraph (f) [@CL-CMP-1332; @CL-CMP-8856].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -66,6 +70,8 @@ An agency group listing may stand in for individual citation, provided it is mad
 
 Listing a provision or clause in an alterations provision or clause does not incorporate it by reference [@CL-CMP-8856]. How alterations work is on the card for [contract alterations and authorized deviations](cmp-contract-alterations-and-authorized-deviations.md).
 
+The codified paragraph (c) points to the matrix for FAR provisions and clauses not authorized to be incorporated by reference [@CL-CMP-8853], while the RFO paragraph (c) points to subpart 52.3 for provisions and clauses not authorized to be incorporated by reference [@CL-CMP-1324].
+
 ## Company calibration
 
 How the company records which provisions and clauses were incorporated by reference and where the full texts were obtained. [@Q-004]
@@ -74,4 +80,5 @@ How the company records which provisions and clauses were incorporated by refere
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incorporating provisions and clauses by reference.

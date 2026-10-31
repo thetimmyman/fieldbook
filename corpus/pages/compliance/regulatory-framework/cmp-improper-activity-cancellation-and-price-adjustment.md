@@ -23,7 +23,7 @@ Shows what triggers the cancellation and rescission clause, what triggers the pr
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2615; @CL-CMP-2620] |
 | Codified citation | FAR 52.203-8 and FAR 52.203-10 [@CL-CMP-2615; @CL-CMP-2620] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.203-8 [@CL-CMP-1303; @CL-CMP-1307] and RFO FAR 52.203-10 [@CL-CMP-1308; @CL-CMP-1318] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2615; @CL-CMP-2620] |
 | Applies to | Solicitations and contracts that exceed the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2687] |
@@ -37,6 +37,10 @@ The Government may also reduce a prime contractor's price or fee for violations 
 ## How it works
 
 Both clauses rest on statutory violations, but they trigger and recover differently. Cancellation and rescission start from information the Government receives, and rescission needs a conviction or a determination by the head of the contracting activity [@CL-CMP-2616; @CL-CMP-2617; @CL-CMP-2618]. Rescission recovers the amount expended under the contract, plus any penalty the law prescribes [@CL-CMP-2619]. The price or fee adjustment starts from a determination by the head of the contracting activity or designee, and it reduces price or fee by amounts the clause fixes by contract type [@CL-CMP-2621; @CL-CMP-2623]. The clause sets different reductions for cost-plus-incentive-fee, cost-plus-award-fee, fixed-price-incentive and firm-fixed-price contracts [@CL-CMP-2688; @CL-CMP-2689; @CL-CMP-2690; @CL-CMP-2624]. It also reaches subcontractor violations and allows termination for default as an added remedy [@CL-CMP-2692; @CL-CMP-2693]. For fixed-price-incentive contracts the clause also lets the Contracting Officer defer the adjustment in a stated case, and this card does not set that case out.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.203-8 keeps the rule that the Government may cancel the solicitation, if the contract has not yet been awarded or issued [@CL-CMP-1303; @CL-CMP-2616]. It keeps rescission of a contract with respect to which the Contractor or someone acting for it has been convicted for an offense where the conduct violates a section the clause cites for one of two listed purposes [@CL-CMP-1304; @CL-CMP-1305; @CL-CMP-2617]. It keeps rescission on a determination by the head of the contracting activity, based upon a preponderance of the evidence, that the Contractor or someone acting for it engaged in conduct punishable under a section the clause cites [@CL-CMP-1306; @CL-CMP-2618]. It keeps the right to recover, in addition to any penalty prescribed by law, the amount expended under the contract [@CL-CMP-1307; @CL-CMP-2619].
+
+The RFO text of FAR 52.203-10 keeps the Government's election to reduce the price or fee conditional on a determination by the head of the contracting activity or designee [@CL-CMP-1308; @CL-CMP-2621], and that the determination is that there was a violation of 41 U.S.C. 2102 or 2103, as implemented in section 3.104 of the Federal Acquisition Regulation [@CL-CMP-1309; @CL-CMP-2622]. It keeps the reduction for cost-plus-fixed-fee contracts [@CL-CMP-1310; @CL-CMP-2623] and for cost-plus-incentive-fee contracts, notwithstanding any minimum fee or fee floor [@CL-CMP-1311; @CL-CMP-2688]. It keeps the base fee for cost-plus-award-fee contracts [@CL-CMP-1312; @CL-CMP-2689] and the 30 percent figure where no base fee is specified [@CL-CMP-1313; @CL-CMP-2699]. It keeps the reduction of the contract target price and contract target profit for fixed-price-incentive contracts [@CL-CMP-1314; @CL-CMP-2690] and the 10 percent or profit-amount reduction for firm-fixed-price contracts [@CL-CMP-1315; @CL-CMP-2624]. It keeps the reduction for subcontractor violations [@CL-CMP-1316; @CL-CMP-2692], capped at the profit or fee reflected in the subcontract when it was first definitively priced [@CL-CMP-1317; @CL-CMP-2694], and the added remedy of termination for default, with rights and remedies that are not exclusive [@CL-CMP-1318; @CL-CMP-2693].
 
 ## Worked example
 
@@ -56,4 +60,5 @@ Which contracts carry each clause, and who decides how a cancellation, rescissio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause cards for cancellation and rescission, and for price or fee adjustment, for illegal or improper activity.
