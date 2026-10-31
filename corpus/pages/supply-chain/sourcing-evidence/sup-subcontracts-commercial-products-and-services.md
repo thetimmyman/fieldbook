@@ -33,6 +33,8 @@ Notwithstanding any other clause in the prime contract, only those clauses ident
 
 Contractors and subcontractors at all tiers are required, to the maximum extent practicable, to incorporate commercial products, commercial services, or nondevelopmental items as components of items delivered to the Government [@CL-SUP-0551].
 
+The FAR's general definitions say a product is a commercial product under paragraph (1) of that definition when it is a product, other than real property, of a type customarily used by the general public or by nongovernmental entities for purposes other than governmental purposes, and it has been sold, leased, or licensed to the general public or has been offered for sale, lease, or license to the general public [@CL-SUP-9540; @CL-SUP-9546]. Under paragraph (2) of the commercial service definition, services of a type offered and sold competitively in substantial quantities in the commercial marketplace based on established catalog or market prices for specific tasks performed or specific outcomes to be achieved and under standard commercial terms and conditions are a commercial service [@CL-SUP-9541]. The other paragraphs of the two definitions are not summarized here.
+
 Subpart 44.4 prescribes the policies limiting the contract clauses a contractor may be required to apply to any subcontractors that are furnishing commercial products, including commercial components, or commercial services in accordance with section 3307 of title 41 of the United States Code [@CL-SUP-9466]. The subpart applies to all contracts and subcontracts, and for its purposes the term subcontract has the same meaning as defined in part 12 [@CL-SUP-9467; @CL-SUP-9468].
 
 ## How it works
@@ -61,6 +63,8 @@ Confirm how commercial item determinations are made and recorded and which claus
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the offered-for-sale alternative of the commercial product definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of commercial product and commercial service.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 44.400 scope and 44.401 applicability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracts for commercial products and commercial services.

@@ -35,6 +35,8 @@ Normally, testing and approval is not required in contracts for research or deve
 
 A solicitation containing a testing and approval requirement shall inform offerors that the requirement may be waived when supplies identical or similar to those called for have previously been delivered by the offeror and accepted by the Government [@CL-IND-0160; @CL-IND-0128].
 
+FAR 2.101 defines a first article as a preproduction model, initial production sample, test sample, first lot, pilot lot, or pilot models [@CL-IND-1047]. It defines first article testing as testing and evaluating the first article for conformance with specified contract requirements before or in the initial stage of production [@CL-IND-1048].
+
 ## How it works
 
 Use is a judgment: testing and approval may be appropriate in the listed circumstances [@CL-IND-0124; @CL-IND-0125; @CL-IND-0126], and it is normally not required in the listed contract types [@CL-IND-0127]. The solicitation tells offerors that the requirement may be waived when identical or similar supplies were previously delivered by the offeror and accepted by the Government [@CL-IND-0160; @CL-IND-0128]. Who bears the cost of materials and production before approval, and how approval is decided, are on [Contractor risk before first article approval and related procedures](ind-first-article-contractor-risk-and-procedures.md). Acceptance of production supplies is covered separately in [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
@@ -57,4 +59,5 @@ Which new products or process changes would need first article approval before c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of first article and first article testing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for first article testing and approval.

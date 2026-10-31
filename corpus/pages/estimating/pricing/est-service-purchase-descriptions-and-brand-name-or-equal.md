@@ -43,7 +43,7 @@ Contractors feel the other two features as terms of the description. The descrip
 
 Two tests decide the provision on alternatives to Government-unique standards: the solicitation must use Government-unique standards, and the agency must use the transaction-based reporting method [@CL-EST-1011]. For an agency that uses the categorical method, the provision is optional [@CL-EST-1012]. The agency's own regulations say which method it uses [@CL-EST-1015]. The Brand Name or Equal provision depends on one test: the solicitation includes brand name or equal purchase descriptions [@CL-EST-1010].
 
-The policy on brand name or equal descriptions is in section 11.104. While performance specifications are preferred to encourage offerors to propose innovative solutions, brand name or equal purchase descriptions may be advantageous under certain circumstances [@CL-EST-2139]. Such a description must include, in addition to the brand name, a general description of those salient physical, functional, or performance characteristics of the brand name item that an “equal” item must meet to be acceptable for award [@CL-EST-2140]. The descriptions are to be used when the salient characteristics are firm requirements, and the text names no official who uses them [@CL-EST-2141].
+The policy on brand name or equal descriptions is in section 11.104 [@CL-EST-2139]. While performance specifications are preferred to encourage offerors to propose innovative solutions, brand name or equal purchase descriptions may be advantageous under certain circumstances [@CL-EST-2139]. Such a description must include, in addition to the brand name, a general description of those salient physical, functional, or performance characteristics of the brand name item that an “equal” item must meet to be acceptable for award [@CL-EST-2140]. The descriptions are to be used when the salient characteristics are firm requirements, and the text names no official who uses them [@CL-EST-2141].
 
 For what the two provisions say once they are in a solicitation, see [Material requirements and brand name or equal](../../supply-chain/sourcing-evidence/sup-material-requirements-and-brand-name-or-equal.md) and [Examining specifications and proposing alternatives to Government-unique standards](est-specification-examination-and-alternative-standards.md).
 
@@ -69,5 +69,6 @@ The company must confirm, for every service solicitation it bids, which of the l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: The pointer to section 11.104 now cites its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the policy on brand name or equal purchase descriptions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract purchase descriptions and the brand name or equal provision.

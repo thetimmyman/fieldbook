@@ -33,6 +33,8 @@ The contractor performs value engineering services, submits progress reports as 
 
 Value engineering is an organized effort to analyze the functions of systems, equipment, facilities, services and supplies to achieve the essential functions at the lowest life cycle cost consistent with required performance, reliability, quality and safety [@CL-SUP-3193]. Life cycle cost is the sum of all costs over the useful life of a building, system or product, including the cost of design, construction, acquisition, operation, maintenance and salvage (resale) value, if any [@CL-SUP-3192]. In this clause a value engineering proposal, in connection with an architect-engineer contract, is a change proposal developed by employees of the Federal Government or contractor value engineering personnel under contract to an agency to provide value engineering services for the contract or program [@CL-SUP-3117].
 
+The FAR's general definitions say that, under paragraph (1) of the definition, architect-engineer services, as defined in section 1102 of title 40 of the United States Code, include professional services of an architectural or engineering nature, as defined by State law, if applicable, that are required to be performed or approved by a person licensed, registered, or certified to provide those services [@CL-SUP-9544]. The definition's other two paragraphs are not summarized here.
+
 After award, the contractor provides the Government with a fee breakdown schedule for the value engineering services included in the contract schedule [@CL-SUP-3194]. It submits, for the contracting officer's approval, a list of team members and their resumes representing the engineering disciplines required to complete the study effort, and evidence of the team leader's qualifications and engineering discipline [@CL-SUP-3195]. Later changes or substitutions to the approved team go to the contracting officer in writing for approval [@CL-SUP-3196]. The team leader is responsible for prestudy work assembly, and edits, reproduces and signs the final report and each proposal [@CL-SUP-3197]. All proposals, even if submitted earlier as an individual submission, are contained in the final report [@CL-SUP-3198].
 
 As a minimum, the contractor includes the following in each proposal [@CL-SUP-3199]:
@@ -70,5 +72,6 @@ Which architect-engineer contracts carry this clause, who approves the value eng
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of architect-engineer services, paragraph (1).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for value engineering on architect-engineer contracts.

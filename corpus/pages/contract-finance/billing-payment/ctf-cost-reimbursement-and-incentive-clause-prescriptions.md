@@ -37,6 +37,8 @@ The contracting officer is to insert the clause at 52.216-16, Incentive Price Re
 
 Each prescription is keyed to the contract type the contracting officer contemplates [@CL-CTF-1242; @CL-CTF-1245; @CL-CTF-1248]. Fixed fee has one clause for work other than construction and a separate clause for construction [@CL-CTF-1243; @CL-CTF-1244]. The two no-fee clauses split on whether the contract is a cost-sharing contract [@CL-CTF-1246; @CL-CTF-1247]. Each fixed-price incentive type has its own incentive price revision clause [@CL-CTF-1248; @CL-CTF-1249]. The printed sections also prescribe alternates, further clauses and an award-fee clause, so this card is not a complete list.
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the clause at 52.216-7, Allowable Cost and Payment, says to insert it as prescribed in 16.305(a) [@CL-CTF-9344], where the codified prescription is in FAR 16.307 [@CL-CTF-1242]. The RFO text of Alternate I to the clause at 52.216-7 is prescribed in 16.305(a)(2), and it substitutes paragraph (b)(1)(iii) for paragraph (b)(1)(iii) of the basic clause [@CL-CTF-9384]. The RFO text of Alternate II is prescribed in 16.305(a)(3) [@CL-CTF-9385], Alternate III in 16.305(a)(4) [@CL-CTF-9386] and Alternate IV in 16.305(a)(5) [@CL-CTF-9387], and each of the three substitutes paragraph (a)(1) for paragraph (a)(1) of the basic clause [@CL-CTF-9385; @CL-CTF-9386; @CL-CTF-9387]. The codified text of Alternate II cites 16.307(a)(3) as its prescription [@CL-CTF-0487]. This card does not set out the RFO prescription section.
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,6 @@ Which executed cost-type and incentive contracts carry which of these clauses, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO prescriptions of the four alternates to FAR 52.216-7.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 52.216-7 prescription cross-reference.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for clause prescriptions for cost-reimbursement and incentive contracts.

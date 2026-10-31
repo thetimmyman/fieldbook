@@ -33,6 +33,8 @@ The subpart prescribes uniform reporting requirements for the Federal Procuremen
 
 FPDS provides a comprehensive web-based tool for agencies to report contract actions, and the resulting data provides a basis for recurring and special reports to the President, the Congress, the Government Accountability Office, Federal executive agencies, and the general public [@CL-MKT-0005].
 
+FAR 2.101 defines a micro-purchase as an acquisition of supplies or services using simplified acquisition procedures, the aggregate amount of which does not exceed the micro-purchase threshold [@CL-MKT-9215]. The micro-purchase threshold is $15,000 with listed exceptions [@CL-FND-0002]. Two of the exceptions are $2,000 for acquisitions of construction subject to chapter 31, subchapter IV, of title 40 of the United States Code, Wage Rate Requirements (Construction) [@CL-MKT-9216], and $2,500 for acquisitions of services subject to chapter 67 of title 41 of the United States Code, Service Contract Labor Standards [@CL-MKT-9217]. This card does not set out the other exceptions.
+
 ## How it works
 
 A contract action report is the contract action data that is required to be entered into the Federal Procurement Data System [@CL-MKT-0003]. An indefinite delivery vehicle is an indefinite delivery contract or agreement that has one or more of the listed clauses, such as the ordering, order limitations, definite quantity, requirements and indefinite quantity clauses [@CL-MKT-0004]. The definition of a contract action leaves out grants, cooperative agreements, other transactions, real property leases, requisitions from Federal stock, training authorizations and other non-FAR based transactions [@CL-MKT-0002]. The definition of a contract action covers modifications to these actions regardless of dollar value [@CL-MKT-0001], while the duty to maintain public information covers modifications that change previously reported contract action report data [@CL-MKT-0007]. The dollar value of the micro-purchase threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
@@ -55,5 +57,6 @@ Confirm which public market observations drawn from reported contract actions th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of micro-purchase and two exceptions to the micro-purchase threshold.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Federal Procurement Data System purpose, definitions and public reporting policy.

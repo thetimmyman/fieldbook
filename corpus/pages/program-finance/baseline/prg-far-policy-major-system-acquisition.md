@@ -37,6 +37,8 @@ Under paragraph (b), the agency must sustain effective competition between alter
 
 FAR part 34 describes acquisition policies and procedures for use in acquiring major systems consistent with OMB Circular A-109, and the use of an Earned Value Management System in acquisitions designated as major acquisitions consistent with OMB Circular A-11, Part 7 [@CL-PRG-9044].
 
+FAR 2.101 defines a major system as that combination of elements that will function together to produce the capabilities required to fulfill a mission need [@CL-PRG-9074]. The elements may include hardware, equipment, software, or any combination thereof, but exclude construction or other improvements to real property [@CL-PRG-9075]. This card does not set out the tests the definition gives for when a system is a major system.
+
 ## How it works
 
 Every duty in the section falls on the agency that acquires the major system [@CL-PRG-0401]. The section names agencies as the party that must act, so it is read as a rule about agency conduct and not contractor conduct [@CL-PRG-0401].
@@ -63,5 +65,6 @@ Which baseline, contingency and risk decisions change the current program foreca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of major system.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 34.000 part scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy for major system acquisition.

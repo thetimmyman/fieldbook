@@ -31,6 +31,8 @@ Shows when a renamed contractor needs an agreement with the Government and what 
 
 If only a change of the contractor's name is involved and the rights and obligations of the Government and the contractor remain unaffected, the parties must execute an agreement to reflect the name change [@CL-MNA-0364].
 
+The FAR's general definitions say a change-of-name agreement is a legal instrument executed by the contractor and the Government that recognizes the legal change of name of the contractor without disturbing the original contractual rights and obligations of the parties [@CL-MNA-1401].
+
 The contractor forwards three signed copies of the Change-of-Name Agreement to the responsible contracting officer, with one copy each of the listed documents [@CL-MNA-0365]. The first is the document effecting the name change, authenticated by a proper official of the State having jurisdiction [@CL-MNA-0365]. The second is the opinion of the contractor's legal counsel that the change was properly effected under applicable law, showing the effective date [@CL-MNA-0365; @CL-MNA-0366]. The third is a list of affected contracts and purchase orders remaining unsettled [@CL-MNA-0365; @CL-MNA-0367].
 
 ## How it works
@@ -57,5 +59,6 @@ Whether any target or its subsidiaries have recently changed name, and where the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of change-of-name agreement.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for change-of-name agreements.

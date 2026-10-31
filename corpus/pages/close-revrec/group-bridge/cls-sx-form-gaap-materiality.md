@@ -15,7 +15,7 @@ links = ["cls-sx-receivables-balance-sheet", "cls-sx-inventories-long-term-contr
 
 ## Purpose
 
-Shows three ground rules for financial statements filed under Regulation S-X: statements not prepared under generally accepted accounting principles are presumed misleading, the required information is a minimum, and immaterial items need not be set out. It also shows who the line-item rules for balance sheets and income statements apply to. Regulation S-X is not FAR, DFARS or CAS. It binds financial statements filed with the Commission, which is the Securities and Exchange Commission, and a contractor that files nothing with the Commission is not bound [@CL-CLS-0850]. Whether it binds a company depends on the company's filing obligations with the Commission.
+Shows three ground rules for financial statements filed under Regulation S-X: statements not prepared under generally accepted accounting principles are presumed misleading, the required information is a minimum, and immaterial items need not be set out. It also shows who the sections from 210.5-01 to 210.5-04 apply to. Regulation S-X is not FAR, DFARS or CAS. It binds financial statements filed with the Commission, which is the Securities and Exchange Commission, and a contractor that files nothing with the Commission is not bound [@CL-CLS-0850]. Whether it binds a company depends on the company's filing obligations with the Commission.
 
 ## The rule
 
@@ -30,13 +30,13 @@ Shows three ground rules for financial statements filed under Regulation S-X: st
 
 Financial statements filed with the Commission that are not prepared in accordance with generally accepted accounting principles are presumed to be misleading or inaccurate, despite footnote or other disclosures, unless the Commission has otherwise provided [@CL-CLS-0815]. The information required for any statement is a minimum requirement, to which is added such further material information as is necessary to make the required statements not misleading in the light of the circumstances under which they are made [@CL-CLS-0814]. An item whose amount is not material need not be separately set forth, and the combination of insignificant amounts is permitted [@CL-CLS-0816].
 
-The line-item rules for balance sheets and income statements, in the sections from 210.5-01 to 210.5-04, apply to financial statements filed for all persons except those listed [@CL-CLS-0817]. The first two listed exclusions are registered investment companies and employee stock purchase, savings and similar plans [@CL-CLS-0817]. Further listed exclusions cover insurance companies, bank holding companies and banks, and brokers and dealers when filing Form X-17A-5 [@CL-CLS-0818].
+The sections from 210.5-01 to 210.5-04 apply to financial statements filed for all persons except those listed [@CL-CLS-0817]. The first two listed exclusions are registered investment companies and employee stock purchase, savings and similar plans [@CL-CLS-0817]. Further listed exclusions cover insurance companies, bank holding companies and banks, and brokers and dealers when filing Form X-17A-5 [@CL-CLS-0818].
 
 The section on inapplicable captions says no caption should be shown in any financial statement as to which the items and conditions are not present [@CL-CLS-1450]. Financial statements that are not required, or that are inapplicable because the required matter is not present, need not be filed [@CL-CLS-1451]. The reasons for the omission of any required financial statements shall be indicated; the text names no one who indicates them [@CL-CLS-1452].
 
 ## How it works
 
-The registrant prepares its statements under generally accepted accounting principles, because a statement that is not prepared that way is presumed misleading even with footnotes, unless the Commission has otherwise provided [@CL-CLS-0815]. It treats each required item as a floor and adds material information needed to keep the statements from misleading [@CL-CLS-0814]. It leaves out a separate line for an item that is not material, and it may combine insignificant amounts [@CL-CLS-0816]. The rule on immaterial items names no number for materiality, so it establishes no threshold [@CL-CLS-0816]. The line-item rules apply to it unless it falls in a listed exclusion [@CL-CLS-0817; @CL-CLS-0818].
+The registrant prepares its statements under generally accepted accounting principles, because a statement that is not prepared that way is presumed misleading even with footnotes, unless the Commission has otherwise provided [@CL-CLS-0815]. It treats each required item as a floor and adds material information needed to keep the statements from misleading [@CL-CLS-0814]. It leaves out a separate line for an item that is not material, and it may combine insignificant amounts [@CL-CLS-0816]. The rule on immaterial items names no number for materiality, so it establishes no threshold [@CL-CLS-0816]. The sections from 210.5-01 to 210.5-04 apply to it unless it falls in a listed exclusion [@CL-CLS-0817; @CL-CLS-0818].
 
 ## Worked example
 
@@ -56,5 +56,6 @@ Which accounting framework the company uses for local and group reporting, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: The sentences on Rule 5-01 now name the sections it covers instead of describing them as line-item rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules on inapplicable captions and omitted financial statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for form, the GAAP presumption and materiality under Regulation S-X.

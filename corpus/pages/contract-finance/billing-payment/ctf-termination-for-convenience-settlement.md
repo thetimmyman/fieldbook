@@ -33,6 +33,8 @@ Under the clause, the Government may terminate performance of work in whole or i
 
 The contractor must submit its final termination settlement proposal promptly, but no later than 1 year from the effective date of termination, unless the contracting officer extends the period in writing on the contractor's written request made within that 1-year period [@CL-CTF-0354]. The contracting officer may still receive and act on a proposal after 1 year or any extension if the facts justify it [@CL-CTF-0600]. The agreed amount, exclusive of settlement costs, may not exceed the total contract price as reduced by previous payments and the contract price of work not terminated [@CL-CTF-0355].
 
+FAR 2.101 defines the effective date of termination as the date on which the notice of termination requires the contractor to stop performance under the contract, or, if the contractor receives the notice after the date fixed for termination, the date the contractor receives the notice [@CL-CTF-9409].
+
 ## How it works
 
 After receiving a Notice of Termination, and except as directed by the contracting officer, the contractor immediately proceeds with its listed obligations, beginning with stopping work as specified in the notice [@CL-CTF-0601]. The same list also covers terminating subcontracts to the extent they relate to the terminated work and protecting contract property in the contractor's possession in which the Government has or may acquire an interest.
@@ -63,6 +65,7 @@ Tracking termination inventory schedules, settlement proposal submission deadlin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of effective date of termination.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Termination for Convenience of the Government (Fixed-Price): settlement.

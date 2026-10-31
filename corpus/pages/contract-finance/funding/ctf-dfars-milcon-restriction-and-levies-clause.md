@@ -16,7 +16,7 @@ links = ["mkt-cost-and-incentive-fee-contract-approvals", "ctf-levies-on-contrac
 
 ## Purpose
 
-Shows two short DFARS sections. DFARS 232.703-70 says that annual military construction appropriations acts restrict the use of the funds they appropriate for payments under cost-plus-fixed-fee contracts [@CL-CTF-3689]. DFARS 232.7102 directs use of the Levies on Contract Payments clause. It sits in the subpart on levies on contract payments, which covers the effect of levies on contract payments [@CL-CTF-3690; @CL-CTF-3694].
+Shows two short DFARS sections. DFARS 232.703-70 says that annual military construction appropriations acts restrict the use of the funds they appropriate for payments under cost-plus-fixed-fee contracts [@CL-CTF-3689]. DFARS 232.7102 directs use of the Levies on Contract Payments clause [@CL-CTF-3690]. It sits in the subpart on levies on contract payments, which covers the effect of levies on contract payments [@CL-CTF-3690; @CL-CTF-3694].
 
 ## The rule
 
@@ -37,7 +37,7 @@ Use the clause at 252.232-7010, Levies on Contract Payments, in all solicitation
 
 The restriction comes from the annual appropriations acts, and the DFARS records it. Section 232.703-70 prints no threshold, deadline or deciding official, and it does not print 216.306(c) [@CL-CTF-3689]. The paragraph it points to is covered on [Cost-plus-fixed-fee and incentive-fee contract approvals](../../market/programs/mkt-cost-and-incentive-fee-contract-approvals.md). That paragraph says that the annual acts prohibit the use of cost-plus-fixed-fee contracts that are funded by a military construction appropriations act, are estimated to exceed 25,000 dollars, and will be performed within the United States, except Alaska [@CL-MKT-1582]. The prohibition does not apply to a contract specifically approved in writing, setting forth the reasons, under the approval rules in paragraph (c)(ii) [@CL-MKT-1633]. The Secretaries of the military departments are authorized to approve such a contract that is for environmental work only, provided the environmental work is not classified as construction [@CL-MKT-1583]. The Secretary of Defense or designee must approve such a contract that is not for environmental work only, or that is for environmental work classified as construction [@CL-MKT-1584].
 
-Section 232.7102 is a direction to use a clause. It does not name the official who uses it. The clause goes into every solicitation and contract, and the direction expressly includes FAR part 12 acquisitions of commercial products and commercial services. The section prints no waiver or exception to it [@CL-CTF-3690].
+Section 232.7102 is a direction to use a clause [@CL-CTF-3690]. It does not name the official who uses it. The clause goes into every solicitation and contract, and the direction expressly includes FAR part 12 acquisitions of commercial products and commercial services [@CL-CTF-3690]. The section prints no waiver or exception to it [@CL-CTF-3690].
 
 Section 232.7100, in the same subpart, states that the Internal Revenue Service is authorized to levy up to 100 percent of all payments made under a DoD contract, up to the amount of the tax debt [@CL-CTF-3695]. The contractor's and contracting officer's notice duties are on [Levies on contract payments](../cash/ctf-levies-on-contract-payments.md) and [Tax levies that may keep a contractor from performing](../financing/ctf-tax-levy-notification.md).
 
@@ -63,4 +63,5 @@ Which awards carry the Levies on Contract Payments clause, and where its applica
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Sentences on DFARS 232.7102 now cite its claim directly.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the military construction payment restriction and the Levies on Contract Payments clause.

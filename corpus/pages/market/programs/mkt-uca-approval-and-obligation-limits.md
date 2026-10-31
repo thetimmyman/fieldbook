@@ -31,6 +31,8 @@ Shows who approves an undefinitized contract action (UCA), how much of the not-t
 
 The contracting officer shall obtain approval from the head of the contracting activity before entering into a UCA [@CL-MKT-1545]. The request must fully explain the need to begin performance before definitization, including the adverse impact on agency requirements from delay [@CL-MKT-1615]. The same approval route covers two further steps: including requirements for non-urgent spare parts and support equipment, and modifying the scope of a UCA when performance has already begun. Each request should show that the step is consistent with good business practices and in the best interest of the United States [@CL-MKT-1545; @CL-MKT-1546; @CL-MKT-1547].
 
+The FAR's general definitions say contracting activity means an element of an agency designated by the agency head and delegated broad authority regarding acquisition functions [@CL-MKT-9196].
+
 The Government shall not obligate more than 50 percent of the not-to-exceed price before definitization [@CL-MKT-1548]. If a contractor submits a qualifying proposal before 50 percent of the not-to-exceed price has been obligated, the limit may be increased to no more than 75 percent [@CL-MKT-1549]. The section points to DFARS 232.102-70 for provisional delivery payments [@CL-MKT-1549]. When deciding how much to obligate, the contracting officer shall assess the contractor's proposal for the undefinitized period and obligate funds only in an amount consistent with the contractor's requirements for that period [@CL-MKT-1550].
 
 The limitations in DFARS 217.7404-2, 217.7404-3 and 217.7404-4, which include the obligation limit above, do not apply to UCAs for the purchase of initial spares [@CL-MKT-1551; @CL-MKT-1548]. The head of an agency may waive the limitations in DFARS 217.7404(a), 217.7404-2, 217.7404-3 and 217.7404-4 for UCAs if the head of the agency determines that the waiver is necessary to support a contingency operation or a humanitarian or peacekeeping operation [@CL-MKT-1552]. Under that paragraph the head of the agency, not the head of the contracting activity, makes the determination [@CL-MKT-1552].
@@ -63,5 +65,6 @@ Which executed UCAs and scope modifications sit within the finance remit, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contracting activity.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the not-to-exceed price requirement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for approval and obligation limits for undefinitized contract actions.

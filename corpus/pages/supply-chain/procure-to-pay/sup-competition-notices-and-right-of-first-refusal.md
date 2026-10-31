@@ -60,7 +60,7 @@ Right of first refusal attaches to employment openings under the contract in pos
 
 The codified FAR 52.207-1, 52.207-2 and 52.207-3 carry the notices and the clause described above [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953], but the RFO text prints each of those numbers as [Reserved] [@CL-SUP-0114; @CL-SUP-0115; @CL-SUP-0116], so none of those rules is printed under those numbers in the RFO text.
 
-Other solicitation provisions in the same FAR 52.207 series are covered in [Small business teaming arrangements and disaster or emergency area set-asides](sup-small-business-teaming-and-disaster-set-aside.md) and [Economic purchase quantity for supplies and option to purchase equipment](../../estimating/pricing/est-economic-purchase-quantity-and-equipment-option.md).
+Other solicitation provisions in the same FAR clause series are covered in [Small business teaming arrangements and disaster or emergency area set-asides](sup-small-business-teaming-and-disaster-set-aside.md) and [Economic purchase quantity for supplies and option to purchase equipment](../../estimating/pricing/est-economic-purchase-quantity-and-equipment-option.md).
 
 ## Company calibration
 
@@ -70,6 +70,7 @@ Who checks whether an award came from a competition and where the displaced-pers
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the pointer sentence to avoid an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on other FAR 52.207 provisions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the competition notices and right of first refusal of employment.

@@ -37,6 +37,8 @@ Contractors primarily rely on three approaches to prepare estimates [@CL-EST-068
 
 The proposal format and information to be submitted when certified cost or pricing data is required are prescribed by FAR Part 15 and DFARS Part 215 [@CL-EST-0921]. The auditor keeps sole professional responsibility for the audit opinion, including the decision on any technical evaluation [@CL-EST-0922], and decides on it during audit planning so there is time to include it in the report [@CL-EST-0923].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.003 says contractors needing assistance in developing or improving their accounting systems and procedures may request a copy of the Defense Contract Audit Agency Pamphlet number 7641.90, Information for Contractors [@CL-EST-9236].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Who owns proposal pricing and the estimating system description, and when the de
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.003 pointer to the Defense Contract Audit Agency accounting guide.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost accounting system adequacy and estimating methods.

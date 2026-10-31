@@ -33,6 +33,8 @@ Payment is based on receipt of a proper invoice and satisfactory contract perfor
 
 The listed items start with the contractor's name and address and the invoice date and number [@CL-CTF-0901]. They go on to the contract number or other authorization with the order and line item number, and the description, quantity, unit of measure, unit price, and extended price [@CL-CTF-0902]. They also include shipping and payment terms [@CL-CTF-0903], and the payee official and the person to notify of a defective invoice [@CL-CTF-0904]. The taxpayer identification number and electronic funds transfer banking information go on the invoice only if agency procedures require them [@CL-CTF-0905; @CL-CTF-0906], and the banking information is not required at all if the Government waived the requirement to pay by electronic funds transfer [@CL-CTF-1001]. Where banking information is not required on the invoice, the invoice is proper only if the contractor has submitted correct banking information in accordance with the applicable solicitation provision [@CL-CTF-1018], contract clause, or agency procedures [@CL-CTF-1019]. A proper invoice also includes any other information or documentation the contract requires [@CL-CTF-1000]. For task and delivery orders numbered in accordance with FAR 4.1603 and 204.1603, the defense supplement lets the 13-character order number serve as the contract number [@CL-CTF-0912], and an order with a four-position serial number must show both the basic contract identifier and the order number [@CL-CTF-0913].
 
+FAR 2.101 defines an invoice as a contractor's bill or written request for payment under the contract for supplies delivered or services performed [@CL-CTF-9406].
+
 ## How it works
 
 An interim payment request under a cost-reimbursement contract for services is a proper invoice if it includes all of the information the contract requires [@CL-CTF-0907]. The receiving official should forward the receiving report or other documentation to the payment office by the fifth working day after acceptance or approval, unless other arrangements have been made [@CL-CTF-0909]. That period does not extend the payment due dates [@CL-CTF-1002]. The documentation must at a minimum show the contract number or other authorization and a description of what was delivered or performed [@CL-CTF-0910], and the quantities received and accepted or performed, if applicable, and the date of delivery or performance [@CL-CTF-1003]. The billing office annotates each invoice with the actual date it receives it, and the payment office annotates each invoice and receiving report with the actual date it receives the invoice [@CL-CTF-0911].
@@ -59,5 +61,6 @@ Confirm which optional invoice items agency procedures require, who checks invoi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of invoice.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proper invoice content and payment documentation.

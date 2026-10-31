@@ -35,6 +35,8 @@ Billing rates are the interim counterpart: an indirect cost rate set temporarily
 
 Subpart 42.7 prescribes policies and procedures for establishing billing rates and final indirect cost rates [@CL-RTE-9004].
 
+FAR 2.101 defines the final indirect cost rate as the indirect cost rate established and agreed upon by the Government and the contractor as not subject to change [@CL-RTE-9071]. It is usually established after the close of the contractor's fiscal year, unless the parties decide upon a different period, to which it applies [@CL-RTE-9072]. An indirect cost rate is the percentage or dollar factor that expresses the ratio of indirect expense incurred in a given period to direct labor cost, manufacturing cost, or another appropriate base for the same period [@CL-RTE-9073].
+
 ## How it works
 
 The stated purposes are a uniform approach with a contractor when more than one contract or agency is involved, economy of administration, and timely settlement under cost-reimbursement contracts [@CL-RTE-0301]. One agency is responsible for the rates, and an agency does not perform an audit of indirect cost rates when the contracting officer determines that the audit objectives can reasonably be met by accepting the results of an audit conducted by another department or agency of the Federal Government [@CL-RTE-0302; @CL-RTE-0303]. The final rates bind all cost-reimbursement contracts at the business unit, subject to a specific limitation in a contract or advance agreement, and the quick-closeout procedure is the stated exception for closeout [@CL-RTE-0306; @CL-RTE-0305].
@@ -61,6 +63,7 @@ Confirm which billing and final rate sets apply to each contract and period, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of final indirect cost rate and indirect cost rate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.700 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose and policy of final indirect cost rates and billing rates.

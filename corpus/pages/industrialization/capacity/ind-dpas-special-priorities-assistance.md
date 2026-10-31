@@ -45,7 +45,7 @@ Commerce decides in the same way. If it is unable to resolve the problem or to a
 
 Assistance may be provided for any reason consistent with the part [@CL-IND-0235]. The text gives two examples: assisting in obtaining timely deliveries of items needed to satisfy rated orders, and authorizing the use of priority ratings on orders to obtain items not otherwise ratable under the part [@CL-IND-0235]. Section 700.54 says assistance is provided at the discretion of the Determination Departments, Delegate Agencies and the Department of Commerce [@CL-IND-0266]. Usual situations and the situations where assistance may not be provided are on [the examples card](ind-dpas-assistance-examples-and-exclusions.md).
 
-The duty to file falls on the person seeking assistance. A request must be submitted on Form BIS-999 (OMB control number 0694-0057) to the local contract administration representative or to the Department of Commerce [@CL-IND-0237]. Paragraph (a)(1) names the contract administration officer, and paragraph (c) names the local contract administration representative [@CL-IND-0232; @CL-IND-0237]. Form BIS-999 may be obtained from the Delegate Agency representative or from the Department of Commerce [@CL-IND-0238]. A sample form is attached at appendix I, and a fillable form may be obtained from the website that the paragraph gives [@CL-IND-0239].
+The duty to file falls on the person seeking assistance. A request must be submitted on Form BIS-999 (OMB control number 0694-0057) to the local contract administration representative or to the Department of Commerce [@CL-IND-0237]. Paragraph (a)(1) names the contract administration officer, and paragraph (c) names the local contract administration representative [@CL-IND-0232; @CL-IND-0237]. Form BIS-999 may be obtained from the Delegate Agency representative or from the Department of Commerce [@CL-IND-0238]. A sample form is attached at appendix I, and a fillable form may be obtained from the website that the paragraph gives [@CL-IND-0239]. Section 700.93 adds that requests for special priorities assistance under § 700.50, adjustments or exceptions under § 700.80, or appeals under § 700.81 must be submitted in the manner specified in those sections [@CL-IND-1035].
 
 A request for authority to use a priority rating is a separate request, covered on [the rating authority card](ind-dpas-priority-rating-authority-requests.md). Letters of understanding in assistance cases are covered on [that card](ind-dpas-letters-of-understanding.md).
 
@@ -77,5 +77,6 @@ Which officer owns each open assistance request and how the company records the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the § 700.93 pointer on how requests, adjustments, exceptions and appeals are submitted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the criteria for assistance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS special priorities assistance general provisions.

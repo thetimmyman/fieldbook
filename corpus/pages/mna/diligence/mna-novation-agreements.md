@@ -34,6 +34,8 @@ A statute prohibits transferring a Government contract from the contractor to a 
 
 The transfer must be of all the contractor's assets or of the entire portion of the assets involved in performing the contract, and a sale of the assets with a provision for assuming liabilities or a transfer incident to a merger or corporate consolidation are examples [@CL-MNA-0103; @CL-MNA-0104]. A stock purchase that changes ownership without a legal change in the contracting party, where that party stays in control of the assets and performs the contract, needs no novation agreement [@CL-MNA-0105].
 
+FAR 2.101 defines a novation agreement as a legal instrument executed by the contractor (transferor), the successor in interest (transferee) and the Government [@CL-MNA-1409], by which, among other things, the transferor guarantees performance of the contract, the transferee assumes all obligations under the contract, and the Government recognizes the transfer of the contract and related assets [@CL-MNA-1410].
+
 ## How it works
 
 The responsible contracting officer identifies and evaluates any significant organizational conflicts of interest under the conflict of interest rules before recognizing a successor, and may seek a waiver where a conflict cannot be resolved but approval serves the Government's interest [@CL-MNA-0106; @CL-MNA-0107].
@@ -68,6 +70,7 @@ The diligence scope authorized for each acquisition case, and how the target's G
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of novation agreement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 42.1200 and RFO FAR 42.900 scope of the subpart.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for novation and change-of-name agreements.

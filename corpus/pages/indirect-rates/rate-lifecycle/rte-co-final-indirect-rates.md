@@ -30,6 +30,8 @@ Shows who establishes final indirect cost rates by contracting officer determina
 
 The procedure applies to the listed business units, with the indicated cognizant contracting officer or cognizant Federal agency official responsible for establishing the final rates [@CL-RTE-0101]. The contractor submits an adequate final indirect cost rate proposal to that official and to the cognizant auditor within six months after each fiscal year ends [@CL-RTE-0103; @CL-RTE-0104].
 
+In the FAR's general definitions, a business unit is any segment of an organization, or an entire business organization that is not divided into segments [@CL-RTE-9063]. The cognizant Federal agency is the Federal agency that, on behalf of all Federal agencies, is responsible for establishing final indirect cost rates and forward pricing rates, if applicable, and administering cost accounting standards for all contracts in a business unit [@CL-RTE-9064].
+
 ## How it works
 
 For business units not under a corporate administrative contracting officer but having a resident one, a nonresident administrative contracting officer is considered resident for this purpose if at least 75 percent of that officer's time is devoted to a single contractor [@CL-RTE-0102]. Extensions are available in writing for exceptional circumstances only and must be requested in writing [@CL-RTE-0105]. The auditor reviews whether the proposal is adequate for audit and describes any inadequacies in writing, elevating unresolved ones to the contracting office [@CL-RTE-0106]. The contracting officer heads the Government negotiating team, which includes the auditor [@CL-RTE-0107]. The negotiation memorandum reconciles questioned costs and shows the amounts allowed or disallowed [@CL-RTE-0108], the officer notifies the contractor of costs treated as unallowable [@CL-RTE-0109], and a written rate agreement follows the contract requirements [@CL-RTE-0110].
@@ -56,5 +58,6 @@ Which fiscal years are still open for incurred cost, whether not submitted, subm
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of business unit and cognizant Federal agency.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contracting officer determination procedure for final indirect cost rates.

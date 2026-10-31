@@ -37,6 +37,8 @@ Questions about delinquent payments are directed to the designated billing offic
 
 Subpart 32.9 prescribes policies, procedures, and clauses for implementing Office of Management and Budget (OMB) prompt payment regulations at 5 CFR part 1315 [@CL-CTF-9305].
 
+FAR 2.101 defines an electronic funds transfer as any transfer of funds, other than a transaction originated by cash, check, or similar paper instrument, that is initiated through an electronic terminal, telephone, computer, or magnetic tape, for the purpose of ordering, instructing, or authorizing a financial institution to debit or credit an account [@CL-CTF-9407; @CL-CTF-9408].
+
 ## How it works
 
 The contractor sorts an inquiry by its kind. A question about a delinquent payment goes to the designated billing office or the designated payment office [@CL-CTF-3588]. A disagreement about the amount or timing of a payment goes to the contracting officer, who resolves it and must coordinate within contracting channels and seek the advice of other offices as necessary [@CL-CTF-3589].
@@ -63,6 +65,7 @@ Which office the company contacts about a late payment, who owns a disagreement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of electronic funds transfer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.900 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.900 scope and 32.901 applicability.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.901 applicability of the prompt payment subpart.
