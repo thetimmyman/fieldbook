@@ -27,9 +27,9 @@ Shows when the cognizant contract administration office performs production surv
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7257] |
-| Applies to | Contractors with Criticality Designator A or B contracts, and designator C contracts when the contracting officer requests surveillance [@CL-CMP-7257; @CL-CMP-7439]; past performance evaluations in CPARS [@CL-CMP-7261] |
+| Applies to | Contractors with Criticality Designator A or B contracts, and contractors with only designator C contracts when the contracting officer requests surveillance [@CL-CMP-7257; @CL-CMP-7439]; past performance evaluations in CPARS [@CL-CMP-7261] |
 
-The cognizant contract administration office must perform production surveillance on all contractors that have Criticality Designator A or B contracts [@CL-CMP-7257]. It must not perform production surveillance on contractors that have only Criticality Designator C contracts, unless the contracting officer specifically requests it [@CL-CMP-7439]. Contracts with Criticality Designator C are exempt from the surveillance requirement unless the contracting officer specifically requests it [@CL-CMP-7497].
+The cognizant contract administration office must perform production surveillance on all contractors that have Criticality Designator A or B contracts [@CL-CMP-7257]. It must not perform production surveillance on contractors that have only Criticality Designator C contracts, unless the contracting officer specifically requests it [@CL-CMP-7439]. Contracts with Criticality Designator C are exempt from the duty to monitor contract progress and identify potential contract delinquencies under the surveillance plan, unless the contracting officer specifically requests it [@CL-CMP-7497].
 
 ## How it works
 
@@ -55,11 +55,11 @@ A contractor holds one Criticality Designator A contract and two designator C co
 
 The contractor's report arrives on a Monday and shows the contract behind schedule. The office provides the report to the contracting officer and the inventory control manager by the fourth working day after receipt, with comments and a recommended course of action, because the contract is not on schedule [@CL-CMP-7259; @CL-CMP-7260].
 
-The two designator C contracts are themselves exempt from the surveillance requirement unless the contracting officer specifically requests it [@CL-CMP-7497]. A second contractor holds only designator C contracts, so the office does not perform surveillance unless the contracting officer asks for it [@CL-CMP-7439].
+The risk assessment still covers the two designator C contracts, because it extends to all contracts awarded to the contractor [@CL-CMP-7258], but they are exempt from the monitoring of contract progress and potential delinquencies unless the contracting officer specifically requests it [@CL-CMP-7497]. A second contractor holds only designator C contracts, so the office does not perform surveillance unless the contracting officer asks for it [@CL-CMP-7439].
 
 ## Never confuse
 
-Production surveillance rests on the Criticality Designator of the contractor's contracts: designator A or B requires it, and designator C only does so on the contracting officer's request [@CL-CMP-7257; @CL-CMP-7439].
+Production surveillance rests on the Criticality Designator of the contractor's contracts: designator A or B requires it, and a contractor with only designator C contracts gets it only on the contracting officer's request [@CL-CMP-7257; @CL-CMP-7439]. Once surveillance is required, a designator C contract is exempt only from progress monitoring, not from the risk assessment that covers all of the contractor's contracts [@CL-CMP-7258; @CL-CMP-7497].
 
 The CPARS notation concerns a contractor that denied multiple requests for data other than certified cost or pricing data yet received an award, and the head of the contracting activity may exempt it [@CL-CMP-7261]. The linked cards cover the production surveillance rules and designators; see [Production surveillance applicability and progress reports](cmp-production-surveillance-applicability-and-progress-reports.md).
 
