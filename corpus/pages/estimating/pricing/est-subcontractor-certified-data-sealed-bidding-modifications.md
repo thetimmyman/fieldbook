@@ -24,7 +24,7 @@ Shows when a Contractor must require certified cost or pricing data and a certif
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2175] |
 | Codified citation | FAR 52.214-28 [@CL-EST-2175] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.214-28 [@CL-EST-0800; @CL-EST-0801] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2175] |
 | Applies to | Modifications expected to exceed the certified data threshold on the date of execution [@CL-EST-2175; @CL-EST-2231] |
@@ -48,6 +48,8 @@ Alternate I (OCT 2025) is prescribed to be substituted for paragraph (b) of the 
 One time under Alternate I is before modifying any subcontract that was awarded before July 1, 2018, involving a pricing adjustment expected to exceed $950,000 [@CL-EST-2217]. The other is before awarding any subcontract expected to exceed $2.5 million on or after July 1, 2018, or modifying any subcontract that was awarded on or after July 1, 2018, involving a pricing adjustment expected to exceed $2.5 million [@CL-EST-2218]. Alternate I therefore states dollar figures where the basic paragraph (b) refers to the threshold [@CL-EST-2217; @CL-EST-2218].
 
 The matching price reduction clause is on [Price reduction for defective certified data on modifications under sealed bidding](est-price-reduction-defective-data-sealed-bidding-modifications.md).
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause says that paragraphs (b) and (c) become operative only for a modification involving aggregate increases and/or decreases in costs, plus applicable profits, expected to exceed the threshold in FAR 15.403-4(a)(1) on the date of execution of the modification, and are limited to such modifications [@CL-EST-0800; @CL-EST-0801], which is the operative rule of the codified clause [@CL-EST-2175; @CL-EST-2231; @CL-EST-2209]. Its paragraph (b) has the same two subcontract triggers, the same requirement to submit certified cost or pricing data with the estimating process information, and the same exception under FAR 15.403-1(b) [@CL-EST-0802; @CL-EST-0803; @CL-EST-0804; @CL-EST-0805; @CL-EST-0806; @CL-EST-0807; @CL-EST-2176; @CL-EST-2177; @CL-EST-2210; @CL-EST-2211; @CL-EST-2234; @CL-EST-2178]. Its paragraph (b) cites FAR 1.108 for the inflation adjustment where the codified paragraph cites FAR 1.109(a), and it prints no phrase citing FAR 1.109(d) before saying that the changed threshold applies throughout the remaining term unless there is a subsequent threshold adjustment [@CL-EST-0808; @CL-EST-2212; @CL-EST-2235]. Its paragraph (c) says section 15.406-2 where the codified paragraph says subsection 15.406-2, and the matter the subcontractor certifies is worded the same [@CL-EST-0809; @CL-EST-0810; @CL-EST-2179; @CL-EST-2213]. Its paragraph (d) has the same insertion of the substance of the clause in each subcontract that exceeds the threshold when entered into [@CL-EST-0811; @CL-EST-2180]. Its Alternate I says it is prescribed in 14.208(c)(1) where the codified Alternate I says 14.201-7(c)(1)(ii) [@CL-EST-0812; @CL-EST-2214], while the opening of Alternate I paragraph (b) and its estimating process parenthetical are worded the same [@CL-EST-0813; @CL-EST-0814; @CL-EST-0815; @CL-EST-2215; @CL-EST-2216; @CL-EST-2236], and its two times for requiring the data, with the same $950,000 and $2.5 million figures and the same July 1, 2018 dates, are the same as the codified ones [@CL-EST-0816; @CL-EST-0817; @CL-EST-2217; @CL-EST-2218].
 
 ## Worked example
 
@@ -75,6 +77,8 @@ Alternate I replaces only paragraph (b) of the basic clause, so the certificatio
 
 The negotiated-contract versions are on [Price reduction for defective certified data and subcontractor certified data clauses for modifications](est-price-reduction-and-subcontractor-data-modification-clauses.md), and the subcontractor data requirement is also covered on [Subcontractor Certified Cost or Pricing Data clause](est-subcontractor-certified-cost-or-pricing-data.md).
 
+The codified paragraph (b) cites FAR 1.109(a) and FAR 1.109(d) for the inflation adjustment [@CL-EST-2212], while the RFO paragraph (b) cites FAR 1.108 [@CL-EST-0808].
+
 ## Company calibration
 
 Confirm which subcontracts under modified sealed bidding contracts crossed the threshold and where the subcontractor data and certificates are kept [@Q-004].
@@ -83,4 +87,5 @@ Confirm which subcontracts under modified sealed bidding contracts crossed the t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor certified cost or pricing data on modifications under sealed bidding.

@@ -24,7 +24,7 @@ Covers bidder duties in sealed bidding: acknowledging amendments, giving complet
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
 | Codified citation | FAR 52.214-3 [@CL-EST-1955]; FAR 52.214-4 [@CL-EST-2151]; FAR 52.214-5 [@CL-EST-1959]; FAR 52.214-6 [@CL-EST-1962] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.214-3 [@CL-EST-0578]; RFO FAR 52.214-4 [@CL-EST-0581]; RFO FAR 52.214-5 [@CL-EST-0582]; RFO FAR 52.214-6 [@CL-EST-0585] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1955] |
 | Applies to | Invitations for bids that include the amendment, bid submission and explanation provisions [@CL-EST-1955; @CL-EST-1959; @CL-EST-1962] |
@@ -41,6 +41,8 @@ A prospective bidder desiring an explanation or interpretation of the solicitati
 
 Two timing rules govern the exchange, and neither sets a number of days. The acknowledgement must reach the Government by the time and at the place specified for receipt of bids [@CL-EST-1958]. A request for an explanation must be in writing and early enough for a reply to reach all prospective bidders before bids are submitted [@CL-EST-1962]. Information given to one bidder becomes an amendment for the others when it is necessary for bids or its absence would prejudice them [@CL-EST-1964]. Oral guidance does not bind before award [@CL-EST-1963]. The time and place for receipt, and which methods the solicitation authorizes, are contract-specific.
 
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.214-3 keeps the rule that, if the solicitation is amended, all terms and conditions which are not modified remain unchanged [@CL-EST-0578] [@CL-EST-1955], and keeps the rule that the Government shall receive the acknowledgement by the time and at the place specified for receipt of bids [@CL-EST-0580] [@CL-EST-1958]. It says bidders shall acknowledge receipt of any amendment [@CL-EST-9116], and lists four items: signing and returning the amendment, identifying the amendment number and date in the space provided on the form for submitting a bid, a letter, or an email if email bids are authorized in the solicitation, a list that has no facsimile item [@CL-EST-0579]; the codified list also allows facsimile if facsimile bids are authorized in the solicitation [@CL-EST-1957]. The RFO text of FAR 52.214-4 keeps the duty to provide full, accurate, and complete information as required by the solicitation and its attachments, and the penalty for false statements in bids prescribed in section 1001 of title 18 of the United States Code [@CL-EST-0581] [@CL-EST-2151] [@CL-EST-2152]. The RFO text of FAR 52.214-5 keeps the rule that bids and bid modifications shall be submitted in sealed envelopes or packages, unless submitted by electronic means, addressed to the office specified in the solicitation and showing the time and date specified for receipt, the solicitation number, and the name and address of the bidder [@CL-EST-0582] [@CL-EST-1959], and the rule for bidders using commercial carrier services [@CL-EST-0583] [@CL-EST-2047]. In the RFO provision the electronic commerce rule is paragraph (c), following paragraph (b) directly, where the codified provision has it as paragraph (d) after a paragraph on facsimile bids, modifications or withdrawals, which the RFO provision does not print [@CL-EST-0584] [@CL-EST-1961] [@CL-EST-1960]. The RFO text of FAR 52.214-6 keeps the rule that a prospective bidder desiring an explanation or interpretation of the solicitation, drawings, specifications, etc., shall request it in writing soon enough to allow a reply to reach all prospective bidders before the submission of their bids [@CL-EST-0585] [@CL-EST-1962], keeps the rule that oral explanations or instructions given before the award of a contract will not be binding [@CL-EST-0586] [@CL-EST-1963], and keeps the rule that information given a prospective bidder is furnished promptly to all other prospective bidders as an amendment if it is necessary in submitting bids or if the lack of it would be prejudicial to other prospective bidders [@CL-EST-0587] [@CL-EST-1964].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -51,6 +53,8 @@ An invitation for bids is amended twice, and bids are due at 2 pm. The bidder si
 
 Acknowledging an amendment is not agreeing to it: the acknowledgement confirms receipt, and the terms that are not modified stay unchanged [@CL-EST-1956; @CL-EST-1955]. An oral answer is not an amendment: oral explanations before award are not binding, while information that is necessary for bids is furnished to all as an amendment [@CL-EST-1963; @CL-EST-1964]. The allowance for electronic means in the sealed envelope rule is not permission to bid electronically: a bid by electronic commerce is considered only if the solicitation stipulated or permitted the method [@CL-EST-1959; @CL-EST-1961]. Reverse auctions, in which offerors see competing prices, are on [Reverse auction under a solicitation](est-reverse-auction.md), and negotiated proposals are on [Submitting, modifying, withdrawing and late proposals](est-proposal-submission-and-late-proposals.md).
 
+Facsimile is where the two texts part. The codified text allows acknowledgement of an amendment by facsimile if facsimile bids are authorized in the solicitation, and says facsimile bids, modifications or withdrawals will not be considered unless authorized by the solicitation [@CL-EST-1957] [@CL-EST-1960]. The RFO text lists no facsimile way to acknowledge an amendment and prints no paragraph on facsimile bids [@CL-EST-0579] [@CL-EST-0584]. The electronic commerce rule is paragraph (d) of the codified provision and paragraph (c) of the RFO provision [@CL-EST-1961] [@CL-EST-0584].
+
 ## Company calibration
 
 Who tracks amendment acknowledgements and written clarification requests against the bid receipt deadline. [@Q-012]
@@ -59,4 +63,5 @@ Who tracks amendment acknowledgements and written clarification requests against
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sealed bidding amendments, bid submission and explanations.
