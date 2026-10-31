@@ -60,7 +60,7 @@ For a separate bid, the offer the surety supports loses, and the Contracting Off
 
 ## Never confuse
 
-A pledge of assets for a bond is kept for a period tied to warranty and final payment, while a pledge for a bid guarantee is released on evidence that the offer will not win. A surety takeover after a default termination is a different arrangement; see [Surety-takeover agreements after a default termination](../../close-revrec/revenue/cls-surety-takeover-agreements.md). The default clauses are on [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
+A pledge of assets for a performance or payment bond is kept for the period the clause sets by contract type, which can run from final payment, warranty or pending claims to the full performance period plus 1 year [@CL-CTF-2509; @CL-CTF-2481; @CL-CTF-2510; @CL-CTF-2511; @CL-CTF-2515; @CL-CTF-2516], while a pledge for a bid guarantee may be released by the Contracting Officer on evidence that the offer will not result in award [@CL-CTF-2482]. A surety takeover after a default termination is a different arrangement; see [Surety-takeover agreements after a default termination](../../close-revrec/revenue/cls-surety-takeover-agreements.md). The default clauses are on [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
 
 ## Company calibration
 
@@ -70,6 +70,7 @@ Which contracts and offers rely on individual sureties, and who holds the pledge
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now follows the contract-type periods and the discretionary bid release.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the surety definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of surety.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of surety.
