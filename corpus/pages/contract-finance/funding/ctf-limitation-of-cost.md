@@ -23,7 +23,7 @@ Shows when a contractor must warn the contracting officer that costs are approac
 |---|---|
 | Instrument | Codified FAR clause [@CL-CTF-0003] |
 | Codified citation | FAR 52.232-20(b)(1) [@CL-CTF-0003] |
-| RFO citation | RFO FAR 52.232-20(b)(1) [@CL-CTF-0003] |
+| RFO citation | RFO FAR 52.232-20(b)(1) [@CL-CTF-1156] |
 | Edition date | 1984-04 [@CL-CTF-0003] |
 | Text status | Final [@CL-CTF-0003] |
 | Applies to | Fully funded cost-reimbursement contracts with the clause [@CL-FPA-0091] |
@@ -32,7 +32,7 @@ The contractor must notify the contracting officer in writing whenever it has re
 
 ## How it works
 
-Whenever the contractor has reason to believe a notice point is near, add the costs incurred to date and the costs expected over the notice window, and compare the total with the notice percentage of the estimated cost. When the total crosses it, send the notice with a revised estimate. The government is not obliged to pay costs above the estimated cost, and the contractor is not obliged to keep working past it, unless the contracting officer raises the estimate in writing.
+Whenever the contractor has reason to believe a notice point is near, add the costs incurred to date and the costs expected over the notice window, and compare the total with the notice percentage of the estimated cost. When the total crosses it, send the notice with a revised estimate [@CL-CTF-2919; @CL-CTF-2921]. Except as required by other contract provisions that specifically cite and are stated to be an exception to the clause, the Government is not obligated to reimburse costs above the estimated cost [@CL-CTF-2969; @CL-CTF-2922], and the contractor is not obligated to continue performance or otherwise incur costs above it until the contracting officer notifies the contractor in writing that the estimated cost has been increased and provides a revised estimated total cost of performing the contract [@CL-CTF-2923; @CL-CTF-2924].
 
 ## Worked example
 
@@ -52,6 +52,7 @@ Which contracts carry the limitation of cost or limitation of funds clause, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited RFO text for the RFO citation and tied the funding limits to their clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the notice triggers with their lead-in and cited the right claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the next 60 days.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Limitation of Cost notice.

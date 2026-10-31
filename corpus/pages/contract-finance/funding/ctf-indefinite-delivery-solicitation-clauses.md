@@ -28,9 +28,9 @@ Shows which ordering, order-limitation, definite-quantity, requirements and inde
 | Text status | Final [@CL-CTF-1222] |
 | Applies to | Solicitations and contracts that contemplate an indefinite-delivery contract [@CL-CTF-1222; @CL-CTF-1226] |
 
-The contracting officer is to insert the clause at 52.216-18, Ordering, in solicitations and contracts when a definite-quantity contract, a requirements contract, or an indefinite-quantity contract is contemplated [@CL-CTF-1222]. The contracting officer is to insert a clause substantially the same as the clause at 52.216-19, Order Limitations, in the same cases [@CL-CTF-1223]. The contracting officer is to insert the clause at 52.216-20, Definite Quantity, when a definite-quantity contract is contemplated [@CL-CTF-1224].
+The clause at 52.216-18, Ordering, is to be inserted in solicitations and contracts when a definite-quantity contract, a requirements contract, or an indefinite-quantity contract is contemplated [@CL-CTF-1222]. A clause substantially the same as the clause at 52.216-19, Order Limitations, is to be inserted in the same cases [@CL-CTF-1223]. The clause at 52.216-20, Definite Quantity, is to be inserted when a definite-quantity contract is contemplated [@CL-CTF-1224].
 
-The contracting officer is to insert the clause at 52.216-21, Requirements, when a requirements contract is contemplated [@CL-CTF-1225]. The contracting officer is to insert the clause at 52.216-22, Indefinite Quantity, when an indefinite-quantity contract is contemplated [@CL-CTF-1226]. The contracting officer is to insert the provision at 52.216-27, Single or Multiple Awards, in solicitations for indefinite-quantity contracts that may result in multiple contract awards, modified to specify the estimated number of awards [@CL-CTF-1227]. That provision is not to be used for advisory and assistance services contracts that exceed 3 years and $20 million, including all options [@CL-CTF-1227; @CL-CTF-1256].
+The clause at 52.216-21, Requirements, is to be inserted when a requirements contract is contemplated [@CL-CTF-1225]. The clause at 52.216-22, Indefinite Quantity, is to be inserted when an indefinite-quantity contract is contemplated [@CL-CTF-1226]. The provision at 52.216-27, Single or Multiple Awards, is to be inserted in solicitations for indefinite-quantity contracts that may result in multiple contract awards, modified to specify the estimated number of awards [@CL-CTF-1227]. That provision is not to be used for advisory and assistance services contracts that exceed 3 years and $20 million, including all options [@CL-CTF-1227; @CL-CTF-1256].
 
 ## How it works
 
@@ -54,4 +54,5 @@ Which executed indefinite-delivery contracts carry which of these clauses, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an actor the FAR text does not name for the insertion directions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indefinite-delivery solicitation provisions and clauses.

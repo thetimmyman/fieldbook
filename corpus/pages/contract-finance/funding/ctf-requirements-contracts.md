@@ -35,7 +35,7 @@ A realistic estimated total quantity shall be stated in the solicitation and res
 
 ## How it works
 
-The contract shall state, if feasible, the maximum limit of the contractor's obligation to deliver and the Government's obligation to order [@CL-CTF-1218]. The contract may also specify maximum or minimum quantities that the Government may order under each individual order and the maximum that it may order during a specified period of time [@CL-CTF-1219]. The printed requirements-contract section does not set a minimum total quantity that the Government must order. No requirements contract estimated to exceed $150 million, including all options, may be awarded to a single source unless a determination is executed in accordance with the single-award determination paragraph of the indefinite-quantity section [@CL-CTF-1221]. That paragraph says its determination requirement is not applicable for architect-engineer services awarded pursuant to Subpart 36.6 [@CL-CTF-1254].
+The contract shall state, if feasible, the maximum limit of the contractor's obligation to deliver and the Government's obligation to order [@CL-CTF-1218]. The contract may also specify maximum or minimum quantities that the Government may order under each individual order and the maximum that it may order during a specified period of time [@CL-CTF-1219]. The printed requirements-contract section does not set a minimum total quantity that the Government must order. No requirements contract estimated to exceed $150 million, including all options, may be awarded to a single source unless a determination is executed in accordance with the single-award determination paragraph of the indefinite-quantity section [@CL-CTF-1221]. That paragraph says its determination requirement is in addition to any applicable requirements of Subpart 6.3 and is not applicable for architect-engineer services awarded pursuant to Subpart 36.6 [@CL-CTF-1254].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A requirements contract for filters states an estimate of 5,000 units a year and
 
 ## Never confuse
 
-The stated estimate, the maximum limit and the per-order limits are three different things. The estimate is a realistic total quantity stated in the solicitation and contract [@CL-CTF-1216], the maximum limit caps the obligations to deliver and to order [@CL-CTF-1218], and the per-order and per-period limits cap single orders [@CL-CTF-1219]. A requirements contract is also not an indefinite-quantity contract, which must require the Government to order at least a stated minimum [@CL-CTF-1209]; see [Indefinite-delivery and indefinite-quantity contracts](ctf-indefinite-delivery-and-indefinite-quantity-contracts.md). The clauses for a solicitation that contemplates a requirements contract are on [Indefinite-delivery solicitation provisions and clauses](ctf-indefinite-delivery-solicitation-clauses.md). Funding limits are on [Contract funding: incremental funding policy](ctf-incremental-funding-policy.md), and the effect of contract type on billing is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md).
+The stated estimate, the maximum limit and the per-order limits are three different things. The estimate is a realistic total quantity stated in the solicitation and contract [@CL-CTF-1216], the contract shall state, if feasible, the maximum limit of the obligations to deliver and to order [@CL-CTF-1218], and the contract may also specify maximum or minimum quantities for each individual order and a maximum for a specified period [@CL-CTF-1219]. A requirements contract is also not an indefinite-quantity contract, which must require the Government to order at least a stated minimum [@CL-CTF-1209]; see [Indefinite-delivery and indefinite-quantity contracts](ctf-indefinite-delivery-and-indefinite-quantity-contracts.md). The clauses for a solicitation that contemplates a requirements contract are on [Indefinite-delivery solicitation provisions and clauses](ctf-indefinite-delivery-solicitation-clauses.md). Funding limits are on [Contract funding: incremental funding policy](ctf-incremental-funding-policy.md), and the effect of contract type on billing is on [Contract types and what they mean for finance](../billing-payment/ctf-contract-types.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which contracts are requirements contracts, the estimate and limits each states,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Single-award paragraph now also states the Subpart 6.3 point; limits sentence matches optional per-order and per-period wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the audience of the estimate disclaimer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requirements contracts.

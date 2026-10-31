@@ -45,7 +45,7 @@ A registrant restates income for one quarter and the change is material. It expl
 
 ## Never confuse
 
-Item 701 looks at securities the registrant sold without registration, over a look-back period of years [@CL-FPA-0155], while Item 703 reports purchases in a table by month [@CL-FPA-0156]. Item 302 concerns restated quarterly income information and is a different matter from both [@CL-FPA-0152; @CL-FPA-0153].
+Item 701 looks at securities the registrant sold without registration, over a look-back period of years [@CL-FPA-0155], while Item 703 reports purchases in a table by month [@CL-FPA-0156]. Item 302 concerns material retrospective changes to quarterly statements of comprehensive income and is a different matter from both [@CL-FPA-0152; @CL-FPA-0153].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ How the company would track retrospective quarterly changes, unregistered sales 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Item 302 contrast sentence now speaks of material retrospective changes to quarterly income statements, not restatements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Item 302(a) sentences so the rule keeps the periods covered by Article 3 of Regulation S-X, the earnings per share element and the scope of the initial registration.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplementary information, unregistered sales and issuer repurchases.

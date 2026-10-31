@@ -49,7 +49,7 @@ A one-year requirements contract for services starts three months before the end
 
 ## Never confuse
 
-The Availability of Funds clause covers a contract chargeable to funds of the new fiscal year that are not yet available [@CL-FPA-0057]. The Availability of Funds for the Next Fiscal Year clause covers a one-year indefinite-quantity or requirements contract for services whose funds are not presently available for performance beyond a date stated in the clause [@CL-FPA-0058; @CL-FPA-0061]. For incrementally funded contracts, see [Contract funding: incremental funding policy](../../contract-finance/funding/ctf-incremental-funding-policy.md) and [DoD incrementally funded fixed-price contracts](fpa-dod-incrementally-funded-fixed-price.md). The general funding rule is on [Funded versus unfunded contract value: the policy](fpa-funded-versus-unfunded-policy.md).
+The Availability of Funds clause is inserted for a contract chargeable to funds of the new fiscal year when the contract action will be initiated before those funds are available [@CL-FPA-0057]. The Availability of Funds for the Next Fiscal Year clause is inserted for a one-year indefinite-quantity or requirements contract for services that is funded by annual appropriations and is to extend beyond the initial fiscal year, and it says funds are not presently available for performance beyond a date stated in the clause [@CL-FPA-0058; @CL-FPA-0061]. For incrementally funded contracts, see [Contract funding: incremental funding policy](../../contract-finance/funding/ctf-incremental-funding-policy.md) and [DoD incrementally funded fixed-price contracts](fpa-dod-incrementally-funded-fixed-price.md). The general funding rule is on [Funded versus unfunded contract value: the policy](fpa-funded-versus-unfunded-policy.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts carry either availability clause, and who confirms and records t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Comparison sentences now carry the insertion conditions for both availability clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text of the Availability of Funds clauses at FAR 52.232-18 and 52.232-19.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracts conditioned on availability of funds.

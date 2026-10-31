@@ -28,7 +28,7 @@ Shows how a public defense contractor presents the material factors that make an
 | Text status | Not established. |
 | Applies to | The registrant, where appropriate, for factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
-Item 105(a) of Regulation S-K, in 17 CFR 229.105, tells the registrant, where appropriate, to provide under the caption “Risk Factors” a discussion of the material factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041]. The discussion must be organized logically with relevant headings, and each risk factor should be set forth under a subcaption that adequately describes the risk [@CL-FPA-0042]. Risks that could apply generically to any registrant or offering are discouraged, and any generic risk factors presented are disclosed at the end of the risk factor section under the caption “General Risk Factors” [@CL-FPA-0043].
+Item 105(a) of Regulation S-K, in 17 CFR 229.105, tells the registrant, where appropriate, to provide under the caption “Risk Factors” a discussion of the material factors that make an investment in the registrant or offering speculative or risky [@CL-FPA-0041]. The discussion must be organized logically with relevant headings, and each risk factor should be set forth under a subcaption that adequately describes the risk [@CL-FPA-0042]. Risks that could apply generically to any registrant or offering are discouraged, and any generic risk factors presented must be disclosed at the end of the risk factor section under the caption “General Risk Factors” [@CL-FPA-0043].
 
 Under Item 105(b), the registrant concisely explains how each risk affects the registrant or the securities being offered [@CL-FPA-0044]. If the discussion is longer than 15 pages, the forepart of the prospectus or annual report must include a series of concise, bulleted or numbered statements of no more than two pages summarizing the principal factors [@CL-FPA-0045].
 
@@ -56,5 +56,6 @@ Which open accounting judgments and close deadlines feed the risk discussion, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Generic risk factors that are presented must be disclosed at the end under the stated caption.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on cybersecurity disclosure.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for risk factor disclosure.

@@ -48,7 +48,7 @@ A registrant has consolidated current assets of 500,000. A claim for damages alo
 
 ## Never confuse
 
-Ordinary routine litigation incidental to the business is not the same as an environmental proceeding: a proceeding of the listed environmental kind is not deemed ordinary routine litigation [@CL-FPA-0113]. The damages omission and the environmental condition both use 10 percent of consolidated current assets, but the omission excuses a damages claim that does not exceed that level [@CL-FPA-0110], while the listed environmental condition applies when the amount involved exceeds it [@CL-FPA-0114]. Paragraph (c) applies notwithstanding paragraph (b) [@CL-FPA-0111]. A pending proceeding is also different from a transaction with a related person, which Item 404 covers when the registrant was or is to be a participant, the amount involved exceeds $120,000, and a related person had or will have a direct or indirect material interest [@CL-FPA-0146; @CL-FPA-0147]; see [Transactions with related persons](fpa-related-person-transactions.md). Item 103 information may be provided by cross-reference to Risk Factors disclosure elsewhere in the document [@CL-FPA-0164]; see [Risk factor disclosure for public registrants](fpa-risk-factors.md).
+Ordinary routine litigation incidental to the business is not the same as an environmental proceeding: a proceeding of the listed environmental kind is not deemed ordinary routine litigation [@CL-FPA-0113]. The damages omission and the environmental condition both use 10 percent of consolidated current assets, but the omission excuses a damages claim that does not exceed that level [@CL-FPA-0110], while the listed environmental condition applies when the amount involved exceeds it [@CL-FPA-0114]. Paragraph (c) applies notwithstanding paragraph (b) [@CL-FPA-0111]. A pending proceeding is also different from a transaction with a related person, which Item 404 covers for a transaction since the beginning of the registrant's last fiscal year, or any currently proposed transaction, in which the registrant was or is to be a participant, the amount involved exceeds $120,000 and a related person had or will have a direct or indirect material interest [@CL-FPA-0146; @CL-FPA-0147]; see [Transactions with related persons](fpa-related-person-transactions.md). Item 103 information may be provided by cross-reference to Risk Factors disclosure elsewhere in the document [@CL-FPA-0164]; see [Risk factor disclosure for public registrants](fpa-risk-factors.md).
 
 ## Company calibration
 
@@ -58,6 +58,7 @@ Whether the company would measure consolidated current assets and track pending 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Related-person comparison now carries the since-last-fiscal-year and currently-proposed scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that any one environmental condition suffices and kept the related person amount threshold.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for legal proceedings disclosure.
