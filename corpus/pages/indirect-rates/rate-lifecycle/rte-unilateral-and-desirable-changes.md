@@ -37,7 +37,7 @@ Until the CFAO has determined a change to a cost accounting practice is a desira
 
 If a contractor requests that a unilateral change be retroactive, the contractor must submit supporting rationale [@CL-RTE-0708]. The CFAO must not approve a date for the retroactive change that is before the beginning of the contractor's fiscal year in which the request is made [@CL-RTE-0611].
 
-The factors for deciding whether a change is desirable are not limited to those listed, and they include whether the contractor must change its cost accounting practices to remain in compliance with Part 31 [@CL-RTE-0709]. Another listed factor concerns actions directly associated with the change that will result in cost savings for segments with CAS-covered contracts and subcontracts over the shorter of the forward pricing rate period or 5 years, with the savings reflected in the forward pricing rates [@CL-RTE-0710].
+The factors for deciding whether a change is desirable are not limited to those listed, and they include whether the contractor must change its cost accounting practices to remain in compliance with Part 31 [@CL-RTE-0709]. Another listed factor is whether the contractor is initiating management actions directly associated with the change that will result in cost savings for segments with CAS-covered contracts and subcontracts over a period for which forward pricing rates are developed or 5 years, whichever is shorter, with the savings reflected in the forward pricing rates [@CL-RTE-9148; @CL-RTE-0710].
 
 ## Worked example
 
@@ -57,5 +57,6 @@ Whether a planned practice change meets the desirable-change factors before it g
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contractor-initiated condition of the savings factor.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added clause scope for desirable change; stated notice as one listed step; added segment scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unilateral and desirable changes to cost accounting practices.

@@ -29,17 +29,17 @@ Explains who performs Cost Accounting Standards administration in a business uni
 | Text status | Final [@CL-RTE-0600] |
 | Applies to | All contracts and subcontracts in a business unit, for CAS administration [@CL-RTE-0600] |
 
-The CFAO performs CAS administration for all contracts and subcontracts in a business unit, even when the contracting officer retains other administration functions [@CL-RTE-0600]. Within 30 days after the award of any new contract subject to CAS, the contracting officer making the award must request the CFAO to perform administration for CAS matters [@CL-RTE-0601].
+The CFAO shall perform CAS administration for all contracts and subcontracts in a business unit, even when the contracting officer retains other administration functions [@CL-RTE-0600]. Within 30 days after the award of any new contract subject to CAS, the contracting officer making the award must request the CFAO to perform administration for CAS matters [@CL-RTE-0601].
 
-The CFAO makes all CAS-related required determinations and findings for all CAS-covered contracts and subcontracts, including whether a change in cost accounting practice or noncompliance has occurred [@CL-RTE-0700].
+The CFAO shall make all CAS-related required determinations and findings for all CAS-covered contracts and subcontracts, including (1) whether a change in cost accounting practice or noncompliance has occurred and (2) if one has occurred, how any resulting cost impacts are resolved [@CL-RTE-0700; @CL-RTE-9137].
 
 ## How it works
 
 The FAR section on cognizant Federal agency responsibilities, 30.201-7, refers the reader to 48 CFR 9903.201-7 [@CL-RTE-1004].
 
-In determining materiality, the CFAO uses the criteria in 48 CFR 9903.305 [@CL-RTE-0602]. The criteria themselves are set out on the CAS materiality page. A CFAO determination of materiality may be made before or after a general dollar magnitude proposal has been submitted, depending on the particular facts and circumstances, and must be based on adequate documentation [@CL-RTE-0702].
+In determining materiality, the CFAO shall use the criteria in 48 CFR 9903.305 [@CL-RTE-0602]. The criteria themselves are set out on the CAS materiality page. A CFAO determination of materiality may be made before or after a general dollar magnitude proposal has been submitted, depending on the particular facts and circumstances, and must be based on adequate documentation [@CL-RTE-0702].
 
-When the CFAO determines that a cost impact is immaterial, the CFAO makes no contract adjustments, concludes the cost impact process and documents the rationale for the determination [@CL-RTE-0603]. When the cost impact of a noncompliance is immaterial, the CFAO also informs the contractor in writing that the noncompliance should be corrected and that, if the noncompliance is not corrected, the Government reserves the right to make appropriate contract adjustments should the noncompliance become material in the future [@CL-RTE-0704; @CL-RTE-0024]. When the amount involved is material, the CFAO follows the applicable provisions on required, unilateral and desirable changes and on noncompliances, which the neighbouring cards describe [@CL-RTE-0703].
+When the CFAO determines that a cost impact is immaterial, the CFAO shall make no contract adjustments and conclude the cost impact process, and shall document the rationale for the determination [@CL-RTE-0603]. In the case of noncompliance issues the CFAO also informs the contractor that the noncompliance should be corrected and that, if it is not corrected, the Government reserves the right to make appropriate contract adjustments should the cost impact become material in the future [@CL-RTE-0024]. The section on processing noncompliances words this notice as one given in writing, with the reservation tied to the noncompliance becoming material in the future [@CL-RTE-0704]. When the amount involved is material, the CFAO shall follow the applicable provisions on required, unilateral and desirable changes and on noncompliances, which the neighbouring cards describe [@CL-RTE-0703].
 
 ## Worked example
 
@@ -59,6 +59,7 @@ Which business units have full coverage, modified coverage or neither, and so wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the second CAS determination item and the shall wording; separated the two immaterial-noncompliance notices.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-7 pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the immaterial cost impact sentence so the rule keeps the reservation of the right to make contract adjustments if the impact becomes material.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CFAO CAS administration and materiality.

@@ -30,7 +30,7 @@ Collects the defined terms that the priority, rating and allocation cards use, s
 
 The definitions in 15 CFR 700.8 apply throughout the part [@CL-IND-0063]. The table follows the order of the section and gives each term from the claims named in its row. A term that the section defines in a list is stated in full, including each listed element and exclusion.
 
-Some definitions turn on a condition or an exclusion. Construction does not include maintenance and repair [@CL-IND-0068]. Facilities excludes farms, churches or other houses of worship, and private dwelling houses [@CL-IND-0355]. Industrial resources covers only items whose authority has not been delegated to other agencies under Executive Order 13603 [@CL-IND-0073]. Production equipment needs a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077]. The MRO definition lists items that it does not include [@CL-IND-0360; @CL-IND-0361].
+Some definitions turn on a condition or an exclusion. Construction does not include maintenance and repair [@CL-IND-0068]. Facilities excludes farms, churches or other houses of worship, and private dwelling houses [@CL-IND-0355]. Industrial resources are the materials, services and facilities, including construction materials, the authority for which has not been delegated to other agencies under Executive Order 13603 [@CL-IND-0073]. Production equipment needs a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077]. The MRO definition lists items that it does not include [@CL-IND-0360; @CL-IND-0361].
 
 The section also defines the term Resource Department and the term for the disaster relief and emergency assistance statute that the DPAS cites. This card does not state them. The printed section carries an effective-date note on an amendment [@CL-IND-0371].
 
@@ -96,6 +96,7 @@ Which capacity assumptions and program terms the company maps onto the orders it
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported only from industrial resources
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of national defense.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of national defense for contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Defense Priorities and Allocations System definitions.

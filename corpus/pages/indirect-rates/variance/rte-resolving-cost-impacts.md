@@ -35,7 +35,7 @@ The CFAO must not combine the cost impacts of a required change or desirable cha
 
 ## How it works
 
-For unilateral changes and noncompliances, the CFAO must, to the maximum extent practical, not adjust the price upward for fixed-price contracts [@CL-RTE-0726]. If contract adjustments are made, the CFAO must preclude payment of aggregate increased costs by reducing the contract price on fixed-price contracts, disallowing costs on flexibly-priced contracts, or both [@CL-RTE-0624].
+For unilateral changes and noncompliances, the CFAO must, to the maximum extent practical, not adjust the price upward for fixed-price contracts [@CL-RTE-0726]. For those unilateral changes and noncompliances, if contract adjustments are made, the CFAO must preclude payment of aggregate increased costs by taking one or both of two actions: reducing the contract price on fixed-price contracts and disallowing costs on flexibly-priced contracts [@CL-RTE-0624].
 
 Instead of adjusting contracts, the CFAO may use an alternate method, provided the Government will not pay more in the aggregate than it would without the method and the contracting parties agree on its use [@CL-RTE-0625]. The CFAO may not use an alternate method for contracts when applying it to the contracts would result in an under recovery of monies by the Government, or in a further listed result [@CL-RTE-0727]. That further result is distortion of incentive provisions and of the relationships between target costs, ceiling costs and actual costs for incentive type contracts [@CL-RTE-0728].
 
@@ -59,4 +59,5 @@ Which final indirect-rate sets are approved for each period, because an alternat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the unilateral and noncompliance scope into the adjustment sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for resolving cost impacts and recovering increased costs.

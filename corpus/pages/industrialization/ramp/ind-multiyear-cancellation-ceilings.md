@@ -35,7 +35,7 @@ Cancellation ceilings must exclude amounts for requirements included in prior pr
 
 ## How it works
 
-In determining cancellation ceilings, the contracting officer must estimate reasonable preproduction or startup, labor learning, and other nonrecurring costs to be incurred by an average prime contractor or subcontractor, being costs which would be applicable to, and which normally would be amortized over, the items or services to be furnished under the multiyear requirements [@CL-IND-0150; @CL-IND-0335]. Nonrecurring costs include, where applicable, plant or equipment relocation or rearrangement, special tooling and special test equipment, preproduction engineering, initial rework, initial spoilage and pilot runs, among other items [@CL-IND-0109]. The contracting officer reduces the ceiling for each program year in direct proportion to the requirements still subject to cancellation [@CL-IND-0108].
+In determining cancellation ceilings, the contracting officer must estimate reasonable preproduction or startup, labor learning, and other nonrecurring costs to be incurred by an average prime contractor or subcontractor, being costs which would be applicable to, and which normally would be amortized over, the items or services to be furnished under the multiyear requirements [@CL-IND-0150; @CL-IND-0335]. Nonrecurring costs include, where applicable, plant or equipment relocation or rearrangement, special tooling and special test equipment, preproduction engineering, initial rework, initial spoilage and pilot runs, among other items [@CL-IND-0109]. The contracting officer shall reduce the ceiling for each program year in direct proportion to the remaining requirements subject to cancellation [@CL-IND-0108].
 
 The FAR section headed special procedures applicable to DoD, NASA and the Coast Guard says that contracts awarded under the multiyear procedure shall be firm-fixed-price, fixed-price with economic price adjustment, or fixed-price incentive [@CL-IND-0152; @CL-IND-0111]. Under the same heading, including recurring costs in cancellation ceilings is an exception to normal contract financing arrangements and requires approval by the agency head [@CL-IND-0152; @CL-IND-0112]. The DFARS lists, among its conditions for entering a multiyear contract for supplies, that cancellation provisions do not include consideration of recurring manufacturing costs of the contractor for unfunded units [@CL-IND-0122; @CL-IND-0123]. The FAR rule on recurring costs in cancellation ceilings and the DFARS condition are stated separately, and neither printed section refers to the other, so this card does not reconcile them [@CL-IND-0112; @CL-IND-0123].
 
@@ -57,5 +57,6 @@ Whether the learning curve and the cost history behind the nonrecurring cost est
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for ceiling reduction
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the estimating sentence so the cancellation ceiling costs keep the amortization limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear cancellation ceilings and nonrecurring costs.
