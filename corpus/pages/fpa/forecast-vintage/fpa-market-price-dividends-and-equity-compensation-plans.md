@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-017"]
-links = ["fpa-supplementary-and-securities-sales-disclosure", "fpa-description-of-registrants-securities", "fpa-security-ownership-and-section-16a-compliance"]
+links = ["fpa-supplementary-and-securities-sales-disclosure", "fpa-description-of-registrants-securities", "fpa-security-ownership-and-section-16a-compliance", "fpa-executive-equity-award-tables"]
 +++
 
 ## Purpose
@@ -44,7 +44,7 @@ A calendar-year company trades on one exchange and names it with its symbol. Its
 
 ## Never confuse
 
-This card is about where the stock trades and what plans can issue it. The rights and terms of the securities are in [Description of registrant's securities](fpa-description-of-registrants-securities.md), and who owns the stock is in the [security ownership card](fpa-security-ownership-and-section-16a-compliance.md). Sales of unregistered securities and issuer repurchases are different disclosures; see [Supplementary information and securities sales](fpa-supplementary-and-securities-sales-disclosure.md). The plan table also counts securities that can still be issued, not only those already granted [@CL-FPA-0215; @CL-FPA-0216].
+This card is about where the stock trades and what plans can issue it. The rights and terms of the securities are in [Description of registrant's securities](fpa-description-of-registrants-securities.md), and who owns the stock is in the [security ownership card](fpa-security-ownership-and-section-16a-compliance.md). Sales of unregistered securities and issuer repurchases are different disclosures; see [Supplementary information and securities sales](fpa-supplementary-and-securities-sales-disclosure.md). Awards granted to, held by and exercised by named executive officers are reported in [Executive equity award tables](fpa-executive-equity-award-tables.md). The plan table also counts securities that can still be issued, not only those already granted [@CL-FPA-0215; @CL-FPA-0216].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How the company sources its market data, plan data and peer index choices. [@Q-0
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the executive equity award tables card from the Never confuse section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the performance graph sentence so the Item 201(e)(1) rule keeps the way the return is measured and the comparison items.
 - COMPATIBLE_EXTENSION, 2026-10-30: Limited the dividend encouragement in the summary to a registrant with a record of paying no cash dividends although earnings indicate an ability to do so.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for market price, dividends and equity compensation plans.

@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-017"]
-links = ["fpa-related-person-transactions", "fpa-directors-officers-and-control-persons"]
+links = ["fpa-related-person-transactions", "fpa-directors-officers-and-control-persons", "fpa-executive-compensation-scope-and-summary-compensation-table", "fpa-executive-equity-award-tables", "fpa-pension-deferred-compensation-termination-and-director-pay", "fpa-pay-ratio-disclosure", "fpa-pay-versus-performance-disclosure"]
 +++
 
 ## Purpose
@@ -44,7 +44,7 @@ A holder owns 6 percent of a class of voting securities and is listed in the own
 
 ## Never confuse
 
-The five percent test picks the holders in the first ownership table, and directors, nominees and named executive officers are covered by a separate table without that test [@CL-FPA-0192; @CL-FPA-0193]. The late report description starts from each director, officer and owner of more than ten percent of a class [@CL-FPA-0196]. Ownership is also not the same as a transaction with a related person; see [Transactions with related persons](fpa-related-person-transactions.md). Who the directors and officers are is covered in [Directors, executive officers, promoters and control persons](fpa-directors-officers-and-control-persons.md).
+The five percent test picks the holders in the first ownership table, and directors, nominees and named executive officers are covered by a separate table without that test [@CL-FPA-0192; @CL-FPA-0193]. The late report description starts from each director, officer and owner of more than ten percent of a class [@CL-FPA-0196]. Ownership is also not the same as a transaction with a related person; see [Transactions with related persons](fpa-related-person-transactions.md). Who the directors and officers are is covered in [Directors, executive officers, promoters and control persons](fpa-directors-officers-and-control-persons.md). What the named executive officers are paid is a separate disclosure; see [Executive compensation scope, discussion and summary compensation table](fpa-executive-compensation-scope-and-summary-compensation-table.md), [Executive equity award tables](fpa-executive-equity-award-tables.md) and [Pension, deferred compensation, termination payments and director pay](fpa-pension-deferred-compensation-termination-and-director-pay.md). The comparison of pay with the median employee and with company results is in [Pay ratio disclosure](fpa-pay-ratio-disclosure.md) and [Pay versus performance disclosure](fpa-pay-versus-performance-disclosure.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ How the company keeps its beneficial owner list, pledge data and the filing reco
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the executive compensation cards from the Never confuse section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Item 405 sentences so the late report rule keeps the additional persons it covers and the fiscal-year limit on the review of Forms 3 and 4.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for security ownership and Section 16(a) compliance.
