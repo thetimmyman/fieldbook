@@ -22,7 +22,7 @@ Gives the FAR definitions that matter most for equal employment opportunity in c
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3050] |
-| Codified citation | FAR 22.801 and FAR 22.802 [@CL-CMP-3050; @CL-CMP-3053] |
+| Codified citation | FAR 22.800, FAR 22.801 and FAR 22.802 [@CL-CMP-3050; @CL-CMP-3053; @CL-CMP-7788] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3050] |
@@ -31,6 +31,8 @@ Gives the FAR definitions that matter most for equal employment opportunity in c
 The FAR defines an affirmative action program as a contractor's program that complies with Department of Labor regulations to ensure equal opportunity in employment to minorities and women [@CL-CMP-3050]. A compliance evaluation is any one or combination of actions that the Office of Federal Contract Compliance Programs may take to examine a federal contractor's compliance with one or more of the requirements of the Executive Order [@CL-CMP-3051]. The FAR term E.O. 11246 means Parts II and IV of Executive Order 11246 of September 24, 1965, and any Executive order amending or superseding it [@CL-CMP-3052].
 
 Executive Order 11246, as amended, sets forth the Equal Opportunity clause and requires all agencies to include that clause in all nonexempt contracts and subcontracts [@CL-CMP-3053]. One listed requirement is that agencies act to ensure compliance with the Equal Opportunity clause and the Secretary of Labor's regulations to promote the full realization of equal employment opportunity for all persons, regardless of race, color, religion, sex, sexual orientation, gender identity, or national origin [@CL-CMP-3054].
+
+Subpart 22.8 prescribes policies and procedures pertaining to nondiscrimination in employment by contractors and subcontractors [@CL-CMP-7788].
 
 ## How it works
 
@@ -54,4 +56,5 @@ Which compliance evaluations or other requests from the Office of Federal Contra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the equal employment opportunity subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal employment opportunity definitions and general rules.

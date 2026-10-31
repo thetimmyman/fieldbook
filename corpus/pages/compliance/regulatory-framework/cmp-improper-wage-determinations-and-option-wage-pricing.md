@@ -22,7 +22,7 @@ Shows what happens when a solicitation carries the wrong wage determination, how
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3024] |
-| Codified citation | FAR 22.404-8, FAR 22.404-12 and FAR 22.403-6 [@CL-CMP-3024; @CL-CMP-3026; @CL-CMP-3029] |
+| Codified citation | FAR 22.404-8, FAR 22.404-11, FAR 22.404-12 and FAR 22.403-6 [@CL-CMP-3024; @CL-CMP-3026; @CL-CMP-3029; @CL-CMP-7299; @CL-CMP-7624] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3024] |
@@ -35,6 +35,8 @@ Each time the contracting officer exercises an option to extend the term of a co
 ## How it works
 
 Before award, a notice from the Department of Labor that a solicitation carries the wrong determination or rate schedule takes effect immediately once the contracting officer has it [@CL-CMP-3024]. In a negotiated acquisition the contracting officer processes it as a new determination, delaying award if necessary [@CL-CMP-3025]. After award, each exercise of an option to extend the term brings in the most current determination [@CL-CMP-3026]. For fixed-price contracts, the pricing clause chosen at solicitation says how the change in labor cost is allowed for [@CL-CMP-3027; @CL-CMP-3114]. The ordinary timing rules for modifications of determinations are on [Project wage determination expiration and modifications before and after bid opening or award](cmp-project-wage-determination-expiration-and-modifications.md). Questions on applying a determination or the Department of Labor regulations go to the Administrator [@CL-CMP-3029].
+
+The Secretary of Labor has established an Administrative Review Board which decides appeals of final decisions made by the Department of Labor concerning Construction Wage Rate Requirements statute wage determinations [@CL-CMP-7299]. A contracting agency or other interested party may file a petition for review under the procedures in 29 CFR Part 7 if reconsideration by the Administrator has been sought pursuant to 29 CFR 1.8 and denied [@CL-CMP-7624]. The text refers only to the Administrator, without saying which official that is.
 
 ## Worked example
 
@@ -54,5 +56,6 @@ Which construction options and price adjustment methods sit in the company's con
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the appeal route for wage determinations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the bid opening postponement so the postponement keeps its stated purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for improper wage determinations, option-period wage pricing and Department of Labor construction regulations.

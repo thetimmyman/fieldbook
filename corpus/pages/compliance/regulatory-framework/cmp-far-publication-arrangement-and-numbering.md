@@ -23,7 +23,7 @@ Explains where the FAR is published, how it is arranged, how a FAR citation numb
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8394] |
-| Codified citation | FAR 1.105-1 and 1.105-2 [@CL-CMP-8394; @CL-CMP-8400] |
+| Codified citation | FAR 1.105-1, 1.105-2 and 1.105-3 [@CL-CMP-8394; @CL-CMP-8400; @CL-CMP-9728] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8394] |
@@ -42,6 +42,8 @@ Subdivisions may be used at the section and subsection level to identify individ
 Unless otherwise stated, cross-references indicate parts, subparts, sections, subsections, paragraphs, subparagraphs or subdivisions of the regulation itself [@CL-CMP-8405]. The regulation may be referred to as the Federal Acquisition Regulation or the FAR [@CL-CMP-8406]. In the FAR's own illustration that uses 9.106-4(d), a part is written "FAR part 9" outside the FAR and "part 9" within it [@CL-CMP-8755], and a subpart is written "FAR subpart 9.1" outside and "subpart 9.1" within [@CL-CMP-8756]. A section, subsection or paragraph takes the prefix "FAR" outside the FAR, as in "FAR 9.106-4(d)", and has no prefix within it [@CL-CMP-8757]. Citations of authority in the FAR, such as statutes or executive orders, shall follow the Federal Register form guides [@CL-CMP-8407].
 
 These sections set no threshold, deadline or approval route. The two "shall" rules, the chapter-number prefix for codified agency regulations and the form of citations of authority in the FAR, bind agencies and the drafters of FAR text, not contractors.
+
+Copies of the FAR in CFR form may be purchased from the Bookstore of the Government Publishing Office (GPO) [@CL-CMP-9728].
 
 ## Worked example
 
@@ -63,4 +65,5 @@ Whether the company's citation practice reads the FAR number as printed, part th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added where copies of the FAR in CFR form may be purchased.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR publication, arrangement and numbering.

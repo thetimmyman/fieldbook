@@ -22,7 +22,7 @@ Shows how affirmative action goals are set for construction and when the contrac
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3056] |
-| Codified citation | FAR 22.804-2 and FAR 22.805 [@CL-CMP-3056; @CL-CMP-3058] |
+| Codified citation | FAR 22.804-1, FAR 22.804-2 and FAR 22.805 [@CL-CMP-3056; @CL-CMP-3058; @CL-CMP-7789; @CL-CMP-8061; @CL-CMP-8062] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3056] |
@@ -37,6 +37,8 @@ The contracting officer does not need to request a preaward clearance if all the
 In processing a preaward clearance request, the contracting officer shall assure, if possible, that the request is submitted to the OFCCP regional office at least 30 days before the proposed award date [@CL-CMP-3128]. OFCCP will inform the awarding agency within 15 days of the clearance request of its intention to conduct a preaward compliance evaluation, and if it does not inform the agency within that period, clearance shall be presumed [@CL-CMP-3062]. If OFCCP informs the awarding agency of its intention to conduct a preaward compliance evaluation, OFCCP shall be allowed an additional 20 days after the date that it so informs the awarding agency to provide its conclusions [@CL-CMP-3129].
 
 If the procedures in the two paragraphs on time for evaluation and OFCCP response would delay award of an urgent and critical contract beyond the time necessary to make award or beyond the time specified in the offer or extension thereof, the contracting officer shall immediately inform the OFCCP regional office [@CL-CMP-3130]. If the regional office advises that a preaward evaluation cannot be completed by the required date, the contracting officer shall submit written justification for the award to the head of the contracting activity, who, after informing the OFCCP regional office, may then approve the award without the preaward clearance [@CL-CMP-3131; @CL-CMP-7088].
+
+Except as provided in 22.807, each nonconstruction prime contractor and each subcontractor with 50 or more employees and either a contract or subcontract of $50,000 or more, or Government bills of lading that in any 12-month period total, or can reasonably be expected to total, $50,000 or more, is required to develop a written affirmative action program for each of its establishments [@CL-CMP-7789; @CL-CMP-8061]. Each contractor and subcontractor shall develop its written affirmative action programs within 120 days from the commencement of its first such Government contract, subcontract, or Government bill of lading [@CL-CMP-8062].
 
 ## How it works
 
@@ -60,5 +62,6 @@ Which awards and subcontracts near the dollar threshold have a preaward clearanc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the written affirmative action program rule for nonconstruction contractors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the urgent and critical contract sentence so the preaward clearance rule keeps that the approved award is made without the clearance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction affirmative action goals and preaward clearance.

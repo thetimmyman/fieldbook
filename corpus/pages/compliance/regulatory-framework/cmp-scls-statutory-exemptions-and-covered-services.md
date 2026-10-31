@@ -23,7 +23,7 @@ Lists the contract categories to which the Service Contract Labor Standards stat
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8092] |
-| Codified citation | FAR 22.1003-3 and FAR 22.1003-5 [@CL-CMP-8092; @CL-CMP-8095] |
+| Codified citation | FAR 22.1003-1, FAR 22.1003-2, FAR 22.1003-3, FAR 22.1003-5 and FAR 22.1003-7 [@CL-CMP-8092; @CL-CMP-8095; @CL-CMP-8228; @CL-CMP-8229; @CL-CMP-8502; @CL-CMP-8503; @CL-CMP-8504] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8092] |
@@ -52,6 +52,10 @@ FAR 22.1003-5 lists examples [@CL-CMP-8095]. They are not definitive or exclusiv
 | (k) | Maintenance and repair of all types of equipment, for example aircraft, engines, electrical motors, vehicles, and electronic, office and related business and construction equipment, with a cross-reference "But see 22.1003-4(c)(1) and (d)(1)(iv)" | [@CL-CMP-8111] |
 | (l) | Operation, maintenance, or logistics support of a Federal facility | [@CL-CMP-8097] |
 | (m) | Data collection, processing and analysis services | [@CL-CMP-8098] |
+
+Subpart 22.10 applies to all Government contracts, the principal purpose of which is to furnish services in the United States through the use of service employees, except as exempted in 22.1003-3 and 22.1003-4, or any subcontract at any tier thereunder [@CL-CMP-8228]. The subpart does not apply to individual contract requirements for services in contracts not having as their principal purpose the furnishing of services, and the nomenclature, type, or particular form of contract used by contracting agencies is not determinative of coverage [@CL-CMP-8229]. The Service Contract Labor Standards statute applies to service contracts performed in the United States (see 22.1001) and does not apply to contracts performed outside the United States [@CL-CMP-8502].
+
+If the contracting officer questions the applicability of the Service Contract Labor Standards statute to an acquisition, the contracting officer shall request the advice of the agency labor advisor [@CL-CMP-8503]. Unresolved questions shall be submitted in a timely manner to the Administrator, Wage and Hour Division, for determination [@CL-CMP-8504].
 
 ## How it works
 
@@ -83,4 +87,5 @@ Which contract line items fall in a statutory exemption and which match a listed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added subpart coverage, geographic coverage and applicability questions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the statutory exemptions and covered services.

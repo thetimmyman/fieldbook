@@ -22,7 +22,7 @@ Shows who counts as a professional employee when the company applies the compens
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8154] |
-| Codified citation | FAR 22.1102 [@CL-CMP-8154] |
+| Codified citation | FAR 22.1101 and FAR 22.1102 [@CL-CMP-8507; @CL-CMP-8154] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8154] |
@@ -56,6 +56,8 @@ The listed professions are examples. The section says its examples include those
 
 The section does not say who decides whether a given person meets the definition. That is Not established here.
 
+The opening section of the same subpart says the Service Contract Labor Standards statute was enacted to ensure that Government contractors compensate their blue-collar service workers and some white-collar service workers fairly, but does not cover bona fide executive, administrative, or professional employees [@CL-CMP-8507].
+
 The compensation rules that use the term are on [Evaluation of compensation for professional employees](cmp-professional-employee-compensation-plan-evaluation.md) and [Evaluation of compensation for professional employees in service contract proposals](cmp-professional-employee-compensation-evaluation.md). This card does not restate them.
 
 ## Worked example
@@ -80,4 +82,5 @@ Which job families the company maps to this definition, and whether the mapping 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability section on who the Service Contract Labor Standards statute does not cover.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the professional employee definition.

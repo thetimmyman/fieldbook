@@ -23,7 +23,7 @@ Shows how a contractor employee reprisal complaint is investigated, enforced and
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6855] |
-| Codified citation | FAR 3.904-2, 3.905-2 and 3.907-3 [@CL-CMP-6855; @CL-CMP-6858; @CL-CMP-6860] |
+| Codified citation | FAR 3.904-2, 3.905-2, 3.907-3 and 3.907-4 [@CL-CMP-6855; @CL-CMP-6858; @CL-CMP-6860; @CL-CMP-9718] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6855] |
@@ -47,6 +47,8 @@ Whenever a contractor or subcontractor fails to comply with an order issued unde
 
 An employee who believes that he or she has been subjected to a reprisal prohibited by the Recovery Act may submit a complaint to the Inspector General of the agency that awarded the contract [@CL-CMP-6860]. The complaint must be signed and must contain the contractor's name and the contract number, if known, or a description reasonably sufficient to identify the contract [@CL-CMP-6861]. It must also contain the covered information giving rise to the disclosure, the nature of the disclosure, and the specific nature and date of the reprisal [@CL-CMP-7150]. A contracting officer who receives such a complaint must forward it to the Office of Inspector General and to other designated officials in accordance with agency procedures [@CL-CMP-7151].
 
+Investigation of complaints under the Recovery Act whistleblower subpart will be in accordance with section 1553 of the Recovery Act [@CL-CMP-9718].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -67,4 +69,5 @@ Who receives a reprisal complaint inside the company, who preserves the related 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on investigating Recovery Act complaints.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for whistleblower complaint investigation, enforcement and Recovery Act filings.

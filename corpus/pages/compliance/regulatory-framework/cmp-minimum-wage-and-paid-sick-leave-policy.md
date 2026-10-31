@@ -23,7 +23,7 @@ Sets out the minimum wage the subpart requires, who sets later rates, how the mi
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6817] |
-| Codified citation | FAR 22.1902 and FAR 22.2102 [@CL-CMP-6817; @CL-CMP-6996] |
+| Codified citation | FAR 22.1902, FAR 22.2100, FAR 22.2102 and FAR 22.2108 [@CL-CMP-6817; @CL-CMP-9544; @CL-CMP-6996; @CL-CMP-9546] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6817] |
@@ -33,9 +33,11 @@ Under FAR 22.1902, pursuant to Executive Order 14026, the minimum hourly wage ra
 
 Nothing in the subpart excuses noncompliance with any applicable Federal or State prevailing wage law, any applicable law or municipal ordinance, or any applicable contract establishing a minimum wage higher than the E.O. minimum wage [@CL-CMP-6819]. Wage increases under such other laws or municipal ordinances are not subject to price adjustment under the subpart [@CL-CMP-6820]. The E.O. minimum wage rate applies whenever it is higher than any applicable collective bargaining agreement wage rate [@CL-CMP-6821]. Department of Labor regulations address the relationship between the E.O. minimum wage and the wages of workers engaged in an occupation in which they customarily and regularly receive more than $30 a month in tips [@CL-CMP-6822].
 
+The paid sick leave subpart prescribes policies and procedures to implement Executive Order 13706, Establishing Paid Sick Leave for Federal Contractors, dated September 7, 2015, and Department of Labor implementing regulations at 29 CFR part 13 [@CL-CMP-9544].
+
 Under FAR 22.2102, the Government must require contractors to allow employees performing work on or in connection with a contract covered by Executive Order 13706 to accrue and use paid sick leave in accordance with the order and 29 CFR part 13 [@CL-CMP-6996]. Nothing in the order or its regulations excuses noncompliance with or supersedes any applicable Federal or State law, any applicable law or municipal ordinance, or a collective bargaining agreement requiring greater paid sick leave or leave rights than those established under the order [@CL-CMP-6823]. For additional details on interaction with the Service Contract Labor Standards statute, the Wage Rate Requirements (Construction) statute, the Family and Medical Leave Act and State and local paid sick time laws, the section refers to 29 CFR 13.5(f)(2) through (4) [@CL-CMP-6997].
 
-The paid sick leave requirements may be satisfied by a contractor's voluntary paid time off policy, whether provided pursuant to a collective bargaining agreement or otherwise, where that policy meets or exceeds the requirements [@CL-CMP-6824]. For additional details on paid time off policies, the section refers to 29 CFR 13.5(f)(5)(ii) and (iii) [@CL-CMP-6998]. Unless the subpart provides otherwise, compliance is the responsibility of the contractor and enforcement is the responsibility of the Department of Labor [@CL-CMP-6825].
+The paid sick leave requirements may be satisfied by a contractor's voluntary paid time off policy, whether provided pursuant to a collective bargaining agreement or otherwise, where that policy meets or exceeds the requirements [@CL-CMP-6824]. For additional details on paid time off policies, the section refers to 29 CFR 13.5(f)(5)(ii) and (iii) [@CL-CMP-6998]. Under FAR 22.2108, contractors may fulfill their obligations under the order and 29 CFR part 13 jointly with other contractors through a multiemployer plan, or may fulfill their obligations through an individual fund, plan, or program (see 29 CFR 13.8) [@CL-CMP-9546]. Unless the subpart provides otherwise, compliance is the responsibility of the contractor and enforcement is the responsibility of the Department of Labor [@CL-CMP-6825].
 
 ## How it works
 
@@ -65,4 +67,5 @@ Which contracts are subject to the subpart, which rate and which higher laws or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the paid sick leave subpart scope and the multiemployer plan rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the minimum wage and paid sick leave policy rules.

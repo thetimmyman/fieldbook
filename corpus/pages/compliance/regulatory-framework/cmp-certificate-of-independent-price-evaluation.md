@@ -23,7 +23,7 @@ Shows how a contracting office evaluates the Certificate of Independent Price De
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6826] |
-| Codified citation | FAR 3.103-2 [@CL-CMP-6826] |
+| Codified citation | FAR 3.103-2 [@CL-CMP-6826]; FAR 3.103-3 [@CL-CMP-9627] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6826] |
@@ -38,6 +38,8 @@ For paragraph (b)(2) of the certificate, an individual may use a blanket authori
 A joint offer is certified concern by concern, because each representative's certification applies only to the activities of that concern [@CL-CMP-6830]. If the offeror deleted or modified paragraph (a)(1) or (3) or paragraph (b), the contracting officer must reject its bid or proposal [@CL-CMP-6831]. If the offeror deleted or modified paragraph (a)(2), the offeror must have furnished with its offer a signed statement of the circumstances of the disclosure of prices [@CL-CMP-6832]. The section does not say what follows when that statement is missing. The chief of the contracting office must review the altered certificate and the statement and determine in writing whether the disclosure was made for the purpose, or had the effect, of restricting competition [@CL-CMP-6833]. A positive determination means the bid or proposal is rejected, and a negative determination means it is considered for award [@CL-CMP-7101].
 
 Whenever an offer is rejected under paragraph (b)(1) or (2), or the certificate is suspected of being false, the contracting officer must report the situation to the Attorney General in accordance with the antitrust reporting section [@CL-CMP-6834]. The chief's determination does not prevent or inhibit prosecution of any criminal or civil action involving the occurrences or transactions to which the certificate relates [@CL-CMP-7102].
+
+A contractor that properly executed the certificate before award does not have to submit a separate certificate with each proposal to perform a work order or similar ordering instrument issued pursuant to the terms of the contract, where the Government's requirements cannot be met from another source [@CL-CMP-9627].
 
 ## Worked example
 
@@ -57,4 +59,5 @@ Which of the company's offers carry the certificate, who signs for each business
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on further certificates with work-order proposals.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluating the Certificate of Independent Price Determination.

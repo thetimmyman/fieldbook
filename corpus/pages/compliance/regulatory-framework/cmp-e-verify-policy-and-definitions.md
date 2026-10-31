@@ -21,11 +21,13 @@ Shows the E-Verify requirements that contracting officers put into solicitations
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-3288] |
-| Codified citation | FAR 22.1801 and FAR 22.1802 [@CL-CMP-3292; @CL-CMP-3288] |
+| Codified citation | FAR 22.1800, FAR 22.1801 and FAR 22.1802 [@CL-CMP-9529; @CL-CMP-3292; @CL-CMP-3288] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3288] |
 | Applies to | Federal contractors under solicitations and contracts that include the E-Verify requirements [@CL-CMP-3288] |
+
+The subpart prescribes policies and procedures requiring contractors to utilize the employment eligibility verification program (E-Verify) of the Department of Homeland Security, United States Citizenship and Immigration Service, as the means for verifying employment eligibility of certain employees [@CL-CMP-9529].
 
 Contracting officers shall include in solicitations and contracts, as prescribed, requirements that Federal contractors must enroll as Federal contractors in E-Verify [@CL-CMP-3288]. One listed requirement is that contractors use E-Verify to verify employment eligibility of all new hires working in the United States, except that the contractor may choose to verify only new hires assigned to the contract if it is an institution of higher education [@CL-CMP-3289]. Two further listed contractors with that choice are a State or local government or the government of a Federally recognized Indian tribe, and a surety performing under a takeover agreement entered into with a Federal agency pursuant to a performance bond [@CL-CMP-3290]. Another listed requirement is that the contractor use E-Verify to verify employment eligibility of all employees assigned to the contract [@CL-CMP-3291]. The listed requirements also reach subcontracts for services, except for certain commercial services performed by the COTS provider, and subcontracts for construction [@CL-CMP-3368].
 
@@ -55,5 +57,6 @@ Which contracts carry the E-Verify requirements, and who enrolls and verifies fo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the E-Verify clause and its prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for E-Verify definitions and policy.

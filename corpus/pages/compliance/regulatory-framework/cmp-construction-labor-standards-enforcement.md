@@ -22,7 +22,7 @@ Explains the agency program for enforcing labor standards on construction contra
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6739] |
-| Codified citation | FAR 22.406-1, 22.406-7 and 22.406-12 [@CL-CMP-6741; @CL-CMP-6904; @CL-CMP-6907] |
+| Codified citation | FAR 22.406-1, 22.406-7, 22.406-11 and 22.406-12 [@CL-CMP-6741; @CL-CMP-6904; @CL-CMP-6907; @CL-CMP-7629] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6739] |
@@ -39,6 +39,8 @@ The contracting officer must make checks and investigations on all contracts cov
 A special compliance check may be required when inconsistencies, errors or omissions are detected during regular compliance checks, or when a complaint alleging violations is received [@CL-CMP-6746]. If a complaint is not specific enough, the complainant must be so advised and invited to submit additional information [@CL-CMP-6906].
 
 The contracting agency must cooperate with representatives of the Department of Labor in the inspection of records, interviews with workers, and all other aspects of investigations undertaken by the Department [@CL-CMP-6907]. When requested, it must furnish to the Secretary of Labor any available information on contractors, subcontractors, current and previous contracts, and the nature of the contract work [@CL-CMP-6908]. If a Department of Labor representative undertakes an investigation at a construction project, the contracting officer must inquire into the scope of the investigation and request to be notified immediately of violations discovered under the Construction Wage Rate Requirements statute, the Contract Work Hours and Safety Standards statute, or the Copeland (Anti-Kickback) Act [@CL-CMP-6747; @CL-CMP-6909].
+
+If a contract or subcontract is terminated for violation of the labor standards clauses, the contracting agency shall submit a report to the Administrator, Wage and Hour Division [@CL-CMP-7629]. The section also lists what the report must include, and this card does not set that out.
 
 ## Worked example
 
@@ -62,4 +64,5 @@ Confirm who receives the preconstruction information and letter, who attends the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the report after a termination for labor standards violations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for government enforcement of construction labor standards.

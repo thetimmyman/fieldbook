@@ -22,7 +22,7 @@ Defines the two terms the subpart on forced or indentured child labor uses: the 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8162] |
-| Codified citation | FAR 22.1501 [@CL-CMP-8162; @CL-CMP-8164] |
+| Codified citation | FAR 22.1500, FAR 22.1501 and FAR 22.1502 [@CL-CMP-8829; @CL-CMP-8162; @CL-CMP-8164; @CL-CMP-8956; @CL-CMP-8957] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8162] |
@@ -54,7 +54,9 @@ The first alternative turns on coercion. The work or service is exacted under th
 
 The second alternative turns on enforcement. The work is performed under a contract whose enforcement can be accomplished by process or penalties [@CL-CMP-8163]. The text of this alternative does not mention a menace of penalty or a lack of voluntary offer [@CL-CMP-8163].
 
-The section sets definitions only. It states no duty for a contractor, a contracting officer or an agency. The certification, the check of the list and the remedies are on [Forced or indentured child labor list and waivers for workers with disabilities](cmp-forced-child-labor-list-and-disability-waivers.md), [Child labor certification, cooperation with authorities and remedies](cmp-child-labor-certification-and-remedies.md) and [Forced or indentured child labor: violations, remedies, provision and clause](cmp-forced-child-labor-violations-remedies-and-clauses.md). They are not restated here.
+This definitions section sets definitions only. It states no duty for a contractor, a contracting officer or an agency. The certification, the check of the list and the remedies are on [Forced or indentured child labor list and waivers for workers with disabilities](cmp-forced-child-labor-list-and-disability-waivers.md), [Child labor certification, cooperation with authorities and remedies](cmp-child-labor-certification-and-remedies.md) and [Forced or indentured child labor: violations, remedies, provision and clause](cmp-forced-child-labor-violations-remedies-and-clauses.md). They are not restated here.
+
+The scope section of the subpart says the subpart applies to acquisitions of supplies that exceed the micro-purchase threshold [@CL-CMP-8829]. The policy section says agencies must take appropriate action to enforce the laws prohibiting the manufacture or importation of products that have been mined, produced, or manufactured wholly or in part by forced or indentured child labor, consistent with section 1307 of title 19, section 201 and following of title 29, and chapter 65 of title 41 of the United States Code [@CL-CMP-8956]. It adds that agencies should make every effort to avoid acquiring such products [@CL-CMP-8957].
 
 The Department of Labor publishes the list. The section says the list identifies products by country of origin for which the Departments of Labor, Treasury, and State have a reasonable basis to believe that forced or indentured child labor might have been used [@CL-CMP-8164; @CL-CMP-8165]. The section does not say that a listed product was made with such labor; it says that the Departments have a reasonable basis to believe it might have been [@CL-CMP-8165].
 
@@ -82,4 +84,5 @@ Who confirms, before the certification is signed, that every supplier and countr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the agency policy on forced or indentured child labor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forced or indentured child labor definitions.

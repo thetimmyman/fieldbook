@@ -22,7 +22,7 @@ Sets out the notice a contractor owes its workforce under the Recovery Act whist
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5561] |
-| Codified citation | FAR 52.203-15 and 52.203-17 [@CL-CMP-5561; @CL-CMP-5563] |
+| Codified citation | FAR 52.203-15 and 52.203-17 [@CL-CMP-5561; @CL-CMP-5563]; FAR 3.906 [@CL-CMP-9717]; FAR 3.907-7 [@CL-CMP-9719] |
 | RFO citation | RFO FAR 52.203-17 [@CL-CMP-6604; @CL-CMP-6605; @CL-CMP-6607; @CL-CMP-6608]; No RFO equivalent for FAR 52.203-15, which RFO part 52 lists as [Reserved] [@CL-CMP-6603] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5561] |
@@ -39,6 +39,8 @@ The Recovery Act clause requires the contractor to include the substance of the 
 The contractor employee clause requires the contractor to insert the substance of the clause, including its flowdown paragraph, in all subcontracts [@CL-CMP-5565].
 
 Under the RFO text, which DoD contracting officers use in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762], the comparison with the codified text is as follows. The RFO clause at FAR 52.203-17 keeps the rule that the contract and the employees working on it are subject to the whistleblower rights and remedies at section 4712 of title 41 and FAR 3.900 through 3.905 [@CL-CMP-5563; @CL-CMP-6604], the duty to inform employees in writing, in the predominant language of the workforce [@CL-CMP-5564; @CL-CMP-6605], and the duty to insert the substance of the clause in all subcontracts [@CL-CMP-5565; @CL-CMP-6607]. It is prescribed in FAR 3.906, as in the codified text [@CL-CMP-5650; @CL-CMP-6608]. The RFO text lists FAR 52.203-15 as [Reserved], where the codified text has the Recovery Act whistleblower clause [@CL-CMP-5561; @CL-CMP-6603].
+
+The contracting officer shall insert the contractor employee whistleblower rights clause at FAR 52.203-17, Contractor Employee Whistleblower Rights, in all solicitations and contracts, except solicitations and contracts of DoD, NASA, the Coast Guard, or applicable elements of the intelligence community (see FAR 3.900(a)) [@CL-CMP-9717]. The Recovery Act whistleblower clause at FAR 52.203-15 is used in all solicitations and contracts funded in whole or in part with Recovery Act funds [@CL-CMP-9719].
 
 ## Worked example
 
@@ -58,5 +60,6 @@ Confirm where the notice is posted and who verifies the written employee notice 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the two clause prescription sections.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for whistleblower protections.

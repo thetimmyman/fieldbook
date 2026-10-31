@@ -23,7 +23,7 @@ Records the Executive Order minimum wage rates that FAR 22.1002-5 states for ser
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8087] |
-| Codified citation | FAR 22.1002-5 [@CL-CMP-8087] |
+| Codified citation | FAR 22.1002-4 and FAR 22.1002-5 [@CL-CMP-8087; @CL-CMP-8149] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8087] |
@@ -36,6 +36,8 @@ As of January 30, 2022, Executive Order 13658 is superseded by Executive Order 1
 The next sentence says the wage rate is subject to annual increases by an amount determined by the Secretary of Labor [@CL-CMP-8089]. The section then cross-references subpart 22.19 [@CL-CMP-8090].
 
 The clause at FAR 52.222-55 requires the Executive Order 14026 minimum wage rate to be paid if it is higher than other minimum wage rates, such as the subpart 22.10 statutory wage determination amount [@CL-CMP-8091].
+
+No contractor or subcontractor holding a service contract for any dollar amount shall pay any of its employees working on the contract less than the minimum wage specified in section 6(a)(1) of the Fair Labor Standards Act (title 29 of the United States Code, section 206) [@CL-CMP-8149].
 
 ## How it works
 
@@ -67,4 +69,5 @@ Which contracts carry the Executive Order minimum wage clause and which pay clas
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory minimum wage floor for service contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order minimum wages on service contracts.

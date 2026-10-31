@@ -22,7 +22,7 @@ Shows the warranty against contingent fees, the clause that carries it, the Gove
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2033] |
-| Codified citation | FAR 3.402, FAR 3.404 and FAR 3.405 [@CL-CMP-2031; @CL-CMP-2033; @CL-CMP-2034] |
+| Codified citation | FAR 3.400 [@CL-CMP-9701]; FAR 3.402, FAR 3.404 and FAR 3.405 [@CL-CMP-2031; @CL-CMP-2033; @CL-CMP-2034]; FAR 3.406 [@CL-CMP-9702; @CL-CMP-9703] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2033] |
@@ -35,6 +35,8 @@ The contracting officer shall insert the Covenant Against Contingent Fees clause
 ## How it works
 
 The chief of the contracting office decides: when there is specific evidence or other reasonable basis to suspect a violation the section describes, that officer shall review the facts and, if appropriate, take or direct one or more of the listed or other actions [@CL-CMP-2034]. One listed action, if before award, is to reject the bid or proposal [@CL-CMP-2034; @CL-CMP-2035]. One listed action, if after award, is to enforce the Government's right to annul the contract or to recover the fee [@CL-CMP-2034; @CL-CMP-2036]. A finance reader checks whether the contract carries the clause [@CL-CMP-2033], whether any fee depends on winning the contract, and whether the payee is a bona fide employee or bona fide agency [@CL-CMP-2031]. The definitions section of the subpart defines a bona fide employee and a bona fide agency, but this card does not set out their full wording.
+
+The subpart prescribes policies and procedures that restrict contingent fee arrangements for soliciting or obtaining Government contracts to those permitted by section 3321(b)(1) of title 10 and section 3901 of title 41 of the United States Code [@CL-CMP-9701]. For enforcement purposes, agencies shall preserve any specific evidence of one or more of the violations in FAR 3.405(a), together with all other pertinent data, including a record of actions taken [@CL-CMP-9702]. Contracting offices shall not retire or destroy these records until it is certain that they are no longer needed for enforcement purposes, and if the original record is maintained in a central file, a copy must be retained in the contract file [@CL-CMP-9703].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts carry the covenant clause, and whether any sales commission or s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the record-keeping rule for suspected violations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the covenant against contingent fees.

@@ -23,7 +23,7 @@ Shows who may authorize an individual or a class deviation from the FAR, how DoD
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-OPM-0021] |
-| Codified citation | FAR 1.402; FAR 1.403; FAR 1.404 [@CL-OPM-0021; @CL-OPM-0023; @CL-OPM-0024] |
+| Codified citation | FAR 1.400 [@CL-OPM-1020]; FAR 1.402; FAR 1.403; FAR 1.404 [@CL-OPM-0021; @CL-OPM-0023; @CL-OPM-0024] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-OPM-0021] |
@@ -34,6 +34,8 @@ Unless precluded by law, executive order, or regulation, deviations from the FAR
 Class deviations affect more than one contract action [@CL-OPM-0024]. For civilian agencies except NASA, class deviations may be authorized by agency heads or their designees, unless 1.405(e) is applicable, and that authority shall not be delegated below the head of a contracting activity [@CL-OPM-0025]. One listed limitation on authorization of class deviations by agency officials is that an agency official who may authorize one shall, before doing so, consult with the chairperson of the Civilian Agency Acquisition Council, unless the official determines that urgency precludes such consultation [@CL-OPM-0107]. For DoD, class deviations shall be controlled, processed, and approved in accordance with the Defense FAR Supplement [@CL-OPM-0026]. For NASA, class deviations shall be controlled and approved by the Assistant Administrator for Procurement [@CL-OPM-0108].
 
 Deviations are not authorized with respect to 30.201-3 and 30.201-4 or the requirements of the Cost Accounting Standards Board rules and regulations in 48 CFR chapter 99, and the FAR refers readers to 30.201-5 for waivers pertaining to Cost Accounting Standards [@CL-OPM-0022].
+
+The deviations subpart prescribes the policies and procedures for authorizing deviations from the FAR, and exceptions pertaining to the use of forms prescribed by the FAR are covered in FAR part 53 rather than in that subpart [@CL-OPM-1020].
 
 ## How it works
 
@@ -57,4 +59,5 @@ Which deviations each executed contract carries, and who confirms that each has 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the deviations subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deviations from the FAR.

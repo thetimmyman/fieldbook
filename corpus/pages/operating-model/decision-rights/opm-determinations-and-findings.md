@@ -23,7 +23,7 @@ Shows what a determination and findings must contain, who signs it, and what the
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-OPM-0027] |
-| Codified citation | FAR 1.704; FAR 1.707 [@CL-OPM-0027; @CL-OPM-0031] |
+| Codified citation | FAR 1.700; FAR 1.704; FAR 1.707 [@CL-OPM-1023; @CL-OPM-0027; @CL-OPM-0031] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-OPM-0027] |
@@ -32,6 +32,8 @@ Shows what a determination and findings must contain, who signs it, and what the
 Each D&F shall set forth enough facts and circumstances to clearly and convincingly justify the specific determination made and, as a minimum, shall include the listed information in the prescribed agency format [@CL-OPM-0027]. Three listed items are the identification of the agency and contracting activity and of the document as a Determination and Findings, the nature or description of the action being approved, and the citation of the statute or regulation on which the D&F is based [@CL-OPM-0028]. One listed item is findings that detail the particular circumstances, facts, or reasoning essential to support the determination, with necessary supporting documentation obtained from appropriate requirements and technical personnel [@CL-OPM-0029]. Three further listed items are a determination based on the findings that the proposed action is justified under the applicable statute or regulation, an expiration date if required, and the signature of the official authorized to sign and the date signed [@CL-OPM-0030].
 
 When a D&F is required, it shall be signed by the appropriate official in accordance with agency regulations, and authority to sign or delegate signature authority for the various D&Fs is as shown in the applicable FAR part [@CL-OPM-0031]. The section does not name any level of signature authority that cannot be delegated. It points to the applicable FAR part for each D&F instead [@CL-OPM-0031].
+
+The determinations and findings subpart prescribes general policies and procedures for the use of determinations and findings (D&F's), and requirements for specific types of D&F's can be found with the appropriate subject matter [@CL-OPM-1023].
 
 ## How it works
 
@@ -55,4 +57,5 @@ Which D&Fs sit behind each contract action, and who holds the signed copies. [@Q
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the determinations and findings subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for determinations and findings.

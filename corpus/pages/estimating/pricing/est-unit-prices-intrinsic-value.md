@@ -24,7 +24,7 @@ Sets out when unit prices must reflect the intrinsic value of an item, what must
 |---|---|
 | Instrument | RFO FAR model text [@CL-EST-2538] |
 | Codified citation | FAR 15.404-1(f)(1) [@CL-EST-2538; @CL-EST-2541; @CL-EST-2542]; FAR 15.404-1(f)(2) [@CL-EST-2539; @CL-EST-2540; @CL-EST-2556] |
-| RFO citation | RFO FAR 15.404-5(a) [@CL-EST-2538]; RFO FAR 15.404-5(b)(1) [@CL-EST-2539; @CL-EST-2540]; RFO FAR 15.404-5(b)(2) [@CL-EST-2541; @CL-EST-2542] |
+| RFO citation | RFO FAR 15.404-5(a) [@CL-EST-2538]; RFO FAR 15.404-5(b)(1) [@CL-EST-2539; @CL-EST-2540]; RFO FAR 15.404-5(b)(2) [@CL-EST-2541; @CL-EST-2542]; RFO FAR 15.105-7 [@CL-EST-2242; @CL-EST-2243] |
 | Edition date | Not established. |
 | Text status | Final for paragraphs (a) and (b)(2) [@CL-EST-2538; @CL-EST-2541; @CL-EST-2542]; deviation text for paragraph (b)(1) [@CL-EST-2539; @CL-EST-2540] |
 | Applies to | Paragraph (a): unit prices, except an item priced on the basis of adequate price competition or catalog or market price [@CL-EST-2538]; paragraph (b)(1): items of supply that offerors identify as ones they will not manufacture or add significant value to, except in the acquisition of commercial products [@CL-EST-2539] |
@@ -36,6 +36,8 @@ Except when pricing an item on the basis of adequate price competition or catalo
 Paragraph (a) states the unit-price requirement without naming who must meet it. Its exception covers an item priced on the basis of adequate price competition or catalog or market price [@CL-EST-2538].
 
 Paragraph (b)(1) does not say who requires offerors to identify such items or who must use the information [@CL-EST-2539; @CL-EST-2540]. It says only that the information must be used [@CL-EST-2540]. It does not apply to the acquisition of commercial products [@CL-EST-2539]. The codified FAR is more specific. Except for the acquisition of commercial products, contracting officers shall require offerors to identify in their proposals the items they will not manufacture or add significant value to, unless adequate price competition is expected [@CL-EST-2556]. That codified sentence ends with a citation to two statutes in the United States Code [@CL-EST-2560].
+
+RFO FAR 15.105-7, a different section of the RFO text, does name who acts: to facilitate the analysis at 15.404-5, contracting officers must require offerors to identify in their proposals those items of supply that they will not manufacture or to which they will not contribute significant value when adequate price competition is not anticipated [@CL-EST-2242]. That section says the requirement does not apply to acquisitions for commercial products or commercial services [@CL-EST-2243], where paragraph (b)(1) excepts the acquisition of commercial products [@CL-EST-2539].
 
 Paragraph (b)(2) bars any method of distributing costs to line items that distorts the unit prices [@CL-EST-2541]. It gives equal distribution among line items as an example that is not acceptable unless base cost varies little or not at all [@CL-EST-2542]. The paragraph does not say who decides whether a method distorts the unit prices [@CL-EST-2541].
 
@@ -59,4 +61,5 @@ Confirm which line items in upcoming proposals will be priced on adequate price 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-7 requirement to identify items offerors will not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unit prices.

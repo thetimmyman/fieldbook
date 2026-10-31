@@ -22,11 +22,13 @@ Shows when the subpart on notifying employees of their rights under the National
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8166] |
-| Codified citation | FAR 22.1603(a), (b)(1) and (b)(2) [@CL-CMP-8166; @CL-CMP-8167; @CL-CMP-8170] |
+| Codified citation | FAR 22.1602, FAR 22.1603(a), (b)(1) and (b)(2) [@CL-CMP-8958; @CL-CMP-8959; @CL-CMP-8166; @CL-CMP-8167; @CL-CMP-8170] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8166] |
 | Applies to | Contracts and subcontracts that fall outside the listed exclusions in paragraph (a), unless the Secretary exempts them under paragraph (b) [@CL-CMP-8166; @CL-CMP-8167] |
+
+The policy section says Executive Order 13496 requires contractors to post a notice informing employees of their rights under Federal labor laws [@CL-CMP-8958]. It adds that the Secretary has determined that the notice must contain employee rights under the National Labor Relations Act, section 151 and following of title 29 of the United States Code [@CL-CMP-8959]. The text names only the Secretary and does not say which Secretary.
 
 Paragraph (a) lists three exclusions. The requirements of the subpart do not apply to contracts under the simplified acquisition threshold, to subcontracts of $10,000 or less, or to contracts or subcontracts for work performed exclusively outside the United States [@CL-CMP-8166].
 
@@ -76,4 +78,5 @@ Which contracts and subcontracts sit inside the excluded categories, and who tra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the policy section on the employee rights notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the employee rights notification exceptions.

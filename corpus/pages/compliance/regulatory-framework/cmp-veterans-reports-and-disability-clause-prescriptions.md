@@ -23,7 +23,7 @@ Covers the notices the contracting officer furnishes for posting, the annual rep
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6795] |
-| Codified citation | FAR 22.1306, FAR 22.1402 and FAR 22.1408 [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-6799; @CL-CMP-6801] |
+| Codified citation | FAR 22.1306, FAR 22.1402, FAR 22.1404 and FAR 22.1408 [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-8825; @CL-CMP-6799; @CL-CMP-6801] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6795] |
@@ -38,6 +38,8 @@ The Director of OFCCP may waive the application of any or all of the terms of th
 ## How it works
 
 The veterans items split by party. The contracting officer furnishes the notices that the Deputy Assistant Secretary of Labor prescribes, and the contractor and each subcontractor that has itself received an award of $200,000 or more file the annual report with the Secretary of Labor [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-7097]. The prime contract's value does not make a smaller subcontract reportable, and awards to State and local governments and to foreign organizations recruiting workers outside the United States are excepted [@CL-CMP-7097]. The report covers four named groups of protected veterans and is filed on VETS-4212 [@CL-CMP-6796; @CL-CMP-6798]. It is not required where all terms of the veterans clause have been waived, and waivers come from the Director of OFCCP or, on a national security determination, the agency head [@CL-CMP-6797; @CL-CMP-3256; @CL-CMP-3257].
+
+On the disability side, the contracting officer must furnish to the contractor appropriate notices that state the contractor's obligations and the rights of individuals with disabilities [@CL-CMP-8825].
 
 The disability clause runs on a dollar threshold with two exceptions. It is inserted above the threshold unless both the work and the recruitment happen outside the listed locations, or all its terms have been waived [@CL-CMP-6801; @CL-CMP-6982; @CL-CMP-6802]. A partial waiver keeps the clause but changes it to the version with Alternate I [@CL-CMP-6803]. The statute itself applies except as waived by the Secretary of Labor, and the clause waivers are given by the Director of OFCCP or the agency head [@CL-CMP-6799; @CL-CMP-3098; @CL-CMP-3099].
 
@@ -65,4 +67,5 @@ Which contracts meet the disability clause threshold, which waivers are on file,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the notices the contracting officer furnishes for workers with disabilities.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the veterans reports and notices and the clause rules for workers with disabilities.

@@ -22,13 +22,13 @@ Sets out the three duties the policy section places on contractors and subcontra
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8158] |
-| Codified citation | FAR 22.1401(a), (b) and (c) [@CL-CMP-8159; @CL-CMP-8160; @CL-CMP-8161] |
+| Codified citation | FAR 22.1400 and FAR 22.1401(a), (b) and (c) [@CL-CMP-8823; @CL-CMP-8824; @CL-CMP-8159; @CL-CMP-8160; @CL-CMP-8161] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8158] |
 | Applies to | Contractors and subcontractors, when entering into contracts and subcontracts subject to the Act [@CL-CMP-8158] |
 
-The section states what contractors and subcontractors are required to do when they enter into contracts and subcontracts subject to the Act [@CL-CMP-8158]. The text printed in the section does not name the Act. That is Not established here.
+The section states what contractors and subcontractors are required to do when they enter into contracts and subcontracts subject to the Act [@CL-CMP-8158]. The text printed in this section does not name the Act. The scope section of the subpart does: the subpart prescribes policies and procedures for implementing section 503 of the Rehabilitation Act of 1973, as amended (section 793 of title 29 of the United States Code), called the Act, Executive Order 11758 of January 15, 1974, and the regulations of the Secretary of Labor at 41 CFR part 60-741 [@CL-CMP-8823]. In the subpart, the terms contract and contractor include subcontract and subcontractor [@CL-CMP-8824].
 
 Paragraph (a): they must take affirmative action to employ, and advance in employment, qualified individuals with disabilities, and must otherwise treat qualified individuals without discrimination based on their physical or mental disability [@CL-CMP-8159].
 
@@ -78,4 +78,5 @@ Whether each contract and subcontract the company holds is subject to the Act, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section that names the Act and its subcontract definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the employment policy for workers with disabilities.

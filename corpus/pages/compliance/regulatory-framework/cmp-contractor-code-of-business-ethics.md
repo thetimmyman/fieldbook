@@ -22,7 +22,7 @@ Shows when the code of business ethics clause and the hotline poster clause go i
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2021] |
-| Codified citation | FAR 3.1003 and FAR 3.1004 [@CL-CMP-2021; @CL-CMP-2022] |
+| Codified citation | FAR 3.1000, FAR 3.1001 and FAR 3.1002 [@CL-CMP-9720; @CL-CMP-9721; @CL-CMP-9722; @CL-CMP-9723]; FAR 3.1003 and FAR 3.1004 [@CL-CMP-2021; @CL-CMP-2022] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2021] |
@@ -35,6 +35,8 @@ The payment clauses named in the section require that, if the contractor becomes
 ## How it works
 
 Two layers apply: the ethics clause is a contract term that depends on contract value and performance period [@CL-CMP-2021], while the disclosure exposure to suspension or debarment applies whether or not that clause is in the contract [@CL-CMP-2022]. The disclosure exposure covers the violations the section lists and lasts until 3 years after final payment on a contract [@CL-CMP-2024; @CL-CMP-2025]. The overpayment remittance duty sits in the payment clauses the section names [@CL-CMP-2026]. The hotline poster clause has its own prescription, with an amount the agency can lower [@CL-CMP-2028; @CL-CMP-2029]. For suspension and debarment itself, see [Protecting the Government's interest when subcontracting with debarred or suspended contractors](../../supply-chain/supplier-identity/sup-debarred-suspended-subcontractors.md).
+
+The subpart implements section 3509 of title 41 of the United States Code, Notification of Violations of Federal Criminal Law or Overpayments, and prescribes policies and procedures for the establishment of contractor codes of business ethics and conduct and for display of agency Office of Inspector General (OIG) fraud hotline posters [@CL-CMP-9720]. As the subpart uses the terms, a subcontract means any contract entered into by a subcontractor to furnish supplies or services for performance of a prime contract or a subcontract [@CL-CMP-9721], and a subcontractor means any supplier, distributor, vendor, or firm that furnished supplies or services to or for a prime contractor or another subcontractor [@CL-CMP-9722]. Government contractors must conduct themselves with the highest degree of integrity and honesty, and contractors should have a written code of business ethics and conduct [@CL-CMP-9723].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which contracts carry the ethics and hotline poster clauses, and who owns open d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope, the subcontract and subcontractor definitions and the policy section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor code of business ethics and conduct.
