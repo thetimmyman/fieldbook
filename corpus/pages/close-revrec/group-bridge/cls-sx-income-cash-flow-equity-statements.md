@@ -30,7 +30,7 @@ Shows how many years of audited statements of comprehensive income and cash flow
 
 Outside the Article 8 election for smaller reporting companies [@CL-CLS-0860], the registrant files audited statements of comprehensive income and cash flows, consolidated for the registrant and its subsidiaries and covering its predecessors, for each of the three fiscal years preceding the date of the most recent audited balance sheet being filed [@CL-CLS-0807]. The period is the three fiscal years or such shorter period as the registrant, including predecessors, has been in existence [@CL-CLS-0808]. In a Securities Act registration statement for the initial public offering of its equity securities, an emerging growth company may provide those audited statements for each of the two fiscal years preceding the date of the most recent audited balance sheet [@CL-CLS-0809].
 
-Statements of comprehensive income and cash flows are also provided for any interim period between the latest audited balance sheet and the most recent interim balance sheet being filed, and for the corresponding period of the preceding fiscal year [@CL-CLS-0810]. Those interim statements may be unaudited [@CL-CLS-0811]. A separate rule on changes in equity requires an analysis of the changes in each caption of stockholders' equity and noncontrolling interests presented in the balance sheets, given in a note or separate statement [@CL-CLS-0812]. The analysis is a reconciliation of the beginning balance to the ending balance for each period for which a statement of comprehensive income is required to be filed [@CL-CLS-0813].
+Statements of comprehensive income and cash flows are also provided for any interim period between the latest audited balance sheet and the most recent interim balance sheet being filed, and for the corresponding period of the preceding fiscal year [@CL-CLS-0810]. Those interim statements may be unaudited [@CL-CLS-0811]. A separate rule on changes in equity requires an analysis of the changes in each caption of stockholders' equity and noncontrolling interests presented in the balance sheets, given in a note or separate statement [@CL-CLS-0812]. The analysis is a reconciliation of the beginning balance to the ending balance for each period for which a statement of comprehensive income is required to be filed, with all significant reconciling items described by appropriate captions and with contributions from and distributions to owners shown separately [@CL-CLS-0813; @CL-CLS-0483].
 
 ## How it works
 
@@ -54,5 +54,6 @@ Which statements, how many years and which audit level the company's owners, len
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the equity analysis sentence so the reconciliation rule keeps the requirement to describe significant reconciling items by captions and show contributions from and distributions to owners separately.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the Article 8 election for smaller reporting companies and its shorter period for annual statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for income, cash flow and equity statements under Regulation S-X.
