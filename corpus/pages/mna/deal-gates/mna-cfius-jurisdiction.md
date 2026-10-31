@@ -40,6 +40,8 @@ A TID U.S. business is any U.S. business that produces, designs, tests, manufact
 
 Critical technologies is a list of items that begins with defense articles or defense services included on the United States Munitions List [@CL-MNA-0657]. The list has further items that this card does not restate. Covered investment critical infrastructure means, in the context of a particular covered investment, the systems and assets, whether physical or virtual, set forth in column 1 of the appendix [@CL-MNA-0662]. The text also defines sensitive personal data at length, and this card does not restate that definition.
 
+Four verbs have their own definitions solely for the purposes of column 2 of appendix A to part 800 [@CL-MNA-1322; @CL-MNA-1323; @CL-MNA-1324; @CL-MNA-1325]. Manufacture means to produce or reproduce, whether physically or virtually [@CL-MNA-1322]. Own means to directly possess the applicable covered investment critical infrastructure [@CL-MNA-1323]. Service means to repair, maintain, refurbish, replace, overhaul, or update [@CL-MNA-1324]. Supply means to provide third-party physical or cyber security [@CL-MNA-1325].
+
 ## How it works
 
 The regulations define the kinds of foreign investment that count: a covered control transaction, a covered investment and further listed items [@CL-MNA-0622]. A covered investment needs a TID U.S. business as its target [@CL-MNA-0619]. A TID U.S. business is one that works with critical technologies, covered infrastructure or sensitive personal data [@CL-MNA-0623; @CL-MNA-0624].
@@ -62,4 +64,5 @@ Whether any foreign person holds or could acquire an interest, board seat or acc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of manufacture, own, service and supply for column 2 of appendix A.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review jurisdiction.

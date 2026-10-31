@@ -23,7 +23,7 @@ Shows when an agency requirement may name one manufacturer's product or feature,
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3286] |
-| Codified citation | FAR 11.105 and 11.301 [@CL-SUP-3286; @CL-SUP-3290] |
+| Codified citation | FAR 11.001, 11.105, 11.301 and 11.302 [@CL-SUP-4155; @CL-SUP-4156; @CL-SUP-3286; @CL-SUP-3290; @CL-SUP-4154] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3286] |
@@ -36,6 +36,8 @@ The section refers multiple award schedule orders to FAR 8.405-6 and orders unde
 Agencies must not require virgin material, or supplies composed of or manufactured using virgin material, unless compelled by law or regulation or unless virgin material is vital for safety or for meeting the contract's performance requirements [@CL-SUP-3290].
 
 When acquiring products other than commercial products, agencies must require offerors to identify used, reconditioned or remanufactured supplies, or unused former Government surplus property, proposed for use under the contract [@CL-SUP-3291]. These supplies and that property may not be used in contract performance unless authorized by the contracting officer [@CL-SUP-3338].
+
+As used in FAR part 11, reconditioned means restored to the original normal operating condition by readjustments and material replacement [@CL-SUP-4155], and remanufactured means factory rebuilt to original specifications [@CL-SUP-4156]. The Material Requirements clause is to be inserted in solicitations and contracts for supplies that are not commercial products; the text names no official who inserts it [@CL-SUP-4154].
 
 When acquiring commercial products, the contracting officer must consider the customary practices in the industry for the product being acquired [@CL-SUP-3339]. The contracting officer may require offerors to provide information on used, reconditioned or remanufactured supplies, or unused former Government surplus property, proposed for use under the contract [@CL-SUP-3340]. The request must be included in the solicitation and, to the maximum extent practicable, limited to information or standards consistent with normal commercial practices [@CL-SUP-3292].
 
@@ -67,4 +69,5 @@ Confirm whether any solicitation in force names a brand or feature, how that was
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the part 11 definitions of reconditioned and remanufactured and the Material Requirements clause prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for brand name requirements and used, reconditioned or virgin material.

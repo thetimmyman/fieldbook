@@ -43,6 +43,8 @@ The approval and obligation duties bind Government officials, not the contractor
 
 Approval comes first, on a request that explains the need to start early and the harm of delay [@CL-MKT-1545; @CL-MKT-1615]. After that, the contracting officer sizes each obligation to the contractor's requirements for the undefinitized period, within the limit [@CL-MKT-1548; @CL-MKT-1550]. Initial spares and an agency-head waiver sit outside the limitations [@CL-MKT-1551; @CL-MKT-1552]. Provisional delivery payments are on [provisional delivery payments](../../contract-finance/cash/ctf-dod-provisional-delivery-payments.md), and the wider topic is on [undefinitized contract actions](../../estimating/pricing/est-dod-undefinitized-contract-actions.md).
 
+Every UCA shall include a not-to-exceed price [@CL-MKT-2347]. The obligation limit above is stated as a percentage of that price [@CL-MKT-1548].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -61,4 +63,5 @@ Which executed UCAs and scope modifications sit within the finance remit, and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the not-to-exceed price requirement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for approval and obligation limits for undefinitized contract actions.

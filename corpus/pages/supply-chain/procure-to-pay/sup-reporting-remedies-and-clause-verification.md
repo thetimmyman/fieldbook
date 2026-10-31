@@ -23,11 +23,13 @@ Shows what the agency does with executive compensation and service contract repo
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3322] |
-| Codified citation | FAR 4.1402 and 4.1704 [@CL-SUP-3322; @CL-SUP-3391] |
+| Codified citation | FAR 4.1401, 4.1402 and 4.1704 [@CL-SUP-4117; @CL-SUP-4118; @CL-SUP-3322; @CL-SUP-3391] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3322] |
 | Applies to | Contractors with the executive compensation and first-tier subcontract award reporting clause or the service contract reporting clauses [@CL-SUP-3383; @CL-SUP-3391; @CL-SUP-3392] |
+
+The subpart on reporting executive compensation and first-tier subcontract awards applies to all contracts with a value of $40,000 or more, and nothing in the subpart requires the disclosure of classified information [@CL-SUP-4117]. Reporting of subcontract information will be limited to the first-tier subcontractor [@CL-SUP-4118].
 
 For the executive compensation and first-tier subcontract award reporting clause, FAR 52.204-10, agencies must ensure that contractors comply with its reporting requirements [@CL-SUP-3383]. Agencies must review contractor reports on a quarterly basis to ensure the information is consistent with contract information [@CL-SUP-3322]. The agency is not required to address data for which it would not normally have supporting information, such as the compensation information required of contractors and first-tier subcontractors [@CL-SUP-3384]. The agency must inform the contractor of any inconsistencies with the contract information and require that the contractor correct the report, or provide a reasonable explanation as to why it believes the information is correct [@CL-SUP-3385]. Agencies may review the reports at the FSRS website [@CL-SUP-3386].
 
@@ -63,4 +65,5 @@ Confirm who files each report, on what cadence, and how a late or missing report
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability of the executive compensation reporting subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer remedies for late or missing reports.

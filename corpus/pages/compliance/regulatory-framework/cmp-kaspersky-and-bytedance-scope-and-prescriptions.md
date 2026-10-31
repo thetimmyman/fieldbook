@@ -16,14 +16,14 @@ links = ["cmp-kaspersky-and-bytedance-prohibitions", "cmp-covered-telecommunicat
 
 ## Purpose
 
-States the scope of the Kaspersky Lab prohibition and of the covered application prohibition in the regulation, and states when the contracting officer inserts the Kaspersky Lab clause [@CL-CMP-7580; @CL-CMP-7584; @CL-CMP-7583].
+States the scope of the Kaspersky Lab prohibition and of the covered application prohibition in the regulation, and states when the contracting officer inserts the Kaspersky Lab clause and the covered application clause [@CL-CMP-7580; @CL-CMP-7584; @CL-CMP-7583; @CL-CMP-9754].
 
 ## The rule
 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7580] |
-| Codified citation | FAR 4.2002, 4.2004 and 4.2202 [@CL-CMP-7580; @CL-CMP-7583; @CL-CMP-7584] |
+| Codified citation | FAR 4.2002, 4.2004, 4.2202 and 4.2203 [@CL-CMP-7580; @CL-CMP-7583; @CL-CMP-7584; @CL-CMP-9754] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7580] |
@@ -39,7 +39,7 @@ The statute and guidance named in the covered application section collectively p
 
 The Government-side prohibition and the two contractor prohibitions are separate. The first limits what the Government may use, and the others limit what the contractor may provide to the Government and what it may use in developing data or deliverables first produced in performing the contract [@CL-CMP-7580; @CL-CMP-7581; @CL-CMP-7582]. The dates tie to the statutory prohibition [@CL-CMP-7580].
 
-The clause prescription carries no conditions, so the clause goes into every solicitation and contract, and the duty to insert it falls on the contracting officer [@CL-CMP-7583]. The covered application rule works by location. It covers Government owned or managed technology and technology the contractor uses or provides under the contract, and the only exception the section states is one granted in accordance with the OMB memorandum [@CL-CMP-7584]. The clause text, its definitions, its reporting deadlines and its flowdown are on the linked clause card and are not restated here. The prescription for the covered application clause is in a different section that this card does not cover.
+The clause prescription carries no conditions, so the clause goes into every solicitation and contract, and the duty to insert it falls on the contracting officer [@CL-CMP-7583]. The covered application rule works by location. It covers Government owned or managed technology and technology the contractor uses or provides under the contract, and the only exception the section states is one granted in accordance with the OMB memorandum [@CL-CMP-7584]. The clause text, its definitions, its reporting deadlines and its flowdown are on the linked clause card and are not restated here. The contracting officer shall insert the clause at 52.204-27, Prohibition on a ByteDance Covered Application, in all solicitations and contracts, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-9754]. The prescription does not say who grants that exception.
 
 ## Worked example
 
@@ -61,4 +61,5 @@ Which products and applications in use on contract work fall inside either prohi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added when the contracting officer inserts the covered application clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Kaspersky Lab and covered application prohibitions.

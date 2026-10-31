@@ -22,7 +22,7 @@ Shows what a contract file has to prove, and when the contracting office may clo
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7227] |
-| Codified citation | FAR 4.801 and 4.804-2 [@CL-CMP-7227; @CL-CMP-7228] |
+| Codified citation | FAR 4.801 and 4.804-2 [@CL-CMP-7227; @CL-CMP-7228]; FAR 4.804-3 [@CL-CMP-9752] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7227] |
@@ -37,6 +37,8 @@ The files to be established include a file for cancelled solicitations, a file f
 A contract file for a contract using simplified acquisition procedures should be considered closed when the contracting officer receives evidence of receipt of property and final payment, unless agency regulation specifies otherwise [@CL-CMP-7327].
 
 All other contract files must be closed as soon as practicable after the contracting officer receives a contract completion statement from the contract administration office [@CL-CMP-7228]. The contracting officer must ensure that all required contractual actions have been completed and prepare a statement to that effect. That statement is authority to close the contract file and must be made part of the official contract file [@CL-CMP-7229].
+
+Separately, the paying office shall close the contract file upon issuance of the final payment voucher [@CL-CMP-9752].
 
 ## Worked example
 
@@ -58,4 +60,5 @@ Which contract files are open, who owns each closeout, and which findings or cor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the paying office's duty to close its contract file.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract files and closeout when another office administers the contract.

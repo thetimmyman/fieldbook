@@ -36,6 +36,8 @@ A protest keyed to bid opening must be received by the contracting officer befor
 
 The deadline is counted in days that exclude Saturdays, Sundays and legal holidays, and it is the date of receipt by the contracting officer that matters [@CL-MKT-0409; @CL-MKT-0410]. The time limits do not apply to contracting officers, funding agreement officers or SBA, who may file before or after awards, except to the extent set forth in the rule on premature protests, except that for the SBIR and STTR programs the funding agreement officer or SBA may file a protest in anticipation of an award [@CL-MKT-0411; @CL-MKT-1840; @CL-MKT-0535]. A protest filed by any party, including the contracting officer, before bid opening or notification to offerors of the selection of the apparent successful offer will be dismissed as premature [@CL-MKT-0535]. A protest received after the allotted time limits must still be forwarded to SBA, and SBA will dismiss untimely protests [@CL-MKT-0536]. The section also covers orders against multiple award contracts, long-term contracts, option periods, recertifications, electronic notice and bid protest corrective action, which this card does not detail.
 
+A protest must be delivered to the contracting officer by hand, telegram, mail, facsimile, Federal Express or other overnight delivery service, e-mail, or telephone [@CL-MKT-2392]. If a protest is made by telephone, the contracting officer must later receive a confirming letter either within the 5-day period in section 121.1004(a)(1) or postmarked no later than one day after the date of the telephone protest [@CL-MKT-2393].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -54,5 +56,6 @@ Which of the company's offers are small business set-asides that a competitor co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added how a size protest is delivered to the contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the time-limit sentence so the protest exemption keeps the SBIR and STTR exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for who may file a size protest and the time limits.

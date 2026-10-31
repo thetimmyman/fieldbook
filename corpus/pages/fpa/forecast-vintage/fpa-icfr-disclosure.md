@@ -39,6 +39,8 @@ Instruction 1 says a registrant need not comply with paragraphs (a) and (b) unti
 
 Instruction 2 says the registrant must maintain evidential matter, including documentation, to provide reasonable support for management's assessment of the effectiveness of its internal control over financial reporting [@CL-FPA-0265].
 
+Item 307 is a neighbouring item on disclosure controls and procedures. It requires disclosure of the conclusions of the registrant's principal executive and principal financial officers, or persons performing similar functions, regarding the effectiveness of the registrant's disclosure controls and procedures [@CL-FPA-1000]. The disclosure controls and procedures are as defined in § 240.13a-15(e) or § 240.15d-15(e) of the same chapter, the conclusions are as of the end of the period covered by the report, and they are based on the evaluation required by paragraph (b) of § 240.13a-15 or § 240.15d-15 [@CL-FPA-1001].
+
 ## How it works
 
 Management states the framework it used and assesses effectiveness at year end [@CL-FPA-0139; @CL-FPA-0140]. If it finds a material weakness, it cannot conclude that the control is effective [@CL-FPA-0141]. A registrant that is an accelerated filer or a large accelerated filer, and is not an emerging growth company as defined in the cited rules, has the attestation report of the registered public accounting firm provided in its annual report [@CL-FPA-0142; @CL-FPA-0143]. A registrant that has not yet reached the point described in Instruction 1 need not comply with paragraphs (a) and (b), but if it does not comply it states in the first annual report it files, in substantially the printed form, that the report omits management's assessment report and the attestation report because of the transition period for newly public companies [@CL-FPA-0175; @CL-FPA-0263; @CL-FPA-0264; @CL-FPA-0266]. Management keeps evidential matter, including documentation, that reasonably supports its assessment [@CL-FPA-0265]. Each quarter, the registrant checks for changes that have materially affected, or are reasonably likely to materially affect, its control [@CL-FPA-0144; @CL-FPA-0145].
@@ -63,4 +65,5 @@ Which framework management uses, how deficiencies are rated, and how quarterly c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the neighbouring Item 307 rule on disclosure controls and procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for internal control over financial reporting disclosure.

@@ -23,13 +23,13 @@ Explains when a contract that carries the approval clause becomes binding, what 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5971] |
-| Codified citation | FAR 52.204-1; FAR 52.201-1; FAR 52.202-1 [@CL-CMP-5971; @CL-CMP-5972; @CL-CMP-5975] |
+| Codified citation | FAR 4.103 [@CL-CMP-9751]; FAR 52.204-1; FAR 52.201-1; FAR 52.202-1 [@CL-CMP-5971; @CL-CMP-5972; @CL-CMP-5975] |
 | RFO citation | RFO FAR 52.202-1 [@CL-CMP-1018]; no RFO equivalent for FAR 52.204-1, which the RFO text prints as reserved [@CL-CMP-1022]; no RFO equivalent for FAR 52.201-1, which the RFO text prints as reserved [@CL-CMP-1023] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5971] |
 | Applies to | Contracts with the approval clause, solicitations with the survey provision, and solicitations and contracts that use FAR-defined words or terms [@CL-CMP-5971; @CL-CMP-5972; @CL-CMP-5975] |
 
-The contract is subject to the written approval of the designated agency official the clause identifies and is not binding until so approved [@CL-CMP-5971]. The clause text includes a bracketed instruction to identify the title of the designated agency official, so the official is contract-specific [@CL-CMP-6662].
+The contract is subject to the written approval of the designated agency official the clause identifies and is not binding until so approved [@CL-CMP-5971]. The clause text includes a bracketed instruction to identify the title of the designated agency official, so the official is contract-specific [@CL-CMP-6662]. The contracting officer shall insert the approval clause at 52.204-1 in solicitations and contracts if required by agency procedures [@CL-CMP-9751].
 
 The survey provision encourages all actual and potential offerors to provide feedback on the preaward and debriefing processes, as applicable [@CL-CMP-6663]. A word or term used in a provision or clause has the same meaning as the definition in FAR 2.101 in effect when the solicitation was issued, unless one of the exceptions listed in the definitions clause applies [@CL-CMP-5975].
 
@@ -77,5 +77,6 @@ Who holds the designated official's written approval for each contract and where
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's duty to insert the approval clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract approval, the voluntary preaward survey and clause definitions.

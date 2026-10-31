@@ -23,7 +23,7 @@ Names the solicitation provision and the contract clauses in the Cost Accounting
 | Field | Value |
 |---|---|
 | Instrument | Cost Accounting Standards Board rules [@CL-RTE-0800] |
-| Codified citation | 48 CFR 9903.201-3 and 9903.201-4 [@CL-RTE-0800; @CL-RTE-0802] |
+| Codified citation | FAR 30.201-2 [@CL-RTE-1002], 48 CFR 9903.201-3 and 9903.201-4 [@CL-RTE-0800; @CL-RTE-0802] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0800] |
@@ -34,6 +34,8 @@ The contracting officer shall insert the provision Cost Accounting Standards Not
 The section prescribes these contract clauses, each with its own trigger. The Cost Accounting Standards clause goes in negotiated contracts, unless the contract is exempted, is subject to modified coverage, or the clause prescribed in paragraph (e) is used [@CL-RTE-0802; @CL-RTE-0851]. The Disclosure and Consistency of Cost Accounting Practices clause goes in negotiated contracts when the amount is over the Truth in Negotiations Act threshold, as adjusted for inflation, but less than $100 million [@CL-RTE-0803], and the offeror certifies it is eligible for and elects modified coverage, unless the clause prescribed in paragraph (d) is used [@CL-RTE-0804]. In the printed section, paragraph (d) is reserved [@CL-RTE-0851]. The Educational Institution clause is prescribed for negotiated contracts awarded to educational institutions, unless the contract is exempted, is to be performed by an FFRDC, or the provision at 9903.201-2(c)(6) applies [@CL-RTE-0805]. The Foreign Concerns clause goes in negotiated contracts when the contract is with a foreign concern and is not otherwise exempt under 9903.201-1 [@CL-RTE-0806].
 
 ## How it works
+
+The FAR section on types of CAS coverage, 30.201-2, refers the reader to 48 CFR 9903.201-2 [@CL-RTE-1002].
 
 The provision and each clause depend on whether the contract is subject to CAS and on the exceptions each paragraph prints. A solicitation carries the provision when the proposed contract is subject to CAS [@CL-RTE-0800]. The clause a contract receives then depends on its exemption, its coverage type, its amount and the kind of contractor [@CL-RTE-0802; @CL-RTE-0803; @CL-RTE-0805; @CL-RTE-0806]. The thresholds that set coverage are on [CAS applicability](../../compliance/cas-allowability/cmp-cas-applicability.md) and are not repeated here.
 
@@ -55,4 +57,5 @@ Which provision and clause each open solicitation and contract carries, and whet
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-2 pointer on types of CAS coverage.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS solicitation provision and contract clauses.

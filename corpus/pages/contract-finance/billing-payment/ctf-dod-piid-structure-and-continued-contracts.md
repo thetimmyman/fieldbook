@@ -23,7 +23,7 @@ Shows how a DoD procurement instrument identifier is built and kept unique, and 
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CTF-1607] |
-| Codified citation | DFARS 204.1601 [@CL-CTF-1606]; DFARS 204.1603 [@CL-CTF-1607] |
+| Codified citation | DFARS 204.1601 [@CL-CTF-1606]; DFARS 204.1603 [@CL-CTF-1607]; DFARS 204.1670 [@CL-CTF-1499] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1607] |
@@ -33,7 +33,7 @@ The DFARS says not to reuse a PIID once it has been assigned and not to assign t
 
 DoD-issued PIIDs shall only use positions 10 through 13 to complete the PIID, and the serial number of the instrument is entered in those positions [@CL-CTF-1637]. DoD does not use other letters identified in the FAR as reserved for future Federal Governmentwide use or reserved for departmental or agency use in position 9 of the PIID [@CL-CTF-1638]. The DFARS also says not to use the letter C or H for contracts or agreements with provisions for orders or calls [@CL-CTF-1639]. The same section assigns further letters in the ninth position and further rules for particular positions, which this card does not set out.
 
-For modifications, DoD-issued supplementary PIIDs shall, for positions 2 through 6, comply with the rules the DFARS lists [@CL-CTF-1641]. One of them says to use Z only in position 2, and only to identify a modification which definitizes a letter contract or a previously issued undefinitized modification [@CL-CTF-1640]. This card does not set out the other supplementary rules. The FAR rules that the DFARS builds on are on [Procurement instrument identifiers and supplementary identifiers](../../compliance/trade-cyber/cmp-piid-and-supplementary-piid.md).
+For modifications, DoD-issued supplementary PIIDs shall, for positions 2 through 6, comply with the rules the DFARS lists [@CL-CTF-1641]. One of them says to use Z only in position 2, and only to identify a modification which definitizes a letter contract or a previously issued undefinitized modification [@CL-CTF-1640]. This card does not set out the other supplementary rules. The FAR rules that the DFARS builds on are on [Procurement instrument identifiers and supplementary identifiers](../../compliance/trade-cyber/cmp-piid-and-supplementary-piid.md). Detailed guidance on mapping PIID and supplementary PIID numbers stored in the Electronic Data Access system to data elements reported in the Federal Procurement Data System can be found in PGI 204.1670 [@CL-CTF-1499].
 
 When a PIID is changed after contract award, the new PIID is known as a continued contract, which does not constitute a new procurement [@CL-CTF-1608]. A continued contract shall not be used to evade competition requirements, expand the scope of work, or extend the period of performance beyond that of the predecessor contract [@CL-CTF-1608; @CL-CTF-1635]. When issuing a continued contract, the contracting officer shall issue an administrative modification to the predecessor contract to clearly state the listed matters [@CL-CTF-1609]. One listed matter is that any future awards provided for under the terms of the predecessor contract, for example issuance of orders or exercise of options, will be accomplished under the continued contract [@CL-CTF-1609; @CL-CTF-1636]. Another is that supplies and services already acquired under the predecessor contract remain solely under that contract for purposes of Government inspection, acceptance, payment, and closeout [@CL-CTF-1609; @CL-CTF-1610].
 
@@ -61,4 +61,5 @@ How the company's contract and billing systems handle a changed identifier, so t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI for mapping PIIDs to FPDS data elements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD procurement instrument identifiers.

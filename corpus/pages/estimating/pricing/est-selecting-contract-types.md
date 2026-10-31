@@ -22,11 +22,13 @@ Shows the range of contract types that the general contract-type section describ
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-0944] |
-| Codified citation | FAR 16.101 and 16.102 [@CL-EST-0944; @CL-EST-0949] |
+| Codified citation | FAR 16.000 [@CL-EST-2146], FAR 16.101 and 16.102 [@CL-EST-0944; @CL-EST-0949] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-0944] |
 | Applies to | The choice of contract type under part 16: contracts resulting from sealed bidding and contracts negotiated under part 15 each have their own rule [@CL-EST-0949; @CL-EST-0950] |
+
+Part 16 describes types of contracts that may be used in acquisitions, prescribes policies and procedures, and provides guidance for selecting a contract type appropriate to the circumstances of the acquisition [@CL-EST-2146].
 
 A wide selection of contract types is available to the Government and contractors, to give the flexibility needed in acquiring the variety and volume of supplies and services that agencies require [@CL-EST-0974]. Contract types vary in two ways: the degree and timing of the responsibility the contractor assumes for the costs of performance, and the amount and nature of the profit incentive offered to the contractor for achieving or exceeding specified standards or goals [@CL-EST-0944].
 
@@ -69,4 +71,5 @@ What share of the company's revenue sits in each contract type, and which approv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 16.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for selecting contract types.

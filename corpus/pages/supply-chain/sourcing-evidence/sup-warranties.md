@@ -16,14 +16,14 @@ links = ["cmp-service-and-warranty-costs", "sup-warranty-contract-clauses", "sup
 
 ## Purpose
 
-Shows that a warranty is optional, what the contracting officer considers in deciding whether one is appropriate, what the warranty terms must cover, and what the remedy guidelines say.
+Shows that a warranty is optional, what the contracting officer considers in deciding whether one is appropriate, what the warranty terms must cover, and what the remedy guidelines say. It also covers how a warranty enters fixed-price incentive pricing and the use of commercial warranties.
 
 ## The rule
 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0872] |
-| Codified citation | FAR 46.703, 46.704 and 46.706 [@CL-SUP-0872; @CL-SUP-0960; @CL-SUP-0874] |
+| Codified citation | FAR 46.703, 46.704, 46.706, 46.707 and 46.709 [@CL-SUP-0872; @CL-SUP-0960; @CL-SUP-0874; @CL-SUP-4144; @CL-SUP-4145; @CL-SUP-4146; @CL-SUP-4148] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0872] |
@@ -36,6 +36,10 @@ To facilitate the pricing and enforcement of warranties, the contracting officer
 ## How it works
 
 The contracting officer shall consider listed guidelines when preparing warranty terms and conditions [@CL-SUP-0967]. Under those guidelines, generally, the contractor's obligations under warranties extend to all defects discovered during the warranty period, but do not include damage caused by the Government [@CL-SUP-0967; @CL-SUP-0876]. The same guidelines say that normally, a warranty shall provide as a minimum that the Government may obtain an equitable adjustment of the contract or direct the contractor to repair or replace the defective items at the contractor's expense [@CL-SUP-0967; @CL-SUP-0877]. They also say that the duration must be clearly specified and shall be established after consideration of the estimated useful life of the item, the nature of the item including storage or shelf-life, and trade practice [@CL-SUP-0967; @CL-SUP-0878]. They add that the warranty shall specify a reasonable time for furnishing notice to the contractor regarding the discovery of defects [@CL-SUP-0967; @CL-SUP-0879]. On remedies, the contracting officer shall ensure that the warranty clearly states the specific remedies available to the Government [@CL-SUP-0874; @CL-SUP-0875], and under the usual minimum remedy it is the Government that may obtain an equitable adjustment or direct repair or replacement [@CL-SUP-0877]. The clauses that may be inserted are on [Warranty contract clauses and their triggers](sup-warranty-contract-clauses.md).
+
+Pricing. If a fixed-price incentive contract contains a warranty (see 46.708), the estimated cost of the warranty to the contractor should be considered in establishing the incentive target price and the ceiling price of the contract [@CL-SUP-4144]. All costs incurred, or estimated to be incurred, by the contractor in complying with the warranty shall be considered when establishing the total final price [@CL-SUP-4145]. The text names no official who does the considering. Contractor compliance with the warranty after the establishment of the total final price shall be at no additional cost to the Government [@CL-SUP-4146].
+
+Commercial warranties. The contracting officer should take advantage of commercial warranties, including extended warranties, where appropriate and in the Government's best interests, offered by the contractor for the repair and replacement of commercial products and commercial services (see part 12) [@CL-SUP-4148].
 
 ## Worked example
 
@@ -55,4 +59,5 @@ How warranty obligations and expected defect costs are recorded for each contrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added fixed-price incentive warranty pricing and commercial warranties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for warranty criteria, terms and remedies.

@@ -23,7 +23,7 @@ Shows who must be registered in the System for Award Management before an offer 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0029] |
-| Codified citation | FAR 4.1102; FAR 4.1103; FAR 4.1105 [@CL-MKT-0029; @CL-MKT-0031; @CL-MKT-0034] |
+| Codified citation | FAR 4.1101 [@CL-MKT-1612]; FAR 4.1102; FAR 4.1103; FAR 4.1105 [@CL-MKT-0029; @CL-MKT-0031; @CL-MKT-0034] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0029] |
@@ -33,7 +33,7 @@ Offerors and quoters are required to be registered in SAM at the time an offer o
 
 ## How it works
 
-One item in the list of exceptions is contracts awarded without providing for full and open competition due to unusual or compelling urgency [@CL-MKT-0030]. For such an award, the contractor is required to be registered in SAM within 30 days after contract award, or at least three days prior to submission of the first invoice, whichever occurs first [@CL-MKT-0032]. On contractual documents transmitted to the payment office, the contracting officer shall provide the unique entity identifier, or, if applicable, the Electronic Funds Transfer indicator, in accordance with agency procedures [@CL-MKT-0033]. The provision on the System for Award Management is inserted in all solicitations except when the registration exceptions apply [@CL-MKT-0034]. The maintenance clause is inserted in solicitations that contain that provision and in the resulting contracts [@CL-MKT-0035].
+One item in the list of exceptions is contracts awarded without providing for full and open competition due to unusual or compelling urgency [@CL-MKT-0030]. For such an award, the contractor is required to be registered in SAM within 30 days after contract award, or at least three days prior to submission of the first invoice, whichever occurs first [@CL-MKT-0032]. On contractual documents transmitted to the payment office, the contracting officer shall provide the unique entity identifier, or, if applicable, the Electronic Funds Transfer indicator, in accordance with agency procedures [@CL-MKT-0033]. The provision on the System for Award Management is inserted in all solicitations except when the registration exceptions apply [@CL-MKT-0034]. The maintenance clause is inserted in solicitations that contain that provision and in the resulting contracts [@CL-MKT-0035]. As used in the subpart on the System for Award Management, agreement means basic agreement, basic ordering agreement, or blanket purchase agreement [@CL-MKT-1612].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ Confirm which of the company's legal entities hold SAM registrations and which c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of agreement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAM registration and the unique entity identifier in awards.

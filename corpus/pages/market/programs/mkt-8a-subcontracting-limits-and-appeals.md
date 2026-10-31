@@ -37,6 +37,8 @@ The SBA Administrator may submit the listed matters for determination to the age
 
 Notification by SBA of an intent to appeal to the agency head must be received by the contracting officer within 5 working days after SBA is formally notified of the contracting officer's decision [@CL-MKT-0517]. SBA must send the written appeal to the agency head within 15 working days of SBA's notification of intent to appeal or the appeal may be considered withdrawn [@CL-MKT-0518]. Pending issuance of a decision by the agency head, the contracting officer shall suspend action on the acquisition [@CL-MKT-0571]. The contracting officer need not suspend action if the contracting officer makes a written determination that urgent and compelling circumstances that significantly affect the interests of the United States will not permit waiting for a decision [@CL-MKT-0572]. This card does not restate the other listed matters, who must receive the notice of intent to appeal, or what a decision on a denied appeal must contain.
 
+The contracting officer should request a preaward survey of the 8(a) participant whenever considered useful [@CL-MKT-2103]. If the results of the preaward survey or other information available to the contracting officer raise substantial doubt as to the participant's ability to perform, the contracting officer shall refer the matter to SBA for Certificate of Competency consideration under FAR subpart 19.6 [@CL-MKT-2104].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ How subcontract spend is tracked against the participant's own performance, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the preaward survey and Certificate of Competency referral.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for 8(a) limitations on subcontracting and SBA appeals.

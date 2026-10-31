@@ -23,11 +23,13 @@ Shows when a time-and-materials contract may be used, the determination and ceil
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1229] |
-| Codified citation | FAR 16.601 [@CL-CTF-1229] |
+| Codified citation | FAR 16.600 [@CL-CTF-2359] and FAR 16.601 [@CL-CTF-1229] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1229] |
 | Applies to | Time-and-materials contracts and orders [@CL-CTF-1229; @CL-CTF-1231] |
+
+Time-and-materials contracts and labor-hour contracts are not fixed-price contracts [@CL-CTF-2359].
 
 A time-and-materials contract provides for acquiring supplies or services on the basis of, among listed elements, direct labor hours at specified fixed hourly rates that include wages, overhead, general and administrative expenses, and profit [@CL-CTF-1228], and also on the basis of actual cost for materials, except as provided for in 31.205-26(e) and (f) [@CL-CTF-1259; @CL-CTF-1228]. It may be used only when it is not possible at the time of placing the contract to estimate accurately the extent or duration of the work or to anticipate costs with any reasonable degree of confidence [@CL-CTF-1229].
 
@@ -55,4 +57,5 @@ The share of revenue on time-and-materials contracts, the ceiling price on each,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope line that these contracts are not fixed-price contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for time-and-materials contracts.

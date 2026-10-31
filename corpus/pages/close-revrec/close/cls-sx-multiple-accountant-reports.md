@@ -32,6 +32,8 @@ If part of the examination of the financial statements is made by an independent
 
 Notwithstanding that rule, reports of other accountants that may otherwise be required in filings need not be presented in annual reports to security holders furnished under the proxy and information statement rules under the Securities Exchange Act of 1934 [@CL-CLS-0374]. The relief is stated for those annual reports, not for other filings [@CL-CLS-0374]. The rules the section names are §§ 240.14a-3 and 240.14c-3 [@CL-CLS-0375].
 
+Two neighbouring examination rules also apply. Despite any requirements for examination by independent accountants, the financial statements of any foreign governmental agency may be examined by the regular and customary auditing staff of the respective government if public financial statements of that agency are customarily examined by that staff [@CL-CLS-1238; @CL-CLS-1448]. If a registrant is required to file financial statements of any other person, those statements need not be examined if examination of them would not be required were that person itself a registrant [@CL-CLS-1449].
+
 ## How it works
 
 The principal accountant decides two things: whether to elect to place reliance on the other accountant's work, and whether to make reference to that effect in the principal accountant's report [@CL-CLS-0373]. The separate report shall be filed when the other accountant did part of the examination and both of those things happen [@CL-CLS-0373]. The section does not name who files the report [@CL-CLS-0373]. The relief then lets an annual report to security holders furnished under the proxy and information statement rules leave out the other accountant's report, even where a filing may otherwise require it [@CL-CLS-0374].
@@ -58,4 +60,5 @@ Which engagements split an examination across more than one firm, whether the pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign governmental agency examination rule and the rule on statements of other persons.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for another accountant's separate report.

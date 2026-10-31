@@ -37,6 +37,8 @@ Where an acquisition exceeds the competitive threshold, the SBA may accept the r
 
 In competitive 8(a) acquisitions SBA will determine the eligibility of the apparent successful offeror and advise the contracting office within 5 working days after receipt of the request for an eligibility determination [@CL-MKT-0513]. If the contracting officer believes that the apparent successful offeror, or the offeror SBA has determined eligible for award, is not responsible to perform the contract, the contracting officer must refer the matter to SBA for Certificate of Competency consideration, which is on the [Certificates of Competency: general rules and referral](mkt-coc-general-and-referral.md) card [@CL-MKT-0575]. This card does not restate what happens when the apparent successful offeror is ineligible, how joint ventures are treated, or approval of a competitive award below the thresholds.
 
+In competitive 8(a) acquisitions, including follow-on 8(a) acquisitions, subject to FAR part 15, the contracting officer conducts negotiations directly with the competing 8(a) participants [@CL-MKT-2101]. Conducting competitive negotiations among eligible 8(a) participants before SBA's formal acceptance of the acquisition for the 8(a) program may be grounds for SBA's not accepting the acquisition for the program [@CL-MKT-2102].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +57,5 @@ Which bids and estimates for competitive program awards need immediate support, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added direct negotiation with competing participants and the timing of negotiations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for competitive 8(a) awards.

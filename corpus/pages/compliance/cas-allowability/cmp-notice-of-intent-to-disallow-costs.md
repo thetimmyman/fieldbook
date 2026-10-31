@@ -45,7 +45,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 42 text in pla
 
 Synthetic example. The numbers are made up.
 
-During performance of a cost-reimbursement contract, the contracting officer sees 80,000 of consulting cost charged to the contract. Discussions fail to settle it, so the officer issues a notice of intent to disallow that states the costs, the periods and the reasons. The contractor sends a written response, and the officer must withdraw the notice or issue a written decision within 60 days. If the consulting cost sits in an indirect cost pool, the officer responsible for final indirect cost rates issues the decision.
+During performance of a cost-reimbursement contract, the contracting officer sees 80,000 of consulting cost charged to the contract. Discussions fail to settle it, so the officer issues a notice of intent to disallow that states the costs, the periods and the reasons. The contractor sends a written response within 60 days, and the officer must, within 60 days of receiving it, withdraw the notice or issue a written decision. If the consulting cost sits in an indirect cost pool, the officer responsible for final indirect cost rates issues the decision.
 
 ## Never confuse
 
@@ -61,6 +61,7 @@ Whether any notice of intent to disallow costs, or any notice suspending or disa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the worked example with the clause timing for the response and the decision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.600 scope of the subpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 42 and part 52 citations and how DoD's class deviations apply them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the notice of intent to disallow costs and the DoD voucher rules.

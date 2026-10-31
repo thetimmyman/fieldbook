@@ -16,14 +16,14 @@ links = ["cls-payments-and-responsibility-for-supplies", "cls-inspection-of-supp
 
 ## Purpose
 
-Shows when and where the Government performs contract quality assurance, including inspection at destination and the policy for acquisitions at or below the simplified acquisition threshold, and why the place of inspection and acceptance matters to billing.
+Shows when and where the Government performs contract quality assurance, including inspection at destination and the policy for acquisitions at or below the simplified acquisition threshold, and why the place of inspection and acceptance matters to billing. It also covers support for foreign governments, the single-agency assignments for certain commodities, and the reports that evidence inspection.
 
 ## The rule
 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0862] |
-| Codified citation | FAR 46.401, 46.402, 46.403 and 46.404 [@CL-SUP-0862; @CL-SUP-0958; @CL-SUP-0866; @CL-SUP-0867] |
+| Codified citation | FAR 46.401, 46.402, 46.403, 46.404, 46.406, 46.408 and 46.601 [@CL-SUP-0862; @CL-SUP-0958; @CL-SUP-0866; @CL-SUP-0867; @CL-SUP-4132; @CL-SUP-4133; @CL-SUP-4134; @CL-SUP-4135; @CL-SUP-4136; @CL-SUP-4137] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0862] |
@@ -36,6 +36,12 @@ Inspection shall be performed at destination under the listed circumstances, whi
 ## How it works
 
 If a contract provides for delivery and acceptance at destination and the Government inspects the supplies at a place other than destination, the supplies shall not ordinarily be reinspected at destination, but should be examined for quantity, damage in transit, and possible substitution or fraud [@CL-SUP-0864]. Government inspection shall be performed by or under the direction or supervision of Government personnel [@CL-SUP-0955], and it shall be documented on an inspection or receiving report form or commercial shipping document/packing list, under agency procedures [@CL-SUP-0865]. These quality assurance sections give no billing rule, but the link between acceptance and payment is on [Payments and responsibility for supplies](../../close-revrec/revenue/cls-payments-and-responsibility-for-supplies.md), which is why the place of acceptance and the inspection report matter to billing. The conditions that trigger the small-purchase inspection policy are those of the cross-referenced paragraph, which says the Government shall not rely on inspection by the contractor if the contracting officer determines that the Government has a need to test in advance of tender or to pass judgment upon the adequacy of the contractor's internal work processes [@CL-SUP-0951]; the factors the contracting officer considers are on [Contract quality requirements](sup-contract-quality-requirements.md) [@CL-SUP-0952]. The threshold amount is on [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
+
+Foreign governments. Government contract quality assurance performed for foreign governments or international agencies shall be administered according to the foreign policy and security objectives of the United States [@CL-SUP-4132]. Such support shall be furnished only when consistent with or required by legislation, executive orders, or agency policies concerning mutual international programs [@CL-SUP-4133].
+
+Single-agency assignments. Government-wide responsibility for quality assurance support for acquisitions of certain commodities is assigned to the Food and Drug Administration for drugs, biologics, and other medical supplies and to the Department of Agriculture for food, except seafood [@CL-SUP-4134]. For seafood it is assigned to the National Marine Fisheries Service of the Department of Commerce [@CL-SUP-4135]. Agencies requiring quality assurance support for acquiring these supplies should request the support directly from the cognizant office [@CL-SUP-4136].
+
+Reports. Agencies shall prescribe procedures and instructions for the use, preparation, and distribution of material inspection and receiving reports and commercial shipping document/packing lists to evidence Government inspection (see 46.401) and acceptance (see 46.501) [@CL-SUP-4137].
 
 ## Worked example
 
@@ -55,4 +61,5 @@ Which contracts designate source or destination inspection, and where the inspec
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added support for foreign governments, single-agency assignments and inspection reports.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government contract quality assurance.

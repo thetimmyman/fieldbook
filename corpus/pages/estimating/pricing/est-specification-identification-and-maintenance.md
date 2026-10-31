@@ -23,7 +23,7 @@ Shows how a solicitation must identify the requirements documents it cites, when
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-1016] |
-| Codified citation | FAR 11.201 and 11.202 [@CL-EST-1016; @CL-EST-1026] |
+| Codified citation | FAR 11.201, 11.202 and 11.203 [@CL-EST-1016; @CL-EST-1026; @CL-EST-2142; @CL-EST-2143] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-1016] |
@@ -51,6 +51,8 @@ For indexed documents the starting point is that the office does not furnish the
 
 The duties on changing standardization documents fall on agencies, not on offerors [@CL-EST-1027; @CL-EST-1028]. The text uses "should" for changes to documents in the GSA Index and "shall" for documents at the ASSIST website [@CL-EST-1026; @CL-EST-1027].
 
+Section 11.203 adds a customer check. Acquisition organizations shall communicate with customers to determine how well the requirements document reflects the customer's needs and to obtain suggestions for corrective actions [@CL-EST-2142]. Whenever practicable, the agency may provide affected industry an opportunity to comment on the requirements documents [@CL-EST-2143].
+
 For where the availability provisions point offerors, see [Where to get specifications, standards and data item descriptions](est-availability-of-specifications-standards-and-dids.md).
 
 ## Worked example
@@ -73,4 +75,5 @@ The company must confirm which approval date, amendment and revision of each cit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added customer communication on requirements documents.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the identification, availability and maintenance of specifications and standards.

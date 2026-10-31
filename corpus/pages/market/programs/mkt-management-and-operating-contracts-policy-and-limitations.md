@@ -37,6 +37,8 @@ A management and operating contract shall not be authorized for functions involv
 
 Because issuance of an authorization is deemed sufficient proof of compliance with the list of prohibited functions, nothing in that list shall affect the validity or legality of such an authorization [@CL-MKT-1743]. For use of project labor agreements, the limitations section refers to subpart 22.5 [@CL-MKT-1782].
 
+The DFARS scope section for its subpart says that FAR subpart 17.6 does not apply to DoD [@CL-MKT-2232]. The codified FAR text on this card therefore does not govern DoD, and the DFARS section names no replacement rule.
+
 ## How it works
 
 Within 2 years of the effective date of the regulation, agencies shall review their current contractual arrangements in light of the subpart [@CL-MKT-1738]. The review is to identify, modify as necessary and authorize management and operating contracts, and to modify as necessary or terminate contracts not so identified and authorized [@CL-MKT-1781]. A contract with less than 4 years remaining as of that effective date need not be terminated, nor identified, modified or authorized, unless it is renewed or its terms are substantially renegotiated [@CL-MKT-1739]. This transition rule is tied to the effective date of the regulation.
@@ -70,4 +72,5 @@ Which contracts in the finance remit are authorized management and operating con
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS statement that FAR subpart 17.6 does not apply to DoD.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for management and operating contract policy, limitations and identification.

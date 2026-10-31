@@ -23,7 +23,7 @@ Explains who performs Cost Accounting Standards administration in a business uni
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-RTE-0600] |
-| Codified citation | FAR 30.601 and FAR 30.602 [@CL-RTE-0600; @CL-RTE-0602] |
+| Codified citation | FAR 30.201-7 [@CL-RTE-1004], FAR 30.601 and FAR 30.602 [@CL-RTE-0600; @CL-RTE-0602] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0600] |
@@ -34,6 +34,8 @@ The CFAO performs CAS administration for all contracts and subcontracts in a bus
 The CFAO makes all CAS-related required determinations and findings for all CAS-covered contracts and subcontracts, including whether a change in cost accounting practice or noncompliance has occurred [@CL-RTE-0700].
 
 ## How it works
+
+The FAR section on cognizant Federal agency responsibilities, 30.201-7, refers the reader to 48 CFR 9903.201-7 [@CL-RTE-1004].
 
 In determining materiality, the CFAO uses the criteria in 48 CFR 9903.305 [@CL-RTE-0602]. The criteria themselves are set out on the CAS materiality page. A CFAO determination of materiality may be made before or after a general dollar magnitude proposal has been submitted, depending on the particular facts and circumstances, and must be based on adequate documentation [@CL-RTE-0702].
 
@@ -57,5 +59,6 @@ Which business units have full coverage, modified coverage or neither, and so wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-7 pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the immaterial cost impact sentence so the rule keeps the reservation of the right to make contract adjustments if the impact becomes material.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CFAO CAS administration and materiality.

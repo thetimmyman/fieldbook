@@ -38,6 +38,8 @@ The nonmanufacturer rule, the limitations on subcontracting requirements and the
 
 The nonmanufacturer rule applies only to procurements that have been assigned a manufacturing or supply NAICS code, or the Information Technology Value Added Resellers exception [@CL-MKT-0395]. In a multiple item acquisition, a waiver is not required if at least 50 percent of the estimated contract value is composed of items manufactured by small business concerns [@CL-MKT-0396]. Acquisitions for supplies must be classified under the appropriate manufacturing or supply NAICS code, not under a Wholesale Trade or Retail Trade NAICS code [@CL-MKT-0546]. The section also covers the one-manufacturer test, the supply part of a service contract and the waiver paths, which this card does not detail. Waivers are covered in [Waivers of the Nonmanufacturer Rule](../taxonomy/mkt-sba-nonmanufacturer-rule-waivers.md), and the NAICS code choice is covered in [Which size standard applies to a federal procurement](../taxonomy/mkt-sba-size-standard-designation.md).
 
+The section that asks what the Nonmanufacturer Rule is says that the rule is set forth in section 121.406(b) [@CL-MKT-2397].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -56,4 +58,5 @@ Whether the company makes its end items itself or resells other firms' products.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the Nonmanufacturer Rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for how a nonmanufacturer qualifies as a small business.

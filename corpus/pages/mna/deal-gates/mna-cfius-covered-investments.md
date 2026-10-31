@@ -30,7 +30,7 @@ Shows which transactions are covered investments and which are not, with the lis
 
 This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. Covered investments include a transaction that meets the requirements of the covered investment definition irrespective of the percentage of voting interest acquired [@CL-MNA-0736]. The definition itself is on the [jurisdiction card](mna-cfius-jurisdiction.md).
 
-Not covered investments include an investment by a foreign person in an unaffiliated TID U.S. business that does not afford the foreign person any of the access, rights, or involvement specified in the covered investment definition [@CL-MNA-0738]. One listed type is an investment by a foreign person who is an excepted investor in an unaffiliated TID U.S. business [@CL-MNA-0739]. Another listed type is a transaction that results or could result in control by a foreign person of an unaffiliated TID U.S. business [@CL-MNA-0740]. The sections list further types and examples that this card does not restate.
+Not covered investments include an investment by a foreign person in an unaffiliated TID U.S. business that does not afford the foreign person any of the access, rights, or involvement specified in the covered investment definition [@CL-MNA-0738]. One listed type is an investment by a foreign person who is an excepted investor in an unaffiliated TID U.S. business [@CL-MNA-0739]. Another listed type is a transaction that results or could result in control by a foreign person of an unaffiliated TID U.S. business [@CL-MNA-0740]. The sections list further types and examples that this card does not restate. Involvement means the right or ability to participate, whether or not exercised, including by doing any of the listed things, two of which are providing input into a final decision and consulting with or providing advice to a decisionmaker [@CL-MNA-1321]. The definition lists further ways that this card does not restate.
 
 ## How it works
 
@@ -54,4 +54,5 @@ Whether any foreign investor in or of the company holds observer, board, informa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of involvement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered and non-covered investments.

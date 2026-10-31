@@ -23,7 +23,7 @@ Shows who makes each finding that the Cost Accounting Standards Board rules requ
 | Field | Value |
 |---|---|
 | Instrument | Cost Accounting Standards Board rules [@CL-RTE-0807] |
-| Codified citation | 48 CFR 9903.201-6 and 9903.202-8 [@CL-RTE-0807; @CL-RTE-0811] |
+| Codified citation | FAR 30.201-6 [@CL-RTE-1003], FAR 30.202-4 [@CL-RTE-1008], 48 CFR 9903.201-6 and 9903.202-8 [@CL-RTE-0807; @CL-RTE-0811] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0807] |
@@ -34,6 +34,8 @@ The findings section names the official who makes each finding. In its required-
 A subcontractor that has already furnished a Disclosure Statement to an ACO may meet the submission requirement by identifying to the contractor or higher tier subcontractor the ACO to whom it was submitted [@CL-RTE-0811]. A subcontractor that considers the Disclosure Statement privileged or confidential may submit it directly to the ACO and auditor cognizant of the subcontractor, notifying the contractor or higher tier subcontractor [@CL-RTE-0812]. The subcontractor section prints no time by which a subcontractor must file.
 
 ## How it works
+
+The FAR section on findings, 30.201-6, refers the reader to 48 CFR 9903.201-6 [@CL-RTE-1003]. The FAR section on privileged and confidential information, 30.202-4, refers the reader to 48 CFR 9903.202-4 [@CL-RTE-1008].
 
 Each finding is tied to the adjustment it clears [@CL-RTE-0852; @CL-RTE-0808; @CL-RTE-0853; @CL-RTE-0810]. The finding on a desirable change is made by the cognizant Federal agency official, and the other findings named here are made by the Contracting Officer [@CL-RTE-0807; @CL-RTE-0808; @CL-RTE-0809; @CL-RTE-0810]. The existing cards on [required changes](rte-required-changes-cost-accounting-practice.md), [unilateral and desirable changes](rte-unilateral-and-desirable-changes.md) and [subcontract CAS administration](rte-subcontract-cas-administration.md) cover the FAR side in more detail, and this card does not restate them. The clauses these findings clear are on the [CAS clauses card](rte-cas-solicitation-provisions-and-clauses.md). Whether a change is a change to a cost accounting practice at all is a separate question, shown by the [illustrations of changes](rte-changes-that-are-cost-accounting-practice-changes.md) and the [illustrations of changes that are not](rte-changes-that-are-not-cost-accounting-practice-changes.md).
 
@@ -55,4 +57,5 @@ Which fiscal years are open for CAS cost-impact adjustments that still need a fi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-6 and 30.202-4 pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS findings and subcontractor Disclosure Statements.

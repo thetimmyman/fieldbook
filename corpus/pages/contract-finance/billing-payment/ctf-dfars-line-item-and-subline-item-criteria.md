@@ -23,13 +23,13 @@ Shows the tests a DoD contract uses to decide what is a separate line item and w
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CTF-1575] |
-| Codified citation | DFARS 204.7103-1 [@CL-CTF-1575]; DFARS 204.7104-1 [@CL-CTF-1587] |
+| Codified citation | DFARS 204.7103 [@CL-CTF-1498]; DFARS 204.7103-1 [@CL-CTF-1575]; DFARS 204.7104-1 [@CL-CTF-1587] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1575] |
 | Applies to | Contracts that identify the items or services to be acquired as separate contract line items [@CL-CTF-1575] |
 
-Contracts shall identify the items or services to be acquired as separate contract line items unless it is not feasible to do so [@CL-CTF-1575]. Contract line items shall have all four listed characteristics, although exceptions within the characteristics may make a separate line item appropriate even though one characteristic appears to be missing [@CL-CTF-1576].
+The DFARS text says to follow the procedures at PGI 204.7103 for establishing contract line items, and it names no official [@CL-CTF-1498]. Contracts shall identify the items or services to be acquired as separate contract line items unless it is not feasible to do so [@CL-CTF-1575]. Contract line items shall have all four listed characteristics, although exceptions within the characteristics may make a separate line item appropriate even though one characteristic appears to be missing [@CL-CTF-1576].
 
 The first characteristic is a single unit price or a single total price, subject to the listed exceptions [@CL-CTF-1577]. One exception is an item that is not separately priced, where NSP is entered instead of the unit price [@CL-CTF-1577; @CL-CTF-1578]. The list of exceptions also includes the case of associated subline items established for other than informational reasons and priced under the subline item rules [@CL-CTF-1577; @CL-CTF-1625], items or services acquired on a cost-reimbursement contract [@CL-CTF-1577; @CL-CTF-1579], and a line item that refers to an exhibit or an attachment [@CL-CTF-1577; @CL-CTF-1580]. It also includes a contract for maintenance and repair services where firm prices exist for elements of the total price but the actual number and quantity of the elements are not known until performance [@CL-CTF-1577; @CL-CTF-1626]. The same paragraph lists one further exception that this card does not set out [@CL-CTF-1577].
 
@@ -61,4 +61,5 @@ Which line item and subline item structure the company's contracts use, and how 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI for establishing contract line items.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS line item and subline item criteria.

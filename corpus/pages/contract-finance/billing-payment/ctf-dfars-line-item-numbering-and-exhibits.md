@@ -23,13 +23,13 @@ Shows where the numbering rules for line items, subline items and exhibits sit, 
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CTF-1592] |
-| Codified citation | DFARS 204.7103-2 [@CL-CTF-1592]; DFARS 204.7104-2 [@CL-CTF-1593]; DFARS 204.7105 [@CL-CTF-1594] |
+| Codified citation | DFARS 204.7103-2 [@CL-CTF-1592]; DFARS 204.7104-2 [@CL-CTF-1593]; DFARS 204.7105 [@CL-CTF-1594]; DFARS 204.7100 [@CL-CTF-1399] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1592] |
 | Applies to | Contract line items, subline items, exhibits and attachments in DoD contracts [@CL-CTF-1592; @CL-CTF-1593; @CL-CTF-1594] |
 
-The DFARS text says to follow the procedures at PGI for numbering contract line items [@CL-CTF-1592]. It says the same for numbering contract subline items [@CL-CTF-1593] and for the use and numbering of contract exhibits and attachments [@CL-CTF-1594]. The numbering scheme itself is not set out in those sections, so it is not established here.
+The subpart prescribes policies and procedures for assigning contract line item numbers [@CL-CTF-1399]. The DFARS text says to follow the procedures at PGI for numbering contract line items [@CL-CTF-1592]. It says the same for numbering contract subline items [@CL-CTF-1593] and for the use and numbering of contract exhibits and attachments [@CL-CTF-1594]. The numbering scheme itself is not set out in those sections, so it is not established here.
 
 Exhibits may be used as an alternative to putting a long list of contract line items in the schedule, and if exhibits are used a contract line item is created citing the exhibit's identifier [@CL-CTF-1595]. The single unit price paragraph lists the case of a line item established to refer to an exhibit or an attachment, and if management needs dictate that a unit price be entered, the price is set out in the item description block and enclosed in parentheses [@CL-CTF-1577; @CL-CTF-1580]. All subline items and exhibit line items under one contract line item shall be the same contract type as the contract line item [@CL-CTF-1629].
 
@@ -57,4 +57,5 @@ How the company's billing system carries exhibit line items and subline items so
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the line item numbering subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS line item numbering and exhibits.

@@ -22,13 +22,15 @@ Shows what a product, manufacturer or source must show before award under a qual
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1023] |
-| Codified citation | FAR 52.209-1 [@CL-SUP-1023; @CL-SUP-1024; @CL-SUP-1026; @CL-SUP-1027; @CL-SUP-1063; @CL-SUP-1065] |
+| Codified citation | FAR 9.206-2 [@CL-SUP-4151] and FAR 52.209-1 [@CL-SUP-1023; @CL-SUP-1024; @CL-SUP-1026; @CL-SUP-1027; @CL-SUP-1063; @CL-SUP-1065] |
 | RFO citation | RFO FAR 52.209-1 [@CL-SUP-3759] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1023] |
 | Applies to | Supplies or services covered by a qualification requirement [@CL-SUP-1024] |
 
 The clause defines a qualification requirement as a Government requirement for testing or other quality assurance demonstration that must be completed before award [@CL-SUP-1023]. For supplies or services requiring qualification, whether an end item or a component of an end item, the product, manufacturer, or source must have demonstrated before award that it meets the standards prescribed for qualification [@CL-SUP-1024]. It must be qualified at the time of award whether or not its name is on a qualified products list, qualified manufacturers list, or qualified bidders list [@CL-SUP-1025].
+
+The prescription for the clause is in section 9.206-2: the contracting officer shall insert the clause at 52.209-1, Qualification Requirements, in solicitations and contracts when the acquisition is subject to a qualification requirement [@CL-SUP-4151].
 
 ## How it works
 
@@ -54,5 +56,6 @@ Which items and sources carry qualification requirements and where the evidence 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the clause prescription in section 9.206-2.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the qualification requirements clause.

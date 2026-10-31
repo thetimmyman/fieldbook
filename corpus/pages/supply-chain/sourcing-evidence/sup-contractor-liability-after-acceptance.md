@@ -23,11 +23,13 @@ Shows which contracts the subpart covers, what loss the Government generally rel
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0888] |
-| Codified citation | FAR 46.801, 46.802, 46.803 and 46.805 [@CL-SUP-0968; @CL-SUP-0959; @CL-SUP-0888; @CL-SUP-0895] |
+| Codified citation | FAR 46.800, 46.801, 46.802, 46.803 and 46.805 [@CL-SUP-4149; @CL-SUP-0968; @CL-SUP-0959; @CL-SUP-0888; @CL-SUP-0895] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0888] |
 | Applies to | Contracts other than those for commercial products and commercial services, information technology including telecommunications, construction, architect-engineer services, and maintenance and rehabilitation of real property [@CL-SUP-0968]; loss of or damage to Government property after acceptance that results from defects or deficiencies in the supplies or services [@CL-SUP-0888; @CL-SUP-4023] |
+
+The scope section says that the subpart prescribes policies and procedures for limiting contractor liability for loss of or damage to property of the Government that (a) occurs after acceptance and (b) results from defects or deficiencies in the supplies delivered or services performed [@CL-SUP-4149].
 
 The subpart does not apply to commercial products and commercial services, and it applies to contracts other than those for information technology including telecommunications, construction, architect-engineer services, and maintenance and rehabilitation of real property [@CL-SUP-0968]. Within that scope, the Government will generally act as a self-insurer by relieving contractors, as specified in the subpart, of liability for loss of or damage to property of the Government that occurs after acceptance of supplies delivered or services performed under a contract and results from defects or deficiencies in the supplies or services [@CL-SUP-0888; @CL-SUP-4023]. The Government will not relieve the contractor of liability for loss of or damage to the contract end item itself, except for high-value items [@CL-SUP-0889]. In contracts requiring delivery of high-value items, the Government will relieve contractors of contractual liability for loss of or damage to those items [@CL-SUP-0890]. A high-value item is a contract end item that has a high unit cost, normally exceeding 100000 dollars per unit, and is designated by the contracting officer as a high-value item [@CL-SUP-0959]. That relief does not limit the Government's rights arising under the contract to have any defective item or its components corrected, repaired, or replaced when the defect or deficiency is discovered before the loss of or damage to a high-value item occurs [@CL-SUP-0970].
 
@@ -55,5 +57,6 @@ Which contracts carry each limitation of liability clause, and whether insurance
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the limitation of liability subpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the self-insurer sentences so the rule keeps the defects or deficiencies in the supplies or services.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor liability for Government property loss after acceptance.

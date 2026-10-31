@@ -23,13 +23,13 @@ Shows what the contractor must furnish, what the Government must do with the tax
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-7558] |
-| Codified citation | FAR 4.902, 4.903 and 4.905 [@CL-CMP-7558; @CL-CMP-7560; @CL-CMP-7565] |
+| Codified citation | FAR 4.902, 4.903, 4.904 and 4.905 [@CL-CMP-7558; @CL-CMP-7560; @CL-CMP-9753; @CL-CMP-7565] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7558] |
 | Applies to | Contractors doing business with a Government agency, reporting by heads of Federal executive agencies, and solicitations that meet the insertion conditions for the taxpayer identification provision [@CL-CMP-7558; @CL-CMP-7560; @CL-CMP-7565] |
 
-Each contractor doing business with a Government agency must furnish its taxpayer identification number to that agency [@CL-CMP-7558]. The Government must include the number of the contractor receiving payment with each certified voucher that the Government payment office prepares and submits to a disbursing official [@CL-CMP-7559]. The Government may use the number to collect and report on any delinquent amounts arising out of the contractor's relationship with the Government [@CL-CMP-7711]. The number is also required for Government reporting of certain contract information and payment information to the Internal Revenue Service [@CL-CMP-7712]. The payment information report is in a separate section that this card does not cover.
+Each contractor doing business with a Government agency must furnish its taxpayer identification number to that agency [@CL-CMP-7558]. The Government must include the number of the contractor receiving payment with each certified voucher that the Government payment office prepares and submits to a disbursing official [@CL-CMP-7559]. The Government may use the number to collect and report on any delinquent amounts arising out of the contractor's relationship with the Government [@CL-CMP-7711]. The number is also required for Government reporting of certain contract information and payment information to the Internal Revenue Service [@CL-CMP-7712]. The payment information report is in a separate section. That section says that section 6109 of title 26 of the United States Code requires a contractor to provide its taxpayer identification number if a Form 1099 is required, and that the payment office is responsible for submitting reports to the Internal Revenue Service [@CL-CMP-9753]. This card does not set out the rest of that section.
 
 Heads of Federal executive agencies are required to report certain contract information to the Internal Revenue Service [@CL-CMP-7560]. The required information applies to contract modifications that increase the amount of a contract awarded before January 1, 1989 by $50,000 or more and that are entered into on or after April 1, 1990 [@CL-CMP-7561]. The reporting requirement also applies to certain contracts and modifications to them in excess of $25,000 entered into on or after January 1, 1989, and the section does not list which contracts those are [@CL-CMP-7562].
 
@@ -65,4 +65,5 @@ Which contract actions in the finance remit carry a reportable change, and who c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the payment office's duty to submit reports to the Internal Revenue Service.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxpayer identification number information and reporting contract information to the internal revenue service.

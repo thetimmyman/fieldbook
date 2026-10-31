@@ -37,6 +37,10 @@ The contracting officer need not submit the notice when the contracting officer 
 
 The notice duty rests on the synopsis threshold from the dissemination rule, which is $25,000 [@CL-MKT-0050; @CL-MKT-0057]. A modification counts when it meets that threshold, and an action of any amount can be noticed when advantageous to the Government [@CL-MKT-0058; @CL-MKT-0059]. The exceptions work as carve-outs from the duty: the exceptions section opens by saying the notice need not be submitted when the listed conditions apply [@CL-MKT-0060]. The low-value action with electronic access and electronic response is one such carve-out [@CL-MKT-0061].
 
+FAR part 5 prescribes policies and procedures for publicizing contract opportunities and award information [@CL-MKT-2213]. As used in that part, contract action means an action resulting in a contract, as defined in subpart 2.1, including actions for additional supplies or services outside the existing contract scope [@CL-MKT-2214], but not including actions that are within the scope and under the terms of the existing contract, such as contract modifications issued pursuant to the Changes clause, or funding and other administrative changes [@CL-MKT-2215].
+
+Contracting officers must publicize contract actions in order to increase competition and broaden industry participation in meeting Government requirements [@CL-MKT-2216], and in order to assist small business concerns, veteran-owned small business concerns, service-disabled veteran-owned small business concerns, HUBZone small business concerns, small disadvantaged business concerns, and women-owned small business concerns in obtaining contracts and subcontracts [@CL-MKT-2217]. For any requirement in the FAR to publish a notice, the contracting officer must transmit the notices to the Governmentwide point of entry (GPE) [@CL-MKT-2218].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -55,4 +59,5 @@ Confirm which proposed-action notices are relevant public market observations fo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 5, the contract action definition, the publicizing policy and the GPE transmission rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for when contract actions must be publicized and the exceptions.

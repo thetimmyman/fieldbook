@@ -23,11 +23,13 @@ Shows that a basic agreement and a basic ordering agreement are not contracts, w
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1235] |
-| Codified citation | FAR 16.702 and FAR 16.703 [@CL-CTF-1235; @CL-CTF-1238] |
+| Codified citation | FAR 16.701 [@CL-CTF-2360; @CL-CTF-2788], FAR 16.702 and FAR 16.703 [@CL-CTF-1235; @CL-CTF-1238] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1235] |
 | Applies to | Basic agreements and basic ordering agreements, neither of which is a contract [@CL-CTF-1235; @CL-CTF-1238] |
+
+Subpart 16.7 prescribes policies and procedures for establishing and using basic agreements and basic ordering agreements [@CL-CTF-2360]. Its scope section refers the reader to 13.303 for blanket purchase agreements and to 35.015(b) for additional coverage of basic agreements with educational institutions and nonprofit organizations [@CL-CTF-2788].
 
 A basic agreement is not a contract [@CL-CTF-1235]. Each basic agreement shall be reviewed annually before the anniversary of its effective date and revised as necessary to conform to the requirements of the regulation [@CL-CTF-1236]. A basic agreement shall not cite appropriations or obligate funds, state or imply any Government agreement to place future contracts or orders with the contractor, or be used in any manner to restrict competition [@CL-CTF-1237].
 
@@ -55,4 +57,5 @@ Which basic agreements and basic ordering agreements the company holds, the poin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of subpart 16.7 and its cross-references.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for basic agreements and basic ordering agreements.

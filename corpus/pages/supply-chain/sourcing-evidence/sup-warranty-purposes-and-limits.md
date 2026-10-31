@@ -23,7 +23,7 @@ Shows why a Government contract carries a warranty, what a warranty should conta
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-3949] |
-| Codified citation | FAR 46.702 and 46.705 [@CL-SUP-3949; @CL-SUP-3953] |
+| Codified citation | FAR 46.702, 46.705 and 46.708 [@CL-SUP-3949; @CL-SUP-3953; @CL-SUP-4147] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-3949; @CL-SUP-3953] |
@@ -33,7 +33,7 @@ The principal purposes of a warranty in a Government contract are to delineate t
 
 Generally, a warranty should provide a contractual right for the correction of defects notwithstanding any other requirement of the contract pertaining to acceptance of the supplies or services by the Government [@CL-SUP-3950]. It should also provide a stated period of time or use, or the occurrence of a specified event, after acceptance by the Government to assert that right [@CL-SUP-3951]. The benefits to be derived from a warranty must be commensurate with the cost of the warranty to the Government [@CL-SUP-3952].
 
-Except for the warranties in the clauses at 52.246-3, Inspection of Supplies—Cost-Reimbursement, and 52.246-8, Inspection of Research and Development—Cost-Reimbursement, the contracting officer shall not include warranties in cost-reimbursement contracts [@CL-SUP-3953]. The sentence adds a second exception for warranties authorized in accordance with agency regulations, and points to 46.708 [@CL-SUP-3954].
+Except for the warranties in the clauses at 52.246-3, Inspection of Supplies—Cost-Reimbursement, and 52.246-8, Inspection of Research and Development—Cost-Reimbursement, the contracting officer shall not include warranties in cost-reimbursement contracts [@CL-SUP-3953]. The sentence adds a second exception for warranties authorized in accordance with agency regulations, and points to 46.708 [@CL-SUP-3954]. Section 46.708 says that warranties of data shall be developed and used in accordance with agency regulations [@CL-SUP-4147].
 
 Warranty clauses shall not limit the Government's rights under an inspection clause in relation to latent defects, fraud, or gross mistakes that amount to fraud [@CL-SUP-3955]. Except for warranty clauses in construction contracts, warranty clauses shall provide that the warranty applies notwithstanding inspection and acceptance or other clauses or terms of the contract [@CL-SUP-3956].
 
@@ -69,4 +69,5 @@ Which warranty terms the company offers and how it tracks the stated period or e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on warranties of data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes and limits of warranties in Government contracts.
