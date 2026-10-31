@@ -55,7 +55,7 @@ The detailed clause and provision wording sits in [Material requirements and bra
 
 Synthetic example. The numbers are made up.
 
-A buy of 500 pumps, awarded using simplified acquisition procedures and valued at 60,000, needs a seal that only one maker produces. The file records that the seal is essential and that market research shows other makers' seals do not meet, and cannot be modified to meet, the minimum need [@CL-SUP-3287]. The basis for not providing for maximum practicable competition is documented in the file [@CL-SUP-3336]. Because the buy is above 25,000, the documentation is posted [@CL-SUP-3289]. For the pumps themselves, which are not commercial products, the solicitation requires offerors to identify reconditioned units [@CL-SUP-3291]. The contracting officer authorizes none, so no reconditioned unit may be used in performance [@CL-SUP-3338].
+A buy of 500 pumps, awarded using simplified acquisition procedures and valued at 60,000, needs a seal that only one maker produces. The file records that the seal is essential and that market research shows other makers' seals do not meet, or cannot be modified to meet, the minimum need [@CL-SUP-3287]. The basis for not providing for maximum practicable competition is documented in the file [@CL-SUP-3336]. Because the buy is above 25,000, the documentation is posted [@CL-SUP-3289]. For the pumps themselves, which are not commercial products, the solicitation requires offerors to identify reconditioned units [@CL-SUP-3291]. The contracting officer authorizes none, so no reconditioned unit may be used in performance [@CL-SUP-3338].
 
 ## Never confuse
 
@@ -69,6 +69,7 @@ Confirm whether any solicitation in force names a brand or feature, how that was
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected the market research condition to or.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of virgin material.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the part 11 definitions of reconditioned and remanufactured and the Material Requirements clause prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for brand name requirements and used, reconditioned or virgin material.
