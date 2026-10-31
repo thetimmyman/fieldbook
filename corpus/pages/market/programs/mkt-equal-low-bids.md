@@ -23,7 +23,7 @@ Explains the tie-bid priority that a small business bidder can seek by identifyi
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-1105] |
 | Codified citation | FAR 52.219-2 [@CL-MKT-1105] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.219-2 [@CL-MKT-0121; @CL-MKT-0122; @CL-MKT-0123; @CL-MKT-0124] |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-1105] |
 | Applies to | Bidders that are small business concerns [@CL-MKT-1105] |
@@ -35,6 +35,8 @@ Failure to identify the labor surplus areas as specified precludes the bidder fr
 ## How it works
 
 The provision names tie bids as the case in which labor surplus area status may affect entitlement to award [@CL-MKT-1106]. A bidder claims the priority by filling in the space the provision supplies with the labor surplus area that meets the cost test [@CL-MKT-1107]. A bidder that does not identify the areas as specified cannot receive priority consideration [@CL-MKT-1108]. A bidder that wins only because of the priority takes on the duty to perform, or cause performance, as a labor surplus area concern [@CL-MKT-1109]. The provision does not define those obligations.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the rule described above: it applies to small business concerns only and says labor surplus area status may affect entitlement to award in case of tie bids [@CL-MKT-0121; @CL-MKT-1105; @CL-MKT-1106]. A bidder that wants the priority must identify the labor surplus area in which the manufacturing or production costs amount to more than 50 percent of the contract price [@CL-MKT-0122; @CL-MKT-1107]. Failure to identify the areas as specified precludes priority consideration [@CL-MKT-0123; @CL-MKT-1108], and a bidder awarded a contract only because of the priority must perform it, or cause it to be performed, in accordance with the obligations of a labor surplus area concern [@CL-MKT-0124; @CL-MKT-1109].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Whether each bidding entity and contract is inside the finance remit, so the lab
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal low bids.
