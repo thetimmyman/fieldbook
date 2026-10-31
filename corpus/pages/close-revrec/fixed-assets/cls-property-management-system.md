@@ -65,4 +65,5 @@ Who owns the property title and inventory records, and how physical and accounti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that failure to maintain an acceptable property management system may result in disapproval of the system and withholding of payments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Property Management System Administration clause.

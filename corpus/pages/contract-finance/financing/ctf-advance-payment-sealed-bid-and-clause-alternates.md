@@ -59,5 +59,6 @@ Which awarded contracts provide advance payments, and which clause alternates we
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text on actions designated agencies may take to facilitate advance payments and the agency steps when advance payments are requested.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payments on sealed bid contracts and the clause alternates.

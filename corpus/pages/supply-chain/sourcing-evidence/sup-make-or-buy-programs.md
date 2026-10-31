@@ -57,5 +57,6 @@ Whether a make-or-buy policy exists, who decides each categorization, and who ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added when the contracting officer may incorporate a make-or-buy program in a negotiated contract and the two conditions for other supplies and services.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for make-or-buy programs.

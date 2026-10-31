@@ -55,5 +55,6 @@ Whether independent research and development projects and bid and proposal effor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS definitions of covered segment, including a contractor with no product divisions, and major contractor.
 - COMPATIBLE_EXTENSION, 2026-10-29: Cut the covered segment and major contractor definitions to a pointer to the general page, corrected the worked example so that the thresholds add up, and kept the covered contract definition, the divisions outside the limitations, the update deadline and the reporting rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD independent research and development and bid and proposal costs.

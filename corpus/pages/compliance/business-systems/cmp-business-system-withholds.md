@@ -53,4 +53,5 @@ Which business systems are approved, and whether any determination or withhold i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the codified clause's withholding caps of 5 and 10 percent, the reduction to 2 percent and its two conditions, labelled as codified text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD business-system withholds under the class deviation.

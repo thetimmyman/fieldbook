@@ -57,4 +57,5 @@ Confirm which bids carry separately priced startup, mobilization, first article,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that an offer may be rejected if the lack of balance poses an unacceptable risk to the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unbalanced pricing.

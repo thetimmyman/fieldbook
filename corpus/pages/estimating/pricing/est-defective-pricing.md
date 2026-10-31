@@ -56,5 +56,6 @@ That estimate versions, source quotations and assumptions are frozen and compare
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the advisory audit follow-up duty, the treatment of defective subcontract data, the comparison basis, and when the price reduction clause applies, including subcontractor data and reductions on items already paid for.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for defective pricing.

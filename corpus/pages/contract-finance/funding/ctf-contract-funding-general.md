@@ -59,4 +59,5 @@ Which contracts are fully or incrementally funded, which notices apply, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named both DFARS sets of conditions for incrementally funding a fixed-price contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract funding in general.

@@ -53,4 +53,5 @@ Which control findings, corrective actions and external requests are open, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that a single agency is responsible for establishing final indirect cost rates for each business unit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incurred cost audit objectives.

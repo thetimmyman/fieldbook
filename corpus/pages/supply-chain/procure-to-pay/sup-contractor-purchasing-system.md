@@ -67,4 +67,5 @@ Whether the purchasing system has been reviewed, and when a subcontract change n
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added what the subcontract notification must identify.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Purchasing System Administration clause.

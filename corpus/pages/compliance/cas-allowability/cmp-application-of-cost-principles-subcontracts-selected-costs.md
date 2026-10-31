@@ -59,5 +59,6 @@ Which subcontracts are of the listed types, and where the subcontract type and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text on basing allowability determinations on the cost principles in effect on the date of the contract.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for application of the cost principles to subcontracts and uncovered costs.

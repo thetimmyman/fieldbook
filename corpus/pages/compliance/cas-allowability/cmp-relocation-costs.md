@@ -73,6 +73,7 @@ How relocation reimbursements are monitored to enforce ceiling caps and track ea
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the types of relocation costs that the RFO text makes unallowable.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for relocation costs.

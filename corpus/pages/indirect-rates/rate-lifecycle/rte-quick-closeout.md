@@ -65,5 +65,6 @@ Whether each closing contract's unsettled direct and indirect costs fall under t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the other pertinent information the risk assessment may weigh.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the quick-closeout procedure.

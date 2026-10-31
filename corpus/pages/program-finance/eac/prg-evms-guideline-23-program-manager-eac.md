@@ -53,5 +53,6 @@ Who owns the program estimate at completion, how often it is refreshed, and how 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the at-least-annual comprehensive estimate at completion at the contract level.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed unsupported purpose wording and fixed the example variance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the program manager estimate at completion.

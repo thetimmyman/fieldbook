@@ -61,6 +61,7 @@ Which covered contracts pay rates above the determination, and who confirms the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text on which disputes the labor standards disputes clause covers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction labor clause insertion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor standards disputes, certification of eligibility and approval of wage rates.

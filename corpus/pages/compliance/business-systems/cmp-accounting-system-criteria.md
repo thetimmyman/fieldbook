@@ -52,4 +52,5 @@ The current government status of each contractor business system: approved, disa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the remaining codified accounting system criteria: segregation of direct and indirect costs, ledger reconciliation, interim cost determinations, exclusion of unallowable costs, reconcilable billings and accounting practices that follow the applicable standards.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor accounting system criteria.

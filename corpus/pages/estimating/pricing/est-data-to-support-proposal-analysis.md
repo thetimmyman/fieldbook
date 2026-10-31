@@ -55,5 +55,6 @@ Which bids and estimates need immediate support, who approves a field pricing re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that field pricing information and other reports may include proprietary or source selection information.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for data to support proposal analysis.

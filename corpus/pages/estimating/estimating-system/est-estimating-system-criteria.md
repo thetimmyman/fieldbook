@@ -52,4 +52,5 @@ Who owns proposal pricing and the estimating system description, and when that d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added how a contractor asks the Government to protect proprietary estimating system data.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor estimating system requirements.
