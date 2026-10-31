@@ -23,7 +23,7 @@ Shows what an offeror certifies about debarment, convictions, taxes and default 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-1013; @CL-SUP-1018] |
 | Codified citation | FAR 52.209-5 [@CL-SUP-1013; @CL-SUP-1017; @CL-SUP-1059] and FAR 52.209-7 [@CL-SUP-1018; @CL-SUP-1019; @CL-SUP-1062] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.209-5 [@CL-SUP-3767]; RFO FAR 52.209-7 [@CL-SUP-3775] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1013] |
 | Applies to | Offerors, for the certification and information provisions [@CL-SUP-1013; @CL-SUP-1018] |
@@ -35,6 +35,8 @@ In the information provision, the offeror states whether it has or does not have
 ## How it works
 
 A certification that any of the listed items exists will not necessarily result in withholding of an award, but the certification will be considered in connection with a determination of the Offeror's responsibility [@CL-SUP-1017]. In the certification provision, the Offeror shall provide immediate written notice to the Contracting Officer if, at any time prior to contract award, the Offeror learns that its certification was erroneous when submitted or has become erroneous by reason of changed circumstances [@CL-SUP-1059]. Failure of the Offeror to furnish a certification or provide such additional information as requested by the Contracting Officer may render the Offeror nonresponsible [@CL-SUP-1061]. If it is later determined that the Offeror knowingly rendered an erroneous certification, in addition to other remedies available to the Government, the Contracting Officer may terminate the contract resulting from the solicitation for default [@CL-SUP-1060]. The information provision asks whether the offeror and/or any of its principals has or has not, within the last five years and in connection with the award to or performance by the offeror of a Federal contract or grant, been the subject of a proceeding at the Federal or State level that resulted in any of the listed dispositions [@CL-SUP-1020]. One listed disposition is, in a civil proceeding, a finding of fault and liability that results in a payment of $5,000 or more [@CL-SUP-1021]. Another is, in an administrative proceeding, a finding of fault and liability that results in payment of a fine or penalty of $5,000 or more, or payment of a reimbursement, restitution, or damages in excess of $100,000 [@CL-SUP-1022]. The linked pages cover the review and posting of this information.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.209-5 keeps the certifications in paragraph (a) about debarment and related status, convictions and judgments, delinquent Federal taxes and default terminations [@CL-SUP-3767; @CL-SUP-3768; @CL-SUP-3769; @CL-SUP-3770; @CL-SUP-1013; @CL-SUP-1014; @CL-SUP-1015; @CL-SUP-1016]. It keeps the notice duty in paragraph (b) [@CL-SUP-3772; @CL-SUP-1059] and the nonresponsibility rule in paragraph (c) [@CL-SUP-3773; @CL-SUP-1061]. Its paragraph (c) says the Government will consider the certification in connection with a determination of the Offeror's responsibility, where the codified provision says the certification will be considered [@CL-SUP-3771; @CL-SUP-1017]. Its paragraph (e) says that if the Government later determines that the Offeror knowingly rendered an erroneous certification, the Contracting Officer may terminate the contract for default, where the codified provision says it is later determined [@CL-SUP-3774; @CL-SUP-1060]. The RFO text of FAR 52.209-7 keeps the contract-and-grant total representation in paragraph (b) [@CL-SUP-3775; @CL-SUP-1018] and the representation about the entries in paragraph (c) [@CL-SUP-3776; @CL-SUP-3777; @CL-SUP-1019; @CL-SUP-1062]. It keeps the five-year proceedings in paragraph (c)(1), including the $5,000 civil and administrative dispositions and the $100,000 amount [@CL-SUP-3778; @CL-SUP-3779; @CL-SUP-3780; @CL-SUP-1020; @CL-SUP-1021; @CL-SUP-1022].
 
 ## Worked example
 
@@ -54,4 +56,5 @@ Which principals and which contracts feed these certifications and the system en
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certification and information provisions on responsibility matters.

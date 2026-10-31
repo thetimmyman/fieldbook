@@ -24,7 +24,7 @@ Shows what an offeror must say about its immediate owner and highest-level owner
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0562] |
 | Codified citation | FAR 52.204-17 [@CL-SUP-0562] |
-| RFO citation | Not established. |
+| RFO citation | RFO FAR 52.204-7 [@CL-SUP-3730; @CL-SUP-3731; @CL-SUP-3733], because the RFO text lists FAR 52.204-17 as [Reserved] [@CL-SUP-3729] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0562] |
 | Applies to | Offerors, where the provision is used as prescribed in FAR 4.1804(b) [@CL-SUP-0695] |
@@ -37,6 +37,8 @@ Indicators of control include, but are not limited to, ownership or interlocking
 
 The offeror represents whether it has or does not have an immediate owner [@CL-SUP-0697]. If it has one, it enters the immediate owner CAGE code, the immediate owner legal name, and whether the immediate owner is owned or controlled by another entity [@CL-SUP-0564]. If the offeror has more than one immediate owner, such as a joint venture, it shall respond for each participant in the joint venture [@CL-SUP-0698]. If the immediate owner is owned or controlled by another entity, the offeror enters the highest-level owner CAGE code and legal name [@CL-SUP-0565].
 
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.204-17 as [Reserved] and prints no provision text under that number [@CL-SUP-3729]. The RFO text of FAR 52.204-7(a) keeps the definitions of immediate owner and highest-level owner [@CL-SUP-3730; @CL-SUP-3731; @CL-SUP-0562; @CL-SUP-0563]. Its paragraph (a) says indicators of control include, but are not limited to, ownership or interlocking management, identity of interests among family members, shared facilities and equipment, and the common use of employees, and that there may be more than one immediate owner, for example joint ventures [@CL-SUP-3732; @CL-SUP-0696]. Paragraph (b)(3)(i) of FAR 52.204-7 says the Offeror shall provide a CAGE code and legal business name, without using a doing-business-as name, for itself, for its immediate owner(s), if any, for its highest-level owner, if any, and for any predecessor(s), or predecessor of an Offeror's predecessor, that held a Federal contract or grant within the last three years [@CL-SUP-3733; @CL-SUP-9394]. In paragraph (a) a predecessor means an entity whose assets were acquired by the offeror or another entity (most often through merger or acquisition) and whose affairs are now carried out by the offeror or the other entity under a new name [@CL-SUP-9395]. FAR 52.204-7 also says the Offeror shall have an active Federal Government contracts registration in the System for Award Management (SAM) when submitting an offer or quotation in response to the solicitation and at the time of award [@CL-SUP-3734].
+
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -47,7 +49,7 @@ Answer: the offeror also states that the immediate owner is owned or controlled 
 
 ## Never confuse
 
-An immediate owner is not the highest-level owner. The immediate owner has direct control of the offeror [@CL-SUP-0562], while the highest-level owner is an entity that no other entity owns or controls [@CL-SUP-0563]. How an offeror gets a CAGE code is on the [CAGE code reporting](sup-cage-code-reporting.md) card.
+An immediate owner is not the highest-level owner. The immediate owner has direct control of the offeror [@CL-SUP-0562], while the highest-level owner is an entity that no other entity owns or controls [@CL-SUP-0563]. The codified provision has the offeror represent whether it has or does not have an immediate owner [@CL-SUP-0697], while the RFO text of FAR 52.204-7(b)(3)(i) says the Offeror shall provide a CAGE code and legal business name for itself, its immediate owner(s), if any, its highest-level owner, if any, and any predecessor(s) described there [@CL-SUP-3733; @CL-SUP-9394]. How an offeror gets a CAGE code is on the [CAGE code reporting](sup-cage-code-reporting.md) card.
 
 ## Company calibration
 
@@ -57,4 +59,5 @@ Confirm how immediate and highest-level owner names and CAGE codes are gathered 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Ownership or Control of Offeror provision.
