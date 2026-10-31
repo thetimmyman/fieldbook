@@ -1,6 +1,6 @@
 +++
-id = "cmp-labor-law-compliance-evaluation-definitions"
-title = "Definitions for the labor law compliance evaluation subpart"
+id = "cmp-contractor-minimum-wage-definitions"
+title = "Definitions for the contractor minimum wage subpart, FAR 22.19"
 area = "cmp"
 subarea = "regulatory-framework"
 type = "clause-card"
@@ -15,7 +15,7 @@ links = ["cmp-eo-wage-and-sick-leave-coverage-and-exclusions", "cmp-minimum-wage
 
 ## Purpose
 
-Defines the two terms the section prints, United States and worker, as used in its subpart, so that contract coverage, geographic scope and headcount rest on the printed definitions.
+Defines the two terms FAR 22.1901 prints, United States and worker, as used in FAR subpart 22.19 on the minimum wage for contractors, where a worker is a person working on or in connection with a contract covered by Executive Order 14026 [@CL-CMP-8172]. The definitions are stated so that contract coverage, geographic scope and headcount rest on the printed definitions.
 
 ## The rule
 
@@ -96,4 +96,4 @@ Which covered contracts, labor categories and headcounts the company counts insi
 
 ## Change note
 
-- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the labor law compliance evaluation definitions.
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor minimum wage definitions.
