@@ -51,7 +51,7 @@ When a transitional cost accounting period is required under 9904.406-40(a)(3), 
 
 ## How it works
 
-The techniques permit the following practices, subject to the conditions given. Part-period data is available when the three conditions are met [@CL-EST-2879; @CL-EST-2880]. Estimated closing rates are released from matching the final rates but still represent a full period, except for part-period allocation [@CL-EST-2883; @CL-EST-2884]. A fixed annual period other than the fiscal year needs mutual agreement with the Government and the three practice conditions [@CL-EST-2885; @CL-EST-2886]. A different annual period for allocation base data needs the contracting parties' agreement and all four conditions [@CL-EST-2887; @CL-EST-2888; @CL-EST-2969; @CL-EST-2970]. The contractor selects among the transitional periods, and a change of period may bring a contract price adjustment [@CL-EST-2889; @CL-EST-2891].
+The techniques permit the following practices, subject to the conditions given. The cost of an indirect function that exists for only part of a cost accounting period may be allocated on data for that part if the cost is material in amount, accumulated in a separate indirect cost pool and allocated on an appropriate direct measure of the function's activity or output during that part of the period [@CL-EST-2879; @CL-EST-2880]. Estimated closing rates are released from matching the final rates but still represent a full period, except for part-period allocation [@CL-EST-2883; @CL-EST-2884]. A fixed annual period other than the fiscal year needs mutual agreement with the Government and the three practice conditions [@CL-EST-2885; @CL-EST-2886]. A different annual period for allocation base data needs the contracting parties' agreement and all four conditions [@CL-EST-2887; @CL-EST-2888; @CL-EST-2969; @CL-EST-2970]. When a transitional cost accounting period is required under 9904.406-40(a)(3), the contractor may select any one of three periods [@CL-EST-2889], and a change in the cost accounting period is a change in accounting practices for which an adjustment in the contract price may be required [@CL-EST-2891].
 
 ## Worked example
 
@@ -65,7 +65,7 @@ A third company changes its fiscal year from the calendar year to a year ending 
 
 ## Never confuse
 
-Part-period allocation is not the estimated closing rate: part-period allocation covers a function that exists for only part of a period, while closing rates are estimates that must still represent a full cost accounting period, except for part-period allocation [@CL-EST-2879; @CL-EST-2884]. Agreeing on another cost accounting period is not agreeing on another period for allocation base data: the first rests on mutual agreement and three practice conditions, and the second on the contracting parties' agreement and four conditions [@CL-EST-2885; @CL-EST-2886; @CL-EST-2887; @CL-EST-2888; @CL-EST-2969; @CL-EST-2970]. When a transitional cost accounting period is required under 9904.406-40(a)(3), the contractor may select any one of three periods [@CL-EST-2889].
+Part-period allocation covers the cost of an indirect function that exists for only part of a cost accounting period [@CL-EST-2879], while estimated indirect cost allocation rates used to expedite closing need not be those finally determined or negotiated and shall be developed to represent a full cost accounting period, except as provided for part-period allocation [@CL-EST-2883; @CL-EST-2884]. A fixed annual period other than the fiscal year may be used as the cost accounting period upon mutual agreement with the Government if the three practice conditions are met [@CL-EST-2885; @CL-EST-2886], while an annual period that does not coincide precisely with the cost accounting period for developing allocation base data may be agreed by the contracting parties if the four conditions are met [@CL-EST-2887; @CL-EST-2888; @CL-EST-2969; @CL-EST-2970]. When a transitional cost accounting period is required under 9904.406-40(a)(3), the contractor may select any one of three periods [@CL-EST-2889].
 
 ## Company calibration
 
@@ -75,6 +75,7 @@ Confirm each business unit's CAS coverage and whether its Disclosure Statement r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Techniques summary and never-confuse wording tied to the cited conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Four-condition sentence cited; uncited statements and contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the clause paragraphs for the contract price adjustment.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost accounting period Standard definitions and techniques.

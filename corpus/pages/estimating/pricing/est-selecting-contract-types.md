@@ -15,7 +15,7 @@ links = ["cls-cost-plus-fixed-fee-contracts", "est-award-fee-contracts", "est-fi
 
 ## Purpose
 
-Shows the range of contract types that the general contract-type section describes and the policies that limit the choice of type: what sealed bidding allows, what negotiation allows, the bar on cost-plus-a-percentage-of-cost contracts, and the determination-and-findings rule. The sections covered here list no factors for choosing among types.
+Shows the range of contract types that the general contract-type section describes and the policies that limit the choice of type: what sealed bidding allows, what negotiation allows, the bar on cost-plus-a-percentage-of-cost contracts, and the determination-and-findings rule.
 
 ## The rule
 
@@ -45,13 +45,13 @@ Policies in the second section:
 
 ## How it works
 
-The range of types is a spectrum of contractor cost responsibility. Firm-fixed-price puts full responsibility for performance costs, and the resulting profit or loss, on the contractor [@CL-EST-0946]. Cost-plus-fixed-fee leaves the contractor minimal responsibility and fixes the negotiated fee [@CL-EST-0947]. Incentive contracts sit between, with cost responsibility and incentives tailored to the uncertainties of performance [@CL-EST-0948]. See [cost-plus-fixed-fee contracts](../../close-revrec/revenue/cls-cost-plus-fixed-fee-contracts.md), [fixed-price contracts in general](est-fixed-price-contracts-general.md) and [fixed-price incentive contracts](est-fixed-price-incentive-and-letter-contracts.md) for those types.
+Firm-fixed-price puts full responsibility for performance costs, and the resulting profit or loss, on the contractor [@CL-EST-0946]. Cost-plus-fixed-fee leaves the contractor minimal responsibility and fixes the negotiated fee [@CL-EST-0947]. Incentive contracts sit between, with cost responsibility and incentives tailored to the uncertainties of performance [@CL-EST-0948]. See [cost-plus-fixed-fee contracts](../../close-revrec/revenue/cls-cost-plus-fixed-fee-contracts.md), [fixed-price contracts in general](est-fixed-price-contracts-general.md) and [fixed-price incentive contracts](est-fixed-price-incentive-and-letter-contracts.md) for those types.
 
-The route to award limits the choice. A contract resulting from sealed bidding must be firm-fixed-price or fixed-price with economic price adjustment [@CL-EST-0949]. A contract negotiated under part 15 may be of any type or combination of types that will promote the Government's interest, except as restricted in part 16 [@CL-EST-0950].
+A contract resulting from sealed bidding shall be firm-fixed-price or fixed-price with economic price adjustment [@CL-EST-0949]. A contract negotiated under part 15 may be of any type or combination of types that will promote the Government's interest, except as restricted in part 16 [@CL-EST-0950].
 
-Three further rules apply. A type that the regulation does not describe shall not be used, except as a deviation under subpart 1.4 [@CL-EST-0951]. The section does not say who approves a deviation. The cost-plus-a-percentage-of-cost system shall not be used, and the section states no exception [@CL-EST-0952]. A prime contract other than firm-fixed-price, letter contracts included, shall by an appropriate clause prohibit cost-plus-a-percentage-of-cost subcontracts [@CL-EST-0953]. The section points to the clauses prescribed in subpart 44.2 for cost-reimbursement contracts and in subparts 16.2 and 16.4 for fixed-price contracts [@CL-EST-0953]. For award-fee contracts, see [award-fee contracts](est-award-fee-contracts.md).
+Further rules apply. A type that the regulation does not describe shall not be used, except as a deviation under subpart 1.4 [@CL-EST-0951]. The cost-plus-a-percentage-of-cost system of contracting shall not be used [@CL-EST-0952]. A prime contract other than firm-fixed-price, letter contracts included, shall by an appropriate clause prohibit cost-plus-a-percentage-of-cost subcontracts [@CL-EST-0953]. The section points to the clauses prescribed in subpart 44.2 for cost-reimbursement contracts and in subparts 16.2 and 16.4 for fixed-price contracts [@CL-EST-0953]. For award-fee contracts, see [award-fee contracts](est-award-fee-contracts.md).
 
-No contract may be awarded before the execution of any determination and findings that part 16 requires [@CL-EST-0954]. The section names no official who executes it. Minimum content requirements are in 1.704 [@CL-EST-0955].
+No contract may be awarded before the execution of any determination and findings that part 16 requires [@CL-EST-0954]. Minimum requirements for the content of determinations and findings required by part 16 are specified in 1.704 [@CL-EST-0955].
 
 ## Worked example
 
@@ -61,7 +61,7 @@ A requirement worth 3,000,000 is awarded by sealed bidding, so the contract must
 
 ## Never confuse
 
-Sealed bidding does not leave the type open the way negotiation does. The sealed-bid route is confined to firm-fixed-price or fixed-price with economic price adjustment [@CL-EST-0949; @CL-EST-0950]. The bar on the percentage-of-cost system is not the same as the bar on undescribed types. The first shall not be used, and the section states no exception. The second shall not be used except as a deviation under subpart 1.4 [@CL-EST-0952; @CL-EST-0951]. The bar on the percentage-of-cost system and the required clause that prohibits percentage-of-cost subcontracts are two separate rules [@CL-EST-0952; @CL-EST-0953].
+Contracts resulting from sealed bidding shall be firm-fixed-price contracts or fixed-price contracts with economic price adjustment [@CL-EST-0949], while contracts negotiated under part 15 may be of any type or combination of types that will promote the Government's interest, except as restricted in part 16 [@CL-EST-0950]. The cost-plus-a-percentage-of-cost system of contracting shall not be used [@CL-EST-0952]. Contract types not described in this regulation shall not be used, except as a deviation under subpart 1.4 [@CL-EST-0951]. Prime contracts (including letter contracts) other than firm-fixed-price contracts shall, by an appropriate clause, prohibit cost-plus-a-percentage-of-cost subcontracts [@CL-EST-0953].
 
 ## Company calibration
 
@@ -71,5 +71,6 @@ What share of the company's revenue sits in each contract type, and which approv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed absence statements and unsupported framing; restated Never-confuse contrasts as cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 16.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for selecting contract types.

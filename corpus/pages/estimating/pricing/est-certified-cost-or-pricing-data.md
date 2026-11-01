@@ -22,9 +22,9 @@ Shows the dollar threshold above which a prime contract needs certified cost or 
 
 | Field | Value |
 |---|---|
-| Instrument | DoD class deviation [@CL-EST-0002]; codified FAR for other agencies [@CL-EST-0001] |
+| Instrument | DoD class deviation [@CL-EST-0002]; codified FAR [@CL-EST-0001] |
 | Codified citation | FAR 15.403-4(a)(1) [@CL-EST-0001] |
-| RFO citation | Class Deviation 2026-O0048 Rev 1, DFARS 215.403-3(a) [@CL-EST-0002]; RFO FAR 15.403-3(a) [@CL-EST-0001] |
+| RFO citation | Class Deviation 2026-O0048 Rev 1, DFARS 215.403-3(a) [@CL-EST-0002]; RFO FAR 15.403-3(a) [@CL-EST-3213] |
 | Edition date | Not established. |
 | Text status | Deviation text for DoD [@CL-EST-0002]; final for the codified FAR [@CL-EST-0001] |
 | Applies to | Prime contracts by award date [@CL-EST-0001] [@CL-EST-0002] |
@@ -55,6 +55,7 @@ How many open and planned proposals need certified data under each threshold. [@
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Table rows: RFO citation tied to an RFO claim and instrument row limited to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Deviation threshold, exception and certificate wording corrected to the cited text; false statement that the deviation has no earlier-award threshold or subcontract rule removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the exceptions, other-data and statute sentences to cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the cost or pricing data definition.

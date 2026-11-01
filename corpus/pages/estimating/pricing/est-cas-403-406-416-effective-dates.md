@@ -37,7 +37,7 @@ For each Standard, contractors with no previous contracts subject to the Standar
 
 ## How it works
 
-The transition turns on the contractor's history. A contractor that already has prior CAS-covered contracts with full coverage continues the Standard's applicability when it receives a contract the Standard applies to [@CL-EST-2642; @CL-EST-2644; @CL-EST-2647].
+The transition has two cases. A contractor that already has prior CAS-covered contracts with full coverage continues the Standard's applicability when it receives a contract the Standard applies to [@CL-EST-2642; @CL-EST-2644; @CL-EST-2647].
 
 A contractor with no previous contract subject to the Standard begins to apply it with its next full fiscal year that begins after it receives a contract the Standard applies to [@CL-EST-2512; @CL-EST-2645; @CL-EST-2648].
 
@@ -53,7 +53,7 @@ A second contractor already holds prior CAS-covered contracts with full coverage
 
 The effective date is the date the Standard became effective, and the transition cases say when a contractor begins to follow it [@CL-EST-2511; @CL-EST-2642; @CL-EST-2512].
 
-The two transition cases are separate. Which one applies depends on whether the contractor has prior CAS-covered contracts with full coverage or no previous contract subject to the Standard [@CL-EST-2642; @CL-EST-2512].
+The two transition cases are separate: one is for contractors with prior CAS-covered contracts with full coverage [@CL-EST-2642], and the other is for contractors with no previous contracts subject to the Standard [@CL-EST-2512].
 
 The mechanics of each Standard are on the [home office allocation](../../compliance/cas-allowability/cmp-cas-403-home-office-allocation.md), [cost accounting period](../../compliance/cas-allowability/cmp-cas-406-cost-accounting-period.md) and [insurance](../../compliance/cas-allowability/cmp-cas-416-insurance.md) cards.
 
@@ -65,5 +65,6 @@ Whether each business unit already carries CAS-covered contracts under full cove
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Transition cases stated as two separate cases from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the sections omit removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the effective date and transition of the home office allocation, cost accounting period and insurance Standards.

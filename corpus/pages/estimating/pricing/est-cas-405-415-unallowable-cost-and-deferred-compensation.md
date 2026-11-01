@@ -41,13 +41,13 @@ For contractors and subcontractors that established advance agreements before Ju
 
 ## How it works
 
-The two Standards answer different questions. CAS 405 covers how costs already described as unallowable are identified and treated in the accounts [@CL-EST-2502; @CL-EST-2637]. CAS 415 covers how deferred compensation cost is measured and which cost accounting period carries it [@CL-EST-2505].
+CAS 405 establishes guidelines covering the identification of costs specifically described as unallowable and the cost accounting treatment to be accorded such identified unallowable costs [@CL-EST-2502; @CL-EST-2637]. CAS 415 provides criteria for the measurement of the cost of deferred compensation and the assignment of such cost to cost accounting periods [@CL-EST-2505].
 
 CAS 405 does not govern the allowability of costs [@CL-EST-2504], which is a function of the appropriate procurement or reviewing authority [@CL-EST-2638].
 
-The revised CAS 415 applies to a contractor from the start of its next cost accounting period that begins after it receives a contract or subcontract the Standard applies to [@CL-EST-2640]. A contractor with prior full coverage contracts stays on the earlier version until the revised Standard becomes applicable to it in that way [@CL-EST-2508].
+CAS 415 shall be followed by each contractor on or after the start of its next cost accounting period beginning after the receipt of a contract or subcontract to which it is applicable [@CL-EST-2640]. Contractors with prior CAS-covered contracts with full coverage shall continue to follow the version in effect before June 2, 2008 until the revised Standard becomes applicable following receipt of a contract or subcontract to which it applies [@CL-EST-2508].
 
-An advance agreement on existing ESOP costs made before the effective date binds the awarding agency and the contractor for those ESOPs [@CL-EST-2509]. Mutual agreement can modify it to bring in the requirements effective on that date [@CL-EST-2510].
+For contractors and subcontractors that established advance agreements before June 2, 2008 on the recognition of the costs of existing ESOPs, the awarding agency and contractor shall comply with those agreements for those ESOPs [@CL-EST-2509]. Those advance agreements may be modified, by mutual agreement, to incorporate the requirements effective on June 2, 2008 [@CL-EST-2510].
 
 ## Worked example
 
@@ -75,6 +75,7 @@ Which business units hold full coverage contracts and which advance agreements o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: How-it-works wording for CAS 405 and 415 aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: CAS 405 and 415 comparison restated as the cited text; inferences and added actor removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the CAS 405 predicate sentence.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that a pension plan that is not an ESOP is covered by other Cost Accounting Standards, not by CAS 415.
