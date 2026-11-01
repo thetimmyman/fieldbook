@@ -35,17 +35,17 @@ The Contractor shall ensure that a copy of the permit is available at all reason
 
 ## How it works
 
-The permit comes from the Inspectorate of Labor that has jurisdiction over the work site, and the clause ties it to Article 5g of the cited Italian law [@CL-CMP-4429]. The deadline is the date set for commencement of work and services [@CL-CMP-4429]. A copy must be available for inspection by the Contracting Officer or an authorized representative at all reasonable times [@CL-CMP-4430]. The stated consequence of failure is that the Government may terminate for its convenience, at no cost to the Government [@CL-CMP-4431].
+The permit comes from the Inspectorate of Labor that has jurisdiction over the work site, and the clause ties it to Article 5g of the cited Italian law [@CL-CMP-4429]. The deadline is the date set for commencement of work and services [@CL-CMP-4429]. A copy must be available for inspection by the Contracting Officer or an authorized representative at all reasonable times [@CL-CMP-4430]. Failure to obtain the permit may result in termination of the contract for the convenience of the United States Government, at no cost to the United States Government [@CL-CMP-4431].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-Work is set to start on day 100 of the contract schedule. The Contractor obtains the permit from the Inspectorate of Labor for the work site on day 80 and keeps a copy at the site for inspection. Answer: the clause is met, because the permit was obtained before the date set for commencement and a copy is available for inspection. Had no permit been obtained by day 100, the Government could terminate for convenience at no cost to the Government. Assumed for the example: day 100 is the date set for commencement.
+Work is set to start on day 100 of the contract schedule. The Contractor obtains the permit from the Inspectorate of Labor for the work site on day 80 and keeps a copy at the site for inspection. Answer: the clause is met, because the permit was obtained before the date set for commencement and a copy is available for inspection. Had no permit been obtained by day 100, that failure could result in termination of the contract for the convenience of the Government at no cost to the Government. Assumed for the example: day 100 is the date set for commencement.
 
 ## Never confuse
 
-The stated consequence is termination for the convenience of the Government at no cost to the Government, not a default termination. The clause says the Government may terminate, not that it must [@CL-CMP-4431]. The permit is also separate from the offeror's representation of authority to do business where the contract is performed; see [Authorization to perform and English correspondence](cmp-authorization-to-perform-and-english-correspondence.md). The permit is also not the general duty to follow local labor laws and union agreements, which is in [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md). The Spanish clauses cover social security proof and insurance and carry a different stated remedy, termination under the Default clause for the social security clause [@CL-CMP-4437]; see [Spanish social security laws and Spanish laws and insurance](cmp-dfars-spanish-social-security-and-insurance.md).
+For the offeror's representation of authority to do business where the contract is performed, see [Authorization to perform and English correspondence](cmp-authorization-to-perform-and-english-correspondence.md). For the duty to follow local labor laws and union agreements, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md). Failure to comply with the requirements of the Spanish social security clause may result in termination of the contract under the Default clause [@CL-CMP-4437]; see [Spanish social security laws and Spanish laws and insurance](cmp-dfars-spanish-social-security-and-insurance.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which Italian work sites are covered, and where each permit and its copy are kep
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated failure consequence in the clause words; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the permit from the Italian Inspectorate of Labor.

@@ -35,7 +35,7 @@ The prohibition does not apply to work performed by lawfully admitted citizens o
 
 ## How it works
 
-The bar turns on the worker's visa or nonimmigrant status under the named section [@CL-CMP-4420]. It covers the work required by the contract [@CL-CMP-4420]. The clause title names Guam, but the printed text of the prohibition does not itself name a place [@CL-CMP-4419]. The exception turns on lawful admission and on citizenship of one of the three named freely associated states [@CL-CMP-4421].
+The work required by the contract shall not be performed by any alien who is issued a visa or otherwise provided nonimmigrant status under Section 101(a)(15)(H)(ii) of the Immigration and Nationality Act [@CL-CMP-4420]. The prohibition does not apply to work performed by lawfully admitted citizens of the Republic of the Marshall Islands, the Federated States of Micronesia, or the Republic of Palau [@CL-CMP-4421].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contract with the Guam clause needs 10 workers for a task. Four hold a visa un
 
 ## Never confuse
 
-The bar reaches aliens who hold the status named in the clause [@CL-CMP-4420]. It does not bar every foreign national. The exception is narrow: it names three freely associated states and requires lawful admission [@CL-CMP-4421]. The residency clause is a different idea: it requires the Contractor to employ residents of a named place for work there, and it does not bar any class of workers; see [Restrictions on employment of personnel](cmp-dfars-restrictions-on-employment-of-personnel.md).
+For the residency clause, see [Restrictions on employment of personnel](cmp-dfars-restrictions-on-employment-of-personnel.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which executed contracts include the Guam clause, and who confirms it. [@Q-004]
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated rule as cited facts; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on nonimmigrant aliens on Guam.

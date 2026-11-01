@@ -31,7 +31,7 @@ Shows who must be trained to deal with detainees and when, how the training reco
 
 The Combatant Commander responsible for the area where a detention or interrogation facility is located will arrange for training to be provided to contractor personnel interacting with detainees [@CL-CMP-4335]. The training will address the international obligations and laws of the United States applicable to the detention of personnel, including the Geneva Conventions, and the Combatant Commander will arrange for a training receipt document to be provided to personnel who have completed it [@CL-CMP-4336]. Personnel interacting with detainees are personnel who, in the course of their duties, are expected to interact with detainees [@CL-CMP-4337].
 
-Contractor personnel shall not interrogate detainees [@CL-CMP-4342]. The prohibition clause defines interrogation of detainees as a systematic process of formally and officially questioning a detainee for the purpose of obtaining reliable information to satisfy foreign intelligence collection requirements [@CL-CMP-4343]. Its definition of detainee does not include DoD personnel or DoD contractor personnel being held for law enforcement purposes [@CL-CMP-4344].
+Contractor personnel shall not interrogate detainees [@CL-CMP-4342]. The prohibition clause defines interrogation of detainees as a systematic process of formally and officially questioning a detainee for the purpose of obtaining reliable information to satisfy foreign intelligence collection requirements [@CL-CMP-4343]. The clause defines a detainee as any person captured, detained, held, or otherwise under the effective control of DoD personnel (military or civilian) in connection with hostilities [@CL-CMP-8619], and that definition does not include DoD personnel or DoD contractor personnel being held for law enforcement purposes [@CL-CMP-4344].
 
 ## How it works
 
@@ -45,7 +45,7 @@ A contractor sends 12 staff to work at a detention facility. Each receives the C
 
 ## Never confuse
 
-The training clause and the prohibition clause do different jobs. The training covers personnel who are expected to interact with detainees [@CL-CMP-4337], and the other clause bars contractor personnel from interrogating them [@CL-CMP-4342]. Interrogation has its own definition in the prohibition clause, and the exclusion of personnel held for law enforcement purposes belongs to that clause's definition of detainee [@CL-CMP-4343; @CL-CMP-4344].
+The training clause covers personnel who, in the course of their duties, are expected to interact with detainees [@CL-CMP-4337], and the prohibition clause provides that contractor personnel shall not interrogate detainees [@CL-CMP-4342]. Interrogation of detainees is defined in the prohibition clause [@CL-CMP-4343], and the exclusion of DoD personnel or DoD contractor personnel held for law enforcement purposes appears in that clause's definition of detainee [@CL-CMP-8619; @CL-CMP-4344].
 
 Related clauses are covered on [Contractor personnel supporting deployed forces](cmp-deployed-contractor-personnel-definitions-and-predeployment.md), on [Defense contractors performing private security functions outside the United States](cmp-private-security-functions-outside-the-united-states.md), and, for crisis duties, on [Continuation of essential contractor services](cmp-continuation-of-essential-contractor-services.md).
 
@@ -57,5 +57,6 @@ Which contracts carry these clauses, which personnel interact with detainees, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the prohibition clause definition of detainee and removed an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'in the course of their duties' in the subcontract flowdown condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for detainee training and the interrogation prohibition.

@@ -27,7 +27,7 @@ Shows what the clause bars the contractor from providing, the definition it uses
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4539] |
-| Applies to | Contracts that include the clause; the clause text names the DFARS section that prescribes its use [@CL-CMP-4564] |
+| Applies to | Contracts with the clause, used as prescribed in DFARS 223.7404 [@CL-CMP-4564] |
 
 The Contractor must not provide or use under the contract any fire-fighting agent that contains perfluoroalkyl substances or polyfluoroalkyl substances in excess of one part per billion [@CL-CMP-4539].
 
@@ -43,7 +43,7 @@ A contractor supplies foam concentrate for a base fire station. The lab report s
 
 ## Never confuse
 
-The bar reaches providing or using the agent under the contract, not only delivering it [@CL-CMP-4539]. The meanings of the two substance groups come from the statute the clause cites, not from text printed in the clause [@CL-CMP-4538]. The hexavalent chromium bar covers deliverables and construction material, not fire-fighting agents; see [Prohibition of hexavalent chromium (DFARS)](cmp-dfars-hexavalent-chromium-prohibition.md). For how commercial subcontracts take clause terms in general, see [Subcontracts for commercial products or commercial services (DFARS)](../../close-revrec/revenue/cls-dfars-commercial-subcontract-flowdown.md).
+For the hexavalent chromium bar, see [Prohibition of hexavalent chromium (DFARS)](cmp-dfars-hexavalent-chromium-prohibition.md). For how commercial subcontracts take clause terms in general, see [Subcontracts for commercial products or commercial services (DFARS)](../../close-revrec/revenue/cls-dfars-commercial-subcontract-flowdown.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which contracts carry the clause, and which fire-fighting agents the company or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited prescription section; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition of procurement of fluorinated fire-fighting agent for use on military installations.

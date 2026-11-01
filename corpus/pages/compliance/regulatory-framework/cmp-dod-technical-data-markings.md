@@ -33,7 +33,7 @@ The Contractor, and its subcontractors or suppliers, may only assert restriction
 
 ### Authorized legends
 
-Except as provided in a later paragraph of the clause, the only legends authorized under the contract are those on a list that begins with the government purpose rights legend and the limited rights legend [@CL-CMP-3810]. The list also includes the special license rights legend and a notice of copyright as prescribed under sections 401 and 402 of title 17 of the United States Code [@CL-CMP-3811].
+Except as provided in a later paragraph of the clause, the only legends authorized under the contract are those on a list that begins with the government purpose rights legend and the limited rights legend [@CL-CMP-3810]. The list also includes the special license rights legend and a notice of copyright as prescribed under section 401 or 402 of title 17 of the United States Code [@CL-CMP-3811].
 
 Data delivered with government purpose rights are marked with a legend headed Government Purpose Rights that has fields for the contract number, contractor name, contractor address and expiration date [@CL-CMP-3832]. Data delivered with limited rights are marked with a legend headed Limited Rights that has fields for the contract number, contractor name and contractor address [@CL-CMP-3833].
 
@@ -55,11 +55,11 @@ The Government may ignore or, at the Contractor's expense, correct or strike a m
 
 ### Contractor procedures
 
-Contractors and their subcontractors or suppliers that will deliver technical data with other than unlimited rights shall have, maintain, and follow written procedures sufficient to assure that restrictive markings are used only when authorized by the terms of the clause [@CL-CMP-3818].
+One listed duty of contractors and their subcontractors or suppliers that will deliver technical data with other than unlimited rights is to have, maintain, and follow written procedures sufficient to assure that restrictive markings are used only when authorized by the terms of the clause [@CL-CMP-3818].
 
 ## How it works
 
-The Contractor asserts a restriction by marking the deliverable data with one of the authorized legends [@CL-CMP-3809; @CL-CMP-3810]. Data with no marking are presumed to carry unlimited rights, and the Contractor may ask permission to add markings within a set time [@CL-CMP-3814; @CL-CMP-3816; @CL-CMP-3817]. A marking in the wrong format is a nonconforming marking, and after notice and a period to fix it the Government may ignore or correct it without using the validation procedure [@CL-CMP-3820; @CL-CMP-3821; @CL-CMP-3822]. A marking that is determined to be unjustified goes through the validation procedure instead [@CL-CMP-3819]. The markings tie to the rights categories: limited rights apply to data pertaining to items developed exclusively at private expense and marked with the limited rights legend, subject to listed exceptions [@CL-CMP-3772].
+The Contractor asserts a restriction by marking the deliverable data with one of the authorized legends [@CL-CMP-3809; @CL-CMP-3810]. Data with no marking are presumed to carry unlimited rights, and the Contractor may ask permission to add markings within a set time [@CL-CMP-3814; @CL-CMP-3816; @CL-CMP-3817]. A marking in the wrong format is a nonconforming marking, and after notice and a period to fix it the Government may ignore or correct it without using the validation procedure [@CL-CMP-3820; @CL-CMP-3821; @CL-CMP-3822]. The Government may ignore or, at the Contractor's expense, correct or strike a marking that is determined to be unjustified in accordance with the procedures in the validation clause [@CL-CMP-3819]. The markings tie to the rights categories: limited rights apply to data pertaining to items developed exclusively at private expense and marked with the limited rights legend, subject to listed exceptions [@CL-CMP-3772].
 
 ### Data the Contractor has marked
 
@@ -73,9 +73,9 @@ A contractor delivers 10 drawings. It marks 9 with the limited rights legend, in
 
 ## Never confuse
 
-A nonconforming marking and an unjustified marking are different. A nonconforming marking is wrong in format, and its correction is outside the validation clause [@CL-CMP-3820; @CL-CMP-3821]. An unjustified marking is wrong in substance and is dealt with through the validation procedure [@CL-CMP-3819]. A marking and the funding of development are also different things: the clause describes limited rights in terms of both private-expense development and the legend [@CL-CMP-3772].
+A nonconforming marking is a marking that is not in the format authorized by the contract, and correction of nonconforming markings is not subject to the validation clause [@CL-CMP-3820; @CL-CMP-3821]. Under the clause, the Government shall have limited rights in technical data pertaining to items, components, or processes developed exclusively at private expense and marked with the limited rights legend, subject to listed exceptions [@CL-CMP-3772].
 
-This card is about the clause for technical data on items that are not commercial. For the general FAR clause, see [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). For the rights categories the legends refer to, see [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md). For the list of assertions made with an offer, see [DoD identification and assertion of restrictions](cmp-dod-assertion-of-data-restrictions.md). For commercial products, see [DoD technical data for commercial products and services](cmp-dod-commercial-technical-data-license.md), which has its own release from liability for data that are not marked [@CL-CMP-3830].
+For the general FAR clause, see [Rights in data, general: copyright, withholding and markings](cmp-rights-in-data-general-copyright-withholding-and-markings.md). For the rights categories the legends refer to, see [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md). For the list of assertions made with an offer, see [DoD identification and assertion of restrictions](cmp-dod-assertion-of-data-restrictions.md). For commercial products, see [DoD technical data for commercial products and services](cmp-dod-commercial-technical-data-license.md), where the clause provides that there is no liability for any release or disclosure of technical data that are not marked to indicate that such data are licensed data subject to restrictions [@CL-CMP-3830].
 
 ## Company calibration
 
@@ -85,4 +85,5 @@ Which executed contracts carry this clause, and who confirms how deliverable dat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Corrected or-list wording for copyright sections, stated contractor procedures as one listed duty, replaced contrast and characterization sentences with cited statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD rights in technical data for noncommercial items: marking requirements.

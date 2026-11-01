@@ -35,7 +35,7 @@ After the date set for receipt of offers, the Offeror agrees not to change the p
 
 ## How it works
 
-The offer names the place of performance for the covered work, and leaving it out may cost the offer [@CL-CMP-4514]. Once offers are due, a change needs the written approval of the Contracting Officer [@CL-CMP-4515]. The Contracting Officer grants that approval only if there is enough time for the Government to perform the necessary safety reviews on the new proposed place of performance [@CL-CMP-4516]. If a contract results, the Contractor agrees not to change any place of performance previously cited without the advance written approval of the Contracting Officer [@CL-CMP-4517].
+The Offeror identifies the place of performance of all covered ammunition and explosives work, and failure to furnish that information with the offer may result in rejection of the offer [@CL-CMP-4513; @CL-CMP-4514]. After the date set for receipt of offers, the Offeror agrees not to change the place of performance of any portion of the offer covered by the Safety Precautions for Ammunition and Explosives clause without the written approval of the Contracting Officer [@CL-CMP-4515]. The Contracting Officer grants that approval only if there is enough time for the Government to perform the necessary safety reviews on the new proposed place of performance [@CL-CMP-4516]. If a contract results, the Contractor agrees not to change any place of performance previously cited without the advance written approval of the Contracting Officer [@CL-CMP-4517].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ An offeror names one plant as the place of performance for its explosives work. 
 
 ## Never confuse
 
-The place of performance covered here is the place for ammunition and explosives work under the safety clause, not every place the offeror might perform other work [@CL-CMP-4513]. The safety precautions clause points back to this clause: when a proposed subcontract represents a change in the place of performance, the Contractor must request approval in accordance with this clause [@CL-CMP-4551]. See [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md).
+The Offeror identifies the place of performance of all ammunition and explosives work covered by the Safety Precautions for Ammunition and Explosives clause [@CL-CMP-4513]. Under the safety precautions clause, when a proposed subcontract represents a change in the place of performance, the Contractor must request approval in accordance with this clause [@CL-CMP-4551]. See [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which contracts carry the clause, and where the company names and tracks the pla
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited contrast and carried the offer and approval conditions into the summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for change in place of performance for ammunition and explosives.

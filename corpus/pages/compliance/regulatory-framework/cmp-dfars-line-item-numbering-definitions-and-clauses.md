@@ -37,9 +37,9 @@ The clause at 252.204-7002, Payment for Contract Line or Subline Items Not Separ
 
 ## How it works
 
-The definitions separate documents that set deliverable requirements from documents that do not: an attachment does not establish a requirement for deliverables, an exhibit does, and exhibit is not a label for other attachments [@CL-CMP-7928; @CL-CMP-7930]. The status of an item turns on whether a price has been established in the basic contract or by modification: a firm price makes it definitized and no established price makes it undefinitized [@CL-CMP-7929; @CL-CMP-7933].
+An attachment is documentation, appended to a contract or incorporated by reference, which does not establish a requirement for deliverables [@CL-CMP-7928]. An exhibit is a document, referred to in a contract, which is attached and establishes requirements for deliverables, and the term shall not be used to refer to any other kind of attachment [@CL-CMP-7930]. A definitized item is an item for which a firm price has been established in the basic contract or by modification, and an undefinitized item is an item for which a price has not been established in the basic contract or by modification [@CL-CMP-7929; @CL-CMP-7933].
 
-The two prescriptions follow the pricing shape. The clause for items not separately priced applies when that price is folded into the price of another line or subline item [@CL-CMP-7934]. The cost voucher clause applies when a cost-reimbursement, time-and-materials or labor-hour contract is contemplated, so the trigger is that one of those contract types is contemplated [@CL-CMP-7935]. Each prescription directs use in solicitations and contracts [@CL-CMP-7934; @CL-CMP-7935]. The section names no official who decides and sets no threshold, deadline or exception for either prescription. The clause text itself, including what the contractor must do, is covered in [the line item payment card](../../contract-finance/billing-payment/ctf-dfars-nsp-line-item-payment.md) and [the cost voucher billing card](../../contract-finance/billing-payment/ctf-dfars-billing-instructions-cost-vouchers.md).
+The clause at 252.204-7002 is to be used in solicitations and contracts when the price for items not separately priced is included in the price of another contract line or subline item [@CL-CMP-7934]. The clause at 252.204-7006 is to be used in solicitations and contracts when a cost-reimbursement contract, a time-and-materials contract, or a labor-hour contract is contemplated [@CL-CMP-7935]. The clause text itself, including what the contractor must do, is covered in [the line item payment card](../../contract-finance/billing-payment/ctf-dfars-nsp-line-item-payment.md) and [the cost voucher billing card](../../contract-finance/billing-payment/ctf-dfars-billing-instructions-cost-vouchers.md).
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A schedule line covers a deliverable with a firm price set in the basic contract
 
 ## Never confuse
 
-An attachment is not an exhibit. An exhibit is attached and establishes requirements for deliverables, while an attachment does not, and the data requirements list is always an exhibit rather than an attachment [@CL-CMP-7928; @CL-CMP-7930; @CL-CMP-7931]. Definitized and undefinitized also describe whether a price has been established, not whether the deliverable is nonseverable [@CL-CMP-7929; @CL-CMP-7932; @CL-CMP-7933].
+The DD Form 1423, Contract Data Requirements List, is always an exhibit rather than an attachment [@CL-CMP-7931].
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Where the executed contracts and modifications sit, and who confirms how each li
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated definitions and prescriptions as cited facts; cut uncited contrasts and meta sentences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for uniform contract line item numbering definitions and clause prescriptions.

@@ -35,7 +35,7 @@ If a determination and findings is superseded by another one, the supersession s
 
 Expiration dates are required for class documents and optional for individual ones [@CL-CMP-8352]. Authority to act under an individual document expires when it is exercised or on an expiration date specified in the document, whichever occurs first [@CL-CMP-8353]. Authority to act under a class document expires on the expiration date specified in the document [@CL-CMP-8354]. When a solicitation has been furnished to prospective offerors before the expiration date, the authority under the document will continue until award of the contracts resulting from that solicitation [@CL-CMP-8355].
 
-The section on supersession and modification does not say who may supersede or modify a document or how. The general rules on the document are on [Determination and findings: the written approval and its general rules](cmp-determination-and-findings-definition-and-general-rules.md), and the class rules, including the requirement for a stated expiration date, are on [Class determinations and findings: authority and limits](cmp-class-determinations-and-findings.md).
+For the general rules on the document, see [Determination and findings: the written approval and its general rules](cmp-determination-and-findings-definition-and-general-rules.md), and for the class rules, including the requirement for a stated expiration date, see [Class determinations and findings: authority and limits](cmp-class-determinations-and-findings.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ An individual document states an expiration date of 30 September, and the author
 
 ## Never confuse
 
-Expiration is not the same as supersession. Supersession does not invalidate earlier actions [@CL-CMP-8350], while expiration ends the authority to act, on the stated date for a class document and on exercise or the stated date, whichever is first, for an individual one, except that authority continues until award for a solicitation furnished to prospective offerors before the expiration date [@CL-CMP-8353; @CL-CMP-8354; @CL-CMP-8355]. A modified document that supports the contract action is also not a reason to cancel the solicitation by itself [@CL-CMP-8351].
+If a determination and findings is superseded by another one, the supersession shall not render invalid any action taken under the original document before the date of supersession [@CL-CMP-8350]. Authority to act under a class document expires on the expiration date specified in the document, and under an individual document when it is exercised or on an expiration date specified in the document, whichever occurs first [@CL-CMP-8353; @CL-CMP-8354]. When a solicitation has been furnished to prospective offerors before the expiration date, the authority under the document will continue until award of the contracts resulting from that solicitation [@CL-CMP-8355]. The contracting officer need not cancel the solicitation if the document, as modified, supports the contract action [@CL-CMP-8351].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which determinations and findings in the company's remit have expired or been su
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta sentence and uncited contrast; restated cited rules and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supersession, modification and expiration of determinations and findings.
