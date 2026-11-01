@@ -35,15 +35,15 @@ Insurance costs are allocated to cost objectives on the basis of the beneficial 
 
 ## How it works
 
-For exposure covered by purchased insurance or by payments to a trusteed fund, the premium or payment, adjusted under the listed criteria, represents the projected average loss [@CL-CMP-1904]. The premium for a policy term is assigned pro rata among the cost accounting periods the term covers, except as the listed subdivisions provide [@CL-CMP-1785].
+For exposure covered by purchased insurance or by payments to a trusteed fund, the premium or payment, adjusted in accordance with the listed criteria, shall represent the projected average loss [@CL-CMP-1904]. The premium cost applicable to a given policy term shall be assigned pro rata among the cost accounting periods covered by the policy term, except as provided in subdivisions (a)(1)(ii) through (vi) [@CL-CMP-1785].
 
 One of those exceptions is coverage bought specifically for, and directly allocated to, a single final cost objective, where the premium need not be prorated [@CL-CMP-1786].
 
-For exposure not covered by purchased insurance or by payments to a trusteed fund, the contractor follows a program of self-insurance accounting [@CL-CMP-1905]. Except as the two listed subdivisions provide, actual losses do not become insurance costs [@CL-CMP-1787]. Instead, the contractor makes a self-insurance charge for each period and each type of self-insured risk, representing the projected average loss for that period [@CL-CMP-1788].
+For exposure not covered by purchased insurance or by payments to a trusteed fund, the contractor shall follow a program of self-insurance accounting according to the listed criteria [@CL-CMP-1905]. Except as provided in subdivisions (a)(2)(ii) and (iii), actual losses shall not become a part of insurance costs [@CL-CMP-1787]. The contractor shall make a self-insurance charge for each period for each type of self-insured risk, which shall represent the projected average loss for that period [@CL-CMP-1788].
 
-Allocation then follows the factors used to determine the premium, assessment, refund, dividend or self-insurance charge [@CL-CMP-1789], except that costs incurred by a segment, or allocated to it from a home office, may be combined with the costs of other indirect cost pools if the resulting allocation to each final cost objective is substantially the same as separate allocation would give [@CL-CMP-1906].
+Insurance costs shall be allocated on the basis of the factors used to determine the premium, assessment, refund, dividend, or self-insurance charge [@CL-CMP-1789], except that insurance costs incurred by a segment, or allocated to a segment from a home office, may be combined with the costs of other indirect cost pools if the resulting allocation to each final cost objective is substantially the same as separate allocation would give [@CL-CMP-1906].
 
-Administration expenses that are material in relation to total insurance costs follow the same basis as the related premium or charge [@CL-CMP-1790], and the contractor must maintain such records as may be necessary to substantiate the amounts of premiums, refunds, dividends, losses and self-insurance charges, paid or accrued, and the measurement and allocation of insurance costs [@CL-CMP-1791].
+Insurance administration expenses which are material in relation to total insurance costs shall be allocated on the same basis as the related premium costs or self-insurance charge [@CL-CMP-1790], and the contractor shall maintain such records as may be necessary to substantiate the amounts of premiums, refunds, dividends, losses and self-insurance charges, paid or accrued, and the measurement and allocation of insurance costs [@CL-CMP-1791].
 
 ## Worked example
 
@@ -53,7 +53,7 @@ A policy term of two years costs 90,000 and covers two equal cost accounting per
 
 ## Never confuse
 
-Insurance cost is not the same as cash paid in the period: a premium is spread pro rata across the periods the policy term covers, except as the listed subdivisions provide, and for uninsured risk the charge is a projected average loss rather than the actual losses of the period, except as the two listed subdivisions provide [@CL-CMP-1785; @CL-CMP-1787; @CL-CMP-1788].
+The premium cost applicable to a given policy term shall be assigned pro rata among the cost accounting periods covered by the policy term, except as provided in subdivisions (a)(1)(ii) through (vi) [@CL-CMP-1785]. Except as provided in subdivisions (a)(2)(ii) and (iii), actual losses shall not become a part of insurance costs [@CL-CMP-1787].
 
 Insurance as an allowable cost outside this measurement rule is described in [Insurance and indemnification](../cas-allowability/cmp-insurance-and-indemnification.md).
 
@@ -64,6 +64,6 @@ Whether premiums, self-insurance charges and administration expenses land in the
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited contrast and restated shall wording and exceptions as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the self-insurance charge to the instead lead-in, marked the pooling allowance as an exception and named the contractor's records duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for insurance costs under the Cost Accounting Standards.

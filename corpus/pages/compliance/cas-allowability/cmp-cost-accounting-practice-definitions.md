@@ -37,15 +37,15 @@ A change is any alteration in such a practice, whether or not the practice is co
 
 ## How it works
 
-Setting the amount paid for a unit of goods or services, or changing that amount, is not itself a cost accounting practice [@CL-CMP-1771].
+The determination of the amount paid, or a change in the amount paid, for a unit of goods and services is not a cost accounting practice [@CL-CMP-1771].
 
-One exclusion is the first adoption of a practice, when a cost is first incurred or a function is created [@CL-CMP-1774].
+The initial adoption of a cost accounting practice for the first time a cost is incurred, or a function is created, is not a change in cost accounting practice [@CL-CMP-1774].
 
-Another is the partial or total elimination of a cost or of the cost of a function [@CL-CMP-1775].
+The partial or total elimination of a cost or the cost of a function is not a change in cost accounting practice [@CL-CMP-1775].
 
-Revising a practice for a cost that had previously been immaterial is excluded as well [@CL-CMP-1776].
+The revision of a cost accounting practice for a cost which previously had been immaterial is not a change in cost accounting practice [@CL-CMP-1776].
 
-Any other alteration in a cost accounting practice is a change even where no Disclosure Statement covers the practice [@CL-CMP-1773].
+A change to a cost accounting practice means any alteration in a cost accounting practice, whether or not such practices are covered by a Disclosure Statement, except for the exclusions that follow in the section [@CL-CMP-1773].
 
 ## Worked example
 
@@ -57,7 +57,7 @@ A contractor first incurs a cost for a new function and adopts a method for assi
 
 The determination of the amount paid, or a change in the amount paid, for a unit of goods and services is not a cost accounting practice [@CL-CMP-1771], and the initial adoption of a practice for the first time a cost is incurred, or a function is created, is not a change in cost accounting practice [@CL-CMP-1774].
 
-Eliminating a cost is excluded, while an alteration in how a remaining cost is allocated, assigned or measured is a change unless another exclusion applies [@CL-CMP-1770; @CL-CMP-1773; @CL-CMP-1775]. The disclosure, consistency and practice-change requirements of the standards clause are covered in [Cost accounting standards clause](../cas-allowability/cmp-cost-accounting-standards.md), and how materiality is judged in [Materiality](../cas-allowability/cmp-cas-materiality.md).
+A cost accounting practice is any disclosed or established accounting method or technique which is used for allocation of cost to cost objectives, assignment of cost to cost accounting periods, or measurement of cost [@CL-CMP-1770]. The disclosure, consistency and practice-change requirements of the standards clause are covered in [Cost accounting standards clause](../cas-allowability/cmp-cost-accounting-standards.md), and how materiality is judged in [Materiality](../cas-allowability/cmp-cas-materiality.md).
 
 The modified-coverage position is described in [Disclosure and consistency under modified coverage](../cas-allowability/cmp-disclosure-consistency-modified-cas.md).
 
@@ -68,6 +68,6 @@ Whether each business unit can show which practices are disclosed and how each a
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated exclusions as the quotes read and cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the price-paid and first-adoption sentence as the quotes say it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost accounting practice definitions.

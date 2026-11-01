@@ -29,19 +29,19 @@ Shows how the contracting officer, the cognizant auditor and the cognizant Feder
 | Text status | Final [@CL-CMP-7033] |
 | Applies to | Proposed contracts that may require CAS coverage, and CAS-covered contracts for the award bar [@CL-CMP-7033; @CL-CMP-7035] |
 
-Paragraph (a): the contracting officer is responsible for determining when a proposed contract may require CAS coverage and for including the appropriate notice in the solicitation [@CL-CMP-7033]. The contracting officer must then ensure that the offeror has made the required solicitation certifications and that required Disclosure Statements are submitted [@CL-CMP-7034]. The paragraph also points to 48 CFR 9903.201-3 and 9903.202 [@CL-CMP-7040].
+Paragraph (a): the contracting officer is responsible for determining when a proposed contract may require CAS coverage and for including the appropriate notice in the solicitation [@CL-CMP-7033]. The contracting officer must then ensure that the offeror has made the required solicitation certifications and that required Disclosure Statements are submitted [@CL-CMP-7034]. Also see 48 CFR 9903.201-3 and 9903.202 [@CL-CMP-7040].
 
-Paragraph (b): the contracting officer shall not award a CAS-covered contract until the CFAO has made a written determination that a required Disclosure Statement is adequate [@CL-CMP-7035]. The bar does not apply if, in order to protect the Government's interest, the agency head, on a nondelegable basis, authorizes award without obtaining submission of the required Disclosure Statement [@CL-CMP-7036]. In that event the contractor shall submit the required Disclosure Statement, and the CFAO shall make a determination of adequacy as soon as possible after the award [@CL-CMP-7037].
+Paragraph (b): the contracting officer shall not award a CAS-covered contract until the CFAO has made a written determination that a required Disclosure Statement is adequate [@CL-CMP-7035]. The award bar applies unless, in order to protect the Government's interest, the agency head, on a nondelegable basis, authorizes award without obtaining submission of the required Disclosure Statement (see 48 CFR 9903.202-2) [@CL-CMP-7036]. In that event the contractor shall submit the required Disclosure Statement, and the CFAO shall make a determination of adequacy as soon as possible after the award [@CL-CMP-7037].
 
 Paragraph (c): the cognizant auditor is responsible for conducting reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038]. Paragraph (d): the CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039].
 
 ## How it works
 
-The duties fall on different parties. The contracting officer screens for coverage, puts the notice in the solicitation, ensures the certifications and submissions, and may not award a CAS-covered contract before the CFAO's written adequacy determination unless the agency head authorizes award without the submission [@CL-CMP-7033; @CL-CMP-7034; @CL-CMP-7035; @CL-CMP-7036]. The cognizant auditor is responsible for reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038]. The CFAO is responsible for issuing determinations of adequacy and compliance [@CL-CMP-7039].
+The contracting officer is responsible for determining when a proposed contract may require CAS coverage and for including the appropriate notice in the solicitation [@CL-CMP-7033], must then ensure that the offeror has made the required solicitation certifications and that required Disclosure Statements are submitted [@CL-CMP-7034], and shall not award a CAS-covered contract until the CFAO has made a written determination that a required Disclosure Statement is adequate [@CL-CMP-7035], unless the agency head authorizes award without obtaining submission of the required Disclosure Statement [@CL-CMP-7036]. The cognizant auditor is responsible for reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038]. The CFAO is responsible for issuing determinations of adequacy and compliance [@CL-CMP-7039].
 
-The text states one exception to the award bar. The one it names is the agency head, who authorizes award without obtaining the submission, on a nondelegable basis and in order to protect the Government's interest [@CL-CMP-7036]. After such an authorization, the contractor must submit the required Disclosure Statement [@CL-CMP-7037]. The CFAO must then determine adequacy as soon as possible after the award; the paragraph sets no number of days [@CL-CMP-7037].
+Where the agency head authorizes award without obtaining submission of the required Disclosure Statement, in order to protect the Government's interest and on a nondelegable basis [@CL-CMP-7036], the contractor shall submit the required Disclosure Statement and the CFAO shall make a determination of adequacy as soon as possible after the award [@CL-CMP-7037].
 
-The section does not say when a Disclosure Statement is required; it speaks of a required statement. For that, see [CAS applicability, coverage and Disclosure Statement thresholds](cmp-cas-applicability.md) and [CAS Disclosure Statement amendments, revisions and adequacy](cmp-cas-disclosure-statement-amendments-and-adequacy.md). The CFAO is the contracting officer assigned by the cognizant Federal agency to administer the CAS [@CL-RTE-0874]. A later section says the CFAO should generally notify the contractor of adequacy or inadequacy within 30 days after receiving the Disclosure Statement [@CL-RTE-0873]. See [FAR 30 CAS clauses, waiver authority and Disclosure Statement determinations](../../indirect-rates/rate-lifecycle/rte-far-30-cas-clauses-waiver-and-determinations.md) [@CL-RTE-0873].
+For when a Disclosure Statement is required, see [CAS applicability, coverage and Disclosure Statement thresholds](cmp-cas-applicability.md) and [CAS Disclosure Statement amendments, revisions and adequacy](cmp-cas-disclosure-statement-amendments-and-adequacy.md). The CFAO is the contracting officer assigned by the cognizant Federal agency to administer the CAS [@CL-RTE-0874]. Generally, the CFAO should furnish the contractor notification of adequacy or inadequacy within 30 days after the CFAO receives the Disclosure Statement (FAR 30.202-7(a)(3)) [@CL-RTE-0873]. See [FAR 30 CAS clauses, waiver authority and Disclosure Statement determinations](../../indirect-rates/rate-lifecycle/rte-far-30-cas-clauses-waiver-and-determinations.md) [@CL-RTE-0873].
 
 ## Worked example
 
@@ -53,9 +53,9 @@ In a second scenario, the agency head, on a nondelegable basis and in order to p
 
 ## Never confuse
 
-The auditor's review and the CFAO's determination are different steps. The auditor is responsible for conducting the reviews for adequacy and compliance; the CFAO is responsible for issuing the determinations of adequacy and compliance [@CL-CMP-7038; @CL-CMP-7039].
+The cognizant auditor is responsible for conducting reviews of Disclosure Statements for adequacy and compliance [@CL-CMP-7038]. The CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039].
 
-A written determination of adequacy is not the agency-head authorization to award without a submission. The authorization is a nondelegable agency-head act, and the contractor's submission follows the award [@CL-CMP-7036; @CL-CMP-7037].
+Authorization to award without obtaining submission of the required Disclosure Statement is given by the agency head on a nondelegable basis [@CL-CMP-7036]; in that event the contractor shall submit the required Disclosure Statement [@CL-CMP-7037].
 
 ## Company calibration
 
@@ -64,7 +64,7 @@ For each business unit, whether proposed contracts may require CAS coverage and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated the award bar exception as unless.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named adequacy and compliance in the auditor and CFAO duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names the auditor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage.

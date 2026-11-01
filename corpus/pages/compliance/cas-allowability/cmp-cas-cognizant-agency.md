@@ -35,7 +35,7 @@ That agency should take the lead role in administering the requirements and coor
 
 ## How it works
 
-Where there are multiple CAS-covered contracts or more than one agency is involved, agencies should discourage contracting officers from administering CAS individually, contract by contract [@CL-CMP-1767]. The section says coordinated actions give greater assurances that a contractor follows its cost accounting practices consistently under all its CAS-covered contracts [@CL-CMP-1902], and that changes in cost accounting practices or CAS noncompliance issues are resolved, equitably, in a uniform overall manner [@CL-CMP-7686].
+Where there are multiple CAS-covered contracts or more than one agency is involved, agencies should discourage contracting officers from administering CAS individually, contract by contract [@CL-CMP-1767]. Coordinated administrative actions will provide greater assurances that individual contractors follow their cost accounting practices consistently under all their CAS-covered contracts [@CL-CMP-1902] and that changes in cost accounting practices or CAS noncompliance issues are resolved, equitably, in a uniform overall manner [@CL-CMP-7686].
 
 Agencies must prescribe regulations and internal policies and procedures for administering the requirements of CAS-covered contracts, with particular emphasis on inter-agency coordination [@CL-CMP-1768].
 
@@ -49,7 +49,7 @@ A contractor holds CAS-covered work with three agencies across two business unit
 
 ## Never confuse
 
-The cognizant agency is not the same as the contracting officer on a single contract: the cognizant agency is responsible for a contractor organization or location, and the section says agencies should discourage contract-by-contract administration where several contracts or agencies are involved [@CL-CMP-1765; @CL-CMP-1767].
+The cognizant Federal agency is the agency responsible for a particular contractor organization or location [@CL-CMP-1765]. When multiple CAS-covered contracts or more than one Federal agency are involved, agencies should discourage Contracting Officers from individually administering CAS on a contract-by-contract basis [@CL-CMP-1767].
 
 The clause that assigns administration to the cognizant Federal agency official is set out in [Administration of cost accounting standards](../cas-allowability/cmp-administration-of-cost-accounting-standards.md), and the wider split of oversight duties in [Oversight roles](../audit-retention/cmp-oversight-roles.md).
 
@@ -60,7 +60,7 @@ Which agency is cognizant for each business unit, and whether the coverage and D
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and an uncited contrast; restated as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second assurance in the coordination sentence and the usually qualifier in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the agency policies sentence so the delegation of contracting authority keeps its limit to individuals authorized to administer the contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cognizant Federal agency responsibilities for Cost Accounting Standards.

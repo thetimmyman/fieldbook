@@ -43,11 +43,11 @@ Preambles to the Cost Accounting Standards published by the original Cost Accoun
 
 ## How it works
 
-The duty to keep the statement accurate sits with the contractor or subcontractor and runs together with the duty to comply with the disclosed practices [@CL-CMP-7541]. Change can come from either side, because an amendment or revision may be proposed by the contractor or the Government and may be submitted at any time [@CL-CMP-7542]. The section sets no deadline for an amendment, does not say when an amendment is required and names no approving official. A full resubmission is not the default route; it is discouraged unless extensive changes make review easier that way [@CL-CMP-7543].
+Contractors and subcontractors are responsible for maintaining accurate Disclosure Statements and complying with disclosed practices [@CL-CMP-7541]. Amendments and revisions may be submitted at any time and may be proposed by either the contractor or the Government [@CL-CMP-7542]. Resubmission of complete, updated Disclosure Statements is discouraged except when extensive changes require it to assist the review process [@CL-CMP-7543].
 
-Adequacy is a Government determination. Each Federal agency must prescribe regulations and establish internal procedures so that, when it serves as the cognizant Federal agency for a contractor location, it promptly determines on behalf of the Government whether a Disclosure Statement has adequately disclosed the practices that the Cost Accounting Standards Board's rules, regulations and Standards require to be disclosed [@CL-CMP-7544; @CL-CMP-7545]. The duty to prescribe those procedures falls on the agencies, not on the contractor. The determination is distributed to all affected agencies, and agencies are urged, not required, to coordinate on the regulations [@CL-CMP-7546; @CL-CMP-7547]. The section sets no time limit beyond the word "promptly".
+Federal agencies shall prescribe regulations and establish internal procedures by which each, when serving as the cognizant Federal agency for a particular contractor location, will promptly determine on behalf of the Government that a Disclosure Statement has adequately disclosed the practices required to be disclosed by the Cost Accounting Standards Board's rules, regulations and Standards [@CL-CMP-7544; @CL-CMP-7545]. The determination of adequacy shall be distributed to all affected agencies [@CL-CMP-7546], and agencies are urged to coordinate on the development of such regulations [@CL-CMP-7547].
 
-The preambles section says only that they are available [@CL-CMP-7548]. They are obtained from the Publications Office by letter or by telephone [@CL-CMP-7549].
+The preambles are available [@CL-CMP-7548], by writing to the Publications Office, Office of Administration, Executive Office of the President, or by calling the number given [@CL-CMP-7549].
 
 ## Worked example
 
@@ -57,7 +57,7 @@ A contractor changes how it describes a service center in its Disclosure Stateme
 
 ## Never confuse
 
-An amendment or revision keeps the disclosed practices current, which is a separate matter from the process for changing a practice; see [practice change proposal and disclosure](../cas-allowability/cmp-cas-practice-change-proposal-disclosure.md) [@CL-CMP-7542]. Adequacy is a determination that the statement has adequately disclosed the required practices, made by the cognizant Federal agency and distributed to affected agencies; it is not a rule on when an amendment may be submitted [@CL-CMP-7542; @CL-CMP-7545; @CL-CMP-7546]. The preambles section only says that they are available and where to obtain them; it sets no duty for a contractor [@CL-CMP-7548; @CL-CMP-7549].
+The process for changing a cost accounting practice is covered in [practice change proposal and disclosure](../cas-allowability/cmp-cas-practice-change-proposal-disclosure.md).
 
 ## Company calibration
 
@@ -66,6 +66,6 @@ Which pools, bases, service centers and intercompany charges the Disclosure Stat
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed all three codified sections in the citation row and softened the resubmission sentence in the worked example.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Disclosure Statement amendments, revisions and adequacy.

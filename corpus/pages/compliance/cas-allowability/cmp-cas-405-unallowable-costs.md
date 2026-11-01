@@ -29,13 +29,13 @@ Shows how a contractor must identify and exclude unallowable costs from billings
 | Text status | Final [@CL-CMP-0207] |
 | Applies to | Costs expressly unallowable or mutually agreed unallowable [@CL-CMP-0207] |
 
-Costs that are expressly unallowable or mutually agreed unallowable must be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-0207]. Unallowable costs covered by 9904.405-40(a) through (d) that would normally be part of a regular indirect-cost allocation base remain in that base [@CL-CMP-0208]. One acceptable alternative practice for providing visibility for incurred costs is the segregation of unallowable costs in separate accounts maintained for this purpose in the regular books of account [@CL-CMP-0209].
+Costs expressly unallowable or mutually agreed to be unallowable, including costs mutually agreed to be unallowable directly associated costs, must be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-0207]. All unallowable costs covered by paragraphs (a) through (d) of 9904.405-40 are subject to the same cost accounting principles governing cost allocability as allowable costs [@CL-CMP-8123]. In circumstances where these unallowable costs normally would be part of a regular indirect-cost allocation base or bases, they remain in that base or bases [@CL-CMP-0208]. To provide visibility for incurred costs, acceptable alternative practices include (i) the segregation of unallowable costs in separate accounts maintained for this purpose in the regular books of account, (ii) the development and maintenance of separate accounting records or workpapers [@CL-CMP-0209; @CL-CMP-8196], or (iii) the use of any less formal cost accounting techniques which establish and maintain adequate cost identification to permit audit verification of the accounting recognition given unallowable costs [@CL-CMP-8197].
 
 ## How it works
 
-The record detail must be enough to keep unallowable costs visible, including directly associated costs, and to show how they are treated for allocation. Unallowable costs follow the same allocability principles as allowable costs. A contractor may use separate accounts, separate workpapers, or a less formal technique that still permits audit verification.
+Unallowable costs covered by paragraphs (a) through (d) of 9904.405-40 are subject to the same cost accounting principles governing cost allocability as allowable costs [@CL-CMP-8123].
 
-The section now also carries content unrelated to unallowable costs. When CAS 404 was rescinded, the Board relocated the requirements of 404-50(d)(1) to a new paragraph (g) of 9904.405-40 [@CL-CMP-1502]. The printed text of 9904.405-40 holds that paragraph (g) as the retained content from CAS 404 and 409 on asset accounting and depreciation [@CL-CMP-1504; @CL-CMP-1525]. The CAS conformance brief explains what moved and what was removed.
+When CAS 404 was rescinded, the Board relocated the requirements of 404-50(d)(1) to a new paragraph (g) of 9904.405-40 [@CL-CMP-1502]. The printed text of 9904.405-40 holds that paragraph (g) as the retained content from CAS 404 and 409 on asset accounting and depreciation [@CL-CMP-1504; @CL-CMP-1525]. See [CAS conformance to GAAP](cmp-cas-gaap-conformance-2026.md) for what moved and what was removed.
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor holds 5,000 of entertainment costs that are expressly unallowable i
 
 ## Never confuse
 
-Accounting for unallowable costs is not the same as the penalty for leaving an expressly unallowable cost in a final rate proposal. The cost accounting standard requires identification and exclusion; the penalty rule adds a monetary penalty for costs left in a proposal. See [Unallowable cost penalty](cmp-unallowable-cost-penalty.md).
+The standard requires that costs expressly unallowable or mutually agreed to be unallowable be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-0207]. For the penalties that apply to unallowable costs, see [Unallowable cost penalty](cmp-unallowable-cost-penalty.md).
 
 ## Company calibration
 
@@ -54,7 +54,8 @@ How unallowable costs are kept out of rate and billing pools, and who reviews th
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: CAS 405: cut an uncited summary sentence before the cited retained-content rule.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the same-allocability sentence and the acceptable visibility practices with their lead-in, and cut uncited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored applicable to a Government contract and framed segregation in separate accounts as one acceptable alternative practice for visibility.
 - COMPATIBLE_EXTENSION, 2026-10-29: Noted the paragraph relocated into this section from the rescinded CAS 404 and 409.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for unallowable costs.

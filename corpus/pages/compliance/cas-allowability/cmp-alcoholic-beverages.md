@@ -16,7 +16,7 @@ links = ["cmp-unallowable-cost-penalty"]
 
 ## Purpose
 
-Explains why the cost of alcoholic beverages is unallowable, and how that flat bar sits beside otherwise allowable event costs.
+States that costs of alcoholic beverages are unallowable.
 
 ## The rule
 
@@ -29,15 +29,13 @@ Explains why the cost of alcoholic beverages is unallowable, and how that flat b
 | Text status | Final [@CL-CMP-0371] |
 | Applies to | Not established. |
 
-The cost of alcoholic beverages is unallowable [@CL-CMP-0371].
-
-The section states the bar flatly: it sets no purpose test, no recipient test and no exception, so there is nothing further to weigh once a cost is identified as an alcoholic beverage [@CL-CMP-0371].
+Costs of alcoholic beverages are unallowable [@CL-CMP-0371].
 
 ## How it works
 
-The section names one category and bars it without qualification [@CL-CMP-0371]. Nothing in it turns on where the drinks were served, who attended or whether the event had a business purpose, so the category alone decides the answer.
+Costs of alcoholic beverages are unallowable [@CL-CMP-0371].
 
-Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-51 keeps the rule described above: it also states that costs of alcoholic beverages are unallowable [@CL-CMP-9929].
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-51 also states that costs of alcoholic beverages are unallowable [@CL-CMP-9929].
 
 ## Worked example
 
@@ -47,7 +45,7 @@ One dinner invoice shows 2,000 for food and 800 for the bar. The 800 is unallowa
 
 ## Never confuse
 
-An unallowable beverage line is not an unallowable event. The meal, the room hire and the travel of the same evening can still be tested under the welfare or conference rules, so only the beverage cost is barred outright. Splitting the line early keeps it out of the pools, following [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
+For penalties on unallowable costs in final rate proposals, see [Penalties for unallowable costs in final rate proposals](cmp-unallowable-cost-penalty.md).
 
 ## Company calibration
 
@@ -56,6 +54,6 @@ How beverage lines are split out of event invoices before those costs reach a po
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited tests, glosses and contrasts; restated the rule as the quote reads.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for alcoholic beverages.

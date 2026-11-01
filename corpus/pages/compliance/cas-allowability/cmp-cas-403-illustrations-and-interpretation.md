@@ -35,7 +35,7 @@ The interpretation's first criterion is that the taxes of any particular jurisdi
 
 ## How it works
 
-The illustrations offer example bases and do not fix them [@CL-CMP-2791; @CL-CMP-2792]. The interpretation then settles one question about income taxes, which is whether segment book income is a factor. Taxes go only to segments that do business in the taxing jurisdiction [@CL-CMP-2793]. Among several segments in one jurisdiction, they follow the factors that jurisdiction uses to determine taxable income [@CL-CMP-2794]. Book income counts only where the jurisdiction expressly uses it [@CL-CMP-2795].
+The listed allocation bases are illustrative [@CL-CMP-2792], and the table lists pools together with illustrative allocation bases that could be used in appropriate circumstances [@CL-CMP-2791]. Taxes go only to segments that do business in the taxing jurisdiction [@CL-CMP-2793]. Among several segments in one jurisdiction, they follow the factors that jurisdiction uses to determine taxable income [@CL-CMP-2794]. Book income counts only where the jurisdiction expressly uses it [@CL-CMP-2795].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A home office pays income tax to a State that taxes a fraction of total organiza
 
 ## Never confuse
 
-An illustrative base is not a required base, because other bases may be used if they are substantially in accordance with the beneficial or causal relationships the standard outlines [@CL-CMP-2792]. Segment book income is not a general factor for tax allocation, because it is used only where the taxing jurisdiction expressly uses it [@CL-CMP-2795]. The rule itself is on [Allocation of home office expenses to segments](../cas-allowability/cmp-cas-403-home-office-allocation.md). For the segment in the home office expenses illustration, the illustration says home office residual expenses should be in the general and administrative expense pool [@CL-CMP-2815]; see [Illustrations of the general and administrative pool and cost input base](../cas-allowability/cmp-cas-410-illustrations.md). In the five-segment research illustration, the costs are combined with other independent research and development costs that benefit the company as a whole and are allocated to all five segments by means of the same base by which the company allocates its residual home office expense costs of all segments [@CL-CMP-2899]; see [Illustrations of direct and indirect classification and of research and proposal costs](../cas-allowability/cmp-cas-418-and-420-illustrations.md).
+Other bases for allocation of home office expenses to segments may be used if they are substantially in accordance with the beneficial or causal relationships the standard outlines [@CL-CMP-2792]. Segment book income is to be used as a factor in allocating income tax expense from a home office to segments only where the taxing jurisdiction expressly uses that amount in computing the income tax [@CL-CMP-2795]. The rule itself is on [Allocation of home office expenses to segments](../cas-allowability/cmp-cas-403-home-office-allocation.md). In the home office expenses illustration, home office residual expenses should be in the general and administrative expense pool, and the expenses of the staff management functions relative to manufacturing and engineering should be included in the manufacturing overhead and engineering overhead pools, respectively [@CL-CMP-2815]; see [Illustrations of the general and administrative pool and cost input base](../cas-allowability/cmp-cas-410-illustrations.md). In the five-segment research illustration, the costs are combined with other independent research and development costs that benefit the company as a whole and are allocated to all five segments by means of the same base by which the company allocates its residual home office expense costs of all segments [@CL-CMP-2899]; see [Illustrations of direct and indirect classification and of research and proposal costs](../cas-allowability/cmp-cas-418-and-420-illustrations.md).
 
 ## Company calibration
 
@@ -54,6 +54,6 @@ Which pools and allocation bases the company uses for home office expenses, and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the illustrative-base and book-income sentences as quoted and completed the home office pools sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the G&A pool and five-segment research illustrations as the quotes say, without the added condition and project-cost wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the illustrations and interpretation of the home office allocation standard.

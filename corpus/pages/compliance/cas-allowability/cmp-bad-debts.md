@@ -45,7 +45,7 @@ A commercial customer defaults on payment, resulting in an uncollectible account
 
 ## Never confuse
 
-Bad debts include actual or estimated losses arising from uncollectible accounts receivable due from customers and other claims [@CL-CMP-0304]. The section makes unallowable any directly associated costs such as collection costs and legal costs, not only the bad debt itself [@CL-CMP-0305]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+Bad debts include actual or estimated losses arising from uncollectible accounts receivable due from customers and other claims [@CL-CMP-0304]. Directly associated costs such as collection costs and legal costs are unallowable [@CL-CMP-0305]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ How accounts receivable write-offs, credit loss reserves, and related collection
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the How it works and Never confuse sentences to the quote: actual or estimated losses, and directly associated costs such as collection and legal costs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bad debts.

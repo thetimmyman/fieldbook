@@ -33,7 +33,7 @@ A contractor uses its fiscal year as its cost accounting period, subject to the 
 
 ## How it works
 
-Costs of an indirect function that exists for only part of a cost accounting period may be allocated to cost objectives of that same part of the period [@CL-CMP-0835], on the basis of data for that part of the period if the cost is material in amount, accumulated in a separate indirect cost pool, and allocated on the basis of an appropriate direct measure of the activity or output of the function during that part of the period [@CL-EST-2879; @CL-EST-2880]. An annual period other than the fiscal year may be used as the cost accounting period if its use is an established practice of the contractor [@CL-CMP-0836]; the standard lets a contractor, upon mutual agreement with the Government, use a fixed annual period other than its fiscal year if the use of such a period is an established practice and is consistently used for managing and controlling the business, and appropriate accruals, deferrals or other adjustments are made with respect to such annual periods [@CL-EST-2885; @CL-EST-2886]. The contracting parties may also agree to use a different period for establishing an allocation base, on the conditions described above [@CL-CMP-0211].
+Costs of an indirect function that exists for only part of a cost accounting period may be allocated to cost objectives of that same part of the period [@CL-CMP-0835], on the basis of data for that part of the period if the cost is material in amount, accumulated in a separate indirect cost pool, and allocated on the basis of an appropriate direct measure of the activity or output of the function during that part of the period [@CL-EST-2879; @CL-EST-2880]. An annual period other than the fiscal year may, as provided in 9904.406-50(d), be used as the cost accounting period if its use is an established practice of the contractor [@CL-CMP-0836]; the standard lets a contractor, upon mutual agreement with the Government, use a fixed annual period other than its fiscal year if the use of such a period is an established practice and is consistently used for managing and controlling the business, and appropriate accruals, deferrals or other adjustments are made with respect to such annual periods [@CL-EST-2885; @CL-EST-2886]. The contracting parties may also agree to use a different period for establishing an allocation base as provided in 9904.406-50(e) [@CL-CMP-0211], on the conditions described above [@CL-EST-2887; @CL-EST-2888; @CL-EST-2969; @CL-EST-2970].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A contractor accumulates 1,200,000 of overhead and a matching allocation base ov
 
 ## Never confuse
 
-The cost accounting period is not the same as the allocation base. The period is the time span used to accumulate costs; the base is the measure of activity those costs are spread over. The rule requires the same period for both unless the parties agree otherwise.
+The same cost accounting period is to be used for accumulating costs in an indirect cost pool as for establishing its allocation base, except that the contracting parties may agree to use a different period for establishing an allocation base as provided in 9904.406-50(e) [@CL-CMP-0211].
 
 ## Company calibration
 
@@ -52,6 +52,6 @@ How the pools, bases and cost accounting periods are defined and reconciled. [@Q
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph pointer, cited the agreed-period conditions and cut uncited definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the conditions the standard attaches to a different allocation-base period, a partial-period function and an other-than-fiscal annual period.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost accounting period.

@@ -37,7 +37,7 @@ The exemption section of the standard on consistency in estimating, accumulating
 
 ## How it works
 
-Each illustration sets an estimating practice beside the accounting practice it is compared with. In the listed consistent example the records collect actual cost by the same labor category or function that the estimate uses [@CL-CMP-2775; @CL-CMP-2776]. In the listed example that is not consistent, the estimate is made by cost function while the records hold one undifferentiated account [@CL-CMP-2777; @CL-CMP-2778]. For direct material estimated by percentage factors, the interpretation says the amount of detail is for Government procurement authorities to decide on the individual facts and circumstances [@CL-CMP-2781], and it does not prescribe the amount of detail for the standard as a whole [@CL-CMP-2876].
+In the listed consistent example the records collect actual cost by the same labor category or function that the estimate uses [@CL-CMP-2775; @CL-CMP-2776]. In the listed example that is not consistent, the estimate is made by cost function while the records hold one undifferentiated account [@CL-CMP-2777; @CL-CMP-2778]. For direct material estimated by percentage factors, the interpretation says the amount of detail is for Government procurement authorities to decide on the individual facts and circumstances [@CL-CMP-2781], and it says 9904.401 does not prescribe the amount of detail required in accumulating and reporting costs [@CL-CMP-2876].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor estimates drafting and design as two separate cost functions, with 
 
 ## Never confuse
 
-A listed illustration is not a rule on how finely costs must be recorded, because the interpretation says the standard does not prescribe the amount of detail required in accumulating and reporting costs [@CL-CMP-2876], and for direct material it leaves the amount to Government procurement authorities on the individual facts [@CL-CMP-2781]. A different question, whether costs incurred for the same purpose are charged the same way, is on [Consistency in allocating costs incurred for the same purpose](../cas-allowability/cmp-cas-402-same-purpose.md), and its illustrations are on [Definitions, illustrations and interpretation on consistency in allocating costs incurred for the same purpose](../cas-allowability/cmp-cas-402-definitions-illustrations-and-interpretation.md).
+The interpretation says 9904.401 does not prescribe the amount of detail required in accumulating and reporting costs [@CL-CMP-2876], and for direct material it leaves the amount of accounting and statistical detail to Government procurement authorities on the basis of the individual facts and circumstances [@CL-CMP-2781]. For consistency in allocating costs incurred for the same purpose, see [Consistency in allocating costs incurred for the same purpose](../cas-allowability/cmp-cas-402-same-purpose.md), and its illustrations are on [Definitions, illustrations and interpretation on consistency in allocating costs incurred for the same purpose](../cas-allowability/cmp-cas-402-definitions-illustrations-and-interpretation.md).
 
 ## Company calibration
 
@@ -56,7 +56,7 @@ How the company's estimating practices for direct labor, material and machining 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the amount-of-detail sentences as the interpretation reads and cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the interpretation's opening question for the direct-material premise.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the direct material context to the interpretation sentence on percentage factors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption and effective date sections of CAS 401.
