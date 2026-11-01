@@ -27,19 +27,17 @@ Shows the prohibition that follows a systems engineering and technical assistanc
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4099; @CL-CMP-4135] |
-| Applies to | Solicitations with the provision, as prescribed in DFARS 209.571-8(a) [@CL-CMP-4099], and contracts with the clause, as prescribed in DFARS 209.571-8(b) [@CL-CMP-4135], for systems engineering and technical assistance for a major defense acquisition program or a pre-major defense acquisition program [@CL-CMP-4100] |
+| Applies to | Solicitations with the provision, as prescribed in DFARS 209.571-8(a) [@CL-CMP-4099], and contracts with the clause, as prescribed in DFARS 209.571-8(b) [@CL-CMP-4135]. The provision states that the solicitation is for the performance of systems engineering and technical assistance for a major defense acquisition program or a pre-major defense acquisition program [@CL-CMP-4100] |
 
 Except as provided in paragraph (d) of the clause, the Contractor or any affiliate of the Contractor is prohibited from participating as a prime contractor or major subcontractor in the development or production of a weapon system under the major defense acquisition program or pre-major defense acquisition program [@CL-CMP-4131; @CL-CMP-4103]. The prohibition does not apply if the Contractor submitted an acceptable mitigation plan that has been incorporated into the contract, and the Contractor shall comply with the plan [@CL-CMP-4104]. Failure to comply with the plan may result in the Contractor or any affiliate of the Contractor being prohibited from participating as a contractor or major subcontractor in the development or production of a weapon system under the program [@CL-CMP-4105]. Compliance with the plan is a material requirement of the contract [@CL-CMP-4132].
 
 The provision states that the solicitation is for the performance of systems engineering and technical assistance for a major defense acquisition program or a pre-major defense acquisition program [@CL-CMP-4100]. If the offeror requests an exception to the prohibition in paragraph (c) of the provision, the offeror shall submit an Organizational Conflict of Interest Mitigation Plan with its offer for evaluation [@CL-CMP-4101]. If the apparently successful offeror submitted an acceptable plan, and the head of the contracting activity determines that DoD needs the domain experience and expertise of the highly qualified, apparently successful offeror, the Contracting Officer will incorporate the plan into the resultant contract, and paragraph (d) of the clause will become applicable [@CL-CMP-4102; @CL-CMP-4133].
 
-Under the first listed test, a major subcontractor is a subcontractor that is awarded a subcontract that equals or exceeds both the certified cost or pricing data threshold and 10 percent of the value of the contract under which the subcontract is awarded [@CL-CMP-4137]. The definition lists a second test that refers to a threshold set in another section of the supplement, and this card does not set that test out.
-
-The text printed for this card holds no flowdown paragraph for either the provision or the clause, so a flowdown is not established here.
+A major subcontractor is a subcontractor that is awarded a subcontract that equals or exceeds one of two alternatives [@CL-CMP-4137; @CL-CMP-7880]. The first is both the certified cost or pricing data threshold and 10 percent of the value of the contract under which the subcontract is awarded [@CL-CMP-4137]. The second is the threshold specified in the definition of major subcontractor at DFARS 209.571-1 on the date of subcontract award [@CL-CMP-7880].
 
 ## How it works
 
-The provision tells offerors about the prohibition before award, and an offeror that wants an exception puts a mitigation plan in its offer [@CL-CMP-4101]. If the offeror's plan is acceptable and the head of the contracting activity finds that DoD needs the offeror's experience and expertise, the Contracting Officer incorporates the plan into the contract [@CL-CMP-4102; @CL-CMP-4133]. Once the plan is in the contract, the prohibition in the clause does not apply, and compliance with the plan is a duty of the Contractor and a material requirement of the contract [@CL-CMP-4104; @CL-CMP-4132]. Failing to comply can bring the prohibition back for the Contractor and its affiliates [@CL-CMP-4105].
+The provision tells offerors about the prohibition before award, and an offeror that wants an exception puts a mitigation plan in its offer [@CL-CMP-4101]. If the apparently successful offeror's plan is acceptable and the head of the contracting activity determines that DoD needs the domain experience and expertise of the highly qualified, apparently successful offeror, the Contracting Officer incorporates the plan into the contract [@CL-CMP-4102; @CL-CMP-4133]. Once the plan is in the contract, the prohibition in the clause does not apply, and compliance with the plan is a duty of the Contractor and a material requirement of the contract [@CL-CMP-4104; @CL-CMP-4132]. Failing to comply can bring the prohibition back for the Contractor and its affiliates [@CL-CMP-4105].
 
 ## Worked example
 
@@ -51,7 +49,7 @@ Answer: the plan lets the company and its affiliate take part despite the prohib
 
 ## Never confuse
 
-This is a program-specific prohibition for systems engineering and technical assistance on a major defense acquisition program, with its own plan and incorporation steps [@CL-CMP-4103; @CL-CMP-4102]. The general FAR rules on organizational conflicts of interest are covered in [the general rules card](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md). A different DFARS limit, on contractors acting as lead system integrators, is covered in [the lead system integrator card](cmp-lead-system-integrator-limits.md). The provision is the notice and request stage, and the clause is the contract obligation [@CL-CMP-4099; @CL-CMP-4103].
+The prohibition applies to participation as a prime contractor or major subcontractor in the development or production of a weapon system under the major defense acquisition program or pre-major defense acquisition program [@CL-CMP-4103]. For the general FAR rules on organizational conflicts of interest, see [the general rules card](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md). For the DFARS limit on contractors acting as lead system integrators, see [the lead system integrator card](cmp-lead-system-integrator-limits.md).
 
 ## Company calibration
 
@@ -61,4 +59,7 @@ Which solicitations and contracts are systems engineering and technical assistan
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: MDAP conflicts: cited the major subcontractor definition lead-in.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited both major subcontractor alternatives; removed meta and absence statements; split scope citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the apparently successful offeror in the plan incorporation summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts of interest on major defense acquisition programs.

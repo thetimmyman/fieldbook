@@ -28,7 +28,7 @@ Shows when a company that designs or directs a system is barred from supplying i
 | Text status | Final [@CL-CMP-7200] |
 | Applies to | Contractors that provide systems engineering and technical direction without overall contractual responsibility [@CL-CMP-7200] |
 
-A contractor that provides systems engineering and technical direction for a system, without overall contractual responsibility for its development, its integration, assembly and checkout, or its production, may not be awarded a contract to supply the system [@CL-CMP-7200]. The bar covers the system's major components as well, and the contractor may not be a subcontractor or consultant to a supplier of the system or any of its major components [@CL-CMP-7201]. The agency head or a designee may waive any general rule or procedure of the subpart by determining that its application in a particular situation would not be in the Government's interest [@CL-CMP-7380]. Any request for a waiver must be in writing, must set forth the extent of the conflict and requires approval by the agency head or a designee [@CL-CMP-7381]. Agency heads may not delegate the waiver authority below the level of head of a contracting activity, so a designee who approves a waiver must be at that level or above [@CL-CMP-7384].
+A contractor that provides systems engineering and technical direction for a system, without overall contractual responsibility for its development, its integration, assembly and checkout, or its production, may not be awarded a contract to supply the system [@CL-CMP-7200]. The bar covers the system's major components as well, and the contractor may not be a subcontractor or consultant to a supplier of the system or any of its major components [@CL-CMP-7201]. The agency head or a designee may waive any general rule or procedure of the subpart by determining that its application in a particular situation would not be in the Government's interest [@CL-CMP-7380]. Any request for a waiver must be in writing, must set forth the extent of the conflict and requires approval by the agency head or a designee [@CL-CMP-7381]. Agency heads shall not delegate waiver authority below the level of head of a contracting activity [@CL-CMP-7384].
 
 Significant potential organizational conflicts of interest are normally resolved by imposing some restraint, appropriate to the nature of the conflict, upon the contractor's eligibility for future contracts or subcontracts [@CL-CMP-7305]. An affected solicitation must therefore contain a provision that invites offerors' attention to the subpart, states the nature of the potential conflict as the contracting officer sees it, and states the nature of the proposed restraint upon future contractor activities [@CL-CMP-7205]. Depending on the nature of the acquisition, the provision must also state whether the terms of any proposed clause and the application of the subpart to the contract are subject to negotiation [@CL-CMP-7206].
 
@@ -54,7 +54,7 @@ A separate follow-on solicitation for the radar's production would carry a provi
 
 ## Never confuse
 
-The bar in the rule on systems engineering and technical direction is not the same as a restraint written into a solicitation clause. The bar attaches to a contractor that provides those services without overall contractual responsibility, while a clause states the nature and duration of a restraint on future eligibility [@CL-CMP-7200; @CL-CMP-7207].
+The bar in FAR 9.505-1(a) applies to a contractor that provides systems engineering and technical direction for a system but does not have overall contractual responsibility for its development, its integration, assembly, and checkout, or its production [@CL-CMP-7200]. If, as a condition of award, the contractor's eligibility for future prime contract or subcontract awards will be restricted or the contractor must agree to some other restraint, the solicitation shall contain a proposed clause that specifies both the nature and duration of the proposed restraint [@CL-CMP-7207].
 
 ## Company calibration
 
@@ -64,5 +64,6 @@ Whether any segment would hold a systems engineering and technical direction rol
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted delegation inference; restated bar and clause as cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example so the solicitation provision keeps the negotiation statement that depends on the nature of the acquisition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts of interest in systems engineering and technical direction.

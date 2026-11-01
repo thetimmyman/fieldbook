@@ -35,9 +35,9 @@ The clause defines arising out of a contract with the DoD as any act in connecti
 
 Unless waived, the prohibition applies for not less than 5 years from the date of conviction [@CL-CMP-4072]. The Contractor may submit written requests for waiver of the prohibition in paragraph (b) of the clause to the Contracting Officer [@CL-CMP-4119].
 
-The Contractor shall be subject to a criminal penalty of not more than $500,000 if convicted of knowingly employing a person under a prohibition specified in paragraph (b) of the clause, or of allowing such a person to serve on the board of directors of the contractor or first-tier subcontractor [@CL-CMP-4073]. In addition, the Government may consider other available remedies, such as suspension or debarment, cancellation of the contract at no cost to the Government, or termination of the contract for default [@CL-CMP-4074].
+The Contractor shall be subject to a criminal penalty of not more than $500,000 if convicted of knowingly employing a person under a prohibition specified in paragraph (b) of the clause, or of allowing such a person to serve on the board of directors of the contractor or first-tier subcontractor [@CL-CMP-4073]. In addition to the criminal penalties contained in title 10 of the United States Code, section 4656, the Government may consider other available remedies, such as suspension or debarment, cancellation of the contract at no cost to the Government, or termination of the contract for default [@CL-CMP-4074].
 
-The Contractor agrees to include the substance of this clause, appropriately modified, in all first-tier subcontracts exceeding the simplified acquisition threshold in part 2 of the Federal Acquisition Regulation, except those for commercial products, commercial services, or commercial components [@CL-CMP-4075; @CL-CMP-4076]. The dollar amount of that threshold is not set out in this source text; see [Acquisition thresholds](cmp-acquisition-thresholds.md).
+The Contractor agrees to include the substance of this clause, appropriately modified, in all first-tier subcontracts exceeding the simplified acquisition threshold in part 2 of the Federal Acquisition Regulation, except those for commercial products, commercial services, or commercial components [@CL-CMP-4075; @CL-CMP-4076]. The dollar amount of that threshold is on [Acquisition thresholds](cmp-acquisition-thresholds.md).
 
 ## How it works
 
@@ -53,7 +53,7 @@ Answer: a consultant role is a listed capacity, and 3 years is less than the 5-y
 
 ## Never confuse
 
-The bar applies to a conviction for fraud or a felony that arises out of a contract with the DoD, so an unrelated conviction does not meet the wording [@CL-CMP-4070]. This is not [the compensation rule for former DoD officials](cmp-former-dod-official-compensation.md), which has its own card. Suspension and debarment here are remedies the Government may consider, not the prohibition itself [@CL-CMP-4074].
+The bar applies to an individual convicted after September 29, 1988, of fraud or any other felony arising out of a contract with the DoD [@CL-CMP-4070]. The compensation rule for former DoD officials is on [the former DoD official compensation card](cmp-former-dod-official-compensation.md). Suspension or debarment, cancellation of the contract at no cost to the Government, and termination of the contract for default are other remedies the Government may consider [@CL-CMP-4074].
 
 ## Company calibration
 
@@ -63,4 +63,5 @@ Which contracts carry the clause and who checks board members, consultants and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the remedies to the statutory penalty, and removed unsupported explanation and contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on persons convicted of fraud or defense-contract-related felonies.

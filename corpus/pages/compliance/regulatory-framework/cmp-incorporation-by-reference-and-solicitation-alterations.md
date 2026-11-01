@@ -36,7 +36,7 @@ Upon request, the contracting officer will make the full text of the incorporate
 
 ### Obtaining the text
 
-The addresses are bracketed instructions to insert one or more Internet addresses, so they are specific to each solicitation or contract [@CL-CMP-6697; @CL-CMP-6001]. This card does not give any address.
+The solicitation provision and the clause each carry a bracketed instruction to insert one or more Internet addresses [@CL-CMP-6697; @CL-CMP-6001].
 
 ### Blocks to be completed
 
@@ -44,11 +44,11 @@ The offeror is cautioned that the listed provisions may include blocks that must
 
 ### Alterations in a solicitation
 
-The alterations provision is inserted in solicitations to revise or supplement other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-6004]. It must include clear identification of what is being altered [@CL-CMP-6699]. The provision states that portions of the solicitation are altered as follows [@CL-CMP-6700]. The standard text of the provision ends at that statement and does not list any alteration [@CL-CMP-6700].
+The alterations provision is inserted in solicitations to revise or supplement, as necessary, other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-6004]. The provision is to include clear identification of what is being altered [@CL-CMP-6699]. The provision states that portions of the solicitation are altered as follows [@CL-CMP-6700].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.252-1 keeps the same force and effect as full text for solicitation provisions incorporated by reference, and the Contracting Officer's making their full text available on request [@CL-CMP-1333; @CL-CMP-5998; @CL-CMP-6000]. It keeps the caution about blocks to be completed [@CL-CMP-1334; @CL-CMP-6002] and the offeror's option to identify a provision by paragraph identifier [@CL-CMP-1335; @CL-CMP-6003]. The RFO text of FAR 52.252-2 keeps the same force and effect as full text for clauses incorporated by reference [@CL-CMP-1337; @CL-CMP-5999] and the Contracting Officer's making their full text available on request [@CL-CMP-1337; @CL-CMP-6698]. Both RFO texts keep electronic access to the full text at the addresses inserted [@CL-CMP-1336; @CL-CMP-6697; @CL-CMP-1338; @CL-CMP-6001], and each prints three blank lines before the bracketed instruction to insert one or more Internet addresses [@CL-CMP-1336; @CL-CMP-1338].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.252-1 keeps the same force and effect as full text for solicitation provisions incorporated by reference, and the Contracting Officer's making their full text available on request [@CL-CMP-1333; @CL-CMP-5998; @CL-CMP-6000]. It keeps the caution about blocks to be completed [@CL-CMP-1334; @CL-CMP-6002] and the offeror's option to identify a provision by paragraph identifier [@CL-CMP-1335; @CL-CMP-6003]. RFO FAR 52.252-2 keeps the same force and effect as full text for clauses incorporated by reference [@CL-CMP-1337; @CL-CMP-5999] and the Contracting Officer's making their full text available on request [@CL-CMP-1337; @CL-CMP-6698]. Both RFO texts keep electronic access to the full text at the addresses inserted [@CL-CMP-1336; @CL-CMP-6697; @CL-CMP-1338; @CL-CMP-6001], and each prints three blank lines before the bracketed instruction to insert one or more Internet addresses [@CL-CMP-1336; @CL-CMP-1338].
 
-The RFO text of FAR 52.252-3 keeps the insertion of the provision in solicitations to revise or supplement other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-1339; @CL-CMP-6004], and the clear identification of what is being altered [@CL-CMP-1340; @CL-CMP-6699]. After the statement that portions of the solicitation are altered as follows, the RFO text prints three blank lines, where the codified text ends at that statement; the lines are a printing difference, not a change to the rule [@CL-CMP-1341; @CL-CMP-6700].
+RFO FAR 52.252-3 keeps the insertion of the provision in solicitations to revise or supplement other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-1339; @CL-CMP-6004], and the clear identification of what is being altered [@CL-CMP-1340; @CL-CMP-6699]. After the statement that portions of the solicitation are altered as follows, RFO FAR 52.252-3 prints three blank lines [@CL-CMP-1341; @CL-CMP-6700].
 
 ## Worked example
 
@@ -60,11 +60,11 @@ The same solicitation carries an alteration that revises the instruction on how 
 
 ## Never confuse
 
-Incorporation by reference is not a weaker form of a clause. The reference gives the same force and effect as full text [@CL-CMP-5998; @CL-CMP-5999]. A provision or clause is not excused because its text is not printed [@CL-CMP-5998; @CL-CMP-5999].
+Provisions and clauses incorporated by reference have the same force and effect as if they were given in full text [@CL-CMP-5998; @CL-CMP-5999].
 
-An alteration is not an authorized deviation. The alterations provision is not used for a provision authorized for use with a deviation [@CL-CMP-6004]. The marking of deviations, and the alterations that apply after award, are on [Alterations in a contract and authorized deviations in provisions and clauses](cmp-contract-alterations-and-authorized-deviations.md). Representations and certifications that are incorporated by reference are on [Incorporation of representations and certifications, and law for a breach claim](cmp-reps-and-certs-incorporation-and-breach-law.md).
+The alterations provision is inserted to revise or supplement other parts of the solicitation that apply to the solicitation phase only, except for any provision authorized for use with a deviation [@CL-CMP-6004]. The marking of deviations, and the alterations that apply after award, are on [Alterations in a contract and authorized deviations in provisions and clauses](cmp-contract-alterations-and-authorized-deviations.md). Representations and certifications that are incorporated by reference are on [Incorporation of representations and certifications, and law for a breach claim](cmp-reps-and-certs-incorporation-and-breach-law.md).
 
-The codified standard text of the alterations provision ends at the statement that portions of the solicitation are altered as follows [@CL-CMP-6700], while the RFO text prints three blank lines after that statement, a printing difference [@CL-CMP-1341].
+The alterations provision states that portions of the solicitation are altered as follows [@CL-CMP-6700], and RFO FAR 52.252-3 prints three blank lines after that statement [@CL-CMP-1341].
 
 ## Company calibration
 
@@ -74,5 +74,6 @@ Who checks each offer against the provisions listed by reference, where the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording, unsupported contrasts and the unquoted ends-at statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for provisions and clauses incorporated by reference and alterations in a solicitation.

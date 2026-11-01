@@ -29,15 +29,13 @@ Shows what the Government orders under the mortuary services clauses, where the 
 | Text status | Final [@CL-CMP-4398] |
 | Applies to | Contracts that include the requirements, area of performance, and performance and delivery clauses, each used as prescribed in DFARS 237.7003(a), for the supplies and services listed in the schedule [@CL-CMP-4398; @CL-CMP-4399; @CL-CMP-4400; @CL-CMP-4349] |
 
-Except as the clause's own exceptions provide, the Government will order from the contractor all of its requirements in the area of performance for the supplies and services listed in the schedule of the contract [@CL-CMP-4349]. The Government may elect not to order supplies and services under the contract in instances where the body is removed from the area for medical, scientific, or other reason [@CL-CMP-4351]. In an epidemic or other emergency, the contracting activity may obtain services beyond the capacity of the contractor's facilities from other sources [@CL-CMP-4408].
+Except as provided in paragraphs (c) and (d) of the clause, the Government will order from the contractor all of its requirements in the area of performance for the supplies and services listed in the schedule of the contract [@CL-CMP-4349]. The Government may elect not to order supplies and services under the contract in instances where the body is removed from the area for medical, scientific, or other reason [@CL-CMP-4351]. In an epidemic or other emergency, the contracting activity may obtain services beyond the capacity of the contractor's facilities from other sources [@CL-CMP-4408].
 
 Each order will be issued as a delivery order and will list, among other listed items, the supplies or services being ordered, the quantities to be furnished, delivery or performance dates, and the place of delivery or performance [@CL-CMP-4350].
 
 ## How it works
 
 The contractor shall take possession of the remains at the place where they are located, transport them to the contractor's place of preparation, and later transport them to a place designated by the contracting officer [@CL-CMP-4352]. The contractor will not be reimbursed for transportation when both the place where the remains were located and the delivery point are within the area of performance [@CL-CMP-4353]. The contracting officer may require the contractor to deliver remains to any point within 100 miles of the area of performance [@CL-CMP-4412], and in the case the clause describes the contractor shall be paid the amount per mile in the schedule for the number of miles required to transport the remains by a reasonable route from the boundary of the area of performance to the delivery point [@CL-CMP-4413]. The contractor shall furnish the material ordered and perform the services specified as promptly as possible but not later than 36 hours after receiving notification to remove the remains, excluding the time necessary for the Government to inspect and check results of preparation [@CL-CMP-4354]. The Government may, at no additional charge, require the contractor to hold the remains for an additional period not to exceed 72 hours from the time the remains are casketed and final inspection completed [@CL-CMP-4355].
-
-This card leaves out the part of the area of performance clause on remains located outside the area of performance, the remaining items on an order, and the list of activities that may place orders. The clause text controls.
 
 ## Worked example
 
@@ -47,9 +45,9 @@ The Government notifies the contractor to remove remains at the start of a shift
 
 ## Never confuse
 
-The delivery deadline and the holding period are different duties. The deadline runs from notification to remove the remains and excludes Government inspection time [@CL-CMP-4354], while the holding period runs from the time the remains are casketed and final inspection is completed [@CL-CMP-4355].
+The Contractor shall furnish the material ordered and perform the services specified as promptly as possible but not later than 36 hours after receiving notification to remove the remains, excluding the time necessary for the Government to inspect and check results of preparation [@CL-CMP-4354]. The Government may, at no additional charge, require the Contractor to hold the remains for an additional period not to exceed 72 hours from the time the remains are casketed and final inspection completed [@CL-CMP-4355].
 
-The Government's duty to order all requirements is not unlimited, because the clause lets it elect not to order when the body is removed from the area for medical, scientific, or other reason [@CL-CMP-4351], and the contracting activity may use other sources in an epidemic or other emergency [@CL-CMP-4408]. For the general FAR idea of a requirements contract, see [Requirements contracts](../../contract-finance/funding/ctf-requirements-contracts.md). The subcontracting limit, the default grounds and the permit duty are covered on [Mortuary services: subcontracting, termination for default and permits](cmp-mortuary-services-subcontracting-default-and-permits.md).
+The Government may elect not to order supplies and services under the contract in instances where the body is removed from the area for medical, scientific, or other reason [@CL-CMP-4351]. In an epidemic or other emergency, the contracting activity may obtain services beyond the capacity of the Contractor's facilities from other sources [@CL-CMP-4408]. For the general FAR idea of a requirements contract, see [Requirements contracts](../../contract-finance/funding/ctf-requirements-contracts.md). The subcontracting limit, the default grounds and the permit duty are covered on [Mortuary services: subcontracting, termination for default and permits](cmp-mortuary-services-subcontracting-default-and-permits.md).
 
 ## Company calibration
 
@@ -59,4 +57,5 @@ Which mortuary services contracts the company holds, and who confirms the area o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta paragraph and contrasts; restated delivery and ordering rules with cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mortuary services requirements, area of performance, and performance and delivery.

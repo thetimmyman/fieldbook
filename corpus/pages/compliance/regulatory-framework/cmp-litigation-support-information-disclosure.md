@@ -41,19 +41,19 @@ To the maximum extent practicable, DoD will give notice to an offeror or contrac
 
 Information that is publicly available without restriction, including publicly available solicitations for litigation support services, will not be protected from disclosure as litigation information [@CL-CMP-7955].
 
-When sharing sensitive information with a litigation support contractor, contracting officers shall ensure that all other applicable requirements for handling and safeguarding the relevant types of sensitive information are included in the contract [@CL-CMP-7956]. The text illustrates these with FAR subparts 4.4 and 24.1 and DFARS subparts 204.4 and 224.1 [@CL-CMP-8439].
+When sharing sensitive information with a litigation support contractor, contracting officers shall ensure that all other applicable requirements for handling and safeguarding the relevant types of sensitive information are included in the contract [@CL-CMP-7956]. The examples given are FAR subparts 4.4 and 24.1 and DFARS subparts 204.4 and 224.1 [@CL-CMP-8439].
 
 The clause at 252.204-7014 is used in all solicitations and contracts that involve litigation support services [@CL-CMP-7957], including those using FAR part 12 procedures for commercial products and commercial services [@CL-CMP-7958]. The clause at 252.204-7015 is used in solicitations and contracts that involve litigation support services, including those using FAR part 12 procedures for commercial products and commercial services [@CL-CMP-7959; @CL-CMP-8440].
 
 ## How it works
 
-Each duty has its own party. The release, and the litigation support contractor's use and handling, must comply with the statute [@CL-CMP-7953]. The contracting officer must ensure that the other applicable handling and safeguarding requirements are in the contract [@CL-CMP-7956]. DoD, not the offeror or contractor, gives the notice, and only to the maximum extent practicable; the text sets no deadline for it [@CL-CMP-7954].
+Any release or disclosure of litigation information that includes sensitive information to a litigation support contractor, and the litigation support contractor's use and handling of such information, shall comply with the requirements of title 10 of the United States Code, section 129d [@CL-CMP-7953]. When sharing sensitive information with a litigation support contractor, contracting officers shall ensure that all other applicable requirements for handling and safeguarding the relevant types of sensitive information are included in the contract [@CL-CMP-7956]. To the maximum extent practicable, DoD will provide notice to an offeror or contractor that information it provides to DoD in connection with an offer or performance of a contract may be released or disclosed to litigation support contractors [@CL-CMP-7954].
 
-The statutory compliance rule applies only where the litigation information includes sensitive information [@CL-CMP-7953]. Litigation information that is not sensitive information is outside that sentence, although the clauses are still used wherever the acquisition involves litigation support services [@CL-CMP-7953; @CL-CMP-7957].
+The compliance requirement covers a release or disclosure of litigation information that includes sensitive information to a litigation support contractor [@CL-CMP-7953].
 
-A subcontractor or supplier of a litigation support contractor is itself within the contractor definition [@CL-CMP-7952].
+The definition of litigation support contractor includes the contractor's experts, technical consultants, subcontractors and suppliers [@CL-CMP-7952].
 
-The clause at 252.204-7014 carries the limits on use or disclosure into the contract, and the clause at 252.204-7015 carries the notice of authorized disclosure [@CL-CMP-7957; @CL-CMP-7959]. The two clauses share one trigger and both reach commercial acquisitions under FAR part 12 [@CL-CMP-7958; @CL-CMP-8440].
+The clause at 252.204-7014 is Limitations on the Use or Disclosure of Information by Litigation Support Contractors, and the clause at 252.204-7015 is Notice of Authorized Disclosure of Information for Litigation Support [@CL-CMP-7957; @CL-CMP-7959]. Both clauses are used in solicitations and contracts that involve litigation support services, including those using FAR part 12 procedures for the acquisition of commercial products and commercial services [@CL-CMP-7958; @CL-CMP-8440].
 
 ## Worked example
 
@@ -67,13 +67,13 @@ The agency's own publicly available solicitation for the review services is info
 
 ## Never confuse
 
-Litigation information and sensitive information are different terms. Litigation information is any information furnished to the contractor by or for the Government or generated or obtained in the support work [@CL-CMP-7949], while sensitive information is controlled unclassified information of a commercial, financial, proprietary or privileged nature [@CL-CMP-7951]. The statutory rule applies to a release of litigation information that includes sensitive information [@CL-CMP-7953].
+Litigation information is any information, including sensitive information, that is furnished to the contractor by or on behalf of the Government, or that is generated or obtained by the contractor in the performance of litigation support under a contract [@CL-CMP-7949]. Sensitive information is controlled unclassified information of a commercial, financial, proprietary or privileged nature [@CL-CMP-7951].
 
-Technical data and computer software are separate terms: technical data excludes computer software, and computer software excludes software documentation, which is technical data [@CL-CMP-8435; @CL-CMP-8436; @CL-CMP-8438].
+Technical data includes computer software documentation [@CL-CMP-8435], and does not include computer software or data incidental to contract administration, such as financial and management information [@CL-CMP-8436]. Computer software does not include computer data bases or computer software documentation [@CL-CMP-8438].
 
-Public availability removes information from both definitions and from protection as litigation information [@CL-CMP-7950; @CL-CMP-7955; @CL-CMP-8434].
+Litigation information does not include information that is lawfully, publicly available without restriction [@CL-CMP-7950], and sensitive information does not include such information [@CL-CMP-8434]. Information that is publicly available without restriction, including publicly available solicitations for litigation support services, will not be protected from disclosure as litigation information [@CL-CMP-7955].
 
-These clauses are not the cyber incident rules; see [Cyber incident information and litigation support limits](../trade-cyber/cmp-cyber-incident-information-and-litigation-support-limits.md).
+For related cyber incident rules, see [Cyber incident information and litigation support limits](../trade-cyber/cmp-cyber-incident-information-and-litigation-support-limits.md).
 
 ## Company calibration
 
@@ -83,4 +83,5 @@ Which company systems hold litigation information received under a defense contr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported inferences, contrasts and meta wording; restated definitions and clause use.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for litigation support information disclosure.

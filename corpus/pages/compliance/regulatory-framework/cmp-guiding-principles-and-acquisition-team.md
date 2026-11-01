@@ -35,11 +35,11 @@ All participants in the System are responsible for making acquisition decisions 
 
 ## How it works
 
-The best-value duty falls on every participant in the System, not on one office. These sections name no single decision maker and set no approval route, threshold or deadline, so who may decide a particular matter comes from other FAR provisions; see [Who may bind the Government](cmp-contracting-authority-and-the-acquisition-team.md).
+The best-value responsibility falls on all participants in the System [@CL-CMP-8382]. For who may bind the Government, see [Who may bind the Government](cmp-contracting-authority-and-the-acquisition-team.md).
 
-The purpose of defining the Federal Acquisition Team in the Guiding Principles is to ensure that participants in the System are identified, beginning with the customer and ending with the contractor of the product or service [@CL-CMP-8384]. Identifying the members this way encourages teamwork, unity of purpose and open communication among them in sharing the vision and achieving the goal of the System [@CL-CMP-8385]. Individual team members will participate in the acquisition process at the appropriate time [@CL-CMP-8386]. The section does not say who sets that time.
+The purpose of defining the Federal Acquisition Team in the Guiding Principles is to ensure that participants in the System are identified, beginning with the customer and ending with the contractor of the product or service [@CL-CMP-8384]. Identifying the members this way encourages teamwork, unity of purpose and open communication among them in sharing the vision and achieving the goal of the System [@CL-CMP-8385]. Individual team members will participate in the acquisition process at the appropriate time [@CL-CMP-8386].
 
-The text states no contractor-specific duty, price effect or compliance step. It places the contractor at the end of the team [@CL-CMP-8384], and the contractor is one of the participants who share the best-value responsibility [@CL-CMP-8382].
+The team begins with the customer and ends with the contractor of the product or service [@CL-CMP-8384]. All participants in the System are responsible for best-value decisions [@CL-CMP-8382].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A buy review lists three competing interests: a lower unit price, a shorter lead
 
 ## Never confuse
 
-The Guiding Principles statement is not the whole framework. The framework also includes the supporting policies and procedures in the FAR [@CL-CMP-8381]. The acquisition team is not one office or function: it is defined to identify participants from the customer to the contractor [@CL-CMP-8384]. For the performance standards and early industry communication, see [Guiding principles and communication with industry](cmp-guiding-principles-and-industry-communication.md).
+The framework for the System includes the Guiding Principles and also the supporting policies and procedures in the FAR [@CL-CMP-8381]. The acquisition team is defined to identify participants from the customer to the contractor [@CL-CMP-8384]. For the performance standards and early industry communication, see [Guiding principles and communication with industry](cmp-guiding-principles-and-industry-communication.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Whether the company's reviews treat every participant, from the customer through
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut unsupported absence statements and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Guiding Principles and the acquisition team.
