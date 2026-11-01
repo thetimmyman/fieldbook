@@ -29,15 +29,15 @@ Details the limit on unilateral cost accounting practice changes, the notice dut
 | Text status | Final [@CL-RTE-0608] |
 | Applies to | A contractor's disclosed or established cost accounting practices [@CL-RTE-0608] |
 
-The contractor may unilaterally change its disclosed or established cost accounting practices, but the Government shall not pay any increased cost in the aggregate as a result of the unilateral change [@CL-RTE-0608]. Prior to taking action under the applicable paragraphs addressing a desirable change at FAR 52.230-2, 52.230-3 or 52.230-5, the CFAO must determine that the change is a desirable change and not detrimental to the interests of the Government [@CL-RTE-0609].
+The contractor may unilaterally change its disclosed or established cost accounting practices, but the Government shall not pay any increased cost in the aggregate as a result of the unilateral change [@CL-RTE-0608]. Prior to taking action under the applicable paragraphs addressing a desirable change at FAR 52.230-2, 52.230-3 or 52.230-5, the CFAO shall determine the change is a desirable change and not detrimental to the interests of the Government [@CL-RTE-0609].
 
 ## How it works
 
-Until the CFAO has determined a change to a cost accounting practice is a desirable change, the change remains a unilateral change [@CL-RTE-0610]. When a contractor makes a unilateral change, the clause at FAR 52.230-6 requires the contractor to take listed steps, the first being to submit a description of the change to the CFAO not less than 60 days, or another mutually agreeable date, before implementation of the change [@CL-RTE-0711]. If a contractor implements a change without submitting the required notice, the CFAO may determine the change a failure to follow a cost accounting practice consistently and process it as a noncompliance [@CL-RTE-0712].
+Until the CFAO has determined a change to a cost accounting practice is a desirable change, the change remains a unilateral change [@CL-RTE-0610]. When a contractor makes a unilateral change, the clause at 52.230-6, Administration of Cost Accounting Standards, requires the contractor to (i) submit a description of the change to the CFAO not less than 60 days (or other mutually agreeable date) before implementation of the change [@CL-RTE-0711]; and (ii) submit rationale to support any contractor written statement that the cost impact of the change is immaterial [@CL-RTE-9243]. If a contractor implements the change in cost accounting practice without submitting the notice as required in paragraph (c)(1), the CFAO may determine the change a failure to follow a cost accounting practice consistently and process it as a noncompliance in accordance with 30.605 [@CL-RTE-0712; @CL-RTE-9245].
 
-If a contractor requests that a unilateral change be retroactive, the contractor must submit supporting rationale [@CL-RTE-0708]. The CFAO must not approve a date for the retroactive change that is before the beginning of the contractor's fiscal year in which the request is made [@CL-RTE-0611].
+If a contractor requests that a unilateral change be retroactive, the contractor shall submit supporting rationale [@CL-RTE-0708]. The CFAO shall not approve a date for the retroactive change that is before the beginning of the contractor's fiscal year in which the request is made [@CL-RTE-0611].
 
-The factors for deciding whether a change is desirable are not limited to those listed, and they include whether the contractor must change its cost accounting practices to remain in compliance with Part 31 [@CL-RTE-0709]. Another listed factor is whether the contractor is initiating management actions directly associated with the change that will result in cost savings for segments with CAS-covered contracts and subcontracts over a period for which forward pricing rates are developed or 5 years, whichever is shorter, with the savings reflected in the forward pricing rates [@CL-RTE-9148; @CL-RTE-0710].
+Some factors to consider in determining if a change is desirable include, but are not limited to, whether the contractor must change the cost accounting practices it uses for Government contract and subcontract costing purposes to remain in compliance with the provisions of Part 31 [@CL-RTE-0709]; whether the contractor is initiating management actions directly associated with the change that will result in cost savings for segments with CAS-covered contracts and subcontracts over a period for which forward pricing rates are developed or 5 years, whichever is shorter, and the cost savings are reflected in the forward pricing rates [@CL-RTE-9148; @CL-RTE-0710]; and whether funds are available if the determination would necessitate an upward adjustment of contract cost or price [@CL-RTE-9244].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor changes its fringe benefit allocation base without asking for a des
 
 ## Never confuse
 
-A unilateral change stays unilateral until the CFAO determines it is desirable [@CL-RTE-0610]. Until then the Government pays no increased cost in the aggregate [@CL-RTE-0608]. A change the contractor must make to meet a new or modified standard is a required change and has its own card, [Required changes to cost accounting practices](rte-required-changes-cost-accounting-practice.md). The clause text on desirable changes sits on [Disclosure and Consistency of Cost Accounting Practices clause](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md).
+Until the CFAO has determined a change to a cost accounting practice is a desirable change, the change is a unilateral change [@CL-RTE-0610]. The Government shall not pay any increased cost, in the aggregate, as a result of a unilateral change [@CL-RTE-0608]. For required changes, see [Required changes to cost accounting practices](rte-required-changes-cost-accounting-practice.md). For the clause, see [Disclosure and Consistency of Cost Accounting Practices clause](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Whether a planned practice change meets the desirable-change factors before it g
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the second notice step, the processing under 30.605 and the funds-available factor, restored the some-factors wording, and removed an added time limit and uncited glosses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contractor-initiated condition of the savings factor.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added clause scope for desirable change; stated notice as one listed step; added segment scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unilateral and desirable changes to cost accounting practices.

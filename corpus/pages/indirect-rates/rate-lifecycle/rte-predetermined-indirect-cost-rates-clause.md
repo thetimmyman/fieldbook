@@ -29,7 +29,7 @@ Explains the Predetermined Indirect Cost Rates clause: how the rates are applied
 | Text status | Final [@CL-RTE-0333] |
 | Applies to | Contracts that include the Predetermined Indirect Cost Rates clause [@CL-RTE-0333] |
 
-Notwithstanding the Allowable Cost and Payment clause, allowable indirect costs under the contract are obtained by applying predetermined indirect cost rates to bases agreed upon by the parties [@CL-RTE-0333]. The contractor shall submit an adequate final indirect cost rate proposal to the contracting officer or cognizant Federal agency official and to the auditor within the six-month period after each fiscal year ends [@CL-RTE-0334].
+Notwithstanding the Allowable Cost and Payment clause, the allowable indirect costs under this contract shall be obtained by applying predetermined indirect cost rates to bases agreed upon by the parties, as specified in the clause [@CL-RTE-0333]. The contractor shall submit an adequate final indirect cost rate proposal to the contracting officer or cognizant Federal agency official and to the auditor within the six-month period after each fiscal year ends [@CL-RTE-0334].
 
 Reasonable extensions, for exceptional circumstances only, may be requested in writing by the contractor and granted in writing by the contracting officer [@CL-RTE-0335]. The proposed rates shall be based on the contractor's actual cost experience for that period, and the appropriate Government representative and the contractor shall establish the final indirect cost rates as promptly as practical after receipt of the proposal [@CL-RTE-0336]. Allowability of costs and acceptability of cost allocation methods shall be determined in accordance with FAR subpart 31.3 in effect on the date of the contract [@CL-RTE-0337].
 
@@ -47,7 +47,7 @@ A contract applies a predetermined overhead rate of 25 percent to a direct labor
 
 ## Never confuse
 
-Predetermined rates are not billing rates. A billing rate is established temporarily for interim reimbursement and adjusted as necessary pending final rates [@CL-RTE-0300], while the clause has predetermined rates applied to the agreed bases to obtain allowable indirect costs [@CL-RTE-0333]. Pending the predetermined rates, reimbursement continues at the previous period's fixed rates or at acceptable billing rates [@CL-RTE-0340]. A predetermined rate is also not a ceiling, because the agreement does not change any monetary ceiling in the contract [@CL-RTE-0339].
+A billing rate is an indirect cost rate established temporarily for interim reimbursement of incurred indirect costs and adjusted as necessary pending establishment of final indirect cost rates [@CL-RTE-0300]. Under the clause, the allowable indirect costs shall be obtained by applying predetermined indirect cost rates to bases agreed upon by the parties [@CL-RTE-0333]. Pending establishment of predetermined indirect cost rates for any fiscal year (or other period agreed to by the parties), the Contractor shall be reimbursed either at the rates fixed for the previous fiscal year (or other period) or at billing rates acceptable to the Contracting Officer (or cognizant Federal agency official), subject to appropriate adjustment when the final rates for that period are established [@CL-RTE-9144; @CL-RTE-0340]. The indirect cost rate agreement shall not change any monetary ceiling, contract obligation, or specific cost allowance or disallowance provided for in the contract [@CL-RTE-0339].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm which contracts carry the clause, whether each year's final rate proposa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the shall-be-obtained rule and the pending-period reimbursement in the clause's terms, and replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall wording, actors and the pending-period lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'may' for extensions; matched agreement contents; cited extension claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -35,7 +35,7 @@ If the Government performs the review, upon the Government's request the Contrac
 
 ## How it works
 
-The clause gives the Government the right to review, and the review may be conducted in support of a particular contract proposal or during contract performance [@CL-EST-1733; @CL-EST-1734]. The prime contractor is told which elements the Government proposes to review [@CL-EST-1735]. The contractor's duty to give access to cost data, facilities and personnel arises on the Government's request [@CL-EST-1736]. The contractor's duty to give third-party experts access covers any experts who have signed non-disclosure agreements [@CL-EST-1737; @CL-EST-1738].
+The clause gives the Government the right to review, and the review may be conducted in support of a particular contract proposal or during contract performance [@CL-EST-1733; @CL-EST-1734]. The prime contractor is told which elements the Government proposes to review [@CL-EST-1735]. If the Government performs a program should-cost review, upon the Government's request the Contractor shall provide access to accurate and complete cost data and Contractor facilities and personnel necessary to permit the Government to perform the review [@CL-EST-1736]. The Contractor shall provide access to its facilities and information necessary to support the review to any third-party experts who have signed non-disclosure agreements in accordance with FAR 52.203-16 [@CL-EST-1737; @CL-EST-1738].
 
 ## Worked example
 
@@ -55,5 +55,6 @@ Which programs could face a review and what cost data and staff access the contr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: How-it-works now carries the if-the-Government-performs condition and the FAR 52.203-16 reference for third-party experts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut a closing statement about points the clause leaves unsaid.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the program should-cost review clause.

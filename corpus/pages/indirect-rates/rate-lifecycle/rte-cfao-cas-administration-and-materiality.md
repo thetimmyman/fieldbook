@@ -35,11 +35,11 @@ The CFAO shall make all CAS-related required determinations and findings for all
 
 ## How it works
 
-The FAR section on cognizant Federal agency responsibilities, 30.201-7, refers the reader to 48 CFR 9903.201-7 [@CL-RTE-1004].
+FAR 30.201-7, Cognizant Federal agency responsibilities: See 48 CFR 9903.201-7 [@CL-RTE-1004].
 
 In determining materiality, the CFAO shall use the criteria in 48 CFR 9903.305 [@CL-RTE-0602]. The criteria themselves are set out on the CAS materiality page. A CFAO determination of materiality may be made before or after a general dollar magnitude proposal has been submitted, depending on the particular facts and circumstances, and must be based on adequate documentation [@CL-RTE-0702].
 
-When the CFAO determines that a cost impact is immaterial, the CFAO shall make no contract adjustments and conclude the cost impact process, and shall document the rationale for the determination [@CL-RTE-0603]. In the case of noncompliance issues the CFAO also informs the contractor that the noncompliance should be corrected and that, if it is not corrected, the Government reserves the right to make appropriate contract adjustments should the cost impact become material in the future [@CL-RTE-0024]. The section on processing noncompliances words this notice as one given in writing, with the reservation tied to the noncompliance becoming material in the future [@CL-RTE-0704]. When the amount involved is material, the CFAO shall follow the applicable provisions on required, unilateral and desirable changes and on noncompliances, which the neighbouring cards describe [@CL-RTE-0703].
+When the CFAO determines that a cost impact is immaterial, the CFAO shall make no contract adjustments and conclude the cost impact process, and shall document the rationale for the determination [@CL-RTE-0603]. In the case of noncompliance issues the CFAO shall also inform the contractor that the noncompliance should be corrected and that, if it is not corrected, the Government reserves the right to make appropriate contract adjustments should the cost impact become material in the future [@CL-RTE-0024]. If the CFAO makes a determination of noncompliance and also determines the cost impact is immaterial, the CFAO shall inform the contractor in writing that the noncompliance should be corrected and that, if it is not corrected, the Government reserves the right to make appropriate contract adjustments should the noncompliance become material in the future [@CL-RTE-9226; @CL-RTE-0704]. For required, unilateral, and desirable changes, and CAS noncompliances, when the amount involved is material, the CFAO shall follow the applicable provisions in 30.603, 30.604, 30.605, and 30.606 [@CL-RTE-0703]; for those provisions, see [required changes](rte-required-changes-cost-accounting-practice.md) and [unilateral and desirable changes](rte-unilateral-and-desirable-changes.md).
 
 ## Worked example
 
@@ -49,7 +49,7 @@ An audit report identifies a noncompliance with an estimated net cost impact of 
 
 ## Never confuse
 
-CAS administration belongs to the CFAO, while the contracting officer can keep other administration functions on the same contracts [@CL-RTE-0600]. The materiality criteria sit on [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md), the contractor's clause duties sit on [Administration of Cost Accounting Standards clause](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md), and the choice of lead agency sits on [Cognizant Federal agency responsibilities](../../compliance/cas-allowability/cmp-cas-cognizant-agency.md).
+The CFAO shall perform CAS administration for all contracts and subcontracts in a business unit, even when the contracting officer retains other administration functions [@CL-RTE-0600]. The materiality criteria sit on [CAS materiality](../../compliance/cas-allowability/cmp-cas-materiality.md), the contractor's clause duties sit on [Administration of Cost Accounting Standards clause](../../compliance/cas-allowability/cmp-administration-of-cost-accounting-standards.md), and the choice of lead agency sits on [Cognizant Federal agency responsibilities](../../compliance/cas-allowability/cmp-cas-cognizant-agency.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which business units have full coverage, modified coverage or neither, and so wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the immaterial-noncompliance notice with its lead-in, restated shall duties as duties, and replaced meta references with the rules themselves.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second CAS determination item and the shall wording; separated the two immaterial-noncompliance notices.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-7 pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the immaterial cost impact sentence so the rule keeps the reservation of the right to make contract adjustments if the impact becomes material.

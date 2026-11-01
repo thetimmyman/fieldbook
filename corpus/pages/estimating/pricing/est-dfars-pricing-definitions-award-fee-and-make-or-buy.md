@@ -27,19 +27,19 @@ States the DoD definitions of market prices and relevant sales data, the require
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2769] |
-| Applies to | Terms used in the DoD contract pricing subpart, the contracting officer's fee objective for cost-plus-award-fee contracts, and make-or-buy program requirements for items and work included [@CL-EST-2788; @CL-EST-2787; @CL-EST-2775] |
+| Applies to | Terms defined in DFARS 215.401 for use in that subpart, the contracting officer's fee objective for cost-plus-award-fee contracts, and make-or-buy program requirements for items and work included [@CL-EST-2788; @CL-EST-2787; @CL-EST-2775] |
 
-The terms below are defined as used in the DoD contract pricing subpart [@CL-EST-2788]. Market prices means current prices that are established in the course of ordinary trade between buyers and sellers free to bargain and that can be substantiated through competition or from sources independent of the offerors [@CL-EST-2769]. Relevant sales data means information provided by an offeror of sales of the same or similar items that can be used to establish price reasonableness taking into consideration the age, volume and nature of the transactions [@CL-EST-2770], including any related discounts, refunds, rebates, offsets or other adjustments [@CL-EST-2790].
+DFARS 215.401 defines the terms below as used in that subpart [@CL-EST-2788]. Market prices means current prices that are established in the course of ordinary trade between buyers and sellers free to bargain and that can be substantiated through competition or from sources independent of the offerors [@CL-EST-2769]. Relevant sales data means information provided by an offeror of sales of the same or similar items that can be used to establish price reasonableness taking into consideration the age, volume and nature of the transactions [@CL-EST-2770], including any related discounts, refunds, rebates, offsets or other adjustments [@CL-EST-2790].
 
 In developing a fee objective for cost-plus-award-fee contracts, the contracting officer shall carry out the duties in the paragraphs of DFARS 215.404-74 [@CL-EST-2787]. The contracting officer shall follow the guidance in FAR 16.405-2 and 216.405-2 [@CL-EST-2771]. The contracting officer shall not use the weighted guidelines method or alternate structured approach [@CL-EST-2772]. The contracting officer shall apply the offset policy in 215.404-73(b)(2) for facilities capital cost of money, that is, reduce the base fee by the amount of facilities capital cost of money [@CL-EST-2773]. The contracting officer shall not complete a DD Form 1547 [@CL-EST-2774].
 
-In the make-or-buy program requirements for items and work included, the minimum dollar amount is $1.5 million [@CL-EST-2775]. The section refers the reader to PGI 215.407-2 for guidance on factors to consider when deciding whether to request a make-or-buy plan and when evaluating make-or-buy plan submissions [@CL-EST-2789].
+In the make-or-buy program requirements for items and work included, the minimum dollar amount is $1.5 million [@CL-EST-2775]. See PGI 215.407-2 for guidance on factors to consider when deciding whether to request a make-or-buy plan and for factors to consider when evaluating make-or-buy plan submissions [@CL-EST-2789].
 
 ## How it works
 
-The fee objective for a cost-plus-award-fee contract is developed without the weighted guidelines method or alternate structured approach and without completing a DD Form 1547 [@CL-EST-2772; @CL-EST-2774]. The contracting officer instead follows the guidance in FAR 16.405-2 and 216.405-2 and applies the facilities capital offset, which lowers the base fee by the amount of facilities capital cost of money [@CL-EST-2771; @CL-EST-2773]. All four duties fall on the contracting officer [@CL-EST-2787].
+The fee objective for a cost-plus-award-fee contract is developed without the weighted guidelines method or alternate structured approach and without completing a DD Form 1547 [@CL-EST-2772; @CL-EST-2774]. The contracting officer follows the guidance in FAR 16.405-2 and 216.405-2 and applies the facilities capital offset, which lowers the base fee by the amount of facilities capital cost of money [@CL-EST-2771; @CL-EST-2773]. All four duties fall on the contracting officer [@CL-EST-2787].
 
-The make-or-buy paragraph gives one figure for items and work included [@CL-EST-2775]. The award-fee distribution and base fee limits are on [DoD cost-plus-award-fee contracts](est-dod-cost-plus-award-fee-requirements.md).
+In the make-or-buy program requirements, the minimum dollar amount for items and work included is $1.5 million [@CL-EST-2775]. The award-fee distribution and base fee limits are on [DoD cost-plus-award-fee contracts](est-dod-cost-plus-award-fee-requirements.md).
 
 ## Worked example
 
@@ -53,7 +53,7 @@ A make-or-buy plan lists one item valued at 2 million and another valued at 1 mi
 
 ## Never confuse
 
-Market prices and relevant sales data are separate defined terms. Market prices are current prices established in ordinary trade between buyers and sellers free to bargain, substantiated through competition or from sources independent of the offerors. Relevant sales data are information an offeror provides on sales of the same or similar items [@CL-EST-2769; @CL-EST-2770].
+Market prices and relevant sales data are each defined in DFARS 215.401 [@CL-EST-2769; @CL-EST-2770]. Market prices means current prices that are established in the course of ordinary trade between buyers and sellers free to bargain and that can be substantiated through competition or from sources independent of the offerors [@CL-EST-2769]. Relevant sales data means information provided by an offeror of sales of the same or similar items that can be used to establish price reasonableness taking into consideration the age, volume, and nature of the transactions [@CL-EST-2770], including any related discounts, refunds, rebates, offsets, or other adjustments [@CL-EST-2790].
 
 In developing a fee objective for cost-plus-award-fee contracts, the contracting officer shall not use the weighted guidelines method or alternate structured approach [@CL-EST-2787; @CL-EST-2772]. For that method elsewhere, see [DoD profit policy: structured approaches and when weighted guidelines are not used](est-dod-profit-structured-approaches.md).
 
@@ -65,6 +65,7 @@ Who owns the proposal pricing that a cost-plus-award-fee fee objective and a mak
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded meta and contrast sentences, completed the relevant sales data definition in Never confuse, and tied the definitions to DFARS 215.401.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section leaves unsaid and a contrast no quote states; added the alternate structured approach.
 - COMPATIBLE_EXTENSION, 2026-10-31: Relevant sales data described as information an offeror provides, not its own sales.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD pricing definitions, award-fee fee objectives and the make-or-buy minimum.

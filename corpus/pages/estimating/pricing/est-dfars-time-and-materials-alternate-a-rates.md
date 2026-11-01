@@ -33,7 +33,7 @@ As prescribed in DFARS 216.601(e), the paragraph is substituted for paragraph (c
 
 ## How it works
 
-The paragraph works by source of labor. The offeror establishes fixed hourly rates using separate rates for each labor category to be performed by each subcontractor, for each category the offeror performs, and for each category transferred between divisions, subsidiaries, or affiliates under common control [@CL-EST-1745; @CL-EST-1746]. The instruction substitutes this paragraph (c) for paragraph (c) of the provision at FAR 52.216-29 [@CL-EST-1780].
+The offeror must establish fixed hourly rates using separate rates for each category of labor to be performed by each subcontractor, for each category of labor to be performed by the offeror, and for each category of labor to be transferred between divisions, subsidiaries, or affiliates under common control [@CL-EST-1745; @CL-EST-1746]. As prescribed in DFARS 216.601(e), this paragraph (c) is substituted for paragraph (c) of the provision at FAR 52.216-29 [@CL-EST-1780].
 
 ## Worked example
 
@@ -53,5 +53,6 @@ Who owns the rate build-up by labor category and by source, including affiliate 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited characterization and stated the substitution under the DFARS prescription directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about hours and about what the rest of the FAR provision keeps, which no quote states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Alternate A of the time-and-materials and labor-hour proposal provision.

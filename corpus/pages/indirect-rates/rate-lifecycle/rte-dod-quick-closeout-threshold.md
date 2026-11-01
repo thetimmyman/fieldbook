@@ -29,13 +29,13 @@ Shows how the DoD supplement lets administrative contracting officers settle a c
 | Text status | Final [@CL-RTE-0314] |
 | Applies to | Contracts, task orders and delivery orders closed under the DoD quick-closeout procedure [@CL-RTE-0314] |
 
-Defense Contract Management Agency administrative contracting officers may settle direct and indirect costs for a specific contract, task order or delivery order before final costs and rates are determined, regardless of the dollar value or percentage of unsettled costs [@CL-RTE-0314; @CL-RTE-0315]. The supplement replaces the thresholds in the FAR quick-closeout procedure with its own test of relative insignificance [@CL-RTE-0316].
+Defense Contract Management Agency administrative contracting officers may settle direct and indirect costs for a specific contract, task order or delivery order before final costs and rates are determined, regardless of the dollar value or percentage of unsettled costs [@CL-RTE-0314; @CL-RTE-0315]. In lieu of the thresholds at FAR 42.708(a)(2)(i) and (ii), the amount of unsettled direct costs and indirect costs to be allocated to the contract, task order, or delivery order will be considered relatively insignificant [@CL-RTE-0316].
 
-Under that test, the unsettled direct and indirect costs are relatively insignificant when the total allocated to any one contract, task order or delivery order does not exceed $2 million, whatever the total contract amount [@CL-RTE-0317].
+That amount will be considered relatively insignificant when the total unsettled direct costs and indirect costs to be allocated to any one contract, task order, or delivery order do not exceed $2 million, regardless of the total contract, task order, or delivery order amount [@CL-RTE-0317].
 
 ## How it works
 
-The settlement comes before the final direct costs and indirect rates that ordinary closeout would require [@CL-RTE-0314]. The authority is not limited by the dollar value or percentage of unsettled costs [@CL-RTE-0315]. Instead of the FAR thresholds, a single figure applies to the total unsettled costs allocable to one contract, task order or delivery order, and the total contract amount does not change the test [@CL-RTE-0316; @CL-RTE-0317].
+The settlement of direct and indirect costs is for a specific contract, task order, or delivery order to be closed in advance of the determination of final direct costs and indirect rates [@CL-RTE-0314], regardless of the dollar value or percentage of unsettled direct or indirect costs allocable to the contract, task order, or delivery order [@CL-RTE-0315]. In lieu of the thresholds at FAR 42.708(a)(2)(i) and (ii), the unsettled costs are considered relatively insignificant when the total to be allocated to any one contract, task order, or delivery order does not exceed $2 million [@CL-RTE-0316; @CL-RTE-0317].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A delivery order worth 12,000,000 still has 1,800,000 of unsettled direct and in
 
 ## Never confuse
 
-Quick-closeout is not a final rate determination. A final rate determination settles the indirect costs of a whole business unit, while quick-closeout settles one contract, task order or delivery order early, and the DoD figure replaces the FAR thresholds for that procedure; see [quick-closeout](rte-quick-closeout.md).
+For the FAR quick-closeout procedure, see [quick-closeout](rte-quick-closeout.md); for contracting officer final rate determination, see [final indirect rates](rte-co-final-indirect-rates.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Confirm which fiscal years are still open and whether any contract, task order o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the early-settlement and FAR-threshold wording in the DFARS terms, and replaced uncited contrasts with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD quick-closeout threshold for unsettled costs.
