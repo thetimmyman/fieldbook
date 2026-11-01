@@ -60,7 +60,7 @@ A contractor wins a services contract and is not enrolled in E-Verify. It enroll
 
 ## Never confuse
 
-A contractor that is not enrolled as a Federal Contractor in E-Verify at the time of contract award must enroll within 30 calendar days of contract award [@CL-CMP-5256], and must within 90 calendar days of enrollment begin to use E-Verify to initiate verification of all new hires working in the United States, whether or not assigned to the contract [@CL-CMP-5257], and initiate verification for each employee assigned to the contract [@CL-CMP-5258]. The Contractor is not required by the clause to perform additional employment verification using E-Verify for any employee whose employment eligibility was previously verified by the Contractor through the E-Verify program [@CL-CMP-5261].
+A contractor that is not enrolled as a Federal Contractor in E-Verify at the time of contract award must enroll within 30 calendar days of contract award [@CL-CMP-5256], and must within 90 calendar days of enrollment begin to use E-Verify to initiate verification of all new hires working in the United States, whether or not assigned to the contract [@CL-CMP-5257]. For each employee assigned to the contract, it must initiate verification within 90 calendar days after the date of enrollment or within 30 calendar days of the employee's assignment to the contract, whichever is later [@CL-CMP-5258]. The Contractor is not required by the clause to perform additional employment verification using E-Verify for any employee whose employment eligibility was previously verified by the Contractor through the E-Verify program [@CL-CMP-5261].
 
 The policy sections on who must verify, which employees and the exceptions are covered in [E-Verify: who must verify, which employees, and the exceptions](cmp-e-verify-policy-and-definitions.md).
 
@@ -72,6 +72,7 @@ Which subcontracts cross the value and place-of-performance tests, and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: E-Verify: restored the later-of deadline for verifying employees assigned to the contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the quoted cross-reference pointers, stated lists and definitions as the clause words them, restated the RFO provisions on their own claims, replaced contrast sentences with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the 180 calendar days.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on E-Verify policy and definitions.
