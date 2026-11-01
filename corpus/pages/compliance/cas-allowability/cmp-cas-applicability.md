@@ -29,21 +29,21 @@ Shows when a negotiated contract is exempt from the Cost Accounting Standards, w
 | Text status | Final [@CL-CMP-0001] |
 | Applies to | Awards from 2026-10-01 [@CL-CMP-0001] |
 
-Negotiated contracts and subcontracts of $35 million or less are exempt from all CAS requirements, tested at award [@CL-CMP-0001]. A business unit takes full CAS coverage when it receives a single CAS-covered award of $100 million or more, or $100 million or more in net CAS-covered awards in its preceding cost accounting period [@CL-CMP-0002; @CL-CMP-7069]. A business unit selected for a CAS-covered contract or subcontract of $100 million or more must submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment that received net awards of negotiated prime contracts and subcontracts subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit a Disclosure Statement before award of its first CAS-covered contract in the immediately following cost accounting period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071]. These values took effect on 2026-10-01 [@CL-CMP-0001].
+Negotiated contracts and subcontracts not in excess of $35 million are exempt from all CAS requirements [@CL-CMP-8116; @CL-CMP-0001]. Full CAS coverage applies to a contractor business unit that receives a single CAS-covered contract award of $100 million or more, or that received $100 million or more in net CAS-covered awards during its preceding cost accounting period [@CL-CMP-8117; @CL-CMP-0002; @CL-CMP-7069]. A business unit selected for a CAS-covered contract or subcontract of $100 million or more must submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment that received net awards of negotiated prime contracts and subcontracts subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit a Disclosure Statement before award of its first CAS-covered contract in the immediately following cost accounting period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071]. These values took effect on 2026-10-01 [@CL-CMP-0001].
 
 ## How it works
 
-First test the contract: below the exemption threshold, or within another listed exemption, no CAS applies. A covered contract then takes full coverage if the business unit receives a single covered award at or above the full-coverage threshold, or had net covered awards at or above it in its preceding period, and modified coverage otherwise [@CL-CMP-0002; @CL-CMP-7069]. Full coverage brings all the standards; modified coverage brings a short subset. The Disclosure Statement describes the unit's cost accounting practices, and the government relies on it when it judges a later change in those practices.
+First test the contract: a contract or subcontract in one of the listed exempt categories, such as a negotiated contract not in excess of the exemption threshold, is exempt from all CAS requirements [@CL-CMP-8116; @CL-CMP-0001]. Full coverage applies to a contractor business unit that receives a single covered award at or above the full-coverage threshold, or that received net covered awards at or above it during its preceding cost accounting period, and requires compliance with all of the CAS specified in part 9904 in effect on the date of the contract award and any CAS that become applicable because of later award of a CAS-covered contract [@CL-CMP-8117; @CL-CMP-0002; @CL-CMP-7069]. Modified coverage may be applied to a covered contract below the full-coverage threshold awarded to a business unit that received less than that threshold in net CAS-covered awards in the immediately preceding cost accounting period [@CL-CMP-8118]. A Disclosure Statement is a written description of a contractor's cost accounting practices and procedures [@CL-CMP-8119].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A business unit wins a negotiated award of 40 million, above an exemption threshold of 35 million, and no other exemption applies, such as small business or commercial products, so the award is CAS-covered. Its CAS-covered awards in the preceding period total 60 million, below a full-coverage threshold of 100 million, so the award takes modified coverage. No Disclosure Statement is required: the award is below a Disclosure Statement threshold of 100 million, and so are the preceding period's net covered awards of 60 million.
+A business unit wins a negotiated award of 40 million, above an exemption threshold of 35 million, and no other exemption applies, such as small business or commercial products, so the award is CAS-covered. Its CAS-covered awards in the preceding period total 60 million, below a full-coverage threshold of 100 million, so modified coverage may be applied to the award. No Disclosure Statement is required: the award is below a Disclosure Statement threshold of 100 million, and so are the preceding period's net covered awards of 60 million.
 
 ## Never confuse
 
-CAS coverage decides which cost accounting rules apply; Allowability decides whether a cost may be charged at all. A business unit is a segment, or the whole organization if it has no segments.
+A business unit means any segment of an organization, or an entire business organization that is not divided into segments [@CL-RTE-9063].
 
 The Cost Accounting Standards statute itself, and how a contract reaches it through the FAR part on Cost Accounting Standards administration, are covered in [What the Cost Accounting Standards statute requires and who it applies to](cmp-cas-statute-scope-and-application.md).
 
@@ -55,6 +55,7 @@ Which business units are CAS-covered, at what level, and whether a Disclosure St
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited exemption, coverage and Disclosure Statement lead-ins; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: added second full-coverage test and second Disclosure Statement test.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a pointer so no figure remains.

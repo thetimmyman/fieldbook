@@ -31,7 +31,7 @@ Shows what the contractor must tell its employees about whistleblower rights, ho
 
 The Contractor must inform its employees in writing, in the predominant native language of the workforce, of contractor employee whistleblower rights and protections under the statute the clause cites, as described in the subpart of the Defense Federal Acquisition Regulation Supplement that the clause cites [@CL-CMP-4191]. The Contractor must include the substance of the clause, including its flowdown paragraph, in all subcontracts [@CL-CMP-4192].
 
-The agency office of the Inspector General referenced in the paragraphs of the FAR code of business ethics clause that name it is the DoD Office of Inspector General [@CL-CMP-4193]. The clause also prints an address, a telephone number and a website for that office, which this card does not restate. The FAR clause itself is covered on [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md).
+The agency office of the Inspector General referenced in paragraphs (c) and (d) of the FAR code of business ethics clause is the DoD Office of Inspector General [@CL-CMP-4193]. The FAR clause itself is covered on [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md).
 
 ## How it works
 
@@ -47,13 +47,13 @@ It also writes the notice requirement into every subcontract, including a small 
 
 ## Never confuse
 
-The notice clause is not the hotline poster clause. This one requires a written notice to employees [@CL-CMP-4191], and its printed text has no posting requirement. The poster duty is a separate clause covered on [DFARS display of hotline posters](cmp-dfars-hotline-posters.md).
+This clause requires a written notice to employees [@CL-CMP-4191]. The display of hotline posters is covered on [DFARS display of hotline posters](cmp-dfars-hotline-posters.md).
 
-It is also not the posting rule in the deployed-forces clause. That clause makes the Contractor ensure its employees supporting the U.S. Armed Forces are aware of their rights, such as to hold their own identity or immigration documents [@CL-CMP-4160]. It separately requires the Contractor to post these employee rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]. It is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
+The deployed-forces clause makes the Contractor ensure its employees supporting the U.S. Armed Forces are aware of their rights, such as to hold their own identity or immigration documents [@CL-CMP-4160]. It also requires the Contractor to post these rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]. That clause is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
 
-The notice is also not a restriction on arbitration agreements. That is a separate clause covered on [Restrictions on mandatory arbitration agreements](cmp-mandatory-arbitration-restrictions.md).
+Restrictions on mandatory arbitration agreements are covered on [Restrictions on mandatory arbitration agreements](cmp-mandatory-arbitration-restrictions.md).
 
-Designating the Inspector General office is not the same as requiring a disclosure. The designation says which office the FAR paragraphs mean [@CL-CMP-4193].
+The clause names the office of the Inspector General referenced in paragraphs (c) and (d) of the FAR code of business ethics clause [@CL-CMP-4193].
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which workforce languages need the written notice, and who owns disclosures to t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and recast contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: whistleblower rights notice: posting duty wording as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for informing employees of whistleblower rights and the agency Inspector General.

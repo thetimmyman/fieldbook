@@ -35,7 +35,7 @@ After award, the Contractor shall not allow any modification to its written agre
 
 ## How it works
 
-The preaward provision sets what an offer must carry, and the postaward clause keeps the agreement in line with those terms after award. The agreement and the representation are submissions, and failure to make them can make an offer ineligible for award [@CL-CMP-3922; @CL-CMP-3924; @CL-CMP-3925]. A change to the agreement after award is allowed only if the modified text still holds the listed content [@CL-CMP-3926]. The updated agreement then goes to the Contracting Officer within a fixed time [@CL-CMP-3927]. How SBIR and STTR data are marked, what procedures and records the contractor must keep, and when the Government may release data are on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md).
+The preaward provision sets what an offer must include [@CL-CMP-3922; @CL-CMP-3924], and the postaward clause bars any modification of the agreement unless the modified agreement contains, among its listed items, a specific allocation of ownership, rights, and responsibilities for intellectual property [@CL-CMP-3926]. The agreement and the representation are submissions, and failure to make them can make an offer ineligible for award [@CL-CMP-3922; @CL-CMP-3924; @CL-CMP-3925]. A change to the agreement after award is allowed only if the modified text still holds the listed content [@CL-CMP-3926]. The updated agreement then goes to the Contracting Officer within a fixed time [@CL-CMP-3927]. How SBIR and STTR data are marked, what procedures and records the contractor must keep, and when the Government may release data are on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A small business answers a solicitation with the STTR preaward provision. Its of
 
 ## Never confuse
 
-The agreement allocates intellectual property between the Offeror and the research institution, and it is separate from the Government's rights in SBIR and STTR data, which are set by the rights clause and covered on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md). A concern's size and eligibility for the programs are a different question, covered on [SBIR and STTR size and eligibility standards](../../market/taxonomy/mkt-sbir-sttr-size-and-eligibility-standards.md). The FAR clause on SBIR rights is covered on [Rights in data under the SBIR and STTR program](cmp-rights-in-data-sbir-and-sttr-program.md).
+The written agreement between the Offeror and a research institution contains a specific allocation of ownership, rights, and responsibilities for intellectual property [@CL-CMP-3922]. The Government's rights in SBIR and STTR data are covered on [DoD SBIR and STTR data rights: definitions, protection period and markings](cmp-dfars-sbir-sttr-data-rights-definitions-and-period.md). A concern's size and eligibility for the programs are a different question, covered on [SBIR and STTR size and eligibility standards](../../market/taxonomy/mkt-sbir-sttr-size-and-eligibility-standards.md). The FAR clause on SBIR rights is covered on [Rights in data under the SBIR and STTR program](cmp-rights-in-data-sbir-and-sttr-program.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Which executed STTR contracts carry these provisions, where the agreement and re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the preaward and postaward agreement sentences and recast the contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the scope of the preaward intellectual property allocation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the postaward agreement sentence so the intellectual property rule keeps the scope of inventions, patents, technical data and computer software resulting from performance of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD SBIR and STTR data rights, with the STTR preaward and postaward requirements.

@@ -29,21 +29,21 @@ Shows how independent research and development and bid and proposal costs are co
 | Text status | Final [@CL-CMP-0575] |
 | Applies to | Individual independent research and development and bid and proposal projects [@CL-CMP-0575] |
 
-The unit for identifying and accumulating these costs is the individual project [@CL-CMP-0575]. Project cost consists of all allocable costs except business unit general and administrative expense [@CL-CMP-0576]. A home office's pools go to segments on a beneficial or causal basis, and a business unit's pools go to that unit's final cost objectives on the same principle [@CL-CMP-0577; @CL-CMP-0578]. Cost incurred in a period is not carried into another period, except that independent research and development cost may move as permitted by existing laws, regulations and other controlling factors [@CL-CMP-0579; @CL-CMP-0580].
+The unit for identifying and accumulating these costs is the individual project [@CL-CMP-0575]. Project cost consists of all allocable costs except business unit general and administrative expenses [@CL-CMP-0576]. The cost pools consist of all project costs and other allocable costs, except business unit general and administrative expenses [@CL-CMP-8115]. A home office's pools are allocated to the segments reporting to that home office on the basis of the beneficial or causal relationship between the costs and those segments [@CL-CMP-0577]. A business unit's pools are allocated to the final cost objectives of that business unit on the basis of the beneficial or causal relationship between the costs and the final cost objectives [@CL-CMP-0578]. Bid and proposal cost incurred in a cost accounting period shall not be assigned to any other period [@CL-CMP-0579]. Independent research and development cost incurred in a period shall not be assigned to any other period, except as may be permitted pursuant to provisions of existing laws, regulations and other controlling factors [@CL-CMP-0580].
 
 ## How it works
 
-The project is the basic unit for identifying and accumulating these costs, and the pools consist of all project costs and other allocable costs [@CL-CMP-0575]. Business unit general and administrative expense is excluded from project cost and from the pools, so it is not charged through them [@CL-CMP-0576]. The pools then follow benefit: home office pools to the segments reporting to the home office, business unit pools to that unit's final cost objectives [@CL-CMP-0577; @CL-CMP-0578]. The no-carryover rule keeps each period's cost in its own period, with a narrow opening for independent research and development [@CL-CMP-0579; @CL-CMP-0580].
+The individual project is the basic unit for identifying and accumulating these costs [@CL-CMP-0575]. Project costs and the pools both exclude business unit general and administrative expenses [@CL-CMP-0576; @CL-CMP-8115]. The pools are allocated on the basis of the beneficial or causal relationship between the costs and the recipients: home office pools to the segments reporting to that home office, and business unit pools to the final cost objectives of that business unit [@CL-CMP-0577; @CL-CMP-0578]. Costs incurred in a period shall not be assigned to any other period, except that independent research and development costs may be assigned as permitted pursuant to existing laws, regulations and other controlling factors [@CL-CMP-0579; @CL-CMP-0580].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A business unit opens three projects: two independent research projects costing 900,000 and 300,000, and one bid and proposal project costing 800,000. The pool is 2 million, the sum of the three project costs, none of which includes business unit general and administrative expense, and it is allocated to the business unit's final cost objectives on a beneficial or causal basis.
+A business unit opens three projects: two independent research projects costing 900,000 and 300,000, and one bid and proposal project costing 800,000. The pool is 2 million, the sum of the three project costs, with no other allocable costs and none of it business unit general and administrative expense, and it is allocated to the business unit's final cost objectives on a beneficial or causal basis.
 
 ## Never confuse
 
-A project is the unit of accumulation, while the pool is what gets allocated; they are not the same ledger object [@CL-CMP-0575; @CL-CMP-0576]. Home office pools and business unit pools look alike but go to different recipients: segments on one side, final cost objectives on the other [@CL-CMP-0577; @CL-CMP-0578].
+The basic unit for identification and accumulation is the individual project [@CL-CMP-0575], and the cost pools consist of all project costs and other allocable costs [@CL-CMP-8115]. Home office pools are allocated to the segments reporting to that home office [@CL-CMP-0577], and business unit pools are allocated to the final cost objectives of that business unit [@CL-CMP-0578].
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Whether each project is opened, charged and closed with records that support the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited pool composition and matched allocation recipients.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal costs.

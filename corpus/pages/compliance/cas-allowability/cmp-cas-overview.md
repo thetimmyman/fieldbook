@@ -20,21 +20,21 @@ Introduces the Cost Accounting Standards: what they govern, when they apply, and
 
 ## The rule
 
-The Cost Accounting Standards govern how a contractor measures, assigns and allocates costs to contracts: consistency between estimating and accounting, consistent allocation, the cost accounting period, unallowable costs, and the allocation of indirect costs [@S-0014-v1]. Negotiated contracts and subcontracts at or below the exemption value are exempt from all of them [@CL-CMP-0001]. A business unit with a large enough award, or $100 million or more in net CAS-covered awards in its preceding cost accounting period, has full coverage [@CL-CMP-0002; @CL-CMP-7069], and a unit selected for a large covered award must first submit a Disclosure Statement [@CL-CMP-0003]. A business unit or segment with net awards subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit one before award of its first CAS-covered contract in the immediately following period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071].
+Certain contractors and subcontractors are required to comply with Cost Accounting Standards (CAS) and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-9677]. Negotiated contracts and subcontracts not in excess of the exemption value are exempt from all CAS requirements [@CL-CMP-8116; @CL-CMP-0001]. Full coverage applies to a contractor business unit that receives a single CAS-covered contract award of $100 million or more, or that received $100 million or more in net CAS-covered awards during its preceding cost accounting period [@CL-CMP-8117; @CL-CMP-0002; @CL-CMP-7069]. A business unit selected to receive a CAS-covered contract or subcontract of $100 million or more shall submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment with net awards subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit one before award of its first CAS-covered contract in the immediately following period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071].
 
 ## How it works
 
-Coverage is tested at award and then by business unit. A covered contract carries the standards clause, the contractor follows its disclosed practices, and a change to a practice needs a cost impact process with the contracting officer. Each standard has a fundamental requirement and techniques for applying it; the clause cards for single standards give the detail. See [CAS applicability](cmp-cas-applicability.md) for the thresholds.
+Full coverage requires the business unit to comply with all of the CAS specified in part 9904 that are in effect on the date of the contract award and with any CAS that become applicable because of later award of a CAS-covered contract [@CL-CMP-8117]. Modified coverage may be applied to a covered contract of less than $100 million awarded to a business unit that received less than $100 million in net CAS-covered awards in the immediately preceding cost accounting period [@CL-CMP-8118]. All contractors, whether subject to full or modified CAS coverage, are subject to CAS 401 and CAS 402 and will continue to be required to consistently follow their disclosed or actual cost accounting practices [@CL-CMP-1515]. The clause cards for single standards give the detail. See [CAS applicability](cmp-cas-applicability.md) for the thresholds.
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A business unit wins its first negotiated award of 60 million. The award exceeds the exemption, so it is covered, but the unit has no prior covered awards large enough for full coverage, so modified coverage is the likely result, pending the clause the contract carries.
+A business unit wins its first negotiated award of 60 million. The award exceeds the exemption, so it is covered, but the unit has no prior covered awards large enough for full coverage, so modified coverage may be applied.
 
 ## Never confuse
 
-The standards decide how costs are measured and allocated; the FAR cost principles decide whether a cost is allowable at all. A cost can follow the standards and still be unallowable.
+A cost is allowable only when it complies with all of the requirements listed in FAR 31.201-2(a), one of which is standards promulgated by the CAS Board, if applicable [@CL-CMP-0101; @CL-CMP-8030].
 
 ## Company calibration
 
@@ -44,6 +44,7 @@ Which business units have full coverage, modified coverage or neither, and wheth
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited coverage and allowability sentences; removed uncited process claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated second full-coverage and Disclosure Statement tests.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 introduction to the Cost Accounting Standards.
