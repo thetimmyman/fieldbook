@@ -45,7 +45,7 @@ A contract has a target cost of 1,000,000, a target profit of 100,000 and a pric
 
 ## Never confuse
 
-A firm target contract fixes the target cost and target profit at the outset and has a price ceiling but no profit ceiling or floor [@CL-EST-1076]. A cost-plus-incentive-fee contract instead has minimum and maximum fees [@CL-EST-1091]. The firm target type is also not the successive targets type, whose firm targets are set later, at a production point [@CL-EST-1084]. For the contract-type profit factor, see [DoD weighted guidelines: contract type risk and working capital adjustment](est-weighted-guidelines-contract-type-risk.md). For the adequacy tests, see [Accounting system criteria](../../compliance/business-systems/cmp-accounting-system-criteria.md).
+A firm target contract fixes the target cost and target profit at the outset and has a price ceiling but no profit ceiling or floor [@CL-EST-1076]. A cost-plus-incentive-fee contract instead has minimum and maximum fees [@CL-EST-1091]. In a successive targets contract, the production point at which the firm target cost and firm target profit will be negotiated is usually before delivery or shop completion of the first item [@CL-EST-1084]. For the contract-type profit factor, see [DoD weighted guidelines: contract type risk and working capital adjustment](est-weighted-guidelines-contract-type-risk.md). For the adequacy tests, see [Accounting system criteria](../../compliance/business-systems/cmp-accounting-system-criteria.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which proposals expected soon rest on cost or pricing information strong enough 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced an uncited contrast with the production point wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that both listed conditions apply.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price incentive (firm target) contracts.

@@ -32,13 +32,11 @@ In the provision, the offeror or respondent checks one block to state whether, i
 
 If the offeror or respondent checks that it intends to use another plant or facility, it shall insert the required information in the spaces provided, which for the place of performance are street address, city, state, county and zip code [@CL-EST-1927]. The spaces also call for the name and address of the owner and operator of the plant or facility, if other than the offeror or respondent [@CL-EST-1928].
 
-The printed provision does not say whether the stated place may change after award.
-
 ## How it works
 
-The offeror or respondent answers by checking a block [@CL-EST-1926]. The address spaces are filled in when it checks that it intends to use another plant or facility [@CL-EST-1927]. A separate part of the spaces asks for the owner and operator when they are someone other than the offeror or respondent [@CL-EST-1928]. The answer and the addresses are contract-specific.
+The offeror or respondent answers by checking a block [@CL-EST-1926]. The address spaces are filled in when it checks that it intends to use another plant or facility [@CL-EST-1927]. A separate part of the spaces asks for the owner and operator when they are someone other than the offeror or respondent [@CL-EST-1928].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.215-6(a) says that the offeror or respondent, in the performance of any contract resulting from this request for proposals, checks one block to state whether it intends or does not intend to use one or more plants or facilities located at a different address from its own address as indicated in the proposal or response to request for information [@CL-EST-0427], where the codified paragraph says this solicitation [@CL-EST-1926]. Paragraph (b) keeps the rule that an offeror or respondent that checks intends shall insert the required information in the spaces provided, which for the place of performance are street address, city, state, county and ZIP code [@CL-EST-0428; @CL-EST-1927], and keeps the space for the name and address of the owner and operator of the plant or facility if other than the offeror or respondent [@CL-EST-0429; @CL-EST-1928].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.215-6(a) says that the offeror or respondent, in the performance of any contract resulting from this request for proposals, checks one block to state whether it intends or does not intend to use one or more plants or facilities located at a different address from its own address as indicated in the proposal or response to request for information [@CL-EST-0427], where the codified paragraph says this solicitation [@CL-EST-2048]. Paragraph (b) keeps the rule that an offeror or respondent that checks intends shall insert the required information in the spaces provided, which for the place of performance are street address, city, state, county and ZIP code [@CL-EST-0428; @CL-EST-1927], and keeps the space for the name and address of the owner and operator of the plant or facility if other than the offeror or respondent [@CL-EST-0429; @CL-EST-1928].
 
 ## Worked example
 
@@ -58,6 +56,7 @@ Who confirms, for each response, whether work will run from another plant and wh
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim for the codified 'this solicitation' wording; cut two uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for place of performance.

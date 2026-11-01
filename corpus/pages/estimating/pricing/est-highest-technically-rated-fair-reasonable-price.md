@@ -33,11 +33,11 @@ The approach is appropriate when the Government determines in advance that it wo
 
 ## How it works
 
-The Government makes the advance determination that tradeoffs would not be advantageous. The section does not name who within the Government makes it [@CL-EST-2530]. The source selection authority determines the highest technically rated proposal and, if a price fails, the next highest technically rated proposal [@CL-EST-2532; @CL-EST-2535]. The section does not say who evaluates the price; it says only that the price is evaluated in accordance with subpart 15.4 [@CL-EST-2533].
+The Government makes the advance determination that tradeoffs would not be advantageous. The source selection authority determines the highest technically rated proposal and, if a price fails, the next highest technically rated proposal [@CL-EST-2532; @CL-EST-2535]. The price of the highest technically rated proposal is evaluated to determine if it is fair and reasonable in accordance with subpart 15.4 [@CL-EST-2533].
 
 Proposals are evaluated on the non-price factors the solicitation outlines [@CL-EST-2532]. Price is then evaluated for the highest technically rated proposal and, if that price is not fair and reasonable, for the next highest technically rated proposal, and so on while the process continues [@CL-EST-2533; @CL-EST-2535; @CL-EST-2536]. Award goes to the highest technically rated responsible offeror with a fair and reasonable price [@CL-EST-2536].
 
-The one duty the section puts on the solicitation is the notice: the RFP must say that tradeoffs will not be considered and that the highest technically rated proposal will be selected if it offers a fair and reasonable price [@CL-EST-2537]. The section states no duty on offerors.
+When this approach is used, the RFP must advise offerors that tradeoffs will not be considered and that the highest technically rated proposal will be selected if it offers a fair and reasonable price [@CL-EST-2537].
 
 DoD contracting officers must use the revised FAR part 15 in place of the codified text [@CL-EST-3176], under Class Deviation 2026-O0048 Revision 1, which took effect immediately and supersedes the version issued on March 5, 2026 [@CL-EST-3177].
 
@@ -49,7 +49,7 @@ A service solicitation tells offerors that tradeoffs will not be considered and 
 
 ## Never confuse
 
-This is not a tradeoff source selection and not lowest price technically acceptable selection; the linked cards cover those. Here the RFP says that tradeoffs will not be considered [@CL-EST-2537], and the question asked of the highest technically rated proposal's price is whether it is fair and reasonable [@CL-EST-2533].
+In this approach the RFP says that tradeoffs will not be considered [@CL-EST-2537], and the price of the highest technically rated proposal is evaluated to determine if it is fair and reasonable [@CL-EST-2533]. Other source selection approaches are on the linked cards.
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Confirm which solicitations the company bids under this approach and what eviden
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section does not name and an uncited contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the highest technically rated with a fair and reasonable price approach.

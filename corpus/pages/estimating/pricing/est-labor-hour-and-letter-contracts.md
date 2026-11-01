@@ -15,7 +15,7 @@ links = ["est-fixed-price-incentive-and-letter-contracts", "est-letter-contract-
 
 ## Purpose
 
-Describes the labor-hour contract as a variation of the time-and-materials contract, and describes what a letter contract is. Neither section states an operative limit.
+Describes the labor-hour contract as a variation of the time-and-materials contract, and describes what a letter contract is.
 
 ## The rule
 
@@ -34,13 +34,11 @@ The section directs the reader to 12.207(b), 16.601(c) and 16.601(d) for applica
 
 A letter contract is a written preliminary contractual instrument that authorizes the contractor to begin immediately manufacturing supplies or performing services [@CL-EST-2984].
 
-Neither section states a duty for a contractor or a contracting officer, a threshold or a deadline [@CL-EST-2981; @CL-EST-2982; @CL-EST-2983; @CL-EST-2984]. Each is a description, and the application and limits sit in other sections.
-
 ## How it works
 
-The labor-hour form takes its definition from the time-and-materials form and changes one element: the contractor does not supply materials [@CL-EST-2981]. The section does not set out the application and limitations. It directs the reader to the cross-referenced sections for those that apply to time-and-materials contracts and also apply to labor-hour contracts [@CL-EST-2982]. One of the three cross-references, 12.207(b), also covers the use of labor-hour contracts for certain commercial services [@CL-EST-2983]. See [time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md) and [time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md).
+The labor-hour form takes its definition from the time-and-materials form and changes one element: the contractor does not supply materials [@CL-EST-2981]. The cross-references 12.207(b), 16.601(c) and 16.601(d) point to application and limitations, for time-and-materials contracts, that also apply to labor-hour contracts [@CL-EST-2982]. One of the three cross-references, 12.207(b), also covers the use of labor-hour contracts for certain commercial services [@CL-EST-2983]. See [time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md) and [time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md).
 
-A letter contract is written, preliminary, and authorizes the contractor to begin immediately manufacturing supplies or performing services [@CL-EST-2984]. This section does not say when a letter contract may be used or what limits apply. A letter contract may be used only after the head of the contracting activity or a designee determines in writing that no other contract is suitable [@CL-EST-0968]. See [letter contract limitations](est-letter-contract-limitations.md), and [fixed-price incentive contracts and letter contracts](est-fixed-price-incentive-and-letter-contracts.md) for when one fits and how it is definitized.
+A letter contract is written, preliminary, and authorizes the contractor to begin immediately manufacturing supplies or performing services [@CL-EST-2984]. A letter contract may be used only after the head of the contracting activity or a designee determines in writing that no other contract is suitable [@CL-EST-0968]. See [letter contract limitations](est-letter-contract-limitations.md), and [fixed-price incentive contracts and letter contracts](est-fixed-price-incentive-and-letter-contracts.md) for when one fits and how it is definitized.
 
 ## Worked example
 
@@ -52,7 +50,7 @@ A second requirement cannot wait for a definitive contract. The head of the cont
 
 ## Never confuse
 
-A labor-hour contract is a variation of the time-and-materials contract, and the section points to the cross-referenced sections for the application and limitations, for time-and-materials contracts, that also apply to labor-hour contracts [@CL-EST-2981; @CL-EST-2982]. The single stated difference is that materials are not supplied by the contractor [@CL-EST-2981]. A letter contract is a preliminary instrument that authorizes work to begin, and the section describes it without stating limits [@CL-EST-2984].
+A labor-hour contract is a variation of the time-and-materials contract, and the section points to the cross-referenced sections for the application and limitations, for time-and-materials contracts, that also apply to labor-hour contracts [@CL-EST-2981; @CL-EST-2982]. The single stated difference is that materials are not supplied by the contractor [@CL-EST-2981]. A letter contract is a preliminary instrument that authorizes work to begin, and it authorizes the contractor to begin immediately manufacturing supplies or performing services [@CL-EST-2984].
 
 ## Company calibration
 
@@ -62,4 +60,5 @@ Whether the pricing file prices each labor-hour requirement under the time-and-m
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the sections do not say; kept the cited rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor-hour and letter contracts.
