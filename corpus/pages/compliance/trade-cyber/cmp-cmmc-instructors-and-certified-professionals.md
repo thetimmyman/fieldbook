@@ -34,7 +34,7 @@ A CMMC Certified Professional completes rigorous training on CMMC and the assess
 
 ## How it works
 
-The CAICO is responsible for certifying instructors and related professionals [@CL-CMP-3232], and only the CAICO may make decisions relating to examination certifications [@CL-CMP-3233]. For an instructor, the limits are about what may be taught and what else the instructor may do. A CCI's certification sets which candidates it may instruct [@CL-CMP-3240], and an instructor must not provide CMMC consulting services while serving as an instructor [@CL-CMP-3239]. For a CCP, the limit is about who decides. The CCP takes part in a Level 2 certification assessment under CCA oversight and the CCA makes all final determinations [@CL-CMP-3241]. The printed text lists further requirements for each role that this card does not set out.
+The CAICO is responsible for training, testing, authorizing, certifying, and recertifying CMMC assessors, instructors, and related professionals [@CL-CMP-3232], and only the CAICO may make decisions relating to examination certifications [@CL-CMP-3233]. A CCI with a valid CCP certification may instruct CCP candidates, while a CCI with a valid CCA certification may instruct CCP, CCA, and CCI candidates [@CL-CMP-3240]. A CMMC Instructor must not provide CMMC consulting services while serving as a CMMC instructor [@CL-CMP-3239]. A CCP can participate as a CCP on Level 2 certification assessments with CCA oversight where the CCA makes all final determinations [@CL-CMP-3241]. The sections on instructors and CCPs list further requirements for each role, which this card does not set out.
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A person holds a valid CCP certification issued in year 1 and works as a CCI. Un
 
 ## Never confuse
 
-A CCP is not a CCA. A CCP can take part in a Level 2 certification assessment with CCA oversight, and the CCA makes all final determinations [@CL-CMP-3241]. While serving as an instructor, a person must not provide CMMC consulting services [@CL-CMP-3239]. A CCP, by contrast, trains to provide advice, consulting, and recommendations to OSA clients [@CL-CMP-3337]. The assessment process itself is on the [certification assessment](cmp-cmmc-level-2-assessment.md) card. The body that certifies instructors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card.
+A CCP can participate as a CCP on Level 2 certification assessments with CCA oversight where the CCA makes all final determinations [@CL-CMP-3241]. A CMMC Instructor must not provide CMMC consulting services while serving as a CMMC instructor [@CL-CMP-3239]. A CMMC Certified Professional completes rigorous training on CMMC and the assessment process to provide advice, consulting, and recommendations to their OSA clients [@CL-CMP-3337]. The assessment process itself is on the [certification assessment](cmp-cmmc-level-2-assessment.md) card. The body that certifies instructors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card.
 
 ## Company calibration
 
@@ -53,6 +53,6 @@ Which instructors and certified professionals the company uses, and who confirms
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited framing sentences with the cited wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only and a role overstatement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Instructors and Certified Professionals.

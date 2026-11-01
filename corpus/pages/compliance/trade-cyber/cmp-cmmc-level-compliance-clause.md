@@ -45,7 +45,7 @@ A contract requires Level 2 (C3PAO). The contractor holds Final Level 2 (C3PAO) 
 
 ## Never confuse
 
-The status the contractor must hold for its own systems is separate from the status it must check in each subcontractor before award. The CMMC clause is also not the same as the DFARS assessment notice and clause for the NIST standard, which are covered on the [DoD assessment notice and requirements](cmp-nist-sp-800-171-dod-assessment-requirements.md) card.
+The contractor must have and maintain a current CMMC status at the level the contracting officer inserts, or higher [@CL-CMP-2834], for all information systems used in performance that process, store, or transmit FCI or CUI [@CL-CMP-2835]. Prior to awarding a subcontract or other contractual instrument, the contractor must ensure that the subcontractor has a current CMMC certificate or current CMMC status at the level appropriate for the information being flowed down [@CL-CMP-2841]. For the DFARS assessment notice and clause for the NIST standard, see the [DoD assessment notice and requirements](cmp-nist-sp-800-171-dod-assessment-requirements.md) card.
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which information systems process, store, or transmit FCI or CUI, the CMMC statu
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced the uncited contrast with the cited status duties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor compliance with the CMMC level requirements.

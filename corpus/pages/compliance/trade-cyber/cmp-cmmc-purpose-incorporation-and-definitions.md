@@ -44,7 +44,7 @@ A supplier with 40 employees runs one enclave that holds CUI. It asks a C3PAO to
 
 ## Never confuse
 
-An assessment and a CMMC Status are different things. The assessment is the testing or evaluation of security controls [@CL-CMP-3208], and the status is the result of meeting or exceeding the minimum required score for the corresponding assessment [@CL-CMP-3206]. Some kinds of assessment differ by who performs them. A Level 2 certification assessment belongs to a C3PAO [@CL-CMP-3209], while a Level 3 certification assessment belongs to DCMA DIBCAC [@CL-CMP-3325]. The levels and what each one assesses are on the [model levels and scoping](cmp-cmmc-model-levels-and-scoping.md) card and the [certification assessment](cmp-cmmc-level-2-assessment.md) card. The roles of the assessing parties are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, the [DIBCAC assessment](cmp-cmmc-level-3-assessment.md) card and the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card. The bodies that accredit and certify them are on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card, the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card and the [instructors and certified professionals](cmp-cmmc-instructors-and-certified-professionals.md) card.
+The assessment is the testing or evaluation of security controls [@CL-CMP-3208], and the status is the result of meeting or exceeding the minimum required score for the corresponding assessment [@CL-CMP-3206]. A Level 2 certification assessment is the activity performed by a C3PAO to evaluate the information system of an OSC when seeking a CMMC Status of Level 2 (C3PAO) [@CL-CMP-3209]. A Level 3 certification assessment is the activity performed by the DCMA DIBCAC to evaluate the information system of an OSC when seeking a CMMC Status of Level 3 (DIBCAC) [@CL-CMP-3325]. The levels and what each one assesses are on the [model levels and scoping](cmp-cmmc-model-levels-and-scoping.md) card and the [certification assessment](cmp-cmmc-level-2-assessment.md) card. The roles of the assessing parties are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, the [DIBCAC assessment](cmp-cmmc-level-3-assessment.md) card and the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card. The bodies that accredit and certify them are on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card, the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card and the [instructors and certified professionals](cmp-cmmc-instructors-and-certified-professionals.md) card.
 
 ## Company calibration
 
@@ -53,7 +53,7 @@ Which contractor information systems and contracts are in the assessed scope, an
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: replaced contrast wording with cited definitions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the standards sentence so the program's use of NIST SP 800-171 Revision 2 keeps the updates it includes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Limited the statement about who performs each kind of assessment to the certification assessments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Program purpose, incorporated standards and key assessment terms.
