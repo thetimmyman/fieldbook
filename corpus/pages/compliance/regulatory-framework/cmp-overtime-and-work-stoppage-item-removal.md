@@ -37,7 +37,7 @@ Items must be removed from contractors' facilities affected by work stoppages in
 
 ## How it works
 
-The overtime procedures direct what the Government does in solicitation and negotiation. The solicitation should not build in schedules that need overtime at Government expense, and in negotiation the contracting officer asks how far an offer rests on overtime and shift premiums and tries to price without them or source the requirement elsewhere, consistent with the Government's needs [@CL-CMP-6776; @CL-CMP-6777; @CL-CMP-6999]. If overtime proves necessary, the contractor's request goes to the contracting officer and covers the overtime that can be estimated with reasonable certainty [@CL-CMP-6778; @CL-CMP-7000].
+The overtime procedures direct what the Government does in solicitation and negotiation. Solicitations normally shall not specify delivery or performance schedules that may require overtime at Government expense, and in negotiation the contracting officer asks how far an offer rests on overtime and shift premiums and tries to price without them or source the requirement elsewhere, consistent with the Government's needs [@CL-CMP-6776; @CL-CMP-6777; @CL-CMP-6999]. If overtime proves necessary, the contractor's request goes to the contracting officer and covers the overtime that can be estimated with reasonable certainty [@CL-CMP-6778; @CL-CMP-7000].
 
 The section sends the reader to the clause prescription at FAR 22.103-5(b) for applicable contracts [@CL-CMP-6778]. That prescription covers contemplated cost-reimbursement contracts expected to exceed the simplified acquisition threshold, with two stated exceptions [@CL-OPM-0086; @CL-OPM-0087]. Paragraph (b) of the clause applies to a request for estimated overtime premiums that exceeds the amount specified in the clause, and requires it to include all estimated overtime for contract completion [@CL-CMP-6460]. Who approves the overtime is on the linked premium approval card.
 
@@ -65,5 +65,6 @@ Which contracts the company holds are applicable contracts for the overtime prem
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the solicitation overtime rule with its normally and shall not wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for overtime at Government expense and removal of items after a work stoppage.
