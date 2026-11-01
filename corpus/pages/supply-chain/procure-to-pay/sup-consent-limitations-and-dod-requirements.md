@@ -31,11 +31,11 @@ Shows what consent to a subcontract does not decide, what contracting officers s
 
 The contracting officer's consent to a subcontract or approval of the contractor's purchasing system does not constitute a determination of the acceptability of the subcontract terms or price, or of the allowability of costs, unless the consent or approval specifies otherwise [@CL-SUP-0511].
 
-Under the defense supplement, notwithstanding the requirements in FAR 44.201-1(a) [@CL-SUP-9697], the contracting officer shall not withhold consent to subcontract without the written approval of the program manager, or comparable requiring activity official exercising program management responsibilities, if the contractor has an approved purchasing system [@CL-SUP-0515].
+Under the defense supplement, in accordance with section 824 of the National Defense Authorization Act for Fiscal Year 2019 and notwithstanding the requirements in FAR 44.201-1(a) [@CL-SUP-9697], the contracting officer shall not withhold consent to subcontract without the written approval of the program manager, or comparable requiring activity official exercising program management responsibilities, if the contractor has an approved purchasing system, as defined in FAR 44.101 [@CL-SUP-0515].
 
 ## How it works
 
-Contracting officers shall not consent to cost-plus-a-percentage-of-cost subcontracts or to cost-reimbursement subcontracts whose fee exceeds the fee limitations, the same limits the clause sets, which the [Subcontracts: consent and advance notification](sup-subcontracts-consent-advance-notification.md) card covers [@CL-SUP-0512]. Contracting officers shall also not consent to subcontracts that obligate the contracting officer to deal directly with the subcontractor, or that make the results of arbitration, judicial determination, or voluntary settlement between the prime contractor and subcontractor binding on the Government [@CL-SUP-0513]. Contracting officers should not refuse consent merely because a subcontract contains a clause giving the subcontractor the right of indirect appeal to an agency board of contract appeals if the subcontractor is affected by a dispute between the Government and the prime contractor [@CL-SUP-0514].
+Contracting officers shall not consent to cost-plus-a-percentage-of-cost subcontracts or to cost-reimbursement subcontracts if the fee exceeds the fee limitations of FAR 15.404-4(c)(4)(i) [@CL-SUP-0512]; see also [Subcontracts: consent and advance notification](sup-subcontracts-consent-advance-notification.md). Contracting officers shall also not consent to subcontracts that obligate the contracting officer to deal directly with the subcontractor, or that make the results of arbitration, judicial determination, or voluntary settlement between the prime contractor and subcontractor binding on the Government [@CL-SUP-0513]. Contracting officers should not refuse consent merely because a subcontract contains a clause giving the subcontractor the right of indirect appeal to an agency board of contract appeals if the subcontractor is affected by a dispute between the Government and the prime contractor [@CL-SUP-0514]. The clause may not attempt to obligate the contracting officer or the appeals board to decide questions that do not arise between the Government and the prime contractor or that are not cognizable under the clause at 52.233-1, Disputes [@CL-SUP-3860].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the contracting officer must not consent to the first. For the second, w
 
 ## Never confuse
 
-Consent is not a finding that the subcontract price is acceptable or that its costs are allowable [@CL-SUP-0511]. The defense rule on withholding consent depends on the contractor having an approved purchasing system [@CL-SUP-0515], which the [Contractor purchasing system](sup-contractor-purchasing-system.md) card describes in the terms of the clause.
+Consent to a subcontract does not constitute a determination of the acceptability of the subcontract terms or price, or of the allowability of costs, unless the consent specifies otherwise [@CL-SUP-0511]. The defense rule on withholding consent applies if the contractor has an approved purchasing system [@CL-SUP-0515], which the [Contractor purchasing system](sup-contractor-purchasing-system.md) card describes in the terms of the clause.
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Confirm whether any planned subcontract uses a form that consent cannot cover, a
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS statute lead-in, fee limitation citation and disputes-clause limit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the defense rule's notwithstanding lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontract consent limitations and DoD requirements.

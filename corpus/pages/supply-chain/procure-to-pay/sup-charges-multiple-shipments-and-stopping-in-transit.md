@@ -32,11 +32,11 @@ The charges clause is inserted in solicitations and contracts for transportation
 
 The multiple shipments clause is inserted in solicitations and contracts for transportation or transportation-related services when multiple shipments are tendered at one time to the contractor for transportation from one origin to two or more consignees at the same destination [@CL-SUP-2239]. In that case the rate charged for each shipment is the rate applicable to the aggregate weight [@CL-SUP-2238].
 
-The stopping in transit clause is inserted in solicitations and contracts for transportation or transportation-related services when multiple shipments are tendered at one time to the contractor for transportation from one origin to two or more consignees along the route between origin and last destination [@CL-SUP-2269]. It applies when multiple shipments are tendered at one time to the contractor for movement from one origin to two or more consignees along the route between the origin and the last destination [@CL-SUP-2270]. The rate charged is then the rate applicable to the aggregate weight, plus a charge, in an amount left blank in the clause text, for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-2240]. That amount is a contract-specific fill-in, and this page does not state one.
+The stopping in transit clause is inserted in solicitations and contracts for transportation or transportation-related services when multiple shipments are tendered at one time to the contractor for transportation from one origin to two or more consignees along the route between origin and last destination [@CL-SUP-2269]. It applies when multiple shipments are tendered at one time to the contractor for movement from one origin to two or more consignees along the route between the origin and the last destination [@CL-SUP-2270]. The rate charged is then the rate applicable to the aggregate weight, plus a charge, in an amount left blank in the clause text, for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-2240].
 
 ## How it works
 
-Add the weights of the shipments tendered together, find the rate that applies to that aggregate weight, and charge each shipment that rate [@CL-SUP-2238]. Where the stopping in transit clause applies, add the intermediate point charge for each shipment unloaded before the last destination [@CL-SUP-2240]. Charges under the contract stay within the ceiling in the charges clause [@CL-SUP-2237].
+When multiple shipments are tendered at one time from one origin to multiple consignees at the same destination, the rate charged for each shipment is the rate applicable to the aggregate weight [@CL-SUP-2238]. Where the stopping in transit clause applies, the rate charged adds a charge for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-2240]. Charges under the contract stay within the ceiling in the charges clause [@CL-SUP-2237].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.247-17 keeps the ceiling that in no event shall charges under the contract be in excess of charges based on the contractor's lowest rate available to the general public, or be in excess of charges based on rates otherwise tendered to the Government by the contractor for the same type of service [@CL-SUP-0027] [@CL-SUP-2237]; its prescription line gives the same insertion condition, solicitations and contracts for transportation or for transportation-related services [@CL-SUP-0026] [@CL-SUP-2236]. RFO FAR 52.247-18 keeps the rule that, when multiple shipments are tendered at one time to the contractor for movement from one origin to multiple consignees at the same destination, the rate charged for each shipment is the rate applicable to the aggregate weight [@CL-SUP-0029] [@CL-SUP-2238], and its prescription line gives the same insertion condition [@CL-SUP-0028] [@CL-SUP-2239]. RFO FAR 52.247-19 keeps the stopping in transit rule for multiple shipments tendered at one time to the contractor for movement from one origin to two or more consignees along the route between the origin and the last destination [@CL-SUP-0031] [@CL-SUP-2270], with the rate applicable to the aggregate weight plus a charge, left blank in the RFO text, for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-0032] [@CL-SUP-2240]; its prescription line gives the same insertion condition [@CL-SUP-0030] [@CL-SUP-2269].
 
@@ -52,7 +52,7 @@ Separately, if charges based on the contractor's lowest rate available to the ge
 
 ## Never confuse
 
-Aggregate weight rating charges each shipment the rate for the combined weight, not the rate for its own weight [@CL-SUP-2238]. Stopping in transit differs from several shipments to one destination: the consignees lie along the route, and a charge is added for each shipment unloaded at an intermediate point [@CL-SUP-2239; @CL-SUP-2270; @CL-SUP-2240].
+Aggregate weight rating charges each shipment the rate applicable to the aggregate weight [@CL-SUP-2238]. The multiple shipments clause is for consignees at the same destination [@CL-SUP-2239], and the stopping in transit clause is for consignees along the route between the origin and the last destination, with a charge added for each shipment unloaded at an intermediate point en route to the last destination [@CL-SUP-2270; @CL-SUP-2240].
 
 ## Company calibration
 
@@ -61,6 +61,6 @@ Confirm how the company prices each transportation award against its lowest publ
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned aggregate-weight and intermediate-charge wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for charges, multiple shipments and stopping in transit.
