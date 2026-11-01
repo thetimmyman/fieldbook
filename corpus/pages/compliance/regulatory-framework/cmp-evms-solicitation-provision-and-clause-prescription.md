@@ -33,7 +33,7 @@ The section applies to cost or incentive contracts valued at $20,000,000 or more
 
 ## How it works
 
-The trigger is either a cost or incentive contract valued at or above the threshold, or another contract to which the earned value management system will be applied under the cited subparagraphs [@CL-CMP-7864]. Where the trigger is met, the DoD provision replaces both FAR notice provisions in the solicitation [@CL-CMP-7865]. The DoD clause replaces the FAR earned value clause in both the solicitation and the contract [@CL-CMP-7866]. The section says which provision and clause to use. It does not say who decides that the system will be applied under the cited subparagraphs, and it sets no deadline.
+The trigger is either a cost or incentive contract valued at or above the threshold, or another contract to which the earned value management system will be applied under the cited subparagraphs [@CL-CMP-7864]. Where the trigger is met, the DoD provision replaces both FAR notice provisions in the solicitation [@CL-CMP-7865]. The DoD clause replaces the FAR earned value clause in both the solicitation and the contract [@CL-CMP-7866].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A firm-fixed-price contract is valued at 5,000,000 dollars, and the earned value
 
 ## Never confuse
 
-The prescription does not itself require earned value management; it selects which provision and clause to use when the earned value management system applies [@CL-CMP-7864]. The DoD clause at 252.234-7002 is not the FAR clause at FAR 52.234-4, and the section substitutes one for the other in the solicitation and contract [@CL-CMP-7866]. For the notice provision, see [EVMS notice provision](../business-systems/cmp-dfars-evms-notice-provision.md); for the FAR clause, see [FAR EVMS clause](../../program-finance/evms/prg-far-evms-clause.md); for when the DoD applies the requirement, see [Earned value management system requirement](../../program-finance/evms/prg-evms-requirement.md).
+For the contracts the section describes [@CL-CMP-7864], the DoD provision at 252.234-7001 is used instead of the FAR provisions at FAR 52.234-2 and FAR 52.234-3 in the solicitation [@CL-CMP-7865], and the DoD clause at 252.234-7002 is used instead of the clause at FAR 52.234-4 in the solicitation and contract [@CL-CMP-7866]. For the notice provision, see [EVMS notice provision](../business-systems/cmp-dfars-evms-notice-provision.md); for the FAR clause, see [FAR EVMS clause](../../program-finance/evms/prg-far-evms-clause.md); for when the DoD applies the requirement, see [Earned value management system requirement](../../program-finance/evms/prg-evms-requirement.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which contracts sit at or above the value threshold or otherwise bring earned va
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported absence statements and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the earned value management system provision and clause prescription.

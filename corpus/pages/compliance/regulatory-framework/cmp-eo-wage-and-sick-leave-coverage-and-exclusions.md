@@ -44,7 +44,7 @@ A services contract covered by the Service Contract Labor Standards statute is p
 
 ## Never confuse
 
-Contract coverage and employee exclusion answer different questions: the first sets which contracts are covered [@CL-CMP-3295; @CL-CMP-3296], and the second removes some employees from paid sick leave coverage [@CL-CMP-3298]. Working in connection with a contract is not the same as directly performing its specific work [@CL-CMP-3373; @CL-CMP-3299]. The rate notice, enforcement and accrual rules are on [Executive order minimum wage and paid sick leave](cmp-eo-minimum-wage-and-paid-sick-leave.md). The clause and wage determination steps are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). Neither is restated here.
+The minimum wage subpart applies to contracts covered by the Service Contract Labor Standards statute or the Wage Rate Requirements (Construction) statute [@CL-CMP-3295; @CL-CMP-3296], and the paid sick leave subpart excludes some employees from coverage [@CL-CMP-3298]. Working in connection with a contract is not the same as directly performing its specific work [@CL-CMP-3373; @CL-CMP-3299]. The rate notice, enforcement and accrual rules are on [Executive order minimum wage and paid sick leave](cmp-eo-minimum-wage-and-paid-sick-leave.md). The clause and wage determination steps are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). Neither is restated here.
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which contracts carry these subparts, and who tracks employee hours in connectio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrast wording in the never-confuse paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the coverage sentence so the minimum wage coverage rule keeps the definition of the United States.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for executive order minimum wage coverage and paid sick leave exclusions.

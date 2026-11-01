@@ -49,9 +49,9 @@ During performance the COR asks the contractor to speed up a delivery date. The 
 
 ## Never confuse
 
-The representation is not the compensation prohibition itself. This card covers the offer's representation [@CL-CMP-4194], while the clause that sets the prohibition and defines covered DoD officials is covered on [Compensation of former DoD officials](cmp-former-dod-official-compensation.md) [@CL-CMP-4196].
+This card covers the offer's representation [@CL-CMP-4194]. Covered DoD official is defined in the clause at 252.203-7000 [@CL-CMP-4196], which is covered on [Compensation of former DoD officials](cmp-former-dod-official-compensation.md).
 
-A COR is not the Contracting Officer. The COR acts within the written designation [@CL-CMP-4197] and is not authorized to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-CMP-4198]. The change order power in the deployed-forces clause belongs to the Contracting Officer [@CL-CMP-4173]; see [the card on weapons, evacuation, changes and flowdown](cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown.md).
+The COR acts within the written designation [@CL-CMP-4197] and is not authorized to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-CMP-4198]. Under the deployed-forces clause, the Contracting Officer may, at any time, by written order identified as a change order, make changes in the place of performance or Government-furnished facilities, equipment, material, services, or site [@CL-CMP-4173]; see [the card on weapons, evacuation, changes and flowdown](cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown.md).
 
 ## Company calibration
 
@@ -61,4 +61,5 @@ Which former DoD officials the company employs or pays when it submits offers, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrast wording in the never-confuse section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the former DoD official compensation representation and the contracting officer's representative.

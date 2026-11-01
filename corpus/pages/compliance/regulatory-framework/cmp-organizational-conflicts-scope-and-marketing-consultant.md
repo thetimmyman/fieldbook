@@ -35,7 +35,7 @@ As used in the subpart, a marketing consultant is any independent contractor who
 
 ## How it works
 
-These two sections state the purpose of the subpart and a definition; they do not themselves place a duty on a contractor [@CL-CMP-8238; @CL-CMP-8241]. The examples are for contracting officers, who apply the rules to a particular situation [@CL-CMP-8239]. The contracting officer's procedures are on the [contracting officer procedures](../../supply-chain/sourcing-evidence/sup-oci-contracting-officer-procedures.md) card, and the general rules are on the [general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) card. The definition has three parts: the work (advice, information, direction or assistance), the person who receives it (an offeror or any other contractor), and its purpose (support of the preparation or submission of an offer by that offeror) [@CL-CMP-8241]. The listed services are outside the definition even when they are given to an offeror [@CL-CMP-8242; @CL-CMP-8243].
+The subpart provides examples to assist contracting officers in applying these rules and procedures to individual contracting situations [@CL-CMP-8239]. The contracting officer's procedures are on the [contracting officer procedures](../../supply-chain/sourcing-evidence/sup-oci-contracting-officer-procedures.md) card, and the general rules are on the [general rules](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md) card. The definition covers any independent contractor who furnishes advice, information, direction, or assistance to an offeror or any other contractor in support of the preparation or submission of an offer for a Government contract by that offeror [@CL-CMP-8241]. An independent contractor is not a marketing consultant when rendering the listed services [@CL-CMP-8242; @CL-CMP-8243].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A firm is paid 80,000 dollars to help draft a bidder's proposal, including the p
 
 ## Never confuse
 
-A marketing consultant is not simply any consultant. The definition is a test of support for an offer, and the listed excluded services are outside it [@CL-CMP-8241; @CL-CMP-8242; @CL-CMP-8243]. The definition is also separate from the question of where the subpart applies, which is on the [applicability](./cmp-organizational-conflicts-applicability.md) card.
+A marketing consultant is any independent contractor who furnishes advice, information, direction, or assistance to an offeror or any other contractor in support of the preparation or submission of an offer for a Government contract by that offeror, and an independent contractor is not a marketing consultant when rendering the listed services [@CL-CMP-8241; @CL-CMP-8242; @CL-CMP-8243]. Where the subpart applies is on the [applicability](./cmp-organizational-conflicts-applicability.md) card.
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which legal entities and business units use outside advisers in support of offer
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated definition and exclusions as cited text; removed inferences and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the organizational conflicts of interest subpart and the definition of marketing consultant.

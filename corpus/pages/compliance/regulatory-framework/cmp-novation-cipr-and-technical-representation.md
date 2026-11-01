@@ -29,21 +29,21 @@ Shows what three defense supplement sections say. DFARS 242.1203, Processing agr
 | Text status | Final [@CL-CMP-8771] |
 | Applies to | Novation and change-of-name agreements [@CL-CMP-8771]; conducting a CIPR [@CL-CMP-8772]; a case where the program, project, or system manager determines that a technical representative is required [@CL-CMP-8773] |
 
-The responsible contracting officer shall process and execute novation and change-of-name agreements in accordance with the procedures at PGI 242.1203 [@CL-CMP-8771]. The duty falls on the responsible contracting officer. The section does not say who that officer is, and it sets no threshold or deadline [@CL-CMP-8771].
+The responsible contracting officer shall process and execute novation and change-of-name agreements in accordance with the procedures at PGI 242.1203 [@CL-CMP-8771].
 
-The section on responsibilities says to follow the procedures at PGI 242.7303 when conducting a CIPR [@CL-CMP-8772]. The sentence does not say who follows them, and it sets no threshold or deadline [@CL-CMP-8772]. A CIPR (contractor insurance/pension review) is a joint review by the Defense Contract Management Agency and the Defense Contract Audit Agency [@CL-CMP-2256].
+The section on responsibilities says to follow the procedures at PGI 242.7303 when conducting a CIPR [@CL-CMP-8772]. A CIPR is a DCMA/DCAA joint review that either provides an in-depth evaluation of a contractor's insurance programs, pension plans, other deferred compensation plans and related policies, procedures, practices and costs [@CL-CMP-2256], or concentrates on specific areas of the contractor's insurance programs, pension plans, or other deferred compensation plans [@CL-CMP-7881].
 
-The section headed Procedures says that when the program, project, or system manager determines that a technical representative is required, the procedures at PGI 242.7401 are to be followed [@CL-CMP-8773]. The manager makes the determination. The sentence does not say who follows the procedures, and it sets no threshold or deadline [@CL-CMP-8773].
+The section headed Procedures says that when the program, project, or system manager determines that a technical representative is required, the procedures at PGI 242.7401 are to be followed [@CL-CMP-8773].
 
 ## How it works
 
-Each section points to a PGI section and does not restate it. The printed text does not set out those procedures [@CL-CMP-8771; @CL-CMP-8772; @CL-CMP-8773]. The sections place no duty on the contractor [@CL-CMP-8771; @CL-CMP-8772; @CL-CMP-8773].
+DFARS 242.1203 refers to the procedures at PGI 242.1203 [@CL-CMP-8771], DFARS 242.7303 to the procedures at PGI 242.7303 [@CL-CMP-8772], and DFARS 242.7401 to the procedures at PGI 242.7401 [@CL-CMP-8773].
 
 For novation and change-of-name agreements, the duty sits with the responsible contracting officer [@CL-CMP-8771]. Who that officer is and what the contractor files are on [Novation processing](../../mna/deal-gates/mna-novation-processing.md), [Novation and change-of-name agreements](../../mna/diligence/mna-novation-agreements.md) and [Change-of-name agreements](../../mna/diligence/mna-change-of-name-agreements.md).
 
-For a CIPR, when the review is required and who determines that is on [Contractor insurance/pension review](../audit-retention/cmp-contractor-insurance-pension-review.md). DFARS 242.7303 adds only the instruction to follow the PGI procedures [@CL-CMP-8772].
+For a CIPR, when the review is required and who determines that is on [Contractor insurance/pension review](../audit-retention/cmp-contractor-insurance-pension-review.md). DFARS 242.7303 says to follow the procedures at PGI 242.7303 when conducting a CIPR [@CL-CMP-8772].
 
-For technical representation, the instruction to follow the PGI procedures is tied to the manager's determination that a representative is required [@CL-CMP-8773]. A technical representative is a representative of a DoD program, project, or system office performing non-contract administration service technical duties at or near a contractor facility [@CL-CMP-7844]. See [Voluntary refunds and technical representation at contractor facilities](cmp-voluntary-refunds-and-technical-representation.md).
+For technical representation, when the program, project, or system manager determines that a technical representative is required, follow the procedures at PGI 242.7401 [@CL-CMP-8773]. A technical representative is a representative of a DoD program, project, or system office performing non-CAS technical duties at or near a contractor facility [@CL-CMP-7844]. See [Voluntary refunds and technical representation at contractor facilities](cmp-voluntary-refunds-and-technical-representation.md).
 
 ## Worked example
 
@@ -57,9 +57,7 @@ A program manager determines that a technical representative is required at one 
 
 ## Never confuse
 
-The three sections have different subjects. Each one points to its own PGI section, so the procedures at one section are not those of another [@CL-CMP-8771; @CL-CMP-8772; @CL-CMP-8773].
-
-DFARS 242.1203 names two kinds of agreement, novation and change-of-name [@CL-CMP-8771]. The linked cards say what each is.
+DFARS 242.1203 refers to PGI 242.1203 for novation and change-of-name agreements [@CL-CMP-8771], DFARS 242.7303 refers to PGI 242.7303 for conducting a CIPR [@CL-CMP-8772], and DFARS 242.7401 refers to PGI 242.7401 when a technical representative is required [@CL-CMP-8773].
 
 A technical representative is not a representative of a contract administration or contract audit component, and is not a contracting officer's representative [@CL-CMP-7845].
 
@@ -73,4 +71,5 @@ Where the executed contracts and modifications affected by a novation or change 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited both CIPR alternatives; removed absence statements, meta wording and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for novation processing, CIPR responsibilities and technical representation procedures.

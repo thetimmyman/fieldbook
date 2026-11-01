@@ -30,9 +30,9 @@ Sets out what an offeror must list about hazardous material it will deliver, whe
 
 Hazardous material includes any material defined as hazardous under the latest version of the Federal Standard the clause names, including revisions adopted during the term of the contract [@CL-CMP-5168].
 
-The offeror must list any hazardous material to be delivered under the contract, properly identified and including any applicable identification number such as a National Stock Number or Special Item Number [@CL-CMP-5169]. The list has a material column, in which the offeror inserts None if there is no hazardous material to list, and an identification number column [@CL-CMP-5268]. The entries are the offeror's own and are specific to the contract. The identification information must also be included on the material safety data sheet submitted under the contract [@CL-CMP-5269].
+The offeror must list any hazardous material to be delivered under the contract, properly identified and including any applicable identification number such as a National Stock Number or Special Item Number [@CL-CMP-5169]. The list has a material column, in which the offeror inserts None if there is no hazardous material to list, and an identification number column [@CL-CMP-5268]. The identification information must also be included on the material safety data sheet submitted under the contract [@CL-CMP-5269].
 
-The list is not frozen at award, because it is updated during performance whenever the contractor determines that any other material to be delivered is hazardous [@CL-CMP-5170].
+The list must be updated during performance of the contract whenever the contractor determines that any other material to be delivered under the contract is hazardous [@CL-CMP-5170].
 
 ## How it works
 
@@ -58,13 +58,13 @@ An offeror will deliver two solvents that are hazardous under the latest version
 
 ## Never confuse
 
-The list and the data sheet are separate documents: the list is the offeror's own identification of hazardous material to be delivered, and the same identification information must also be included on the data sheet [@CL-CMP-5169; @CL-CMP-5269].
+The offeror must list any hazardous material to be delivered under the contract [@CL-CMP-5169], and the identification information shall also be included on the material safety data sheet submitted under the contract [@CL-CMP-5269].
 
-Neither the clause's requirements nor any Government act or failure to act reduces the contractor's responsibility or liability for the safety of personnel or property [@CL-CMP-5175].
+Neither the clause's requirements nor any Government act or failure to act relieves the contractor of any responsibility or liability for the safety of personnel or property [@CL-CMP-5175].
 
-The Government's right to use the data is not exclusive, because it may also use similar or identical data acquired from other sources [@CL-CMP-5275].
+The Government is not precluded from using similar or identical data acquired from other sources [@CL-CMP-5275].
 
-The shipping copy duties are in the paragraph that Alternate I adds, so they bind only contracts that include that alternate [@CL-CMP-5276; @CL-CMP-5279].
+The shipping copy duties are in the paragraph (i) that Alternate I adds to the basic clause [@CL-CMP-5276; @CL-CMP-5279].
 
 The codified clause says Material Safety Data Sheet [@CL-CMP-5269], while the RFO clause says Safety Data Sheet in the matching paragraph [@CL-CMP-1266].
 
@@ -78,6 +78,7 @@ Whether the company can show, item by item, which delivered materials are hazard
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts and restated list update and sheet duties from the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on environmental, radioactive material and hazard label clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hazardous material identification and material safety data.

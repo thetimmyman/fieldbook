@@ -27,17 +27,17 @@ Shows what two short DFARS sections say. DFARS 242.771-1 gives the scope of DFAR
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8769] |
-| Applies to | Scope: the three provisions of title 10 of the United States Code that DFARS 242.771 implements [@CL-CMP-8769]. Policy: defense contractors' independent research and development projects [@CL-CMP-8770] |
+| Applies to | Scope: the three provisions of title 10 of the United States Code that the scope section implements [@CL-CMP-8769]. Policy: defense contractors' independent research and development projects [@CL-CMP-8770] |
 
-The scope section says that DFARS 242.771 implements three provisions of title 10 of the United States Code: section 3762 (Independent research and development costs: allowable costs), section 3763 (Bid and proposal costs: allowable costs) and section 3847 (Defense Contract Audit Agency: annual report) [@CL-CMP-8769]. That one sentence is the whole text of the scope section. It sets no allowance, threshold, deadline or duty of its own [@CL-CMP-8769].
+DFARS 242.771-1 says that the section implements three provisions of title 10 of the United States Code: section 3762 (Independent research and development costs: allowable costs), section 3763 (Bid and proposal costs: allowable costs) and section 3847 (Defense Contract Audit Agency: annual report) [@CL-CMP-8769].
 
-The policy section says that defense contractors are encouraged to engage in independent research and development projects that will advance the needs of DoD for future technology and advanced capability, and it cross-refers to 231.205-18(c)(iii) [@CL-CMP-8770]. The sentence says "encouraged". It sets no duty, threshold or deadline. It does not say who decides whether a project meets the stated purpose [@CL-CMP-8770].
+The policy section says that defense contractors are encouraged to engage in independent research and development projects that will advance the needs of DoD for future technology and advanced capability, and it cross-refers to 231.205-18(c)(iii) [@CL-CMP-8770].
 
 ## How it works
 
-Scope and policy are separate sections with different jobs. Scope names the three title 10 provisions, and their printed titles are about allowable independent research and development costs, allowable bid and proposal costs, and the Defense Contract Audit Agency annual report [@CL-CMP-8769]. Policy then states an expectation for contractors that is encouragement, not an obligation [@CL-CMP-8770].
+The scope section names three title 10 provisions, with the titles independent research and development costs: allowable costs, bid and proposal costs: allowable costs, and Defense Contract Audit Agency: annual report [@CL-CMP-8769]. The policy section states that defense contractors are encouraged to engage in independent research and development projects [@CL-CMP-8770].
 
-Neither section decides whether a cost is allowable. Under DFARS 242.771-3(a), the cognizant administrative contracting officer or corporate administrative contracting officer shall determine the cost allowability of independent research and development costs and bid and proposal costs as set forth in 231.205-18 and FAR 31.205-18 [@CL-CMP-2244]. See [DoD IR&D and B&P responsibilities](../cas-allowability/cmp-dod-ird-bp-responsibilities.md) for who holds each responsibility, [DoD independent research and development and bid and proposal costs](../cas-allowability/cmp-dod-ird-bp-costs.md) for DFARS 231.205-18 [@CL-CMP-0875], and [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md) for the general cost principle.
+Under DFARS 242.771-3(a), the cognizant administrative contracting officer or corporate administrative contracting officer shall determine the cost allowability of independent research and development costs and bid and proposal costs as set forth in 231.205-18 and FAR 31.205-18 [@CL-CMP-2244]. See [DoD IR&D and B&P responsibilities](../cas-allowability/cmp-dod-ird-bp-responsibilities.md) for who holds each responsibility, [DoD independent research and development and bid and proposal costs](../cas-allowability/cmp-dod-ird-bp-costs.md) for DFARS 231.205-18 [@CL-CMP-0875], and [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md) for the general cost principle.
 
 ## Worked example
 
@@ -47,9 +47,9 @@ A defense contractor runs an independent research and development project on a f
 
 ## Never confuse
 
-Encouragement is not allowability. The policy section says contractors are encouraged to carry out such projects [@CL-CMP-8770]. Whether a project's costs are allowable is decided under the cost principles by the administrative contracting officer [@CL-CMP-2244].
+Under DFARS 242.771-2, defense contractors are encouraged to engage in independent research and development projects [@CL-CMP-8770]. The cognizant administrative contracting officer or corporate administrative contracting officer shall determine cost allowability of independent research and development costs and bid and proposal costs as set forth in 231.205-18 and FAR 31.205-18 [@CL-CMP-2244].
 
-The third provision named in the scope is headed Defense Contract Audit Agency: annual report [@CL-CMP-8769]. The responsibilities section has the Defense Contract Audit Agency submit, for the DoD-wide bid and proposal program, an annual report to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy [@CL-CMP-2245].
+The third provision named in the scope is headed Defense Contract Audit Agency: annual report [@CL-CMP-8769]. DFARS 242.771-3(b)(1) provides that the Defense Contract Audit Agency shall, for the DoD-wide bid and proposal program, submit an annual report to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy [@CL-CMP-2245].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Which business units and segments run independent research and development proje
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta statements and unsupported contrasts; attributed implements wording to the scope section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced semicolons in a list so the claim covers it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal cost policy.

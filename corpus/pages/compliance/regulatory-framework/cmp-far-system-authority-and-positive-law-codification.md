@@ -35,11 +35,11 @@ The codification section records that Public Law 107-217 revised, codified and e
 
 ## How it works
 
-Authority over the FAR is joint. No one of the three officials issues it alone, and the section sets no threshold, deadline or approval route. The councils that carry out revisions are covered on [The two FAR councils and the FAR Secretariat](cmp-far-councils-and-secretariat.md), and the FAR System itself on [The FAR System and agency supplements](cmp-far-system-and-agency-supplements.md).
+The FAR is prepared, issued and maintained, and the FAR System is prescribed, jointly by the three officials under their several statutory authorities [@CL-CMP-8388]. The councils that carry out revisions are covered on [The two FAR councils and the FAR Secretariat](cmp-far-councils-and-secretariat.md), and the FAR System itself on [The FAR System and agency supplements](cmp-far-system-and-agency-supplements.md).
 
-The codification section states no new policy and no contractor duty. It prints a table of cross references between the historical titles of the acts and the current reference in title 40 or title 41 [@CL-CMP-8391]. Two entries matter for pricing and disputes work: the Truth in Negotiations Act is cross-referenced to chapter 35 of title 41, United States Code, Truthful Cost or Pricing Data [@CL-CMP-8392], and the Contract Disputes Act of 1978 to chapter 71 of title 41, Contract Disputes [@CL-CMP-8393].
+The codification section provides a table of cross references between the historical titles of the acts and the current reference in title 40 or title 41 [@CL-CMP-8391]. The table cross-references the Truth in Negotiations Act to chapter 35 of title 41, United States Code, Truthful Cost or Pricing Data [@CL-CMP-8392], and the Contract Disputes Act of 1978 to chapter 71 of title 41, Contract Disputes [@CL-CMP-8393].
 
-The table carries two footnotes with exceptions. They except sections 3302, 3501(b), 3509, 3906, 4710 and 4711 from the mapping for Title III of the Federal Property and Administrative Services Act of 1949, and sections 1704 and 2303 from the mapping for the Office of Federal Procurement Policy Act [@CL-CMP-8752]. The mapping for those two acts therefore excludes those sections.
+The table carries two footnotes with exceptions. The first applies to the row for Title III of the Federal Property and Administrative Services Act of 1949 [@CL-CMP-7769] and reads except sections 3302, 3501(b), 3509, 3906, 4710 and 4711 [@CL-CMP-8752]. The second applies to the row for the Office of Federal Procurement Policy Act [@CL-CMP-7770] and reads except sections 1704 and 2303 [@CL-CMP-8752].
 
 ## Worked example
 
@@ -49,9 +49,9 @@ A file note needs the current citation for the old Truth in Negotiations Act. Th
 
 ## Never confuse
 
-Positive law codification is not a restatement of policy in new words. The section records that existing general and permanent laws were revised, codified and enacted as a title [@CL-CMP-8389; @CL-CMP-8390], and the table only cross-references historical titles to current ones [@CL-CMP-8391].
+The section records that certain general and permanent laws were revised, codified and enacted as title 40 and as title 41 of the United States Code [@CL-CMP-8389; @CL-CMP-8390], and the table cross-references the historical titles of the acts to the current reference in title 40 or title 41 [@CL-CMP-8391].
 
-Joint authority also does not mean that one official holds all of it. The three officials prepare, issue and maintain the FAR together, each under their several statutory authorities [@CL-CMP-8388].
+The three officials prepare, issue and maintain the FAR jointly, each under their several statutory authorities [@CL-CMP-8388].
 
 ## Company calibration
 
@@ -61,4 +61,5 @@ Which statutory authorities the company records as the basis for the acquisition
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied each table footnote to its act and removed unsupported absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR System authority and positive law codification.
