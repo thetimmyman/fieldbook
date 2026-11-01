@@ -29,7 +29,7 @@ Shows the courses of action a contracting officer may take instead of terminatin
 | Text status | Final [@CL-CLS-0258] |
 | Applies to | Courses of action available to the contracting officer in lieu of termination for default [@CL-CLS-0258] |
 
-The courses of action in the section, among others, are available to the contracting officer in lieu of termination for default when they are in the Government's interest [@CL-CLS-0258]. The words "among others" mean the list is not complete [@CL-CLS-0258].
+The courses of action in the section, among others, are available to the contracting officer in lieu of termination for default when they are in the Government's interest [@CL-CLS-0258].
 
 The contracting officer may permit the contractor, the surety or the guarantor to continue performance of the contract under a revised delivery schedule [@CL-CLS-0259].
 
@@ -39,9 +39,9 @@ If the requirement for the supplies and services in the contract no longer exist
 
 ## How it works
 
-Each course is permissive. The contracting officer may use one when it is in the Government's interest [@CL-CLS-0258]. The section prints no approval step, no deadline and no dollar amount, and it does not say who judges the Government's interest.
+The following courses of action, among others, are available to the contracting officer in lieu of termination for default when in the Government's interest [@CL-CLS-0258].
 
-| Course | Who decides and who acts | Condition in the text |
+| Course | Who decides and who acts | Condition |
 |---|---|---|
 | Revised delivery schedule | The contracting officer may permit it; the contractor, the surety or the guarantor then continues performance [@CL-CLS-0259] | In the Government's interest [@CL-CLS-0258] |
 | Subcontract or other business arrangement | The contracting officer may permit it; the contractor then continues performance through an acceptable third party [@CL-CLS-0260] | The rights of the Government are adequately preserved [@CL-CLS-0260]; in the Government's interest [@CL-CLS-0258] |
@@ -67,9 +67,9 @@ On contract B, the requirement continues. The no-cost course is not available on
 
 These courses are alternatives to termination for default [@CL-CLS-0258]. The default termination itself and its effects are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md). The default clauses are on [Default clauses for fixed-price contracts and when each goes in](cls-fixed-price-default-clauses.md).
 
-The no-cost course in this section needs both conditions in its paragraph. Where the contractor is liable for damages as provided in 49.402-7, this paragraph does not offer that course [@CL-CLS-0261]. Other courses, listed or not, may still be used when they are in the Government's interest [@CL-CLS-0258].
+The no-cost course applies if the requirement for the supplies and services in the contract no longer exists, and the contractor is not liable to the Government for damages as provided in 49.402-7 [@CL-CLS-0261].
 
-The condition on the rights of the Government applies to the third-party arrangement only [@CL-CLS-0260].
+The condition that the rights of the Government are adequately preserved is stated for the subcontract or other business arrangement with an acceptable third party [@CL-CLS-0260].
 
 ## Company calibration
 
@@ -78,5 +78,5 @@ Who confirms whether the requirement still exists and whether the contractor is 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: courses of action in lieu of default: uncited inferences and gap statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the courses of action in lieu of termination for default.

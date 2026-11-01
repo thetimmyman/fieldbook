@@ -31,7 +31,7 @@ Covers the cost-plus-fixed-fee contract: a fee fixed at inception that does not 
 
 A cost-plus-fixed-fee contract is a cost-reimbursement contract that provides for payment to the contractor of a negotiated fee that is fixed at the inception of the contract [@CL-CLS-0576].
 
-The fixed fee does not vary with actual cost, but may be adjusted as a result of changes in the work [@CL-CLS-0576]. No cost-plus-fixed-fee contract shall be awarded unless the contracting officer complies with all limitations in the two cross-referenced sections [@CL-CLS-0691].
+The fixed fee does not vary with actual cost, but may be adjusted as a result of changes in the work [@CL-CLS-0576]. No cost-plus-fixed-fee contract shall be awarded unless the contracting officer complies with all limitations in 15.404-4(c)(4)(i) and 16.301-3 [@CL-CLS-0691].
 
 ## How it works
 
@@ -49,7 +49,7 @@ A contractor performs an exploratory research contract on the completion form wi
 
 ## Never confuse
 
-A cost-plus-fixed-fee contract is not an incentive-fee contract: the fixed fee does not vary with actual cost [@CL-CLS-0576]. A cost-plus-fixed-fee term form also differs from a firm-fixed-price, level-of-effort contract, because the cost-plus type is a cost-reimbursement contract [@CL-CLS-0576]. For fee that does vary, see [Incentive fee](../../contract-finance/billing-payment/ctf-incentive-fee.md). For how fixed fee is paid and withheld, see [Fixed fee](../../contract-finance/billing-payment/ctf-fixed-fee.md). For the fixed-price effort type, see [Firm-fixed-price, level-of-effort term contracts](cls-firm-fixed-price-level-of-effort.md). For the general cost-reimbursement framework, see [Cost-reimbursement contracts](cls-cost-reimbursement-contracts.md).
+In a cost-plus-fixed-fee contract the negotiated fee is fixed at the inception of the contract and does not vary with actual cost, but may be adjusted as a result of changes in the work [@CL-CLS-0576]. A cost-plus-fixed-fee contract is a cost-reimbursement contract [@CL-CLS-0576]. For fee that does vary, see [Incentive fee](../../contract-finance/billing-payment/ctf-incentive-fee.md). For how fixed fee is paid and withheld, see [Fixed fee](../../contract-finance/billing-payment/ctf-fixed-fee.md). For the fixed-price effort type, see [Firm-fixed-price, level-of-effort term contracts](cls-firm-fixed-price-level-of-effort.md). For the general cost-reimbursement framework, see [Cost-reimbursement contracts](cls-cost-reimbursement-contracts.md).
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Who determines how fixed fee earnings and the completion or term form affect rev
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: cost-plus-fixed-fee: named the cross-referenced limitations, uncited contrasts reworded.
 - COMPATIBLE_EXTENSION, 2026-10-31: named the two suitability examples as alternatives and the conditions cited.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-plus-fixed-fee contracts.

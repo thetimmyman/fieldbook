@@ -31,27 +31,24 @@ Shows when the terminating contracting officer (TCO) limits the settlement of a 
 
 In a partial termination, the TCO shall limit the settlement to an adjustment of the fee, if any, and, with the concurrence of the contracting office, to a reduction in the estimated cost [@CL-CLS-1312]. The TCO shall adjust the fee as provided in 49.304-2 and 49.305 unless the terminated portion is clearly severable from the balance of the contract [@CL-CLS-1313], or performance of the contract is virtually complete, or performance of any continued portion is only on subsidiary items or spare parts, or is otherwise not substantial [@CL-CLS-1314]. In the case of those exceptions, the procedures in 49.302 and 49.303 apply [@CL-CLS-1315].
 
-The FAR definitions section describes the terminated portion of the contract as the portion of a contract that the contractor is not to perform following a partial termination [@CL-CLS-1518]. The RFO text of FAR 2.101 defines the terminated portion of the contract as the portion of a contract that the contractor is not to perform following a partial termination, the same in substance as the codified definition [@CL-CLS-1539; @CL-CLS-1518].
+The FAR definitions section describes the terminated portion of the contract as the portion of a contract that the contractor is not to perform following a partial termination [@CL-CLS-1518]. RFO FAR 2.101 defines the terminated portion of the contract as the portion of a contract that the contractor is not to perform following a partial termination [@CL-CLS-1539].
 
-The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. The final settlement proposal shall be submitted to the TCO within one year from the effective date of termination, unless the TCO extends the period [@CL-CLS-1317]. The proposal may be submitted in the form prescribed in 49.602-1 or by letter appropriately certified [@CL-CLS-1318]. The contractor shall substantiate the amount of fee claimed, and the section refers to 49.305 for the fee [@CL-CLS-1319].
+The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. The final settlement proposal shall be submitted to the TCO within one year from the effective date of termination, unless the TCO extends the period [@CL-CLS-1317]. The proposal may be submitted in the form prescribed in 49.602-1 or by letter appropriately certified [@CL-CLS-1318]. The contractor shall substantiate the amount of fee claimed (see 49.305) [@CL-CLS-1319].
 
-When a partial termination settlement is limited to adjustment of fee, the contractor shall continue to submit the SF 1034 public voucher for costs reimbursable under the contract [@CL-CLS-1320]. A separate sentence of the same section provides that the contractor shall not be reimbursed for costs of settlements with subcontractors unless required approvals or ratifications have been obtained, and refers to 49.108 for them [@CL-CLS-1321].
+When a partial termination settlement is limited to adjustment of fee, the contractor shall continue to submit the SF 1034 public voucher for costs reimbursable under the contract [@CL-CLS-1320]. The contractor shall not be reimbursed for costs of settlements with subcontractors unless required approvals or ratifications have been obtained (see 49.108) [@CL-CLS-1321].
 
 ## How it works
 
 | Duty or decision | Falls on | Condition or period |
 |---|---|---|
 | Limit the settlement to a fee adjustment, if any, and a reduction in estimated cost | The TCO | In a partial termination; in the exception cases the procedures in 49.302 and 49.303 apply [@CL-CLS-1312; @CL-CLS-1315] |
-| Concur in a reduction in the estimated cost | The contracting office | The text does not say how it concurs [@CL-CLS-1312] |
-| Adjust the fee as provided in 49.304-2 and 49.305 | The TCO | Unless an exception applies; the exceptions are a terminated portion that is clearly severable, virtually complete performance, or a continued portion that is only subsidiary items or spare parts or is otherwise not substantial [@CL-CLS-1313; @CL-CLS-1314] |
-| Follow 49.302 and 49.303 | Not stated | In the case of those exceptions [@CL-CLS-1315] |
-| Limit the proposal to a proposed fee reduction and substantiate the fee claimed | The contractor | In the proposal that the section covers [@CL-CLS-1316; @CL-CLS-1319] |
+| Concur in a reduction in the estimated cost | The contracting office | The settlement is limited to a reduction in the estimated cost with its concurrence [@CL-CLS-1312] |
+| Adjust the fee as provided in 49.304-2 and 49.305 | The TCO | Unless an exception applies; the exceptions are a terminated portion that is clearly severable, virtually complete performance, or a continued portion that is only subsidiary items or spare parts or is otherwise not substantial; in the case of those exceptions the procedures in 49.302 and 49.303 apply [@CL-CLS-1313; @CL-CLS-1314; @CL-CLS-1315] |
+| Limit the proposal to a proposed fee reduction and substantiate the fee claimed | The contractor | In the settlement proposal [@CL-CLS-1316; @CL-CLS-1319] |
 | File the final proposal | The contractor | Within one year from the effective date of termination, unless the TCO extends the period [@CL-CLS-1317] |
 | Choose the form | The contractor | The prescribed form or a letter appropriately certified [@CL-CLS-1318] |
 | Keep submitting the SF 1034 public voucher for reimbursable costs | The contractor | When the settlement is limited to adjustment of fee [@CL-CLS-1320] |
-| Obtain approvals or ratifications for subcontract settlements | The text does not name who | Without them the contractor is not reimbursed [@CL-CLS-1321] |
-
-The fee is adjusted by rule unless an exception applies, so a terminated portion that is not clearly severable, with performance of the contract not virtually complete and performance of the continued portion substantial and not only on subsidiary items or spare parts, falls under the fee adjustment [@CL-CLS-1313; @CL-CLS-1314]. In an exception case, the TCO's duty to adjust the fee as provided in 49.304-2 and 49.305 does not apply, and the procedures in 49.302 and 49.303 apply [@CL-CLS-1313; @CL-CLS-1314; @CL-CLS-1315]. The section prints no dollar threshold.
+| Reimbursement of costs of settlements with subcontractors | The contractor | Not reimbursed unless required approvals or ratifications have been obtained (see 49.108) [@CL-CLS-1321] |
 
 ## Worked example
 
@@ -65,9 +62,9 @@ Had performance of the continued portion been only on spare parts, an exception 
 
 ## Never confuse
 
-A fee-only proposal is not a full settlement proposal. The contractor limits it to a proposed reduction in fee [@CL-CLS-1316]. Where an exception applies, the procedures in 49.302 and 49.303 apply instead [@CL-CLS-1315]; see [Termination of cost-reimbursement contracts: settlement proposal, inventory schedules and audit](cls-cost-reimbursement-termination-proposal-and-inventory-schedules.md) and [Cost-reimbursement terminations: vouchers and the adjusted fee](../../contract-finance/billing-payment/ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee.md).
+The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. In the case of the exceptions in paragraph (a), the procedures in 49.302 and 49.303 apply [@CL-CLS-1315]; see [Termination of cost-reimbursement contracts: settlement proposal, inventory schedules and audit](cls-cost-reimbursement-termination-proposal-and-inventory-schedules.md) and [Cost-reimbursement terminations: vouchers and the adjusted fee](../../contract-finance/billing-payment/ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee.md).
 
-The public voucher continues for reimbursable costs, but costs of settlements with subcontractors are not reimbursed unless the required approvals or ratifications have been obtained [@CL-CLS-1320; @CL-CLS-1321]. The settlement format, subcontract settlement authorization and delinquency notices for a completely terminated cost-reimbursement contract are covered in [Cost-reimbursement settlement format authorization and delinquency notices](cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
+Settlement format, subcontract settlement authorization and delinquency notices for cost-reimbursement contracts are covered in [Cost-reimbursement settlement format authorization and delinquency notices](cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
 
 ## Company calibration
 
@@ -76,7 +73,7 @@ Whether the fee-only route is confirmed in writing, with the fee reduction subst
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: partial termination fee-only settlement: uncited statements and contrasts removed, source sentences stated as written.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of terminated portion of the contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of terminated portion of the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for partial termination for convenience of cost-reimbursement contracts.

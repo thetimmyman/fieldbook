@@ -35,7 +35,7 @@ If a contract is to be terminated for default before the delivery date, the Defa
 
 ## How it works
 
-The authorization letter is granted in the printed format [@CL-CLS-1046]. Before a Cure Notice is used, the delivery schedule must still hold time equal to or greater than the period of cure [@CL-CLS-1070]. All delinquency notices in the section will be sent with proof of delivery requested [@CL-CLS-1072].
+Contracting officers shall use the printed letter format when granting subcontract settlement authorization [@CL-CLS-1046]. Before the Cure Notice is used, it must be ascertained that an amount of time equal to or greater than the period of cure remains in the contract delivery schedule or any extension to it [@CL-CLS-1070]. All delinquency notices in the section will be sent with proof of delivery requested [@CL-CLS-1072].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contract has a delivery date 40 days away and the contractor is missing milest
 
 ## Never confuse
 
-A cure notice and a show cause notice are different steps. The Cure Notice should not be issued where the time remaining does not permit a realistic cure period [@CL-CLS-1071], and the Show Cause Notice may be used in that case [@CL-CLS-1049]. The default clauses that call for the Cure Notice are on [Default clauses for fixed-price contracts and when each goes in](cls-fixed-price-default-clauses.md), notice of a convenience termination is on [Termination notices: electronic notice and letter notice](cls-termination-electronic-and-letter-notice.md), and the legal effects of a default termination are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md). The authorization letter is also not a settlement agreement (the fixed-price agreement formats are on [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md)), and the limits on settling without approval are on [Subcontract settlements: authority, judgments and arbitration awards](cls-subcontract-settlements-authorization-and-awards.md).
+The Cure Notice should not be issued where the time remaining does not permit a realistic cure period [@CL-CLS-1071], and the Show Cause Notice may be used in that case [@CL-CLS-1049]. The default clauses that call for the Cure Notice are on [Default clauses for fixed-price contracts and when each goes in](cls-fixed-price-default-clauses.md), notice of a convenience termination is on [Termination notices: electronic notice and letter notice](cls-termination-electronic-and-letter-notice.md), and the legal effects of a default termination are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md). The fixed-price agreement formats are on [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md), and the limits on settling without approval are on [Subcontract settlements: authority, judgments and arbitration awards](cls-subcontract-settlements-authorization-and-awards.md).
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which prime contracts have a subcontract settlement authorization in place and w
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: settlement format and delinquency notices: letter and cure-notice wording, uncited contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices.

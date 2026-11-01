@@ -16,7 +16,7 @@ links = ["cls-no-cost-settlement-agreements", "cls-settlement-by-determination"]
 
 ## Purpose
 
-Shows how a negotiated termination settlement becomes a signed agreement, when the terminating contracting officer (TCO) executes a no-cost settlement agreement, and what the DFARS sections on settlement by determination and the settlement negotiation memorandum add.
+Shows how a negotiated termination settlement becomes a signed agreement, when the terminating contracting officer (TCO) executes a no-cost settlement agreement, and what the DFARS sections on settlement by determination and the settlement negotiation memorandum direct.
 
 ## The rule
 
@@ -29,22 +29,22 @@ Shows how a negotiated termination settlement becomes a signed agreement, when t
 | Text status | Final [@CL-CLS-1298] |
 | Applies to | Termination settlements that have been negotiated and reviewed; terminations where the no-cost conditions hold; the DFARS cross-references for settlement by determination and the negotiation memorandum [@CL-CLS-1298; @CL-CLS-1301; @CL-CLS-1302; @CL-CLS-1303] |
 
-When a termination settlement has been negotiated and all required reviews have been obtained, the contractor and the TCO shall execute a settlement agreement on Standard Form 30 (Amendment of Solicitation/Modification of Contract) [@CL-CLS-1298]. The section refers to 49.603 for the form [@CL-CLS-1298]. The settlement shall cover any setoffs that the Government has against the contractor that may be applied against the terminated contract [@CL-CLS-1299], and all settlement proposals of subcontractors, except proposals that are specifically excepted from the agreement and reserved for separate settlement [@CL-CLS-1300].
+When a termination settlement has been negotiated and all required reviews have been obtained, the contractor and the TCO shall execute a settlement agreement on Standard Form 30 (Amendment of Solicitation/Modification of Contract) (see 49.603) [@CL-CLS-1298]. The settlement shall cover any setoffs that the Government has against the contractor that may be applied against the terminated contract [@CL-CLS-1299], and all settlement proposals of subcontractors, except proposals that are specifically excepted from the agreement and reserved for separate settlement [@CL-CLS-1300].
 
-The TCO shall execute a no-cost settlement agreement [@CL-CLS-1331]. The section refers to 49.603-6 or 49.603-7, as applicable, for the agreement [@CL-CLS-1331]. The duty applies if (a) the contractor has not incurred costs for the terminated portion of the contract or (b) the contractor is willing to waive the costs incurred and (c) no amounts are due the Government under the contract [@CL-CLS-1301]. The text lists the conditions in that lettered form and does not say how the "or" and the "and" group [@CL-CLS-1301].
+The TCO shall execute a no-cost settlement agreement (see 49.603-6 or 49.603-7, as applicable) if (a) the contractor has not incurred costs for the terminated portion of the contract or (b) the contractor is willing to waive the costs incurred and (c) no amounts are due the Government under the contract [@CL-CLS-1331; @CL-CLS-1301].
 
-The DFARS directs that the procedures at PGI 249.109-7 be followed for settlement of a convenience termination by determination [@CL-CLS-1302]. It directs that the procedures at PGI 249.110 be followed for preparation of a settlement negotiation memorandum [@CL-CLS-1303]. The printed DFARS text states neither procedure, so neither is established here [@CL-CLS-1302; @CL-CLS-1303].
+The DFARS directs that the procedures at PGI 249.109-7 be followed for settlement of a convenience termination by determination [@CL-CLS-1302]. It directs that the procedures at PGI 249.110 be followed for preparation of a settlement negotiation memorandum [@CL-CLS-1303].
 
 ## How it works
 
 | Step | Who acts | Condition in the text |
 |---|---|---|
 | Execute the settlement agreement on Standard Form 30 | The contractor and the TCO [@CL-CLS-1298] | A settlement has been negotiated and all required reviews have been obtained [@CL-CLS-1298] |
-| Cover Government setoffs | The settlement; the section does not name who computes them [@CL-CLS-1299] | Setoffs that the Government has against the contractor and that may be applied against the terminated contract [@CL-CLS-1299] |
+| Cover Government setoffs | The settlement [@CL-CLS-1299] | Setoffs that the Government has against the contractor and that may be applied against the terminated contract [@CL-CLS-1299] |
 | Cover subcontractor proposals | The settlement [@CL-CLS-1300] | All subcontractor settlement proposals, except those specifically excepted from the agreement and reserved for separate settlement [@CL-CLS-1300] |
-| Execute a no-cost settlement agreement | The TCO [@CL-CLS-1331] | The conditions of the section, listed as (a), (b) and (c) [@CL-CLS-1301] |
+| Execute a no-cost settlement agreement | The TCO [@CL-CLS-1331] | (a) The contractor has not incurred costs for the terminated portion of the contract or (b) the contractor is willing to waive the costs incurred and (c) no amounts are due the Government under the contract [@CL-CLS-1301] |
 
-The settlement agreement comes after negotiation and after every required review [@CL-CLS-1298]. The sections print no deadline and no dollar threshold, and they do not say what the required reviews are. The no-cost duty is stated for the TCO, and the section does not say who decides whether the conditions hold [@CL-CLS-1331; @CL-CLS-1301]. The DFARS sections give only a pointer to guidance [@CL-CLS-1302; @CL-CLS-1303].
+The contractor and the TCO shall execute the settlement agreement when the termination settlement has been negotiated and all required reviews have been obtained [@CL-CLS-1298]. The TCO shall execute a no-cost settlement agreement if the conditions in the table are met [@CL-CLS-1331; @CL-CLS-1301]. The DFARS directs that the procedures at PGI 249.109-7 and PGI 249.110 be followed [@CL-CLS-1302; @CL-CLS-1303].
 
 ## Worked example
 
@@ -56,9 +56,9 @@ On a different contract the contractor has incurred 40,000 of cost on the termin
 
 ## Never confuse
 
-A no-cost settlement is not the absence of an agreement. It is itself an agreement that the TCO executes when the conditions hold [@CL-CLS-1331; @CL-CLS-1301]. The agreement text is set out in [No-cost settlement agreements](cls-no-cost-settlement-agreements.md).
+The agreement text is set out in [No-cost settlement agreements](cls-no-cost-settlement-agreements.md).
 
-The settlement agreement of the first section follows a negotiated settlement [@CL-CLS-1298]. Settlement by determination is the convenience-termination route that the DFARS passes to PGI 249.109-7 [@CL-CLS-1302]; it is described in [Settlement by determination](cls-settlement-by-determination.md). The DFARS sections do not state the procedures they point to [@CL-CLS-1302; @CL-CLS-1303].
+The DFARS directs that the procedures at PGI 249.109-7 be followed for settlement of a convenience termination by determination [@CL-CLS-1302]; it is described in [Settlement by determination](cls-settlement-by-determination.md).
 
 ## Company calibration
 
@@ -67,6 +67,6 @@ Whether every required review is obtained and evidenced before a settlement agre
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: settlement agreements and no-cost settlement: uncited absence statements, contrasts and meta wording removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: no-cost conditions and actor stated as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for settlement agreements in general and the no-cost settlement.

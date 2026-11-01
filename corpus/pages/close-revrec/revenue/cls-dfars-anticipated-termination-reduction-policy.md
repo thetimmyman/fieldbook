@@ -43,7 +43,7 @@ The prime contractor is also responsible for requiring that each subcontractor p
 |---|---|---|
 | Departments and agencies | Establish procedures to identify the affected contracts [@CL-CLS-0295] | Contracts under major defense programs affected by the funding levels in an appropriations act [@CL-CLS-0295] |
 | Departments and agencies | Establish a procedure to provide notice directly to the Secretary of Labor and through the contracting officer to each prime contractor [@CL-CLS-0296] | Within 60 days of enactment [@CL-CLS-0296] |
-| Contracting officer | The notice to each prime contractor goes through the contracting officer [@CL-CLS-0296] | The section prints no separate deadline |
+| Contracting officer | The notice to each prime contractor goes through the contracting officer [@CL-CLS-0296] | Within 60 days of enactment [@CL-CLS-0296] |
 | Prime contractor | Notify all first-tier subcontractors [@CL-CLS-0297] | Subcontract valued equal to or greater than $700,000 [@CL-CLS-0297] |
 | Prime contractor | Require each subcontractor to notify its subcontractors, and to impose a similar notice and flowdown requirement at all tiers [@CL-CLS-0298] | Subcontracts valued greater than $150,000 [@CL-CLS-0298] |
 
@@ -53,7 +53,7 @@ The notice follows on two routes. One runs directly to the Secretary of Labor. T
 
 The two subcontract tests use different words. The first-tier test is "equal to or greater than" $700,000, and the later tests are "greater than" $150,000 [@CL-CLS-0297; @CL-CLS-0298]. A first-tier subcontract of exactly $700,000 meets the first test [@CL-CLS-0297]. A subcontract of exactly $150,000 does not meet the second [@CL-CLS-0298].
 
-The $700,000 test applies to first-tier subcontracts [@CL-CLS-0297]. The $150,000 tests apply to subcontracts that a subcontractor places with its own subcontractors and to subcontracts at all tiers [@CL-CLS-0298]. Paragraph (c)(2) refers to each subcontractor and does not restate the $700,000 test [@CL-CLS-0297; @CL-CLS-0298]. The section prints no deadline for the prime contractor's notice and says nothing about the content of any notice.
+The $700,000 test applies to first-tier subcontracts [@CL-CLS-0297]. The $150,000 tests apply to subcontracts that a subcontractor places with its own subcontractors and to subcontracts at all tiers [@CL-CLS-0298].
 
 The contract clause that carries the contractor's own notice steps is covered on [Notification of anticipated contract termination or reduction (DFARS)](cls-dfars-anticipated-termination-notification.md).
 
@@ -69,11 +69,11 @@ A subcontractor places two subcontracts of its own, valued at 160,000 and 150,00
 
 ## Never confuse
 
-This notice is not the termination notice itself. It announces an anticipated termination or a substantial reduction in funding that follows from an appropriations act [@CL-CLS-0295; @CL-CLS-0296]. The notice of termination that starts the settlement clock is on [Prime contractor duties after a termination notice](cls-prime-contractor-duties-after-termination-notice.md).
+The notice provided under the section concerns the anticipated termination of, or substantial reduction in the funding of, affected contracts [@CL-CLS-0296]. The notice of termination that starts the settlement clock is on [Prime contractor duties after a termination notice](cls-prime-contractor-duties-after-termination-notice.md).
 
 The responsibility to establish the procedure for notice within 60 days sits with departments and agencies, and the subcontractor notice responsibilities sit with the prime contractor [@CL-CLS-0296; @CL-CLS-0297].
 
-The flowdown duty is not confined to first-tier subcontractors, because the requirement to impose a similar notice and flowdown requirement runs at all tiers [@CL-CLS-0298].
+The prime contractor is responsible for requiring that each subcontractor impose a similar notice and flowdown requirement in subcontracts valued greater than $150,000 at all tiers [@CL-CLS-0298].
 
 ## Company calibration
 
@@ -82,7 +82,7 @@ Which prime contracts and subcontracts the company holds above the notice thresh
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: anticipated termination reduction policy: uncited gap statements and contrasts removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed a statement the cited text does not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $700,000 first-tier test.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of anticipated contract terminations or reductions.

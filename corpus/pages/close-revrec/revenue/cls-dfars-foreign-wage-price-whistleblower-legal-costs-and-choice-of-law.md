@@ -29,7 +29,7 @@ Shows what an offeror represents about prices tied to foreign-government-control
 | Text status | Final [@CL-CLS-1192; @CL-CLS-1195; @CL-CLS-1197] |
 | Applies to | Offers with the representation provision, which DFARS 216.203-4-70(c)(2) prescribes, and contracts with the legal costs clause, which DFARS 216.307(a) prescribes, and the choice of law clause [@CL-CLS-1214; @CL-CLS-1215; @CL-CLS-1197] |
 
-By submission of its offer under the provision, the offeror represents that its prices are based on the wage rate or material price established and controlled by the government of the host country the offeror names [@CL-CLS-1192]. The second listed representation is that the prices in the offer do not include contingency allowances to pay for possible increases in wage rates or material prices [@CL-CLS-1193]. The provision is titled as a representation [@CL-CLS-1214], and its text contains only those two representations, so it does not state when or how a price adjusts [@CL-CLS-1192; @CL-CLS-1193].
+By submission of its offer under the provision, the offeror represents that its prices are based on the wage rate or material price established and controlled by the government of the host country the offeror names [@CL-CLS-1192]. The second listed representation is that the prices in the offer do not include contingency allowances to pay for possible increases in wage rates or material prices [@CL-CLS-1193]. The provision is titled as a representation [@CL-CLS-1214].
 
 The legal costs clause applies listed rules pursuant to section 3750 of title 10 of the United States Code, notwithstanding FAR clause 52.216-7, Allowable Cost and Payment [@CL-CLS-1194]. One listed rule is that the restrictions of FAR 31.205-47(b) on allowability of costs related to legal and other proceedings also apply to any proceeding brought by a contractor employee submitting a complaint under section 4701 of title 10 of the United States Code [@CL-CLS-1195]. Another is that costs incurred in connection with such a proceeding are also unallowable if the result is an order to take corrective action under that law [@CL-CLS-1196].
 
@@ -37,7 +37,7 @@ Under the choice of law clause, the contract shall be construed and interpreted 
 
 ## How it works
 
-The three items are separate. The representation fixes the basis of the offer price, because the offeror says its prices rest on host-government-controlled rates and carry no contingency allowance [@CL-CLS-1192; @CL-CLS-1193]. The legal costs clause extends the proceeding restrictions to employee complaints and makes costs unallowable when corrective action is ordered [@CL-CLS-1195; @CL-CLS-1196]. The choice of law clause sends the law and the forum for disputes under the Disputes clause to the United States [@CL-CLS-1197; @CL-CLS-1199].
+By the representation, the offeror states that its prices are based on the wage rate or material price established and controlled by the host-country government and do not include contingency allowances for possible increases in wage rates or material prices [@CL-CLS-1192; @CL-CLS-1193]. The legal costs clause applies the FAR 31.205-47(b) restrictions also to a proceeding brought by a contractor employee submitting a complaint, and makes costs also unallowable if the result is an order to take corrective action [@CL-CLS-1195; @CL-CLS-1196]. Under the choice of law clause the contract shall be construed and interpreted in accordance with the substantive laws of the United States of America, and the Contractor agrees to accept the exclusive jurisdiction of the United States Armed Services Board of Contract Appeals and the United States Court of Federal Claims for disputes under the Disputes clause [@CL-CLS-1197; @CL-CLS-1199].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ An offeror abroad bases its price on wage rates fixed by the host-country govern
 
 ## Never confuse
 
-The representation about contingency allowances is not itself an adjustment clause, and adjustment clauses are on [Economic Price Adjustment—Labor and Material](../../contract-finance/billing-payment/ctf-economic-price-adjustment-labor-and-material.md) and [Economic price adjustments in proposals and proposal audits](../../estimating/escalation/est-economic-price-adjustments.md). Whistleblower proceeding costs are one case of the wider cost rules on [Costs related to legal and other proceedings](../../compliance/cas-allowability/cmp-legal-proceedings-costs.md), and the employee protections are on [Whistleblower protections for contractor employees: policy and remedies](../../compliance/regulatory-framework/cmp-contractor-employee-whistleblower-protections.md). Choice of law here is separate from the claims process on [Disputes clause, claims and certification](cls-disputes-clause.md).
+Economic price adjustment clauses are on [Economic Price Adjustment—Labor and Material](../../contract-finance/billing-payment/ctf-economic-price-adjustment-labor-and-material.md) and [Economic price adjustments in proposals and proposal audits](../../estimating/escalation/est-economic-price-adjustments.md). The wider cost rules are on [Costs related to legal and other proceedings](../../compliance/cas-allowability/cmp-legal-proceedings-costs.md), and the employee protections are on [Whistleblower protections for contractor employees: policy and remedies](../../compliance/regulatory-framework/cmp-contractor-employee-whistleblower-protections.md). The claims process is on [Disputes clause, claims and certification](cls-disputes-clause.md).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Which overseas contracts and offers carry these clauses, and how whistleblower p
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: foreign wage and price representation, legal costs and choice of law: uncited inferences and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the foreign-government-controlled price representation, whistleblower proceeding legal costs and overseas choice of law.
