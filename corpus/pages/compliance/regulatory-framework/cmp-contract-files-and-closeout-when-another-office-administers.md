@@ -50,7 +50,7 @@ A separate cost-reimbursement contract is administered by another office. Its pe
 
 ## Never confuse
 
-The contract completion statement comes from the contract administration office, while the statement that authorizes closing the contracting office file comes from the contracting officer. They are two documents, and the contracting officer's statement must say that all required contractual actions have been completed [@CL-CMP-7228; @CL-CMP-7229].
+The contracting officer receives a contract completion statement from the contract administration office [@CL-CMP-7228]. The contracting officer shall ensure that all contractual actions required have been completed and shall prepare a statement to that effect, which is authority to close the contract file [@CL-CMP-7229].
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Which contract files are open, who owns each closeout, and which findings or cor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced an uncited two-documents inference with the cited steps.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paying office's duty to close its contract file.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract files and closeout when another office administers the contract.

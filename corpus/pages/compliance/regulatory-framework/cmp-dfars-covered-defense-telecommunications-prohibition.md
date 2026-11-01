@@ -31,7 +31,7 @@ Defines covered defense telecommunications equipment or services, covered foreig
 
 The subpart implements section 1656 of the National Defense Authorization Act for Fiscal Year 2018 (Public Law 115-91) and section 889(a)(1)(A) of the National Defense Authorization Act for Fiscal Year 2019 (Public Law 115-232) [@CL-SUP-9446].
 
-Covered defense telecommunications equipment or services includes telecommunications equipment produced by Huawei Technologies Company or ZTE Corporation, or any subsidiary or affiliate of such entities, and telecommunications services provided by such entities or using such equipment [@CL-CMP-7915]. It also includes telecommunications equipment or services produced or provided by an entity that the Secretary of Defense reasonably believes to be an entity owned or controlled by, or otherwise connected to, the government of a covered foreign country [@CL-CMP-7916]. The Secretary of Defense's reasonable belief is what puts such an entity in the definition. A covered foreign country is the People's Republic of China or the Russian Federation [@CL-CMP-7917].
+Covered defense telecommunications equipment or services includes telecommunications equipment produced by Huawei Technologies Company or ZTE Corporation, or any subsidiary or affiliate of such entities, and telecommunications services provided by such entities or using such equipment [@CL-CMP-7915]. It also includes telecommunications equipment or services produced or provided by an entity that the Secretary of Defense reasonably believes to be an entity owned or controlled by, or otherwise connected to, the government of a covered foreign country [@CL-CMP-7916]. A covered foreign country is the People's Republic of China or the Russian Federation [@CL-CMP-7917].
 
 Covered missions are the nuclear deterrence mission of DoD, including nuclear command, control and communications, integrated tactical warning and attack assessment, and continuity of Government [@CL-CMP-7918], and the homeland defense mission of DoD, including ballistic missile defense [@CL-CMP-7919].
 
@@ -41,7 +41,7 @@ Three prescriptions follow. The provision at 252.204-7016, Covered Defense Telec
 
 ## How it works
 
-The prohibition sits on the buying decision. A new procurement and an extension or renewal such as an option exercise are both barred when the conditions are met [@CL-CMP-7920]. The conditions are that the equipment, system or service is to carry out covered missions and uses covered equipment or services as a substantial or essential component of any system, or as critical technology as part of any system [@CL-CMP-7921; @CL-CMP-7922]. Equipment or services bought for other purposes are outside this section's prohibition, although the FAR prohibition it adds to applies separately [@CL-CMP-7920; @CL-CMP-7921]. A waiver described in DFARS 204.2104 takes the covered equipment or services out of the prohibition [@CL-CMP-7920]. The conditions for such a waiver are in that section and not on this card.
+The prohibition sits on the buying decision. A new procurement and an extension or renewal such as an option exercise are both barred when the conditions are met [@CL-CMP-7920]. The conditions are that the equipment, system or service is to carry out covered missions and uses covered equipment or services as a substantial or essential component of any system, or as critical technology as part of any system [@CL-CMP-7921; @CL-CMP-7922]. This section's prohibition is in addition to the prohibition at FAR 4.2102(a) [@CL-CMP-7920]. A waiver described in DFARS 204.2104 takes the covered equipment or services out of the prohibition [@CL-CMP-7920]. The conditions for such a waiver are in that section and not on this card.
 
 The section states no duty on the contractor. The contractor-facing duties come from the representation provisions and the clause once they are in the solicitation or award; see [the DFARS prohibition and reporting card](../trade-cyber/cmp-covered-defense-telecommunications-equipment-prohibition.md) and [the FAR definitions and prohibition card](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md). The prescriptions direct the drafter of the solicitation or contract; none of them states a dollar threshold, a deadline, or an exception [@CL-CMP-7923; @CL-CMP-7925; @CL-CMP-7926].
 
@@ -53,7 +53,7 @@ An office plans to exercise an option on a contract for a ballistic missile defe
 
 ## Never confuse
 
-The definition is not limited to equipment produced by Huawei Technologies Company or ZTE Corporation [@CL-CMP-7915]. It also includes equipment or services from an entity the Secretary of Defense reasonably believes to be owned or controlled by, or connected to, the government of a covered foreign country [@CL-CMP-7916]. The prohibition in this section is also not a duty stated on the contractor; it is addressed to the contracting officer [@CL-CMP-7920].
+The definition includes telecommunications equipment produced by Huawei Technologies Company or ZTE Corporation, or any subsidiary or affiliate of such entities [@CL-CMP-7915]. It also includes equipment or services from an entity the Secretary of Defense reasonably believes to be owned or controlled by, or connected to, the government of a covered foreign country [@CL-CMP-7916]. The prohibition in this section is addressed to the contracting officer [@CL-CMP-7920].
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Where the executed contracts and modifications sit, and who confirms whether any
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences and contrasts about the definition and prohibition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered defense telecommunications equipment or services, the prohibition, and the solicitation provisions and contract clause.

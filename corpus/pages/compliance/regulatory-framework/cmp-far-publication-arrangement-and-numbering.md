@@ -39,9 +39,7 @@ The FAR is divided into subchapters, parts, subparts, sections and subsections, 
 
 Subdivisions may be used at the section and subsection level to identify individual paragraphs [@CL-CMP-8754]. Subdivisions below the section or subsection level consist of parenthetical alpha numerics in the sequence (a)(1)(i)(A)(1)(i) [@CL-CMP-8403]. Subchapters are not used with FAR number citations [@CL-CMP-8404].
 
-Unless otherwise stated, cross-references indicate parts, subparts, sections, subsections, paragraphs, subparagraphs or subdivisions of the regulation itself [@CL-CMP-8405]. The regulation may be referred to as the Federal Acquisition Regulation or the FAR [@CL-CMP-8406]. In the FAR's own illustration that uses 9.106-4(d), a part is written "FAR part 9" outside the FAR and "part 9" within it [@CL-CMP-8755], and a subpart is written "FAR subpart 9.1" outside and "subpart 9.1" within [@CL-CMP-8756]. A section, subsection or paragraph takes the prefix "FAR" outside the FAR, as in "FAR 9.106-4(d)", and has no prefix within it [@CL-CMP-8757]. Citations of authority in the FAR, such as statutes or executive orders, shall follow the Federal Register form guides [@CL-CMP-8407].
-
-These sections set no threshold, deadline or approval route. The two "shall" rules, the chapter-number prefix for codified agency regulations and the form of citations of authority in the FAR, bind agencies and the drafters of FAR text, not contractors.
+Unless otherwise stated, cross-references indicate parts, subparts, sections, subsections, paragraphs, subparagraphs or subdivisions of the regulation itself [@CL-CMP-8405]. The regulation may be referred to as the Federal Acquisition Regulation or the FAR [@CL-CMP-8406]. Using the FAR coverage at 9.106-4(d) as a typical illustration [@CL-CMP-8725], a part is written "FAR part 9" outside the FAR and "part 9" within it [@CL-CMP-8755], and a subpart is written "FAR subpart 9.1" outside and "subpart 9.1" within [@CL-CMP-8756]. A section, subsection or paragraph takes the prefix "FAR" outside the FAR, as in "FAR 9.106-4(d)", and has no prefix within it [@CL-CMP-8757]. Citations of authority in the FAR, such as statutes or executive orders, shall follow the Federal Register form guides [@CL-CMP-8407].
 
 Copies of the FAR in CFR form may be purchased from the Bookstore of the Government Publishing Office (GPO) [@CL-CMP-9728].
 
@@ -53,9 +51,9 @@ A requisition cites FAR 15.403-4(a)(1) and the reviewer needs to know what each 
 
 ## Never confuse
 
-A subsection is not the same as a paragraph. The number to the right of the dash identifies the subsection [@CL-CMP-8402], while parenthetical alpha numerics below the section or subsection level identify the individual paragraphs [@CL-CMP-8403; @CL-CMP-8754].
+The number to the right of the dash represents the subsection [@CL-CMP-8402]. Subdivisions below the section or subsection level consist of parenthetical alpha numerics [@CL-CMP-8403], and subdivisions may be used at the section and subsection level to identify individual paragraphs [@CL-CMP-8754].
 
-The FAR number is also not an agency regulation number. A codified agency acquisition regulation begins each numbered unit with its assigned chapter number [@CL-CMP-8398], while the chapter number of the FAR is left out of FAR numbers [@CL-CMP-8399]. How agency regulations are numbered and published is on [Publication, codification and control of agency acquisition regulations](cmp-agency-acquisition-regulations-publication-and-control.md).
+Each numbered unit or segment of an agency acquisition regulation that is codified in the CFR shall begin with the chapter number [@CL-CMP-8398], and the chapter number assigned to the FAR will not be included in the numbered units or segments of the FAR [@CL-CMP-8399]. How agency regulations are numbered and published is on [Publication, codification and control of agency acquisition regulations](cmp-agency-acquisition-regulations-publication-and-control.md).
 
 ## Company calibration
 
@@ -65,5 +63,6 @@ Whether the company's citation practice reads the FAR number as printed, part th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the FAR illustration lead-in; cut an uncited negative and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added where copies of the FAR in CFR form may be purchased.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR publication, arrangement and numbering.

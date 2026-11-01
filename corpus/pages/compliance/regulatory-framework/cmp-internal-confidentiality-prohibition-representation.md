@@ -37,7 +37,7 @@ The prohibition does not contravene requirements applicable to Standard Form 312
 
 ## How it works
 
-The funding prohibition binds the Government. The representation duty falls on the offeror.
+The Government is prohibited from using the funds described above for a contract with the entity [@CL-CMP-7749], and an offeror must make the representation in order to be eligible for contract award [@CL-CMP-7752].
 
 To be eligible for contract award, an offeror must represent that it will not require its employees or subcontractors to sign internal confidentiality agreements or statements [@CL-CMP-7752]. The representation covers agreements or statements that prohibit or otherwise restrict those employees or subcontractors from lawfully reporting waste, fraud, or abuse related to the performance of a Government contract [@CL-CMP-7753]. The reporting is to a designated investigative or law enforcement representative of a Federal department or agency authorized to receive such information, for example the agency Office of the Inspector General [@CL-CMP-7760]. Any offeror that does not so represent is ineligible for award of a contract [@CL-CMP-7754].
 
@@ -53,9 +53,9 @@ Three entities respond to a solicitation that will use fiscal year 2016 funds. T
 
 ## Never confuse
 
-The funding prohibition and the offeror representation are different rules. The prohibition bars the Government's use of funds for a contract with an entity that requires restrictive statements [@CL-CMP-7749]. The representation is an offeror's statement about its future conduct, and it decides eligibility for award [@CL-CMP-7752; @CL-CMP-7754]. Their wording also differs. The representation names reporting related to the performance of a Government contract [@CL-CMP-7753], while the prohibition names reporting of such waste, fraud, or abuse [@CL-CMP-7750].
+The Government is prohibited from using fiscal year 2015 and subsequent fiscal year funds for a contract with an entity that requires employees or subcontractors of such entity seeking to report waste, fraud, or abuse to sign internal confidentiality agreements or statements [@CL-CMP-7749]. In order to be eligible for contract award, an offeror must represent that it will not require its employees or subcontractors to sign internal confidentiality agreements or statements, and an offeror that does not so represent is ineligible for award [@CL-CMP-7752; @CL-CMP-7754]. The representation names reporting waste, fraud, or abuse related to the performance of a Government contract [@CL-CMP-7753], and the prohibition names reporting such waste, fraud, or abuse [@CL-CMP-7750].
 
-The bar on internal confidentiality agreements is not the classified-information nondisclosure regime. The prohibition does not contravene requirements applicable to the listed forms or to any other form issued by a Federal department or agency governing the nondisclosure of classified information [@CL-CMP-7751; @CL-CMP-7759]. The defined term excludes agreements arising out of civil litigation and agreements signed at the behest of a Federal agency [@CL-CMP-7743]. The underlying provision and clause are on [Internal confidentiality agreement prohibition](cmp-internal-confidentiality-agreement-prohibition.md).
+The prohibition does not contravene requirements applicable to Standard Form 312, Form 4414, or any other form issued by a Federal department or agency governing the nondisclosure of classified information [@CL-CMP-7751; @CL-CMP-7759]. The defined term does not include confidentiality agreements arising out of civil litigation or confidentiality agreements that contractor employees or subcontractors sign at the behest of a Federal agency [@CL-CMP-7743]. The underlying provision and clause are on [Internal confidentiality agreement prohibition](cmp-internal-confidentiality-agreement-prohibition.md).
 
 ## Company calibration
 
@@ -65,4 +65,5 @@ Which offeror representations are in the contract file and who confirms them bef
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the actor sentences and cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the internal confidentiality agreement representation.

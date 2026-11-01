@@ -47,15 +47,13 @@ The contracting officer uses the clause:
 
 ## How it works
 
-Who acts. The contracting officer inserts the provision and the clause and chooses the alternates [@CL-CMP-8005; @CL-CMP-8009]. The facts that pick the alternate are the agency's: whether it will require, or allows, submission, and whether it will negotiate order by order [@CL-CMP-8006; @CL-CMP-8007; @CL-CMP-8010; @CL-CMP-8011]. The section does not say who in the agency decides.
+Who acts. The contracting officer inserts the provision and the clause and chooses the alternates [@CL-CMP-8005; @CL-CMP-8009]. The facts that pick the alternate are the agency's: whether it will require, or allows, submission, and whether it will negotiate order by order [@CL-CMP-8006; @CL-CMP-8007; @CL-CMP-8010; @CL-CMP-8011].
 
 Where each goes. The provision goes in solicitations that contain the clause. The clause goes in solicitations and contracts associated with the construction project [@CL-CMP-8005; @CL-CMP-8009].
 
-Pairing. Alternate III of the provision is used when Alternate II of the clause is used [@CL-CMP-8008]. Alternate II of the clause is the IDIQ order-by-order alternate [@CL-CMP-8011]. Alternate II of the provision is not used when Alternate III is used, and Alternate I of the clause is not used when Alternate II is used [@CL-CMP-8007; @CL-CMP-8010].
+Pairing. Alternate III of the provision is used when Alternate II of the clause is used [@CL-CMP-8008]. Alternate II of the clause is used in IDIQ contracts when the agency will have project labor agreements negotiated on an order-by-order basis and anticipates one or more orders may not use a project labor agreement [@CL-CMP-8011]. Alternate II of the provision is not used when Alternate III is used, and Alternate I of the clause is not used when Alternate II is used [@CL-CMP-8007; @CL-CMP-8010].
 
-Timing. Submission before award applies to the provision's Alternate I, and it covers only the apparent successful offeror [@CL-CMP-8006]. Submission after award applies to Alternate II of the provision and Alternate I of the clause, subject to the exceptions above [@CL-CMP-8007; @CL-CMP-8010]. The section states no deadline in days.
-
-Not stated here. When a project labor agreement is required, and any exception, are in other sections. The linked pages cover them.
+Timing. Submission before award applies to the provision's Alternate I, and it covers only the apparent successful offeror [@CL-CMP-8006]. Submission after award applies to Alternate II of the provision and Alternate I of the clause, subject to the exceptions above [@CL-CMP-8007; @CL-CMP-8010].
 
 ## Worked example
 
@@ -67,9 +65,9 @@ Now take an IDIQ contract where the agency will negotiate agreements order by or
 
 ## Never confuse
 
-The provision at 52.222-33 is not the clause at 52.222-34 [@CL-CMP-8005; @CL-CMP-8009]. The provision is a solicitation document, and the clause goes in solicitations and in contracts [@CL-CMP-8005; @CL-CMP-8009].
+The provision at 52.222-33 is inserted in solicitations containing the clause at 52.222-34 [@CL-CMP-8005]. The clause at 52.222-34 is inserted in solicitations and contracts associated with the construction project [@CL-CMP-8009].
 
-Never match alternate numbers across the two. For submission after award, the provision uses Alternate II and the clause uses Alternate I; Alternate III of the provision goes with Alternate II of the clause [@CL-CMP-8007; @CL-CMP-8008; @CL-CMP-8010].
+For submission after contract award, the provision's Alternate II is used except when Alternate III is used [@CL-CMP-8007], and the clause's Alternate I is used except when Alternate II is used [@CL-CMP-8010]. Alternate III of the provision is used when Alternate II of 52.222-34 is used [@CL-CMP-8008].
 
 ## Company calibration
 
@@ -79,5 +77,6 @@ Which of the company's construction pursuits involve a project labor agreement, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the IDIQ condition for the clause's Alternate II; cut uncited negatives and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the project labor agreement solicitation provision and clause.

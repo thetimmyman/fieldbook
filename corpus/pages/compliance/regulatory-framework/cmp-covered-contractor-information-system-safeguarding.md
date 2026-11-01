@@ -37,13 +37,13 @@ Information means any communication or representation of knowledge, such as fact
 
 The subpart applies to all acquisitions, including acquisitions of commercial products or commercial services, other than commercially available off-the-shelf items, when a contractor's information system may contain Federal contract information [@CL-SUP-9438].
 
-The contracting officer must insert the clause at FAR 52.204-21, Basic Safeguarding of Covered Contractor Information Systems, in solicitations and contracts when the contractor or a subcontractor at any tier may have Federal contract information residing in or transiting through its information system [@CL-CMP-7579]. The insertion duty falls on the contracting officer. The contractor's safeguarding duties come from the clause, which is on the linked controls card, and not from this prescription.
+The contracting officer must insert the clause at FAR 52.204-21, Basic Safeguarding of Covered Contractor Information Systems, in solicitations and contracts when the contractor or a subcontractor at any tier may have Federal contract information residing in or transiting through its information system [@CL-CMP-7579]. The insertion duty falls on the contracting officer.
 
 ## How it works
 
-The trigger is factual. It turns on whether Federal contract information may reside in or pass through an information system of the contractor or of a subcontractor at any tier, and the prescription states no dollar threshold [@CL-CMP-7579]. The applicability section uses the same fact test: it reaches acquisitions when a contractor's information system may contain Federal contract information, and it names commercially available off-the-shelf items as the acquisitions it leaves out [@CL-SUP-9438].
+The trigger is factual. It turns on whether Federal contract information may reside in or pass through an information system of the contractor or of a subcontractor at any tier, and the prescription states no dollar threshold [@CL-CMP-7579]. The applicability section uses the same fact test: it applies to all acquisitions, including acquisitions of commercial products or commercial services, other than commercially available off-the-shelf items, when a contractor's information system may contain Federal contract information [@CL-SUP-9438].
 
-The definitions fix the scope. The system must be owned or operated by a contractor, and the information must be provided by or generated for the Government under a contract to develop or deliver a product or service and not intended for public release [@CL-CMP-7575; @CL-CMP-7576]. The exclusions take out information the Government gives to the public and simple transactional information, so a system that holds only payment-processing information does not hold Federal contract information [@CL-CMP-7577]. Safeguarding itself is a set of prescribed measures and controls for information systems [@CL-CMP-7578].
+The definitions fix the scope. The system must be owned or operated by a contractor, and the information must be provided by or generated for the Government under a contract to develop or deliver a product or service and not intended for public release [@CL-CMP-7575; @CL-CMP-7576]. The definition does not include information provided by the Government to the public, such as that on public Web sites, or simple transactional information, such as that necessary to process payments [@CL-CMP-7577]. Safeguarding itself is a set of prescribed measures and controls for information systems [@CL-CMP-7578].
 
 ## Worked example
 
@@ -53,7 +53,7 @@ A contractor runs a billing portal that holds only records needed to process pay
 
 ## Never confuse
 
-Federal contract information is not any Government information, because information given to the public and simple transactional information are carved out [@CL-CMP-7576; @CL-CMP-7577]. A covered contractor information system is also not identified by who owns the data. It is identified by who owns or operates the system and by what the system handles [@CL-CMP-7575]. This prescription is also not the clause itself, whose controls and flowdown are on [Basic safeguarding of covered contractor information systems: controls and flowdown](cmp-basic-safeguarding-clause-controls.md).
+Federal contract information does not include information provided by the Government to the public or simple transactional information [@CL-CMP-7576; @CL-CMP-7577]. A covered contractor information system is an information system that is owned or operated by a contractor and that processes, stores, or transmits Federal contract information [@CL-CMP-7575]. The clause's controls and flowdown are on [Basic safeguarding of covered contractor information systems: controls and flowdown](cmp-basic-safeguarding-clause-controls.md).
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Which systems in the finance remit touch Federal contract information, and who k
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited inferences and contrasts and restated the applicability condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability of the safeguarding subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for basic safeguarding of covered contractor information systems.

@@ -40,15 +40,15 @@ Executive Order 13706 establishes paid sick leave for employees of certain Feder
 
 ## How it works
 
-Who decides. The Secretary of Labor determines the amount of each annual increase [@CL-CMP-8000]. The section gives no date for an increase. The linked pages on the minimum wage policy and the annual rate notice cover subpart 22.19 [@CL-CMP-8000].
+Who decides. The wage rate is subject to annual increases by an amount determined by the Secretary of Labor [@CL-CMP-8000].
 
-Who pays. The section does not name the payer. It says the clause requires the Executive Order 14026 rate to be paid when that rate is higher than other minimum wage rates [@CL-CMP-8001].
+Who pays. The clause at 52.222-55 requires the Executive Order 14026 minimum wage rate to be paid if it is higher than other minimum wage rates [@CL-CMP-8001].
 
-Threshold. The test is a comparison of rates. The $15.00 figure is the rate as of January 30, 2022 [@CL-CMP-7998; @CL-CMP-7999], and annual increases follow it [@CL-CMP-8000]. It is not a standing figure.
+Threshold. The clause requires payment of the Executive Order 14026 rate if it is higher than other minimum wage rates [@CL-CMP-8001]. The minimum wage rate for certain workers is increased to $15.00 per hour as of January 30, 2022 [@CL-CMP-7998; @CL-CMP-7999], and the wage rate is subject to annual increases [@CL-CMP-8000].
 
-Exception. Supersession reaches Executive Order 13658 only to the extent that it is inconsistent with Executive Order 14026 [@CL-CMP-7998].
+Exception. As of January 30, 2022, Executive Order 13658 is superseded by Executive Order 14026 to the extent that it is inconsistent with Executive Order 14026 [@CL-CMP-7998].
 
-Not stated here. The section does not say what the clause requires when the Executive Order 14026 rate is not higher, and it does not say which workers are covered [@CL-CMP-8001; @CL-CMP-7999]. The linked pages cover coverage and the statutory wage determination.
+Not stated here. This card does not draft which workers are covered or the statutory wage determination amount.
 
 ## Worked example
 
@@ -58,9 +58,9 @@ Assume that in a made-up year the annual rate set by the Secretary of Labor unde
 
 ## Never confuse
 
-The $15.00 rate that applied as of January 30, 2022 may differ from the rate in force later, because the wage rate is subject to annual increases [@CL-CMP-7998; @CL-CMP-7999; @CL-CMP-8000].
+The $15.00 rate applies as of January 30, 2022 [@CL-CMP-7998; @CL-CMP-7999], and the wage rate is subject to annual increases [@CL-CMP-8000].
 
-The executive order minimum wage is not the statutory wage determination amount under subpart 22.4, because the section treats them as different rates and compares them [@CL-CMP-8001].
+The clause requires the Executive Order 14026 minimum wage rate to be paid if it is higher than other minimum wage rates, such as the subpart 22.4 statutory wage determination amount [@CL-CMP-8001].
 
 ## Company calibration
 
@@ -70,6 +70,7 @@ Which of the company's construction contracts carry the minimum wage clause, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited negatives, inferences and contrasts; stated the clause rule and supersession as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to paid sick leave under Executive Order 13706.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order 13658 and 14026 minimum wages on construction contracts.
