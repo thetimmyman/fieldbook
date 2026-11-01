@@ -78,7 +78,7 @@ A solicitation states a goal of 20 percent female utilization in the carpentry t
 
 ## Never confuse
 
-The goals are not fixed headcounts: the solicitation states them as percentages of the total hours of employment and training [@CL-CMP-5231]. Compliance is evaluated on the contractor's effort to achieve maximum results, and the contractor must document that effort fully [@CL-CMP-5340; @CL-CMP-5341]. A union's failure to refer minorities or women does not excuse the contractor's obligations under the clause [@CL-CMP-5337].
+The solicitation states the goals as percentages of the total hours of employment and training [@CL-CMP-5231]. Compliance is evaluated on the contractor's effort to achieve maximum results, and the contractor must document that effort fully [@CL-CMP-5340; @CL-CMP-5341]. A union's failure to refer minorities or women does not excuse the contractor's obligations under the clause [@CL-CMP-5337].
 
 The codified FAR 52.222-27 carries the construction affirmative action clause, while the RFO text prints that section number as reserved [@CL-CMP-5229; @CL-CMP-0372].
 
@@ -92,6 +92,7 @@ Which construction contracts and subcontracts carry this clause, and who owns th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on segregated facilities and construction goals.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction affirmative action requirements.

@@ -35,9 +35,9 @@ The definitions in section 4.1801 apply as used in part 4 [@CL-CMP-8595]. An imm
 
 ## How it works
 
-The section uses "may" for the CAGE code uses, so none of them is mandated here, and "among other things" means the three uses are not the only ones [@CL-CMP-8315; @CL-CMP-8596]. Neither section names an approving official, threshold or deadline, and neither places a duty on an offeror or contractor [@CL-CMP-8314; @CL-CMP-8319]. The ownership questions that an offeror answers are in the provisions described in [Ownership or Control of Offeror provision](../../supply-chain/supplier-identity/sup-ownership-or-control-of-offeror.md) and [Procurement instrument identifiers, CAGE code verification and the CAGE provisions](cmp-piid-and-cage-verification.md).
+The CAGE code system may be used, among other things, for the three listed uses [@CL-CMP-8596; @CL-CMP-8315; @CL-CMP-8316; @CL-CMP-8317]. The ownership questions that an offeror answers are in the provisions described in [Ownership or Control of Offeror provision](../../supply-chain/supplier-identity/sup-ownership-or-control-of-offeror.md) and [Procurement instrument identifiers, CAGE code verification and the CAGE provisions](cmp-piid-and-cage-verification.md).
 
-The chain is read upward from the offeror: an entity with direct control is the immediate owner, and the entity above it that nothing owns or controls is the highest-level owner [@CL-CMP-8319; @CL-CMP-8320; @CL-CMP-8321]. The highest-level owner can own or control the immediate owner directly, or through one or more entities that control the immediate owner [@CL-CMP-8319]. The definition lists indicators of control, one or more of which may be present, and the listed indicators are not the only ones [@CL-CMP-8322]. The unique entity identifier is a different identifier from the code, and the section points elsewhere for it; see [Unique entity identifier in contract reporting](../../market/feeds/mkt-unique-entity-identifier-contract-reporting.md) [@CL-CMP-8318].
+An entity, other than the offeror, that has direct control of the offeror is the immediate owner [@CL-CMP-8321]. The highest-level owner is the entity that owns or controls an immediate owner of the offeror, and no entity owns or exercises control of it [@CL-CMP-8319; @CL-CMP-8320]. The highest-level owner can own or control the immediate owner directly, or through one or more entities that control the immediate owner [@CL-CMP-8319]. The definition lists indicators of control, one or more of which may be present, and the listed indicators are not the only ones [@CL-CMP-8322]. The unique entity identifier is a different identifier from the code, and the section points elsewhere for it; see [Unique entity identifier in contract reporting](../../market/feeds/mkt-unique-entity-identifier-contract-reporting.md) [@CL-CMP-8318].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ An offeror is controlled directly by a holding entity, which is in turn controll
 
 ## Never confuse
 
-The CAGE code is not the unique entity identifier: the subpart says the unique entity identifier is a different identifier and points to 4.605 and to two provisions for it [@CL-CMP-8318]. An immediate owner is also not the highest-level owner, because the highest-level owner owns or controls an immediate owner [@CL-CMP-8319; @CL-CMP-8321].
+The subpart says the unique entity identifier is a different identifier and points to 4.605 and to the provisions at 52.204-6 and 52.204-7 for it [@CL-CMP-8318]. The highest-level owner is the entity that owns or controls an immediate owner of the offeror, and an immediate owner is an entity, other than the offeror, that has direct control of the offeror [@CL-CMP-8319; @CL-CMP-8321].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which legal entities own or control each company entity that offers on contracts
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: uncited scope and contrast clauses replaced with cited definitions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the commercial and Government entity code subpart scope and definitions, including highest-level owner and immediate owner.

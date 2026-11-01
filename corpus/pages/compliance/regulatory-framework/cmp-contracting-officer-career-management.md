@@ -33,19 +33,19 @@ A statute requires agency heads to establish and maintain a procurement career m
 
 ## How it works
 
-In selecting contracting officers, the appointing official shall consider the complexity and dollar value of the acquisitions to be assigned and the candidate's experience, training, education, business acumen, judgment, character and reputation [@CL-CMP-8359]. The FAR then gives examples of selection criteria: experience in Government contracting and administration, commercial purchasing, or related fields [@CL-CMP-8360]; education or special training in business administration, law, accounting, engineering, or related fields [@CL-CMP-8361]; knowledge of acquisition policies and procedures, including the FAR and other applicable regulations [@CL-CMP-8672]; specialized knowledge in the particular assigned field of contracting [@CL-CMP-8673]; and satisfactory completion of acquisition training courses [@CL-CMP-8362].
+In selecting contracting officers, the appointing official shall consider the complexity and dollar value of the acquisitions to be assigned and the candidate's experience, training, education, business acumen, judgment, character and reputation [@CL-CMP-8359]. The FAR then gives examples of selection criteria: experience in Government contracting and administration, commercial purchasing, or related fields [@CL-CMP-7673; @CL-CMP-8360]; education or special training in business administration, law, accounting, engineering, or related fields [@CL-CMP-8361]; knowledge of acquisition policies and procedures, including the FAR and other applicable regulations [@CL-CMP-8672]; specialized knowledge in the particular assigned field of contracting [@CL-CMP-8673]; and satisfactory completion of acquisition training courses [@CL-CMP-8362].
 
-The duties in these two sections fall on agency heads and on the appointing official, not on contractors [@CL-CMP-8356; @CL-CMP-8359]. How the appointment is recorded is on [Appointment of contracting officers and the contract file](../../operating-model/decision-rights/opm-appointment-of-contracting-officers.md), and who may bind the Government is on [Who may bind the Government: contracting authority and the acquisition team](cmp-contracting-authority-and-the-acquisition-team.md).
+Appointment of contracting officers and the contract file is covered in [Appointment of contracting officers and the contract file](../../operating-model/decision-rights/opm-appointment-of-contracting-officers.md), and who may bind the Government is covered in [Who may bind the Government: contracting authority and the acquisition team](cmp-contracting-authority-and-the-acquisition-team.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-An agency head's designee, acting as the appointing official, considers a candidate for a program worth 20,000,000 with complex cost-type work. The record shows that the official weighed the complexity and dollar value of the acquisitions to be assigned against the candidate's experience, training, education, business acumen, judgment, character and reputation, including the candidate's completed acquisition training courses [@CL-CMP-8359; @CL-CMP-8362]. The record shows that the selection was also checked against the Office of Federal Procurement Policy training standards [@CL-CMP-8358]. Selecting and appointing the candidate is then within what the designee may do [@CL-CMP-8357].
+An agency head's designee, acting as the appointing official, considers a candidate for a program worth 20,000,000 with complex cost-type work. The record shows that the official considered the complexity and dollar value of the acquisitions to be assigned and the candidate's experience, training, education, business acumen, judgment, character and reputation, including the candidate's completed acquisition training courses [@CL-CMP-8359; @CL-CMP-8362]. The record shows that the selection was consistent with the Office of Federal Procurement Policy standards for skill-based training [@CL-CMP-8358]. Selecting and appointing the candidate is then within what the designee may do [@CL-CMP-8357].
 
 ## Never confuse
 
-The statute requires two things, a procurement career management program and a system for the selection, appointment and termination of appointment of contracting officers, so the selection system is not the whole program [@CL-CMP-8356]. The lettered criteria are examples; what the appointing official must consider is set by the first sentence of the selection section [@CL-CMP-8359; @CL-CMP-8360].
+The statute requires agency heads to establish and maintain a procurement career management program and a system for the selection, appointment and termination of appointment of contracting officers [@CL-CMP-8356]. In selecting contracting officers, the appointing official shall consider the complexity and dollar value of the acquisitions to be assigned and the candidate's experience, training, education, business acumen, judgment, character and reputation [@CL-CMP-8359], and the lettered criteria are examples of selection criteria [@CL-CMP-7673].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which of the company's contracts fall inside the remit that the agency's appoint
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: example, contrast wording and examples lead-in tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the procurement career management program and the selection of contracting officers.
