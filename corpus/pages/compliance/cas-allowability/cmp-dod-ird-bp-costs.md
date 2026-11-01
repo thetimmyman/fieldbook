@@ -35,7 +35,7 @@ The definitions of covered segment and major contractor, the project reporting d
 
 ## How it works
 
-Departments and agencies may not supplement the section in any way that limits independent research and development cost allowability or bid and proposal cost allowability [@CL-CMP-0881]. For independent research and development costs that major contractors incur on covered contracts to be allowable, the contractor is required to report the projects generating those costs to the Defense Technical Information Center [@CL-CMP-1403], and is required to update its inputs at least annually, no later than 3 months after the end of the contractor's fiscal year, and when the project is completed [@CL-CMP-0883]. Contractors that are not major contractors are encouraged to use the same online input form to report their projects [@CL-CMP-0886]. Incurred independent research and development cost must be reported separately from indirect costs, and incurred bid and proposal cost separately from other indirect costs [@CL-CMP-0887].
+Departments and agencies shall not supplement the section in any way that limits independent research and development cost allowability and bid and proposal cost allowability [@CL-CMP-0881]. See DFARS 225.7303-2(c) for allowability provisions affecting foreign military sale contracts [@CL-CMP-0882]. For independent research and development costs that major contractors incurred on covered contracts to be allowable, the contractor is required to report the projects generating those costs to the Defense Technical Information Center (DTIC) [@CL-CMP-1403] using the DTIC's online input form and instructions [@CL-CMP-8328], and the contractor is required to update its DTIC inputs at least annually, no later than 3 months after the end of the contractor's fiscal year, and when the project is completed [@CL-CMP-0883]. Contractors that are not major contractors are encouraged to use the same online input form to report their projects [@CL-CMP-0886]. Incurred independent research and development cost must be reported separately from indirect costs, and incurred bid and proposal cost separately from other indirect costs [@CL-CMP-0887].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor has three product divisions that put independent research and devel
 
 ## Never confuse
 
-The DoD rule is not the general independent research and development cost principle. It adds the covered contract definition, the divisions outside the limitations, the project reporting and a cap on allowable independent research and development cost that is the lesser of two amounts, one of which is the total of incurred independent research and development costs that the chief executive officer of the contractor has determined will advance the needs of DoD for future technology and advanced capability [@CL-CMP-0884; @CL-CMP-0885]. Allowability provisions affecting foreign military sale contracts are in another DFARS section [@CL-CMP-0882]. The general principle is in [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md) and the allocation question is in [the allocation standard for these costs](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
+The DoD supplement defines a covered contract [@CL-CMP-0875; @CL-CMP-0876] and provides that the amount of independent research and development costs allowable under DoD contracts shall not exceed the lesser of [@CL-CMP-0884] such contracts' allocable share of total incurred independent research and development costs [@CL-CMP-8329] or the total amount of incurred independent research and development costs that the chief executive officer of the contractor has determined will advance the needs of DoD for future technology and advanced capability as DoD describes such needs in communications referenced at 242.771-3(c)(1)(i) [@CL-CMP-0885]. The general principle is in [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md) and the allocation question is in [the allocation standard for these costs](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ Whether independent research and development projects and bid and proposal effor
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DTIC form, the first of the two cap amounts and the foreign military sale pointer, and cut contrast the quotes do not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the DTIC reporting condition and the allowable IR&D cap as the quotes say them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS definitions of covered segment, including a contractor with no product divisions, and major contractor.
 - COMPATIBLE_EXTENSION, 2026-10-29: Cut the covered segment and major contractor definitions to a pointer to the general page, corrected the worked example so that the thresholds add up, and kept the covered contract definition, the divisions outside the limitations, the update deadline and the reporting rules.
