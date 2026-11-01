@@ -43,7 +43,7 @@ A proposal arrives without the supporting material for a large part of its mater
 
 ## Never confuse
 
-A thin proposal is not the same as a refusal. A failure to submit required supporting data, or cost data too thin for the planned audit procedures, makes the proposal inadequate [@CL-EST-0663], and when data is inadequate the auditor cannot issue an unqualified opinion [@CL-EST-0664]. A refusal to provide required certified cost data, or a denial of access to books and records, also triggers immediate notice to the contracting officer and, if necessary, the agency's access process [@CL-EST-0666]. Defective pricing is a separate subject; see [Defective pricing](est-defective-pricing.md). Opinion types on business system audits are covered in [Business system audit reporting](../../compliance/business-systems/cmp-business-system-audit-reporting.md).
+A failure to submit required supporting data, or cost data too thin for the planned audit procedures, makes the proposal inadequate [@CL-EST-0663], and when data is inadequate the auditor cannot issue an unqualified opinion [@CL-EST-0664]. A refusal to provide required certified cost data, or a denial of access to books and records, also triggers immediate notice to the contracting officer and, if necessary, the agency's access process [@CL-EST-0666]. Defective pricing is a separate subject; see [Defective pricing](est-defective-pricing.md). Opinion types on business system audits are covered in [Business system audit reporting](../../compliance/business-systems/cmp-business-system-audit-reporting.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Which bids and estimates need immediate support, and what review evidence and ap
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut an unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored GAGAS condition and required-data wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proposal adequacy and the audit opinion.

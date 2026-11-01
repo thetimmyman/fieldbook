@@ -28,15 +28,15 @@ Shows what the type of contract provision tells offerors, how a letter contract 
 | Text status | Final [@CL-EST-1842] |
 | Applies to | Solicitations and contracts that carry the type of contract provision, the letter contract clause or the time-and-materials proposal provision [@CL-EST-1842; @CL-EST-1843; @CL-EST-1845] |
 
-The type of contract provision tells offerors that the Government contemplates award of the type of contract the Contracting Officer inserts in the blank, resulting from the solicitation [@CL-EST-1842].
+In the type of contract provision, the Government contemplates award of the type of contract that the Contracting Officer inserts in the blank, resulting from the solicitation [@CL-EST-1842].
 
 The Contractor indicates acceptance of a letter contract by signing three copies of the contract and returning them to the Contracting Officer not later than the date inserted [@CL-EST-1843]. On acceptance by both parties, the Contractor shall proceed with performance of the work, including purchase of necessary materials [@CL-EST-1844].
 
 ## How it works
 
-Under the commercial time-and-materials and labor-hour proposal provision, the offeror must specify fixed hourly rates in its offer that include wages, overhead, general and administrative expenses, and profit [@CL-EST-1845]. The offeror must also say whether the fixed hourly rate for each labor category applies to labor performed by the offeror, by subcontractors, or by divisions, subsidiaries or affiliates under common control [@CL-EST-1846]. The type of contract provision names the contemplated type [@CL-EST-1842]. The letter contract clause covers signing and starting work [@CL-EST-1843; @CL-EST-1844].
+Under FAR 52.216-31, the offeror must specify fixed hourly rates in its offer that include wages, overhead, general and administrative expenses, and profit [@CL-EST-1845]. The offeror must also say whether the fixed hourly rate for each labor category applies to labor performed by the offeror, subcontractors, and/or divisions, subsidiaries, or affiliates of the offeror under a common control [@CL-EST-1846].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO type of contract provision says the Government contemplates award of the type of contract the Contracting Officer inserts in the blank, the same as the codified provision [@CL-EST-0844; @CL-EST-1842]. The RFO text also prints an Alternate I of that provision, to be included as paragraph (a) of the basic provision, which reads that offerors may propose an alternative contract type [@CL-EST-0845]. The RFO letter contract clause has the same acceptance by signing three copies and the same start of work after acceptance by both parties [@CL-EST-0846; @CL-EST-0847; @CL-EST-1843; @CL-EST-1844]. The RFO prescription line for FAR 52.216-23 says to insert the clause as prescribed in 16.603-4(b)(1) and has no words about solicitations and contracts in which a letter contract is contemplated or about letter contracts awarded on SF 26, which the codified prescription line has [@CL-EST-9101; @CL-EST-9102]. The RFO commercial time-and-materials provision has the same fixed hourly rate requirement and the same statement of who performed the labor [@CL-EST-0848; @CL-EST-0849; @CL-EST-1845; @CL-EST-1846].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO type of contract provision says the Government contemplates award of the type of contract the Contracting Officer inserts in the blank, the same as the codified provision [@CL-EST-0844; @CL-EST-1842]. The RFO also has an Alternate I of that provision, prescribed in 16.105, to be included as paragraph (a) of the basic provision: offerors may propose an alternative contract type [@CL-EST-0845]. The RFO letter contract clause has the same acceptance by signing three copies and the same start of work after acceptance by both parties [@CL-EST-0846; @CL-EST-0847; @CL-EST-1843; @CL-EST-1844]. The RFO prescription for FAR 52.216-23 says to insert the clause as prescribed in 16.603-4(b)(1) [@CL-EST-9101], where the codified prescription says to insert the clause in solicitations and contracts when a letter contract is contemplated, except that it may be omitted from letter contracts awarded on SF 26 [@CL-EST-9102]. RFO FAR 52.216-31 has the same fixed hourly rate requirement and the same statement of the labor to which the rate applies [@CL-EST-0848; @CL-EST-0849; @CL-EST-1845; @CL-EST-1846].
 
 ## Worked example
 
@@ -46,9 +46,9 @@ An offeror answers a time-and-materials solicitation with an engineer rate of 15
 
 ## Never confuse
 
-The proposal provision is about fixed hourly rates and who performs the labor [@CL-EST-1845; @CL-EST-1846], while the letter contract clause is about signing the contract and starting work [@CL-EST-1843; @CL-EST-1844]. The contract type itself is explained in [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md), and the companion proposal provisions are in [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md). The proposal as a whole is governed by the general rules in [Instructions to offerors in competitive acquisitions](est-instructions-to-offerors-competitive-acquisition.md), and other contract types a solicitation may name are covered in [Retroactive price redetermination and no-fee cost clauses](est-retroactive-price-redetermination-and-no-fee-cost-clauses.md).
+For the contract type itself, see [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md); for the companion proposal provisions, see [Time-and-materials and labor-hour proposal provisions](est-time-and-materials-proposal-rate-provisions.md); for the general rules on proposals, see [Instructions to offerors in competitive acquisitions](est-instructions-to-offerors-competitive-acquisition.md); and for other contract types a solicitation may name, see [Retroactive price redetermination and no-fee cost clauses](est-retroactive-price-redetermination-and-no-fee-cost-clauses.md).
 
-The basic type of contract provision names the contemplated type [@CL-EST-1842], and the RFO Alternate I adds a paragraph (a) saying that offerors may propose an alternative contract type [@CL-EST-0845].
+The basic type of contract provision names the contemplated type [@CL-EST-1842], and the RFO Alternate I is included as paragraph (a) of the basic provision: offerors may propose an alternative contract type [@CL-EST-0845].
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Who owns proposal pricing and the hourly rate build for time-and-materials and l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted characterizations and an absence statement, removed an unquoted 'commercial' label, and restored the and/or wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the type of contract, letter contract and time-and-materials proposal provisions.

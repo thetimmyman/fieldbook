@@ -31,11 +31,11 @@ Explains the facilities capital employed profit factor, the forms that carry the
 
 The factor encourages and rewards capital investment in facilities that benefit DoD, recognizing both the facilities capital the contractor will employ in contract performance and the contractor's commitment to improving productivity [@CL-EST-0787].
 
-The contracting officer estimates facilities capital cost of money and capital employed from an analysis of the Forms CASB-CMF and cost of money factors and from DD Form 1861, Contract Facilities Capital Cost of Money [@CL-EST-0788]. DD Form 1861 links the Form CASB-CMF and DD Form 1547, the Record of Weighted Guidelines Application [@CL-EST-0789]. It is designed to record and compute the contract facilities capital cost of money and capital employed, which is carried forward to DD Form 1547 [@CL-EST-0871]. The form is completed only after the cost proposal is evaluated, the cost of money factors are established and a prenegotiation objective on cost is set [@CL-EST-0790].
+The contracting officer shall estimate the facilities capital cost of money and capital employed using an analysis of the appropriate Forms CASB-CMF and cost of money factors, and DD Form 1861, Contract Facilities Capital Cost of Money [@CL-EST-0788]. DD Form 1861 provides a means of linking the Form CASB-CMF and DD Form 1547, Record of Weighted Guidelines Application [@CL-EST-0789]. It is designed to record and compute the contract facilities capital cost of money and capital employed, which is carried forward to DD Form 1547 [@CL-EST-0871]. A DD Form 1861 is to be completed only after evaluating the contractor's cost proposal, establishing cost of money factors, and establishing a prenegotiation objective on cost [@CL-EST-0790].
 
 ## How it works
 
-Land and buildings carry a normal value of zero with no designated range, while equipment carries a normal value of 17.5 percent within a designated range of 10 to 25 percent [@CL-EST-0791]. Cost of money stays out of the cost base when the contractor's effort is measured for a prenegotiation profit objective, which is restricted to normal, booked costs [@CL-EST-0792].
+In the table of values, land and buildings each show a normal value of 0 percent and a designated range of N/A, while equipment shows a normal value of 17.5 percent and a designated range of 10 to 25 [@CL-EST-0791]. When measuring the contractor's effort for the purpose of establishing a prenegotiation profit objective, the cost base is to be restricted to normal, booked costs, and cost of money is not to be included as part of the cost base [@CL-EST-0792].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contract's allocated facilities capital for equipment is 4,000,000 and the con
 
 ## Never confuse
 
-Facilities capital employed is not facilities capital cost of money: the form records and carries forward both figures [@CL-EST-0871], but cost of money stays out of the cost base used to measure the contractor's effort for a prenegotiation profit objective [@CL-EST-0792]. See [Facilities capital cost of money](../../compliance/cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md) for the cost side and [Cost of money](../../compliance/cas-allowability/cmp-cost-of-money.md) for the cost of money itself.
+DD Form 1861 is designed to record and compute the contract facilities capital cost of money and capital employed, which is carried forward to DD Form 1547 [@CL-EST-0871]. Cost of money is not to be included as part of the cost base used when measuring the contractor's effort for a prenegotiation profit objective [@CL-EST-0792]. See [Facilities capital cost of money](../../compliance/cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md) for the cost side and [Cost of money](../../compliance/cas-allowability/cmp-cost-of-money.md) for the cost of money itself.
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ That the cost of money factors and the allocated facilities capital on the forms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall and provides-a-means wording, the table values as printed and the cost base rule; cut an unquoted contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for facilities capital employed.
