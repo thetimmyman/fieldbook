@@ -39,7 +39,7 @@ If the solicitation specifies award on the basis of factors in addition to cost 
 
 If two or more offers are equal in price and paragraph (c)(2) does not apply, the Contracting Officer gives preference to an offer that does not include foreign construction material excepted at the request of the Offeror on the basis of unreasonable cost [@CL-CMP-5415].
 
-Under the basic provision, when an offer includes foreign construction material, other than Recovery Act designated country construction material, that the Government does not list in the solicitation in paragraph (b)(3) of FAR clause 52.225-23, the offeror also may submit an alternate offer [@CL-CMP-5416]. If an alternate offer is submitted, the Offeror must submit a separate Standard Form 1442 for the alternate offer and a separate cost comparison table prepared in accordance with paragraphs (c) and (d) of FAR clause 52.225-23 [@CL-CMP-6089]. The separate cost comparison table is for the offer that is based on the use of any foreign construction material for which the Government has not yet determined an exception applies [@CL-CMP-6090].
+Under the basic provision, when an offer includes foreign construction material, other than Recovery Act designated country construction material, that the Government does not list in the solicitation in paragraph (b)(3) of FAR clause 52.225-23, the offeror also may submit an alternate offer based on use of equivalent domestic or Recovery Act designated country construction material [@CL-CMP-5416; @CL-CMP-7660]. If an alternate offer is submitted, the Offeror must submit a separate Standard Form 1442 for the alternate offer and a separate cost comparison table prepared in accordance with paragraphs (c) and (d) of FAR clause 52.225-23 [@CL-CMP-6089]. The separate cost comparison table is for the offer that is based on the use of any foreign construction material for which the Government has not yet determined an exception applies [@CL-CMP-6090].
 
 Under the basic provision, if the Government determines that a particular exception requested in accordance with paragraph (c) of FAR clause 52.225-23 does not apply, it evaluates only those offers based on use of the equivalent domestic or Recovery Act designated country construction material [@CL-CMP-5513]. The Offeror is required to furnish the equivalent domestic or Recovery Act designated country construction material [@CL-CMP-6091]. An offer based on use of the foreign construction material for which an exception was requested will be rejected as nonresponsive if the acquisition is conducted by sealed bidding, and may be accepted if revised during negotiations [@CL-CMP-5417].
 
@@ -69,6 +69,7 @@ Whether each solicitation includes this provision and what supporting data goes 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added the basis of the alternate offer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the companion required-use clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of required use of American iron, steel and manufactured goods under trade agreements.

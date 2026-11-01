@@ -43,9 +43,9 @@ The exception is stated for contracts along a major route of supply, and the rou
 
 The exception also removes the solicitation provision, because the contracting officer includes the provision unless the exception applies [@CL-CMP-7975; @CL-CMP-7976].
 
-The prohibition is stated with no dollar threshold and no commercial carve-out; the threshold and the commercial carve-out appear only in the provision requirement [@CL-CMP-7973; @CL-CMP-7977; @CL-CMP-7978].
+The prohibition is stated with no dollar threshold and no commercial carve-out; the threshold and the commercial carve-out appear in the provision requirement [@CL-CMP-7973; @CL-CMP-7977; @CL-CMP-7978].
 
-The duty to include the provision falls on the contracting officer, not on the offeror [@CL-CMP-7976]. The offeror's certification is covered in the linked card.
+The duty to include the provision falls on the contracting officer [@CL-CMP-7976]. The offeror's certification is covered in the linked card.
 
 ## Worked example
 
@@ -59,9 +59,9 @@ If the contract is for services along a major route of supply to a zone of activ
 
 ## Never confuse
 
-This prohibition keys to one exclusion record, not to exclusion generally [@CL-CMP-7973; @CL-CMP-7974]. The entry must be the one made specifically for this subpart, on arms control treaty or agreement violations, so another ground for exclusion does not engage this rule [@CL-CMP-7973; @CL-CMP-7974].
+The prohibition applies to an entity identified as excluded in the System for Award Management, specifically for this subpart, on the basis of involvement in activities that violate arms control treaties or agreements with the United States [@CL-CMP-7973; @CL-CMP-7974].
 
-The prohibition and the provision have different scopes. Only the provision has the simplified acquisition threshold and the commercial carve-out [@CL-CMP-7973; @CL-CMP-7977; @CL-CMP-7978].
+The provision is to be included in each solicitation that exceeds the simplified acquisition threshold, other than solicitations for the acquisition of commercial products or commercial services [@CL-CMP-7977; @CL-CMP-7978], while the prohibition is stated for any contract for the procurement of products or services with an entity identified as excluded [@CL-CMP-7973].
 
 See [SAM exclusion records and effect of listing](../../supply-chain/supplier-identity/sup-sam-exclusion-records-and-effect-of-listing.md) and [Arms control certification and campus access clauses](../../supply-chain/supplier-identity/sup-arms-control-certification-and-rotc-clauses.md).
 
@@ -73,4 +73,5 @@ Which company entities are checked in the System for Award Management before an 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited inference and the word only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the arms control exclusion award prohibition.

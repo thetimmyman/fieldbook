@@ -54,9 +54,9 @@ A contractor uses an aerosol solvent whose propellant is a high global warming p
 
 ## Never confuse
 
-The duty is to reduce use, release or emissions when feasible, which is not the same as a duty to stop using these hydrofluorocarbons, and it yields where the contract specifies otherwise [@CL-CMP-5207; @CL-CMP-5211].
+The duty is to reduce use, release or emissions when feasible, unless the contract specifies otherwise [@CL-CMP-5207; @CL-CMP-5211].
 
-Feasibility is not a cost test alone: the aerosols clause lists environmental, technical and economic factors, including emission rates, safety and technical performance, and the foams clause lists the same kinds of factor [@CL-CMP-5208; @CL-CMP-5209; @CL-CMP-5212; @CL-CMP-5307].
+In determining feasibility the aerosols clause requires consideration of environmental, technical and economic factors, including emission rates, safety, technical performance and commercial availability at a reasonable cost, and the foams clause requires consideration of the same kinds of factor [@CL-CMP-5208; @CL-CMP-5209; @CL-CMP-5212; @CL-CMP-5307].
 
 The foams clause adds refrigerant blends containing hydrofluorocarbons, and the aerosols clause covers aerosol propellants or solvents [@CL-CMP-5211; @CL-CMP-5207].
 
@@ -72,6 +72,7 @@ Whether product and process records show which aerosols and foams use high globa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on ozone-depleting substances and refrigerant handling.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for aerosols and foams with high global warming potential hydrofluorocarbons.

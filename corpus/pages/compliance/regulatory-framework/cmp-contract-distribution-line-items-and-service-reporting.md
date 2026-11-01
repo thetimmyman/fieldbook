@@ -57,9 +57,9 @@ Among the attachments to the first contract are a spreadsheet of personally iden
 
 ## Never confuse
 
-Service contractor reporting under DFARS 204.1703 is triggered by value and portfolio group, and for an indefinite-delivery contract it runs per qualifying order, not per basic contract [@CL-CMP-7254; @CL-CMP-7256; @CL-CMP-7438].
+Service contractor reporting is required when a contract or order has a total estimated value, including options, that exceeds $3 million and is for services in the listed portfolio groups [@CL-CMP-7254]. For indefinite-delivery contracts, contractor reporting is required for each order that meets those requirements [@CL-CMP-7256], and service contract reporting is not required for the basic contract or agreement [@CL-CMP-7438].
 
-An attachment left out of EDA is marked in Section J as provided under separate cover [@CL-CMP-7252]. The linked card covers the clause text for reporting and the line item rules; see [Contract distribution, electronic commerce and service reporting](../trade-cyber/cmp-contract-distribution-e-commerce-and-service-reporting.md).
+An attachment left out of EDA is marked in Section J as provided under separate cover [@CL-CMP-7252]. Contract distribution, electronic commerce and service reporting is covered in [Contract distribution, electronic commerce and service reporting](../trade-cyber/cmp-contract-distribution-e-commerce-and-service-reporting.md).
 
 ## Company calibration
 
@@ -69,4 +69,5 @@ Which contracts carry attachments held outside EDA, which orders meet the report
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: contrast wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract attachment distribution, line item numbering and service contractor reporting.

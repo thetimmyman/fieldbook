@@ -33,7 +33,7 @@ Two statutes cited in the section require that subcontractors not be unreasonabl
 
 ## How it works
 
-The contracting officer decides what action to take on buying-in losses [@CL-CMP-2048]. The action concerns what the contractor can recover: a change order, or a follow-on contract priced under cost analysis, is where a buying-in loss could be recovered, so those are the pricing points the officer protects [@CL-CMP-2048]. For direct sales, the rule bars unreasonable preclusion, and contractors keep the rights that law or regulation otherwise authorizes [@CL-CMP-2049]. The section does not say who decides whether a restriction is unreasonable.
+The contracting officer decides what action to take on buying-in losses [@CL-CMP-2048]. The action is to ensure buying-in losses are not recovered by the contractor through the pricing of change orders or follow-on contracts subject to cost analysis [@CL-CMP-2048]. For direct sales, the rule bars unreasonable preclusion, and contractors keep the rights that law or regulation otherwise authorizes [@CL-CMP-2049]. The section does not say who decides whether a restriction is unreasonable.
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A contractor wins a first contract with a price that is 2 million below its cost
 
 ## Never confuse
 
-Buying-in concerns an offer priced below anticipated costs and the recovery of the resulting loss [@CL-CMP-2101; @CL-CMP-2048], while the direct sales rule protects a subcontractor's access to the Government [@CL-CMP-2049]. A contractor asserting rights that law or regulation otherwise authorizes is not breaching the direct sales rule [@CL-CMP-2049].
+Buying-in concerns an offer priced below anticipated costs and the recovery of the resulting loss [@CL-CMP-2101; @CL-CMP-2048], while the direct sales rule protects a subcontractor's access to the Government [@CL-CMP-2049]. The direct sales rule does not preclude contractors from asserting rights that are otherwise authorized by law or regulation [@CL-CMP-2049].
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which executed contracts and modifications show change order and follow-on prici
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed uncited inferences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for buying-in and restrictions on subcontractor direct sales.
