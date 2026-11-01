@@ -49,7 +49,7 @@ Answer: the letter of credit method applies, because the relationship is expecte
 
 ## Never confuse
 
-The letter of credit and Treasury check methods govern how an advance payment is made [@CL-CTF-1427; @CL-CTF-1428; @CL-CTF-1463], while the written findings support each determination concerning advance payments [@CL-CTF-1429]. The example findings are an example format, and the finding on the only adequate means of financing is not used in every case [@CL-CTF-1430; @CL-CTF-1431]. See also [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md) and [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
+The letter of credit and Treasury check methods govern how an advance payment is made [@CL-CTF-1427; @CL-CTF-1428; @CL-CTF-1463], while the written findings support each determination concerning advance payments [@CL-CTF-1429]. The findings in FAR 32.410(b) are an example format [@CL-CTF-1430], and the finding on the only adequate means of financing should not be included if the contract is for experimental, developmental, or research work and with a nonprofit educational or research institution, or only for management and operation of a Government-owned plant [@CL-CTF-1431]. See also [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md) and [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
 
 ## Company calibration
 
@@ -58,7 +58,7 @@ Which advance payment arrangements the company expects to carry a letter of cred
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Tightened the example-findings sentence to the cited omission rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now says only that written findings support each determination.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment letters of credit and the findings, determination and authorization.
