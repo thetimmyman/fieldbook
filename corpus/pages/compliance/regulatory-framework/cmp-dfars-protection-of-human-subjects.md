@@ -35,7 +35,7 @@ On the first path, the contractor furnishes an assurance of compliance and insti
 
 ## How it works
 
-Work and spending wait for one of the two paths [@CL-CMP-4582]. The contractor must notify the contracting officer immediately of any suspensions or terminations of the assurance [@CL-CMP-4586], and DoD staff, consultants and advisory groups may independently review and inspect the research and its procedures, with the Department able to prohibit research that presents unacceptable hazards or otherwise fails to comply with its procedures [@CL-CMP-4587]. Failure to comply results in a stop-work order under Federal Acquisition Regulation clause 52.242-15 that suspends work and further payment [@CL-CMP-4588], and the clause also provides for another suspension of work and further payment for as long as determined necessary at the discretion of the contracting officer [@CL-CMP-4726]. The clause requires that its substance, including its flowdown paragraph, be included in all subcontracts that may include such research, including research that meets the exemption criteria [@CL-CMP-4589]. It does not apply to subcontracts that involve only the use of cadaver materials [@CL-CMP-4723].
+Work and spending wait for one of the two paths [@CL-CMP-4582]. Under the first path, the contractor must notify the contracting officer immediately of any suspensions or terminations of the assurance [@CL-CMP-4586]. DoD staff, consultants and advisory groups may independently review and inspect the contractor's research and research procedures involving human subjects, and based on their findings the Department may prohibit research that presents unacceptable hazards or otherwise fails to comply with its procedures [@CL-CMP-4587]. Failure to comply with the clause will result in the issuance of a stop-work order under Federal Acquisition Regulation clause 52.242-15 to immediately suspend, in whole or in part, work and further payment under the contract [@CL-CMP-4588], or will result in another issuance of suspension of work and further payment for as long as determined necessary at the discretion of the contracting officer [@CL-CMP-4726]. The clause requires that its substance, including its flowdown paragraph, be included in all subcontracts that may include such research, including research that meets the exemption criteria [@CL-CMP-4589]. It does not apply to subcontracts that involve only the use of cadaver materials [@CL-CMP-4723].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ Assume a research contract worth 1,000,000 under which a contractor plans interv
 
 ## Never confuse
 
-Exempt research is not research outside the clause. Even research that meets the exemption criteria needs a determination that the contracting officer has accepted in writing before work starts [@CL-CMP-4582; @CL-CMP-4585]. The stop-work consequence is also a suspension of work and payment for noncompliance, not a decision to end the contract; see [Stop-work orders](cmp-stop-work-orders.md). Research with live animals has its own registration and approval; see [Animal welfare in research](cmp-dfars-animal-welfare-in-research.md).
+Research that meets the exemption criteria is within the research that may not start, and on which funding may not be spent, until the conditions of either path are met [@CL-CMP-4582]; the second path requires written notification from the contracting officer that the exemption is determined acceptable [@CL-CMP-4585]. For stop-work orders under the Federal Acquisition Regulation, see [Stop-work orders](cmp-stop-work-orders.md). Research with live animals has its own registration and approval; see [Animal welfare in research](cmp-dfars-animal-welfare-in-research.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which research under which contracts and subcontracts involves human subjects, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned notification, inspection and stop-work wording with the clause; replaced contrast sentences with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protection of human subjects.

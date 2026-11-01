@@ -29,7 +29,7 @@ Shows the license the Government receives in technical data for commercial produ
 | Text status | Final [@CL-CMP-3783] |
 | Applies to | Technical data on any portion of a commercial product or commercial service developed exclusively at private expense [@CL-CMP-3783] |
 
-The clause governs the technical data pertaining to any portion of a commercial product or commercial service that was developed exclusively at private expense [@CL-CMP-3783]. The Government shall have the unrestricted right to use, modify, reproduce, release, perform, display, or disclose technical data, and to permit others to do so, that fall within the clause's listed categories [@CL-CMP-3784]. Three listed categories of technical data are form, fit, and function data; a correction or change to technical data furnished to the Contractor by the Government; and data necessary for operation, maintenance, installation, or training, other than detailed manufacturing or process data [@CL-CMP-3784; @CL-CMP-3785].
+The clause governs the technical data pertaining to any portion of a commercial product or commercial service that was developed exclusively at private expense [@CL-CMP-3783]. The Government shall have the unrestricted right to use, modify, reproduce, release, perform, display, or disclose technical data, and to permit others to do so, that fall within any of the clause's listed categories [@CL-CMP-3784]. Three of the listed categories of technical data are form, fit, and function data; a correction or change to technical data furnished to the Contractor by the Government; and data necessary for operation, maintenance, installation, or training, other than detailed manufacturing or process data [@CL-CMP-3784; @CL-CMP-3785].
 
 Except as provided for the unrestricted right, the Government may use, modify, reproduce, release, perform, display, or disclose technical data within the Government only, and shall not use the technical data to manufacture additional quantities of the commercial products [@CL-CMP-3786]. One listed prohibition is that the Government shall not release, perform, display, disclose, or authorize use of the technical data outside the Government without the Contractor's written permission, with an exception for a release, disclosure, or permitted use necessary for emergency repair or overhaul of the commercial products furnished under this contract [@CL-CMP-3786; @CL-CMP-3787]. The prohibition also does not apply where the release, disclosure, or permitted use is necessary for performance of work by covered Government support contractors [@CL-CMP-3787; @CL-CMP-3831].
 
@@ -37,7 +37,7 @@ Under the release from liability paragraph, no liability attaches to a release o
 
 ## How it works
 
-The clause starts from use inside the Government only [@CL-CMP-3786]. Release outside the Government needs the Contractor's written permission, with emergency repair or overhaul and work by covered Government support contractors as exceptions [@CL-CMP-3787; @CL-CMP-3831]. No liability attaches to a release of data that are not marked to show a restriction [@CL-CMP-3830]. Data in the unrestricted categories escape those limits, because the Government may use them without restriction and permit others to do so [@CL-CMP-3784; @CL-CMP-3785]. If the item was developed in any part at Government expense, the noncommercial technical data clause governs instead, subject to an exception [@CL-CMP-3759].
+The clause starts from use inside the Government only [@CL-CMP-3786]. Release outside the Government needs the Contractor's written permission, with emergency repair or overhaul and work by covered Government support contractors as exceptions [@CL-CMP-3787; @CL-CMP-3831]. No liability attaches to a release of data that are not marked to show a restriction [@CL-CMP-3830]. The Government has the unrestricted right to use, modify, reproduce, release, perform, display, or disclose technical data in the listed categories, and to permit others to do so [@CL-CMP-3784; @CL-CMP-3785]. The noncommercial technical data clause (DFARS 252.227-7013) governs all technical data pertaining to any portion of a commercial product or commercial service that was developed in any part at Government expense, except as provided in a later paragraph of that clause [@CL-CMP-3759].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A commercial pump was developed entirely with the supplier's own funds, and the 
 
 ## Never confuse
 
-This is not the clause for items developed in any part at Government expense, which is the noncommercial technical data clause [@CL-CMP-3759]. That clause has its own rights categories, covered on the card for [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md), and its own marking rules, covered on the card for [markings](cmp-dod-technical-data-markings.md). It is also not a software license: commercial computer software has its own license clause under the FAR; see [Commercial computer software license clause](cmp-commercial-computer-software-license.md).
+For the noncommercial technical data clause [@CL-CMP-3759], see the card for [DoD rights in technical data: definitions and rights categories](cmp-dod-technical-data-rights-categories.md) and the card for [markings](cmp-dod-technical-data-markings.md). For commercial computer software, see [Commercial computer software license clause](cmp-commercial-computer-software-license.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which products on executed contracts qualify as commercial products or services,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated listed categories as any of; replaced uncited explanation, contrast and misattributed cross-reference with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD technical data for commercial products and services.

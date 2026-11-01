@@ -35,7 +35,7 @@ The Contractor shall insert the substance of the clause, including paragraph (b)
 
 ## How it works
 
-The printed clause shows a blank where the place of the contract work is named, and the residency duty applies to the part of the work in that place [@CL-CMP-4417]. The skills test has two branches: the individual already has the skills for a craft or trade, or would be able to acquire them promptly [@CL-CMP-4417]. The clause states a duty to employ residents; it does not list any people who may not be employed. The duty passes to subcontractors because the Contractor must insert the substance of the clause in each subcontract [@CL-CMP-4418].
+The printed clause shows a blank where the place of the contract work is named, and the residency duty applies to the part of the work in that place [@CL-CMP-4417]. The skills test has two branches: the individual already has the skills for a craft or trade, or would be able to acquire them promptly [@CL-CMP-4417]. The Contractor must insert the substance of the clause, including paragraph (b), in each subcontract awarded under the contract [@CL-CMP-4418].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contract names a harbor town as the place for part of its work. That part need
 
 ## Never confuse
 
-This clause ties employment to residence in a named place and to skills. It does not bar a class of people from the work. The Guam clause is the one that bars a class of workers, those holding a particular nonimmigrant status; see [Prohibition on use of nonimmigrant aliens on Guam](cmp-dfars-guam-nonimmigrant-alien-prohibition.md). A rule that bars named individuals from roles on a contract is a further, different idea; see [Felony-convicted persons prohibition](cmp-felony-convicted-persons-prohibition.md). Duties to follow local labor law and union agreements overseas sit in a separate clause; see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md).
+For the Guam clause on workers holding a particular nonimmigrant status, see [Prohibition on use of nonimmigrant aliens on Guam](cmp-dfars-guam-nonimmigrant-alien-prohibition.md). For the rule on named individuals in roles on a contract, see [Felony-convicted persons prohibition](cmp-felony-convicted-persons-prohibition.md). For duties to follow local labor law and union agreements overseas, see [Compliance with local labor laws overseas](cmp-dfars-local-labor-laws-overseas.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which executed contracts carry this clause, and which place each contract names.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast sentences; replaced with cited statement and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on employment of personnel.

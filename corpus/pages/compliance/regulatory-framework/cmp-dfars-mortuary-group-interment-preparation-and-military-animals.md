@@ -31,11 +31,11 @@ Shows how the Government pays for group interments, what certificate the contrac
 
 The Government will pay the Contractor for supplies and services provided for remains interred as a group on the basis of the number of caskets furnished, rather than on the basis of the number of persons in the group [@CL-CMP-4667]. For each body prepared, or for each casket handled in a group interment, the Contractor shall state briefly the results of the embalming process on a certificate furnished by the Contracting Officer [@CL-CMP-4668].
 
-If the Contracting Officer determines that the service life of a contract working dog has terminated, the dog will be transferred to the Department of the Air Force, 341st Training Squadron, for veterinary screening and care, reclassification as a military animal, and placement for adoption [@CL-CMP-4669]. A contract working dog is a dog that performs a service for DoD pursuant to a contract and is trained and kenneled by an entity that provides such a dog pursuant to such a contract [@CL-CMP-4772].
+In accordance with section 2387 of title 10 of the United States Code, if the Contracting Officer determines that the service life of a contract working dog has terminated [@CL-CMP-8640], the dog will be transferred to the Department of the Air Force, 341st Training Squadron, for veterinary screening and care, reclassification as a military animal, and placement for adoption in accordance with section 2583 of title 10 of the United States Code [@CL-CMP-4669; @CL-CMP-8641]. A contract working dog is a dog that performs a service for DoD pursuant to a contract and is trained and kenneled by an entity that provides such a dog pursuant to such a contract [@CL-CMP-4772].
 
 ## How it works
 
-The group interment clause states a payment basis, which is the count of caskets and not the count of persons [@CL-CMP-4667]. The preparation history clause is a contractor record duty tied to each body prepared or each casket handled in a group interment [@CL-CMP-4668]. In the military animals clause, the transfer follows a determination by the Contracting Officer about the dog's service life [@CL-CMP-4669]. A contract working dog's service life may be terminated if the Contracting Officer determines that the final contractual obligation of the dog preceding transfer is with DoD and that the dog cannot be used by another department or agency of the Federal Government due to age, injury, or performance [@CL-CMP-4670].
+Under the group interment clause the Government will pay on the basis of the number of caskets furnished, rather than on the basis of the number of persons in the group [@CL-CMP-4667]. Under the preparation history clause the Contractor shall state briefly the results of the embalming process on a certificate furnished by the Contracting Officer for each body prepared, or for each casket handled in a group interment [@CL-CMP-4668]. Under the military animals clause, the dog is transferred if the Contracting Officer determines that its service life has terminated [@CL-CMP-8640; @CL-CMP-4669]. The service life of a contract working dog may be terminated if the Contracting Officer determines that the final contractual obligation of the dog preceding transfer is with DoD and that the dog cannot be used by another department or agency of the Federal Government due to age, injury, or performance [@CL-CMP-4670].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contract covers 8 caskets holding the remains of 20 people in one group interm
 
 ## Never confuse
 
-The group interment clause is about how the Government pays, not about what it orders or where the contractor performs [@CL-CMP-4667]. Those points are on [Mortuary services requirements](cmp-mortuary-services-requirements-area-and-delivery.md), and subcontracting and permits are on [Mortuary services subcontracting and permits](cmp-mortuary-services-subcontracting-default-and-permits.md). The military animals clause concerns contract working dogs, not mortuary supplies and services [@CL-CMP-4669]. Laundry pricing and individual laundry are another services topic, on [Laundry instructions to offerors and individual laundry](cmp-dfars-laundry-offeror-instructions-and-individual-laundry.md).
+For what the Government orders and where the contractor performs, see [Mortuary services requirements](cmp-mortuary-services-requirements-area-and-delivery.md), and for subcontracting and permits, see [Mortuary services subcontracting and permits](cmp-mortuary-services-subcontracting-default-and-permits.md). For laundry pricing and individual laundry, see [Laundry instructions to offerors and individual laundry](cmp-dfars-laundry-offeror-instructions-and-individual-laundry.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which contracts and modifications carry these clauses, and who confirms it. [@Q-
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added statutory references for dog transfer; cut uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mortuary group interment and preparation history, and transfer and adoption of military animals.

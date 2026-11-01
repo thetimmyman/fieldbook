@@ -35,11 +35,11 @@ Each subject invention is to be disclosed in writing to the Contracting Officer 
 
 The Contractor shall file either a provisional or a nonprovisional patent application on an elected subject invention within 1 year after election [@CL-CMP-3933]. In all cases the application is to be filed prior to the end of any statutory period wherein valid patent protection can be obtained in the United States after a publication, on sale, or public use [@CL-CMP-3982]. The Contractor shall also file a nonprovisional application within 10 months of the filing of any provisional application [@CL-CMP-3933; @CL-CMP-3934].
 
-The Contractor may request extensions of time for disclosure, election, or filing, and the Contracting Officer will normally grant the extension unless there is reason to believe the extension would prejudice the Government's interests [@CL-CMP-3983]. The clause also sets deadlines for filing in additional countries, and this card does not set those out.
+The Contractor may request extensions of time for disclosure, election, or filing, and the Contracting Officer will normally grant the extension unless there is reason to believe the extension would prejudice the Government's interests [@CL-CMP-3983].
 
 ## How it works
 
-The steps run in order: disclose the invention, elect whether to keep title, then file [@CL-CMP-3930; @CL-CMP-3931; @CL-CMP-3933]. A publication, sale or public use that starts the statutory period lets the agency shorten the period of election of title [@CL-CMP-3932]. The filing periods run from election and from the filing of a provisional application [@CL-CMP-3933; @CL-CMP-3934]. If the Contractor elects not to keep title or fails to disclose or elect in time, the agency's rights to take title are on [DoD patent rights for large businesses: Government license, march-in, reports and subcontracts](cmp-dfars-patent-rights-large-business-license-and-reporting.md).
+Disclosure is due within the earlier of the two periods [@CL-CMP-3987; @CL-CMP-3930], election at the time of disclosure or within 8 months of disclosure [@CL-CMP-3931], and filing of the first application within 1 year after election [@CL-CMP-3933]. A publication, sale or public use that starts the statutory period lets the agency shorten the period of election of title [@CL-CMP-3932]. The filing periods run from election and from the filing of a provisional application [@CL-CMP-3933; @CL-CMP-3934]. For the agency's right to take title, including where the Contractor elects not to retain title or fails to disclose or elect within the specified times, see [DoD patent rights for large businesses: Government license, march-in, reports and subcontracts](cmp-dfars-patent-rights-large-business-license-and-reporting.md).
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A contractor reports a new alloy to its patent team. It discloses the invention 
 
 ## Never confuse
 
-This clause is the DoD clause for large businesses, and the FAR contractor-ownership clause on [the ownership and licenses card](cmp-patent-rights-contractor-ownership-definitions-and-licenses.md) and [the deadlines and title card](cmp-patent-rights-contractor-ownership-deadlines-and-title.md) has its own periods. The FAR clause lets the Contractor elect within 2 years of disclosure to the agency [@CL-CMP-3633], while this clause sets 8 months of disclosure [@CL-CMP-3931]. Which periods apply depends on the clause a contract carries. The clause where the Government takes title is separate and is covered on [Patent rights with ownership by the Government](cmp-patent-rights-government-ownership.md). Disclosure is also a different step from election [@CL-CMP-3930; @CL-CMP-3931].
+This clause is the DoD Patent Rights—Ownership by the Contractor (Large Business) clause [@CL-CMP-3928]. For the FAR contractor-ownership clause, see [the ownership and licenses card](cmp-patent-rights-contractor-ownership-definitions-and-licenses.md) and [the deadlines and title card](cmp-patent-rights-contractor-ownership-deadlines-and-title.md); under it the Contractor elects in writing by notifying the Contracting Officer within 2 years of disclosure to the agency [@CL-CMP-3633]. Under this DoD clause the election is at the time of disclosure or within 8 months of disclosure [@CL-CMP-3931]. For the clause where the Government takes title, see [Patent rights with ownership by the Government](cmp-patent-rights-government-ownership.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Which executed contracts carry this clause, and who tracks the disclosure, elect
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta and contrast sentences; replaced with cited deadline statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD patent rights for large businesses with contractor ownership, covering the definitions and the disclosure, election and filing deadlines.

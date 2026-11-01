@@ -27,13 +27,13 @@ Shows when the Contracting Officer may withhold payment for technical data and h
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4292] |
-| Applies to | Contracts using the withholding clause where DFARS 227.7103-6(e)(2) or 227.7104-4(b)(6) prescribes it [@CL-CMP-4386], for technical data specified for delivery [@CL-CMP-4292]; the prescriptions for the foreign data and invention reporting clauses are not restated on this card |
+| Applies to | Contracts using the withholding clause where DFARS 227.7103-6(e)(2) or 227.7104-4(b)(6) prescribes it [@CL-CMP-4386], for technical data specified for delivery [@CL-CMP-4292] |
 
 The Technical Data—Withholding of Payment clause applies if technical data specified to be delivered under the contract is not delivered within the time the contract specifies or is deficient upon delivery, including having restrictive markings not identified in the list described in the clause at 252.227-7013(e)(2) or 252.227-7018(e)(2) [@CL-CMP-4292]. In that case the Contracting Officer may, until the data is accepted by the Government, withhold payment to the Contractor of 10 percent of the total contract price or amount unless a lesser withholding is specified in the contract [@CL-CMP-4293]. Payments shall not be withheld nor any other action taken pursuant to paragraph (a) of the clause when the Contractor's failure to make timely delivery or to deliver the data without deficiencies arises out of causes beyond the control and without the fault or negligence of the Contractor [@CL-CMP-4294].
 
 Under the Rights in Technical Data and Computer Software (Foreign) clause the United States Government may duplicate, use and disclose in any manner for any purposes whatsoever, including delivery to other governments for the furtherance of mutual defense of the United States Government and other governments, the technical data and computer software the clause covers [@CL-CMP-4295]. The clause covers all technical data including reports, drawings and blueprints, and all computer software, specified to be delivered by the Contractor to the United States Government under the contract [@CL-CMP-4296].
 
-Item (a) of the Patents—Reporting of Subject Inventions clause is interim reports every 12 months, or such longer period as the Contracting Officer specifies, from the date of the contract, listing subject inventions during that period and stating that all subject inventions have been disclosed or that there are no such inventions [@CL-CMP-4297]. Item (b) is a final report, within three months after completion of the contracted work, listing all subject inventions or stating that there were no such inventions [@CL-CMP-4298]. Item (c) calls, upon request, for the filing date, serial number and title, a copy of the patent application and patent number, and issue data for any subject invention for which the Contractor has retained title [@CL-CMP-4387]. Upon request, the Contractor shall furnish the Government an irrevocable power to inspect and make copies of the patent application file, as item (d) of the clause [@CL-CMP-4388].
+Under the Patents—Reporting of Subject Inventions clause, the Contractor shall furnish the Contracting Officer the items listed [@CL-CMP-8624]. Item (a) is interim reports every 12 months, or such longer period as the Contracting Officer specifies, from the date of the contract, listing subject inventions during that period and stating that all subject inventions have been disclosed or that there are no such inventions [@CL-CMP-4297]. Item (b) is a final report, within three months after completion of the contracted work, listing all subject inventions or stating that there were no such inventions [@CL-CMP-4298]. Item (c) calls, upon request, for the filing date, serial number and title, a copy of the patent application and patent number, and issue data for any subject invention for which the Contractor has retained title [@CL-CMP-4387]. Upon request, the Contractor shall furnish the Government an irrevocable power to inspect and make copies of the patent application file, as item (d) of the clause [@CL-CMP-4388].
 
 ## How it works
 
@@ -47,7 +47,7 @@ A contract has a total price of 2,000,000 and specifies technical data for deliv
 
 ## Never confuse
 
-This withholding is for late or deficient technical data and is separate from the withholding of a reserve for patent reporting failures; see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). The withholding of a reserve for technical data on a major system is in [Existing works and technical data declaration](cmp-existing-works-and-technical-data-declaration-major-systems.md). The foreign clause covers data specified to be delivered, not all data the contractor holds [@CL-CMP-4296].
+For the withholding of a reserve for patent reporting failures, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the withholding of a reserve for technical data on a major system, see [Existing works and technical data declaration](cmp-existing-works-and-technical-data-declaration-major-systems.md). The foreign clause covers all technical data including reports, drawings and blueprints, and all computer software, specified to be delivered by the Contractor to the United States Government under the contract [@CL-CMP-4296].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which contracts carry these clauses, and who tracks data delivery dates and inve
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added who furnishes the invention reports and removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for technical data withholding, foreign data rights and invention reporting.
