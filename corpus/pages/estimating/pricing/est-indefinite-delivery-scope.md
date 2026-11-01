@@ -38,9 +38,8 @@ What the subpart does not do:
 
 Architect-engineer exception to the carve-out: agencies are not precluded from making multiple awards for architect-engineer services using the subpart's procedures, provided the selection of contractors and the placement of orders are consistent with subpart 36.6 [@CL-EST-0966].
 
-The section refers to subpart 19.5 for procedures to set aside part or parts of multiple-award contracts for small businesses, to reserve one or more awards for small business on multiple-award contracts, and to set aside orders for small businesses under multiple-award contracts [@CL-EST-0967]. The section does not set out those procedures.
+The section refers to subpart 19.5 for procedures to set aside part or parts of multiple-award contracts for small businesses, to reserve one or more awards for small business on multiple-award contracts, and to set aside orders for small businesses under multiple-award contracts [@CL-EST-0967].
 
-The section names agencies only in the architect-engineer paragraph and the General Services Administration only in the paragraph on schedule contracts. It states no duty for a contractor.
 
 ## How it works
 
@@ -58,7 +57,7 @@ An agency plans three multiple-award indefinite-quantity contracts for a service
 
 ## Never confuse
 
-The multiple award preference and the carve-outs are different ideas. The preference concerns multiple awards of indefinite-quantity contracts, not of every indefinite-delivery contract [@CL-EST-0961]. The carve-outs leave part 6 procedures, General Services Administration authority and the architect-engineer procedures in place [@CL-EST-0962; @CL-EST-0963; @CL-EST-0965]. The architect-engineer carve-out is not a prohibition: agencies may still make multiple awards for those services on the terms the section states [@CL-EST-0966]. The statutory preference not applying to architect-engineer contracts subject to subpart 36.6 does not mean the subpart's procedures cannot be used for them [@CL-EST-0965; @CL-EST-0966].
+The subpart does not limit the use of other than competitive procedures authorized by part 6 [@CL-EST-0962], and nothing in it restricts the authority of the General Services Administration to enter into schedule, multiple award, or task or delivery order contracts under any other provision of law [@CL-EST-0963]. The statutory multiple award preference does not apply to architect-engineer contracts subject to subpart 36.6 [@CL-EST-0965], but agencies are not precluded from making multiple awards for architect-engineer services using the subpart's procedures, provided the selection of contractors and the placement of orders are consistent with subpart 36.6 [@CL-EST-0966].
 
 ## Company calibration
 
@@ -68,4 +67,5 @@ Which indefinite-delivery vehicles the company holds, how many awards sit on eac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section does not set out or name; cut an uncited contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the indefinite-delivery subpart.

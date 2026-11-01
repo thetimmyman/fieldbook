@@ -37,7 +37,7 @@ Any inconsistency in the solicitation or contract is resolved by giving preceden
 
 ## How it works
 
-The assumed administrative cost is an assumption for evaluating bids, and it applies to each contract that would be awarded [@CL-EST-2014]. A single award therefore carries one assumed cost and a split award carries one for each contract it would produce [@CL-EST-2014]. The comparison adds the assumed costs to the item prices of each arrangement and selects the one with the lowest aggregate cost [@CL-EST-2015].
+The assumed administrative cost is an assumption for evaluating bids, and it applies to each contract that would be awarded [@CL-EST-2014]. A single award therefore carries one assumed cost and a split award carries one for each contract it would produce [@CL-EST-2014]. Individual awards are made for the items or combinations of items that result in the lowest aggregate cost to the Government, including the assumed administrative costs [@CL-EST-2015].
 
 A source that submits several technical proposals gets a separate evaluation and a separate notice of acceptability for each [@CL-EST-2133].
 
@@ -57,13 +57,13 @@ The Schedule, excluding the specifications, states delivery in 30 days, while an
 
 ## Never confuse
 
-The assumed administrative cost is not added once for the whole solicitation: it is assumed for each contract awarded [@CL-EST-2014].
+The $500 administrative cost is assumed for each contract awarded under the solicitation [@CL-EST-2014].
 
-The provision does not prefer multiple awards: it directs evaluation of the advantages and disadvantages of making more than one award [@CL-EST-2131].
+Bids are evaluated on the basis of advantages and disadvantages to the Government that might result from making more than one award [@CL-EST-2131].
 
-Order of precedence ranks documents, not bidders: it resolves an inconsistency in the solicitation or contract [@CL-EST-2137].
+The order of precedence resolves an inconsistency in the solicitation or contract [@CL-EST-2137].
 
-Each technical proposal is evaluated on its own, not as part of one combined proposal [@CL-EST-2133].
+Each technical proposal submitted is separately evaluated [@CL-EST-2133].
 
 ## Company calibration
 
@@ -73,5 +73,6 @@ Confirm which of the company's contracts carry these provisions and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts with the stated rules; cut an uncited description of the cost comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiple awards, multiple technical proposals and order of precedence.

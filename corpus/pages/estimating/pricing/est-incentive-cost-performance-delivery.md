@@ -44,7 +44,7 @@ A contract sets a target cost of 1,000,000 and a target profit of 80,000, and it
 
 ## Never confuse
 
-The three kinds differ in what they measure: cost against target for the cost incentive [@CL-EST-1071], specific product characteristics or other specific elements of the contractor's performance for performance incentives [@CL-EST-1106], and improvement from the required schedule for delivery incentives [@CL-EST-1073]. No incentive contract may provide for other incentives without also providing a cost incentive or constraint [@CL-EST-1069]. For how incentive fee is billed after award, see [Incentive Fee clause](../../contract-finance/billing-payment/ctf-incentive-fee.md).
+Cost incentives take the form of a profit or fee adjustment formula [@CL-EST-1068], performance incentives may be considered in connection with specific product characteristics or other specific elements of the contractor's performance [@CL-EST-1106], and delivery incentives should be considered when improvement from a required delivery schedule is a significant Government objective [@CL-EST-1073]. No incentive contract may provide for other incentives without also providing a cost incentive or constraint [@CL-EST-1069]. For how incentive fee is billed after award, see [Incentive Fee clause](../../contract-finance/billing-payment/ctf-incentive-fee.md).
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ How the target cost and the incentive assumptions in a proposal are frozen and l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the three incentive kinds as cited rules instead of an uncited comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the Government's overall objectives qualifier into the multiple-incentive sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost, performance and delivery incentives.
