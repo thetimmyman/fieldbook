@@ -37,14 +37,14 @@ Unless the contract specifies otherwise, the Contractor is responsible for all l
 
 ## How it works
 
-Compliance. The Contractor must comply with, and ensure that its personnel are familiar with and comply with, all applicable United States, host country and third country national laws [@CL-CMP-5420]. The same duty extends to treaties and international agreements, United States regulations, directives, instructions, policies and procedures, and force protection, security, health or safety orders, directives and instructions issued by the Chief of Mission or the Combatant Commander [@CL-CMP-5462]. Only the Contracting Officer is authorized to modify the terms and conditions of the contract [@CL-CMP-5463].
+Compliance. The Contractor must comply with, and ensure that its personnel in the designated operational area or supporting the diplomatic or consular mission are familiar with and comply with, all applicable United States, host country and third country national laws [@CL-CMP-5420]. The same duty extends to treaties and international agreements, United States regulations, directives, instructions, policies and procedures, and force protection, security, health or safety orders, directives and instructions issued by the Chief of Mission or the Combatant Commander [@CL-CMP-5462]. Only the Contracting Officer is authorized to modify the terms and conditions of the contract [@CL-CMP-5463].
 
 Preliminary requirements. The statement of work or another part of the contract sets out the specific requirements for the items in paragraphs (e)(2)(i) through (e)(2)(vi) [@CL-CMP-5463]. Before Contractor personnel depart from the United States or a third country, and before Contractor personnel residing in the host country begin performance, the Contractor must ensure the items listed in paragraph (e)(2) [@CL-CMP-5421]. Those items are:
 
 - Security and background checks complete and acceptable, and all personnel medically and physically fit with all required vaccinations [@CL-CMP-5464].
 - Passports, visas, entry permits and other documents needed to enter and exit the foreign country, including in-transit countries [@CL-CMP-5465].
 - A country clearance or special area clearance if the chief of mission requires it, theater clearance if the Combatant Commander requires it, and personal security training [@CL-CMP-5466].
-- Personal security training that at a minimum covers safety and security issues facing employees overseas, safety and security contingency planning activities, and ways to use safety and security personnel and other resources [@CL-CMP-5467].
+- Personal security training that at a minimum covers safety and security issues facing employees overseas, identifies safety and security contingency planning activities, and identifies ways to utilize safety and security personnel and other resources appropriately [@CL-CMP-5467].
 - Isolated personnel training if the contract specifies it, where isolated personnel are military or civilian personnel separated from their unit or organization in an environment requiring them to survive, evade or escape while awaiting rescue or recovery [@CL-CMP-5468].
 - Registration of personnel who are United States citizens with the United States Embassy or Consulate with jurisdiction over the area of operations [@CL-CMP-5422].
 
@@ -90,6 +90,7 @@ Which personnel deploy under this clause and who keeps their clearances, trainin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the personnel scope and the training wording from the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on private security and deployed personnel clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor personnel in a designated operational area or supporting a diplomatic or consular mission.
