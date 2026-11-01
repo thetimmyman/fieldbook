@@ -39,7 +39,7 @@ The section is a definition. It does not say who may authorize a deviation or ho
 
 The definition measures each form against the FAR. The first form asks whether a policy, procedure, solicitation provision, contract clause, method or practice is inconsistent with the FAR [@CL-CMP-8331], and the fifth compares a limitation with what the FAR prescribes [@CL-CMP-8335]. The second and third forms compare a clause or provision in a solicitation or contract with its prescription and with the language the FAR authorizes [@CL-CMP-8332; @CL-CMP-8333]. The fourth asks whether a substantially as follows or substantially the same as use is inconsistent with the intent, principle or substance of the prescription or related FAR coverage [@CL-CMP-8334; @CL-CMP-8670]. The sixth form turns on whether a policy or procedure that governs the contracting process or controls contracting relationships has been incorporated into agency acquisition regulations, not on a comparison with a FAR prescription [@CL-CMP-8336].
 
-A reader checking a contract therefore compares each solicitation provision and contract clause with its FAR prescription and with the modified or alternate language the FAR authorizes [@CL-CMP-8332; @CL-CMP-8333], and checks a substantially-the-same use against the intent and substance of the prescription [@CL-CMP-8334; @CL-CMP-8670]. How the FAR relates to agency supplements is on [The FAR, the DFARS, the overhaul and class deviations](cmp-acquisition-regulations.md).
+A reader checking a contract therefore compares each solicitation provision and contract clause with its FAR prescription and with the modified or alternate language the FAR authorizes [@CL-CMP-8332; @CL-CMP-8333], and checks a substantially-the-same use against the intent, principle or substance of the prescription or related FAR coverage [@CL-CMP-8334; @CL-CMP-8670]. How the FAR relates to agency supplements is on [The FAR, the DFARS, the overhaul and class deviations](cmp-acquisition-regulations.md).
 
 ## Worked example
 
@@ -59,6 +59,7 @@ Which contracts and modifications in the company's remit sit under terms that de
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored principle and related coverage in the fourth-form check.
 - COMPATIBLE_EXTENSION, 2026-10-31: what counts as a deviation: authorization rule restated as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-30: The comparison of the deviation forms now states the test for the first and fourth forms as FAR 1.401 does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deviations from the FAR.

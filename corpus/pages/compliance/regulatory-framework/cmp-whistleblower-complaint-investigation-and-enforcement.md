@@ -37,7 +37,7 @@ Investigation of complaints will be in accordance with the whistleblower statute
 
 ### Response and agency action
 
-The complainant, contractor, and/or subcontractor must be afforded the opportunity to submit a written response to the report of findings to the head of the agency and the Office of Inspector General, in a time and manner that permits the agency head to take action not later than 30 days after receiving the report [@CL-CMP-6857]. Within that period the head of the agency must determine whether sufficient basis exists to conclude that the contractor or subcontractor has subjected the employee who submitted the complaint to a reprisal as prohibited by 3.903 [@CL-CMP-7145]. The head must also either issue an order denying relief or take one or more listed actions, the first being an order to take affirmative action to abate the reprisal [@CL-CMP-7146]. The linked cards cover the other listed remedies.
+The complainant, contractor, and/or subcontractor must be afforded the opportunity to submit a written response to the report of findings to the head of the agency and the Office of Inspector General, in a time and manner that permits the agency head to take action not later than 30 days after receiving the report [@CL-CMP-6857]. Not later than 30 days after receiving the report, the head of the agency must determine whether sufficient basis exists to conclude that the contractor or subcontractor has subjected the employee who submitted the complaint to a reprisal as prohibited by 3.903 [@CL-CMP-7145]. The head must also either issue an order denying relief or take one or more listed actions, the first being an order to take affirmative action to abate the reprisal [@CL-CMP-7146]. The linked cards cover the other listed remedies.
 
 ### Enforcement and review
 
@@ -69,6 +69,7 @@ Who receives a reprisal complaint inside the company, who preserves the related 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the determination deadline to receipt of the report.
 - COMPATIBLE_EXTENSION, 2026-10-31: whistleblower complaint investigation: reprisal reference as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: whistleblower complaint investigation: and/or restored; complainant, stay and contract-number wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on investigating Recovery Act complaints.

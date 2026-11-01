@@ -57,7 +57,7 @@ Synthetic example. The numbers are made up.
 
 A program office wants to buy a major weapon system under commercial procedures. The Secretary of Defense determines that it is a commercial product and that the treatment is necessary to meet national security objectives, and the congressional defense committees are notified on day 0 for treatment that begins on day 45, which is at least 30 days later [@CL-CMP-7274; @CL-CMP-7275]. The Secretary could not delegate the determination to an official below the Deputy Secretary of Defense [@CL-CMP-7276].
 
-A spare part that is not a commercially available off-the-shelf item is intended for a subsystem that is acquired under commercial procedures under paragraph (b), so it may be treated as a commercial product [@CL-CMP-7440; @CL-CMP-7444]. For another part, the offeror sells no comparable commercial product, notifies the contracting officer in writing, and provides a comparison with the most comparable commercial product in the commercial market, if available [@CL-CMP-7470; @CL-CMP-7426]. For a third part, the contracting officer finds after evaluating sales data that the proposed price is not reasonable, so the officer obtains approval from an official one level above, without power of delegation, and asks for information on the basis for price or cost [@CL-CMP-7473; @CL-CMP-7474].
+A spare part that is not a commercially available off-the-shelf item and that DoD acquires through a prime contract is intended for a subsystem that is acquired under commercial procedures under paragraph (b), so it may be treated as a commercial product [@CL-CMP-7440; @CL-CMP-7444; @CL-CMP-7425]. For another part, the offeror sells no comparable commercial product, notifies the contracting officer in writing, and provides a comparison with the most comparable commercial product in the commercial market, if available [@CL-CMP-7470; @CL-CMP-7426]. For a third part, the contracting officer finds after evaluating sales data that the proposed price is not reasonable, so the officer obtains approval from an official one level above, without power of delegation, and asks for information on the basis for price or cost [@CL-CMP-7473; @CL-CMP-7474].
 
 A follow-on contract line item under a broad agency announcement award has a term of 2 years and work worth 80 million dollars in fiscal year 2017 constant dollars, and it is limited to the minimal amount of items or prototypes that will allow timely competitive solicitation and award of a follow-on contract. It is within the limits [@CL-CMP-7279; @CL-CMP-7479]. A second item worth 120 million dollars exceeds the $100 million limit [@CL-CMP-7279].
 
@@ -75,6 +75,7 @@ Which major weapon systems, subsystems, components and spare parts are treated a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Worked example now states the prime-contract acquisition scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the price reasonableness purpose of the sufficiency determination.
 - COMPATIBLE_EXTENSION, 2026-10-31: weapon system commerciality: paragraph (d) procedures wording; shall be treated.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the major weapon system definition.
