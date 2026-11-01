@@ -43,13 +43,13 @@ Suspension follows the same scope. The scope of suspension shall be the same as 
 
 Synthetic example. The numbers are made up.
 
-A contractor is debarred for a cause with no special period rule, and the official sets a period of 2 years. During the period the contractor asks for a reduction and files documents showing newly discovered material evidence. Separately, an employee of one joint venture partner commits fraud for the joint venture.
+A contractor is debarred for a cause with no special period rule, and the official sets a period of 2 years. During the period the contractor asks for a reduction and files documents showing newly discovered material evidence. Separately, one joint venture partner commits fraud for the joint venture.
 
-Answer: the official may reduce the period or extent of the debarment on that request. The employee's conduct may be imputed to the other partner if it occurred for or on behalf of the joint venture, or with that partner's knowledge, approval, or acquiescence.
+Answer: the official may reduce the period or extent of the debarment on that request. That conduct may be imputed to the other partner if it occurred for or on behalf of the joint venture, or with that partner's knowledge, approval, or acquiescence.
 
 ## Never confuse
 
-An extension is not automatic. It needs a determination that it is necessary to protect the Government's interest, and the same facts alone cannot support it [@CL-SUP-0781; @CL-SUP-0782]. Imputation is also not automatic: each direction turns on its stated conditions [@CL-SUP-0784; @CL-SUP-0785; @CL-SUP-0786]. The causes themselves are on the [Causes for debarment](sup-causes-for-debarment.md) card, and the effect of listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
+The official may extend a debarment if that official determines that an extension is necessary to protect the Government's interest, but not solely on the basis of the facts and circumstances of the initial debarment action [@CL-SUP-0781; @CL-SUP-0782]. In each direction, conduct may be imputed on the conditions stated for that direction [@CL-SUP-0784; @CL-SUP-0785; @CL-SUP-0786]. The causes themselves are on the [Causes for debarment](sup-causes-for-debarment.md) card, and the effect of listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Confirm how the company tracks the debarment periods and status of suppliers and
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the example and never-confuse wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of suspension.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for period and scope of debarment.

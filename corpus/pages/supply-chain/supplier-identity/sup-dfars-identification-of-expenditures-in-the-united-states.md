@@ -27,15 +27,15 @@ Shows which contractors must split each payment request into expenditures in the
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1774] |
-| Applies to | Contracts with this clause, which its text says is prescribed in a DFARS section it names [@CL-SUP-1837]; the clause applies only to concerns incorporated in the United States, or unincorporated concerns with their principal place of business there [@CL-SUP-1772; @CL-SUP-1773] |
+| Applies to | Contracts with this clause, prescribed in DFARS 225.1103(1) [@CL-SUP-1837]; the clause applies only if the Contractor is a concern incorporated in the United States, or an unincorporated concern having its principal place of business there [@CL-SUP-1772; @CL-SUP-1773] |
 
-On each invoice, voucher, or other request for payment, the contractor identifies the part of the payment that represents estimated expenditures in the United States [@CL-SUP-1774]. In this clause the United States means the 50 States, the District of Columbia, and outlying areas [@CL-SUP-1833].
+On each invoice, voucher, or other request for payment, the Contractor shall identify that part of the requested payment that represents estimated expenditures in the United States [@CL-SUP-1774]. In this clause the United States means the 50 States, the District of Columbia, and outlying areas [@CL-SUP-1833].
 
-The clause applies only to two kinds of contractor. One is a concern incorporated in the United States, including a subsidiary incorporated there even if its parent corporation is not [@CL-SUP-1772]. The other is an unincorporated concern having its principal place of business in the United States [@CL-SUP-1773].
+The clause applies only if the Contractor is one of two kinds. One is a concern incorporated in the United States, including a subsidiary incorporated there even if its parent corporation is not [@CL-SUP-1772]. The other is an unincorporated concern having its principal place of business in the United States [@CL-SUP-1773].
 
 ## How it works
 
-The identification may be dollar amounts or percentages of the total amount of the request, and it should be based on reasonable estimates [@CL-SUP-1775]. It must state the full amount requested, divided into categories: United States products [@CL-SUP-1776], United States services [@CL-SUP-1777], transportation on United States carriers, and expenditures not identified in the other categories [@CL-SUP-1778]. The products category excludes transportation, and the services category includes overhead, other indirect costs, and profit under construction or service contracts [@CL-SUP-1776; @CL-SUP-1777]. The clause does not require detailed accounting records and gives the Government no right to audit the contractor's books or records [@CL-SUP-1779].
+The identification may be dollar amounts or percentages of the total amount of the request, and it should be based on reasonable estimates [@CL-SUP-1775]. It shall state the full amount of the payment requested, subdivided into categories: United States products [@CL-SUP-1776], United States services [@CL-SUP-1777], transportation on United States carriers, and expenditures not identified in the other categories [@CL-SUP-1778]. The products category excludes transportation, and the services category includes overhead, other indirect costs, and profit under construction or service contracts [@CL-SUP-1776; @CL-SUP-1777]. The clause does not require detailed accounting records and gives the Government no right to audit the contractor's books or records [@CL-SUP-1779].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ The identification states the full 100,000 split into those four amounts, or as 
 
 ## Never confuse
 
-This clause asks the contractor to identify estimated expenditures in the United States on payment requests [@CL-SUP-1774]. Rules on where delivered items must be made are separate clauses; see [American flag and supercomputer manufacturing requirements](sup-dfars-american-flag-and-supercomputers.md) and [Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). The duty-free entry clause also deals with the price and shipping of imported supplies, but it carries its own duties; see [Duty-free entry clause](sup-dfars-duty-free-entry.md) [@CL-SUP-1784; @CL-SUP-1788]. The price rule in that clause has an exception in paragraph (i): the clause does not apply to purchases of eligible products or qualifying country supplies in connection with the contract if the supplies are identical in nature to supplies purchased by the contractor or any subcontractor in connection with its commercial business, and it is not economical or feasible to account for such supplies so that the amount for which duty-free entry is claimed does not exceed the amount purchased in connection with the contract [@CL-SUP-1792; @CL-SUP-1793].
+This clause asks the contractor to identify estimated expenditures in the United States on payment requests [@CL-SUP-1774]. For rules on where delivered items must be made, see [American flag and supercomputer manufacturing requirements](sup-dfars-american-flag-and-supercomputers.md) and [Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). Under the duty-free entry clause, except as provided in paragraph (i), or unless supplies were imported into the customs territory of the United States before the date of the contract or the applicable subcontract, the price of the contract shall not include any amount for duty on the supplies listed in paragraph (b) [@CL-SUP-1784]; see [Duty-free entry clause](sup-dfars-duty-free-entry.md). Paragraph (i) of that clause provides that the clause does not apply to purchases of eligible products or qualifying country supplies in connection with the contract if the supplies are identical in nature to supplies purchased by the contractor or any subcontractor in connection with its commercial business, and it is not economical or feasible to account for such supplies so that the amount for which duty-free entry is claimed does not exceed the amount purchased in connection with the contract [@CL-SUP-1792; @CL-SUP-1793].
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Whether the executed contracts include this clause, and who confirms it. [@Q-004
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned obligation and applicability wording with the quotes; replaced contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (i) of the duty-free entry clause that the quoted rule refers to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identification of expenditures in the United States.
