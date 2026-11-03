@@ -43,7 +43,7 @@ A program purchases material of 500,000 and issues 400,000 of it to control acco
 
 ## Never confuse
 
-Accounting for purchased material is not only counting what is issued to control accounts. The guideline also covers returned and scrapped material and residual inventory [@CL-PRG-0305].
+All purchased material for which earned value has been calculated must be accounted for, including material residual to the program, and the material management process must reflect the acquisition, issue to control accounts, return of unused materials from control accounts, scrap quantity and disposition, and residual material inventory [@CL-PRG-0304; @CL-PRG-0305].
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Whether all purchased material is accounted for through final disposition. [@Q-0
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrast in Never confuse with the full material-accounting scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 16 purchased material.
