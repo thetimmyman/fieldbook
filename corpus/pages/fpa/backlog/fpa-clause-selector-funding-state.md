@@ -16,26 +16,26 @@ links = ["ctf-limitation-of-cost", "ctf-limitation-of-funds", "ctf-contract-type
 
 ## Purpose
 
-Selects the limitation clause from the funding state of a cost-reimbursement contract, and names the clause used in a letter contract.
+Shows when the contracting officer inserts the Limitation of Cost clause or the Limitation of Funds clause in solicitations and contracts for a cost-reimbursement contract, and when the Limitation of Government Liability clause is inserted in solicitations and contracts when a letter contract is contemplated [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093; @CL-FPA-0351].
 
 ## The rule
 
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-FPA-0091] |
-| Codified citation | FAR 32.706-2; FAR 52.216-24 [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093] |
+| Codified citation | FAR 32.706-2; FAR 52.216-24 [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093; @CL-FPA-0351] |
 | RFO citation | RFO FAR 32.706-2 [@CL-FPA-0268; @CL-FPA-0269; @CL-FPA-0270; @CL-FPA-0271] |
 | Edition date | Not established. |
 | Text status | Final [@CL-FPA-0091] |
-| Applies to | Solicitations and contracts of the stated funding state, and letter contracts [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093] |
+| Applies to | Solicitations and contracts when a fully funded or incrementally funded cost-reimbursement contract or a letter contract is contemplated [@CL-FPA-0091; @CL-FPA-0092; @CL-FPA-0093; @CL-FPA-0351] |
 
-The contracting officer shall insert the Limitation of Cost clause in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, whether or not the contract provides for payment of a fee [@CL-FPA-0091]. The contracting officer shall insert the Limitation of Funds clause if an incrementally funded cost-reimbursement contract is contemplated [@CL-FPA-0092]. The Limitation of Government Liability clause is inserted in solicitations and contracts when a letter contract is contemplated [@CL-FPA-0093].
+The contracting officer shall insert the clause at 52.232-20, Limitation of Cost, in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, whether or not the contract provides for payment of a fee [@CL-FPA-0091]. The contracting officer shall insert the clause at 52.232-22, Limitation of Funds, in solicitations and contracts if an incrementally funded cost-reimbursement contract is contemplated [@CL-FPA-0092]. As prescribed in FAR 16.603-4(b)(2), the Limitation of Government Liability clause at FAR 52.216-24 is inserted in solicitations and contracts when a letter contract is contemplated [@CL-FPA-0093; @CL-FPA-0351].
 
 ## How it works
 
-The funding state decides the clause: full funding points to Limitation of Cost, and incremental funding points to Limitation of Funds [@CL-FPA-0091; @CL-FPA-0092]. The letter contract clause has two blanks for dollar amounts. One is an amount the contractor is not authorized to exceed in expenditures or obligations, and the other is the maximum for which the Government is liable if the contract is terminated [@CL-FPA-0094]. This card only selects the clause. The mechanics are on the [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md) and [Limitation of Funds clause](../../contract-finance/funding/ctf-limitation-of-funds.md) cards.
+Under FAR 32.706-2, the contracting officer shall insert the clause at 52.232-20, Limitation of Cost, in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, whether or not the contract provides for payment of a fee [@CL-FPA-0091], and shall insert the clause at 52.232-22, Limitation of Funds, in solicitations and contracts if an incrementally funded cost-reimbursement contract is contemplated [@CL-FPA-0092]. Under FAR 52.216-24, in performing the contract, the Contractor is not authorized to make expenditures or incur obligations exceeding the stated dollar amount, and the maximum amount for which the Government shall be liable if the contract is terminated is the stated dollar amount [@CL-FPA-0094]. For the operation of the cost-reimbursement limitation clauses, see [Limitation of Cost notice](../../contract-finance/funding/ctf-limitation-of-cost.md) and [Limitation of Funds clause](../../contract-finance/funding/ctf-limitation-of-funds.md).
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.706-2(a) keeps the rule that the Limitation of Cost clause at 52.232-20 is inserted in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, whether or not the contract provides for payment of a fee, and states it as the imperative "Insert" where the codified text says the contracting officer shall insert it [@CL-FPA-0268; @CL-FPA-0091]. RFO FAR 32.706-2(b) keeps the rule that the Limitation of Funds clause at 52.232-22 is inserted if an incrementally funded cost-reimbursement contract is contemplated, in the same imperative form [@CL-FPA-0269; @CL-FPA-0092]. RFO FAR 32.706-2(a) also says that the 60-day period may be varied from 30 to 90 days and the 75 percent from 75 to 85 percent [@CL-FPA-0270], and that "Task Order" or other appropriate designation may be substituted for "Schedule" wherever that word appears in the clause [@CL-FPA-0271].
+Effective February 1, 2026, DoD contracting officers shall use the revised FAR Part 32, Contract Financing, published on the Revolutionary FAR Overhaul web page in lieu of the text codified at 48 CFR chapter 1 [@CL-CTF-4046]. RFO FAR 32.706-2(a) directs inserting the clause at 52.232-20, Limitation of Cost, in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, whether or not the contract provides for payment of a fee [@CL-FPA-0268], whereas codified FAR 32.706-2(a) states that the contracting officer shall insert the clause [@CL-FPA-0091]. RFO FAR 32.706-2(a) also provides that the 60-day period may be varied from 30 to 90 days and the 75 percent from 75 to 85 percent [@CL-FPA-0270], and that "Task Order" or other appropriate designation may be substituted for "Schedule" wherever that word appears in the clause [@CL-FPA-0271]. RFO FAR 32.706-2(b) directs inserting the clause at 52.232-22, Limitation of Funds, in solicitations and contracts if an incrementally funded cost-reimbursement contract is contemplated [@CL-FPA-0269], whereas codified FAR 32.706-2(b) states that the contracting officer shall insert the clause [@CL-FPA-0092].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A cost-reimbursement contract with an estimated cost of 2,000,000 is funded for 
 
 ## Never confuse
 
-Funding state describes how much money is allotted, not the contract type. A fully funded and an incrementally funded cost-reimbursement contract are the same type, and the funding state selects the clause [@CL-FPA-0091; @CL-FPA-0092]. The RFO text of 32.706-2(a) adds two sentences: that the 60-day period may be varied from 30 to 90 days and the 75 percent from 75 to 85 percent [@CL-FPA-0270], and that "Task Order" or other appropriate designation may be substituted for "Schedule" wherever that word appears in the clause [@CL-FPA-0271]. The codified paragraph quoted above contains neither [@CL-FPA-0091]. The Limitation of Government Liability clause for letter contracts is a different clause from the Limitation of Government's Obligation clause, which the DFARS uses in incrementally funded fixed-price contracts [@CL-FPA-0093; @CL-FPA-0078]; see [Limitation of Government's obligation clause](fpa-limitation-of-government-obligation.md). For contract types, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md).
+Under FAR 32.706-2, the contracting officer shall insert the clause at 52.232-20, Limitation of Cost, in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, whether or not the contract provides for payment of a fee [@CL-FPA-0091], and shall insert the clause at 52.232-22, Limitation of Funds, in solicitations and contracts if an incrementally funded cost-reimbursement contract is contemplated [@CL-FPA-0092]. RFO FAR 32.706-2(a) provides that the 60-day period may be varied from 30 to 90 days and the 75 percent from 75 to 85 percent [@CL-FPA-0270], and that "Task Order" or other appropriate designation may be substituted for "Schedule" wherever that word appears in the clause [@CL-FPA-0271]. Under FAR 52.216-24, as prescribed in FAR 16.603-4(b)(2), the Limitation of Government Liability clause is inserted in solicitations and contracts when a letter contract is contemplated [@CL-FPA-0093; @CL-FPA-0351], whereas DFARS 232.706-70 directs using the clause at 252.232-7007, Limitation of Government's Obligation, in solicitations and resultant incrementally funded fixed-price contracts [@CL-FPA-0078]; see [Limitation of Government's obligation clause](fpa-limitation-of-government-obligation.md). For contract types, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which cost-reimbursement contracts are fully funded and which are incrementally 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 52.216-24 prescription companion, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for choosing the clause for the funding state.

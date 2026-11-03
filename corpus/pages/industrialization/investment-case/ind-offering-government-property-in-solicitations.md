@@ -31,11 +31,11 @@ Shows what a solicitation must list when it offers Government property, what off
 
 The contracting officer shall insert a listing of the Government property to be offered in all solicitations where Government-furnished property is anticipated [@CL-IND-0010]. The solicitation shall describe the evaluation procedures to be followed, including rental charges or equivalents and other costs or savings to be evaluated, and shall require all offerors to submit listed information with their offers [@CL-IND-0012].
 
-The contracting officer shall consider any potentially unfair competitive advantage that may result from an offeror or contractor possessing Government property [@CL-IND-0015]. That consideration is done by adjusting the offers, for evaluation purposes only, with a rental equivalent evaluation factor as specified in FAR 52.245-9 [@CL-IND-0016], which the solicitation rules name as the Use and Charges clause [@CL-IND-0014].
+The contracting officer shall consider any potentially unfair competitive advantage that may result from an offeror or contractor possessing Government property [@CL-IND-0015]. This shall be done by adjusting the offers by applying, for evaluation purposes only, a rental equivalent evaluation factor as specified in FAR 52.245-9, Use and Charges [@CL-IND-0016; @CL-IND-0014].
 
 ## How it works
 
-When Government property is offered for use in a competitive acquisition, solicitations should specify that the contractor is responsible for all costs related to making the property available, such as transportation, installation or rehabilitation costs [@CL-IND-0011]. Among the information offerors must submit with their offers is a list or description of all Government property that the offeror or its subcontractors propose to use on a rent-free basis [@CL-IND-0013], and another listed item is the amount of rent that would otherwise be charged [@CL-IND-0014]. The contracting officer shall also ensure that the offeror's property management plans, methods, practices, or procedures are consistent with the requirements of the solicitation [@CL-IND-0017]. For the rental clause itself, see [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
+When Government property is offered for use in a competitive acquisition, solicitations should specify that the contractor is responsible for all costs related to making the property available for use, such as payment of all transportation, installation or rehabilitation costs [@CL-IND-0011]. Among the information the solicitation shall require all offerors to submit with their offers is a list or description of all Government property that the offeror or its subcontractors propose to use on a rent-free basis, which shall identify the accountable contract under which the property is held and the authorization for its use from the contracting officer having cognizance of the property [@CL-IND-0012; @CL-IND-0013; @CL-IND-0398], and the amount of rent that would otherwise be charged in accordance with FAR 52.245-9, Use and Charges [@CL-IND-0012; @CL-IND-0014]. The contracting officer shall also ensure the offeror's property management plans, methods, practices, or procedures for accounting for property are consistent with the requirements of the solicitation [@CL-IND-0017]. For the rental clause itself, see [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ Offeror A proposes to use Government-owned equipment rent-free, and the rent tha
 
 ## Never confuse
 
-The rental equivalent evaluation factor is an evaluation adjustment only, applied for evaluation purposes only [@CL-IND-0016]. It is not the rent a contractor pays when use is authorized other than rent-free, which the [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md) governs.
+To consider any potentially unfair competitive advantage that may result from an offeror or contractor possessing Government property, offers shall be adjusted by applying, for evaluation purposes only, a rental equivalent evaluation factor as specified in FAR 52.245-9 [@CL-IND-0015; @CL-IND-0016]. The clause itself is covered on [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md).
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which capital projects depend on offered Government property, and who reconciles
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 45.201(c)(1) accountable-contract and authorization list requirement and accounting-for-property scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for property plan check
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for offering Government property in a solicitation.

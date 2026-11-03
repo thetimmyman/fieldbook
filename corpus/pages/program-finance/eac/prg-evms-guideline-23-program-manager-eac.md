@@ -16,7 +16,7 @@ links = ["prg-earned-value-management-system"]
 
 ## Purpose
 
-Shows how the program manager keeps a most likely management estimate at completion, assessed at least monthly, and how the externally reported and internal estimates reconcile [@CL-PRG-0358; @CL-PRG-0359; @CL-PRG-0362].
+Shows how the program manager's Estimate at Completion (EAC) includes a range of estimates (Best Case, Worst Case, and Most Likely) from which the Most Likely EAC is considered the official Management EAC, how at least monthly the program manager's assessment of the contract-level forecast builds upon the Performance Measurement Baseline (PMB) level EAC updated monthly or from the Comprehensive EAC (CEAC) and results in the Management EAC, and how the contractor's externally reported EAC and internal EAC reconcile and have a clear, consistent relationship based on the identified risks and opportunities or other identified factors [@CL-PRG-0136; @CL-PRG-0358; @CL-PRG-0359; @CL-PRG-0362].
 
 ## The rule
 
@@ -27,13 +27,13 @@ Shows how the program manager keeps a most likely management estimate at complet
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | The program manager’s estimate at completion [@CL-PRG-0358] |
+| Applies to | The program manager’s Estimate at Completion (EAC) [@CL-PRG-0136; @CL-PRG-0358] |
 
-The program manager's estimate at completion includes a range of estimates, from which the most likely estimate is considered the official management estimate at completion [@CL-PRG-0358]. At least monthly, the program manager's assessment of the contract-level forecast builds upon the performance measurement baseline level estimate at completion or the comprehensive estimate at completion and results in the management estimate at completion [@CL-PRG-0359].
+A properly established and maintained Estimate at Completion (EAC) ensures continuing visibility into the resource requirements needed to mitigate cost and schedule issues, risks, and opportunities and contributes to program success for both the Government and the Contractor [@CL-PRG-0136]. The program manager's EAC includes a range of estimates—Best Case, Worst Case, and Most Likely—from which the Most Likely EAC is considered the official Management EAC [@CL-PRG-0358]. At least monthly, the program manager's assessment of contract-level forecast builds upon the Performance Measurement Baseline (PMB) level EAC updated monthly or from the Comprehensive EAC (CEAC) and results in the Management EAC [@CL-PRG-0359].
 
 ## How it works
 
-The program manager's estimate at completion includes best case, worst case, and most likely cases, with the most likely treated as the official management estimate at completion [@CL-PRG-0358]. At least monthly, the program manager’s assessment of the contract-level forecast builds upon the performance measurement baseline level estimate at completion, updated monthly, or the comprehensive estimate at completion, and results in the management estimate at completion [@CL-PRG-0359]. The management estimate at completion accounts for dollarized risks and opportunities that are related to the risk management process and are tracked at the program level but have not yet been realized or incorporated into control accounts [@CL-PRG-0360]. At least annually, or more frequently if performance indicates the current estimate is invalid, a comprehensive or bottom-up estimate at completion is assessed at the contract level [@CL-PRG-0361]. The externally reported estimate at completion and the internal estimate at completion reconcile and have a clear, consistent relationship based on the identified risks and opportunities or other identified factors [@CL-PRG-0362].
+The program manager's EAC includes a range of estimates—Best Case, Worst Case, and Most Likely—from which the Most Likely EAC is considered the official Management EAC [@CL-PRG-0136; @CL-PRG-0358]. At least monthly, the program manager’s assessment of contract-level forecast builds upon the Performance Measurement Baseline (PMB) level EAC updated monthly or from the Comprehensive EAC (CEAC) and results in the Management EAC [@CL-PRG-0359]. The Management EAC accounts for dollarized risks and opportunities that are related to the risk management process and are tracked at the program level but have not yet been realized or incorporated into control accounts [@CL-PRG-0360]. At least annually, or more frequently if performance indicates that the current estimate is invalid, an assessment of the contract level EAC, also known as a comprehensive or bottom-up EAC, is accomplished [@CL-PRG-0361]. The contractor's externally reported EAC and internal EAC reconcile and have a clear, consistent relationship based on the identified risks and opportunities or other identified factors [@CL-PRG-0362].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A program has a budget at completion of 100. The program manager holds a most li
 
 ## Never confuse
 
-An estimate at completion is a forecast, not the budget at completion. The management estimate at completion is the most likely of the program manager’s range of estimates and is assessed at least monthly [@CL-PRG-0358; @CL-PRG-0359].
+The program manager's EAC includes a range of estimates—Best Case, Worst Case, and Most Likely—from which the Most Likely EAC is considered the official Management EAC [@CL-PRG-0136; @CL-PRG-0358], and at least monthly the program manager’s assessment of contract-level forecast builds upon the Performance Measurement Baseline (PMB) level EAC updated monthly or from the Comprehensive EAC (CEAC) and results in the Management EAC [@CL-PRG-0359], which accounts for dollarized risks and opportunities that are related to the risk management process and are tracked at the program level but have not yet been realized or incorporated into control accounts [@CL-PRG-0360].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Who owns the program estimate at completion, how often it is refreshed, and how 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0136, restored Best Case/Worst Case, monthly update, and contractor qualifiers, and removed uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added risk-management and basis qualifiers the guide states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the at-least-annual comprehensive estimate at completion at the contract level.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed unsupported purpose wording and fixed the example variance.
