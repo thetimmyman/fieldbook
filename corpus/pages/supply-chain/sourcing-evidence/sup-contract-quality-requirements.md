@@ -16,7 +16,7 @@ links = ["cls-inspection-of-supplies-fixed-price", "sup-contractor-quality-respo
 
 ## Purpose
 
-Shows how the level of contract quality requirements is chosen, who includes it in the contract, when the Government relies on the contractor's own inspection, and what the printed text says about cost.
+Shows how the level of contract quality requirements is chosen, who includes it in the contract, when the Government relies on the contractor's own inspection, and the alternative inspection methods that may be provided for to obtain wide competition and low cost.
 
 ## The rule
 
@@ -35,17 +35,17 @@ The extent of contract quality requirements, including contractor inspection, sh
 
 ## How it works
 
-Who includes them: the contracting officer shall include the appropriate quality requirements in the solicitation and contract [@CL-SUP-0855], and may also authorize contractor-recommended alternatives when in the Government's interest and approved by the activity responsible for technical requirements [@CL-SUP-0858]. The level usually rests on three inputs, which are technical description, complexity and criticality [@CL-SUP-0859]. Complex items have quality characteristics that are not wholly visible in the end item and must be established progressively through precise measurements, tests and controls [@CL-SUP-0859; @CL-SUP-0860], and a critical application is one in which failure could injure personnel or jeopardize a vital agency mission [@CL-SUP-0859; @CL-SUP-0861]. For contracts at or below the simplified acquisition threshold, the Government shall rely on the contractor to accomplish all inspection and testing needed to ensure conformance before the supplies or services are tendered to the Government, except as specified in the next paragraph of that section [@CL-SUP-0950; @CL-SUP-9762]. The Government shall not rely on inspection by the contractor if the contracting officer determines that the Government has a need to test the supplies or services in advance of their tender for acceptance, or to pass judgment upon the adequacy of the contractor's internal work processes [@CL-SUP-0951]. In making that determination the contracting officer shall consider listed factors, including the nature and intended use of the supplies and services, the potential losses in the event of defects, the likelihood of uncontested replacement or correction of defective work, and the cost of detailed Government inspection [@CL-SUP-0952; @CL-SUP-9763]. On cost, a further cost point in the quality requirement sections is that solicitations and contracts may provide for alternative, but substantially equivalent, inspection methods to obtain wide competition and low cost [@CL-SUP-0857]. Those sections do not say how a higher level of requirements changes price.
+Who includes them: the contracting officer shall include the appropriate quality requirements in the solicitation and contract [@CL-SUP-0855], and may also authorize contractor-recommended alternatives when in the Government's interest and approved by the activity responsible for technical requirements [@CL-SUP-0858]. The level usually rests on three inputs, which are technical description, complexity and criticality [@CL-SUP-0859]. Complex items have quality characteristics that are not wholly visible in the end item and must be established progressively through precise measurements, tests and controls [@CL-SUP-0859; @CL-SUP-0860], and a critical application is one in which failure could injure personnel or jeopardize a vital agency mission [@CL-SUP-0859; @CL-SUP-0861]. For contracts at or below the simplified acquisition threshold, the Government shall rely on the contractor to accomplish all inspection and testing needed to ensure conformance before the supplies or services are tendered to the Government, except as specified in paragraph (b) of FAR 46.202-2 [@CL-SUP-0950; @CL-SUP-9762]. The Government shall not rely on inspection by the contractor if the contracting officer determines that the Government has a need to test the supplies or services in advance of their tender for acceptance, or to pass judgment upon the adequacy of the contractor's internal work processes [@CL-SUP-0951]. In making that determination the contracting officer shall consider all of these: the nature of the supplies and services being purchased and their intended use, the potential losses in the event of defects, the likelihood of uncontested replacement or correction of defective work, and the cost of detailed Government inspection [@CL-SUP-0952; @CL-SUP-9763]. As feasible, solicitations and contracts may provide for alternative, but substantially equivalent, inspection methods to obtain wide competition and low cost [@CL-SUP-0857].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A solicitation covers a part whose quality characteristics are not wholly visible in the end item, and whose failure could jeopardize a vital agency mission. The classification points toward a higher level, such as a comprehensive quality control program. The contracting officer sets the requirement, and a supplier may propose an equivalent inspection method that the contracting officer may authorize if the technical activity approves it.
+A solicitation covers a part whose quality characteristics are not wholly visible in the end item, and whose failure could jeopardize a vital agency mission. The classification points toward a higher level, such as a comprehensive quality control program. The contracting officer sets the requirement, and a supplier recommends an alternative inspection method, which the contracting officer may authorize when it is in the Government's interest and approved by the activity responsible for technical requirements [@CL-SUP-0858].
 
 ## Never confuse
 
-The level of contract quality requirements is not the same as Government quality assurance. The first is what the contract requires of the contractor, and the second is what the Government does to check conformance. See [Government contract quality assurance](sup-government-contract-quality-assurance.md) for the Government side, [Contractor responsibilities for quality](sup-contractor-quality-responsibilities.md) for the contractor side, and [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md) for how acceptance works.
+Government quality assurance and the contractor's own responsibilities are on separate cards. See [Government contract quality assurance](sup-government-contract-quality-assurance.md) for the Government side, [Contractor responsibilities for quality](sup-contractor-quality-responsibilities.md) for the contractor side, and [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md) for how acceptance works.
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ How each contract's quality requirement level is recorded and priced into suppli
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the all-apply factor list and alternative-inspection conditions as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the before-tender qualification and the Government inspection cost factor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract quality requirements.
