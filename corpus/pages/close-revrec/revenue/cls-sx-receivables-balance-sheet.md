@@ -15,7 +15,7 @@ links = ["cls-sx-inventories-long-term-contracts", "ctf-making-payments", "fpa-c
 
 ## Purpose
 
-Shows how a registrant presents trade, related-party and other receivables, and what it separately discloses when receivables include amounts due under long-term contracts: retainage billed but not paid, unbilled amounts, claims and uncertain items, and amounts collectible after one year. This card covers only the receivables item of the balance sheet rule. Regulation S-X is not FAR, DFARS or CAS. It binds financial statements filed with the Commission, which is the Securities and Exchange Commission, and a contractor that files nothing with the Commission is not bound [@CL-CLS-0850]. Whether it binds a company depends on the company's filing obligations with the Commission. The text speaks of long-term contracts in general and does not mention Government contracts.
+Shows how a registrant presents trade, related-party and other receivables, and what it separately discloses when receivables include amounts due under long-term contracts: retainage billed but not paid, unbilled amounts, claims and uncertain items, and amounts collectible after one year. This article and other articles of Regulation S-X provide clarification of certain disclosures that must be included in any event in financial statements filed with the Commission [@CL-CLS-0850].
 
 ## The rule
 
@@ -26,15 +26,15 @@ Shows how a registrant presents trade, related-party and other receivables, and 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | Receivables on balance sheets filed with the Commission [@CL-CLS-0850; @CL-CLS-0819]. For the long-term contract amounts, receivables that include amounts due under long-term contracts [@CL-CLS-0821]. A contractor that files nothing with the Commission is not bound. |
+| Applies to | Receivables on balance sheets filed with the Commission [@CL-CLS-0850; @CL-CLS-0819]. For the long-term contract amounts, receivables that include amounts due under long-term contracts [@CL-CLS-0821] |
 
-The receivables item requires amounts receivable from customers (trade), from related parties, from underwriters, promoters and employees (other than related parties) which arose in other than the ordinary course of business, and from others to be stated separately [@CL-CLS-0819]. If the aggregate amount of notes receivable exceeds 10 percent of the aggregate amount of receivables, that information is set forth separately, in the balance sheet or in a note, for accounts receivable and notes receivable [@CL-CLS-0820].
+The receivables item requires amounts receivable from customers (trade), from related parties (see section 210.4-08(k)), from underwriters, promoters and employees (other than related parties) which arose in other than the ordinary course of business, and from others to be stated separately [@CL-CLS-0819]. If the aggregate amount of notes receivable exceeds 10 percent of the aggregate amount of receivables, the above information shall be set forth separately, in the balance sheet or in a note thereto, for accounts receivable and notes receivable [@CL-CLS-0820].
 
-If receivables include amounts due under long-term contracts, the listed amounts are stated separately in the balance sheet or in a note [@CL-CLS-0821]. One listed amount is balances billed but not paid by customers under retainage provisions [@CL-CLS-0822]. Another is the recognized sales value of performance, and such amounts not billed and not billable at the balance sheet date, with a general description of the prerequisites for billing [@CL-CLS-0823]. A third is billed or unbilled amounts representing claims or other similar items subject to uncertainty concerning their determination or ultimate realization, with a description of the nature and status of the principal items [@CL-CLS-0824]. For the three listed amounts, the amounts expected to be collected after one year are also stated, and retainage collection is stated by year if practicable [@CL-CLS-0825].
+If receivables include amounts due under long-term contracts (see section 210.5-02.6(d)), the listed amounts are stated separately in the balance sheet or in a note to the financial statements [@CL-CLS-0821]. One listed amount is balances billed but not paid by customers under retainage provisions in contracts [@CL-CLS-0822]. Another is amounts representing the recognized sales value of performance and such amounts that had not been billed and were not billable to customers at the date of the balance sheet, including a general description of the prerequisites for billing [@CL-CLS-0823]. A third is billed or unbilled amounts representing claims or other similar items subject to uncertainty concerning their determination or ultimate realization, including a description of the nature and status of the principal items comprising such amount [@CL-CLS-0824]. With respect to those three items, the amounts included in each item that are expected to be collected after one year are also stated, and when the amounts of retainage are expected to be collected is also stated by year if practicable [@CL-CLS-0825].
 
 ## How it works
 
-The registrant sorts receivables by who owes them [@CL-CLS-0819]. It splits accounts and notes when notes pass the stated share of all receivables [@CL-CLS-0820]. For long-term contract balances it adds the retainage, unbilled, and claims or uncertain amounts, and for each it states what it expects to collect after one year [@CL-CLS-0822; @CL-CLS-0823; @CL-CLS-0824; @CL-CLS-0825]. The lead-in points to the definition of long-term contracts in the inventory item of the same rule, which is covered in [Inventories and long-term contract disclosures under Regulation S-X](../inventory-wip/cls-sx-inventories-long-term-contracts.md) and is not restated here [@CL-CLS-0821].
+The registrant states receivables separately by the four listed categories [@CL-CLS-0819]. It sets forth the information separately for accounts receivable and notes receivable when the aggregate amount of notes receivable exceeds 10 percent of the aggregate amount of receivables [@CL-CLS-0820]. For receivables that include amounts due under long-term contracts, it states separately the retainage, unbilled, and claims or uncertain amounts, and for each item it states the amounts expected to be collected after one year (and by year, if practicable, for retainage) [@CL-CLS-0821; @CL-CLS-0822; @CL-CLS-0823; @CL-CLS-0824; @CL-CLS-0825]. The cross-reference to section 210.5-02.6(d) in the long-term contracts lead-in [@CL-CLS-0821] is covered in [Inventories and long-term contract disclosures under Regulation S-X](../inventory-wip/cls-sx-inventories-long-term-contracts.md).
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A registrant has 1,000 of receivables, of which 150 are notes. The notes exceed 
 
 ## Never confuse
 
-The notes test compares the aggregate amount of notes receivable with the aggregate amount of receivables [@CL-CLS-0820]. Unbilled work that is simply not yet billable is a different listed amount from claims and other uncertain items [@CL-CLS-0823; @CL-CLS-0824]. This is a disclosure rule about how balances are shown, and it does not set when or how a contractor may bill the Government; for that, see [Making payments](../../contract-finance/billing-payment/ctf-making-payments.md).
+The notes test compares the aggregate amount of notes receivable with the aggregate amount of receivables [@CL-CLS-0820]. Amounts representing the recognized sales value of performance that had not been billed and were not billable to customers at the balance sheet date are a separate listed item from billed or unbilled amounts representing claims or other similar items subject to uncertainty [@CL-CLS-0823; @CL-CLS-0824]. For contract payment rules, see [Making payments](../../contract-finance/billing-payment/ctf-making-payments.md).
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ How unbilled amounts, retainage and claims are identified and reviewed at close,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the receivables disclosure rules as quoted and removed unquoted meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for receivables and long-term contract amounts on the balance sheet.

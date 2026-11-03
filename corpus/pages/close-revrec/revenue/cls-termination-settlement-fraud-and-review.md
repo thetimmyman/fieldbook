@@ -34,9 +34,9 @@ Each agency shall establish procedures, when necessary, for the administrative r
 
 ## How it works
 
-The fraud duty falls on the TCO and starts from suspicion, not proof. On suspicion, the TCO stops negotiating and reports the facts [@CL-CLS-1266]. The report follows agency procedures, and the section does not state a recipient, a deadline or a threshold [@CL-CLS-1266].
+If the TCO suspects fraud or other criminal conduct related to the settlement of a terminated contract, the TCO shall discontinue negotiations and report the facts under agency procedures [@CL-CLS-1266].
 
-The review duty falls on each agency. Each agency establishes procedures for administrative review of proposed termination settlements when necessary, and the text does not say who judges when that is [@CL-CLS-1267]. When one agency provides settlement services for another, the agency that provides them also performs the review function [@CL-CLS-1268]. The section does not say what the contractor must do under either rule.
+Each agency shall establish procedures, when necessary, for the administrative review of proposed termination settlements [@CL-CLS-1267]. When one agency provides termination settlement services for another agency, the agency providing the services shall also perform the settlement review function [@CL-CLS-1268].
 
 ## Worked example
 
@@ -48,7 +48,7 @@ Separately, Agency A provides termination settlement services for Agency B. Agen
 
 ## Never confuse
 
-Suspicion of fraud is not a finding of fraud. The section starts the duty at suspicion, and the duty is to discontinue negotiations and report the facts under agency procedures [@CL-CLS-1266]. Administrative review of proposed settlements is not the fraud report. The review rests on procedures each agency establishes when necessary, while the report follows suspected fraud or other criminal conduct [@CL-CLS-1266; @CL-CLS-1267]. The settlement review function stays with the agency that provides the settlement services for another agency [@CL-CLS-1268]. For audit referral of settlement proposals, see [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md).
+When the TCO suspects fraud or other criminal conduct related to the settlement of a terminated contract, the TCO shall discontinue negotiations and report the facts under agency procedures [@CL-CLS-1266]. Separately, each agency shall establish procedures, when necessary, for the administrative review of proposed termination settlements [@CL-CLS-1267]. When one agency provides termination settlement services for another agency, the agency providing the services shall also perform the settlement review function [@CL-CLS-1268]. For audit referral of settlement proposals, see [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md).
 
 ## Company calibration
 
@@ -58,4 +58,5 @@ What the company keeps in a termination settlement file and who it notifies when
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted contrasts and meta commentary on fraud reporting and settlement review.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fraud in a termination settlement and review of proposed settlements.
