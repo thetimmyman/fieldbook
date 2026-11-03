@@ -35,7 +35,7 @@ Where financing payments are progress payments, the subcontract terms on title t
 
 ## How it works
 
-The contractor has a duty to ensure that financing payments to subcontractors conform to the standards and principles prescribed in paragraph (j) of the Progress Payments clause in the prime contract [@CL-CTF-1075]. The Progress Payments clause requires that a subcontract include the substance of the prime contract's clause, modified to indicate that the contractor, not the Government, awards the subcontract and administers the progress payments [@CL-CTF-1076].
+The contractor has a duty to ensure that financing payments to subcontractors conform to the standards and principles prescribed in paragraph (j) of the Progress Payments clause in the prime contract [@CL-CTF-1075]. When financing payments are in the form of progress payments, the Progress Payments clause at FAR 52.232-16 requires that a subcontract include the substance of the prime contract's Progress Payments clause, modified to indicate that the contractor, not the Government, awards the subcontract and administers the progress payments [@CL-CTF-3233; @CL-CTF-1076].
 
 The contracting officer should, to the extent appropriate, review the subcontract as part of the overall administration of progress payments in the prime contract [@CL-CTF-1072]. There is no special requirement for contracting officer review or consent merely because the subcontract includes financing payments, except as provided in paragraph (c) of the section [@CL-CTF-0968], although the contracting officer must ensure that the contractor has installed the necessary management control systems, including internal audit procedures [@CL-CTF-9493]. Paragraph (c) covers unusual progress payments to a subcontractor: if the contractor is considering making them, the parties will be guided by the policies in section 32.501-2 [@CL-CTF-1073], and if the Government approves them, the contracting officer must issue a contract modification to specify the new rate in paragraph (j)(6) of the Progress Payments clause in the prime contract [@CL-CTF-1074]. For the unusual-rate policy, see [Progress payment rates](ctf-progress-payment-rates.md). Title to the property is covered on [Government title to progress payment inventory](../../close-revrec/inventory-wip/cls-government-title-progress-payment-inventory.md), and general financing concepts are on [Progress payments](ctf-progress-payments.md) and [Performance-based payments](ctf-performance-based-payments.md).
 
@@ -49,7 +49,7 @@ A prime contractor's progress payment request includes 100,000 that it owes a su
 
 ## Never confuse
 
-Under a subcontract with progress payments, the prime contractor, not the Government, awards the subcontract and administers the progress payments, yet title to the property still vests in the Government rather than the prime [@CL-CTF-1076; @CL-CTF-0969]. A subcontract may carry performance-based payments or progress payments, but not both [@CL-CTF-0966].
+When financing payments are in the form of progress payments, the prime contractor, not the Government, awards the subcontract and administers the progress payments, while the subcontract terms on title to property must provide for vesting of title in the Government rather than the prime [@CL-CTF-3233; @CL-CTF-1076; @CL-CTF-0969]. A subcontract may carry performance-based payments or progress payments, but not both [@CL-CTF-0966].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Confirm subcontract financing terms and monitor payment turnaround for subcontra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-CTF-3233 for the FAR 32.504(e) condition on subcontract flowdown of the Progress Payments clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Unpaid-amount permission kept with its provided-that conditions; paragraph (c) condition added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the review and consent rule.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
