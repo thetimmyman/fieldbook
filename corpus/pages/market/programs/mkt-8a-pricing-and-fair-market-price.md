@@ -60,6 +60,5 @@ Whether the pricing file holds the cost or price analysis, the commercial and in
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast and reason clauses and stated the SBA concurrence directly.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing an 8(a) contract and estimating the fair market price.

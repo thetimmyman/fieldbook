@@ -52,7 +52,6 @@ Which letter contracts the company holds, which definitization clause each carri
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the additional limitations on letter contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract clauses under DFARS 216.603-4.

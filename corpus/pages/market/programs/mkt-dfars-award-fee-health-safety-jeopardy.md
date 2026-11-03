@@ -56,7 +56,6 @@ How the company's award-fee plans record the health-and-safety review, and what 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the alternatives and the period condition and removed absence and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Determination routes stated as alternatives, cited to a companion.
 - COMPATIBLE_EXTENSION, 2026-10-30: Restored the jurisdiction condition on the final DoD determination route in the summary.

@@ -58,7 +58,6 @@ Which contracts are placed for the company by another agency, and where the dete
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence, contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of requesting agency and servicing agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of requesting agency and servicing agency.

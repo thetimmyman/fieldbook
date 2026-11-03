@@ -59,7 +59,6 @@ Which women-owned entities in the finance remit hold a certification and which a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined EDWOSB and WOSB definitions and separated codified and RFO clause citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the women-owned set-aside notices.

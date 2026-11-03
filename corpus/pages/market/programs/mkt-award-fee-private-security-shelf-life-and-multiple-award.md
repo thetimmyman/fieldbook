@@ -36,7 +36,7 @@ The senior procurement executive has the authority to make the determination aut
 
 ## How it works
 
-In evaluating the contractor's performance under a contract that includes the clause at DFARS 252.225-7039, the contracting officer shall consider reducing or denying award fees for a period if the contractor fails to comply with the requirements of the clause during that period, and the evaluation also shall consider recovering all or part of the award fees previously paid for that period [@CL-MKT-1640; @CL-MKT-1589; @CL-MKT-1590]. The contracting officer shall also include in any award-fee plan a requirement to review contractor compliance with, or violation of, applicable contract requirements on private security functions [@CL-MKT-1588].
+In evaluating the contractor's performance under a contract that includes the clause at DFARS 252.225-7039, the contracting officer shall consider reducing or denying award fees for a period if the contractor fails to comply with the requirements of the clause during that period, and the evaluation also shall consider recovering all or part of the award fees previously paid for that period [@CL-MKT-1640; @CL-MKT-1589; @CL-MKT-1590]. The contracting officer shall also include in any award-fee plan a requirement to review contractor compliance with, or violation of, applicable contract requirements on private security functions performed in an area of contingency operations, complex contingency operations, or other military operations or exercises designated by the combatant commander [@CL-MKT-1588; @CL-MKT-1639].
 
 For items with a shelf-life of less than 6 months, the use of indefinite-delivery type contracts is to be considered, with orders placed either directly by the users or by central purchasing offices with deliveries direct to users [@CL-MKT-1591]. Whenever an indefinite-delivery contract is issued, the issuing office must furnish all ordering offices sufficient information for them to complete their contract reporting responsibilities, in sufficient time for the activity to prepare its report for the action within 3 working days of the order [@CL-MKT-1641; @CL-MKT-1592]. The single-source determination sits with the senior procurement executive and, for the integrally-related ground, uses the efficiently-perform standard, and a justification executed in accordance with FAR subpart 6.3 and DFARS subpart 206.3 removes the need for the determination [@CL-MKT-1643; @CL-MKT-1593; @CL-MKT-1644].
 
@@ -61,7 +61,6 @@ Which contracts within the finance remit carry an award-fee plan or the private 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the shelf-life and reporting duties, cited the statute and removed explanatory clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Award-fee plan review duty restated as the quoted requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

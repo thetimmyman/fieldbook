@@ -54,7 +54,6 @@ Whether the company bids as a small business, and in which market segments, so t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the certificate and removed meta and trigger wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: referral alternatives wording and cite placement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Referral exceptions stated as alternatives.

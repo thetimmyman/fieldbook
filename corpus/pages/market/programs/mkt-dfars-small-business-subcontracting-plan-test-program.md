@@ -60,7 +60,6 @@ Whether the company has a comprehensive plan, and which entities and contracts i
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed statutory citations and Test Program subcontract flowdown conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Material breach actor and final decision actor restated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the small business subcontracting plan Test Program clause.

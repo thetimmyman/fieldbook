@@ -57,7 +57,6 @@ Which contracts in the finance remit could be offered as HUBZone work, and who s
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed multiple-award applicability cross-references and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: codified clause wording cited to its own claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

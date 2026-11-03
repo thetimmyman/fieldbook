@@ -38,7 +38,7 @@ Contracting officers shall ensure that requirements about the payment of incenti
 
 The construction bar turns on three conditions together: the funding source, the estimate and the place of performance [@CL-MKT-1582]. For contracts in connection with a military construction project or a military family housing project, the prohibition at DFARS 216.301-3 says contracting officers shall not use cost-plus-fixed-fee, cost-plus-award-fee, or cost-plus-incentive-fee contract types [@CL-MKT-1632; @CL-MKT-1700]. The paragraph (c)(i) prohibition does not apply to contracts specifically approved in writing, setting forth the reasons [@CL-MKT-1633]; the Secretaries of the military departments are authorized to approve such contracts that are for environmental work only, provided the environmental work is not classified as construction [@CL-MKT-1583], and the Secretary of Defense or designee must approve such contracts that are not for environmental work only or are for environmental work classified as construction [@CL-MKT-1584].
 
-The signing level for the determination and findings depends on the contract type [@CL-MKT-1634; @CL-MKT-1585]. The weapon system duty applies if the program manager or comparable requiring activity official includes provisions for the payment of incentive fees to the contractor or the imposition of penalties to be paid by the contractor to the Government [@CL-MKT-1587; @CL-MKT-1636; @CL-MKT-1637; @CL-MKT-1638].
+The signing level for the determination and findings depends on the contract type [@CL-MKT-1634; @CL-MKT-1585]. The weapon system duty applies if the program manager or comparable requiring activity official exercising program manager responsibilities includes provisions for the payment of incentive fees to the contractor or the imposition of penalties to be paid by the contractor to the Government [@CL-MKT-1587; @CL-MKT-1636; @CL-MKT-1637; @CL-MKT-1638].
 
 ## Worked example
 
@@ -59,7 +59,6 @@ Which contracts within the finance remit carry a fee arrangement, and who confir
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the exception lead-in, cited the statutory definition and removed contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Weapon system fee or penalty condition stated as an if with two alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

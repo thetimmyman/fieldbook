@@ -58,7 +58,6 @@ Which vessel repair work the company holds under master agreements and how job o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted absence and contrast commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Solicitation groups and emergency conditions stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the period of vessel repair master agreements, job order solicitations and emergency work.

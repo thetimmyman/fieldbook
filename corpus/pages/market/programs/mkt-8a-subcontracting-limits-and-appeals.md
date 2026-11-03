@@ -43,7 +43,7 @@ The contracting officer should request a preaward survey of the 8(a) participant
 
 Synthetic example. The numbers are made up.
 
-The SBA accepts a requirement for the program. The contracting officer then rejects the participant the SBA proposed, and the SBA and the contracting officer cannot agree. The SBA tells the contracting officer of its intent to appeal on working day 3 after it is formally notified of the decision, which is in time. It sends the written appeal to the agency head on working day 12 after that notice of intent, which is also in time. If it had waited until working day 20, the appeal could be treated as withdrawn. The contracting officer suspends action on the acquisition until the agency head decides, unless a written determination of urgent and compelling circumstances is made.
+The SBA accepts a requirement for the program. The contracting officer then rejects the participant the SBA proposed, and the SBA and the contracting officer cannot agree. The SBA tells the contracting officer of its intent to appeal on working day 3 after it is formally notified of the decision, which is in time. It sends the written appeal to the agency head on working day 12 after that notice of intent, which is also in time. If it had waited until working day 20, the appeal could be treated as withdrawn. The contracting officer suspends action on the acquisition until the agency head decides, unless the contracting officer makes a written determination that urgent and compelling circumstances that significantly affect the interests of the United States will not permit waiting for a decision.
 
 ## Never confuse
 
@@ -56,7 +56,6 @@ How subcontract spend is tracked against the participant's own performance, and 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced contrast wording in the confusion section with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate of Competency appeal pointer limited to the notice of intent its claim quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the preaward survey and Certificate of Competency referral.

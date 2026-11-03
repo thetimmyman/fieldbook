@@ -61,6 +61,5 @@ Whether the purchasing system has been reviewed recently enough to bid, and when
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated only and contrast clauses in the confusion section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for certificate of competency outcomes and subcontracting plan review.

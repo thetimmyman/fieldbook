@@ -47,7 +47,7 @@ An 8(a) contractor is performing a services requirement that the SBA accepted in
 
 ## Never confuse
 
-Release of a requirement from the program needs the SBA's concurrence on a written request [@CL-MKT-0523]. Unless a waiver is approved by the SBA, the contracting officer must terminate the contract for convenience upon receipt of a written request by the SBA [@CL-MKT-0521], and the contracting officer's duty to preserve the waiver option applies when the contracting officer receives information that a transfer of ownership or control is planned [@CL-MKT-0520]. A mandatory source is a listed exception to the rule that a follow-on stays in the program [@CL-MKT-0566], and an order accepted into the program under a basic contract that was not accepted into it needs no release to be fulfilled outside the program [@CL-MKT-0730]. Which clauses govern termination for convenience are on the [Termination for convenience clauses and the contracts they go in](../../close-revrec/revenue/cls-termination-for-convenience-clauses.md) card, and small business set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card.
+Release of a requirement for a follow-on non-8(a) procurement, other than a mandatory source, needs the SBA's concurrence on a written request [@CL-MKT-0523]. Unless a waiver is approved by the SBA, the contracting officer must terminate the contract for convenience upon receipt of a written request by the SBA [@CL-MKT-0521], and the contracting officer's duty to preserve the waiver option applies when the contracting officer receives information that a transfer of ownership or control is planned [@CL-MKT-0520]. A mandatory source is a listed exception to the rule that a follow-on stays in the program [@CL-MKT-0566], and an order accepted into the program under a basic contract that was not accepted into it needs no release to be fulfilled outside the program [@CL-MKT-0730]. Which clauses govern termination for convenience are on the [Termination for convenience clauses and the contracts they go in](../../close-revrec/revenue/cls-termination-for-convenience-clauses.md) card, and small business set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card.
 
 ## Company calibration
 
@@ -56,6 +56,5 @@ Which product families and customer groups depend on program awards, and which f
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added timing phrase and a contrast clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for 8(a) contract administration and release of requirements.

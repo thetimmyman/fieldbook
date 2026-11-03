@@ -51,12 +51,11 @@ The FAR Allowable Cost and Payment clause is a condition for using the DFARS cla
 
 ## Company calibration
 
-Which cost-reimbursement contracts and task orders were awarded before the cutoff, whether each includes the FAR Allowable Cost and Payment clause, and whether each was modified to add the employee-rights clause. [@Q-004]
+Which contracts were awarded before the cutoff, whether each includes the FAR Allowable Cost and Payment clause, whether each was modified to add the employee-rights clause, and which task orders are entered under such contracts. [@Q-004]
 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements and an inference about later awards.
 - COMPATIBLE_EXTENSION, 2026-10-31: Task order condition stated as the paragraph words it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Made the purpose sentence tie the cutoff date to the underlying contract, not the task order.

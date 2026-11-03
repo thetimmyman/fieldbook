@@ -58,7 +58,6 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed FAR 19.1307(a) exclusions and separated codified and RFO FAR 2.101 citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of HUBZone small business concern and HUBZone.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of HUBZone small business concern and HUBZone.

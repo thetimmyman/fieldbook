@@ -58,6 +58,5 @@ Which contracts carry the basic clause or an alternate, and who files and accept
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast wording and stated the Test Program condition in full.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD small business subcontracting plan clause.

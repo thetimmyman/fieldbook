@@ -54,7 +54,6 @@ Which of the company's incentive contracts are cost-plus-incentive-fee, fixed-pr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Multiple-incentive contract pairing stated as the source words it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for objective criteria and fixed-price incentive (firm target) contracts under DFARS 216.401-71 and 216.403-1.

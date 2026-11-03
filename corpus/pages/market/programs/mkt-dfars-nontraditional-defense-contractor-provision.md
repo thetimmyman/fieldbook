@@ -56,6 +56,5 @@ Which of the company's customers and product lines may qualify the company as a 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplies and services from nontraditional defense contractors.

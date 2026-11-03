@@ -56,7 +56,6 @@ Which bids and estimates for requirements offered to the program need immediate 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed offering-letter reservation scope and acceptance assumption rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Offering letter purpose and NAICS scope restored.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the separate offers and acceptances rule for repetitive acquisitions.

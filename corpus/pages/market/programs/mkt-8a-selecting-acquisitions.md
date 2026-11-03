@@ -56,7 +56,6 @@ Which product families, customer groups and market segments the company expects 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the three ways of initiating selection and removed an unsupported sequence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Third way restated with its may.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who determines eligibility for the 8(a) program.

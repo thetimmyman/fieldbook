@@ -64,7 +64,6 @@ Which foreign military sales and surge options sit in the order book, which clau
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed combined-procurement scope and conjunctive SPRS verification rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Broad agency announcement options pointer joined by or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD use and exercise of options and the additional option clauses.

@@ -60,6 +60,5 @@ How the company tracks master agreement revisions, job order clauses and exchang
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited clause-prescription lead-in on all clause-list sentences and removed unquoted commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for modifying vessel repair master agreements, their clauses and the exchange solicitation provision.

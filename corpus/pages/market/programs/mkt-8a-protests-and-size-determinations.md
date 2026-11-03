@@ -61,6 +61,5 @@ Whether the entity's ownership and size records would survive a challenge to a c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the or-list of SBA officials and removed contrast clauses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protests and size determinations on 8(a) awards.

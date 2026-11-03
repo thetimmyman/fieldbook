@@ -60,7 +60,6 @@ Who confirms the signature state of each award document and keeps the record of 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast wording and stated the first-page signature condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.300 postaward scope and its limit for subpart 6.1 procedures.

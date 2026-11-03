@@ -56,7 +56,6 @@ How renewable electricity contracts and their business case analyses are tracked
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD multiyear contracting definitions and renewable electricity contracts.

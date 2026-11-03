@@ -35,7 +35,7 @@ A nonprofit organization is not precluded from competing for a contract for reli
 
 ## How it works
 
-The delay clause sets a waiting period during which the SBA may notify the contractor that the 8(a) award is ineligible [@CL-MKT-0933]. The competition provision says a nonprofit organization is not precluded from competing for religious-related services, notwithstanding that it is not a small business concern identified in the FAR [@CL-MKT-0935].
+The delay clause sets a waiting period during which the SBA may notify the contractor that the 8(a) award is ineligible [@CL-MKT-0933]. The competition provision says a nonprofit organization is not precluded from competing for a contract for religious-related services to be performed on a United States military installation, notwithstanding that it is not a small business concern identified in the FAR [@CL-MKT-0935].
 
 ## Worked example
 
@@ -56,7 +56,6 @@ Which purchase orders under the program or religious-related services contracts 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta absence statements and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Religious-services provision restated as notwithstanding.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for delay of performance and religious-related services competition.

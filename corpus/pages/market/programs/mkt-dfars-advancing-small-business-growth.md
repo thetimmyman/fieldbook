@@ -56,6 +56,5 @@ Which of the company's offers are made as a small business, and how close it is 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements not stated in the provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advancing small business growth.

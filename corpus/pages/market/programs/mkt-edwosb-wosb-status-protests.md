@@ -56,7 +56,6 @@ Which bids need immediate support when a status protest could be filed or answer
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed negotiated-acquisition and alternative protest deadline rules in FAR 19.308(e)(1).
 - COMPATIBLE_EXTENSION, 2026-10-31: negotiated deadline continuation, apparent successful offeror, SBA decides wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of WOSB concern eligible under the WOSB Program.

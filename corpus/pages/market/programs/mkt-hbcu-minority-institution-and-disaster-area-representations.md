@@ -59,7 +59,6 @@ Which institutional and disaster area representations in the finance remit are d
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named defined terms in FAR 52.226-5(a) and separated codified and RFO clause citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: residence test conditions joined, services wording follows codified text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

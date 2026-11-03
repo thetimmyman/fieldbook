@@ -58,7 +58,6 @@ Which subcontractors the company counts as Indian organizations, Indian-owned ec
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored best efforts wording and removed inference and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Good faith and Secretary of the Interior determination restored, cited to a companion.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Indian organization and Native Hawaiian small business utilization clause.

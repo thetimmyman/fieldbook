@@ -55,6 +55,5 @@ Which multiple-award solicitations and contracts the company holds or bids, whet
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for additional DoD solicitation provisions and the contract clause for indefinite-delivery contracts under DFARS 216.506-70.

@@ -59,7 +59,6 @@ Whether each bidding entity and contract is inside the finance remit, so the lab
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed unquoted absence and contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: identification sentence limited to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the labor surplus area concern definition.

@@ -60,7 +60,6 @@ How ordering-period end dates and option exercise decisions are tracked for each
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined senior procurement executive limit rule and removed unquoted commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Advisory and assistance statute reference restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contracts with options and the sealed bid option evaluation limit.

@@ -58,7 +58,6 @@ Which solicitations the company answers by facsimile, and which legal entities s
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added compatibility-characteristic examples and removed unquoted contrast and blank-entry commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: facsimile data entries and original bid request limited to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on facsimile proposals and late bids.

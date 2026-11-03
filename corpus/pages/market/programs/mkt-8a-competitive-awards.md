@@ -31,7 +31,7 @@ Shows when an acquisition offered under the program must be competed among eligi
 
 Except as provided in the sole source paragraph, an acquisition offered to the SBA under the 8(a) program shall be awarded on the basis of competition limited to eligible 8(a) participants when listed conditions are met [@CL-MKT-0507]. The listed conditions are joined by "and", so both apply together [@CL-MKT-0508]. The first is a reasonable expectation that at least two eligible and responsible 8(a) participants will submit offers and that award can be made at a fair market price [@CL-MKT-0508]. The second is that the anticipated total value of the contract, including options, will exceed $8.5 million for acquisitions assigned manufacturing NAICS codes and $5.5 million for all other acquisitions [@CL-MKT-0509].
 
-Where an acquisition exceeds the competitive threshold, the SBA may accept the requirement for a sole source 8(a) award on the listed grounds [@CL-MKT-0510]. One listed ground is that there is not a reasonable expectation that at least two eligible and responsible 8(a) participants will submit offers at a fair market price [@CL-MKT-0511]. The grounds are joined by "or", so either is enough [@CL-MKT-0510; @CL-MKT-0511]. The other listed ground is that SBA accepts the requirement on behalf of a concern owned by an Indian tribe or an Alaska Native Corporation [@CL-MKT-0512]. A proposed requirement with an estimated value exceeding the applicable competitive threshold amount shall not be divided into several requirements for lesser amounts in order to use sole source procedures for award to a single firm [@CL-MKT-0576].
+Where an acquisition exceeds the competitive threshold, the SBA may accept the requirement for a sole source 8(a) award on the listed grounds [@CL-MKT-0510]. One listed ground is that there is not a reasonable expectation that at least two eligible and responsible 8(a) participants will submit offers at a fair market price [@CL-MKT-0511]. The grounds are joined by "or", so either is enough [@CL-MKT-0510; @CL-MKT-0511]. The other listed ground is that SBA accepts the requirement on behalf of a concern owned by an Indian tribe or an Alaska Native Corporation [@CL-MKT-0512]. A proposed 8(a) requirement with an estimated value exceeding the applicable competitive threshold amount shall not be divided into several requirements for lesser amounts in order to use 8(a) sole source procedures for award to a single firm [@CL-MKT-0576].
 
 ## How it works
 
@@ -56,7 +56,6 @@ Which bids and estimates for competitive program awards need immediate support, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the requesting actor and removed contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added direct negotiation with competing participants and the timing of negotiations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for competitive 8(a) awards.

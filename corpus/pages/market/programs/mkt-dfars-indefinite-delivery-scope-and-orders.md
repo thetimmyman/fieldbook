@@ -54,7 +54,6 @@ Which multiple-award contracts the company holds, which of their orders are arch
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the qualification-information prohibition and removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stopped the purpose sentence from tying the qualification-information limit to multiple-award contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD indefinite-delivery scope and orders under multiple-award contracts under DFARS 216.500 and 216.505-70.

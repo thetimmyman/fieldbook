@@ -58,7 +58,6 @@ Whether the company acquires items where the Government offers exchange property
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope to the definitions and removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of personal property.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of personal property.
