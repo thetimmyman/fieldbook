@@ -45,7 +45,7 @@ A contract includes the clause at FAR 52.229-12 and does not include the clause 
 
 ## Never confuse
 
-This is not a general ban on the purchase card. The prohibition applies only to a contract that includes the FAR 52.229-12 clause, and it does not apply where the 252.229-7014 clause is also included [@CL-CTF-3838; @CL-CTF-3839]. It also does not decide whether a contract includes either clause.
+This is not a general ban on the purchase card. The prohibition applies to a contract that includes the FAR 52.229-12 clause, and it does not apply where the 252.229-7014 clause is also included [@CL-CTF-3838; @CL-CTF-3839]. It also does not decide whether a contract includes either clause.
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Whether every contract that carries the foreign procurement tax clause also carr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported only from the prohibition scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD prohibition on purchase card payment when the foreign procurement tax clause applies.

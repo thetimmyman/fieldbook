@@ -31,7 +31,7 @@ Shows what makes a payment to the Government a voluntary refund, and when a prog
 
 A voluntary refund is a payment or credit to the Government, under one or more contracts or subcontracts, from a contractor or subcontractor, that no contractual or other legal obligation requires [@CL-CMP-7840]. The section directs that the procedures at PGI 242.7100 be followed for voluntary refunds [@CL-CMP-7841]. It does not name who follows them.
 
-Program managers may conclude that they need technical representation in contractor facilities to perform non-contract administration service technical duties and to provide liaison, guidance and assistance on systems and programs [@CL-CMP-7842]. In those cases the program manager may assign technical representatives under the procedures in 242.7401 [@CL-CMP-7843]. The conclusion and the assignment are the program manager's choice, and the section gives the contractor no role in either.
+Program managers may conclude that they need technical representation in contractor facilities to perform non-contract administration service technical duties and to provide liaison, guidance and assistance on systems and programs [@CL-CMP-7842]. In those cases the program manager may assign technical representatives under the procedures in 242.7401 [@CL-CMP-7843].
 
 A technical representative is a representative of a DoD program, project or system office who performs non-contract administration service technical duties at or near a contractor facility [@CL-CMP-7844]. A technical representative is not a representative of a contract administration or contract audit component, and is not a contracting officer's representative [@CL-CMP-7845].
 
@@ -49,7 +49,7 @@ A program manager concludes that the program needs engineering liaison at a cont
 
 ## Never confuse
 
-A voluntary refund is not a payment that a contract or other legal obligation requires; the absence of such an obligation is what makes it voluntary [@CL-CMP-7840]. A voluntary disclosure of defective pricing is not a voluntary refund as defined in DFARS 242.7100 [@CL-EST-2453]; see [DoD price reasonableness data and voluntary defective pricing disclosure](../../estimating/pricing/est-dfars-price-reasonableness-data-and-voluntary-defective-pricing-disclosure.md). A technical representative is not a contract administration or contract audit representative, and not a contracting officer's representative [@CL-CMP-7845]. For other Government visits to a contractor facility, see [Corporate ACO and facility visits](cmp-corporate-aco-and-facility-visits.md).
+A voluntary refund is not a payment that a contract or other legal obligation requires; the absence of such an obligation is what makes it voluntary [@CL-CMP-7840]. A voluntary disclosure of defective pricing is not a voluntary refund as defined in DFARS 242.7100 and does not waive the Government entitlement to the recovery of any overpayment plus interest on the overpayments in accordance with FAR 15.407-1(b)(7) [@CL-EST-2453]; see [DoD price reasonableness data and voluntary defective pricing disclosure](../../estimating/pricing/est-dfars-price-reasonableness-data-and-voluntary-defective-pricing-disclosure.md). A technical representative is not a contract administration or contract audit representative, and not a contracting officer's representative [@CL-CMP-7845]. For other Government visits to a contractor facility, see [Corporate ACO and facility visits](cmp-corporate-aco-and-facility-visits.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Which refunds have been offered and which program offices place technical repres
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: voluntary refunds: waiver clause added; unsupported remark removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for voluntary refunds and technical representation at contractor facilities.

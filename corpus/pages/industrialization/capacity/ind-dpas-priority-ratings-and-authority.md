@@ -34,7 +34,7 @@ A priority rating consists of the rating symbol, DO or DX, and the program ident
 
 ## How it works
 
-Under the printed text, the Delegate Agencies assign the rating to an order for an approved program [@CL-IND-0163]. The rating symbol sets the priority level, and the program identification symbol does not in itself connote any priority [@CL-IND-0168]. The printed sections do not say which agencies are Delegate Agencies. Unless otherwise agreed to by the concerned agencies, the part is not applicable to listed categories, one of which is food resources and related items, and the section lists further categories [@CL-IND-0164]. What a rated order must contain, and the FAR provision and clause for it, are on [Priorities and allocations: DO and DX rated orders](ind-dpas-rated-orders.md). How a rating is changed or cancelled and used with suppliers is on [DPAS: changing ratings and using rated orders with suppliers](ind-dpas-rating-changes-and-use-of-rated-orders.md), what may not be bought with a rated order is on [DPAS: limits on rated orders and requests for rating authority](ind-dpas-rated-order-limits-and-rating-authority.md), and what an allocation order must contain is on [DPAS: allocation orders and their required elements](ind-dpas-allocation-orders.md).
+Under the printed text, Commerce has authorized the Delegate Agencies to assign priority ratings to orders for industrial resources needed for use in approved programs [@CL-IND-0163]. The rating symbol sets the priority level, and the program identification symbol does not in itself connote any priority [@CL-IND-0168]. The printed sections do not say which agencies are Delegate Agencies. Unless otherwise agreed to by the concerned agencies, the part is not applicable to listed categories, one of which is food resources and related items, and the section lists further categories [@CL-IND-0164]. What a rated order must contain, and the FAR provision and clause for it, are on [Priorities and allocations: DO and DX rated orders](ind-dpas-rated-orders.md). How a rating is changed or cancelled and used with suppliers is on [DPAS: changing ratings and using rated orders with suppliers](ind-dpas-rating-changes-and-use-of-rated-orders.md), what may not be bought with a rated order is on [DPAS: limits on rated orders and requests for rating authority](ind-dpas-rated-order-limits-and-rating-authority.md), and what an allocation order must contain is on [DPAS: allocation orders and their required elements](ind-dpas-allocation-orders.md).
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which customer orders carry DO or DX ratings, and which agency assigned each rat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Delegate Agency authority worded as authorized
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DPAS authority and the DO and DX priority levels.

@@ -33,7 +33,7 @@ Direct labor cost estimates are primarily developed from historical cost data, w
 
 ## How it works
 
-Technical data is non-accounting engineering, manufacturing and operational documentation that supports and quantifies direct labor hours, especially when historical cost accounting data is unavailable or insufficient [@CL-EST-0705]. The historical baseline must be normalized by removing nonrecurring costs, unique past inefficiencies and outdated data [@CL-EST-0703]. It must also come from the same manufacturing facility intended for the proposed effort, reflect current manufacturing practices, and show a consistent relationship between lot costs and equivalent units produced [@CL-EST-0704]. For direct labor hours built from technical data, the primary regulatory requirements are two cost accounting standards [@CL-EST-0706]. They require the method for estimating labor hours to be consistent with how the contractor actually accumulates and records those costs [@CL-EST-0707].
+Technical data is non-accounting engineering, manufacturing and operational documentation that supports and quantifies direct labor hours, especially when historical cost accounting data is unavailable or insufficient [@CL-EST-0705]. The historical baseline must be normalized by removing nonrecurring costs, unique past inefficiencies and outdated data [@CL-EST-0703]. It must also come from the same manufacturing facility intended for the proposed effort, reflect current manufacturing practices, and show a consistent relationship between lot costs and equivalent units produced [@CL-EST-0704]. The primary regulatory requirements for evaluating direct labor hour estimates based on technical data are in CAS 401 and CAS 402 [@CL-EST-0706]. These standards require that a contractor's methods for estimating labor hours must be consistent with how the contractor actually accumulates and records those costs [@CL-EST-0707].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ That the sources, methods, and rationale behind each direct labor estimate are r
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored 'for evaluating' and the standards' names in the technical-data requirements sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for direct labor estimates from historical and technical data.

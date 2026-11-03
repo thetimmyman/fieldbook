@@ -36,7 +36,7 @@ The section on errors found by the Department of Labor applies where the Departm
 
 ## How it works
 
-Before the closing date, the contracting officer obtains a determination for each locality where services may be performed and adds more if a potential offeror in a new place appears [@CL-CMP-6748; @CL-CMP-6749]. Where a determination or an incumbent agreement looks wrong, the contracting officer contacts the agency labor advisor [@CL-CMP-6750; @CL-CMP-6751; @CL-CMP-6753]. Where the Department of Labor finds the error, its notification starts the contracting officer's deadline for including the clause and the determination [@CL-CMP-6754]. For a contract subject to the cited provision, the Administrator may require retroactive application [@CL-CMP-6755]. The contracting officer must equitably adjust the price for the changed cost of performance [@CL-CMP-6916].
+Where the contracting officer can identify all the possible places of performance, the officer obtains a determination for each locality where services may be performed, and the officer obtains more if, before the closing date for submission of offers, the officer learns of a potential offeror in a previously unidentified place [@CL-CMP-6748; @CL-CMP-6749]. Where a determination or an incumbent agreement looks wrong, the contracting officer contacts the agency labor advisor [@CL-CMP-6750; @CL-CMP-6751; @CL-CMP-6753]. Where the Department of Labor finds the error, its notification starts the contracting officer's deadline for including the clause and the determination [@CL-CMP-6754]. For a contract subject to the cited provision, the Administrator may require retroactive application [@CL-CMP-6755]. The contracting officer must equitably adjust the price for the changed cost of performance [@CL-CMP-6916].
 
 ## Worked example
 
@@ -60,4 +60,5 @@ Confirm which solicitations identify every possible place of performance and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the closing-date condition to added places only and restated the all-places condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract wage determinations where places of performance are identified.

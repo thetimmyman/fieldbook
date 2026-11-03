@@ -29,7 +29,7 @@ Sets allowability boundaries, maximum per diem limitations, and documentation re
 | Text status | Final [@CL-CMP-0109] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0109] |
 
-Costs incurred by contractor personnel on official company business for transportation, lodging, and meals are allowable subject to regulatory limitations and per diem ceilings [@CL-CMP-0109]. When actual costs exceeding per diem are authorized in special situations, a receipt is required for each expenditure of $75.00 or more [@CL-CMP-0110]. Airfare costs in excess of the lowest priced airfare available during normal business hours are unallowable unless an exception applies and is documented [@CL-CMP-0111; @CL-CMP-0812; @CL-CMP-0813].
+Costs incurred by contractor personnel on official company business are allowable, subject to the limitations contained in the travel cost principle [@CL-CMP-0109]; those limitations include a daily maximum per diem for lodging, meals, and incidental expenses [@CL-CMP-8820; @CL-CMP-9750]. When actual costs above the maximum per diem rates are allowed in special or unusual situations, one of the conditions that must all be met is that a receipt is required for each expenditure of $75.00 or more [@CL-CMP-0110]. Airfare costs in excess of the lowest priced airfare available to the contractor during normal business hours are unallowable except in the listed circumstances, and for excess airfare to be allowable the applicable condition must be documented and justified [@CL-CMP-0111; @CL-CMP-0812; @CL-CMP-0813].
 
 ## How it works
 
@@ -45,7 +45,7 @@ An employee travels on official business where the standard per diem ceiling for
 
 ## Never confuse
 
-Official travel on company business is allowable subject to the limitations of the travel cost principle [@CL-CMP-0109], including the daily per diem ceilings for lodging, meals and incidental expenses [@CL-CMP-8820; @CL-CMP-9750], and only if the date and place, purpose of the trip, and traveler's name and title or relationship to the contractor are documented [@CL-CMP-8819]. Using the actual expense method requires an approved written justification and a receipt for each expenditure of $75.00 or more rather than automatic reimbursement [@CL-CMP-0110]. Including unallowable travel costs in rate submissions exposes the contractor to penalties; see [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md).
+Official travel on company business is allowable subject to the limitations of the travel cost principle [@CL-CMP-0109], including the daily per diem ceilings for lodging, meals and incidental expenses [@CL-CMP-8820; @CL-CMP-9750], and only if the date and place, purpose of the trip, and traveler's name and title or relationship to the contractor are documented [@CL-CMP-8819]. Using the higher actual expense method requires, among other conditions, an approved written justification and a receipt for each expenditure of $75.00 or more rather than automatic reimbursement [@CL-CMP-8585; @CL-CMP-0110]. Including unallowable travel costs in rate submissions exposes the contractor to penalties; see [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md).
 
 The codified text says that for airfare above the lowest priced airfare to be allowable the applicable condition must be documented and justified [@CL-CMP-0813], whereas the RFO paragraph (b)(2) says airfare above the lowest priced airfare that meets the paragraph (b)(1) criteria is allowable if documented and justified [@CL-CMP-8944].
 
@@ -59,5 +59,6 @@ Whether advance agreements or formal written procedures govern travel per diem a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the allowable-travel, receipt and airfare sentences with their quotes and cited the written-justification claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for travel costs.

@@ -47,7 +47,7 @@ Answer: the representation is the good faith effort statement made in the offer,
 
 ## Never confuse
 
-The representation provision is a statement the offeror makes in its offer, while the clause is the contract duty with its flowdown; they are separate texts [@CL-SUP-1464; @CL-SUP-1462]. The representation is a statement that the Offeror has made a good faith effort [@CL-SUP-1464]. Forced or indentured child labor is a different topic, covered on [Forced or indentured child labor violations, remedies and clauses](../../compliance/regulatory-framework/cmp-forced-child-labor-violations-remedies-and-clauses.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md). The personal protective equipment clause also reaches commercial subcontracts, but only for subcontracts valued above $150,000 for covered items [@CL-SUP-1521]; it is covered on [Restrictions on hand tools, personal protective equipment and satellite components](sup-dfars-hand-tools-ppe-and-satellite-components-restrictions.md).
+The representation provision is a statement the offeror makes in its offer, while the clause is the contract duty with its flowdown; they are separate texts [@CL-SUP-1464; @CL-SUP-1462]. The representation is a statement that the Offeror has made a good faith effort [@CL-SUP-1464]. Forced or indentured child labor is a different topic, covered on [Forced or indentured child labor violations, remedies and clauses](../../compliance/regulatory-framework/cmp-forced-child-labor-violations-remedies-and-clauses.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md). The personal protective equipment clause also reaches commercial subcontracts, in subcontracts valued above $150,000 that are for the acquisition of covered items [@CL-SUP-1521]; it is covered on [Restrictions on hand tools, personal protective equipment and satellite components](sup-dfars-hand-tools-ppe-and-satellite-components-restrictions.md).
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which executed contracts carry the provision or the clause, and whether subcontr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: personal protective equipment flowdown sentence no longer adds an only
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Xinjiang Uyghur Autonomous Region representation and clause.

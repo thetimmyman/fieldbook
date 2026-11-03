@@ -29,7 +29,7 @@ Shows how a contractor must identify and exclude unallowable costs from billings
 | Text status | Final [@CL-CMP-0207] |
 | Applies to | Costs expressly unallowable or mutually agreed unallowable [@CL-CMP-0207] |
 
-Costs that are expressly unallowable or mutually agreed unallowable must be identified and excluded from any billing, claim, or proposal [@CL-CMP-0207]. Unallowable costs covered by 9904.405-40(a) through (d) that would normally be part of a regular indirect-cost allocation base remain in that base [@CL-CMP-0208]. The visibility required can be met by segregating unallowable costs in separate accounts in the regular books of account [@CL-CMP-0209].
+Costs that are expressly unallowable or mutually agreed unallowable must be identified and excluded from any billing, claim, or proposal applicable to a Government contract [@CL-CMP-0207]. Unallowable costs covered by 9904.405-40(a) through (d) that would normally be part of a regular indirect-cost allocation base remain in that base [@CL-CMP-0208]. One acceptable alternative practice for providing visibility for incurred costs is the segregation of unallowable costs in separate accounts maintained for this purpose in the regular books of account [@CL-CMP-0209].
 
 ## How it works
 
@@ -55,5 +55,6 @@ How unallowable costs are kept out of rate and billing pools, and who reviews th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored applicable to a Government contract and framed segregation in separate accounts as one acceptable alternative practice for visibility.
 - COMPATIBLE_EXTENSION, 2026-10-29: Noted the paragraph relocated into this section from the rescinded CAS 404 and 409.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accounting for unallowable costs.

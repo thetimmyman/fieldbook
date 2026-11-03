@@ -30,7 +30,7 @@ Explains how transit arrangements are evaluated, how an offeror proposes to use 
 
 ### Transit Arrangements
 
-The Transit Arrangements provision is inserted in solicitations when benefits may accrue to the Government because transit arrangements may apply [@CL-SUP-2458]. The lowest appropriate common carrier transportation costs, including the offeror's through transit rates and charges when applicable, from the offeror's shipping points, via the transit point, to the ultimate destination will be used in evaluating offers [@CL-SUP-2459]. The provision has blanks for the transit points and the destinations, which are specific to each solicitation [@CL-SUP-2525].
+The Transit Arrangements provision is inserted in solicitations when benefits may accrue to the Government because transit arrangements may apply [@CL-SUP-2458]. The lowest appropriate common carrier transportation costs, including the offeror's through transit rates and charges when applicable, from the offeror's shipping points, via the transit point, to the ultimate destination will be used in evaluating offers [@CL-SUP-2459]. The provision ends with headings for the transit points and the destinations [@CL-SUP-2525].
 
 ### Transportation Transit Privilege Credits
 
@@ -40,7 +40,7 @@ The offeror ships the supplies under commercial bills of lading and pays all rem
 
 The amount the offeror quotes represents the transportation costs in cents per 100 pounds (freight rate) for full carload or truckload shipments of the supplies from the offeror's original source, via the offeror's transit plant or point, to the Government destinations [@CL-SUP-2527]. The quoted amount includes the carrier's transit privilege charge, less the applicable transit credit, which is the amount (rate) initially paid to the carrier for shipment from the original source to the offeror's transit plant or point [@CL-SUP-2528].
 
-The rate per CWT quoted will be used by the Government to evaluate the offered f.o.b. origin price unless a lower rate is applicable on the date of bid opening (or the closing date specified for receipt of offers) [@CL-SUP-2464]. To have the offer evaluated on the quoted rate, the offeror must insert the remaining transportation charges that it agrees to pay, including any transit charges and subject to Government reimbursement as the clause explains, to the destinations listed in the Schedule [@CL-SUP-2529]. The clause provides a blank headed rate per CWT in cents to destination, which the offeror completes for each solicitation [@CL-SUP-2530].
+The rate per CWT quoted will be used by the Government to evaluate the offered f.o.b. origin price unless a lower rate is applicable on the date of bid opening (or the closing date specified for receipt of offers) [@CL-SUP-2464]. To have the offer evaluated on the quoted rate, the offeror must insert the remaining transportation charges that it agrees to pay, including any transit charges and subject to Government reimbursement as the clause explains, to the destinations listed in the Schedule [@CL-SUP-2529]. The clause provides a blank headed rate per CWT in cents to destination, below which the offeror inserts its remaining charges [@CL-SUP-2529; @CL-SUP-2530].
 
 ## How it works
 
@@ -66,5 +66,6 @@ Whether the company holds transit privileges it can apply, and what shipping and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed statements about who completes the blanks, which the clause does not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transit arrangements and transportation transit privilege credits.

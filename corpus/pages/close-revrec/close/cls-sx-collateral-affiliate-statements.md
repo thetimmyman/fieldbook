@@ -30,7 +30,7 @@ Explains when the financial statements of an affiliate whose securities collater
 
 The requirements of the section shall apply to each registered security issued and outstanding before January 4, 2021, unless the requirements of § 210.13-02 apply [@CL-CLS-0393]. For each of the registrant's affiliates whose securities constitute a substantial portion of the collateral for any class of securities registered or being registered, there shall be filed the financial statements that would be required if the affiliate were a registrant and required to file financial statements [@CL-CLS-0394; @CL-CLS-0395]. However, financial statements need not be filed under the section for any person whose statements are otherwise separately included in the filing on an individual basis or on a basis consolidated with its subsidiaries [@CL-CLS-0396].
 
-Securities of a person are deemed to constitute a substantial portion of collateral if the greatest of the listed amounts equals 20 percent or more of the principal amount of the secured class of securities [@CL-CLS-0397; @CL-CLS-0398]. The listed amounts are the aggregate principal amount, par value or book value of the securities as carried by the registrant, and the market value of the securities [@CL-CLS-0397]. The section does not name who files or who determines the values [@CL-CLS-0394; @CL-CLS-0397].
+Securities of a person are deemed to constitute a substantial portion of collateral if the greatest of the listed amounts equals 20 percent or more of the principal amount of the secured class of securities [@CL-CLS-0397; @CL-CLS-0398]. The listed amounts are the aggregate principal amount, par value or book value of the securities as carried by the registrant, or the market value of the securities, whichever is the greatest [@CL-CLS-0397]. The section does not name who files or who determines the values [@CL-CLS-0394; @CL-CLS-0397].
 
 ## How it works
 
@@ -58,4 +58,5 @@ Which affiliates' securities collateralize a registered issue, which of the list
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Listed amounts now stated as alternatives, whichever is the greatest.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for statements of affiliates whose securities collateralize a registered issue.

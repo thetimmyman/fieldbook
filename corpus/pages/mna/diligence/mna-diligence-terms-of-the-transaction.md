@@ -36,7 +36,7 @@ If the offer is for less than all securities of a class, the information must in
 
 For a merger or similar transaction, the information must include a brief description of the transaction, the consideration offered to security holders, the reasons for engaging in the transaction and the vote required for approval [@CL-MNA-0292]. It must also include, if material, the same three entries on rights, accounting treatment and federal income tax consequences [@CL-MNA-0293].
 
-If the consideration offered includes securities exempt from registration under the Securities Act of 1933, the instruction to paragraph (a) calls for a description of the securities that complies with Item 202 of Regulation S-K [@CL-MNA-0294]. The instruction sets out conditions for not providing that description, and the first is that the issuer of the securities meets the requirements of the cited General Instructions of Form S-3 and elects to furnish information by incorporation by reference [@CL-MNA-0295]. A further condition is that only capital stock is to be issued and that securities of the same class are registered under section 12 of the Exchange Act and either are listed for trading or admitted to unlisted trading privileges on a national securities exchange [@CL-MNA-0296]. The sentence closes with a further alternative: the securities are ones for which bid and offer quotations are reported in an automated quotations system operated by a national securities association [@CL-MNA-0297].
+If the consideration offered includes securities exempt from registration under the Securities Act of 1933, the instruction to paragraph (a) calls for a description of the securities that complies with Item 202 of Regulation S-K [@CL-MNA-0294]. The instruction says when that description is not required, in a single sentence with four items separated by semicolons. The first is that the issuer of the securities meets the requirements of the cited General Instructions of Form S-3 and elects to furnish information by incorporation by reference [@CL-MNA-0295]. The second is that only capital stock is to be issued, and the third is that securities of the same class are registered under section 12 of the Exchange Act and either are listed for trading or admitted to unlisted trading privileges on a national securities exchange [@CL-MNA-0296]. The sentence joins the first three items with "and" and introduces the fourth with "or": the securities are ones for which bid and offer quotations are reported in an automated quotations system operated by a national securities association [@CL-MNA-0296; @CL-MNA-0297].
 
 ### Other required statements
 
@@ -68,4 +68,5 @@ The company confirms which deal form it is disclosing, which paragraphs apply, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Securities-description exemption list restated as the instruction prints it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for terms of the transaction.

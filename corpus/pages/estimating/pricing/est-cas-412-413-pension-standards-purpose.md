@@ -37,7 +37,7 @@ A purpose of the adjustment and allocation Standard is to provide guidance for a
 
 The two Standards divide the subject: one says how the components of pension cost are determined and measured and fixes the basis for assigning pension cost to cost accounting periods [@CL-EST-2914; @CL-EST-2915]. The other adjusts pension cost by measuring actuarial gains and losses, assigns those gains and losses to cost accounting periods, and gives the bases for allocating pension cost to segments [@CL-EST-2918; @CL-EST-2919]. Both describe their provisions as enhancing uniformity and consistency in accounting for pension costs [@CL-EST-2916; @CL-EST-2920]. The composition Standard excludes employee stock ownership plans that meet the definition of a pension plan, and the section treats them as deferred compensation covered under 9904.415 [@CL-EST-2917; @CL-EST-3036].
 
-Both sections are statements of purpose. They name no official who decides, no approval route, no threshold, no deadline and no exception other than the employee stock ownership plan exclusion, and they state no duty for a particular party; the bases and techniques are in the main cards.
+The bases and techniques are in the main cards.
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Whether each business unit is under full, modified or no coverage, and how pensi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose sections omit removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes of the pension cost composition and pension cost adjustment Standards.

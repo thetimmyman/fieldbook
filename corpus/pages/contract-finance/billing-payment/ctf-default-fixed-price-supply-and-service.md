@@ -35,7 +35,7 @@ If the Government terminates, it may acquire, under the terms and in the manner 
 
 ## How it works
 
-The Government must first give written notice of default, and the grounds for progress and other provisions work through a cure period [@CL-CTF-2082; @CL-CTF-2084]. After termination the Government may reprocure, and the extra cost falls on the contractor unless the excusable-delay rule applies [@CL-CTF-2085; @CL-CTF-2086].
+The Government may terminate by written notice of default, and for the grounds for progress and other provisions it may exercise that right if the contractor does not cure within the cure period [@CL-CTF-2082; @CL-CTF-2084]. After termination the Government may acquire similar supplies or services, and the contractor is liable for the excess costs, subject to the excusable-failure rule in paragraph (c) and the subcontractor-default rule in paragraph (d) [@CL-CTF-2085; @CL-CTF-2086; @CL-CTF-2105; @CL-CTF-2087].
 
 In the paragraph on a subcontractor's default, the conditions are that the failure to perform is caused by the default of a subcontractor at any tier, the cause of the default is beyond the control of both the contractor and the subcontractor, and the cause is without the fault or negligence of either [@CL-CTF-2105]. Then the contractor is not liable for any excess costs for failure to perform, unless the subcontracted supplies or services were obtainable from other sources in sufficient time for the contractor to meet the required delivery schedule [@CL-CTF-2087].
 
@@ -73,5 +73,7 @@ The share of fixed-price supply and service contracts in the contract mix, by re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: reprocurement liability tied to paragraphs (c) and (d).
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default under fixed-price supply and service contracts.

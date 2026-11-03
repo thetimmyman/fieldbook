@@ -31,7 +31,7 @@ Shows what the contractor performance information subpart covers and excludes, a
 
 The subpart provides policies and establishes responsibilities for recording and maintaining contractor performance information [@CL-CMP-7823]. It does not apply to procedures used by agencies in determining fees under award or incentive fee contracts [@CL-CMP-7824]. However, the fee amount paid to contractors should be reflective of the contractor's performance, and the past performance evaluation should closely parallel and be consistent with the fee determinations [@CL-CMP-7825].
 
-The contracting officer shall make every reasonable effort to respond in writing within 30 days to any written request to the contracting officer from a small business concern with respect to a contract administration matter [@CL-CMP-7826]. If the contracting officer cannot respond within the 30-day period, the contracting officer shall, within the period, transmit to the contractor a written notification of the specific date the contracting officer expects to respond [@CL-CMP-7827]. The 30-day response rule does not apply to a request for a contracting officer decision under chapter 71 of title 41 of the United States Code, Contract Disputes [@CL-CMP-7828].
+The contracting officer shall make every reasonable effort to respond in writing within 30 days to any written request to the contracting officer from a small business concern with respect to a contract administration matter [@CL-CMP-7826]. If the contracting officer cannot respond within the 30-day period, the contracting officer shall, within the period, transmit to the contractor a written notification of the specific date the contracting officer expects to respond [@CL-CMP-7827]. The 30-day response rule does not apply to a request for a contracting officer decision under chapter 71 of title 41 of the United States Code, Contract Disputes [@CL-CMP-7826; @CL-CMP-7828].
 
 ## How it works
 
@@ -51,7 +51,7 @@ On another contract, a small business concern sends a written request on day 0 a
 
 ## Never confuse
 
-The scope exclusion for fee-determination procedures is not an exclusion of the whole subpart, because the fee sentence says the past performance evaluation should closely parallel the fee determination [@CL-CMP-7824; @CL-CMP-7825]. These two sections also do not cover novation and change-of-name agreements, which are on [Novation and change-of-name agreements](../../mna/diligence/mna-novation-agreements.md).
+The scope exclusion for fee-determination procedures is not an exclusion of the whole subpart, because the fee sentence says the past performance evaluation should closely parallel the fee determination [@CL-CMP-7824; @CL-CMP-7825]. Novation and change-of-name agreements are on [Novation and change-of-name agreements](../../mna/diligence/mna-novation-agreements.md).
 
 The scope section is codified FAR 42.1500 and the small business response rule is codified FAR 42.1601 [@CL-CMP-7823; @CL-CMP-7826], and the RFO text numbers them FAR 42.1100 and FAR 42.1201 [@CL-CMP-0128; @CL-CMP-0129]. Codified FAR 42.1500 excludes fee-determination procedures from the subpart [@CL-CMP-7824], while RFO FAR 42.1100 consists of the scope sentence on recording and maintaining contractor performance information [@CL-CMP-0128].
 
@@ -63,5 +63,7 @@ Which written requests come from small business concerns, and who owns each resp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited scope statement about novation.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the 30-day response period.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the performance information subpart scope and the small business response deadline.

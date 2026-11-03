@@ -65,7 +65,7 @@ An employee of a subcontractor, on a contract with an agency that is not DoD, NA
 
 ## Never confuse
 
-The reprisal complaint is not the internal confidentiality agreement prohibition. This card only defines the term [@CL-CMP-7742]. The prohibition has its own page, [Internal confidentiality agreement prohibition](cmp-internal-confidentiality-agreement-prohibition.md). The Inspector General definition does not apply to section 3.907 [@CL-CMP-7741]. An agreement arising out of civil litigation, or one that employees or subcontractors sign at the behest of a Federal agency, falls outside the internal confidentiality agreement definition [@CL-CMP-7743]. A subcontract is the contract entered into by a subcontractor, while a subcontractor is the supplier, distributor, vendor or firm [@CL-CMP-7744; @CL-CMP-7745]. The wider treatment of the protections is in [Whistleblower protections](cmp-whistleblower-protections.md).
+The reprisal complaint is not the internal confidentiality agreement prohibition. This card only defines the term [@CL-CMP-7742]. The prohibition has its own page, [Internal confidentiality agreement prohibition](cmp-internal-confidentiality-agreement-prohibition.md). The Inspector General definition does not apply to section 3.907 [@CL-CMP-7740]. An agreement arising out of civil litigation, or one that employees or subcontractors sign at the behest of a Federal agency, falls outside the internal confidentiality agreement definition [@CL-CMP-7743]. A subcontract is any contract as defined in subpart 2.1 entered into by a subcontractor to furnish supplies or services for performance of a prime contract or a subcontract, and includes but is not limited to purchase orders and changes and modifications to purchase orders [@CL-CMP-7744]. A subcontractor is any supplier, distributor, vendor or firm (including a consultant) that furnishes supplies or services to or for a prime contractor or another subcontractor [@CL-CMP-7745]. The wider treatment of the protections is in [Whistleblower protections](cmp-whistleblower-protections.md).
 
 ## Company calibration
 
@@ -75,4 +75,5 @@ Which retaliation complaints and inspector general requests are open, who owns e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: whistleblower definitions: subcontract and subcontractor scope; IG definition citation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for whistleblower protections.

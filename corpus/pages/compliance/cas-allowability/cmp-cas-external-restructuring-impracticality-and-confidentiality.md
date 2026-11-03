@@ -51,7 +51,7 @@ On 2026-03-02 an agency head determines that it is impractical to secure the Dis
 
 ## Never confuse
 
-Award without a Statement is not the same as an exemption from the Statement requirement. The agency head may authorize award without obtaining the Statement after determining that securing it is impractical, and the section words that determination as one made although submission is required [@CL-CMP-8686]. A separate section of FAR says that, where the agency head has authorized award without obtaining submission, the contractor shall submit the required Disclosure Statement and the cognizant Federal agency official shall determine adequacy as soon as possible after the award [@CL-CMP-7037].
+Award without a Statement is not the same as an exemption from the Statement requirement. The agency head may authorize award without obtaining the Statement after determining that securing it is impractical, and the section words that determination as one made although submission is required [@CL-CMP-8686]. A separate section of FAR says that, where the agency head has authorized award without obtaining submission, the contractor shall submit the required Disclosure Statement and the cognizant Federal agency official shall determine adequacy as soon as possible after the award [@CL-CMP-7036; @CL-CMP-7037].
 
 A notice of confidentiality is not a filing relief. Section 9903.202-4 speaks only of protection and non-release outside the Government, and it does not say that the notice changes any filing or reporting duty [@CL-CMP-8689]. The relief for external restructuring is also limited: it removes only the contract price and cost adjustment requirements of part 9903 and says nothing here about other requirements [@CL-CMP-8685]. The related cards are [Disclosure Statement responsibilities](../cas-allowability/cmp-cas-disclosure-statement-responsibilities.md) and [Practice change proposal disclosure](../cas-allowability/cmp-cas-practice-change-proposal-disclosure.md).
 
@@ -63,4 +63,5 @@ Whether the company has an advance agreement with the government on any cost, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim that names the agency head.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for external restructuring changes, impractical disclosure statements and confidential content.

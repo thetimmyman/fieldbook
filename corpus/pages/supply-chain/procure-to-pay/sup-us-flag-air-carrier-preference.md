@@ -29,13 +29,13 @@ Explains when a contractor must use a United States-flag air carrier for interna
 | Text status | Final [@CL-SUP-2022] |
 | Applies to | International air transportation of personnel (and their personal effects) or property in performing work under the contract [@CL-SUP-2023], and subcontracts and purchases under it that may involve international air transportation [@CL-SUP-2026] |
 
-If a United States-flag air carrier is available, the contractor uses one, in performing work under the contract, for international air transportation of personnel (and their personal effects) or property [@CL-SUP-2023]. The clause states that Government contractors and subcontractors, like Federal agencies, must use these carriers for United States Government-financed international air transportation, to the extent that service by those carriers is available [@CL-SUP-2024].
+If a United States-flag air carrier is available, the contractor uses one, in performing work under the contract, for international air transportation of personnel (and their personal effects) or property [@CL-SUP-2023]. The clause recites that the Fly America Act (49 U.S.C. 40118) requires all Federal agencies and Government contractors and subcontractors to use these carriers for United States Government-financed international air transportation of personnel (and their personal effects) or property, to the extent that service by those carriers is available [@CL-SUP-9716; @CL-SUP-2024].
 
 ## How it works
 
 International air transportation means transportation by air between a place in the United States and a place outside it, or between two places both outside the United States [@CL-SUP-2022]. In the clause, United States means the 50 States, the District of Columbia and outlying areas [@CL-SUP-2147]. A United States-flag air carrier is an entity granted authority to provide air transportation in the form of a certificate of public convenience and necessity under section 41102 of title 49 of the United States Code [@CL-SUP-2148].
 
-If the contractor selects a carrier other than a United States-flag air carrier for international air transportation, it includes a statement on the vouchers involving that transportation, essentially in the prescribed form [@CL-SUP-2025]. The statement says that international air transportation by a United States-flag air carrier was not available or that it was necessary to use foreign-flag air carrier service, and it gives the reasons [@CL-SUP-2149]. The clause recites that regulations are to disallow, in the absence of satisfactory proof of the necessity for foreign-flag air transportation, expenditures from funds appropriated or otherwise established for the account of the United States for international air transportation secured aboard a foreign-flag air carrier [@CL-SUP-2150], where a United States-flag air carrier is available to provide such services [@CL-SUP-2183].
+If the contractor selects a carrier other than a United States-flag air carrier for international air transportation, it includes a statement on the vouchers involving that transportation, essentially in the prescribed form [@CL-SUP-2025]. The statement says that international air transportation by a United States-flag air carrier was not available or that it was necessary to use foreign-flag air carrier service, and it gives the reasons [@CL-SUP-2149]. The clause also recites that the Act requires the General Services Administration to issue regulations that, in the absence of satisfactory proof of the necessity for foreign-flag air transportation, disallow expenditures from funds appropriated or otherwise established for the account of the United States for international air transportation secured aboard a foreign-flag air carrier [@CL-SUP-9717; @CL-SUP-2150], where a United States-flag air carrier is available to provide such services [@CL-SUP-2183].
 
 The clause travels down: its substance, including the subcontracting paragraph, goes into each subcontract or purchase under the contract that may involve international air transportation [@CL-SUP-2026].
 
@@ -49,7 +49,7 @@ A contractor sends two engineers from a plant in Ohio to a supplier in Germany, 
 
 ## Never confuse
 
-The duty turns on whether the transportation is international air transportation and on the availability of a United States-flag air carrier; a flight between two places both outside the United States is still international air transportation [@CL-SUP-2022; @CL-SUP-2023]. The voucher statement gives reasons for using a foreign-flag carrier; it does not by itself establish satisfactory proof of necessity [@CL-SUP-2149; @CL-SUP-2150].
+The duty turns on whether the transportation is international air transportation and on the availability of a United States-flag air carrier; a flight between two places both outside the United States is still international air transportation [@CL-SUP-2022; @CL-SUP-2023]. The voucher statement gives reasons for using a foreign-flag carrier; the clause separately recites that expenditures are to be disallowed in the absence of satisfactory proof of the necessity for foreign-flag air transportation [@CL-SUP-2149; @CL-SUP-2150].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ How the company books international air travel and shipments, where the statemen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the Fly America Act and the General Services Administration as the source of the requirements; removed an unsupported statement about vouchers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the preference for United States-flag air carriers.

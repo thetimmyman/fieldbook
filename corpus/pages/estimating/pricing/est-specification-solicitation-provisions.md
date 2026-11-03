@@ -41,9 +41,9 @@ The contracting officer shall insert a provision substantially the same as the p
 
 The contracting officer chooses the provision from facts about each cited specification: whether it is listed in the GSA Index or available in ASSIST, whether it is furnished with the solicitation, and, for a specification outside the Index, whether it can be obtained from a designated source or examined at a specified location [@CL-EST-1030; @CL-EST-1032; @CL-EST-1034; @CL-EST-1036].
 
-The first two prescriptions call for the provisions at 52.211-1 and 52.211-2 [@CL-EST-1029; @CL-EST-1031]. The second two allow a provision substantially the same as the provisions at 52.211-3 and 52.211-4 [@CL-EST-1033; @CL-EST-1035]. A solicitation's wording for those two may therefore differ from the printed provision text.
+The first two prescriptions call for the provisions at 52.211-1 and 52.211-2 [@CL-EST-1029; @CL-EST-1031]. The second two allow a provision substantially the same as the provisions at 52.211-3 and 52.211-4 [@CL-EST-1033; @CL-EST-1035].
 
-The prescriptions for the provisions at 52.211-1, 52.211-2 and 52.211-3 apply to specifications not furnished with the solicitation [@CL-EST-1030; @CL-EST-1032; @CL-EST-1034]. The text of the prescription for the provision at 52.211-4 says that the specification is not listed in the Index and is available for examination at a specified location [@CL-EST-1036].
+The prescriptions for the provisions at 52.211-1, 52.211-2 and 52.211-3 apply to specifications not furnished with the solicitation [@CL-EST-1030; @CL-EST-1032; @CL-EST-1034]. The prescription for the provision at 52.211-4 applies to solicitations that cite specifications that are not listed in the Index and are available for examination at a specified location [@CL-EST-1036].
 
 For how an offeror reaches the document under each provision, see [Where to get specifications, standards and data item descriptions](est-availability-of-specifications-standards-and-dids.md) and [Examining specifications and proposing alternatives to Government-unique standards](est-specification-examination-and-alternative-standards.md). For the duty to identify documents and to furnish them or give instructions, see [Identifying, citing and maintaining specifications and standards](est-specification-identification-and-maintenance.md).
 
@@ -55,9 +55,9 @@ A solicitation cites one coating specification listed in the GSA Index and not f
 
 ## Never confuse
 
-The four provisions are chosen by where the cited document is listed and how it can be reached. They are not interchangeable [@CL-EST-1030; @CL-EST-1032; @CL-EST-1034; @CL-EST-1036].
+The four provisions are chosen by where the cited document is listed and how it can be reached [@CL-EST-1030; @CL-EST-1032; @CL-EST-1034; @CL-EST-1036].
 
-A provision substantially the same as the prescribed provision is not the provision itself. The allowance covers the provisions at 52.211-3 and 52.211-4 only, not those at 52.211-1 and 52.211-2 [@CL-EST-1029; @CL-EST-1031; @CL-EST-1033; @CL-EST-1035].
+The prescriptions for the provisions at 52.211-3 and 52.211-4 call for a provision substantially the same as the named provision [@CL-EST-1033; @CL-EST-1035], while those for the provisions at 52.211-1 and 52.211-2 call for the named provision [@CL-EST-1029; @CL-EST-1031].
 
 ## Company calibration
 
@@ -67,4 +67,5 @@ The company must confirm which availability provision each solicitation carries 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted inferences and contrasts and reworded a meta description of the prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for solicitation provisions on specifications and standards.

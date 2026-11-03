@@ -50,7 +50,7 @@ The CAGE code reporting provision is inserted in all solicitations that include 
 
 ## How it works
 
-Identifiers are layered. A base PIID identifies the action, a supplementary PIID covers amendments and modifications, and orders carry the identifier of the contract or agreement they sit under [@CL-CMP-7567; @CL-CMP-7568; @CL-CMP-7569]. The agency decides placement on forms and any additional agency information under its own procedures, and that information stays separate from the PIID [@CL-CMP-7717; @CL-CMP-7718].
+Identifiers are layered. A base PIID identifies the action, a supplementary PIID covers amendments and modifications, and orders carry the identifier of the contract or agreement they sit under [@CL-CMP-7567; @CL-CMP-7568; @CL-CMP-7569]. When a form has no space or field for the PIID or supplementary PIID, the PIID is identified in accordance with agency procedures [@CL-CMP-7717]. If agency procedures require additional identification information for administrative purposes, that information must be separate and clearly identified from the PIID [@CL-CMP-7718].
 
 The CAGE check is the contracting officer's step before award. The officer reviews the registration where the entity is registered and uses the search feature where it is not required to register [@CL-CMP-7570; @CL-CMP-7571]. The provisions then follow from the reporting provision: the ownership or control and predecessor provisions go into solicitations with it, and the maintenance clause goes into solicitations and contracts when the solicitation contains it [@CL-CMP-7573; @CL-CMP-7719; @CL-CMP-7574].
 
@@ -74,4 +74,6 @@ Which identifier each contract action in the remit carries, and who holds the ev
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Separated the form-placement and additional-information rules.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched form-placement and additional-information conditions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement instrument identifiers, CAGE code verification and the CAGE provisions.

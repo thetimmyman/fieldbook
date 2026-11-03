@@ -37,7 +37,7 @@ The determinations and findings subpart prescribes general policies and procedur
 
 ## How it works
 
-The FAR part that requires a D&F says who may sign it, and agency regulations name the appropriate official [@CL-OPM-0031]. The D&F states the facts, cites the statute or regulation, makes the determination, and carries the signature and date [@CL-OPM-0028; @CL-OPM-0029; @CL-OPM-0030]. The section does not list the finance decisions a D&F supports. It does say that contracting officers have authority to make determinations and findings related to contracts [@CL-OPM-0001]. A finance reader can check that each listed item is present, that the signer is the authorized official, and that any expiration date has not passed [@CL-OPM-0028; @CL-OPM-0029; @CL-OPM-0030]. FAR structure is explained on [The FAR, the DFARS, the overhaul and class deviations](../../compliance/regulatory-framework/cmp-acquisition-regulations.md).
+The D&F is signed by the appropriate official in accordance with agency regulations, and the FAR part that requires it shows the authority to sign or delegate signature authority [@CL-OPM-0031]. The D&F states the facts, cites the statute or regulation, makes the determination, and carries the signature and date [@CL-OPM-0028; @CL-OPM-0029; @CL-OPM-0030]. The section does not list the finance decisions a D&F supports. It does say that contracting officers have authority to make determinations and findings related to contracts [@CL-OPM-0001]. A finance reader can check that each listed item is present, that the signer is the authorized official, and that any expiration date has not passed [@CL-OPM-0028; @CL-OPM-0029; @CL-OPM-0030]. FAR structure is explained on [The FAR, the DFARS, the overhaul and class deviations](../../compliance/regulatory-framework/cmp-acquisition-regulations.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contracting officer files a D&F for an action worth 5,000,000. The D&F names t
 
 ## Never confuse
 
-A D&F is not a deviation from the FAR. A deviation may be granted when necessary to meet the specific needs of an agency [@CL-OPM-0021], while a D&F records a determination that an action is justified under a statute or regulation [@CL-OPM-0030].
+A D&F is not a deviation from the FAR. Unless precluded by law, executive order, or regulation, a deviation may be granted as specified in the subpart when necessary to meet the specific needs and requirements of each agency [@CL-OPM-0021], while a D&F records a determination that an action is justified under a statute or regulation [@CL-OPM-0030].
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which D&Fs sit behind each contract action, and who holds the signed copies. [@Q
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the deviation conditions and the signing rule wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the determinations and findings subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for determinations and findings.

@@ -29,7 +29,7 @@ Shows what shipyard information an offeror provides, how it is used in evaluatio
 | Text status | Final [@CL-SUP-1622] |
 | Applies to | Solicitations that include the domestic shipyard evaluation criterion, and contracts that include the reflagging or repair work clause [@CL-SUP-1622; @CL-SUP-1625] |
 
-The provision states that the solicitation includes an evaluation criterion that considers the extent to which the offeror has had overhaul, repair, and maintenance work for covered vessels performed in United States shipyards [@CL-SUP-1622]. The offeror shall provide with its offer the listed information on all covered vessels for which that work has been performed from the start of the current calendar year to proposal submission and in the preceding four calendar years [@CL-SUP-1623]. Offerors are responsible for submitting accurate information, which the contracting officer will use to evaluate offers in accordance with the criteria specified in the solicitation [@CL-SUP-1624].
+The provision states that the solicitation includes an evaluation criterion that considers the extent to which the offeror has had overhaul, repair, and maintenance work for covered vessels performed in United States shipyards [@CL-SUP-1622]. The offeror shall provide with its offer the listed information on all covered vessels for which that work has been performed from the start of the current calendar year to proposal submission and in the preceding four calendar years [@CL-SUP-1623]. Offerors are responsible for submitting accurate information, which the contracting officer will use to evaluate offers in accordance with the criteria specified in the solicitation [@CL-SUP-1624]. The contracting officer also reserves the right to request supporting documentation if determined necessary in the proposal evaluation process [@CL-SUP-9764].
 
 Under the reflagging clause, unless DoD waives the requirement, the contractor shall ensure that reflagging or repair work is performed in the United States or its outlying areas if the work meets the conditions listed in the clause [@CL-SUP-1625]. The listed conditions are that the work is performed on a vessel for which the contractor submitted an offer in response to the solicitation, and that it is performed before the Government accepts the vessel [@CL-SUP-1626]. The same requirement paragraph lists, as a second item, corrective and preventive maintenance or repair work for the duration of the contract, to the greatest extent practicable [@CL-SUP-1688].
 
@@ -55,4 +55,5 @@ Which solicitations carry the provision, what shipyard history the company can d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's right to request supporting documentation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the evaluation preference for use of domestic shipyards and reflagging or repair work.

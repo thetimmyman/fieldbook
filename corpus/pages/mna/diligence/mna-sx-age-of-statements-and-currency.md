@@ -28,7 +28,7 @@ Shows how old the latest financial statements in a filing may be when the filing
 | Text status | Not established. |
 | Applies to | Financial statements in a filing that is expected to become effective, or in a proxy statement that is to be mailed [@CL-MNA-0697] |
 
-Financial statements that are as of a date the specified number of days or more before the expected effective date, or before the proposed mailing date of a proxy statement, shall be updated, except as specified in the following paragraphs [@CL-MNA-0697]. The number of days is 130 for large accelerated filers and accelerated filers and 135 for all other registrants [@CL-MNA-0698].
+Financial statements that are as of a date the specified number of days or more before the expected effective date, or before the proposed mailing date of a proxy statement, shall be updated, except as specified in the following paragraphs [@CL-MNA-0697]. The number of days is 130 for large accelerated filers and accelerated filers (as defined in § 240.12b-2) and 135 for all other registrants [@CL-MNA-0698].
 
 A separate, conditional limit applies to audited statements. The most recent audited financial statements in a registration statement under the Securities Act or on Form 10 under the Exchange Act shall not be more than one year and 45 days old at the date the registration statement becomes effective [@CL-MNA-0699]. That limit applies if the registration statement relates to the security of an issuer that was not subject, immediately before the time of filing, to the reporting requirements of section 13 or 15(d) of the Exchange Act [@CL-MNA-0700].
 
@@ -46,7 +46,7 @@ A registrant that is neither a large accelerated filer nor an accelerated filer 
 
 ## Never confuse
 
-The update line, counted in days since the statement date, is not the one-year-and-45-day limit on audited statements of an issuer not previously subject to the reporting requirements [@CL-MNA-0698; @CL-MNA-0699; @CL-MNA-0700]. The first triggers an interim update, and the second caps the age of the audited statements themselves [@CL-MNA-0697; @CL-MNA-0699].
+The update line, counted in days since the statement date, is not the one-year-and-45-day limit on audited statements of an issuer not previously subject to the reporting requirements [@CL-MNA-0698; @CL-MNA-0699; @CL-MNA-0700]. The first requires the statements to be updated, and the second caps the age of the audited statements themselves [@CL-MNA-0697; @CL-MNA-0699].
 
 ## Company calibration
 
@@ -56,4 +56,5 @@ Which reporting currency and accounting framework the company uses for local and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: filer definition added and update wording narrowed to the quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for age of financial statements and reporting currency.

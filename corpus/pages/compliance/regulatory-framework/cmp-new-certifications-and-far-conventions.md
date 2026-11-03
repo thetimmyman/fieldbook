@@ -34,7 +34,7 @@ Unless otherwise specified, a specific dollar threshold for the purpose of appli
 
 ## How it works
 
-A new certification enters the FAR chapter through one of two doors: a statute that specifically imposes it, or written justification plus written approval [@CL-CMP-2008; @CL-CMP-2009]. To test a threshold, take the final anticipated value of the action including all options, or, where the action sets a maximum quantity or a ceiling price or bases the final price on future events, the highest final priced alternative including all options [@CL-CMP-2010; @CL-CMP-2011; @CL-CMP-2100]. To time a FAR change, compare its effective date with the date the solicitation was issued [@CL-CMP-2012]. Unless otherwise specified, the contracting officer may, at their discretion, include a change in an earlier solicitation if award of the resulting contract or contracts occurs on or after the effective date, or in an existing contract with appropriate consideration [@CL-CMP-2012; @CL-CMP-2013; @CL-CMP-2014].
+A new requirement for a certification by a contractor or offeror may not be included in the FAR chapter unless the certification requirement is specifically imposed by statute, or written justification for it is provided to the Administrator for Federal Procurement Policy by the Federal Acquisition Regulatory Council and the Administrator approves in writing its inclusion [@CL-CMP-2008; @CL-CMP-2009]. Unless otherwise specified, a specific dollar threshold for the purpose of applicability is the final anticipated value of the action including all options, or, where the action sets a maximum quantity or a ceiling price or bases the final price on future events, the highest final priced alternative including all options [@CL-CMP-2010; @CL-CMP-2011; @CL-CMP-2100]. Unless otherwise specified, FAR changes apply to solicitations issued on or after the effective date of the change [@CL-CMP-2012]. Unless otherwise specified, the contracting officer may, at their discretion, include a change in an earlier solicitation if award of the resulting contract or contracts occurs on or after the effective date, or in an existing contract with appropriate consideration [@CL-CMP-2012; @CL-CMP-2013; @CL-CMP-2014].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A planned contract has a base price of 6 million and priced options of 2 million
 
 ## Never confuse
 
-The threshold test uses the final anticipated value including all options [@CL-CMP-2010], so the base price alone is not the test value. The two conditions for a new certification are alternatives, not cumulative [@CL-CMP-2008], while the second condition itself needs both written justification and written approval [@CL-CMP-2009].
+Unless otherwise specified, a specific dollar threshold for the purpose of applicability is the final anticipated dollar value of the action, including the dollar value of all options [@CL-CMP-2010]. A new certification requirement may be included in the FAR chapter if it is specifically imposed by statute, or if written justification is provided to the Administrator for Federal Procurement Policy by the Federal Acquisition Regulatory Council and the Administrator approves its inclusion in writing [@CL-CMP-2008; @CL-CMP-2009].
 
 The simplified acquisition and micro-purchase thresholds are covered in [Simplified acquisition and micro-purchase thresholds](cmp-acquisition-thresholds.md), the inflation adjustment of thresholds in [Inflation adjustment of acquisition-related dollar thresholds](cmp-inflation-adjustment-of-thresholds.md), and the publication of significant FAR revisions for public comment in [Publication of significant FAR revisions for public comment](cmp-significant-far-revisions-public-comment.md).
 
@@ -56,5 +56,6 @@ Which executed contracts carry thresholds measured on a value that includes opti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated certification conditions and FAR change timing with actors; removed contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on thresholds and FAR revisions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for new certification requirements and FAR conventions.

@@ -27,7 +27,7 @@ Shows which items the clause covers, the manual that governs their physical secu
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4529] |
-| Applies to | Contracts that include the clause; the clause text names the DFARS section that prescribes its use [@CL-CMP-4560] |
+| Applies to | Contracts that include the clause, used as prescribed in DFARS 223.7203 [@CL-CMP-4560] |
 
 In the clause, arms, ammunition, and explosives (AA&E) means those items within the scope of DoD Manual 5100.76, Physical Security of Sensitive Conventional Arms, Ammunition, and Explosives [@CL-CMP-4527]. The requirements of that manual apply to the AA&E items listed in the clause by nomenclature, national stock number and sensitivity category that are being developed, produced, manufactured, or purchased for the Government, or provided to the Contractor as Government-furnished property under the contract [@CL-CMP-4528].
 
@@ -45,7 +45,7 @@ A contractor awards a subcontract on day 0 for the development of a listed item 
 
 ## Never confuse
 
-The manual here is the physical security manual, not the contractors' safety manual used under the safety precautions clause; the two are different documents [@CL-CMP-4527; @CL-CMP-4500]. See [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md). The notice to the field office is about a subcontract, and it runs from the award of the subcontract [@CL-CMP-4531]. Items the Government provides to the Contractor as Government-furnished property are within the clause when they are listed AA&E [@CL-CMP-4528]; the general property duties sit in the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
+The manual under this clause is DoD Manual 5100.76, Physical Security of Sensitive Conventional Arms, Ammunition, and Explosives [@CL-CMP-4527]. For the Contractor's duty to comply with DoD Manual 4145.26, DoD Contractors' Safety Manual for Ammunition and Explosives [@CL-CMP-4500], see [Safety precautions for ammunition and explosives (DFARS)](cmp-dfars-ammunition-explosives-safety-precautions.md). The requirements of DoD Manual 5100.76 apply to the listed AA&E items provided to the Contractor as Government-furnished property under the contract [@CL-CMP-4528]; for the general property duties, see the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which contracts carry the clause, which AA&E items are listed on each, and which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced meta wording in applies-to row; replaced contrast sentences with cited statements and pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for safeguarding sensitive conventional arms, ammunition and explosives.

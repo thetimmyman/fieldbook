@@ -39,7 +39,7 @@ Each notice shall include the text of the revision or, if it is impracticable to
 
 Comments need not be solicited when the proposed coverage does not constitute a significant revision [@CL-CMP-8370]. Advance comments need not be solicited when urgent and compelling circumstances make solicitation impracticable before the effective date of the coverage [@CL-CMP-8371]. An example is a new statute that must be implemented in a relatively short period of time [@CL-CMP-8675]. In that case the coverage shall be issued on a temporary basis and shall provide for at least a 30 day public comment period [@CL-CMP-8372]. The notice must then state that the revision is effective on a temporary basis pending completion of the public comment period [@CL-CMP-8373].
 
-The text gives no authority to shorten the 30-day minimum [@CL-CMP-8368]. It does not say which official decides whether a revision is significant or whether circumstances are urgent and compelling. How the FAR and agency acquisition regulations fit together is on [The FAR, the DFARS, the overhaul and class deviations](cmp-acquisition-regulations.md).
+Where comments are solicited, 30 days is the stated minimum for their receipt, and at least 60 days is the normal period [@CL-CMP-8368]. It does not say which official decides whether a revision is significant or whether circumstances are urgent and compelling. How the FAR and agency acquisition regulations fit together is on [The FAR, the DFARS, the overhaul and class deviations](cmp-acquisition-regulations.md).
 
 Consideration shall also be given to unsolicited recommendations for revisions that have been submitted in writing with sufficient data and rationale to permit their evaluation [@CL-CMP-9731]. The text names no official who gives that consideration. Public meetings may be appropriate when a decision to adopt, amend, or delete coverage is likely to benefit from significant additional views and discussion [@CL-CMP-9749].
 
@@ -61,5 +61,6 @@ Which pending FAR revisions touching the company's remit are significant for it,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: significant revisions: comment-period sentence tied to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added unsolicited proposed revisions and public meetings.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for publication of significant FAR revisions for public comment.

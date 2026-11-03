@@ -30,7 +30,7 @@ Shows the usual remedy for nonconforming supplies or services and who may accept
 
 The contracting officer should reject supplies or services not conforming in all respects to contract requirements [@CL-OPM-0062]. The contracting officer ordinarily must give the contractor an opportunity to correct or replace nonconforming supplies or services when this can be accomplished within the required delivery schedule [@CL-OPM-0063]. Unless the contract specifies otherwise, correction or replacement must be without additional cost to the Government [@CL-OPM-0064].
 
-For a critical or major nonconformance, the contracting officer ordinarily must reject in situations not covered by the correct-or-replace paragraph [@CL-OPM-0065], and may determine, in circumstances such as reasons of economy or urgency, that acceptance or conditional acceptance is in the best interest of the Government [@CL-OPM-0066]. Before making a decision to accept, the contracting officer must obtain the concurrence of the activity responsible for the technical requirements and, where health factors are involved, of the responsible health official of the agency concerned [@CL-OPM-0067]. For a minor nonconformance, the cognizant contract administration office may make the determination to accept or reject, except where the contracting office withholds that authority [@CL-OPM-0068].
+For a critical or major nonconformance, the contracting officer ordinarily must reject in situations not covered by the correct-or-replace paragraph [@CL-OPM-0065], and may determine, in circumstances such as reasons of economy or urgency, that acceptance or conditional acceptance is in the best interest of the Government [@CL-OPM-0066]. Before making a decision to accept, the contracting officer must obtain the concurrence of the activity responsible for the technical requirements and, where health factors are involved, of the responsible health official of the agency concerned [@CL-OPM-0067]. For a minor nonconformance, the cognizant contract administration office may make the determination to accept or reject, except where this authority is withheld by the contracting office of the contracting activity [@CL-OPM-0068].
 
 ## How it works
 
@@ -54,4 +54,5 @@ Which office holds authority over minor nonconformances on each contract, who as
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named who may withhold the minor nonconformance authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rejection of nonconforming supplies.

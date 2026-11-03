@@ -34,7 +34,7 @@ For the labor and material clause, the contracting officer shall, when contracti
 
 ## How it works
 
-The contracting officer first checks that the contract is negotiated and fixed-price, then tests the listed conditions for the clause that fits the supplies or the labor and material exposure [@CL-EST-1164; @CL-EST-1167; @CL-EST-1172]. The determination specified in 16.203-3 is a listed condition for every one of the three, so the duty to insert a clause does not arise without it [@CL-EST-1165; @CL-EST-1169; @CL-EST-1173]. The determination itself is on [Determination before economic price adjustment, and the fixed-price incentive pointer](est-epa-limitation-and-fpi-pointer.md). Raising the 10 percent limit is not the contracting officer's decision alone, because the chief of the contracting office must approve [@CL-EST-1166; @CL-EST-1170; @CL-EST-1174]. The clause terms themselves are on the linked clause cards and are not restated here, and the further DoD conditions are on [DoD rules on economic price adjustment clauses](est-dod-epa-clause-rules.md).
+The contracting officer first checks that the contract is negotiated and fixed-price, then tests the listed conditions for the clause that fits the supplies or the labor and material exposure [@CL-EST-1164; @CL-EST-1167; @CL-EST-1172]. The determination specified in 16.203-3 is a listed condition for every one of the three, so the duty to insert a clause does not arise without it [@CL-EST-1165; @CL-EST-1169; @CL-EST-1173]. The determination itself is on [Determination before economic price adjustment, and the fixed-price incentive pointer](est-epa-limitation-and-fpi-pointer.md). Raising the 10 percent limit is not the contracting officer's decision alone, because the contracting officer may increase it upon approval by the chief of the contracting office [@CL-EST-1166; @CL-EST-1170; @CL-EST-1174]. The clause terms themselves are on the linked clause cards and are not restated here, and the further DoD conditions are on [DoD rules on economic price adjustment clauses](est-dod-epa-clause-rules.md).
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which fixed-price contracts carry each economic price adjustment clause and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prescriptions and conditions of the three FAR economic price adjustment clauses.

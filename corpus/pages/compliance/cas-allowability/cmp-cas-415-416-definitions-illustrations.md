@@ -39,7 +39,7 @@ The exemption section of the deferred compensation standard says there is no exe
 
 ## How it works
 
-The definition marks what counts as deferred compensation and what does not [@CL-CMP-3415; @CL-CMP-3416]. The stock option illustration shows a cost measured by the gap between market price and option price across the shares awarded [@CL-CMP-3417]. The insurance illustrations show two limits: cost belongs to the periods the policy term covers [@CL-CMP-3418], and, had the plan been to make a self-insurance charge, any difference between the charge and actual losses would not have been allocable as an insurance cost [@CL-CMP-3419]. The [deferred compensation card](cmp-cas-415-deferred-compensation.md) and the [insurance card](cmp-cas-416-insurance.md) hold the rules.
+The definition marks what counts as deferred compensation and what does not [@CL-CMP-3415; @CL-CMP-3416]. The stock option illustration works out its total cost as the number of shares multiplied by the difference of the option price and the market price in that illustration [@CL-CMP-3417]. The insurance illustrations show two limits: only the share of the premium matching the share of the policy term that fell within the cost accounting period belongs in that period's cost [@CL-CMP-3418], and, had the plan been to make a self-insurance charge, any difference between the charge and actual losses would not have been allocable as an insurance cost [@CL-CMP-3419]. The [deferred compensation card](cmp-cas-415-deferred-compensation.md) and the [insurance card](cmp-cas-416-insurance.md) hold the rules.
 
 ## Worked example
 
@@ -51,7 +51,7 @@ A contractor awards options on 500 shares. The market price is 30 and the option
 
 ## Never confuse
 
-Deferred compensation is not every payment made after the period ends. Year end accruals for salaries, wages or bonuses paid within a reasonable period after the end of the period are outside the definition [@CL-CMP-3416]. A self-insurance charge is also not the same as actual loss: in the illustration, had the plan been to make a self-insurance charge, any difference between the charge and the actual losses in the period would not have been allocable as an insurance cost [@CL-CMP-3419].
+Deferred compensation is not every payment made after the period ends. Year end accruals for salaries, wages or bonuses paid within a reasonable period after the end of the period are outside the definition [@CL-CMP-3416]. Actual losses and a self-insurance charge are treated differently in the insurance illustration: had the plan been to make a self-insurance charge, any difference between the charge and the actual losses in the period would not have been allocable as an insurance cost [@CL-CMP-3419].
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ How insurance premiums, self-insurance charges and deferred compensation awards 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded how-it-works and never-confuse sentences to stay within the illustration quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption sections of CAS 415 and CAS 416.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 415 definitions and illustrations and CAS 416 illustrations.

@@ -45,7 +45,7 @@ Before definitization, a contractor incurs 1 million of approved costs, of which
 
 ## Never confuse
 
-Reimbursement under this clause is made pending the definitive contract, and it does not settle that every cost billed is allowable [@CL-CTF-0703]. Total reimbursement is capped at a share of the maximum amount of the Government's liability [@CL-CTF-0322], and any payment may still be reduced or adjusted after audit [@CL-CTF-0326].
+Reimbursement under this clause is made pending the definitive contract, and the Contracting Officer determines allowable costs under the applicable cost principles in FAR part 31 [@CL-CTF-0703; @CL-CTF-0704]. Total reimbursement is capped at 85 percent of the maximum amount of the Government's liability stated in the contract [@CL-CTF-0322], and any payment may be reduced by amounts the Contracting Officer finds not to be allowable costs or adjusted for overpayments or underpayments on preceding invoices or vouchers [@CL-CTF-0326].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which financing, acceptance, and invoicing terms drive the cash forecast during 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an after-audit qualifier the cited paragraph does not state and stated the 85 percent cap.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payments of allowable costs before definitization.

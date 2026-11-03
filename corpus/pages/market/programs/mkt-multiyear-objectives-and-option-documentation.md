@@ -37,7 +37,7 @@ In awarding the basic contract, the contracting officer shall, except as provide
 
 ## How it works
 
-The objectives paragraph only encourages multiyear contracting for the listed benefits [@CL-MKT-1715]. The method, its limits and its clauses are on the linked multiyear card.
+The objectives paragraph says multiyear contracting is encouraged for the listed benefits [@CL-MKT-1715]. The method, its limits and its clauses are on the linked multiyear card.
 
 The documentation duty falls on the contracting officer: a written justification of the option quantities or term, the notification period and any option price limitation, kept in the contract file [@CL-MKT-1716]. Where part 6 requires a justification and approval or a determination and findings, it must state both the basic requirement and the increase the option permits [@CL-MKT-1717].
 
@@ -65,4 +65,5 @@ Which solicitation files hold the written option justification and the evaluatio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting objectives, option documentation and option evaluation.

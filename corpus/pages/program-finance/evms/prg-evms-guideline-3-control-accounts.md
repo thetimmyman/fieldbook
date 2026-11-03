@@ -31,11 +31,11 @@ Shows where the guide places management control points, and which manager answer
 
 The guideline asks the contractor to integrate the work breakdown structure and the organizational structure so that management control points are identified and responsibility is assigned to specific work scope [@CL-PRG-0166]. Control accounts are established at the intersection of the lowest level element of work and the organizational structure [@CL-PRG-0167]. Control accounts should not be arbitrarily established at a single level of the work structure across the program [@CL-PRG-0168].
 
-Each control account has a control account manager who is responsible for getting the work done and who is the focal point of management control [@CL-PRG-0169]. Responsibility is not always one-to-one, because for management control there may be one or more responsible organizations supporting a single element of work, or multiple control accounts within one organizational element [@CL-PRG-0170]. For scope that cannot practically be identified to a control account, it is permissible to establish a summary level planning package above the control account level, with an assigned manager [@CL-PRG-0171]. Each control account belongs to a single organizational element directly responsible for work identifiable to a single element of the work structure [@CL-PRG-0172].
+Each control account has a corresponding Control Account Manager (CAM), who is responsible for ensuring the accomplishment of work in the control account and is the focal point of management control [@CL-PRG-0169]. For management control purposes, there may be one or more responsible organizations supporting a single work breakdown structure element or multiple control accounts within one organizational breakdown structure element driven by scope and exit criteria (i.e., completion of the effort) [@CL-PRG-0170; @CL-PRG-0072]. For scope that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package (SLPP) above the control account level with the assignment of an SLPP manager [@CL-PRG-0171]. Each control account is assigned to a single organizational element directly responsible for the work identifiable to a single element of the work breakdown structure [@CL-PRG-0172].
 
 ## How it works
 
-The two structures are laid over each other, and control accounts are established where the lowest level work element meets the organizational structure [@CL-PRG-0167]. Each control account has a control account manager and is assigned to a single organizational element directly responsible for the work [@CL-PRG-0169; @CL-PRG-0172]. The level is not set arbitrarily at a single work structure level across the program [@CL-PRG-0168]. Where scope cannot practically be identified to a control account, a summary level planning package may be set up above the control account level [@CL-PRG-0171].
+The intersection of the lowest level work breakdown structure element and the organizational breakdown structure is the point at which control accounts are established [@CL-PRG-0167]. Each control account has a corresponding Control Account Manager, who is responsible for ensuring the accomplishment of work in the control account and is the focal point of management control, and each control account is assigned to a single organizational element directly responsible for the work identifiable to a single element of the work breakdown structure [@CL-PRG-0169; @CL-PRG-0172]. Control accounts should not be arbitrarily established at a single work breakdown structure level across the program [@CL-PRG-0168]. For scope that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level with the assignment of an SLPP manager [@CL-PRG-0171].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ One element of work worth 400,000 is split across 2 organizations, with 250,000 
 
 ## Never confuse
 
-A control account is established where the work structure and the organizational structure meet, so it is neither a work element on its own nor an organizational element on its own [@CL-PRG-0167; @CL-PRG-0172]. A summary level planning package sits above the control account level and is meant for scope that cannot practically be identified to a control account [@CL-PRG-0171]. A control account manager belongs to a control account and does not replace it, because each control account is assigned to a single organizational element directly responsible for work identifiable to a single element of the work breakdown structure [@CL-PRG-0169; @CL-PRG-0172].
+The intersection of the lowest level work breakdown structure element and the organizational breakdown structure is the point at which control accounts are established, and each control account is assigned to a single organizational element directly responsible for the work identifiable to a single element of the work breakdown structure [@CL-PRG-0167; @CL-PRG-0172]. For scope that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level with the assignment of an SLPP manager [@CL-PRG-0171]. Each control account has a corresponding Control Account Manager, who is responsible for ensuring the accomplishment of work in the control account and is the focal point of management control [@CL-PRG-0169].
 
 ## Company calibration
 
@@ -55,4 +55,6 @@ Which control account managers own the baseline decisions that change the curren
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exit-criteria definition and SLPP manager requirement and removed uncited contrasts in Never confuse.
+- COMPATIBLE_EXTENSION, 2026-10-31: restored scope and exit criteria driver, kept should.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the control account guideline.

@@ -55,7 +55,7 @@ From the facts of the contract, the percentages complete for those factors are 1
 
 The cost ratio is not the percentage of completion. Costs incurred against estimated cost are only one factor, and the percentage may be greater or less than the ratio [@CL-CTF-3264; @CL-CTF-3265].
 
-The adjusted fee on a termination is not the fee reduction on a default termination. After a default termination of a cost-reimbursement contract, an appropriate reduction is made in the total fee, if any [@CL-CTF-3295]; see [the default termination card](ctf-default-termination-reinstatement-and-damages.md).
+The adjusted fee on a termination is not the fee reduction on a default termination. Settlement of a cost-reimbursement contract terminated for default follows the principles in FAR subparts 49.1 and 49.3 as for a convenience termination, except that the costs of preparing the settlement proposal are not allowable and, while the contractor is reimbursed the allowable costs, an appropriate reduction is made in the total fee, if any [@CL-CTF-3146; @CL-CTF-3295]; see [the default termination card](ctf-default-termination-reinstatement-and-damages.md).
 
 The voucher cutoff applies to a complete termination, and a partial termination goes to FAR 49.304 [@CL-CTF-3260]. The wider settlement mechanics for cost-reimbursement contracts are on [the cost-reimbursement termination settlement card](ctf-termination-cost-reimbursement-settlement.md).
 
@@ -67,4 +67,5 @@ How the company records percentage of completion and fee accrual on cost-type wo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Default-termination fee reduction now carries the settlement principles and the exceptions it belongs to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost-reimbursement termination vouchers and the adjusted fee.

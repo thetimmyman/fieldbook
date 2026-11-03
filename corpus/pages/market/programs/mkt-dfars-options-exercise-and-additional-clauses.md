@@ -29,7 +29,7 @@ Covers the DoD guidance on using options, the checks made before an option is ex
 | Text status | Final [@CL-MKT-1758] |
 | Applies to | DoD solicitations and contracts that contain options, and DoD exercise of options [@CL-MKT-1803; @CL-MKT-1761] |
 
-For guidance on the use of options, including options with foreign military sales and options with sole source major systems for combined procurements, the supplement points to its procedures, guidance and information [@CL-MKT-1758]. For a contract initially awarded from the competitive selection of a proposal resulting from a broad agency announcement, it refers to DFARS 234.005-1 for the use of contract options for the development and demonstration or initial production of technology developed under the contract [@CL-MKT-1801], and for the delivery of initial or additional items [@CL-MKT-1802].
+For guidance on the use of options, including options with foreign military sales and options with sole source major systems for combined procurements, the supplement points to its procedures, guidance and information [@CL-MKT-1758]. For a contract initially awarded from the competitive selection of a proposal resulting from a broad agency announcement, it refers to DFARS 234.005-1 for the use of contract options for the development and demonstration or initial production of technology developed under the contract [@CL-MKT-1801], or for the delivery of initial or additional items [@CL-MKT-1802].
 
 In addition to the requirements at FAR 17.207(c), an option is to be exercised only after the determinations and verifications listed in the DFARS paragraph [@CL-MKT-1803]. The FAR paragraph it adds to lets the contracting officer exercise options only after determining, among other things listed there, that funds are available and that the requirement fulfills an existing Government need [@CL-CTF-1313], and that exercise is the most advantageous method of fulfilling the Government's need, price and other factors considered [@CL-CTF-1396]. The added checks are the following.
 
@@ -67,4 +67,5 @@ Which foreign military sales and surge options sit in the order book, which clau
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Broad agency announcement options pointer joined by or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD use and exercise of options and the additional option clauses.

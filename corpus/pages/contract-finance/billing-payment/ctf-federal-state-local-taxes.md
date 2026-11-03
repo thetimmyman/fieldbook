@@ -38,7 +38,7 @@ After-relieved Federal tax decreases the price [@CL-CTF-0430]. No adjustment is 
 
 The clause measures from the contract date, which is the bid opening date or, for a negotiated contract or a modification, its effective date [@CL-CTF-0432].
 
-Taxes and duties in effect on that date that the taxing authority is imposing and collecting on the transactions or property covered by the contract sit inside the price [@CL-CTF-0619]. Later Federal tax changes are trued up through the price, upward for an after-imposed tax and downward for an after-relieved tax [@CL-CTF-0429; @CL-CTF-0430].
+Taxes and duties in effect on that date that the taxing authority is imposing and collecting on the transactions or property covered by the contract sit inside the price [@CL-CTF-0427; @CL-CTF-0619]. Later Federal tax changes are trued up through the price, upward for an after-imposed tax and downward for an after-relieved tax [@CL-CTF-0429; @CL-CTF-0430].
 
 An upward adjustment needs the written warranty that the tax was not already built in [@CL-CTF-0429], and an adjustment that does not exceed $250 is not made [@CL-CTF-0431].
 
@@ -56,7 +56,7 @@ A contract is priced with all applicable taxes in effect on the contract date. A
 
 The adjustments in this clause are for Federal tax, not employment taxes: an after-imposed Federal tax raises the price and an after-relieved Federal tax lowers it [@CL-CTF-0429; @CL-CTF-0430; @CL-CTF-0620]. The clause states no similar adjustment for a State or local tax change.
 
-Taxes imposed under section 5000C of title 26 of the United States Code are the exception to the general rule that applicable taxes sit in the price, and they are neither priced in nor reimbursed [@CL-CTF-0428].
+Taxes imposed under section 5000C of title 26 of the United States Code are the exception to the general rule that applicable taxes sit in the price, and they are neither priced in nor reimbursed [@CL-CTF-0427; @CL-CTF-0428].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Which tax changes the company would push through the contract price, and how the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the price-inclusion rule where the taxes-in-the-price statements rested on a definition or exception alone.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Federal, State, and Local Taxes clause.

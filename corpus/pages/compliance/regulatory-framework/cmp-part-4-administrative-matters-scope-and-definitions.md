@@ -29,7 +29,7 @@ Marks out what the administrative part of the regulation covers, and fixes the t
 | Text status | Final [@CL-CMP-8280] |
 | Applies to | Agencies, on the administrative side of contract execution and on security-based sourcing exclusions [@CL-CMP-8280; @CL-CMP-8281] |
 
-FAR part 4 prescribes policies and procedures relating to the administrative aspects of contract execution, including contractor-submitted paper documents, distribution, reporting, retention, and files [@CL-CMP-8280]. It also includes policies and procedures that implement security prohibitions and exclusions restricting Federal agencies from procuring, obtaining, or using certain products, services, or sources [@CL-CMP-8281]. Additional security prohibitions and exclusions are found at subparts 25.7 and 40.2 [@CL-CMP-8282].
+FAR part 4 prescribes policies and procedures relating to the administrative aspects of contract execution, contractor-submitted paper documents, distribution, reporting, retention, and files [@CL-CMP-8280]. It also includes policies and procedures that implement security prohibitions and exclusions restricting Federal agencies from procuring, obtaining, or using certain products, services, or sources [@CL-CMP-8281]. Additional security prohibitions and exclusions are found at subparts 25.7 and 40.2 [@CL-CMP-8282].
 
 The definitions in the definitions section apply as used in part 4 [@CL-CMP-8590]. A procurement instrument identifier is the Government-unique identifier for each solicitation, contract, agreement, or order [@CL-CMP-8283]. A supplementary procurement instrument identifier is non-unique and is used in conjunction with the Government-unique identifier [@CL-CMP-8284].
 
@@ -37,7 +37,7 @@ Two examples in the definitions show how an agency may form the identifier. For 
 
 ## How it works
 
-These two sections state policy scope and definitions. They name no approving official and set no threshold or deadline, and they place no duty on a contractor [@CL-CMP-8280; @CL-CMP-8283]. The part carries two kinds of content: the paperwork and records side of contract execution, and security-based sourcing prohibitions [@CL-CMP-8280; @CL-CMP-8281]. On the records side, one unique identifier names each procurement action, and a supplementary identifier carries a non-unique amendment number alongside it [@CL-CMP-8283; @CL-CMP-8284; @CL-CMP-8591]. The order or agreement number combined with the contract number is a permitted form of identifier, not a required one, because the definition says an agency may use it [@CL-CMP-8285]. The same is true of the amendment number form [@CL-CMP-8591]. The identifier rules themselves, including how an identifier is built, are in the separate identifier subpart [@CL-CMP-8599]; see [Procurement instrument identifier and supplementary identifier](../trade-cyber/cmp-piid-and-supplementary-piid.md).
+The part prescribes policies and procedures relating to the administrative aspects of contract execution, and includes policies and procedures to implement security prohibitions and exclusions [@CL-CMP-8280; @CL-CMP-8281]. The Procurement Instrument Identifier is the Government-unique identifier for each solicitation, contract, agreement, or order, and the supplementary identifier is the non-unique identifier for a procurement action that is used in conjunction with the Government-unique identifier [@CL-CMP-8283; @CL-CMP-8284]. In the amended solicitation example, the non-unique amendment number represents the supplementary identifier [@CL-CMP-8591; @CL-CMP-8592]. The separate identifier subpart prescribes policies and procedures for assigning unique Procurement Instrument Identifiers for each solicitation, contract, agreement, or order and related procurement instrument [@CL-CMP-8599]; see [Procurement instrument identifier and supplementary identifier](../trade-cyber/cmp-piid-and-supplementary-piid.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ An agency issues solicitation 1000001 and amends it twice. It uses 1000001 with 
 
 ## Never confuse
 
-A unique identifier is not a supplementary identifier: the first is the Government-unique identifier, while the second is non-unique and is used in conjunction with the first [@CL-CMP-8283; @CL-CMP-8284]. The administrative scope of the part is also not the line item subpart, whose coverage turns on the type of procurement instrument and which concerns line items, not the identifier of the instrument [@CL-CMP-8286; @CL-CMP-8597].
+The Procurement Instrument Identifier is the Government-unique identifier, and the supplementary identifier is the non-unique identifier that is used in conjunction with the Government-unique identifier [@CL-CMP-8283; @CL-CMP-8284]. The line item subpart prescribes policies and procedures for assigning line items and subline items and their identifiers [@CL-CMP-8597], and its policies shall apply to the procurement instruments the subpart lists, to include amendments, modifications, and change orders [@CL-CMP-8286].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Which legal entities, business units and contracts sit inside the finance remit,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored scope list wording; restated identifier text; removed absence statements and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of FAR part 4 and its definitions.

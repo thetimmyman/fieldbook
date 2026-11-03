@@ -27,9 +27,9 @@ Sets out contracting officer responsibilities, written notices to the contractor
 | RFO citation | RFO FAR 32.704 [@CL-CTF-4519; @CL-CTF-4520; @CL-CTF-4521; @CL-CTF-4522; @CL-CTF-4523; @CL-CTF-4524; @CL-CTF-4525; @CL-CTF-4526] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-0359] |
-| Applies to | Contracts containing the Limitation of Cost or Limitation of Funds clause [@CL-CTF-0359] |
+| Applies to | Contracts containing the Limitation of Cost or Limitation of Funds clause [@CL-CTF-9530] |
 
-When a contract contains the Limitation of Cost or Limitation of Funds clause, the contracting officer, upon learning that the contractor is approaching the estimated cost or the limit of the funds allotted, must promptly obtain funding and programming information pertinent to the contract's continuation [@CL-CTF-0359]. The written notice that follows can state that the contract is not to be further funded and that the contractor should submit a proposal for an adjustment of fee, if any, based on the percentage of work completed in relation to the total work called for under the contract [@CL-CTF-0604].
+When a contract contains the Limitation of Cost or Limitation of Funds clause, the contracting officer, upon learning that the contractor is approaching the estimated cost or the limit of the funds allotted, must promptly obtain funding and programming information pertinent to the contract's continuation [@CL-CTF-9530; @CL-CTF-0359]. The same sentence has the contracting officer notify the contractor in writing of one of the alternatives the paragraph lists: that additional funds have been allotted or the estimated cost increased in a specified amount [@CL-CTF-9561]; that the contract is not to be further funded and that the contractor should submit a proposal for an adjustment of fee, if any, based on the percentage of work completed in relation to the total work called for under the contract [@CL-CTF-0604]; that the contract is to be terminated; or a further alternative [@CL-CTF-9572].
 
 Upon learning that a partially funded contract containing the Limitation of Cost or Limitation of Funds clause will receive no further funds, the contracting officer shall promptly give the contractor written notice of the decision not to provide funds [@CL-CTF-0360]. Government personnel encouraging a contractor to continue work in the absence of funds incur a statutory violation that may subject the violator to civil or criminal penalties [@CL-CTF-0364].
 
@@ -59,6 +59,9 @@ Confirming which contracts are incrementally funded, tracking formal agency fund
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified text that states the clause condition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the written notices as alternatives, not cumulative matters.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in that the written notice covers the listed matters.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract funding incremental funding policy.

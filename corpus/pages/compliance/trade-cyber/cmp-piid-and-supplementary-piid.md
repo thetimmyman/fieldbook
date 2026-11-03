@@ -28,7 +28,7 @@ Shows how a procurement instrument identifier is built, how a supplementary iden
 | Text status | Final [@CL-CMP-2986] |
 | Applies to | Solicitation and contract actions of agencies [@CL-CMP-2986] |
 
-The PIID shall be used to identify all solicitation and contract actions [@CL-CMP-2986]. Agencies shall have in place a process that ensures that each PIID used to identify a solicitation or contract action is unique Governmentwide, and will remain so for at least 20 years from the date of contract award [@CL-CMP-2946]. The PIID consists of a combination of thirteen to seventeen alpha and/or numeric characters, and special characters such as hyphens, dashes, or spaces are not used [@CL-CMP-2987].
+The PIID shall be used to identify all solicitation and contract actions [@CL-CMP-2986]. Agencies shall have in place a process that ensures that each PIID used to identify a solicitation or contract action is unique Governmentwide, and will remain so for at least 20 years from the date of contract award [@CL-CMP-2946]. The PIID consists of a combination of thirteen to seventeen alpha and/or numeric characters, and special characters such as hyphens, dashes, or spaces must not be used [@CL-CMP-2987].
 
 These listed elements sit under that description of the PIID [@CL-CMP-2987]. The first six positions identify the department/agency and office issuing the instrument, using the AAC assigned to the issuing office [@CL-CMP-2988]. The seventh and eighth positions are the last two digits of the fiscal year in which the instrument is issued or awarded, measured by the date the action is signed rather than the effective date if different [@CL-CMP-2989]. Position nine indicates the type of instrument by one of the listed upper case letters [@CL-CMP-2990].
 
@@ -54,4 +54,5 @@ How the company's contract records store the PIID and each supplementary number 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the do-not-use direction on special characters.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement instrument identifiers.

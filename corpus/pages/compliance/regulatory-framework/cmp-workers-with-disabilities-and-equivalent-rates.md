@@ -36,7 +36,7 @@ The equivalent rates statement identifies the classes of service employees expec
 
 The contractor must include the clause's terms in every subcontract or purchase order above the threshold specified in the acquisition regulation on the date of subcontract award, unless the Secretary's rules, regulations or orders exempt it [@CL-CMP-5893], so that such provisions are binding upon each subcontractor or vendor [@CL-CMP-6633]. The contractor must also act as specified by the Director of the Office of Federal Contract Compliance Programs of the Department of Labor to enforce the terms of the clause in subcontracts, including action for noncompliance [@CL-CMP-6388]. Such necessary changes in language may be made as are appropriate to identify properly the parties and their undertakings [@CL-CMP-6632]. Alternate I adds a preamble stating that the listed terms of the disability clause are waived for the contract, and the list is filled in per contract [@CL-CMP-6389].
 
-The contracting office must forward any complaints received about the administration of the Act to the Director of the Office of Federal Contract Compliance Programs (OFCCP), U.S. Department of Labor, or to any OFCCP regional or area office [@CL-CMP-8826]; the Act is named on [Employment policy for workers with disabilities](cmp-workers-with-disabilities-policy.md). The contracting officer must take necessary action, as soon as possible upon notification by the appropriate agency official, to implement any sanctions imposed on a contractor by the Department of Labor for violations of the clause at FAR 52.222-36 [@CL-CMP-8827]. These sanctions (see 41 CFR 60-741.66) may include withholding from payments otherwise due, termination or suspension of the contract, or debarment of the contractor [@CL-CMP-8828].
+Following agency procedures [@CL-CMP-7043], the contracting office shall forward any complaints received about the administration of the Act to the Director of the Office of Federal Contract Compliance Programs (OFCCP), U.S. Department of Labor, or to any OFCCP regional or area office [@CL-CMP-8826]; the Act is named on [Employment policy for workers with disabilities](cmp-workers-with-disabilities-policy.md). The contracting officer must take necessary action, as soon as possible upon notification by the appropriate agency official, to implement any sanctions imposed on a contractor by the Department of Labor for violations of the clause at FAR 52.222-36 [@CL-CMP-8827]. These sanctions (see 41 CFR 60-741.66) may include withholding from payments otherwise due, termination or suspension of the contract, or debarment of the contractor [@CL-CMP-8828].
 
 The statement of equivalent rates lists each expected employee class with the wage and fringe benefit an agency hire in that class would receive [@CL-CMP-5894]. It is for information only and is not a wage determination [@CL-CMP-5895].
 
@@ -50,7 +50,7 @@ A contract carries the disability clause and the equivalent rates statement. A p
 
 ## Never confuse
 
-The equivalent rates statement is often mistaken for a wage determination. The clause says it is for information only and is not a wage determination [@CL-CMP-5895], and its content is the agency-side wage and fringe benefit for each expected employee class [@CL-CMP-5894]. The disability clause binds the contractor to the equal opportunity clause at 41 CFR 60-741.5(a) [@CL-CMP-5891], not to the general equal opportunity clause for race, sex and the other listed bases. The codified clause points to FAR 22.1408(a) for the subcontract threshold, but the RFO clause points to FAR 22.1401-2(a)(1) [@CL-CMP-5893; @CL-CMP-6611].
+The equivalent rates statement is not a wage determination. The clause says it is for information only and is not a wage determination [@CL-CMP-5895], and its content is the agency-side wage and fringe benefit for each expected employee class [@CL-CMP-5894]. The disability clause binds the contractor to the equal opportunity clause at 41 CFR 60-741.5(a) [@CL-CMP-5891]. The codified clause points to FAR 22.1408(a) for the subcontract threshold, but the RFO clause points to FAR 22.1401-2(a)(1) [@CL-CMP-5893; @CL-CMP-6611].
 
 ## Company calibration
 
@@ -60,6 +60,8 @@ Which service contracts carry the equivalent rates statement and who reconciles 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added the agency procedures lead-in for forwarding complaints.
+- COMPATIBLE_EXTENSION, 2026-10-31: workers with disabilities and equivalent rates: unsupported remarks removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the complaint forwarding and sanction rules for the disability clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for workers with disabilities and the equivalent rates statement.

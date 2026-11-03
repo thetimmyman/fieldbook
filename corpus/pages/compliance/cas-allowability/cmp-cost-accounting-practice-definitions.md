@@ -55,7 +55,7 @@ A contractor first incurs a cost for a new function and adopts a method for assi
 
 ## Never confuse
 
-A change in practice is not a change in the price paid for a unit of goods or services, and the first adoption of a practice is not a change either [@CL-CMP-1771; @CL-CMP-1774].
+The determination of the amount paid, or a change in the amount paid, for a unit of goods and services is not a cost accounting practice [@CL-CMP-1771], and the initial adoption of a practice for the first time a cost is incurred, or a function is created, is not a change in cost accounting practice [@CL-CMP-1774].
 
 Eliminating a cost is excluded, while an alteration in how a remaining cost is allocated, assigned or measured is a change unless another exclusion applies [@CL-CMP-1770; @CL-CMP-1773; @CL-CMP-1775]. The disclosure, consistency and practice-change requirements of the standards clause are covered in [Cost accounting standards clause](../cas-allowability/cmp-cost-accounting-standards.md), and how materiality is judged in [Materiality](../cas-allowability/cmp-cas-materiality.md).
 
@@ -69,4 +69,5 @@ Whether each business unit can show which practices are disclosed and how each a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the price-paid and first-adoption sentence as the quotes say it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost accounting practice definitions.

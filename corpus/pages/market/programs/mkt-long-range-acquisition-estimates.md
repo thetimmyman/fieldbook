@@ -31,11 +31,11 @@ Shows when an agency head may release long-range acquisition estimates, the cond
 
 The agency head, or a designee, may release long-range acquisition estimates if the information will meet the listed conditions [@CL-MKT-0090]. One is that it will assist industry in its planning and facilitate meeting the acquisition requirements [@CL-MKT-0090]. Two others are that it will not encourage undesirable practices and will not indicate the existing or potential mobilization of the industry as a whole [@CL-MKT-0090; @CL-MKT-0091].
 
-The agency head shall ensure that classified information is released through existing security channels and that the information is publicized as widely as practicable to all parties simultaneously [@CL-MKT-0092]. The agency head shall also ensure that each release states that the estimate is based on the best information available and that the information is subject to modification and is in no way binding on the Government [@CL-MKT-0092; @CL-MKT-0093].
+The agency head shall ensure that classified information is released through existing security channels in accordance with agency security regulations and that the information is publicized as widely as practicable to all parties simultaneously by any of the means described in the part [@CL-MKT-0092]. The agency head shall also ensure that each release states that the estimate is based on the best information available, that the information is subject to modification and is in no way binding on the Government [@CL-MKT-0093], and that more specific information relating to any individual item or class of items will not be furnished until the proposed action is synopsized through the GPE or the solicitation is issued [@CL-MKT-0154].
 
 ## How it works
 
-Release is the agency head's choice, tested against the listed conditions [@CL-MKT-0090; @CL-MKT-0091]. Further publicizing may be accomplished by announcing through the GPE that the estimates have been published and are obtainable, upon request, from the contracting officer [@CL-MKT-0094]. By the required statement, a released estimate is subject to modification and is in no way binding on the Government [@CL-MKT-0093].
+Release is a choice of the agency head or a designee, tested against the listed conditions [@CL-MKT-0090; @CL-MKT-0091]. Further publicizing, consistent with the needs of the individual case, may be accomplished by announcing through the GPE that the estimates have been published and are obtainable, upon request, from the contracting officer [@CL-MKT-0094]. By the required statement, a released estimate is subject to modification and is in no way binding on the Government [@CL-MKT-0093].
 
 To assist industry planning and to locate additional sources of supply, it may be desirable to publicize estimates of unclassified long-range acquisition requirements, and the estimates may be publicized as far in advance as possible [@CL-MKT-2222].
 
@@ -57,6 +57,7 @@ Confirm which product families, customer groups and market segments define the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: release duties carry security-regulation and third statement, designee, case-need qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the GPE synopsis condition and dropped the unsupported planning-signal wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the introductory statement on publicizing long-range estimates.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of long-range acquisition estimates.

@@ -26,9 +26,9 @@ Explains the disclosure, consistency, practice-change, and confidentiality requi
 | RFO citation | RFO FAR 52.230-2 [@CL-CMP-0284] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0606] |
-| Applies to | CAS-covered contracts unless the stated exemptions apply [@CL-CMP-0606; @CL-CMP-0607] |
+| Applies to | Contracts that are not exempt under 48 CFR 9903.201-1 and 9903.201-2 [@CL-CMP-0606] |
 
-Unless an exemption applies, the clause incorporates the CAS contract requirements by reference [@CL-CMP-0606]. A contractor on a CAS-covered contract discloses its practices in a Disclosure Statement as required by 48 CFR 9903.202-1 through 9903.202-5, follows them consistently, and applies covered practice changes prospectively while amending the Disclosure Statement if it is affected [@CL-CMP-0607; @CL-CMP-0608; @CL-CMP-0609]. The clause ties the Disclosure Statement to what those provisions require, so CAS coverage alone does not settle whether one is required [@CL-CMP-0607].
+Unless the contract is exempt under 48 CFR 9903.201-1 and 9903.201-2, the clause incorporates the provisions of 48 CFR part 9903 by reference [@CL-CMP-0606]. Under paragraph (a)(1) the contractor discloses its cost accounting practices in writing, by submission of a Disclosure Statement, as required by 48 CFR 9903.202-1 through 9903.202-5 [@CL-CMP-0607]; the RFO text heads that paragraph "CAS-covered Contracts Only" [@CL-CMP-0325]. Under paragraph (a)(2) the contractor follows its cost accounting practices consistently in accumulating and reporting contract performance cost data concerning the contract [@CL-CMP-0608]. If any change in cost accounting practices is made for the purposes of any contract or subcontract subject to CAS requirements, the change must be applied prospectively to the contract and the Disclosure Statement must be amended accordingly [@CL-CMP-0609]. The clause ties the Disclosure Statement to what those provisions require [@CL-CMP-0607].
 
 ## How it works
 
@@ -54,6 +54,7 @@ Whether each business unit has full CAS coverage, modified coverage, or neither,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the clause scope, consistency and prospective-change sentences as the quotes say them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Disclosure Statement sentence so the amendment duty applies only if the statement is affected, as the clause prints.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Cost Accounting Standards clause.

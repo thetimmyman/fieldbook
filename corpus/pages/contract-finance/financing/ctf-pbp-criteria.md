@@ -31,7 +31,7 @@ Explains how performance-based payments are tied to defined events or performanc
 
 Payments may be made on a whole contract basis or on a deliverable item basis, unless agency regulations prescribe otherwise [@CL-CTF-0108]. The basis for a payment may be a specifically described event, such as a milestone, or a measurable criterion of performance [@CL-CTF-0109].
 
-Total performance-based payments may not exceed 90 percent of the contract price on a whole contract basis, or 90 percent of the delivery item price on a delivery item basis [@CL-CTF-0112].
+Total performance-based payments shall meet both of two requirements: they reflect prudent contract financing provided only to the extent needed for contract performance [@CL-CTF-9597], and they do not exceed 90 percent of the contract price on a whole contract basis, or 90 percent of the delivery item price on a delivery item basis [@CL-CTF-0112].
 
 ## How it works
 
@@ -53,7 +53,7 @@ A contract price is 1,000,000, with one milestone worth 200,000 and a liquidatio
 
 This page covers the procedure for setting up performance-based payments: the payment basis, the payment amounts and their liquidation [@CL-CTF-0108; @CL-CTF-0112; @CL-CTF-0113]. It is not the contract clause, which is covered on the [Performance-Based Payments clause](ctf-performance-based-payments.md) page.
 
-Progress payments are computed from costs incurred [@CL-CTF-0102], while performance-based payments rest on specifically described events or a measurable criterion of performance [@CL-CTF-0109]. Both are recovered by deduction from later payments [@CL-CTF-0104; @CL-CTF-0113]; see [Progress payments](ctf-progress-payments.md).
+Progress payments are computed from costs incurred [@CL-CTF-0102], while performance-based payments rest on specifically described events or a measurable criterion of performance [@CL-CTF-0109]. Both are recovered by deduction: progress payments are liquidated by deducting from any payment under the contract other than advance or progress payments, except as provided in the Termination for Convenience of the Government clause [@CL-CTF-0104], and performance-based amounts by deducting a percentage or a designated dollar amount from the delivery payments [@CL-CTF-0113]; see [Progress payments](ctf-progress-payments.md).
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Confirm that each performance-based payment schedule in force names verifiable e
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Total payment limits now carry both requirements; liquidation described as each clause states it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance-based payments.

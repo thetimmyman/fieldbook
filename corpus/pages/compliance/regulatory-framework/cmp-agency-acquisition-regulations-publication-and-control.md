@@ -29,7 +29,7 @@ Explains how agency-wide acquisition regulations are published, codified and num
 | Text status | Final [@CL-CMP-8420] |
 | Applies to | Agency-wide acquisition regulations and local agency directives [@CL-CMP-8420; @CL-CMP-8424] |
 
-Agency-wide acquisition regulations shall be published in the Federal Register as required by law, shall be codified under an assigned chapter in Title 48, Code of Federal Regulations, and shall parallel the FAR in format, arrangement and numbering system [@CL-CMP-8420]. The text adds a "but see 1.104-1(c)" cross-reference [@CL-CMP-8420]. The printed text of FAR part 1 has no section numbered 1.104-1, so this card does not state what that cross-reference excepts [@CL-CMP-8420].
+Agency-wide acquisition regulations shall be published in the Federal Register as required by law, shall be codified under an assigned chapter in Title 48, Code of Federal Regulations, and shall parallel the FAR in format, arrangement and numbering system [@CL-CMP-8420]. The requirement to parallel the FAR in format, arrangement and numbering system carries the cross-reference "but see 1.104-1(c)" [@CL-CMP-8420].
 
 Coverage in an agency acquisition regulation that implements a specific FAR part, subpart, section or subsection shall be numbered and titled to correspond to the appropriate FAR number and title [@CL-CMP-8421]. Supplementary material for which there is no counterpart in the FAR shall be codified using chapter, part, subpart, section or subsection numbers of 70 and up [@CL-CMP-8422]. Issuances under 1.301(a)(2) need not be published in the Federal Register [@CL-CMP-8423].
 
@@ -41,7 +41,7 @@ Agency acquisition regulations shall not unnecessarily repeat, paraphrase or oth
 
 Agencies shall evaluate all regulatory coverage in their acquisition regulations to determine if it could apply to other agencies, and coverage that is not peculiar to one agency shall be recommended for inclusion in the FAR [@CL-CMP-8427].
 
-These duties fall on agencies, not on contractors, and the sections set no threshold or deadline other than the numbering floor of 70 and up [@CL-CMP-8422]. For a contractor, the numbering rules make an agency supplement easier to read: coverage that implements a FAR section carries the corresponding FAR number and title [@CL-CMP-8421], and material with no FAR counterpart sits at 70 and up [@CL-CMP-8422]. How a FAR number is built is on [FAR publication, arrangement and numbering](cmp-far-publication-arrangement-and-numbering.md).
+These duties are stated for agencies and their acquisition regulations [@CL-CMP-8420; @CL-CMP-8424]. Coverage that implements a FAR section carries the corresponding FAR number and title [@CL-CMP-8421], and supplementary material with no FAR counterpart is codified using numbers of 70 and up [@CL-CMP-8422]. How a FAR number is built is on [FAR publication, arrangement and numbering](cmp-far-publication-arrangement-and-numbering.md).
 
 ## Worked example
 
@@ -51,9 +51,9 @@ An agency supplement does three things. It repeats a FAR cost principle word for
 
 ## Never confuse
 
-An agency supplement is not a substitute for the FAR. Agency acquisition regulations implement or supplement the FAR [@CL-CMP-8396], and they shall parallel its format, arrangement and numbering system, subject to the text's "but see 1.104-1(c)" cross-reference [@CL-CMP-8420]. A conflict with FAR content is barred unless law requires it or subpart 1.4 provides for it [@CL-CMP-8426].
+Agency acquisition regulations implement or supplement the FAR [@CL-CMP-8396], and they shall parallel its format, arrangement and numbering system, with the cross-reference "but see 1.104-1(c)" [@CL-CMP-8420]. A conflict with FAR content is barred unless law requires it or subpart 1.4 provides for it [@CL-CMP-8426].
 
-Relief from Federal Register publication is narrow. Section 1.303(b) covers only issuances under 1.301(a)(2) [@CL-CMP-8423], while agency-wide acquisition regulations are published as required by law [@CL-CMP-8420].
+Issuances under 1.301(a)(2) need not be published in the Federal Register [@CL-CMP-8423], while agency-wide acquisition regulations shall be published in the Federal Register as required by law [@CL-CMP-8420].
 
 ## Company calibration
 
@@ -63,5 +63,6 @@ Which agency supplements and local directives the company tracks against the FAR
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed uncited inferences and the word only.
 - COMPATIBLE_EXTENSION, 2026-10-30: The worked example now applies the conflict bar to agency acquisition regulations, as FAR 1.304(b) does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for publication and control of agency acquisition regulations.

@@ -51,7 +51,7 @@ A filing person cannot supply the 12 supply contracts that a divested unit holds
 
 ## Never confuse
 
-A statement of reasons explains an incomplete answer. It does not replace the rule that each item gets a complete response [@CL-MNA-0200; @CL-MNA-0201]. A claim of privilege is one basis for noncompliance, and paragraph (d) gives it its own required content [@CL-MNA-0206; @CL-MNA-0207]. Only a filer acting under § 803.4 for a foreign person that refuses to file, in an acquisition of the kind that section describes, need not supply this statement, and only for information or documentary material that is not reasonably available [@CL-MNA-0210; @CL-MNA-0211; @CL-MNA-0216]. Which person files and certifies the notification is on [the filing card](mna-hsr-filing-and-who-files.md).
+A statement of reasons explains an incomplete answer. It does not replace the rule that each item gets a complete response [@CL-MNA-0200; @CL-MNA-0201]. A claim of privilege is one basis for noncompliance, and paragraph (d) gives it its own required content [@CL-MNA-0206; @CL-MNA-0207]. A filer acting under § 803.4 for a foreign person that refuses to file, in an acquisition of the kind that section describes, need not supply this statement where information or documentary material is not reasonably available [@CL-MNA-0210; @CL-MNA-0211; @CL-MNA-0216]. Which person files and certifies the notification is on [the filing card](mna-hsr-filing-and-who-files.md).
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Which documents and search steps the deal team must complete so that a statement
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed the unsupported only wording from the foreign person filer sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the reasonable-time rule for additional information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the statement of reasons for noncompliance.

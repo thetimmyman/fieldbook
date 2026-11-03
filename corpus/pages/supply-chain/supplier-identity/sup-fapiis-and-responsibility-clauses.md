@@ -35,7 +35,7 @@ The contracting officer shall insert the provision on certification regarding re
 
 ## How it works
 
-One listed trigger for the additional-information paragraph is relevant FAPIIS information regarding criminal, civil or administrative proceedings in connection with the award or performance of a Government contract, or terminations for default or cause [@CL-SUP-0902]. In that paragraph, one listed duty is that, unless the contractor has already been debarred, suspended or has agreed to a voluntary exclusion, the contracting officer shall promptly request the additional information the offeror deems necessary to demonstrate its responsibility [@CL-SUP-0903]. The prime contractor may post mitigating factors in FAPIIS, and the contracting officer shall consider any mitigating factors the prime contractor posts in FAPIIS [@CL-SUP-0901].
+The additional-information paragraph applies if the contracting officer obtains relevant information from FAPIIS on any one of four alternatives: criminal, civil or administrative proceedings in connection with the award or performance of a Government contract; terminations for default or cause [@CL-SUP-0902]; determinations of nonresponsibility because the contractor does not have a satisfactory performance record or a satisfactory record of integrity and business ethics; or comparable information relating to a grant [@CL-SUP-9728]. In that paragraph, one listed duty is that, unless the contractor has already been debarred, suspended or has agreed to a voluntary exclusion, the contracting officer shall promptly request the additional information the offeror deems necessary to demonstrate its responsibility [@CL-SUP-0903]. The prime contractor may post mitigating factors in FAPIIS, and the contracting officer shall consider any mitigating factors the prime contractor posts in FAPIIS [@CL-SUP-0901].
 
 Under the clause on updates, data in the non-public segment of FAPIIS is automatically transferred to the publicly-available segment after a waiting period of 14 calendar days, except for the listed categories [@CL-SUP-0975]. A contractor seeking removal of a posting from FAPIIS under the clause must cite 52.209-9 and request removal within 7 calendar days of the posting [@CL-SUP-0976]. If a contractor asserts in writing within 7 calendar days, to the Government official who posted the information, that some of the information posted to the non-public segment is covered by a disclosure exemption under the Freedom of Information Act, that official must within 7 calendar days remove the posting from FAPIIS and resolve the issue in accordance with agency Freedom of Information procedures prior to reposting the releasable information [@CL-SUP-1000; @CL-SUP-0977; @CL-SUP-4049; @CL-SUP-0976].
 
@@ -63,6 +63,7 @@ Confirm who owns the semi-annual FAPIIS update and the posting of mitigating fac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Listed the alternatives that trigger the additional-information paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the removal sentence so the posting rule keeps the duty to resolve the issue before reposting.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAPIIS review and the responsibility provisions and clauses.

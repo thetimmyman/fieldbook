@@ -31,7 +31,7 @@ Sets out allowable and unallowable relocation costs, ceiling limits on real esta
 
 Relocation costs are costs incident to the permanent change of assigned work location, for a period of 12 months or more, of an existing employee or upon recruitment of a new employee [@CL-CMP-0806]. The listed types of relocation costs are allowable as noted, subject to the limitations in paragraphs (b) and (f) of the principle [@CL-CMP-1123].
 
-The listed types include travel of the employee and immediate family and transportation of the household and personal effects [@CL-CMP-1124], costs of finding a new home and temporary lodging [@CL-CMP-1125], closing costs on the residence being sold [@CL-CMP-1126], continuing ownership costs of the vacant former residence [@CL-CMP-1127], and other necessary and reasonable expenses normally incident to relocation [@CL-CMP-1128].
+The listed types include travel of the employee and immediate family and transportation of the household and personal effects [@CL-CMP-1124], costs of finding a new home and temporary lodging [@CL-CMP-1125], closing costs on the residence being sold [@CL-CMP-1126], continuing ownership costs of the vacant former residence after the settlement date or lease date of a new permanent residence [@CL-CMP-1127], and other necessary and reasonable expenses normally incident to relocation [@CL-CMP-1128].
 
 The closing costs on the residence being sold, when added to the continuing ownership costs of the vacant former residence, shall not exceed 14 percent of the sales price of the property sold [@CL-CMP-0807].
 
@@ -59,7 +59,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in pla
 
 Synthetic example. The numbers are made up.
 
-An existing employee is permanently transferred to a new facility. The employee sells their former residence for 400,000, incurring 35,000 in closing costs and 25,000 in continuing ownership costs while the home was on the market, totaling 60,000. Under the 14 percent ceiling, the maximum allowable reimbursement for these combined residence costs is 56,000 (which is 14 percent of 400,000), leaving the remaining 4,000 unallowable. The contractor also pays an allowable lump sum of 5,000 for miscellaneous expenses. Nine months later, the employee voluntarily resigns to accept another job; because the resignation was within 12 months for reasons within the employee's control, the contractor must credit the 61,000 of allowed relocation costs back to the Government.
+An existing employee is permanently transferred to a new facility. The employee sells their former residence for 400,000, incurring 35,000 in closing costs and 25,000 in continuing ownership costs of the vacant former residence after the lease date of a new permanent residence, totaling 60,000. Under the 14 percent ceiling, the maximum allowable reimbursement for these combined residence costs is 56,000 (which is 14 percent of 400,000), leaving the remaining 4,000 unallowable. The contractor also pays an allowable lump sum of 5,000 for miscellaneous expenses. Nine months later, the employee voluntarily resigns to accept another job; because the resignation was within 12 months for reasons within the employee's control, the contractor must credit the 61,000 of allowed relocation costs back to the Government.
 
 ## Never confuse
 
@@ -73,6 +73,7 @@ How relocation reimbursements are monitored to enforce ceiling caps and track ea
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Continuing ownership costs now carry the after-settlement or lease date condition, including in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the types of relocation costs that the RFO text makes unallowable.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Restored the conditions and scope limits of the source text and cited the qualifying claims.

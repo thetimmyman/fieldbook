@@ -58,9 +58,9 @@ Assume that in a made-up year the annual rate set by the Secretary of Labor unde
 
 ## Never confuse
 
-Never confuse the $15.00 rate that applied as of January 30, 2022 with the rate in force later, because annual increases follow it [@CL-CMP-7998; @CL-CMP-7999; @CL-CMP-8000].
+The $15.00 rate that applied as of January 30, 2022 may differ from the rate in force later, because the wage rate is subject to annual increases [@CL-CMP-7998; @CL-CMP-7999; @CL-CMP-8000].
 
-Never confuse the executive order minimum wage with the statutory wage determination amount under subpart 22.4, because the section treats them as different rates and compares them [@CL-CMP-8001].
+The executive order minimum wage is not the statutory wage determination amount under subpart 22.4, because the section treats them as different rates and compares them [@CL-CMP-8001].
 
 ## Company calibration
 
@@ -70,5 +70,6 @@ Which of the company's construction contracts carry the minimum wage clause, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to paid sick leave under Executive Order 13706.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order 13658 and 14026 minimum wages on construction contracts.

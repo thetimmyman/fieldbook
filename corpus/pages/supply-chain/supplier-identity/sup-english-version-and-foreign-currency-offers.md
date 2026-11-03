@@ -36,7 +36,7 @@ If the Government receives offers in more than one currency, it evaluates them b
 
 The English version clause settles an inconsistency between a contract term and a translation, and it settles it for the English language meaning [@CL-SUP-2807]. It does not say that a translation is invalid or that the contract must be written in English.
 
-The foreign currency provision applies only when the Government receives offers in more than one currency [@CL-SUP-2808]. It converts the foreign currency to United States currency for evaluation [@CL-SUP-2808]. It does not state the currency of payment.
+The foreign currency provision applies when the Government receives offers in more than one currency [@CL-SUP-2808]. It converts the foreign currency to United States currency for evaluation [@CL-SUP-2808]. It does not state the currency of payment.
 
 The source of the rate is a bracketed fill-in that the Contracting Officer completes in each solicitation, so it is contract-specific and this card cannot name it [@CL-SUP-2808].
 
@@ -72,5 +72,6 @@ Which rate source the solicitation inserts, and whether the company's translated
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for English version control and evaluation of foreign currency offers.

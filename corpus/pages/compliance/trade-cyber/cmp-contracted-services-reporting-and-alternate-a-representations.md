@@ -45,7 +45,7 @@ A contractor holds a services order. For the preceding fiscal year it invoiced 2
 
 ## Never confuse
 
-Alternate I belongs to the services reporting clause and sets a threshold by order, while Alternate A belongs to the annual representations provision and substitutes paragraphs of the provision at FAR 52.204-8 [@CL-CMP-2873].
+Alternate I belongs to the services reporting clause and sets a threshold by order [@CL-CMP-2872], while Alternate A belongs to the annual representations provision and substitutes paragraphs of the provision at FAR 52.204-8 [@CL-CMP-2873].
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ Which orders need services reports, where invoiced amounts and labor hours are c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the Alternate I claim for the Alternate I statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the verification sentence so the offeror's verification keeps its exception for the changes identified in the provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracted services reporting and the Alternate A annual representations.

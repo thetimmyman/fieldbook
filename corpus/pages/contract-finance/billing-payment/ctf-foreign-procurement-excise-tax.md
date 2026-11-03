@@ -31,7 +31,7 @@ Explains the excise tax on payments to foreign persons under certain foreign pro
 
 Unless exempted, a 2 percent tax applies to the amount of a specified Federal procurement payment received by a foreign person [@CL-CTF-2553]. A foreign person is any person other than a United States person [@CL-CTF-2554].
 
-A specified Federal procurement payment is a payment under a contract with a foreign contracting party for goods manufactured or produced, or services provided, in a foreign country that is not a party to an international procurement agreement with the United States [@CL-CTF-2555]. In that definition, for purposes of the prior sentence, a foreign country does not include an outlying area [@CL-CTF-2824]. Taxes imposed under section 5000C of title 26 of the United States Code may not be included in the contract price and may not be reimbursed [@CL-CTF-2559].
+A specified Federal procurement payment is a payment under a contract with a foreign contracting party for goods manufactured or produced, or services provided, in a foreign country that is not a party to an international procurement agreement with the United States [@CL-CTF-2555]. In that definition, for purposes of the prior sentence, a foreign country does not include an outlying area [@CL-CTF-2824]. Under the clause at FAR 52.229-12, taxes imposed under section 5000C of title 26 of the United States Code may not be included in the contract price and may not be reimbursed [@CL-CTF-2559].
 
 The definition of a United States person in section 7701(a)(30) of title 26 of the United States Code lists a citizen or resident of the United States, a domestic partnership, a domestic corporation, and any estate other than a foreign estate [@CL-CTF-2825]. It also lists any trust if a court within the United States is able to exercise primary supervision over the administration of the trust and one or more United States persons have the authority to control all substantial decisions of the trust [@CL-CTF-2826]. The clause applies only to foreign persons and implements section 5000C of title 26 of the United States Code and its implementing regulations at 26 CFR 1.5000C-1 through 1.5000C-7 [@CL-CTF-2833]. The clause repeats that definition: a United States person is a citizen or resident of the United States, a domestic partnership, a domestic corporation, or any estate other than a foreign estate [@CL-CTF-2895]. The clause also lists any trust if a court within the United States is able to exercise primary supervision over the administration of the trust and one or more United States persons have the authority to control all substantial decisions of the trust [@CL-CTF-2896].
 
@@ -59,7 +59,7 @@ A different contractor certified a full exemption in its offer. Midway through p
 
 ## Never confuse
 
-The withholding is a payment-level collection of a Federal excise tax on foreign persons, not a price adjustment and not a tax cost that can be added back into the price or reimbursed [@CL-CTF-2556; @CL-CTF-2559]. It is also different from the host-country taxes handled in the foreign fixed-price and foreign cost-reimbursement clauses, which turn on what the price includes or what is allowable. See [Taxes under foreign fixed-price contracts](ctf-foreign-fixed-price-taxes.md). The same tax is barred from the price in the general [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Invoice mechanics sit at [Proper invoice content](ctf-proper-invoice-content.md).
+The excise tax withholding is applied at the payment level, not at the contract level [@CL-CTF-2556], and taxes imposed under section 5000C of title 26 of the United States Code may not be included in the contract price or reimbursed [@CL-CTF-2559]. It is also different from the host-country taxes handled in the foreign fixed-price and foreign cost-reimbursement clauses, which turn on what the price includes or what is allowable. See [Taxes under foreign fixed-price contracts](ctf-foreign-fixed-price-taxes.md). The same tax is barred from the price in the general [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Invoice mechanics sit at [Proper invoice content](ctf-proper-invoice-content.md).
 
 The codified definition says a foreign country does not include an outlying area [@CL-CTF-2824], while the RFO text says it does not include an outlying area of the United States [@CL-CTF-0371].
 
@@ -71,5 +71,6 @@ Whether any contract has a foreign contracting party, and who prepares the exemp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the 5000C price and reimbursement bar to its clause and removed a price-adjustment characterization the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the excise tax on certain foreign procurements.

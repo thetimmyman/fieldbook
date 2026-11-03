@@ -32,13 +32,13 @@ Annual military construction appropriations acts prohibit the use of cost-plus-f
 
 The determination and findings justifying that the use of an incentive- or award-fee contract is in the best interest of the Government may be signed by the head of contracting activity or a designee [@CL-MKT-1634]. The designee is no lower than one level below the head of the contracting activity for award-fee contracts, or one level above the contracting officer for incentive-fee contracts [@CL-MKT-1585]. Award-fee plans required in FAR 16.401(e) shall be incorporated into all award-fee type contracts [@CL-MKT-1586], and the procedures at PGI 216.401(e) are followed when planning to award an award-fee contract [@CL-MKT-1635].
 
-Contracting officers shall ensure that requirements about the payment of incentive fees or the imposition of penalties are included in the solicitation for a contract for the engineering and manufacturing development or production of a weapon system, including embedded software [@CL-MKT-1587]. That duty depends on what the program manager or comparable requiring activity official exercising program manager responsibilities includes [@CL-MKT-1636]. One condition is provisions for the payment of incentive fees to the contractor, based on achievement of design specification requirements for reliability and maintainability of weapons systems under the contract [@CL-MKT-1637]. The other, as an alternative, is the imposition of penalties to be paid by the contractor to the Government for failure to achieve such design specification requirements [@CL-MKT-1638].
+Contracting officers shall ensure that requirements about the payment of incentive fees or the imposition of penalties are included in the solicitation for a contract for the engineering and manufacturing development or production of a weapon system, including embedded software [@CL-MKT-1587]. That duty applies if the program manager or comparable requiring activity official exercising program manager responsibilities includes one of two alternatives [@CL-MKT-1636]. One alternative is provisions for the payment of incentive fees to the contractor, based on achievement of design specification requirements for reliability and maintainability of weapons systems under the contract [@CL-MKT-1637]. The other alternative is the imposition of penalties to be paid by the contractor to the Government for failure to achieve such design specification requirements [@CL-MKT-1638].
 
 ## How it works
 
 The construction bar turns on three conditions together: the funding source, the estimate and the place of performance [@CL-MKT-1582]. Work that meets only some of them is not caught by that paragraph (c)(i) prohibition [@CL-MKT-1582]. For contracts in connection with a military construction project or a military family housing project, the separate prohibition at DFARS 216.301-3 says contracting officers shall not use cost-plus-fixed-fee, cost-plus-award-fee, or cost-plus-incentive-fee contract types [@CL-MKT-1632; @CL-MKT-1700]. A contract that is caught needs written approval with reasons, and the approving official depends on whether the work is environmental work only and not classified as construction [@CL-MKT-1633; @CL-MKT-1583; @CL-MKT-1584].
 
-The signing level for the determination and findings depends on the contract type [@CL-MKT-1634; @CL-MKT-1585]. The weapon system requirement reaches the solicitation only when the program side supplies fee or penalty provisions of the described kinds, and a penalty provision is a payment from the contractor to the Government [@CL-MKT-1587; @CL-MKT-1636; @CL-MKT-1638].
+The signing level for the determination and findings depends on the contract type [@CL-MKT-1634; @CL-MKT-1585]. The weapon system requirement reaches the solicitation when the program side supplies fee or penalty provisions of the described kinds, and a penalty provision is a payment from the contractor to the Government [@CL-MKT-1587; @CL-MKT-1636; @CL-MKT-1638].
 
 ## Worked example
 
@@ -60,4 +60,6 @@ Which contracts within the finance remit carry a fee arrangement, and who confir
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Weapon system fee or penalty condition stated as an if with two alternatives.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost, incentive and award fee contract approvals.

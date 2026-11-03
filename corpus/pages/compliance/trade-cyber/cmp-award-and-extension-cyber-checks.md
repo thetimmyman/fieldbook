@@ -37,7 +37,7 @@ For CMMC, the contracting officer must include the required level in the solicit
 
 The contracting officer checks SPRS and does not award unless the offeror has a current CMMC status posted there at the required level or higher for each CMMC UID the offeror provides [@CL-CMP-7235]. At award, those UIDs apply to each contractor information system that will process, store or transmit FCI or CUI and will be used in performance [@CL-CMP-7405].
 
-Before an option is exercised or the period of performance is extended, the officer checks SPRS again and does not proceed unless the contractor has a current CMMC status posted there [@CL-CMP-7236]. That status must be at the level the contract, task order or delivery order requires, or higher, for each UID the contractor provides [@CL-CMP-7406]. The UIDs apply to each system that processes, stores or transmits FCI or CUI and is or will be used in performance [@CL-CMP-7407].
+Before an option is exercised or the period of performance is extended, the officer checks SPRS and does not proceed unless the contractor has a current CMMC status posted there [@CL-CMP-7236]. That status must be at the level the contract, task order or delivery order requires, or higher, for each UID the contractor provides [@CL-CMP-7406]. The UIDs apply to each system that processes, stores or transmits FCI or CUI and is or will be used in performance [@CL-CMP-7407].
 
 If the contractor provides new UIDs during performance, the officer checks in SPRS, using the UIDs that SPRS assigned, that the contractor has a current status at the required level or higher [@CL-CMP-7237]. That check covers each system identified that will process, store or transmit FCI or CUI during performance [@CL-CMP-7408].
 
@@ -74,4 +74,5 @@ Which information systems are in scope, what assessment score and CMMC UID is po
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word from the option check summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award, option and extension checks on NIST SP 800-171 assessments and CMMC status.

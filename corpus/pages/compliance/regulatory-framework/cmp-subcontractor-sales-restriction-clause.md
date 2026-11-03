@@ -29,7 +29,7 @@ Shows what the contractor may not do about its subcontractors' direct sales to t
 | Text status | Final [@CL-CMP-2645] |
 | Applies to | Solicitations and contracts exceeding the simplified acquisition threshold, with Alternate I for commercial products or commercial services [@CL-CMP-2685; @CL-CMP-2686] |
 
-The clause is inserted as prescribed in FAR 3.503-2 [@CL-CMP-2645]. The contracting officer inserts it in solicitations and contracts exceeding the simplified acquisition threshold [@CL-CMP-2685]. For the acquisition of commercial products or commercial services, the contracting officer uses it with its Alternate I [@CL-CMP-2686]. The clause says the Contractor shall not enter into any agreement with an actual or prospective subcontractor, nor otherwise act in any manner, which has or may have the effect of restricting sales by such subcontractors directly to the Government, subject to the exceptions the clause provides [@CL-CMP-2646]. The restriction applies to sales of any item or process, including computer software, made or furnished by the subcontractor under this contract or under any follow-on production contract [@CL-CMP-2647].
+The clause is inserted as prescribed in FAR 3.503-2 [@CL-CMP-2645]. The contracting officer shall insert it in solicitations and contracts exceeding the simplified acquisition threshold [@CL-CMP-2685]. For the acquisition of commercial products or commercial services, the contracting officer shall use it with its Alternate I [@CL-CMP-2686]. The clause says the Contractor shall not enter into any agreement with an actual or prospective subcontractor, nor otherwise act in any manner, which has or may have the effect of restricting sales by such subcontractors directly to the Government, except as provided in paragraph (b) of the clause [@CL-CMP-2646; @CL-CMP-2648]. The restriction applies to sales of any item or process, including computer software, made or furnished by the subcontractor under this contract or under any follow-on production contract [@CL-CMP-2647].
 
 The prohibition does not preclude the Contractor from asserting rights that are otherwise authorized by law or regulation [@CL-CMP-2648]. Under Alternate I, which is used for acquisitions of commercial products or commercial services, the prohibition applies only to the extent that any agreement restricting sales by subcontractors results in the Federal Government being treated differently from any other prospective purchaser for the sale of the commercial products and commercial services [@CL-CMP-2649; @CL-CMP-2686].
 
@@ -57,5 +57,6 @@ Which contracts carry the clause, and whether prime and subcontract agreements c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: subcontractor sales restriction: shall wording, paragraph (b) exception named.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Restrictions on Subcontractor Sales to the Government clause.

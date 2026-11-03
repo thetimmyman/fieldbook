@@ -29,13 +29,13 @@ Shows how a business unit classifies direct and indirect costs and pools and all
 | Text status | Final [@CL-CMP-0216] |
 | Applies to | Direct and indirect costs of a business unit [@CL-CMP-0216] |
 
-A business unit must have a written statement of accounting policies for classifying costs as direct or indirect, consistently applied [@CL-CMP-0216]. Indirect costs are accumulated in homogeneous indirect cost pools [@CL-CMP-0217]. Pooled costs are allocated to cost objectives in reasonable proportion to the beneficial or causal relationship of the costs to the objectives [@CL-CMP-0218].
+A business unit must have a written statement of accounting policies and practices for classifying costs as direct or indirect, which must be consistently applied [@CL-CMP-0216]. Indirect costs are accumulated in homogeneous indirect cost pools [@CL-CMP-0217]. Pooled costs are allocated to cost objectives in reasonable proportion to the beneficial or causal relationship of the costs to the objectives [@CL-CMP-0218].
 
 ## How it works
 
 Indirect costs must be accumulated in indirect cost pools that are homogeneous [@CL-CMP-0217]. A pool that contains a material amount of the costs of management or supervision of activities involving direct labor or direct material costs is allocated on a base representative of the activity being managed or supervised. A pool that does not contain a material amount of the costs of management or supervision of activities involving direct labor or direct material costs is allocated on a resource consumption measure, an output measure, or a surrogate representative of resources consumed.
 
-The Board's final rule on CAS 407, effective October 1, 2026, rescinded that standard and moved its retained requirements on standard costs and related variances at the production unit level into CAS 418 [@CL-CMP-1516; @CL-CMP-1517; @CL-CMP-1518]. The printed text of 9904.418-30 now defines a production unit [@CL-CMP-1527]. The printed text of 9904.418-50 now holds paragraph (h) on standard costing, which sets conditions for a labor-rate standard covering a group of workers who perform disparate functions [@CL-CMP-1526]. The CAS conformance brief explains what moved and what was removed.
+The Board's final rule on CAS 407, effective October 1, 2026, rescinded that standard and moved its retained requirements on standard costs and related variances at the production unit level into CAS 418 [@CL-CMP-1516; @CL-CMP-1517; @CL-CMP-1518]. The printed text of 9904.418-30 now defines a production unit [@CL-CMP-1527]. The printed text of 9904.418-50 now holds paragraph (h) on standard costing, which provides that a labor-rate standard may be set to cover a group of direct labor workers who perform disparate functions only under the conditions in either paragraph (h)(1)(i) or (ii) of that section [@CL-CMP-1526]. The CAS conformance brief explains what moved and what was removed.
 
 ## Worked example
 
@@ -55,5 +55,6 @@ How the pools, bases and the direct-versus-indirect split are defined and reconc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added practices to the written-statement rule and the only-under-either-condition limit on the labor-rate standard.
 - COMPATIBLE_EXTENSION, 2026-10-29: Noted the standard-cost requirements moved into this standard from the rescinded CAS 407.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for allocation of direct and indirect costs.

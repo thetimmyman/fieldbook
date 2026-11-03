@@ -31,7 +31,7 @@ Shows when screening of excess contractor inventory begins, how long standard sc
 
 The screening period begins when the plant clearance officer accepts an inventory disposal schedule [@CL-CLS-0362]. That officer decides whether standard or special screening is appropriate and starts the screening actions [@CL-CLS-0362]. The standard screening period is 46 days [@CL-CLS-0363].
 
-The FAR definitions section describes a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site [@CL-CLS-1525].
+The FAR definitions section describes a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site, and goes on to say that the term "Contractor's plant" includes, but is not limited to, Government-owned contractor-operated plants, Federal installations, and Federal and non-Federal industrial operations, as may be required under the scope of the contract [@CL-CLS-1525; @CL-CLS-1552]. The RFO text of FAR 2.101 defines a plant clearance officer as an authorized representative of the contracting officer, appointed in accordance with agency procedures, responsible for screening, redistributing, and disposing of contractor inventory from a contractor's plant or work site, the same in substance as the codified definition [@CL-CLS-1537; @CL-CLS-1525], and its next sentence says that the term "Contractor's plant" includes, but is not limited to, Government-owned contractor-operated plants, Federal installations, and Federal and non-Federal industrial operations, as may be required under the scope of the contract [@CL-CLS-1537; @CL-CLS-1550; @CL-CLS-1552].
 
 ## How it works
 
@@ -76,7 +76,7 @@ Synthetic example. The numbers are made up.
 
 The plant clearance officer accepts a disposal schedule listing three items, A, B and C, and treats the acceptance day as day 1. Assume none of the items falls in a special category in paragraph (b). The officer decides standard screening is appropriate, so the period is 46 days [@CL-CLS-0362; @CL-CLS-0363]. By day 20 the contracting agency finds no use for any item within the agency [@CL-CLS-0364]. On day 20 the officer sends four copies of the revised schedules and SF 120 to GSA, which is no later than day 21 [@CL-CLS-0367].
 
-On day 30 GSA honors a transfer request from another Federal agency for item A. Day 30 falls inside the period through day 41 [@CL-CLS-0368]. The GSA regional office promptly sends the officer an approved transfer order with shipping instructions [@CL-CLS-0368]. On day 33 an agency receives an intra-agency transfer request for item B, so the officer requests GSA approval to withdraw item B from the schedule [@CL-CLS-0370].
+On day 30 GSA honors a transfer request from another Federal agency for item A. Day 30 falls inside the period through day 41 [@CL-CLS-0368]. The GSA regional office promptly sends the officer an approved transfer order with shipping instructions [@CL-CLS-0368]. On day 33, which falls within the 46-day screening period [@CL-CLS-0363], an agency receives an intra-agency transfer request for item B, so the officer requests GSA approval to withdraw item B from the schedule [@CL-CLS-0370].
 
 Item C draws no request. Donation screening for item C is completed by day 41, and item C is not available for allocation to donees until screening is complete, and days 42 through 46 are reserved for GSA to make that allocation [@CL-CLS-0369]. The section does not say what happens if no donee takes it [@CL-CLS-0369].
 
@@ -100,6 +100,9 @@ Which of the company's excess inventory schedules are under screening, and what 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Example now places the day 33 request inside the screening period.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the plant clearance officer definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of plant clearance officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the first-stage and donation screening sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of plant clearance officer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for screening of excess contractor inventory.

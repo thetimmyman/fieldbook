@@ -35,9 +35,9 @@ The contractor's cost accounting system provides the primary baseline for price 
 
 Contractors primarily rely on three approaches to prepare estimates [@CL-EST-0684]. The detailed method builds verifiable costs from extensive bottom-up data such as drawings, bills of materials and production workloads [@CL-EST-0684]. The comparison method modifies actual costs from similar items by isolating differences and accounting for cost trends [@CL-EST-0685]. The roundtable method relies on the subjective judgment and consensus of departmental experts when historical data is absent; it is fast and inexpensive but produces less supportable estimates and frequently requires technical assistance to evaluate [@CL-EST-0686]. Where estimates are ratio-based, auditors must ensure that they adjust for complexity, production rates and performance periods while excluding past or present inefficient practices [@CL-EST-0920].
 
-The proposal format and information to be submitted when certified cost or pricing data is required are prescribed by FAR Part 15 and DFARS Part 215 [@CL-EST-0921]. The auditor keeps sole professional responsibility for the audit opinion, including the decision on any technical evaluation [@CL-EST-0922], and decides on it during audit planning so there is time to include it in the report [@CL-EST-0923].
+The proposal format and information to be submitted when certified cost or pricing data is required are prescribed by FAR Part 15 and DFARS Part 215 [@CL-EST-0921]. The auditor keeps sole professional responsibility for the audit opinion, including determining the need for any technical evaluation [@CL-EST-0922]. The auditor needs to determine that need during audit planning so there is enough time to include the evaluation in the report [@CL-EST-0923].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.003 says contractors needing assistance in developing or improving their accounting systems and procedures may request a copy of the Defense Contract Audit Agency Pamphlet number 7641.90, Information for Contractors [@CL-EST-9236].
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.003 says contractors needing assistance in developing or improving their accounting systems and procedures may request a copy of the Defense Contract Audit Agency Pamphlet number 7641.90, Information for Contractors [@CL-EST-9236].
 
 ## Worked example
 
@@ -57,5 +57,7 @@ Who owns proposal pricing and the estimating system description, and when the de
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched must-use wording of the class deviation.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched technical evaluation wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 31.003 pointer to the Defense Contract Audit Agency accounting guide.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost accounting system adequacy and estimating methods.

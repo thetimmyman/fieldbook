@@ -41,8 +41,6 @@ The transition turns on the contractor's history. A contractor that already has 
 
 A contractor with no previous contract subject to the Standard begins to apply it with its next full fiscal year that begins after it receives a contract the Standard applies to [@CL-EST-2512; @CL-EST-2645; @CL-EST-2648].
 
-The sections do not say more than this. Each states only the effective date and these two transition cases.
-
 ## Worked example
 
 Synthetic example. The numbers are made up.
@@ -53,7 +51,7 @@ A second contractor already holds prior CAS-covered contracts with full coverage
 
 ## Never confuse
 
-The effective date is not the date a proposal is priced or a rate is settled. It is the date the Standard became effective, and the transition cases say when a contractor begins to follow it [@CL-EST-2511; @CL-EST-2642; @CL-EST-2512].
+The effective date is the date the Standard became effective, and the transition cases say when a contractor begins to follow it [@CL-EST-2511; @CL-EST-2642; @CL-EST-2512].
 
 The two transition cases are separate. Which one applies depends on whether the contractor has prior CAS-covered contracts with full coverage or no previous contract subject to the Standard [@CL-EST-2642; @CL-EST-2512].
 
@@ -67,4 +65,5 @@ Whether each business unit already carries CAS-covered contracts under full cove
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the sections omit removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the effective date and transition of the home office allocation, cost accounting period and insurance Standards.

@@ -47,9 +47,9 @@ A written change order revises a specification, raising the cost of a fixed-pric
 
 ## Never confuse
 
-A change within the general scope is not a new, out-of-scope requirement. The written order may change only matters within the general scope of the contract, in the areas the clause lists [@CL-CTF-0312].
+The written order under the clause makes changes within the general scope of the contract, in one or more of the areas the clause lists [@CL-CTF-0312].
 
-The codified text limits written orders to changes within the general scope of the contract in the areas the clause lists [@CL-CTF-0312]; the RFO text says changes within the scope of this contract related to the listed areas and does not use the word general [@CL-CTF-1126]. The codified text ties the adjustment to a change in the cost or time of performance of any part of the work [@CL-CTF-0313], while the RFO text ties it to performance of the work [@CL-CTF-1128].
+The codified text has the written order make changes within the general scope of the contract in one or more of the areas the clause lists [@CL-CTF-0312]; the RFO text says changes within the scope of this contract related to the listed areas and does not use the word general [@CL-CTF-1126]. The codified text ties the adjustment to a change in the cost or time of performance of any part of the work [@CL-CTF-0313], while the RFO text ties it to performance of the work [@CL-CTF-1128].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Where the executed contracts and modifications are kept, and who confirms that t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded never-confuse text that added an only and an out-of-scope contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Changes—Fixed-Price clause and equitable adjustment.

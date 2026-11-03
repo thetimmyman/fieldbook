@@ -29,13 +29,13 @@ Shows how the guide sets up the work structure, the organization and the control
 | Text status | Not established. |
 | Applies to | Programs that must set up a work breakdown structure, an organization structure, control accounts and integrated subsystems [@CL-PRG-0634] |
 
-The primary objectives of the four Organization guidelines, guidelines 1 through 4, are to establish the framework for capturing all contractually authorized work, identify the organization hierarchy responsible for it, and create a structure that integrates all subsystems [@CL-PRG-0634]. The work breakdown structure breaks the program work into manageable segments, and each element contains a specific scope of work [@CL-PRG-0635]. The organization breakdown structure identifies the managers responsible for work accomplishment [@CL-PRG-0636].
+The primary objectives of the four guidelines in the Organization Category (1 through 4) are to establish the basic framework for capturing all contractually authorized work to be accomplished, identify the program organization hierarchy responsible for accomplishing that work, and create a structure that integrates all subsystems allowing for management control of all effort [@CL-PRG-0075; @CL-PRG-0634; @CL-PRG-0076]. A structured approach for decomposing the program work into manageable segments creates the Work Breakdown Structure (Guideline 1) wherein each Work Breakdown Structure element contains a specific scope of work [@CL-PRG-0635]. The program establishes an organizational structure and an Organization Breakdown Structure which identifies managers responsible for work accomplishment [@CL-PRG-0636].
 
-Assigning organizational elements to work breakdown elements establishes the control accounts, which are the primary management control points for work authorization, budgeting, cost accumulation and performance measurement [@CL-PRG-0637]; the detail is on [the control account guideline](prg-evms-guideline-3-control-accounts.md). The subsystems for planning, scheduling, budgeting, work authorization and cost accumulation must integrate within the system, so that data from one is relatable to and consistent with the data of the others [@CL-PRG-0638]; the detail is on [the integration guideline](prg-evms-guideline-4-integration.md).
+The assignment of organizational elements to specific Work Breakdown Structure elements establishes the control accounts, which are the primary management control points for work authorization, budgeting, cost accumulation and performance measurement (Guideline 3) [@CL-PRG-0637]; see [the control account guideline](prg-evms-guideline-3-control-accounts.md). The planning, scheduling, budgeting, work authorization, and cost accumulation management subsystems must integrate within the Earned Value Management System such that the data derived from one system is relatable to and consistent with the data of each of the other systems [@CL-PRG-0638]; see [the integration guideline](prg-evms-guideline-4-integration.md).
 
 ## How it works
 
-This page is the overview of guidelines 1 through 4 [@CL-PRG-0634]. The work structure, the organization structure, the control accounts and the integration each have their own guideline page, linked above.
+The four guidelines in the Organization Category (1 through 4) establish the basic framework for capturing all contractually authorized work to be accomplished, identify the program organization hierarchy responsible for accomplishing that work, and create a structure that integrates all subsystems allowing for management control of all effort [@CL-PRG-0075; @CL-PRG-0634; @CL-PRG-0076]. See [the work breakdown structure guideline](prg-evms-guideline-1-wbs.md), [the organization guideline](prg-evms-guideline-2-obs.md), [the control account guideline](prg-evms-guideline-3-control-accounts.md), and [the integration guideline](prg-evms-guideline-4-integration.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A program has a radar element and a software element in its work structure. Two 
 
 ## Never confuse
 
-The work breakdown structure says what the work is, and the organization breakdown structure says who is responsible; a control account comes from putting the two together [@CL-PRG-0635; @CL-PRG-0636; @CL-PRG-0637]. For the structures themselves, see [the work breakdown structure guideline](prg-evms-guideline-1-wbs.md) and [the organization guideline](prg-evms-guideline-2-obs.md).
+Decomposing the program work into manageable segments creates the Work Breakdown Structure wherein each element contains a specific scope of work [@CL-PRG-0635], while the program establishes an organizational structure and an Organization Breakdown Structure which identifies managers responsible for work accomplishment [@CL-PRG-0636]. The assignment of organizational elements to specific Work Breakdown Structure elements establishes the control accounts, which are the primary management control points for work authorization, budgeting, cost accumulation and performance measurement [@CL-PRG-0637].
 
 ## Company calibration
 
@@ -55,4 +55,6 @@ Which work breakdown and control account standards the company's programs use, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for Organization Category objectives and aligned prose to cited quotes.
+- COMPATIBLE_EXTENSION, 2026-10-31: restored management control purpose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Organization category.

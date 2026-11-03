@@ -29,7 +29,7 @@ Shows the duties the Cost Accounting Standards clause for educational institutio
 | Text status | Final [@CL-CMP-5929] |
 | Applies to | Contracts that carry the clause, unless the contract is exempt under the cited CAS exemption rules [@CL-CMP-5929] |
 
-Unless the contract is exempt under the cited exemption rules, the provisions of 48 CFR part 9903 are incorporated by reference and the contractor carries out the duties the clause lists [@CL-CMP-5929]. Where a business unit must submit a Disclosure Statement [@CL-CMP-6509], the practices disclosed for the contract must be the same as the practices currently disclosed and applied on all other contracts and subcontracts that the contractor is performing and that contain a CAS clause [@CL-CMP-5930].
+Unless the contract is exempt under the cited exemption rules, the provisions of 48 CFR part 9903 are incorporated by reference and the contractor carries out the duties the clause lists [@CL-CMP-5929]. Where a business unit of an educational institution must submit a Disclosure Statement [@CL-CMP-6509], the practices disclosed for the contract must be the same as the practices currently disclosed and applied on all other contracts and subcontracts that the contractor is performing and that contain a CAS clause [@CL-CMP-5930].
 
 ## How it works
 
@@ -51,7 +51,7 @@ If the contract cost is affected by a change that the contractor is required to 
 
 ### Noncompliance
 
-If the contractor or a subcontractor fails to comply with an applicable Cost Accounting Standard, or to follow any cost accounting practice consistently, and the failure results in increased costs paid by the United States, an adjustment of the contract price or cost allowance is made, as appropriate [@CL-CMP-5935]. The adjustment provides for recovery of the increased costs to the United States, together with interest computed at the annual rate established under section 6621(a)(2) of the Internal Revenue Code of 1986 [@CL-CMP-5936], for the period from the time the payment by the United States was made to the time the adjustment is effected [@CL-CMP-6520]. Subject to an exception stated in the same sentence, the Government does not recover costs greater than the increased cost to the Government, in the aggregate, on the relevant contracts subject to the price adjustment [@CL-CMP-6521]. The cap does not apply if the contractor made a change in its cost accounting practices of which it was aware or should have been aware at the time of price negotiations and which it failed to disclose to the Government [@CL-CMP-6522].
+If the contractor or a subcontractor fails to comply with an applicable Cost Accounting Standard, or to follow any cost accounting practice consistently, and the failure results in increased costs paid by the United States, the clause has the contractor agree to an adjustment of the contract price or cost allowance, as appropriate [@CL-CMP-5935]. The adjustment provides for recovery of the increased costs to the United States, together with interest computed at the annual rate established under section 6621(a)(2) of the Internal Revenue Code of 1986 [@CL-CMP-5936], for the period from the time the payment by the United States was made to the time the adjustment is effected [@CL-CMP-6520]. Subject to an exception stated in the same sentence, the Government does not recover costs greater than the increased cost to the Government, in the aggregate, on the relevant contracts subject to the price adjustment [@CL-CMP-6521]. The cap does not apply if the contractor made a change in its cost accounting practices of which it was aware or should have been aware at the time of price negotiations and which it failed to disclose to the Government [@CL-CMP-6522].
 
 ### Disputes and records
 
@@ -89,6 +89,7 @@ Which business units are educational institutions for this clause, who owns the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the educational institution business unit in the rule paragraph and the contractor's agreement to the noncompliance adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the RFO practice-change sentence so the prospective-application rule keeps the duty to amend the Disclosure Statement, if required, and the adjustment of any effect on the contract price or cost allowance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Cost Accounting Standards for educational institutions.

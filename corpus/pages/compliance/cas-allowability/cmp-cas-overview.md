@@ -20,7 +20,7 @@ Introduces the Cost Accounting Standards: what they govern, when they apply, and
 
 ## The rule
 
-The Cost Accounting Standards govern how a contractor measures, assigns and allocates costs to contracts: consistency between estimating and accounting, consistent allocation, the cost accounting period, unallowable costs, and the allocation of indirect costs [@S-0014-v1]. Negotiated contracts and subcontracts at or below the exemption value are exempt from all of them [@CL-CMP-0001]. A business unit with a large enough award, or enough covered awards in the prior period, has full coverage [@CL-CMP-0002], and a unit selected for a large covered award must first submit a Disclosure Statement [@CL-CMP-0003].
+The Cost Accounting Standards govern how a contractor measures, assigns and allocates costs to contracts: consistency between estimating and accounting, consistent allocation, the cost accounting period, unallowable costs, and the allocation of indirect costs [@S-0014-v1]. Negotiated contracts and subcontracts at or below the exemption value are exempt from all of them [@CL-CMP-0001]. A business unit with a large enough award, or $100 million or more in net CAS-covered awards in its preceding cost accounting period, has full coverage [@CL-CMP-0002; @CL-CMP-7069], and a unit selected for a large covered award must first submit a Disclosure Statement [@CL-CMP-0003]. A business unit or segment with net awards subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit one before award of its first CAS-covered contract in the immediately following period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071].
 
 ## How it works
 
@@ -44,4 +44,6 @@ Which business units have full coverage, modified coverage or neither, and wheth
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
+- COMPATIBLE_EXTENSION, 2026-10-31: stated second full-coverage and Disclosure Statement tests.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 introduction to the Cost Accounting Standards.

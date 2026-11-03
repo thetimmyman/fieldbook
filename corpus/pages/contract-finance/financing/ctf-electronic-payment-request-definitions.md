@@ -33,7 +33,7 @@ The subpart prescribes policies and procedures for submitting and processing pay
 
 The definitions apply as used in the subpart on electronic submission and processing of payment requests and receiving reports [@CL-CTF-3842]. An electronic form is any automated system that transmits information electronically from the initiating system to affected systems [@CL-CTF-3842].
 
-A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of the chapter, Material Inspection and Receiving Report [@CL-CTF-3844]. The FAR definitions section separately describes a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed, with a cross-reference to subpart 46.6, and says receiving reports must meet the requirements of 32.905(c) [@CL-CTF-9422].
+A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of the chapter, Material Inspection and Receiving Report [@CL-CTF-3844]. The FAR definitions section separately describes a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed, with a cross-reference to subpart 46.6, and says receiving reports must meet the requirements of 32.905(c) [@CL-CTF-9422]. The RFO text of FAR 2.101 defines a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed, and says receiving reports must meet the requirements of 32.905(c), the same in substance as the codified definition [@CL-CTF-9453; @CL-CTF-9422].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Whether the company's systems for submitting payment requests and receiving repo
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of receiving report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a U.S.C. citation so the sentence keeps its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of receiving report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.7000 scope of the subpart.

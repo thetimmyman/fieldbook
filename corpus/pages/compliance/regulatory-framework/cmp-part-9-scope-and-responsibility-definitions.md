@@ -47,7 +47,7 @@ Separately, the subpart does not apply to proposed contracts with the listed kin
 
 An administrative proceeding must be a non-judicial adjudicatory process that determines fault or liability, and a Federal or state proceeding counts only when it relates to performance of a Federal contract or grant [@CL-CMP-7967; @CL-CMP-7968]. An agency audit, site visit, corrective plan or inspection of deliverables is outside the definition [@CL-CMP-7969].
 
-The agency designates the organization that conducts preaward surveys only when there is no cognizant contract administration office [@CL-CMP-7970].
+The surveying activity is the cognizant contract administration office, or, if there is no such office, another organization designated by the agency to conduct preaward surveys [@CL-CMP-7970].
 
 ## Worked example
 
@@ -75,4 +75,5 @@ Which legal entities and sites the company treats as prospective contractors und
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the surveying activity definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for part scope and responsibility definitions.

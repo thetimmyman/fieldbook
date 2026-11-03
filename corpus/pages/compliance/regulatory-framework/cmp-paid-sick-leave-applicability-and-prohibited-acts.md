@@ -56,7 +56,7 @@ The employee test keeps people who qualify for an exemption from the minimum wag
 
 Every prohibition in section 22.2106 falls on the contractor [@CL-CMP-8185]. The section does not state a decision for a contracting officer or an agency [@CL-CMP-8185].
 
-Paragraph (a) protects accrual and use of the leave. Paragraph (b) protects the employee from discharge or other discrimination for using or attempting to use the leave, for filing a complaint, starting a proceeding or asserting a right or claim, for cooperating in an investigation or testifying, and for telling others about the employee's rights [@CL-CMP-8185; @CL-CMP-8186; @CL-CMP-8187; @CL-CMP-8188].
+Paragraph (a) protects accrual and use of the leave. Paragraph (b) protects the employee from discharge or other discrimination for using or attempting to use the leave, for filing a complaint, starting a proceeding or asserting a right or claim, for cooperating in an investigation or testifying, or for telling others about the employee's rights [@CL-CMP-8185; @CL-CMP-8186; @CL-CMP-8187; @CL-CMP-8188].
 
 Paragraph (c) concerns records. The contractor must not fail to make and maintain them, or to make them available to authorized representatives of the Wage and Hour Division, as 29 CFR 13.25 requires, or otherwise fail to comply with that regulation [@CL-CMP-8189]. What the records must contain is in 29 CFR 13.25 and is Not established here [@CL-CMP-8189].
 
@@ -88,6 +88,7 @@ Whether each service and construction contract the company performs is covered, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Paragraph (b) summary joins its protected acts with the source's or.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on section 22.2103(b) coverage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule that employees cannot waive their paid sick leave rights.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for paid sick leave applicability and prohibited acts.

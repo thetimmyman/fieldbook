@@ -37,18 +37,16 @@ The section directs use of the clause at 252.215-7006, Use of Employees or Indiv
 
 | Term | Meaning |
 |---|---|
-| Selected Reserve | Has the meaning given that term in section 10143 of title 10 of the United States Code, as used in section 215.370-1 [@CL-EST-2796]; the same entry goes on to describe Selected Reserve members, in the next row [@CL-EST-2797] |
+| Selected Reserve | Has the meaning given that term in section 10143 of title 10 of the United States Code, as used in section 215.370-1 [@CL-EST-2796] |
 | Selected Reserve members | Normally attend regular drills throughout the year and are the group of Reserves most readily available to the President [@CL-EST-2797] |
-| Evaluation factor that calls for the clause (described in the section, not defined) | A factor considering whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2799] |
+| Evaluation factor that calls for the clause | A factor considering whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2799] |
 | Contract clause | 252.215-7006, Use of Employees or Individual Subcontractors Who Are Members of the Selected Reserve [@CL-EST-2798] |
-
-The section lists no exclusions from either definition [@CL-EST-2796; @CL-EST-2797].
 
 ## How it works
 
-The first definition works by reference. It adopts the statutory meaning instead of restating it [@CL-EST-2796]. The second sentence describes Selected Reserve members by two traits: regular drills through the year, and availability to the President [@CL-EST-2797]. The word "normally" sits with the drill-attendance trait [@CL-EST-2797].
+As used in section 215.370-1, Selected Reserve has the meaning given that term in section 10143 of title 10 of the United States Code [@CL-EST-2796]. Selected Reserve members normally attend regular drills throughout the year and are the group of Reserves most readily available to the President [@CL-EST-2797].
 
-The clause follows the evaluation factor. It is used in both the solicitation and the resulting contract when the factor is included [@CL-EST-2799]. The section does not name who inserts the clause, and it does not state the clause's own terms [@CL-EST-2798].
+The clause at 252.215-7006 is used in solicitations and resulting contracts that include an evaluation factor considering whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2798; @CL-EST-2799].
 
 ## Worked example
 
@@ -58,7 +56,7 @@ A solicitation for services covers 40 positions, and its evaluation factor consi
 
 ## Never confuse
 
-An evaluation factor is not the clause. The factor is what the solicitation considers about the offeror's staffing intent. The clause is what the solicitation and the resulting contract include when that factor is present [@CL-EST-2799]. The first definitional sentence points to the statute and does not restate it, and the second sentence describes how members normally serve [@CL-EST-2796; @CL-EST-2797].
+The clause at 252.215-7006 is used in solicitations and resulting contracts that include an evaluation factor considering whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2798; @CL-EST-2799]. Selected Reserve members normally attend regular drills throughout the year [@CL-EST-2797].
 
 ## Company calibration
 
@@ -68,4 +66,5 @@ Whether any planned bid will carry the Selected Reserve evaluation factor, who c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted absence statements and glosses; restated the definition and clause use as the section words them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Selected Reserve evaluation factor and its contract clause.

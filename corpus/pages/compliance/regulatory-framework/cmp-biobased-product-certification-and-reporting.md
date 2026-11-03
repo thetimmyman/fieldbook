@@ -36,7 +36,7 @@ In the reporting clause a biobased product is a product that USDA determines to 
 
 ## How it works
 
-The reporting duty is separate from the certification and falls on the contractor [@CL-CMP-5166].
+The reporting duty falls on the contractor [@CL-CMP-5166].
 
 The contractor reports to the website the clause names, with a copy to the contracting officer, on the product types and dollar value of biobased products in USDA-designated product categories that it purchased during the previous Government fiscal year, which runs between October 1 and September 30 [@CL-CMP-5166], and it submits the report no later than October 31 of each year during contract performance and at the end of contract performance [@CL-CMP-5167].
 
@@ -54,9 +54,9 @@ A service contractor signs its offer, which makes the biobased certification: th
 
 The certification and the report are different duties: the offeror gives the certification by signing its offer, while the contractor makes the report to the website the clause names, with a copy to the contracting officer [@CL-CMP-5164; @CL-CMP-5166].
 
-A later purchase report does not replace the certification, because the signature on the offer is the certification event [@CL-CMP-5164].
+The offeror's signature on the offer is the certification [@CL-CMP-5164].
 
-Biobased content is not recovered material content: recovered material content is certified separately for EPA-designated items [@CL-CMP-5176].
+For recovered material content, the offeror certifies the percentage for EPA-designated items to be delivered or used in the performance of the contract [@CL-CMP-5176].
 
 A USDA-designated product category is described with USDA purchasing recommendations in the codified clause [@CL-CMP-5267], but with minimum biobased content standards in the RFO clause [@CL-CMP-0533].
 
@@ -70,6 +70,7 @@ Whether the buying records can produce the product types and dollar value purcha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on recovered material certification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the codified reporting sentence so the biobased report keeps its submission deadlines.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

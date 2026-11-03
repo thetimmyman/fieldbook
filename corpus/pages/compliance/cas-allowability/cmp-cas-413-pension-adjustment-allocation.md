@@ -29,7 +29,7 @@ Shows how annual actuarial gains and losses and the value of plan assets are han
 | Text status | Final [@CL-CMP-0562] |
 | Applies to | Segments with participants in a pension plan [@CL-CMP-0564] |
 
-Actuarial gains and losses are calculated every year and assigned to the period of the valuation and to later periods [@CL-CMP-0562]. The actuarial value of plan assets comes from a valuation method that takes unrealized appreciation and depreciation of market value into account, and that value is used in measuring pension cost [@CL-CMP-0563; @CL-CMP-0832]. Pension cost is allocated to every segment that has participants in the plan [@CL-CMP-0564]. A separate segment calculation is required when the stated conditions are present; otherwise a composite cost may be spread by an allocation base [@CL-CMP-0565; @CL-CMP-0833]. Where cost is computed separately, the assignable amount is capped, and the cap includes the maximum tax-deductible amount for the plan as a whole [@CL-CMP-0566].
+Actuarial gains and losses are calculated every year and assigned to the period of the valuation and to later periods [@CL-CMP-0562]. The actuarial value of plan assets comes from a valuation method that takes unrealized appreciation and depreciation of market value into account, and that value is used in measuring pension cost [@CL-CMP-0563; @CL-CMP-0832]. Pension cost is allocated to every segment that has participants in the plan [@CL-CMP-0564]. A separate segment calculation is required when the stated conditions are present; otherwise a composite cost may be spread by an allocation base [@CL-CMP-0565; @CL-CMP-0833]. Where cost is computed separately, the amount of pension cost assignable to a segment or segments shall not exceed the sum of (i) the maximum tax-deductible amount computed for the plan as a whole [@CL-CMP-0566] and (ii) the accumulated value of prepayment credits not already allocated to segments apportioned among the segment(s) [@CL-CMP-7060].
 
 ## How it works
 
@@ -53,4 +53,5 @@ Whether each segment with plan participants is measured separately or through a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added the prepayment credits component of the assignable cost ceiling.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost adjustment and allocation.

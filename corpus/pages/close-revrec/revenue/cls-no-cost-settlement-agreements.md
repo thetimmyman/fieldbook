@@ -29,15 +29,15 @@ Sets out what a no-cost settlement agreement releases and what it leaves standin
 | Text status | Final [@CL-CLS-0262] |
 | Applies to | No-cost settlement agreements for complete and partial terminations, and settlements of reservations [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427] |
 
-The sections give agreement text for Block 14 of SF 30 [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427]. The text is bilateral: the contractor waives or releases, and the Government agrees or acknowledges [@CL-CLS-0263; @CL-CLS-0264; @CL-CLS-0267; @CL-CLS-0269]. The sections print no deadline and no dollar threshold. They do not say who decides to execute a no-cost agreement. FAR 49.402-4 names the contracting officer for the no-cost course in lieu of termination for default, and then only when the requirement no longer exists and the contractor is not liable for damages [@CL-CLS-0261]; see [Courses of action in lieu of termination for default](cls-default-termination-courses-of-action-in-lieu.md).
+The sections give agreement text for Block 14 of SF 30 [@CL-CLS-0262; @CL-CLS-0265; @CL-CLS-0427]. The text is bilateral: the contractor waives or releases, and the Government agrees or acknowledges [@CL-CLS-0263; @CL-CLS-0264; @CL-CLS-0267; @CL-CLS-0269]. The sections print no deadline and no dollar threshold. They do not say who decides to execute a no-cost agreement. FAR 49.402-4 lists, among the courses of action available to the contracting officer in lieu of termination for default when in the Government's interest, executing a no-cost termination settlement agreement if the requirement for the supplies and services no longer exists and the contractor is not liable to the Government for damages as provided in 49.402-7 [@CL-CLS-0258; @CL-CLS-0261]; see [Courses of action in lieu of termination for default](cls-default-termination-courses-of-action-in-lieu.md).
 
-The FAR definitions section describes a partial termination as the termination of a part, but not all, of the work that has not been completed and accepted under a contract [@CL-CLS-1517].
+The FAR definitions section describes a partial termination as the termination of a part, but not all, of the work that has not been completed and accepted under a contract [@CL-CLS-1517]. The RFO text of FAR 2.101 defines a partial termination as the termination of a part, but not all, of the work that has not been completed and accepted under a contract, the same in substance as the codified definition [@CL-CLS-1536; @CL-CLS-1517].
 
 ### Complete termination
 
 The text goes in Block 14 of SF 30 if a no-cost settlement agreement under a complete termination is to be executed [@CL-CLS-0262]. The supplemental agreement either modifies the contract to reflect a no-cost settlement with respect to the dated Notice of Termination or, if the contract was not previously terminated, terminates the contract in its entirety [@CL-CLS-0423].
 
-The contractor unconditionally waives any charges against the Government because of the termination of the contract. Except as set forth below in the agreement, it releases the Government from all obligations under the contract or due to its termination [@CL-CLS-0263].
+The contractor unconditionally waives any charges against the Government because of the termination of the contract. Except as set forth below, it releases the Government from all obligations under the contract or due to its termination [@CL-CLS-0263].
 
 The Government agrees that all obligations under the contract are concluded, except for the reserved or excepted rights and liabilities that the agreement lists. The bracketed instruction refers to 49.109-2 and 49.603-1(b)(7) for what to list [@CL-CLS-0264].
 
@@ -63,11 +63,11 @@ When payment is due the Government rather than the contractor, the words Governm
 
 | Agreement | What the contractor releases | What stays outside the release |
 |---|---|---|
-| Complete termination | Charges because of the termination, and, except as set forth below in the agreement, all obligations under the contract or due to its termination [@CL-CLS-0263] | The reserved or excepted rights and liabilities that the agreement lists [@CL-CLS-0264] |
+| Complete termination | Charges because of the termination, and, except as set forth below, all obligations under the contract or due to its termination [@CL-CLS-0263] | The reserved or excepted rights and liabilities that the agreement lists [@CL-CLS-0264] |
 | Partial termination | Charges arising under the terminated portion or by reason of its termination, including the Government's obligations to make further payments or carry out further undertakings under that portion [@CL-CLS-0267; @CL-CLS-0268] | The reserved rights and liabilities that the agreement lists, and the other covenants, terms and conditions of the contract that paragraph (b)(2) does not affect [@CL-CLS-0270; @CL-CLS-0425] |
 | Settlement of reservations | All liability and all existing and future claims and demands under the contract, insofar as it pertains to the contract, for the items in subparagraph (1) [@CL-CLS-0273] | Anything that is not an item in subparagraph (1) [@CL-CLS-0273] |
 
-What the contractor keeps is what the release does not reach. Under a complete termination, that is whatever the agreement lists as excepted from the release [@CL-CLS-0263; @CL-CLS-0264]. Under a partial termination, it is the listed reserved rights and liabilities, and the rest of the contract stays in force [@CL-CLS-0270; @CL-CLS-0425]. Under a settlement of reservations, it is every claim that is not for an item in subparagraph (1) [@CL-CLS-0273]. The lists keep rights and liabilities in place, and the text does not say whose they are [@CL-CLS-0264; @CL-CLS-0270]. The text does not say who decides what goes on the list. It refers to 49.109-2 and 49.603-1(b)(7) for the listing [@CL-CLS-0264; @CL-CLS-0270]. This card does not restate those sections.
+What the contractor keeps is what the release does not reach. Under a complete termination, that is whatever the agreement lists as excepted from the release [@CL-CLS-0263; @CL-CLS-0264]. Under a partial termination, it is the listed reserved rights and liabilities, and the paragraph does not affect any other covenants, terms, or conditions of the contract [@CL-CLS-0270; @CL-CLS-0425]. Under a settlement of reservations, it is every claim that is not for an item in subparagraph (1) [@CL-CLS-0273]. The lists keep rights and liabilities in place. The partial-termination text calls them rights and liabilities of the parties [@CL-CLS-0270], and the complete-termination text does not say whose they are [@CL-CLS-0264]. The text does not say who decides what goes on the list. It refers to 49.109-2 and 49.603-1(b)(7) for the listing [@CL-CLS-0264; @CL-CLS-0270]. This card does not restate those sections.
 
 In a settlement of reservations, the Government pays the amount stated and the contractor gives the release [@CL-CLS-0272; @CL-CLS-0273]. Reversing the words in the two subparagraphs swaps the paying party and the releasing party [@CL-CLS-0272; @CL-CLS-0273; @CL-CLS-0274].
 
@@ -101,5 +101,8 @@ How reserved items, unbilled amounts and inventory balances are tracked after a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Partial-termination reserved rights are now described as of the parties.
+- COMPATIBLE_EXTENSION, 2026-10-31: 49.402-4 course stated as quoted, release exception and partial-termination scope tightened.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of partial termination.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of partial termination.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for no-cost settlement agreements.

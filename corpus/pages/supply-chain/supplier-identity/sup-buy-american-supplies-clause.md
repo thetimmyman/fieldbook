@@ -35,7 +35,7 @@ The domestic content test of the Buy American statute is waived for an end produ
 
 A COTS item is, among other listed conditions, an item of supply, including construction material, that is a commercial product as defined in FAR 2.101 [@CL-SUP-1227]. Two further listed conditions are that it is sold in substantial quantities in the commercial marketplace and that it is offered to the Government, at any tier, without modification and in the same form in which it is sold in the commercial marketplace [@CL-SUP-1228]. A COTS item does not include bulk cargo, such as agricultural products and petroleum products [@CL-SUP-1276].
 
-FAR 2.101 defines end product as supplies delivered under a line item of a Government contract, except for use in part 25 and the associated clauses at 52.225-1, 52.225-3, and 52.225-5, and the text points to the definitions in 25.003, 52.225-1(a), 52.225-3(a), and 52.225-5(a) for those uses [@CL-SUP-9558].
+FAR 2.101 defines end product as supplies delivered under a line item of a Government contract, except for use in part 25 and the associated clauses at 52.225-1, 52.225-3, and 52.225-5, and the text points to the definitions in 25.003, 52.225-1(a), 52.225-3(a), and 52.225-5(a) for those uses [@CL-SUP-9558]. The RFO model text of FAR 2.101 defines end product in the same words [@CL-SUP-9629; @CL-SUP-9558].
 
 ## How it works
 
@@ -65,6 +65,7 @@ Which executed contracts and modifications carry the clause, and who confirms th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of end product.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of end product and its part 25 exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American supplies clause.

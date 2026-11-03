@@ -31,7 +31,7 @@ Shows who may protest a firm's service-disabled veteran-owned small business (SD
 
 For sole source acquisitions, the contracting officer, the Department of Veterans Affairs, or SBA may protest the apparently successful offeror's SDVOSB status [@CL-MKT-0580]. For all other acquisitions, any interested party may protest it [@CL-MKT-0581]. An interested party that wants to protest both size and SDVOSB status shall file two separate protests [@CL-MKT-0582]. The size route is on the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card.
 
-For sealed bid acquisitions, an interested party's protest to the contracting officer is to be received by close of business on the fifth business day after bid opening, and contracting officers are referred to a separate paragraph [@CL-MKT-0583]. For negotiated acquisitions, one listed deadline is close of business on the fifth business day after receipt of the special notification that identifies the apparently successful offeror [@CL-MKT-0584]. The section lists further deadlines that this card does not restate. A protest received after the designated time limits is untimely except as the listed exceptions provide, and one listed exception is that the VA or SBA may file an SDVOSB status protest at any time [@CL-MKT-0585].
+For sealed bid acquisitions, an interested party's protest to the contracting officer is to be received by close of business on the fifth business day after bid opening, and contracting officers are referred to a separate paragraph [@CL-MKT-0583]. For negotiated acquisitions, one listed deadline is close of business on the fifth business day after receipt of the special notification from the contracting officer that identifies the apparently successful offeror [@CL-MKT-0584]. The section lists further deadlines that this card does not restate. A protest received after the designated time limits is untimely except as the listed exceptions provide, and one listed exception is that the VA or SBA may file an SDVOSB status protest at any time [@CL-MKT-0585].
 
 ## How it works
 
@@ -45,7 +45,7 @@ A contracting officer names the apparently successful offeror for a negotiated, 
 
 ## Never confuse
 
-An SDVOSB status protest asks whether the firm is an SDVOSB, and a size protest asks whether it is small. A party that wants both shall file two separate protests [@CL-MKT-0582]. Here OHA decides the merits [@CL-MKT-0587], while for women-owned status protests SBA decides the merits first [@CL-MKT-0594], and its determination is final unless overturned on appeal by OHA [@CL-MKT-0595]. The women-owned route is on the [Protesting a firm's economically disadvantaged or women-owned small business status](mkt-edwosb-wosb-status-protests.md) card. HUBZone status protests have their own card: [Protesting a firm's HUBZone status](../taxonomy/mkt-hubzone-status-protests.md). The conditions for an SDVOSB set-aside or sole-source award are on the [Service-disabled veteran-owned small business status, set-asides and sole-source awards](mkt-sdvosb-status-set-asides-and-sole-source.md) card.
+An SDVOSB status protest asks whether the firm is an SDVOSB, and a size protest asks whether it is small. A party that wants both shall file two separate protests [@CL-MKT-0582]. Here OHA decides the merits [@CL-MKT-0587], while for women-owned status protests SBA determines the merits within 15 business days after receipt of a protest, or within any extension of that time granted by the contracting officer [@CL-MKT-0594], and its determination is final unless overturned on appeal by OHA [@CL-MKT-0595]. The women-owned route is on the [Protesting a firm's economically disadvantaged or women-owned small business status](mkt-edwosb-wosb-status-protests.md) card. HUBZone status protests have their own card: [Protesting a firm's HUBZone status](../taxonomy/mkt-hubzone-status-protests.md). The conditions for an SDVOSB set-aside or sole-source award are on the [Service-disabled veteran-owned small business status, set-asides and sole-source awards](mkt-sdvosb-status-set-asides-and-sole-source.md) card.
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which bids need immediate support when a status protest could be filed or answer
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: protest notice and SBA timing wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protests of service-disabled veteran-owned small business status.

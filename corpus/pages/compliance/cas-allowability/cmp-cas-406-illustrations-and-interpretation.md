@@ -37,7 +37,7 @@ The exemption section of the cost accounting period standard says there is no ex
 
 ## How it works
 
-The illustrations test the period used for pools and bases. A proposal that estimates the expenses from the pool and base for only the eight months of scheduled performance fails [@CL-CMP-2887; @CL-CMP-2802]. In the computer service center illustration, an expense that is expected to be material, is pooled separately and is allocated by measured usage may be allocated over the eight-month part of the period [@CL-CMP-2888; @CL-CMP-2803]. In the fiscal-year-change illustration, the transitional period is kept separate because combining it would make it longer than fifteen months [@CL-CMP-2804]. Agreed or separate annual periods are permitted in the model-year and vacation-year illustrations as they describe the facts [@CL-CMP-2805; @CL-CMP-2806; @CL-CMP-2889]. For restructuring, the interpretation allows deferral with amortization or a current-period expense agreed by the Contracting Officer [@CL-CMP-2807; @CL-CMP-2808].
+The illustrations test the period used for pools and bases. A proposal that estimates the expenses from the pool and base for only the eight months of scheduled performance fails [@CL-CMP-2887; @CL-CMP-2802]. In the computer service center illustration, an expense that is expected to be material, is pooled separately and is allocated by measured usage may be allocated over the eight-month part of the period [@CL-CMP-2888; @CL-CMP-2803]. In the fiscal-year-change illustration, the transitional period is kept separate because combining it would make it longer than fifteen months [@CL-CMP-2804]. Agreed or separate annual periods are permitted in the model-year and vacation-year illustrations as they describe the facts [@CL-CMP-2805; @CL-CMP-2806; @CL-CMP-2889]. For restructuring, the interpretation allows deferral with amortization, and also accepts a contractor proposal to expense restructuring costs for a specific event in a current period when the Contracting Officer agrees that the treatment will result in a more equitable assignment of costs in the circumstances [@CL-CMP-2807; @CL-CMP-2808].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor installs a service center that starts operating partway through its
 
 ## Never confuse
 
-A deferred restructuring cost is not an open-ended deferral, because the amortization period shall not exceed five years [@CL-CMP-2809]. A proposal to expense restructuring costs in the current period is also acceptable when the Contracting Officer agrees to it on grounds of more equitable assignment [@CL-CMP-2808]. The base rule on the cost accounting period is on [Cost accounting period](../cas-allowability/cmp-cas-406-cost-accounting-period.md). The model-year illustration also covers a technique for prorating home office expenses between model years [@CL-CMP-2805]; illustrations of home office pools and allocation bases are on [Illustrations of home office pools and allocation bases](../cas-allowability/cmp-cas-403-illustrations-and-interpretation.md). The first illustration allocates on a total cost input base; illustrations of what counts in that base are on [Illustrations of the general and administrative pool and cost input base](../cas-allowability/cmp-cas-410-illustrations.md).
+A deferred restructuring cost is not an open-ended deferral, because the amortization period shall not exceed five years [@CL-CMP-2809]. A contractor proposal to expense restructuring costs for a specific event in a current period is also acceptable when the Contracting Officer agrees that the treatment will result in a more equitable assignment of costs in the circumstances [@CL-CMP-2808]. The base rule on the cost accounting period is on [Cost accounting period](../cas-allowability/cmp-cas-406-cost-accounting-period.md). The model-year illustration also covers a technique for prorating home office expenses between model years [@CL-CMP-2805]; illustrations of home office pools and allocation bases are on [Illustrations of home office pools and allocation bases](../cas-allowability/cmp-cas-403-illustrations-and-interpretation.md). The first illustration allocates on a total cost input base; illustrations of what counts in that base are on [Illustrations of the general and administrative pool and cost input base](../cas-allowability/cmp-cas-410-illustrations.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Whether the company has restructuring events, whether its practice defers or exp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored for a specific event in the two current-period restructuring sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 406.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the illustrations and interpretation of the cost accounting period standard.

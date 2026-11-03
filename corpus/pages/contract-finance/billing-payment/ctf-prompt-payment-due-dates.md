@@ -24,14 +24,14 @@ Names the periods that fix an invoice payment due date and what starts each one,
 |---|---|
 | Instrument | Codified FAR [@CL-CTF-1337] |
 | Codified citation | FAR 32.904 [@CL-CTF-1337]; FAR 2.101 [@CL-CTF-9421] |
-| RFO citation | RFO FAR 32.904 [@CL-CTF-4062; @CL-CTF-4063; @CL-CTF-4064; @CL-CTF-4065; @CL-CTF-4066; @CL-CTF-4067; @CL-CTF-4068; @CL-CTF-4069; @CL-CTF-4070]; RFO FAR 32.908(c)(2) [@CL-CTF-4071] |
+| RFO citation | RFO FAR 32.904 [@CL-CTF-4062; @CL-CTF-4063; @CL-CTF-4064; @CL-CTF-4065; @CL-CTF-4066; @CL-CTF-4067; @CL-CTF-4068; @CL-CTF-4069; @CL-CTF-4070]; RFO FAR 32.908(c)(2) [@CL-CTF-4071]; RFO FAR 2.101 [@CL-CTF-9452] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1337] |
 | Applies to | The general invoice payment due date; the section prescribes separate due dates for other cases, and this card covers only some of them [@CL-CTF-1337] |
 
-Except as prescribed in paragraphs (c) through (f) of the section, or as authorized in the clause-prescription section, the due date for making an invoice payment is the later of two listed events [@CL-CTF-1337]. The two events are the 30th day after the designated billing office receives a proper invoice, except as provided in paragraph (b)(3), and the 30th day after Government acceptance of supplies delivered or services performed [@CL-CTF-1338]. Agency policies and procedures may authorize amendment of the clause to insert a period shorter than 30 days, but not less than 7 days, for making contract invoice payments [@CL-CTF-1391].
+Except as prescribed in paragraphs (c) through (f) of the section, or as authorized in the clause-prescription section, the due date for making an invoice payment is the later of two listed events [@CL-CTF-1337]. The two events are the 30th day after the designated billing office receives a proper invoice, except as provided in paragraph (b)(3), and the 30th day after Government acceptance of supplies delivered or services performed [@CL-CTF-1338]. As provided in 32.903, agency policies and procedures may authorize amendment of paragraphs (a)(1)(i) and (ii) of the clause to insert a period shorter than 30 days, but not less than 7 days, for making contract invoice payments [@CL-CTF-1391].
 
-The FAR definitions section describes a proper invoice as an invoice that meets the minimum standards specified in 32.905(b) [@CL-CTF-9421].
+The FAR definitions section describes a proper invoice as an invoice that meets the minimum standards specified in 32.905(b) [@CL-CTF-9421]. The RFO text of FAR 2.101 defines a proper invoice as an invoice that meets the minimum standards specified in 32.905(b), the same in substance as the codified definition [@CL-CTF-9452; @CL-CTF-9421].
 
 For the purpose of computing late payment interest penalties that may apply, the due date for making interim payments on cost-reimbursement contracts for services is 30 days after the date of receipt of a proper invoice [@CL-CTF-1341].
 
@@ -57,7 +57,7 @@ Answer: the later of day 32 and day 38 is day 38, so a payment made after day 38
 
 ## Never confuse
 
-Constructive acceptance is not actual acceptance: the rule is stated for the sole purpose of computing an interest penalty, and actual acceptance within the constructive period replaces it [@CL-CTF-1339; @CL-CTF-1340; @CL-CTF-1392]. The general due date is the later of two events, each measured as the 30th day after the event [@CL-CTF-1338], while for computing late payment interest, interim payments on cost-reimbursement contracts for services are due 30 days after receipt of a proper invoice [@CL-CTF-1341].
+Constructive acceptance is not actual acceptance: the rule is stated for the sole purpose of computing an interest penalty, and if actual acceptance occurs within the constructive period, the Government must base the interest penalty determination on the actual date of acceptance [@CL-CTF-1339; @CL-CTF-1340; @CL-CTF-1392]. The general due date is the later of two events, each measured as the 30th day after the event [@CL-CTF-1338], while for computing late payment interest, interim payments on cost-reimbursement contracts for services are due 30 days after receipt of a proper invoice [@CL-CTF-1341].
 
 ## Company calibration
 
@@ -67,6 +67,8 @@ Confirm which acceptance, receipt and invoicing terms drive the cash forecast an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Carried the 32.903 and clause-paragraph scope of the shorter payment period and the must-base wording for actual acceptance.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of proper invoice.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of proper invoice.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prompt payment due dates.

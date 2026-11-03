@@ -29,13 +29,11 @@ States where the facilities capital cost of money Standard does not reach in ful
 | Text status | Final [@CL-EST-2921] |
 | Applies to | Fully-covered contracts of a contractor that was outside full coverage at the publication date, and not to compensation based on use rates or allowances from other appropriate Federal procurement regulations [@CL-EST-2921; @CL-EST-2922] |
 
-For a contractor that was not subject to full coverage as of the date the part was published as a final rule, the Standard applies only to fully-covered contracts with subsequent dates of award and pricing certification [@CL-EST-2921]. The Standard does not apply where compensation for the use of tangible capital assets is based on use rates or allowances provided for by other appropriate Federal procurement regulations [@CL-EST-2922]. The section lists examples of such regulations: those governing educational institutions, those governing State, local and federally recognized Indian tribal governments, and those governing construction equipment rates, the last with a reference to 48 CFR 31.105(d) [@CL-EST-2923].
+For a contractor that was not subject to full coverage as of the date the part was published as a final rule, the Standard applies only to fully-covered contracts with subsequent dates of award and pricing certification [@CL-EST-2921]. The Standard does not apply where compensation for the use of tangible capital assets is based on use rates or allowances provided for by other appropriate Federal procurement regulations [@CL-EST-2922]. The section lists examples of such regulations: those governing educational institutions, those governing State, local and federally recognized Indian tribal governments, or those governing construction equipment rates, the last with a reference to 48 CFR 31.105(d) [@CL-EST-2923].
 
 ## How it works
 
 The first limit works from coverage status at one fixed date, the publication of the part as a final rule [@CL-EST-2921]. A contractor outside full coverage at that date is reached only through fully-covered contracts with subsequent dates of award and pricing certification [@CL-EST-2921]. The second limit drops the Standard where compensation for the use of tangible capital assets is based on use rates or allowances provided for by other appropriate Federal procurement regulations [@CL-EST-2922]. The three settings the section lists are introduced by "such as", so they are examples, and the test is the one stated in the sentence that introduces them [@CL-EST-2922; @CL-EST-2923].
-
-The section names no official who decides whether either limit applies, and its text does not state the publication date; this card does not supply one. It sets no threshold in money and no deadline.
 
 ## Worked example
 
@@ -57,4 +55,5 @@ Whether each business unit was outside full coverage at the publication date, an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Examples of other Federal regulations restated as alternatives; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the exemption from the Standard on cost of money as an element of the cost of facilities capital.

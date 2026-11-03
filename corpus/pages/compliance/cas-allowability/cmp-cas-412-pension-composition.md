@@ -29,7 +29,7 @@ Sets out the components of pension cost and the method a contractor must use to 
 | Text status | Final [@CL-CMP-0557] |
 | Applies to | Defined-benefit plans other than pay-as-you-go plans [@CL-CMP-0557], and defined-contribution plans [@CL-CMP-0558] |
 
-For a defined-benefit plan outside the pay-as-you-go method, pension cost for a period has four parts: the normal cost, part of any unfunded actuarial liability, an interest equivalent on the unamortized liability, and an adjustment for actuarial gains and losses [@CL-CMP-0557]. A defined-contribution plan's cost for a period is the net contribution due for that period, after dividends and other credits [@CL-CMP-0558]. Measurement of a defined-benefit plan outside the pay-as-you-go method uses an immediate-gain actuarial cost method, and the validity of each assumption behind it is evaluated on its own [@CL-CMP-0559; @CL-CMP-0560]. Cost computed for a period is assignable to that period only, apart from amounts the standard permits to be assigned to future periods [@CL-CMP-0561].
+For a defined-benefit plan outside the pay-as-you-go method, pension cost for a period has four parts: the normal cost, part of any unfunded actuarial liability, an interest equivalent on the unamortized liability, and an adjustment for actuarial gains and losses [@CL-CMP-0557]. A defined-contribution plan's cost for a period is the net contribution due for that period, after dividends and other credits [@CL-CMP-0558]. Measurement of a defined-benefit plan outside the pay-as-you-go method uses an immediate-gain actuarial cost method, and the validity of each assumption behind it is evaluated on its own [@CL-CMP-0559; @CL-CMP-0560]. Cost computed for a period is assignable to that period only, apart from amounts the standard permits to be assigned to future periods [@CL-CMP-0561]. For a defined-benefit plan other than one accounted for under the pay-as-you-go cost method, the pension cost is assignable only if the sum of (1) the unamortized portions of assignable unfunded actuarial liability developed and amortized pursuant to 9904.412-50(a)(1) [@CL-CMP-7058], and (2) the unassignable portions of unfunded actuarial liability separately identified and maintained pursuant to 9904.412-50(a)(2) equals the total unfunded actuarial liability [@CL-CMP-7059].
 
 ## How it works
 
@@ -53,4 +53,5 @@ Which business units are under full or modified coverage and whether each pensio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added the liability equality condition for assignable pension cost.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost composition and measurement.

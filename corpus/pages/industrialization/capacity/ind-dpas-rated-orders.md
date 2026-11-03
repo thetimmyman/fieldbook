@@ -34,7 +34,7 @@ A rated order must carry the appropriate priority rating and program identificat
 
 ## How it works
 
-The FAR says that the DPAS regulation contains provisions concerning the elements of a rated order, acceptance and rejection of rated orders, preferential scheduling and extension of priority ratings (flowdown) [@CL-IND-0155]. It also says that rated orders shall be placed in accordance with the provisions of the DPAS and that agency heads shall ensure compliance with the DPAS by contracting activities within their agencies [@CL-IND-0141]. The element rules speak of the person placing the order [@CL-IND-0136]. The duties of a person who receives a rated order are on [DPAS: acceptance, rejection, scheduling and flowdown of rated orders](ind-dpas-acceptance-rejection-and-flowdown.md), and the printed sections do not define who counts as a person. A buyer builds the order from the required elements [@CL-IND-0135; @CL-IND-0136; @CL-IND-0137]. Contracting officers shall insert the provision Notice of Priority Rating for National Defense, Emergency Preparedness, and Energy Program Use in a solicitation when the contract to be awarded will be a rated order [@CL-IND-0139]. They shall also insert the clause Defense Priority and Allocation Requirements in contracts that are rated orders [@CL-IND-0140].
+The FAR says that the DPAS regulation contains provisions concerning, among other matters, the elements of a rated order, acceptance and rejection of rated orders, preferential scheduling and extension of priority ratings (flowdown) [@CL-IND-0155]. It also says that rated orders shall be placed in accordance with the provisions of the DPAS and that agency heads shall ensure compliance with the DPAS by contracting activities within their agencies [@CL-IND-0141]. The element rules speak of the person placing the order [@CL-IND-0136]. The duties of a person who receives a rated order are on [DPAS: acceptance, rejection, scheduling and flowdown of rated orders](ind-dpas-acceptance-rejection-and-flowdown.md), and the printed sections do not define who counts as a person. A buyer builds the order from the required elements [@CL-IND-0135; @CL-IND-0136; @CL-IND-0137]. Contracting officers shall insert the provision Notice of Priority Rating for National Defense, Emergency Preparedness, and Energy Program Use in a solicitation when the contract to be awarded will be a rated order [@CL-IND-0139]. They shall also insert the clause Defense Priority and Allocation Requirements in contracts that are rated orders [@CL-IND-0140].
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which customer orders carry ratings, and how the order book records the rating a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Marked FAR list as non-exhaustive
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for priorities and allocations in contracts.

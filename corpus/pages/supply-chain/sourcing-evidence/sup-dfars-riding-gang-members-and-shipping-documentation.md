@@ -35,7 +35,7 @@ Any individual who is exempt must pass a DoD background check before going aboar
 
 ## How it works
 
-The credential requirement is the default, and the exemption is a carve-out for people aboard for other purposes [@CL-SUP-1627; @CL-SUP-1628]. Vetting applies to the exempt individuals, who must pass a DoD background check before going aboard, with the contractor submitting their details and removing and replacing anyone the screening agency finds unsuitable [@CL-SUP-1630; @CL-SUP-1695; @CL-SUP-1690]. Separately, except as the automated-system paragraph provides, the contractor requests bills of lading by submitting a DD Form 1659 to the transportation officer, if named in the contract schedule, or to the contract administration office [@CL-SUP-1632; @CL-SUP-1691]. If an automated system is available for shipment requests, the clause says to use service or agency systems [@CL-SUP-1633].
+The credential requirement is the default, and the exemption is a carve-out for people aboard for other purposes [@CL-SUP-1627; @CL-SUP-1628]. Vetting applies to the exempt individuals, who must pass a DoD background check before going aboard, with the contractor submitting their details and removing and replacing anyone the screening agency finds unsuitable [@CL-SUP-1630; @CL-SUP-1695; @CL-SUP-1690]. Separately, except as the automated-system paragraph provides, the contractor requests bills of lading by submitting a DD Form 1659 to the transportation officer, if named in the contract schedule, or to the contract administration office [@CL-SUP-1632; @CL-SUP-1691]. If an automated system is available for shipment requests, the clause says to use service or agency systems in lieu of DD Form 1659 [@CL-SUP-1633; @CL-SUP-9767].
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which executed contracts carry these clauses, and who confirms credentials, back
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that automated systems are used in lieu of the application form.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for riding gang member requirements and the application for United States Government shipping documentation.

@@ -31,11 +31,11 @@ Covers what a sealed bidder must fill in and sign, how erasures, price discrepan
 
 Bidders are expected to examine the drawings, specifications, Schedule and all instructions, and failure to do so is at the bidder's risk [@CL-EST-1987]. Each bidder must furnish the information required by the solicitation [@CL-EST-2097].
 
-The bidder must sign the bid and print or type its name on the Schedule and on each continuation sheet on which it makes an entry [@CL-EST-1988]. Erasures or other changes must be initialed by the person signing the bid [@CL-EST-1989]. A bid signed by an agent must be accompanied by evidence of the agent's authority unless that evidence was previously furnished to the issuing office [@CL-EST-1990].
+The bidder must sign the bid and print or type its name on the Schedule and on each continuation sheet on which it makes an entry [@CL-EST-1988]. Erasures or other changes must be initialed by the person signing the bid [@CL-EST-1989]. A bid signed by an agent must be accompanied by evidence of the agent's authority unless that evidence was previously furnished to the issuing office [@CL-EST-1990]. The FAR's general definitions say signature or signed means the discrete, verifiable symbol of an individual that, when affixed to a writing with the knowledge and consent of the individual, indicates a present intention to authenticate the writing [@CL-EST-9386]. The RFO model text of FAR 2.101 defines it in the same words, apart from quotation marks around the word signed in the term [@CL-EST-9387; @CL-EST-9386].
 
 ## How it works
 
-For each item offered, the bidder must show the unit price, which includes packaging, packing and preservation unless otherwise specified [@CL-EST-1991], and must enter the extended price in the Amount column of the Schedule [@CL-EST-1992]. Where a unit price and an extended price disagree, the unit price is presumed correct, subject to correction to the same extent and in the same manner as any other mistake [@CL-EST-1993].
+For each item offered, the bidder must show the unit price, which includes packaging, packing and preservation unless otherwise specified [@CL-EST-9465; @CL-EST-1991], and must enter the extended price for the quantity of each item offered in the Amount column of the Schedule [@CL-EST-1992]. Where a unit price and an extended price disagree, the unit price is presumed correct, subject to correction to the same extent and in the same manner as any other mistake [@CL-EST-1993].
 
 Bids for supplies or services other than those specified will not be considered unless the solicitation authorizes them [@CL-EST-2098]. Bidders must state a definite time for delivery of supplies or for performance of services, unless the solicitation specifies otherwise [@CL-EST-1994]. Time stated as a number of days includes Saturdays, Sundays and holidays [@CL-EST-2099].
 
@@ -73,5 +73,7 @@ Confirm who signs bids, who initials changes, and what evidence of agent authori
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified lead-in that states the per-item duty as bidders shall.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of signature or signed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing and signing a sealed bid.

@@ -16,7 +16,7 @@ links = ["cmp-contract-administration-functions", "cmp-contractor-business-syste
 
 ## Purpose
 
-Lists the finance-related items printed in the DoD supplement's section on contract administration functions, and says who the printed text names as responsible for each.
+Lists the finance-related items in the DoD supplement's section on contract administration functions, and the responsible party each item names.
 
 ## The rule
 
@@ -29,15 +29,13 @@ Lists the finance-related items printed in the DoD supplement's section on contr
 | Text status | Final [@CL-CMP-2200] |
 | Applies to | Not established. |
 
-The printed section is a list of numbered items in two groups, labelled (a) and (b). The lead-in for each group is not printed, so a performer is named here only where an item names one.
-
-One listed item says to also perform all payment administration in accordance with any applicable payment clauses [@CL-CMP-2200]. Another says not to delegate the responsibility to make payments to the Defense Contract Management Agency (DCMA) [@CL-CMP-2201]. One listed item says to approve or disapprove contractor business systems, as identified in the business systems clause, and it does not name who does so [@CL-CMP-2202]. DCMA is responsible for reviewing earned value management system plans and for verifying initial and continuing contractor compliance with DoD EVMS criteria, and the contracting officer shall not retain that function [@CL-CMP-2203]. Another item points to the first paragraph of the IR&D and B&P responsibilities section for further functions on projects performed by major contractors [@CL-CMP-2204].
+One listed item says to also perform all payment administration in accordance with any applicable payment clauses [@CL-CMP-2200]. Another says not to delegate the responsibility to make payments to the Defense Contract Management Agency (DCMA) [@CL-CMP-2201]. One listed item says to approve or disapprove contractor business systems, as identified in the business systems clause [@CL-CMP-2202]. DCMA is responsible for reviewing earned value management system plans and for verifying initial and continuing contractor compliance with DoD EVMS criteria, and the contracting officer shall not retain that function [@CL-CMP-2203]. Another item points to the first paragraph of the IR&D and B&P responsibilities section for further functions on projects performed by major contractors [@CL-CMP-2204].
 
 In the second group, one listed item says that, except for classified contracts, the listed function is to negotiate or settle questioned direct costs in an incurred cost audit, and the procuring contracting officer may delegate this authority to the contract administration office only upon prior coordination and agreement with that office [@CL-CMP-2205]. Upon such a delegation, the procuring contracting officer shall provide that office access within 30 days to all supporting documentation in the officer's possession related to those costs [@CL-CMP-2206].
 
 ## How it works
 
-Payment administration follows the applicable payment clauses [@CL-CMP-2200]. One item says the responsibility to make payments is not delegated to DCMA [@CL-CMP-2201]. The contracting officer does not retain the earned value management plan review function, and DCMA holds it [@CL-CMP-2203]. Questioned direct costs in an incurred cost audit may be handed to the contract administration office on the conditions above, and the handover has a documentation clock [@CL-CMP-2205; @CL-CMP-2206]. For the approval of business systems, see [DoD business system deficiencies](../business-systems/cmp-business-system-deficiency-determinations.md). For the IR&D and B&P responsibilities, see [DoD IR&D and B&P responsibilities](../cas-allowability/cmp-dod-ird-bp-responsibilities.md).
+Payment administration follows the applicable payment clauses [@CL-CMP-2200]. One item says the responsibility to make payments is not delegated to DCMA [@CL-CMP-2201]. The contracting officer does not retain the earned value management plan review function, and DCMA holds it [@CL-CMP-2203]. Except for classified contracts, the procuring contracting officer may delegate authority to negotiate or settle questioned direct costs in an incurred cost audit to the contract administration office only upon prior coordination and agreement with that office [@CL-CMP-2205], and upon such delegation shall provide that office access within 30 days to all supporting documentation in the officer's possession related to those costs [@CL-CMP-2206]. For the approval of business systems, see [DoD business system deficiencies](../business-systems/cmp-business-system-deficiency-determinations.md). For the IR&D and B&P responsibilities, see [DoD IR&D and B&P responsibilities](../cas-allowability/cmp-dod-ird-bp-responsibilities.md).
 
 ## Worked example
 
@@ -47,7 +45,7 @@ An audit questions 400,000 of direct cost on an unclassified contract. The procu
 
 ## Never confuse
 
-The printed items list payment administration and making payments separately. Payment administration follows the applicable payment clauses [@CL-CMP-2200], and the responsibility to make payments is the one that an item says not to delegate to DCMA [@CL-CMP-2201]. For the FAR list of contract administration functions, see [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md). For the systems behind the business systems item, see [Contractor business systems](../business-systems/cmp-contractor-business-systems.md).
+One listed item says to also perform all payment administration in accordance with any applicable payment clauses [@CL-CMP-2200]; another says not to delegate the responsibility to make payments to DCMA [@CL-CMP-2201]. For the FAR list of contract administration functions, see [Contract administration functions](../audit-retention/cmp-contract-administration-functions.md). For the systems behind the business systems item, see [Contractor business systems](../business-systems/cmp-contractor-business-systems.md).
 
 ## Company calibration
 
@@ -57,4 +55,5 @@ Which business systems the company's contracts cover, what the Government status
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta and uncited sentences; restated delegation conditions and documentation timing from the cited items.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD additions to contract administration functions.

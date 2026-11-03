@@ -44,7 +44,7 @@ A person holds a valid CCP certification issued in year 1 and works as a CCI. Un
 
 ## Never confuse
 
-A CCP is not a CCA. A CCP can take part in a Level 2 certification assessment, but only with CCA oversight, and the CCA makes all final determinations [@CL-CMP-3241]. An instructor and a consultant are different roles at any one time. An instructor must not provide CMMC consulting services while serving as an instructor [@CL-CMP-3239]. A CCP, by contrast, trains to provide advice, consulting, and recommendations to OSA clients [@CL-CMP-3337]. The assessment process itself is on the [certification assessment](cmp-cmmc-level-2-assessment.md) card. The body that certifies instructors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card.
+A CCP is not a CCA. A CCP can take part in a Level 2 certification assessment with CCA oversight, and the CCA makes all final determinations [@CL-CMP-3241]. While serving as an instructor, a person must not provide CMMC consulting services [@CL-CMP-3239]. A CCP, by contrast, trains to provide advice, consulting, and recommendations to OSA clients [@CL-CMP-3337]. The assessment process itself is on the [certification assessment](cmp-cmmc-level-2-assessment.md) card. The body that certifies instructors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card.
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ Which instructors and certified professionals the company uses, and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only and a role overstatement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Instructors and Certified Professionals.

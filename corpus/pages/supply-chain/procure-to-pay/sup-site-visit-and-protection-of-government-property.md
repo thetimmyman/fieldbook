@@ -40,7 +40,7 @@ An offeror who skips the inspection cannot use that omission as grounds for a cl
 
 The clause sets a care standard rather than a ban: the duty is to use reasonable care to avoid damage [@CL-SUP-2915].
 
-The repair or replacement duty arises only when the contractor's failure to use reasonable care caused the damage, and it is carried out at no expense to the Government as the Contracting Officer directs [@CL-SUP-2916].
+The repair or replacement duty applies when the contractor's failure to use reasonable care causes the damage, and it is carried out at no expense to the Government as the Contracting Officer directs [@CL-SUP-2916].
 
 If the contractor fails or refuses to repair or replace, the cost becomes the contractor's liability and may be deducted from the contract price [@CL-SUP-2917].
 
@@ -56,7 +56,7 @@ During performance, careless handling of a pallet jack by the contractor's crew 
 
 ## Never confuse
 
-The site visit provision is a pre-award expectation with no post-award claim behind it, while the protection clause is a performance duty with a cost attached [@CL-SUP-2912; @CL-SUP-2913; @CL-SUP-2917]. Under the codified text, neither instrument is prescribed where the work is construction, so do not read a construction solicitation as carrying the site visit bar or the protection duty [@CL-SUP-2911; @CL-SUP-2914]. The protection clause applies to damage caused by a failure to use reasonable care, not to every loss on the installation [@CL-SUP-2916].
+The site visit provision is a pre-award expectation with no post-award claim behind it, while the protection clause is a performance duty with a cost attached [@CL-SUP-2912; @CL-SUP-2913; @CL-SUP-2917]. Under the codified text, neither instrument is prescribed where the work is construction, so do not read a construction solicitation as carrying the site visit bar or the protection duty [@CL-SUP-2911; @CL-SUP-2914]. The protection clause states the repair or replacement duty for damage caused by a failure to use reasonable care [@CL-SUP-2916]; the quoted text does not extend that duty to every loss on the installation.
 
 The codified site visit provision is prescribed for solicitations for services on Government installations, unless the solicitation is for construction [@CL-SUP-2911], but the RFO prescription line for the provision prints neither limit [@CL-SUP-0491]. The RFO prescription line for the protection clause still excludes the case where a construction contract is contemplated [@CL-SUP-0492].
 
@@ -70,6 +70,7 @@ Who confirms that each services solicitation on a Government installation carrie
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an invented only from the repair duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on construction site visit and protection.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the Applies to row to say the site visit provision goes in solicitations only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -29,9 +29,9 @@ Shows what the contractor must send after each ocean shipment, the representatio
 | Text status | Final [@CL-SUP-1396] |
 | Applies to | Shipments covered by the clause, and for the final-invoice representation, contracts above the simplified acquisition threshold [@CL-SUP-1396; @CL-SUP-1397] |
 
-Within 30 days after each shipment covered by the clause, the contractor shall provide the contracting officer and MARAD one copy of the rated on board vessel operating carrier's ocean bill of lading [@CL-SUP-1396; @CL-SUP-1771]. If the contract exceeds the simplified acquisition threshold, the contractor shall provide with its final invoice a representation, to the best of its knowledge and belief, about its use of ocean transportation [@CL-SUP-1397].
+Within 30 days after each shipment covered by the clause, the contractor shall provide the contracting officer and MARAD one copy of the rated on board vessel operating carrier's ocean bill of lading, which shall contain the information the clause lists [@CL-SUP-1396; @CL-SUP-1771]. If the contract exceeds the simplified acquisition threshold, the contractor shall provide with its final invoice a representation, to the best of its knowledge and belief, about its use of ocean transportation [@CL-SUP-1397].
 
-In the basic clause, two of the listed representations are that ocean transportation was used and the contractor had received a prior-approved waiver for all foreign-flag ocean transportation, or that some or all shipments were made on foreign-flag vessels without the written consent of DoD [@CL-SUP-1397; @CL-SUP-1398]. In Alternate II, one of the listed representations is instead that the contractor had the written consent of the contracting officer for all foreign-flag ocean transportation [@CL-SUP-1445].
+In the basic clause the representation is one of the listed alternatives, and two of them are that ocean transportation was used and the contractor had received a prior-approved waiver for U.S.-flag vessels for all foreign-flag ocean transportation, or that ocean transportation was used and some or all of the shipments were made on foreign-flag vessels without the written consent of DoD [@CL-SUP-1397; @CL-SUP-1398]. In Alternate II, one of the listed alternatives is instead that ocean transportation was used and the contractor had the written consent of the contracting officer for all foreign-flag ocean transportation [@CL-SUP-1445].
 
 ## How it works
 
@@ -56,4 +56,5 @@ Who assembles the bills of lading and the final-invoice representation, and how 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the representation alternatives and the bill of lading sentence to match the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, representation, reporting and flowdown.

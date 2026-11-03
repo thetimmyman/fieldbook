@@ -55,7 +55,7 @@ If the extra quantity also lengthens the work, the Contractor requests an extens
 
 ## Never confuse
 
-An estimated quantity is not a guaranteed quantity. The estimate is the reference point, and only a variation of more than 15 percent brings an adjustment, counted on the cost effect above 115 percent or below 85 percent of the estimate [@CL-SUP-2586; @CL-SUP-2587]. That differs from a permitted variation in quantity, which is accepted only where loading, shipping, packing or manufacturing allowances caused it and only within the stated percentages [@CL-SUP-2578].
+An estimated quantity is not a guaranteed quantity. The estimate is the reference point, and a variation of more than 15 percent above or below it brings an adjustment on demand of either party, counted on the cost effect above 115 percent or below 85 percent of the estimate [@CL-SUP-2586; @CL-SUP-2587]. That differs from a permitted variation in quantity, which is accepted only where loading, shipping, packing or manufacturing allowances caused it and then only to the extent, if any, specified in paragraph (b) of that clause [@CL-SUP-2578].
 
 ## Company calibration
 
@@ -65,5 +65,6 @@ Confirm how estimated quantities are tracked against actual quantities and who w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated "only" about the 15 percent trigger; restated the permitted-variation limit as the clause words it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for variation in estimated quantity.

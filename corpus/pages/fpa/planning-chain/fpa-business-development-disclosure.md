@@ -28,13 +28,13 @@ Shows how a public defense contractor describes the general development of its b
 | Text status | Not established. |
 | Applies to | The registrant, as the text of the cited paragraph states it [@CL-FPA-0001]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
-Item 101(a) of Regulation S-K, in 17 CFR 229.101, requires the registrant to describe the general development of the business of the registrant, its subsidiaries and any predecessors [@CL-FPA-0001]. Only information material to an understanding of the general development of the business is required, and the topics that follow are ones that disclosure may include but is not limited to [@CL-FPA-0002].
+Item 101(a) of Regulation S-K, in 17 CFR 229.101, requires the registrant to describe the general development of the business of the registrant, its subsidiaries and any predecessors [@CL-FPA-0001]. Only information material to an understanding of the general development of the business is required, and disclosure may include, but should not be limited to, the topics that follow [@CL-FPA-0002].
 
 The listed topics include any material changes to a previously disclosed business strategy and the nature and effects of any material bankruptcy, receivership or similar proceeding with respect to the registrant or any of its significant subsidiaries [@CL-FPA-0004]. They also include the nature and effects of any material reclassification, merger or consolidation of the registrant or any of its significant subsidiaries, and the acquisition or disposition of any material amount of assets otherwise than in the ordinary course of business [@CL-FPA-0003].
 
 ## How it works
 
-The test is materiality to an understanding of the general development of the business, and the listed topics are examples, not a closed list [@CL-FPA-0002]. The description covers the registrant, its subsidiaries and any predecessors [@CL-FPA-0001]. In a filing other than an initial registration statement, a registrant may forgo a full discussion only if it provides an update disclosing all of the material developments [@CL-FPA-0005], meaning those that have occurred since the most recent registration statement or report that includes a full discussion [@CL-FPA-0100]. The registrant must also incorporate by reference, and include one active hyperlink to, one registration statement or report that includes the full discussion [@CL-FPA-0101].
+The test is materiality to an understanding of the general development of the business, and the listed topics are ones that disclosure may include but should not be limited to [@CL-FPA-0002]. The description covers the registrant, its subsidiaries and any predecessors [@CL-FPA-0001]. In a filing other than an initial registration statement, a registrant may forgo a full discussion only if it provides an update disclosing all of the material developments [@CL-FPA-0005], meaning those that have occurred since the most recent registration statement or report that includes a full discussion [@CL-FPA-0100]. The registrant must also incorporate by reference, and include one active hyperlink to, one registration statement or report that includes the full discussion [@CL-FPA-0101].
 
 ## Worked example
 
@@ -54,4 +54,5 @@ Which management reporting measures flag a strategy change, merger or asset disp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Topic list now says disclosure may include but should not be limited to the topics, as the source states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business development disclosure.

@@ -36,7 +36,7 @@ For contractor operations abroad, the assignment of an employee who is a non-U.S
 
 ## How it works
 
-Disclosure of classified information to a foreign visitor is limited to the specific information authorized in connection with an approved visit request and an export authorization, as required [@CL-CMP-3481]. A foreign national attending a classified gathering needs an export license, disclosure authority and a security assurance on file [@CL-CMP-3480]. Both items sit under a listing that applies when a USG disclosure official has authorized the disclosure or export [@CL-CMP-3479]. A classified visit by a foreign national goes through the sponsoring foreign government to the USG for approval [@CL-CMP-3510], and the contractor keeps a record of such visitors for one year when the visit involves access to classified information [@CL-CMP-3512]. A visit authorization does not replace an export authorization for a foreign national who would work for the contractor [@CL-CMP-3509].
+Disclosure of classified information to a foreign visitor is limited to the specific information authorized in connection with an approved visit request and an export authorization, as required [@CL-CMP-3481]. A foreign national attending a classified gathering needs an export license, disclosure authority and a security assurance on file [@CL-CMP-3480]. Both items sit under a listing that applies when a USG disclosure official has authorized the disclosure or export [@CL-CMP-3479]. A classified visit by a foreign national is processed by government national security authorities on behalf of the contractor through the sponsoring foreign government to the USG for approval [@CL-CMP-3510], and the contractor keeps a record of such visitors for one year when the visit involves access to classified information [@CL-CMP-3512]. A visit authorization cannot be used to employ or otherwise acquire the services of a foreign national who requires access to export-controlled information, and an export authorization is required for that situation [@CL-CMP-3509].
 
 ## Worked example
 
@@ -58,4 +58,5 @@ Which visitors, attendees or employees with foreign nationality or foreign ties 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the actor and condition in two visit sentences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for NISPOM foreign national visits and classified gatherings.

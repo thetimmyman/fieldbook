@@ -22,13 +22,13 @@ Explains when a sealed bid must include product samples, how the Government test
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2005] |
-| Codified citation | FAR 52.214-20 [@CL-EST-2006] |
-| RFO citation | RFO FAR 52.214-20 [@CL-EST-0063; @CL-EST-0064] |
+| Codified citation | FAR 52.214-20 [@CL-EST-2006]; FAR 2.101 [@CL-EST-9370] |
+| RFO citation | RFO FAR 52.214-20 [@CL-EST-0063; @CL-EST-0064]; RFO FAR 2.101 [@CL-EST-9371] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2005] |
 | Applies to | Solicitations that include the bid samples provision [@CL-EST-2110], and those that add its Alternate I [@CL-EST-2112] or Alternate II [@CL-EST-2116] |
 
-A bid sample is a product sample required to be submitted by a bidder to show those characteristics of the offered products that cannot adequately be described by specifications, purchase descriptions or the invitation for bid [@CL-EST-2005]. Bidders must furnish bid samples as part of the bid, and the Government must receive them by the time specified in the invitation for bids [@CL-EST-2006].
+A bid sample is a product sample required to be submitted by a bidder to show those characteristics of the offered products that cannot adequately be described by specifications, purchase descriptions or the invitation for bid [@CL-EST-2005]. The FAR definitions section says a bid sample means a product sample required to be submitted by an offeror to show characteristics of the offered products that cannot adequately be described by specifications, purchase descriptions, or the solicitation, with the examples balance, facility of use, or pattern [@CL-EST-9370]. The RFO text of FAR 2.101 has the same sentence word for word [@CL-EST-9371; @CL-EST-9370]. Bidders must furnish bid samples as part of the bid, and the Government must receive them by the time specified in the invitation for bids [@CL-EST-2006].
 
 If the bidder fails to submit samples on time, the Government will reject the bid, except that the Contracting Officer will consider a late sample sent by mail under the late submissions provision of the solicitation [@CL-EST-2007].
 
@@ -44,7 +44,7 @@ Alternate II has the same discretion, but its first condition also requires that
 
 In both alternates the office or activity in the blank is the one the Contracting Officer designates [@CL-EST-2115].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO bid samples provision keeps the definition of a bid sample [@CL-EST-0063] [@CL-EST-2005], the requirement that bidders furnish bid samples as part of the bid and that the Government receive them by the time specified in the invitation for bids [@CL-EST-0064] [@CL-EST-2006], and the rejection of a bid when samples are not submitted on time, except that the Contracting Officer will consider a late sample sent by mail under the late submissions provision [@CL-EST-0065] [@CL-EST-2007]. It also keeps the Government's test or evaluation of the samples and rejection of a bid whose sample fails to conform [@CL-EST-0066] [@CL-EST-2008], the rule that delivered products must conform to the approved sample for the tested characteristics and to the specifications for all other characteristics [@CL-EST-0067] [@CL-EST-2111], and the rule that samples are submitted at no expense to the Government and returned at the bidder's request and expense unless destroyed during preaward testing [@CL-EST-0068] [@CL-EST-2009]. Alternate I keeps the Contracting Officer's discretion to waive the requirement on the two conditions described above [@CL-EST-0069] [@CL-EST-0070] [@CL-EST-2113] [@CL-EST-2114], with the Contracting Officer designating the contracting office or alternate activity or office for the blank [@CL-EST-9066] [@CL-EST-2115], and Alternate II keeps its three conditions, including the previous acquisition and the same plant [@CL-EST-0071] [@CL-EST-0072] [@CL-EST-0073] [@CL-EST-0074] [@CL-EST-2117] [@CL-EST-2118] [@CL-EST-2119].
+Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO bid samples provision keeps the definition of a bid sample [@CL-EST-0063] [@CL-EST-2005], the requirement that bidders furnish bid samples as part of the bid and that the Government receive them by the time specified in the invitation for bids [@CL-EST-0064] [@CL-EST-2006], and the rejection of a bid when samples are not submitted on time, except that the Contracting Officer will consider a late sample sent by mail under the late submissions provision [@CL-EST-0065] [@CL-EST-2007]. It also keeps the Government's test or evaluation of the samples and rejection of a bid whose sample fails to conform [@CL-EST-0066] [@CL-EST-2008], the rule that delivered products must conform to the approved sample for the tested characteristics and to the specifications for all other characteristics [@CL-EST-0067] [@CL-EST-2111], and the rule that samples are submitted at no expense to the Government and returned at the bidder's request and expense unless destroyed during preaward testing [@CL-EST-0068] [@CL-EST-2009]. Alternate I keeps the Contracting Officer's discretion to waive the requirement on the two conditions described above [@CL-EST-0069] [@CL-EST-0070] [@CL-EST-2113] [@CL-EST-2114], with the Contracting Officer designating the contracting office or alternate activity or office for the blank [@CL-EST-9066] [@CL-EST-2115], and Alternate II keeps its three conditions, including the previous acquisition and the same plant [@CL-EST-0071] [@CL-EST-0072] [@CL-EST-0073] [@CL-EST-0074] [@CL-EST-2117] [@CL-EST-2118] [@CL-EST-2119].
 
 ## Worked example
 
@@ -62,7 +62,7 @@ A bid sample is not the product delivered under the contract: the delivered prod
 
 Lateness and conformance are separate tests: a late sample sent by mail will be considered under the late submissions provision [@CL-EST-2007], while a sample that arrives on time and does not conform still leads to rejection [@CL-EST-2008].
 
-A waiver under either alternate is at the Contracting Officer's discretion, not a right of the bidder [@CL-EST-2113; @CL-EST-2117].
+A waiver under either alternate is at the Contracting Officer's discretion [@CL-EST-2113; @CL-EST-2117].
 
 A bid sample is not descriptive literature, which is information such as cuts, illustrations, drawings and brochures [@CL-EST-2010]; see [Descriptive literature under sealed bidding](est-descriptive-literature.md).
 
@@ -74,6 +74,8 @@ Confirm who produces and ships samples, and who can prove the delivery date for 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Class deviation wording changed to must use; unsupported contrast on waiver removed.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of bid sample.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported phrase from one sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for bid samples under sealed bidding.

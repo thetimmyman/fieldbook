@@ -31,7 +31,7 @@ Separates the Standard that deals with the identification and accounting treatme
 
 The purpose of CAS 405 is to facilitate the negotiation, audit, administration and settlement of contracts by establishing guidelines covering two matters [@CL-EST-2636]. The first is the identification of costs specifically described as unallowable, at the time such costs first become defined or authoritatively designated as unallowable [@CL-EST-2502]. The second is the cost accounting treatment to be accorded such identified unallowable costs, to promote the consistent application of sound cost accounting principles covering all incurred costs [@CL-EST-2637].
 
-CAS 405 is predicated on the proposition that costs incurred in carrying on the activities of an enterprise, regardless of their allowability under Government contracts, are allocable to the cost objectives with which they are identified on the basis of their beneficial or causal relationships [@CL-EST-2503]. It does not govern the allowability of costs [@CL-EST-2504]. Allowability is a function of the appropriate procurement or reviewing authority [@CL-EST-2638].
+CAS 405 is predicated on the proposition that costs incurred in carrying on the activities of an enterprise, regardless of their allowability under Government contracts, are allocable to the cost objectives with which they are identified on the basis of their beneficial or causal relationships [@CL-EST-9459] [@CL-EST-2503]. It does not govern the allowability of costs [@CL-EST-2504]. Allowability is a function of the appropriate procurement or reviewing authority [@CL-EST-2638].
 
 The purpose of CAS 415 is to provide criteria for measuring the cost of deferred compensation and assigning that cost to cost accounting periods [@CL-EST-2505]. Applying the criteria should increase the probability that the cost is allocated to cost objectives in a uniform and consistent manner [@CL-EST-2639]. It is applicable to the cost of all deferred compensation except the cost for compensated personal absence and the cost for pension plans that do not meet the definition of an Employee Stock Ownership Plan (ESOP), which other Cost Accounting Standards cover [@CL-EST-2506].
 
@@ -43,7 +43,7 @@ For contractors and subcontractors that established advance agreements before Ju
 
 The two Standards answer different questions. CAS 405 covers how costs already described as unallowable are identified and treated in the accounts [@CL-EST-2502; @CL-EST-2637]. CAS 415 covers how deferred compensation cost is measured and which cost accounting period carries it [@CL-EST-2505].
 
-CAS 405 leaves allowability to the procurement or reviewing authority, so identifying and accounting for a cost does not decide whether it is allowable [@CL-EST-2504; @CL-EST-2638].
+CAS 405 does not govern the allowability of costs [@CL-EST-2504], which is a function of the appropriate procurement or reviewing authority [@CL-EST-2638].
 
 The revised CAS 415 applies to a contractor from the start of its next cost accounting period that begins after it receives a contract or subcontract the Standard applies to [@CL-EST-2640]. A contractor with prior full coverage contracts stays on the earlier version until the revised Standard becomes applicable to it in that way [@CL-EST-2508].
 
@@ -61,9 +61,9 @@ A pension plan that does not meet the definition of an ESOP is outside CAS 415 a
 
 ## Never confuse
 
-CAS 405 is not an allowability rule [@CL-EST-2504]. It tells the contractor how to identify and account for cost described as unallowable, while allowability stays with the procurement or reviewing authority [@CL-EST-2504; @CL-EST-2638].
+CAS 405 does not govern the allowability of costs [@CL-EST-2504]. It establishes guidelines on the identification of costs specifically described as unallowable and the cost accounting treatment to be accorded them [@CL-EST-2502; @CL-EST-2637], while allowability is a function of the appropriate procurement or reviewing authority [@CL-EST-2638].
 
-Deferred compensation under CAS 415 is not every benefit [@CL-EST-2506]. Compensated personal absence and pension plans that are not ESOPs fall under other Standards [@CL-EST-2506].
+CAS 415 is applicable to the cost of all deferred compensation except the cost for compensated personal absence and the cost for pension plans that do not meet the definition of an ESOP, which are covered in other Cost Accounting Standards [@CL-EST-2506].
 
 The rules of each Standard are on the [unallowable costs](../../compliance/cas-allowability/cmp-cas-405-unallowable-costs.md), [accounting for unallowable costs](../../compliance/cas-allowability/cmp-accounting-for-unallowable-and-associated-costs.md) and [deferred compensation](../../compliance/cas-allowability/cmp-cas-415-deferred-compensation.md) cards.
 
@@ -75,5 +75,7 @@ Which business units hold full coverage contracts and which advance agreements o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: CAS 405 and 415 comparison restated as the cited text; inferences and added actor removed.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the CAS 405 predicate sentence.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that a pension plan that is not an ESOP is covered by other Cost Accounting Standards, not by CAS 415.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unallowable cost and deferred compensation Standards and the deferred compensation transition.

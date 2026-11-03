@@ -50,7 +50,7 @@ Under the basic clause, completion of an agency-developed or agency-conducted tr
 
 The contractor must maintain, and on request provide to the Contracting Officer, documentation of completion of privacy training [@CL-CMP-5539].
 
-The substance of the clause, including its flowdown paragraph, must be included in all subcontracts under the contract when subcontractor employees will do the things listed in the next sentence [@CL-CMP-5540]. Those are having access to a system of records, creating, collecting, using, processing, storing, maintaining, disseminating, disclosing, disposing of or otherwise handling personally identifiable information, and designing, developing, maintaining or operating a system of records [@CL-CMP-5541].
+The substance of the clause, including its flowdown paragraph, must be included in all subcontracts under the contract when subcontractor employees will do any one of the things listed in the next sentence [@CL-CMP-5540]. Those are having access to a system of records, creating, collecting, using, processing, storing, maintaining, disseminating, disclosing, disposing of or otherwise handling personally identifiable information, or designing, developing, maintaining or operating a system of records [@CL-CMP-5541].
 
 If the agency specifies that only its agency-provided training is acceptable, Alternate I substitutes a new paragraph (c) for paragraph (c) of the basic clause [@CL-CMP-5639]. Under it the contracting agency provides initial privacy training, and annual privacy training thereafter, to contractor employees for the duration of the contract [@CL-CMP-5640]. The content, testing and agency-course rules above sit in paragraph (c) of the basic clause, so Alternate I replaces them [@CL-CMP-5633; @CL-CMP-5536; @CL-CMP-5538; @CL-CMP-5639].
 
@@ -76,6 +76,7 @@ Confirm who owns the training roster, the completion records and the subcontract
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Subcontract flowdown triggers stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on Privacy Act clauses and information assurance training.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for privacy training.

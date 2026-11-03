@@ -36,7 +36,7 @@ The senior procurement executive has the authority to make the determination aut
 
 ## How it works
 
-The review, reporting and determination duties bind Government officials. The private security clause is the part that reaches the contractor's fee: a period of noncompliance requires the contracting officer to consider reducing or denying award fee for that period and recovering fee already paid for it, and the award-fee plan must require the review that finds it [@CL-MKT-1588; @CL-MKT-1589; @CL-MKT-1590].
+The review, reporting and determination duties bind Government officials. The private security clause is the part that reaches the contractor's fee: a period of noncompliance requires the contracting officer to consider reducing or denying award fee for that period and recovering fee already paid for it, and the award-fee plan must include a requirement to review contractor compliance with, or violation of, applicable contract requirements on private security functions [@CL-MKT-1588; @CL-MKT-1589; @CL-MKT-1590].
 
 For short shelf-life items the contracting officer considers an indefinite-delivery contract with direct ordering or direct delivery, and the issuing office supplies the data so that each ordering activity can report within the time allowed [@CL-MKT-1591; @CL-MKT-1641; @CL-MKT-1592]. The single-source determination sits with the senior procurement executive and, for the integrally-related ground, uses the efficiently-perform standard, and a justification executed in accordance with FAR subpart 6.3 and DFARS subpart 206.3 removes the need for the determination [@CL-MKT-1643; @CL-MKT-1593; @CL-MKT-1644].
 
@@ -44,7 +44,7 @@ For short shelf-life items the contracting officer considers an indefinite-deliv
 
 Synthetic example. The numbers are made up.
 
-An award-fee contract includes the clause at DFARS 252.225-7039, and its award-fee plan requires the private security compliance review [@CL-MKT-1588; @CL-MKT-1640]. The contractor fails to comply with the clause during one evaluation period. The contracting officer must consider reducing or denying the award fee for that period [@CL-MKT-1589] and must also consider recovering award fee already paid for it [@CL-MKT-1590]. After considering both, the contracting officer could decide to reduce the fee by 40,000 and recover 15,000, but the section requires only that these steps be considered [@CL-MKT-1589; @CL-MKT-1590].
+An award-fee contract includes the clause at DFARS 252.225-7039, and its award-fee plan requires the private security compliance review [@CL-MKT-1588; @CL-MKT-1640]. The contractor fails to comply with the clause during one evaluation period. The contracting officer must consider reducing or denying the award fee for that period [@CL-MKT-1589] and must also consider recovering award fee already paid for it [@CL-MKT-1590]. After considering both, the contracting officer could decide to reduce the fee by 40,000 and recover 15,000, but the section requires that these steps be considered [@CL-MKT-1589; @CL-MKT-1590].
 
 An item has a shelf-life of 4 months, which is less than 6 months, so the contracting officer considers an indefinite-delivery contract with orders placed by users or by central offices delivering direct to users [@CL-MKT-1591]. For an order placed on Day 10, the issuing office must have furnished the data in time for the ordering activity to prepare its report within 3 working days of the order [@CL-MKT-1641; @CL-MKT-1592].
 
@@ -62,5 +62,7 @@ Which contracts within the finance remit carry an award-fee plan or the private 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Award-fee plan review duty restated as the quoted requirement.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that the justification that removes the need for the single-award determination must follow DFARS subpart 206.3 as well as FAR subpart 6.3.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award fee, shelf-life items and the multiple-award determination.

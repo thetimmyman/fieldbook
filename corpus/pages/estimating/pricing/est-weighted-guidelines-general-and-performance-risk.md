@@ -35,7 +35,7 @@ In the price negotiation documentation the contracting officer need not explain 
 
 ## How it works
 
-Performance risk has a technical part, covering technical uncertainties of performance, and a management/cost control part, covering the management effort needed to meet contract requirements and to reduce and control costs [@CL-EST-0776]. The two elements carry weights that total 100 percent [@CL-EST-0777]. Values come from a table in which the standard normal value is 5 percent with a designated range of 3 to 7 percent and the technology incentive normal value is 9 percent with a range of 7 to 11 percent [@CL-EST-0778]. For the technical factor only, contracting officers may use the technology incentive range for acquisitions that include development, production, or application of innovative new technologies [@CL-EST-0866]. The base is the Block 20 amount, which is total contract costs excluding facilities capital cost of money [@CL-EST-0779].
+Performance risk has a technical part, covering technical uncertainties of performance, and a management/cost control part, covering the management effort needed to meet contract requirements and to reduce and control costs [@CL-EST-0776]. A weight (percentage) is assigned to each element according to its input to the total performance risk, and the total of the two weights equals 100 percent [@CL-EST-0777]. Values come from a table in which the standard normal value is 5 percent with a designated range of 3 to 7 percent and the technology incentive normal value is 9 percent with a range of 7 to 11 percent [@CL-EST-0778]. For the technical factor only, contracting officers may use the technology incentive range for acquisitions that include development, production, or application of innovative new technologies [@CL-EST-0866], but the range does not apply to efforts restricted to studies, analyses, or demonstrations that have a technical report as their primary deliverable [@CL-EST-9432]. The amount from Block 20 of the DD Form 1547 is inserted, and Block 20 is total contract costs, excluding facilities capital cost of money [@CL-EST-0779].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A technical weight of 60 percent at a value of 5.0 and a management/cost control
 
 ## Never confuse
 
-Performance risk is only one of four factors: it covers technical uncertainties and management effort, while the cost risk accepted under the contract type is a separate factor [@CL-EST-0773; @CL-EST-0776]. The cost efficiency special factor has no normal value at all, while each other factor has a normal value and a designated range [@CL-EST-0774]. The contracting officer need not explain assignment of the normal value, but should address the conditions that justify any other value [@CL-EST-0775]. These factor results feed the wider profit analysis; see [Profit analysis](est-profit-analysis.md).
+Performance risk is the first of the four profit factors [@CL-EST-0773], and it consists of two parts: the technical uncertainties of performance and the degree of management effort necessary [@CL-EST-0776]. The contract type risk factor focuses on the degree of cost risk accepted by the contractor under varying contract types [@CL-EST-0867]. The cost efficiency special factor has no normal value [@CL-EST-0795], while each other profit factor has a normal value and a designated range of values [@CL-EST-0774]. See [Profit analysis](est-profit-analysis.md) for the wider profit analysis.
 
 ## Company calibration
 
@@ -55,4 +55,7 @@ Which factors the company's profit model moves away from normal on, and where th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the assigned-weight wording, cited the no-normal-value claim and cut unquoted contrasts.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the contract type risk claim for the degree of cost risk accepted.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the technology incentive range.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the weighted guidelines general policy and performance risk.

@@ -28,7 +28,7 @@ Shows when a late technical proposal under step one of two-step sealed bidding c
 | Text status | Final [@CL-EST-2153] |
 | Applies to | Technical proposals under step one of two-step sealed bidding, as set by the request for technical proposals [@CL-EST-2154] |
 
-Bidders are responsible for submitting technical proposals, and any modifications or revisions, so as to reach the designated Government office by the time specified in the invitation for bids [@CL-EST-2153]. If the invitation for bids specifies no time, the time for receipt is 4:30 in the afternoon, local time, for the designated Government office on the date that bids or revisions are due [@CL-EST-2191]. The designated office and the time are filled in for each solicitation, so they are contract-specific.
+Bidders are responsible for submitting technical proposals, and any modifications or revisions, so as to reach the designated Government office by the time specified in the invitation for bids [@CL-EST-2153]. If the invitation for bids specifies no time, the time for receipt is 4:30 in the afternoon, local time, for the designated Government office on the date that bids or revisions are due [@CL-EST-2191].
 
 A technical proposal under step one, or a modification, revision or withdrawal of one, received at the designated office after the exact time specified for receipt will not be considered unless the conditions that follow are met [@CL-EST-2154]. The first condition is that the Contracting Officer determines that accepting the late technical proposal would not unduly delay the acquisition, and one of the further listed conditions must also be met [@CL-EST-2155]. Three further conditions are listed and are joined by or [@CL-EST-2156; @CL-EST-2157; @CL-EST-2158].
 
@@ -46,7 +46,7 @@ Technical proposals may be withdrawn by written notice received at any time befo
 
 Late bids under an ordinary invitation are covered on [Late submissions, modifications and withdrawals of bids](est-late-bid-submissions-and-withdrawals.md), and when facsimile bids are considered at all is covered on [Sealed bidding: amendments, false statements, bid submission and explanations](est-sealed-bidding-essentials.md). Who may bid in step two is covered on [Step two of two-step sealed bidding: who may bid](est-two-step-sealed-bidding-step-two.md).
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision has the same responsibility to reach the designated office by the time specified and the same default time of 4:30 in the afternoon, local time [@CL-EST-0829; @CL-EST-0830; @CL-EST-2153; @CL-EST-2191]. It has the same late-proposal rule, with the same no-undue-delay determination and the same three alternative conditions [@CL-EST-0831; @CL-EST-0832; @CL-EST-0833; @CL-EST-0834; @CL-EST-0835; @CL-EST-2154; @CL-EST-2155; @CL-EST-2156; @CL-EST-2157; @CL-EST-2158], the same treatment of a late modification that is more favorable to the Government [@CL-EST-0836; @CL-EST-2192], and the same list of acceptable evidence of receipt [@CL-EST-0837; @CL-EST-2159]. It has the same emergency extension, with both conditions and the same deemed time [@CL-EST-0838; @CL-EST-0839; @CL-EST-0840; @CL-EST-2193; @CL-EST-2228; @CL-EST-2194]. Its paragraph (e) says technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt and then goes on to withdrawal in person, and it prints no sentence about withdrawal by facsimile, which the codified paragraph (e) has [@CL-EST-0841; @CL-EST-2195]. The in-person withdrawal rule is worded the same [@CL-EST-0842; @CL-EST-2196]. The RFO text lists section 52.214-31, which the codified paragraph (e) cites for facsimile bids, as [Reserved] [@CL-EST-0843; @CL-EST-2195].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision has the same responsibility to reach the designated office by the time specified and the same default time of 4:30 in the afternoon, local time [@CL-EST-0829; @CL-EST-0830; @CL-EST-2153; @CL-EST-2191]. It has the same late-proposal rule, with the same no-undue-delay determination and the same three alternative conditions [@CL-EST-0831; @CL-EST-0832; @CL-EST-0833; @CL-EST-0834; @CL-EST-0835; @CL-EST-2154; @CL-EST-2155; @CL-EST-2156; @CL-EST-2157; @CL-EST-2158], the same treatment of a late modification that is more favorable to the Government [@CL-EST-0836; @CL-EST-2192], and the same list of acceptable evidence of receipt [@CL-EST-0837; @CL-EST-2159]. It has the same emergency extension, with both conditions and the same deemed time [@CL-EST-0838; @CL-EST-0839; @CL-EST-0840; @CL-EST-2193; @CL-EST-2228; @CL-EST-2194]. Its paragraph (e) says technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt and then goes on to withdrawal in person [@CL-EST-0841], while the codified paragraph (e) also has a sentence on withdrawal by facsimile [@CL-EST-2195]. The in-person withdrawal rule is worded the same [@CL-EST-0842; @CL-EST-2196]. RFO FAR 52.214-31 is listed as [Reserved] [@CL-EST-0843], and the codified paragraph (e) cites the provision at 52.214-31, Facsimile Bids, for withdrawal by facsimile [@CL-EST-2195].
 
 ## Worked example
 
@@ -72,15 +72,11 @@ A written withdrawal notice from one bidder arrives at 1:30, before the exact ti
 
 ## Never confuse
 
-A late technical proposal in step one is not the same as a late bid under an ordinary invitation; the bid rules are on [Late submissions, modifications and withdrawals of bids](est-late-bid-submissions-and-withdrawals.md).
+The three further conditions are joined by or [@CL-EST-2156; @CL-EST-2157; @CL-EST-2158], and the Contracting Officer's determination that accepting the late technical proposal would not unduly delay the acquisition is joined to them by and [@CL-EST-2155].
 
-The three further conditions are alternatives, because each of the first two ends with or, but the Contracting Officer's no-undue-delay determination applies alongside whichever one is used [@CL-EST-2155; @CL-EST-2156; @CL-EST-2157].
+A late modification of an otherwise successful proposal that makes its terms more favorable to the Government will be considered at any time it is received and may be accepted [@CL-EST-2192].
 
-A time and date stamp is one kind of acceptable evidence, not the only kind [@CL-EST-2159]. A late modification that makes the terms more favorable to the Government has its own sentence, which says it will be considered at any time it is received [@CL-EST-2192].
-
-The emergency extension applies only when both conditions are met [@CL-EST-2193; @CL-EST-2228]. A withdrawal received after the exact time specified for receipt is a late withdrawal under the late-receipt rule, not a timely one [@CL-EST-2154; @CL-EST-2160].
-
-Withdrawal by facsimile appears in the codified paragraph (e) [@CL-EST-2195] but not in the RFO paragraph (e) [@CL-EST-0841].
+The emergency extension applies where an emergency or unanticipated event interrupts normal Government processes so that technical proposals cannot be received by the exact time specified, and urgent Government requirements preclude amendment of the request [@CL-EST-2193; @CL-EST-2228]. A withdrawal of a technical proposal received at the designated office after the exact time specified for receipt will not be considered unless the further conditions of paragraph (b)(1) are met [@CL-EST-2154]; technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt [@CL-EST-2160].
 
 ## Company calibration
 
@@ -90,5 +86,7 @@ Confirm who owns delivery and withdrawal of technical proposals, and what proof 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements and unquoted contrasts and restated the alternatives and emergency-extension rules in the provision's words.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications, revisions and withdrawals of technical proposals under two-step sealed bidding.

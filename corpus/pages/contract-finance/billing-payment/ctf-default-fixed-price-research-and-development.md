@@ -27,7 +27,7 @@ Shows when the Government may terminate a fixed-price research and development c
 | RFO citation | RFO FAR 52.249-9 [@CL-CTF-0154; @CL-CTF-0155; @CL-CTF-0156; @CL-CTF-0157; @CL-CTF-0158; @CL-CTF-0159; @CL-CTF-0160; @CL-CTF-0161; @CL-CTF-0162; @CL-CTF-0163; @CL-CTF-0164; @CL-CTF-0165; @CL-CTF-0166; @CL-CTF-0167; @CL-CTF-0168; @CL-CTF-0169; @CL-CTF-0170] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-2089] |
-| Applies to | Solicitations and contracts for research and development when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, except for the contracts the prescription goes on to describe [@CL-CLS-1026]. Research and development contracts with educational or nonprofit institutions on a no-profit basis are excepted [@CL-CLS-1059] |
+| Applies to | Solicitations and contracts for research and development in which the prescription directs the contracting officer to insert the clause: a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, except for the contracts the prescription goes on to describe [@CL-CLS-1026]. Research and development contracts with educational or nonprofit institutions on a no-profit basis are excepted [@CL-CLS-1059] |
 
 Subject to paragraphs (c) and (d) of the clause, the Government may by written Notice of Default terminate the contract in whole or in part if the contractor fails to perform the work under the contract within the time specified in the contract or any extension [@CL-CTF-2089]. The two further grounds are failing to prosecute the work so as to endanger performance of the contract and failing to perform any of the other provisions of the contract, and each is followed by a cross-reference to subparagraph (a)(2) of the clause [@CL-CTF-2090]. The Government's right to terminate on those two grounds may be exercised if the contractor does not cure the failure within 10 days, or more if the contracting officer authorizes it in writing, after receiving the notice [@CL-CTF-2091]. The cure period runs after receipt of the notice from the contracting officer specifying the failure [@CL-CTF-2248].
 
@@ -65,5 +65,6 @@ Which fixed-price research and development contracts carry this clause, and who 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Applies-to row now says it describes where the prescription requires the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default under fixed-price research and development contracts.

@@ -43,9 +43,9 @@ A contractor asks an outside firm to move remains for one job and does not tell 
 
 ## Never confuse
 
-The default termination here is not the standard Default clause. It lets the contracting officer act without the ten day notice when a listed ground applies [@CL-CMP-4357]. For the default clauses used in fixed-price contracts, see [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
+The contracting officer may terminate the contract for default by written notice without the ten day notice required by paragraph (a)(2) of the Default clause if one of the listed grounds applies [@CL-CMP-4357]. For the default clauses used in fixed-price contracts, see [Default clauses for fixed-price contracts](../../close-revrec/revenue/cls-fixed-price-default-clauses.md).
 
-The subcontracting limit here is a separate clause with its own written-approval requirement [@CL-CMP-4356]. For the consent rule in the FAR subcontracts clause, see [Subcontracts clause: consent and advance notification](../../supply-chain/procure-to-pay/sup-subcontracts-consent-advance-notification.md). The ordering, area of performance and delivery clauses are covered on [Mortuary services: requirements, area of performance, and performance and delivery](cmp-mortuary-services-requirements-area-and-delivery.md).
+The contractor shall not subcontract any work under the contract without the contracting officer's written approval [@CL-CMP-4356]. For the consent rule in the FAR subcontracts clause, see [Subcontracts clause: consent and advance notification](../../supply-chain/procure-to-pay/sup-subcontracts-consent-advance-notification.md). The ordering, area of performance and delivery clauses are covered on [Mortuary services: requirements, area of performance, and performance and delivery](cmp-mortuary-services-requirements-area-and-delivery.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which mortuary services contracts the company holds, who approves any subcontrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced contrast statements with cited clause text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for mortuary services subcontracting, termination for default and permits.

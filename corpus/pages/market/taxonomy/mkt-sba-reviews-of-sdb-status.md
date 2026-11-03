@@ -39,7 +39,7 @@ An SBA review of a subcontractor's SDB status differs from a formal protest [@CL
 
 The actor is SBA, the subject is a firm that has represented itself to be an SDB, and the trigger is credible information calling the firm's SDB status into question [@CL-MKT-1432]. The verb is "may", so the section gives SBA a discretion and prints no duty to open a review [@CL-MKT-1432].
 
-Paragraph (b) says requests may be forwarded to the Associate Administrator for Business Development. It does not say who may send a request or in what form [@CL-MKT-1433]. Paragraph (c) says only that a review of a subcontractor's status differs from a formal protest; it makes no such statement about a review of a prime contractor's status [@CL-MKT-1434]. The section prints no time limit for a review, no test for what is credible and no consequence for the firm.
+Paragraph (b) says requests may be forwarded to the Associate Administrator for Business Development. It does not say who may send a request or in what form [@CL-MKT-1433]. Paragraph (c) says that a review of a subcontractor's status differs from a formal protest; it makes no such statement about a review of a prime contractor's status [@CL-MKT-1434]. The section prints no time limit for a review, no test for what is credible and no consequence for the firm.
 
 ## Worked example
 
@@ -59,4 +59,5 @@ Whether the company has represented itself as a small disadvantaged business on 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA reviews of small disadvantaged business status.

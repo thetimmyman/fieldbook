@@ -35,7 +35,7 @@ The purpose of the Standard is to require that each type of cost is allocated on
 
 The section states the aim in two parts: each type of cost is allocated once, on one basis, and the criteria for allocating cost are the same for all similar cost objectives [@CL-EST-2906; @CL-EST-2907]. The same-criteria sentence says "should", not "shall" [@CL-EST-2907]. The section says adherence to these concepts guards against overcharging some cost objectives and prevents double counting [@CL-EST-2908]. It then names the most common source of double counting, which is allocating cost items directly to a cost objective without eliminating like cost items from the indirect cost pools that are allocated to that same objective [@CL-EST-2909].
 
-The section is a statement of purpose. It names no official who decides, no approval route, no threshold, no deadline and no exception, and it states no duty for a particular party. The Standard's operative requirements are in its main card.
+The section states the purpose of the Standard [@CL-EST-2906]. The Standard's operative requirements are in its main card.
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Whether the proposal applies one basis to each type of cost and removes like cos
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose section omits removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the consistency Standard on allocating costs incurred for the same purpose.

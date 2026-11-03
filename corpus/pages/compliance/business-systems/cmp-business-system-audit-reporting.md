@@ -35,9 +35,9 @@ The manual repeats the clause definition of a material weakness and of a reasona
 
 ## How it works
 
-The manual's table pairs a material weakness with a generally adverse opinion, a system deficiency with a generally qualified opinion, and a less than material noncompliance with a generally unqualified opinion [@CL-CMP-1676]. Material weaknesses and system deficiencies are documented in the Statements of Condition and Recommendations Exhibits in the audit report [@CL-CMP-1950]. A less than material noncompliance that warrants the attention of those charged with governance should be included in an Appendix [@CL-CMP-1951]. For all reported deficiencies, including those less than material noncompliances, the auditor prepares a statement of condition and recommendation [@CL-CMP-1952].
+The manual's table pairs a material weakness with a generally adverse opinion, a system deficiency with a generally qualified opinion, and a less than material noncompliance with a generally unqualified opinion [@CL-CMP-1676]. The Statements of Condition and Recommendations Exhibits in the audit report should document any material weaknesses or system deficiencies with DFARS criteria disclosed during the examination [@CL-CMP-1950]. A less than material noncompliance that warrants the attention of those charged with governance should be included in an Appendix [@CL-CMP-1951]. For all reported deficiencies, including those less than material noncompliances, the auditor prepares a statement of condition and recommendation [@CL-CMP-1952].
 
-The auditor is required to identify the audit period in the report [@CL-CMP-1954]. When reporting material weaknesses and system deficiencies, the auditor identifies an approximate dollar impact where applicable, and the calculation does not need to be exact [@CL-CMP-1955]. The deficiency reporting the manual requires includes both material weaknesses and internal control deficiencies that, while less than material, still warrant the attention of the contractor and the contracting officer [@CL-CMP-1677].
+The auditor is required to identify the audit period in the report [@CL-CMP-1954]. When reporting material weaknesses and system deficiencies, the auditor identifies an approximate dollar impact where applicable, and the calculation used to quantify the impact does not need to be exact but should provide a reasonable estimate [@CL-CMP-1955]. When auditors identify material weaknesses or system deficiencies in any of the six DFARS contractor business systems during non-system audits, such as forward pricing proposals, incurred cost audits or real-time testing, they must promptly establish a separate Business System Deficiency Report Assignment [@CL-CMP-1953]. That reporting includes both material weaknesses and internal control deficiencies that, while less than material, still warrant the attention of the contractor and the contracting officer [@CL-CMP-1677].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ An audit of a contractor's estimating system finds two issues. The first is a mi
 
 ## Never confuse
 
-A system deficiency is a lesser finding than a material weakness; it does not rise to that level [@CL-CMP-1674]. An audit finding is also not the contracting officer's final determination. A payment withhold can follow only if the administrative contracting officer makes a final determination to disapprove the system [@CL-CMP-1680]. See [Business system withholds](cmp-business-system-withholds.md) and [Accounting system policy](cmp-dod-accounting-system-policy.md).
+A system deficiency is a lesser finding than a material weakness; it does not rise to that level [@CL-CMP-1674]. An audit finding is also not the contracting officer's final determination. The manual says that reported issues found when examining contractors with covered contracts may be subject to payment withholding if the administrative contracting officer makes a final determination to disapprove a contractor's business system in accordance with the clause it cites [@CL-CMP-1680]. See [Business system withholds](cmp-business-system-withholds.md) and [Accounting system policy](cmp-dod-accounting-system-policy.md).
 
 ## Company calibration
 
@@ -57,5 +57,7 @@ Sort every open audit finding into material weakness, system deficiency or less 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the exhibit, dollar impact, deficiency report and withholding sentences to carry should, the non-system audit context and the covered contracts scope.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business system audit reporting and deficiency classifications.

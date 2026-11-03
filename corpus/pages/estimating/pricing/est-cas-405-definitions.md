@@ -37,7 +37,7 @@ Other terms defined elsewhere in part 99 have the meanings given in those defini
 
 ## How it works
 
-The two unallowable definitions differ in how specific the bar must be. An unallowable cost is barred by any pertinent law, regulation or contract [@CL-EST-2874]. An expressly unallowable cost needs an express provision of an applicable law, regulation or contract that specifically names the item or type of cost and states that it is unallowable [@CL-EST-2872]. A contract can be the source of the bar in both definitions [@CL-EST-2874; @CL-EST-2872]. The unallowable cost definition is tied to a Government contract to which the cost is allocable [@CL-EST-2874]. A directly associated cost is defined by cause: it is generated solely by another cost and would not have been incurred without it [@CL-EST-2871]. The definitions create no duty by themselves; what the contractor must do with each kind of cost is on the main card.
+The two unallowable definitions differ in how specific the bar must be. An unallowable cost is barred by any pertinent law, regulation or contract [@CL-EST-2874]. An expressly unallowable cost needs an express provision of an applicable law, regulation or contract that specifically names the item or type of cost and states that it is unallowable [@CL-EST-2872]. A contract can be the source of the bar in both definitions [@CL-EST-2874; @CL-EST-2872]. The unallowable cost definition is tied to a Government contract to which the cost is allocable [@CL-EST-2874]. A directly associated cost is defined by cause: it is generated solely by another cost and would not have been incurred without it [@CL-EST-2871]. What the Standard requires for each kind of cost is on the main card.
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Confirm which costs the company screens out of proposals and rate submissions, a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited statement on duties removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unallowable cost Standard definitions.

@@ -31,7 +31,7 @@ The Government will maintain surveillance of contractor performance as necessary
 
 The contract administration office determines the extent of production surveillance on the basis of the criticality the contracting officer assigned to the supplies or services and a list of factors [@CL-OPM-0051]. Contracts at or below the simplified acquisition threshold should not normally require production surveillance [@CL-OPM-0054]. The source text does not state the dollar value of that threshold.
 
-The FAR's general definitions say a contract administration office is an office that performs assigned postaward functions related to the administration of contracts and assigned preaward functions [@CL-OPM-1086].
+The FAR's general definitions say a contract administration office is an office that performs assigned postaward functions related to the administration of contracts and assigned preaward functions [@CL-OPM-1086]. The RFO model text of FAR 2.101 defines a contract administration office in the same words as the codified definition, apart from the printed form of the dash [@CL-OPM-1114; @CL-OPM-1086].
 
 ## How it works
 
@@ -47,7 +47,7 @@ A contracting officer assigns the top criticality designator to a 12-month contr
 
 ## Never confuse
 
-The extent of surveillance is not the criticality designator. The contracting officer assigns criticality, and the contract administration office uses it, with other factors, to set the extent [@CL-OPM-0051]. A small contract does not automatically escape surveillance: contracts at or below the simplified acquisition threshold only should not normally require it [@CL-OPM-0054]. Under the codified text the administering contracting officer determines the extent of surveillance when the contracting office retains the contract [@CL-OPM-0050], while codified 42.1104(a) and RFO 42.803(a) both say the contract administration office determines the extent of production surveillance [@CL-OPM-0051] [@CL-OPM-0152].
+The extent of surveillance is not the criticality designator. The contracting officer assigns criticality, and the contract administration office uses it, with other factors, to set the extent [@CL-OPM-0051]. A small contract does not automatically escape surveillance: contracts at or below the simplified acquisition threshold should not normally require it [@CL-OPM-0054]. Under the codified text the administering contracting officer determines the extent of surveillance when the contracting office retains the contract [@CL-OPM-0050], while codified 42.1104(a) and RFO 42.803(a) both say the contract administration office determines the extent of production surveillance [@CL-OPM-0051] [@CL-OPM-0152].
 
 ## Company calibration
 
@@ -57,6 +57,8 @@ Which Government office sets surveillance for each production contract, and whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contract administration office.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of contract administration office.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for production surveillance.

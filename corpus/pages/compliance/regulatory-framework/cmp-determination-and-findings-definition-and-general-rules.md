@@ -27,11 +27,9 @@ Sets out what a determination and findings is and the general rules for an indiv
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8337] |
-| Applies to | Contract actions for which a statute or regulation requires a written approval as a prerequisite [@CL-CMP-8337] |
+| Applies to | Certain contract actions for which a statute or regulation requires a written approval as a prerequisite [@CL-CMP-8337] |
 
 A determination and findings is a special form of written approval by an authorized official that a statute or regulation requires as a prerequisite to taking certain contract actions [@CL-CMP-8337]. The determination is a conclusion or decision supported by the findings [@CL-CMP-8339]. The findings are statements of fact or rationale essential to support the determination, and they must cover each requirement of the statute or regulation [@CL-CMP-8338].
-
-A document that answers only part of the statutory or regulatory requirement therefore leaves the findings incomplete [@CL-CMP-8338].
 
 ## How it works
 
@@ -47,7 +45,7 @@ An office plans to buy 12 vehicles and expects to add 4 more under an option. Be
 
 ## Never confuse
 
-The determination and the findings are different parts. The determination is the conclusion or decision, and the findings are the facts or rationale that support it [@CL-CMP-8339; @CL-CMP-8338]. The general rules on this card, which cover individual and class use, scope, flexibility and options, are also not the content and signature rules, which are on the linked content card [@CL-CMP-8340; @CL-CMP-8342].
+The determination is a conclusion or decision supported by the findings, and the findings are statements of fact or rationale essential to support the determination [@CL-CMP-8339; @CL-CMP-8338].
 
 ## Company calibration
 
@@ -57,4 +55,5 @@ Which contract actions in the company's remit depend on a determination and find
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an inference and uncited contrasts and restored the word certain in the scope row.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for determinations and findings and their general rules.

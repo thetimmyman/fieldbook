@@ -52,7 +52,7 @@ A supply contract with a price of 400,000 uses the CIF destination term. The con
 
 ## Never confuse
 
-C&F destination and CIF destination differ only in marine insurance: the contractor pays the cost of transportation under both, and also marine insurance under CIF [@CL-SUP-2421; @CL-SUP-2426]. These terms deliver on board the ocean vessel at a destination point, which differs from the export terms that deliver at the port of shipment; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). They also differ from the inland delivery terms at the consignee; see [F.o.b. destination terms](sup-fob-destination-terms.md). The RFO part 52 text lists 52.247-41 and 52.247-42 as [Reserved] [@CL-SUP-0398; @CL-SUP-0399]; the codified clauses set the C&F and CIF destination terms [@CL-SUP-2421; @CL-SUP-2426].
+C&F destination and CIF destination differ in marine insurance: the contractor pays the cost of transportation under both, and also marine insurance under CIF [@CL-SUP-2421; @CL-SUP-2426], and under CIF it must also obtain and dispatch the insurance policy or certificate [@CL-SUP-2427]. These terms deliver on board the ocean vessel at a destination point, which differs from the export terms that deliver at the port of shipment; see [Export delivery terms](sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier.md). They also differ from the inland delivery terms at the consignee; see [F.o.b. destination terms](sup-fob-destination-terms.md). The RFO part 52 text lists 52.247-41 and 52.247-42 as [Reserved] [@CL-SUP-0398; @CL-SUP-0399]; the codified clauses set the C&F and CIF destination terms [@CL-SUP-2421; @CL-SUP-2426].
 
 ## Company calibration
 
@@ -62,5 +62,6 @@ Which import term each order carries and who confirms that its clause applies, b
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported only from the C&F and CIF comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for import delivery terms (cost and freight, and cost, insurance and freight, destination).

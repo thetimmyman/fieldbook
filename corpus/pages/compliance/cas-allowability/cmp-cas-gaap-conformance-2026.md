@@ -30,7 +30,7 @@ Treat CAS 404, 407, 408, 409 and 411 as removed from the codified standards [@CL
 - Effective dates: August 7, 2026 for CAS 404, 408, 409 and 411 [@CL-CMP-1501]; October 1, 2026 for CAS 407 [@CL-CMP-1517].
 - CAS 408: price and cost adjustment requirements do not apply to conformance changes [@CL-CMP-1508], which must be made in the next fiscal year [@CL-CMP-1528].
 - CAS 404, 409 and 411: no exemption from adjustment requirements [@CL-CMP-1512; @CL-CMP-1513; @CL-CMP-1514], and no change is expected to be a required change [@CL-CMP-1509; @CL-CMP-1510; @CL-CMP-1511].
-- CAS 407: later standard-cost changes are unilateral [@CL-CMP-1519]. A FIFO to LIFO change needs disclosure [@CL-CMP-1520].
+- CAS 407: the Board states that any current or future change to standard costing of direct material or labor, or to the treatment of variances, is considered unilateral [@CL-CMP-1519]. A FIFO to LIFO change needs disclosure [@CL-CMP-1520].
 
 ## Options
 

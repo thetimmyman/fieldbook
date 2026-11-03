@@ -29,7 +29,7 @@ Shows the standards a prospective contractor must meet to be found responsible, 
 | Text status | Final [@CL-MNA-0540] |
 | Applies to | Prospective contractors being considered for award [@CL-MNA-0540] |
 
-To be determined responsible, a prospective contractor must have adequate financial resources to perform the contract, or the ability to obtain them [@CL-MNA-0540]. A satisfactory performance record is another listed standard, and a prospective contractor shall not be determined responsible or nonresponsible solely on the basis of a lack of relevant performance history, except as provided in FAR 9.104-2 [@CL-MNA-0541].
+To be determined responsible, a prospective contractor must meet the listed standards, the first of which is to have adequate financial resources to perform the contract, or the ability to obtain them [@CL-MNA-0540]. A satisfactory performance record is another listed standard, and a prospective contractor shall not be determined responsible or nonresponsible solely on the basis of a lack of relevant performance history, except as provided in FAR 9.104-2 [@CL-MNA-0541].
 
 The list holds further standards that this card does not restate. The criteria for contractor systems are on the [Contractor business systems](../../compliance/business-systems/cmp-contractor-business-systems.md) card.
 
@@ -57,4 +57,5 @@ Which legal entities, including affiliates, would be the prospective contractor,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: listed standards stated as a list, not a single requirement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor responsibility standards.

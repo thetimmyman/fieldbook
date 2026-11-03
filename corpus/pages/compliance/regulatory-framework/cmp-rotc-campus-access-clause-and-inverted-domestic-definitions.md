@@ -59,7 +59,7 @@ A foreign-incorporated company is 60 percent owned by one parent corporation. It
 
 ## Never confuse
 
-This clause is not the arms control certification provision [@CL-CMP-7981; @CL-CMP-7976]. The campus access clause turns on institutions of higher education, the threshold and covered agency funds, while the arms control provision turns on a solicitation above the threshold that is not for commercial products or services [@CL-CMP-7981; @CL-CMP-7982; @CL-CMP-7976; @CL-CMP-7977; @CL-CMP-7978].
+This clause is not the arms control certification provision [@CL-CMP-7981; @CL-CMP-7976]. The campus access clause turns on institutions of higher education, the threshold and covered agency funds, while the arms control provision turns on a solicitation above the threshold that is not for commercial products or services, unless the exception at FAR 9.109-3 applies [@CL-CMP-7981; @CL-CMP-7982; @CL-CMP-7976; @CL-CMP-7977; @CL-CMP-7978].
 
 See [Arms control certification and campus access clauses](../../supply-chain/supplier-identity/sup-arms-control-certification-and-rotc-clauses.md) and [Inverted domestic corporation prohibition](cmp-inverted-domestic-corporation-prohibition.md).
 
@@ -71,4 +71,5 @@ Which awards with universities rely on covered agency funds and exceed the thres
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 9.109-3 exception to the arms control provision contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the campus access clause and inverted domestic corporation definitions.

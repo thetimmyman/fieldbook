@@ -29,7 +29,7 @@ Shows what an offeror must list in its offer when it wants the Government's righ
 | Text status | Final [@CL-CMP-3788] |
 | Applies to | Technical data, including computer software documentation, or computer software to be delivered with other than unlimited rights [@CL-CMP-3788] |
 
-The identification and assertion requirements apply only to technical data, including computer software documentation, or computer software to be delivered with other than unlimited rights [@CL-CMP-3788]. Offers shall identify, to the extent known at the time an offer is submitted to the Government, the technical data or computer software that the Offeror, its subcontractors or suppliers, or potential subcontractors or suppliers assert should be furnished to the Government with restrictions on use [@CL-CMP-3789].
+The identification and assertion requirements apply only to technical data, including computer software documentation, or computer software to be delivered with other than unlimited rights [@CL-CMP-3788]. Offers shall identify, to the extent known at the time an offer is submitted to the Government, the technical data or computer software that the Offeror, its subcontractors or suppliers, or potential subcontractors or suppliers assert should be furnished to the Government with restrictions on use, release, or disclosure [@CL-CMP-3789; @CL-CMP-7055].
 
 The Offeror's assertions, including those of its subcontractors or suppliers or potential subcontractors or suppliers, shall be submitted as an attachment to its offer in the stated format, dated and signed by an official authorized to contractually obligate the Offeror [@CL-CMP-3790]. The stated format has four headings: the technical data or computer software to be furnished with restrictions, the basis for assertion, the asserted rights category, and the name of the person asserting restrictions [@CL-CMP-3791]. An offeror's failure to submit, complete, or sign the notification and identification required by the format paragraph with its offer may render the offer ineligible for award [@CL-CMP-3792].
 
@@ -61,4 +61,5 @@ Who prepares and signs the assertion list for each offer, and where the funding 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: added release and disclosure restrictions to the offer identification rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identification and assertion of restrictions on technical data and software.

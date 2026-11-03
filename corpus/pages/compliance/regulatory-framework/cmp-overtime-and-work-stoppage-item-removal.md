@@ -29,7 +29,7 @@ Explains how the contracting officer handles overtime at Government expense in s
 | Text status | Final [@CL-CMP-6776] |
 | Applies to | Solicitations and negotiated contracts where overtime at Government expense may arise, and contractor facilities affected by work stoppages [@CL-CMP-6776; @CL-CMP-6977] |
 
-Solicitations normally do not specify delivery or performance schedules that may require overtime at Government expense [@CL-CMP-6776]. In negotiating contracts, contracting officers should, consistent with the Government's needs, attempt to ascertain the extent to which offers are based on the payment of overtime and shift premiums [@CL-CMP-6777]. They should also attempt to negotiate contract prices or estimated costs without those premiums, or obtain the requirement from other sources [@CL-CMP-6999].
+Solicitations normally shall not specify delivery or performance schedules that may require overtime at Government expense [@CL-CMP-6776]. In negotiating contracts, contracting officers should, consistent with the Government's needs, attempt to ascertain the extent to which offers are based on the payment of overtime and shift premiums [@CL-CMP-6777]. They should also attempt to negotiate contract prices or estimated costs without those premiums, or obtain the requirement from other sources [@CL-CMP-6999].
 
 When it becomes apparent during negotiations of applicable contracts that overtime will be required in performance, the contracting officer must secure from the contractor a request for all overtime to be used during the life of the contract [@CL-CMP-6778]. The request covers the overtime to the extent that it can be estimated with reasonable certainty [@CL-CMP-7000]. It must contain the information required by paragraph (b) of the overtime premiums clause at FAR 52.222-2 [@CL-CMP-6976].
 
@@ -37,11 +37,11 @@ Items must be removed from contractors' facilities affected by work stoppages in
 
 ## How it works
 
-The overtime procedures direct what the Government does in solicitation and negotiation. The solicitation should not build in schedules that need overtime at Government expense, and in negotiation the contracting officer asks how far an offer rests on overtime and shift premiums and tries to price without them or source the requirement elsewhere, consistent with the Government's needs [@CL-CMP-6776; @CL-CMP-6777; @CL-CMP-6999]. If overtime proves necessary, the contractor's request goes to the contracting officer and covers the overtime that can be estimated with reasonable certainty [@CL-CMP-6778; @CL-CMP-7000].
+Solicitations normally shall not specify delivery or performance schedules that may require overtime at Government expense [@CL-CMP-6776]. In negotiating contracts, contracting officers should, consistent with the Government's needs, attempt to ascertain the extent that offers are based on the payment of overtime and shift premiums, and attempt to negotiate contract prices or estimated costs without these premiums or obtain the requirement from other sources [@CL-CMP-6777; @CL-CMP-6999]. When it becomes apparent during negotiations of applicable contracts that overtime will be required in contract performance, the contracting officer shall secure from the contractor a request for all overtime to be used during the life of the contract, to the extent that the overtime can be estimated with reasonable certainty [@CL-CMP-6778; @CL-CMP-7000].
 
-The section sends the reader to the clause prescription at FAR 22.103-5(b) for applicable contracts [@CL-CMP-6778]. That prescription covers contemplated cost-reimbursement contracts expected to exceed the simplified acquisition threshold, with two stated exceptions [@CL-OPM-0086; @CL-OPM-0087]. Paragraph (b) of the clause applies to a request for estimated overtime premiums that exceeds the amount specified in the clause, and requires it to include all estimated overtime for contract completion [@CL-CMP-6460]. Who approves the overtime is on the linked premium approval card.
+The section sends the reader to the clause prescription at FAR 22.103-5(b) for applicable contracts [@CL-CMP-6778]. Under that prescription the contracting officer shall include the clause at 52.222-2, Payment for Overtime Premiums, in solicitations and contracts when a cost-reimbursement contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold [@CL-OPM-0086], unless (a) a cost-reimbursement contract for operation of vessels is contemplated, or (b) a cost-plus-incentive-fee contract that will provide a swing from the target fee of at least plus or minus 3 percent and a contractor's share of at least 10 percent is contemplated [@CL-OPM-0087]. Under paragraph (b) of the clause, any request for estimated overtime premiums that exceeds the amount specified shall include all estimated overtime for contract completion and shall also meet the further requirements the paragraph lists [@CL-CMP-6460]. Who approves the overtime is on the linked premium approval card.
 
-For a work stoppage the agency decides, through its procedures, whether removal serves the Government's interest and who will remove the items [@CL-CMP-6779; @CL-CMP-6780]. The agency also tries to arrange the approval of the contractor and the union representative for urgent shipments [@CL-CMP-6780]. The contract administration office coordinates when more than one agency has requirements involved [@CL-CMP-6782].
+For a work stoppage, agency procedures should allow for determining whether removal of items is in the Government's interest and who will remove the items from the plants involved [@CL-CMP-6779; @CL-CMP-6780]. They should also allow for attempting to arrange with the contractor and the union representative involved their approval of the shipment of urgently required items [@CL-CMP-6780]. When two or more agencies' requirements are or may become involved in the removal of items, the contract administration office shall ensure that the necessary coordination is accomplished [@CL-CMP-6782].
 
 ## Worked example
 
@@ -53,9 +53,9 @@ In a separate case, a strike halts work at a plant that holds items an agency pr
 
 ## Never confuse
 
-A contractor's request for overtime is not an approval of overtime. This section only requires the contracting officer to secure the request [@CL-CMP-6778]. Approval before overtime is used is covered on [Overtime premium approval](../../operating-model/talent/opm-overtime-premium-approval.md), and the separate contract work hours rule is on [Contract work hours overtime](cmp-contract-work-hours-overtime.md).
+The contracting officer shall secure from the contractor a request for all overtime to be used during the life of the contract [@CL-CMP-6778]. Approval before overtime is used is covered on [Overtime premium approval](../../operating-model/talent/opm-overtime-premium-approval.md), and the separate contract work hours rule is on [Contract work hours overtime](cmp-contract-work-hours-overtime.md).
 
-Removal of items during a stoppage is an agency procedure for getting items out of a plant, not a price negotiation. It runs through agency procedures and must avoid force or its appearance [@CL-CMP-6977; @CL-CMP-6781].
+Items shall be removed from contractors' facilities affected by work stoppages in accordance with agency procedures, and the use or appearance of force is to be avoided [@CL-CMP-6977; @CL-CMP-6781].
 
 ## Company calibration
 
@@ -65,4 +65,7 @@ Which contracts the company holds are applicable contracts for the overtime prem
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored shall/should wording, exceptions and lead-ins; removed contrasts and meta wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the solicitation overtime rule with its normally and shall not wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for overtime at Government expense and removal of items after a work stoppage.

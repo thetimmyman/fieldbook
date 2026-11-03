@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["decision_right", "federal_acquisition_regulation"]
 questions = ["Q-004"]
+links = ["cmp-procurement-integrity-prohibitions"]
 +++
 
 ## Purpose
@@ -46,7 +47,7 @@ A contracting officer asks three prospective offerors for cost breakdowns to pre
 
 ## Never confuse
 
-Business security is not secrecy about everything: the policy permits release of maximum information to the public, and the exceptions are the listed categories [@CL-CMP-8612; @CL-CMP-8613]. The duty to keep information from being publicized or discussed is narrower. It covers information obtained from potential contractors and others outside the Government for use in preparing Government estimates [@CL-CMP-8611]. The text applies the policy to Government personnel and does not say that it applies to contractors [@CL-CMP-8614].
+Business security is not secrecy about everything: the policy permits release of maximum information to the public, and the exceptions are the listed categories [@CL-CMP-8612; @CL-CMP-8613]. The duty to keep information from being publicized or discussed with potential contractors is narrower. It covers information obtained from potential contractors and others outside the Government for use in preparing Government estimates [@CL-CMP-8611]. The text applies the policy to Government personnel and does not say that it applies to contractors [@CL-CMP-8614].
 
 ## Company calibration
 
@@ -56,4 +57,6 @@ Which company submissions a contracting officer treats as received in confidence
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse duty keeps its limit to discussion with potential contractors.
+- COMPATIBLE_EXTENSION, 2026-10-31: Linked the procurement integrity card.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of acquisition information.

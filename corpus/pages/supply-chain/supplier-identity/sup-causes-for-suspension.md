@@ -29,11 +29,11 @@ Shows the offenses and conduct for which the suspending and debarring official m
 | Text status | Final [@CL-SUP-0776] |
 | Applies to | Contractors suspected, upon adequate evidence, of the listed offenses or conduct [@CL-SUP-0776; @CL-SUP-0779] |
 
-The suspending and debarring official may suspend a contractor suspected, upon adequate evidence, of the listed offenses and conduct, the first being commission of fraud or a criminal offense in connection with obtaining, attempting to obtain, or performing a public contract or subcontract [@CL-SUP-0776].
+The suspending and debarring official may suspend a contractor suspected, upon adequate evidence, of any one of the listed offenses or conduct, the first being commission of fraud or a criminal offense in connection with obtaining, attempting to obtain, or performing a public contract or subcontract [@CL-SUP-0776].
 
 The official may upon adequate evidence also suspend a contractor for any other cause of so serious or compelling a nature that it affects the present responsibility of a Government contractor or subcontractor [@CL-SUP-0779].
 
-The FAR's general definitions say adequate evidence means information sufficient to support the reasonable belief that a particular act or omission has occurred [@CL-SUP-9536].
+The FAR's general definitions say adequate evidence means information sufficient to support the reasonable belief that a particular act or omission has occurred [@CL-SUP-9536]. The RFO model text of FAR 2.101 defines adequate evidence in the same words as the codified definition [@CL-SUP-9591; @CL-SUP-9536].
 
 ## How it works
 
@@ -59,5 +59,7 @@ Confirm how supplier screening picks up indictments and other signs that could l
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Said the listed offenses and conduct are alternatives, any one of which may be a cause.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of adequate evidence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of adequate evidence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for causes for suspension.

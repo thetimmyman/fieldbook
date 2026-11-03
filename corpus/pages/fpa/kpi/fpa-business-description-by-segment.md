@@ -29,7 +29,7 @@ Shows how a public defense contractor describes, segment by segment, its revenue
 | Text status | Not established. |
 | Applies to | The registrant, for its dominant segment or each reportable segment about which financial information is presented [@CL-FPA-0006]. Regulation S-K governs the non-financial statement portions of the filings its general item lists, to the extent the forms and rules provide [@CL-FPA-0105; @CL-FPA-0106], so whether it binds a contractor depends on the contractor's filing obligations, not on whether its equity is privately held. |
 
-Item 101(c)(1) of Regulation S-K, in 17 CFR 229.101, tells the registrant to describe the business done and intended to be done by the registrant and its subsidiaries, focusing on its dominant segment or each reportable segment about which financial information is presented [@CL-FPA-0006]. In describing each segment only information material to an understanding of the business taken as a whole is required, and the listed items are ones that disclosure may include but is not limited to [@CL-FPA-0007].
+Item 101(c)(1) of Regulation S-K, in 17 CFR 229.101, tells the registrant to describe the business done and intended to be done by the registrant and its subsidiaries, focusing on its dominant segment or each reportable segment about which financial information is presented [@CL-FPA-0006]. In describing each segment only information material to an understanding of the business taken as a whole is required, and disclosure may include, but should not be limited to, the listed items [@CL-FPA-0007].
 
 The first listed item is revenue-generating activities, products and services, and any dependence on revenue-generating activities, key products, services, product families or customers, including governmental customers [@CL-FPA-0008]. The second is the status of development efforts for new or enhanced products, trends in market demand and competitive conditions [@CL-FPA-0009].
 
@@ -37,7 +37,7 @@ Instruction 1 to Item 101 says the registrant should take into account both quan
 
 ## How it works
 
-The registrant starts from its dominant segment or each reportable segment and writes only what is material to the business taken as a whole [@CL-FPA-0006; @CL-FPA-0007]. It weighs quantitative and qualitative factors when it decides what segment information to include [@CL-FPA-0010]. A segment fact may need to be disclosed even when it looks small against the whole business [@CL-FPA-0011].
+The registrant starts from its dominant segment or each reportable segment and is required to give only information material to an understanding of the business taken as a whole [@CL-FPA-0006; @CL-FPA-0007]. It weighs quantitative and qualitative factors when it decides what segment information to include [@CL-FPA-0010]. A segment fact may need to be disclosed even when it looks small against the whole business [@CL-FPA-0011].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which reporting measures management uses for segment performance and customer de
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored should-not-be-limited wording and the only-material-information-is-required wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business description by segment.

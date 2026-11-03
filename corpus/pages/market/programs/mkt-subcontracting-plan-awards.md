@@ -37,7 +37,7 @@ Letter contracts and similar undefinitized instruments that would otherwise meet
 
 ## How it works
 
-Before award, the contracting officer checks the contractor's past compliance for responsibility [@CL-MKT-0449], confirms a plan was submitted and notifies the SBA procurement center representative of the opportunity to review the proposed contract and plan [@CL-MKT-0450]. The representative gets a reasonable time to review and to submit advisory recommendations, but a failure to respond in a reasonable period does not delay the award [@CL-MKT-0451]. The acceptable plan is incorporated into and made a material part of the contract [@CL-MKT-0452]. After award, a separate duty is to notify the SBA of the award by sending a copy of the award document to the Area Director, Office of Government Contracting, in the SBA area office where the contract will be performed [@CL-MKT-0454]. That postaward duty is on the [Postaward responsibilities of the contracting officer for subcontracting plans](mkt-subcontracting-plan-postaward-co-duties.md) card.
+Before award, the contracting officer checks the contractor's past compliance for responsibility [@CL-MKT-0449], confirms a plan was submitted and notifies the SBA procurement center representative of the opportunity to review the proposed contract and plan [@CL-MKT-0450]. The representative gets a reasonable time to review and to submit advisory recommendations, but a failure to respond in a reasonable period does not delay the award [@CL-MKT-0451]. The acceptable plan is incorporated into and made a material part of the contract [@CL-MKT-0452]. After a contract or modification containing a subcontracting plan is awarded, or an existing plan is amended, one of the contracting officer's duties is to notify the SBA of the award by sending a copy of the award document to the Area Director, Office of Government Contracting, in the SBA area office where the contract will be performed [@CL-MKT-0453; @CL-MKT-0454]. That postaward duty is on the [Postaward responsibilities of the contracting officer for subcontracting plans](mkt-subcontracting-plan-postaward-co-duties.md) card.
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which earlier subcontracting plans and compliance records the company can show f
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: postaward notice duty lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for awards involving subcontracting plans.

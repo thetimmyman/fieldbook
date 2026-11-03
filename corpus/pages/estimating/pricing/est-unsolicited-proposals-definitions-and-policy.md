@@ -33,7 +33,7 @@ The terms below are defined as used in the unsolicited proposal subpart [@CL-EST
 
 It is the policy of the Government to encourage the submission of new and innovative ideas in response to Broad Agency Announcements, Small Business Innovation Research topics, Small Business Technology Transfer Research topics and Program Research and Development Announcements [@CL-EST-2754], or any other Government-initiated solicitation or program [@CL-EST-2779]. When the new and innovative ideas do not fall under topic areas publicized under those programs or techniques, the ideas may be submitted as unsolicited proposals [@CL-EST-2755].
 
-The FAR's general definitions say a broad agency announcement is a general announcement of an agency's research interest that includes criteria for selecting proposals and solicits the participation of all offerors capable of satisfying the Government's needs, and they point to 6.102(d)(2) [@CL-EST-9274].
+The FAR's general definitions say a broad agency announcement is a general announcement of an agency's research interest that includes criteria for selecting proposals and solicits the participation of all offerors capable of satisfying the Government's needs, and they point to 6.102(d)(2) [@CL-EST-9274]. The RFO model text of FAR 2.101 defines a broad agency announcement in the same words as the codified definition, apart from the printed form of the apostrophe [@CL-EST-9347; @CL-EST-9274].
 
 Subpart 15.6 sets forth policies and procedures concerning the submission, receipt, evaluation, and acceptance or rejection of unsolicited proposals [@CL-EST-9192].
 
@@ -41,7 +41,7 @@ Subpart 15.6 sets forth policies and procedures concerning the submission, recei
 
 The policy has two parts. The Government encourages ideas in response to its own publicized solicitations and programs, and an idea that does not fall under a publicized topic area may be submitted as an unsolicited proposal [@CL-EST-2754; @CL-EST-2779; @CL-EST-2755]. The text says may, so it describes a permitted route and does not say it is the only one [@CL-EST-2755].
 
-The three defined terms describe different things. Advertising material promotes what a contractor already offers or can do. A commercial offer asks that a commercial product or service be introduced into the supply system as an alternate or a replacement for an existing supply item. A contribution hands the Government an idea with no indication of further effort by the source [@CL-EST-2750; @CL-EST-2751; @CL-EST-2753]. Under the general requirements for unsolicited proposals, advertising material, commercial product or commercial service offers and contributions are not unsolicited proposals [@CL-EST-1429]. See [Unsolicited proposals: general requirements](est-unsolicited-proposals-general.md).
+The three defined terms describe different things. Advertising material promotes what a contractor already offers or can do. A commercial offer asks that a commercial product or service be introduced into the supply system as an alternate or a replacement for an existing supply item. A contribution hands the Government an idea with no indication of further effort by the source [@CL-EST-2750; @CL-EST-2751; @CL-EST-2753]. Under the general requirements for unsolicited proposals, advertising material, commercial product or commercial service offers, contributions and routine correspondence on technical issues are not unsolicited proposals [@CL-EST-1429]. See [Unsolicited proposals: general requirements](est-unsolicited-proposals-general.md).
 
 The DFARS says the policy at FAR 15.602 applies to commercial solutions openings [@CL-EST-2060].
 
@@ -73,6 +73,8 @@ Who owns the pricing and technical content of a submission that goes out as an u
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored routine correspondence to the list of submissions that are not unsolicited proposals.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of broad agency announcement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of broad agency announcement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.600 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the FAR 15.602 policy applies to commercial solutions openings.

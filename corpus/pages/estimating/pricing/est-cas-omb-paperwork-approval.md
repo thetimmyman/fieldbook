@@ -35,7 +35,7 @@ The Paperwork Reduction Act of 1980 imposes a requirement on Federal agencies to
 
 The section states the statutory duty that makes the approval necessary, then states that the regulation's own collection and recordkeeping requirements have it [@CL-EST-2945; @CL-EST-2946]. It closes by recording the control numbers the Office of Management and Budget assigned to the paperwork, recordkeeping and forms [@CL-EST-2947].
 
-The duty to obtain approval falls on Federal agencies, and the Office of Management and Budget is the body that approves [@CL-EST-2945]. The section states no duty on a contractor and no deadline or expiry date, and its only threshold is information collected from ten or more members of the public [@CL-EST-2945].
+The requirement to obtain approval from the Office of Management and Budget is imposed on Federal agencies and applies before collecting information from ten or more members of the public [@CL-EST-2945].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A Federal agency plans to collect information from twelve members of the public.
 
 ## Never confuse
 
-The control numbers are an approval record rather than a new duty: the section reports that the regulation's collection and recordkeeping requirements are approved and records the numbers assigned [@CL-EST-2946; @CL-EST-2947]. The approval requirement the section states is imposed on Federal agencies [@CL-EST-2945]. The Standards behind those collections are summarised in [the Cost Accounting Standards overview](../../compliance/cas-allowability/cmp-cas-overview.md).
+The control numbers are the numbers the Office of Management and Budget assigned to the paperwork, recordkeeping and forms associated with the regulation [@CL-EST-2947], whose information collection and recordkeeping requirements have been approved [@CL-EST-2946]. The approval requirement is imposed on Federal agencies [@CL-EST-2945]. The Standards behind those collections are summarised in [the Cost Accounting Standards overview](../../compliance/cas-allowability/cmp-cas-overview.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which coverage applies to each business unit and whether a disclosure statement 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Approval requirement and control numbers restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Office of Management and Budget approval of the Board's information collections.

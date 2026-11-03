@@ -16,7 +16,7 @@ links = ["cmp-cas-401-consistency", "cmp-cas-403-home-office-allocation", "cmp-c
 
 ## Purpose
 
-Sets out what the consistency Standard, the home office allocation Standard and the cost accounting period Standard are for, as their purpose sections state.
+Sets out what the consistency Standard, the home office allocation Standard and the cost accounting period Standard are for.
 
 ## The rule
 
@@ -37,11 +37,11 @@ The purpose of CAS 406 is to provide criteria for selecting the time periods use
 
 ## How it works
 
-CAS 401 ties the estimating practices in a proposal to the practices used in the books, so that comparable transactions are treated alike [@CL-EST-2492; @CL-EST-2493]. That tie is what lets a proposal estimate be compared with the cost of performing the resulting contract [@CL-EST-2494], and the comparison is one important basis the section names for financial control and accountability for cost, and it also improves the basis for evaluating estimating capabilities [@CL-EST-2632; @CL-EST-2633].
+CAS 401 is to ensure that the practices used in estimating costs for a proposal are consistent with the practices used in accumulating and reporting costs [@CL-EST-2492]. Consistency in the application of cost accounting practices is necessary to enhance the likelihood that comparable transactions are treated alike [@CL-EST-2493]. For individual contracts, it facilitates reliable cost estimates used in pricing a proposal and their comparison with the costs of performing the resulting contract [@CL-EST-2494]. Such comparisons provide one important basis for financial control over costs during contract performance and aid in establishing accountability for cost, and they also provide an improved basis for evaluating estimating capabilities [@CL-EST-2632; @CL-EST-2633].
 
-CAS 403 works from the home office down to the segment [@CL-EST-2495]. Expense is identified for direct allocation to the maximum extent practical, significant nondirectly allocated expense is pooled, and any remaining residual is allocated to all segments [@CL-EST-2496; @CL-EST-2497; @CL-EST-2498]. The Standard stops at the segment [@CL-EST-2499].
+CAS 403 establishes criteria for allocating home office expenses to segments based on the beneficial or causal relationship between the expenses and the receiving segments [@CL-EST-2495]. It provides for identifying expenses for direct allocation to the maximum extent practical, accumulating significant nondirectly allocated expenses into pools, and allocating any remaining or residual home office expenses to all segments [@CL-EST-2496; @CL-EST-2497; @CL-EST-2498]. It does not cover the reallocation of a segment's share of home office expenses to contracts and other cost objectives [@CL-EST-2499].
 
-CAS 406 fixes the time periods used for estimating, accumulating and reporting contract costs, so that variations in the flow of costs within a period matter less [@CL-EST-2500; @CL-EST-2501].
+CAS 406 provides criteria for the selection of the time periods used as cost accounting periods for contract cost estimating, accumulating and reporting [@CL-EST-2500], and will reduce the effects of variations in the flow of costs within each cost accounting period [@CL-EST-2501].
 
 ## Worked example
 
@@ -55,7 +55,7 @@ Spreading that segment's share over its contracts is a later step that CAS 403 d
 
 ## Never confuse
 
-These sections state purposes. The measurement and allocation rules sit in other sections of each Standard.
+Each of these sections states the purpose of its Standard [@CL-EST-2492; @CL-EST-2495; @CL-EST-2500].
 
 An allocation of home office expense to a segment on a beneficial or causal basis is not a rule for pushing the segment's share to contracts, because that later step is outside CAS 403 [@CL-EST-2495; @CL-EST-2499].
 
@@ -69,4 +69,5 @@ Who owns the proposal pricing record and the estimating system description, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Purpose wording aligned with the cited text; meta and uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes of the consistency, home office allocation and cost accounting period Standards.

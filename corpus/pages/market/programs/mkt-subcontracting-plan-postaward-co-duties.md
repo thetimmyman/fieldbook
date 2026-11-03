@@ -47,7 +47,7 @@ A contract with a subcontracting plan is awarded. The contracting officer sends 
 
 ## Never confuse
 
-Notice after award goes to the SBA area office [@CL-MKT-0454], while notice before award goes to the procurement center representative and is covered on the [Awards involving subcontracting plans](mkt-subcontracting-plan-awards.md) card. A copy of the plan sent to the contract administration office [@CL-MKT-0456] is not the same as the administrative contracting officer's own duties during performance, which are on the [Responsibilities of the administrative contracting officer for subcontracting plans](mkt-subcontracting-plan-aco-responsibilities.md) card. A recommendation from the administrative contracting officer can start liquidated damages action, but other reliable evidence can too [@CL-MKT-0458].
+Notice after award goes to the SBA area office [@CL-MKT-0454], while notice before award goes to the procurement center representative and is covered on the [Awards involving subcontracting plans](mkt-subcontracting-plan-awards.md) card. A copy of the plan sent to the contract administration office [@CL-MKT-0456] is not the same as the administrative contracting officer's own duties during performance, which are on the [Responsibilities of the administrative contracting officer for subcontracting plans](mkt-subcontracting-plan-aco-responsibilities.md) card. The contracting officer shall initiate action to assess liquidated damages upon a recommendation from the administrative contracting officer, if one is assigned, or on receipt of other reliable evidence that assessing them is warranted, so a recommendation is not the only trigger [@CL-MKT-0453; @CL-MKT-0458].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Who owns the subcontracting reports in the eSRS and how rejections and requests 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: liquidated damages trigger wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward responsibilities of the contracting officer for subcontracting plans.

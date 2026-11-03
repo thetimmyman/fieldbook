@@ -29,7 +29,7 @@ Shows the criteria for judging whether amounts of cost are material or immateria
 | Text status | Final [@CL-CMP-1777] |
 | Applies to | Amounts of cost assessed for materiality [@CL-CMP-1777] |
 
-The criteria are considered where appropriate, and no one criterion is necessarily determinative [@CL-CMP-1777].
+In determining whether amounts of cost are material or immaterial, the criteria must be considered where appropriate, and no one criterion is necessarily determinative [@CL-CMP-1777].
 
 The larger the absolute dollar amount, the more likely it is to be material [@CL-CMP-1778]. The larger the proportion of the amount under consideration to contract cost, the more likely it is to be material [@CL-CMP-1779].
 
@@ -37,9 +37,9 @@ The larger the absolute dollar amount, the more likely it is to be material [@CL
 
 Direct cost items normally carry more weight than the same amount of indirect cost, especially where they form part of a base for allocating indirect cost [@CL-CMP-1780].
 
-Individually immaterial items are looked at together, to see whether they tend to offset one another or tend to accumulate into a material amount [@CL-CMP-1781].
+It is appropriate to consider whether the impacts of individually immaterial items tend to offset one another or tend to be in the same direction and hence to accumulate into a material amount [@CL-CMP-1781].
 
-Changes in accounting treatment have more impact if they influence the distribution of costs between Government and non-Government cost objectives than if all cost objectives have Government financial support [@CL-CMP-1903]. The cost of administrative processing of the price adjustment modification counts too: where that cost exceeds the amount to be recovered, the amount is less likely to be material [@CL-CMP-1782].
+Changes in accounting treatment have more impact if they influence the distribution of costs between Government and non-Government cost objectives than if all cost objectives have Government financial support [@CL-CMP-1903]. The cost of administrative processing of the price adjustment modification must also be considered: where that cost exceeds the amount to be recovered, the amount is less likely to be material [@CL-CMP-1782].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A practice change affects five line items of 2,400 each, and all five run in the
 
 ## Never confuse
 
-Materiality is not a single dollar cutoff: the criteria are weighed together where appropriate, and no one criterion is necessarily determinative [@CL-CMP-1777].
+Materiality is not a single dollar cutoff: the criteria must be considered where appropriate, and no one criterion is necessarily determinative [@CL-CMP-1777].
 
 A finding that a single item is small is not the end of the test, because items running the same direction can accumulate into a material amount [@CL-CMP-1781]. The meaning of a change to a cost accounting practice is described in [Cost accounting practice definitions](../cas-allowability/cmp-cost-accounting-practice-definitions.md), and the audit products that test cost impact in [DCAA audits](../cas-allowability/cmp-dcaa-cas-audits.md).
 
@@ -61,4 +61,5 @@ Whether each materiality judgement is documented against the criteria before a c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the criteria sentences with the quotes on must consider, same direction and appropriate.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for materiality under the Cost Accounting Standards.

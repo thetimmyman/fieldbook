@@ -29,7 +29,7 @@ Shows the methods for settling a terminated cost-reimbursement contract or a fix
 | Text status | Final [@CL-CLS-1248] |
 | Applies to | Terminated cost-reimbursement contracts and fixed-price contracts terminated for convenience [@CL-CLS-1248] |
 
-Settlement of a terminated cost-reimbursement contract, or of a fixed-price contract terminated for convenience, may be effected by negotiated agreement or by determination by the TCO [@CL-CLS-1248]. The section lists two more methods: costing-out under vouchers using SF 1034, for cost-reimbursement contracts as prescribed in subpart 49.3, and a combination of these methods [@CL-CLS-1249]. Where possible, the TCO should negotiate a fair and prompt settlement with the contractor [@CL-CLS-1250]. The TCO shall settle a settlement proposal by determination only when it cannot be settled by agreement [@CL-CLS-1251].
+Settlement of a terminated cost-reimbursement contract, or of a fixed-price contract terminated for convenience, may be effected by any one of four alternative methods: negotiated agreement, determination by the TCO [@CL-CLS-1248], costing-out under vouchers using SF 1034 for cost-reimbursement contracts (as prescribed in subpart 49.3), or a combination of these methods [@CL-CLS-1249]. Where possible, the TCO should negotiate a fair and prompt settlement with the contractor [@CL-CLS-1250]. The TCO shall settle a settlement proposal by determination only when it cannot be settled by agreement [@CL-CLS-1251].
 
 ## How it works
 
@@ -57,4 +57,5 @@ Which settlement route each open termination will follow, and who approves the n
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: settlement methods stated as four alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for methods of settling terminated contracts.

@@ -40,7 +40,7 @@ Where the terms of the contract, including the specifications, are inconsistent 
 
 ## How it works
 
-The two texts apply at different points. The provision is a representation that the offeror makes by signing the offer, and the rationale is owed only when the Contracting Officer asks for it [@CL-SUP-2662; @CL-SUP-2663]. The clause governs the contract once it exists. It ranks the contract terms, including the specifications, above incorporated rate schedules, riders and exhibits and above the contractor's rules and regulations [@CL-SUP-2664].
+The two texts apply at different points. The provision is a representation that the offeror makes by signing the offer, and the rationale is owed when the Contracting Officer asks for it [@CL-SUP-2662; @CL-SUP-2663]. The clause governs the contract once it exists. It ranks the contract terms, including the specifications, above incorporated rate schedules, riders and exhibits and above the contractor's rules and regulations [@CL-SUP-2664].
 
 Under the RFO text, the DoD part 52 class deviation directs DoD contracting officers to use the revised FAR part 52 in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The following rules appear in the RFO text of these clauses. Section 8093 of Public Law 100-202 generally requires purchases of electricity by any department, agency, or instrumentality of the United States to be consistent with State law governing the provision of electric utility service [@CL-SUP-2533; @CL-SUP-2661]. That State law includes State utility commission rulings and electric utility franchises or service territories established under State statute, State regulation, or State-approved territorial agreements [@CL-SUP-9188; @CL-SUP-2711]. By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202 [@CL-SUP-2534; @CL-SUP-2662]. On request of the Contracting Officer, the offeror must submit the supporting legal and factual rationale for that representation [@CL-SUP-2535; @CL-SUP-2663]. Where the terms of the contract, including the specifications, are inconsistent with an incorporated rate schedule, rider or exhibit, or with the contractor's rules and regulations, the contract terms control [@CL-SUP-2536; @CL-SUP-2664].
 
@@ -64,6 +64,7 @@ Confirm who signs each offer to sell electricity and where the rationale for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility rate changes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the electric service territory representation and the utility order of precedence.

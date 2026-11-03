@@ -29,7 +29,7 @@ Shows which taxes the United States Government does not pay in Italy, how the in
 | Text status | Final [@CL-CTF-1861] |
 | Applies to | Contracts that include the Italy tax exemptions clause [@CL-CTF-1917], and offers that include the matching representation provision [@CL-CTF-1918] |
 
-The United States Government is exempt from payment of Imposta Valore Aggiunto (IVA) tax on all supplies and services sold to United States Military Commands in Italy [@CL-CTF-1861]. In addition to the IVA tax, purchases by the United States Forces in Italy are exempt from the following taxes, the first three of which are the production tax for petroleum products, the consumption tax for electrical power, and customs duties [@CL-CTF-1865]. Items four to seven of that numbered list are port fees, the vehicle circulation tax, the registration tax and the stamp tax [@CL-CTF-1866].
+The United States Government is exempt from payment of Imposta Valore Aggiunto (IVA) tax in accordance with Article 72 of the IVA implementing decree on all supplies and services sold to United States Military Commands in Italy [@CL-CTF-1861]. In addition to the IVA tax, purchases by the United States Forces in Italy are exempt from the following taxes, the first three of which are the production tax for petroleum products, the consumption tax for electrical power, and customs duties [@CL-CTF-1865]. Items four to seven of that numbered list are port fees, the vehicle circulation tax, the registration tax and the stamp tax [@CL-CTF-1866].
 
 As the contractor represented in its offer, the contract price, including the prices in subcontracts awarded under the contract, does not include taxes from which the United States Government is exempt [@CL-CTF-1905].
 
@@ -57,4 +57,5 @@ Which contracts and offers in Italy carry the exemption clause and representatio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: IVA exemption basis stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Italy and the matching representation.

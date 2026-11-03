@@ -31,7 +31,7 @@ Shows when a contract funded by annual appropriations may run across a fiscal ye
 
 A contract that is funded by annual appropriations may not cross fiscal years, except in accordance with statutory authorization [@CL-FPA-0063]. The bar also does not apply when the contract calls for an end product that cannot feasibly be subdivided for separate performance in each fiscal year, such as a contract for expert or consultant services [@CL-FPA-0064].
 
-Paragraph (b) of the FAR section is listed as one example of such statutory authorization [@CL-FPA-0063]. Under it, the head of an executive agency, except NASA, may enter into a contract, exercise an option, or place an order for severable services for a period that begins in one fiscal year and ends in the next [@CL-FPA-0065; @CL-FPA-0066]. The period of the contract, option or order must not exceed one year [@CL-FPA-0066]. Funds made available for a fiscal year may be obligated for the total amount of an action entered into under this authority [@CL-FPA-0067]. The DFARS states that the contracting officer may do the same for a period that does not exceed one year [@CL-FPA-0068].
+Paragraph (b) of the FAR section is listed as one example of such statutory authorization [@CL-FPA-0063]. Under it, the head of an executive agency, except NASA, may enter into a contract, exercise an option, or place an order for severable services for a period that begins in one fiscal year and ends in the next [@CL-FPA-0065; @CL-FPA-0066]. That authority applies if the period of the contract, option or order does not exceed one year [@CL-FPA-0066]. Funds made available for a fiscal year may be obligated for the total amount of an action entered into under this authority [@CL-FPA-0067]. The DFARS states that the contracting officer may do the same for a period that does not exceed one year [@CL-FPA-0068].
 
 ## How it works
 
@@ -57,5 +57,6 @@ Which contracts are funded by annual appropriations, which route lets each cross
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracts crossing fiscal years.

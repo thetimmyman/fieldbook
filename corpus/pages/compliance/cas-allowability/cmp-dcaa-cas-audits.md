@@ -29,9 +29,9 @@ Shows which audit and advisory products the Defense Contract Audit Agency aims a
 | Text status | Not established. |
 | Applies to | Contractors with CAS-covered contracts and subcontracts [@CL-CMP-1757] |
 
-Several audit and advisory products are built specifically around the standards, and each answers a different question [@CL-CMP-1750].
+Several types of DCAA audits and advisory services focus on testing for compliance with CAS requirements [@CL-CMP-1750].
 
-Between them they cover the practices as described in a Disclosure Statement, the adequacy of a revised description when the CFAO asks for that, a material noncompliance found in a non-CAS audit, and the cost impact of a practice change or a noncompliance [@CL-CMP-1751; @CL-CMP-1752; @CL-CMP-1754; @CL-CMP-1755].
+Between them they cover the practices as described in a Disclosure Statement, the adequacy of a revised description when the CFAO asks for that, a material noncompliance found in a non-CAS audit, and the cost impact of a change to a cost accounting practice or of a material noncompliance [@CL-CMP-1751; @CL-CMP-1752; @CL-CMP-1754; @CL-CMP-1755].
 
 ## How it works
 
@@ -67,4 +67,5 @@ Which audit findings, corrective actions and owner responses are open when a com
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'one question each' framing and aligned the noncompliance wording with the quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DCAA audits that test Cost Accounting Standards compliance.

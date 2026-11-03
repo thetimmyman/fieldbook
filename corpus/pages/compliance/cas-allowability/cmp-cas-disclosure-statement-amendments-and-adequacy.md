@@ -23,7 +23,7 @@ Explains who keeps a Disclosure Statement accurate, how amendments and revisions
 | Field | Value |
 |---|---|
 | Instrument | Codified CAS [@CL-CMP-7541] |
-| Codified citation | 48 CFR 9903.202-3 [@CL-CMP-7541] |
+| Codified citation | 48 CFR 9903.202-3 [@CL-CMP-7541], 48 CFR 9903.202-6 [@CL-CMP-7544] and 48 CFR 9903.307 [@CL-CMP-7548] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7541] |
@@ -53,7 +53,7 @@ The preambles section says only that they are available [@CL-CMP-7548]. They are
 
 Synthetic example. The numbers are made up.
 
-A contractor changes how it describes a service center in its Disclosure Statement. It proposes an amendment mid-year, and the Government could equally have proposed the change [@CL-CMP-7542]. The amendment may be submitted at any time, and the contractor remains responsible for keeping the statement accurate and for complying with the practices it discloses [@CL-CMP-7541; @CL-CMP-7542]. A complete resubmission is not needed for a change this narrow; resubmission of a complete, updated statement is discouraged unless extensive changes require it to assist the review process [@CL-CMP-7543]. The cognizant Federal agency for that location determines, under its own procedures, whether the statement has adequately disclosed the practices required to be disclosed, and distributes the determination to all affected agencies [@CL-CMP-7544; @CL-CMP-7546]. To read the preamble for a Standard, the contractor's analyst can write to the Publications Office or call it [@CL-CMP-7549].
+A contractor changes how it describes a service center in its Disclosure Statement. It proposes an amendment mid-year, and the Government could equally have proposed the change [@CL-CMP-7542]. The amendment may be submitted at any time, and the contractor remains responsible for keeping the statement accurate and for complying with the practices it discloses [@CL-CMP-7541; @CL-CMP-7542]. Resubmission of a complete, updated statement is discouraged except when extensive changes require it to assist the review process, and a change this narrow does not [@CL-CMP-7543]. The cognizant Federal agency for that location determines, under its own procedures, whether the statement has adequately disclosed the practices required to be disclosed, and distributes the determination to all affected agencies [@CL-CMP-7544; @CL-CMP-7546]. To read the preamble for a Standard, the contractor's analyst can write to the Publications Office or call it [@CL-CMP-7549].
 
 ## Never confuse
 
@@ -67,4 +67,5 @@ Which pools, bases, service centers and intercompany charges the Disclosure Stat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Listed all three codified sections in the citation row and softened the resubmission sentence in the worked example.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Disclosure Statement amendments, revisions and adequacy.

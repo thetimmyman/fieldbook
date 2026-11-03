@@ -35,7 +35,7 @@ Except when pricing an item on the basis of adequate price competition or catalo
 
 Paragraph (a) states the unit-price requirement without naming who must meet it. Its exception covers an item priced on the basis of adequate price competition or catalog or market price [@CL-EST-2538].
 
-Paragraph (b)(1) does not say who requires offerors to identify such items or who must use the information [@CL-EST-2539; @CL-EST-2540]. It says only that the information must be used [@CL-EST-2540]. It does not apply to the acquisition of commercial products [@CL-EST-2539]. The codified FAR is more specific. Except for the acquisition of commercial products, contracting officers shall require offerors to identify in their proposals the items they will not manufacture or add significant value to, unless adequate price competition is expected [@CL-EST-2556]. That codified sentence ends with a citation to two statutes in the United States Code [@CL-EST-2560].
+Paragraph (b)(1) does not say who requires offerors to identify such items or who must use the information [@CL-EST-2539; @CL-EST-2540]. It says the information must be used, without naming who uses it [@CL-EST-2540]. It does not apply to the acquisition of commercial products [@CL-EST-2539]. The codified FAR is more specific. Except for the acquisition of commercial products, contracting officers shall require offerors to identify in their proposals the items they will not manufacture or add significant value to, unless adequate price competition is expected [@CL-EST-2556]. That codified sentence ends with a citation to two statutes in the United States Code [@CL-EST-2560].
 
 RFO FAR 15.105-7, a different section of the RFO text, does name who acts: to facilitate the analysis at 15.404-5, contracting officers must require offerors to identify in their proposals those items of supply that they will not manufacture or to which they will not contribute significant value when adequate price competition is not anticipated [@CL-EST-2242]. That section says the requirement does not apply to acquisitions for commercial products or commercial services [@CL-EST-2243], where paragraph (b)(1) excepts the acquisition of commercial products [@CL-EST-2539].
 
@@ -51,7 +51,7 @@ A proposal has four line items. Three are machined parts, each priced at 10,000,
 
 ## Never confuse
 
-This is not a rule about the total price. Paragraph (a) tests each unit price against that item's base cost [@CL-EST-2538], and the section does not say that an acceptable total price satisfies it. The exception for adequate price competition or catalog or market price is written into paragraph (a) [@CL-EST-2538]. Paragraph (b)(2) states only its own exception, for little or no variation in base cost [@CL-EST-2542].
+This is not a rule about the total price. Paragraph (a) tests each unit price against that item's base cost [@CL-EST-2538], and the section does not say that an acceptable total price satisfies it. The exception for adequate price competition or catalog or market price is written into paragraph (a) [@CL-EST-2538]. Paragraph (b)(2) carries its own exception for equal distribution, when there is little or no variation in base cost [@CL-EST-2542].
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Confirm which line items in upcoming proposals will be priced on adequate price 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed two uses of only that the quotes do not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-7 requirement to identify items offerors will not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for unit prices.

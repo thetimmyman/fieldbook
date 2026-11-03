@@ -37,7 +37,7 @@ The agency head, or a designee not below the level of the head of the contractin
 
 For purposes of the subpart, special Government employees performing services as experts, advisors or consultants, or as members of advisory committees, are not considered Government employees unless one of the listed conditions applies [@CL-CMP-6864]. The conditions are that the contract arises directly out of the individual's activity as a special Government employee, that in that capacity the individual is in a position to influence the award, or that another conflict of interest is determined to exist [@CL-CMP-7153].
 
-A separate route applies to a contractor that has a personal conflict of interest. The request route applies in exceptional circumstances, when the contractor cannot satisfactorily prevent a personal conflict of interest as the clause requires [@CL-CMP-6865]. The contractor may then submit a request, through the contracting officer, for the head of the contracting activity to agree to a plan to mitigate the conflict or to waive the requirement to prevent personal conflicts of interest [@CL-CMP-7154]. The contracting officer is the channel, and the head of the contracting activity decides. If the head determines in writing that the action is in the best interest of the Government, the head may impose conditions that provide mitigation or grant a waiver [@CL-CMP-6866]. The authority to impose mitigation conditions or grant a waiver must not be redelegated [@CL-CMP-7155].
+A separate route applies to a contractor that has a personal conflict of interest. The request route applies in exceptional circumstances, when the contractor cannot satisfactorily prevent a personal conflict of interest as the clause requires [@CL-CMP-6865]. The contractor may then submit a request, through the contracting officer, for the head of the contracting activity to agree to a plan to mitigate the conflict or to waive the requirement to prevent personal conflicts of interest [@CL-CMP-7154]. The request goes through the contracting officer to the head of the contracting activity [@CL-CMP-7154]. If the head determines in writing that the action is in the best interest of the Government, the head may impose conditions that provide mitigation or grant a waiver [@CL-CMP-6866]. The authority to impose mitigation conditions or grant a waiver must not be redelegated [@CL-CMP-7155].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ Separately, a contractor whose contract includes the personal conflicts clause l
 
 ## Never confuse
 
-The two routes have different decision makers and tests. An exception to the bar on awards to Government employees and their firms is authorized by the agency head or a designee not below the level of the head of the contracting activity, and only for a most compelling reason [@CL-CMP-7152]. A mitigation plan or waiver for a contractor's personal conflict of interest is decided by the head of the contracting activity on a written best-interest determination [@CL-CMP-6866]. The clause duties and the employee screening rules are in [Contractor employee personal conflicts of interest](../regulatory-framework/cmp-contractor-employee-personal-conflicts-of-interest.md).
+An exception to the bar on awards to Government employees and their firms is authorized by the agency head or a designee not below the level of the head of the contracting activity, and only for a most compelling reason [@CL-CMP-7152]. A mitigation plan or waiver for a contractor's personal conflict of interest is decided by the head of the contracting activity on a written best-interest determination [@CL-CMP-6866]. The clause duties and the employee screening rules are in [Contractor employee personal conflicts of interest](../regulatory-framework/cmp-contractor-employee-personal-conflicts-of-interest.md).
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Which of the company's owners or employees are Government employees, and who wou
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited who requests and who decides on a mitigation plan or waiver and removed unsupported contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracts with Government employees and mitigation of personal conflicts of interest.

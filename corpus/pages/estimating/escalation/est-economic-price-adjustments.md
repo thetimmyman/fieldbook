@@ -28,7 +28,7 @@ Shows what an auditor checks when a proposal relies on an economic price adjustm
 | Text status | Not established. |
 | Applies to | Periods of economic uncertainty or extended performance [@CL-EST-0729] |
 
-An economic price adjustment is a contractual pricing mechanism used during periods of economic uncertainty or extended performance to protect both the Government and the contractor from abnormal, uncontrollable wage and material price fluctuations [@CL-EST-0729]. The audit manual describes three methods. Established prices apply to basic commodities and standard commercial supplies based on published catalog or market rates [@CL-EST-0730]. Actual costs apply to contracts lacking major design or research and development, where adjustments track verified labor and material cost changes experienced during performance [@CL-EST-0731]. Cost indexes link adjustments to recognized external benchmarks, such as Bureau of Labor Statistics labor and material indices [@CL-EST-0732].
+An economic price adjustment is a contractual pricing mechanism used during periods of economic uncertainty or extended performance to protect both the Government and the contractor from abnormal, uncontrollable wage and material price fluctuations [@CL-EST-0729]. The audit manual describes three methods. Established prices apply to basic commodities and standard commercial supplies based on published catalog or market rates [@CL-EST-0730]. Actual costs apply to contracts lacking major design or research and development, where adjustments track verified labor and material cost changes experienced during performance [@CL-EST-0731]. Cost indexes link adjustments to recognized external benchmarks, such as Bureau of Labor Statistics labor and material indices, when actual movements fall outside established forecast bands [@CL-EST-0732].
 
 This card gives the auditor's view. The clause rules for standard supplies, semistandard supplies, and labor and material are on [Economic Price Adjustment, Standard Supplies clause](est-epa-standard-supplies.md), [Economic Price Adjustment, Semistandard Supplies clause](est-epa-semistandard-supplies.md), and [Economic Price Adjustment, Labor and Material](../../contract-finance/billing-payment/ctf-economic-price-adjustment-labor-and-material.md).
 
@@ -54,4 +54,5 @@ That escalation factors are not double counted and that the base period matches 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added forecast-band condition for cost indexes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for economic price adjustments in proposals and proposal audits.

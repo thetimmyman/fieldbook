@@ -38,7 +38,7 @@ Gives the definitions of delivery-order contract and task-order contract that th
 
 The definitions of the first two terms are stated for use in this subpart [@CL-EST-2993]. The description of a definite-quantity contract is the first paragraph of its own section [@CL-EST-2979].
 
-A definite-quantity contract may be used when it can be determined in advance that two things hold [@CL-EST-2980]. The first is that a definite quantity of supplies or services will be required during the contract period [@CL-EST-2980]. The second is that the supplies or services are regularly available or will be available after a short lead time [@CL-EST-2980]. The section does not say who makes that determination.
+A definite-quantity contract may be used when it can be determined in advance that two things hold [@CL-EST-2980]. The first is that a definite quantity of supplies or services will be required during the contract period [@CL-EST-2980]. The second is that the supplies or services are regularly available or will be available after a short lead time [@CL-EST-2980].
 
 ## How it works
 
@@ -46,7 +46,7 @@ A delivery-order contract and a task-order contract carry no firm quantity apart
 
 A definite-quantity contract fixes the quantity for a fixed period. Deliveries or performance are scheduled at designated locations upon order [@CL-EST-2979]. The general section of the subpart lists definite-quantity contracts as one of three types of indefinite-delivery contract [@CL-CTF-1207].
 
-The permission to use a definite-quantity contract depends on both conditions in the application paragraph [@CL-EST-2980]. See [what the indefinite-delivery subpart covers](est-indefinite-delivery-scope.md) for the scope of the subpart, and [indefinite-delivery and indefinite-quantity contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md) for the types. For ordering, see [ordering under indefinite-delivery contracts](est-far-ordering-indefinite-delivery-contracts.md) and [ordering, definite quantity and requirements clauses](est-ordering-definite-quantity-and-requirements-clauses.md). For the terms that the contract-types part defines, such as the award-fee roles and the established price, see [contract-type definitions](est-contract-type-definitions.md).
+A definite-quantity contract may be used when both conditions in the application paragraph apply [@CL-EST-2980]. See [what the indefinite-delivery subpart covers](est-indefinite-delivery-scope.md) for the scope of the subpart, and [indefinite-delivery and indefinite-quantity contracts](../../contract-finance/funding/ctf-indefinite-delivery-and-indefinite-quantity-contracts.md) for the types. For ordering, see [ordering under indefinite-delivery contracts](est-far-ordering-indefinite-delivery-contracts.md) and [ordering, definite quantity and requirements clauses](est-ordering-definite-quantity-and-requirements-clauses.md). For the terms that the contract-types part defines, such as the award-fee roles and the established price, see [contract-type definitions](est-contract-type-definitions.md).
 
 ## Worked example
 
@@ -58,7 +58,7 @@ For a separate requirement, the agency can determine in advance that exactly 250
 
 ## Never confuse
 
-A delivery-order or task-order contract may state a minimum or maximum quantity and still fit its definition, because the definition's bar on a firm quantity sets those quantities aside [@CL-EST-2977; @CL-EST-2978]. A definite-quantity contract is described by its definite quantity, not by the absence of one [@CL-EST-2979]. The definitions in the first section are stated for this subpart and name only delivery-order and task-order contracts [@CL-EST-2993; @CL-EST-2977; @CL-EST-2978]. A definite-quantity contract provides for a definite quantity, and deliveries or performance are scheduled upon order [@CL-EST-2979].
+A delivery-order contract is a contract for supplies, and a task-order contract is a contract for services, that does not procure or specify a firm quantity (other than a minimum or maximum quantity) [@CL-EST-2977; @CL-EST-2978]. The definitions in the first section are stated as used in this subpart [@CL-EST-2993; @CL-EST-2977; @CL-EST-2978]. A definite-quantity contract provides for a definite quantity, and deliveries or performance are scheduled upon order [@CL-EST-2979].
 
 ## Company calibration
 
@@ -68,4 +68,5 @@ Who owns the quantity assumptions behind each ordering or definite-quantity prop
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the definite-quantity use rule as may be used when both apply; cut uncited contrasts and a statement about who determines.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indefinite-delivery definitions and definite-quantity contracts.

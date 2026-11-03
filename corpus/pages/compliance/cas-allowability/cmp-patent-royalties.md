@@ -29,13 +29,13 @@ Shows when a royalty paid for the use of a patent, or amortization of the cost o
 | Text status | Final [@CL-CMP-0857] |
 | Applies to | Not established. |
 
-Royalties on a patent, and amortization of the cost of purchasing a patent or patent rights, are allowable where they are necessary for the proper performance of the contract and applicable to contract products or processes, unless a listed exception applies [@CL-CMP-0857]. The exceptions are that the Government has a license or the right to a free use of the patent [@CL-CMP-0858], that the patent has been adjudicated invalid or administratively determined to be invalid [@CL-CMP-0857; @CL-CMP-0859], that the patent is considered unenforceable [@CL-CMP-0857; @CL-CMP-0860], and that the patent is expired [@CL-CMP-0857; @CL-CMP-0860].
+Royalties on a patent, and amortization of the cost of purchasing a patent or patent rights, are allowable where they are necessary for the proper performance of the contract and applicable to contract products or processes, unless a listed exception applies [@CL-CMP-0857]. The exceptions are alternatives, and any one of them ends the allowance: the Government has a license or the right to a free use of the patent [@CL-CMP-0858]; the patent has been adjudicated invalid or administratively determined to be invalid [@CL-CMP-0857; @CL-CMP-0859]; the patent is considered unenforceable [@CL-CMP-0857; @CL-CMP-0860]; or the patent is expired [@CL-CMP-0857; @CL-CMP-0860].
 
 Where the patent was formerly owned by the contractor, the royalty amount allowed should not exceed the cost that would have been allowed had the contractor retained title [@CL-CMP-0862].
 
 ## How it works
 
-The section asks for care in determining reasonableness where royalties may have been arrived at as a result of less-than-arm's-length bargaining [@CL-CMP-0861]. It gives three examples: royalties paid to affiliated persons, royalties paid to unaffiliated parties under an agreement entered into in contemplation that a Government contract would be awarded, and royalties paid under an agreement entered into after the contract award [@CL-CMP-1400]. The codified section also refers the reader to the rules on advance agreements [@CL-CMP-1404].
+The section asks for care in determining reasonableness where royalties may have been arrived at as a result of less-than-arm's-length bargaining [@CL-CMP-0861]. It gives three examples, each an alternative: royalties paid to affiliated persons, royalties paid to unaffiliated parties under an agreement entered into in contemplation that a Government contract would be awarded, or royalties paid under an agreement entered into after the contract award [@CL-CMP-1400]. The codified section also refers the reader to the rules on advance agreements [@CL-CMP-1404].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-37 keeps the allowability rule for royalties and for amortization of the cost of purchasing a patent or patent rights [@CL-CMP-9477], with the same four exceptions [@CL-CMP-9478]. It keeps the care required for royalties that may reflect less-than-arm's-length bargaining, with the same three listed cases [@CL-CMP-9479; @CL-CMP-9480], and the limit for a patent formerly owned by the contractor [@CL-CMP-9481]. The RFO section ends at paragraph (c) and has no paragraph referring to advance agreements [@CL-CMP-9482].
 
@@ -57,6 +57,7 @@ Whether each royalty the company pays was bargained at arm's length and whether 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Presented the four patent exceptions and three arm's-length examples as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Checked each sentence against the section, added the examples of less-than-arm's-length royalties and the pointer to advance agreements, and removed statements the section does not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for royalties and other costs for use of patents.

@@ -31,13 +31,13 @@ Shows which contingent fees are unallowable on foreign military sales, the duty 
 
 Except as provided in the paragraph on foreign military sales, contingent fees are generally an allowable cost, provided the fees are paid to a bona fide employee of the Contractor or to a bona fide established commercial or selling agency maintained by the Contractor for the purpose of securing business [@CL-SUP-1724; @CL-SUP-1725]. For foreign military sales, unless the contingent fees have been identified and payment approved in writing by the foreign customer before contract award, the contingent fees listed in that paragraph are unallowable [@CL-SUP-1726]. One listed category is contingent fees in any amount for sales to the governments named in the blank that the contract fills in [@CL-SUP-1758]. Another is contingent fees exceeding $50,000 per foreign military sale case, for sales to governments not listed in the paragraph before it [@CL-SUP-1727].
 
-The Contractor and its subcontractors shall not take into account the exclusionary policies or practices of any foreign government in employing or assigning personnel, if the personnel will perform functions required by the contract in the United States or abroad [@CL-SUP-1728] and the policies or practices are based on race, religion, national origin, or sex [@CL-SUP-1729].
+The Contractor and its subcontractors shall not take into account the exclusionary policies or practices of any foreign government in employing or assigning personnel, if the personnel will perform functions required by the contract in the United States or abroad [@CL-SUP-1728] and the policies or practices are based on race, religion, national origin, or sex, the two conditions being joined by "and" [@CL-SUP-9736; @CL-SUP-1729].
 
 If the offeror is a foreign person, it certifies by submitting an offer that it does not comply with the Secondary Arab Boycott of Israel [@CL-SUP-1730]. It also certifies that it is not taking or knowingly agreeing to take any action, with respect to the Secondary Boycott of Israel by Arab countries, which the cited statute prohibits a United States person from taking [@CL-SUP-1759].
 
 ## How it works
 
-The fee clause starts from general allowability and then removes the listed fees on foreign military sales unless the foreign customer approved them in writing before award [@CL-SUP-1724; @CL-SUP-1726]. The listed fees are those in any amount for the governments named in the blank, and those over the dollar figure per case for other governments [@CL-SUP-1758; @CL-SUP-1727]. The staffing clause binds the Contractor and its subcontractors when both of its conditions are met [@CL-SUP-1728; @CL-SUP-1729]. In the boycott provision, a foreign person offeror makes two certifications by submitting an offer [@CL-SUP-1730; @CL-SUP-1759]. These three sections print no contractor reporting duty, so none is established here; the nearest item is that the fees must have been identified and approved in writing by the foreign customer before award [@CL-SUP-1726].
+The fee clause starts from general allowability and then removes the listed fees on foreign military sales unless the foreign customer approved them in writing before award [@CL-SUP-1724; @CL-SUP-1726]. The listed fees are those in any amount for the governments named in the blank, and those over the dollar figure per case for other governments [@CL-SUP-1758; @CL-SUP-1727]. The staffing clause binds the Contractor and its subcontractors when both of its conditions are met [@CL-SUP-1728; @CL-SUP-9736; @CL-SUP-1729]. In the boycott provision, a foreign person offeror makes two certifications by submitting an offer [@CL-SUP-1730; @CL-SUP-1759]. These three sections print no contractor reporting duty, so none is established here; the nearest item is that the fees must have been identified and approved in writing by the foreign customer before award [@CL-SUP-1726].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which foreign military sale contracts carry the clause and whether any contingen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: staffing conditions cited to the quote joining them with and
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign military sales contingent fees, exclusionary policies and the Arab boycott.

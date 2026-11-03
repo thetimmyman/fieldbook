@@ -33,7 +33,7 @@ The guideline requires significant differences between planned and actual schedu
 
 ## How it works
 
-Focused variance analysis by the control account manager gives program management insight into significant problem areas and highlights the potential need for management action [@CL-PRG-0707]. The analysis identifies the factors causing the variance, such as efficiency, rate and timing, and its potential impacts [@CL-PRG-0705]. Corrective actions or mitigation plans are identified [@CL-PRG-0706]. Schedule variance analysis is supplemented with integrated master schedule analysis and assesses the impact on future critical path, near-critical path, and driving path activities [@CL-PRG-0312].
+Focused variance analysis by the control account manager gives program management insight into significant problem areas and highlights the potential need for management action to mitigate potential or realized program risks [@CL-PRG-0707]. Schedule and cost variances are identified and analyzed at the control account and summary level, and the variance analysis identifies the factors causing the variance, such as efficiency, rate, and timing, and potential impacts [@CL-PRG-0705]. Corrective actions or mitigation plans are identified [@CL-PRG-0706]. Schedule variance analysis is supplemented with integrated master schedule analysis and assesses the impact to future activities on the critical path, near-critical paths, and driving paths [@CL-PRG-0312].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A control account has earned 400,000 of budget and spent 460,000, so its cost va
 
 ## Never confuse
 
-Calculating a variance is not the same as analyzing it. The guideline requires the significant differences to be identified and evaluated, and the reasons for the variances to be analyzed and provided in the detail needed by program management [@CL-PRG-0310].
+The guideline requires identifying and evaluating, at least monthly for each control account, the significant differences between both planned and actual schedule performance and planned and actual cost performance, and analyzing and providing the reasons for the variances in the detail needed by program management [@CL-PRG-0310].
 
 ## Company calibration
 
@@ -53,4 +53,6 @@ Whether significant variances are analyzed, with reasons and potential impacts, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added control-account and summary-level scope in How it works and removed uncited contrast in Never confuse.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the risk-mitigation purpose of management action that the guide states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 18 significant variance analysis.

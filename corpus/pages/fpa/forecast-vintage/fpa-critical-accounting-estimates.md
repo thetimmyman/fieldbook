@@ -35,7 +35,7 @@ The information should include why each critical accounting estimate is subject 
 
 ## How it works
 
-An estimate is critical when it meets the definition: a significant level of estimation uncertainty together with a material impact, actual or reasonably likely [@CL-FPA-0035]. For each one the registrant explains why it is uncertain and, to the extent material and reasonably available, how much it has changed and how sensitive the reported amount is [@CL-FPA-0037; @CL-FPA-0038]. The analysis supplements, and does not duplicate, disclosure already provided in the filing [@CL-FPA-0040]. Contract estimates at completion are covered in [Control account estimate updates](../../program-finance/eac/prg-evms-guideline-20-eac-updates.md) and [Program manager estimate at completion](../../program-finance/eac/prg-evms-guideline-23-program-manager-eac.md).
+An estimate is critical when it meets the definition: a significant level of estimation uncertainty together with a material impact, actual or reasonably likely [@CL-FPA-0035]. For each one the registrant explains why it is uncertain and, to the extent material and reasonably available, how much it has changed and how sensitive the reported amount is [@CL-FPA-0037; @CL-FPA-0038]. The analysis is provided in a format that facilitates easy understanding and that supplements, and does not duplicate, disclosure already provided in the filing [@CL-FPA-0040]. Contract estimates at completion are covered in [Control account estimate updates](../../program-finance/eac/prg-evms-guideline-20-eac-updates.md) and [Program manager estimate at completion](../../program-finance/eac/prg-evms-guideline-23-program-manager-eac.md).
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which open accounting judgments management treats as critical estimates, how the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Format wording of the analysis sentence restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for critical accounting estimates in MD&A.

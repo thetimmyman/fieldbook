@@ -29,11 +29,11 @@ Shows how indirect costs are classified, allocated, and kept consistent in a pri
 | Text status | Not established. |
 | Applies to | Pricing proposals [@CL-EST-0722] |
 
-Indirect costs are costs not tied to a single final cost objective, proposed as rates applied to direct cost elements [@CL-EST-0721; @CL-EST-0722]. They are grouped into homogeneous pools, and the allocation base must show a causal or beneficial relationship to the work [@CL-EST-0724; @CL-EST-0726].
+An indirect cost is any cost not directly identified with a single final cost objective but incurred for two or more cost objectives or for the business enterprise as a whole [@CL-EST-0721]. In a pricing proposal, indirect costs are proposed as rates applied to specific direct cost elements [@CL-EST-0722]. Contractors must classify their indirect costs into logical, homogeneous cost pools [@CL-EST-0724], and the selected allocation base must represent a clear causal or beneficial relationship between the pool costs and the work being performed [@CL-EST-0726].
 
 ## How it works
 
-Contractors generally propose indirect costs using historical financial trends, current fiscal year budgets, and forward-looking business volume forecasts to establish realistic, projected rates [@CL-EST-0723]. Contractors are required to distinguish variable, semivariable, and fixed costs, and mapping that behavior is critical because the contractor must be able to project how rates fluctuate as the volume of direct work changes [@CL-EST-0725; @CL-EST-0856]. To distribute pool expenses to specific contracts, the contractor must select an equitable allocation base, such as direct labor hours, machine hours, or total cost input [@CL-EST-0855]. The structure used to build the proposal must mirror the contractor's actual accounting system [@CL-EST-0727]. If an advance agreement has been negotiated on cost ceilings or specific rate structures, the contractor is bound to apply those limits in the proposal [@CL-EST-0728].
+Contractors generally propose indirect costs using historical financial trends, current fiscal year budgets, and forward-looking business volume forecasts to establish realistic, projected rates [@CL-EST-0723]. Under FAR and CAS, contractors are required to distinguish variable, semivariable, and fixed costs, and mapping that behavior is critical because the contractor must be able to project how rates fluctuate as the volume of direct work changes [@CL-EST-0725; @CL-EST-0856]. To distribute pool expenses to specific contracts, the contractor must select an equitable allocation base, such as direct labor hours, machine hours, or total cost input [@CL-EST-0855]. In accordance with CAS 401, contractors must maintain strict consistency in estimating, accumulating, and reporting costs, and the structural format used to build the proposal must mirror the contractor's actual accounting system [@CL-EST-0727]. If advance agreements under FAR part 31 have been negotiated with the government regarding cost ceilings or specific rate structures, the contractor is legally bound to apply those agreed limitations within its pricing proposal [@CL-EST-0728].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ An overhead pool of 2,000,000 is spread over 100,000 direct labor hours, giving 
 
 ## Never confuse
 
-An indirect cost pool is not an allocation base: pool expenses are distributed to contracts through the base, which must be equitable [@CL-EST-0724; @CL-EST-0855]. Variable, semivariable, and fixed costs are not the same, and their different behavior is why the rate must be projected as direct work volume changes [@CL-EST-0725; @CL-EST-0856].
+Indirect costs are classified into homogeneous cost pools [@CL-EST-0724], and to distribute pool expenses to specific contracts, contractors must select an equitable allocation base [@CL-EST-0855]. Contractors are required to distinguish between variable, semivariable, and fixed (nonvariable) costs [@CL-EST-0725], and mapping that behavior is critical because, as the volume of direct work changes, the contractor must be able to accurately project how indirect cost rates will fluctuate [@CL-EST-0856].
 
 ## Company calibration
 
@@ -53,4 +53,6 @@ That indirect cost pools and allocation bases mirror the accounting system and a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored advance-agreement scope and consistency duty; replaced uncited contrasts with cited rules.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named FAR, CAS and CAS 401 as the source of the stated duties.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost estimates in proposals.

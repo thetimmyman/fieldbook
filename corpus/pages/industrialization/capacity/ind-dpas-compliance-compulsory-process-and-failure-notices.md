@@ -39,7 +39,7 @@ Compliance conflicts. If compliance with any provision of the Defense Production
 
 ## How it works
 
-The Department of Commerce may take compliance actions, including audits and other inquiries, for any reason necessary or appropriate to enforcement or administration [@CL-IND-0309; @CL-IND-0310]. When access is refused, it may go to any forum of appropriate jurisdiction for an inspection warrant or its equivalent [@CL-IND-0312; @CL-IND-0313]. Before any refusal, process may be sought in advance of an audit, investigation or other inquiry if, in the judgment of the Director, in consultation with the Chief Counsel, there is reason to believe that a person will refuse to permit one or that other circumstances make such process desirable or necessary [@CL-IND-0314; @CL-IND-0315]. The Department of Commerce decides whether a failure was inadvertent, and a notice for an inadvertent failure may state the particulars and the corrective action [@CL-IND-0317; @CL-IND-0318]. The sections state no deadline for correction and no dollar threshold.
+The Department of Commerce may take compliance actions, including audits and other inquiries, for any reason necessary or appropriate to enforcement or administration [@CL-IND-0309; @CL-IND-0310]. When access is refused, it may seek compulsory process, which means appropriate legal action in any forum of appropriate jurisdiction, including an ex parte application for an inspection warrant or its equivalent [@CL-IND-0312; @CL-IND-0313]. Before any refusal, process may be sought in advance of an audit, investigation or other inquiry if, in the judgment of the Director of the Office of Strategic Industries and Economic Security, in consultation with the Chief Counsel for Industry and Security, there is reason to believe that a person will refuse to permit one or that other circumstances make such process desirable or necessary [@CL-IND-0314; @CL-IND-0315]. The Department of Commerce decides whether a failure was inadvertent, and a notice for an inadvertent failure may state the particulars and the corrective action [@CL-IND-0317; @CL-IND-0318]. The sections state no deadline for correction and no dollar threshold.
 
 ## Worked example
 
@@ -59,5 +59,6 @@ Confirm who owns the response to a Commerce access request and to any written fa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated compulsory process as appropriate legal action and named the officials.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the duty to notify the Department of Commerce of a compliance conflict.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS compliance provisions, compulsory process and notification of failure to comply.

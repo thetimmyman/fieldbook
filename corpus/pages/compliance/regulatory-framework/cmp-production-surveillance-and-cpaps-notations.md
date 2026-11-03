@@ -33,7 +33,7 @@ The cognizant contract administration office must perform production surveillanc
 
 ## How it works
 
-When production surveillance is required, the office has three duties.
+When production surveillance is required, the office must do all of the following.
 
 - It must conduct a periodic risk assessment of the contractor to determine the degree of surveillance needed for all contracts awarded to that contractor, and the assessment must consider information provided by the contractor and the contracting officer [@CL-CMP-7258].
 - It must develop a production surveillance plan based on the risk level the assessment determined, and modify the plan to incorporate any special surveillance requirements for individual contracts, including requirements the contracting officer identified [@CL-CMP-7441].
@@ -71,4 +71,5 @@ Which contracts carry designators A, B or C, which contracting officers request 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Surveillance duties stated as all required.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for production surveillance, progress reports and past performance notations.

@@ -33,7 +33,7 @@ Internal replanning is intended to maintain an executable baseline for the remai
 
 ## How it works
 
-The system description must describe and establish a freeze period suitable for forward planning discipline and the integrity of the performance measurement baseline [@CL-PRG-0369]. Baseline changes within the freeze period are limited, for example to customer-directed contract actions, rate changes, and economic price adjustments [@CL-PRG-0370]. The contractor should define the process for internal replanning related to setting budgeted cost for work scheduled equal to budgeted cost for work performed, not the reverse, when eliminating schedule variances for in-process work [@CL-PRG-0371]. Internal replanning should not be used as an alternative to proper initial planning, nor to mask legitimate variances [@CL-PRG-0760]. Where level-of-effort support work budgeted in the current period is not necessary then, it may be replanned only if no actual costs for that effort have been incurred [@CL-PRG-0761]. Once actual costs exist, the work may be replanned only in future periods, to reflect when the remaining work is expected to be performed [@CL-PRG-0762].
+The system description must describe and establish a freeze period suitable for forward planning discipline and the integrity of the performance measurement baseline [@CL-PRG-0369]. Baseline changes within the freeze period are limited, for example to customer-directed contract actions, rate changes, and economic price adjustments [@CL-PRG-0370]. The contractor should define the process for internal replanning related to setting budgeted cost for work scheduled equal to budgeted cost for work performed, not the reverse, when eliminating schedule variances for in-process work [@CL-PRG-0371]. Internal replanning should not be used as an alternative to proper initial planning, nor to mask legitimate variances [@CL-PRG-0760]. Where level-of-effort budgets are in the current period (baseline start or finish) and the support work is not necessary to be performed in this period as well as future periods, the work may be replanned as long as no actual costs for that effort have previously been incurred [@CL-PRG-0761]. Once actual costs exist, the work may be replanned only in future periods, to reflect when the remaining work is expected to be performed [@CL-PRG-0762].
 
 ## Worked example
 
@@ -53,6 +53,7 @@ Which changes to the forecast come from internal replanning versus contingency, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the baseline start or finish and future-periods conditions and the as-long-as wording for level-of-effort replanning.
 - COMPATIBLE_EXTENSION, 2026-10-29: Added the rule against masking legitimate variances and the level-of-effort replanning conditions.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: restored the should define wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for internal replanning changes.

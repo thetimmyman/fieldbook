@@ -28,7 +28,7 @@ Gives the printed definitions of severe forms of trafficking in persons, sex tra
 | Text status | Final [@CL-CMP-3284] |
 | Applies to | Not established. |
 
-Severe forms of trafficking in persons has two listed parts [@CL-CMP-3284; @CL-CMP-3285]. The first is sex trafficking in which a commercial sex act is induced by force, fraud, or coercion, or in which the person induced to perform the act has not attained 18 years of age [@CL-CMP-3284]. The second is the recruitment, harboring, transportation, provision, or obtaining of a person for labor or services, through the use of force, fraud, or coercion for the purpose of subjection to involuntary servitude, peonage, debt bondage, or slavery [@CL-CMP-3285]. Sex trafficking is the recruitment, harboring, transportation, provision, or obtaining of a person for the purpose of a commercial sex act [@CL-CMP-3367].
+Severe forms of trafficking in persons has two alternative parts [@CL-CMP-3284; @CL-CMP-3285]. One alternative is sex trafficking in which a commercial sex act is induced by force, fraud, or coercion, or in which the person induced to perform the act has not attained 18 years of age [@CL-CMP-3284]. The other alternative is the recruitment, harboring, transportation, provision, or obtaining of a person for labor or services, through the use of force, fraud, or coercion for the purpose of subjection to involuntary servitude, peonage, debt bondage, or slavery [@CL-CMP-3285]. Sex trafficking is the recruitment, harboring, transportation, provision, or obtaining of a person for the purpose of a commercial sex act [@CL-CMP-3367].
 
 An agent is any individual, including a director, an officer, an employee, or an independent contractor, authorized to act on behalf of the organization [@CL-CMP-3286]. An employee is an employee of the Contractor directly engaged in the performance of work under the contract who has other than a minimal impact or involvement in contract performance [@CL-CMP-3287].
 
@@ -54,4 +54,6 @@ Which people and firms acting for the company count as agents and employees unde
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: trafficking definitions: removed explanatory wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: trafficking definitions: severe forms stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the trafficking in persons defined terms.

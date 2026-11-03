@@ -20,7 +20,7 @@ Explains how the contract type changes billing, risk and the rules finance must 
 
 ## The rule
 
-On a cost-reimbursement contract the government pays allowable costs as they are incurred, with indirect costs billed at provisional rates and settled after final rates are set [@S-0006-v1, § 52.216-7]. When such a contract is fully funded and carries the Limitation of Cost clause, the contractor must notify the contracting officer before costs pass a set share of the estimated cost [@CL-CTF-0003]. On a fixed-price contract the contractor bears the cost risk, and payment follows delivery, with financing such as progress payments where the contract allows it [@CL-CTF-0001].
+On a cost-reimbursement contract the government pays allowable costs as they are incurred, with indirect costs billed at provisional rates and settled after final rates are set [@S-0006-v1, § 52.216-7]. When such a contract is fully funded and carries the Limitation of Cost clause, the contractor must notify the contracting officer before costs pass a set share of the estimated cost [@CL-CTF-0003]. A firm-fixed-price contract places maximum risk and full responsibility for all costs on the contractor [@CL-EST-1150]. A fixed-price contract can provide for progress payments based on costs [@CL-CTF-4406]; the customary DoD rate is 80 percent for large business concerns [@CL-CTF-0001].
 
 ## How it works
 
@@ -44,4 +44,5 @@ The contract mix by type, and which contracts are incrementally funded with noti
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Limited the fixed-price risk sentence to firm-fixed-price and cited progress payment support.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 page on contract types.

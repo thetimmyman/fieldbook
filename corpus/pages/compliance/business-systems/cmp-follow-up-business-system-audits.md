@@ -35,9 +35,9 @@ When the contractor notifies the contracting officer that it has corrected the d
 
 ## How it works
 
-The audit office should initiate a follow-up audit when the contractor notifies it, directly or through the contracting officer, that it has implemented the appropriate corrective actions and sufficient transactions or costs are readily available to adequately examine the revised business system practices [@CL-CMP-1685; @CL-CMP-8125]. When the contractor has not changed its business system practices, a follow-up audit should not be performed [@CL-CMP-1687]. The scope is limited to determining whether the contractor corrected the previously reported material weaknesses and system deficiencies and the system complies with DFARS [@CL-CMP-1686]. Less than material noncompliances reported in a previous audit do not need to be included in that scope [@CL-CMP-1959].
+The audit office should initiate a follow-up audit when the contractor notifies it, directly or through the contracting officer, that it has implemented the appropriate corrective actions and sufficient transactions or costs are readily available to adequately examine the revised business system practices [@CL-CMP-1685; @CL-CMP-8125]. When the contractor has not changed its business system practices, a follow-up audit should not be performed [@CL-CMP-1687]. The scope is limited to determining whether the contractor corrected the previously reported material weaknesses and/or system deficiencies and the system complies with DFARS [@CL-CMP-1686]. Less than material noncompliances warranting the attention of those charged with governance (the contractor and contracting officer) that were reported in a previous audit do not need to be included in that scope [@CL-CMP-1959].
 
-The audit office should notify the administrative contracting officer on a real-time basis of any revised practices determined to be noncompliant [@CL-CMP-1688]. A material weakness or system deficiency that was not previously reported is reported in the follow-up report [@CL-CMP-1961]. If the corrective actions did not correct the deficiencies, the report will state that they continue to exist and are noncompliant [@CL-CMP-1960].
+The audit office should notify the administrative contracting officer on a real-time basis of any revised practices determined to be noncompliant with the DFARS business system requirements [@CL-CMP-1688]. If a follow-up audit discloses a material weakness or system deficiency that was not previously reported, it should be reported in the follow-up report [@CL-CMP-1961]. If the corrective actions did not successfully correct the reported deficiencies, this should be discussed with the contracting officer, and the report will state that the deficiencies continue to exist and are noncompliant [@CL-CMP-1960].
 
 The Defense Contract Management Agency is cognizant over three of the six defined business systems: the Earned Value Management System, Contractor Purchasing System Administration, and Contractor Property Management System Administration [@CL-CMP-1689]. The six systems are listed on [Contractor business systems](cmp-contractor-business-systems.md).
 
@@ -59,6 +59,7 @@ Check that enough transactions have accumulated under the corrected practices be
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored governance qualifier, should, and discussion step; kept and/or in scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the follow-up audit trigger so the rule keeps the purpose that the available transactions must serve.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for follow-up business system audits after reported deficiencies.

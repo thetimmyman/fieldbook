@@ -35,7 +35,7 @@ A person described below may not, other than as provided by law, knowingly discl
 
 ## How it works
 
-For a finance team, cost or pricing data (for procurements subject to the cited statutory sections) and indirect costs and direct labor rates fall within the definition when they are submitted with a bid or proposal and have not previously been made public [@CL-CMP-2300; @CL-CMP-2301]. The disclosure ban is written for officials and advisers who had access [@CL-CMP-2304; @CL-CMP-2305]. The obtaining ban is written for any person, so a company employee who knowingly obtains, before award, another offeror's submitted rates that fall within the listed categories is within it, unless the law provides otherwise [@CL-CMP-2301; @CL-CMP-2306]. Both bans are framed around the period before award of the contract the information relates to [@CL-CMP-2303; @CL-CMP-2306]. The same section also has rules on employment contacts and on pay to former officials, which this card does not cover. The protection section refers to the general definitions section of the FAR for source selection information, which this card does not restate [@CL-CMP-2470]. See [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md) for who may receive the information, how it is protected and what follows a possible violation.
+For a finance team, cost or pricing data (for procurements subject to the cited statutory sections) and indirect costs and direct labor rates fall within the definition when they are submitted as part of or in connection with a bid or proposal and have not previously been made available to the public or disclosed publicly [@CL-CMP-2300; @CL-CMP-2301]. The disclosure ban is written for officials and advisers who had access [@CL-CMP-2304; @CL-CMP-2305]. The obtaining ban is written for any person, so a company employee who knowingly obtains, before award, another offeror's submitted rates that fall within the listed categories is within it, unless the law provides otherwise [@CL-CMP-2301; @CL-CMP-2306]. Both bans are framed around the period before award of the contract the information relates to [@CL-CMP-2303; @CL-CMP-2306]. The same section also has rules on employment contacts and on pay to former officials, which this card does not cover. The protection section refers to the general definitions section of the FAR for source selection information, which this card does not restate [@CL-CMP-2470]. See [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md) for who may receive the information, how it is protected and what follows a possible violation.
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A company submits a proposal with direct labor rates and an overhead rate. Befor
 
 ## Never confuse
 
-Contractor bid or proposal information is what an offeror submits with its bid or proposal. Source selection information is a separate category, defined in the general definitions section of the FAR [@CL-CMP-2470]. Cost or pricing data is one listed category inside the definition, not the whole of it; see [Certified cost or pricing data](../../estimating/pricing/est-certified-cost-or-pricing-data.md). Duties to report credible evidence of violations are a different topic; see [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md).
+Contractor bid or proposal information is information submitted as part of or in connection with a bid or proposal, in the categories the definition lists [@CL-CMP-2300]. Source selection information is a separate category, defined in the general definitions section of the FAR [@CL-CMP-2470]. Cost or pricing data is one listed category inside the definition, not the whole of it; see [Certified cost or pricing data](../../estimating/pricing/est-certified-cost-or-pricing-data.md). Duties to report credible evidence of violations are a different topic; see [Contractor code of business ethics](cmp-contractor-code-of-business-ethics.md).
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which pricing, indirect cost and labor rate files are treated as proposal inform
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Definition wording now matches the quoted text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement integrity bans on disclosing and obtaining proposal information.

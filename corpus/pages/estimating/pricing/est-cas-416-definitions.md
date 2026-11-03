@@ -37,7 +37,7 @@ Other terms defined elsewhere in part 99 have the meanings given in those defini
 
 ## How it works
 
-The definitions build on one another. A self-insurance charge is defined by the projected average loss, and the projected average loss is a long-term average per period for periods of comparable exposure to risk of loss [@CL-EST-2896; @CL-EST-2894]. Self-insurance covers retention of risk whether voluntary or involuntary, and it reaches the deductible portion of purchased insurance [@CL-EST-2895]. Insurance administration expenses are the contractor's costs of administering an insurance program, which is a different thing from the loss itself [@CL-EST-2893]. Actual cash value is measured by replacing damaged property with property of like kind and quality in the condition the property was in immediately before the damage [@CL-EST-2892]. The definitions create no duty by themselves; the measurement and allocation requirements are on the main card.
+A self-insurance charge is defined by the projected average loss, and the projected average loss is a long-term average per period for periods of comparable exposure to risk of loss [@CL-EST-2896; @CL-EST-2894]. Self-insurance covers retention of risk whether voluntary or involuntary, and it reaches the deductible portion of purchased insurance [@CL-EST-2895]. Insurance administration expenses are the contractor's costs of administering an insurance program [@CL-EST-2893]. Actual cash value is measured by replacing damaged property with property of like kind and quality in the condition the property was in immediately before the damage [@CL-EST-2892]. The measurement and allocation requirements are on the main card.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor buys a policy with a 200,000 deductible. The deductible portion is 
 
 ## Never confuse
 
-Self-insurance is not the absence of an insurance cost: it is a retained risk of loss, and it includes the deductible portion of purchased insurance [@CL-EST-2895]. A self-insurance charge is not a loss that has happened: it is a cost that represents the projected average loss under the plan [@CL-EST-2896]. An insurance administration expense is not a loss: it is the cost of running the program, such as claims processing and actuarial fees [@CL-EST-2893]. Actual cash value is not replacement cost of new property: it is measured in the condition of the property immediately before the damage [@CL-EST-2892].
+Self-insurance is the assumption or retention of the risk or loss by the contractor, and it includes the deductible portion of purchased insurance [@CL-EST-2895]. A self-insurance charge is a cost which represents the projected average loss under a self-insurance plan [@CL-EST-2896]. An insurance administration expense is a cost of administering an insurance program, such as the costs of processing claims and actuarial fees [@CL-EST-2893]. Actual cash value is the cost of replacing damaged property with other property of like kind and quality in the physical condition of the property immediately before the damage [@CL-EST-2892].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Confirm which risks the company retains, including deductibles, and how the self
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Definitions restated as quoted; uncited contrasts and statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the insurance cost Standard definitions.

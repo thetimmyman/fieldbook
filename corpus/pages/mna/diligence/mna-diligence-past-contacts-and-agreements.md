@@ -34,13 +34,13 @@ Paragraph (a) requires a brief statement of the nature and approximate dollar am
 
 ### Significant corporate events, negotiations and contacts
 
-Paragraph (b) requires a description of any negotiations, transactions or material contacts during the past two years between the filing person (including subsidiaries of the filing person and any person specified in Instruction C) and the subject company or its affiliates concerning any listed matter [@CL-MNA-1059]. The listed matters are any merger, consolidation, acquisition, tender offer for or other acquisition of any class of the subject company's securities, election of the subject company's directors, and sale or other transfer of a material amount of assets of the subject company [@CL-MNA-1060].
+Paragraph (b) requires a description of any negotiations, transactions or material contacts during the past two years between the filing person (including subsidiaries of the filing person and any person specified in Instruction C) and the subject company or its affiliates concerning any listed matter [@CL-MNA-1059]. The listed matters are alternatives: any one of a merger, a consolidation, an acquisition, a tender offer for or other acquisition of any class of the subject company's securities, an election of the subject company's directors, or a sale or other transfer of a material amount of assets of the subject company [@CL-MNA-1060].
 
 Paragraph (c) requires a description of any negotiations or material contacts concerning the paragraph (b) matters during the past two years between any affiliates of the subject company [@CL-MNA-1061]. It also reaches such negotiations or contacts between the subject company or any of its affiliates and any person not affiliated with the subject company who would have a direct interest in such matters [@CL-MNA-1062]. The instruction to paragraphs (b) and (c) requires identification of the person who initiated the contacts or negotiations [@CL-MNA-1062].
 
 ### Conflicts of interest
 
-Paragraph (d) requires, if material, a description of any agreement, arrangement or understanding and any actual or potential conflict of interest between the filing person or its affiliates and the subject company, its executive officers, directors or affiliates [@CL-MNA-1063]. It covers the same matters between the filing person or its affiliates and the offeror, its executive officers, directors or affiliates [@CL-MNA-1064].
+Paragraph (d) requires, if material, a description of any agreement, arrangement or understanding and any actual or potential conflict of interest between the filing person or its affiliates and the subject company, its executive officers, directors or affiliates [@CL-MNA-1063]. The other alternative covers the same matters between the filing person or its affiliates and the offeror, its executive officers, directors or affiliates [@CL-MNA-1064].
 
 If the filing person is the subject company, no disclosure called for by paragraph (d) is required in the document disseminated to security holders [@CL-MNA-1064]. That relief applies so long as substantially the same information was filed with the Commission previously and disclosed in a proxy statement, report or other communication sent to security holders by the subject company in the past year [@CL-MNA-1065]. Where the relief is used, the document must refer specifically to the earlier discussion, and the information also must be filed as an exhibit to the schedule [@CL-MNA-1066].
 
@@ -70,5 +70,6 @@ The company confirms which counterparties and agreements fall inside these tests
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Listed matters and the offeror counterparty stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-31: Added the instruction to paragraph (a)(1) and Instruction 1 to paragraph (e), and retitled the card to match the heading of Item 1005.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for past contacts, transactions and agreements.

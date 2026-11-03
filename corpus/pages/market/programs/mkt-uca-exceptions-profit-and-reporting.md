@@ -29,7 +29,7 @@ Sets out which undefinitized contract actions (UCAs) fall outside the subpart, h
 | Text status | Final [@CL-MKT-1553] |
 | Applies to | UCAs outside the subpart, profit on a UCA priced after substantial performance, and UCA management reporting [@CL-MKT-1553; @CL-MKT-1555; @CL-MKT-1558] |
 
-The UCAs that paragraph (a) excludes from the subpart are purchases at or below the simplified acquisition threshold, special access programs and congressionally mandated long-lead procurement contracts [@CL-MKT-1553]. They are not subject to the subpart, but the contracting officer shall apply its policy and procedures to them to the maximum extent practicable [@CL-MKT-1554]. If the contracting officer determines that it is impracticable to adhere to the procedures for a particular action within one of those categories, the contracting officer shall provide prior notice [@CL-MKT-1616]. The notice goes through agency channels, electronically by email, to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy (Contract Policy) [@CL-MKT-1617].
+The UCAs that paragraph (a) excludes from the subpart are purchases at or below the simplified acquisition threshold, special access programs and congressionally mandated long-lead procurement contracts [@CL-MKT-1554; @CL-MKT-1553]. They are not subject to the subpart, but the contracting officer shall apply its policy and procedures to them to the maximum extent practicable [@CL-MKT-1554]. If the contracting officer determines that it is impracticable to adhere to the procedures for a particular action within one of those categories, the contracting officer shall provide prior notice [@CL-MKT-1616]. The notice goes through agency channels, electronically by email, to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy (Contract Policy) [@CL-MKT-1617].
 
 When the final price of a UCA is negotiated after a substantial portion of the required performance has been completed, the head of the contracting activity shall ensure that the profit allowed reflects three matters [@CL-MKT-1555]. The first is any reduced cost risk to the contractor for costs incurred during performance before the final price is negotiated [@CL-MKT-1618]. The second is any reduced cost risk for costs expected to be incurred in the rest of the contract after the final price is negotiated [@CL-MKT-1557]. The third is the requirements at DFARS 215.404-71-3(d)(2), and the risk assessment shall be documented in the price negotiation memorandum [@CL-MKT-1620].
 
@@ -61,4 +61,5 @@ How the qualifying proposal date, the definitization date and the profit risk as
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: exclusions list cites lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for undefinitized contract action exclusions, profit and reporting.

@@ -35,7 +35,7 @@ For shipments picked up or delivered under Schedule III, Intra-City and Intra-Ar
 
 ## How it works
 
-The first set of rules ties liability to a notice period of one year after delivery, and the amount depends on whether the contractor was negligent [@CL-SUP-1616; @CL-SUP-1617; @CL-SUP-1618]. The Schedule III rule uses a shorter notice period and a weight-based ceiling [@CL-SUP-1619; @CL-SUP-1620]. Among the quoted rules, the per-pound rate ceiling applies only to damage from a cause other than negligence [@CL-SUP-1617]. Separately, the contractor shall be liable for all demurrage, detention, or other charges as a result of its failure to load or unload trucks, freight cars, freight terminals, vessel piers, or warehouses within the free time allowed under applicable rules and tariffs [@CL-SUP-1621]. This card does not quote the remaining paragraphs of the liability clause, and the quoted demurrage text sets no rate.
+The first set of rules ties liability to a notice period of one year after delivery, and the amount depends on whether the contractor was negligent [@CL-SUP-1616; @CL-SUP-1617; @CL-SUP-1618]. The Schedule III rule uses a shorter notice period and a weight-based ceiling [@CL-SUP-1619; @CL-SUP-1620]. Among the Schedule I and Schedule II rules, the rate not to exceed sixty cents per pound per article is the rule for damage from a cause other than the contractor's negligence [@CL-SUP-1617], while negligent damage carries liability for the full cost of satisfactory repair or the current replacement value [@CL-SUP-1618]. Separately, the contractor shall be liable for all demurrage, detention, or other charges as a result of its failure to load or unload trucks, freight cars, freight terminals, vessel piers, or warehouses within the free time allowed under applicable rules and tariffs [@CL-SUP-1621]. This card does not quote the remaining paragraphs of the liability clause, and the quoted demurrage text sets no rate.
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which executed contracts carry these clauses and which schedule each shipment fa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the per-pound rate sentence to say what its quotes support.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor liability for loss or damage, and demurrage.

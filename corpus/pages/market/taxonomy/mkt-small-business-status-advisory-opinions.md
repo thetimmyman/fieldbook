@@ -28,7 +28,7 @@ Shows who may issue a small business status advisory opinion, what it covers and
 | Text status | Not established. |
 | Applies to | Firms that want a written opinion that they may represent themselves as small for federal procurement opportunities [@CL-MKT-0665] |
 
-A small business status advisory opinion is a written opinion issued by either a Small Business Development Center operating under part 130 of the chapter or a Procurement Technical Assistance Center operating under chapter 142 of title 10 of the United States Code [@CL-MKT-0664]. It concludes that a firm is entitled to represent itself as a small business concern for purposes of federal government procurement opportunities [@CL-MKT-0665]. The opinion must provide a written analysis explaining why the center concluded that the covered concern, along with its affiliates, either does or does not exceed the size standard or standards [@CL-MKT-0666].
+A small business status advisory opinion is a written opinion issued by either a Small Business Development Center operating under part 130 of the chapter or a Procurement Technical Assistance Center operating under chapter 142 of title 10 of the United States Code [@CL-MKT-0664]. It concludes that a firm is entitled to represent itself as a small business concern for purposes of federal government procurement opportunities [@CL-MKT-0665]. One thing the opinion must do is provide a written analysis explaining why the center concluded that the covered concern, along with its affiliates, either does or does not exceed the size standard or standards [@CL-MKT-0666].
 
 Unless a referral is made under the paragraph on referral for size determination, SBA decides within 10 business days of receiving the opinion whether to accept or reject it, based on its consistency with part 121 [@CL-MKT-0667]. Nothing in the section precludes the Associate General Counsel, Office of Procurement Law, from requesting a formal size determination for a concern that is the subject of an opinion [@CL-MKT-0705].
 
@@ -54,4 +54,5 @@ Whether the company holds or relies on any status advisory opinion, and on which
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Said the written analysis is one of the opinion requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business status advisory opinions.

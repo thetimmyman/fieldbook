@@ -29,7 +29,7 @@ Shows the DoD rule that contracting officers use objective criteria to measure p
 | Text status | Final [@CL-MKT-1848] |
 | Applies to | Cost-plus-incentive-fee and fixed-price-incentive contracts, including fixed-price incentive (firm target) contracts [@CL-MKT-1849; @CL-MKT-1852] |
 
-Contracting officers shall use objective criteria to the maximum extent possible to measure contract performance [@CL-MKT-1848]. The section associates objective criteria with cost-plus-incentive-fee and fixed-price-incentive contracts [@CL-MKT-1849]. When objective criteria exist but the contracting officer determines that it is in the best interest of the Government also to incentivize subjective elements of performance, the most appropriate contract type is a multiple-incentive contract [@CL-MKT-1850]. A multiple-incentive contract contains both objective incentives and subjective award-fee criteria, as in cost-plus-incentive-fee with award fee or fixed-price-incentive with award fee [@CL-MKT-1851]. The section refers to PGI 216.401(e) for guidance on the use of award-fee contracts [@CL-MKT-1945].
+Contracting officers shall use objective criteria to the maximum extent possible to measure contract performance [@CL-MKT-1848]. The section associates objective criteria with cost-plus-incentive-fee and fixed-price-incentive contracts [@CL-MKT-1849]. When objective criteria exist but the contracting officer determines that it is in the best interest of the Government also to incentivize subjective elements of performance, the most appropriate contract type is a multiple-incentive contract [@CL-MKT-1850]. A multiple-incentive contract contains both objective incentives and subjective award-fee criteria, that is, cost-plus-incentive-fee/award-fee or fixed-price-incentive/award-fee [@CL-MKT-1851]. The section refers to PGI 216.401(e) for guidance on the use of award-fee contracts [@CL-MKT-1945].
 
 The contracting officer shall give particular consideration to the use of fixed-price incentive (firm target) contracts, especially for acquisitions moving from development to production [@CL-MKT-1852]. The contracting officer shall also pay particular attention to share lines and ceiling prices for those contracts [@CL-MKT-1853]. A 120 percent ceiling and a 50/50 share ratio are the point of departure for establishing the incentive arrangement [@CL-MKT-1854]. The section refers to PGI 216.403-1 for guidance on the use of these contracts [@CL-MKT-1946].
 
@@ -57,4 +57,5 @@ Which of the company's incentive contracts are cost-plus-incentive-fee, fixed-pr
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Multiple-incentive contract pairing stated as the source words it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for objective criteria and fixed-price incentive (firm target) contracts under DFARS 216.401-71 and 216.403-1.

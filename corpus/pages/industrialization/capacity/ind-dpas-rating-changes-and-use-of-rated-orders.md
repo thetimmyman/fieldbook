@@ -34,7 +34,7 @@ Among the things a person must use rated orders to obtain are items that will be
 
 ## How it works
 
-A rating is changed by an official action of Commerce or by written notice from whoever placed the order [@CL-IND-0169]. An amendment that significantly alters the supplier's production or delivery schedule makes a new rated order unless it is one of the listed exceptions, such as a change the supplier and customer agree [@CL-IND-0228], and the supplier handles it under the acceptance and rejection rules on [DPAS: acceptance, rejection, scheduling and flowdown of rated orders](ind-dpas-acceptance-rejection-and-flowdown.md) [@CL-IND-0170]. A contractor passes its rating down by placing rated orders for the items and MRO it needs to fill a rated order [@CL-IND-0172; @CL-IND-0173]. When it no longer needs those items, it must cancel the orders or their ratings [@CL-IND-0171]. What may not be bought with a rated order is on [DPAS: limits on rated orders and requests for rating authority](ind-dpas-rated-order-limits-and-rating-authority.md). The printed sections also set rules on combining rated orders and on minimum commercially procurable quantities, which this card does not state.
+A rating may be changed or cancelled by an official action of Commerce or by written notification from the person who placed the order, including a Delegate Agency [@CL-IND-0169]. An amendment that significantly alters the supplier's production or delivery schedule makes a new rated order unless it is one of the listed exceptions, such as a change the supplier and customer agree [@CL-IND-0228], and the supplier handles it under the acceptance and rejection rules on [DPAS: acceptance, rejection, scheduling and flowdown of rated orders](ind-dpas-acceptance-rejection-and-flowdown.md) [@CL-IND-0170]. A contractor passes its rating down by placing rated orders for the items and MRO it needs to fill a rated order [@CL-IND-0172; @CL-IND-0173]. When it no longer needs those items, it must cancel the orders or their ratings [@CL-IND-0171]. What may not be bought with a rated order is on [DPAS: limits on rated orders and requests for rating authority](ind-dpas-rated-order-limits-and-rating-authority.md). The printed sections also set rules on combining rated orders and on minimum commercially procurable quantities, which this card does not state.
 
 ## Worked example
 
@@ -54,4 +54,5 @@ How the company records each rating it receives, passes it to suppliers and canc
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Rating change wording says may and who
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changes to priority ratings and use of rated orders.

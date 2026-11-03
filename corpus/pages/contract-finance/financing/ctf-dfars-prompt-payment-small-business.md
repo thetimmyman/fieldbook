@@ -41,7 +41,7 @@ The 15 days count from receipt of proper invoices together with all required doc
 
 The measure is a goal, not a deadline. It sits ahead of the normal payment due dates that the contract establishes, and the section does not state that it replaces them [@CL-CTF-3804]. The FAR due-date rules are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
 
-The section points to DFARS 232.906(a) for the normal payment due dates, and paragraph (a)(ii) of that section says the restrictions prohibiting early payment do not apply to invoice payments made to small business concerns, but contractors are not entitled to interest penalties if the Government fails to make early payment [@CL-CTF-0915]. The section does not define a small business concern and states no consequence for missing the goal.
+The section points to DFARS 232.906(a) for the normal payment due dates [@CL-CTF-9596], and paragraph (a)(ii) of that section says the restrictions prohibiting early payment do not apply to invoice payments made to small business concerns, but contractors are not entitled to interest penalties if the Government fails to make early payment [@CL-CTF-0915]. The section does not define a small business concern and states no consequence for missing the goal.
 
 ## Worked example
 
@@ -67,4 +67,5 @@ Whether the company is a small business concern for each contract, and when prop
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Pointer to DFARS 232.906(a) now cites a claim quoting the pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD prompt payment responsibilities for small business concerns.

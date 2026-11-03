@@ -37,7 +37,7 @@ In the employee-owned business provision, the offeror represents that it is a qu
 
 ## How it works
 
-The telecommunications representation is a choice between does and does not provide, made after the offeror reviews the excluded parties list [@CL-SUP-1585; @CL-SUP-1586]. The restriction works at the solicitation level and bars foreign sources other than Canadian sources from award [@CL-SUP-1587]. The employee-owned representation is a single statement that the offeror is a qualified business, with its meaning set in another clause [@CL-SUP-1588; @CL-SUP-1665; @CL-SUP-1589].
+The telecommunications representation is a choice between does and does not provide, and the same provision requires the offeror to review the excluded parties list [@CL-SUP-1585; @CL-SUP-1586]. The restriction works at the solicitation level and bars foreign sources other than Canadian sources from award [@CL-SUP-1587]. The employee-owned representation is a single statement that the offeror is a qualified business, with its meaning set in another clause [@CL-SUP-1588; @CL-SUP-1665; @CL-SUP-1589].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Which solicitations carry each provision and what the company's current represen
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Review step no longer implied as a precondition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the covered telecommunications representation, domestic source restriction and employee-owned business representation.

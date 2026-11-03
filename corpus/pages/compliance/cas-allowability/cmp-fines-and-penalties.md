@@ -16,7 +16,7 @@ links = ["cmp-unallowable-cost-penalty"]
 
 ## Purpose
 
-Establishes the unallowability of fines, penalties for regulatory violations, and costs incurred to investigate or remedy improper mischarging.
+Establishes the unallowability of fines, penalties for regulatory violations, and costs incurred in connection with mischarging, including costs to measure or remedy it.
 
 ## The rule
 
@@ -29,11 +29,11 @@ Establishes the unallowability of fines, penalties for regulatory violations, an
 | Text status | Final [@CL-CMP-0306] |
 | Applies to | Government contracts subject to the cost principles [@CL-CMP-0306] |
 
-Costs of fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific contract terms or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. Costs incurred in connection with the mischarging of costs on Government contracts caused by alteration or destruction of records, or other false or improper charging, are also unallowable, including measurement and rescreening expenses [@CL-CMP-0307; @CL-CMP-0308].
+Costs of fines and penalties resulting from violations of, or failure of the contractor to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. Costs incurred in connection with, or related to, the mischarging of costs on Government contracts are unallowable when the costs are caused by, or result from, alteration or destruction of records, or other false or improper charging or recording of costs [@CL-CMP-0307]. Such costs include those incurred to measure or otherwise determine the magnitude of the improper charging, and costs incurred to remedy or correct the mischarging, such as costs to rescreen and reconstruct records [@CL-CMP-0308].
 
 ## How it works
 
-Fines and penalties resulting from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. The mischarging disallowance bars all costs caused by improper charging or record alteration on government work [@CL-CMP-0307]. Costs incurred to measure or otherwise determine the magnitude of the improper charging, and costs incurred to remedy or correct the mischarging, such as costs to rescreen and reconstruct records, are unallowable [@CL-CMP-0308]. These corrective costs are unallowable mischarging costs [@CL-CMP-0308].
+Fines and penalties resulting from violations of, or failure of the contractor to comply with, Federal, State, local, or foreign laws and regulations are unallowable, except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-0306; @CL-CMP-0814]. The mischarging disallowance applies to costs incurred in connection with, or related to, the mischarging of costs on Government contracts when the costs are caused by, or result from, alteration or destruction of records, or other false or improper charging or recording of costs [@CL-CMP-0307]. Such costs include those incurred to measure or otherwise determine the magnitude of the improper charging, and costs incurred to remedy or correct the mischarging, such as costs to rescreen and reconstruct records [@CL-CMP-0308].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. The RFO section 31.205-15 keeps the rule described above: paragraph (a) makes fines and penalties unallowable except when incurred as a result of compliance with specific terms and conditions of the contract or written instructions from the contracting officer [@CL-CMP-8549], and paragraph (b) keeps the mischarging disallowance [@CL-CMP-8550] and its measurement and remedy costs [@CL-CMP-8551].
 
@@ -45,7 +45,7 @@ An environmental agency assesses a 75,000 civil penalty against a contractor for
 
 ## Never confuse
 
-Fines and penalties arise from violations of, or failure to comply with, Federal, State, local, or foreign laws and regulations [@CL-CMP-0306; @CL-CMP-0814]. Mischarging costs are unallowable when caused by, or resulting from, alteration or destruction of records or other false or improper charging or recording of costs, and include costs to measure the magnitude of the improper charging and to remedy or correct it [@CL-CMP-0307; @CL-CMP-0308]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
+Fines and penalties arise from violations of, or failure of the contractor to comply with, Federal, State, local, or foreign laws and regulations [@CL-CMP-0306; @CL-CMP-0814]. Mischarging costs are unallowable when caused by, or resulting from, alteration or destruction of records or other false or improper charging or recording of costs, and include costs to measure the magnitude of the improper charging and to remedy or correct it [@CL-CMP-0307; @CL-CMP-0308]. See [Unallowable-cost penalties](cmp-unallowable-cost-penalty.md) for the consequences of including unallowable costs in indirect cost proposals.
 
 ## Company calibration
 
@@ -55,5 +55,6 @@ How regulatory penalties and improper mischarging investigation or reconstructio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored 'of the contractor' and the mischarging condition, and limited the corrective-cost wording to what the quotes say.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fines and penalties.

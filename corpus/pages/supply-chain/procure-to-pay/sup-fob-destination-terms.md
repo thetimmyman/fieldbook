@@ -49,7 +49,7 @@ A contract is f.o.b. destination to a consignee's receiving dock. The contractor
 
 ## Never confuse
 
-F.o.b. destination is not f.o.b. origin. Under f.o.b. origin the contractor is responsible for loss before delivery to the carrier and for loss from improper packing and marking [@CL-SUP-1966], and from improper loading when it loaded the shipment [@CL-SUP-1967], and it delivers on board the carrier's conveyance at the shipping point [@CL-SUP-1961].
+F.o.b. destination is not f.o.b. origin. Under f.o.b. origin the contractor is responsible for loss before delivery to the carrier and for loss from improper packing and marking [@CL-SUP-1966], and from improper loading when it loaded the shipment [@CL-SUP-1967], and one of the delivery points the f.o.b. origin term lists is on board the indicated type of conveyance of the carrier (or of the Government, if specified) at a designated point in the city, county and State from which the shipment will be made [@CL-SUP-1961].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Confirm who arranges and pays freight to the consignee's dock on each contract a
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the f.o.b. origin delivery point as one of those the term lists.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for f.o.b. destination and f.o.b. destination within consignee's premises.

@@ -27,7 +27,7 @@ Shows what a letter of understanding can do in a special priorities assistance c
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | Special priorities assistance cases resolved by agreement of all parties [@CL-IND-0306] |
+| Applies to | Special priorities assistance cases in which a letter of understanding may be issued to reflect an agreement reached by all parties [@CL-IND-0306] |
 
 15 CFR 700.63 provides that a letter of understanding is an official action that may be issued in resolving special priorities assistance cases, to reflect an agreement reached by all parties, such as the Department of Commerce, the Determination Department, the Delegate Agency, the supplier and the customer [@CL-IND-0306]. The paragraph does not say who issues it.
 
@@ -59,5 +59,6 @@ Confirm which schedule commitments with suppliers are already agreed, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Applies-to row says may be issued
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the general provisions on official actions and the rules for directives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS letters of understanding.

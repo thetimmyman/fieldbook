@@ -31,7 +31,7 @@ Explains the overtime pay rule for laborers and mechanics, the liquidated damage
 
 Certain contracts contain a clause specifying that no laborer or mechanic doing any part of the work shall be required or permitted to work more than 40 hours in any workweek unless paid for all such overtime hours at not less than one and one-half times the basic rate of pay [@CL-OPM-0088]. When an overtime computation discloses underpayments, the responsible contractor or subcontractor must pay the affected employee any unpaid wages and pay liquidated damages to the Government [@CL-OPM-0089].
 
-Liquidated damages must be assessed at the rate specified in the cited regulation per affected employee for each calendar day on which the employer required or permitted the employee to work in excess of the standard workweek of 40 hours without paying overtime wages required by the statute [@CL-OPM-0090]. The section does not state that rate in dollars.
+The contracting officer must assess liquidated damages at the rate specified in the cited regulation per affected employee for each calendar day on which the employer required or permitted the employee to work in excess of the standard workweek of 40 hours without paying overtime wages required by the statute [@CL-OPM-0090]. The section does not state that rate in dollars.
 
 Chapter 37 of title 40 of the United States Code, Contract Work Hours and Safety Standards, requires that certain contracts (see 22.305) contain a clause (see 52.222-4) specifying that no laborer or mechanic doing any part of the work contemplated by the contract shall be required or permitted to work more than 40 hours [@CL-OPM-1004] in any workweek unless paid for all additional hours at not less than 1 1/2 times the basic rate of pay (see 22.301) [@CL-OPM-1005]. The procedures and reports required for construction contracts in subpart 22.4 also apply to investigations of alleged violations of the statute on other than construction contracts [@CL-OPM-1003].
 
@@ -57,5 +57,6 @@ Which payroll and timekeeping systems are authoritative for the hours worked and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the contracting officer as the one who assesses liquidated damages.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the administration rule and the overtime clause as stated in the construction subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Contract Work Hours and Safety Standards overtime.

@@ -31,7 +31,7 @@ Specifies how profit is allowed on preparations made and work done, and how a se
 
 The termination contracting officer must allow profit on preparations made and work done by the contractor for the terminated portion of the contract, but not on the settlement expenses [@CL-CLS-0513].
 
-In the negotiation or determination of any settlement of a terminated fixed-price contract, the termination contracting officer must not allow profit if it appears that the contractor would have incurred a loss had the entire contract been completed [@CL-CLS-0515].
+In the negotiation or determination of any settlement, the termination contracting officer must not allow profit if it appears that the contractor would have incurred a loss had the entire contract been completed [@CL-CLS-0515].
 
 ## How it works
 
@@ -57,4 +57,5 @@ Who estimates the cost to complete the entire contract and signs off profit excl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: loss rule worded as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for profit allowance and loss adjustments in termination settlements.

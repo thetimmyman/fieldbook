@@ -23,22 +23,22 @@ Shows where cited specifications may be examined when they are not distributed, 
 |---|---|
 | Instrument | Codified FAR [@CL-EST-2187; @CL-EST-2188] |
 | Codified citation | FAR 52.211-4 [@CL-EST-2187]; FAR 52.211-7 [@CL-EST-2188] |
-| RFO citation | No RFO equivalent [@CL-EST-0618] [@CL-EST-0619] |
+| RFO citation | RFO FAR 52.211-4 and RFO FAR 52.211-7 are each listed as [Reserved] [@CL-EST-0618] [@CL-EST-0619] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2187; @CL-EST-2188] |
 | Applies to | Solicitations that cite specifications not available for distribution, or that include Government-unique standards [@CL-EST-2187; @CL-EST-2188] |
 
-Under FAR 52.211-4, for specifications not listed in the GSA index, the specifications cited in the solicitation are not available for distribution but may be examined at the locations the provision names [@CL-EST-2187]. For each location the provision calls for the activity, complete address, telephone number, person to be contacted and times for viewing [@CL-EST-2237]. Those details are filled in for each solicitation and are contract-specific. The FAR prescribes a provision substantially the same as the text of FAR 52.211-4, so a solicitation's wording may differ from that text [@CL-EST-2224].
+Under FAR 52.211-4, for specifications not listed in the GSA index, the specifications cited in the solicitation are not available for distribution but may be examined at the locations the provision names [@CL-EST-2187]. For each location the provision calls for the activity, complete address, telephone number, person to be contacted and times for viewing [@CL-EST-2237]. As prescribed in FAR 11.204(d), a provision substantially the same as the text of FAR 52.211-4 is inserted [@CL-EST-2224].
 
-Under FAR 52.211-7, where the solicitation includes Government-unique standards, the offeror may propose voluntary consensus standards that meet the Government's requirements as alternatives to the Government-unique standards [@CL-EST-2188]. The Government will accept use of the voluntary consensus standard instead of the Government-unique standard if it meets the Government's requirements, unless that is inconsistent with law or otherwise impractical [@CL-EST-2225]. If an alternative standard is proposed, the offeror must furnish data and/or information regarding the alternative in sufficient detail for the Government to determine if it meets the Government's requirements [@CL-EST-2189]. Acceptance of the alternative standard is a unilateral decision made solely at the discretion of the Government [@CL-EST-2226]. This card reports both statements as written and does not reconcile them.
+Under FAR 52.211-7, where the solicitation includes Government-unique standards, the offeror may propose voluntary consensus standards that meet the Government's requirements as alternatives to the Government-unique standards [@CL-EST-2188]. The Government will accept use of the voluntary consensus standard instead of the Government-unique standard if it meets the Government's requirements, unless that is inconsistent with law or otherwise impractical [@CL-EST-2225]. If an alternative standard is proposed, the offeror must furnish data and/or information regarding the alternative in sufficient detail for the Government to determine if it meets the Government's requirements [@CL-EST-2189]. Acceptance of the alternative standard is a unilateral decision made solely at the discretion of the Government [@CL-EST-2226].
 
 Offers that do not comply with the Government-unique standards specified in the solicitation may be determined to be nonresponsive or unacceptable [@CL-EST-2190]. The offeror may submit an offer that complies with the Government-unique standards, in addition to any proposed alternative standard(s) [@CL-EST-2227].
 
 ## How it works
 
-An offeror that needs a cited specification goes to a listed location at the listed times, because copies are not distributed [@CL-EST-2187; @CL-EST-2237]. An offeror that prefers a voluntary consensus standard proposes it and supplies enough data for the Government to judge whether it meets the requirements [@CL-EST-2188; @CL-EST-2189]. The Government's acceptance is described as a unilateral decision made solely at its discretion, and also as something it will do for a qualifying standard unless that is inconsistent with law or otherwise impractical [@CL-EST-2226; @CL-EST-2225]. An offer that does not comply with the Government-unique standards risks being found nonresponsive or unacceptable [@CL-EST-2190], and the offeror may submit a compliant offer in addition to any proposed alternative [@CL-EST-2227].
+The cited specifications are not available for distribution, but they may be examined at the locations listed, at the times for viewing that the provision names [@CL-EST-2187; @CL-EST-2237]. An offeror may propose a voluntary consensus standard that meets the Government's requirements as an alternative [@CL-EST-2188], and if an alternative is proposed the offeror must furnish data and/or information in sufficient detail for the Government to determine whether it meets the requirements [@CL-EST-2189]. Acceptance of the alternative standard is a unilateral decision made solely at the discretion of the Government [@CL-EST-2226]; the Government will also accept use of the voluntary consensus standard instead of the Government-unique standard if it meets the Government's requirements unless inconsistent with law or otherwise impractical [@CL-EST-2225]. Offers that do not comply with the Government-unique standards may be determined to be nonresponsive or unacceptable [@CL-EST-2190], and the offeror may submit a compliant offer in addition to any proposed alternative [@CL-EST-2227].
 
-Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.211-4 as [Reserved] and prints no clause text under that number [@CL-EST-0618], and lists FAR 52.211-7 as [Reserved] and prints no clause text under that number [@CL-EST-0619].
+Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.211-4 is listed as [Reserved] [@CL-EST-0618], and RFO FAR 52.211-7 is listed as [Reserved] [@CL-EST-0619].
 
 ## Worked example
 
@@ -54,11 +54,11 @@ This example applies the codified provisions at FAR 52.211-4 and FAR 52.211-7 [@
 
 ## Never confuse
 
-A specification that may only be examined differs from one that can be obtained on request. A provision for specifications not in the GSA index names an activity to obtain copies from [@CL-EST-2186], while this provision says cited specifications are not available for distribution [@CL-EST-2187]. The first is covered on [Where to get specifications, standards and data item descriptions](est-availability-of-specifications-standards-and-dids.md).
+FAR 52.211-3 says the cited specifications may be obtained from the activity it names [@CL-EST-2186], while FAR 52.211-4 says they are not available for distribution but may be examined at the locations it names [@CL-EST-2187]. The first is covered on [Where to get specifications, standards and data item descriptions](est-availability-of-specifications-standards-and-dids.md).
 
-Proposing an alternative standard is not the same as having it accepted. Acceptance is the Government's decision, and a noncompliant offer may be found nonresponsive or unacceptable [@CL-EST-2226; @CL-EST-2190]. A compliant offer may be submitted in addition to an alternative [@CL-EST-2227]. Brand name or equal rules are covered separately on [Material requirements and brand name or equal](../../supply-chain/sourcing-evidence/sup-material-requirements-and-brand-name-or-equal.md).
+Acceptance of an alternative standard is a unilateral decision made solely at the discretion of the Government [@CL-EST-2226]. Offers that do not comply with the Government-unique standards may be determined to be nonresponsive or unacceptable [@CL-EST-2190]. A compliant offer may be submitted in addition to an alternative [@CL-EST-2227]. Brand name or equal rules are covered separately on [Material requirements and brand name or equal](../../supply-chain/sourcing-evidence/sup-material-requirements-and-brand-name-or-equal.md).
 
-The codified provisions at FAR 52.211-4 and FAR 52.211-7 print the viewing-location provision and the alternative-standards provision [@CL-EST-2187] [@CL-EST-2188], but the RFO text lists both numbers as [Reserved] with no clause text [@CL-EST-0618] [@CL-EST-0619].
+The codified provisions at FAR 52.211-4 and FAR 52.211-7 state the viewing-location provision and the alternative-standards provision [@CL-EST-2187] [@CL-EST-2188], while RFO FAR 52.211-4 and RFO FAR 52.211-7 are each listed as [Reserved] [@CL-EST-0618] [@CL-EST-0619].
 
 ## Company calibration
 
@@ -68,5 +68,7 @@ Confirm how the company records which specifications it examined and which alter
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted glosses and contrasts; replaced statements about missing RFO text with the [Reserved] listing.
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded glosses on the specification-viewing details and the alternative-standard steps to match the quoted wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for availability for examination of specifications and alternatives to Government-unique standards.

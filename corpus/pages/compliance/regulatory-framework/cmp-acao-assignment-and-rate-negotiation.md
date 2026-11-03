@@ -37,7 +37,7 @@ The same paragraph says to follow the procedures at PGI 242.705-1(a)(1) when neg
 
 ## How it works
 
-The duty in DFARS 242.705-1(a)(1) falls on the corporate administrative contracting officer and the individual administrative contracting officers [@CL-CMP-8767]. They decide jointly, so neither the corporate officer nor an individual officer sets the approach alone [@CL-CMP-8767]. When negotiations are conducted on a coordinated basis, the named PGI procedures are to be followed as well [@CL-CMP-8768]. Neither printed paragraph places a duty on the contractor [@CL-CMP-8766; @CL-CMP-8767].
+The duty in DFARS 242.705-1(a)(1) falls on the corporate administrative contracting officer and the individual administrative contracting officers [@CL-CMP-8767]. They decide jointly [@CL-CMP-8767]. When negotiations are conducted on a coordinated basis, the named PGI procedures are to be followed as well [@CL-CMP-8768]. Neither printed paragraph places a duty on the contractor [@CL-CMP-8766; @CL-CMP-8767].
 
 The referral in DFARS 242.602(c)(2) is for the case where the agencies cannot agree [@CL-CMP-8766]. The printed text gives the escalation point. It does not say that the Principal Director decides the matter. The FAR rules on the contractor's final indirect cost rate proposal and the negotiation record are on [Final indirect cost rates: contracting officer determination procedure](../../indirect-rates/rate-lifecycle/rte-co-final-indirect-rates.md). For how a contract comes to be assigned to a contract administration office, see [Assignment of contract administration](cmp-assignment-of-contract-administration.md).
 
@@ -63,4 +63,5 @@ Which executed contracts sit with which administration office and officer, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited inference.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for administrative contracting officer assignment and indirect cost rate negotiation.

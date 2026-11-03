@@ -29,15 +29,15 @@ Sets out which acquisitions count as interagency acquisitions, what is excluded,
 | Text status | Final [@CL-MKT-1727] |
 | Applies to | Interagency acquisitions under any authority, except the excluded reimbursable work, incidental-contracting activities and small Federal Supply Schedule orders [@CL-MKT-1727; @CL-MKT-1777; @CL-MKT-1729] |
 
-The subpart prescribes policies and procedures applicable to all interagency acquisitions under any authority, except as provided in its exclusion paragraph [@CL-MKT-1727]. It applies when an agency needing supplies or services obtains them using another agency's contract [@CL-MKT-1775], and when an agency uses another agency to provide acquisition assistance, such as awarding and administering a contract, a task order or a delivery order [@CL-MKT-1776].
+The subpart prescribes policies and procedures applicable to all interagency acquisitions under any authority, except as provided in its exclusion paragraph [@CL-MKT-1727]. It applies when either of two things happens: an agency needing supplies or services obtains them using another agency's contract [@CL-MKT-1775], or an agency uses another agency to provide acquisition assistance, such as awarding and administering a contract, a task order or a delivery order [@CL-MKT-1776].
 
 The subpart does not apply to interagency reimbursable work performed by Federal employees other than acquisition assistance, or to interagency activities where contracting is incidental to the purpose of the transaction [@CL-MKT-1777]. It also does not apply to orders of $750,000 or less issued against Federal Supply Schedules [@CL-MKT-1729].
 
-In addition to complying with this subpart, nondefense agencies acquiring supplies and services on behalf of the Department of Defense shall also comply with the policy and procedures of the subpart on acquisitions by nondefense agencies for the Department of Defense [@CL-MKT-1728].
+In addition to complying with this subpart, nondefense agencies acquiring supplies and services on behalf of the Department of Defense shall also comply with the policy and procedures at subpart 17.7 [@CL-MKT-1728].
 
 An agency shall not use an interagency acquisition to circumvent conditions and limitations imposed on the use of funds [@CL-MKT-1730]. An agency shall not use an interagency acquisition to make acquisitions conflicting with any other agency's authority or responsibility [@CL-MKT-1732]. An interagency acquisition is not exempt from the requirements of subpart 7.3 on contractor versus Government performance [@CL-MKT-1731].
 
-FAR 2.101 defines an interagency acquisition as a procedure by which an agency needing supplies or services (the requesting agency) obtains them from another agency (the servicing agency), by an assisted acquisition or a direct acquisition [@CL-MKT-9211]. The term includes acquisitions under the Economy Act (section 1535 of title 31 of the United States Code) and non-Economy Act acquisitions completed under other statutory authorities, for example General Services Administration Federal Supply Schedules in subpart 8.4 and Governmentwide acquisition contracts [@CL-MKT-9212].
+FAR 2.101 defines an interagency acquisition as a procedure by which an agency needing supplies or services (the requesting agency) obtains them from another agency (the servicing agency), by an assisted acquisition or a direct acquisition [@CL-MKT-9211]. The first sentence of the RFO model text definition of an interagency acquisition in FAR 2.101 reads the same as the codified first sentence [@CL-MKT-9260; @CL-MKT-9211], and the RFO text goes on to say that the term includes (1) acquisitions under the Economy Act (31 U.S.C. 1535) and (2) non-Economy Act acquisitions completed under other statutory authorities, for example General Services Administration Federal Supply Schedules in subpart 8.4 and Governmentwide acquisition contracts [@CL-MKT-9260; @CL-MKT-9307]. The term includes acquisitions under the Economy Act (section 1535 of title 31 of the United States Code) and non-Economy Act acquisitions completed under other statutory authorities, for example General Services Administration Federal Supply Schedules in subpart 8.4 and Governmentwide acquisition contracts [@CL-MKT-9212].
 
 ## How it works
 
@@ -69,5 +69,8 @@ Which interagency orders the company performs under, which agency is the servici
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: applicability alternatives stated as either-or, subpart 17.7 wording follows quote.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the interagency acquisition definition.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of interagency acquisition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of interagency acquisition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for interagency acquisitions scope, general rules and reporting.

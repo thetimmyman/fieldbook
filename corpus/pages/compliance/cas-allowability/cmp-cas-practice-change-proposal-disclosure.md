@@ -29,7 +29,7 @@ Shows what an offeror states in a proposal when award would change a cost accoun
 | Text status | Final [@CL-CMP-5942] |
 | Applies to | Offerors whose contract award will result in a required or unilateral change in cost accounting practice [@CL-CMP-5942] |
 
-The offeror checks yes if the contract award will result in a required or unilateral change in cost accounting practice, including unilateral changes requested to be desirable changes [@CL-CMP-5942]. The two numbered duties of the provision apply if the offeror checked yes [@CL-CMP-6526].
+The offeror shall check yes if the contract award will result in a required or unilateral change in cost accounting practice, including unilateral changes requested to be desirable changes [@CL-CMP-5942]. The two numbered duties of the provision apply if the offeror checked yes [@CL-CMP-6526].
 
 ## How it works
 
@@ -57,5 +57,6 @@ Who decides that a bid will change a practice, who confirms the period of perfor
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording for the yes check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proposal disclosure of cost accounting practice changes.

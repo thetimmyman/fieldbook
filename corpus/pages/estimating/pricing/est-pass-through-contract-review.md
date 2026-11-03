@@ -33,11 +33,11 @@ When an offeror informs the contracting officer, pursuant to clause 52.215-22, L
 
 ## How it works
 
-The trigger is the offeror's own notice under the clause. The section does not describe the form of the notice [@CL-EST-2559]. The threshold is more than 70 percent of the total cost of work to be performed under the contract, task or delivery order, so exactly 70 percent does not meet it [@CL-EST-2551].
+The contracting officer's duties arise when an offeror informs the contracting officer, pursuant to clause 52.215-22, that it intends to award subcontracts for more than 70 percent of the total cost of work to be performed under the contract, task or delivery order [@CL-EST-2559; @CL-EST-2551].
 
-The duties fall on the contracting officer. The contracting officer considers alternatives [@CL-EST-2552] and, if an alternative approach is selected, any resulting RFP must meet the competition requirements of FAR part 6 [@CL-EST-2553]. The section states that requirement without saying who issues the RFP. The written determination and its documented basis concern the contracting approach selected [@CL-EST-2554; @CL-EST-2558]. The section puts no duty on the offeror; the offeror's notice under the clause is only the condition that starts the contracting officer's duties [@CL-EST-2551; @CL-EST-2559]. The linked cards cover that clause and the related proposal provision.
+The duties fall on the contracting officer. The contracting officer considers alternatives [@CL-EST-2552] and, if an alternative approach is selected, any resulting RFP must meet the competition requirements of FAR part 6 [@CL-EST-2553]. The written determination and its documented basis concern the contracting approach selected [@CL-EST-2554; @CL-EST-2558]. The linked cards cover that clause and the related proposal provision.
 
-The exemption turns on how the action is set aside: small business, 8(a), HUBZone, SDVOSB and WOSB concerns [@CL-EST-2555]. The codified FAR words the exemption differently, for contract actions awarded pursuant to subparts 19.5, 19.8, 19.13, 19.14, or 19.15 [@CL-EST-2557].
+Contract actions set aside for small business, 8(a), HUBZone, SDVOSB and WOSB concerns are exempt [@CL-EST-2555]. The codified FAR words the exemption differently, for contract actions awarded pursuant to subparts 19.5, 19.8, 19.13, 19.14, or 19.15 [@CL-EST-2557].
 
 DoD contracting officers must use the revised FAR part 15 in place of the codified text [@CL-EST-3176], under Class Deviation 2026-O0048 Revision 1, which took effect immediately and supersedes the version issued on March 5, 2026 [@CL-EST-3177].
 
@@ -49,7 +49,7 @@ A task order solicitation is not set aside. An offeror informs the contracting o
 
 ## Never confuse
 
-This is not the limit on pass-through charges, and it is not the offeror's proposal identification duty. The linked cards cover the clause and the provision. This section tells the contracting officer what to consider, determine and document once an offeror reports an intent to subcontract more than 70 percent of the total cost of work [@CL-EST-2551; @CL-EST-2552; @CL-EST-2554].
+The limit on pass-through charges and the offeror's proposal identification duty are on the linked cards. Once an offeror informs the contracting officer of an intent to award subcontracts for more than 70 percent of the total cost of work, the contracting officer must consider alternative contract vehicles, make a written determination and document its basis [@CL-EST-2551; @CL-EST-2552; @CL-EST-2554; @CL-EST-2558].
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Confirm how the company measures the share of total work cost that would pass to
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the trigger as the cited condition; cut statements about what the section does not say and an uncited contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for review and justification of pass-through contracts.

@@ -41,7 +41,7 @@ A material weakness is a deficiency or combination of deficiencies in the intern
 
 The contracting officer gives a written initial determination of any material weaknesses, and the contractor shall respond within 30 days [@CL-SUP-0106] and, if it disagrees, state its rationale in writing [@CL-SUP-0282]. The contracting officer then notifies the contractor in writing of the final determination concerning remaining material weaknesses and the adequacy of any proposed or completed corrective action [@CL-SUP-0280], and system disapproval if one or more material weaknesses remain [@CL-SUP-0281].
 
-The contractor then has 45 days from receipt either to correct the weaknesses or to submit an acceptable corrective action plan with milestones [@CL-SUP-0107].
+If the contractor receives the contracting officer's final determination of material weaknesses [@CL-SUP-9698], it has 45 days from receipt of the final determination either to correct the material weaknesses or to submit an acceptable corrective action plan showing milestones and actions to eliminate the weaknesses [@CL-SUP-0107].
 
 Disapproval at the final determination brings withheld payments where the Contractor Business Systems clause is in the contract [@CL-SUP-0108].
 
@@ -55,7 +55,7 @@ After award, a contractor changes its subcontract effort so that it reaches 80 p
 
 This is not a subcontract consent decision, and it is not a price reasonableness finding on one purchase.
 
-The clause tests the buying process against the system criteria, one of which is having procedures to timely notify the contracting officer in writing when subcontract effort changes after award to exceed 70 percent of the total cost of the work [@CL-SUP-0104]. That notification must identify the revised cost of the subcontract effort and include verification that the contractor will provide added value [@CL-SUP-0105].
+The clause tests the buying process against the system criteria, one of which is having procedures to timely notify the contracting officer in writing if the contractor changes the amount of subcontract effort after award so that it exceeds 70 percent of the total cost of the work to be performed under the contract, task order or delivery order [@CL-SUP-0104]. That notification must identify the revised cost of the subcontract effort and include verification that the contractor will provide added value [@CL-SUP-0105].
 
 Where Alternate I is used, the listed paragraphs reach only contractors subject to the Cost Accounting Standards [@CL-SUP-0109].
 
@@ -67,5 +67,6 @@ Whether the purchasing system has been reviewed, and when a subcontract change n
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the condition on the 45-day period and the contractor-change trigger for the 70 percent notice.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added what the subcontract notification must identify.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Contractor Purchasing System Administration clause.

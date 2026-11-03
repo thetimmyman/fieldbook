@@ -26,7 +26,7 @@ Explains the two SAFETY Act solicitation provisions, what an offeror may submit 
 | Text status | Final [@CL-CMP-5584; @CL-CMP-5587] |
 | Applies to | Solicitations in which a provision is inserted as prescribed [@CL-CMP-5584; @CL-CMP-5587] |
 
-The coverage-not-applicable provision records the Government's determination that the product or service being acquired is neither presumptively nor actually entitled to a pre-determination that it is a qualified anti-terrorism technology [@CL-CMP-5585]. That determination does not prevent sellers of technologies from applying for SAFETY Act protections in other contexts [@CL-CMP-5709]. A proposal that makes either acceptance or pricing contingent on SAFETY Act designation or certification of the proposed product or service will not be considered for award [@CL-CMP-5586].
+The coverage-not-applicable provision records the Government's determination that, for purposes of the solicitation, the product or service being acquired is neither presumptively nor actually entitled to a pre-determination that it is a qualified anti-terrorism technology [@CL-CMP-5585]. That determination does not prevent sellers of technologies from applying for SAFETY Act protections in other contexts [@CL-CMP-5709]. A proposal that makes either acceptance or pricing contingent on SAFETY Act designation or certification of the proposed product or service will not be considered for award [@CL-CMP-5586].
 
 The block provision applies where DHS has issued a block designation or block certification for the technology to be acquired under the solicitation; that document is attached to the solicitation and contains essential information [@CL-CMP-5713]. A block certification is a SAFETY Act certification of a technology class that DHS has determined to be an approved class of approved products for homeland security, and a block designation is a SAFETY Act designation of a technology class that DHS has determined to be a qualified anti-terrorism technology [@CL-CMP-5710; @CL-CMP-5711]. A SAFETY Act designation is a determination by DHS that a particular anti-terrorism technology constitutes a qualified anti-terrorism technology under the SAFETY Act [@CL-CMP-5712]. A SAFETY Act certification is a determination by DHS that a qualified anti-terrorism technology for which a designation has been issued is an approved product for homeland security [@CL-CMP-6222]. An approved product for homeland security is one that will perform as intended, conforms to the seller's specifications, and is safe for use as intended [@CL-CMP-6223].
 
@@ -72,6 +72,7 @@ Whether the solicitation carries either SAFETY Act provision and which alternate
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the for-purposes-of-the-solicitation scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on SAFETY Act pre-qualification and equitable adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAFETY Act coverage and block designation.

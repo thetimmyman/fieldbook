@@ -29,7 +29,7 @@ Shows what must be manufactured in the United States under the American flag cla
 | Text status | Final [@CL-SUP-1780; @CL-SUP-1782] |
 | Applies to | Contracts that require delivery of American flags, or that deliver supercomputers [@CL-SUP-1780; @CL-SUP-1782] |
 
-If the contractor is required to deliver American flags, the flags, including their materials and components, shall be manufactured in the United States [@CL-SUP-1780]. In the flag clause the United States means the 50 States, the District of Columbia, and outlying areas [@CL-SUP-1832].
+If the contractor is required to deliver American flags, the flags, including their materials and components, shall be manufactured in the United States [@CL-SUP-1780], consistent with the requirements at 10 U.S.C. 4862, commonly known as the Berry Amendment [@CL-SUP-9729]. In the flag clause the United States means the 50 States, the District of Columbia, and outlying areas [@CL-SUP-1832].
 
 Supercomputers delivered under the contract shall be manufactured in the United States or its outlying areas [@CL-SUP-1782].
 
@@ -47,7 +47,7 @@ The flags, including their materials and components, must be manufactured in the
 
 ## Never confuse
 
-A flag is not the equipment used to fly or display it, and flagpoles and accessories are outside the flag clause [@CL-SUP-1781]. The supercomputer clause covers supercomputers only [@CL-SUP-1782]. Other domestic source restrictions are separate clauses; see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md). The uniform components clause for Afghan forces sets its own United States production rule for textile components [@CL-SUP-1805]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). The reporting clause on payment requests is a different duty; see [Identification of expenditures in the United States](sup-dfars-identification-of-expenditures-in-the-united-states.md).
+A flag is not the equipment used to fly or display it, and flagpoles and accessories are outside the flag clause [@CL-SUP-1781]. The supercomputer clause applies to supercomputers delivered under the contract [@CL-SUP-1782]. Other domestic source restrictions are separate clauses; see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md). The uniform components clause for Afghan forces sets its own United States production rule for textile components [@CL-SUP-1805]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). The reporting clause on payment requests is a different duty; see [Identification of expenditures in the United States](sup-dfars-identification-of-expenditures-in-the-united-states.md).
 
 ## Company calibration
 
@@ -57,4 +57,7 @@ Whether any executed contract delivers flags or supercomputers, and who confirms
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Placed the flag-manufacture citation before the Berry Amendment reference
+- COMPATIBLE_EXTENSION, 2026-10-31: Added that the flag requirement is stated to be consistent with the Berry Amendment requirements.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the American flag and supercomputer manufacturing requirements.

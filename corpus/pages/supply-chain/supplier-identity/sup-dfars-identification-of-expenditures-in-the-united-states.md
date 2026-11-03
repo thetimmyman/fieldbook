@@ -47,7 +47,7 @@ The identification states the full 100,000 split into those four amounts, or as 
 
 ## Never confuse
 
-This clause asks the contractor to identify estimated expenditures in the United States on payment requests [@CL-SUP-1774]. Rules on where delivered items must be made are separate clauses; see [American flag and supercomputer manufacturing requirements](sup-dfars-american-flag-and-supercomputers.md) and [Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). The duty-free entry clause also deals with the price and shipping of imported supplies, but it carries its own duties; see [Duty-free entry clause](sup-dfars-duty-free-entry.md) [@CL-SUP-1784; @CL-SUP-1788].
+This clause asks the contractor to identify estimated expenditures in the United States on payment requests [@CL-SUP-1774]. Rules on where delivered items must be made are separate clauses; see [American flag and supercomputer manufacturing requirements](sup-dfars-american-flag-and-supercomputers.md) and [Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). The duty-free entry clause also deals with the price and shipping of imported supplies, but it carries its own duties; see [Duty-free entry clause](sup-dfars-duty-free-entry.md) [@CL-SUP-1784; @CL-SUP-1788]. The price rule in that clause has an exception in paragraph (i): the clause does not apply to purchases of eligible products or qualifying country supplies in connection with the contract if the supplies are identical in nature to supplies purchased by the contractor or any subcontractor in connection with its commercial business, and it is not economical or feasible to account for such supplies so that the amount for which duty-free entry is claimed does not exceed the amount purchased in connection with the contract [@CL-SUP-1792; @CL-SUP-1793].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Whether the executed contracts include this clause, and who confirms it. [@Q-004
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (i) of the duty-free entry clause that the quoted rule refers to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identification of expenditures in the United States.

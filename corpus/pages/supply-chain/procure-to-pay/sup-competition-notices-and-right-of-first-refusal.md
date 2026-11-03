@@ -32,7 +32,7 @@ The standard competition notice is a provision. It states that the solicitation 
 
 The standard competition notice also covers contests. Directly interested parties may file contests as the Circular provides, and the procedures in Federal Acquisition Regulation 33.103 govern them [@CL-SUP-2964]. Until a contest is resolved or the time for filing one expires, only legal agents for directly interested parties have access to the certified standard competition form, the agency tender and the public reimbursable tenders [@CL-SUP-2965].
 
-The streamlined competition notice is a separate provision. It states that the solicitation is part of a streamlined competition under the same Circular, held to determine whether to accomplish the specified work under contract or by Government performance [@CL-SUP-2966; @CL-SUP-2967]. The Government will evaluate the cost of private sector and Agency or public reimbursable performance [@CL-SUP-2967]. The decision will be publicly announced in accordance with the Circular [@CL-SUP-2968]. If it favors private sector performance, the Contracting Officer either awards a contract or issues a competitive solicitation for private sector offers [@CL-SUP-2952]. If it favors Agency or public reimbursable performance, the Agency establishes either a letter of obligation or a fee-for-service agreement, as the Circular defines those terms [@CL-SUP-2969].
+The streamlined competition notice is a separate provision. It states that the solicitation is part of a streamlined competition under the same Circular [@CL-SUP-9696], held to determine whether to accomplish the specified work under contract or by Government performance [@CL-SUP-2966]. The Government will evaluate the cost of private sector and Agency or public reimbursable performance [@CL-SUP-2967]. The decision will be publicly announced in accordance with the Circular [@CL-SUP-2968]. If it favors private sector performance, the Contracting Officer either awards a contract or issues a competitive solicitation for private sector offers [@CL-SUP-2952]. If it favors Agency or public reimbursable performance, the Agency establishes either a letter of obligation or a fee-for-service agreement, as the Circular defines those terms [@CL-SUP-2969].
 
 The right of first refusal clause requires the contractor to give Government personnel who have been or will be adversely affected or separated as a result of the award the right of first refusal for employment openings under the contract in positions for which they are qualified [@CL-SUP-2953]. The right is given if the employment is consistent with post-Government employment conflict of interest standards [@CL-SUP-2954]. Within 10 days after award, the Contracting Officer provides the contractor a list of all such personnel [@CL-SUP-2970]. The contractor reports to the Contracting Officer the names of individuals on the list who are hired within 90 days after contract performance begins, and the report is forwarded within 120 days after performance begins [@CL-SUP-2955].
 
@@ -44,7 +44,7 @@ In a standard competition a private sector win produces a contract award, and an
 
 In a streamlined competition a private sector win produces an award or a competitive solicitation for private sector offers, and an Agency or public reimbursable win produces a letter of obligation or a fee-for-service agreement [@CL-SUP-2952; @CL-SUP-2969].
 
-The employment duty follows the award. The Contracting Officer supplies the list of affected personnel, the contractor gives those who are qualified first refusal of the openings, and the contractor reports the listed people it hires within 90 days after performance begins and forwards that report within 120 days after performance begins [@CL-SUP-2953; @CL-SUP-2970; @CL-SUP-2955].
+The employment duty follows the award. The Contracting Officer supplies the list of affected personnel, the contractor gives those who are qualified first refusal of the openings if that employment is consistent with post-Government employment conflict of interest standards, and the contractor reports the listed people it hires within 90 days after performance begins and forwards that report within 120 days after performance begins [@CL-SUP-2953; @CL-SUP-2954; @CL-SUP-2970; @CL-SUP-2955].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.207-1 as [Reserved] [@CL-SUP-0114], FAR 52.207-2 as [Reserved] [@CL-SUP-0115] and FAR 52.207-3 as [Reserved] [@CL-SUP-0116], so the notices and the clause described above have no text under those numbers in the RFO text.
 
@@ -56,7 +56,7 @@ A standard competition ends in favor of a private sector offeror and a services 
 
 ## Never confuse
 
-Right of first refusal attaches to employment openings under the contract in positions for which the personnel are qualified, and only if the conflict of interest standards allow the employment [@CL-SUP-2953; @CL-SUP-2954]. The standard and streamlined notices are separate provisions with different evaluations and different decision routes, so do not read the standard competition rules into a streamlined competition [@CL-SUP-2962; @CL-SUP-2967; @CL-SUP-2952]. The contest rules appear in the standard competition notice [@CL-SUP-2964].
+Right of first refusal attaches to employment openings under the contract in positions for which the personnel are qualified, and if the conflict of interest standards allow the employment [@CL-SUP-2953; @CL-SUP-2954]. The standard and streamlined notices are separate provisions with different evaluations and different decision routes, so do not read the standard competition rules into a streamlined competition [@CL-SUP-2962; @CL-SUP-2967; @CL-SUP-2952]. The contest rules appear in the standard competition notice [@CL-SUP-2964].
 
 The codified FAR 52.207-1, 52.207-2 and 52.207-3 carry the notices and the clause described above [@CL-SUP-2949; @CL-SUP-2966; @CL-SUP-2953], but the RFO text prints each of those numbers as [Reserved] [@CL-SUP-0114; @CL-SUP-0115; @CL-SUP-0116], so none of those rules is printed under those numbers in the RFO text.
 
@@ -70,6 +70,9 @@ Who checks whether an award came from a competition and where the displaced-pers
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the quote for the streamlined competition statement.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
+- COMPATIBLE_EXTENSION, 2026-10-31: Right of first refusal sentence now includes the post-Government employment conflict of interest condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the pointer sentence to avoid an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on other FAR 52.207 provisions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

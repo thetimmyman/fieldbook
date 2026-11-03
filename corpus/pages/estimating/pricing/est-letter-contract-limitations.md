@@ -30,7 +30,7 @@ Sets out the written determination that a letter contract needs before it is use
 
 A letter contract may be used only after the head of the contracting activity or a designee determines in writing that no other contract is suitable [@CL-EST-0968]. The head of the contracting activity or the designee decides, and the determination must be in writing [@CL-EST-0968].
 
-Letter contracts shall not do any of three things:
+Letter contracts shall not do any of three things [@CL-EST-0969; @CL-EST-0970; @CL-EST-0971]:
 
 - Paragraph (a): commit the Government to a definitive contract in excess of the funds available at the time the letter contract is executed [@CL-EST-0969].
 - Paragraph (b): be entered into without competition when competition is required by part 6 [@CL-EST-0970].
@@ -38,7 +38,6 @@ Letter contracts shall not do any of three things:
 
 Any such amendment is subject to the same requirements and limitations as a new letter contract [@CL-EST-0972].
 
-The section states the limits on the letter contract itself and names no party who must observe them. The only official it names is the head of the contracting activity or a designee, for the written determination. It states no duty for a contractor.
 
 ## How it works
 
@@ -56,7 +55,7 @@ An agency needs work started at once and has 500,000 available. The head of the 
 
 ## Never confuse
 
-The written determination under the first sentence supports use of the letter contract. The limit on amending for a new requirement is a separate limit that must be met on its own [@CL-EST-0968; @CL-EST-0971]. An amendment for a new requirement must be for a requirement that is inseparable from the existing letter contract, and it is subject to the same requirements and limitations as a new letter contract [@CL-EST-0971; @CL-EST-0972]. The funds limit is measured at the time the letter contract is executed rather than at some later point [@CL-EST-0969].
+The written determination under the first sentence supports use of the letter contract. The limit on amending for a new requirement is a separate limit that must be met on its own [@CL-EST-0968; @CL-EST-0971]. An amendment for a new requirement must be for a requirement that is inseparable from the existing letter contract, and it is subject to the same requirements and limitations as a new letter contract [@CL-EST-0971; @CL-EST-0972]. The funds limit refers to the funds available at the time the letter contract is executed [@CL-EST-0969].
 
 ## Company calibration
 
@@ -66,4 +65,5 @@ Which letter contracts the company holds, who signed the written determination, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section does not name; cited the lead-in to the three limits; cut an added contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the limits on letter contracts.

@@ -37,7 +37,7 @@ Other terms defined elsewhere in part 99 have the meanings given in those defini
 
 ## How it works
 
-A home office typically establishes policy for the segments and provides guidance to them in their operations, usually performs management, supervisory or administrative functions, and may also perform service functions in support of the segments [@CL-EST-2865]. An organization with intermediate levels, such as groups, may have several home offices reporting to a common home office, and an intermediate organization may be both a segment and a home office [@CL-EST-2866]. The segment definition therefore turns on reporting directly to a home office, together with the listed facilities, joint ventures and subsidiaries, not on the name of the unit [@CL-EST-2867; @CL-EST-2868; @CL-EST-2869]. The definitions create no duty by themselves; the duties sit in the Standard's requirements.
+A home office typically establishes policy for the segments and provides guidance to them in their operations, usually performs management, supervisory or administrative functions, and may also perform service functions in support of the segments [@CL-EST-2865]. An organization with intermediate levels, such as groups, may have several home offices reporting to a common home office, and an intermediate organization may be both a segment and a home office [@CL-EST-2866]. The segment definition covers divisions, product departments, plants and other subdivisions reporting directly to a home office [@CL-EST-2867], and includes the listed facilities, joint ventures and subsidiaries [@CL-EST-2868; @CL-EST-2869].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A group runs two divisions that report directly to a policy office, and the poli
 
 ## Never confuse
 
-A home office is not simply the largest site: it is an office responsible for directing or managing two or more, but not necessarily all, segments [@CL-EST-2864]. A segment is not only an owned division: the definition reaches Government-owned contractor-operated facilities and majority-owned joint ventures and subsidiaries [@CL-EST-2868], and it also reaches holdings below a majority that the organization controls [@CL-EST-2869]. Allocate is not limited to indirect costs: it includes direct assignments of cost as well as the reassignment of a share from an indirect cost pool [@CL-EST-2863].
+A home office is an office responsible for directing or managing two or more, but not necessarily all, segments [@CL-EST-2864]. A segment includes Government-owned contractor-operated facilities and majority-owned joint ventures and subsidiaries [@CL-EST-2868], and also those joint ventures and subsidiaries with less than a majority of ownership over which the organization exercises control [@CL-EST-2869]. Allocate includes direct assignments of cost as well as the reassignment of a share from an indirect cost pool [@CL-EST-2863].
 
 ## Company calibration
 
@@ -57,4 +57,5 @@ Confirm which business units are segments, which offices are home offices, and h
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Segment and home office wording aligned with the definitions; uncited contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the home office expense allocation Standard definitions.

@@ -36,7 +36,7 @@ A person shall not be held liable for damages or penalties for any act or failur
 
 ## How it works
 
-A person keeps accurate and complete records of each covered transaction for at least the stated period [@CL-IND-0208]. The records must let an examiner decide whether each transaction complies, and the part does not specify any particular method or system [@CL-IND-0209]. Commerce can ask to examine them on demand, as the audit and investigation powers are described on [DPAS: audits, investigations, violations and penalties](ind-dpas-audits-investigations-and-penalties.md) [@CL-IND-0210]. Persons must also develop, maintain and submit any other records and reports that Commerce may require [@CL-IND-0221]. The printed section does not say from which date the retention period runs. It also treats some information as confidential, which this card does not state.
+Persons must make and preserve, for at least three years, accurate and complete records of any transaction covered by the part or an official action [@CL-IND-0208]. The records must let an examiner decide whether each transaction complies, and the part does not specify any particular method or system [@CL-IND-0209]. Records required to be maintained by the part must be made available for examination on demand by duly authorized representatives of Commerce, as provided in section 700.71 [@CL-IND-0210]. The audit and investigation powers are described on [DPAS: audits, investigations, violations and penalties](ind-dpas-audits-investigations-and-penalties.md). Persons must also develop, maintain and submit to Commerce any other records and reports that may be required for the administration of the Defense Production Act, the Selective Service Act and related statutes, and the part [@CL-IND-0221]. The printed section does not say from which date the retention period runs. It also treats some information as confidential, which this card does not state.
 
 ## Worked example
 
@@ -56,5 +56,6 @@ Where rated-order records are kept, in what detail, and who can produce them on 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Records duties restated with scope and actors
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the protection against claims for acting in compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for records and reports and the applicability of the part.

@@ -29,13 +29,13 @@ Shows what the DoD EVMS Interpretation Guide is for, which policy it rests on an
 | Text status | Not established. |
 | Applies to | Programs where an earned value management system requirement is applied [@CL-PRG-0623] |
 
-The guide gives the overarching DoD interpretation of the 27 guidelines where an earned value management system requirement applies, and it is the authoritative source for interpretive guidance and the basis for assessing compliance [@CL-PRG-0623]. It says the federal references it cites require federal Government agency contractors to establish, maintain and use a compliant system on all major capital asset acquisitions [@CL-PRG-0624].
+The DoD EVMS Interpretation Guide provides the overarching DoD interpretation of the 27 Guidelines where an EVMS requirement is applied, serves as the authoritative source for EVMS interpretive guidance, and is used as the basis for the DoD to assess EVMS compliance with the 27 Guidelines [@CL-PRG-0623; @CL-PRG-0071]. References (c) through (f) in the guide require federal Government agency contractors to establish, maintain, and use an EVMS that is compliant with the 27 Guidelines on all major capital asset acquisitions [@CL-PRG-0624].
 
-When DoD is the cognizant federal agency, the Defense Contract Management Agency is responsible for determining compliance, and the procuring contracting officer does not retain that function [@CL-PRG-0625].
+When DoD is the Cognizant Federal Agency, the Defense Contract Management Agency is responsible for determining EVMS compliance, and the procuring contracting officer does not retain this function [@CL-PRG-0625].
 
 ## How it works
 
-The guide defines an earned value management system as the management control system that ties a program's work scope, schedule and budget together for planning and control [@CL-PRG-0622]. It is the basis DoD uses to assess compliance, and the Defense Contract Management Agency holds the determination when DoD is the cognizant agency [@CL-PRG-0623; @CL-PRG-0625]. The step-by-step determination is on [the compliance determination page](prg-evms-compliance-determination.md).
+An EVMS is the management control system that integrates a program's work scope, schedule, and budget for optimum program planning and control [@CL-PRG-0622]. The DoD EVMS Interpretation Guide is used as the basis for the DoD to assess EVMS compliance with the 27 Guidelines [@CL-PRG-0623; @CL-PRG-0071], and the Defense Contract Management Agency is responsible for determining EVMS compliance when DoD is the Cognizant Federal Agency [@CL-PRG-0625]. See [EVMS compliance determination](prg-evms-compliance-determination.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A program office asks who decides whether a contractor's system complies. The co
 
 ## Never confuse
 
-The guide interprets the 27 guidelines for the places where a system requirement is applied [@CL-PRG-0623]. Which contracts carry that requirement, and at what dollar values, is covered in [Earned value management system requirement](prg-evms-requirement.md).
+The DoD EVMS Interpretation Guide provides the overarching DoD interpretation of the 27 Guidelines where an EVMS requirement is applied [@CL-PRG-0623]. See [Earned value management system requirement](prg-evms-requirement.md).
 
 ## Company calibration
 
@@ -55,4 +55,6 @@ Whether the company's own system documents follow this guide, and which agency i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for compliance with the 27 Guidelines and removed meta-wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: restored DoD actor and 27 guidelines.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EVMS Interpretation Guide.

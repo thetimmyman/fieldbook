@@ -16,7 +16,7 @@ links = ["cmp-acquisition-thresholds"]
 
 ## Purpose
 
-Lists the contract actions, indefinite delivery vehicles and orders that agencies must enter in the Federal Procurement Data System, how purchase card data and consolidated reports are handled, and one kind of transaction that is left out.
+Lists the contract actions, indefinite delivery vehicles and orders that agencies must enter in the Federal Procurement Data System, how purchase card data and consolidated reports are handled, and one of the kinds of transactions that are not reported.
 
 ## The rule
 
@@ -53,4 +53,5 @@ Confirm which reported contract actions and orders map to the company's own cont
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Said the card covers one of several kinds of actions not reported.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for what is reported to the Federal Procurement Data System.

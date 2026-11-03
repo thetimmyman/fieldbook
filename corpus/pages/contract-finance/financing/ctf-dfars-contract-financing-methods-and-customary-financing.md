@@ -41,7 +41,7 @@ The second sentence is an exception to the first for performance-based payments.
 
 The customary financing determination is DoD's. The section names no individual official [@CL-CTF-3791]. For a covered contract, the contractor need not make the showing of financial need or unavailable private financing that FAR 32.104(d)(1)(ii) would otherwise require [@CL-CTF-3792].
 
-The determination replaces only that one requirement. It covers only contracts that are fixed-price, run over a year and meet the dollar thresholds in FAR 32.104(d), so a contract outside any of those limits is outside it [@CL-CTF-3790; @CL-CTF-3792]. The remaining conditions for providing financing are on [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
+The determination replaces only that one requirement. It covers fixed-price contracts that run over a year and meet the dollar thresholds in FAR 32.104(d), so a contract outside any of those limits is not named in it [@CL-CTF-3790; @CL-CTF-3792]. The remaining conditions for providing financing are on [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
 
 Loan guarantees and advance payments are outside the determination [@CL-CTF-3791].
 
@@ -69,4 +69,5 @@ Which contracts are construction or ship work, whether each fixed-price contract
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD financing methods and the finding on customary contract financing.

@@ -70,7 +70,7 @@ The twelfth nurse spends nearly all working time on scheduling and billing. That
 
 ## Never confuse
 
-Never confuse the professional capacity test with the full definition. The part 541 test is the definition of employee employed in a bona fide professional capacity [@CL-CMP-8154]. The section adds that the person must be a professional and must be involved essentially in discharging professional duties, so a person in a listed profession who does other work does not meet it [@CL-CMP-8154; @CL-CMP-8157].
+Never confuse the professional capacity test with the full definition. The part 541 test is the definition of employee employed in a bona fide professional capacity [@CL-CMP-8154]. The section adds that the person must be a professional and must be involved essentially in discharging professional duties, so a person in a listed profession who is not involved essentially in discharging professional duties does not meet it [@CL-CMP-8154; @CL-CMP-8157].
 
 Never confuse a listed example with a requirement. The listed professions are examples, and the section does not make membership in one of them enough on its own [@CL-CMP-8156; @CL-CMP-8157].
 
@@ -82,5 +82,6 @@ Which job families the company maps to this definition, and whether the mapping 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence tied to the stated duties test.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability section on who the Service Contract Labor Standards statute does not cover.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the professional employee definition.

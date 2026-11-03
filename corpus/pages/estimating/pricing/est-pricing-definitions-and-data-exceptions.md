@@ -35,11 +35,11 @@ The exercise of an option at the price established at contract award or initial 
 
 ## How it works
 
-A price therefore includes any fee or profit that applies to the contract type, not cost alone [@CL-EST-2746]. The subcontract definition reaches transfers inside a corporate family: a transfer of commercial products or commercial services between divisions, subsidiaries or affiliates of a contractor or a subcontractor is also a subcontract for the pricing subpart, except where the term is used in 15.407-2 [@CL-EST-2747].
+A price therefore includes any fee or profit that applies to the contract type [@CL-EST-2746]. Under the subcontract definition, a transfer of commercial products or commercial services between divisions, subsidiaries or affiliates of a contractor or a subcontractor is also a subcontract, except where the term is used in 15.407-2 [@CL-EST-2747].
 
-Each of the two exceptions carries a condition. For an option, the exercise must be at the price established at contract award or initial negotiation [@CL-EST-2748]. For a proposal, it must be used solely for overrun funding or interim billing price adjustments [@CL-EST-2749]. Neither paragraph names who decides or sets a deadline [@CL-EST-2748; @CL-EST-2749]. Other routes to a no-certified-data result are on [Exceptions to certified cost or pricing data](est-certified-data-exceptions.md), and the data requirement itself is on [Certified cost or pricing data](est-certified-cost-or-pricing-data.md).
+Each of the two exceptions carries a condition. For an option, the exercise must be at the price established at contract award or initial negotiation [@CL-EST-2748]. For a proposal, it must be used solely for overrun funding or interim billing price adjustments [@CL-EST-2749]. Other routes to a no-certified-data result are on [Exceptions to certified cost or pricing data](est-certified-data-exceptions.md), and the data requirement itself is on [Certified cost or pricing data](est-certified-cost-or-pricing-data.md).
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. In the RFO text of the pricing subpart, price still means cost plus any fee or profit applicable to the contract type [@CL-EST-2746; @CL-EST-3363]. Subcontract still also includes a transfer of commercial products or commercial services between divisions, subsidiaries, or affiliates of a contractor or a subcontractor, but the exception points to 15.405-2 where the codified text points to 15.407-2 [@CL-EST-2747; @CL-EST-3364]. The RFO text states the two exceptions in RFO FAR 15.403-3(b)(3)(iii): certified cost or pricing data are not required for modifications solely for overrun funding or interim billing price adjustments [@CL-EST-2749; @CL-EST-3365], or to exercise an option at the price established at contract award or initial negotiation [@CL-EST-2748; @CL-EST-3366].
+Under the RFO text, DoD contracting officers use the RFO FAR part 15 text in place of the codified text under Class Deviation 2026-O0048, whose Revision 1 took effect immediately and supersedes the March 5, 2026 version [@CL-EST-3176] [@CL-EST-3177]. RFO FAR 15.401 still defines price as cost plus any fee or profit applicable to the contract type [@CL-EST-2746; @CL-EST-3363]. Subcontract still also includes a transfer of commercial products or commercial services between divisions, subsidiaries, or affiliates of a contractor or a subcontractor, but the exception points to 15.405-2 where the codified text points to 15.407-2 [@CL-EST-2747; @CL-EST-3364]. RFO FAR 15.403-3(b)(3)(iii) provides that certified cost or pricing data are not required for modifications solely for overrun funding or interim billing price adjustments [@CL-EST-3365], or to exercise an option at the price established at contract award or initial negotiation [@CL-EST-3366].
 
 ## Worked example
 
@@ -53,13 +53,13 @@ A contractor's parts division transfers a commercial product to its assembly div
 
 ## Never confuse
 
-Price is not cost. Price means cost plus any fee or profit applicable to the contract type [@CL-EST-2746].
+Price means cost plus any fee or profit applicable to the contract type [@CL-EST-2746].
 
-Exercising an option at the established price is not the same as negotiating a new price. Only the exercise at the price established at contract award or initial negotiation is covered by this paragraph [@CL-EST-2748].
+The option exception addresses the exercise of an option at the price established at contract award or initial negotiation [@CL-EST-2748].
 
-The overrun and billing exception is not a rule for any revised proposal. It reaches only proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2749].
+The overrun and billing exception covers proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2749].
 
-The codified text states the exceptions for the exercise of an option at the established price and for proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2748; @CL-EST-2749], while the RFO text states them as exceptions for modifications [@CL-EST-3365; @CL-EST-3366]. The codified subcontract definition excludes use in 15.407-2 [@CL-EST-2747], and the RFO definition excludes use in 15.405-2 [@CL-EST-3364].
+The codified exceptions address the exercise of an option at the established price and proposals used solely for overrun funding or interim billing price adjustments [@CL-EST-2748; @CL-EST-2749], while the RFO exceptions address modifications [@CL-EST-3365; @CL-EST-3366]. The codified subcontract definition excludes use in 15.407-2 [@CL-EST-2747], and the RFO definition excludes use in 15.405-2 [@CL-EST-3364].
 
 ## Company calibration
 
@@ -69,5 +69,7 @@ Which proposals expected in the next two quarters may need certified cost or pri
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut unquoted contrasts and an unquoted statement about who decides; RFO exception sentence cites RFO claims only.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted 'only' from two never-confuse sentences.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the pricing definitions and the other circumstances where certified cost or pricing data are not required.

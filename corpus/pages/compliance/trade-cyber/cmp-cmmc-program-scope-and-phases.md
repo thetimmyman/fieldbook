@@ -32,7 +32,7 @@ The CMMC rule is a DoD rule that is not part of the FAR, DFARS or CAS, so the in
 
 The program requirements apply to all DoD solicitations and contracts under which a defense contractor or subcontractor will process, store, or transmit FCI or CUI on unclassified contractor information systems, with the inclusions and exceptions that the same sentence goes on to list [@CL-CMP-2125]. They include acquisitions of commercial items, other than those exclusively for COTS items, valued at greater than the micro-purchase threshold, except under the circumstances the paragraph lists [@CL-CMP-2053]. One circumstance is a procurement that occurs during Implementation Phase 1, 2 or 3, where the requirements apply in accordance with the requirements for the relevant phase-in period [@CL-CMP-2126]. Another is that DoD may waive the application of the requirements to a procurement or class of procurements in advance of the solicitation, in accordance with all applicable policies, procedures and approval requirements [@CL-CMP-2127]. The printed text does not give the amount of the micro-purchase threshold.
 
-DoD Program Managers or requiring activities choose the CMMC Status that applies to a procurement or contract, based on whether FCI or CUI will be handled on the contractor information system [@CL-CMP-2054]. The levels and the scope of an assessment are on the [model levels and scoping](cmp-cmmc-model-levels-and-scoping.md) card. This card does not restate the DFARS safeguarding clause; see [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md).
+DoD Program Managers or requiring activities are responsible for selecting the CMMC Status that applies to a particular procurement or contract, based upon the type of information, FCI or CUI, that will be processed on, stored on, or transmitted through a contractor information system [@CL-CMP-2054]. The levels and the scope of an assessment are on the [model levels and scoping](cmp-cmmc-model-levels-and-scoping.md) card. This card does not restate the DFARS safeguarding clause; see [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md).
 
 ## How it works
 
@@ -56,4 +56,5 @@ Which solicitations and contracts carry a CMMC status requirement, and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the status selection sentence with its quote.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CMMC Program scope and implementation phases.

@@ -31,7 +31,7 @@ Shows what a mentor firm can have reimbursed for advance payments to a protege f
 
 The Government will reimburse the contractor for advance payments it makes, as a mentor firm, to a protege firm under an approved mentor-protege agreement, provided the listed conditions are met [@CL-CTF-1760]. One listed condition is that the contractor agrees that any financial loss from the protege firm's failure or inability to repay unliquidated advance payments is the contractor's sole financial responsibility [@CL-CTF-1760; @CL-CTF-1761]. The other two listed conditions are that the contractor's subcontract with the protege firm includes a provision substantially the same as the FAR advance payments clause and that the contractor has administered the advance payments in accordance with the policies of FAR subpart 32.4 [@CL-CTF-1760; @CL-CTF-1793].
 
-DFARS directs use of the overseas clause instead of the FAR assignment of claims clause in solicitations and contracts when contract performance will be in a foreign country [@CL-CTF-1795]. Under the overseas clause, the contractor may not assign claims for monies due or to become due unless the assignment is approved in writing by the Contracting Officer, made in accordance with United States law and regulation, and permitted by the laws and regulations of the contractor's country [@CL-CTF-1764].
+DFARS directs use of the overseas clause instead of the FAR assignment of claims clause in solicitations and contracts when contract performance will be in a foreign country [@CL-CTF-1795]. Under the overseas clause, no claims for monies due or to become due shall be assigned by the contractor unless all three of these hold: the assignment is approved in writing by the Contracting Officer, made in accordance with United States law and regulation, and permitted by the laws and regulations of the contractor's country [@CL-CTF-1764].
 
 ## How it works
 
@@ -55,4 +55,5 @@ Whether the company is a mentor firm making advance payments, and which overseas
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Overseas assignment restriction worded as the clause states it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Mentor-Protege advance payment reimbursement and overseas assignment of claims.

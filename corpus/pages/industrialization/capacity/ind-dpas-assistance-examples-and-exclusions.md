@@ -41,7 +41,7 @@ Other examples of assistance are ensuring that rated orders receive preferential
 
 Section 700.54 gives examples where assistance may not be provided, in situations when a person is attempting to secure a price advantage, obtain delivery prior to the time required to fill a rated order, or gain competitive advantage [@CL-IND-0267]. The examples also include attempting to disrupt an industry apportionment program in a manner designed to provide the person with an unwarranted share of scarce items, or to overcome a supplier's regularly established terms of sale or conditions of doing business [@CL-IND-0268].
 
-These are instances where assistance will not be provided [@CL-IND-0278; @CL-IND-0267]. The section states no exception to them [@CL-IND-0278; @CL-IND-0267]. The general provisions on filing a request are on [the special priorities assistance card](ind-dpas-special-priorities-assistance.md).
+The section heading calls these instances where assistance will not be provided, while the text of the examples says assistance may not be provided [@CL-IND-0278; @CL-IND-0267]. The general provisions on filing a request are on [the special priorities assistance card](ind-dpas-special-priorities-assistance.md).
 
 ## Worked example
 
@@ -53,11 +53,11 @@ A second company asks for assistance in obtaining delivery two weeks earlier tha
 
 ## Never confuse
 
-Assistance is not a price or competitive tool. A person who is attempting to secure a price advantage, gain competitive advantage, obtain delivery prior to the time required to fill a rated order, or overcome a supplier's regularly established terms of sale or conditions of doing business is in one of the instances where assistance will not be provided [@CL-IND-0278; @CL-IND-0267; @CL-IND-0268].
+Assistance is not a price or competitive tool. A person who is attempting to secure a price advantage, gain competitive advantage, obtain delivery prior to the time required to fill a rated order, or overcome a supplier's regularly established terms of sale or conditions of doing business is in one of the examples where assistance may not be provided, which the section heading calls instances where assistance will not be provided [@CL-IND-0278; @CL-IND-0267; @CL-IND-0268].
 
 The usual situations are not a limit on assistance. Assistance may be provided for any reason in support of the regulation and an approved program [@CL-IND-0261].
 
-A request outside the instances where assistance will not be provided is not guaranteed to succeed, because assistance is provided at the discretion of the decision makers when they determine it is warranted [@CL-IND-0266].
+A request outside the examples where assistance may not be provided is not guaranteed to succeed, because assistance is provided at the discretion of the decision makers when they determine it is warranted [@CL-IND-0266].
 
 ## Company calibration
 
@@ -67,4 +67,5 @@ Which supplier commitments and lead times would be cited to show that a delivery
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Separated the heading wording will not from the text wording may not.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for examples of special priorities assistance and instances where it will not be provided.

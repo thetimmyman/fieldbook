@@ -34,7 +34,7 @@ Alternate I substitutes its paragraph (a) for paragraph (a) of the basic clause 
 
 ## How it works
 
-Under the basic clause the set-aside is a choice, because the text says the contracting officer may set aside orders [@CL-MKT-1116]. Under Alternate I the set-aside becomes a duty when the stated conditions and the program eligibility requirements, as applicable, are met [@CL-MKT-1119]. The clause text does not itself list the concerns that may compete: it points to FAR 19.000(a)(3), and the notice names the applicable small business program [@CL-MKT-1116; @CL-MKT-1117]. The notice may name no orders, and it reaches only the specific orders that were set aside [@CL-MKT-1117; @CL-MKT-1118]. The set-aside orders and clauses card shows where each clause is used.
+Under the basic clause the set-aside is a choice, because the text says the contracting officer may set aside orders [@CL-MKT-1116]. Under Alternate I the set-aside becomes a duty when the stated conditions and the program eligibility requirements, as applicable, are met [@CL-MKT-1119]. The clause text identifies the concerns by pointing to FAR 19.000(a)(3), and the notice names the applicable small business program [@CL-MKT-1116; @CL-MKT-1117]. The notice may name no orders, and it reaches only the specific orders that were set aside [@CL-MKT-1117; @CL-MKT-1118]. The set-aside orders and clauses card shows where each clause is used.
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text because Class Deviation 2026-O0038 directs it, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of the basic clause keeps the rule that the contracting officer may set aside orders for the identified small business concerns [@CL-MKT-1116; @CL-MKT-1161], the notice of the order or orders, if any, and of the applicable small business program [@CL-MKT-1117; @CL-MKT-1162], and the limit of the notice and its restrictions to the specific orders set aside [@CL-MKT-1118; @CL-MKT-1163]. The RFO text prints Alternate I as [Reserved], with no substitute paragraph (a) [@CL-MKT-1164], where the codified Alternate I substitutes a paragraph (a) under which the contracting officer will set aside orders [@CL-MKT-1177; @CL-MKT-1119].
 
@@ -56,5 +56,6 @@ Which orders and contracts sit inside the finance remit, so a set-aside notice i
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: clause concerns wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of set-aside of orders.

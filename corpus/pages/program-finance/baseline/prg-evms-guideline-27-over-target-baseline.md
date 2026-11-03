@@ -29,7 +29,7 @@ Shows when and how a program proposes a budget above the contract budget base or
 | Text status | Not established. |
 | Applies to | A program whose remaining authorized work needs a budget above the contract budget base or a schedule beyond the period of performance [@CL-PRG-0376] |
 
-When necessary, a total program budget greater than the contract budget base, called an over-target baseline, or a total program schedule exceeding the contractual period of performance, called an over-target schedule, is proposed, documented, and established to support management of the remaining authorized work [@CL-PRG-0376]. Advance notification must be provided to the customer prior to implementation [@CL-PRG-0377].
+When necessary, a total program budget greater than the contract budget base, called an over-target baseline, and/or a total program schedule exceeding the contractual period of performance, called an over-target schedule, is proposed, documented, and established to support management of the remaining authorized work [@CL-PRG-0376]. Advance notification must be provided to the customer prior to implementation [@CL-PRG-0377].
 
 ## How it works
 
@@ -53,5 +53,6 @@ Whether a forecast above the contract budget base is an over-target baseline or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the source's and/or between over-target baseline and over-target schedule.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed an unsupported contrast and cited the claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for over target baseline and over target schedule.

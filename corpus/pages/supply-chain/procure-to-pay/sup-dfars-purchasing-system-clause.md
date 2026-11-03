@@ -41,7 +41,7 @@ The choice depends on which clauses the solicitation or contract already contain
 
 Synthetic example. The numbers are made up.
 
-A DoD solicitation contains both the FAR Subcontracts clause and the counterfeit electronic part clause. The basic clause is used, because paragraph (a) applies to solicitations containing the FAR Subcontracts clause [@CL-SUP-3853]. Alternate I is not used, because paragraph (b) covers only solicitations and contracts that do not contain that clause [@CL-SUP-3854].
+A DoD solicitation contains both the FAR Subcontracts clause and the counterfeit electronic part clause. The basic clause is used, because paragraph (a) applies to solicitations containing the FAR Subcontracts clause [@CL-SUP-3853]. Alternate I is not used, because paragraph (b) is for solicitations and contracts that do not contain that clause [@CL-SUP-3854].
 
 ## Never confuse
 
@@ -57,4 +57,5 @@ Whether the purchasing system has been reviewed, and which DoD contracts carry t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD Contractor Purchasing System Administration clause and its alternate under DFARS 244.305-71.

@@ -35,7 +35,7 @@ The agency office of the Inspector General referenced in the paragraphs of the F
 
 ## How it works
 
-The notice duty is written, is given in the predominant native language of the workforce, and concerns rights and protections under the cited statute [@CL-CMP-4191]. The duty passes to all subcontracts [@CL-CMP-4192]. The second clause only designates the office: it says which Inspector General the FAR code of business ethics paragraphs mean on these contracts [@CL-CMP-4193]. For the general FAR reprisal rules see [Whistleblower protections for contractor employees](cmp-contractor-employee-whistleblower-protections.md).
+The notice duty is written, is given in the predominant native language of the workforce, and concerns rights and protections under the cited statute [@CL-CMP-4191]. The duty passes to all subcontracts [@CL-CMP-4192]. The second clause designates the office: it says which Inspector General the FAR code of business ethics paragraphs mean on these contracts [@CL-CMP-4193]. For the general FAR reprisal rules see [Whistleblower protections for contractor employees](cmp-contractor-employee-whistleblower-protections.md).
 
 ## Worked example
 
@@ -49,11 +49,11 @@ It also writes the notice requirement into every subcontract, including a small 
 
 The notice clause is not the hotline poster clause. This one requires a written notice to employees [@CL-CMP-4191], and its printed text has no posting requirement. The poster duty is a separate clause covered on [DFARS display of hotline posters](cmp-dfars-hotline-posters.md).
 
-It is also not the posting rule in the deployed-forces clause. That clause separately requires the Contractor to post a list of employee rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]. It is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
+It is also not the posting rule in the deployed-forces clause. That clause makes the Contractor ensure its employees supporting the U.S. Armed Forces are aware of their rights, such as to hold their own identity or immigration documents [@CL-CMP-4160]. It separately requires the Contractor to post these employee rights in employee work spaces in English and in any foreign language spoken by a significant portion of the workforce [@CL-CMP-4208]. It is covered on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
 
 The notice is also not a restriction on arbitration agreements. That is a separate clause covered on [Restrictions on mandatory arbitration agreements](cmp-mandatory-arbitration-restrictions.md).
 
-Designating the Inspector General office is not the same as requiring a disclosure. The designation only says which office the FAR paragraphs mean [@CL-CMP-4193].
+Designating the Inspector General office is not the same as requiring a disclosure. The designation says which office the FAR paragraphs mean [@CL-CMP-4193].
 
 ## Company calibration
 
@@ -63,4 +63,6 @@ Which workforce languages need the written notice, and who owns disclosures to t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: whistleblower rights notice: posting duty wording as quoted.
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for informing employees of whistleblower rights and the agency Inspector General.

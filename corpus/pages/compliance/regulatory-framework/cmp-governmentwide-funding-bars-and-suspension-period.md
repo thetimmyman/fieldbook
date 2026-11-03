@@ -30,7 +30,7 @@ Shows the two Governmentwide funding bars that attach to particular contractors,
 
 Appropriations acts prohibit, on a Governmentwide basis, the use of appropriated or otherwise made available funds for contracts with either an inverted domestic corporation or a subsidiary of such a corporation, except as provided in the exception paragraph and in the waiver section [@CL-CMP-7191]. The exception is that the prohibition does not apply to a Federal Government contract entered into before the date of enactment of the Act, or to any task order issued under such a contract [@CL-CMP-7192]. To apply the prohibition and the exception correctly, contracting officers should consult legal counsel if, during performance of a contract, a contractor becomes an inverted domestic corporation or a subsidiary of one [@CL-CMP-7193].
 
-A second bar applies where the Secretary of Defense determines, under the procedures at 32 CFR part 216, that an institution of higher education is ineligible to receive funds from a covered agency because of a policy or practice described in the preceding section of the subpart [@CL-CMP-7304]. The Secretary of Defense then creates an active exclusion record for the institution in the System for Award Management, and a covered agency may not solicit offers from, award contracts to, or consent to subcontracts with the institution [@CL-CMP-7194]. That bar does not apply to acquisitions at or below the simplified acquisition threshold or to acquisitions of commercial products and commercial services, including commercially available off-the-shelf items [@CL-CMP-7195].
+A second bar applies where the Secretary of Defense determines, under the procedures at 32 CFR part 216, that an institution of higher education is ineligible to receive funds from a covered agency because of a policy or practice described in the preceding section of the subpart [@CL-CMP-7304]. The Secretary of Defense then creates an active exclusion record for the institution in the System for Award Management, and a covered agency may not solicit offers from, award contracts to, or consent to subcontracts with the institution [@CL-CMP-7194]. The prohibition on a covered agency soliciting offers from, awarding contracts to, or consenting to subcontracts with the institution does not apply to acquisitions at or below the simplified acquisition threshold or to acquisitions of commercial products and commercial services, including commercially available off-the-shelf items [@CL-CMP-7195].
 
 ## How it works
 
@@ -52,7 +52,7 @@ In a second case, legal proceedings are initiated in month 9. The suspension is 
 
 ## Never confuse
 
-The funding bars and the suspension period are separate rules. The bars restrict contracts with particular kinds of contractor, while the suspension period limits how long a suspension lasts unless legal proceedings begin [@CL-CMP-7191; @CL-CMP-7194; @CL-CMP-7197; @CL-CMP-7198].
+The funding bars apply to contracts with an inverted domestic corporation or a subsidiary of one [@CL-CMP-7191] and to an institution for which the Secretary of Defense has created an active exclusion record [@CL-CMP-7194]. A suspension may not extend beyond 18 months, unless legal proceedings have been initiated within that period [@CL-CMP-7198].
 
 ## Company calibration
 
@@ -62,4 +62,5 @@ Whether any entity in the group has become an inverted domestic corporation, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Limited the simplified acquisition and commercial exemption to the covered agency prohibition and removed unsupported contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Governmentwide funding bars and the period of a suspension.

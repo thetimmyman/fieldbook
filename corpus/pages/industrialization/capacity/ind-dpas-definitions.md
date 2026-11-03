@@ -30,7 +30,7 @@ Collects the defined terms that the priority, rating and allocation cards use, s
 
 The definitions in 15 CFR 700.8 apply throughout the part [@CL-IND-0063]. The table follows the order of the section and gives each term from the claims named in its row. A term that the section defines in a list is stated in full, including each listed element and exclusion.
 
-Some definitions turn on a condition or an exclusion. Construction does not include maintenance and repair [@CL-IND-0068]. Facilities excludes farms, churches or other houses of worship, and private dwelling houses [@CL-IND-0355]. Industrial resources covers only items whose authority has not been delegated to other agencies under Executive Order 13603 [@CL-IND-0073]. Production equipment needs a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077]. The MRO definition lists items that it does not include [@CL-IND-0360; @CL-IND-0361].
+Some definitions turn on a condition or an exclusion. Construction does not include maintenance and repair [@CL-IND-0068]. Facilities excludes farms, churches or other houses of worship, and private dwelling houses [@CL-IND-0355]. Industrial resources are the materials, services and facilities, including construction materials, the authority for which has not been delegated to other agencies under Executive Order 13603 [@CL-IND-0073]. Production equipment needs a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077]. The MRO definition lists items that it does not include [@CL-IND-0360; @CL-IND-0361].
 
 The section also defines the term Resource Department and the term for the disaster relief and emergency assistance statute that the DPAS cites. This card does not state them. The printed section carries an effective-date note on an amendment [@CL-IND-0371].
 
@@ -86,7 +86,7 @@ A plant buys a press for $3,000 to use in producing parts, and expects to run it
 
 ## Never confuse
 
-An allocation order is not a rated order: a rated order is a contract, subcontract or purchase order in support of an approved program, while an allocation order is an official action to control distribution [@CL-IND-0079; @CL-IND-0064]. Allocation and allotment differ: allocation is the control of distribution, and an allotment is an official action that specifies the maximum quantity authorized for a specific use [@CL-IND-0063; @CL-IND-0065]. A Determination Department determines approved programs, and a Delegate Agency places priority ratings [@CL-IND-0071; @CL-IND-0070]. The FAR definitions section defines national defense in different words: any activity related to programs for military or atomic energy production or construction, military assistance to any foreign nation, stockpiling, or space, except that for use in Subpart 11.6, the definition is in 11.601 [@CL-IND-1059]. The term on this card is the one in the glossary above [@CL-IND-0364; @CL-IND-0365]. A directive is one kind of official action, and the list of official actions also names rating authorizations and allocation orders [@CL-IND-0072; @CL-IND-0366].
+An allocation order is not a rated order: a rated order is a contract, subcontract or purchase order in support of an approved program, while an allocation order is an official action to control distribution [@CL-IND-0079; @CL-IND-0064]. Allocation and allotment differ: allocation is the control of distribution, and an allotment is an official action that specifies the maximum quantity authorized for a specific use [@CL-IND-0063; @CL-IND-0065]. A Determination Department determines approved programs, and a Delegate Agency places priority ratings [@CL-IND-0071; @CL-IND-0070]. The FAR definitions section defines national defense in different words: any activity related to programs for military or atomic energy production or construction, military assistance to any foreign nation, stockpiling, or space, except that for use in Subpart 11.6, the definition is in 11.601 [@CL-IND-1059]. The term on this card is the one in the glossary above [@CL-IND-0364; @CL-IND-0365]. A directive is one kind of official action, and the list of official actions also names rating authorizations and allocation orders [@CL-IND-0072; @CL-IND-0366]. The RFO text of FAR 2.101 defines national defense in the same words as the codified definition, except that it prints subpart 11.6 with a lowercase s [@CL-IND-1070; @CL-IND-1059].
 
 ## Company calibration
 
@@ -96,5 +96,7 @@ Which capacity assumptions and program terms the company maps onto the orders it
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported only from industrial resources
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of national defense.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of national defense for contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Defense Priorities and Allocations System definitions.

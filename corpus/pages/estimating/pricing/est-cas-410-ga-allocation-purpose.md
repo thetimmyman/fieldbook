@@ -35,7 +35,7 @@ The purpose of the Standard is to provide criteria for allocating business unit 
 
 Two flows sit in one Standard: business unit general and administrative expense allocated to the unit's final cost objectives, and home office expense received by a segment and allocated to that segment's cost objectives [@CL-EST-2910; @CL-EST-2912]. The basis for the first flow is the beneficial or causal relationship between the expense and the final cost objectives, and the section describes the expense as the cost of managing and administering the unit as a whole [@CL-EST-2910; @CL-EST-2911]. The section states the effect as a greater likelihood of objectivity in allocating expenses to final cost objectives and of comparability of cost data among contractors in similar circumstances [@CL-EST-2913].
 
-The section is a statement of purpose. It names no official who decides, no approval route, no threshold, no deadline and no exception, and it states no duty for a particular party. It does not name an allocation base; the Standard's main card covers the techniques.
+The Standard's main card covers the techniques.
 
 ## Worked example
 
@@ -55,4 +55,5 @@ Which pool carries business unit general and administrative expense and which ba
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose section omits removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the Standard on allocating business unit general and administrative expense to final cost objectives.

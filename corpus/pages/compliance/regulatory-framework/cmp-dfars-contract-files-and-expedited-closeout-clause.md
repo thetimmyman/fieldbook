@@ -29,7 +29,7 @@ Sets out what the DoD supplement says about documents posted to the Electronic D
 | Text status | Final [@CL-CMP-7902] |
 | Applies to | Documents posted to the Electronic Data Access system [@CL-CMP-7902]; signatures, seals and dates on contract documents [@CL-CMP-7905]; solicitations and contracts where the contracting officer intends to expedite closeout through a mutual waiver [@CL-CMP-7907] |
 
-Any document posted to the Electronic Data Access system is part of the contract file and is accessible by multiple parties, including the contractor [@CL-CMP-7902]. Contract documents that are classified, or too sensitive for widespread distribution (for example personally identifiable information and Privacy Act and Health Insurance Portability and Accountability Act material), are not to be included in the system [@CL-CMP-7903]. The same instruction extends to attachments that cannot be practicably converted to electronic format, for example samples, drawings and models [@CL-CMP-8153]. The section states the instruction without naming who must follow it.
+Any document posted to the Electronic Data Access system is part of the contract file and is accessible by multiple parties, including the contractor [@CL-CMP-7902]. Contract documents that are classified, or too sensitive for widespread distribution (for example personally identifiable information and Privacy Act and Health Insurance Portability and Accountability Act material), are not to be included in the system [@CL-CMP-7903]. The same instruction extends to attachments that cannot be practicably converted to electronic format, for example samples, drawings and models [@CL-CMP-8153].
 
 Inclusion of any document in the system other than contracts, modifications and orders is optional [@CL-CMP-7904]. A photocopy, facsimile, electronic, mechanically-applied and printed signature, seal and date are considered to be an original signature, seal and date [@CL-CMP-7905].
 
@@ -37,19 +37,19 @@ The clause at 252.204-7022, Expediting Contract Closeout, is to be used in solic
 
 ## How it works
 
-Posting makes a document part of the file and accessible by multiple parties, including the contractor, so the section keeps classified material, other too-sensitive material and unconvertible attachments out of the shared system [@CL-CMP-7902; @CL-CMP-7903; @CL-CMP-8153]. Beyond contracts, modifications and orders, inclusion is optional [@CL-CMP-7904]. Signature form does not change a document's status: a copied, electronic, mechanically-applied or printed signature, seal and date are considered an original [@CL-CMP-7905].
+Any document posted to the system is part of the contract file and is accessible by multiple parties, including the contractor [@CL-CMP-7902]. Contract documents that are classified or too sensitive for widespread distribution, and attachments that cannot be practicably converted to electronic format, are not to be included [@CL-CMP-7903; @CL-CMP-8153]. Beyond contracts, modifications and orders, inclusion is optional [@CL-CMP-7904]. A photocopy, facsimile, electronic, mechanically-applied and printed signature, seal and date are considered to be an original signature, seal and date [@CL-CMP-7905].
 
-For closeout, the trigger is the contracting officer's intent to expedite closeout through a mutual waiver [@CL-CMP-7907]. The waiver is mutual, so it needs both parties, and it covers a residual dollar amount of 1,000 dollars or less measured when the contract closes [@CL-CMP-7907]. The prescription reaches commercial products and commercial services acquisitions under FAR part 12 [@CL-CMP-7906]. The section does not say what the clause itself requires of the contractor, and this card does not restate it; see [the expediting closeout clause card](../../contract-finance/billing-payment/ctf-dfars-expediting-contract-closeout.md).
+For closeout, the trigger is the contracting officer's intent to expedite closeout through a mutual waiver [@CL-CMP-7907]. The waiver is a mutual waiver of entitlement to a residual dollar amount of 1,000 dollars or less determined at the time of contract closeout [@CL-CMP-7907]. The prescription reaches commercial products and commercial services acquisitions under FAR part 12 [@CL-CMP-7906]. For what the clause itself requires, see [the expediting closeout clause card](../../contract-finance/billing-payment/ctf-dfars-expediting-contract-closeout.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contracting officer plans to expedite closeout of a services contract by mutual waiver of any small residual amount. The officer intends that route, so the closeout clause is used in the solicitation and contract [@CL-CMP-7907]. At closeout the residual amount is determined to be 600 dollars, which is within the 1,000 dollar limit, so the waiver can cover it [@CL-CMP-7907]. If the residual had been 1,400 dollars, it would exceed the limit, so it would fall outside the residual amount the prescription describes, and the section does not say what happens to such a residual [@CL-CMP-7907]. Separately, a drawing that cannot practicably be converted to electronic format is not posted to the system [@CL-CMP-8153], and a facsimile of a signed modification is considered an original [@CL-CMP-7905].
+A contracting officer plans to expedite closeout of a services contract by mutual waiver of any small residual amount. The officer intends that route, so the closeout clause is used in the solicitation and contract [@CL-CMP-7907]. At closeout the residual amount is determined to be 600 dollars, which is within the 1,000 dollar limit, so the waiver can cover it [@CL-CMP-7907]. If the residual had been 1,400 dollars, it would exceed the limit, so it would fall outside the residual amount the prescription describes. Separately, a drawing that cannot practicably be converted to electronic format is not posted to the system [@CL-CMP-8153], and a facsimile of a signed modification is considered an original [@CL-CMP-7905].
 
 ## Never confuse
 
-Being part of the contract file is not the same as being suitable for the shared system. A posted document becomes file content [@CL-CMP-7902], but classified documents, other too-sensitive documents and unconvertible attachments are kept out [@CL-CMP-7903; @CL-CMP-8153]. The 1,000 dollar figure is a limit on the residual amount covered by the mutual waiver, and the clause is prescribed when the contracting officer intends to expedite closeout that way [@CL-CMP-7907].
+A posted document is part of the contract file [@CL-CMP-7902]; classified documents, documents too sensitive for widespread distribution and attachments that cannot be practicably converted to electronic format are not to be included in the system [@CL-CMP-7903; @CL-CMP-8153]. The clause is to be used when the contracting officer intends to expedite contract closeout through the mutual waiver of entitlement to a residual dollar amount of 1,000 dollars or less determined at the time of contract closeout [@CL-CMP-7907].
 
 ## Company calibration
 
@@ -59,4 +59,5 @@ Where the executed contracts and modifications sit in the contract file, and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited explanations and meta statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract files and the DoD contract closeout clause prescription.

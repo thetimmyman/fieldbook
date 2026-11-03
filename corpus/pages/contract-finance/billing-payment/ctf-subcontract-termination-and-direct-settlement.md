@@ -27,9 +27,9 @@ What a prime contractor does with its subcontracts after a termination notice, h
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3106] |
-| Applies to | Prime contracts with a termination for convenience clause, except that the short-form clauses do not provide for assignment or direct settlement [@CL-CTF-3106; @CL-CTF-3110; @CL-CTF-3239] |
+| Applies to | Prime contracts with a termination for convenience clause; the assignment and direct settlement provisions do not apply to the short-form clauses [@CL-CTF-3106; @CL-CTF-3110; @CL-CTF-3239] |
 
-The termination for convenience clauses provide that, after receipt of a termination notice, the prime contractor terminates all subcontracts to the extent they relate to the terminated prime work, unless the termination contracting officer (TCO) directs otherwise [@CL-CTF-3106]. The FAR advises prime contractors to include a termination clause in their subcontracts for their own protection [@CL-CTF-3236].
+The termination for convenience clauses provide that, after receipt of a termination notice, the prime contractor must terminate all subcontracts to the extent they relate to the terminated prime work, unless the termination contracting officer (TCO) directs otherwise [@CL-CTF-3106]. The FAR advises prime contractors to include a termination clause in their subcontracts for their own protection [@CL-CTF-3236].
 
 A prime contractor's failure to include an appropriate termination clause in a subcontract, or to exercise the clause rights, does not affect the Government's right to require the termination of the subcontract [@CL-CTF-3107]. The same failure does not increase the Government's obligation beyond what it would have been if the subcontract had contained an appropriate clause [@CL-CTF-3237].
 
@@ -37,9 +37,9 @@ The reasonableness of the prime contractor's settlement with a subcontractor sho
 
 ## How it works
 
-Assignment. Under the termination for convenience clauses in FAR 52.249, other than the short-form clauses, the prime contractor assigns to the Government, as the TCO directs, all rights, titles and interest under any subcontract terminated because of termination of the prime contract [@CL-CTF-3110]. The TCO does not require the assignment unless it is in the Government's interest [@CL-CTF-3238].
+Assignment. Under the termination for convenience clauses in FAR 52.249, other than the short-form clauses, the prime contractor must assign to the Government, as the TCO directs, all rights, titles and interest under any subcontract terminated because of termination of the prime contract [@CL-CTF-3110]. The TCO does not require the assignment unless it is in the Government's interest [@CL-CTF-3238].
 
-Direct settlement. The same clauses, except the short-form clauses, give the Government the right, in its discretion, to settle and pay any settlement proposal arising out of the termination of subcontracts [@CL-CTF-3239]. That right does not obligate the Government to settle and pay subcontractors' proposals [@CL-CTF-3240], and as a general rule the prime contractor is obligated to settle and pay them [@CL-CTF-3111]. When the TCO determines that it is in the Government's interest, the TCO settles the subcontractor's proposal, after notifying the contractor, using the procedures for settlement of prime contracts [@CL-CTF-3241]. An example is a sole-source subcontractor whose financial position a delay by the prime contractor in settling or paying its proposal would jeopardize [@CL-CTF-3112]. Direct settlements with subcontractors are not encouraged [@CL-CTF-3242].
+Direct settlement. The same clauses, except the short-form clauses, give the Government the right, in its discretion, to settle and pay any settlement proposal arising out of the termination of subcontracts [@CL-CTF-3239]. That right does not obligate the Government to settle and pay subcontractors' proposals [@CL-CTF-3240], and as a general rule the prime contractor is obligated to settle and pay them [@CL-CTF-3111]. When the TCO determines that it is in the Government's interest, the TCO must, after notifying the contractor, settle the subcontractor's proposal using the procedures for settlement of prime contracts [@CL-CTF-3241]. An example is a sole-source subcontractor whose financial position a delay by the prime contractor in settling or paying its proposal would jeopardize [@CL-CTF-3112]. Direct settlements with subcontractors are not encouraged [@CL-CTF-3242].
 
 ## Worked example
 
@@ -55,7 +55,7 @@ Suppose instead that the subcontractor is a sole source and a delay by the contr
 
 Assignment is not direct settlement. Assignment moves the rights, titles and interest under a terminated subcontract to the Government as the TCO directs [@CL-CTF-3110], while direct settlement has the TCO settle the subcontractor's proposal itself after notifying the contractor [@CL-CTF-3241].
 
-Terminating a subcontract is not the same as settling it. The prime contractor terminates related subcontracts unless the TCO directs otherwise [@CL-CTF-3106], and the settlement is measured separately by the aggregate amount due under the suggested clause [@CL-CTF-3108].
+Terminating a subcontract is not the same as settling it. The prime contractor must terminate related subcontracts unless the TCO directs otherwise [@CL-CTF-3106], and the settlement is measured separately by the aggregate amount due under the suggested clause [@CL-CTF-3108].
 
 The duties that follow a termination notice are on [the prime contractor duties card](../../close-revrec/revenue/cls-prime-contractor-duties-after-termination-notice.md), and the authorization and award mechanics are on [the subcontract settlements card](../../close-revrec/revenue/cls-subcontract-settlements-authorization-and-awards.md). The short-form clauses are on [the short forms card](ctf-termination-for-convenience-short-forms.md).
 
@@ -67,4 +67,5 @@ How subcontract termination clauses and the limits written into the company's pu
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording on subcontract termination, assignment and direct settlement and narrowed the short-form clause scope to what the quotes say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for terminated subcontracts, assignment of subcontract rights and direct settlement.

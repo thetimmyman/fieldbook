@@ -61,7 +61,7 @@ If the contracting officer questions the applicability of the Service Contract L
 
 Both sections state coverage by category or example. They create no duty on a contractor, no threshold, no deadline, and no filing. They name no one who decides coverage.
 
-The exemptions are stated by contract category. Paragraph (c) applies where published tariff rates are in effect [@CL-CMP-8093]. Paragraph (d) covers a contract for furnishing services by radio, telephone, or cable companies subject to the Communications Act of 1934 [@CL-CMP-8105]. Paragraph (f) covers an employment contract providing for direct services to a Federal agency by an individual or individuals [@CL-CMP-8106].
+The exemptions are stated by contract category. Paragraph (c) covers any contract for transporting freight or personnel by vessel, aircraft, bus, truck, express, railroad, or oil or gas pipeline where published tariff rates are in effect [@CL-CMP-8093]. Paragraph (d) covers a contract for furnishing services by radio, telephone, or cable companies subject to the Communications Act of 1934 [@CL-CMP-8105]. Paragraph (f) covers an employment contract providing for direct services to a Federal agency by an individual or individuals [@CL-CMP-8106].
 
 The examples are illustrative. A service that matches an example is of a type that has been found to be covered, but the list is not definitive or exclusive [@CL-CMP-8095]. Paragraph (k) carries a cross-reference to FAR 22.1003-4(c)(1) and (d)(1)(iv) [@CL-CMP-8111]. Exemptions that the Secretary of Labor has added by administrative action are on [the administrative exemptions card](cmp-scls-exemptions-and-variations.md), and the certification for certain services is on [the services exemption card](cmp-scls-services-exemption.md).
 
@@ -87,5 +87,6 @@ Which contract line items fall in a statutory exemption and which match a listed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the transport contracts that paragraph (c) covers, not only the tariff-rate condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added subpart coverage, geographic coverage and applicability questions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the statutory exemptions and covered services.

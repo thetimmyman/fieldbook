@@ -29,11 +29,11 @@ Shows when the Government may enter a written agreement with a surety that compl
 | Text status | Final [@CL-CLS-1007] |
 | Applies to | Primarily, but not solely, fixed-price construction contracts terminated for default [@CL-CLS-1007]. |
 
-The takeover procedures apply primarily, but not solely, to fixed-price construction contracts terminated for default [@CL-CLS-1007]. A surety may include a takeover agreement in its proposal, and the contracting officer may, but not before the effective date of termination, enter into a written agreement with the surety [@CL-CLS-1008].
+The takeover procedures apply primarily, but not solely, to fixed-price construction contracts terminated for default [@CL-CLS-1007]. Because there may be conflicting demands for the defaulting contractor's assets, including unpaid prior earnings (retained percentages and unpaid progress estimates) [@CL-CLS-1604], a surety may include a takeover agreement in its proposal, fixing the surety's rights to payment from those funds, and the contracting officer may, but not before the effective date of termination, enter into a written agreement with the surety [@CL-CLS-1008].
 
 ## How it works
 
-Any takeover agreement must require the surety to complete the contract and the Government to pay the surety's costs and expenses up to the balance of the contract price unpaid at the time of default, subject to listed conditions [@CL-CLS-1009]. One listed condition is that any unpaid earnings of the defaulting contractor, including retained percentages and progress estimates for work accomplished before termination, must be subject to debts due the Government by the contractor, except as the sentence goes on to provide [@CL-CLS-1050]. The exception lets unpaid earnings be used to pay the completing surety its actual costs and expenses incurred in completing the work, but not its payments and obligations under the payment bond [@CL-CLS-1010]. Another binds the surety to the contract's liquidated damages terms for delays, unless the delays are excusable [@CL-CLS-1011]. A third bars payment to the surety from unpaid earnings where the proceeds were assigned to a financing institution, unless the assignee consents in writing [@CL-CLS-1012]. A fourth caps payment at what the surety expended completing the work and discharging its payment-bond liabilities [@CL-CLS-1013].
+Any takeover agreement must require the surety to complete the contract and the Government to pay the surety's costs and expenses up to the balance of the contract price unpaid at the time of default, subject to the conditions the section lists, all of which apply [@CL-CLS-1009]. One listed condition is that any unpaid earnings of the defaulting contractor, including retained percentages and progress estimates for work accomplished before termination, must be subject to debts due the Government by the contractor, except as the sentence goes on to provide [@CL-CLS-1050]. The exception lets unpaid earnings be used to pay the completing surety its actual costs and expenses incurred in completing the work, but not its payments and obligations under the payment bond [@CL-CLS-1010]. Another binds the surety to the contract's liquidated damages terms for delays, unless the delays are excusable [@CL-CLS-1011]. A third bars payment to the surety from unpaid earnings where the proceeds were assigned to a financing institution, unless the assignee consents in writing [@CL-CLS-1012]. A fourth caps payment at what the surety expended completing the work and discharging its payment-bond liabilities [@CL-CLS-1013].
 
 ## Worked example
 
@@ -53,4 +53,5 @@ Whether any contract in the portfolio involves a surety, and how unpaid earnings
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: takeover reason restored and conditions stated as all applying.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for surety-takeover agreements.

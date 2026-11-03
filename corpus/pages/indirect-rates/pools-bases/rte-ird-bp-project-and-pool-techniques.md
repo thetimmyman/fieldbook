@@ -31,11 +31,11 @@ Shows what goes into an independent research and development or bid and proposal
 
 IR&D and B&P project costs shall include costs that would be treated as direct costs of a final cost objective if incurred in like circumstances for it [@CL-RTE-0687]. They also include the overhead costs of productive activities and other indirect costs related to the project, based on the contractor's cost accounting practice or applicable Cost Accounting Standards for allocation of indirect costs [@CL-RTE-0753]. The cost pools for a segment consist of the project costs plus allocable home office IR&D and B&P costs [@CL-RTE-0688]. When the costs of individual efforts are not material, they may be accumulated in one or more projects within each of the two types of effort [@CL-RTE-0689].
 
-At a home office, projects identifiable with a specific segment have their costs allocated to that segment [@CL-RTE-0690]. The costs of all other home office projects are allocated among all segments by the same base the company uses for residual expenses, subject to a proviso [@CL-RTE-0690; @CL-RTE-0691]. Under the proviso, the Government and the contractor may agree to a special allocation where a particular segment receives significantly more or less benefit from the costs than allocating them on the base would reflect, commensurate with the benefits received [@CL-RTE-0691; @CL-RTE-0693; @CL-RTE-0031].
+At a home office, projects which can be identified with a specific segment shall have their costs allocated to that segment [@CL-RTE-0690]. The costs of all other home office projects are allocated among all segments by the same base the company uses for residual expenses, subject to a proviso [@CL-RTE-0690; @CL-RTE-0691]. Under the proviso, the Government and the contractor may agree to a special allocation where a particular segment receives significantly more or less benefit from the costs than allocating them on the base would reflect, commensurate with the benefits received [@CL-RTE-0691; @CL-RTE-0693; @CL-RTE-0031].
 
 ## How it works
 
-Costs are accumulated by project, and the pools for a segment are formed from the project costs plus allocable home office costs [@CL-RTE-0688]. Home office projects identified with a segment go to that segment, and the rest go on the residual expense base [@CL-RTE-0690; @CL-RTE-0691]. At a business unit, pools not allocated under the earlier paragraph on projects that benefit more than one segment go to all final cost objectives of the business unit by the same base the unit uses for general and administrative expense, in accordance with 9904.410-50 and subject to a proviso [@CL-RTE-0692; @CL-RTE-0030]. A special allocation may again be agreed where a final cost objective receives significantly more or less benefit than the allocation would reflect [@CL-RTE-0754]. The home office base is therefore the residual expense base, and the business unit base is the general and administrative base [@CL-RTE-0691; @CL-RTE-0692].
+Costs are accumulated by project, and the pools for a segment are formed from the project costs plus allocable home office costs [@CL-RTE-0688]. Home office projects identified with a segment go to that segment, and the rest go on the residual expense base [@CL-RTE-0690; @CL-RTE-0691]. At a business unit, pools not allocated under subparagraph (f)(1) go to all final cost objectives of the business unit by the same base the unit uses for general and administrative expense, in accordance with 9904.410-50 and subject to a proviso [@CL-RTE-0692; @CL-RTE-0030]. The Government and the contractor may again agree to a special allocation where a final cost objective receives significantly more or less benefit than the allocation would reflect [@CL-RTE-0754]. The home office base is therefore the residual expense base, and the business unit base is the general and administrative base [@CL-RTE-0691; @CL-RTE-0692].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A home office has two IR&D projects. Project 1 costs 40,000 and is identified wi
 
 ## Never confuse
 
-The home office base is not the business unit base. Home office projects not tied to one segment follow the base used for residual expenses [@CL-RTE-0691]. Business unit pools not allocated under the earlier paragraph on projects that benefit more than one segment follow the base used for general and administrative expense, subject to a proviso [@CL-RTE-0692; @CL-RTE-0030]. See [the CAS IR&D and B&P card](../../compliance/cas-allowability/cmp-cas-420-ird-bp-allocation.md) and [IR&D and B&P costs](../../compliance/cas-allowability/cmp-ird-and-bp-costs.md).
+The home office base is not the business unit base. Home office projects not tied to one segment follow the base used for residual expenses [@CL-RTE-0691]. Business unit pools not allocated under subparagraph (f)(1) follow the base used for general and administrative expense, subject to a proviso [@CL-RTE-0692; @CL-RTE-0030]. See [the CAS IR&D and B&P card](../../compliance/cas-allowability/cmp-cas-420-ird-bp-allocation.md) and [IR&D and B&P costs](../../compliance/cas-allowability/cmp-ird-and-bp-costs.md).
 
 ## Company calibration
 
@@ -55,5 +55,7 @@ How the company opens, charges and reports its IR&D and B&P projects, and which 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named who may agree a business unit special allocation and used the shall wording for home office project allocation.
+- COMPATIBLE_EXTENSION, 2026-10-31: Named subparagraph (f)(1) as the quote does; named subparagraph (f)(1) as the quote does.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the allocation sentences so the special allocation keeps its limit to the benefits received and the business unit base keeps its proviso.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for IR&D and B&P project accumulation and pool techniques.

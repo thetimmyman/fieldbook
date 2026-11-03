@@ -31,13 +31,13 @@ Shows which task orders under contracts awarded before the cutoff date, and whic
 
 DFARS directs use of the clause at 252.216-7009, Allowability of Costs Incurred in Connection With a Whistleblower Proceeding, in two situations [@CL-MKT-1845; @CL-MKT-1846], and says it does so as required by section 827 of the National Defense Authorization Act for Fiscal Year 2013 [@CL-MKT-1847]. The paragraph is written as a direction to use the clause and names no official who applies it.
 
-First, the clause goes in task orders entered under contracts awarded before September 30, 2013 that include the FAR Allowable Cost and Payment clause [@CL-MKT-1845]. The condition looks at the award date and clauses of the underlying contract, not at the date of the order [@CL-MKT-1845].
+First, the clause goes in task orders entered under contracts awarded before September 30, 2013 that include the FAR Allowable Cost and Payment clause [@CL-MKT-1845]. The date in the condition is the award date of the contracts under which the orders are entered, not the date of the order [@CL-MKT-1845].
 
 Second, the clause goes in contracts awarded before September 30, 2013 that meet both of two conditions: they include the FAR Allowable Cost and Payment clause, and they are modified to include the DFARS clause on informing employees of whistleblower rights, dated September 2013 or later [@CL-MKT-1846].
 
 ## How it works
 
-Start with the award date of the contract; a contract awarded on or after September 30, 2013 is outside this paragraph [@CL-MKT-1845; @CL-MKT-1846]. For a task order, check that the underlying contract includes the FAR Allowable Cost and Payment clause [@CL-MKT-1845]. For the contract itself, check that it includes that FAR clause and has been modified to add the DFARS employee-rights clause dated September 2013 or later [@CL-MKT-1846]. A contract that lacks the FAR clause does not meet the second route, even if it is modified to add the employee-rights clause [@CL-MKT-1846].
+Start with the award date of the contract; a contract awarded on or after September 30, 2013 is outside this paragraph [@CL-MKT-1845; @CL-MKT-1846]. For a task order, check the award date of the contract under which it is entered and the condition on the FAR Allowable Cost and Payment clause in paragraph (a)(1) [@CL-MKT-1845]. For the contract itself, check that it includes that FAR clause and has been modified to add the DFARS employee-rights clause dated September 2013 or later [@CL-MKT-1846]. A contract that lacks the FAR clause does not meet the second route, even if it is modified to add the employee-rights clause [@CL-MKT-1846].
 
 ## Worked example
 
@@ -57,5 +57,6 @@ Which cost-reimbursement contracts and task orders were awarded before the cutof
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Task order condition stated as the paragraph words it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Made the purpose sentence tie the cutoff date to the underlying contract, not the task order.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD cost-reimbursement contract clauses under DFARS 216.307.

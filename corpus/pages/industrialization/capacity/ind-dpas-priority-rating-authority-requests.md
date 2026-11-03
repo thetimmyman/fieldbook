@@ -69,7 +69,7 @@ The prime contract is then not issued. The company must promptly notify the supp
 
 ## Never confuse
 
-Rating authority is not a rated order. A rated order is a prime contract, a subcontract or a purchase order in support of an approved program [@CL-IND-0079]. Rating authority is the permission to use a priority rating in ordering items, and under paragraph (b)(2) a request for it may be used only to support approved programs [@CL-IND-0240; @CL-IND-0244].
+Rating authority is not a rated order. A rated order is a prime contract, a subcontract or a purchase order in support of an approved program issued in accordance with the provisions of the part [@CL-IND-0079]. Rating authority is the permission to use a priority rating in ordering items, and under paragraph (b)(2) a request for it may be used only to support approved programs [@CL-IND-0240; @CL-IND-0244].
 
 It is also not a determination that a program is approved. The paragraph points to separate sections for requesting that determination [@CL-IND-0245].
 
@@ -83,5 +83,6 @@ Whether a planned plant expansion or equipment purchase has the capacity case an
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Rated order definition now includes the issued in accordance with the part condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the meaning of a rating authorization and the pointer to the request section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requests for priority rating authority.
