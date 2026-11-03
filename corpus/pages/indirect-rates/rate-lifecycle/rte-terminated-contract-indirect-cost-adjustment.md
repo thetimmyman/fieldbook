@@ -54,7 +54,6 @@ Which fiscal years and terminated contracts still have open indirect cost adjust
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the two agreements and the pool-and-base elimination in the section's terms, and replaced uncited glosses with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the appears condition in the scope row.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added terminated-contract scope.

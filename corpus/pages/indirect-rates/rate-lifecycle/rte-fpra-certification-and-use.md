@@ -58,7 +58,6 @@ Confirm which agreements are in force, which proposals rely on them, and how the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the initial-contract-or-modification scope of the certified data, and replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall and must wording and unstated actors.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

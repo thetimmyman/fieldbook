@@ -54,7 +54,6 @@ How planned practice changes are checked against new or modified standards and s
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second contractor step under the Administration clause, and replaced meta wording and an uncited driver and contrast with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed the clause alternatives and restored shall wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the clause list as the quote does.

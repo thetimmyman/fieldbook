@@ -56,7 +56,6 @@ Confirm which contracts carry the clause, whether each year's final rate proposa
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the shall-be-obtained rule and the pending-period reimbursement in the clause's terms, and replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall wording, actors and the pending-period lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'may' for extensions; matched agreement contents; cited extension claim.

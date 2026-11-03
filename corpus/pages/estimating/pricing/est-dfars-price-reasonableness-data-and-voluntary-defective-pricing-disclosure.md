@@ -60,7 +60,6 @@ That the pricing file records why the information was sufficient and who handles
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse paragraph now states the full recovery wording and links the related cards; how-it-works adds the after-award condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the how-it-works data-access sentence to the rule's own limit on the contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "any data that may be necessary" in the data-access limit.

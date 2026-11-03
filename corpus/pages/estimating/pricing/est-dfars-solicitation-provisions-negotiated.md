@@ -60,7 +60,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced a pointer sentence that carried a clause number with no claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded references to the paragraph, named the cited approval section, and restated the indirect offset and major weapon system conditions in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the competitive-acquisition prohibition and the second CCC clause case in place of scope notes; stated the indirect offset conditions in the rule's words; cut a weaker-than-must contrast.

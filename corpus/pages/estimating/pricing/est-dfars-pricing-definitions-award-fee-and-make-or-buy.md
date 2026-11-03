@@ -64,7 +64,6 @@ Who owns the proposal pricing that a cost-plus-award-fee fee objective and a mak
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded meta and contrast sentences, completed the relevant sales data definition in Never confuse, and tied the definitions to DFARS 215.401.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the section leaves unsaid and a contrast no quote states; added the alternate structured approach.
 - COMPATIBLE_EXTENSION, 2026-10-31: Relevant sales data described as information an offeror provides, not its own sales.

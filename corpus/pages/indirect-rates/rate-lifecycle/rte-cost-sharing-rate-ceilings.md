@@ -58,7 +58,6 @@ Confirm whether any contract carries a negotiated indirect cost rate ceiling, an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the codified shall, replaced the uncited ceiling contrast and the absence statements with cited rules, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the not-obligated and shall wording of the ceiling provisions and class deviation sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of cost sharing.

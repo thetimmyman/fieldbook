@@ -54,6 +54,5 @@ How pools, bases and allocation methods are defined, so that a change in an inpu
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated each illustration's treatment directly, restored the several-years lead-in and the unabridged conclusions, and replaced uncited contrasts and meta wording with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for illustrations of changes that are not a change to a cost accounting practice.

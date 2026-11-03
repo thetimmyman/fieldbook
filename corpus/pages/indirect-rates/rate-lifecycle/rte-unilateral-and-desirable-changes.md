@@ -56,7 +56,6 @@ Whether a planned practice change meets the desirable-change factors before it g
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second notice step, the processing under 30.605 and the funds-available factor, restored the some-factors wording, and removed an added time limit and uncited glosses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contractor-initiated condition of the savings factor.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added clause scope for desirable change; stated notice as one listed step; added segment scope.

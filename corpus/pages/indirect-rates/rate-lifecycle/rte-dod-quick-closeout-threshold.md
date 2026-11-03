@@ -29,9 +29,7 @@ Shows how the DoD supplement lets administrative contracting officers settle a c
 | Text status | Final [@CL-RTE-0314] |
 | Applies to | Contracts, task orders and delivery orders closed under the DoD quick-closeout procedure [@CL-RTE-0314] |
 
-Defense Contract Management Agency administrative contracting officers may settle direct and indirect costs for a specific contract, task order or delivery order before final costs and rates are determined, regardless of the dollar value or percentage of unsettled costs [@CL-RTE-0314; @CL-RTE-0315]. In lieu of the thresholds at FAR 42.708(a)(2)(i) and (ii), the amount of unsettled direct costs and indirect costs to be allocated to the contract, task order, or delivery order will be considered relatively insignificant [@CL-RTE-0316].
-
-That amount will be considered relatively insignificant when the total unsettled direct costs and indirect costs to be allocated to any one contract, task order, or delivery order do not exceed $2 million, regardless of the total contract, task order, or delivery order amount [@CL-RTE-0317].
+Defense Contract Management Agency administrative contracting officers may settle direct and indirect costs for a specific contract, task order or delivery order before final costs and rates are determined, regardless of the dollar value or percentage of unsettled costs [@CL-RTE-0314; @CL-RTE-0315]. In lieu of the thresholds at FAR 42.708(a)(2)(i) and (ii), the amount of unsettled direct costs and indirect costs to be allocated to the contract, task order, or delivery order will be considered relatively insignificant when the total unsettled direct costs and indirect costs to be allocated to any one contract, task order, or delivery order do not exceed $2 million, regardless of the total contract, task order, or delivery order amount [@CL-RTE-0316; @CL-RTE-0317].
 
 ## How it works
 
@@ -54,6 +52,6 @@ Confirm which fiscal years are still open and whether any contract, task order o
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Joined the $2 million condition directly to the relatively-insignificant sentence in The rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the early-settlement and FAR-threshold wording in the DFARS terms, and replaced uncited contrasts with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD quick-closeout threshold for unsettled costs.

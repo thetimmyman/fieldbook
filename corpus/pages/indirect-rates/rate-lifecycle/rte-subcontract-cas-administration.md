@@ -54,7 +54,6 @@ Which subcontractors are covered, and whether a disclosure statement is on file 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording on furnishing the memorandum and used the GDM and DCI terms as the section has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall wording for the CFAO duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched tier wording.

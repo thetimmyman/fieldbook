@@ -64,7 +64,6 @@ Whether any housing maintenance order the company holds sits under a multiyear c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citation so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded housing, assisted-acquisition and cost-comparison sentences to state the provisions directly and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed negative statements about thresholds, deadlines, contractor duties and non-DoD agencies that no quote states.

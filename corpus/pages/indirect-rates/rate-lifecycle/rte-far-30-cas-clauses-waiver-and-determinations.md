@@ -58,7 +58,6 @@ Which CAS clauses each contract carries and which Disclosure Statement determina
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the contracting officer as the actor, replaced meta and uncited contrast wording with the rules themselves and cited pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign concerns exclusion that follows the clause prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the part 30 scope and the Disclosure Statement pointer sections.

@@ -54,7 +54,6 @@ Which fiscal years are open, and the status of each incurred cost submission. [@
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced the uncited process summary with cited clause paragraphs (d)(1) and (d)(2)(ii), pointed the RFO row at RFO claims, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the shall wording and recipients of the proposal duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the clause's own extension sentence.

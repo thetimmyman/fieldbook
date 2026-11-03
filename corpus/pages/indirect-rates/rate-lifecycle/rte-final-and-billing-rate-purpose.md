@@ -51,7 +51,7 @@ A business unit bills indirect costs at a provisional rate of 40 percent on a ba
 
 ## Never confuse
 
-A billing rate is an indirect cost rate established temporarily for interim reimbursement of incurred indirect costs [@CL-RTE-0300]. A final indirect cost rate is the indirect cost rate established and agreed upon by the Government and the contractor as not subject to change [@CL-RTE-9071]. For the quick-closeout procedure, see [quick-closeout](rte-quick-closeout.md).
+A billing rate is an indirect cost rate (1) established temporarily for interim reimbursement of incurred indirect costs and (2) adjusted as necessary pending establishment of final indirect cost rates [@CL-RTE-0300]. A final indirect cost rate is the indirect cost rate established and agreed upon by the Government and the contractor as not subject to change [@CL-RTE-9071]. For the quick-closeout procedure, see [quick-closeout](rte-quick-closeout.md).
 
 FAR 42.703-1(a) says an agency shall not perform an audit of indirect cost rates when the contracting officer determines that the objectives of the audit can reasonably be met by accepting the results of an audit conducted by any other department or agency of the Federal Government [@CL-RTE-0303]. RFO FAR 42.503-1(a) says agencies cannot audit indirect cost rates when the audit objectives can reasonably be met by accepting the results of an audit by another department or agency of the Federal Government [@CL-RTE-0934].
 
@@ -62,7 +62,7 @@ Confirm which billing and final rate sets apply to each contract and period, and
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Added the adjustment-pending-final-rates clause on billing rates in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citations and a list joint so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory lead-in to the closeout rule, stated the purposes as what establishing final rates provides, and replaced meta wording and uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the shall wording of the rate responsibility, use and audit rules.

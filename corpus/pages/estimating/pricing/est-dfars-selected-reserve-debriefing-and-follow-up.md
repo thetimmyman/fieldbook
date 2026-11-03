@@ -65,7 +65,6 @@ Which expected debriefings need written questions prepared before the question w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded reference, how-it-works and never-confuse sentences to state each provision directly without uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the Selected Reserve factor sentence to state the rule without describing the text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD selected reserve evaluation factor, the postaward debriefing provision and follow-up questions.

@@ -54,6 +54,5 @@ How pools, bases and awards are defined and reconciled so that net awards can be
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the definitions card to state the definitions and pointers directly, added the chapter 99 applicability and the Disclosure statement definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Board definitions used with practice changes.

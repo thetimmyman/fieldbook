@@ -54,7 +54,6 @@ Which programs could face a review and what cost data and staff access the contr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: How-it-works now carries the if-the-Government-performs condition and the FAR 52.203-16 reference for third-party experts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut a closing statement about points the clause leaves unsaid.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the program should-cost review clause.

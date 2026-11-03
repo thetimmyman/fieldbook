@@ -52,7 +52,6 @@ That the sources, methods, and rationale behind each direct labor estimate are r
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the consistency requirement as in the audit manual and replaced an uncited contrast with the two cited descriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'for evaluating' and the standards' names in the technical-data requirements sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for direct labor estimates from historical and technical data.

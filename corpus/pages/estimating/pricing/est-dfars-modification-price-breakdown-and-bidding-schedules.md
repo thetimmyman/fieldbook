@@ -54,7 +54,6 @@ Who prepares modification price breakdowns, how fast they can be itemized when t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now carries the itemization and time conditions of the price breakdown requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to follow the clause text; uncited negatives and contrasts replaced with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the modification price breakdown and bidding schedule provisions.

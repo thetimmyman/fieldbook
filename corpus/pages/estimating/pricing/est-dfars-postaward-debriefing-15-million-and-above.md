@@ -56,6 +56,5 @@ That the capture team logs which awards cross the debriefing threshold and who a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse paragraph reworded to state the added debriefing items directly and point to the related cards by link.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward debriefings of DoD awards at the threshold.

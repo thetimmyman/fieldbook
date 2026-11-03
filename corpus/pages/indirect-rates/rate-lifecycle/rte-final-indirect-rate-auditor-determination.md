@@ -62,7 +62,6 @@ Which final indirect-rate sets are approved for each purpose and period. [@Q-011
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the auditor steps instead of an uncited summary, restored the advance-agreements-or-terms wording, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the shall wording of the auditor's duty and the class deviation sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the auditor's agreement duties to the lead-in that names the auditor.

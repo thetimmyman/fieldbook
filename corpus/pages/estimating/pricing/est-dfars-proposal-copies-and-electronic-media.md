@@ -54,7 +54,6 @@ Who owns sending the proposal copies and building the cost portion in the format
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Copy-provision sentence in how-it-works states the submission requirement directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut statements about what the provisions leave unsaid; reworded the never-confuse lines to the provisions' own words.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for proposal copies to the administrative contracting officer and auditor, and electronic media.

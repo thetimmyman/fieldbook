@@ -45,7 +45,7 @@ When the CFAO determines that a cost impact is immaterial, the CFAO shall make n
 
 Synthetic example. The numbers are made up.
 
-An audit report identifies a noncompliance with an estimated net cost impact of 5,000 across all CAS-covered contracts of a business unit with 40,000,000 in annual revenue. The CFAO applies the materiality criteria and finds the amount immaterial. The CFAO documents the rationale, makes no contract adjustments and concludes the cost impact process. The CFAO also tells the contractor in writing to correct the noncompliance, and that the Government may adjust contracts if the impact becomes material later.
+An audit report identifies a noncompliance with an estimated net cost impact of 5,000 across all CAS-covered contracts of a business unit with 40,000,000 in annual revenue. The CFAO applies the materiality criteria and finds the amount immaterial. The CFAO documents the rationale, makes no contract adjustments and concludes the cost impact process. The CFAO also tells the contractor in writing that the noncompliance should be corrected and that, if it is not corrected, the Government reserves the right to make appropriate contract adjustments should the noncompliance become material in the future.
 
 ## Never confuse
 
@@ -58,7 +58,7 @@ Which business units have full coverage, modified coverage or neither, and so wh
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Added the if-not-corrected condition on future contract adjustments in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the immaterial-noncompliance notice with its lead-in, restated shall duties as duties, and replaced meta references with the rules themselves.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second CAS determination item and the shall wording; separated the two immaterial-noncompliance notices.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 30.201-7 pointer.

@@ -54,7 +54,6 @@ Confirm which open fiscal years closed by sampling memorandum, which were audite
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the remaining sampling tiers, the audit-requirements scope of the class deviation, the methods lead-in and the educational, state and local, and nonprofit method, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the sampling treatment of incurred cost proposals below 100 million dollars and at or above 1 billion dollars of auditable dollar volume.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for risk-based sampling and the settlement of final indirect rates.

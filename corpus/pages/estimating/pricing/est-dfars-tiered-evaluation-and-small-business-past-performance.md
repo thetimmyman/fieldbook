@@ -62,7 +62,6 @@ That the company can produce the tier order and its own and affiliate past perfo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the and-link to the written-explanation condition; wording of market research alternatives tied to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the tiered evaluation conditions and past performance rules in the clauses' own terms, cut an uncited comparison and an uncited because clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-3 limit on tiered evaluation for multiple award contracts.

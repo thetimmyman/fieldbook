@@ -57,7 +57,6 @@ Which fiscal years are still open for incurred cost, whether not submitted, subm
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability lead-in, the 52.216-7 lead-in, the upon-receipt timing and the remaining negotiation memorandum items, and removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named who acts in the procedure, added the resident officer case, the negotiation memorandum items and the shall wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut the 75 percent sentence back to its quote; removed the elevation step from the codified auditor sentence; stated the list items without an actor the quotes do not name.

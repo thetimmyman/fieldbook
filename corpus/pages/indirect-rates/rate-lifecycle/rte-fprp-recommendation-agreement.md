@@ -54,6 +54,5 @@ Confirm which agreement, recommendation or open proposal applies to each pricing
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the once-an-agreement-is-in-place condition on monitoring, the purpose of the later truthful-data audit, and the department wording, and removed an uncited summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forward pricing rate proposal, recommendation and agreement process.

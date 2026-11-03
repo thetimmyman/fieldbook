@@ -49,7 +49,7 @@ Under the RFO text, DoD contracting officers shall use the RFO FAR part 42 text 
 
 Synthetic example. The numbers are made up.
 
-A closed delivery order has a total amount of 2,000,000 and 150,000 of unsettled direct and indirect costs, of which the parties agree 120,000 is allocable. Ten percent of the total amount is 200,000, which is below the fixed limit, so 200,000 is the ceiling and the 150,000 of unsettled cost sits under it. The contracting officer may settle on the agreed estimate once the order is physically complete and the risk assessment supports the procedure.
+A closed delivery order has a total amount of 2,000,000 and 150,000 of unsettled direct and indirect costs, of which the parties agree 120,000 is allocable. Ten percent of the total amount is 200,000, which is below the fixed limit, so 200,000 is the ceiling and the 150,000 of unsettled cost sits under it. Under the codified text, the contracting officer shall negotiate the settlement on the agreed estimate once the order is physically complete and the risk assessment supports the procedure.
 
 ## Never confuse
 
@@ -64,7 +64,7 @@ Whether each closing contract's unsettled direct and indirect costs fall under t
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Replaced may settle with shall negotiate the settlement under the codified text in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the conditions and the relatively-insignificant test as the paragraph has them, added the clause scope of the final determination, and replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the dropped list item, shall wording and the agreement condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the other pertinent information the risk assessment must include; stated the quick-closeout conditions and amounts as the source does, including the contracting officer's determination that the procedure is appropriate.

@@ -54,7 +54,6 @@ Which expected solicitations may give fewer than the usual response time, and wh
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citation so each sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Rewrote how-it-works and Selected Reserve sentences to state the provisions directly instead of characterizing them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named DFARS 215.371-2 in the resolicit sentence; cut a not-must contrast, an unsaid-evaluation sentence and an inference about silent offers.

@@ -63,7 +63,6 @@ Which agreement rates the company may use for each proposal purpose and period, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the cross-reference and decision wording as the clause has it, and replaced uncited contrasts and meta wording with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall wording and actors in the agreement steps.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched 'should normally be negotiated'; matched cited claim on proposal data.
