@@ -29,11 +29,11 @@ Shows how the guideline requires actual direct and indirect costs to be collecte
 | Text status | Not established. |
 | Applies to | Programs that use an earned value management system to measure cost performance [@CL-PRG-0301] |
 
-The guideline requires the earned value management system to collect actual direct and indirect costs by element of cost from a formal system controlled by the general books of account [@CL-PRG-0301]. When actual costs are not available for comparison, estimated costs are entered into the system [@CL-PRG-0302], and the guide's stated purpose includes ensuring that all indirect costs are properly and correctly allocated in a consistent manner to the contracts at the level where indirect budgets are established [@CL-PRG-0303].
+The guideline requires collecting actual costs (direct and indirect), by elements of cost, from a formal system controlled by the general books of account for comparison to corresponding budgets in the EVMS [@CL-PRG-0301]. Where actual costs are not available for comparison, estimated costs will be entered into the EVMS [@CL-PRG-0302], and the guideline's purpose includes ensuring that all indirect costs are properly and correctly allocated in a consistent manner to the contracts at the level where indirect budgets are established [@CL-PRG-0303].
 
 ## How it works
 
-Actual direct and indirect costs are collected by element of cost from a formal system controlled by the general books of account, for comparison with the corresponding budgets [@CL-PRG-0301]. Direct costs are collected at the control account level at a minimum, so that cost variance can be calculated [@CL-PRG-0700]. The actual cost of work performed in the performance reports must reconcile with direct costs recorded in the formal accounting system [@CL-PRG-0701]. The guide's stated purpose includes ensuring that all indirect costs are properly and correctly allocated in a consistent manner to the contracts at the level where indirect budgets are established [@CL-PRG-0303].
+Actual direct and indirect costs are collected by elements of cost from a formal system controlled by the general books of account for comparison to corresponding budgets in the EVMS [@CL-PRG-0301]. Direct costs are collected at the control account level at a minimum to enable calculation of cost variance information for use in evaluating cost performance and providing cost projections at the level where the work is being performed [@CL-PRG-0700]. The actual cost of work performed reported in the performance reports must reconcile with direct costs recorded in the formal accounting system [@CL-PRG-0701]. The guideline's purpose includes ensuring that all indirect costs are properly and correctly allocated in a consistent manner to the contracts at the level where indirect budgets are established [@CL-PRG-0303].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A control account collects direct labor of 90,000 and material of 30,000 from th
 
 ## Never confuse
 
-Recording costs by element of cost is about how actual costs are collected, not about how budgets are set. The guideline collects actual costs so that they can be compared with the corresponding budgets [@CL-PRG-0301].
+Actual costs (direct and indirect) are collected, by elements of cost, from a formal system controlled by the general books of account for comparison to corresponding budgets in the EVMS [@CL-PRG-0301].
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Whether actual costs are collected by element of cost and reconcile to the accou
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added full cost-projection purpose for direct cost collection and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Indirect cost allocation stated as the guide's purpose with its full wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 15 record costs by element of cost.
