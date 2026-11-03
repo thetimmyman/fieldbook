@@ -29,17 +29,17 @@ How the termination contracting officer estimates the funds that the settlement 
 | Text status | Final [@CL-CTF-3113] |
 | Applies to | Terminated contracts, with the FAR 49.604 format used unless the contracting office retains responsibility for settlement [@CL-CTF-3113; @CL-CTF-3245] |
 
-The termination contracting officer (TCO) estimates the funds required to settle the termination and, within 30 days after receipt of the termination notice, recommends the release of excess funds to the contracting officer [@CL-CTF-3113]. The initial deobligation of excess funds should be accomplished in a timely manner by the contracting officer, or by the TCO if the TCO has been delegated the responsibility [@CL-CTF-3243].
+The termination contracting officer (TCO) shall estimate the funds required to settle the termination and, within 30 days after the receipt of the termination notice, recommend the release of excess funds to the contracting officer [@CL-CTF-3113]. The initial deobligation of excess funds should be accomplished in a timely manner by the contracting officer, or the TCO, if delegated the responsibility [@CL-CTF-3243].
 
-The TCO does not recommend the release of amounts under $1,000 unless the contracting officer requests it [@CL-CTF-3114]. The TCO maintains continuous surveillance of the required funds to permit timely release of any additional excess funds [@CL-CTF-3244]. The DFARS section 249.105-2 says to see PGI 249.105-2 for guidance on recommending the release of excess funds [@CL-CTF-9324].
+The TCO shall not recommend the release of amounts under $1,000, unless requested by the contracting officer [@CL-CTF-3114]. The TCO shall maintain continuous surveillance of required funds to permit timely release of any additional excess funds [@CL-CTF-3244]. DFARS 249.105-2 directs the reader to see PGI 249.105-2 for guidance on recommending the release of excess funds [@CL-CTF-9324].
 
 ## How it works
 
-If previous releases of excess funds result in a shortage of the amount required for settlement, the TCO promptly informs the contracting officer, who reinstates the funds within 30 days [@CL-CTF-3115].
+If previous releases of excess funds result in a shortage of the amount required for settlement, the TCO shall promptly inform the contracting officer, who shall reinstate the funds within 30 days [@CL-CTF-3115].
 
-The format in FAR 49.604 is used to recommend the release of excess funds under terminated contracts, except if the contracting office retains responsibility for settlement of the termination [@CL-CTF-3245]. The format runs from the TCO to the contracting office, identifies the terminated contract and the contractor, and cites the termination notice and effective date and any prior letters releasing excess funds [@CL-CTF-3246]. It states whether the referenced termination notice terminated the contract completely or partially [@CL-CTF-3305].
+The format in FAR 49.604 shall be used to recommend the release of excess funds under terminated contracts, except if the contracting office retains responsibility for settlement of the termination [@CL-CTF-3245]. The format runs from the Termination Contracting Officer to the contracting office, identifies the terminated contract and the contractor, and cites the termination notice and effective date and any prior letters releasing excess funds [@CL-CTF-3246]. It states whether the referenced termination notice completely or partially terminated the contract [@CL-CTF-3305].
 
-The format states the best estimate of the gross settlement cost and the amount available for release as excess to the contract [@CL-CTF-3116]. It also states that any payments previously made to the contractor for terminated items have been considered in arriving at those amounts [@CL-CTF-3247]. Where prior letters recommending release are cited, the estimate paragraph is replaced by one that revises the settlement costs previously reported [@CL-CTF-3248], restates the estimate on the best evidence now available and states the additional amount available for release [@CL-CTF-3249]. The format closes with the related appropriations and amounts and with copies to the paying office, the accounting and finance office and others [@CL-CTF-3250].
+Based on the best information available, the format states the estimated gross settlement cost and the amount available for release as excess to the contract [@CL-CTF-3116]. It also states that any payments previously made to the Contractor for terminated items have been considered in arriving at the above amounts [@CL-CTF-3247]. If prior letters recommending release of excess funds are cited, paragraph 2 revises the estimated settlement costs previously reported by reference (b) [@CL-CTF-3248], estimates the settlement costs on the best evidence now available, and states the additional amount available for release [@CL-CTF-3249]. Paragraph 3 lists the related appropriations and allocated amounts involved, with copies to the paying office, the accounting and finance office, and others [@CL-CTF-3250].
 
 ## Worked example
 
@@ -53,7 +53,7 @@ Had the excess been only 800 rather than 120,000, the TCO would not have recomme
 
 ## Never confuse
 
-A release recommendation is not a final settlement amount. It rests on the TCO's estimate of the funds required [@CL-CTF-3113], which the TCO keeps under continuous surveillance [@CL-CTF-3244], and a shortage is put right by reinstating funds [@CL-CTF-3115].
+The recommendation to release excess funds rests on the TCO's estimate of the funds required to settle the termination [@CL-CTF-3113], the TCO shall maintain continuous surveillance of required funds to permit timely release of any additional excess funds [@CL-CTF-3244], and if previous releases result in a shortage of the amount required for settlement, the TCO shall promptly inform the contracting officer, who shall reinstate the funds within 30 days [@CL-CTF-3115].
 
 Funding control on the same contract is on [the limitation of funds card](ctf-limitation-of-funds.md) and [the incremental funding card](ctf-incremental-funding-policy.md).
 
@@ -65,5 +65,6 @@ How the company ties its settlement estimate to the obligated balance so that ex
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Preserved shall and shall not modality from FAR 49.105-2 and FAR 49.604 and removed an uncited sentence in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on recommending the release of excess funds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of excess funds on a terminated contract.

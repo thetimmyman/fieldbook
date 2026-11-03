@@ -29,13 +29,13 @@ Shows how the Government exercises an option that is a numbered line item in the
 | Text status | Final [@CL-CTF-2302] |
 | Applies to | Contracts that include the separately priced line item clause [@CL-CTF-2302] |
 
-The Government may require the delivery of the numbered line item, identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-2302]. The Contracting Officer may exercise the option by written notice to the Contractor within a period of time that the clause leaves as a contract-specific blank to be inserted [@CL-CTF-2303]. Delivery of added items shall continue at the same rate that like items are called for under the contract, unless the parties otherwise agree [@CL-CTF-2304].
+The Government may require the delivery of the numbered line item, identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-2302]. The Contracting Officer may exercise the option by written notice to the Contractor within the period of time inserted in the clause [@CL-CTF-2303]. Delivery of added items shall continue at the same rate that like items are called for under the contract, unless the parties otherwise agree [@CL-CTF-2304].
 
 ## How it works
 
-The quantity and price of the option are those stated in the Schedule for the numbered line item identified as an option item [@CL-CTF-2302]. The Contracting Officer may exercise the option by written notice, and the clause text leaves a blank with a bracketed instruction to insert the period, so the period is contract-specific [@CL-CTF-2303]. Added items are then delivered at the rate that like items are called for, unless the parties agree otherwise [@CL-CTF-2304]. The prescription is covered on [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
+The Government may require the delivery of the numbered line item, identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-2302]. The Contracting Officer may exercise the option by written notice to the Contractor within the period of time inserted in the clause [@CL-CTF-2303]. Delivery of added items shall continue at the same rate that like items are called for under the contract, unless the parties otherwise agree [@CL-CTF-2304]. The prescription is covered on [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO clause keeps the Government's right to require delivery of the numbered line item, identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-1275; @CL-CTF-2302]. It keeps the Contracting Officer's exercise by written notice within a period that the clause leaves as a blank to be inserted [@CL-CTF-1276; @CL-CTF-2303]. It keeps delivery of added items at the same rate that like items are called for under the contract, unless the parties otherwise agree [@CL-CTF-1277; @CL-CTF-2304].
+Effective February 1, 2026, DoD contracting officers shall use the revised FAR Part 52 solicitation provisions and contract clauses published on the Revolutionary FAR Overhaul web page in lieu of the text codified at 48 CFR chapter 1 [@CL-CMP-9760; @CL-CMP-9762]. Under RFO FAR 52.217-7, the Government may require the delivery of the numbered line item, identified in the Schedule as an option item, in the quantity and at the price stated in the Schedule [@CL-CTF-1275], the Contracting Officer may exercise the option by written notice to the Contractor within the period of time inserted in the clause [@CL-CTF-1276], and delivery of added items shall continue at the same rate that like items are called for under the contract, unless the parties otherwise agree [@CL-CTF-1277].
 
 ## Worked example
 
@@ -57,6 +57,7 @@ Confirm which contracts carry this clause, which line items are option items and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality for delivery rate, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Line item clause wording now matches may exercise and may increase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for option for increased quantity as a separately priced line item.
