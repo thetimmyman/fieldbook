@@ -16,13 +16,13 @@ links = ["prg-earned-value-management-system"]
 
 ## Purpose
 
-Shows when and how a program proposes a budget above the contract budget base or a schedule beyond the contractual period of performance to manage the remaining authorized work.
+Shows when and how EVMS Guideline 27 proposes, documents, and establishes a total program budget greater than the contract budget base (an over-target baseline) and/or a total program schedule exceeding the contractual period of performance (an over-target schedule) to support management of the remaining authorized work [@CL-PRG-0376].
 
 ## The rule
 
 | Field | Value |
 |---|---|
-| Instrument | Not established. |
+| Instrument | DoD EVMS Interpretation Guide, Guideline 27 [@CL-PRG-0376] |
 | Codified citation | Not established. |
 | RFO citation | Not established. |
 | Edition date | Not established. |
@@ -43,7 +43,7 @@ A program has a contract budget base of 100, but the remaining work now forecast
 
 ## Never confuse
 
-An over-target baseline is a total program budget greater than the contract budget base, while a single point adjustment sets some or all existing variances to zero [@CL-PRG-0376; @CL-PRG-0374]. The contract budget base itself stays a controlled value that only customer contract actions can change [@CL-PRG-0378].
+An over-target baseline is a total program budget greater than the contract budget base [@CL-PRG-0376], while a single point adjustment sets some or all existing contract cost and/or schedule variances to zero [@CL-PRG-0374]. The contract budget base is a controlled value and cannot be changed by the contractor except as a result of customer contract actions [@CL-PRG-0378].
 
 ## Company calibration
 
@@ -53,6 +53,7 @@ Whether a forecast above the contract budget base is an over-target baseline or 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Populated the instrument field from CL-PRG-0376 and aligned the Never confuse wording directly with CL-PRG-0374, CL-PRG-0376, and CL-PRG-0378.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the source's and/or between over-target baseline and over-target schedule.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed an unsupported contrast and cited the claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for over target baseline and over target schedule.

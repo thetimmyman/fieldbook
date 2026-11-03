@@ -16,24 +16,24 @@ links = ["prg-evms-requirement", "prg-earned-value-management-system"]
 
 ## Purpose
 
-Sets out the requirements for establishing and maintaining a time-phased budget baseline at the control account level.
+Shows how EVMS Guideline 7 establishes and maintains a time-phased budget baseline at the control account level against which contract performance can be measured [@CL-PRG-0214].
 
 ## The rule
 
 | Field | Value |
 |---|---|
-| Instrument | DoD EVMS Interpretation Guide [@CL-PRG-0214] |
+| Instrument | DoD EVMS Interpretation Guide, Guideline 7 [@CL-PRG-0214] |
 | Codified citation | Not established. |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | Programs that establish a time-phased budget baseline at the control account level [@CL-PRG-0214] |
+| Applies to | Time-phased budget baselines established and maintained at the control account level [@CL-PRG-0214] |
 
-The contractor must establish and maintain a time-phased budget baseline comprised of scope, schedule, and budget at the control account level [@CL-PRG-0214]. Budget for far-term efforts may be held in higher-level accounts until an appropriate time for allocation at the control account level [@CL-PRG-0214]. The Performance Measurement Baseline is the time-phased budget plan against which actual performance is assessed [@CL-PRG-0215]. The baseline is time-phased in alignment with the Integrated Master Schedule, with budget distributed in accordance with the accounting calendar for authorized work scope including all control accounts and summary level planning packages [@CL-PRG-0220].
+Establish and maintain a time-phased budget baseline at the control account level against which contract performance can be measured [@CL-PRG-0214]. Initial budgets established for performance measurement will be based on either internal management goals or the external customer negotiated target cost, including estimates for authorized but undefinitized work [@CL-PRG-0214]. Budget for far-term efforts may be held in higher-level accounts until an appropriate time for allocation at the control account level [@CL-PRG-0214]. The Performance Measurement Baseline is the time-phased budget plan against which actual performance is assessed [@CL-PRG-0215]. The Performance Measurement Baseline is time-phased in alignment with the Integrated Master Schedule, with budget distributed in accordance with the accounting calendar for authorized work scope including all control accounts and summary level planning packages [@CL-PRG-0220].
 
 ## How it works
 
-For future effort that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level [@CL-PRG-0216]. Budget set aside for known and unforeseen program risks and contingencies is referred to as Management Reserve and is not included in the Performance Measurement Baseline [@CL-PRG-0217]. When Total Allocated Budget exceeds the Contract Budget Base, an Over Target Baseline occurs, and when the baseline schedule exceeds contract milestones, an Over Target Schedule occurs [@CL-PRG-0218; @CL-PRG-0219].
+For future effort that cannot practically be identified to a control account, it is permissible to establish a Summary Level Planning Package above the control account level [@CL-PRG-0216]. The budget set aside for known and unforeseen program risks and contingencies is referred to as Management Reserve and is not included in the Performance Measurement Baseline (see Guideline 12) [@CL-PRG-0217; @CL-PRG-0106]. When Total Allocated Budget exceeds the Contract Budget Base, an Over Target Baseline occurs, and when the baseline schedule exceeds contract milestones, an Over Target Schedule occurs (see Guideline 27) [@CL-PRG-0218; @CL-PRG-0219; @CL-PRG-0107].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A contract has a Contract Budget Base of 10,000,000. Management sets aside 500,0
 
 ## Never confuse
 
-The Performance Measurement Baseline is not the same thing as Management Reserve, because the budget set aside for known and unforeseen program risks and contingencies is not included in the baseline [@CL-PRG-0217]. It is also not the same thing as an Over Target Baseline, which occurs when Total Allocated Budget exceeds the Contract Budget Base [@CL-PRG-0218]. See [Earned value management system requirement](../evms/prg-evms-requirement.md).
+The Performance Measurement Baseline is the time-phased budget plan against which actual performance is assessed [@CL-PRG-0215], whereas the budget set aside for known and unforeseen program risks and contingencies is referred to as Management Reserve and is not included in the Performance Measurement Baseline [@CL-PRG-0217; @CL-PRG-0106]. When Total Allocated Budget exceeds the Contract Budget Base, an Over Target Baseline occurs [@CL-PRG-0218]. See [Earned value management system requirement](../evms/prg-evms-requirement.md).
 
 ## Company calibration
 
@@ -53,4 +53,5 @@ Which contingency, baseline and over-target decisions change the current program
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0106 and CL-PRG-0107 for the full Management Reserve and Over Target Schedule sentences, restored the initial budgets sentence from CL-PRG-0214, and removed unsupported modal and contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 7 performance measurement baseline.
