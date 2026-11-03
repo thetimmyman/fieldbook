@@ -23,19 +23,19 @@ Shows who determines the responsibility of a prospective subcontractor, when the
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-0787] |
-| Codified citation | FAR 9.100, FAR 9.104-4 and FAR 9.104-5 [@CL-SUP-4157; @CL-SUP-0787; @CL-SUP-0789] |
+| Codified citation | FAR 9.100, FAR 9.104-4 and FAR 9.104-5 [@CL-SUP-4157; @CL-SUP-0787; @CL-SUP-0788; @CL-SUP-0292; @CL-SUP-0789; @CL-SUP-0293; @CL-SUP-0790; @CL-SUP-0791; @CL-SUP-0792; @CL-CMP-9715] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-0787] |
 | Applies to | Prospective prime contractors and offerors in acquisitions where responsibility is determined [@CL-SUP-0787; @CL-SUP-0789] |
 
-The subpart prescribes policies, standards, and procedures for determining whether prospective contractors and subcontractors are responsible [@CL-SUP-4157].
+Subpart 9.1 prescribes policies, standards, and procedures for determining whether prospective contractors and subcontractors are responsible [@CL-SUP-4157].
 
-Generally, prospective prime contractors are responsible for determining the responsibility of their prospective subcontractors, but the rule points to the sections on debarred, ineligible, or suspended firms [@CL-SUP-0787]. Those sections are covered on the [Continuing current contracts and limits on subcontracting with listed parties](../supplier-identity/sup-listed-party-continuation-and-subcontracting-limits.md) and [Protecting the Government's interest when subcontracting with debarred or suspended contractors](../supplier-identity/sup-debarred-suspended-subcontractors.md) cards. When it is in the Government's interest to do so, the contracting officer may directly determine a prospective subcontractor's responsibility, such as when the prospective contract involves medical supplies, urgent requirements, or substantial subcontracting [@CL-SUP-0788].
+Generally, prospective prime contractors are responsible for determining the responsibility of their prospective subcontractors (but see FAR 9.405 and 9.405-2 regarding debarred, ineligible, or suspended firms) [@CL-SUP-0787]. See [Continuing current contracts and limits on subcontracting with listed parties](../supplier-identity/sup-listed-party-continuation-and-subcontracting-limits.md) and [Protecting the Government's interest when subcontracting with debarred or suspended contractors](../supplier-identity/sup-debarred-suspended-subcontractors.md). When it is in the Government's interest to do so, the contracting officer may directly determine a prospective subcontractor's responsibility (such as when the prospective contract involves medical supplies, urgent requirements, or substantial subcontracting), and in that case the same standards used to determine a prime contractor's responsibility shall be used by the Government to determine subcontractor responsibility [@CL-SUP-0788; @CL-SUP-0292].
 
 ## How it works
 
-When an offeror provides an affirmative response in the listed provisions on responsibility matters, the contracting officer shall carry out the listed duties [@CL-SUP-0789]. One listed duty is to notify the agency official responsible for initiating debarment or suspension action, prior to proceeding with award, where an offeror indicates the existence of an indictment, charge, conviction, or civil judgment [@CL-SUP-0789; @CL-SUP-0790]. The same condition covers an offeror that indicates a Federal tax delinquency in an amount that exceeds $15,000 [@CL-SUP-0790; @CL-SUP-0791]. Offerors who do not furnish the representation or certifications or such information as may be requested shall be given an opportunity to remedy the deficiency [@CL-SUP-0792].
+When an offeror provides an affirmative response in paragraph (a)(1) of the provision at FAR 52.209-5, Certification Regarding Responsibility Matters, or paragraph (h) of provision 52.212-3, the contracting officer shall (1) promptly, upon receipt of offers, request such additional information from the offeror as the offeror deems necessary in order to demonstrate the offeror's responsibility to the contracting officer (but see FAR 9.405), and (2) notify, prior to proceeding with award, in accordance with agency procedures (see FAR 9.406-3(a) and 9.407-3(a)), the agency official responsible for initiating debarment or suspension action, where an offeror indicates the existence of an indictment, charge, conviction, or civil judgment, or Federal tax delinquency in an amount that exceeds $15,000 [@CL-SUP-0789; @CL-SUP-0293; @CL-SUP-0790; @CL-SUP-0791]. Offerors who do not furnish the representation or certifications or such information as may be requested by the contracting officer shall be given an opportunity to remedy the deficiency, and failure to furnish the representation or certifications or such information may render the offeror nonresponsible [@CL-SUP-0792; @CL-CMP-9715].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the contracting officer notifies the agency official responsible for ini
 
 ## Never confuse
 
-An offeror's affirmative response is not the same as the prime contractor's determination of a subcontractor's responsibility. The first triggers the contracting officer's listed duties [@CL-SUP-0789], while the second is a duty of the prospective prime contractor [@CL-SUP-0787]. The prime contractor's duty to judge its subcontractors is also separate from the purchasing system rules on the [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md) card and from the duty on the [Competition in Subcontracting clause](sup-competition-in-subcontracting.md) card. The standards a prospective prime contractor must meet to be found responsible are on the [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md) card.
+When an offeror provides an affirmative response in paragraph (a)(1) of the provision at FAR 52.209-5, Certification Regarding Responsibility Matters, or paragraph (h) of provision 52.212-3, the contracting officer shall request additional information upon receipt of offers and notify the agency official responsible for initiating debarment or suspension action as required [@CL-SUP-0789; @CL-SUP-0293; @CL-SUP-0790; @CL-SUP-0791], whereas generally prospective prime contractors are responsible for determining the responsibility of their prospective subcontractors (but see FAR 9.405 and 9.405-2 regarding debarred, ineligible, or suspended firms) [@CL-SUP-0787]. See [Contractor Purchasing System Administration clause](../procure-to-pay/sup-contractor-purchasing-system.md), [Competition in Subcontracting clause](sup-competition-in-subcontracting.md) and [Contractor responsibility standards](../../mna/screening/mna-contractor-responsibility-standards.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Confirm how the company determines and records the responsibility of a supplier 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companions for subcontractor responsibility standards and contracting officer information requests, cited nonresponsibility consequence, and aligned provision details with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the responsibility subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontractor responsibility and responsibility representations.
