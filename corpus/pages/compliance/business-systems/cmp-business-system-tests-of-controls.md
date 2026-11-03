@@ -33,9 +33,9 @@ The auditors do not express an opinion on internal controls, but they do test th
 
 ## How it works
 
-No one specific test is always necessary, applicable, or equally effective in every circumstance, and a combination of these types of tests is often required to provide the necessary level of assurance [@CL-CMP-1663]. If a control provides documentary evidence, the auditor may decide to inspect the documentation, but for other controls such documentation may not be available or relevant [@CL-CMP-1964]. Segregation of duties controls generally do not provide documentary evidence, so the auditor may obtain evidential matter about their operation through observation or inquiry [@CL-CMP-1965]. If the auditor determines that relevant internal control activities do not exist, no control testing will be performed [@CL-CMP-1957].
+No one specific test is always necessary, applicable, or equally effective in every circumstance, and a combination of these types of tests is often required to provide the necessary level of assurance that controls are working effectively [@CL-CMP-1663]. If the control provides documentary evidence, the auditor may decide to inspect the documentation, and for other controls such documentation may not be available or relevant [@CL-CMP-1964]. Segregation of duties controls generally do not provide documentary evidence, and in such circumstances the auditor may obtain evidential matter about the effectiveness of operation through observation or inquiry [@CL-CMP-1965]. If the auditor determines that relevant internal control activities do not exist, no control testing will be performed [@CL-CMP-1957].
 
-Timing of an audit procedure refers to when it is performed or the period or date to which the audit evidence applies [@CL-CMP-1664]. When the evidence relates only to a specific point in time, such as evidence from physical observation, the auditor should obtain additional evidence that the control was effective during the entire audit period [@CL-CMP-1665]. The auditor should determine the extent of testing; this is a matter of auditor judgment, taking into consideration the information gathered in developing an understanding of the internal control structure and the nature of the control to be tested, among other factors [@CL-CMP-1966]. The extent of testing is also significantly impacted by the office's total audit experience with the contractor [@CL-CMP-1666].
+Timing of an audit procedure refers to when it is performed or the period or date to which the audit evidence applies [@CL-CMP-1664]. When the evidence relates only to a specific point in time, such as evidence obtained from physical observation, the auditor should obtain additional evidence that the control was effective during the entire audit period [@CL-CMP-1665]. The auditor should determine the extent of testing to be performed, and this determination is a matter of auditor judgment taking into consideration the information gathered in developing an understanding of the internal control structure, the nature of the control to be tested, audit leads and/or prior audit findings, identified risk, the nature and availability of evidential matter, and the contractor's monitoring and testing efforts [@CL-CMP-1966; @CL-CMP-0171]. The extent of testing is also significantly impacted by the office's total audit experience with the contractor [@CL-CMP-1666].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ During an estimating system audit, DCAA tests whether a supervisor approves bill
 
 ## Never confuse
 
-Testing key controls is not an opinion on internal controls; the auditors do not express one [@CL-CMP-1661]. What the testing supports is the auditor's conclusion on compliance and the control risk assessment, described on [Assessing control risk](cmp-business-system-control-risk.md).
+The auditors do not express an opinion on internal controls, but they do test the key internal controls that are related to DFARS compliance [@CL-CMP-1661]. How control risk is assessed is on [Assessing control risk](cmp-business-system-control-risk.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Keep documentary records, procedure manuals and named personnel available so tha
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Completed the list of factors considered in determining the extent of testing and matched assurance and effectiveness wording to the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Extent of testing now says the auditor should determine it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tests of controls in business system audits.
