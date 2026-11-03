@@ -34,7 +34,7 @@ Where a long-duration work package is unavoidable, interim milestones that model
 
 ## How it works
 
-The control account manager assesses each assigned work package and determines whether there is a discrete way to measure progress towards its completion [@CL-PRG-0254]. The criterion is objective and set per work package, consistent with how the work is expected to be accomplished [@CL-PRG-0252]. Level of effort earns value only as time passes, so it never shows a schedule variance and always equals the budgeted cost for work scheduled [@CL-PRG-0258]. Earned value for discrete material items may be claimed on receipt, inspection and acceptance, provided the items go into use within a reasonable time or are identified to a serially numbered end item [@CL-PRG-0260]. The program evaluation and review technique cost formula is a non-discrete earned value technique [@CL-PRG-0764]. It computes BCWP as (ACWP/EAC) x BAC and needs the estimate at completion evaluated and updated every month [@CL-PRG-0764; @CL-PRG-0259]. The guide says it is appropriate only for high-quantity, low-value, low-risk material items where measurement is impracticable [@CL-PRG-0763].
+The control account manager assesses each assigned work package and determines whether there is a discrete way to measure progress towards its completion [@CL-PRG-0254]. The criterion is objective and set per work package, consistent with how the work is expected to be accomplished [@CL-PRG-0252]. Level of effort earns value only as time passes, so it never shows a schedule variance and always equals the budgeted cost for work scheduled [@CL-PRG-0258]. Earned value for discrete material items may be claimed on receipt, inspection and acceptance, provided the items go into use within a reasonable time or are specifically identified to a serially numbered end item [@CL-PRG-0260]. The Program Evaluation and Review Technique (PERT) Cost Formula is a non-discrete earned value technique [@CL-PRG-0764]. It computes BCWP as (ACWP/EAC) x BAC and requires the estimate at completion to be evaluated and updated every month [@CL-PRG-0764; @CL-PRG-0259]. PERT is only appropriate for high-quantity, low-value and low-risk material items where measurement is impracticable, such as consumable material like bolts, fasteners, and welding rods [@CL-PRG-0763; @CL-PRG-0096].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A work package to build a test fixture is budgeted at 40,000 and planned to fini
 
 ## Never confuse
 
-Level of effort is not apportioned effort. Level of effort earns value with the passage of time and never carries a schedule variance, while apportioned effort is for supporting work that ties directly to a discrete technical activity and, if the contractor uses it, the system documentation must cover the requirements for using the technique and the need to document the factor used to establish the relationship [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257].
+The nature of LOE is such that the BCWP reflects only the passage of time during which LOE activities are planned, so there is never a Schedule Variance (BCWP always equals BCWS), while the concept of apportioned effort should be used when work of a supporting nature ties directly to a discrete technical activity and, if the contractor chooses to use this technique, the EVMS documentation must cover the requirements for the use of this measurement technique and the need to document the factor used to establish the relationship, and must also point out that the progress identified in the base account (percent complete) provides the basis for the progress percentage of the apportioned account [@CL-PRG-0258; @CL-PRG-0256; @CL-PRG-0257; @CL-PRG-9149].
 
 The guideline on planning work packages and planning packages is covered in [plan work packages and planning packages](prg-evms-guideline-9-work-and-planning-packages.md), and the guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
 
@@ -56,6 +56,7 @@ Which work packages the company measures as level of effort, and whether the sys
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added consumable-material examples for PERT and full apportioned-effort documentation rule in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Apportioned-effort documentation, control account manager and PERT wording aligned to the guide.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the PERT claim for the BCWP formula and stated the apportioned-effort documentation condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
