@@ -80,7 +80,6 @@ How the company records acceptance evidence and shipping terms, so title and ris
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and restated two cited conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added responsibility for acceptance and place of acceptance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acceptance, title and risk of loss.

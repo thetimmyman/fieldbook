@@ -57,7 +57,6 @@ Which data line items carry this clause, which alternate the contract uses, and 
 
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated warranty period, remedies and alternates damages with their lead-ins.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the acceptance lead-in, the equipment subcontractor limit and the Alternate II exception, and said who decides on price adjustment.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for warranty of data.

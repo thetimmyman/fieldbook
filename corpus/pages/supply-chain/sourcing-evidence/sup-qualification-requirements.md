@@ -60,7 +60,6 @@ Confirm which items the company supplies under a qualification requirement, whic
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for qualification demonstration methods and offer protection grounds; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of qualification requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of qualification requirement.

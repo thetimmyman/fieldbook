@@ -62,7 +62,6 @@ Which orders the company places against Government supply sources and how it pay
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for order address item and paragraph (b) items; aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Order statement item; excusable delay scope; 30-day scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for ordering from Government supply sources.

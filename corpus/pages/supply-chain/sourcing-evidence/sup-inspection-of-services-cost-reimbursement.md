@@ -56,7 +56,6 @@ Whether the executed contract includes this clause, and how the company bills an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for reduced-value fee reduction and alternative cause; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Inspection system no longer tied to contract term.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (h) of the supplies inspection clause that the quoted rule refers to.

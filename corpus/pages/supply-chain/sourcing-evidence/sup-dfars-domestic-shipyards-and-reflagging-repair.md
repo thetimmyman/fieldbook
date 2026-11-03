@@ -54,7 +54,6 @@ Which solicitations carry the provision, what shipyard history the company can d
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the reflagging requirement lead-in for both items and removed commentary not in the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's right to request supporting documentation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the evaluation preference for use of domestic shipyards and reflagging or repair work.

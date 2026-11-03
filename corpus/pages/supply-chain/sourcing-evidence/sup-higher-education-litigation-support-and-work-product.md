@@ -58,7 +58,6 @@ Which solicitations carry the higher education representation and which subcontr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited advice and contrasts; restated waiver, disclosure and subcontract wording as cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the Confucius Institute definition as alternatives and added the notwithstanding lead-in and clause title.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the litigation support subpart scope and the oversight personnel work product rule.

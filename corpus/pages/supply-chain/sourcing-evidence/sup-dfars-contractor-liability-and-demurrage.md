@@ -54,7 +54,6 @@ Which executed contracts carry these clauses and which schedule each shipment fa
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and restated the notice periods and liability rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the per-pound rate sentence to say what its quotes support.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor liability for loss or damage, and demurrage.

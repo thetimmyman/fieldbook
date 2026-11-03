@@ -60,7 +60,6 @@ Which acceptance and invoicing terms drive the cash forecast on time-and-materia
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for alternative cause in paragraph (h); removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added notwithstanding lead-in; second cause not RFO-only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

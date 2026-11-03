@@ -29,7 +29,7 @@ Shows what a contractor is responsible for under a contract's quality requiremen
 | Text status | Final [@CL-SUP-0850] |
 | Applies to | The contractor's obligations under the contract [@CL-SUP-0850] |
 
-The contractor is responsible for carrying out its obligations under the contract by controlling the quality of supplies or services and by tendering to the Government for acceptance only supplies or services that conform to contract requirements [@CL-SUP-0850].
+The contractor is responsible for carrying out its obligations under the contract by, among other listed duties, controlling the quality of supplies or services and tendering to the Government for acceptance only supplies or services that conform to contract requirements [@CL-SUP-0850].
 
 Under the same lead-in, the contractor is also responsible for ensuring that vendors or suppliers of raw materials, parts, components, subassemblies and similar items have an acceptable quality control system [@CL-SUP-0850; @CL-SUP-0851], and for maintaining substantiating evidence, when required by the contract, that the supplies or services conform to contract quality requirements, and furnishing such information to the Government as required [@CL-SUP-0850; @CL-SUP-4003; @CL-SUP-0852].
 
@@ -54,6 +54,5 @@ What conformance evidence each contract requires, and where supplier quality con
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the contractor duties as an all-apply list and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor responsibilities for quality.

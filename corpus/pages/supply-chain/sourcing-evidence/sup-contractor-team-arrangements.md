@@ -56,6 +56,5 @@ Confirm whether teaming arrangements are identified and disclosed in offers, and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the alternative form and stated the limitations as one of several listed rights.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor team arrangements.

@@ -56,7 +56,6 @@ Which contracts require the company to state precious metals and which pass the 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned precious metals flowdown and mapping property wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed metal types added.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government-furnished precious metals and mapping, charting, and geodesy property.

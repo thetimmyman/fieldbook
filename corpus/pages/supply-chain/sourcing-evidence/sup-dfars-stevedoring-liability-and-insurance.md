@@ -54,7 +54,6 @@ Which executed contracts carry this clause, what insurance the company carries a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated limitations, self-insurance, endorsement and recovery duties as cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the limitation lead-in saying what the limitation relieves.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for liability and insurance in stevedoring contracts.

@@ -56,6 +56,5 @@ Which items on each executed contract are designated critical safety items, and 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and made the example match the identification paragraph.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for critical safety items.

@@ -60,7 +60,6 @@ Confirm whether the company prepared specifications or work statements, or recei
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for second specification exception; removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paid-separately clause to the exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on providing evaluation services.

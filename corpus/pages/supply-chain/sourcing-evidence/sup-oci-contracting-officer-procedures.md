@@ -58,7 +58,6 @@ Confirm which current engagements could create a conflict, who would answer a co
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for 9.504(a) lead-in and 9.506(b)(3); aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: If, not when, for the approval trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of organizational conflict of interest.

@@ -57,7 +57,6 @@ Which limitation of liability clause each contract carries, whether any line ite
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned limitation of liability wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried insurance condition and scope; services includes materials.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraphs (b) and (c) of the high-value items and services clauses that the quoted rule refers to.

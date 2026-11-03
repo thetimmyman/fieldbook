@@ -54,7 +54,6 @@ Whether the contract or solicitation carries these terms, whether it requires vi
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned material requirements and brand name or equal wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Virgin material wording matches the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

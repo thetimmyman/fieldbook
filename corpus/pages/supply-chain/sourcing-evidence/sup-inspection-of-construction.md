@@ -58,7 +58,6 @@ Which acceptance and payment terms govern construction milestones under the exec
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned inspection, remedy, acceptance, and class deviation wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO-only wording on continuing rights removed; codified claim cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected "includes" to "states" for the paragraph (i) continuing-rights item, which the codified text also has.

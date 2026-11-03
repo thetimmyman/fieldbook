@@ -74,7 +74,6 @@ Which contract types, expected amounts and modes of carriage the company's suppl
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta commentary and aligned prescription wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prescriptions for four more inspection clauses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection clause prescriptions for fixed-price supply contracts and transportation contracts.

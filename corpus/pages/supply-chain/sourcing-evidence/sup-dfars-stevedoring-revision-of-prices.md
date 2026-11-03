@@ -54,6 +54,5 @@ Which executed contracts carry this clause, and who sends or answers a price rev
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added effective date, wage adjustment definition, submission timing and disputes wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for revision of prices in transportation and stevedoring contracts.

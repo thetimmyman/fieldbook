@@ -56,7 +56,6 @@ Which acceptance and invoicing terms drive the cash forecast on research and dev
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned R&D inspection and paragraph (h) wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO-only wording on correction time removed; codified claim cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (h) of the cost-reimbursement inspection clauses that the quoted rule refers to.

@@ -54,6 +54,5 @@ Which executed contracts carry these clauses, which version of the ticket clause
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the alternate clauses and weight-loss rules without commentary on the printed text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for laundry and dry cleaning delivery tickets and loss or damage by count of articles or by weight.

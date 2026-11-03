@@ -83,7 +83,6 @@ Which grade (critical, major or minor) the company's receiving inspection gives 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and aligned quality assurance definitions with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Who accepts wording; contracting office lead-in cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of inspection and latent defect.

@@ -54,7 +54,6 @@ Which executed contracts carry these clauses, and who confirms credentials, back
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exemption conditions and categories as alternatives and cited the contractor duty lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that automated systems are used in lieu of the application form.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for riding gang member requirements and the application for United States Government shipping documentation.

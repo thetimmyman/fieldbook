@@ -76,7 +76,6 @@ Which product lines fall under commercial reliance, standard inspection requirem
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and cited the all-apply clause requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the four general categories of contract quality requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the types of contract quality requirements.

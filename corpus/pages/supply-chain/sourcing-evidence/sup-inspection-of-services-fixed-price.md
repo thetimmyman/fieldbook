@@ -56,7 +56,6 @@ Which acceptance and invoicing terms govern services deliverables under the exec
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned fixed-price services inspection, remedy, and class deviation wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added optional use at or below threshold; fixed cost wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

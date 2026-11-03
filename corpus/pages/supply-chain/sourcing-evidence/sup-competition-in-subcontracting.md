@@ -58,7 +58,6 @@ Confirm whether purchasing procedures require competitive solicitation and a rec
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the review and mentor exception wording to match the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Competition in Subcontracting clause.

@@ -35,7 +35,7 @@ Unless the contracting officer authorizes an exception, the contractor shall pas
 
 ## How it works
 
-If the contractor finds the unusual conditions, it shall notify the contracting officer and submit any associated request for price adjustment to the contracting officer [@CL-SUP-1634; @CL-SUP-1635]. If the contracting officer finds the conditions unusual and materially cost-affecting, payment is authorized at the man-hour rates in the schedule of rates of the contract [@CL-SUP-1636]. For fuel, the surcharge adjustment is passed to whoever directly bears the cost of fuel for the shipments under the contract, unless the contracting officer authorizes an exception [@CL-SUP-1637]. The clause also requires the substance of the fuel surcharge clause in the listed subcontracts [@CL-SUP-1638].
+If the contractor finds the unusual conditions, it shall notify the contracting officer before performing the work, if feasible, but no later than the vessel sailing time, and submit any associated request for price adjustment to the contracting officer within 10 working days of the vessel sailing time [@CL-SUP-1634; @CL-SUP-1635]. If the contracting officer finds the conditions unusual and materially cost-affecting, payment is authorized at the man-hour rates in the schedule of rates of the contract [@CL-SUP-1636]. For fuel, the surcharge adjustment is passed to whoever directly bears the cost of fuel for the shipments under the contract, unless the contracting officer authorizes an exception [@CL-SUP-1637]. The clause also requires the substance of the fuel surcharge clause in the listed subcontracts [@CL-SUP-1638].
 
 ## Worked example
 
@@ -54,6 +54,5 @@ Which executed contracts carry these clauses, and who in the company tracks sail
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the hardship request and fuel pass-through rules as the cited text has them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for hardship conditions and the pass-through of motor carrier fuel surcharge adjustment to the cost bearer.

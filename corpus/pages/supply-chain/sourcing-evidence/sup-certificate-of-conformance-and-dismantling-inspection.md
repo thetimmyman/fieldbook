@@ -62,7 +62,6 @@ Whether the cognizant office has authorized certificates in writing under the ex
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the certificate conditions and authorization as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Certificate of Conformance and inspection of dismantling, demolition or removal of improvements.

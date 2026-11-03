@@ -54,6 +54,5 @@ Whether any contract authorizes the company to use these vehicles and who may re
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted insurance commentary and aligned IFMS vehicle wording with quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Interagency Fleet Management System vehicles and related services.

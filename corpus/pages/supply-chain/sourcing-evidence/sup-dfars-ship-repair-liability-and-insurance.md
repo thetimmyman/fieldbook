@@ -57,7 +57,6 @@ What the executed contract says about the vessel risk, and what liability and wo
 
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exclusion, replacement-or-repair alternatives and indemnity limit as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Government non-assumption sentences with the quoted costs and actors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the indemnity sentence so the covered negligence or wrongful act keeps the words or its agents or employees after any subcontractor.

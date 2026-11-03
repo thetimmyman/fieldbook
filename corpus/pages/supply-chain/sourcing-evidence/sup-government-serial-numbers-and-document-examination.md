@@ -56,7 +56,6 @@ Which executed contracts carry the serial numbers clause and which Schedule line
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied clause pointer, identifier wording and examination provision to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the vehicle wording of the major end item list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the serial number definition so the rule keeps the accompanying marking instructions.

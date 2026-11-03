@@ -58,7 +58,6 @@ Whether the executed contract includes this clause or the fixed-price one, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for fixed-fee reduction and alternative cause; aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added nonconforming scope and notwithstanding lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

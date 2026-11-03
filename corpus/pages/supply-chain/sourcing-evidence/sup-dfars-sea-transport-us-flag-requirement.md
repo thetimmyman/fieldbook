@@ -63,7 +63,6 @@ Which contracts carry this clause, whether any supplies will move by sea, and wh
 
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the last waiver-request content item, stated the reasons as alternatives and removed commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the U.S. military and statute wording and the alternatives in the commercial product kinds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, definitions and the U.S.-flag requirement.

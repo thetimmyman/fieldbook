@@ -54,7 +54,6 @@ How each contract's quality requirement level is recorded and priced into suppli
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the all-apply factor list and alternative-inspection conditions as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the before-tender qualification and the Government inspection cost factor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract quality requirements.

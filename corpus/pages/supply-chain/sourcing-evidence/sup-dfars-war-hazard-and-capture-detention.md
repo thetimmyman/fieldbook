@@ -29,7 +29,7 @@ Shows when war-hazard benefit costs are allowable, what the Government reimburse
 | Text status | Final [@CL-SUP-1411] |
 | Applies to | Employee war-hazard benefits under the Workers' Compensation and War-Hazard Insurance clause, and detention benefits paid to a captured person [@CL-SUP-1411; @CL-SUP-1414] |
 
-Costs of providing employee war-hazard benefits in accordance with paragraph (b) of the Workers' Compensation and War-Hazard Insurance clause are allowable if the contractor meets all three listed conditions [@CL-SUP-1411; @CL-SUP-4163]. The first is submitting proof of loss files to support payment or denial of each claim [@CL-SUP-1411]. The second is, subject to contracting officer approval, making lump sum final settlement of any open claims and obtaining necessary release documents within one year of the expiration or termination of the contract, unless the contracting officer extends that period [@CL-SUP-1412]. The third is providing the contracting officer, at the time of final settlement of the contract, an investigation report and evaluation of any potential claim and an estimate of the dollar amount involved should the potential claim mature [@CL-SUP-4163]. The cost of insurance for liabilities reimbursable under this clause is not allowable [@CL-SUP-1413].
+Costs of providing employee war-hazard benefits in accordance with paragraph (b) of the Workers' Compensation and War-Hazard Insurance clause are allowable if the contractor meets all three listed conditions [@CL-SUP-1411; @CL-SUP-4163]. The first is submitting proof of loss files to support payment or denial of each claim [@CL-SUP-1411]. The second is, subject to contracting officer approval, making lump sum final settlement of any open claims and obtaining necessary release documents within one year of the expiration or termination of the contract, unless the contracting officer extends that period [@CL-SUP-1412]. The third is providing the contracting officer, at the time of final settlement of the contract, an investigation report and evaluation of any potential claim and an estimate of the dollar amount involved should the potential claim mature [@CL-SUP-4163]. The cost of insurance for liabilities reimbursable under the Workers' Compensation and War-Hazard Insurance clause is not allowable [@CL-SUP-1413].
 
 ## How it works
 
@@ -53,6 +53,5 @@ Which employees work outside the United States under covered contracts, and what
 
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all three allowability conditions, funds availability and detention amounts as cited.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for war-hazard losses and capture and detention.

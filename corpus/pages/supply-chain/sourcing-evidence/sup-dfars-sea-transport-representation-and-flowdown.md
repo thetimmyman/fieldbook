@@ -55,7 +55,6 @@ Who assembles the bills of lading and the final-invoice representation, and how 
 
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the flowdown trigger and example consequences as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the representation alternatives and the bill of lading sentence to match the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, representation, reporting and flowdown.
