@@ -25,6 +25,8 @@ check:
     cargo clippy --workspace --all-targets --locked --all-features -- -D warnings
     cargo clippy -p fieldbook --all-targets --locked --no-default-features -- -D warnings
     # 3. Tests (the metadata test and the negative controls included) for every build shape, then doc tests
+    # The offline Windows graph check needs its locked crates even on a Linux runner.
+    cargo fetch --locked
     cargo nextest run --workspace --locked
     cargo nextest run -p fieldbook --locked --all-features
     cargo nextest run -p fieldbook --locked --no-default-features

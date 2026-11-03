@@ -12,5 +12,14 @@ fieldbook-calc = { path = "../fieldbook-calc" }
 fieldbook-core = { path = "../fieldbook-core" }
 fieldbook-render = { path = "../fieldbook-render" }
 
+serde = { workspace = true }
+serde_json = { workspace = true }
+clap = { workspace = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+tempfile = { workspace = true }
+toml = { workspace = true }
+
 [lints]
 workspace = true
