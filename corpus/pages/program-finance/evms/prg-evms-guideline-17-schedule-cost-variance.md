@@ -33,7 +33,7 @@ Schedule variance compares the planned budget to the budget earned for work acco
 
 ## How it works
 
-At least monthly, the system compares the planned budget to the budget earned for the work accomplished, producing schedule variance [@CL-PRG-0306; @CL-PRG-0308]. It then compares the budget earned to the actual (applied where appropriate) direct costs for the same work, producing cost variance [@CL-PRG-0307]. A positive value is favorable and a negative value is unfavorable [@CL-PRG-0309].
+At least on a monthly basis, for the control account and higher levels, as necessary for management control, using actual cost data from or reconcilable with the accounting system, the system generates the comparison of the amount of planned budget and the amount of budget earned for work accomplished, which provides the schedule variance [@CL-PRG-0308; @CL-PRG-0306], and the comparison of the amount of the budget earned and the actual (applied where appropriate) direct costs for the same work, which provides the cost variance [@CL-PRG-0307]. A positive value indicates a favorable condition, and a negative value indicates an unfavorable condition [@CL-PRG-0309].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A control account planned a budget of 100,000 and earned 90,000 for the work acc
 
 ## Never confuse
 
-Schedule variance and cost variance measure different things; schedule variance compares planned budget to budget earned, while cost variance compares budget earned to actual direct costs for the same work.
+Schedule variance is the comparison of the amount of planned budget and the amount of budget earned for work accomplished, while cost variance is the comparison of the amount of the budget earned and the actual (applied where appropriate) direct costs for the same work [@CL-PRG-0306; @CL-PRG-0307].
 
 The guideline on assessing progress against the plan is covered in [assessing progress against the plan](prg-evms-guideline-14-assess-progress.md).
 
@@ -55,6 +55,7 @@ Whether schedule and cost variances are calculated monthly at the control accoun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited variance definitions in Never confuse and added control-account and accounting-data qualifiers in How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on EVMS Guideline 14.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 17 schedule and cost variance.
