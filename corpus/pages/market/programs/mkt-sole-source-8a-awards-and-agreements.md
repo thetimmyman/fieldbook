@@ -44,15 +44,15 @@ The contracting office submits an offering letter for, and the SBA must accept, 
 
 ### The agency contract
 
-The agency prepares the contract to be awarded to the SBA in accordance with agency procedures and in the same detail as a contract with a business concern [@CL-MKT-1375]. The contracting officer uses the Standard Form 26 as the award form, except for construction contracts, where the Standard Form 1442 is used [@CL-MKT-1282].
+The agency prepares the contract to be awarded to the SBA in accordance with agency procedures and in the same detail as a contract with a business concern [@CL-MKT-1375]. The contracting officer uses the Standard Form 26 as the award form, except for construction contracts, where the Standard Form 1442 is used as required in 36.701(a) [@CL-MKT-1282].
 
-The contracting officer prepares the contract that the SBA will award to the participant as if awarding directly to the participant, except for the listed items [@CL-MKT-1376]. The award form cites the statutory authority for other than full and open competition [@CL-MKT-1377]. The contract includes appropriate clauses, as necessary, to show that it is between the SBA and the 8(a) contractor [@CL-MKT-1378]. The SBA inserts its contract number, the effective date, the typed name and signature of its contracting officer, and the date signed [@CL-MKT-1379].
+The contracting officer prepares the contract that the SBA will award to the 8(a) participant in accordance with agency procedures, as if awarding the contract directly to the 8(a) participant, except for the listed items [@CL-MKT-1376]. The award form cites section 3304(a)(5) of title 41 or section 3204(a)(5) of title 10 of the United States Code (as appropriate) as the authority for use of other than full and open competition [@CL-MKT-1377]. The contract includes appropriate clauses, as necessary, to show that it is between the SBA and the 8(a) contractor [@CL-MKT-1378]. The SBA inserts its contract number, the effective date, the typed name and signature of its contracting officer, and the date signed [@CL-MKT-1379].
 
 The SBA obtains the 8(a) contractor's signature before signing and returning the prime contract to the contracting officer [@CL-MKT-1380]. The SBA will make every effort to obtain signatures and return the contract, and any later bilateral modification, within a maximum of 10 working days [@CL-MKT-1381].
 
 ### The single-document alternative
 
-Except where the SBA will make advance payments to its 8(a) contractor, the agency contracting officer may use a single contract document as an alternative to the separate contracts [@CL-MKT-1382]. It contains the authority citation, the clauses and the SBA-inserted items [@CL-MKT-1383]. Blocks on the Standard Form 26 or 1442 are asterisked and a continuation sheet is appended as a tripartite agreement [@CL-MKT-1384; @CL-MKT-1385]. For acquisitions not exceeding the simplified acquisition threshold, the contracting officer may use the same alternative with the appropriate simplified acquisition forms [@CL-MKT-1386].
+Except where the SBA will make advance payments to its 8(a) contractor, the agency contracting officer may use a single contract document for both the prime contract between the agency and the SBA and its 8(a) contractor as an alternative to the procedures in paragraphs (a) and (b) [@CL-MKT-1382; @CL-MKT-1686]. It contains the authority citation, the clauses and the SBA-inserted items [@CL-MKT-1383]. Blocks on the Standard Form 26 or 1442 are asterisked and a continuation sheet is appended as a tripartite agreement [@CL-MKT-1384; @CL-MKT-1385]. For acquisitions not exceeding the simplified acquisition threshold, the contracting officer may use the same alternative with the appropriate simplified acquisition forms [@CL-MKT-1386].
 
 ## Worked example
 
@@ -62,7 +62,7 @@ An agency wants a sole-source 8(a) award estimated at 40,000,000. The SBA may no
 
 ## Never confuse
 
-A sole-source 8(a) award is made through the SBA: the agency contract is awarded to the SBA, and the SBA awards the contract to the participant, unless the single-document alternative combines them in one tripartite document [@CL-MKT-1375; @CL-MKT-1376; @CL-MKT-1382]. The SBA's approval before award applies whether or not the contracting officer negotiates directly [@CL-MKT-1276]. An order under an agreement is not covered by the acceptance of the agreement itself; each order needs its own offering letter and acceptance [@CL-MKT-1374]. The offering and acceptance steps are on [the offering and acceptance card](mkt-8a-offering-and-acceptance.md), the competition notice is on [the award and competition notification card](mkt-section-8a-award-and-competition-notification.md), and the special conditions are on [the special conditions card](mkt-special-8a-contract-and-subcontract-conditions.md).
+A sole-source 8(a) award is made through the SBA: the agency contract is awarded to the SBA, and the SBA awards the contract to the participant, unless the single-document alternative combines them in one tripartite document [@CL-MKT-1375; @CL-MKT-1376; @CL-MKT-1382]. The SBA's approval before award applies whether or not the contracting officer negotiates directly [@CL-MKT-1276]. Under FAR 19.804-5(a), the contracting office must submit an offering letter for, and the SBA must accept, each order under a basic ordering agreement or blanket purchase agreement issued under part 13, in addition to the agency offering and the SBA accepting the agreement itself [@CL-MKT-1279; @CL-MKT-1374]. The offering and acceptance steps are on [the offering and acceptance card](mkt-8a-offering-and-acceptance.md), the competition notice is on [the award and competition notification card](mkt-section-8a-award-and-competition-notification.md), and the special conditions are on [the special conditions card](mkt-special-8a-contract-and-subcontract-conditions.md).
 
 ## Company calibration
 
@@ -72,5 +72,6 @@ Whether any planned sole-source award sits near the justification trigger, and w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Completed the statutory citations in FAR 19.811-1(a)-(c) and removed unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: 8a signature return wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sole-source 8(a) awards, agreement orders and the agency contract.

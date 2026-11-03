@@ -35,7 +35,7 @@ The provision at 52.219-1, Small Business Program Representations, is to be inse
 
 ## How it works
 
-The representative reviews and recommends, and one listed remedy for a rejected recommendation is a written appeal [@CL-MKT-0331; @CL-MKT-0332; @CL-MKT-0333]. The list of duties is longer than the four quoted, and this card does not restate the rest. The micro-purchase threshold amount is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+The representative reviews and recommends, and one listed remedy for a rejected recommendation is a written appeal [@CL-MKT-0331; @CL-MKT-0332; @CL-MKT-0333]. The micro-purchase threshold amount is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
 
 The Director of the Office of Small and Disadvantaged Business Utilization serves as the agency focal point for interfacing with the Small Business Administration, and the Director of the Office of Small Business Programs is the agency focal point for the Department of Defense [@CL-MKT-2003].
 
@@ -47,7 +47,7 @@ A DoD contracting officer prepares a solicitation for supplies delivered in the 
 
 ## Never confuse
 
-A procurement center representative recommends. The contracting officer can reject a recommendation, and one listed remedy is a written appeal [@CL-MKT-0309; @CL-MKT-0333]. A solicitation provision is also not the representation itself. The representation is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and rerepresentation after award is on the [Rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card.
+A procurement center representative recommends. The contracting officer can reject a recommendation, and one listed remedy is a written appeal [@CL-MKT-0309; @CL-MKT-0333]. Offeror size and status representations are on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and rerepresentation after award is on the [Rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card.
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which product families and customer groups buy through activities with an assign
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: recommendation lead-in and package conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agency focal points for interfacing with SBA.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA procurement center representatives and the small business solicitation provisions and clauses.

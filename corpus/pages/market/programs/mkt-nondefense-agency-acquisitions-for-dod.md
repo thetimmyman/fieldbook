@@ -39,7 +39,7 @@ A nondefense agency is compliant with applicable procurement requirements if its
 
 ## How it works
 
-Within 30 days of the beginning of each fiscal year, nondefense agency certifications of compliance are submitted to the Principal Director, Defense Pricing and Contracting [@CL-MKT-1754]. The head of the nondefense agency gives the certification [@CL-MKT-1753]. The section does not say who submits it.
+Within 30 days of the beginning of each fiscal year, nondefense agency certifications of compliance are submitted to the Principal Director, Defense Pricing and Contracting at Department of Defense, Office of the Under Secretary of Defense (Acquisition and Sustainment), Defense Pricing and Contracting, Contract Policy, Room 3B938, 3060 Defense Pentagon, Washington DC 20301-3060 [@CL-MKT-1754; @CL-MKT-1711]. The head of the nondefense agency conducting the acquisition on DoD's behalf makes the certification [@CL-MKT-1753].
 
 The DoD acquisition official shall provide the servicing nondefense agency contracting officer with any DoD-unique terms, conditions, other related statutes, regulations, directives and other applicable requirements for incorporation into the order or contract [@CL-MKT-1755]. If there are no DoD-unique requirements beyond the Federal Acquisition Regulation, the official shall so inform that contracting officer in writing [@CL-MKT-1756]. Those terms are provided for incorporation into the order or contract [@CL-MKT-1755]. Nondefense agency contracting officers are responsible for ensuring that the support they give in response to DoD's request meets the compliance test [@CL-MKT-1798].
 
@@ -57,7 +57,7 @@ Had the civilian agency not certified, the request could go ahead only if the Un
 
 ## Never confuse
 
-A certification is not a waiver. The certification is the statement of compliance for the fiscal year by the head of the nondefense agency conducting the acquisition, while the waiver is a written determination by the Under Secretary of Defense for Acquisition and Sustainment that the limitation on requests does not apply to the acquisition categories it names [@CL-MKT-1753; @CL-MKT-1757; @CL-MKT-1800]. This subpart is also separate from the general interagency acquisitions subpart, which applies as well [@CL-MKT-1728].
+Under FAR 17.703(a) and (e), the head of the nondefense agency conducting the acquisition on DoD's behalf certifies compliance for the fiscal year, unless waived by a written determination of the Under Secretary of Defense for Acquisition and Sustainment identifying the acquisition categories to which the waiver applies [@CL-MKT-1753; @CL-MKT-1757; @CL-MKT-1800]. Nondefense agencies acquiring supplies and services on behalf of DoD must also comply with the policy and procedures at subpart 17.7 in addition to subpart 17.5 [@CL-MKT-1728].
 
 ## Company calibration
 
@@ -67,6 +67,7 @@ Which contracts the company performs for a nondefense agency acting for the Depa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.703(c) submission address and removed unquoted meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: compliance wording follows quote, terms provided for incorporation, waiver lifts the limitation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the head of the nondefense agency, as the cited text does.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acquisitions by nondefense agencies on behalf of the Department of Defense.

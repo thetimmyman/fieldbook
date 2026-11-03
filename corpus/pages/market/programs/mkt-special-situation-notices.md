@@ -47,7 +47,7 @@ A DoD component plans a requirement funded entirely with DoD funds that may be b
 
 ## Never confuse
 
-The DoD bundling notice is not the synopsis of the solicitation: it comes at least 30 days before release of a solicitation or an order without one [@CL-MKT-0086], while the general wait between a notice and a solicitation is at least 15 days, except that for acquisitions of commercial products or commercial services the contracting officer may establish a shorter period or use the combined synopsis and solicitation procedure [@CL-MKT-0062; @CL-MKT-0152]. The optional research and development advance notice is also not the synopsis that must precede the later solicitation [@CL-MKT-0084; @CL-MKT-0085]. For the sole-source side, see the [Only One Offer provision](../../estimating/pricing/est-only-one-offer.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+Under DFARS 205.205-70, the DoD notification of intent to bundle is published at least 30 days before release of a solicitation or 30 days before placing an order without a solicitation [@CL-MKT-0086], whereas under FAR 5.203(a) the general period between publication of a synopsis notice and issuance of a solicitation is at least 15 days, except that for acquisitions of commercial products or commercial services the contracting officer may establish a shorter period or use the combined synopsis and solicitation procedure [@CL-MKT-0062; @CL-MKT-0152]. Under FAR 5.205(a), contracting officers must still synopsize all subsequent solicitations for research and development contracts, including those resulting from a previously synopsized advance notice, unless an exception applies [@CL-MKT-0084; @CL-MKT-0085]. For the sole-source side, see the [Only One Offer provision](../../estimating/pricing/est-only-one-offer.md) card. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm which product families, customer groups and market segments define the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the bundling notice and R&D advance notice comparisons directly from the cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: separate smaller contract cite; general 15-day exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the bundling definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of bundling, paragraph (1).

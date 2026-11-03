@@ -30,7 +30,7 @@ Explains whose recommendations the contracting officer must consider on small bu
 
 Contracting officers shall consider recommendations of the agency Director of the Office of Small and Disadvantaged Business Utilization, or for the Department of Defense the Director of the Office of Small Business Programs, or the Director's designee [@CL-MKT-1306]. The recommendations are as to whether a particular acquisition should be awarded under subpart 19.5, 19.8, 19.13, 19.14, or 19.15 [@CL-MKT-1405].
 
-Agencies shall establish procedures, including dollar thresholds, for review of acquisitions by the Director or the Director's designee for the purpose of making these recommendations [@CL-MKT-1307]. The section states no dollar figure; the agency procedures set the thresholds [@CL-MKT-1307].
+Agencies shall establish procedures, including dollar thresholds, for review of acquisitions by the Director or the Director's designee for the purpose of making these recommendations [@CL-MKT-1307].
 
 ## How it works
 
@@ -48,7 +48,7 @@ An agency issues a multiple-award contract for services. The contract is not par
 
 ## Never confuse
 
-A recommendation is not a decision: the contracting officer considers the recommendation and documents the file when it is not accepted [@CL-MKT-1306; @CL-MKT-1406]. The recommending official on this card is the agency Director of the Office of Small and Disadvantaged Business Utilization (or the Department of Defense equivalent), not the agency small business specialist who receives notice of a set-aside withdrawal [@CL-MKT-1306; @CL-MKT-1304]. The documentation duty under 19.506 is not universal, because an award anticipated to a small business under the listed subparts is outside it [@CL-MKT-1408]. The set-aside decisions themselves are on [the determinations and reserves card](mkt-set-aside-determinations-sba-recommendations-and-reserves.md).
+Under FAR 19.202, the contracting officer considers the recommendations of the agency Director of the Office of Small and Disadvantaged Business Utilization, or for the Department of Defense the Director of the Office of Small Business Programs, or the Director's designee, and documents the contract file whenever the Director's recommendations are not accepted [@CL-MKT-1306; @CL-MKT-1406], whereas under FAR 19.502-9(a) written notice of a set-aside withdrawal goes to the agency small business specialist and the SBA procurement center representative [@CL-MKT-1304]. Documentation under FAR 19.506 is not required if a contract award is anticipated to a small business under subpart 19.5, 19.8, 19.13, 19.14, or 19.15 [@CL-MKT-1408]. Set-aside determinations are on [the determinations and reserves card](mkt-set-aside-determinations-sba-recommendations-and-reserves.md).
 
 ## Company calibration
 
@@ -58,5 +58,6 @@ Whether the acquisition file holds the documented rationale wherever a set-aside
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the documentation sentence so the rule keeps the designee and the subparts the recommendations address.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business specialist recommendations and file documentation.

@@ -32,7 +32,7 @@ Leader company contracting is an extraordinary acquisition technique, limited to
 
 The objectives are one or more of the following: reducing delivery time, achieving geographic dispersion of suppliers, maximizing the use of scarce tooling or special equipment, and achieving economies in production [@CL-MKT-1772]; ensuring uniformity and reliability in equipment, compatibility or standardization of components and interchangeability of parts, and eliminating problems in the use of proprietary data that cannot be resolved by more satisfactory solutions [@CL-MKT-1773]; and facilitating the transition from development to production and to subsequent competitive acquisition of end items or major components [@CL-MKT-1774].
 
-The technique is to be used only when all four listed conditions hold [@CL-MKT-1721; @CL-MKT-1722]. The leader company has the necessary production know-how and is able to furnish required assistance to the follower or followers [@CL-MKT-1721]. No other source can meet the Government's requirements without the assistance of a leader company [@CL-MKT-1721]. The assistance required of the leader company is limited to that which is essential to enable the follower or followers to produce the items [@CL-MKT-1722]. Its use is authorized in accordance with agency procedures [@CL-MKT-1722]. The section does not name the official who authorizes it.
+The technique is to be used only when all four listed conditions hold [@CL-MKT-1721; @CL-MKT-1722]. The leader company has the necessary production know-how and is able to furnish required assistance to the follower or followers [@CL-MKT-1721]. No other source can meet the Government's requirements without the assistance of a leader company [@CL-MKT-1721]. The assistance required of the leader company is limited to that which is essential to enable the follower or followers to produce the items [@CL-MKT-1722]. Its use is authorized in accordance with agency procedures [@CL-MKT-1722].
 
 When leader company contracting is used, the Government shall reserve the right to approve subcontracts between the leader company and the follower or followers [@CL-MKT-1723].
 
@@ -56,7 +56,7 @@ The contracting officer could instead have awarded the developer a prime contrac
 
 ## Never confuse
 
-This is not an ordinary subcontract. The Government designates the leader and the follower [@CL-MKT-1771], limits the assistance to what is essential, and keeps the right to approve subcontracts between them [@CL-MKT-1722; @CL-MKT-1723]. It is also not a general sourcing method: it is extraordinary and limited to special circumstances [@CL-MKT-1720].
+Under leader company contracting, the Government designates the leader company to furnish assistance and know-how under an approved contract to one or more designated follower companies so they can become a source of supply [@CL-MKT-1771], limits the assistance to what is essential to enable the follower or followers to produce the items, and reserves the right to approve subcontracts between the leader company and the follower or followers [@CL-MKT-1722; @CL-MKT-1723]. Leader company contracting is an extraordinary acquisition technique that is limited to special circumstances and used only when its use is in accordance with agency procedures [@CL-MKT-1720].
 
 ## Company calibration
 
@@ -66,5 +66,6 @@ Whether any program depends on a leader-follower arrangement, which agency proce
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternative awards cite the lead-in claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for leader company contracting.

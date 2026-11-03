@@ -41,7 +41,7 @@ The objectives paragraph says multiyear contracting is encouraged for the listed
 
 The documentation duty falls on the contracting officer: a written justification of the option quantities or term, the notification period and any option price limitation, kept in the contract file [@CL-MKT-1716]. Where part 6 requires a justification and approval or a determination and findings, it must state both the basic requirement and the increase the option permits [@CL-MKT-1717].
 
-The evaluation duty also falls on the contracting officer and arises in awarding the basic contract. It is triggered by a determination, made before offers are solicited, that the Government is likely to exercise the options [@CL-MKT-1769; @CL-MKT-1718]. The section does not name who makes that determination or the best-interests determination. The best-interests determination does need approval above the contracting officer [@CL-MKT-1719].
+The evaluation duty also falls on the contracting officer and arises in awarding the basic contract. It is triggered by a determination, made before offers are solicited, that the Government is likely to exercise the options [@CL-MKT-1769; @CL-MKT-1718]. The best-interests determination does need approval above the contracting officer [@CL-MKT-1719].
 
 ## Worked example
 
@@ -55,7 +55,7 @@ Suppose instead that funds for the option are reasonably certain to be unavailab
 
 ## Never confuse
 
-Evaluating an option in the award decision is not exercising it. Evaluation happens in awarding the basic contract [@CL-MKT-1769], and exercise is a later act with its own checks, covered on the [Exercise of options](../../contract-finance/funding/ctf-exercise-of-options.md) card. The solicitation provisions that tell offerors how option prices are evaluated are on the [Option evaluation provisions](../../contract-finance/funding/ctf-option-evaluation-provisions.md) card.
+Option evaluation under FAR 17.206(a) occurs in awarding the basic contract [@CL-MKT-1769]. Exercising an option is covered on the [Exercise of options](../../contract-finance/funding/ctf-exercise-of-options.md) card, and the solicitation provisions for evaluating option prices are on the [Option evaluation provisions](../../contract-finance/funding/ctf-option-evaluation-provisions.md) card.
 
 ## Company calibration
 
@@ -65,5 +65,6 @@ Which solicitation files hold the written option justification and the evaluatio
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting objectives, option documentation and option evaluation.
