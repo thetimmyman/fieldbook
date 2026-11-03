@@ -32,17 +32,13 @@ The offeror certifies that each end product, except those listed in paragraph (b
 
 ## How it works
 
-The provision has a certification, a listing duty and rules for evaluating and considering offers.
+The certification in paragraph (a) covers each end product, except those listed in paragraph (b) of the provision, and certifies that each such end product is a U.S.-made or designated country end product, as defined in the clause of the solicitation entitled "Trade Agreements" [@CL-SUP-2781].
 
-The certification in paragraph (a) covers each end product except those listed in paragraph (b). It relies on the definitions of United States-made and designated country end product in the Trade Agreements clause [@CL-SUP-2781].
+Paragraph (b) requires the offeror to list as other end products those supplies that are not U.S.-made or designated country end products [@CL-SUP-2782].
 
-Paragraph (b) requires the offeror to list as other end products the supplies that are not United States-made or designated country end products [@CL-SUP-2782]. What the offeror lists is specific to the solicitation and the offer, so this card cannot say what any list holds.
+Paragraph (c) states that the Government will evaluate offers in accordance with the policies and procedures of Part 25 of the Federal Acquisition Regulation [@CL-SUP-3143]. For line items covered by the WTO GPA, the Government will evaluate offers of U.S.-made or designated country end products without regard to the restrictions of the Buy American statute [@CL-SUP-2783]. The Government will consider for award only offers of U.S.-made or designated country end products unless the Contracting Officer determines that there are no offers for such products or that the offers for those products are insufficient to fulfill the requirements of the solicitation [@CL-SUP-2784].
 
-Paragraph (c) first states that the Government evaluates offers in accordance with the policies and procedures of Part 25 of the Federal Acquisition Regulation [@CL-SUP-3143]. It then sets an evaluation rule. For line items covered by the WTO GPA, offers of United States-made or designated country end products are evaluated without regard to the restrictions of the Buy American statute [@CL-SUP-2783]. Last, it sets an award-consideration rule. The Government considers for award only offers of United States-made or designated country end products, unless the Contracting Officer determines that there are no offers for such products or that the offers for those products are insufficient to fulfill the requirements of the solicitation [@CL-SUP-2784].
-
-The evaluation rule is limited to line items covered by the WTO GPA, and the award-consideration rule as written carries no such limit [@CL-SUP-2783; @CL-SUP-2784]. An offer of end products listed under paragraph (b) is outside the class of offers that the award-consideration rule admits. The Government therefore considers it only after the Contracting Officer makes one of the determinations that rule describes [@CL-SUP-2782; @CL-SUP-2784].
-
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO provision keeps the certification in paragraph (a) [@CL-SUP-3782; @CL-SUP-2781]. It keeps the duty to list other end products in paragraph (b) [@CL-SUP-3783; @CL-SUP-2782]. In paragraph (c) it keeps the Part 25 evaluation rule, the WTO GPA evaluation rule and the award-consideration rule with its Contracting Officer exception [@CL-SUP-3784; @CL-SUP-3143] [@CL-SUP-3785; @CL-SUP-2783] [@CL-SUP-3786; @CL-SUP-2784].
+In RFO FAR part 52, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760; @CL-CMP-9762]. RFO FAR 52.225-6 keeps the certification in paragraph (a) [@CL-SUP-3782; @CL-SUP-2781]. It keeps the duty to list other end products in paragraph (b) [@CL-SUP-3783; @CL-SUP-2782]. In paragraph (c) it keeps the Part 25 evaluation rule, the WTO GPA evaluation rule and the award-consideration rule with its Contracting Officer exception [@CL-SUP-3784; @CL-SUP-3143; @CL-SUP-3785; @CL-SUP-2783; @CL-SUP-3786; @CL-SUP-2784].
 
 ## Worked example
 
@@ -56,11 +52,9 @@ The Contracting Officer later finds that X can supply only 60 of the 100 sensors
 
 ## Never confuse
 
-This provision is the offeror's certification. The Trade Agreements clause carries the contractor's delivery rule, which refers to what the offer specified in this certificate [@CL-SUP-1253]. That clause is covered on [Trade Agreements clause](sup-trade-agreements-clause.md).
+The Trade Agreements clause carries the contractor's delivery rule, which requires the Contractor to deliver only U.S.-made or designated country end products except to the extent that, in its offer, it specified delivery of other end products in the provision entitled "Trade Agreements Certificate" [@CL-SUP-1253] (see [Trade Agreements clause](sup-trade-agreements-clause.md), [Buy American certificates in offers](sup-buy-american-certificates.md), and [Buy American clause for supplies](sup-buy-american-supplies-clause.md)).
 
-The Buy American certificates are separate provisions, covered on [Buy American certificates in offers](sup-buy-american-certificates.md). The plain supplies clause is covered on [Buy American clause for supplies](sup-buy-american-supplies-clause.md).
-
-The evaluation rule applies to line items covered by the WTO GPA [@CL-SUP-2783]. The award-consideration rule as written states no line-item limit [@CL-SUP-2784].
+For line items covered by the WTO GPA, the Government will evaluate offers of U.S.-made or designated country end products without regard to the restrictions of the Buy American statute [@CL-SUP-2783], and the Government will consider for award only offers of U.S.-made or designated country end products unless the Contracting Officer determines that there are no offers for such products or that the offers for those products are insufficient to fulfill the requirements of the solicitation [@CL-SUP-2784].
 
 ## Company calibration
 
@@ -70,5 +64,6 @@ Which record holds the country of origin for each end product, and who signs the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary sentences and standardized RFO FAR part 52 wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Trade Agreements Certificate.

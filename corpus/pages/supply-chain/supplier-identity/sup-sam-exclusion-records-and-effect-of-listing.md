@@ -29,13 +29,13 @@ Shows what an exclusion record in SAM contains and what a listing does: a listed
 | Text status | Final [@CL-SUP-0750; @CL-SUP-0752] |
 | Applies to | Contractors that are debarred, suspended, proposed for debarment, or voluntarily excluded [@CL-SUP-0752] |
 
-An exclusion record in SAM contains the items listed in the FAR, the first being the names and addresses of the entities debarred, suspended, proposed for debarment, voluntarily excluded, declared ineligible, or excluded or disqualified under the nonprocurement common rule [@CL-SUP-0750]. Items (3) to (5) of that list are the cause for the action or other statutory or regulatory authority, the effect of the action, and the termination date for each listing [@CL-SUP-0750; @CL-SUP-0751].
+An exclusion record in SAM contains the items listed in the FAR, the first being the names and addresses of the entities debarred, suspended, proposed for debarment, voluntarily excluded, declared ineligible, or excluded or disqualified under the nonprocurement common rule, with cross-references when more than one name is involved in a single action [@CL-SUP-0750; @CL-SUP-0284]. Items (3) to (5) of that list are the cause for the action or other statutory or regulatory authority, the effect of the action, and the termination date for each listing [@CL-SUP-0750; @CL-SUP-0751].
 
 Contractors that are debarred, suspended, proposed for debarment, or voluntarily excluded are excluded from receiving contracts, and agencies shall not solicit offers from, award contracts to, or consent to subcontracts with them, unless the agency head determines that there is a compelling reason [@CL-SUP-0752]. These contractors are also excluded from conducting business with the Government as agents or representatives of other contractors [@CL-SUP-0753].
 
 ## How it works
 
-A bid from a listed contractor in response to an invitation for bids is entered on the abstract of bids and rejected, unless the agency head determines in writing that there is a compelling reason to consider it [@CL-SUP-0754]. Other offers from a listed contractor are not to be evaluated for award or included in the competitive range, and no discussions are to be held with a listed offeror during a period of ineligibility, unless the agency head determines in writing that there is a compelling reason [@CL-SUP-0755]. If the period of ineligibility expires or is terminated before award, the contracting officer may, but is not required to, consider such proposals, quotations, or offers [@CL-SUP-0800]. Immediately before award, the contracting officer shall again review the exclusion records in SAM to ensure that no award is made to a listed contractor [@CL-SUP-0756].
+A bid from a listed contractor in response to an invitation for bids is entered on the abstract of bids and rejected, unless the agency head determines in writing that there is a compelling reason to consider it [@CL-SUP-0754]. Proposals, quotations, or offers received from any listed contractor shall not be evaluated for award or included in the competitive range, nor shall discussions be conducted with a listed offeror during a period of ineligibility, unless the agency head determines, in writing, that there is a compelling reason to do so [@CL-SUP-0285; @CL-SUP-0755]. If the period of ineligibility expires or is terminated before award, the contracting officer may, but is not required to, consider such proposals, quotations, or offers [@CL-SUP-0800]. Immediately before award, the contracting officer shall again review the exclusion records in SAM to ensure that no award is made to a listed contractor [@CL-SUP-0756].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the contracting officer shall not consent to the subcontract. The listin
 
 ## Never confuse
 
-An exclusion record is not a debarment decision. The record shows the cause, the effect and the termination date of the action. The causes themselves are on the [Causes for debarment](sup-causes-for-debarment.md) and [Causes for suspension](sup-causes-for-suspension.md) cards. How existing contracts and subcontracts continue after a listing is on the [Continuing current contracts and limits on subcontracting with listed parties](sup-listed-party-continuation-and-subcontracting-limits.md) card. The contractor's own disclosure and notice duties when it subcontracts with a listed party are on the [Protecting the Government's interest when subcontracting with debarred or suspended contractors](sup-debarred-suspended-subcontractors.md) card and are not repeated here.
+An exclusion record in SAM contains the cause for the action or other statutory or regulatory authority, the effect of the action, and the termination date for each listing [@CL-SUP-0750; @CL-SUP-0751] (see also [Causes for debarment](sup-causes-for-debarment.md), [Causes for suspension](sup-causes-for-suspension.md), [Continuing current contracts and limits on subcontracting with listed parties](sup-listed-party-continuation-and-subcontracting-limits.md), and [Protecting the Government's interest when subcontracting with debarred or suspended contractors](sup-debarred-suspended-subcontractors.md)).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Confirm how supplier names, addresses and identifiers are matched to SAM exclusi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for FAR 9.404(b)(1) cross-references and FAR 9.405(e)(3) proposals, quotations, or offers, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Attached the compelling-reason exception to the right bar and restored the contracting officer's duty wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SAM exclusion records and the effect of listing.
