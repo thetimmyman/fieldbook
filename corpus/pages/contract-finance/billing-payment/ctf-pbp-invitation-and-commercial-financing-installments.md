@@ -68,7 +68,6 @@ Which offers propose performance-based payments or use commercial financing, and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and prescription qualifiers, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the entitlement lead-in for commercial financing payments (new companions CL-CTF-9624 and CL-CTF-9625) and the when-requested and contract-financing-terms qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the monthly installment request rule.

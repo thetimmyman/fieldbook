@@ -74,7 +74,6 @@ Whose bank details are in SAM, who keeps them current, and which contracts name 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the erroneous-transfer lead-in and exception reference; restated how-it-works and never-confuse wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the recovery responsibility and the suspension cross-reference to the EFT clause card; corrected which clause each payment-suspension and timeliness rule belongs to; kept the valid-date proviso on timeliness.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

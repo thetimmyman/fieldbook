@@ -58,7 +58,6 @@ Whether the EFT information on file matches the account used for each contract, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the contracting officer duty and the must/shall comparison; cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1104 and 32.1107 EFT information and payment information rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.1104 and 32.1107 EFT information and payment information rules.

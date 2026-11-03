@@ -72,7 +72,6 @@ Which contracts carry the North Carolina or New Mexico clause, and who holds the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the Gross Receipts and Compensating Tax Act reference, mandatory duties, and Government nonreimbursement qualifier; cited Never confuse rules and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the contract-number and Tax Administration Act wording for New Mexico registration and made the North Carolina certification list all attachment-based items.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

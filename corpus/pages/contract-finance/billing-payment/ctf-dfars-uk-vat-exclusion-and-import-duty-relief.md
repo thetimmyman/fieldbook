@@ -54,6 +54,5 @@ Which United Kingdom contracts carry these clauses, and how duty paid on imports
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast; restated the refund advice with its timing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for value added tax exclusion and relief from import duty in the United Kingdom.

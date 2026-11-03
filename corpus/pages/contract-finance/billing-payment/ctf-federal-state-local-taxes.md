@@ -65,7 +65,6 @@ Which tax changes the company would push through the contract price, and how the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the warranty condition as a proviso; cut commentary and uncited negative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the price-inclusion rule where the taxes-in-the-price statements rested on a definition or exception alone.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

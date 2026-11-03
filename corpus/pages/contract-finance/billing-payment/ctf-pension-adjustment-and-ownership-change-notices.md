@@ -56,7 +56,6 @@ Confirm who monitors pension plan decisions and ownership changes, and how any r
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 52.215-19(b)(3)-(4) and RFO companions (CL-CTF-3054, CL-CTF-3055, CL-CTF-3203, CL-CTF-3204), named 48 CFR 9904.413-50(c)(12) and (c)(12)(vi), separated RFO citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the sentence on the Government's equitable share after the refund or credit rule (new companions CL-CTF-9626 and CL-CTF-9627).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

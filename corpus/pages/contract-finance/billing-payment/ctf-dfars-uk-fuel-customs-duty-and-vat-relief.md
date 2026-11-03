@@ -56,6 +56,5 @@ Which contracts rely on fuel relief, who files the application and evidence in t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agreement and lead-in; cut uncited inferences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for relief from customs duty and value added tax on fuel in the United Kingdom.

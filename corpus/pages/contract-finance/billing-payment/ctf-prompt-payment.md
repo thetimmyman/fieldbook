@@ -45,7 +45,7 @@ DoD contracting officers must use the revised FAR part 52 published on the Revol
 
 Synthetic example. The numbers are made up.
 
-A proper invoice for 60,000 is received on the first day of a month and no acceptance question arises, so payment is due on the 30th day after receipt, which is day 31 counting the day of receipt as day 1. Payment is made on day 41, and an interest penalty for the 10 late days is computed automatically and paid without any request.
+A proper invoice for 60,000 is received on the first day of a month, the Government processes a receiving report or other documentation authorizing payment with no disagreement over quantity, quality, or contractor compliance, and no acceptance question arises, so payment is due on the 30th day after receipt, which is day 31 counting the day of receipt as day 1. Payment is made on day 41, and an interest penalty for the 10 late days is computed automatically and paid without any request.
 
 ## Never confuse
 
@@ -60,7 +60,6 @@ Confirm the billing-to-collection workflow, who tracks invoice due dates, and wh
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.232-25 calendar-days and additional-penalty conditions (CL-CTF-3205, CL-CTF-3206, CL-CTF-3207), restored full clause qualifiers, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the exceptions to the invoice due date (new companions CL-CTF-9633 and CL-CTF-9634), the may wording for holiday payment, the billing-office actor on invoice returns and the liquidation terms of progress payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text of each additional penalty condition; cited the lead-in of those conditions.

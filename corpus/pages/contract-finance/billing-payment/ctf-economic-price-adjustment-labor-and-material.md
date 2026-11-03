@@ -58,7 +58,6 @@ Which financing, acceptance, and invoicing terms drive the cash forecast when a 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notice-and-data condition, limits lead-in and request wording; cut uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the negotiation of the price adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

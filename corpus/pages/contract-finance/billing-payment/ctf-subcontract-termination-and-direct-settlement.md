@@ -66,7 +66,6 @@ How subcontract termination clauses and the limits written into the company's pu
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored should and shall modals, full qualifiers in Never confuse, and removed worked-example citations and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording on subcontract termination, assignment and direct settlement and narrowed the short-form clause scope to what the quotes say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for terminated subcontracts, assignment of subcontract rights and direct settlement.

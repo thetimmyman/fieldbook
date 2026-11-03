@@ -56,7 +56,6 @@ Confirm how the company tracks invoice due dates, which contracts carry accelera
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Federal Reserve Bank settlement qualifier and the due-date and interest-penalty purpose for resubmitted invoices; cut uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Attributed the small business early-payment exception and the 14-day due date to the DFARS and kept the determination wording for rejected invoices; tidied the resubmission wording.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

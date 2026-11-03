@@ -62,7 +62,6 @@ Which of the company's contracts carry the supplemental cost principles clause o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the add-on and ineligibility wording; cut uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: analysis recipient named.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplemental cost principles and the data the Canadian Commercial Corporation provides.

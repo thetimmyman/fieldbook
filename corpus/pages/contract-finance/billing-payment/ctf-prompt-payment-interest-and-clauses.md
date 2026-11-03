@@ -60,7 +60,6 @@ Confirm which prompt payment clause each executed contract carries and how late 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers for final-invoice settlement, written demand, and clause prescriptions, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for prompt payment interest penalties and clauses.

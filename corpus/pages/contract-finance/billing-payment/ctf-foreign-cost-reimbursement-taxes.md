@@ -66,7 +66,6 @@ Whether each foreign cost-reimbursement contract carries the general or the fore
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited summary and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxes under foreign cost-reimbursement contracts.

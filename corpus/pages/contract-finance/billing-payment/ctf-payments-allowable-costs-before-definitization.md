@@ -54,7 +54,6 @@ Which financing, acceptance, and invoicing terms drive the cash forecast during 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored cost-reimbursement subcontract, payable-amount determination, audit-timing, and Contracting Officer finding qualifiers, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an after-audit qualifier the cited paragraph does not state and stated the 85 percent cap.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

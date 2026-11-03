@@ -78,7 +78,6 @@ Whether each foreign-performance contract carries the foreign fixed-price clause
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded definitions and exception lists, restored the legal-fees phrase, and cut uncited contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed the subparagraph (c)(2) exception on the whole price-inclusion rule and carried the (d)(2) exception on the price increase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the contract price sentence so the rule keeps the exception for subparagraph (c)(2).

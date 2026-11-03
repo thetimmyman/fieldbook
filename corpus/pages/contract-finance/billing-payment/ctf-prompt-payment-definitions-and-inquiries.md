@@ -58,7 +58,6 @@ Which office the company contacts about a late payment, who owns a disagreement 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added codified FAR 2.101 EFT inclusion sentences (CL-CTF-3209 and CL-CTF-9462), separated RFO and codified citations, removed worked-example citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the as-used-in-this-subpart scope of the definitions (new companion CL-CTF-9632) and removed an uncited remark that the two dates are often treated as one.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the electronic funds transfer definition.

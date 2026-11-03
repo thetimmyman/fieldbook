@@ -70,7 +70,6 @@ Whether any contract has a foreign contracting party, and who prepares the exemp
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored foreign-estate statutory qualifiers, shall-submit and shall-include duties, and section 5000C default-withholding scope; removed meta wording and uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the 5000C price and reimbursement bar to its clause and removed a price-adjustment characterization the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

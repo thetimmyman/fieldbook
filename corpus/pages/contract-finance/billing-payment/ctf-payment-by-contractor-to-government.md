@@ -56,7 +56,6 @@ Confirm which demolition or removal contracts carry these clauses and who tracks
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prescription lead-ins and initial-payment sentence for the incremental clause, separated RFO citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the prescription exception to include the transfer of title only upon receipt of payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

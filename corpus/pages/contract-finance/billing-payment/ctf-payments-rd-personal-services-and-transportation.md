@@ -60,7 +60,6 @@ How invoices and time statements under these clauses are submitted, who approves
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and Federal Travel Regulations citation, separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the appropriately-modified wording and the travel-status, more-frequent-interval and prescription-line details.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of personal services contract.

@@ -56,7 +56,6 @@ Which payment methods the contracts allow, how they are designated, and how that
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added third-party payment agreement lead-ins, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the third-party payment and assignment rules as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -62,7 +62,6 @@ Confirm where payment requests are submitted for each contract and who handles a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast and inference from the never-confuse paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic payment requests and EFT mechanisms.

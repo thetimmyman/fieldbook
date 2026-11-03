@@ -62,7 +62,6 @@ Confirm which acceptance, receipt and invoicing terms drive the cash forecast an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 32.908(a)(2) and (c)(2), separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the 32.903 and clause-paragraph scope of the shorter payment period and the must-base wording for actual acceptance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of proper invoice.

@@ -54,6 +54,5 @@ Which Spain contracts and offers carry the exemption clause and representation p
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited commentary and the cut-short direct-contractor description.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Spain and the matching representation.

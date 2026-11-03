@@ -58,7 +58,6 @@ Confirm whether financing arrangements assign contract payments, who handles Gov
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named 41 U.S.C. 7109 and FAR 32.608-2, restored all due-date and simple-interest qualifiers in How it works, separated RFO citations, and cut meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Federal lending agency and further-assignment sentence, the financing-participants qualifier on agent or trustee assignments, and the no-setoff-commitment condition for Alternate I.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the interest penalty rule.

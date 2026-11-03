@@ -58,7 +58,6 @@ Confirm which financing terms the company proposes in offers and who prepares an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the correspondent-institution item; cut meta and uncited wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the lead-in that the proposal shall include the two listed financing items, and the delivery-payment amount in the codified listing; paired the RFO listing with its codified counterpart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -60,7 +60,6 @@ How the company's contract and billing systems handle a changed identifier, so t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added position 9 letters and positions 2 and 3 lead-in; cut meta and uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI for mapping PIIDs to FPDS data elements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD procurement instrument identifiers.

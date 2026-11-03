@@ -52,9 +52,9 @@ Insert the clause at 52.232-90, Fast Payment Procedure, in solicitations and con
 
 ## How it works
 
-The fast payment procedure allows payment under limited conditions to a contractor prior to the Government's verification that supplies have been received and accepted, based on the contractor's submission of an invoice [@CL-CTF-2978; @CL-CTF-2979]. The conditions for use cover the amount of the contract or order, the place of delivery, the passing of title, the supplier's agreement to replace, repair, or correct supplies, a firm-fixed-price contract or order, and a system to document contractor performance, give timely feedback to the contracting officer and identify suppliers abusing the procedure [@CL-CTF-2982; @CL-CTF-2983; @CL-CTF-2984; @CL-CTF-2985; @CL-CTF-2986; @CL-CTF-2987]. Executive agencies may permit higher dollar limitations for specified activities or items on a case-by-case basis [@CL-CTF-2982]. The contracting officer must be primarily responsible for determining the amount of debts [@CL-CTF-2981], and may elect, in the case of BPAs, to insert the clause either in the BPA or in orders under the BPA [@CL-CTF-2994]. The consignee shall notify the purchasing office promptly after the specified date of delivery of supplies not received, damaged in transit or not conforming to specifications of the purchase order [@CL-CTF-2991].
+The fast payment procedure allows payment under limited conditions to a contractor prior to the Government's verification that supplies have been received and accepted, based on the contractor's submission of an invoice [@CL-CTF-2978; @CL-CTF-2979]. The conditions for use cover the amount of the contract or order, the place of delivery, the passing of title, the supplier's agreement to replace, repair, or correct supplies, a firm-fixed-price contract or order, and a system to document contractor performance, give timely feedback to the contracting officer and identify suppliers abusing the procedure [@CL-CTF-2982; @CL-CTF-2983; @CL-CTF-2984; @CL-CTF-2985; @CL-CTF-2986; @CL-CTF-2987]. Executive agencies may permit higher dollar limitations for specified activities or items on a case-by-case basis [@CL-CTF-2982]. The contracting officer must be primarily responsible for determining the amount of debts resulting from failure of contractors to properly replace, repair, or correct supplies lost, damaged, or not conforming to purchase requirements [@CL-CTF-2981], and may elect, in the case of BPAs, to insert the clause either in the BPA or in orders under the BPA [@CL-CTF-2994]. The consignee shall notify the purchasing office promptly after the specified date of delivery of supplies not received, damaged in transit or not conforming to specifications of the purchase order [@CL-CTF-2991].
 
-The contractor must replace, repair, or correct supplies not received at destination, damaged in transit, or not conforming to purchase agreements [@CL-CTF-2980]. The [eligibility and invoicing](../billing-payment/ctf-fast-payment-eligibility-and-invoicing.md) card covers the invoice and marking rules of the clause, and the [title, risk of loss and replacement](../billing-payment/ctf-fast-payment-title-risk-of-loss-and-replacement.md) card covers title and replacement under it.
+The contractor's invoice certifies that the contractor must replace, repair, or correct supplies not received at destination, damaged in transit, or not conforming to purchase agreements [@CL-CTF-2980]. The [eligibility and invoicing](../billing-payment/ctf-fast-payment-eligibility-and-invoicing.md) card covers the invoice and marking rules of the clause, and the [title, risk of loss and replacement](../billing-payment/ctf-fast-payment-title-risk-of-loss-and-replacement.md) card covers title and replacement under it.
 
 ## Worked example
 
@@ -64,7 +64,7 @@ A buying office plans an order of 40,000 for supplies to be shipped to a remote 
 
 ## Never confuse
 
-Fast payment pays before the Government verifies receipt and acceptance, on the contractor's invoice certification [@CL-CTF-2978; @CL-CTF-2979]. The clause is inserted in solicitations and contracts when the conditions in 32.1202 are applicable and it is intended that the fast payment procedure be used in the contract [@CL-CTF-2993]. The consignee shall notify the purchasing office promptly after the specified date of delivery [@CL-CTF-2991], and the contractor must replace, repair, or correct supplies not received at destination, damaged in transit, or not conforming to purchase agreements [@CL-CTF-2980].
+Fast payment pays before the Government verifies receipt and acceptance, on the contractor's invoice certification [@CL-CTF-2978; @CL-CTF-2979]. The clause is inserted in solicitations and contracts when the conditions in 32.1202 are applicable and it is intended that the fast payment procedure be used in the contract [@CL-CTF-2993]. The consignee shall notify the purchasing office promptly after the specified date of delivery [@CL-CTF-2991], and the contractor's invoice certifies that the contractor must replace, repair, or correct supplies not received at destination, damaged in transit, or not conforming to purchase agreements [@CL-CTF-2980].
 
 ## Company calibration
 
@@ -73,7 +73,7 @@ Which orders meet every condition for use, how each purchasing instrument is che
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated the invoice certification lead-in for replacement or repair and the full scope of debts determined by the contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta commentary and uncited contrast; restated the conditions list and responsibilities.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that all fast payment conditions for use apply together.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the fast payment procedure.

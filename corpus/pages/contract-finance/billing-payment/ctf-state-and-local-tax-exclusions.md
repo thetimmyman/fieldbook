@@ -80,7 +80,6 @@ Whether each contract carries the State and Local Taxes clause or the clause wit
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 52.229-4(g) equitable adjustment companion (CL-CTF-3208), restored mandatory shall/must modals across price-adjustment paragraphs, separated RFO and codified citations, and removed uncited sentences and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording on separate invoice statement, tax notification and exemption evidence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of State and local taxes.

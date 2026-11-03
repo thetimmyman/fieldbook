@@ -58,7 +58,6 @@ Confirm which construction contracts carry this clause, who resolves returned in
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored invoice-item parentheticals, material-supplier scope, and 41 U.S.C. 7109 reference, separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the paragraph (d) negotiation lead-in, the agreed-terms continuation of retainage, the release-to-Contractor wording and the notice-copy wording (new companions CL-CTF-9628 to CL-CTF-9631) and named the billing office and the subcontract payment terms in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

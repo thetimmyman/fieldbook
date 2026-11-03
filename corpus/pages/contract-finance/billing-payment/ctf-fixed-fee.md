@@ -54,7 +54,6 @@ The billing-to-collection workflow for fee billings and tracking requirements fo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrast from the never-confuse sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the release conditions in the never-confuse sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

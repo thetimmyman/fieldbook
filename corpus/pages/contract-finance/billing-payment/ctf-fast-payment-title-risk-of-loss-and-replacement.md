@@ -62,7 +62,6 @@ Who receives a replacement instruction, how the date title vests is recorded, an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the notwithstanding lead-in to the replacement duty; cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fast payment title, risk of loss and replacement.

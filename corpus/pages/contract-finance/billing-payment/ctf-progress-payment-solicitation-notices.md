@@ -56,7 +56,6 @@ Which solicitations carry each notice and which resulting contracts have progres
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full provision qualifiers, separated RFO and codified citations, and removed uncited commentary and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the anticipated-bidders condition of the small business notice and tightened the prescription-line and nonresponsive-bid wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

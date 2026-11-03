@@ -60,7 +60,6 @@ Whether the company holds architect-engineer contracts and how monthly estimates
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and payment-due-date prescription qualifier, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the Contracting Officer's determination before release of excess withholding and the until-progress-is-achieved limit on construction retention.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

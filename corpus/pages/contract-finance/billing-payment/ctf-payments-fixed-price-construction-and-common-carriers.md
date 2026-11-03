@@ -74,7 +74,6 @@ Which construction contracts carry this clause, who prepares the monthly estimat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored mandatory duties and clause qualifiers, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored retention, release, title and notwithstanding qualifiers on construction payments, and added companions CL-CTF-9622 and CL-CTF-9623 for the title paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
