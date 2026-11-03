@@ -31,11 +31,11 @@ Shows when the prime contract's property administrator may ask another office fo
 
 The property administrator assigned to the prime contract may request support property administration from another contract administration office, for purposes of evaluating prime contractor management of property located at subcontractors and alternate locations [@CL-CLS-0717].
 
-For subcontractor locations, the purpose is to ensure subcontractor compliance with Government property administration requirements, and the request is made with prime contractor consent [@CL-CLS-0718]. If the prime contractor does not provide consent to support property administration at subcontractor locations, the property administrator shall refer the matter to the contracting officer for resolution [@CL-CLS-0719]. Prime contractor consent is not required for support delegations involving prime contractor alternate locations [@CL-CLS-0721].
+To ensure subcontractor compliance with Government property administration requirements, and with prime contractor consent, the property administrator assigned to the prime contract may request support property administration from another contract administration office [@CL-CLS-0718]. If the prime contractor does not provide consent to support property administration at subcontractor locations, the property administrator shall refer the matter to the contracting officer for resolution [@CL-CLS-0719]. Prime contractor consent is not required for support delegations involving prime contractor alternate locations [@CL-CLS-0721].
 
 ## How it works
 
-The prime property administrator shall accept the findings of the delegated support property administrator and advise the prime contractor of the results of property management reviews, including deficiencies found with the subcontractor's property management system [@CL-CLS-0720]. If the prime contractor does not concur with the findings of the support property administrator, the prime property administrator shall immediately refer the matter to the contracting officer [@CL-CLS-0722]. The system criteria that these reviews test are on [Contractor Property Management System Administration clause](cls-property-management-system.md).
+The prime property administrator shall accept the findings of the delegated support property administrator and advise the prime contractor of the results of property management reviews, including deficiencies found with the subcontractor's property management system [@CL-CLS-0720]. In instances where the prime contractor does not concur with the findings of the support Property Administrator, the prime property administrator shall immediately refer the matter to the contracting officer [@CL-CLS-0722]. The system criteria that these reviews test are on [Contractor Property Management System Administration clause](cls-property-management-system.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A prime contractor keeps Government property at a subcontractor plant and at its
 
 ## Never confuse
 
-Consent works differently by location. Subcontractor locations need prime contractor consent for support delegation, with a referral to the contracting officer if consent is not given, whereas prime contractor alternate locations do not need consent [@CL-CLS-0718; @CL-CLS-0719; @CL-CLS-0721].
+To ensure subcontractor compliance with Government property administration requirements, and with prime contractor consent, the property administrator assigned to the prime contract may request support property administration from another contract administration office, and if the prime contractor does not provide consent to support property administration at subcontractor locations, the property administrator shall refer the matter to the contracting officer for resolution [@CL-CLS-0718; @CL-CLS-0719], whereas prime contractor consent is not required for support delegations involving prime contractor alternate locations [@CL-CLS-0721].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Which sites hold Government property for the contractor, and who handles a disag
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers on subcontractor consent and removed uncited commentary in Never confuse.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for property at alternate locations.

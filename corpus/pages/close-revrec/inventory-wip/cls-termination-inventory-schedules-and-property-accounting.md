@@ -23,23 +23,23 @@ Sets the rule for submitting inventory disposal schedules after a termination an
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0521] |
-| Codified citation | FAR 49.206-3 [@CL-CLS-0521]; FAR 2.101 [@CL-CLS-1519; @CL-CLS-1520] |
-| RFO citation | Not established. |
+| Codified citation | FAR 49.206-3 and 49.109-3 [@CL-CLS-0521; @CL-CLS-0524]; FAR 52.249-2 and 52.249-6 [@CL-CTF-0353; @CL-CTF-0421]; FAR 2.101 [@CL-CLS-1519; @CL-CLS-1520] |
+| RFO citation | RFO FAR 2.101 [@CL-CLS-1542; @CL-CLS-1551] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0521] |
 | Applies to | Terminations that involve termination inventory [@CL-CLS-0521] |
 
-Subject to the terms of the termination clause, and whenever termination inventory is involved, the contractor must submit complete inventory disposal schedules to the termination contracting officer reflecting inventory that is allocable to the terminated portion of the contract [@CL-CLS-0521]. The schedules must be submitted within 120 days from the effective date of termination unless the termination contracting officer extends the period based on a written justification to support the extension [@CL-CLS-0522].
+Subject to the terms of the termination clause, and whenever termination inventory is involved, the contractor shall submit complete inventory disposal schedules to the termination contracting officer reflecting inventory that is allocable to the terminated portion of the contract [@CL-CLS-0521]. The inventory disposal schedules shall be submitted within 120 days from the effective date of termination unless otherwise extended by the termination contracting officer based on a written justification to support the extension [@CL-CLS-0522].
 
-The FAR definitions section describes termination inventory as any property purchased, supplied, manufactured, furnished, or otherwise acquired for the performance of a contract subsequently terminated and properly allocable to the terminated portion of the contract [@CL-CLS-1519]. It says termination inventory includes Government-furnished property, and does not include any facilities, material, special test equipment, or special tooling that are subject to a separate contract or to a special contract requirement governing their use or disposition [@CL-CLS-1520]. The RFO text of FAR 2.101 defines termination inventory as any property purchased, supplied, manufactured, furnished, or otherwise acquired for the performance of a contract subsequently terminated and properly allocable to the terminated portion of the contract, the same in substance as the codified definition [@CL-CLS-1542; @CL-CLS-1519], and goes on to say that termination inventory includes Government-furnished property, and does not include any facilities, material, special test equipment, or special tooling that are subject to a separate contract or to a special contract requirement governing their use or disposition [@CL-CLS-1542; @CL-CLS-1551].
+FAR 2.101 defines termination inventory as any property purchased, supplied, manufactured, furnished, or otherwise acquired for the performance of a contract subsequently terminated and properly allocable to the terminated portion of the contract [@CL-CLS-1519]. It includes Government-furnished property, and does not include any facilities, material, special test equipment, or special tooling that are subject to a separate contract or to a special contract requirement governing their use or disposition [@CL-CLS-1520]. RFO FAR 2.101 defines termination inventory as any property purchased, supplied, manufactured, furnished, or otherwise acquired for the performance of a contract subsequently terminated and properly allocable to the terminated portion of the contract [@CL-CLS-1542], and states that termination inventory includes Government-furnished property, and does not include any facilities, material, special test equipment, or special tooling that are subject to a separate contract or to a special contract requirement governing their use or disposition [@CL-CLS-1551].
 
-Before execution of a settlement agreement, the termination contracting officer must determine the accuracy of the Government property account for the terminated contract [@CL-CLS-0524].
+Before execution of a settlement agreement, the termination contracting officer shall determine the accuracy of the Government property account for the terminated contract [@CL-CLS-0524].
 
 ## How it works
 
-The schedules must be prepared on Standard Form 1428, Inventory Disposal Schedule [@CL-CLS-0523]. If an audit discloses property for which the contractor cannot account, the termination contracting officer must reserve in the settlement agreement the rights of the Government regarding that property or make an appropriate deduction from the amount otherwise due the contractor [@CL-CLS-0525].
+The inventory schedules shall be prepared on Standard Form 1428, Inventory Disposal Schedule [@CL-CLS-0523]. If an audit discloses property for which the contractor cannot account, the termination contracting officer shall reserve in the settlement agreement the rights of the Government regarding that property or make an appropriate deduction from the amount otherwise due the contractor [@CL-CLS-0525].
 
-The termination clauses repeat the schedule deadline and set their own extension mechanics [@CL-CTF-0353; @CL-CTF-0421], so read this card with [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md) for the clause view.
+Under the termination clauses at FAR 52.249-2 and 52.249-6, the contractor shall submit complete termination inventory schedules no later than 120 days from the effective date of termination, unless extended in writing by the contracting officer upon written request of the contractor within that 120-day period [@CL-CTF-0353; @CL-CTF-0421]; see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md) for the clause view.
 
 ## Worked example
 
@@ -49,7 +49,7 @@ After termination a contractor identifies 250,000 of raw materials and component
 
 ## Never confuse
 
-An inventory disposal schedule lists termination inventory allocable to the terminated portion, whereas the property account check tests the accuracy of the Government property account for the terminated contract [@CL-CLS-0521; @CL-CLS-0524]. For how costs of termination are judged, see [Termination costs](cls-termination-costs.md). For property records under the contractor's system, see [Property management system](../fixed-assets/cls-property-management-system.md) and [Government Property clause](../fixed-assets/cls-government-property-clause.md). For title to inventory under progress payments, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md).
+An inventory disposal schedule lists termination inventory allocable to the terminated portion, whereas the property account check determines the accuracy of the Government property account for the terminated contract before execution of a settlement agreement [@CL-CLS-0521; @CL-CLS-0524]. For how costs of termination are judged, see [Termination costs](cls-termination-costs.md). For property records under the contractor's system, see [Property management system](../fixed-assets/cls-property-management-system.md) and [Government Property clause](../fixed-assets/cls-government-property-clause.md). For title to inventory under progress payments, see [Government title to progress payment inventory](cls-government-title-progress-payment-inventory.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Who reconciles inventory disposal schedules and Government property accounts aga
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.109-3, 52.249-2, 52.249-6, and RFO FAR 2.101 to the table, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the termination inventory definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination inventory.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of termination inventory.
