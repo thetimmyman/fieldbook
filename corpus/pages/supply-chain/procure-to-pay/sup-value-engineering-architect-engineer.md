@@ -16,7 +16,7 @@ links = ["prg-far-value-engineering-general"]
 
 ## Purpose
 
-Shows the value engineering duties of an architect-engineer contractor, what it submits after award, what each value engineering proposal must contain, and why the contractor is paid for the effort but takes no part of the savings.
+Shows the value engineering duties of an architect-engineer contractor, what it submits after award, what each value engineering proposal must contain, and that the contractor is paid for the effort but takes no part of the savings.
 
 ## The rule
 
@@ -50,7 +50,7 @@ Approved proposals are implemented by bilateral modification to the contract [@C
 
 ## How it works
 
-After award the contractor files the fee breakdown schedule and gets the study team approved, and the study follows the design documents at the stage the clause sets or the contracting officer directs [@CL-SUP-3194; @CL-SUP-3195; @CL-SUP-3114]. The team leader gathers the work and signs a final report that holds every proposal, each with the minimum content [@CL-SUP-3197; @CL-SUP-3198; @CL-SUP-3199]. Acceptance is implemented by bilateral modification to the contract [@CL-SUP-3121]. Payment follows the contract for the effort, and no savings share follows an accepted proposal [@CL-SUP-3116].
+After award, the contractor provides the Government with a fee breakdown schedule for the value engineering services included in the contract schedule and submits for the contracting officer's approval a list of team members and their resumes representing the engineering disciplines required to complete the study effort, along with evidence of the team leader's qualifications and engineering discipline, and the services include value engineering evaluation and review and study of design documents immediately following completion of the 35 percent design stage or at such stages as the contracting officer may direct [@CL-SUP-3194; @CL-SUP-3195; @CL-SUP-3114]. The team leader is responsible for prestudy work assembly and edits, reproduces and signs the final report and each proposal, all proposals (even if submitted earlier as an individual submission) are contained in the final report, and the contractor includes the required minimum items in each proposal [@CL-SUP-3197; @CL-SUP-3198; @CL-SUP-3199]. Approved proposals are implemented by bilateral modification to the contract [@CL-SUP-3121]. The contractor is paid as the contract specifies for the effort and does not share in savings that may result from the Government's acceptance and use of proposals [@CL-SUP-3116].
 
 Class Deviation 2026-O0038 directs DoD contracting officers to use the RFO FAR part 52 text in place of the codified text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.248-2 keeps these rules: the contractor performs value engineering services, submits progress reports as specified in the Schedule, and submits to the contracting officer any resulting proposals [@CL-SUP-2644] [@CL-SUP-3113]. The services include evaluation and review and study of design documents immediately following completion of the 35 percent design stage or at such stages as the contracting officer may direct [@CL-SUP-2645] [@CL-SUP-3114]. The contractor is paid as the contract specifies for the effort but does not share in savings which may result from the Government's acceptance and use of proposals [@CL-SUP-2646] [@CL-SUP-3116]. Approved proposals are implemented by bilateral modification to the contract [@CL-SUP-2647] [@CL-SUP-3121].
 
@@ -62,7 +62,7 @@ An architect-engineer contract has a separately priced line item of 40,000 for v
 
 ## Never confuse
 
-A proposal here is a change proposal, not the study that produced it [@CL-SUP-3117]. Sharing is also the difference from the construction clause: the construction contractor shares in instant contract savings, while this contractor is paid for the work and takes no share of the savings an accepted proposal produces [@CL-SUP-3122; @CL-SUP-3116]. The general value engineering card, for other contracts, is [value engineering general](../../program-finance/evms/prg-far-value-engineering-general.md).
+In this clause, a value engineering proposal, in connection with an architect-engineer contract, is a change proposal developed by employees of the Federal Government or contractor value engineering personnel under contract to an agency to provide value engineering services for the contract or program [@CL-SUP-3117]. Under the construction value engineering clause, the contractor is encouraged to develop, prepare and submit value engineering change proposals voluntarily and shares in any instant contract savings that result from acceptance and implementation by the Government, whereas under the architect-engineer clause the contractor is paid as the contract specifies for the effort and does not share in savings that may result from the Government's acceptance and use of proposals [@CL-SUP-3122; @CL-SUP-3116]. The general value engineering card, for other contracts, is [value engineering general](../../program-finance/evms/prg-far-value-engineering-general.md).
 
 ## Company calibration
 
@@ -72,6 +72,7 @@ Which architect-engineer contracts carry this clause, who approves the value eng
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned summary and comparison sentences with the cited quotes and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the definition of architect-engineer services as "means" with all three paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the architect-engineer services definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of architect-engineer services, paragraph (1).
