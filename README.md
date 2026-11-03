@@ -83,7 +83,7 @@ Tier 2 is an installer, only if IT requires one. The AI build is the same source
 | Day N | A day counted from the owner's first day; no calendar date is stored |
 | card | One unit of work for Codex, in `docs/cards/`, with an outcome and a negative control |
 | Codex | The coding agent that executes cards |
-| seed golden | A reference test file only the lead or owner may edit |
+| seed golden | A reference test file, added in a pull request of its own; only the lead or owner changes one once merged |
 | negative control | A deliberate breakage that shows a check can fail |
 | `ci-ok` | The one required CI check; it passes only when every job does |
 | the lead, the owner, IT, the UI lane | The author of the foundation and content; the Finance Director who owns every judgment; corporate IT security; the owner of layout and visual design |

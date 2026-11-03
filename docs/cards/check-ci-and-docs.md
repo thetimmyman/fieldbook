@@ -74,5 +74,5 @@ Revert the merge commit. Step 7 returns to a comment, `ci-ok` no longer needs `c
 
 ## BLOCKED
 
-- Step 7 fails on the lead's committed Corpus: write the code and the file and stop. Codex may not edit `corpus/` before `guard-statuses`.
+- Step 7 fails on the lead's committed Corpus: write the code and the file and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.
 - The dependency-policy checks fail, or the `corpus` job needs a permission or a secret (release gate): write what and stop.

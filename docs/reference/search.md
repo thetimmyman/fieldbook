@@ -398,7 +398,7 @@ The first line is rank, id, kind and display title. The second is the non-empty 
 
 Goldens hold Rust and JavaScript to one specification. They live in `tests/golden/search/`. Citation goldens live in `tests/golden/citations/` and Handoff goldens in `tests/golden/handoff/`; they are specified with the citation grammar and are listed here only for their counts.
 
-**The seed rule.** Files named `seed-*.json` are written by the lead or the owner and are never edited by Codex. CI rejects a commit by the agent author that edits a `seed-*` file (`guard-statuses`, whose first form, set up with the repository, rejects any such commit by path). Codex adds cases in other files in the same directory. If a seed case fails, the code or this document is wrong; Codex does not change the seed. It marks the card BLOCKED, names the case id, and asks. A change to a seed is a change to this document, made by the lead or the owner in one pull request with `Review: owner`.
+**The seed rule.** Files named `seed-*.json` hold the reference cases, written before the code they check. Any author, an agent included, may add a new seed file in a pull request that changes nothing else. An existing seed file is never changed by an agent: CI rejects such a commit (`guard-statuses`, GS-02). Agents add cases in other files in the same directory. If a seed case fails, the code or this document is wrong; the agent does not change the seed. It marks the card BLOCKED, names the case id, and asks. A change to a seed is a change to this document, made by the lead or the owner in one pull request with `Review: owner`.
 
 | Kind | Directory | Seed file | Seed cases | Total required | Asserted by |
 |---|---|---|---|---|---|

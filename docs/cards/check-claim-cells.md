@@ -56,4 +56,4 @@ Revert the merge commit. The two codes go back to `pending.toml`, and their entr
 
 ## BLOCKED
 
-The lead's committed claims raise FB0306 or FB0307: write the claim id and the code and stop. Codex may not edit `corpus/` before `guard-statuses`.
+The lead's committed claims raise FB0306 or FB0307: write the claim id and the code and stop. Fix the content in a pull request of its own (GS-02 judges it), then continue.
