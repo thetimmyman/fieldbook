@@ -15,7 +15,7 @@ questions = ["Q-037"]
 
 ## Purpose
 
-Shows how indirect budgets are built from indirect rates and carried in the performance measurement baseline at a level where they can be seen and managed [@CL-PRG-0262].
+Shows how indirect rates developed by the responsible organizations are applied to the program's direct resource budgets at the applicable level to determine the indirect budgets that support the establishment of the performance measurement baseline [@CL-PRG-0262].
 
 ## The rule
 
@@ -28,13 +28,13 @@ Shows how indirect budgets are built from indirect rates and carried in the perf
 | Text status | Not established. |
 | Applies to | Programs that operate an earned value management system [@CL-PRG-0262] |
 
-Indirect rates are developed by the responsible organizations and applied to the program’s direct resource budgets at the applicable level, which produces the indirect budgets that support the baseline [@CL-PRG-0262]. Indirect budgets such as overhead, general and administrative cost, and cost of money are to be established and included in the baseline at the appropriate level for visibility [@CL-PRG-0263].
+Indirect rates are developed by the responsible organizations and applied to the program’s direct resource budgets at the applicable level, which determines the indirect budgets that support the establishment of the performance measurement baseline [@CL-PRG-0262]. Indirect budgets such as overhead, general and administrative, and cost of money are established and included in the performance measurement baseline at the appropriate level for visibility [@CL-PRG-0263].
 
-The budgets are established at the appropriate organizational level for each pool and cost sub-element, and they are developed and planned in conjunction with the direct budgets consistent with the contractor’s documented procedures for approving and allocating indirect cost [@CL-PRG-0265; @CL-PRG-0266].
+Indirect budgets are established at the appropriate organizational level for each pool and cost sub-element, and budgets for indirect costs as implemented on the programs are developed and planned in conjunction with the direct budgets and are consistent with the contractor’s documented procedures for how indirect costs are approved and allocated to the program [@CL-PRG-0265; @CL-PRG-0266].
 
 ## How it works
 
-Actual indirect expense is compared with the established indirect budgets, which tells the contractor whether absorption under the existing documented allocation schemes is on track or whether a rate needs adjustment [@CL-PRG-0268]. The indirect budgets are planned alongside the direct budgets and are consistent with the contractor’s documented procedures for approving and allocating indirect cost [@CL-PRG-0266]. The budgets enter the baseline with the current rates, whether those are approved, provisional or proposed [@CL-PRG-0267]. The guide treats it as critical to the contractor that, at the end of the accounting year, all indirect expenses are allocated [@CL-PRG-0264].
+By comparing actual indirect expenses to established indirect budgets, the contractor can determine if the absorption of indirect expenses based on existing documented allocation schemes is on track or if allocation rates require adjustment [@CL-PRG-0268]. Budgets for indirect costs as implemented on the programs are developed and planned in conjunction with the direct budgets and are consistent with the contractor’s documented procedures for how indirect costs are approved and allocated to the program [@CL-PRG-0266]. Indirect budgets are incorporated into the performance measurement baseline in concert with described processes and current rates (i.e., approved, provisional, proposed) [@CL-PRG-0267]. It is critical to the contractor that, at the end of the accounting year, all indirect expenses are allocated [@CL-PRG-0264].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A program carries 500,000 of direct labour budget. The responsible organization 
 
 ## Never confuse
 
-An indirect budget is not a direct resource budget. The direct resource budgets are the base the rates are applied to, and the indirect budget is what applying those rates at the applicable level produces [@CL-PRG-0262].
+Indirect rates, developed by the responsible organizations, are applied to the program's direct resource budgets, at the applicable level, to determine the indirect budgets that support the establishment of the performance measurement baseline [@CL-PRG-0262].
 
 The guideline on evaluating indirect cost variances is covered in [Evaluate indirect cost variances](prg-evms-guideline-19-indirect-cost-variances.md), and the guideline on recording costs by element of cost is covered in [Record costs by element of cost](prg-evms-guideline-15-record-costs.md).
 
@@ -56,6 +56,7 @@ Whether each pool carries an indirect budget in the baseline at the level the re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned Purpose, How it works, and Never confuse wording to cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the documented allocation schemes wording and the year-end timing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed two sentences the cited claims did not support and aligned the wording.
