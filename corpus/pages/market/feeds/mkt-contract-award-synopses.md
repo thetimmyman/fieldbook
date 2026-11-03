@@ -29,13 +29,13 @@ Shows which contract awards must be synopsized through the Governmentwide point 
 | Text status | Final [@CL-MKT-0036] |
 | Applies to | Contract awards exceeding the stated dollar threshold, other than the excepted actions [@CL-MKT-0036] |
 
-Except for the contract actions in the exceptions paragraph and as provided in FAR 5.003, contracting officers must synopsize through the Governmentwide point of entry (GPE) the contract awards exceeding $25,000 that are in the categories the paragraph lists [@CL-MKT-0036]. The two categories listed under the item for awards exceeding that amount are awards covered by the World Trade Organization Government Procurement Agreement or a Free Trade Agreement, and awards likely to result in the award of any subcontracts [@CL-MKT-0037]. The dollar threshold is not a prohibition against publicizing an award of a smaller amount when publicizing would be advantageous to industry or to the Government [@CL-MKT-9317].
+Except for contract actions described in FAR 5.301(b) and as provided in FAR 5.003, contracting officers must synopsize through the Governmentwide point of entry (GPE) contract awards exceeding $25,000 that are in the categories the paragraph lists [@CL-MKT-0036]. The two categories listed for contract awards exceeding $25,000 are awards covered by the World Trade Organization Government Procurement Agreement or a Free Trade Agreement (see FAR subpart 25.4), or awards likely to result in the award of any subcontracts [@CL-MKT-0037]. However, the dollar threshold is not a prohibition against publicizing an award of a smaller amount when publicizing would be advantageous to industry or to the Government [@CL-MKT-9317].
 
-A further item lists certain contract actions greater than the simplified acquisition threshold, and its first entry is Federal Supply Schedule orders or Blanket Purchase Agreements supported by a limited-source justification (excluding brand name) [@CL-MKT-0038]. Its second entry is task or delivery orders awarded without providing fair opportunity [@CL-MKT-0039].
+Contracting officers must also synopsize through the GPE certain contract actions greater than the simplified acquisition threshold: Federal Supply Schedule (FSS) orders or Blanket Purchase Agreements supported by a limited-source justification (excluding brand name) in accordance with FAR 8.405-6 [@CL-MKT-0036; @CL-MKT-0038], or task or delivery orders awarded without providing fair opportunity in accordance with FAR 16.505(b)(2) [@CL-MKT-0039].
 
 ## How it works
 
-A notice is not required under this section if the notice would disclose the executive agency's needs and the disclosure of such needs would compromise the national security [@CL-MKT-0040]. For acquisitions covered by the World Trade Organization Government Procurement Agreement or a Free Trade Agreement, synopses must be submitted in sufficient time to permit their publication in the GPE not later than 60 days after award [@CL-MKT-0041]. Contracting officers transmit synopses of contract awards in the same manner as prescribed in FAR 5.207 [@CL-MKT-0042].
+A notice is not required under FAR 5.301 if the notice would disclose the executive agency's needs and the disclosure of such needs would compromise the national security [@CL-MKT-0040]. With respect to acquisitions covered by the World Trade Organization Government Procurement Agreement or a Free Trade Agreement, contracting officers must submit synopses in sufficient time to permit their publication in the GPE not later than 60 days after award [@CL-MKT-0041]. Contracting officers shall transmit synopses of contract awards in the same manner as prescribed in FAR 5.207 [@CL-MKT-0042].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contracting officer awards an 80,000 contract that is likely to result in subc
 
 ## Never confuse
 
-A synopsis of an award is not the public announcement of the award: the synopsis goes through the GPE [@CL-MKT-0036], while the announcement rule works from its own award-value threshold [@CL-MKT-0043]. The first listed item uses a stated dollar amount, while the further item uses the simplified acquisition threshold [@CL-MKT-0036; @CL-MKT-0038]. For the simplified acquisition threshold amount, see [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
+Under FAR 5.301(a), contracting officers must synopsize through the GPE the covered contract awards exceeding $25,000 [@CL-MKT-0036; @CL-MKT-0037] and the covered FSS orders, Blanket Purchase Agreements, and task or delivery orders greater than the simplified acquisition threshold [@CL-MKT-0038; @CL-MKT-0039], whereas under FAR 5.303(a) contracting officers shall make information available on awards over $5.5 million (unless another dollar amount is specified in agency acquisition regulations) in sufficient time for the agency concerned to announce it by 5 in the afternoon Washington, DC, time on the day of award [@CL-MKT-0043]. For the simplified acquisition threshold amount, see [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ Confirm which public award notices are relevant market observations for the comp
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 8.405-6 and FAR 16.505(b)(2) cross-references and contracting-officer actor in timing and transmittal rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 5.003 as the provision the opening exception points to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the two award categories.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for synopses of contract awards.
