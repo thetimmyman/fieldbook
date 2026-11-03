@@ -42,7 +42,7 @@ A row in the dollar column prints a dollar figure and a row in the employee colu
 
 One industry code may carry more than one row, because exceptions are printed as separate rows with their own standards [@CL-MKT-2164].
 
-The wholesale trade and retail trade sector notes say that those codes shall not be used to classify Government acquisitions for supplies, and that the applicable manufacturing code shall be used instead [@CL-MKT-2165; @CL-MKT-2341; @CL-MKT-2166]. The notes do not name who classifies. Under FAR 19.102, unless paragraph (b)(2)(ii)(B) of that section requires otherwise, contracting officers must assign one NAICS code and its size standard to all solicitations, contracts, and task and delivery orders [@CL-MKT-0203].
+The wholesale trade and retail trade sector notes say that those codes shall not be used to classify Government acquisitions for supplies, and that the applicable manufacturing code shall be used instead [@CL-MKT-2165; @CL-MKT-2341; @CL-MKT-2166]. Under FAR 19.102, unless paragraph (b)(2)(ii)(B) of that section requires otherwise, contracting officers must assign one NAICS code and its size standard to all solicitations, contracts, and task and delivery orders [@CL-MKT-0203].
 
 Federal Government contractors also shall not use those trade codes when subcontracting for the acquisition for supplies [@CL-MKT-2168].
 
@@ -51,10 +51,10 @@ A wholesale or retail trade concern that submits an offer or a quote on a supply
 The footnotes add rules for particular codes. This card states these:
 
 - For dredging, to be considered small for purposes of Government procurement, a firm or its similarly situated subcontractors must perform at least 40 percent of the volume dredged with their own equipment or equipment owned by another small dredging concern [@CL-MKT-2198].
-- For food canning and preserving, for Government procurement, the standard of 1,000 employees excludes agricultural labor as defined in the Internal Revenue Code provision the footnote names [@CL-MKT-2199].
+- For food canning and preserving, for Government procurement, the standard of 1,000 employees excludes agricultural labor as defined in section 3121(g) of the Internal Revenue Code [@CL-MKT-2199].
 - For the leasing of building space to the Federal Government, for Government procurement, a size standard of $47 million in gross receipts applies to the owners of the space and does not apply to an agent [@CL-MKT-2200].
 - For the codes that one footnote lists, size is measured by total revenues, excluding funds received in trust for an unaffiliated third party such as bookings or sales subject to commissions, and the commissions received are included as revenue [@CL-MKT-2201].
-- For Government procurement, the purchase of software subject to potential waiver of the nonmanufacturer rule under section 121.1203(d) should be classified under the NAICS code that the footnote names [@CL-MKT-2202].
+- For Government procurement, the purchase of software subject to potential waiver of the nonmanufacturer rule under section 121.1203(d) should be classified under NAICS Code 511210 (Software Publishers) [@CL-MKT-2202].
 - Concerns performing operational services for the administration of a government program are classified under the private sector industry based on the activities performed [@CL-MKT-2203]. Procurements for services of that type are classified under the private sector industry that best describes the activities to be performed [@CL-MKT-2208].
 - For rebuilding machinery or equipment on a factory basis, or equivalent, the footnote on subsectors 333, 334, 335 and 336 says to use the code for a newly manufactured product [@CL-MKT-2169]. It adds that concerns performing major rebuilding or overhaul do not necessarily have to meet the criteria for being a manufacturer even though the activities may be classified under a manufacturing code, and that ordinary repair services or preservation are not considered rebuilding [@CL-MKT-2192]. [The aerospace card](mkt-aerospace-defense-size-standards.md) applies this to aircraft codes and research and development.
 
@@ -91,6 +91,7 @@ Which industry code each product line and customer group falls under, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named section 3121(g) of the Internal Revenue Code and NAICS Code 511210 and removed an absence statement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the waiver section the software footnote names.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the purpose line: an industry code can carry exception rows with their own standards.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for how the size standards table is organized.

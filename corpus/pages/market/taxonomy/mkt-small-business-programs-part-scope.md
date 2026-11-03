@@ -29,7 +29,7 @@ Shows what the small business programs part covers, where contracting officers s
 | Text status | Final [@CL-MKT-1415] |
 | Applies to | Contracting officers applying the part, and offerors in procurements under it [@CL-MKT-1420; @CL-MKT-1421] |
 
-Paragraph (a) says the part implements the acquisition-related sections of the Small Business Act, applicable sections of the Armed Services Procurement Act, a listed section of title 41, and an executive order [@CL-MKT-1415]. The paragraph gives the citations; this card does not restate them.
+Paragraph (a) says the part implements the acquisition-related sections of the Small Business Act at title 15 of the United States Code, section 631 and following, applicable sections of the Armed Services Procurement Act at title 10 of the United States Code, sections 3063-3064 and 3203, title 41 of the United States Code, section 3104, and Executive Order 12138 of May 18, 1979 [@CL-MKT-1415].
 
 The part covers these matters:
 
@@ -45,9 +45,9 @@ Unless otherwise specified in the part, with a cross-reference to subparts 19.6 
 
 ## How it works
 
-Paragraph (a) is a statement of scope. It names the programs and the laws behind them and prints no test, threshold or deadline for any program [@CL-MKT-1415; @CL-MKT-1416]. It names the determination of a concern's eligibility as a covered matter without saying who makes it [@CL-MKT-1416].
+Paragraph (a) is a statement of scope that names the programs and the laws behind them, including the determination of a concern's eligibility as a covered matter [@CL-MKT-1415; @CL-MKT-1416].
 
-Paragraph (b) puts one duty on each side. The contracting officer has a duty to apply the part inside the United States and its outlying areas, and a discretion to apply it outside them; both are subject to any different rule stated in the part [@CL-MKT-1420]. The offeror must meet two definitions, which paragraph (b) locates elsewhere in the regulation and does not print [@CL-MKT-1421]. The section does not say who checks that an offeror meets them.
+Paragraph (b) puts one duty on each side. The contracting officer has a duty to apply the part inside the United States and its outlying areas, and a discretion to apply it outside them; both are subject to any different rule stated in the part [@CL-MKT-1420]. Offerors that participate in any procurement under the part are required to meet the definition of small business concern at 2.101 and the definition of concern at 19.001 [@CL-MKT-1421].
 
 ## Worked example
 
@@ -67,4 +67,5 @@ Which of the company's markets and customer groups fall inside the programs the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory citations in FAR 19.000(a) and removed unquoted meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the small business programs part.

@@ -46,7 +46,7 @@ For the solicitation, FAR 19.202-4 says the contracting officer shall encourage 
 
 Both sections put the duty on the contracting officer [@CL-MKT-1422; @CL-MKT-1426]. In the locating section, the lead sentence is qualified by "to the extent practicable" [@CL-MKT-1422]. The contact with the specialist and the PCR is stated as what the effort should include, not as a separate shall [@CL-MKT-1442]. The solicitation section's lead sentence has no practicable qualifier, but its time step asks for the maximum amount of time practicable [@CL-MKT-1426; @CL-MKT-1427].
 
-The step on copies, contact details and legal citations is triggered by a request, and it runs to any small business concern, not only to the concern types named in the lead sentence [@CL-MKT-1426; @CL-MKT-1429; @CL-MKT-1430]. Neither section prints a form, a deadline or a number of days for the request or for the response to it. Neither says who decides what is practicable beyond naming the contracting officer as the actor.
+The steps on copies, contact details and legal citations are triggered by a request from any small business concern [@CL-MKT-1429; @CL-MKT-1430].
 
 ## Worked example
 
@@ -66,4 +66,5 @@ Which agency small business specialists and procurement center representatives c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted contrast and meta commentary on solicitation requests.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for locating small business sources and encouraging their response.

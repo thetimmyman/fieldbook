@@ -29,15 +29,15 @@ Shows when a contracting officer shall set an individual acquisition or class of
 | Text status | Final [@CL-MKT-1435] |
 | Applies to | Individual acquisitions and classes of acquisitions, except purchases at or below the micro-purchase threshold and purchases from required sources under part 8 [@CL-MKT-1435; @CL-MKT-1437] |
 
-The contracting officer shall set aside an individual acquisition or class of acquisitions for competition among small businesses when it is determined to be in the interest of maintaining or mobilizing the Nation's full productive capacity, war or national defense programs [@CL-MKT-1435]. A further ground is assuring that a fair proportion of Government contracts in each industry is placed with small business concerns, and the circumstances described in FAR 19.502-2 or 19.502-3(a) must exist [@CL-MKT-1436]. That condition follows the second ground, and the wording does not say whether it also applies to the first [@CL-MKT-1436].
+The contracting officer shall set aside an individual acquisition or class of acquisitions for competition among small businesses when it is determined to be in the interest of maintaining or mobilizing the Nation's full productive capacity, war or national defense programs, or assuring that a fair proportion of Government contracts in each industry is placed with small business concerns, and the circumstances described in FAR 19.502-2 or 19.502-3(a) exist [@CL-MKT-1435; @CL-MKT-1436].
 
 The requirement in paragraph (a) does not apply to purchases at or below the micro-purchase threshold, or to purchases from required sources under part 8 (for example, from the Committee for Purchase From People Who are Blind or Severely Disabled) [@CL-MKT-1437].
 
 ## How it works
 
-The duty sits on the contracting officer and covers both a single acquisition and a class of acquisitions [@CL-MKT-1435]. The two grounds are joined by "or", and the circumstances described in FAR 19.502-2 or 19.502-3(a) must exist [@CL-MKT-1435; @CL-MKT-1436]. The condition is printed after the second ground and the wording does not say whether it also applies to the first [@CL-MKT-1436]. The text says "when it is determined" without saying who makes the determination [@CL-MKT-1435].
+The duty sits on the contracting officer and covers both a single acquisition and a class of acquisitions [@CL-MKT-1435]. The grounds in paragraph (a)(1) and (a)(2) are joined by "or", and the circumstances described in FAR 19.502-2 or 19.502-3(a) exist [@CL-MKT-1435; @CL-MKT-1436].
 
-Two kinds of purchase are outside the requirement in paragraph (a): those at or below the micro-purchase threshold, and those from required sources under part 8 [@CL-MKT-1437]. The section prints no dollar figure for the threshold, which is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card. It prints no test for the circumstances in FAR 19.502-2 or 19.502-3(a) [@CL-MKT-1436]. The circumstances in FAR 19.502-2 are on the [Small business set-asides and the socioeconomic programs](../programs/mkt-small-business-set-asides.md) card, and those in FAR 19.502-3(a) are on the [Partial and class small business set-asides](../programs/mkt-partial-and-class-small-business-set-asides.md) card [@CL-MKT-1436].
+Two kinds of purchase are outside the requirement in paragraph (a): those at or below the micro-purchase threshold, and those from required sources under part 8 [@CL-MKT-1437]. The micro-purchase threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card. The circumstances in FAR 19.502-2 are on the [Small business set-asides and the socioeconomic programs](../programs/mkt-small-business-set-asides.md) card, and those in FAR 19.502-3(a) are on the [Partial and class small business set-asides](../programs/mkt-partial-and-class-small-business-set-asides.md) card [@CL-MKT-1436].
 
 ## Worked example
 
@@ -57,4 +57,5 @@ Whether the company's authorized acquisition mandate and decision criteria cover
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the FAR 19.502-1(a) grounds directly and removed meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the requirement to set aside acquisitions for small business.

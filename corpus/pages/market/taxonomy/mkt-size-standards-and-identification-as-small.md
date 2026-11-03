@@ -36,7 +36,7 @@ To be identified as a small business concern in the System for Award Management 
 
 ## How it works
 
-The duty to certify falls on the concern, and the certification is made in connection with specific size standards [@CL-MKT-2043]. It must be made at least annually [@CL-MKT-2043]. A firm that does not certify within one year of a size certification is not listed as small, unless and until it recertifies its size [@CL-MKT-2044]. The section names recertification as the way to be listed again, and it does not say who removes a listing [@CL-MKT-2044].
+The duty to certify falls on the concern, and the certification is made in connection with specific size standards [@CL-MKT-2043]. It must be made at least annually [@CL-MKT-2043]. A firm that does not certify within one year of a size certification is not listed as small, unless and until it recertifies its size [@CL-MKT-2044].
 
 Size standards are established for types of economic activity, or industry, generally under NAICS, and the full tables that match a standard to an industry code are in section 121.201 and in SBA's annual Federal Register table [@CL-MKT-2040; @CL-MKT-2041; @CL-MKT-2042].
 
@@ -58,4 +58,5 @@ Which industry codes the company's product families and market segments map to, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an absence statement not in the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA size standards and identification as small.

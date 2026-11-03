@@ -32,7 +32,7 @@ Contracting officers must provide written notification to potential offerors of 
 
 ## How it works
 
-The duty is the contracting officer's, and it runs to potential offerors [@CL-MKT-2066]. It covers any waiver being applied to a specific acquisition, whether a class waiver or a contract specific waiver, and the notification must be written [@CL-MKT-2066]. The notification is due at the time the solicitation is issued [@CL-MKT-2067]. A notification given after issuance brings a second duty: the contracting officer must give potential offerors a reasonable amount of additional time to respond [@CL-MKT-2068]. If the contracting officer does not provide notice, and additional reasonable time for responses when required, the waiver cannot be applied to the solicitation, for class waivers and individual waivers alike [@CL-MKT-2069]. The section sets no number of days for the additional time [@CL-MKT-2068].
+The duty is the contracting officer's, and it runs to potential offerors [@CL-MKT-2066]. It covers any waiver being applied to a specific acquisition, whether a class waiver or a contract specific waiver, and the notification must be written [@CL-MKT-2066]. The notification is due at the time the solicitation is issued [@CL-MKT-2067]. A notification given after issuance brings a second duty: the contracting officer must give potential offerors a reasonable amount of additional time to respond [@CL-MKT-2068]. If the contracting officer does not provide notice, and additional reasonable time for responses when required, the waiver cannot be applied to the solicitation, for class waivers and individual waivers alike [@CL-MKT-2069].
 
 ## Worked example
 
@@ -42,7 +42,7 @@ A solicitation is issued and applies a class waiver. The contracting officer fir
 
 ## Never confuse
 
-The notification is a duty of the contracting officer, not a courtesy: if the officer does not provide notice, and additional reasonable time for responses when required, the waiver cannot be applied to that solicitation [@CL-MKT-2066; @CL-MKT-2069]. The notice duty covers a class waiver and a contract specific waiver, and the last sentence of the section refers to class waivers and individual waivers without saying whether an individual waiver is the same as a contract specific waiver [@CL-MKT-2066; @CL-MKT-2069]. The waiver itself is covered in [Nonmanufacturer rule waivers](../taxonomy/mkt-sba-nonmanufacturer-rule-waivers.md).
+The notification is a duty of the contracting officer: if the officer does not provide notice, and additional reasonable time for responses when required, the waiver cannot be applied to that solicitation [@CL-MKT-2066; @CL-MKT-2069]. The notice duty covers a class waiver or a contract specific waiver, and the bar when notice and required additional time are not provided applies to both class waivers and individual waivers [@CL-MKT-2066; @CL-MKT-2069]. The waiver itself is covered in [Nonmanufacturer rule waivers](../taxonomy/mkt-sba-nonmanufacturer-rule-waivers.md).
 
 ## Company calibration
 
@@ -52,4 +52,5 @@ Whether any solicitation the company bids relies on a nonmanufacturer rule waive
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast wording not in the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of nonmanufacturer rule waivers.
