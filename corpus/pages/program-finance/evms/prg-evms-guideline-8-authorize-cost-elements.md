@@ -29,11 +29,11 @@ Specifies the work authorization process requiring control account scope, schedu
 | Text status | Not established. |
 | Applies to | Control accounts whose scope, schedule and budget are authorized by element of cost [@CL-PRG-0221] |
 
-The contractor must authorize control account scope, schedule, and budget comprised of elements of cost required to complete the effort [@CL-PRG-0221]. Approved work authorization precedes the baseline start and actual start of work [@CL-PRG-0222]. Budgets are established by element of cost: direct labor, subcontractor, material, and other direct costs [@CL-PRG-0223].
+The contractor must authorize control account scope, schedule, and budget comprised of elements of cost (labor, material, subcontractors, etc.) required to complete the effort [@CL-PRG-0221]. Approved work authorization precedes the baseline start and actual start of work [@CL-PRG-0222]. Budgets are established by element of cost: direct labor, subcontractor, material, and other direct costs [@CL-PRG-0223].
 
 ## How it works
 
-Formally authorizing the work ensures that the assignment of program work scope to the responsible organization is documented and that the resources required for completing the work are budgeted and acknowledged by the management team before the commencement of work [@CL-PRG-0567]. Current rates are to be utilized when new scope is incorporated into the Performance Measurement Baseline, but re-pricing existing baselined work to current rates is at the discretion of the contractor's defined processes [@CL-PRG-0224; @CL-PRG-0568]. Descoped work is to be removed using the rates that are baselined with the affected scope [@CL-PRG-0225]. The budget for authorized subcontractor work is based initially on the prime contractor's estimated value [@CL-PRG-0226].
+Formally authorizing the work ensures the assignment of program work scope to the responsible organization is documented and the resources required for completing the work are budgeted and acknowledged by the management team before the commencement of work [@CL-PRG-0567]. Current rates are to be utilized when incorporating new scope into the Performance Measurement Baseline, however, a re-pricing of existing baselined work to the current rates is at the discretion of the contractor's defined Earned Value Management System processes [@CL-PRG-0224; @CL-PRG-0568]. Descoped work is to be removed using the rates that are baselined with the affected scope [@CL-PRG-0225]. The budget for authorized subcontractor work is based initially on the prime contractor's estimated value [@CL-PRG-0226].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ Before starting work on a control account, the manager executes a work authoriza
 
 ## Never confuse
 
-Incorporating new scope is not the same as re-pricing existing baselined work. Current rates are to be used for new scope, while re-pricing of existing baselined work is at the discretion of the contractor's defined processes [@CL-PRG-0568]. Descoped work is to be removed at the rates baselined with the affected scope [@CL-PRG-0225]. See [Earned Value Management System clause](prg-earned-value-management-system.md).
+Current rates are to be utilized when incorporating new scope into the Performance Measurement Baseline, while a re-pricing of existing baselined work to the current rates is at the discretion of the contractor's defined Earned Value Management System processes [@CL-PRG-0568]. Descoped work is to be removed using the rates that are baselined with the affected scope [@CL-PRG-0225]. See [Earned Value Management System clause](prg-earned-value-management-system.md).
 
 ## Company calibration
 
@@ -53,5 +53,6 @@ Whether approved work authorization is in place before work starts and which rat
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Included element-of-cost examples and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: kept are-to-be modality and ensures wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 8 authorizing cost elements.
