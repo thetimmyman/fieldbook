@@ -44,7 +44,7 @@ A separate dilution disclosure is in a table at the same quartile intervals as t
 
 Item 503 of Regulation S-K adds general rules for the summary [@CL-MNA-1343; @CL-MNA-1344; @CL-MNA-1345]. Where the length or complexity of the prospectus makes a summary useful, a summary of the information in the prospectus is to be provided [@CL-MNA-1343], and it should be brief [@CL-MNA-1344]. The complete mailing address and telephone number of the principal executive offices are to be included either on the cover page or in the summary section of the prospectus [@CL-MNA-1345].
 
-Item 506 is the general dilution item and is separate from the table above [@CL-MNA-1346]. In the cases the first sentence of Item 506 describes, and in other instances where common equity securities are being registered by a registrant that has had losses in each of its last three fiscal years and there is a material dilution of the purchasers' equity interest, three items shall be disclosed [@CL-MNA-1346]. They are the net tangible book value per share before and after the distribution, the amount of the increase in that value per share attributable to the cash payments made by purchasers of the shares being offered [@CL-MNA-1347], and the amount of the immediate dilution from the public offering price that will be absorbed by those purchasers [@CL-MNA-1348].
+Item 506 is the general dilution item [@CL-MNA-0096; @CL-MNA-1346]. Where common equity securities are being registered and there is substantial disparity between the public offering price and the effective cash cost to officers, directors, promoters and affiliated persons of common equity acquired by them in transactions during the past five years, or which they have the right to acquire, and the registrant is not subject to the reporting requirements of section 13(a) or 15(d) of the Exchange Act immediately prior to filing of the registration statement, there shall be included a comparison of the public contribution under the proposed public offering and the effective cash contribution of such persons [@CL-MNA-0096; @CL-MNA-0097; @CL-MNA-0098]. In such cases and in other instances where common equity securities are being registered by a registrant that has had losses in each of its last three fiscal years and there is a material dilution of the purchasers' equity interest, the following shall be disclosed [@CL-MNA-1346]: the net tangible book value per share before and after the distribution; the amount of the increase in such value per share attributable to the cash payments made by purchasers of the shares being offered [@CL-MNA-1347]; and the amount of the immediate dilution from the public offering price which will be absorbed by such purchasers [@CL-MNA-1348].
 
 ### SPAC sponsor and conflicts of interest
 
@@ -64,7 +64,7 @@ An offering price is 10.00 per share and the offering includes an over-allotment
 
 ## Never confuse
 
-The cover-page table and the dilution disclosure are separate items. Both use the same quartile intervals, but the cover-page table sits in the cover-page paragraph [@CL-MNA-1196] and the dilution disclosure is its own paragraph that must also show each source of dilution [@CL-MNA-1160; @CL-MNA-1199]. A conflict disclosure is a description, not a prohibition: the rules ask the filing to state or describe the conflict [@CL-MNA-1155; @CL-MNA-1163]. A roll-up transaction of partnerships has its own disclosure items, see [Disclosure in a roll-up transaction of partnerships](mna-roll-up-transaction-disclosure.md).
+The cover-page table and the dilution disclosure are separate items. Both use the same quartile intervals, but the cover-page table sits in the cover-page paragraph [@CL-MNA-1196] and the dilution disclosure is its own paragraph that must also show each source of dilution [@CL-MNA-1160; @CL-MNA-1199]. For conflicts of interest, the rules require the filing to state on the cover page whether there may be actual or potential material conflicts of interest and to describe any actual or potential material conflict of interest [@CL-MNA-1155; @CL-MNA-1163]. A roll-up transaction of partnerships has its own disclosure items, see [Disclosure in a roll-up transaction of partnerships](mna-roll-up-transaction-disclosure.md).
 
 ## Company calibration
 
@@ -74,6 +74,7 @@ Confirm how the company fixes the maximum redemption threshold, the adjusted net
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added first sentence of Item 506 and removed unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sponsor compensation now covers amounts that have been or will be awarded, earned or paid.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on roll-up transaction disclosure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims for the general summary rules and the general dilution item.

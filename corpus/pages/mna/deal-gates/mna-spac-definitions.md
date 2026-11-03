@@ -28,7 +28,7 @@ Fixes the four terms a deal team uses to decide whether a company is a special p
 | Text status | Not established. |
 | Applies to | The terms defined in 17 CFR 229.1601, which are stated for the purposes of the subpart that contains that section [@CL-MNA-1142] |
 
-The definitions in 17 CFR 229.1601 are stated for the purposes of the subpart that contains them [@CL-MNA-1142]. Each term below has its own claims.
+The definitions in 17 CFR 229.1601 are stated for the purposes of the subpart that contains them [@CL-MNA-1142].
 
 Item 1610 separately says the disclosure that the subpart requires is to be provided in an Interactive Data File in accordance with §§ 232.405 (Rule 405 of Regulation S-T) and 232.301 (the EDGAR Filer Manual) of the same chapter [@CL-MNA-1349].
 
@@ -49,7 +49,7 @@ A SPAC sponsor is any entity and/or person primarily responsible for organizing,
 
 ## How it works
 
-A company can meet the definition by what it has said, not only by what it has done [@CL-MNA-1145; @CL-MNA-1149]. The two alternatives are separate: the second is met by a representation that the company pursues or will pursue the strategy [@CL-MNA-1149]. On the first alternative the business plan must contain all three elements [@CL-MNA-1146]. The sponsor term turns on who is primarily responsible for organizing, directing or managing the company's business and affairs [@CL-MNA-1150]. The exclusion for officers and directors applies if an entity is a SPAC sponsor, and to those who are not affiliates of any such entity [@CL-MNA-1192]. An officer or director who is an affiliate of the entity sponsor is therefore not covered by the exclusion [@CL-MNA-1192].
+A company can meet the definition either by what it has indicated its business plan is or by what it has represented [@CL-MNA-1145; @CL-MNA-1149]. The two alternatives are separate: the second is met by a representation that the company pursues or will pursue the strategy [@CL-MNA-1149]. On the first alternative the business plan must contain all three elements [@CL-MNA-1146]. The sponsor term turns on who is primarily responsible for organizing, directing or managing the company's business and affairs [@CL-MNA-1150]. The exclusion for officers and directors applies if an entity is a SPAC sponsor, and to those who are not affiliates of any such entity [@CL-MNA-1192]. An officer or director who is an affiliate of the entity sponsor is therefore not covered by the exclusion [@CL-MNA-1192].
 
 ## Worked example
 
@@ -69,6 +69,7 @@ Confirm which business-plan statements and representations the company or a coun
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned SPAC definition summary with the two stated alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Concurrent-offering condition and second-alternative wording aligned with the definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Interactive Data File requirement in Item 1610.

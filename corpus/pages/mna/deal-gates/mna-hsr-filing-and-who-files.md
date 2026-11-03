@@ -28,21 +28,19 @@ Shows which form the parties to a reportable acquisition file, who files it and 
 | Text status | Not established. |
 | Applies to | Acquiring and acquired persons required to file notification [@CL-MNA-0600] |
 
-This card rests on the Federal Trade Commission's premerger notification transmittal rules, which implement the act. They are not FAR, DFARS or CAS text. They bind the acquiring and acquired persons that the act and the rules require to file notification [@CL-MNA-0600].
+They are not FAR, DFARS or CAS text.
 
-Each person required to file does so by completing and filing the Notification and Report Form, following the form's instructions and the rules [@CL-MNA-0600]. The notification is filed by the preacquisition ultimate parent entity, or by an entity within the person that the preacquisition ultimate parent entity authorizes to file for it [@CL-MNA-0601]. A person that is both an acquiring and an acquired person submits one form for each role [@CL-MNA-0602].
+Each person required to file notification shall complete and file a Notification and Report Form in accordance with the instructions thereon and the rules [@CL-MNA-0600]. The notification shall be filed by the preacquisition ultimate parent entity, or by any entity included within the person so authorized by the preacquisition ultimate parent entity to file notification on its behalf [@CL-MNA-0601]. Any person filing notification as both an acquiring and acquired person shall submit one form each for the acquiring and acquired person, following the appropriate instructions for each [@CL-MNA-0602].
 
-The notification must be certified. For a partnership the certification is by any general partner, and for a corporation by any officer or director [@CL-MNA-0603]. Further items cover other kinds of person and are not restated here. The certifying individual must have actual authority to certify for the person filing [@CL-MNA-0604].
+The notification must be certified: in the case of a partnership, by any general partner thereof; in the case of a corporation, by any officer or director thereof; in the case of a person lacking officers, directors, or partners, by any individual exercising similar functions; in the case of a natural person, by such natural person or his or her legal representative; and in the case of the estate of a deceased natural person, by any duly authorized legal representative of such estate [@CL-MNA-0603; @CL-MNA-0094; @CL-MNA-0095]. The individual who certifies the Notification and Report Form must have actual authority to make the certification on behalf of the person filing notification [@CL-MNA-0604].
 
 Documentary materials or information in a foreign language that are required to be submitted at the time of filing a Notification and Report Form, and in response to a request for additional information or documentary material, must be submitted with verbatim English language translations [@CL-MNA-1381]. All verbatim translations must be accurate and complete [@CL-MNA-1382].
 
 If any provision of the rules in subchapter H (including the Notification and Report Form), or the application of any such provision to any person or circumstances, is held invalid, neither the other provisions of the rules nor the application of such provision to other persons or circumstances is affected [@CL-MNA-1385; @CL-MNA-1386].
 
-The dollar thresholds that make an acquisition reportable are not set in these printed sections. Dollar figures appear only in dated worked examples marked as adjusted, and this card does not rely on them.
-
 ## How it works
 
-The person filing completes the form, and the filer is the preacquisition ultimate parent entity or an authorized entity within the person [@CL-MNA-0601]. A person that is on both sides of a deal files two forms, one for each role [@CL-MNA-0602]. A person with actual authority certifies the form, such as a general partner or an officer or director [@CL-MNA-0603; @CL-MNA-0604]. Additional information or documentary material submitted in response to a request under section 7A(e) and section 803.20 is accompanied by a certification in the form's format, completed in accordance with paragraph (a) by the person or individual to whom the request was directed [@CL-MNA-0605; @CL-MNA-1565].
+The person filing completes the form, and the filer is the preacquisition ultimate parent entity or an authorized entity within the person [@CL-MNA-0600; @CL-MNA-0601]. A person that is both an acquiring and an acquired person submits one form for each role, following the appropriate instructions for each [@CL-MNA-0602]. An individual with actual authority certifies the form, such as a general partner, an officer or director, an individual exercising similar functions, a natural person or legal representative, or an estate's duly authorized legal representative [@CL-MNA-0603; @CL-MNA-0094; @CL-MNA-0095; @CL-MNA-0604]. Additional information or documentary material submitted in response to a request under section 7A(e) and section 803.20 is accompanied by a certification in the form's format, completed in accordance with paragraph (a) by the person or individual to whom the request was directed [@CL-MNA-0605; @CL-MNA-1565].
 
 ## Worked example
 
@@ -52,7 +50,7 @@ Parent P owns Subsidiary S. S will buy a business from an unrelated seller. P is
 
 ## Never confuse
 
-Filing the form is not the fee or the waiting period, which sit on the [fee and waiting period card](mna-hsr-fee-and-waiting-period.md), and it is not the notification's expiry or withdrawal, which sit on the [expiry and withdrawal card](mna-hsr-expiry-withdrawal-and-second-request.md). The source is not FAR or DFARS text, so no contract clause carries this rule. A national-security filing to the Committee on Foreign Investment in the United States is a different filing under different rules; see the [foreign investment review jurisdiction card](mna-cfius-jurisdiction.md).
+Filing the form is not the fee or the waiting period, which sit on the [fee and waiting period card](mna-hsr-fee-and-waiting-period.md), and it is not the notification's expiry or withdrawal, which sit on the [expiry and withdrawal card](mna-hsr-expiry-withdrawal-and-second-request.md). A national-security filing to the Committee on Foreign Investment in the United States is a different filing under different rules; see the [foreign investment review jurisdiction card](mna-cfius-jurisdiction.md).
 
 ## Company calibration
 
@@ -62,6 +60,7 @@ Which entity is the ultimate parent that would file, and who holds authority to 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added all five certification categories and instruction qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certifier wording tightened and certification of later submissions completed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added foreign language translations and the separability rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for premerger notification filing and certification.

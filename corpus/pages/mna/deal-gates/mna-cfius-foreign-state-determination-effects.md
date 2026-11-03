@@ -29,13 +29,13 @@ Explains what a determination about a foreign state is, when it and its rescissi
 | Text status | Not established. |
 | Applies to | Transactions affected by a determination about a foreign state under § 800.1001(a), or by its rescission [@CL-MNA-0050; @CL-MNA-0051] |
 
-The Committee may determine at any time that a foreign state has established and is effectively utilizing a robust process to analyze foreign investments for national security risks and to facilitate coordination with the United States on matters relating to investment security [@CL-MNA-0570]. The Committee may rescind the determination if it determines that a rescission is appropriate [@CL-MNA-0571]. The Chairperson of the Committee shall publish a notice of any determination or rescission in the Federal Register [@CL-MNA-0572].
+The Committee may determine at any time that a foreign state has established and is effectively utilizing a robust process to analyze foreign investments for national security risks and to facilitate coordination with the United States on matters relating to investment security [@CL-MNA-0570]. The Committee may rescind a determination under paragraph (a) of § 800.1001 if the Committee determines that such a rescission is appropriate [@CL-MNA-0571]. The Chairperson of the Committee shall publish a notice of any determination or rescission of a determination under paragraph (a) or (b) of § 800.1001, respectively, in the Federal Register [@CL-MNA-0572].
 
-A determination takes effect immediately upon publication of the notice and remains in effect unless rescinded [@CL-MNA-0050]. A rescission takes effect on the date specified in the notice [@CL-MNA-0051].
+A determination under paragraph (a) of § 800.1001 shall take effect immediately upon publication of notice of such determination in the Federal Register and remain in effect unless rescinded under paragraph (b) of § 800.1001 [@CL-MNA-0050]. A rescission of a determination under paragraph (b) of § 800.1001 shall take effect on the date specified in the notice of such rescission published in the Federal Register [@CL-MNA-0051].
 
 ## How it works
 
-The Committee decides whether to make a determination and whether to rescind it. The Chairperson publishes the notice [@CL-MNA-0570; @CL-MNA-0571; @CL-MNA-0572]. These sections put no duty on a party.
+The Committee decides whether to make a determination and whether to rescind it, and the Chairperson of the Committee publishes the notice in the Federal Register [@CL-MNA-0570; @CL-MNA-0571; @CL-MNA-0572].
 
 A determination does not apply to any transaction for which the Staff Chairperson has accepted a declaration under § 800.405(a)(1) or a notice under § 800.503(a) [@CL-MNA-0052].
 
@@ -57,7 +57,7 @@ Separately, a determination about a different foreign state is published on Marc
 
 ## Never confuse
 
-A rescission takes effect on the date in its notice, not necessarily the publication date, while the binding-agreement, public-offer and proxy exceptions are measured against publication [@CL-MNA-0051; @CL-MNA-0054; @CL-MNA-0055].
+A rescission takes effect on the date specified in its notice, while the binding-agreement, public-offer and proxy exceptions are measured against publication of the rescission [@CL-MNA-0051; @CL-MNA-0054; @CL-MNA-0055].
 
 A determination under § 800.1001(a) does not by itself make a foreign state an excepted foreign state [@CL-MNA-0024; @CL-MNA-0025]. From February 13, 2023, the definition needs both criteria [@CL-MNA-0024].
 
@@ -69,4 +69,5 @@ Which deal records prove that a binding agreement or an offer predates a resciss
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added section references and removed unsupported commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the effect of a determination and of its rescission.

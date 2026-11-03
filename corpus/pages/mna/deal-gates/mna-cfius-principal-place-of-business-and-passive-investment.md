@@ -43,21 +43,21 @@ Paragraph (b) applies if that location is in the United States [@CL-MNA-0031]. I
 
 For the passive test, the holder must not plan or intend to exercise control, and must meet each of the four conditions in the glossary [@CL-MNA-0035; @CL-MNA-0036; @CL-MNA-0037]. The definition refers the reader to § 800.302(b) [@CL-MNA-0037].
 
-The section gives one example. Corporation A, a foreign person, acquires a voting interest in Corporation B, a United States business [@CL-MNA-0567]. Corporation A also negotiates the right to appoint a member of Corporation B's board of directors. The section says the acquisition is not solely for the purpose of passive investment [@CL-MNA-0568].
+The section gives one example: Corporation A, a foreign person, acquires a voting interest in Corporation B, a U.S. business, and in addition to the equilibrium of the voting interest, Corporation A negotiates the right to appoint a member of Corporation B's board of directors, so the acquisition by Corporation A is not solely for the purpose of passive investment [@CL-MNA-0567; @CL-MNA-0568].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A holding company is organized abroad and its board has met abroad, but its most recent filing with a foreign regulator named a headquarters address in that country. It then opens an office in the United States, and its management now directs the company's activities from that office, so the location under paragraph (a) is in the United States [@CL-MNA-0029]. Paragraph (b) applies because the company represented to a foreign government, in a filing other than one to the Committee, that its headquarters is outside the United States [@CL-MNA-0031; @CL-MNA-0032; @CL-MNA-0033]. The address in that filing is deemed its principal place of business unless the company demonstrates that the location changed to the United States after the filing [@CL-MNA-0034]. The company bears the demonstration. If it shows that the move to the United States came after the filing, the deemed foreign location does not apply [@CL-MNA-0034].
+A holding company is organized abroad and its board has met abroad, but its most recent filing with a foreign regulator named a headquarters address in that country. It then opens an office in the United States, and its management now directs the company's activities from that office, so the location under paragraph (a) is in the United States [@CL-MNA-0029]. Paragraph (b) applies because the company represented to a foreign government, in a filing other than one to the Committee, that its headquarters is outside the United States [@CL-MNA-0031; @CL-MNA-0032; @CL-MNA-0033]. The address in that filing is deemed its principal place of business unless the company can demonstrate that the location has changed to the United States since the filing [@CL-MNA-0034]. If it shows that the move to the United States came after the filing, the deemed foreign location does not apply [@CL-MNA-0034].
 
-A fund holds a minority stake. It plans no control, is afforded no right that would constitute control, gets none of the access or involvement in § 800.211(b), has no other purpose and takes no inconsistent action. It meets the stated conditions, so its interest is held solely for the purpose of passive investment [@CL-MNA-0035; @CL-MNA-0036; @CL-MNA-0037]. A second fund holds the same stake but also negotiates the right to appoint a board member. The section's example treats that as not solely passive [@CL-MNA-0568].
+A fund holds a minority stake. It plans no control, is afforded no right that would constitute control, gets none of the access or involvement in § 800.211(b), has no other purpose and takes no inconsistent action. It meets the stated conditions, so its interest is held solely for the purpose of passive investment [@CL-MNA-0035; @CL-MNA-0036; @CL-MNA-0037]. A second fund holds the same stake but also negotiates the right to appoint a board member. The section's example treats that as not solely passive [@CL-MNA-0567; @CL-MNA-0568].
 
 ## Never confuse
 
-A passive interest is not defined by size. The conditions the section lists turn on intent, rights, access, purpose and action, and none of them states a size limit [@CL-MNA-0035; @CL-MNA-0036; @CL-MNA-0037].
+Whether ownership interests are held or acquired solely for the purpose of passive investment turns on whether the person holding or acquiring them plans or intends to exercise control and meets the four conditions on rights, access or involvement, purpose, and action [@CL-MNA-0035; @CL-MNA-0036; @CL-MNA-0037].
 
-The deemed location in paragraph (b) is not the same as the location in paragraph (a). Paragraph (b) replaces the paragraph (a) location only in the case described, and not where the entity demonstrates the change [@CL-MNA-0031; @CL-MNA-0034].
+The deemed location in paragraph (b) is not the same as the location in paragraph (a). Paragraph (b) deems the filed location outside the United States to be the principal place of business when the paragraph (a) location is in the United States and the entity made the described government submission or filing, unless the entity can demonstrate that the location has changed to the United States since that submission or filing [@CL-MNA-0031; @CL-MNA-0032; @CL-MNA-0033; @CL-MNA-0034].
 
 ## Company calibration
 
@@ -67,5 +67,6 @@ How the deal team records where a target's management sits and what a prior fili
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Combined passive-investment example sentences and removed unsupported contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for principal place of business and passive-investment holdings.

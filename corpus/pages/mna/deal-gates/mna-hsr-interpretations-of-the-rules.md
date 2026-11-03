@@ -28,9 +28,9 @@ Shows how a party to an acquisition may ask the Commission staff for a formal or
 | Text status | Not established. |
 | Applies to | Any party to an acquisition that asks for an interpretation of its obligations under the act and the rules [@CL-MNA-0236] |
 
-The Commission staff may consider requests for formal or informal interpretations as to the obligations under the act and the rules of any party to an acquisition [@CL-MNA-0236]. A request for a formal interpretation must be made in writing to the offices designated in § 803.10(c) [@CL-MNA-0237]. It must state all facts that the applicant believes to be material, the reasons why the requirements of the act are or may be applicable, and the questions that the applicant wishes resolved [@CL-MNA-0238]. The writing and content rules are stated for a formal request.
+The Commission staff may consider requests for formal or informal interpretations as to the obligations under the act and the rules of any party to an acquisition [@CL-MNA-0236]. A request for a formal interpretation must be made in writing to the offices designated in § 803.10(c) [@CL-MNA-0237]. It must state all facts that the applicant believes to be material, the reasons why the requirements of the act are or may be applicable, and the questions that the applicant wishes resolved [@CL-MNA-0238].
 
-The staff decides how to respond. It may, in its discretion, render a formal or informal response to any request, however made, or may decline to render such advice [@CL-MNA-0239]. In the sole discretion of the staff, any request for interpretation may be referred to the Commission [@CL-MNA-0240].
+The staff may, in its discretion, render a formal or informal response to any request, however made, or may decline to render such advice [@CL-MNA-0239]. In the sole discretion of the staff, any request for interpretation may be referred to the Commission [@CL-MNA-0240].
 
 Formal interpretations by the Commission staff or by the Commission must be rendered with the concurrence of the Assistant Attorney General or his or her designee [@CL-MNA-0241]. Any formal interpretation is without prejudice to the right of either the Commission or the Assistant Attorney General to rescind it [@CL-MNA-0242]. If a formal interpretation is rescinded, the party that requested it must be notified in writing [@CL-MNA-0243]. The Commission must publish in the Federal Register a summary of formal interpretations by the Commission, and any rescissions of them [@CL-MNA-0244].
 
@@ -46,7 +46,7 @@ A party asks three questions about whether one step in its deal creates a filing
 
 ## Never confuse
 
-An informal response is not a formal interpretation. The concurrence rule, the rescission and notice rules, and the publication rule are stated for formal interpretations, and publication for formal interpretations by the Commission [@CL-MNA-0241; @CL-MNA-0243; @CL-MNA-0244]. A formal interpretation can still be rescinded by the Commission or the Assistant Attorney General [@CL-MNA-0242]. A request does not oblige the staff to answer, because the staff may decline [@CL-MNA-0239]. The form and the filer are on [the filing card](mna-hsr-filing-and-who-files.md).
+The concurrence rule, the rescission and notice rules, and the publication rule are stated for formal interpretations, and publication for formal interpretations by the Commission [@CL-MNA-0241; @CL-MNA-0243; @CL-MNA-0244]. A formal interpretation can still be rescinded by the Commission or the Assistant Attorney General [@CL-MNA-0242]. A request does not oblige the staff to answer, because the staff may decline [@CL-MNA-0239]. The form and the filer are on [the filing card](mna-hsr-filing-and-who-files.md).
 
 ## Company calibration
 
@@ -56,4 +56,5 @@ What the deal team needs settled before it files, and whether that calls for a w
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts and commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for formal and informal interpretations.
