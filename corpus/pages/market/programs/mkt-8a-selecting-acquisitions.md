@@ -47,7 +47,7 @@ An agency plans a supply requirement worth 600,000, which is above its simplifie
 
 ## Never confuse
 
-Selection is the matching step, started by a search letter, a requirements letter or the agency's own review. The agency's offering letter and the SBA's acceptance come after it and are on the [Agency offering and SBA acceptance of requirements for the program](mkt-8a-offering-and-acceptance.md) card. Considering an 8(a) award before a small business set-aside applies above the simplified acquisition threshold [@CL-MKT-0494]; the general small business set-aside rules are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and how a NAICS code is assigned is on the [Size standards, NAICS codes and appeals of the contracting officer's code](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
+Selection is initiated by a search letter, a requirements letter or an agency's review of other proposed acquisitions [@CL-MKT-0495; @CL-MKT-0496; @CL-MKT-0497; @CL-MKT-0498]. The agency's offering letter and the SBA's acceptance are on the [Agency offering and SBA acceptance of requirements for the program](mkt-8a-offering-and-acceptance.md) card. Considering an 8(a) award before a small business set-aside applies above the simplified acquisition threshold [@CL-MKT-0494]; the general small business set-aside rules are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and how a NAICS code is assigned is on the [Size standards, NAICS codes and appeals of the contracting officer's code](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which product families, customer groups and market segments the company expects 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the three ways of initiating selection and removed an unsupported sequence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Third way restated with its may.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who determines eligibility for the 8(a) program.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for selecting acquisitions for the 8(a) program.

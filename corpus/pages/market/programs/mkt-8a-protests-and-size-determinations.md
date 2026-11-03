@@ -36,11 +36,11 @@ The size status of an 8(a) participant nominated for a sole source contract may 
 
 ### Competitive awards
 
-Filing a size protest against the apparent successful offeror is limited to an offeror the contracting officer has not eliminated for reasons unrelated to size, the contracting officer, or the SBA officials named in the FAR [@CL-MKT-1285]. Those officials are the SBA District Director for the district serving the contracting activity's area or the apparent successful offeror, and the Associate Administrator for Business Development [@CL-MKT-1286]. Protests of competitive 8(a) awards follow the procedures at 19.302 [@CL-MKT-1287].
+Filing a size protest against the apparent successful offeror is limited to an offeror the contracting officer has not eliminated for reasons unrelated to size, the contracting officer, or the SBA officials named in the FAR [@CL-MKT-1285]. Those officials are the SBA District Director for the district serving the contracting activity's area or the apparent successful offeror, and or the Associate Administrator for Business Development [@CL-MKT-1286]. Protests of competitive 8(a) awards follow the procedures at 19.302 [@CL-MKT-1287].
 
 ### Sole-source nominees
 
-Where the size status of a participant nominated for a sole source award is called into question, a formal size determination may be requested from the SBA instead of a protest being filed [@CL-MKT-1288]. The request may be made by the nominated participant, by the contracting officer delegated SBA's 8(a) contract execution functions where applicable, or by the SBA program official with authority to execute the contract [@CL-MKT-1387]. It may also be made by the SBA District Director for the district that services the participant, the Associate Administrator for Business Development, or the SBA Inspector General [@CL-MKT-1388].
+Where the size status of a participant nominated for a sole source award is called into question, a formal size determination may be requested from the SBA [@CL-MKT-1288]. The request may be made by the nominated participant, by the contracting officer delegated SBA's 8(a) contract execution functions where applicable, or by the SBA program official with authority to execute the contract [@CL-MKT-1387]. It may also be made by the SBA District Director for the district that services the participant, the Associate Administrator for Business Development, or the SBA Inspector General [@CL-MKT-1388].
 
 SBA's Government Contracting Area Director will issue a formal size determination within 15 business days, if possible, after SBA receives the request [@CL-MKT-1289]. An appeal of the determination follows the procedures at 19.302 [@CL-MKT-1389].
 
@@ -52,7 +52,7 @@ A competitive 8(a) award is ready for award to one offeror. A losing offeror tha
 
 ## Never confuse
 
-A size protest is not a challenge to 8(a) eligibility: eligibility cannot be challenged by another participant or any other party, while size can be protested for the apparent successful offeror in a competitive award [@CL-MKT-1283; @CL-MKT-1285]. A formal size determination for a sole-source nominee is not a protest, and a nominee's size cannot be protested [@CL-MKT-1284; @CL-MKT-1288]. The general protest mechanics are on [the size protest card](../taxonomy/mkt-small-business-size-protests.md) and the determination process on [the size determination card](../taxonomy/mkt-sba-size-determination-procedure.md).
+The eligibility of an 8(a) participant may not be challenged by another participant or any other party [@CL-MKT-1283], while the size status of the apparent successful offeror for a competitive 8(a) award may be protested [@CL-MKT-1285]. The size status of a participant nominated for a sole source contract may not be protested [@CL-MKT-1284]; a request for a formal size determination may be submitted to the SBA [@CL-MKT-1288]. The general protest mechanics are on [the size protest card](../taxonomy/mkt-small-business-size-protests.md) and the determination process on [the size determination card](../taxonomy/mkt-sba-size-determination-procedure.md).
 
 ## Company calibration
 
@@ -62,4 +62,5 @@ Whether the entity's ownership and size records would survive a challenge to a c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the or-list of SBA officials and removed contrast clauses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protests and size determinations on 8(a) awards.

@@ -33,13 +33,13 @@ The subpart prescribes policy and procedures for exchange of nonexcess personal 
 
 The FAR definitions section describes personal property as property of any kind or interest in it except real property, records of the Federal Government, and naval vessels in five listed categories, namely battleships, cruisers, aircraft carriers, destroyers, and submarines [@CL-MKT-9229]. The RFO text of FAR 2.101 defines personal property as property of any kind or interest in it except real property, records of the Federal Government, and naval vessels in five listed categories, the same in substance as the codified definition [@CL-MKT-9271; @CL-MKT-9229].
 
-Exchange (trade-in) property means property that is not excess but is eligible for replacement because of obsolescence, unserviceability or another reason [@CL-MKT-1923]. The second element of the definition is that the property is applied as whole or partial payment toward the acquisition of similar items, meaning items designed and constructed for the same purpose [@CL-MKT-1924]. Property means items that fall within one of the generic categories listed in DoD Manual 4140.01, Volume 9, DoD Supply Chain Materiel Management Procedures: Materiel Programs [@CL-MKT-1925].
+As used in the subpart [@CL-MKT-1447], exchange (trade-in) property means property that is not excess but is eligible for replacement because of obsolescence, unserviceability or another reason [@CL-MKT-1923]. The second element of the definition is that the property is applied as whole or partial payment toward the acquisition of similar items, meaning items designed and constructed for the same purpose [@CL-MKT-1924]. As used in the subpart, property means items that fall within one of the generic categories listed in DoD Manual 4140.01, Volume 9, DoD Supply Chain Materiel Management Procedures: Materiel Programs [@CL-MKT-1447; @CL-MKT-1925].
 
 DoD policy is to exchange, rather than replace, eligible nonexcess property whenever exchange promotes economical and efficient program accomplishment [@CL-MKT-1926]. Exchange policy, authority and applicability are governed by the Federal Property Management Regulations issued by the Administrator of the General Services Administration and by DoD Manual 4140.01, Volume 9, DoD Supply Chain Materiel Management Procedures: Materiel Programs [@CL-MKT-1927].
 
 ## How it works
 
-Property can be exchange property only when it meets both elements: it is not excess but is eligible for replacement, and it is applied as whole or partial payment toward similar items [@CL-MKT-1923; @CL-MKT-1924]. It must also be an item within one of the generic categories in the DoD manual [@CL-MKT-1925]. The payment may cover the whole price or only part of it [@CL-MKT-1924]. The policy leans toward exchange over replacement when exchange promotes economical and efficient program accomplishment, and exchange policy, authority and applicability are governed by the Federal Property Management Regulations and the DoD manual [@CL-MKT-1926; @CL-MKT-1927]. These sections name no official who decides and state no duty for the contractor. The purchase request, solicitation and award steps are on [Exchange of personal property: the purchase request, the solicitation and the award](mkt-personal-property-exchange-purchase-request-and-award.md).
+Exchange property is property that meets both elements: it is not excess but is eligible for replacement, and it is applied as whole or partial payment toward the acquisition of similar items [@CL-MKT-1923; @CL-MKT-1924]. The definition of property looks to the generic categories listed in the DoD manual [@CL-MKT-1925]. The policy leans toward exchange over replacement when exchange promotes economical and efficient program accomplishment, and exchange policy, authority and applicability are governed by the Federal Property Management Regulations and the DoD manual [@CL-MKT-1926; @CL-MKT-1927]. The purchase request, solicitation and award steps are on [Exchange of personal property: the purchase request, the solicitation and the award](mkt-personal-property-exchange-purchase-request-and-award.md).
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A DoD activity holds nonexcess test equipment in one of the generic categories o
 
 ## Never confuse
 
-An exchange differs from a sale, and the subpart does not authorize the sale of nonexcess personal property [@CL-MKT-1922]. Nonexcess is not the same as excess, since exchange property must be not excess and eligible for replacement [@CL-MKT-1923]. The definition of exchange property and the definition of property are separate: the second looks to the generic categories in the DoD manual [@CL-MKT-1923; @CL-MKT-1925].
+The subpart does not authorize the sale of nonexcess personal property [@CL-MKT-1922]. Exchange property is property that is not excess but is eligible for replacement [@CL-MKT-1923]. Property means items that fall within one of the generic categories listed in DoD Manual 4140.01, Volume 9 [@CL-MKT-1925].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Whether the company acquires items where the Government offers exchange property
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope to the definitions and removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of personal property.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of personal property.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope, definitions and policy of the exchange of personal property.

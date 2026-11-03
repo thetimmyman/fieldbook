@@ -52,7 +52,7 @@ A contracting officer finds a small offeror nonresponsible on a capacity ground 
 
 ## Never confuse
 
-A certificate of competency settles responsibility only: the contracting officer may still decide not to award for reasons unrelated to responsibility [@CL-MKT-1311; @CL-MKT-1409]. SBA review of a subcontracting plan yields recommendations, not directions: the SBA's recommendations are advisory and it cannot prescribe the extent of subcontracting [@CL-MKT-1313; @CL-MKT-1314]. The certificate process is on [the certificate card](mkt-coc-issuance-denial-and-resolution.md) and plan review on [the plan review card](mkt-subcontracting-plan-review.md).
+Certificates of competency are conclusive with respect to all elements of responsibility of prospective small business contractors [@CL-MKT-1311]; where the SBA issues one, the contracting officer may decide not to award to that offeror for reasons unrelated to responsibility [@CL-MKT-1409]. The SBA's recommendations to the contracting officer on a negotiated contractual document requiring a subcontracting plan are advisory in nature [@CL-MKT-1313], and the SBA is not authorized to prescribe the extent to which any contractor or subcontractor shall subcontract [@CL-MKT-1314]. The certificate process is on [the certificate card](mkt-coc-issuance-denial-and-resolution.md) and plan review on [the plan review card](mkt-subcontracting-plan-review.md).
 
 ## Company calibration
 
@@ -62,4 +62,5 @@ Whether the purchasing system has been reviewed recently enough to bid, and when
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated only and contrast clauses in the confusion section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for certificate of competency outcomes and subcontracting plan review.

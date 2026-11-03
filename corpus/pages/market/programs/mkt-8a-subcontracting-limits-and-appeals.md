@@ -29,7 +29,7 @@ Shows what the program requires of a participant on its own performance, and who
 | Text status | Final [@CL-MKT-0514] |
 | Applies to | Participants awarded a contract or order under the 8(a) program, and disagreements between the SBA and a contracting officer [@CL-MKT-0514; @CL-MKT-0515] |
 
-To be awarded a contract or order under the 8(a) program, the 8(a) participant is required to perform, for services except construction, at least 50 percent of the cost incurred for personnel with its own employees [@CL-MKT-0514]. For supplies or products, other than a procurement from a nonmanufacturer, the participant is required to perform at least 50 percent of the cost of manufacturing, not including the cost of materials [@CL-MKT-0514; @CL-MKT-0573]. For general construction the participant is required to perform at least 15 percent of the cost with its own employees, and for construction by special trade contractors at least 25 percent, not including the cost of materials in either case [@CL-MKT-0514; @CL-MKT-0574]. This card does not restate the compliance periods or the waiver rules in that paragraph. The general limits on subcontracting and the nonmanufacturer rule are on the [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) card, and the SBA's own nonmanufacturer qualification is on the [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md) card.
+To be awarded a contract or order under the 8(a) program, the 8(a) participant is required to perform, for services except construction, at least 50 percent of the cost incurred for personnel with its own employees [@CL-MKT-0514]. For supplies or products, other than a procurement from a nonmanufacturer, the participant is required to perform at least 50 percent of the cost of manufacturing, not including the cost of materials [@CL-MKT-0514; @CL-MKT-0573]. For general construction the participant is required to perform at least 15 percent of the cost with its own employees, and for construction by special trade contractors at least 25 percent, not including the cost of materials in either case [@CL-MKT-0514; @CL-MKT-0574]. The general limits on subcontracting and the nonmanufacturer rule are on the [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) card, and the SBA's own nonmanufacturer qualification is on the [How a nonmanufacturer qualifies as a small business on a supply contract](../taxonomy/mkt-sba-nonmanufacturer-qualification.md) card.
 
 The SBA Administrator may submit the listed matters for determination to the agency head if the SBA and the contracting officer fail to agree on them [@CL-MKT-0515]. Two listed matters are the decision not to make a particular acquisition available under the 8(a) Program, and a contracting officer's decision to reject a specific participant after SBA's acceptance of the requirement [@CL-MKT-0516].
 
@@ -47,7 +47,7 @@ The SBA accepts a requirement for the program. The contracting officer then reje
 
 ## Never confuse
 
-An SBA appeal to the agency head is a different path from the contracting agency's notice of intent to appeal the issuance of a Certificate of Competency, which goes to SBA Headquarters and is on the [Issuing or denying a Certificate of Competency and resolving differences with SBA](mkt-coc-issuance-denial-and-resolution.md) card [@CL-MKT-0489]. The 8(a) performance test measures what the participant itself performs [@CL-MKT-0514], while the appeal rules decide who may take a disagreement to the agency head and by when [@CL-MKT-0515; @CL-MKT-0517; @CL-MKT-0518].
+The contracting agency's notice of intent to appeal the issuance of a Certificate of Competency goes to SBA Headquarters [@CL-MKT-0489] and is on the [Issuing or denying a Certificate of Competency and resolving differences with SBA](mkt-coc-issuance-denial-and-resolution.md) card. The 8(a) performance requirements concern what the participant is required to perform [@CL-MKT-0514]; the SBA Administrator may submit listed matters to the agency head [@CL-MKT-0515], with notice due within 5 working days [@CL-MKT-0517] and the written appeal within 15 working days [@CL-MKT-0518].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ How subcontract spend is tracked against the participant's own performance, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced contrast wording in the confusion section with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate of Competency appeal pointer limited to the notice of intent its claim quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the preaward survey and Certificate of Competency referral.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for 8(a) limitations on subcontracting and SBA appeals.

@@ -35,7 +35,7 @@ Where an acquisition exceeds the competitive threshold, the SBA may accept the r
 
 ## How it works
 
-In competitive 8(a) acquisitions SBA will determine the eligibility of the apparent successful offeror and advise the contracting office within 5 working days after receipt of the request for an eligibility determination [@CL-MKT-0513]. If the contracting officer believes that the apparent successful offeror, or the offeror SBA has determined eligible for award, is not responsible to perform the contract, the contracting officer must refer the matter to SBA for Certificate of Competency consideration, which is on the [Certificates of Competency: general rules and referral](mkt-coc-general-and-referral.md) card [@CL-MKT-0575]. This card does not restate what happens when the apparent successful offeror is ineligible, how joint ventures are treated, or approval of a competitive award below the thresholds.
+In competitive 8(a) acquisitions SBA will determine the eligibility of the apparent successful offeror and advise the contracting office within 5 working days after receipt of the contracting office's request for an eligibility determination [@CL-MKT-0513]. If the contracting officer believes that the apparent successful offeror, or the offeror SBA has determined eligible for award, is not responsible to perform the contract, the contracting officer must refer the matter to SBA for Certificate of Competency consideration, which is on the [Certificates of Competency: general rules and referral](mkt-coc-general-and-referral.md) card [@CL-MKT-0575]. This card does not restate what happens when the apparent successful offeror is ineligible, how joint ventures are treated, or approval of a competitive award below the thresholds.
 
 In competitive 8(a) acquisitions, including follow-on 8(a) acquisitions, subject to FAR part 15, the contracting officer conducts negotiations directly with the competing 8(a) participants [@CL-MKT-2101]. Conducting competitive negotiations among eligible 8(a) participants before SBA's formal acceptance of the acquisition for the 8(a) program may be grounds for SBA's not accepting the acquisition for the program [@CL-MKT-2102].
 
@@ -47,7 +47,7 @@ An agency offers a services requirement, with a non-manufacturing NAICS code, wo
 
 ## Never confuse
 
-The competitive threshold is one of the tests for competition limited to eligible participants and the point above which sole source acceptance is possible on a listed ground [@CL-MKT-0509; @CL-MKT-0510]; it is not the simplified acquisition threshold that sets the SBA acceptance period, which is on the [Agency offering and SBA acceptance of requirements for the program](mkt-8a-offering-and-acceptance.md) card. A sole source award above the threshold rests on a listed ground [@CL-MKT-0510]. Competition limited to eligible participants is also different from a general small business set-aside, which is on the [Small business set-asides](mkt-small-business-set-asides.md) card; NAICS codes are on the [Size standards, NAICS codes and appeals of the contracting officer's code](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
+The competitive threshold is one of the tests for competition limited to eligible participants and the point above which sole source acceptance is possible on a listed ground [@CL-MKT-0509; @CL-MKT-0510]; and the SBA acceptance periods are on the [Agency offering and SBA acceptance of requirements for the program](mkt-8a-offering-and-acceptance.md) card. A sole source award above the threshold rests on a listed ground [@CL-MKT-0510]. General small business set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card; NAICS codes are on the [Size standards, NAICS codes and appeals of the contracting officer's code](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Which bids and estimates for competitive program awards need immediate support, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the requesting actor and removed contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added direct negotiation with competing participants and the timing of negotiations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for competitive 8(a) awards.
