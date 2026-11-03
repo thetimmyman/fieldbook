@@ -28,11 +28,11 @@ Shows the system, reporting, and acceptability requirements when the Earned Valu
 | Text status | Final [@CL-PRG-0101] |
 | Applies to | Contracts containing this clause, with an acceptability determination at the stated threshold [@CL-PRG-0101; @CL-PRG-0103] |
 
-The contractor must use an earned value management system that complies with the ANSI/EIA-748 guidelines and management procedures that support timely, reliable, and verifiable information for the Contract Performance Report and Integrated Master Schedule required by the CPR and IMS data items of the contract [@CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9138; @CL-PRG-9139]. A contract valued at fifty million dollars or more requires a system determined acceptable by the Cognizant Federal Agency [@CL-PRG-0103].
+In the performance of the contract, the contractor must use an earned value management system that complies with the EVMS guidelines in the American National Standards Institute/Electronic Industries Alliance Standard 748, Earned Value Management Systems (ANSI/EIA-748), and management procedures that provide for generation of timely, reliable, and verifiable information for the Contract Performance Report (CPR) and the Integrated Master Schedule (IMS) required by the CPR and IMS data items of the contract [@CL-PRG-9138; @CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9139]. If the contract has a value of $50 million or more, the contractor must use an EVMS that has been determined to be acceptable by the Cognizant Federal Agency [@CL-PRG-0103].
 
 ## How it works
 
-The system supplies the required earned value structure, while management procedures support the Contract Performance Report and Integrated Master Schedule [@CL-PRG-0101; @CL-PRG-0102]. At or above the contract-value threshold, the contractor must use a system the Cognizant Federal Agency has determined acceptable [@CL-PRG-0103]. If, at the time of award, the Cognizant Federal Agency has not determined the system to be in compliance with the guidelines in paragraph (b)(1) of the clause, the contractor must apply its current system to the contract and take necessary actions to meet the milestones in its EVMS plan [@CL-PRG-9136; @CL-PRG-9137].
+In the performance of the contract, the contractor must use an EVMS that complies with the EVMS guidelines in ANSI/EIA-748 and management procedures that provide for generation of timely, reliable, and verifiable information for the Contract Performance Report and the Integrated Master Schedule required by the CPR and IMS data items of the contract [@CL-PRG-9138; @CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9139]. If the contract has a value of $50 million or more, the contractor must use an EVMS that has been determined to be acceptable by the Cognizant Federal Agency [@CL-PRG-0103]. If, at the time of award, the Cognizant Federal Agency has not determined the system to be in compliance with the EVMS guidelines as stated in paragraph (b)(1) of the clause, the contractor must apply its current system to the contract and must take necessary actions to meet the milestones in its EVMS plan [@CL-PRG-9136; @CL-PRG-9137].
 
 ## Worked example
 
@@ -42,7 +42,7 @@ A contract containing the clause is valued at 60,000,000. The Cognizant Federal 
 
 ## Never confuse
 
-An earned value management system is not merely a scheduling tool. The clause requires both a compliant system and management procedures that support reliable contract performance information [@CL-PRG-0101; @CL-PRG-0102].
+In the performance of the contract, the contractor must use both an EVMS that complies with the EVMS guidelines in ANSI/EIA-748 and management procedures that provide for generation of timely, reliable, and verifiable information for the Contract Performance Report and the Integrated Master Schedule required by the CPR and IMS data items of the contract [@CL-PRG-9138; @CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9139].
 
 ## Company calibration
 
@@ -52,5 +52,6 @@ Which contracts carry the earned value requirement, and whether the earned value
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned system and management-procedure wording to cited quotes and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the award-time rule, the shall-use lead-in and the reports the CPR and IMS data items require.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Earned Value Management System clause.
