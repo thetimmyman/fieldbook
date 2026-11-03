@@ -37,9 +37,9 @@ Under the clause with a foreign government, paragraph (b) applies if any subcont
 
 ## How it works
 
-The test is exemption. A tax or duty that the Government is exempt from by agreement with the foreign government, or that the Contractor or a subcontractor is exempt from under the foreign country's laws, is not an allowable cost [@CL-CTF-2635; @CL-CTF-2549]. The two clauses differ in who the local-law exemption must cover [@CL-CTF-2549; @CL-CTF-2551].
+Under the foreign cost-reimbursement clause, a tax or duty that the Government is exempt from by agreement with the foreign government, or that the Contractor or any subcontractor is exempt from under the foreign country's laws, shall not constitute an allowable cost [@CL-CTF-2635; @CL-CTF-2549]. Under the clause with a foreign government, the local-law exemption named is that of any subcontractor [@CL-CTF-2637; @CL-CTF-2551].
 
-They also differ in where a credit goes. The general clause covers a credit obtained by the Contractor or a subcontractor and sends the amount to the Government of the United States as the Contracting Officer directs [@CL-CTF-2550; @CL-CTF-2636]. The foreign-government clause covers a credit obtained by a subcontractor and sends the amount, not credited to the contract, to the Treasurer of the United States when the Federal income tax return is filed [@CL-CTF-2638; @CL-CTF-2552].
+The general clause covers a credit obtained by the Contractor or a subcontractor and sends the amount to the Government of the United States as the Contracting Officer directs [@CL-CTF-2550; @CL-CTF-2636]. The foreign-government clause covers a credit obtained by a subcontractor and sends the amount, not credited to the contract, to the Treasurer of the United States when the Federal income tax return is filed [@CL-CTF-2638; @CL-CTF-2552].
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. Both RFO clauses keep the exemption test in paragraph (a): in the clause for foreign cost-reimbursement contracts, a tax or duty from which the United States Government is exempt by agreement with the foreign government [@CL-CTF-2635; @CL-CTF-0335], or from which the Contractor or any subcontractor is exempt under the laws of the foreign country, is not an allowable cost [@CL-CTF-2549; @CL-CTF-0336]; in the clause with a foreign government, the same applies to the agreement rule [@CL-CTF-2637; @CL-CTF-0339] and to a tax or duty from which any subcontractor is exempt under the laws of the foreign country [@CL-CTF-2551; @CL-CTF-0340]. Both keep the paragraph (b) trigger, a foreign tax credit that reduces Federal income tax liability because of the payment of a tax or duty that was reimbursed [@CL-CTF-2550; @CL-CTF-0337] [@CL-CTF-2638; @CL-CTF-0341]. The RFO text of paragraph (b) of FAR 52.229-8 says the Contractor shall pay or credit the amount of the reduction at the time of the offset to the Government of the United States as the Contracting Officer directs [@CL-CTF-0338; @CL-CTF-2636], and that of FAR 52.229-9 says the subcontractor shall pay, not credit to the contract, the amount of the reduction to the Treasurer of the United States at the time the Federal income tax return is filed [@CL-CTF-0342; @CL-CTF-2552].
 
@@ -53,7 +53,7 @@ A different 8,000 tax is reimbursed. The Contractor later obtains a foreign tax 
 
 ## Never confuse
 
-A foreign cost-reimbursement clause asks whether a tax is an allowable cost, while a foreign fixed-price clause asks what the price includes and then moves the price when taxes change. See [Taxes under foreign fixed-price contracts](ctf-foreign-fixed-price-taxes.md).
+For taxes under foreign fixed-price contracts, see [Taxes under foreign fixed-price contracts](ctf-foreign-fixed-price-taxes.md).
 
 The foreign-government version also differs from the general version in two places: only the subcontractor is named as the party exempt under local law, and only a subcontractor's credit is covered and it is paid to the Treasurer of the United States at filing, not credited to the contract [@CL-CTF-2551; @CL-CTF-2638; @CL-CTF-2552].
 
@@ -67,5 +67,6 @@ Whether each foreign cost-reimbursement contract carries the general or the fore
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited summary and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for taxes under foreign cost-reimbursement contracts.

@@ -59,11 +59,11 @@ A fixed-price purchase order for 400 units has a purchase price of 12,000 that e
 
 ## Never confuse
 
-The delivery that triggers payment is not the transfer of responsibility for the supplies, which the [title, risk of loss and replacement](../billing-payment/ctf-fast-payment-title-risk-of-loss-and-replacement.md) page covers.
+For title, risk of loss and replacement, see the [title, risk of loss and replacement](../billing-payment/ctf-fast-payment-title-risk-of-loss-and-replacement.md) page page.
 
-A missing "FAST PAY" mark does not by itself bar fast payment, because the payment office may still accept the invoice or make fast payment [@CL-CTF-2933; @CL-CTF-2944]. If it declines, the Contractor is paid under the procedures that apply to invoices outside the clause [@CL-CTF-2934; @CL-CTF-2973].
+Invoices not prominently marked "FAST PAY" via manual or electronic means may be accepted by the payment office for fast payment, and when outer shipping containers are not marked "FAST PAY" the payment office may make fast payment [@CL-CTF-2933; @CL-CTF-2944]. If it declines, the Contractor is paid under the procedures that apply to invoices outside the clause [@CL-CTF-2934; @CL-CTF-2973].
 
-Whether the order requires a receiving report changes what the invoice must carry [@CL-CTF-2937; @CL-CTF-2939]. The codified clause is FAR 52.213-1 [@CL-CTF-2930], but the RFO text prints it as FAR 52.232-90 [@CL-CTF-0222] and marks FAR 52.213-1 [Reserved] [@CL-CTF-0241].
+If the contract, order or blanket purchase agreement requires a receiving report, the Contractor must either submit it on the prescribed form with the invoice or include the listed information on the invoice [@CL-CTF-2937]; if it does not require a receiving report on a prescribed form, the Contractor must include the listed line item information on the invoice [@CL-CTF-2939]. The codified clause is FAR 52.213-1 [@CL-CTF-2930], but the RFO text prints it as FAR 52.232-90 [@CL-CTF-0222] and marks FAR 52.213-1 [Reserved] [@CL-CTF-0241].
 
 ## Company calibration
 
@@ -73,5 +73,6 @@ Which orders carry the clause, how invoices and containers are marked and routed
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast and inference from the never-confuse paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fast payment eligibility and invoicing.
