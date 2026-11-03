@@ -56,7 +56,6 @@ Confirm whether financing arrangements involve assignment of contract payments a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the never-confuse paragraph to what the cited text says.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the single-party rule to its lead-in and used the section's own reference for reassignment conditions.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

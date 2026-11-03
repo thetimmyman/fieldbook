@@ -16,7 +16,7 @@ links = ["ctf-dfars-contract-debt-and-interest-exemption", "ctf-contract-debt-in
 
 ## Purpose
 
-Covers five sections of the DoD supplement's contract debts subpart: debt determination, demand for payment, compromising debts, transfer of responsibility for debt collection and bankruptcy reporting. Four of them send the reader to the PGI for the procedure. The compromise section names who may compromise. The section headed Debt determination speaks only to transferring a case to the contract financing office [@CL-CTF-3622].
+Covers five sections of DFARS subpart 232.6 on contract debts: transferring a case to the contract financing office under DFARS 232.603, issuing a demand for payment under DFARS 232.604, compromising debts under DFARS 232.610, transferring responsibility for debt collection under DFARS 232.670, and bankruptcy reporting under DFARS 232.671 [@CL-CTF-3622; @CL-CTF-3623; @CL-CTF-3624; @CL-CTF-3625; @CL-CTF-3626].
 
 ## The rule
 
@@ -27,35 +27,35 @@ Covers five sections of the DoD supplement's contract debts subpart: debt determ
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-3622] |
-| Applies to | Contract debts, with the compromise limit applying to debts covered by the DFARS contract debts subpart [@CL-CTF-3624] |
+| Applies to | Contract debts covered by DFARS subpart 232.6 [@CL-CTF-3622; @CL-CTF-3624] |
 
-The section headed Debt determination says that, when transferring a case to the contract financing office, the procedures at PGI 232.603 must be followed [@CL-CTF-3622]. It does not say who transfers the case, when, or who determines the debt. The DoD rule on which official determines and collects debts is on [DoD contract debt responsibility and exemption from administrative interest](../financing/ctf-dfars-contract-debt-and-interest-exemption.md).
+Under DFARS 232.603 (Debt determination), when transferring a case to the contract financing office, follow the procedures at PGI 232.603 [@CL-CTF-3622]. The DoD rules on responsibility for determining and collecting contract debts are covered on [DoD contract debt responsibility and exemption from administrative interest](../financing/ctf-dfars-contract-debt-and-interest-exemption.md).
 
-When issuing a demand for payment of a contract debt, the procedures at PGI 232.604 must be followed [@CL-CTF-3623]. The text does not say who issues the demand or set a deadline.
+Under DFARS 232.604, when issuing a demand for payment of a contract debt, follow the procedures at PGI 232.604 [@CL-CTF-3623].
 
-Only the department or agency contract financing offices are authorized to compromise debts covered by this subpart [@CL-CTF-3624]. The section names the offices by pointing to the PGI and sets no dollar threshold [@CL-CTF-3624]. So no other office is authorized to compromise such a debt under this subpart [@CL-CTF-3624].
+Under DFARS 232.610, only the department or agency contract financing offices (see PGI 232.070(c)) are authorized to compromise debts covered by DFARS subpart 232.6 [@CL-CTF-3624].
 
-Follow the procedures at PGI 232.670 for transferring responsibility for debt collection [@CL-CTF-3625]. Follow the procedures at PGI 232.671 for bankruptcy reporting [@CL-CTF-3626]. The text does not say who transfers responsibility, to whom, or who reports a bankruptcy.
+Under DFARS 232.670, follow the procedures at PGI 232.670 for transferring responsibility for debt collection [@CL-CTF-3625]. Under DFARS 232.671, follow the procedures at PGI 232.671 for bankruptcy reporting [@CL-CTF-3626].
 
 ## How it works
 
-Four sections state a duty by pointing to a PGI section: the case transfer, the demand, the transfer of collection responsibility and bankruptcy reporting [@CL-CTF-3622; @CL-CTF-3623; @CL-CTF-3625; @CL-CTF-3626]. The PGI text is not printed in this corpus, so this card does not state those procedures.
+Four of the five sections direct personnel to follow specific PGI procedures: PGI 232.603 when transferring a case to the contract financing office, PGI 232.604 when issuing a demand for payment of a contract debt, PGI 232.670 for transferring responsibility for debt collection, and PGI 232.671 for bankruptcy reporting [@CL-CTF-3622; @CL-CTF-3623; @CL-CTF-3625; @CL-CTF-3626].
 
-The compromise section is the one that limits who may act. It confines compromise of debts covered by the subpart to the department or agency contract financing offices [@CL-CTF-3624]. The FAR names the designated agency official for debts under 100,000, excluding interest [@CL-CTF-3620]. The DFARS text sets no dollar threshold of its own and does not say how the two rules fit together [@CL-CTF-3624].
+DFARS 232.610 restricts compromise authority for debts covered by the subpart to the department or agency contract financing offices referenced at PGI 232.070(c) [@CL-CTF-3624]. In the FAR, for debts under $100,000, excluding interest, the designated agency official may compromise the debt pursuant to the Federal Claims Collection Standards (31 CFR part 902) and agency regulations [@CL-CTF-3620].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contract debt of 15,000 exists, and a demand for payment is issued following PGI 232.604 [@CL-CTF-3623]. The contractor offers 9,000 to settle. A buying office that is not a department or agency contract financing office is not authorized to accept the offer; only those offices are authorized to compromise the debt [@CL-CTF-3624]. If a case is transferred to the contract financing office, PGI 232.603 is followed [@CL-CTF-3622]. If responsibility for collecting the debt is transferred, PGI 232.670 is followed [@CL-CTF-3625]. If the contractor files for bankruptcy, the reporting follows PGI 232.671 [@CL-CTF-3626].
+A contract debt of 15,000 exists, and a demand for payment is issued following the procedures at PGI 232.604 [@CL-CTF-3623]. The contractor offers 9,000 to compromise the debt. Under DFARS 232.610, only the department or agency contract financing offices (see PGI 232.070(c)) are authorized to compromise debts covered by the subpart [@CL-CTF-3624]. When transferring a case to the contract financing office, the procedures at PGI 232.603 are followed [@CL-CTF-3622]. For transferring responsibility for debt collection, the procedures at PGI 232.670 are followed [@CL-CTF-3625]. For bankruptcy reporting, the procedures at PGI 232.671 are followed [@CL-CTF-3626].
 
 ## Never confuse
 
-A demand for payment is not a compromise. The demand follows one PGI procedure [@CL-CTF-3623]. Compromise is reserved to the department or agency contract financing offices [@CL-CTF-3624].
+Issuing a demand for payment of a contract debt follows the procedures at PGI 232.604 [@CL-CTF-3623], whereas compromising debts covered by DFARS subpart 232.6 is authorized only for the department or agency contract financing offices (see PGI 232.070(c)) [@CL-CTF-3624].
 
-Transferring a case to the contract financing office and transferring responsibility for debt collection are two sections with two PGI procedures [@CL-CTF-3622; @CL-CTF-3625]. The text does not say that either one moves the compromise authority.
+Transferring a case to the contract financing office under DFARS 232.603 follows PGI 232.603, while transferring responsibility for debt collection under DFARS 232.670 follows PGI 232.670 [@CL-CTF-3622; @CL-CTF-3625].
 
-The section headed Debt determination does not say who determines a debt. That is on [DoD contract debt responsibility and exemption from administrative interest](../financing/ctf-dfars-contract-debt-and-interest-exemption.md), which this card does not restate. The FAR rules on installments, interest and compromise are on [Contract debts: installments, interest and compromises](ctf-contract-debt-installments-interest-and-compromise.md).
+The DoD rules on contract debt determination and collection responsibility are on [DoD contract debt responsibility and exemption from administrative interest](../financing/ctf-dfars-contract-debt-and-interest-exemption.md). The FAR rules on installments, interest and compromise are on [Contract debts: installments, interest and compromises](ctf-contract-debt-installments-interest-and-compromise.md).
 
 ## Company calibration
 
@@ -64,5 +64,5 @@ Which office holds the company's debt cases, and where the demand, case transfer
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary about unprinted PGI text and negative inferences not stated in the cited DFARS sections.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract debt determination, demand, compromise, collection transfer and bankruptcy reporting.
