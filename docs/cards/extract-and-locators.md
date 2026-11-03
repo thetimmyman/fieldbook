@@ -2,7 +2,7 @@
 
 - **Runs where:** home, CI Linux
 - **Schema impact:** additive
-- **Review:** owner
+- **Review:** auto
 
 ## Outcome
 

@@ -4,8 +4,8 @@ This is the execution plan for Fieldbook (AD-21 in [ADR 0001](../decisions/0001-
 
 ## How Codex uses this plan
 
-1. Take the first item whose card file exists in [docs/cards/](../cards/) (a finished card's file is deleted; `docs/cards/drafts/` holds cards for phases not yet reached) and whose preconditions have merged, and whose work item in the tracker is not In Progress or Blocked. Skip items marked `(owner)` or `(lead)`: they are never Codex's.
-2. Read [AGENTS.md](../../AGENTS.md), then the card file. Find the card's work item by its slug and set it In Progress. Work on the branch `card/<slug>`, as the author "Codex (agent)".
+1. Take the first item whose card file exists in [docs/cards/](../cards/) (a finished card's file is deleted; `docs/cards/drafts/` holds cards for phases not yet reached) and whose preconditions have merged, and whose work item in the tracker is not In Progress or Blocked. Skip items marked `(owner)`: they are the owner's. An item marked `(lead)` is drafting work that any agent may take.
+2. Read [AGENTS.md](../../AGENTS.md), then the card file. Find the card's work item by its slug and set it In Progress. Work on the branch `card/<slug>`, as an agent author ("Codex (agent)", or a `Co-authored-by` trailer naming the assistant).
 3. Follow the card: Steps, Acceptance, Negative control. Keep to its Scope. About 400 to 600 changed lines is normal; split a bigger card at a seam, as [docs/cards/README.md](../cards/README.md#size-and-splitting) says. Close the card as [docs/cards/README.md](../cards/README.md#closing-a-card) says.
 4. This file does not change when a card closes. Status is kept in the tracker and nowhere else.
 
@@ -74,7 +74,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - Accept each `docs/design/` revision from the UI lane by pull request (owner)
 - Create one tracker item per row of the Later table in AD-24, titled by the row's slug; skip a row that already has one (lead)
 - Create one tracker item per card in `docs/cards/drafts/`, titled by its slug (lead)
-- Acquire public sources by hand (`sha256sum` plus a `sources.csv` row) from F0 until `add-new-and-edition` merges (lead)
+- Acquire public sources without the tool (download, `sha256sum` plus a `sources.csv` row) from F0 until `add-new-and-edition` merges (lead)
 
 ## P1 Read
 
@@ -83,7 +83,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - workspace-skeleton: the workspace, the toolchain and tool pins, `just check` and the CI skeleton
 - hook-environment-isolation: keep push-hook Git context out of scratch-repository checks
 - product-first-delivery: standard-Cargo dependency work order with actual review evidence; complete custom automation deferred
-- kb-foundation-guard: exact authority and source-free foundation transitions; GS-01 remains active
+- kb-foundation-guard: exact authority and source-free foundation transitions, since retired with GS-01
 - kb-foundation-content: the pinned draft onboarding page, 32 open questions and 51 pending definitions
 - core-types-and-strings: standard-library hexadecimal rendering and schema-version lookup
 - day1-dependencies: complete catalog/workflow reference facts with source locations, without a policy gate

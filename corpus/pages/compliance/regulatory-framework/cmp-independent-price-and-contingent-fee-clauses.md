@@ -1,0 +1,63 @@
++++
+id = "cmp-independent-price-and-contingent-fee-clauses"
+title = "Independent price certificate and covenant against contingent fees: clause text"
+area = "cmp"
+subarea = "regulatory-framework"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-004"]
+links = ["cmp-contingent-fees", "cmp-improper-activity-cancellation-and-price-adjustment"]
++++
+
+## Purpose
+
+Shows what an offeror certifies about how its prices were reached, what a contractor warrants about contingent fees, and what the Government may do for breach of the warranty.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-CMP-2600; @CL-CMP-2605] |
+| Codified citation | FAR 52.203-2 and FAR 52.203-5 [@CL-CMP-2600; @CL-CMP-2605] |
+| RFO citation | RFO FAR 52.203-2 [@CL-CMP-1342; @CL-CMP-1343] and RFO FAR 52.203-5 [@CL-CMP-1349; @CL-CMP-1350] |
+| Edition date | Not established. |
+| Text status | Final [@CL-CMP-2600; @CL-CMP-2605] |
+| Applies to | Solicitations where a firm-fixed-price contract or fixed-price contract with economic price adjustment is contemplated, subject to listed exceptions, and solicitations and contracts exceeding the simplified acquisition threshold other than those for commercial products or commercial services [@CL-CMP-2679; @CL-CMP-2680; @CL-CMP-2681] |
+
+The independent price provision is inserted as prescribed in FAR 3.103-1 [@CL-CMP-2600]. The contracting officer inserts it in solicitations when a firm-fixed-price contract or fixed-price contract with economic price adjustment is contemplated, subject to the exceptions that the section lists [@CL-CMP-2679]. It is not inserted if the acquisition is under the simplified acquisition procedures, if the solicitation is a request for technical proposals under two-step sealed bidding procedures, or if the solicitation is for utility services for which rates are set by law or regulation [@CL-CMP-2680]. Under paragraph (a) of the provision the offeror certifies all of the following [@CL-CMP-2601]. First, that the prices in the offer were arrived at independently, without, for the purpose of restricting competition, any consultation, communication, or agreement with any other offeror or competitor relating to those prices, the intention to submit an offer, or the methods or factors used to calculate the prices [@CL-CMP-2602]. Second, that the prices have not been and will not be knowingly disclosed by the offeror, directly or indirectly, to any other offeror or competitor before bid opening for a sealed bid, or before contract award for a negotiated solicitation, unless otherwise required by law [@CL-CMP-2603]. Third, that no attempt has been or will be made by the offeror to induce any other concern to submit or not to submit an offer for the purpose of restricting competition [@CL-CMP-2604].
+
+The covenant clause is inserted as prescribed in FAR 3.404 [@CL-CMP-2605]. The contracting officer inserts it in all solicitations and contracts exceeding the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2681]. In it, the Contractor warrants that no person or agency has been employed or retained to solicit or obtain the contract upon an agreement or understanding for a contingent fee, except a bona fide employee or agency [@CL-CMP-2606]. For breach or violation of that warranty, the Government shall have the right to annul the contract without liability, or to deduct from the contract price or consideration, or otherwise recover, the full amount of the contingent fee [@CL-CMP-2607].
+
+## How it works
+
+The independent price provision sets out the certifications that the offeror makes in paragraph (a) [@CL-CMP-2601]. Under the covenant clause, for breach or violation of the warranty the Government shall have the right to annul the contract without liability or to deduct from the contract price or consideration, or otherwise recover, the full amount of the contingent fee [@CL-CMP-2607].
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.203-2 keeps the insertion of the independent price provision as prescribed in FAR 3.103-1 [@CL-CMP-1342; @CL-CMP-2600] and the list of matters that the offeror certifies in paragraph (a) [@CL-CMP-1343; @CL-CMP-2601]. It keeps the certification that the prices were arrived at independently, without, for the purpose of restricting competition, any consultation, communication, or agreement with any other offeror or competitor relating to those prices, the intention to submit an offer, or the methods or factors used to calculate the prices offered [@CL-CMP-1344; @CL-CMP-1345; @CL-CMP-2602]. It keeps the certification that the prices have not been and will not be knowingly disclosed to any other offeror or competitor before bid opening for a sealed bid solicitation or before contract award for a negotiated solicitation, unless otherwise required by law [@CL-CMP-1346; @CL-CMP-1347; @CL-CMP-2603], and the certification that no attempt has been or will be made to induce any other concern to submit or not to submit an offer for the purpose of restricting competition [@CL-CMP-1348; @CL-CMP-2604].
+
+RFO FAR 52.203-5 keeps the insertion of the covenant clause as prescribed in FAR 3.404 [@CL-CMP-1349; @CL-CMP-2605] and the warranty that no person or agency has been employed or retained to solicit or obtain the contract upon an agreement or understanding for a contingent fee, except a bona fide employee or agency [@CL-CMP-1350; @CL-CMP-2606]. It keeps the Government's right to annul the contract without liability or to deduct from the contract price or consideration, or otherwise recover, the full amount of the contingent fee [@CL-CMP-1351; @CL-CMP-2607].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+A contractor agrees to pay an intermediary a success fee of 80,000 if it wins a contract worth 4 million. The contract is not for commercial products or commercial services. The intermediary is neither a bona fide employee nor a bona fide agency. After award, the Government may annul the contract without liability, or deduct or recover the full 80,000. In a separate firm-fixed-price sealed bid, an offeror tells a competitor its bid price before bid opening. That offeror cannot truthfully certify that its prices were not disclosed.
+
+## Never confuse
+
+The price certification covers the independent arrival at prices, their disclosure, and attempts to induce another concern to submit or not to submit an offer [@CL-CMP-2602; @CL-CMP-2603; @CL-CMP-2604]. The warranty is that no person or agency has been employed or retained to solicit or obtain the contract upon an agreement or understanding for a contingent fee, except a bona fide employee or agency [@CL-CMP-2606]. For rescission under the cancellation clause, see [Cancellation, rescission and price or fee adjustment for illegal or improper activity](cmp-improper-activity-cancellation-and-price-adjustment.md). For the definitions, the insertion rule and the decision on a suspected breach, see [Covenant against contingent fees](cmp-contingent-fees.md).
+
+## Company calibration
+
+Which solicitations carry the price certification provision, which contracts carry the covenant clause, and whether any success fee is paid for winning work. [@Q-004]
+
+## Sources
+
+## Change note
+
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the certifications as an all-required list; removed meta wording, unsupported contrasts and RFO text-of wording.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certificate of independent price determination and the covenant against contingent fees.

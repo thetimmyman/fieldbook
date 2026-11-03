@@ -199,7 +199,7 @@ Text-bearing proposal bodies persist their own labels and input ItemRefs and reg
 4. Add the kind to the `queue show` text. No document lists proposal kinds by hand.
 5. Name the store the proposal writes to and the labels of what it would write. The `Admit` handler checks store admission and refuses a write that the store's `holds` do not allow (FB0412). The journal envelope supplies `store`; the shared [queue payload](../reference/audit-contract.md#queue-payloads) supplies `labels`, `proposal_kind`, proposal identity and the recorded adapter-role map. Every queue producer uses that typed schema.
 
-Drift check: `every_proposal_kind_accepts_through_one_commit` accepts each fixture and requires a tree that passes `check --strict`, exactly one `write.begin` and `write.end` pair and one `queue.accept`, requires a run without a terminal to be refused (FB0822), and requires a fixture whose labels are not all in the store's `holds` to be refused with FB0412 and to write nothing.
+Drift check: `every_proposal_kind_accepts_through_one_commit` accepts each fixture and requires a tree that passes `check --strict`, exactly one `write.begin` and `write.end` pair and one `queue.accept`, requires a run without a terminal to be refused (FB0822) for a company store and to land at entry values in the repository Corpus, and requires a fixture whose labels are not all in the store's `holds` to be refused with FB0412 and to write nothing.
 
 ### Adding a pipeline rule
 
@@ -329,7 +329,7 @@ Drift check: the `later_slug` lint of `docs-checks` fails on a `later-` slug nam
 ### Adding a regression case
 
 1. Append a `[[case]]` to `corpus/eval/regression.toml`: `id`, `query` and `expect` (ids and rank).
-2. Promotion from the question log is an interactive accept (`ask-promote`), which also adds the `from` key (the asked-question id). Codex does not edit the file.
+2. Promotion from the question log is an interactive accept (`ask-promote`), which also adds the `from` key (the asked-question id). An agent may append a case by commit; it never edits or removes a case, or sets `critical`.
 3. Run `fieldbook check`: the set runs inside `check` (FB0126 to FB0128).
 
 Drift check: `regression_cases_have_ids_and_expectations` and `regression_toml_never_panics_on_random_and_mutated_bytes`, which `search-cli-and-regression` adds.

@@ -1,0 +1,64 @@
++++
+id = "mkt-edwosb-and-wosb-set-aside-notices"
+title = "Economically disadvantaged women-owned and women-owned set-aside notices"
+area = "mkt"
+subarea = "programs"
+type = "clause-card"
+stage = 3
+readiness = "PUBLIC-NOW"
+status = "draft"
+as_of = 2026-10-29
+handling = ["public"]
+questions = ["Q-003"]
+links = ["mkt-wosb-set-asides-and-sole-source", "mkt-edwosb-wosb-status-protests", "mkt-limitations-on-subcontracting-and-nonmanufacturer-rule"]
++++
+
+## Purpose
+
+Separates the two women-owned notice clauses: the notice for economically disadvantaged women-owned small business (EDWOSB) concerns, and the notice for women-owned small business (WOSB) concerns eligible under the WOSB Program. The policy rules are on the [Women-Owned Small Business Program set-asides and sole-source awards](mkt-wosb-set-asides-and-sole-source.md) card, and status protests are on the [EDWOSB and WOSB status protests](mkt-edwosb-wosb-status-protests.md) card.
+
+## The rule
+
+| Field | Value |
+|---|---|
+| Instrument | Codified FAR [@CL-MKT-1010] |
+| Codified citation | FAR 52.219-29; FAR 52.219-30 [@CL-MKT-1010; @CL-MKT-1072] |
+| RFO citation | RFO FAR 52.219-29; RFO FAR 52.219-30 [@CL-MKT-0102; @CL-MKT-0111] |
+| Edition date | Not established. |
+| Text status | Final [@CL-MKT-1010] |
+| Applies to | The cases each clause lists, from EDWOSB and WOSB set-asides and sole-source awards to orders under multiple-award contracts [@CL-MKT-1066; @CL-MKT-1074] |
+
+An EDWOSB concern is a small business concern that is at least 51 percent directly and unconditionally owned by, and whose management and daily business operations are controlled by, one or more women who are citizens of the United States [@CL-MKT-1010]. The owners must also be economically disadvantaged in accordance with 13 CFR part 127, and the concern must be certified pursuant to 13 CFR 127.300 as an EDWOSB [@CL-MKT-1011]. An EDWOSB automatically qualifies as a WOSB concern eligible under the WOSB Program [@CL-MKT-1012].
+
+A WOSB concern eligible under the WOSB Program is a small business concern that is at least 51 percent directly and unconditionally owned by, and whose management and daily business operations are controlled by, one or more women who are citizens of the United States [@CL-MKT-1072]. The concern must also be certified by the Small Business Administration (SBA) or an approved third-party certifier in accordance with 13 CFR 127.300 as a WOSB [@CL-MKT-1015]. A certified EDWOSB is automatically eligible as a certified WOSB [@CL-MKT-1073].
+
+## How it works
+
+The EDWOSB clause applies only to the listed cases, the first being contracts set aside for, or awarded on a sole-source basis to, EDWOSB concerns and the second being parts of a multiple-award contract set aside for EDWOSB concerns [@CL-MKT-1066]. It also applies to orders set aside for EDWOSB concerns and to orders issued directly to them under multiple-award contracts [@CL-MKT-1067]. The WOSB clause lists the same kinds of cases for WOSB concerns eligible under the WOSB Program [@CL-MKT-1074; @CL-MKT-1075].
+
+In an EDWOSB set-aside, offers are solicited only from certified EDWOSB concerns or EDWOSB concerns with a pending application for certification in the Dynamic Small Business Search [@CL-MKT-1013]. In an EDWOSB sole-source award, offers are solicited only from certified EDWOSB concerns [@CL-MKT-1014]. Offers from other concerns will not be considered, and any award will be made to a certified EDWOSB concern [@CL-MKT-1068]. For WOSB set-asides, offers are solicited only from certified WOSB concerns eligible under the WOSB Program or WOSB concerns with a pending application for certification status in the Dynamic Small Business Search [@CL-MKT-1076]. For WOSB sole-source awards, offers are solicited only from certified WOSB concerns, offers from other concerns shall not be considered, and any award will be made to a certified WOSB concern eligible under the WOSB Program [@CL-MKT-1077].
+
+A joint venture may be considered an EDWOSB concern if at least one party to it complies with the criteria in paragraph (a) and paragraph (c)(3) of the clause and with 13 CFR 127.506(c), and a second condition is also met [@CL-MKT-1069]. The second condition is that each party qualifies as small under the size standard for the solicitation or, in a joint venture of a mentor and protégé with an approved agreement under the SBA mentor-protégé program, that the protégé is small under that standard [@CL-MKT-1070]. In a joint venture that complies with paragraph (d) of the clause, the EDWOSB party or parties shall perform at least 40 percent of the work performed by the joint venture [@CL-MKT-1016]. Their work must be more than administrative functions [@CL-MKT-1071]. For a WOSB joint venture the WOSB clause sets the same two conditions [@CL-MKT-1078; @CL-MKT-1079], the same work share of at least 40 percent for the WOSB party or parties [@CL-MKT-1080] and the same requirement that their work be more than administrative functions [@CL-MKT-1081]. The general limits on subcontracting are on the [Limitations on subcontracting and the nonmanufacturer rule](mkt-limitations-on-subcontracting-and-nonmanufacturer-rule.md) card.
+
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO EDWOSB clause keeps the definition [@CL-MKT-0102; @CL-MKT-1010; @CL-MKT-0103; @CL-MKT-1011; @CL-MKT-1012], the first two applicability cases [@CL-MKT-0104; @CL-MKT-1066], the joint venture size condition [@CL-MKT-0108; @CL-MKT-1070] and the 40 percent work share with its limit that the work be more than administrative functions [@CL-MKT-0109; @CL-MKT-1016; @CL-MKT-0110; @CL-MKT-1071]. The RFO EDWOSB clause says offers are solicited only from certified EDWOSB concerns, offers from other concerns will not be considered, and any award will be made to a certified EDWOSB concern, and it has no separate set-aside rule admitting a concern with a pending application [@CL-MKT-0106; @CL-MKT-1013; @CL-MKT-1014; @CL-MKT-1068]. Its applicability list ends with orders set aside for EDWOSB concerns under multiple-award contracts, citing 8.4 and 16.5, and has no item for orders issued directly to EDWOSB concerns [@CL-MKT-0105; @CL-MKT-1067]. Its joint venture paragraph (d)(1) points to paragraph (c)(1) of the clause, where the codified paragraph points to paragraph (c)(3) [@CL-MKT-0107; @CL-MKT-1069]. The RFO WOSB clause keeps the definition [@CL-MKT-0111; @CL-MKT-1072; @CL-MKT-0112; @CL-MKT-1015; @CL-MKT-1073], the first two applicability cases [@CL-MKT-0113; @CL-MKT-1074], the joint venture size condition [@CL-MKT-0118; @CL-MKT-1079] and the 40 percent work share with its limit that the work be more than administrative functions [@CL-MKT-0119; @CL-MKT-1080; @CL-MKT-0120; @CL-MKT-1081]. It makes the same changes: offers are solicited only from certified WOSB concerns eligible under the WOSB Program, with no separate set-aside rule admitting a concern with a pending application [@CL-MKT-0115; @CL-MKT-1076; @CL-MKT-1077]; any award will still be made to a certified WOSB concern eligible under the WOSB Program [@CL-MKT-0116; @CL-MKT-1077]; the applicability list has no item for orders issued directly to such concerns [@CL-MKT-0114; @CL-MKT-1075]; and the joint venture paragraph (d)(1) points to paragraph (c)(1) [@CL-MKT-0117; @CL-MKT-1078].
+
+## Worked example
+
+Synthetic example. The numbers are made up.
+
+An EDWOSB concern with a certification application pending in the Dynamic Small Business Search offers 2,000,000 on an EDWOSB set-aside. Its offer is among those solicited. The same concern could not offer on an EDWOSB sole-source award, which is limited to certified EDWOSB concerns. In an EDWOSB joint venture that complies with paragraph (d) of the clause and performs 800,000 of work, the EDWOSB party must perform at least 320,000, which is 40 percent, and that work must be more than administrative functions. Under the RFO text, offers on an EDWOSB set-aside are solicited only from certified EDWOSB concerns, and the concern in this example has only a pending application [@CL-MKT-0106].
+
+## Never confuse
+
+The two clauses cover different programs: the EDWOSB clause applies to EDWOSB concerns and the WOSB clause to WOSB concerns eligible under the WOSB Program [@CL-MKT-1066; @CL-MKT-1074]. In both a set-aside admits a concern with a pending application, but a sole-source award is limited to certified concerns [@CL-MKT-1013; @CL-MKT-1014; @CL-MKT-1076; @CL-MKT-1077]. A certified EDWOSB is automatically eligible as a certified WOSB [@CL-MKT-1073], but the EDWOSB definition also requires that the owners be economically disadvantaged and that the concern be certified as an EDWOSB [@CL-MKT-1011]. Under the RFO text the pending-application admission is not printed: the RFO EDWOSB clause says offers are solicited only from certified EDWOSB concerns, and the RFO WOSB clause says offers are solicited only from certified WOSB concerns eligible under the WOSB Program, where the codified set-aside rules also admit a concern with a pending application [@CL-MKT-0106; @CL-MKT-0115; @CL-MKT-1013; @CL-MKT-1076].
+
+## Company calibration
+
+Which women-owned entities in the finance remit hold a certification and which are still pending. [@Q-003]
+
+## Sources
+
+## Change note
+
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the women-owned set-aside notices.
