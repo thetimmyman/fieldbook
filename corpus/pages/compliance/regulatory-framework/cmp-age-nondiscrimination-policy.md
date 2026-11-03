@@ -43,7 +43,7 @@ Agencies shall bring complaints regarding a contractor's compliance with this po
 
 Duties fall on three parties. Contractors and subcontractors carry both the employment rule and the advertisement rule [@CL-CMP-8074; @CL-CMP-8077]. Persons acting on their behalf carry the advertisement rule only [@CL-CMP-8077]. Agencies carry the duty to bring the policy to the attention of contractors [@CL-CMP-8079].
 
-The three bases are the same in both paragraphs: a bona fide occupational qualification, a retirement plan, or a statutory requirement [@CL-CMP-8075; @CL-CMP-8078]. The section does not say who decides whether a basis exists. It states no threshold, deadline, filing, price or payment rule, and no remedy.
+The three bases are the same in both paragraphs: a bona fide occupational qualification, a retirement plan, or a statutory requirement [@CL-CMP-8075; @CL-CMP-8078].
 
 The section does not require a contract clause [@CL-CMP-8080]. Related equal opportunity rules are on [the equal employment opportunity definitions card](cmp-eeo-definitions-and-general-rules.md).
 
@@ -51,13 +51,13 @@ The section does not require a contract clause [@CL-CMP-8080]. Related equal opp
 
 Synthetic example. The numbers are made up.
 
-A staffing firm acts on behalf of a services contractor and posts an advertisement for a technician to work on a Government contract. The advertisement states a maximum age of 40 and ties the limit to no qualification, retirement plan, or statutory requirement. Paragraph (b) bars that limit unless it is based on one of those three bases [@CL-CMP-8077; @CL-CMP-8078]. No basis is stated, so the bar applies. If a statutory requirement did support the limit, the exception in paragraph (b) would apply [@CL-CMP-8078].
+A staffing firm acts on behalf of a services contractor and posts an advertisement for a technician to work on a Government contract. The advertisement states a maximum age of 40 and ties the limit to no qualification, retirement plan, or statutory requirement. Paragraph (b) bars that limit unless it is based on one of those three bases. No basis is stated, so the bar applies. If a statutory requirement did support the limit, the exception in paragraph (b) would apply.
 
-Separately, the contractor declines to advance an employee because of age and relies on no basis. Paragraph (a) bars that decision unless a bona fide occupational qualification, retirement plan, or statutory requirement supports it [@CL-CMP-8074; @CL-CMP-8075].
+Separately, the contractor declines to advance an employee because of age and relies on no basis. Paragraph (a) bars that decision unless a bona fide occupational qualification, retirement plan, or statutory requirement supports it.
 
 ## Never confuse
 
-Paragraph (a) covers employment, advancement, discharge, and the terms, conditions, or privileges of employment. Paragraph (b) covers maximum age limits in solicitations or advertisements for employees to work on Government contracts [@CL-CMP-8074; @CL-CMP-8077]. Only paragraph (b) names persons acting on a contractor's behalf [@CL-CMP-8077].
+Paragraph (a) covers employment, advancement, discharge, and the terms, conditions, or privileges of employment [@CL-CMP-8074]. Paragraph (b) covers maximum age limits in solicitations or advertisements for employees to work on Government contracts [@CL-CMP-8074; @CL-CMP-8077]. Only paragraph (b) names persons acting on a contractor's behalf [@CL-CMP-8077].
 
 The two exceptions use different words: paragraph (a) says "except upon the basis of" and paragraph (b) says "unless the specified maximum age limit is based upon" [@CL-CMP-8075; @CL-CMP-8078].
 
@@ -69,5 +69,6 @@ Whether any employing entity or worksite inside the finance remit states age lim
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example, removed meta commentary on unstated elements, and cited paragraph (a) in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how agencies handle complaints about compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the age nondiscrimination policy.
