@@ -23,10 +23,10 @@ Spend the meeting on scope, decision rights and systems. Request the contract li
 
 ## Evidence
 
-- Which rules apply turns on contract value: the CAS exemption [@CL-CMP-0001], the DoD certified data threshold [@CL-EST-0002] and the earned value threshold [@CL-PRG-0001].
-- Financing terms differ by business size: the DoD customary progress payment rates [@CL-CTF-0001; @CL-CTF-0002].
-- The contracting officer inserts the Limitation of Cost clause if a fully funded cost-reimbursement contract is contemplated [@CL-FPA-0091]. The contractor shall notify the contracting officer in writing whenever it has reason to believe that the costs it expects to incur in the next 60 days, added to all costs previously incurred, will exceed 75 percent of the estimated cost in the Schedule, one of two notice conditions [@CL-CTF-2968; @CL-CTF-2919; @CL-CTF-0003]. The prescription lets the 60 days vary from 30 to 90 and the 75 percent from 75 to 85 [@CL-CTF-2917].
-- The contractor shall submit an adequate final indirect cost rate proposal within the 6-month period following the expiration of each fiscal year, and reasonable extensions, for exceptional circumstances only, may be requested in writing by the contractor and granted in writing by the contracting officer [@CL-RTE-0001; @CL-RTE-9119].
+- Contract value sets applicability: CAS exemption [@CL-CMP-0625; @CL-CMP-0001], DoD certified data [@CL-EST-0002; @CL-EST-9456; @CL-EST-9457] and earned value thresholds [@CL-PRG-9140; @CL-PRG-0001; @CL-PRG-9141].
+- Business size sets DoD customary progress payment rates [@CL-CTF-9601; @CL-CTF-0001; @CL-CTF-0002].
+- The contracting officer shall insert the Limitation of Cost clause in solicitations and contracts if a fully funded cost-reimbursement contract is contemplated, with or without fee [@CL-FPA-0091]. The contractor shall notify the contracting officer in writing whenever it has reason to believe costs it expects to incur under the contract in the next 60 days, added to all costs previously incurred, will exceed 75 percent of the Schedule's specified estimated cost, one of the alternatives [@CL-CTF-2968; @CL-CTF-2919; @CL-CTF-0003]. The 60-day period may vary from 30 to 90 days and the 75 percent from 75 to 85 percent [@CL-CTF-2917].
+- The contractor shall submit an adequate final indirect cost rate proposal to the contracting officer (or cognizant Federal agency official) and auditor within the 6-month period after each fiscal year expires, and the contractor may request in writing, and the contracting officer may grant in writing, reasonable extensions for exceptional circumstances only [@CL-RTE-9142; @CL-RTE-0001; @CL-RTE-9119].
 
 ## Options
 
