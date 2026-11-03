@@ -15,7 +15,7 @@ links = ["cls-sx-group-reporting-notes", "mna-sx-guarantor-financial-statements"
 
 ## Purpose
 
-Says what disclosure a registrant gives when a registered security is collateralized by securities of its affiliates, and which securities the rule covers by issue date. The rule is part of Regulation S-X, which is not FAR, DFARS or CAS.
+Says what disclosure a registrant gives when a registered security is collateralized by securities of its affiliates, and which securities the rule covers by issue date.
 
 ## The rule
 
@@ -28,13 +28,13 @@ Says what disclosure a registrant gives when a registered security is collateral
 | Text status | Not established. |
 | Applies to | Registered securities collateralized by a security of the registrant's affiliate or affiliates, issued on or after January 4, 2021 or issued and outstanding before that date in the case the section describes [@CL-MNA-0900; @CL-MNA-0901; @CL-MNA-0950] |
 
-The section applies to each security registered or being registered that is issued on or after January 4, 2021, and to each registered security issued and outstanding before that date, for which the registrant had provided the financial statements specified in the earlier section prior to that date [@CL-MNA-0900].
+Under § 210.13-02, the section applies to each security registered or being registered that is issued on or after January 4, 2021, and to each registered security issued and outstanding before January 4, 2021, for which the registrant had provided the financial statements specified in § 210.3-16 prior to January 4, 2021 [@CL-MNA-0900].
 
-The disclosures apply to each security subject to section 13(a) or 15(d) of the Securities Exchange Act of 1934, and to each security the offer and sale of which is being registered under the Securities Act of 1933, that is collateralized by a security of the registrant's affiliate or affiliates [@CL-MNA-0950]. Where a security is collateralized by a security of the registrant's affiliate or affiliates, the registrant provides the listed disclosures to the extent material, the first being a description of the securities pledged as collateral and the affiliates whose securities are pledged [@CL-MNA-0901]. One listed disclosure is a description of the terms and conditions of the collateral arrangement, including the events or circumstances that would require delivery of the collateral [@CL-MNA-0902]. One listed disclosure is summarized financial information of each affiliate whose securities are pledged as collateral, with an accompanying note that briefly describes the basis of presentation [@CL-MNA-0903]. The section also lists further disclosures, which this card does not draw out.
+Under § 210.13-02(a), for each security subject to Section 13(a) or 15(d) of the Securities Exchange Act of 1934, and for each security the offer and sale of which is being registered under the Securities Act of 1933, that is collateralized by a security of the registrant's affiliate or affiliates, the registrant must provide the following disclosures to the extent material: (1) a description of the securities pledged as collateral and the affiliates whose securities are pledged as collateral [@CL-MNA-0950; @CL-MNA-0901], (2) a description of the terms and conditions of the collateral arrangement, including the events or circumstances that would require delivery of the collateral [@CL-MNA-0902], (3) a description of the trading market for the affiliate's security pledged as collateral or a statement that there is no market [@CL-MNA-0132], and (4) summarized financial information as specified in § 210.1-02(bb)(1) of each affiliate whose securities are pledged as collateral, with an accompanying note that briefly describes the basis of presentation [@CL-MNA-0903].
 
 ## How it works
 
-The registrant first checks whether the section applies to its security by issue date [@CL-MNA-0900] and by whether it is subject to section 13(a) or 15(d) of the Securities Exchange Act of 1934 or is being registered under the Securities Act of 1933 [@CL-MNA-0950]. If it does, the registrant gives the listed disclosures to the extent material [@CL-MNA-0901]. They include the terms of the collateral arrangement and summarized financial information on each affiliate whose securities are pledged [@CL-MNA-0902; @CL-MNA-0903].
+Under § 210.13-02, the rule applies to each security registered or being registered that is issued on or after January 4, 2021, and to each registered security issued and outstanding before January 4, 2021 for which the registrant had provided the financial statements specified in § 210.3-16 prior to January 4, 2021 [@CL-MNA-0900]. Under paragraph (a), for each security subject to Section 13(a) or 15(d) of the Exchange Act or whose offer and sale is being registered under the Securities Act that is collateralized by a security of the registrant's affiliate or affiliates, the registrant provides to the extent material a description of the pledged securities and the affiliates, the terms and conditions of the collateral arrangement (including events or circumstances requiring delivery of the collateral), the trading market for the pledged security or a statement that there is no market, and summarized financial information as specified in § 210.1-02(bb)(1) of each affiliate whose securities are pledged with an accompanying note briefly describing the basis of presentation [@CL-MNA-0950; @CL-MNA-0901; @CL-MNA-0902; @CL-MNA-0132; @CL-MNA-0903].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A registrant registers notes secured by a pledge of the shares of an affiliate. 
 
 ## Never confuse
 
-This is not the rule in [Financial statements of guarantors and issuers of guaranteed securities](mna-sx-guarantor-financial-statements.md). That rule is about subsidiaries that issue or guarantee a security [@CL-MNA-0896], while this one is about affiliates whose securities are pledged as collateral [@CL-MNA-0901]. Group statements of subsidiaries are on [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
+Under § 210.13-01(a), the disclosures apply when the registrant is the parent company of one or more subsidiaries that issue or guarantee the guaranteed security [@CL-MNA-0896], whereas under § 210.13-02(a), the disclosures apply when a security is collateralized by a security of the registrant's affiliate or affiliates [@CL-MNA-0950; @CL-MNA-0901]; see [Financial statements of guarantors and issuers of guaranteed securities](mna-sx-guarantor-financial-statements.md). Group statements of subsidiaries are on [Group reporting notes and separate subsidiary statements under Regulation S-X](../../close-revrec/group-bridge/cls-sx-group-reporting-notes.md).
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0132 for the trading-market disclosure in § 210.13-02(a)(3) and aligned statements with the cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for affiliates whose securities collateralize registered securities.
