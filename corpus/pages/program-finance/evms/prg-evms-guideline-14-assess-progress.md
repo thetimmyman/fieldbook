@@ -34,7 +34,7 @@ Schedule status and physical progress are updated in accordance with the busines
 
 ## How it works
 
-Schedule status is time-based, while assessing physical progress is the earned value [@CL-PRG-0289]. The schedule progress reporting period should align to the accounting period so that the schedule and the baseline stay integrated [@CL-PRG-0292]. Level of effort earns value with the passage of time without consideration of whether actual work is performed, so baseline start and finish dates for level of effort work packages are proactively managed to ensure variances do not result from failure to maintain the plan [@CL-PRG-0290; @CL-PRG-0750]. The point at which material cost transfers from the accounting system to the earned value system as actual cost must fall within the same accounting period in which earned value for that material is claimed [@CL-PRG-0291].
+Schedule status (time-based) and assessing physical progress (earned value) are updated in accordance with the business cycle based on the size, risk, and complexity of the program, but no less than monthly [@CL-PRG-0289]. To ensure integration between the Integrated Master Schedule and the Performance Measurement Baseline, the schedule progress reporting period should align to the accounting period [@CL-PRG-0292]. Level of Effort (LOE) performance is earned with the passage of time without consideration if actual work is performed, and therefore baseline start and finish dates for work packages planned as LOE are proactively managed to ensure variances do not result from failure to maintain the plan [@CL-PRG-0290; @CL-PRG-0750]. The point of transfer of costs from the accounting system to the Earned Value Management System as actual cost for the material occurs within the same accounting period that earned value for that material is claimed [@CL-PRG-0291].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A work package is budgeted at 120,000 and planned to finish in four months. At t
 
 ## Never confuse
 
-Schedule status and physical progress are not the same measure. Schedule status is time-based, while assessing physical progress is what determines the budget earned [@CL-PRG-0289; @CL-PRG-0287].
+Schedule status is time-based, while using predefined performance measurement criteria, the contractor statuses the schedule and assesses physical progress (earned value) to determine budget earned [@CL-PRG-0289; @CL-PRG-0287].
 
 The guideline on performance measurement criteria for each work package is covered in [performance measurement criteria for each work package](prg-evms-guideline-10-performance-measurement-criteria.md), and the guideline on calculating schedule variance and cost variance is covered in [Calculate schedule variance and cost variance](prg-evms-guideline-17-schedule-cost-variance.md).
 
@@ -56,6 +56,7 @@ Which contracts the company measures this way, whether the system has been valid
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned schedule-status wording in How it works and Never confuse to cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the related guideline pages by topic in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on neighbouring EVMS guidelines.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: replaced unsupported sentences and added the level of effort baseline date claim.
