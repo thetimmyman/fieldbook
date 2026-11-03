@@ -66,6 +66,5 @@ Whether each business unit's coverage type and Disclosure Statement position are
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited Board waiver scope and request contents; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for waiver of the Cost Accounting Standards for an individual contract or subcontract.

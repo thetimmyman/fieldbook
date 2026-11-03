@@ -54,7 +54,6 @@ Which business units are under full or modified coverage and where each deferred
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited separate-award rule and matched obligation wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deferred compensation accounting.

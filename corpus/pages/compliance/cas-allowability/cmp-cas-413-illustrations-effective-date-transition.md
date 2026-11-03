@@ -58,7 +58,6 @@ Which contracts are subject to the pension adjustment standard and who confirms 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and uncited contrasts, matched transition wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 413.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 413 illustrations, effective date and transition.

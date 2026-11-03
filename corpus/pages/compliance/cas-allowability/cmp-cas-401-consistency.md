@@ -33,7 +33,7 @@ A contractor's practices used in estimating costs in pricing a proposal must be 
 
 ## How it works
 
-Adherence to the requirement in paragraph (a) of the fundamental requirement shall be determined as of the date of award of the contract, unless the contractor has submitted cost or pricing data under section 2306a of title 10, United States Code, or section 254(d) of title 41, United States Code, in which case it shall be determined as of the date of final agreement on price, as shown on the signed certificate of current cost or pricing data [@CL-CMP-8803; @CL-CMP-8804]. The standard allows grouping of homogeneous costs to cover cases where it is not practicable to estimate contract costs by individual cost element or function [@CL-CMP-8801]. The grouping of homogeneous costs in estimates prepared for proposal purposes shall not per se be deemed an inconsistent application of cost accounting practices when such costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203; @CL-CMP-0834]. However, costs estimated for proposal purposes shall be presented in such a manner and in such detail that any significant cost can be compared with the actual cost accumulated and reported for it [@CL-CMP-8802]. Notwithstanding 9904.401-40(b), changes in established cost accounting practices during contract performance may be made in accordance with part 99 [@CL-CMP-8805].
+Adherence to the requirement in paragraph (a) of the fundamental requirement shall be determined as of the date of award of the contract, unless the contractor has submitted cost or pricing data under section 2306a of title 10, United States Code, or section 254(d) of title 41, United States Code, in which case it shall be determined as of the date of final agreement on price, as shown on the signed certificate of current cost or pricing data [@CL-CMP-8803; @CL-CMP-8804]. The standard allows grouping of homogeneous costs to cover cases where it is not practicable to estimate contract costs by individual cost element or function [@CL-CMP-8801]. The grouping of homogeneous costs in estimates prepared for proposal purposes shall not per se be deemed an inconsistent application of cost accounting practices under paragraphs (a) and (b) when such costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203; @CL-CMP-0834]. However, costs estimated for proposal purposes shall be presented in such a manner and in such detail that any significant cost can be compared with the actual cost accumulated and reported for it [@CL-CMP-8802]. Notwithstanding 9904.401-40(b), changes in established cost accounting practices during contract performance may be made in accordance with part 99 [@CL-CMP-8805].
 
 ## Worked example
 
@@ -52,6 +52,7 @@ Whether each business unit is subject to full CAS coverage, modified coverage or
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated under paragraphs (a) and (b) on the grouping rule in How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the adherence date, grouping and part 99 change rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed figures from uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the subject of the techniques requirement and kept the grouping scope.

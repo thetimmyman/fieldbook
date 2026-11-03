@@ -62,7 +62,6 @@ Which workforce languages need the written notice, and who owns disclosures to t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and recast contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: whistleblower rights notice: posting duty wording as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

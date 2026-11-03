@@ -52,6 +52,5 @@ Whether each project is opened, charged and closed with records that support the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited pool composition and matched allocation recipients.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for independent research and development and bid and proposal costs.

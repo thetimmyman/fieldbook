@@ -52,7 +52,6 @@ Whether each segment with plan participants is measured separately or through a 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited conditions for separate segment calculation and the assignable cost cap lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the prepayment credits component of the assignable cost ceiling.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost adjustment and allocation.

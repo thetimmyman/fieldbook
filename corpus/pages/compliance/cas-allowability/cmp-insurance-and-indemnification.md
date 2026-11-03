@@ -59,7 +59,6 @@ How unallowable insurance charges and unapproved self-insurance reserves are exc
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited indemnification paragraph; cut uncited comparisons and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the catastrophic loss self-insurance rule to the codified text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated captive insurer and self-insurance conditions.

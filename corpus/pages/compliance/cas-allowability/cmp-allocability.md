@@ -54,7 +54,6 @@ How allocation bases, indirect cost pools and causal relationships are documente
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the benefits-both alternative and the full allowability list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for allocability.

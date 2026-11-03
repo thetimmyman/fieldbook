@@ -52,7 +52,6 @@ Whether a Disclosure Statement is on file that sets out the criteria separating 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the reassignment alternatives and the minor-cost rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the Disclosure Statement and no-statement rules and matched the minor-cost allowance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for consistency in allocating costs incurred for the same purpose.

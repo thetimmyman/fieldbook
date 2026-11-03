@@ -54,7 +54,6 @@ Which executed STTR contracts carry these provisions, where the agreement and re
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the preaward and postaward agreement sentences and recast the contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the scope of the preaward intellectual property allocation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the postaward agreement sentence so the intellectual property rule keeps the scope of inventions, patents, technical data and computer software resulting from performance of the contract.

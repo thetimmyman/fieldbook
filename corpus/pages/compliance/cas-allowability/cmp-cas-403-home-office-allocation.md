@@ -52,6 +52,5 @@ Whether every home office pool has a documented base and whether service center 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched cited sentences to the quoted scope and cited the residual expense test lead.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for home office expense allocation.

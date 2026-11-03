@@ -57,7 +57,6 @@ Whether formal advance agreements exist with the administrative contracting offi
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the first clause of the authority limit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the cited sentences to the quoted scope and removed uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the advice to seek advance agreements and its statistical sampling scope.

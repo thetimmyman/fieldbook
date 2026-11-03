@@ -56,7 +56,6 @@ How the company classifies direct and indirect costs, how its pools are built, a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Scoped how-it-works statements to the illustrations.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the premises of the five-segment and machining overhead illustrations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption sections of CAS 418 and CAS 420.

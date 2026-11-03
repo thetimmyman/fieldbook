@@ -43,7 +43,6 @@ Which business units have full coverage, modified coverage or neither, and wheth
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited coverage and allowability sentences; removed uncited process claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated second full-coverage and Disclosure Statement tests.

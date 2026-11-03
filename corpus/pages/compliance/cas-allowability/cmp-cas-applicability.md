@@ -54,7 +54,6 @@ Which business units are CAS-covered, at what level, and whether a Disclosure St
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited exemption, coverage and Disclosure Statement lead-ins; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: added second full-coverage test and second Disclosure Statement test.

@@ -64,7 +64,6 @@ Which plans are qualified, which nonqualified plans are funded through a funding
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the installment and period lead-in and the fully amortized consequence and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: added that the first two adjustments are applied before the assignable cost deficit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 412 techniques for application.

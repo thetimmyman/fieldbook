@@ -59,7 +59,6 @@ How legal and consultant expenses connected to government proceedings are segreg
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched codified wording; cut uncited comparisons of codified wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored proceeding conditions and the alternative assurance for conditional payment.

@@ -52,7 +52,6 @@ Which business units are under full or modified coverage and whether each pensio
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the plan scope, assumption validity and future-period exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the liability equality condition for assignable pension cost.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pension cost composition and measurement.

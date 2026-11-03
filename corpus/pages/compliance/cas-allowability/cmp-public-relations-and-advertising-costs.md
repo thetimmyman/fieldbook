@@ -56,7 +56,6 @@ How promotional, marketing, and commercial advertising expenses are screened and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated allowable categories as alternatives; matched primary purpose wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the image-promotion limb of the unallowable advertising rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

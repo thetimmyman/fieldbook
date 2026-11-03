@@ -60,7 +60,6 @@ Who prepares and signs the assertion list for each offer, and where the funding 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording, kept the provision scope and recast the confusion paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: added release and disclosure restrictions to the offer identification rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for identification and assertion of restrictions on technical data and software.

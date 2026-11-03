@@ -64,7 +64,6 @@ Which contracts and subcontracts are subject to the pension standard, when each 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged the transition lead-in with its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added lead-in scopes, removed meta sentences, matched dates.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 412.

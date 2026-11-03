@@ -58,7 +58,6 @@ Whether any current or planned contract makes the company a lead system integrat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added scope and remedial measures to the financial interest clause and recast a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: added services described in the solicitation to the financial interest representation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for lead system integrator limits and prohibited financial interests.
