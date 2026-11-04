@@ -987,62 +987,79 @@ fn entry_sha256(entry: &Entry) -> String {
     }
 }
 
-/// Find distinct elementary cycles in `graph`, returning each cycle's node set in `BTreeSet` key order.
+/// Find strongly connected loop components (size >= 2) in `graph` in linear time (Tarjan's SCC),
+/// returning each component's node set in `BTreeSet` key order, sorted by minimum key.
 fn find_cycles<K: Ord + Clone>(graph: &BTreeMap<K, Vec<K>>) -> Vec<BTreeSet<K>> {
-    let mut cycles: Vec<BTreeSet<K>> = Vec::new();
-    let mut seen_sets: BTreeSet<Vec<K>> = BTreeSet::new();
-
-    for start in graph.keys() {
-        let mut path = vec![start.clone()];
-        let mut on_path = BTreeSet::new();
-        on_path.insert(start.clone());
-        dfs_cycles(
-            graph,
-            start,
-            start,
-            &mut path,
-            &mut on_path,
-            &mut seen_sets,
-            &mut cycles,
-        );
+    struct Tarjan<'a, K> {
+        graph: &'a BTreeMap<K, Vec<K>>,
+        index: usize,
+        indices: BTreeMap<K, usize>,
+        lowlink: BTreeMap<K, usize>,
+        stack: Vec<K>,
+        on_stack: BTreeSet<K>,
+        sccs: Vec<BTreeSet<K>>,
     }
 
-    cycles
-}
+    fn strongconnect<K: Ord + Clone>(t: &mut Tarjan<'_, K>, v: &K) {
+        let v_idx = t.index;
+        t.index += 1;
+        t.indices.insert(v.clone(), v_idx);
+        t.lowlink.insert(v.clone(), v_idx);
+        t.stack.push(v.clone());
+        t.on_stack.insert(v.clone());
 
-fn dfs_cycles<K: Ord + Clone>(
-    graph: &BTreeMap<K, Vec<K>>,
-    start: &K,
-    current: &K,
-    path: &mut Vec<K>,
-    on_path: &mut BTreeSet<K>,
-    seen_sets: &mut BTreeSet<Vec<K>>,
-    cycles: &mut Vec<BTreeSet<K>>,
-) {
-    let Some(neighbors) = graph.get(current) else {
-        return;
-    };
-    for next in neighbors {
-        if next < start {
-            // Only explore nodes >= `start` so each elementary cycle is found from its minimum key.
-            continue;
-        }
-        if next == start {
-            if path.len() >= 2 {
-                let set: BTreeSet<K> = path.iter().cloned().collect();
-                let key: Vec<K> = set.iter().cloned().collect();
-                if seen_sets.insert(key) {
-                    cycles.push(set);
+        if let Some(neighbors) = t.graph.get(v) {
+            for w in neighbors {
+                if !t.indices.contains_key(w) {
+                    strongconnect(t, w);
+                    if let (Some(&w_low), Some(&cur_low)) = (t.lowlink.get(w), t.lowlink.get(v))
+                        && w_low < cur_low
+                    {
+                        t.lowlink.insert(v.clone(), w_low);
+                    }
+                } else if t.on_stack.contains(w)
+                    && let (Some(&w_idx), Some(&cur_low)) = (t.indices.get(w), t.lowlink.get(v))
+                    && w_idx < cur_low
+                {
+                    t.lowlink.insert(v.clone(), w_idx);
                 }
             }
-        } else if !on_path.contains(next) {
-            on_path.insert(next.clone());
-            path.push(next.clone());
-            dfs_cycles(graph, start, next, path, on_path, seen_sets, cycles);
-            path.pop();
-            on_path.remove(next);
+        }
+
+        if t.lowlink.get(v) == t.indices.get(v) {
+            let mut scc = BTreeSet::new();
+            while let Some(w) = t.stack.pop() {
+                t.on_stack.remove(&w);
+                let done = &w == v;
+                scc.insert(w);
+                if done {
+                    break;
+                }
+            }
+            if scc.len() >= 2 {
+                t.sccs.push(scc);
+            }
         }
     }
+
+    let mut t = Tarjan {
+        graph,
+        index: 0,
+        indices: BTreeMap::new(),
+        lowlink: BTreeMap::new(),
+        stack: Vec::new(),
+        on_stack: BTreeSet::new(),
+        sccs: Vec::new(),
+    };
+
+    for node in graph.keys() {
+        if !t.indices.contains_key(node) {
+            strongconnect(&mut t, node);
+        }
+    }
+
+    t.sccs.sort_by(|a, b| a.iter().next().cmp(&b.iter().next()));
+    t.sccs
 }
 
 #[cfg(test)]
@@ -1346,5 +1363,15 @@ CL-EST-0006,est,fact,Synthetic loop claim six.,2026-02-01,S-0002,2,text_section,
         assert_eq!(fb0214[0].path, "corpus/registers/glossary.csv");
         assert_eq!(fb0214[0].line, 4);
         assert!(fb0214[0].message.contains("billing_withhold"));
+    }
+
+    #[test]
+    fn fb0208_dense_acyclic_supersession_graph_runs_in_linear_time() {
+        let mut graph = std::collections::BTreeMap::new();
+        for i in 0..32u32 {
+            let edges: Vec<u32> = (i + 1..32).collect();
+            graph.insert(i, edges);
+        }
+        assert!(super::find_cycles(&graph).is_empty());
     }
 }
