@@ -1005,4 +1005,34 @@ mod tests {
         );
         assert!(next_claim_id("cmp", ["CL-CMP-99999"]).is_err());
     }
+
+    #[test]
+    fn very_long_digit_runs_return_overflow_without_stack_overflow() {
+        let digits = "9".repeat(100_000);
+        let conflict = format!("XC-{digits}");
+        assert_eq!(
+            ConflictId::parse(&conflict).unwrap_err().kind(),
+            IdErrorKind::Overflow
+        );
+        let version = format!("S-0042-v{digits}");
+        assert_eq!(
+            VersionId::parse(&version).unwrap_err().kind(),
+            IdErrorKind::Overflow
+        );
+        let edition = format!("edition-{digits}");
+        assert_eq!(
+            EditionId::parse(&edition).unwrap_err().kind(),
+            IdErrorKind::Overflow
+        );
+        let release = format!("v{digits}.0.0");
+        assert_eq!(
+            ReleaseId::parse(&release).unwrap_err().kind(),
+            IdErrorKind::Overflow
+        );
+        let release_patch = format!("v1.0.{digits}");
+        assert_eq!(
+            ToolRelease::parse(&release_patch).unwrap_err().kind(),
+            IdErrorKind::Overflow
+        );
+    }
 }

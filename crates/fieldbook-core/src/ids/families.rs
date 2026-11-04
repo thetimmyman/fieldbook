@@ -193,20 +193,42 @@ pub fn matches_shape(shape: &str, input: &str) -> bool {
     let Some(inner) = shape.strip_prefix('^').and_then(|s| s.strip_suffix('$')) else {
         return false;
     };
-    match_seq(inner.as_bytes(), input.as_bytes())
+    let pats = [inner.as_bytes()];
+    match_chain(&pats, input.as_bytes())
 }
 
 fn match_seq(pat: &[u8], input: &[u8]) -> bool {
-    // Handle top-level alternation `alt1|alt2` inside a group.
-    if let Some(pipe_pos) = find_top_level_pipe(pat) {
-        let left = &pat[..pipe_pos];
-        let right = &pat[pipe_pos + 1..];
-        return match_seq(left, input) || match_seq(right, input);
-    }
-    let Some((atom, min, max, rest_pat)) = next_quantified_atom(pat) else {
+    let pats = [pat];
+    match_chain(&pats, input)
+}
+
+fn match_chain(pats: &[&[u8]], input: &[u8]) -> bool {
+    let Some((&pat, tail)) = pats.split_first() else {
         return input.is_empty();
     };
-    match_quantified(atom, min, max, rest_pat, input, 0)
+    if pat.is_empty() {
+        return match_chain(tail, input);
+    }
+    // Handle top-level alternation `alt1|alt2` inside a group or pattern.
+    if let Some(pipe_pos) = find_top_level_pipe(pat) {
+        let mut branch_pats = Vec::with_capacity(tail.len() + 1);
+        branch_pats.push(&pat[..pipe_pos]);
+        branch_pats.extend_from_slice(tail);
+        if match_chain(&branch_pats, input) {
+            return true;
+        }
+        branch_pats[0] = &pat[pipe_pos + 1..];
+        return match_chain(&branch_pats, input);
+    }
+    let Some((atom, min, max, rest_pat)) = next_quantified_atom(pat) else {
+        return false;
+    };
+    let mut after_pats = Vec::with_capacity(tail.len() + usize::from(!rest_pat.is_empty()));
+    if !rest_pat.is_empty() {
+        after_pats.push(rest_pat);
+    }
+    after_pats.extend_from_slice(tail);
+    match_quantified(atom, min, max, &after_pats, input)
 }
 
 #[derive(Clone, Copy)]
@@ -321,49 +343,76 @@ fn match_quantified(
     atom: Atom<'_>,
     min: usize,
     max: Option<usize>,
-    rest_pat: &[u8],
+    after_pats: &[&[u8]],
     input: &[u8],
-    count: usize,
 ) -> bool {
-    if let Some(limit) = max
-        && count > limit
-    {
-        return false;
-    }
-    if count >= min && match_seq(rest_pat, input) {
-        return true;
-    }
-    if max.is_some_and(|limit| count == limit) {
-        return false;
-    }
     match atom {
         Atom::Literal(expected) => {
-            if input.first().copied() == Some(expected) {
-                match_quantified(atom, min, max, rest_pat, &input[1..], count + 1)
-            } else {
-                false
+            let max_possible = max.unwrap_or(input.len()).min(input.len());
+            let matched = input[..max_possible]
+                .iter()
+                .take_while(|&&b| b == expected)
+                .count();
+            if matched < min {
+                return false;
             }
+            (min..=matched)
+                .rev()
+                .any(|k| match_chain(after_pats, &input[k..]))
         }
         Atom::Class(class_bytes) => {
-            if input
-                .first()
-                .copied()
-                .is_some_and(|b| byte_in_class(class_bytes, b))
-            {
-                match_quantified(atom, min, max, rest_pat, &input[1..], count + 1)
-            } else {
-                false
+            let max_possible = max.unwrap_or(input.len()).min(input.len());
+            let matched = input[..max_possible]
+                .iter()
+                .take_while(|&&b| byte_in_class(class_bytes, b))
+                .count();
+            if matched < min {
+                return false;
             }
+            (min..=matched)
+                .rev()
+                .any(|k| match_chain(after_pats, &input[k..]))
         }
         Atom::Group(group_pat) => {
-            for split in 1..=input.len() {
-                if match_seq(group_pat, &input[..split])
-                    && match_quantified(atom, min, max, rest_pat, &input[split..], count + 1)
+            if max == Some(1) {
+                let mut with_group = Vec::with_capacity(after_pats.len() + 1);
+                with_group.push(group_pat);
+                with_group.extend_from_slice(after_pats);
+                if match_chain(&with_group, input) {
+                    return true;
+                }
+                return min == 0 && match_chain(after_pats, input);
+            }
+            let mut reachable = vec![0usize];
+            let mut step = 0usize;
+            loop {
+                if step >= min
+                    && reachable
+                        .iter()
+                        .any(|&pos| match_chain(after_pats, &input[pos..]))
                 {
                     return true;
                 }
+                if max.is_some_and(|limit| step == limit) {
+                    return false;
+                }
+                let mut next_reachable = Vec::new();
+                for &pos in &reachable {
+                    for end in (pos + 1)..=input.len() {
+                        if match_seq(group_pat, &input[pos..end])
+                            && next_reachable.binary_search(&end).is_err()
+                        {
+                            let idx = next_reachable.partition_point(|&x| x < end);
+                            next_reachable.insert(idx, end);
+                        }
+                    }
+                }
+                if next_reachable.is_empty() {
+                    return false;
+                }
+                reachable = next_reachable;
+                step += 1;
             }
-            false
         }
     }
 }
