@@ -37,7 +37,7 @@ The contractor shall claim duty-free entry only for supplies that it intends to 
 
 ### Shipping documents and markings
 
-For foreign supplies for which the Government will issue duty-free entry certificates, shipping documents submitted to Customs consign the shipments to the appropriate recipient, which is either the military department in care of the contractor or a military installation [@CL-SUP-1788; @CL-SUP-9734]. They also include, among other listed information, the prime contract number, any delivery order number, the subcontract number for foreign supplies if applicable, and the identification of the carrier [@CL-SUP-1789]. The contractor marks the exterior of all packages with the words United States Government, Department of Defense, and the activity address number of the contract administration office administering the prime contract [@CL-SUP-1825].
+For foreign supplies for which the Government will issue duty-free entry certificates, shipping documents submitted to Customs consign the shipments to the appropriate recipient, which is either the military department in care of the contractor or a military installation [@CL-SUP-1788; @CL-SUP-9734]. They also include, among other listed information, the prime contract number and, if applicable, the delivery order number, the subcontract number for foreign supplies if applicable, and the identification of the carrier [@CL-SUP-1789]. The contractor marks the exterior of all packages with the words United States Government, Department of Defense, and the activity address number of the contract administration office administering the prime contract [@CL-SUP-1825].
 
 ### Customs forms
 
@@ -76,7 +76,6 @@ Whether the purchasing system flags foreign supplies for notice and flowdown, an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: exemption conditions worded as both required
 - COMPATIBLE_EXTENSION, 2026-10-31: price-paragraph items, consignee and excepted cases stated as alternatives
 - COMPATIBLE_EXTENSION, 2026-10-31: Added import destination, administering office, in-connection-with-contract and eligible-supplies scope to four sentences.

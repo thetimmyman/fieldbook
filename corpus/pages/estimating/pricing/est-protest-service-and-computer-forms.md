@@ -54,7 +54,7 @@ The copy of any protest shall be received in the designated office within one da
 
 If the Contractor submits a computer generated version of a form that is different than the required form, the rights and obligations of the parties will be determined based on the content of the required form [@CL-EST-2310].
 
-The codified provision has the Contracting Officer designate in a blank the official or location where a protest is served [@CL-EST-2396], while RFO FAR 52.233-2(a) says the Contracting Officer is identified in the solicitation [@CL-EST-0500].
+The codified provision has the Contracting Officer designate in a blank the official or location where a protest may be served on the Contracting Officer [@CL-EST-2396], while RFO FAR 52.233-2(a) says the Contracting Officer is identified in the solicitation [@CL-EST-0500].
 
 ## Company calibration
 
@@ -63,8 +63,6 @@ Who keeps the dated acknowledgment of service and the form edition evidence for 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced unquoted contrasts and an absence statement with the provisions' own wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: Used shall, official or location and the provided conditions as the clause words them.
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; Used shall, official or location and the provided conditions as the clause words them.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service of protest and computer generated forms.

@@ -55,7 +55,7 @@ Adding the option prices into the evaluated price [@CL-EST-2275] does not obliga
 
 A written notice of award furnished within the offer's time for acceptance results in a binding contract without further action by either party [@CL-EST-2278]. The Government's right to accept an offer or part of an offer before its expiration time, whether or not there are negotiations, does not apply if a written notice of withdrawal is received before award [@CL-EST-2279]. See also [Evaluation factors, price and past performance](est-evaluation-factors-price-and-past-performance.md) and [Instructions to offerors on commercial solicitations](est-commercial-offer-instructions.md).
 
-The blank for the relative importance of factors compares different things in the two texts. The codified blank compares technical and past performance, combined, with price [@CL-EST-2349], while the RFO instruction compares all evaluation factors other than price, combined, with price [@CL-EST-0091].
+The blank for the relative importance of factors works differently in the two texts. The codified provision states in a blank how important technical and past performance, combined, are, and directs the contracting officer to state the relative importance of all other evaluation factors, combined, when compared to price [@CL-EST-2349], while the RFO instruction compares all evaluation factors other than price, combined, with price [@CL-EST-0091].
 
 ## Company calibration
 
@@ -64,7 +64,6 @@ How the option prices and the assumptions behind them are frozen for the evaluat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Shall and must restored, actor named, contract-specific remark removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation of commercial offers.

@@ -55,7 +55,7 @@ Each deliverable with the listed characteristics gets its own line item, and sub
 
 The exceptions keep the structure workable where data are not known at award: an indefinite-delivery contract leaves certain data to each order, quantity and price may be omitted at line item level in the stated cases, and the single price requirement drops away if any one of the four listed conditions is present [@CL-SUP-3374; @CL-SUP-3375; @CL-SUP-3376; @CL-SUP-3378; @CL-SUP-3379; @CL-SUP-3380].
 
-Solicitations should be structured to allow offerors to propose alternative line items, and the text gives as an example that when soliciting certain items using units of measure such as kit, set, or lot, the offeror may not be able to group and deliver all items in a single shipment [@CL-SUP-4115]. The text also says to insert the provision at 52.204-22, Alternative Line Item Proposal, in all solicitations, and it names no official [@CL-SUP-4116]. How an alternative line item proposal is made and treated is on [Market research and alternative line item proposals](../../estimating/pricing/est-market-research-and-alternative-line-items.md).
+Solicitations should be structured to allow offerors to propose alternative line items, and the text gives as an example that when soliciting certain items using units of measure such as kit, set, or lot, the offeror may not be able to group and deliver all items in a single shipment [@CL-SUP-4115]. The text also says to insert the provision at 52.204-22, Alternative Line Item Proposal, in all solicitations [@CL-SUP-4116]. How an alternative line item proposal is made and treated is on [Market research and alternative line item proposals](../../estimating/pricing/est-market-research-and-alternative-line-items.md).
 
 The related DoD rules are on [Item unique identification](../../compliance/business-systems/cmp-dfars-item-unique-identification.md) and [DFARS line item and subline item criteria](../../contract-finance/billing-payment/ctf-dfars-line-item-and-subline-item-criteria.md).
 
@@ -76,7 +76,6 @@ Confirm how each instrument in force splits deliverables into line items and sub
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the single-price conditions as any one of four.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the informational line item contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the line item definition.
