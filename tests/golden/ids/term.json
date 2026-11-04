@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "term",
+  "cases": [
+    {
+      "id": "id-term-01",
+      "op": "parse",
+      "input": "a",
+      "expect": { "ok": true },
+      "note": "First minimal term id"
+    },
+    {
+      "id": "id-term-02",
+      "op": "parse",
+      "input": "b",
+      "expect": { "ok": true },
+      "note": "Next minimal term id"
+    },
+    {
+      "id": "id-term-03",
+      "op": "parse",
+      "input": "material_weakness",
+      "expect": { "ok": true },
+      "note": "Example snake_case term id"
+    },
+    {
+      "id": "id-term-04",
+      "op": "parse",
+      "input": "a012345678901234567890123456789012345678901234567890123456789012",
+      "expect": { "ok": true },
+      "note": "Exact 64-character length capacity boundary"
+    },
+    {
+      "id": "id-term-05",
+      "op": "parse",
+      "input": "a0123456789012345678901234567890123456789012345678901234567890123",
+      "expect": { "ok": false },
+      "note": "Malformed 65-character term id past capacity"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "adr",
+  "cases": [
+    {
+      "id": "id-adr-01",
+      "op": "parse",
+      "input": "0001-foundation",
+      "expect": { "ok": true },
+      "note": "First ADR id"
+    },
+    {
+      "id": "id-adr-02",
+      "op": "parse",
+      "input": "0002-corpus-format-v1",
+      "expect": { "ok": true },
+      "note": "Second ADR id and reference example"
+    },
+    {
+      "id": "id-adr-03",
+      "op": "parse",
+      "input": "0004-company-boundary",
+      "expect": { "ok": true },
+      "note": "Gap to fourth ADR id"
+    },
+    {
+      "id": "id-adr-04",
+      "op": "parse",
+      "input": "9999-last-adr",
+      "expect": { "ok": true },
+      "note": "Four-digit ADR number boundary"
+    },
+    {
+      "id": "id-adr-05",
+      "op": "parse",
+      "input": "002-short-number",
+      "expect": { "ok": false },
+      "note": "Malformed ADR id with three digits"
+    }
+  ]
+}

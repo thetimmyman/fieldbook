@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "edition",
+  "cases": [
+    {
+      "id": "id-edition-01",
+      "op": "parse",
+      "input": "edition-001",
+      "expect": { "ok": true },
+      "note": "First edition id"
+    },
+    {
+      "id": "id-edition-02",
+      "op": "parse",
+      "input": "edition-002",
+      "expect": { "ok": true },
+      "note": "Next edition id"
+    },
+    {
+      "id": "id-edition-03",
+      "op": "parse",
+      "input": "edition-007",
+      "expect": { "ok": true },
+      "note": "Gap to reference example edition-007"
+    },
+    {
+      "id": "id-edition-04",
+      "op": "parse",
+      "input": "edition-1000",
+      "expect": { "ok": true },
+      "note": "Four-digit edition id beyond three digits"
+    },
+    {
+      "id": "id-edition-05",
+      "op": "parse",
+      "input": "edition-07",
+      "expect": { "ok": false },
+      "note": "Malformed two-digit edition id"
+    }
+  ]
+}
