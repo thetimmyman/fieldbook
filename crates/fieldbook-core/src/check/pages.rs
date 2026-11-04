@@ -363,12 +363,12 @@ mod tests {
     #[test]
     fn fb0101_missing_or_unbalanced_fences() {
         let mut tree = mini_tree();
-        let bad = PAGE_CMP_SYSTEM_REVIEW.replacen("+++\n", "---\n", 1);
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad.as_bytes());
+        let bad = PAGE_CMP_REVIEW_STEPS.replacen("+++\n", "---\n", 1);
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0101);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
         assert_eq!(report.diagnostics[0].line, 1);
         assert_eq!(report.diagnostics[0].col, 1);
     }
@@ -377,11 +377,11 @@ mod tests {
     fn fb0102_unknown_field_wrong_type_and_syntax() {
         // Unknown field: `titel = "..."`
         let mut tree = mini_tree();
-        let bad_unknown = PAGE_CMP_SYSTEM_REVIEW.replace(
+        let bad_unknown = PAGE_CMP_REVIEW_STEPS.replace(
             "volatility = \"V2\"\n+++",
             "volatility = \"V2\"\ntitel = \"typo\"\n+++",
         );
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_unknown.as_bytes());
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_unknown.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0102);
@@ -389,8 +389,8 @@ mod tests {
 
         // Wrong type: `stage = "3"`
         let mut tree_type = mini_tree();
-        let bad_type = PAGE_CMP_SYSTEM_REVIEW.replace("stage = 2", "stage = \"3\"");
-        tree_type.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_type.as_bytes());
+        let bad_type = PAGE_CMP_REVIEW_STEPS.replace("stage = 3", "stage = \"3\"");
+        tree_type.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_type.as_bytes());
         let report_type = run(&Host::new(tree_type, sample_today()), &Options::new(false));
         assert_eq!(report_type.diagnostics.len(), 1);
         assert_eq!(report_type.diagnostics[0].code, Code::Fb0102);
@@ -399,8 +399,8 @@ mod tests {
         // Wrong type on `handling`: `handling = "public"`
         let mut tree_handling = mini_tree();
         let bad_handling =
-            PAGE_CMP_SYSTEM_REVIEW.replace("handling = [\"public\"]", "handling = \"public\"");
-        tree_handling.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_handling.as_bytes());
+            PAGE_CMP_REVIEW_STEPS.replace("handling = [\"public\"]", "handling = \"public\"");
+        tree_handling.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_handling.as_bytes());
         let report_handling = run(
             &Host::new(tree_handling, sample_today()),
             &Options::new(false),
@@ -413,19 +413,19 @@ mod tests {
     #[test]
     fn fb0103_missing_required_field() {
         let mut tree = mini_tree();
-        let bad = PAGE_CMP_SYSTEM_REVIEW.replace("as_of = 2026-02-01\n", "");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad.as_bytes());
+        let bad = PAGE_CMP_REVIEW_STEPS.replace("as_of = 2026-02-01\n", "");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0103);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
     }
 
     #[test]
     fn fb0104_vocabulary_or_form_and_handling_values_deferred_to_fb0410() {
         let mut tree = mini_tree();
-        let bad = PAGE_CMP_SYSTEM_REVIEW.replace("status = \"draft\"", "status = \"final\"");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad.as_bytes());
+        let bad = PAGE_CMP_REVIEW_STEPS.replace("status = \"draft\"", "status = \"final\"");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0104);
@@ -434,8 +434,8 @@ mod tests {
         // `handling = ["np-0007"]` parses cleanly in `pages` (FB0410 in `check-scans` judges values)
         let mut tree_handling = mini_tree();
         let non_public =
-            PAGE_CMP_SYSTEM_REVIEW.replace("handling = [\"public\"]", "handling = [\"np-0007\"]");
-        tree_handling.insert_bytes(PATH_CMP_SYSTEM_REVIEW, non_public.as_bytes());
+            PAGE_CMP_REVIEW_STEPS.replace("handling = [\"public\"]", "handling = [\"np-0007\"]");
+        tree_handling.insert_bytes(PATH_CMP_REVIEW_STEPS, non_public.as_bytes());
         let report_handling = run(
             &Host::new(tree_handling, sample_today()),
             &Options::new(false),
@@ -449,22 +449,22 @@ mod tests {
 
     #[test]
     fn fb0105_id_form_stem_mismatch_and_duplicate_id() {
-        // Stem mismatch: `cmp-system-review.md` with `id = "cmp-system-rev"`
+        // Stem mismatch: `cmp-review-steps.md` with `id = "cmp-review-step"`
         let mut tree = mini_tree();
         let bad_stem =
-            PAGE_CMP_SYSTEM_REVIEW.replace("id = \"cmp-system-review\"", "id = \"cmp-system-rev\"");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_stem.as_bytes());
+            PAGE_CMP_REVIEW_STEPS.replace("id = \"cmp-review-steps\"", "id = \"cmp-review-step\"");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_stem.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0105);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
         assert_eq!(report.diagnostics[0].line, 2);
 
         // Invalid `id` form in `parse_meta`
         let mut tree_form = mini_tree();
         let bad_form =
-            PAGE_CMP_SYSTEM_REVIEW.replace("id = \"cmp-system-review\"", "id = \"CMP_BAD\"");
-        tree_form.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_form.as_bytes());
+            PAGE_CMP_REVIEW_STEPS.replace("id = \"cmp-review-steps\"", "id = \"CMP_BAD\"");
+        tree_form.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_form.as_bytes());
         let report_form = run(&Host::new(tree_form, sample_today()), &Options::new(false));
         assert_eq!(report_form.diagnostics.len(), 1);
         assert_eq!(report_form.diagnostics[0].code, Code::Fb0105);
@@ -500,20 +500,20 @@ mod tests {
 
     #[test]
     fn fb0106_area_mismatch_and_unknown_area() {
-        // `id = "cmp-system-review"` with `area = "est"`
+        // `id = "cmp-review-steps"` with `area = "est"`
         let mut tree = mini_tree();
-        let bad_area = PAGE_CMP_SYSTEM_REVIEW.replace("area = \"cmp\"", "area = \"est\"");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_area.as_bytes());
+        let bad_area = PAGE_CMP_REVIEW_STEPS.replace("area = \"cmp\"", "area = \"est\"");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_area.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0106);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
         assert_eq!(report.diagnostics[0].line, 4);
 
         // Area code not in `corpus.toml` (`area = "zzz"`)
         let mut tree_unk = mini_tree();
-        let bad_unk = PAGE_CMP_SYSTEM_REVIEW.replace("area = \"cmp\"", "area = \"zzz\"");
-        tree_unk.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_unk.as_bytes());
+        let bad_unk = PAGE_CMP_REVIEW_STEPS.replace("area = \"cmp\"", "area = \"zzz\"");
+        tree_unk.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_unk.as_bytes());
         let report_unk = run(&Host::new(tree_unk, sample_today()), &Options::new(false));
         assert_eq!(report_unk.diagnostics.len(), 1);
         assert_eq!(report_unk.diagnostics[0].code, Code::Fb0106);
@@ -525,12 +525,12 @@ mod tests {
         // `subarea = "cash"` under `cmp`
         let mut tree = mini_tree();
         let bad_sub =
-            PAGE_CMP_SYSTEM_REVIEW.replace("subarea = \"business-systems\"", "subarea = \"cash\"");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_sub.as_bytes());
+            PAGE_CMP_REVIEW_STEPS.replace("subarea = \"business-systems\"", "subarea = \"cash\"");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_sub.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0107);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
         assert_eq!(report.diagnostics[0].line, 5);
     }
 
@@ -538,12 +538,12 @@ mod tests {
     fn fb0108_invalid_page_type() {
         // `type = "note"` under schema 1
         let mut tree = mini_tree();
-        let bad_type = PAGE_CMP_SYSTEM_REVIEW.replace("type = \"concept\"", "type = \"note\"");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_type.as_bytes());
+        let bad_type = PAGE_CMP_REVIEW_STEPS.replace("type = \"procedure\"", "type = \"note\"");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_type.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0108);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
         assert_eq!(report.diagnostics[0].line, 6);
     }
 
@@ -552,16 +552,16 @@ mod tests {
         let mut tree = mini_tree();
         // Leading comment containing `review_by = 2026-01-01` and reordered keys:
         // must report at the real key lines (17 and 18), not the comment line!
-        let bad_computed = PAGE_CMP_SYSTEM_REVIEW
+        let bad_computed = PAGE_CMP_REVIEW_STEPS
             .replace(
-                "+++\nid = \"cmp-system-review\"",
-                "+++\n# comment mentioning review_by = 2026-01-01\nid = \"cmp-system-review\"",
+                "+++\nid = \"cmp-review-steps\"",
+                "+++\n# comment mentioning review_by = 2026-01-01\nid = \"cmp-review-steps\"",
             )
             .replace(
                 "volatility = \"V2\"\n+++",
                 "volatility = \"V2\"\n  review_by = 2026-01-01\nclaims = [\"CL-CMP-0001\"]\n+++",
             );
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bad_computed.as_bytes());
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, bad_computed.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(false));
         assert_eq!(report.diagnostics.len(), 2);
         assert_eq!(report.diagnostics[0].code, Code::Fb0109);
@@ -581,8 +581,8 @@ mod tests {
             "as_of = 2025",
         ] {
             let mut tree = mini_tree();
-            let page = PAGE_CMP_SYSTEM_REVIEW.replace("as_of = 2026-02-01", bad_date);
-            tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, page.as_bytes());
+            let page = PAGE_CMP_REVIEW_STEPS.replace("as_of = 2026-02-01", bad_date);
+            tree.insert_bytes(PATH_CMP_REVIEW_STEPS, page.as_bytes());
             let report = run(&Host::new(tree, sample_today()), &Options::new(false));
             assert_eq!(
                 report.diagnostics.len(),
@@ -598,20 +598,20 @@ mod tests {
     #[test]
     fn fb0116_as_of_after_today_and_non_utf8_page_ignored_by_pages_pass() {
         let mut tree = mini_tree();
-        let future = PAGE_CMP_SYSTEM_REVIEW.replace("as_of = 2026-02-01", "as_of = 2027-03-01");
-        tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, future.as_bytes());
+        let future = PAGE_CMP_REVIEW_STEPS.replace("as_of = 2026-02-01", "as_of = 2027-03-01");
+        tree.insert_bytes(PATH_CMP_REVIEW_STEPS, future.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(true));
         assert_eq!(report.diagnostics.len(), 1);
         assert_eq!(report.diagnostics[0].code, Code::Fb0116);
         assert_eq!(report.diagnostics[0].severity, Severity::Warning);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_SYSTEM_REVIEW);
+        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
         assert_eq!(report.diagnostics[0].line, 10);
 
         // Non-UTF-8 page raises only FB0120 from `files::check` and nothing from `pages::check`
         let mut tree_non_utf8 = mini_tree();
         let mut bytes = vec![0xff];
-        bytes.extend_from_slice(PAGE_CMP_SYSTEM_REVIEW.as_bytes());
-        tree_non_utf8.insert_bytes(PATH_CMP_SYSTEM_REVIEW, bytes);
+        bytes.extend_from_slice(PAGE_CMP_REVIEW_STEPS.as_bytes());
+        tree_non_utf8.insert_bytes(PATH_CMP_REVIEW_STEPS, bytes);
         let report_non_utf8 = run(
             &Host::new(tree_non_utf8, sample_today()),
             &Options::new(false),
