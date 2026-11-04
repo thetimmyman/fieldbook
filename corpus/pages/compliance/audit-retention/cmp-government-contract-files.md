@@ -22,15 +22,15 @@ Shows which contract files the Government keeps and what a finance reader can ex
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-2427] |
-| Codified citation | FAR 4.802 and FAR 4.803 [@CL-CMP-2427; @CL-CMP-2429] |
+| Codified citation | FAR 4.800 [@CL-CMP-10002]; FAR 4.802 and FAR 4.803 [@CL-CMP-2427; @CL-CMP-2429] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2427] |
 | Applies to | Government contract files, on the records normally contained if applicable [@CL-CMP-2429] |
 
-A contract file should generally consist of a listed set of files, the first being the contracting office contract file, which documents the basis for the acquisition and the award, the assignment of contract administration including payment responsibilities, and later contracting office actions [@CL-CMP-2427]. Another listed file is the paying office contract file, which documents actions prerequisite to, substantiating and reflecting contract payments [@CL-CMP-2427; @CL-CMP-2428].
+The contract files subpart prescribes requirements for establishing, maintaining, and disposing of contract files [@CL-CMP-10002]. A contract file should generally consist of a listed set of files, the first being the contracting office contract file, which documents the basis for the acquisition and the award, the assignment of contract administration including payment responsibilities, and later contracting office actions [@CL-CMP-2427]. Another listed file is the paying office contract file, which documents actions prerequisite to, substantiating and reflecting contract payments [@CL-CMP-2427; @CL-CMP-2428].
 
-The lists of contents are examples of the records normally contained, if applicable [@CL-CMP-2429]. The contracting office list of examples includes a purchase request, acquisition planning information, other presolicitation documents, justifications and approvals, determinations and findings, and evidence of availability of funds [@CL-CMP-2429; @CL-CMP-2520]. It also includes the original of the signed contract or award, all modifications, and documents supporting modifications that the contracting office executed [@CL-CMP-2429; @CL-CMP-2430]. The paying office list of examples includes a copy of the contract and any modifications, bills, invoices, vouchers and supporting documents, a record of payments or receipts, and other pertinent documents [@CL-CMP-2429; @CL-CMP-2431].
+The lists of contents are examples of the records normally contained, if applicable [@CL-CMP-2429]. The contracting office list of examples includes a purchase request, acquisition planning information, other presolicitation documents, justifications and approvals, determinations and findings, and evidence of availability of funds [@CL-CMP-2429; @CL-CMP-2520]. It also includes the original of the signed contract or award, the original of all contract modifications, and the original of documents supporting modifications executed by the contracting office [@CL-CMP-2429; @CL-CMP-2430]. The paying office list of examples includes a copy of the contract and any modifications, bills, invoices, vouchers and supporting documents, a record of payments or receipts, and other pertinent documents [@CL-CMP-2429; @CL-CMP-2431].
 
 ## How it works
 
@@ -54,4 +54,6 @@ Where the executed contracts and modifications are filed, and who confirms their
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contract and modification sentence so the original of applies to all three items.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the contract files subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government contract file types and contents.

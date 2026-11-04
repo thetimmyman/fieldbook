@@ -22,7 +22,7 @@ Tells a reader which FAR part defines terms, which part carries provisions and c
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8830] |
-| Codified citation | FAR 2.000, FAR 52.000 and FAR 52.100 [@CL-CMP-8830; @CL-CMP-8833; @CL-CMP-8836] |
+| Codified citation | FAR 2.000, FAR 52.000 and FAR 52.100 [@CL-CMP-8830; @CL-CMP-8833; @CL-CMP-8836]; FAR 52.200 [@CL-CMP-10013] |
 | RFO citation | RFO FAR 52.000 [@CL-CMP-6888; @CL-CMP-6889; @CL-CMP-6890]; RFO FAR 52.100 [@CL-CMP-6891; @CL-CMP-6892] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8830] |
@@ -38,7 +38,7 @@ These are statements of scope. They set no threshold, deadline or approval route
 
 Part 2 is where to look for the meaning of a frequently used word or term [@CL-CMP-8830]. Before applying a part 2 meaning to a word used in another part, check whether that part, subpart or section defines the same word for itself, because such a definition applies where it is given [@CL-CMP-8831; @CL-CMP-8832].
 
-Part 52 is where to look for how a provision or clause is used [@CL-CMP-8833]. The instructions are in subpart 52.1 [@CL-CMP-8836; @CL-CMP-8837], and the texts of all FAR provisions and clauses are in subpart 52.2, each in its own separate subsection, arranged by subject matter and keyed to the parts of the FAR [@CL-CMP-8838].
+Part 52 is where to look for how a provision or clause is used [@CL-CMP-8833]. The instructions are in subpart 52.1 [@CL-CMP-8836; @CL-CMP-8837], and the texts of all FAR provisions and clauses are in subpart 52.2, each in its own separate subsection, arranged by subject matter and keyed to the parts of the FAR [@CL-CMP-8838]. The scope statement of subpart 52.2 says it sets forth the text of all FAR provisions and clauses (see 52.101(b)(1)) and gives a cross-reference to the location in the FAR that prescribes the provision or clause [@CL-CMP-10013].
 
 The matrix lists the provisions and clauses applicable to each principal contract type and purpose [@CL-CMP-8835]. For the required-when-applicable and optional entries the matrix does not provide sufficient information to determine applicability, so contracting officers shall refer to the FAR text cited in the matrix that prescribes the use [@CL-CMP-8846]. The card on [numbering, prescriptions and the matrix](cmp-far-part-52-numbering-prescriptions-and-matrix.md) covers this.
 
@@ -68,5 +68,6 @@ Which solicitations, contracts and business units the company treats as inside t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope statement of FAR subpart 52.2.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of FAR part 2 and FAR part 52.

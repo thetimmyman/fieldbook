@@ -23,7 +23,7 @@ Records the Executive Order minimum wage rates that FAR 22.1002-5 states for ser
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-8087] |
-| Codified citation | FAR 22.1002-4 and FAR 22.1002-5 [@CL-CMP-8087; @CL-CMP-8149] |
+| Codified citation | FAR 22.1002-4 and FAR 22.1002-5 [@CL-CMP-8087; @CL-CMP-8149]; FAR 22.1002-6 [@CL-CMP-10005] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8087] |
@@ -61,6 +61,8 @@ The clause compares the Executive Order 14026 rate with other minimum wage rates
 
 The $15.00 rate is stated as of January 30, 2022 [@CL-CMP-8088]. The next sentence makes the wage rate subject to annual increases [@CL-CMP-8089]. Executive Order 14026 supersedes Executive Order 13658 only to the extent that the two are inconsistent [@CL-CMP-8088].
 
+The section on Executive Order 13706 says that the order establishes paid sick leave for employees of certain Federal contractors, and it points to subpart 22.21 and the clause at 52.222-62, Paid Sick Leave under Executive Order 13706 [@CL-CMP-10005]. The section prints no wage rate.
+
 ## Company calibration
 
 Which contracts carry the Executive Order minimum wage clause and which pay classes sit below the current Executive Order rate. [@Q-004]
@@ -69,6 +71,7 @@ Which contracts carry the Executive Order minimum wage clause and which pay clas
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer on paid sick leave under Executive Order 13706.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the rate and comparison sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory minimum wage floor for service contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Executive Order minimum wages on service contracts.
