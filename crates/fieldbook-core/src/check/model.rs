@@ -7,6 +7,7 @@ use crate::schema::{
     ClaimRow, ConflictRow, CorpusToml, GlossaryRow, QuestionRow, Register, SourceRow,
 };
 
+use super::index::Index;
 use super::registers;
 use super::tree::Tree;
 
@@ -70,6 +71,7 @@ pub struct Model {
     conflicts: Vec<Located<ConflictRow>>,
     glossary: Vec<Located<GlossaryRow>>,
     register_problems: [Vec<RowProblems>; 5],
+    index: Index,
 }
 
 impl Model {
@@ -86,6 +88,15 @@ impl Model {
         let (conflicts, p3) = parse_rows(registers[3].as_ref(), ConflictRow::from_row);
         let (glossary, p4) = parse_rows(registers[4].as_ref(), GlossaryRow::from_row);
 
+        let index = Index::build(
+            corpus.as_ref(),
+            &sources,
+            &claims,
+            &questions,
+            &conflicts,
+            &glossary,
+        );
+
         Self {
             tree,
             today,
@@ -97,6 +108,7 @@ impl Model {
             conflicts,
             glossary,
             register_problems: [p0, p1, p2, p3, p4],
+            index,
         }
     }
 
@@ -163,6 +175,12 @@ impl Model {
     #[must_use]
     pub fn glossary(&self) -> &[Located<GlossaryRow>] {
         &self.glossary
+    }
+
+    /// The resolved identifier [`Index`] built from the typed register rows and `corpus.toml`.
+    #[must_use]
+    pub const fn index(&self) -> &Index {
+        &self.index
     }
 
     /// Single-cell [`CellProblem`]s collected while building typed rows for `register`.

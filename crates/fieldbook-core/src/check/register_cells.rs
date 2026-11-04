@@ -70,8 +70,8 @@ pub const RULES: &[RuleEntry] = &[
         register: Register::Sources,
         rule: "Each id in `supersedes` is an existing version, not this one, and the chain has no loop",
         predicates: &[
-            RulePredicate::new(Some(Code::Fb0207), "check-register-links"),
-            RulePredicate::new(Some(Code::Fb0208), "check-register-links"),
+            RulePredicate::new(Some(Code::Fb0207), "register_links"),
+            RulePredicate::new(Some(Code::Fb0208), "register_links"),
         ],
     },
     RuleEntry {
@@ -92,10 +92,7 @@ pub const RULES: &[RuleEntry] = &[
     RuleEntry {
         register: Register::Sources,
         rule: "A stored original `corpus/sources/public/<version-id>.<ext>` (in a company store, `sources/org/<version-id>.<ext>`) exists and its bytes hash to `sha256`. A `metadata-only` version has no such file",
-        predicates: &[RulePredicate::new(
-            Some(Code::Fb0211),
-            "check-register-links",
-        )],
+        predicates: &[RulePredicate::new(Some(Code::Fb0211), "register_links")],
     },
     RuleEntry {
         register: Register::Sources,
@@ -113,7 +110,7 @@ pub const RULES: &[RuleEntry] = &[
         rule: "`kind` is `fact` or `interpretation`",
         predicates: &[
             RulePredicate::new(Some(Code::Fb0206), "register_cells"),
-            RulePredicate::new(Some(Code::Fb0207), "check-register-links"),
+            RulePredicate::new(Some(Code::Fb0207), "register_links"),
         ],
     },
     RuleEntry {
@@ -202,16 +199,13 @@ pub const RULES: &[RuleEntry] = &[
         rule: "`superseded_by` is set",
         predicates: &[
             RulePredicate::new(Some(Code::Fb0206), "register_cells"),
-            RulePredicate::new(Some(Code::Fb0208), "check-register-links"),
+            RulePredicate::new(Some(Code::Fb0208), "register_links"),
         ],
     },
     RuleEntry {
         register: Register::Claims,
         rule: "`conflict_id` is set",
-        predicates: &[RulePredicate::new(
-            Some(Code::Fb0207),
-            "check-register-links",
-        )],
+        predicates: &[RulePredicate::new(Some(Code::Fb0207), "register_links")],
     },
     // questions.csv (2 rule sentences)
     RuleEntry {
@@ -233,10 +227,7 @@ pub const RULES: &[RuleEntry] = &[
     RuleEntry {
         register: Register::Conflicts,
         rule: "Each id in `claim_ids` and `evidence` exists",
-        predicates: &[RulePredicate::new(
-            Some(Code::Fb0207),
-            "check-register-links",
-        )],
+        predicates: &[RulePredicate::new(Some(Code::Fb0207), "register_links")],
     },
     // glossary.csv (2 rule sentences)
     RuleEntry {
@@ -247,10 +238,7 @@ pub const RULES: &[RuleEntry] = &[
     RuleEntry {
         register: Register::Glossary,
         rule: "A label or alias is unique across the whole glossary",
-        predicates: &[RulePredicate::new(
-            Some(Code::Fb0214),
-            "check-register-links",
-        )],
+        predicates: &[RulePredicate::new(Some(Code::Fb0214), "register_links")],
     },
 ];
 
@@ -1270,6 +1258,13 @@ mod tests {
                         entry.rule,
                         reg.file_name()
                     );
+                    assert_ne!(
+                        pred.owner,
+                        "check-register-links",
+                        "rule `{}` in {} still points at `check-register-links`",
+                        entry.rule,
+                        reg.file_name()
+                    );
                 }
             }
 
@@ -2031,6 +2026,14 @@ mod tests {
         let fail_contra = "CL-EST-0004,est,fact,Contradicted claim.,2026-02-01,S-0001,1,text_section,sec. 1,Quote.,false,codex,contradicted,pending_company_confirmation,proposed,observed,V2,,,,,,,,,,,,2026-02-10,owner,,,,,\n";
         for (row, expect_len) in [(pass_contra, 0usize), (fail_contra, 1usize)] {
             let mut t = mini_tree();
+            let conflicts_with_c4 = MINI_CONFLICTS_CSV.replace(
+                "CL-CMP-0001|CL-CMP-0002",
+                "CL-CMP-0001|CL-CMP-0002|CL-EST-0004",
+            );
+            t.insert_bytes(
+                "corpus/registers/conflicts.csv",
+                conflicts_with_c4.into_bytes(),
+            );
             t.insert_bytes(
                 "corpus/registers/claims.csv",
                 format!("{MINI_CLAIMS_CSV}{row}").into_bytes(),

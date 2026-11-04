@@ -104,10 +104,39 @@ edits = [
 ]
 
 [[case]]
+code = "FB0207"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,S-0001,1,", replace = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,S-9999,1," },
+]
+
+[[case]]
+code = "FB0208"
+at = "corpus/registers/claims.csv:5"
+edits = [
+  { path = "corpus/registers/claims.csv", find = ",CL-EST-0002,,,,Synthetic replacement claim", replace = ",,,,,Synthetic replacement claim" },
+]
+
+[[case]]
 code = "FB0210"
 at = "corpus/registers/claims.csv:3"
 edits = [
   { path = "corpus/registers/claims.csv", find = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,pending_company_confirmation,proposed,", replace = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,confirmed_applicable,proposed," },
+]
+
+[[case]]
+code = "FB0211"
+at = "corpus/registers/sources.csv:4"
+control = "ED-03"
+edits = [
+  { path = "corpus/registers/sources.csv", find = ",S-0002-v2.txt,e34377dee2fda910c9afa90f77fec98562ac9bb2e9ee6c9ad8e88686dd561d8c,", replace = ",S-0002-v2.txt,3333333333333333333333333333333333333333333333333333333333333333," },
+]
+
+[[case]]
+code = "FB0214"
+at = "corpus/registers/glossary.csv:4"
+edits = [
+  { path = "corpus/registers/glossary.csv", find = ",CL-EST-0003,public_reference,,", replace = ",CL-EST-0003,public_reference,Withholding Holdback," },
 ]
 
 [[case]]

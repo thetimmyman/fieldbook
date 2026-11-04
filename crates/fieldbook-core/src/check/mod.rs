@@ -8,13 +8,16 @@ pub mod code;
 pub mod corpus_toml;
 pub mod diag;
 pub mod files;
+pub mod index;
 pub mod model;
 pub mod register_cells;
+pub mod register_links;
 pub mod registers;
 pub mod tree;
 
 pub use code::{Code, CodeParseError, Level};
 pub use diag::{Diagnostic, Report, Severity};
+pub use index::{Index, SourceVersionEntry};
 pub use model::{Located, Model};
 pub use tree::{Entry, Tree};
 
@@ -61,6 +64,7 @@ const PASSES: &[Pass] = &[
     registers::check,
     register_cells::check,
     claim_cells::check,
+    register_links::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
@@ -368,10 +372,14 @@ mod tests {
     #[test]
     fn the_model_returns_its_tree_and_today() {
         let mut tree = Tree::new();
+        tree.insert_dir("corpus");
+        tree.insert_dir("corpus/sources");
         tree.insert_dir("corpus/sources/public");
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
         tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
         insert_empty_registers(&mut tree);
+        let sources_csv = "source_id,version,tag,title,publisher,source_kind,source_role,authority_tier,licence,source_family,family_basis,location,sha256,published,effective_from,as_of,retrieved,lifecycle,supersedes,volatility,handling,note,purpose,origin_system,origin_stream,origin_key,doc_kind,series\nS-0001,1,synthetic-cost-rule,Synthetic Cost Rule,Synthetic Standards Board,primary_law,primary_evidence,A,Synthetic,synthetic_cost_rule,reviewed,S-0001-v1.txt,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,V2,public,Synthetic fixture source.,Synthetic rule baseline,,,,,\n";
+        tree.insert_bytes("corpus/registers/sources.csv", sources_csv.as_bytes());
         tree.insert(
             "corpus/sources/public/S-0001-v1.txt",
             Entry::Original {
@@ -383,7 +391,7 @@ mod tests {
         let date = CivilDate::from_ymd(2027, 8, 19).expect("valid date");
         let host = Host::new(tree.clone(), date);
         let (model, report) = load(&host, &Options::default());
-        assert!(report.diagnostics.is_empty());
+        assert!(report.diagnostics.is_empty(), "{:?}", report.diagnostics);
         assert_eq!(model.tree(), &tree);
         assert_eq!(model.today(), date);
     }
