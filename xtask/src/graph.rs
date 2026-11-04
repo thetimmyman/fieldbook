@@ -12,7 +12,7 @@ const SHIPPED: [(&str, &[&str]); 4] = [
     ("fieldbook-core", &["fieldbook-calc"]),
     ("fieldbook-render", &["fieldbook-calc", "fieldbook-core"]),
     (
-        "fieldbook",
+        fieldbook_core::strings::binary(),
         &["fieldbook-calc", "fieldbook-core", "fieldbook-render"],
     ),
 ];
@@ -154,7 +154,7 @@ mod tests {
         "fieldbook-calc",
         "fieldbook-core",
         "fieldbook-render",
-        "fieldbook",
+        fieldbook_core::strings::binary(),
         "xtask",
     ];
 
@@ -184,9 +184,9 @@ mod tests {
         ("fieldbook-core", "fieldbook-calc", None),
         ("fieldbook-render", "fieldbook-core", None),
         ("fieldbook-render", "fieldbook-calc", None),
-        ("fieldbook", "fieldbook-render", None),
-        ("fieldbook", "fieldbook-core", None),
-        ("fieldbook", "fieldbook-calc", None),
+        (fieldbook_core::strings::binary(), "fieldbook-render", None),
+        (fieldbook_core::strings::binary(), "fieldbook-core", None),
+        (fieldbook_core::strings::binary(), "fieldbook-calc", None),
     ];
 
     #[test]
@@ -255,7 +255,7 @@ mod tests {
     #[test]
     fn a_shipped_crate_may_not_depend_on_xtask() {
         let mut edges = GOOD.to_vec();
-        edges.push(("fieldbook", "xtask", None));
+        edges.push((fieldbook_core::strings::binary(), "xtask", None));
         assert!(!violations(&metadata(&edges, &[])).is_empty());
     }
 

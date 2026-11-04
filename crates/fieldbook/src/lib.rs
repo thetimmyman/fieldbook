@@ -12,9 +12,6 @@
 
 pub mod io;
 
-/// What `--version` prints for a build made outside a release: no git commit was given.
-const UNRELEASED: &str = "unreleased build";
-
 /// The text printed when the arguments are not understood.
 const USAGE: &str = "usage: fieldbook --version\n";
 
@@ -38,7 +35,7 @@ pub fn build_identity() -> &'static str {
 fn identity(git_sha: Option<&'static str>) -> &'static str {
     match git_sha {
         Some(sha) if !sha.is_empty() => sha,
-        _ => UNRELEASED,
+        _ => fieldbook_core::strings::unreleased_build(),
     }
 }
 
@@ -108,7 +105,10 @@ mod tests {
     #[test]
     fn identity_is_the_commit_or_unreleased() {
         assert_eq!(identity(Some("0123abc")), "0123abc");
-        assert_eq!(identity(Some("")), "unreleased build");
-        assert_eq!(identity(None), "unreleased build");
+        assert_eq!(
+            identity(Some("")),
+            fieldbook_core::strings::unreleased_build()
+        );
+        assert_eq!(identity(None), fieldbook_core::strings::unreleased_build());
     }
 }

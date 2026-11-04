@@ -17,7 +17,7 @@
 
 ## Scope
 
-- Files: `crates/fieldbook-core/src/strings.rs`, `xtask/src/{docs.rs,literals.rs,graph.rs}`, `crates/fieldbook-core/src/snapshots/` (the `insta` snapshot of `strings::js`), `justfile`, `crates/fieldbook/src/lib.rs`.
+- Files: `crates/fieldbook-core/src/strings.rs`, `xtask/src/{docs.rs,literals.rs,graph.rs,deps_budget.rs,deps_graph.rs,deps_metadata.rs}`, `crates/fieldbook-core/src/snapshots/` (the `insta` snapshot of `strings::js`), `justfile`, `crates/fieldbook/src/lib.rs`.
 - Registration lines: `crates/fieldbook-core/src/lib.rs` (strings module export only); `xtask/src/main.rs` (module, usage and docs-command dispatch only); `AGENTS.md` (the `cargo xtask docs` line of Commands).
 - Docs to update: [corpus-format.md](../reference/corpus-format.md) (between `<!-- strings:begin -->` and `<!-- strings:end -->`, which must not change), `AGENTS.md` (the `cargo xtask docs` command), and the `justfile` header comment.
 

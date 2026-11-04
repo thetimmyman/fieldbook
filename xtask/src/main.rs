@@ -5,6 +5,7 @@
 //!
 //! - `doctor [--ci]`: check the installed tools against `.config/tools.toml`.
 //! - `setup [--no-hooks] [TOOL...]`: install the pinned tools and enable the git hooks.
+//! - `docs [--check]`: regenerate generated documentation blocks or check for drift.
 //! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
 //!
@@ -56,10 +57,13 @@ mod deps_metadata;
     )
 )]
 mod deps_references;
+mod docs;
 #[cfg(test)]
 mod graph;
 mod guard;
 mod guard_fields;
+#[cfg(test)]
+mod literals;
 mod proc;
 mod tools;
 
@@ -69,6 +73,7 @@ use std::process::ExitCode;
 const USAGE: &str = "usage: cargo xtask <command>
   doctor [--ci]                     check the installed tools against .config/tools.toml
   setup [--no-hooks] [TOOL...]      install the pinned tools and enable the git hooks
+  docs [--check]                    regenerate generated documentation blocks or check for drift
   guard-statuses BASE HEAD          fail if an agent's commits raise a status or weaken a seed or regression case
   denylist FILE                     fail if a term from FILE appears in tracked content or pushed history";
 
@@ -83,6 +88,8 @@ fn main() -> ExitCode {
     {
         ["doctor"] => tools::doctor(&root, ci_from_env()),
         ["doctor", "--ci"] => tools::doctor(&root, true),
+        ["docs"] => return docs::command(&root, false),
+        ["docs", "--check"] => return docs::command(&root, true),
         ["guard-statuses", base, head] => guard::command(&root, base, head),
         ["denylist", file] => denylist::command(&root, &PathBuf::from(file)),
         ["denylist", file, "--updates", updates] => {

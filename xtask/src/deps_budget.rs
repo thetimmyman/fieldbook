@@ -450,7 +450,7 @@ mod tests {
                 .iter()
                 .cloned()
                 .collect::<Vec<_>>(),
-            ["calamine", "fieldbook"],
+            ["calamine", fieldbook_core::strings::binary()],
             "the namesake is a shipped direct crate, the transitive `zip` is not"
         );
         assert!(
