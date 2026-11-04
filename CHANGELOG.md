@@ -4,4 +4,4 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
-- Added: the check command.
+- Added: the check command (`FB0120`–`FB0125`).
