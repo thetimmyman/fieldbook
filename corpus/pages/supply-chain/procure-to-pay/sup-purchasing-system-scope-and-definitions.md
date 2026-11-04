@@ -35,7 +35,7 @@ The consent and advance notification requirements of the subpart on consent to s
 
 ## How it works
 
-A contractor purchasing system review is the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502]. A subcontract is any contract, as defined in subpart 2.1 of the FAR, entered into by a subcontractor to furnish supplies or services for performance of a prime contract or a subcontract, and it includes but is not limited to purchase orders, and changes and modifications to purchase orders [@CL-SUP-0651]. A contractor can be the total contractor organization or a separate entity of it, such as an affiliate, division, or plant, that performs its own purchasing [@CL-SUP-0652]. In the defense supplement, "purchasing system" and "acceptable purchasing system" are defined in the clause at 252.244-7001, Contractor Purchasing System Administration [@CL-SUP-0503; @CL-SUP-0504], which is covered on the [Contractor purchasing system](sup-contractor-purchasing-system.md) card.
+A contractor purchasing system review is the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502]. A subcontract is any contract, as defined in subpart 2.1 of the FAR, entered into by a subcontractor to furnish supplies or services for performance of a prime contract or a subcontract, and it includes but is not limited to purchase orders, and changes and modifications to purchase orders [@CL-SUP-0651]. A contractor can be the total contractor organization or a separate entity of it, such as an affiliate, division, or plant, that performs its own purchasing [@CL-SUP-0652]. In the defense supplement, "purchasing system" and "acceptable purchasing system" are defined in DFARS 244.101 [@CL-SUP-0503; @CL-SUP-0504], which is covered on the [Contractor purchasing system](sup-contractor-purchasing-system.md) card.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: each plant that performs its own purchasing can be the contractor for th
 
 ## Never confuse
 
-A contractor purchasing system review (CPSR) means the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502], while "consent to subcontract" means the contracting officer's written consent for the prime contractor to enter into a particular subcontract [@CL-SUP-0506]. Consent is covered on the [Subcontracts: consent and advance notification](sup-subcontracts-consent-advance-notification.md) card.
+A contractor purchasing system review (CPSR) means the complete evaluation of a contractor's purchasing of material and services, subcontracting, and subcontract management from development of the requirement through completion of subcontract performance [@CL-SUP-0502], while the contracting officer responsible for consent shall review the contractor's notification and supporting data to ensure that the proposed subcontract is appropriate for the risks involved and consistent with current policy and sound business judgment [@CL-SUP-0506]. Consent is covered on the [Subcontracts: consent and advance notification](sup-subcontracts-consent-advance-notification.md) card.
 
 ## Company calibration
 
@@ -56,7 +56,6 @@ Confirm whether the company's purchasing system has been reviewed and when a sub
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned DFARS definitions and consent to subcontract definition with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the not-limited-to wording in the subcontract definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for purchasing system and subcontract consent scope and definitions.

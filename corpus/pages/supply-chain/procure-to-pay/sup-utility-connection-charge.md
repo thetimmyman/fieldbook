@@ -76,7 +76,7 @@ The estimated cost is 100,000, the actual cost is 90,000, and the agreed salvage
 
 ## Never confuse
 
-Notwithstanding the Government's payment of a connection charge, the new facilities shall remain the property of the contractor [@CL-SUP-2692]. Under the Nonrefundable, Nonrecurring Service Charge clause, the Government pays a nonrefundable, nonrecurring charge to be applied toward the cost of facilities required to provide service, which may be in addition to or in lieu of a connection charge [@CL-SUP-2704; @CL-SUP-2705]. For termination liability and the nonrefundable service charge, see [Utility termination liability and nonrefundable service charge](sup-utility-termination-liability-and-service-charge.md).
+Notwithstanding the Government's payment of a connection charge, the new facilities shall remain the property of the contractor [@CL-SUP-2692]. Under the Nonrefundable, Nonrecurring Service Charge clause, the Government pays a nonrefundable, nonrecurring charge when the contractor's rules and regulations require a customer to pay a charge for the initiation of service, a contribution in aid of construction, or a nonrefundable membership fee, which may be in addition to or in lieu of a connection charge [@CL-SUP-2704; @CL-SUP-2705]. For termination liability and the nonrefundable service charge, see [Utility termination liability and nonrefundable service charge](sup-utility-termination-liability-and-service-charge.md).
 
 ## Company calibration
 
@@ -85,7 +85,6 @@ Confirm whether a new site carries a connection charge, how the credit percentag
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the installment lead-in, added the nonrefundable service charge citation, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added "by means of those facilities" to the other-customer trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
