@@ -385,10 +385,7 @@ pub(crate) fn resolve_page_link(page_path: &str, target: &str) -> LinkResolution
             "" | "." => {}
             ".." => {
                 segments.pop();
-                if segments.len() < 2
-                    || segments.first() != Some(&"corpus")
-                    || segments.get(1) != Some(&"pages")
-                {
+                if segments.first() != Some(&"corpus") {
                     return LinkResolution::OutsideCorpus;
                 }
             }
@@ -785,12 +782,37 @@ mod tests {
         assert_eq!(report.diagnostics[0].line, 29);
         assert!(report.diagnostics[0].message.contains("missing.md#purpose"));
 
-        // 2. A link that leaves `corpus/` or has a scheme raises nothing in `check-page-links`
+        // 2. A link to another folder inside `corpus/` (e.g. `../../../registers/sources.csv`)
+        // resolves when the target exists and raises FB0136 when it does not.
+        let mut tree_register = mini_tree();
+        let with_register = PAGE_CMP_REVIEW_STEPS.replace(
+            "[review concept](cmp-system-review.md)",
+            "[sources](../../../registers/sources.csv) and [missing](../../../registers/missing.csv)",
+        );
+        tree_register.insert_bytes(PATH_CMP_REVIEW_STEPS, with_register.as_bytes());
+        let report_register = run(
+            &Host::new(tree_register, sample_today()),
+            &Options::new(false),
+        );
+        assert_eq!(
+            report_register.diagnostics.len(),
+            1,
+            "{:?}",
+            report_register.diagnostics
+        );
+        assert_eq!(report_register.diagnostics[0].code, Code::Fb0136);
+        assert!(
+            report_register.diagnostics[0]
+                .message
+                .contains("../../../registers/missing.csv")
+        );
+
+        // 3. A link that leaves `corpus/` or has a scheme raises nothing in `check-page-links`
         // (owned by FB0135 in `check-page-body`), and `[@CL-CMP-0001][@CL-CMP-0001]` is not a link.
         let mut tree_outside = mini_tree();
         let with_outside = PAGE_CMP_REVIEW_STEPS.replace(
             "[review concept](cmp-system-review.md)",
-            "[climb3](../../../outside.md) and [climb4](../../../../outside.md) and [ext](https://example.invalid/x) and [@CL-CMP-0001][@CL-CMP-0001]",
+            "[climb4](../../../../outside.md) and [ext](https://example.invalid/x) and [@CL-CMP-0001][@CL-CMP-0001]",
         );
         tree_outside.insert_bytes(PATH_CMP_REVIEW_STEPS, with_outside.as_bytes());
         let report_outside = run(
