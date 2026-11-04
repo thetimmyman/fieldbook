@@ -30,7 +30,7 @@ Shows who may assign priority ratings under the Defense Priorities and Allocatio
 
 The Department of Commerce has authorized the Delegate Agencies to assign priority ratings to orders for industrial resources needed for use in approved programs [@CL-IND-0163]. The regulation establishes two levels of priority, identified by the rating symbols DO and DX [@CL-IND-0165]. All DO rated orders have equal priority with each other and take preference over unrated orders, and all DX rated orders have equal priority with each other and take preference over DO rated orders and unrated orders [@CL-IND-0166].
 
-A priority rating consists of the rating symbol (DO and DX) and the program identification symbol, such as A1, C2, or N1, and program identification symbols do not in themselves connote any priority [@CL-IND-0165; @CL-IND-0168]. A Directive issued by Commerce takes preference over any DX rated order, DO rated order or unrated order, as stipulated in the Directive [@CL-IND-0167].
+A priority rating consists of the rating symbol (DO and DX) and the program identification symbol, such as A1, A7, or N1, and program identification symbols do not in themselves connote any priority [@CL-IND-0165; @CL-IND-0168]. A Directive issued by Commerce takes preference over any DX rated order, DO rated order or unrated order, as stipulated in the Directive [@CL-IND-0167].
 
 ## How it works
 
@@ -53,7 +53,6 @@ Which customer orders carry DO or DX ratings, and which agency assigned each rat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the full food and agricultural item list in 15 CFR 700.10(b) and aligned the priority rating and Directive comparisons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Delegate Agency authority worded as authorized
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DPAS authority and the DO and DX priority levels.

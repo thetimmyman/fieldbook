@@ -32,7 +32,7 @@ The definitions in 15 CFR 700.8 apply throughout the part [@CL-IND-0063].
 
 Construction is the erection, addition, extension, or alteration of any building, structure, or project, using materials or products which are to be an integral and permanent part of it, and does not include maintenance and repair [@CL-IND-0068]. Facilities includes all types of buildings, structures, or other improvements to real property, excluding farms, churches or other houses of worship, and private dwelling houses, and services relating to the use of any such building, structure, or other improvement [@CL-IND-0355]. Industrial resources are all materials, services, and facilities, including construction materials, the authority for which has not been delegated to other agencies under Executive Order 13603 [@CL-IND-0073]. Production equipment is any item of capital equipment used in producing materials or furnishing services that has a unit acquisition cost of $2,500 or more, an anticipated service life in excess of one year, and the potential for maintaining its integrity as a capital item [@CL-IND-0077]. Maintenance and repair and/or operating supplies (MRO) does not include items produced or obtained for sale to other persons or for installation upon or attachment to the property of another person, or items required for the production of such items; items needed for the replacement of any plant, facility, or equipment; or items for the improvement of any plant, facility, or equipment by replacing items which are still in working condition with items of a new or different kind, quality, or design [@CL-IND-0360; @CL-IND-0361].
 
-At 91 FR 50704, August 6, 2026, § 700.8 was amended, effective August 27, 2026, through August 27, 2027 [@CL-IND-0371].
+At 91 FR 50705, August 6, 2026, § 700.8 was amended, effective August 27, 2026, through August 27, 2027 [@CL-IND-0371].
 
 ### Glossary
 
@@ -95,7 +95,6 @@ Which capacity assumptions and program terms the company maps onto the orders it
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the complete definitions and effective-date note in 15 CFR 700.8 and separated the codified and RFO FAR 2.101 definitions of national defense.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported only from industrial resources
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of national defense.

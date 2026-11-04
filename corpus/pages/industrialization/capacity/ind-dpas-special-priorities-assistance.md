@@ -43,7 +43,7 @@ If the Department of Commerce is unable to resolve the problem or to authorize t
 
 Special priorities assistance may be provided for any reason consistent with the part, such as assisting in obtaining timely deliveries of items needed to satisfy rated orders or authorizing the use of priority ratings on orders to obtain items not otherwise ratable under the part [@CL-IND-0235]. Under § 700.54, special priorities assistance is provided at the discretion of the Determination Departments, Delegate Agencies, and the Department of Commerce when it is determined that such assistance is warranted to meet the objectives of the regulation [@CL-IND-0266]. Usual situations and the instances where assistance will not be provided are on [the examples card](ind-dpas-assistance-examples-and-exclusions.md).
 
-A request for special priorities assistance or priority rating authority must be submitted on Form BIS-999 (OMB control number 0694-0057) to the local contract administration representative or to the Department of Commerce [@CL-IND-0237]. Form BIS-999 may be obtained from the Delegate Agency representative or from the Department of Commerce [@CL-IND-0238]. A sample Form BIS-999 is attached at appendix I, and a fillable Form BIS-999 may be obtained on the Defense Priorities and Allocations System website [@CL-IND-0239]. Under § 700.93, requests for special priorities assistance under § 700.50, adjustments or exceptions under § 700.80, or appeals under § 700.81 must be submitted in the manner specified in those sections [@CL-IND-1035].
+A request for special priorities assistance must be submitted on Form BIS-999 (OMB control number 0694-0057) to the local contract administration representative or to the Department of Commerce [@CL-IND-0237]. Form BIS-999 may be obtained from the Delegate Agency representative or from the Department of Commerce [@CL-IND-0238]. A sample Form BIS-999 is attached at appendix I, and a fillable Form BIS-999 may be obtained on the Defense Priorities and Allocations System website [@CL-IND-0239]. Under § 700.93, requests for special priorities assistance under § 700.50, adjustments or exceptions under § 700.80, or appeals under § 700.81 must be submitted in the manner specified in those sections [@CL-IND-1035].
 
 Requests for priority rating authority are covered on [the rating authority card](ind-dpas-priority-rating-authority-requests.md). Letters of understanding in special priorities assistance cases are covered on [that card](ind-dpas-letters-of-understanding.md).
 
@@ -55,7 +55,7 @@ A company holds a rated order that a Delegate Agency placed. Its supplier will n
 
 Because a Delegate Agency placed the order, the company seeks assistance from that agency through the contract administration officer [@CL-IND-0232]. It completes Form BIS-999 and submits it to the local contract administration representative [@CL-IND-0237].
 
-The Delegate Agency cannot resolve the problem. It believes more assistance is warranted, so it forwards the request to the Department of Commerce for action [@CL-IND-0233]. Commerce resolves the problem and the supplier confirms a date. Had Commerce been unable to resolve it, Commerce could have forwarded the request to another agency identified in § 700.10(c) [@CL-IND-0236].
+The Delegate Agency cannot resolve the problem. It believes more assistance is warranted, so it forwards the request to the Department of Commerce for action [@CL-IND-0233]. Commerce resolves the problem and the supplier confirms a date. Had Commerce been unable to resolve it and believed additional assistance was warranted, Commerce could have forwarded the request to another agency identified in § 700.10(c), as appropriate, for action [@CL-IND-0236].
 
 If other authorized persons had placed the order, assistance should have been sought from Commerce [@CL-IND-0234].
 
@@ -63,7 +63,7 @@ If other authorized persons had placed the order, assistance should have been so
 
 A priority rating is an identifying code, consisting of the rating symbol and the program identification symbol, assigned by the Department of Commerce, a Delegate Agency, or authorized person and placed on all rated orders [@CL-IND-0076]. Once a priority rating has been authorized pursuant to the part, further action by the Department of Commerce generally is not needed, and special priorities assistance is a service provided to alleviate problems that do arise [@CL-IND-0229; @CL-IND-0231].
 
-Under § 700.50(a), if the rated order is placed by a Delegate Agency, special priorities assistance should be sought from the Delegate Agency through the contract administration officer, and if the rated order is placed by other authorized persons, special priorities assistance should be sought from the Department of Commerce [@CL-IND-0232; @CL-IND-0234]. Under § 700.50(c), a request for special priorities assistance or priority rating authority must be submitted on Form BIS-999 to the local contract administration representative or to the Department of Commerce [@CL-IND-0237].
+Under § 700.50(a), if the rated order is placed by a Delegate Agency, special priorities assistance should be sought from the Delegate Agency through the contract administration officer, and if the rated order is placed by other authorized persons, special priorities assistance should be sought from the Department of Commerce [@CL-IND-0232; @CL-IND-0234]. Under § 700.50(c), a request for special priorities assistance must be submitted on Form BIS-999 to the local contract administration representative or to the Department of Commerce [@CL-IND-0237].
 
 Special priorities assistance may be provided for any reason consistent with the part, and under § 700.54 it is provided at the discretion of the Determination Departments, Delegate Agencies, and the Department of Commerce when it is determined that such assistance is warranted to meet the objectives of the regulation [@CL-IND-0235; @CL-IND-0266]. Section 700.54 is headed "Instances where assistance will not be provided" and lists examples where assistance may not be provided, such as situations when a person is attempting to secure a price advantage, obtain delivery prior to the time required to fill a rated order, or gain competitive advantage [@CL-IND-0278; @CL-IND-0267].
 
@@ -74,7 +74,6 @@ Which officer owns each open assistance request and how the company records the 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the special priorities assistance routing, forwarding and Form BIS-999 submission statements to 15 CFR 700.50 and 700.54.
 - COMPATIBLE_EXTENSION, 2026-10-31: Discretion condition, passive filing, 700.54 may-not wording
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the § 700.93 pointer on how requests, adjustments, exceptions and appeals are submitted.
