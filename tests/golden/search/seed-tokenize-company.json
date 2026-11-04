@@ -1,0 +1,90 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-sc-001",
+      "side": "query",
+      "input": "CL-XES-000012",
+      "tokens": ["cl-xes-000012"],
+      "note": "A company claim id is one token (shape 6)"
+    },
+    {
+      "id": "tok-sc-002",
+      "side": "query",
+      "input": "SO-000042-v2",
+      "tokens": ["so-000042-v2"],
+      "note": "A company versioned id is one token (shape 7); the query side adds no unversioned id"
+    },
+    {
+      "id": "tok-sc-003",
+      "side": "query",
+      "input": "QO-000003 xo-000002",
+      "tokens": ["qo-000003", "xo-000002"],
+      "note": "Company ids are one token each (shape 8), whatever the two-letter prefix"
+    },
+    {
+      "id": "tok-sc-004",
+      "side": "query",
+      "input": "so-000042 so-1234567890",
+      "tokens": ["so-000042", "so-1234567890"],
+      "note": "Six digits and ten digits are both the company id shape"
+    },
+    {
+      "id": "tok-sc-005",
+      "side": "query",
+      "input": "cm-12345",
+      "tokens": ["cm", "12345"],
+      "note": "Five digits are a near miss: no company shape applies, so it is the word cm and the number 12345"
+    },
+    {
+      "id": "tok-sc-006",
+      "side": "query",
+      "input": "so-12345678901",
+      "tokens": ["so", "12345678901"],
+      "note": "Eleven digits are a near miss: the longest match of shape 8 is followed by a digit, so the boundary fails and there is no backtracking; it is the word so and the number"
+    },
+    {
+      "id": "tok-sc-007",
+      "side": "index",
+      "input": "SO-000042-v2 and CM-000012-v10",
+      "tokens": ["so-000042-v2", "so-000042", "and", "cm-000012-v10", "cm-000012"],
+      "note": "On the index side a company versioned id is followed by its unversioned id"
+    },
+    {
+      "id": "tok-sc-008",
+      "side": "index",
+      "input": "cl-xes-000012 cl-cmp-0011",
+      "tokens": ["cl-xes-000012", "cl-cmp-0011"],
+      "note": "The Corpus claim shape fails the boundary on cl-xes-000012, so the company claim shape takes it; cl-cmp-0011 stays a Corpus claim id. Neither has extras"
+    },
+    {
+      "id": "tok-sc-009",
+      "side": "query",
+      "input": "XC-000042",
+      "tokens": ["xc-000042"],
+      "note": "The conflict shape is tried first and takes xc-000042 whole, which is why no company family may use the prefix xc"
+    },
+    {
+      "id": "tok-sc-010",
+      "side": "query",
+      "input": "ref ab-123456",
+      "tokens": ["ref", "ab-123456"],
+      "note": "ab-123456 has the company id shape whatever it means: the lexer carries no family list"
+    },
+    {
+      "id": "tok-sc-011",
+      "side": "query",
+      "input": "SO-00042",
+      "tokens": ["so", "00042"],
+      "note": "Five digits: shapes 6 to 8 do not apply, so it is the word so and the number 00042"
+    },
+    {
+      "id": "tok-sc-012",
+      "side": "index",
+      "input": "so-000042-v2x",
+      "tokens": ["so-000042", "v2x"],
+      "note": "A trailing letter fails the boundary of shape 7, so shape 8 takes so-000042, which has no extras, and v2x is a word"
+    }
+  ]
+}
