@@ -16,7 +16,7 @@ links = ["sup-subcontracts-commercial-products-and-services", "sup-ofac-restrict
 
 ## Purpose
 
-Shows what DoD may not buy from a person with business operations tied to the government of Venezuela, the license exception, what the terms person and business operations cover, and what an offeror represents.
+Shows what DoD may not buy from a person with business operations with an authority of the government of Venezuela that is not recognized as the legitimate government of Venezuela, the license exception, what the terms person and business operations cover, and what an offeror represents.
 
 ## The rule
 
