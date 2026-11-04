@@ -21,8 +21,8 @@ Shows how a provision or clause number is built, how supplemental texts are numb
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-CMP-8839] |
-| Codified citation | FAR 52.101 [@CL-CMP-8839] |
+| Instrument | Codified FAR and codified DFARS [@CL-CMP-8839; @CL-CMP-10021] |
+| Codified citation | FAR 52.101 [@CL-CMP-8839]; FAR 52.300 [@CL-CMP-10014]; FAR 52.301 [@CL-CMP-10015; @CL-CMP-10016]; DFARS 252.101 [@CL-CMP-10021; @CL-CMP-10022]; DFARS 252.103 [@CL-CMP-10023] |
 | RFO citation | RFO FAR 52.101 [@CL-CMP-1219; @CL-CMP-1227] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8839] |
@@ -32,13 +32,13 @@ Subpart 52.2 sets forth the texts of all FAR provisions and clauses, each in its
 
 Provisions or clauses that supplement the FAR are of three kinds. One kind is prescribed and included in authorized agency acquisition regulations issued within an agency to satisfy the specific needs of the agency as a whole [@CL-CMP-8881]. Another is prescribed and included in a regulation issued by a suborganization of an agency to satisfy the needs of that particular suborganization [@CL-CMP-8882]. The third is developed for use at a suborganizational level of an agency, not meant for repetitive use, but intended to meet the needs of an individual acquisition and impractical to include in either an agency or suborganization acquisition regulation [@CL-CMP-8883].
 
-Supplemental provisions or clauses published in agency acquisition regulations shall be in full text, and the prescription for the use of each shall be included [@CL-CMP-8841]. They are numbered in the same manner as FAR provisions and clauses, except for two differences [@CL-CMP-8884]. If the agency acquisition regulation is published in the Federal Register and codified in 48 CFR, the number is preceded by the chapter number within 48 CFR assigned by the CFR staff [@CL-CMP-8842]. The sequential number shall be 70 or a higher number [@CL-CMP-8843]. Like the sequential number at the end of a FAR number, it indicates the subsection location of the text in subpart 52.2 of the agency acquisition regulation that contains its full text [@CL-CMP-8885].
+Supplemental provisions or clauses published in agency acquisition regulations shall be in full text, and the prescription for the use of each shall be included [@CL-CMP-8841]. They are numbered in the same manner as FAR provisions and clauses, except for two differences [@CL-CMP-8884]. If the agency acquisition regulation is published in the Federal Register and codified in 48 CFR, the number is preceded by the chapter number within 48 CFR assigned by the CFR staff [@CL-CMP-8842]. The sequential number shall be 70 or a higher number [@CL-CMP-8843]. Like the sequential number at the end of a FAR number, it indicates the subsection location of the text in subpart 52.2 of the agency acquisition regulation that contains its full text [@CL-CMP-8885]. In the DFARS, provisions or clauses use a four digit sequential number in the 7000 series, for example -7000, -7001 and -7002 [@CL-CMP-10021], and department or agency supplemental provisions or clauses use four digit sequential numbers in the 9000 series [@CL-CMP-10022]. For guidance on numbering department or agency provisions and clauses, DFARS 252.103 refers the reader to PGI 252.103 [@CL-CMP-10023].
 
 ## How it works
 
 Each provision or clause in subpart 52.2 is prescribed at the place in the FAR text where its subject matter receives its primary treatment [@CL-CMP-8844]. The prescription includes all conditions, requirements and instructions for using the provision or clause and its alternates, if any [@CL-CMP-8887]. The provision or clause may also be referred to in other FAR locations [@CL-CMP-8888]. The introductory text of each provision or clause in subpart 52.2 includes a cross-reference to the location in the FAR subject text that prescribes its use [@CL-CMP-8889].
 
-The matrix may be accessed via the internet [@CL-CMP-8890] and contains a column for each principal type and/or purpose of contract [@CL-CMP-8891]. It lists required, required-when-applicable and optional solicitation provisions, and required, required-when-applicable and optional contract clauses [@CL-CMP-8845]. For each provision or clause listed, it gives whether incorporation by reference is or is not authorized and the Uniform Contract Format section in which the text is to be located, if it is used in an acquisition subject to that format [@CL-CMP-8892]. It also gives the number, the citation of the FAR text that prescribes its use, and the title [@CL-CMP-8893].
+The matrix may be accessed via the internet [@CL-CMP-8890] and contains a column for each principal type and/or purpose of contract [@CL-CMP-8891]. The scope statement of subpart 52.3 says the matrix contains a column for each principal type and/or purpose of contract (see 52.101(e)) [@CL-CMP-10014]. A note in the matrix section says the FAR matrix is not carried in the Code of Federal Regulations [@CL-CMP-10015] and is available via the internet [@CL-CMP-10016]. It lists required, required-when-applicable and optional solicitation provisions, and required, required-when-applicable and optional contract clauses [@CL-CMP-8845]. For each provision or clause listed, it gives whether incorporation by reference is or is not authorized and the Uniform Contract Format section in which the text is to be located, if it is used in an acquisition subject to that format [@CL-CMP-8892]. It also gives the number, the citation of the FAR text that prescribes its use, and the title [@CL-CMP-8893].
 
 Because the matrix does not provide enough information to determine the applicability of a provision or clause in the required-when-applicable and optional categories, contracting officers shall refer to the FAR text cited in the matrix that prescribes its use [@CL-CMP-8846]. The FAR matrix may be reproduced at agency levels, and at subordinate levels, to supplement it with agency-developed provisions and clauses [@CL-CMP-8894], and the resulting consolidated matrices may be included in agency acquisition regulations [@CL-CMP-8895].
 
@@ -80,6 +80,7 @@ Which executed contracts and modifications the company holds, and who confirms t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of FAR subpart 52.3, the matrix note and the DFARS provision and clause numbering rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a pointer so no figure remains.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on FAR part 2 and part 52 scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -23,11 +23,13 @@ States the DoD policy on antiterrorism awareness training for contractor personn
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7936] |
-| Codified citation | DFARS 204.7202 [@CL-CMP-7936; @CL-CMP-8152; @CL-CMP-7937]; DFARS 204.7203 [@CL-CMP-7938; @CL-CMP-7939] |
+| Codified citation | DFARS 204.7200 [@CL-CMP-10018]; DFARS 204.7201 [@CL-CMP-10019; @CL-CMP-10020]; DFARS 204.7202 [@CL-CMP-7936; @CL-CMP-8152; @CL-CMP-7937]; DFARS 204.7203 [@CL-CMP-7938; @CL-CMP-7939] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7936] |
 | Applies to | Contractor personnel who require routine physical access to a Federally-controlled facility or military installation as a condition of contract performance [@CL-CMP-7936]; solicitations and contracts when contractor personnel require that access [@CL-CMP-7939] |
+
+The subpart provides policy and guidance related to antiterrorism awareness training for contractor personnel who require routine physical access to a Federally-controlled facility or military installation [@CL-CMP-10018]. As used in the subpart, military installation means a base, camp, post, station, yard, center, or other activity under the jurisdiction of the Secretary of a military department or, in the case of an activity in a foreign country, under the operational control of the Secretary of a military department or the Secretary of Defense (see title 10 of the United States Code, section 2801(c)(4)) [@CL-CMP-10019; @CL-CMP-10020].
 
 Under the DoD policy stated in the section, contractor personnel who, as a condition of contract performance, require routine physical access to a Federally-controlled facility or military installation are required to complete Level I antiterrorism awareness training within 30 days of requiring access and annually thereafter [@CL-CMP-7936]. The duty falls on those personnel. The section names no official who approves the training or grants an exception.
 
@@ -59,4 +61,5 @@ Which personnel need routine physical access, when each first completion falls d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the subpart and the definition of military installation.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for routine physical access to Federally-controlled facilities and the antiterrorism training clause.

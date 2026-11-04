@@ -22,14 +22,14 @@ Explains who signs for the United States, how far an agency may go in adding dis
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR [@CL-CMP-7550] |
-| Codified citation | FAR 4.101, 4.202 and 4.804-4 [@CL-CMP-7550; @CL-CMP-7552; @CL-CMP-7554] |
+| Instrument | Codified FAR and codified DFARS [@CL-CMP-7550; @CL-CMP-10017] |
+| Codified citation | FAR 4.101, 4.202 and 4.804-4 [@CL-CMP-7550; @CL-CMP-7552; @CL-CMP-7554]; DFARS 204.101 [@CL-CMP-10017] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-7550] |
 | Applies to | Contracts signed on behalf of the United States, assignments of contract administration to an office in another agency, and the physical completion test for contracts and for rental, use and storage agreements [@CL-CMP-7550; @CL-CMP-7553; @CL-CMP-7557] |
 
-Only contracting officers sign contracts on behalf of the United States, and the contracting officer's name and official title must be typed, stamped or printed on the contract [@CL-CMP-7550]. The contracting officer normally signs after the contractor has signed [@CL-CMP-7710]. The contracting officer must ensure that the signers have authority to bind the contractor [@CL-CMP-7551].
+Only contracting officers sign contracts on behalf of the United States, and the contracting officer's name and official title must be typed, stamped or printed on the contract [@CL-CMP-7550]. The contracting officer normally signs after the contractor has signed [@CL-CMP-7710]. The contracting officer must ensure that the signers have authority to bind the contractor [@CL-CMP-7551]. For DoD, DFARS 204.101 directs that the procedures at PGI 204.101 be followed for signature of contract documents, and the text names no official who follows them [@CL-CMP-10017].
 
 Agencies must limit additional distribution requirements to the minimum necessary for proper performance of essential functions [@CL-CMP-7552]. When a contract is assigned for administration to a contract administration office in an agency different from the contracting office, the two agencies must agree on any necessary distribution in addition to the distribution prescribed in FAR 4.201 [@CL-CMP-7553].
 
@@ -65,5 +65,6 @@ Which company signers hold authority to bind the company, and who confirms the c
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 204.101 direction on signing contract documents.
 - COMPATIBLE_EXTENSION, 2026-10-30: Removed two unsupported statements that the signature duties do not fall on the contractor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contracting officer signature, agency distribution and closeout of physically completed contracts.

@@ -23,13 +23,13 @@ States the prescription that places the Definitions clause in a solicitation or 
 | Field | Value |
 |---|---|
 | Instrument | RFO model text [@CL-CMP-8615] |
-| Codified citation | FAR 2.201 [@CL-CMP-8615] |
+| Codified citation | FAR 2.201 [@CL-CMP-10000; @CL-CMP-8615] |
 | RFO citation | RFO FAR 2.201 [@CL-CMP-8615] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8615] |
 | Applies to | Solicitations and contracts that exceed the simplified acquisition threshold [@CL-CMP-8615] |
 
-The prescription directs that the clause at 52.202-1, Definitions, be inserted in solicitations and contracts that exceed the simplified acquisition threshold [@CL-CMP-8615]. The section does not name who inserts the clause. The threshold is measured on the solicitation or contract [@CL-CMP-8615]. The section prints no dollar figure; the codified definition of the threshold is $350,000, with listed exceptions [@CL-FND-0001]. The printed section ends there. It states no definition for any term, so this card records none.
+The prescription directs that the clause at 52.202-1, Definitions, be inserted in solicitations and contracts that exceed the simplified acquisition threshold [@CL-CMP-8615]. The codified FAR 2.201 gives the same direction for the clause at 52.202-1, Definitions, and the same scope of solicitations and contracts that exceed the simplified acquisition threshold [@CL-CMP-10000; @CL-CMP-8615]. The section does not name who inserts the clause. The threshold is measured on the solicitation or contract [@CL-CMP-8615]. The section prints no dollar figure; the codified definition of the threshold is $350,000, with listed exceptions [@CL-FND-0001]. The printed section ends there. It states no definition for any term, so this card records none.
 
 ## How it works
 
@@ -62,4 +62,5 @@ Which contracts in the finance remit exceed the simplified acquisition threshold
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the codified FAR 2.201 prescription.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Definitions clause prescription.

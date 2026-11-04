@@ -23,7 +23,7 @@ Covers the notices the contracting officer furnishes for posting, the annual rep
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-6795] |
-| Codified citation | FAR 22.1306, FAR 22.1402, FAR 22.1404 and FAR 22.1408 [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-8825; @CL-CMP-6799; @CL-CMP-6801] |
+| Codified citation | FAR 22.1304 [@CL-CMP-10006; @CL-CMP-10007; @CL-CMP-10008]; FAR 22.1306, FAR 22.1402, FAR 22.1404 and FAR 22.1408 [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-8825; @CL-CMP-6799; @CL-CMP-6801]; FAR 22.1405 [@CL-CMP-10009; @CL-CMP-10010; @CL-CMP-10011] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-6795] |
@@ -37,9 +37,9 @@ The Director of OFCCP may waive the application of any or all of the terms of th
 
 ## How it works
 
-The veterans items split by party. The contracting officer furnishes the notices that the Deputy Assistant Secretary of Labor prescribes, and the contractor and each subcontractor that has itself received an award of $200,000 or more file the annual report with the Secretary of Labor [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-7097]. The prime contract's value does not make a smaller subcontract reportable, and awards to State and local governments and to foreign organizations recruiting workers outside the United States are excepted [@CL-CMP-7097]. The report covers four named groups of protected veterans and is filed on VETS-4212 [@CL-CMP-6796; @CL-CMP-6798]. It is not required where all terms of the veterans clause have been waived, and waivers come from the Director of OFCCP or, on a national security determination, the agency head [@CL-CMP-6797; @CL-CMP-3256; @CL-CMP-3257].
+The veterans items split by party. The contracting officer furnishes the notices that the Deputy Assistant Secretary of Labor prescribes, and the contractor and each subcontractor that has itself received an award of $200,000 or more file the annual report with the Secretary of Labor [@CL-CMP-6795; @CL-CMP-6796; @CL-CMP-7097]. The prime contract's value does not make a smaller subcontract reportable, and awards to State and local governments and to foreign organizations recruiting workers outside the United States are excepted [@CL-CMP-7097]. The report covers four named groups of protected veterans and is filed on VETS-4212 [@CL-CMP-6796; @CL-CMP-6798]. It is not required where all terms of the veterans clause have been waived, and waivers come from the Director of OFCCP or, on a national security determination, the agency head [@CL-CMP-6797; @CL-CMP-3256; @CL-CMP-3257]. To verify if a proposed contractor is current with its submission of the VETS-4212 Report, the contracting officer may query the Department of Labor's VETS-4212 Database via the Internet under "Filing Verification" and may contact the VETS-4212 customer support via email for confirmation, if the proposed contractor represents that it has submitted the VETS-4212 Report and is not listed on the verification file [@CL-CMP-10006; @CL-CMP-10007; @CL-CMP-10008].
 
-On the disability side, the contracting officer must furnish to the contractor appropriate notices that state the contractor's obligations and the rights of individuals with disabilities [@CL-CMP-8825].
+On the disability side, the contracting officer must furnish to the contractor appropriate notices that state the contractor's obligations and the rights of individuals with disabilities [@CL-CMP-8825]. If performance under the clause at 52.222-36, Equal Opportunity for Workers with Disabilities, may necessitate a revision of a collective bargaining agreement, the contracting officer must advise the affected labor unions that the Department of Labor will give them appropriate opportunity to present their views [@CL-CMP-10009; @CL-CMP-10010]. Neither the contracting officer nor any representative of the contracting officer may discuss with the contractor or any labor representative any aspect of the collective bargaining agreement [@CL-CMP-10011].
 
 The disability clause runs on a dollar threshold with two exceptions. It is inserted above the threshold unless both the work and the recruitment happen outside the listed locations, or all its terms have been waived [@CL-CMP-6801; @CL-CMP-6982; @CL-CMP-6802]. A partial waiver keeps the clause but changes it to the version with Alternate I [@CL-CMP-6803]. The statute itself applies except as waived by the Secretary of Labor, and the clause waivers are given by the Director of OFCCP or the agency head [@CL-CMP-6799; @CL-CMP-3098; @CL-CMP-3099].
 
@@ -67,5 +67,6 @@ Which contracts meet the disability clause threshold, which waivers are on file,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the VETS-4212 verification step and the collective bargaining agreement rule for the disability clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notices the contracting officer furnishes for workers with disabilities.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the veterans reports and notices and the clause rules for workers with disabilities.
