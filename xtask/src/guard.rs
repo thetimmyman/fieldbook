@@ -506,6 +506,49 @@ mod tests {
     }
 
     #[test]
+    fn an_agent_cannot_raise_status_with_valid_toml_spellings() {
+        let mut allowed = Vec::new();
+        for (index, line) in [
+            "status = 'stable'",
+            "status = \"stable\" # synthetic comment",
+            "\"status\" = \"stable\"",
+            "'status' = 'stable'",
+            r#"status = "\u0073table""#,
+        ]
+        .iter()
+        .enumerate()
+        {
+            let repo = Scratch::new(&format!("toml-status-{index}"));
+            let path = "corpus/pages/syn/syn-a.md";
+            let base = repo.commit("Owner", &[(path, &page("reviewed"))]);
+            let changed = page("stable").replace("status = \"stable\"", line);
+            let head = repo.commit(AGENT_AUTHOR, &[(path, &changed)]);
+            if passes(&repo.0, &base, &head) {
+                allowed.push(*line);
+            }
+        }
+        assert!(
+            allowed.is_empty(),
+            "guard allowed stable promotion: {allowed:?}"
+        );
+    }
+
+    #[test]
+    fn a_duplicate_protected_header_cannot_be_judged() {
+        let repo = Scratch::new("duplicate-protected-header");
+        let base = repo.commit(
+            "Owner",
+            &[(CLAIMS, &register(&[claim("CL-SYN-0001", &[])]))],
+        );
+        let changed = format!(
+            "{HEADER},verification\n{},verified\n",
+            claim("CL-SYN-0001", &[])
+        );
+        let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &changed)]);
+        assert!(!passes(&repo.0, &base, &head));
+    }
+
+    #[test]
     fn an_existing_seed_golden_is_never_changed_by_an_agent() {
         let seed = "tests/golden/search/seed-rank.json";
         for remove in [false, true] {
@@ -563,10 +606,12 @@ mod tests {
         let case = "[[case]]\nid = \"RG-001\"\nquery = \"synthetic\"\n";
         let more = format!("{case}\n[[case]]\nid = \"RG-002\"\nquery = \"other\"\n");
         let marked = format!("{more}critical = true\n");
+        let widened = format!("{case}top = 1000000\n");
         for (after, allowed) in [
             (more.as_str(), true),
             ("[[case]]\nid = \"RG-002\"\n", false),
             (marked.as_str(), false),
+            (widened.as_str(), false),
         ] {
             let repo = Scratch::new("regression");
             let base = repo.commit("Owner", &[(path, case)]);
@@ -612,6 +657,34 @@ mod tests {
             let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&rows))]);
             assert_eq!(passes(&repo.0, &base, &head), allowed, "{resolution}");
         }
+    }
+
+    #[test]
+    fn agent_merge_preserves_owner_verification_when_merging_independent_claim_reset() {
+        let repo = Scratch::new("merge-independent-claim");
+        let base_row = claim("CL-SYN-0001", &[("adoption", "company_standard")]);
+        let base = repo.commit("Owner", &[(CLAIMS, &register(&[base_row]))]);
+        git(&repo.0, &["checkout", "-q", "-b", "agent"]).unwrap();
+        let agent_row = claim("CL-SYN-0001", &[("adoption", "proposed")]);
+        repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&[agent_row]))]);
+        git(&repo.0, &["checkout", "-q", "main"]).unwrap();
+        let mut owner_fields = CHECKED.to_vec();
+        owner_fields.push(("adoption", "company_standard"));
+        let owner_row = claim("CL-SYN-0001", &owner_fields);
+        repo.commit("Owner", &[(CLAIMS, &register(&[owner_row]))]);
+        git(&repo.0, &["checkout", "-q", "agent"]).unwrap();
+        let _ = git(&repo.0, &["merge", "--no-ff", "--no-commit", "main"]);
+        let merged_row = claim("CL-SYN-0001", &CHECKED);
+        let head = repo.commit(AGENT_AUTHOR, &[(CLAIMS, &register(&[merged_row]))]);
+        assert!(passes(&repo.0, &base, &head));
+
+        let mut recombined = CHECKED.to_vec();
+        recombined.push(("statement", "A synthetic rule applies above 20 units."));
+        let bad_head = repo.commit(
+            AGENT_AUTHOR,
+            &[(CLAIMS, &register(&[claim("CL-SYN-0001", &recombined)]))],
+        );
+        assert!(!passes(&repo.0, &base, &bad_head));
     }
 
     #[test]

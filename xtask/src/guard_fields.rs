@@ -1,7 +1,7 @@
 //! The content rules of GS-02: what an agent commit may not certify.
 //!
 //! The registers are read with a small RFC 4180 reader until `core-csv` gives the
-//! guard `table::read`; the page rule reads only the front-matter `status` line.
+//! guard `table::read`; the page rule reads the TOML front-matter `status`.
 
 use crate::proc;
 use std::collections::BTreeMap;
@@ -177,12 +177,14 @@ pub(super) fn judge(
             if parents.iter().any(|rows| rows.get(id) == Some(row)) {
                 continue;
             }
-            for rows in &parents {
-                for (field, reason) in claim_problems(rows.get(id).map(Vec::as_slice), row) {
-                    let line = format!("{sha} {id} {field}: {reason}");
-                    if !verdict.problems.contains(&line) {
-                        verdict.problems.push(line);
-                    }
+            let before_rows: Vec<Option<&[String]>> = parents
+                .iter()
+                .map(|rows| rows.get(id).map(Vec::as_slice))
+                .collect();
+            for (field, reason) in claim_problems(&before_rows, row) {
+                let line = format!("{sha} {id} {field}: {reason}");
+                if !verdict.problems.contains(&line) {
+                    verdict.problems.push(line);
                 }
             }
         }
@@ -213,33 +215,73 @@ pub(super) fn judge(
     Ok(verdict)
 }
 
-/// Every line of `before` stays, in order, and no added line sets `critical`.
+/// Every case of `before` stays unchanged, in order, and no added case sets `critical`.
 fn regression_problem(before: &str, after: &str) -> Option<&'static str> {
-    let mut kept = before.lines().peekable();
-    let mut added = Vec::new();
-    for line in after.lines() {
-        if kept.peek() == Some(&line) {
-            kept.next();
-        } else {
-            added.push(line);
-        }
-    }
-    if kept.next().is_some() {
+    let before = match regression_cases(before) {
+        Ok(cases) => cases,
+        Err(reason) => return Some(reason),
+    };
+    let after = match regression_cases(after) {
+        Ok(cases) => cases,
+        Err(reason) => return Some(reason),
+    };
+    if after.get(..before.len()) != Some(before.as_slice()) {
         return Some("an agent may only add regression cases, never edit or remove one");
     }
-    added
+    after[before.len()..]
         .iter()
-        .any(|line| line.trim_start().starts_with("critical"))
+        .any(|(_, case)| {
+            case.get("critical")
+                .is_some_and(|value| value.as_bool() != Some(false))
+        })
         .then_some("only a person marks a regression case critical")
 }
 
+fn regression_cases(text: &str) -> Result<Vec<(String, toml::Table)>, &'static str> {
+    let mut root = text
+        .parse::<toml::Table>()
+        .map_err(|_| "regression.toml is not valid TOML")?;
+    let cases = match root.remove("case") {
+        None => Vec::new(),
+        Some(toml::Value::Array(cases)) => cases,
+        Some(_) => return Err("`case` in regression.toml is not an array of tables"),
+    };
+    if !root.is_empty() {
+        return Err("an agent may only add regression cases, never edit or remove one");
+    }
+    let mut ids = std::collections::BTreeSet::new();
+    let mut parsed = Vec::with_capacity(cases.len());
+    for value in cases {
+        let toml::Value::Table(case) = value else {
+            return Err("a regression case is not a table");
+        };
+        let Some(id) = case
+            .get("id")
+            .and_then(toml::Value::as_str)
+            .filter(|id| !id.is_empty())
+        else {
+            return Err("a regression case has no string `id`");
+        };
+        if !ids.insert(id.to_owned()) {
+            return Err("duplicate regression case `id`");
+        }
+        parsed.push((id.to_owned(), case));
+    }
+    Ok(parsed)
+}
+
 /// What an agent's change to one claim certifies, as (field, reason) pairs.
-fn claim_problems(before: Option<&[String]>, after: &[String]) -> Vec<(&'static str, String)> {
+fn claim_problems(before: &[Option<&[String]>], after: &[String]) -> Vec<(&'static str, String)> {
     let mut found = Vec::new();
-    let old = |index: usize| before.and_then(|row| row.get(index)).map(String::as_str);
+    let parents: Vec<&[String]> = before.iter().flatten().copied().collect();
+    let had = |index: usize, value: &str| {
+        parents
+            .iter()
+            .any(|row| row.get(index).map(String::as_str) == Some(value))
+    };
     for (index, entry) in ENTRY.iter().enumerate() {
         let value = after[index].as_str();
-        if !value.is_empty() && value != *entry && old(index) != Some(value) {
+        if !value.is_empty() && value != *entry && !had(index, value) {
             found.push((
                 FIELDS[index],
                 format!("raised to `{value}`; only the owner certifies"),
@@ -248,19 +290,42 @@ fn claim_problems(before: Option<&[String]>, after: &[String]) -> Vec<(&'static 
     }
     for index in [3, 4] {
         let value = after[index].as_str();
-        if !value.is_empty() && old(index) != Some(value) {
+        if !value.is_empty() && !had(index, value) {
             found.push((FIELDS[index], "set; only the owner certifies".to_owned()));
         }
     }
     let reset = after[0] == ENTRY[0] && after[3].is_empty() && after[4].is_empty();
-    if let Some(row) = before
-        && !reset
-        && let Some(index) = (5..FIELDS.len()).find(|&index| row[index] != after[index])
-    {
-        found.push((
-            FIELDS[index],
-            "edited on a checked claim; reset verification to `unchecked` and clear the verified fields in the same commit".to_owned(),
-        ));
+    let inherited_check = parents.iter().any(|row| {
+        [0, 3, 4]
+            .into_iter()
+            .all(|index| row[index] == after[index])
+            && (5..FIELDS.len()).all(|index| row[index] == after[index])
+    });
+    if !reset && !inherited_check {
+        for row in &parents {
+            if let Some(index) = (5..FIELDS.len()).find(|&index| row[index] != after[index]) {
+                let problem = (
+                    FIELDS[index],
+                    "edited on a checked claim; reset verification to `unchecked` and clear the verified fields in the same commit".to_owned(),
+                );
+                if !found.contains(&problem) {
+                    found.push(problem);
+                }
+            } else if let Some(index) = [0, 3, 4].into_iter().find(|&index| {
+                let value = after[index].as_str();
+                !value.is_empty() && (index != 0 || value != ENTRY[0]) && row[index] != value
+            }) {
+                let reason = if index == 0 {
+                    format!("raised to `{}`; only the owner certifies", after[index])
+                } else {
+                    "set; only the owner certifies".to_owned()
+                };
+                let problem = (FIELDS[index], reason);
+                if !found.contains(&problem) {
+                    found.push(problem);
+                }
+            }
+        }
     }
     found
 }
@@ -269,6 +334,10 @@ fn claim_problems(before: Option<&[String]>, after: &[String]) -> Vec<(&'static 
 fn claims(text: &str) -> Result<BTreeMap<String, Vec<String>>, String> {
     let mut records = csv(text)?.into_iter();
     let header = records.next().ok_or("no header row")?;
+    let unique: std::collections::BTreeSet<_> = header.iter().collect();
+    if unique.len() != header.len() {
+        return Err("duplicate column in the claims header".to_owned());
+    }
     let column = |name: &str| {
         header
             .iter()
@@ -355,16 +424,20 @@ fn status(page: &str) -> Result<Option<String>, String> {
     if lines.next().map(str::trim_end) != Some("+++") {
         return Err("no front matter".to_owned());
     }
+    let mut front = Vec::new();
     for line in lines {
-        let line = line.trim();
-        if line == "+++" {
-            return Ok(None);
+        if line.trim_end() == "+++" {
+            let fields = front
+                .join("\n")
+                .parse::<toml::Table>()
+                .map_err(|_| "invalid TOML front matter".to_owned())?;
+            return match fields.get("status") {
+                Some(toml::Value::String(value)) => Ok(Some(value.clone())),
+                Some(_) => Err("page status is not a string".to_owned()),
+                None => Ok(None),
+            };
         }
-        if let Some((key, value)) = line.split_once('=')
-            && key.trim() == "status"
-        {
-            return Ok(Some(value.trim().trim_matches('"').to_owned()));
-        }
+        front.push(line);
     }
     Err("unclosed front matter".to_owned())
 }
@@ -402,6 +475,7 @@ mod tests {
         );
         assert!(regression_problem(before, "[[case]]\nid = \"R-9\"\n").is_some());
         assert!(regression_problem(before, &format!("{before}critical = true\n")).is_some());
+        assert!(regression_problem(before, &format!("{before}top = 1000000\n")).is_some());
     }
 
     #[test]
