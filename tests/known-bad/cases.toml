@@ -4,3 +4,45 @@ at = "corpus/corpus.toml:1"
 edits = [
   { path = "corpus/corpus.toml", find = "schema_version = 1", replace = "schema_version = 9" },
 ]
+
+[[case]]
+code = "FB0120"
+at = "corpus/changes.md:1"
+edits = [
+  { path = "corpus/changes.md", prepend_hex = "ff" },
+]
+
+[[case]]
+code = "FB0121"
+at = "corpus/unexpected.txt:1"
+edits = [
+  { path = "corpus/unexpected.txt", create = "unexpected file\n" },
+]
+
+[[case]]
+code = "FB0122"
+at = "corpus/changes.md:1"
+edits = [
+  { path = "corpus/changes.md", find = "# Corpus changes", replace = "# Corpus changes " },
+]
+
+[[case]]
+code = "FB0123"
+at = "corpus/templates/workbooks/CON.csv:1"
+edits = [
+  { path = "corpus/templates/workbooks/CON.csv", create = "col\nval\n" },
+]
+
+[[case]]
+code = "FB0124"
+at = "corpus/changes.md:1"
+edits = [
+  { path = "corpus/changes.md", find = "# Corpus changes", replace = "Corpus changes" },
+]
+
+[[case]]
+code = "FB0125"
+at = "corpus/ASSISTANT.md:1"
+edits = [
+  { path = "corpus/ASSISTANT.md", delete = true },
+]

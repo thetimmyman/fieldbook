@@ -6,6 +6,7 @@
 pub mod code;
 pub mod corpus_toml;
 pub mod diag;
+pub mod files;
 pub mod model;
 pub mod tree;
 
@@ -52,7 +53,7 @@ impl Options {
 pub type Pass = fn(&Model, &Options, &mut Report);
 
 /// The fixed list of check passes run after `corpus/corpus.toml` passes `FB0100`.
-const PASSES: &[Pass] = &[];
+const PASSES: &[Pass] = &[files::check];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
     let mut report = Report::new();
@@ -108,6 +109,7 @@ mod tests {
         let mut tree = Tree::new();
         tree.insert_dir("corpus");
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
+        tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
         Host::new(tree, sample_today())
     }
 
@@ -344,6 +346,7 @@ mod tests {
         let mut tree = Tree::new();
         tree.insert_dir("corpus/sources/public");
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
+        tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
         tree.insert(
             "corpus/sources/public/S-0001-v1.txt",
             Entry::Original {
