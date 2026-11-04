@@ -45,7 +45,7 @@ A contract is signed in a year when a cost principle allows a certain cost. Late
 
 ## Never confuse
 
-The pricing clause selects the cost rules for a price adjustment, and it does not say how a change is accounted or when an adjustment is owed. Change accounting is on [Change Order Accounting clause](cls-change-order-accounting.md), equitable adjustment under the Changes clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), requests for equitable adjustment in DoD definitization are on [DoD contract definitization and requests for equitable adjustment](../../contract-finance/financing/ctf-dod-definitization-and-requests-for-equitable-adjustment.md), and the cost rules themselves are on [Cost principles for contracts with commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) and [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md). The access clause concerns on-base facilities of the Contractor, and it is not a pricing or credit rule [@CL-CLS-1168].
+When costs are a factor in any price adjustment under the contract, the contract cost principles and procedures in FAR part 31 and DFARS part 231, in effect on the date of the contract, apply [@CL-CLS-1165]. Change accounting is on [Change Order Accounting clause](cls-change-order-accounting.md), equitable adjustment under the Changes clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), requests for equitable adjustment in DoD definitization are on [DoD contract definitization and requests for equitable adjustment](../../contract-finance/financing/ctf-dod-definitization-and-requests-for-equitable-adjustment.md), and the cost rules themselves are on [Cost principles for contracts with commercial organizations](../../compliance/cas-allowability/cmp-cost-principles-commercial-organizations.md) and [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md). Authorized representatives of the Government may have access to the Contractor's on-base facilities upon reasonable notice or in case of emergency [@CL-CLS-1168].
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which executed contracts and modifications carry these clauses, and who confirms
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: modification pricing, superseding contract and access: uncited absence and contrast statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing of contract modifications, the superseding contract clause and Government access.

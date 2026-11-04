@@ -26,7 +26,7 @@ Explains the limit on the cost allowability of severance payments to foreign nat
 | Text status | Final [@CL-CMP-5618; @CL-CMP-5762] |
 | Applies to | Service contracts performed outside the United States, through the provision and the waiver clause used as prescribed [@CL-CMP-5619; @CL-CMP-5618; @CL-CMP-5762] |
 
-The FAR limits the cost allowability of severance payments to foreign nationals employed under a service contract performed outside the United States unless the agency grants a waiver before contract award [@CL-CMP-5619].
+The FAR limits the cost allowability of severance payments to foreign nationals employed under a service contract performed outside the United States unless the agency grants a waiver pursuant to FAR 37.113-1 before contract award [@CL-CMP-5619].
 
 ## How it works
 
@@ -58,6 +58,7 @@ Which foreign service contracts pay severance, and who confirms whether a waiver
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the FAR section under which the waiver is granted.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the conjunction joining the determination matters.
 - COMPATIBLE_EXTENSION, 2026-10-31: severance payments: waiver determination sentence restored to the quoted wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: severance payments: all three matters required, waiver sentence tied to quotes.

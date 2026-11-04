@@ -47,7 +47,7 @@ A contractor and the buyer agree a fixed-price contract for quantity production 
 
 ## Never confuse
 
-Prospective redetermination is not retroactive redetermination. Under prospective redetermination the price is firm for the initial period and is redetermined for subsequent periods, whereas a fixed-ceiling-price contract with retroactive redetermination redetermines the price within a ceiling after completion of the contract [@CL-CLS-0550; @CL-CLS-0556]. For the retroactive type, see [Fixed-ceiling-price contracts with retroactive price redetermination](cls-fixed-ceiling-price-retroactive-price-redetermination.md). For general contract type context, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md).
+A fixed-price contract with prospective price redetermination provides for a firm fixed price for an initial period and prospective redetermination of the price for subsequent periods of performance [@CL-CLS-0550]. A fixed-ceiling-price contract with retroactive price redetermination provides for a fixed ceiling price and retroactive price redetermination within the ceiling after completion of the contract [@CL-CLS-0556]. For the retroactive type, see [Fixed-ceiling-price contracts with retroactive price redetermination](cls-fixed-ceiling-price-retroactive-price-redetermination.md). For general contract type context, see [Contract types](../../contract-finance/billing-payment/ctf-contract-types.md).
 
 ## Company calibration
 
@@ -56,7 +56,7 @@ Who confirms that the accounting system is adequate for price redetermination an
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: prospective price redetermination: uncited contrast reworded.
 - COMPATIBLE_EXTENSION, 2026-10-31: applies-to row restored fair and reasonable firm fixed price.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the price redetermination sentence so the reasonable-assurance limitation keeps its specified times.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fixed-price contracts with prospective price redetermination.

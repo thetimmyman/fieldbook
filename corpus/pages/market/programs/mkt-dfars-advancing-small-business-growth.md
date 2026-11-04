@@ -31,11 +31,11 @@ Shows what an offeror acknowledges by submitting an offer when the resulting con
 
 By submitting its offer, the offeror acknowledges that by accepting the resulting contract it may exceed the size standard for the NAICS code assigned to the contract [@CL-MKT-0919]. The provision states that by acceptance of the contract the offeror may exceed that size standard and would no longer qualify as a small business concern for that NAICS code [@CL-MKT-0920]. The provision encourages the offeror to develop the capabilities and characteristics typically desired in contractors that are competitive as other-than-small contractors in this industry [@CL-MKT-0921].
 
-The printed provision sets no notification duty and no deadline. The acknowledgement comes with the offer, so the source does not establish any separate notice, any time limit or any consequence beyond the acknowledgement and the encouragement described above.
+The acknowledgement is made by submission of the offer [@CL-MKT-0919].
 
 ## How it works
 
-The provision is an acknowledgement made by the act of submitting the offer, not a form the offeror files. The event it looks ahead to is acceptance of the contract, after which the offeror may exceed the size standard [@CL-MKT-0919]. The provision does not set the size standard, and this card gives no figure for it. How size is measured and when a contractor must rerepresent its size after award are on the linked cards.
+The offeror acknowledges that by acceptance of the contract resulting from the solicitation it may exceed the applicable small business size standard of the NAICS code assigned to the contract [@CL-MKT-0919]. How size is measured and when a contractor must rerepresent its size after award are on the linked cards.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: by submitting the offer it acknowledges that winning may push it over 20
 
 ## Never confuse
 
-This acknowledgement is not the size representation an offeror makes at initial offer, and it is not a rerepresentation after award. Those are covered on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card and the [rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card. The acknowledgement concerns what may happen once the offeror accepts the contract, and the printed text does not state any bar to the award [@CL-MKT-0919]. Size standards and the assignment of NAICS codes are on the [Size standards and NAICS codes](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
+The size representation an offeror makes at initial offer is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card and the rerepresentation after award is on the [rerepresentation after award](../taxonomy/mkt-size-rerepresentation-after-award.md) card. By acceptance of the contract the offeror may exceed the applicable size standard and would no longer qualify as a small business concern for that NAICS code [@CL-MKT-0920]. Size standards and the assignment of NAICS codes are on the [Size standards and NAICS codes](../taxonomy/mkt-size-standards-and-naics-codes.md) card.
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Which of the company's offers are made as a small business, and how close it is 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements not stated in the provision.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advancing small business growth.

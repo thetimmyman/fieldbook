@@ -37,7 +37,7 @@ A representation of eligibility by one of these firms may be relied on by the co
 
 ## How it works
 
-The contractor carries the duty in this clause: it gives the listed firms the maximum practicable opportunity in the subcontracts it awards [@CL-MKT-0938]. Eligibility may be taken from the firm's own representation by the contracting officer and the contractor, acting in good faith, unless it is challenged or the contracting officer has independent reason to question it [@CL-MKT-9334; @CL-MKT-0939]. Because no incentive is paid while a challenge is pending, an unresolved challenge holds up the payment [@CL-MKT-0942]. The incentive is a percentage of the subcontract's estimated cost, target cost or fixed price at award, so its base is fixed when the subcontract is awarded [@CL-MKT-0941]. A request must come with proof of the amount and before the contract is complete, and for commercial products or services it depends on who produced or manufactured the items [@CL-MKT-0969; @CL-MKT-0968]. Other paragraphs of the printed clause, including those on who decides a challenge and on how an incentive payment is authorized and passed on, are not drafted on this card.
+The contractor shall use its best efforts to give the listed firms the maximum practicable opportunity to participate in the subcontracts it awards [@CL-MKT-0938]. Eligibility may be taken from the firm's own representation by the contracting officer and the contractor, acting in good faith, unless it is challenged or the contracting officer has independent reason to question it [@CL-MKT-9334; @CL-MKT-0939]. No incentive payment will be made while a challenge is pending [@CL-MKT-0942]. The incentive amount that may be requested is 5 percent of the estimated cost, target cost, or fixed price included in the subcontract at the time of award [@CL-MKT-0941]. The contractor has the burden of proving the amount claimed and shall assert its request prior to completion of contract performance [@CL-MKT-0969]; for a subcontract for commercial products or commercial services, the contractor may receive an incentive payment only if the subcontracted items are produced or manufactured in whole or in part by one of the listed firms [@CL-MKT-0968]. Other paragraphs of the printed clause, including those on who decides a challenge and on how an incentive payment is authorized and passed on, are not drafted on this card.
 
 ## Worked example
 
@@ -49,7 +49,7 @@ Answer: the amount that may be requested is 5 percent of 2 million, which is 100
 
 ## Never confuse
 
-The incentive is tied to the subcontract value at award, not to the prime contract cost [@CL-MKT-0941]. The clause lets the contractor and the contracting officer, acting in good faith, rely on a firm's own representation of its eligibility unless it is challenged or the contracting officer has independent reason to question it [@CL-MKT-9334; @CL-MKT-0939]. It is also not a small business subcontracting plan goal, because it is a best-efforts duty with an incentive [@CL-MKT-0938; @CL-MKT-0941]. The DoD subcontracting plan clause is a different clause, on the [DFARS small business subcontracting plan clause for DoD contracts](mkt-dfars-dod-small-business-subcontracting-plan.md) card. The general policy on small business opportunities is on the [Small business general policy](mkt-small-business-general-policy.md) card.
+The incentive amount that may be requested is 5 percent of the estimated cost, target cost, or fixed price included in the subcontract at the time of award [@CL-MKT-0941]. The clause lets the contractor and the contracting officer, acting in good faith, rely on a firm's own representation of its eligibility unless it is challenged or the contracting officer has independent reason to question it [@CL-MKT-9334; @CL-MKT-0939]. The DoD subcontracting plan clause is on the [DFARS small business subcontracting plan clause for DoD contracts](mkt-dfars-dod-small-business-subcontracting-plan.md) card. The general policy on small business opportunities is on the [Small business general policy](mkt-small-business-general-policy.md) card.
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Which subcontractors the company counts as Indian organizations, Indian-owned ec
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored best efforts wording and removed inference and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Good faith and Secretary of the Interior determination restored, cited to a companion.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Indian organization and Native Hawaiian small business utilization clause.

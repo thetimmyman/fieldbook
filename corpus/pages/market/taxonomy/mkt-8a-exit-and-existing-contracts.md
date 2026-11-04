@@ -33,15 +33,15 @@ Exit (paragraph (a)). Except as provided in paragraph (c) of the section, when a
 
 Suspension (paragraph (b)). If an 8(a) contractor is suspended from the program, it may not receive any new 8(a) contracts unless the head of the contracting agency makes a determination that it is in the best interest of the Government to issue the award and SBA adopts that determination [@CL-MKT-1677]. Both steps are needed: the agency head determines, and SBA adopts [@CL-MKT-1677].
 
-Completed term (paragraph (c)). A contractor that has completed its term of participation in the 8(a) program may be awarded a competitive 8(a) contract if it was an 8(a) participant eligible for award of the contract on the initial date specified for receipt of offers contained in the solicitation [@CL-MKT-1678]. The award also requires that the contractor continue to meet all other applicable eligibility criteria, for which the section cites SBA's regulations at 13 CFR 124.507(d) [@CL-MKT-1679]. The paragraph speaks of a competitive 8(a) contract only [@CL-MKT-1678].
+Completed term (paragraph (c)). A contractor that has completed its term of participation in the 8(a) program may be awarded a competitive 8(a) contract if it was an 8(a) participant eligible for award of the contract on the initial date specified for receipt of offers contained in the solicitation [@CL-MKT-1678]. The award also requires that the contractor continue to meet all other applicable eligibility criteria, for which the section cites SBA's regulations at 13 CFR 124.507(d) [@CL-MKT-1679].
 
-SBA's regulations (paragraph (d)). SBA's regulations on exiting the 8(a) program are found at 13 CFR 124.301 through 124.305, and 13 CFR 124.507(d) [@CL-MKT-1680]. This card does not restate them.
+SBA's regulations (paragraph (d)). SBA's regulations on exiting the 8(a) program are found at 13 CFR 124.301 through 124.305, and 13 CFR 124.507(d) [@CL-MKT-1680].
 
 Orders. A different section lets an 8(a) contractor continue to accept new orders under a multiple-award contract even if it exits the program or becomes other than small for the NAICS codes assigned to the contract, as the [Agency evaluation of a requirement for the 8(a) program and orders under 8(a) multiple-award contracts](mkt-8a-agency-evaluation-and-indefinite-delivery-orders.md) card explains [@CL-MKT-1660].
 
 ## How it works
 
-Exit ends eligibility for new 8(a) contracts, and the contractor still has to finish existing contracts and any priced options that are exercised [@CL-MKT-1675; @CL-MKT-1676]. The completed-term exception in paragraph (c) is the only exception that paragraph (a) names [@CL-MKT-1675]. It lets a contractor that finished its term take a competitive 8(a) contract if it was eligible on the initial date for receipt of offers in the solicitation and still meets the other applicable eligibility criteria [@CL-MKT-1678; @CL-MKT-1679].
+Exit ends eligibility for new 8(a) contracts, and the contractor still has to finish existing contracts and any priced options that are exercised [@CL-MKT-1675; @CL-MKT-1676]. Paragraph (a) names the completed-term exception in paragraph (c) [@CL-MKT-1675]. It lets a contractor that finished its term take a competitive 8(a) contract if it was eligible on the initial date for receipt of offers in the solicitation and still meets the other applicable eligibility criteria [@CL-MKT-1678; @CL-MKT-1679].
 
 Suspension is a separate rule. It blocks new 8(a) contracts unless the head of the contracting agency determines that the award is in the best interest of the Government and SBA adopts that determination [@CL-MKT-1677]. The section sends the reader to SBA's regulations for the exit rules [@CL-MKT-1680].
 
@@ -66,5 +66,5 @@ Whether the company's authorized acquisition mandate and decision criteria still
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unstated only and meta wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exiting the 8(a) program and existing contracts.

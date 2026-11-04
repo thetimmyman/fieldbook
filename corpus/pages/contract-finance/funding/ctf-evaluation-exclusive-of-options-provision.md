@@ -33,9 +33,9 @@ The Government will evaluate offers for award purposes by including only the pri
 
 ## How it works
 
-The evaluation uses the price for the basic requirement alone [@CL-CTF-2295]. Option prices are left out of the evaluation for award purposes [@CL-CTF-2295]. The provision is used when the solicitation has an option clause and does not include one of the provisions prescribed in paragraph (b) or (c) of FAR 17.208 [@CL-CTF-2294]. The prescriptions as a group are on [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
+The Government will evaluate offers for award purposes by including only the price for the basic requirement; options will not be included in the evaluation for award purposes [@CL-CTF-2295]. A provision substantially the same as FAR 52.217-3 is inserted in solicitations when the solicitation includes an option clause and does not include one of the provisions prescribed in FAR 17.208(b) or (c) [@CL-CTF-2294]. The prescriptions as a group are on [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.217-3 keeps the evaluation rule: the Government evaluates offers for award purposes by including only the price for the basic requirement, so options are not included in the evaluation for award purposes [@CL-CTF-2295] [@CL-CTF-1142]. Its prescription line says the provision is inserted as prescribed in 17.203(a), and it does not state the codified conditions about an option clause and the provisions prescribed in 17.208(b) or (c) [@CL-CTF-2294] [@CL-CTF-1143].
+Effective February 1, 2026, DoD contracting officers shall use the revised FAR Part 52 solicitation provisions and contract clauses published on the Revolutionary FAR Overhaul web page in lieu of the text codified at 48 CFR chapter 1 [@CL-CMP-9760; @CL-CMP-9762]. Under RFO FAR 52.217-3, as prescribed in 17.203(a), a provision substantially the same as Evaluation Exclusive of Options is inserted [@CL-CTF-1143], and the Government will evaluate offers for award purposes by including only the price for the basic requirement; options will not be included in the evaluation for award purposes [@CL-CTF-1142].
 
 ## Worked example
 
@@ -47,9 +47,9 @@ Answer: only the basic requirement price is evaluated, so Offer A is evaluated a
 
 ## Never confuse
 
-The evaluation of options provision does the opposite: except when it is determined in accordance with FAR 17.206(b) not to be in the Government's best interests, it adds the total price for all options to the total price for the basic requirement [@CL-CTF-2297]. This provision counts no option price [@CL-CTF-2295]. The statement that evaluating options does not obligate the Government to exercise them is in the evaluation of options provision [@CL-CTF-2298]; the text of this provision does not say anything about exercise. See [Evaluation of options provisions](ctf-option-evaluation-provisions.md).
+Under FAR 52.217-5, except when it is determined in accordance with FAR 17.206(b) not to be in the Government's best interests, the Government will evaluate offers for award purposes by adding the total price for all options to the total price for the basic requirement [@CL-CTF-2297], and evaluation of options will not obligate the Government to exercise the option(s) [@CL-CTF-2298]. Under FAR 52.217-3, options will not be included in the evaluation for award purposes [@CL-CTF-2295]. See [Evaluation of options provisions](ctf-option-evaluation-provisions.md).
 
-In the RFO text of the evaluation of options provision, the exception turns on a determination in accordance with FAR 17.202(b), where the codified provision says FAR 17.206(b) [@CL-CTF-2297] [@CL-CTF-1144]. The RFO provision keeps the statement that evaluating options does not obligate the Government to exercise them [@CL-CTF-2298] [@CL-CTF-1145].
+Under RFO FAR 52.217-5, except when it is determined in accordance with FAR 17.202(b) not to be in the Government's best interests, the Government will evaluate offers for award purposes by adding the total price for all options to the total price for the basic requirement [@CL-CTF-1144], and evaluation of options will not obligate the Government to exercise the option(s) [@CL-CTF-1145].
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Confirm which solicitations and contracts carry an option evaluation provision, 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluation exclusive of options.

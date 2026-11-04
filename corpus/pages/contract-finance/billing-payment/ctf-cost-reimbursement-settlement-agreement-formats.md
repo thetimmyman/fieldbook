@@ -60,9 +60,9 @@ A second cost-reimbursement contract is partially terminated. The agreement dele
 
 ## Never confuse
 
-A settlement limited to fee does not close out cost reimbursement. Allowable costs are still paid under the contract and parts 31 and 49 of the FAR when there are costs to be vouchered out or covered later by a separate agreement [@CL-CTF-3275; @CL-CTF-3276].
+Where settlement is limited to fee, the contractor's allowable costs under the contract will be paid under the terms and conditions of the contract and parts 31 and 49 of the FAR [@CL-CTF-3275], and that subparagraph is inserted only if there are costs to be vouchered out or if there are costs to be covered later by a separate settlement agreement [@CL-CTF-3276].
 
-The partial-termination format is not the fee-only format. It deletes the terminated portion and decreases the fee and, if appropriate, the estimated cost [@CL-CTF-3287; @CL-CTF-3139], and the terminated portion's costs continue on the voucher [@CL-CTF-3140].
+The partial-termination format deletes the terminated portion and decreases the fee and, if appropriate, the estimated cost [@CL-CTF-3287; @CL-CTF-3139], and the contractor's allowable costs and earned fee, if any, for the terminated portion continue to be reimbursed on SF 1034 under the applicable provisions of the contract and part 31 [@CL-CTF-3140].
 
 The authorization and delinquency notices for these agreements are on [the cost-reimbursement settlement format card](../../close-revrec/revenue/cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
 
@@ -73,7 +73,7 @@ Which agreement language and which reserved-items list the company uses when fee
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated the costs subparagraph condition and the partial termination voucher rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of supplemental agreement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of supplemental agreement.
 - COMPATIBLE_EXTENSION, 2026-10-30: Corrected the settlement to decrease the estimated cost only if appropriate, as the format text says, and stated why the worked example applies the decrease.

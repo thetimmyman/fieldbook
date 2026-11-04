@@ -40,9 +40,9 @@ Where the terms of the contract, including the specifications, are inconsistent 
 
 ## How it works
 
-The two texts apply at different points. The provision is a representation that the offeror makes by signing the offer, and the rationale is owed when the Contracting Officer asks for it [@CL-SUP-2662; @CL-SUP-2663]. The clause governs the contract once it exists. It ranks the contract terms, including the specifications, above incorporated rate schedules, riders and exhibits and above the contractor's rules and regulations [@CL-SUP-2664].
+By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202, and on request of the Contracting Officer the offeror must submit supporting legal and factual rationale for the representation [@CL-SUP-2662; @CL-SUP-2663]. Under the order of precedence clause, where the terms of the contract, including the specifications, are inconsistent with a rate schedule, rider or exhibit incorporated in the contract by reference or otherwise, or with any of the contractor's rules and regulations, the terms of the contract control [@CL-SUP-2664].
 
-Under the RFO text, the DoD part 52 class deviation directs DoD contracting officers to use the revised FAR part 52 in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The following rules appear in the RFO text of these clauses. Section 8093 of Public Law 100-202 generally requires purchases of electricity by any department, agency, or instrumentality of the United States to be consistent with State law governing the provision of electric utility service [@CL-SUP-2533; @CL-SUP-2661]. That State law includes State utility commission rulings and electric utility franchises or service territories established under State statute, State regulation, or State-approved territorial agreements [@CL-SUP-9188; @CL-SUP-2711]. By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202 [@CL-SUP-2534; @CL-SUP-2662]. On request of the Contracting Officer, the offeror must submit the supporting legal and factual rationale for that representation [@CL-SUP-2535; @CL-SUP-2663]. Where the terms of the contract, including the specifications, are inconsistent with an incorporated rate schedule, rider or exhibit, or with the contractor's rules and regulations, the contract terms control [@CL-SUP-2536; @CL-SUP-2664].
+Under the RFO text, the DoD part 52 class deviation directs DoD contracting officers to use the revised FAR part 52 in place of the codified part 52 text, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. In RFO FAR 52.241-1 and 52.241-2, Section 8093 of Public Law 100-202 generally requires purchases of electricity by any department, agency, or instrumentality of the United States to be consistent with State law governing the provision of electric utility service [@CL-SUP-2533; @CL-SUP-2661]. That State law includes State utility commission rulings and electric utility franchises or service territories established under State statute, State regulation, or State-approved territorial agreements [@CL-SUP-9188; @CL-SUP-2711]. By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202 [@CL-SUP-2534; @CL-SUP-2662]. On request of the Contracting Officer, the offeror must submit the supporting legal and factual rationale for that representation [@CL-SUP-2535; @CL-SUP-2663]. Where the terms of the contract, including the specifications, are inconsistent with an incorporated rate schedule, rider or exhibit, or with the contractor's rules and regulations, the contract terms control [@CL-SUP-2536; @CL-SUP-2664].
 
 ## Worked example
 
@@ -52,7 +52,7 @@ An offeror signs an offer to sell electricity. The Contracting Officer later ask
 
 ## Never confuse
 
-The representation concerns consistency of the offer with Section 8093, and the precedence clause concerns inconsistency between the contract and the incorporated rate material or the contractor's rules [@CL-SUP-2662; @CL-SUP-2664]. One is made by the offeror when signing, and the other ranks documents after award.
+By signing the offer, the offeror represents that the offer to sell electricity is consistent with Section 8093 of Public Law 100-202, whereas under the order of precedence clause, where the terms of the contract, including the specifications, are inconsistent with a rate schedule, rider or exhibit incorporated in the contract by reference or otherwise, or with any of the contractor's rules and regulations, the terms of the contract control [@CL-SUP-2662; @CL-SUP-2664].
 
 The clauses on rate changes for regulated and unregulated utility service are covered in [Rate changes for regulated and unregulated utility service](sup-utility-rate-changes-regulated-and-unregulated.md).
 
@@ -64,6 +64,7 @@ Confirm who signs each offer to sell electricity and where the rationale for the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the territory representation and order of precedence summaries with the cited quotes and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on utility rate changes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

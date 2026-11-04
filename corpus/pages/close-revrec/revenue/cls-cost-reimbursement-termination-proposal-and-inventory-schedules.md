@@ -46,10 +46,10 @@ The TCO shall submit the settlement proposal to the appropriate audit agency for
 | Keep out of the proposal costs finally disallowed, and costs previously vouchered, formally questioned and not yet decided | The contractor | Both kinds of cost are excluded [@CL-CLS-1308] |
 | File complete inventory disposal schedules for inventory allocable to the terminated portion | The contractor | Whenever termination inventory is involved and subject to the termination clause [@CL-CLS-1330] |
 | Meet the schedule period | The contractor | Within 120 days from the effective date of termination unless the TCO extends it on a written justification [@CL-CLS-1309] |
-| Extend either period or authorize another form | The TCO | Only the schedule extension is tied to a written justification in the text [@CL-CLS-1306; @CL-CLS-1309; @CL-CLS-1307] |
+| Extend either period or authorize another form | The TCO | The TCO may extend the proposal period [@CL-CLS-1306] and may authorize another form [@CL-CLS-1307]; an extension of the schedule period is based on a written justification to support the extension [@CL-CLS-1309] |
 | Send the proposal to the audit agency | The TCO | Not required if the proposal is limited to an adjustment of fee [@CL-CLS-1311] |
 
-Both periods run from the effective date of termination, and they are separate: the proposal period and the schedule period [@CL-CLS-1306; @CL-CLS-1309]. The contracting officer is the one who finally disallows costs, and the sections print no deadline for the audit referral [@CL-CLS-1308; @CL-CLS-1311]. The exclusion of questioned costs covers only costs that are previously vouchered, formally questioned by the Government and not yet decided as to allowability [@CL-CLS-1308].
+Both periods run from the effective date of termination, and they are separate: the proposal period and the schedule period [@CL-CLS-1306; @CL-CLS-1309]. The proposal shall not include costs finally disallowed by the contracting officer, or costs previously vouchered and formally questioned by the Government but not yet decided as to allowability [@CL-CLS-1308].
 
 ## Worked example
 
@@ -63,7 +63,7 @@ The proposal covers unvouchered cost and fee, so it is not limited to an adjustm
 
 ## Never confuse
 
-The two exclusions in the proposal are different. A cost the contracting officer has finally disallowed is out, and so is a cost that was previously vouchered, formally questioned and not yet decided; a cost that was vouchered but not questioned is not within that second exclusion [@CL-CLS-1308].
+The proposal shall not include costs that have been finally disallowed by the contracting officer, or costs that have been previously vouchered and formally questioned by the Government but not yet decided as to allowability [@CL-CLS-1308].
 
 The proposal period and the inventory schedule period are different periods with different lengths, 1 year and 120 days [@CL-CLS-1306; @CL-CLS-1309]. The screening and reutilization of the listed inventory is covered in [Inventory disposal schedules and reutilization](../inventory-wip/cls-inventory-disposal-schedules-and-reutilization.md).
 
@@ -74,5 +74,5 @@ Whether the proposal and inventory schedule periods are tracked from the termina
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: termination proposal and inventory schedules: TCO row, exclusion wording, uncited gap statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination of cost-reimbursement contracts.

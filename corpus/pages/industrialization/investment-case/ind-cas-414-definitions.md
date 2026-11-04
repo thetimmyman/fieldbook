@@ -33,7 +33,7 @@ Facilities capital is the net book value of tangible capital assets and of those
 
 ## How it works
 
-A tangible capital asset has physical substance and more than minimal value, and is expected to be held for continued use or possession beyond the current accounting period for the services it yields [@CL-IND-0034]. An intangible capital asset has no physical substance and more than minimal value, is expected to be held for continued use or possession beyond the current accounting period for the benefits it yields, and includes right-of-use assets acquired under leases [@CL-IND-0033]. A business unit is any segment of an organization, or an entire business organization which is not divided into segments [@CL-IND-0030]. The requirement to measure and allocate the capital is on [Cost of money on facilities capital](../../compliance/cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md), and the imputed cost is explained on [Cost of money as an imputed cost](../../compliance/cas-allowability/cmp-cost-of-money.md).
+A tangible capital asset is an asset that has physical substance, more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the services it yields [@CL-IND-0034]. An intangible capital asset is an asset that has no physical substance, has more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the benefits it yields, and it includes right-of-use assets acquired under leases [@CL-IND-0033]. A business unit is any segment of an organization, or an entire business organization, which is not divided into segments [@CL-IND-0030]. The requirement to measure and allocate the capital is on [Cost of money on facilities capital](../../compliance/cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md), and the imputed cost is explained on [Cost of money as an imputed cost](../../compliance/cas-allowability/cmp-cost-of-money.md).
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A business unit has tangible assets with a net book value of 5,000,000 and an am
 
 ## Never confuse
 
-Facilities capital is a balance, the net book value of the assets [@CL-IND-0032]. The cost of capital committed to facilities is an imputed cost computed from that balance and a rate [@CL-IND-0031]. How the investment base, rate and factors are computed is on the techniques card of this area.
+Facilities capital means the net book value of tangible capital assets and of those intangible capital assets that are subject to amortization [@CL-IND-0032]. Cost of capital committed to facilities means an imputed cost determined by applying a cost of money rate to facilities capital [@CL-IND-0031]. How the investment base, rate and factors are computed is on the techniques card of this area.
 
 ## Company calibration
 
@@ -52,5 +52,5 @@ Which assets the company counts as facilities capital, and how the net book valu
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added held-by-an-enterprise actor and matched CAS 414 definition wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CAS 414 definitions.

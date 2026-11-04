@@ -47,7 +47,7 @@ A contractor with a calendar fiscal year has never held a contract subject to th
 
 ## Never confuse
 
-The purpose section states the aims of consistent determination of direct and indirect costs, criteria for the accumulation of indirect costs in indirect cost pools, and guidance on the selection of allocation measures [@CL-EST-2902; @CL-EST-2903]. The start rule here is not the start rule of the capital assets under construction Standard: this Standard waits for the second full fiscal year, where that Standard begins with the next one [@CL-EST-2905; @CL-EST-2901].
+The purpose section states the aims of consistent determination of direct and indirect costs, criteria for the accumulation of indirect costs in indirect cost pools, and guidance on the selection of allocation measures [@CL-EST-2902; @CL-EST-2903]. For contractors with no previous contracts subject to this Standard, it is applied beginning with the contractor's second full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2905], and the capital assets under construction Standard is applied beginning with the contractor's next full fiscal year beginning after that receipt [@CL-EST-2901].
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Confirm how the company classifies each cost as direct or indirect and which all
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Start-rule comparison restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose and start-rule wording aligned with the cited text; uncited statements and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the allocation of direct and indirect costs Standard purpose and effective date.

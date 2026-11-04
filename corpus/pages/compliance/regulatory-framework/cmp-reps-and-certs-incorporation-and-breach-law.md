@@ -32,9 +32,9 @@ The contractor's representations and certifications, including those completed e
 
 ## How it works
 
-The first clause names the contractor's representations and certifications as incorporated into the contract [@CL-CMP-5964]. Those completed electronically via the System for Award Management are included [@CL-CMP-5964]. The second clause states the law for a claim of breach of the contract [@CL-CMP-5965].
+Under FAR 52.204-19, the Contractor's representations and certifications, including those completed electronically via the System for Award Management (SAM), are incorporated by reference into the contract [@CL-CMP-5964]. Under FAR 52.233-4, United States law will apply to resolve any claim of breach of the contract [@CL-CMP-5965].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.204-19 keeps the rule that the Contractor's representations and certifications, including those completed electronically via the System for Award Management, are incorporated by reference into the contract [@CL-CMP-2172; @CL-CMP-5964]. RFO FAR 52.233-4 keeps the rule that United States law will apply to resolve any claim of breach of the contract [@CL-CMP-2173; @CL-CMP-5965].
+Class Deviation 2026-O0038 directs DoD contracting officers to use the revised FAR part 52 published on the Revolutionary FAR Overhaul web page in lieu of the text codified at 48 CFR chapter 1, effective February 1, 2026 [@CL-CMP-9760; @CL-CMP-9762]. Under RFO FAR 52.204-19, the Contractor's representations and certifications, including those completed electronically via the System for Award Management (SAM), are incorporated by reference into the contract [@CL-CMP-2172]. Under RFO FAR 52.233-4, United States law will apply to resolve any claim of breach of the contract [@CL-CMP-2173].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A contractor files its representations and certifications electronically in the 
 
 ## Never confuse
 
-The second clause speaks to a claim of breach of the contract, so a different kind of dispute needs its own source [@CL-CMP-5965]. Under the first clause the contract reads the representations and certifications in by reference, including the electronic filings [@CL-CMP-5964].
+FAR 52.233-4 states that United States law will apply to resolve any claim of breach of the contract [@CL-CMP-5965], while FAR 52.204-19 incorporates the Contractor's representations and certifications, including those completed electronically via SAM, by reference into the contract [@CL-CMP-5964].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which entity's representations and certifications are completed electronically f
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified citations and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incorporation of representations and certifications and the law for a breach claim.

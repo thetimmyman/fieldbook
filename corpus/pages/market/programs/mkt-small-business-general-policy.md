@@ -35,7 +35,7 @@ Heads of contracting activities are responsible for effectively implementing the
 
 ## How it works
 
-The policy is worded as an opportunity: maximum practicable opportunities in acquisitions [@CL-MKT-0300]. The subcontracting limb is qualified by efficient contract performance [@CL-MKT-0301]. Responsibility for implementation sits with the heads of contracting activities, and the text names achieving program goals as part of it [@CL-MKT-0302]. The text printed here gives no percentage or dollar amount for those goals, so the size of any goal is not established on this card [@CL-MKT-0302]. The section also assigns duties to each agency's small business office and to small business specialists, and this card does not restate them. The steps a contracting officer takes to encourage participation are on the [Encouraging small business participation and data collection](mkt-small-business-participation-and-data-collection.md) card.
+The policy is worded as an opportunity: maximum practicable opportunities in acquisitions [@CL-MKT-0300]. The subcontracting limb is qualified by efficient contract performance [@CL-MKT-0301]. Responsibility for implementation sits with the heads of contracting activities, and the text names achieving program goals as part of it [@CL-MKT-0302]. The steps a contracting officer takes to encourage participation are on the [Encouraging small business participation and data collection](mkt-small-business-participation-and-data-collection.md) card.
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contracting activity makes 200 awards in a year and 30 go to small business co
 
 ## Never confuse
 
-The general policy is not a set-aside. A set-aside reserves an acquisition under its own tests, which are on the [Small business set-asides](mkt-small-business-set-asides.md) card. The policy is also not a subcontracting plan requirement. The plan thresholds are on the [When a subcontracting plan is required](mkt-subcontracting-plan-when-required.md) card. The subcontracting policy here states an opportunity, qualified by efficient contract performance [@CL-MKT-0301].
+The criteria for small business set-asides are on the [Small business set-asides](mkt-small-business-set-asides.md) card, and the thresholds for subcontracting plans are on the [When a subcontracting plan is required](mkt-subcontracting-plan-when-required.md) card. Under FAR 19.201(a), the general policy provides maximum practicable opportunities in acquisitions and in subcontracting consistent with efficient contract performance [@CL-MKT-0300; @CL-MKT-0301].
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which product families and customer groups the company sells into where agencies
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted negative contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the general small business policy.

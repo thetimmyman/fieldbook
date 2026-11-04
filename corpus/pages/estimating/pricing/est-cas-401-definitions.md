@@ -33,7 +33,7 @@ Accumulating costs means the collecting of cost data in an organized manner, suc
 
 An indirect cost pool means a grouping of incurred costs identified with two or more objectives but not identified specifically with any final cost objective [@CL-EST-2859]. Pricing means the process of establishing the amount or amounts to be paid in return for goods or services [@CL-EST-2860]. A proposal means any offer or other submission used as a basis for pricing a contract, contract modification or termination settlement, or for securing payments under it [@CL-EST-2861].
 
-Other terms defined elsewhere in part 99 have the meanings given in those definitions unless paragraph (b) of the section requires otherwise [@CL-EST-2956]. Paragraph (b) applies no modification to those terms for this Standard [@CL-EST-2957].
+Other terms defined elsewhere in part 99 have the meanings given in those definitions unless paragraph (b) of the section requires otherwise [@CL-EST-2956]. Paragraph (b) applies no modification to terms defined elsewhere in chapter 99 for this Standard [@CL-EST-2957].
 
 ## How it works
 
@@ -47,7 +47,7 @@ An estimator forecasts 500,000 of engineering cost for a follow-on lot from the 
 
 ## Never confuse
 
-Estimating costs is not actual cost: one forecasts a future result from information available at the time, and the other rests on cost incurred [@CL-EST-2858; @CL-EST-2857]. Pricing is not estimating: pricing establishes the amount to be paid, while estimating forecasts a cost result [@CL-EST-2860; @CL-EST-2858]. Accumulating costs is not reporting costs: accumulating is collecting cost data in an organized manner, and reporting is providing cost information to others [@CL-EST-2856; @CL-EST-2862]. The consistency requirement is on the [consistency card](../../compliance/cas-allowability/cmp-cas-401-consistency.md).
+Estimating costs is the process of forecasting a future result in terms of cost, based on information available at the time, where actual cost is an amount determined on the basis of cost incurred, as distinguished from forecasted cost [@CL-EST-2858; @CL-EST-2857]. Pricing is the process of establishing the amount or amounts to be paid in return for goods or services [@CL-EST-2860]. Accumulating costs is the collecting of cost data in an organized manner, and reporting costs is provision of cost information to others [@CL-EST-2856; @CL-EST-2862]. The consistency requirement is on the [consistency card](../../compliance/cas-allowability/cmp-cas-401-consistency.md).
 
 ## Company calibration
 
@@ -56,6 +56,7 @@ Confirm who owns proposal pricing and the estimating system description, and whe
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated terms defined elsewhere in chapter 99 on the paragraph (b) sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Proposal definition restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the consistency Standard definitions.

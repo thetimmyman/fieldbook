@@ -16,7 +16,7 @@ links = ["cmp-consistency-cost-accounting-practices"]
 
 ## Purpose
 
-Shows how the guideline requires control account estimates at completion to be updated and the variance at completion calculated [@CL-PRG-0315].
+Shows how the guideline requires using the results of control account variance analysis and indirect performance evaluations to update the control account estimates at completion to reflect future resource requirements to complete the remaining authorized work and, by comparing to budgets, calculate the variance at completion [@CL-PRG-0315].
 
 ## The rule
 
@@ -27,13 +27,13 @@ Shows how the guideline requires control account estimates at completion to be u
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | Control accounts and summary level planning packages [@CL-PRG-0315; @CL-PRG-0319] |
+| Applies to | Control accounts (CAs) and summary level planning packages (SLPPs) [@CL-PRG-0130; @CL-PRG-0315; @CL-PRG-0319] |
 
-The guideline requires control account estimates at completion to be updated, using the results of control account variance analysis and indirect performance evaluations, to reflect future resource requirements to complete the remaining authorized work, and the variance at completion to be calculated by comparing to budgets [@CL-PRG-0315]. The estimate at completion is based on the actual cost of work performed to date plus the estimate to complete for the remaining authorized work [@CL-PRG-0316]. Control account and summary level planning package estimates at completion are not constrained by funding, negotiated contract costs, or factored budgets [@CL-PRG-0317].
+The guideline requires control account estimates at completion to be updated, using the results of control account variance analysis and indirect performance evaluations, to reflect future resource requirements to complete the remaining authorized work, and the variance at completion to be calculated by comparing to budgets [@CL-PRG-0315]. Its purpose is to ensure estimates of the cost to complete the remaining requirements for Control Accounts (CAs) and Summary Level Planning Packages (SLPPs) are reassessed monthly, with Estimates to Complete (ETCs) time-phased in accordance with the expected completion dates and remaining authorized work [@CL-PRG-0130]. Developing the SLPP or Control Account level estimate at completion (EAC) is a critical part of program management as it provides insight into future resource requirements when a program is experiencing deviations from the baseline plan [@CL-PRG-0131]. The EAC is based on the Actual Cost of Work Performed (ACWP) to date plus the ETC for the remaining authorized work [@CL-PRG-0130; @CL-PRG-0316]. EACs are not constrained by funding, negotiated contract costs, or factored budgets (see Guideline 25) [@CL-PRG-0317].
 
 ## How it works
 
-Control account managers and summary level planning package managers review control account and summary level planning package estimates at completion monthly [@CL-PRG-0711]. Those managers and program finance review and update the estimates with current direct and indirect rates [@CL-PRG-0712]. The estimate at completion is based on the actual cost of work performed to date plus the estimate to complete for the remaining authorized work [@CL-PRG-0316]. The differences between the budget at completion and the estimate at completion give the variance at completion, which is calculated at a minimum at the control account and summary level planning package levels [@CL-PRG-0318; @CL-PRG-0319].
+Control Account Managers (CAMs) and SLPP managers review CA and SLPP EACs monthly [@CL-PRG-0130; @CL-PRG-0711]. SLPP managers, CAMs, and program finance review and update EACs with current direct and indirect rates [@CL-PRG-0130; @CL-PRG-0712]. The EAC is based on the ACWP to date plus the ETC for the remaining authorized work [@CL-PRG-0130; @CL-PRG-0316]. Differences between the Budget at Completion (BAC) and the EAC result in the CA and SLPP Variance at Completion (VAC), and at a minimum the VAC is calculated at the control account and SLPP levels [@CL-PRG-0130; @CL-PRG-0318; @CL-PRG-0319].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A control account has an actual cost of work performed of 900,000 to date and an
 
 ## Never confuse
 
-The estimate at completion is a forecast of total cost, not a funded or negotiated amount; the guideline states that these estimates are not constrained by funding, negotiated contract costs, or factored budgets [@CL-PRG-0317].
+The EAC is based on the ACWP to date plus the ETC for the remaining authorized work [@CL-PRG-0130; @CL-PRG-0316], and EACs are not constrained by funding, negotiated contract costs, or factored budgets (see Guideline 25) [@CL-PRG-0317].
 
 ## Company calibration
 
@@ -52,5 +52,5 @@ Who owns the control account and summary level planning package estimates at com
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0130 and CL-PRG-0131 for CA/SLPP/ETC scope, aligned sentences with quotes, and removed uncited contrast and meta wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 20 estimates at completion.

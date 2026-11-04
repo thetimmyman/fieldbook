@@ -16,7 +16,7 @@ links = ["cmp-iaea-additional-protocol-notification-and-disclosure-of-informatio
 
 ## Purpose
 
-Explains how the United States can exclude activities from Additional Protocol inspection on national security grounds, the two steps a DoD program manager takes after a contractor notification, and when the notification clause is prescribed.
+Explains how the United States can exclude activities from Additional Protocol inspection on national security grounds, the two alternative steps a DoD program manager can take after a contractor notification, and when the notification clause is prescribed.
 
 ## The rule
 
@@ -33,13 +33,13 @@ Under the United States-International Atomic Energy Agency Additional Protocol, 
 
 The Additional Protocol permits the United States unilaterally to declare exclusions from inspection requirements for activities, or locations or information associated with them, that have direct national security significance [@CL-CMP-7895]. To ensure that all relevant activities are reviewed for that significance, both current and former activities, and associated locations or information, are to be considered for a national security exclusion [@CL-CMP-7896]. The section does not say who carries out that review.
 
-If a DoD program manager receives notification from a contractor that the contractor is required to report any of its activities under the Additional Protocol, the program manager takes one of two steps [@CL-CMP-7897]. The first is a security assessment to determine if, and by what means, access may be granted to the IAEA [@CL-CMP-7897]. The second is a written justification to the component or agency treaty office for application of the national security exclusion at that location to exclude access by the IAEA, in accordance with DoD Instruction 2060.03 [@CL-CMP-7898]. Both steps fall on the program manager, not the contractor [@CL-CMP-7897]. The section does not say which assessment result leads to the justification, and it does not say who approves the exclusion.
+If a DoD program manager receives notification from a contractor that the contractor is required to report any of its activities under the Additional Protocol, the program manager takes one of two steps [@CL-CMP-7897]. The first is a security assessment to determine if, and by what means, access may be granted to the IAEA [@CL-CMP-7897]. The second is a written justification to the component or agency treaty office for application of the national security exclusion at that location to exclude access by the IAEA, in accordance with DoD Instruction 2060.03 [@CL-CMP-7898]. Each of the two alternatives is a step for the program manager to take [@CL-CMP-7897]. The section does not say which assessment result leads to the justification, and it does not say who approves the exclusion.
 
 The clause at 252.204-7010 is the notification clause this section prescribes [@CL-CMP-7899]. It is to be used in solicitations and contracts for research and development or major defense acquisition programs involving any fissionable materials (for example uranium, plutonium, neptunium, thorium or americium) or other radiological source materials [@CL-CMP-7900]. It is also to be used where those programs involve technologies directly related to nuclear power production, including nuclear or radiological waste materials [@CL-CMP-7901]. The section sets no dollar threshold and no deadline.
 
 ## How it works
 
-The contractor's notification is what starts the program manager's two steps [@CL-CMP-7897]. The clause is titled as a requirement for the contractor to notify DoD if the contractor's activities are subject to reporting under the Additional Protocol [@CL-CMP-7899]. What the notification must contain, and when it is due, are set in the clause text, which this card does not restate; see [the notification and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure-of-information.md).
+If a DoD program manager receives notification from a contractor that the contractor is required to report any of its activities under the Additional Protocol, the program manager will take one of the two alternative steps [@CL-CMP-7897]. The clause is titled as a requirement for the contractor to notify DoD if the contractor's activities are subject to reporting under the Additional Protocol [@CL-CMP-7899]. What the notification must contain, and when it is due, are set in the clause text, which this card does not restate; see [the notification and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure-of-information.md).
 
 The prescription is met by either kind of program (research and development or major defense acquisition) that involves any one of the three listed subjects [@CL-CMP-7900; @CL-CMP-7901]. Former activities stay in scope for the exclusion review [@CL-CMP-7896].
 
@@ -51,7 +51,7 @@ A research and development program involves other radiological source materials,
 
 ## Never confuse
 
-The exclusion and the notification clause are different tools. The clause prescription concerns contractor notification [@CL-CMP-7899]. The exclusion is a United States declaration that excludes access by the IAEA at a location [@CL-CMP-7895; @CL-CMP-7898]. A program manager's security assessment is also not an exclusion; it is the alternative to seeking one [@CL-CMP-7897; @CL-CMP-7898].
+The clause prescription concerns contractor notification [@CL-CMP-7899]. The exclusion is a United States declaration that excludes access by the IAEA at a location [@CL-CMP-7895; @CL-CMP-7898]. A program manager who receives such a notification will either conduct a security assessment or provide written justification for application of the national security exclusion [@CL-CMP-7897; @CL-CMP-7898].
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Whether any activity or location in the company's programs is reportable under t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the program manager steps as alternatives and cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the general statement of the declaration and access obligations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the national security exclusion under the United States-IAEA Additional Protocol and its contract clause.

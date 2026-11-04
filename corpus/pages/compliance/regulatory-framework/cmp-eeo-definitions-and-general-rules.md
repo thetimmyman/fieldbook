@@ -30,13 +30,13 @@ Gives the FAR definitions that matter most for equal employment opportunity in c
 
 The FAR defines an affirmative action program as a contractor's program that complies with Department of Labor regulations to ensure equal opportunity in employment to minorities and women [@CL-CMP-3050]. A compliance evaluation is any one or combination of actions that the Office of Federal Contract Compliance Programs may take to examine a federal contractor's compliance with one or more of the requirements of the Executive Order [@CL-CMP-3051]. The FAR term E.O. 11246 means Parts II and IV of Executive Order 11246 of September 24, 1965, and any Executive order amending or superseding it [@CL-CMP-3052].
 
-Executive Order 11246, as amended, sets forth the Equal Opportunity clause and requires all agencies to include that clause in all nonexempt contracts and subcontracts [@CL-CMP-3053]. One listed requirement is that agencies act to ensure compliance with the Equal Opportunity clause and the Secretary of Labor's regulations to promote the full realization of equal employment opportunity for all persons, regardless of race, color, religion, sex, sexual orientation, gender identity, or national origin [@CL-CMP-3054].
+Executive Order 11246, as amended, sets forth the Equal Opportunity clause and requires all agencies to include that clause in all nonexempt contracts and subcontracts [@CL-CMP-3053]. That requirement includes acting to ensure compliance with the clause and the regulations of the Secretary of Labor to promote the full realization of equal employment opportunity for all persons, regardless of race, color, religion, sex, sexual orientation, gender identity, or national origin [@CL-CMP-3054].
 
 Subpart 22.8 prescribes policies and procedures pertaining to nondiscrimination in employment by contractors and subcontractors [@CL-CMP-7788].
 
 ## How it works
 
-The Executive Order works through the contract clause. Agencies put the Equal Opportunity clause in nonexempt contracts and subcontracts [@CL-CMP-3053]. No contract or modification involving new acquisition shall be entered into, and no subcontract shall be approved by a contracting officer, with a person found ineligible by the Deputy Assistant Secretary for noncompliance with the requirements of the order [@CL-CMP-3055]. No contracting officer or contractor shall contract for supplies or services in a manner so as to avoid applicability of the requirements of the order [@CL-CMP-3125]. A compliance evaluation is how the Office of Federal Contract Compliance Programs examines a contractor's compliance [@CL-CMP-3051]. Which contracts are exempt is set out on [Equal employment opportunity exemptions and the related provisions and clauses](cmp-eeo-exemptions-and-clauses.md). The use of a compliance evaluation before award is set out on [Equal employment opportunity: construction goals and preaward clearance](cmp-eeo-construction-affirmative-action-and-preaward-clearance.md). The sections also define other terms, address discrimination over discussing pay, and send contractor disputes to the Secretary of Labor's rules, and this card does not set those out.
+Agencies shall include the Equal Opportunity clause in all nonexempt contracts and subcontracts [@CL-CMP-3053]. No contract or modification involving new acquisition shall be entered into, and no subcontract shall be approved by a contracting officer, with a person found ineligible by the Deputy Assistant Secretary for noncompliance with the requirements of the order [@CL-CMP-3055]. No contracting officer or contractor shall contract for supplies or services in a manner so as to avoid applicability of the requirements of the order [@CL-CMP-3125]. A compliance evaluation is any one or combination of actions that the Office of Federal Contract Compliance Programs may take to examine a Federal contractor's compliance with one or more of the requirements of E.O. 11246 [@CL-CMP-3051]. Which contracts are exempt is set out on [Equal employment opportunity exemptions and the related provisions and clauses](cmp-eeo-exemptions-and-clauses.md). The use of a compliance evaluation before award is set out on [Equal employment opportunity: construction goals and preaward clearance](cmp-eeo-construction-affirmative-action-and-preaward-clearance.md). This card does not set out the remaining requirements or the other defined terms.
 
 ## Worked example
 
@@ -46,7 +46,7 @@ A contractor holds a nonexempt prime contract and asks the contracting officer t
 
 ## Never confuse
 
-An affirmative action program is the contractor's own program, and a compliance evaluation is an action the government may take to examine compliance [@CL-CMP-3050; @CL-CMP-3051]. This order on equal employment opportunity is also a different order from the ones on minimum wage and paid sick leave, which have their own card at [Executive Order minimum wage and paid sick leave: annual rate notice, enforcement and accrual](cmp-eo-minimum-wage-and-paid-sick-leave.md).
+An affirmative action program is a contractor's program that complies with Department of Labor regulations [@CL-CMP-3050], and a compliance evaluation is an action the Office of Federal Contract Compliance Programs may take [@CL-CMP-3051]. For the Executive Orders on minimum wage and paid sick leave, see [Executive Order minimum wage and paid sick leave: annual rate notice, enforcement and accrual](cmp-eo-minimum-wage-and-paid-sick-leave.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which compliance evaluations or other requests from the Office of Federal Contra
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the compliance evaluation actor, the agency requirement, and cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the equal employment opportunity subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for equal employment opportunity definitions and general rules.

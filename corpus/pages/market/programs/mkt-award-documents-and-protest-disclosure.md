@@ -51,7 +51,7 @@ A protest follows in April. In September, within 1 year of the March award, the 
 
 ## Never confuse
 
-A notice of award is not necessarily a signed contract: the award is made by furnishing the executed contract or other notice, and the offeror must also sign where the award document differs from its latest signed proposal as amended [@CL-MKT-1340; @CL-MKT-1341]. A protest is handled under the protest part of the FAR, while the disclosure duty runs to offerors for the new solicitation or to the competitive range offerors asked to revise their proposals [@CL-MKT-1344; @CL-MKT-1345; @CL-MKT-1497]. For the protest clause and stop-work order see [Protest after award clause and stop-work order](../../close-revrec/revenue/cls-protest-after-award.md). The codified text requires both the offeror and the contracting officer to sign the contract award whenever the award document includes information different from the latest signed proposal [@CL-MKT-1341], while the RFO award section runs from its award-by-notice paragraph directly into the award document paragraph, whose signature rule for the contractor's authorized representative applies to the first page of an award document not on the OF 307, SF 26 or SF 33 [@CL-MKT-2236; @CL-MKT-2237; @CL-MKT-2238; @CL-MKT-2239].
+The award is made by furnishing the executed contract or other notice of the award [@CL-MKT-1340], and both the offeror and the contracting officer must sign the contract award where the award document includes information different from the latest signed proposal as amended by the offeror's written correspondence [@CL-MKT-1341]. Protests against award in negotiated acquisitions must be handled in accordance with FAR part 33 [@CL-MKT-1344]; the paragraph (c) information goes to all prospective offerors for a new solicitation, or to offerors in the competitive range that are requested to submit revised proposals [@CL-MKT-1345; @CL-MKT-1497]. For the protest clause and stop-work order see [Protest after award clause and stop-work order](../../close-revrec/revenue/cls-protest-after-award.md). The codified text requires both the offeror and the contracting officer to sign the contract award whenever the award document includes information different from the latest signed proposal [@CL-MKT-1341], while the RFO award section runs from its award-by-notice paragraph directly into the award document paragraph, whose paragraph (b)(2) applies when the OF 307, SF 26 or SF 33 is not used to award the contract and requires the first page to include the signature of the contractor's authorized representative if the award document includes information different from the signed proposal, as amended by the offeror's written correspondence [@CL-MKT-2236; @CL-MKT-2237; @CL-MKT-2238; @CL-MKT-2239].
 
 ## Company calibration
 
@@ -60,7 +60,7 @@ Who confirms the signature state of each award document and keeps the record of 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast wording and stated the first-page signature condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.300 postaward scope and its limit for subpart 6.1 procedures.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

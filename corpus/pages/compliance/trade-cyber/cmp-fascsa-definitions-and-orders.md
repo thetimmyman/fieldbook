@@ -30,7 +30,7 @@ Shows what a FASCSA order is, who may issue each type, and the agency prohibitio
 
 The subpart implements the Federal Acquisition Supply Chain Security Act of 2018 (title II of Public Law 115-390) and the Federal Acquisition Security Council (FASC) regulation at 41 CFR part 201-1 [@CL-SUP-9441]. The authority provided in the subpart expires on December 31, 2033, and the section refers to section 1328 of title 41 of the United States Code [@CL-SUP-9442].
 
-A FASCSA order is any of the listed orders issued under the Federal Acquisition Supply Chain Security Act requiring the removal of covered articles from executive agency information systems or the exclusion of one or more named sources or named covered articles [@CL-CMP-2969]. The Secretary of Homeland Security may issue FASCSA orders applicable to civilian agencies, to the extent not covered by the other listed types of order [@CL-CMP-2970]. The Secretary of Defense may issue FASCSA orders applicable to the Department of Defense and national security systems other than sensitive compartmented information systems [@CL-CMP-2971]. The Director of National Intelligence may issue FASCSA orders applicable to the intelligence community and sensitive compartmented information systems, to the extent not covered by the Secretary of Defense type of order [@CL-CMP-2972].
+A FASCSA order is any of the listed orders issued under the Federal Acquisition Supply Chain Security Act requiring the removal of covered articles from executive agency information systems or the exclusion of one or more named sources or named covered articles [@CL-CMP-2969] from executive agency procurement actions, as described in 41 CFR 201-1.303(d) and (e) [@CL-CMP-0145]. The Secretary of Homeland Security may issue FASCSA orders applicable to civilian agencies, to the extent not covered by the other listed types of order [@CL-CMP-2970]. The Secretary of Defense may issue FASCSA orders applicable to the Department of Defense and national security systems other than sensitive compartmented information systems [@CL-CMP-2971]. The Director of National Intelligence may issue FASCSA orders applicable to the intelligence community and sensitive compartmented information systems, to the extent not covered by the Secretary of Defense type of order [@CL-CMP-2972].
 
 If an applicable FASCSA order issued by the Director of National Intelligence, the Secretary of Defense, or the Secretary of Homeland Security establishes the prohibition, executive agencies are prohibited from procuring or obtaining, or extending or renewing a contract to procure or obtain, any covered article, or any products or services produced or provided by a source [@CL-CMP-2973; @CL-CMP-2974]. That prohibition covers contractor use of covered articles or sources [@CL-CMP-2974].
 
@@ -46,7 +46,7 @@ A civilian agency learns that a DHS order names a source and establishes the pro
 
 ## Never confuse
 
-A FASCSA order is defined by what it requires, who may issue it and whom it covers [@CL-CMP-2969; @CL-CMP-2970; @CL-CMP-2971; @CL-CMP-2972]. The agency prohibition is a separate rule, and it applies if an applicable order establishes it [@CL-CMP-2974].
+A FASCSA order is any of the listed orders issued under the Federal Acquisition Supply Chain Security Act requiring the removal of covered articles from executive agency information systems or the exclusion of one or more named sources or named covered articles from executive agency procurement actions [@CL-CMP-2969; @CL-CMP-0145]. The Secretary of Homeland Security, the Secretary of Defense and the Director of National Intelligence may each issue orders of the types described [@CL-CMP-2970; @CL-CMP-2971; @CL-CMP-2972]. The agency prohibition on procuring or obtaining covered articles applies if it is established by an applicable FASCSA order issued by one of them [@CL-CMP-2974].
 
 ## Company calibration
 
@@ -55,7 +55,7 @@ Which FASCSA orders the company has been told apply to each contract, and who tr
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: added procurement-actions qualifier; replaced inference wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the required-action element to the order definition summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the expiry of its authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FASCSA definitions and orders.

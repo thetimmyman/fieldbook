@@ -34,7 +34,7 @@ CCAs, in support of a C3PAO, conduct Level 2 certification assessments of OSCs i
 
 ## How it works
 
-CCAs shall obtain and maintain certification from the CAICO, and that certification is valid for 3 years from the date of issuance [@CL-CMP-3235]. That item opens the list of CCA requirements. One listed requirement is that a CCA be a CCP who has at least 3 years of cybersecurity experience, at least 1 year of assessment or audit experience, and at least one foundational qualification aligned to at least the Intermediate Proficiency Level of the Security Control Assessor (612) Work Role [@CL-CMP-3236; @CL-CMP-3235]. One listed requirement is that a CCA qualify as a Lead CCA by having, among other elements, at least 5 years of cybersecurity experience, 5 years of management experience, and 3 years of assessment or audit experience [@CL-CMP-3237; @CL-CMP-3235]. The printed text lists further CCA requirements that this card does not set out.
+CCAs shall obtain and maintain certification from the CAICO, and that certification is valid for 3 years from the date of issuance [@CL-CMP-3235]. That item opens the list of CCA requirements. One listed requirement is that a CCA be a CCP who has at least 3 years of cybersecurity experience, at least 1 year of assessment or audit experience, and at least one foundational qualification aligned to at least the Intermediate Proficiency Level of the DoD Cyberspace Workforce Framework Security Control Assessor (612) Work Role [@CL-CMP-3236; @CL-CMP-3235]. One listed requirement is that a CCA qualify as a Lead CCA by having, among other elements, at least 5 years of cybersecurity experience, 5 years of management experience, and 3 years of assessment or audit experience [@CL-CMP-3237; @CL-CMP-3235]. The CCA section lists further requirements that this card does not set out.
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A CCA is certified by the CAICO at the start of year 1. Under the 3-year validit
 
 ## Never confuse
 
-The CAICO is not the Accreditation Body. The Accreditation Body authorizes and ensures the accreditation of C3PAOs [@CL-CMP-3218], while the CAICO trains, tests, certifies and recertifies assessors, instructors and related professionals [@CL-CMP-3232]. A CCA is not a third-party assessment organization either. A CCA conducts Level 2 certification assessments in support of a C3PAO [@CL-CMP-3234]. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the people the CAICO certifies as instructors and professionals are on the [instructors and certified professionals](cmp-cmmc-instructors-and-certified-professionals.md) card.
+The Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218]. The CAICO is responsible for training, testing, authorizing, certifying, and recertifying CMMC assessors, instructors, and related professionals [@CL-CMP-3232]. CCAs, in support of a C3PAO, conduct Level 2 certification assessments of OSCs [@CL-CMP-3234]. The Accreditation Body is on the [Accreditation Body](cmp-cmmc-accreditation-body.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the people the CAICO certifies as instructors and professionals are on the [instructors and certified professionals](cmp-cmmc-instructors-and-certified-professionals.md) card.
 
 ## Company calibration
 
@@ -53,5 +53,5 @@ Which assessors the company relies on, and who confirms that their certification
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced uncited contrasts with cited role statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC Assessor and Instructor Certification Organization and Certified Assessors.

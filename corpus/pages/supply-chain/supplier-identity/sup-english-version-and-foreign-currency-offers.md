@@ -34,15 +34,13 @@ If the Government receives offers in more than one currency, it evaluates them b
 
 ## How it works
 
-The English version clause settles an inconsistency between a contract term and a translation, and it settles it for the English language meaning [@CL-SUP-2807]. It does not say that a translation is invalid or that the contract must be written in English.
+The English version clause settles an inconsistency between a contract term and a translation into another language for the English language meaning [@CL-SUP-2807].
 
-The foreign currency provision applies when the Government receives offers in more than one currency [@CL-SUP-2808]. It converts the foreign currency to United States currency for evaluation [@CL-SUP-2808]. It does not state the currency of payment.
+The foreign currency provision applies when the Government receives offers in more than one currency, and it converts the foreign currency to United States currency for evaluation using the source of rate that the Contracting Officer inserts [@CL-SUP-2808].
 
-The source of the rate is a bracketed fill-in that the Contracting Officer completes in each solicitation, so it is contract-specific and this card cannot name it [@CL-SUP-2808].
+For acquisitions conducted using sealed bidding procedures, the rate in effect on the date of bid opening is used [@CL-SUP-2809]. For acquisitions conducted using negotiation procedures, the rate in effect on the date specified for receipt of offers is used if award is based on initial offers, and otherwise the rate in effect on the date specified for receipt of proposal revisions [@CL-SUP-2810].
 
-The date of the rate depends on the procedure. Under sealed bidding it is the date of bid opening [@CL-SUP-2809]. Under negotiation it is the date specified for receipt of offers if award is based on initial offers, and otherwise the date specified for receipt of proposal revisions [@CL-SUP-2810]. Those dates are the ones the solicitation specifies.
-
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO 52.225-14 keeps the rule that in the event of inconsistency between a term of the contract and a translation into another language, the English language meaning controls [@CL-SUP-3649; @CL-SUP-2807]. RFO 52.225-17 keeps the conversion of offers in more than one currency to United States currency using the source of rate the contracting officer inserts [@CL-SUP-3650; @CL-SUP-2808], the rate on the date of bid opening for sealed bidding [@CL-SUP-3651; @CL-SUP-2809], and for negotiation the rate on the date specified for receipt of offers if award is based on initial offers, otherwise on the date specified for receipt of proposal revisions [@CL-SUP-3652; @CL-SUP-2810].
+In RFO FAR part 52, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760; @CL-CMP-9762]. RFO FAR 52.225-14 keeps the rule that in the event of inconsistency between any terms of the contract and any translation into another language, the English language meaning shall control [@CL-SUP-3649; @CL-SUP-2807]. RFO FAR 52.225-17 keeps the conversion of offers in more than one currency to United States currency using the source of rate the Contracting Officer inserts [@CL-SUP-3650; @CL-SUP-2808], the rate on the date of bid opening for sealed bidding [@CL-SUP-3651; @CL-SUP-2809], and for negotiation the rate on the date specified for receipt of offers if award is based on initial offers, otherwise on the date specified for receipt of proposal revisions [@CL-SUP-3652; @CL-SUP-2810].
 
 ## Worked example
 
@@ -58,11 +56,7 @@ Separately, the contract is signed in English with a translation. The English te
 
 ## Never confuse
 
-The English version clause decides which wording controls. It does not set an evaluation rule and does not require a language [@CL-SUP-2807].
-
-The foreign currency provision converts offers for evaluation and states no currency of payment [@CL-SUP-2808].
-
-The Trade Agreements Certificate and the Trade Agreements clause deal with which end products may be offered and delivered. They are covered on [Trade Agreements Certificate](sup-trade-agreements-certificate.md) and [Trade Agreements clause](sup-trade-agreements-clause.md).
+The English version clause provides that in the event of inconsistency between any terms of the contract and any translation into another language, the English language meaning shall control [@CL-SUP-2807], whereas the foreign currency provision evaluates offers received in more than one currency by converting the foreign currency to United States currency [@CL-SUP-2808] (see also [Trade Agreements Certificate](sup-trade-agreements-certificate.md) and [Trade Agreements clause](sup-trade-agreements-clause.md)).
 
 ## Company calibration
 
@@ -72,6 +66,7 @@ Which rate source the solicitation inserts, and whether the company's translated
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative commentary and meta wording on the RFO text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for English version control and evaluation of foreign currency offers.

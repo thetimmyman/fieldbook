@@ -16,7 +16,7 @@ links = ["ctf-dfars-line-item-and-subline-item-criteria", "ctf-acrn-and-payment-
 
 ## Purpose
 
-Shows what the DFARS cost voucher billing clause requires a contractor to put on a payment request, and where the source text stops.
+Shows what the DFARS cost voucher billing clause requires a contractor to put on a payment request.
 
 ## The rule
 
@@ -31,11 +31,11 @@ Shows what the DFARS cost voucher billing clause requires a contractor to put on
 
 When the contractor submits a request for payment using a cost voucher, it shall identify the contract line item(s) on the payment request that reasonably reflect contract work performance [@CL-CTF-1801]. It shall also separately identify a payment amount for each contract line item included in the payment request [@CL-CTF-1802].
 
-The DFARS directs use of the clause as prescribed in DFARS 204.7109(b) [@CL-CTF-1830]. The printed clause text does not mention accounting classification references or say how a payment is split across them, so this source does not establish an accounting classification rule for cost vouchers. The related DFARS text on funds tracing is on [Accounting classification reference numbers and payment instructions](ctf-acrn-and-payment-instructions.md), and the line item rules are on [DFARS line item and subline item criteria](ctf-dfars-line-item-and-subline-item-criteria.md).
+The DFARS directs use of the clause as prescribed in DFARS 204.7109(b) [@CL-CTF-1830]. The related DFARS text on funds tracing is on [Accounting classification reference numbers and payment instructions](ctf-acrn-and-payment-instructions.md), and the line item rules are on [DFARS line item and subline item criteria](ctf-dfars-line-item-and-subline-item-criteria.md).
 
 ## How it works
 
-The clause sets two duties that apply together to every cost voucher payment request. The first picks the line items that fit the work performed, and the second ties a separate payment amount to each of those line items [@CL-CTF-1801; @CL-CTF-1802]. The clause does not set a form, a due date or a system for submission. The general content rules for an invoice are on [Proper invoice content](ctf-proper-invoice-content.md).
+When submitting a request for payment using a cost voucher, the contractor has two duties, both of which apply: to identify the contract line item(s) that reasonably reflect contract work performance and to separately identify a payment amount for each contract line item included in the payment request [@CL-CTF-1801; @CL-CTF-1802]. The general content rules for an invoice are on [Proper invoice content](ctf-proper-invoice-content.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the voucher meets the clause, because it names the line items that refle
 
 ## Never confuse
 
-Identifying line items and amounts on a voucher is not the same as tracing funds with accounting classification references. The first is a duty of the billing contractor; the second is a contract and funding feature covered on the linked accounting classification card. The clause also differs from the clause on items that are not separately priced, which limits when an item may be invoiced and is on [Payment for line or subline items not separately priced](ctf-dfars-nsp-line-item-payment.md).
+The contractor shall identify the contract line item(s) on the payment request and separately identify a payment amount for each contract line item included in the payment request [@CL-CTF-1801; @CL-CTF-1802]. The DFARS clause on items that are not separately priced is on [Payment for line or subline items not separately priced](ctf-dfars-nsp-line-item-payment.md).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ How each voucher amount is assigned to a contract line item, and who corrects a 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited negatives; restated the second duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for billing instructions for cost vouchers.

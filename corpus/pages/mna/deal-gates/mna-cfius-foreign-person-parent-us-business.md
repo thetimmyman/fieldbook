@@ -44,7 +44,7 @@ The term United States or U.S. means the United States of America, the States of
 
 ## How it works
 
-Foreign person status can come from the entity's own foreign character or from who controls it [@CL-MNA-0810; @CL-MNA-0811]. Parent status looks through ownership chains, so an entity that is a parent of an intermediate parent is also a parent of any other entity of which the intermediate parent is a parent [@CL-MNA-0814]. A U.S. business can be foreign controlled, because the test ignores the nationality of its controllers [@CL-MNA-0815]. These terms feed the jurisdiction tests on the [jurisdiction card](mna-cfius-jurisdiction.md), which this card does not restate.
+Foreign person status can come from the entity's own foreign character or from who controls it [@CL-MNA-0810; @CL-MNA-0811]. Parent status looks through ownership chains, so an entity that is a parent of an intermediate parent is also a parent of any other entity of which the intermediate parent is a parent [@CL-MNA-0814]. A U.S. business is any entity engaged in interstate commerce in the United States, irrespective of the nationality of the persons that control it [@CL-MNA-0815]. These terms feed the jurisdiction tests on the [jurisdiction card](mna-cfius-jurisdiction.md), which this card does not restate.
 
 ## Worked example
 
@@ -56,7 +56,7 @@ Answer: F is a foreign person because it is a foreign entity, and H and T are fo
 
 ## Never confuse
 
-A parent is not the same as a controller. Parent status turns on the voting, profit, asset, general partner or intermediate parent tests [@CL-MNA-0812; @CL-MNA-0813; @CL-MNA-0814], while foreign person status turns on being a foreign national, foreign government or foreign entity, or on being under foreign control [@CL-MNA-0810]. The control concept is on the [control card](mna-cfius-control.md). A U.S. business is also not the same as a U.S.-owned business, because the test ignores the nationality of the persons that control it [@CL-MNA-0815]. A party to a transaction is a separate idea, and it is on the [party and transaction card](mna-cfius-party-transaction-and-applicability.md).
+Parent status turns on the voting, profit, asset, general partner or intermediate parent tests [@CL-MNA-0812; @CL-MNA-0813; @CL-MNA-0814], while foreign person status turns on being a foreign national, foreign government or foreign entity, or on being under foreign control [@CL-MNA-0810]. The control concept is on the [control card](mna-cfius-control.md). Whether an entity is a U.S. business depends on whether it is engaged in interstate commerce in the United States, irrespective of the nationality of the persons that control it [@CL-MNA-0815]. A party to a transaction is a separate idea, and it is on the [party and transaction card](mna-cfius-party-transaction-and-applicability.md).
 
 ## Company calibration
 
@@ -65,7 +65,7 @@ Whether any owner, investor or lender of the company or of a target is a foreign
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: citation placed before the semicolon.
 - COMPATIBLE_EXTENSION, 2026-10-31: Profit and assets parent test reworded to the right held.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of foreign national, U.S. national, foreign government, hold, voting interest and United States.

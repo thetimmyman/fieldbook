@@ -37,9 +37,9 @@ The provision is used as prescribed in DFARS 239.7604(a) [@CL-CMP-9077].
 
 The provision first defines cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources, such as networks, servers, storage, applications and services [@CL-CMP-9073]. The resources are ones that can be rapidly provisioned and released with minimal management effort or service provider interaction [@CL-CMP-9272]. The definition includes other commercial terms such as on-demand self-service, broad network access, resource pooling, rapid elasticity and measured service [@CL-CMP-9273]. It also includes commercial offerings for software-as-a-service, infrastructure-as-a-service and platform-as-a-service [@CL-CMP-9074].
 
-The duty to indicate falls on the offeror, and the offeror chooses the blank [@CL-CMP-9075]. The provision names no deciding official, approval route, threshold or deadline of its own, and it sets no notice duty after award [@CL-CMP-9075]. The question in paragraph (b) refers to the resultant contract, while the blanks in paragraph (c) refer to any contract or subcontract resulting from the solicitation, so the offeror should read the representation as reaching subcontract use as well [@CL-CMP-9075; @CL-CMP-9076; @CL-CMP-9274].
+The duty to indicate falls on the offeror, and the offeror chooses the blank [@CL-CMP-9075]. Paragraph (b) asks whether the use of cloud computing is anticipated under the resultant contract [@CL-CMP-9075], and the blanks in paragraph (c) refer to any contract or subcontract resulting from the solicitation [@CL-CMP-9076; @CL-CMP-9274].
 
-The offeror's answer matters later. Under the separate cloud computing services clause, a contractor that indicated in its offer that it does not anticipate cloud use, and that proposes after award to use cloud computing services, shall obtain approval from the Contracting Officer before using them [@CL-CMP-3990; @CL-CMP-3991]. That clause is covered in [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+The offeror's answer matters later. Under the separate cloud computing services clause, a contractor that indicated in its offer, in response to provision 252.239-7009, that it does not anticipate the use of cloud computing services in the performance of a resultant contract, and that proposes after award to use cloud computing services, shall obtain approval from the Contracting Officer before using them [@CL-CMP-3990; @CL-CMP-3991]. That clause is covered in [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
 ## Worked example
 
@@ -51,11 +51,11 @@ A second offeror expects to do all the work on its own premises and checks the b
 
 ## Never confuse
 
-This provision is a representation made with the offer. It is not the contract clause that sets security, data location and incident duties for cloud services, which is covered in [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+The offeror indicates its answer by checking the appropriate blank in paragraph (c) of the provision [@CL-CMP-9075]. For the contract clause on cloud computing services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
-A hosting arrangement is not outside the provision merely because the parties do not call it cloud. The definition reaches commercial offerings such as software-, infrastructure- and platform-as-a-service [@CL-CMP-9074].
+The definition includes commercial offerings for software-as-a-service, infrastructure-as-a-service, and platform-as-a-service [@CL-CMP-9074].
 
-The representation is not limited to the offeror's own performance, because the blanks cover any contract or subcontract resulting from the solicitation [@CL-CMP-9076; @CL-CMP-9274].
+The blanks refer to any contract or subcontract resulting from the solicitation [@CL-CMP-9076; @CL-CMP-9274].
 
 ## Company calibration
 
@@ -64,6 +64,6 @@ Which solicitations this company bids, and whether its technical solution or its
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: removed absence and inference wording; replaced contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both conditions of the cloud approval step.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD representation of use of cloud computing.

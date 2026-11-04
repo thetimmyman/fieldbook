@@ -28,11 +28,11 @@ Gives the two dollar thresholds that most often decide which acquisition procedu
 | Text status | Final [@CL-FND-0001] |
 | Applies to | Awards from 2025-10-01 [@CL-FND-0001] |
 
-The simplified acquisition threshold is $350,000, with different values for the listed contingency, attack-response, disaster-assistance and peacekeeping cases [@CL-FND-0001]. The micro-purchase threshold is $15,000, with listed exceptions [@CL-FND-0002]. Both took effect on 2025-10-01 [@CL-FND-0001] [@CL-FND-0002].
+The simplified acquisition threshold means $350,000, except for the acquisitions listed in its definition [@CL-FND-0001]. One listed exception is acquisitions of supplies or services that, as determined by the head of the agency, are to be used to support a humanitarian or peacekeeping operation (section 3015 of title 10 of the United States Code): the term means $650,000 for any contract to be awarded and performed, or purchase to be made, outside the United States [@CL-CMP-8720]. The micro-purchase threshold means $15,000, except for the exceptions listed in its definition [@CL-FND-0002], which include $2,000 for acquisitions of construction subject to 40 U.S.C. chapter 31, subchapter IV, Wage Rate Requirements (Construction) [@CL-MKT-9216] and $2,500 for acquisitions of services subject to 41 U.S.C. chapter 67, Service Contract Labor Standards [@CL-MKT-9217]. Both took effect on 2025-10-01 [@CL-FND-0001] [@CL-FND-0002].
 
 ## How it works
 
-Both thresholds are definitions, so other parts of the Federal Acquisition Regulation use them by name instead of repeating the amount. A purchase at or below the micro-purchase threshold can be made with the fewest formalities; one at or below the simplified acquisition threshold can use simplified procedures. Because clause prescriptions name the thresholds, a change in a threshold can change which clauses go into a new contract.
+Both thresholds are defined in FAR 2.101 [@CL-FND-0001] [@CL-FND-0002].
 
 ## Worked example
 
@@ -42,7 +42,7 @@ A supplier quote of 12,000 sits below a micro-purchase threshold of 15,000. A se
 
 ## Never confuse
 
-The simplified acquisition threshold is not the threshold for certified cost or pricing data; see [Certified cost or pricing data](../../estimating/pricing/est-certified-cost-or-pricing-data.md). Neither is a Cost Accounting Standards threshold; see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
+For the threshold for certified cost or pricing data, see [Certified cost or pricing data](../../estimating/pricing/est-certified-cost-or-pricing-data.md). For Cost Accounting Standards thresholds, see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -52,4 +52,5 @@ Not established.
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the exceptions to both thresholds with cited amounts; cut uncited procedure inferences and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two acquisition thresholds.

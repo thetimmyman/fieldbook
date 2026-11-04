@@ -16,7 +16,7 @@ links = ["cmp-assignment-of-contract-administration", "cmp-contract-administrati
 
 ## Purpose
 
-Shows where cognizant audit offices are listed and what the contract administration office must and may do on a contract assigned to it. The duties in both sections fall on Government offices and personnel, not on the contractor.
+Shows where cognizant audit offices are listed and what the contract administration office must and may do on a contract assigned to it.
 
 ## The rule
 
@@ -49,7 +49,7 @@ A contract worth 4,000,000 is assigned to a contract administration office, and 
 
 ## Never confuse
 
-The cognizant audit office, which holds audit cognizance over the contractor and appears in the directory [@CL-CMP-7790], is not the contract administration office that performs the listed functions on an assigned contract [@CL-CMP-7793].
+The cognizant audit office, which holds audit cognizance over the contractor, appears in the directory [@CL-CMP-7790]; the contract administration office performs the listed functions on an assigned contract [@CL-CMP-7793].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which contracts are assigned to which contract administration office, and which 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.000 scope of part 42.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Restored that the office performs the FAR 42.302(a) functions only to the extent they apply to the contract.

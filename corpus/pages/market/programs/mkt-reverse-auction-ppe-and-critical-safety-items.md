@@ -35,17 +35,17 @@ The section refers to 252.209-7010 for the definition and identification of crit
 
 ## How it works
 
-The requiring activity designates the item and gives the advice; the contracting officer then may not use a reverse auction for that procurement [@CL-MKT-2116; @CL-MKT-2117]. The prohibition binds the contracting officer, not the contractor, and this section states no exception, waiver or approval route. The reference to 252.209-7010 points to where critical safety items are defined and identified [@CL-MKT-2118].
+When the requiring activity designates the item as personal protective equipment or an aviation critical safety item and advises the contracting officer that the level of quality or failure of the equipment or item could result in combat casualties, the contracting officer shall not use a reverse auction for that procurement [@CL-MKT-2116; @CL-MKT-2117]. DFARS 217.7801 refers to 252.209-7010 for the definition and identification of critical safety items [@CL-MKT-2118].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A requiring activity designates a batch of protective masks as personal protective equipment and advises the contracting officer that a failure of quality could result in combat casualties. The contracting officer may not use a reverse auction for that buy and chooses another method [@CL-MKT-2116; @CL-MKT-2117]. If the requiring activity gave no such advice, this section would not bar the auction, but the general reverse auction rules separately bar reverse auctions for the acquisition of personal protective equipment, so masks would still be barred [@CL-MKT-2117; @CL-MKT-1605].
+A requiring activity designates a batch of 500 protective masks at 240 each (120,000 total) as personal protective equipment and advises the contracting officer that a failure of quality could result in combat casualties. Because both the designation and the combat-casualty advice are present, the contracting officer does not use a reverse auction for the 120,000 procurement.
 
 ## Never confuse
 
-This section is the Defense supplement's prohibition for designated items; it sets no dollar threshold, and the general rules separately bar reverse auction processes for acquisition of personal protective equipment [@CL-MKT-1604; @CL-MKT-1605]. The general limits on when a reverse auction is suitable and how it is awarded are on [Reverse auctions: suitability and award](mkt-reverse-auctions-suitability-and-award.md). The prohibition here turns on the requiring activity's designation and its advice, not on how the contracting officer would otherwise run the auction [@CL-MKT-2116; @CL-MKT-2117].
+DFARS 217.7801 bars reverse auctions when the requiring activity designates an item as personal protective equipment or an aviation critical safety item and advises that the level of quality or failure could result in combat casualties [@CL-MKT-2116; @CL-MKT-2117], while FAR 17.803(d) bars reverse auction processes for the acquisition of personal protective equipment in accordance with the three listed defense authorization statutes [@CL-MKT-1604; @CL-MKT-1605; @CL-MKT-1812]. The general limits on when a reverse auction is suitable and how it is awarded are on [Reverse auctions: suitability and award](mkt-reverse-auctions-suitability-and-award.md).
 
 ## Company calibration
 
@@ -54,6 +54,6 @@ Which catalogue items the requiring activity designates as personal protective e
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 17.803(d)(3) statutory citation and removed unquoted meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: general bar on personal protective equipment cited to lead-in and item.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on reverse auctions for protective equipment and aviation critical safety items.

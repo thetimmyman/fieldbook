@@ -35,7 +35,7 @@ When an amount is negotiated under the first course, the contractor shall elimin
 
 ## How it works
 
-The termination contracting officer and the contractor may agree either to settle the indirect costs now or to reserve the adjustment until negotiated rates are established [@CL-RTE-0694; @CL-RTE-0695; @CL-RTE-0696]. When indirect cost is negotiated now, it and its related direct costs leave the pool and base used for other contracts performed during the applicable accounting period [@CL-RTE-0697]. The final settlement agreement may include all demands of the Government and proposals of the contractor under the terminated contract, but no amount is allowed for an item disallowed by the Government or for any other item of the same nature [@CL-RTE-0698]. An overall settlement of costs shall not include costs that are clearly not allowable under the terms of the contract [@CL-RTE-0699].
+The termination contracting officer and the contractor may agree either to negotiate the amount of indirect costs for the contract period for which final indirect cost rates have not been negotiated, or to use billing rates as final rates for this period if the billing rates appear reasonable, or to reserve any indirect cost adjustment in the final settlement agreement, pending establishment of negotiated rates under subpart 42.7 [@CL-RTE-0694; @CL-RTE-0695; @CL-RTE-0696]. When an amount of indirect cost is negotiated under paragraph (a)(1), the contractor shall eliminate the indirect cost and the related direct costs on which it was based from the total pool and base used to compute indirect costs for other contracts performed during the applicable accounting period [@CL-RTE-0697]. The final settlement agreement may include all demands of the Government and proposals of the contractor under the terminated contract, but no amount shall be allowed for any item of cost disallowed by the Government, nor for any other item of cost of the same nature [@CL-RTE-0698]. An overall settlement shall not include costs that are clearly not allowable under the terms of the contract [@CL-RTE-0699].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A cost-reimbursement contract is terminated and the audit work on its indirect c
 
 ## Never confuse
 
-Negotiating an amount, or using billing rates as final if they appear reasonable, settles the indirect cost for the open period now [@CL-RTE-0695]. Reserving the adjustment defers it until negotiated rates are established [@CL-RTE-0696]. For the ordinary rate process, see [Final indirect cost rate proposal](rte-final-indirect-rate-proposal.md) and [Termination settlement on cost-reimbursement contracts](../../contract-finance/billing-payment/ctf-termination-cost-reimbursement-settlement.md).
+One course is to negotiate the amount of indirect costs for the contract period for which final indirect cost rates have not been negotiated, or to use billing rates as final rates for this period if the billing rates appear reasonable [@CL-RTE-0695]. The other is to reserve any indirect cost adjustment in the final settlement agreement, pending establishment of negotiated rates under subpart 42.7 [@CL-RTE-0696]. For the ordinary rate process, see [Final indirect cost rate proposal](rte-final-indirect-rate-proposal.md) and [Termination settlement on cost-reimbursement contracts](../../contract-finance/billing-payment/ctf-termination-cost-reimbursement-settlement.md).
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ Which fiscal years and terminated contracts still have open indirect cost adjust
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the two agreements and the pool-and-base elimination in the section's terms, and replaced uncited glosses with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the appears condition in the scope row.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added terminated-contract scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indirect cost adjustment on terminated cost-reimbursement contracts.

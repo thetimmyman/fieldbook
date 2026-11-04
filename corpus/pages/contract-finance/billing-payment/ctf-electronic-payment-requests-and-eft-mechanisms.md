@@ -53,7 +53,7 @@ A contract is paid in euros. The Government must provide payment by other than E
 
 ## Never confuse
 
-Electronic submission is not electronic payment. A request can be submitted and processed in electronic form [@CL-CTF-3381] and still be paid by other than EFT, where the payment is received outside the United States and Puerto Rico or the contract is paid in other than United States currency [@CL-CTF-3389]. For the clauses and the rules on when EFT applies, see [DoD electronic payment request clause](../financing/ctf-dod-electronic-payment-request-clause.md), [Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md), [EFT payment clauses and designated office](ctf-eft-payment-clauses-and-designated-office.md) and [EFT applicability and purchase card payment](../financing/ctf-eft-applicability-and-purchase-card-payment.md).
+DoD officials receiving payment requests in electronic form must process them in electronic form [@CL-CTF-3381]. The Government must provide payment by other than EFT for payments received by or on behalf of the contractor outside the United States and Puerto Rico or for contracts paid in other than United States currency [@CL-CTF-3389]. For the clauses and the rules on when EFT applies, see [DoD electronic payment request clause](../financing/ctf-dod-electronic-payment-request-clause.md), [Wide Area WorkFlow payment instructions](ctf-wide-area-workflow-payment-instructions.md), [EFT payment clauses and designated office](ctf-eft-payment-clauses-and-designated-office.md) and [EFT applicability and purchase card payment](../financing/ctf-eft-applicability-and-purchase-card-payment.md).
 
 ## Company calibration
 
@@ -62,6 +62,6 @@ Confirm where payment requests are submitted for each contract and who handles a
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast and inference from the never-confuse paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic payment requests and EFT mechanisms.

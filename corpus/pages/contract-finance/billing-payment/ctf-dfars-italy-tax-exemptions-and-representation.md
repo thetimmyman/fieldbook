@@ -33,11 +33,11 @@ The United States Government is exempt from payment of Imposta Valore Aggiunto (
 
 As the contractor represented in its offer, the contract price, including the prices in subcontracts awarded under the contract, does not include taxes from which the United States Government is exempt [@CL-CTF-1905].
 
-By submitting its offer, the offeror represents that the offered price, including the prices of subcontracts to be awarded under the contract, does not include the taxes identified in the provision or any other taxes from which the United States Government is exempt [@CL-CTF-1867]. The provision's list of exemptions ends with the other taxes specified in the paragraph of the Italy clause that lists them [@CL-CTF-1906].
+By submitting its offer, the offeror represents that the offered price, including the prices of subcontracts to be awarded under the contract, does not include the taxes identified in the provision or any other taxes from which the United States Government is exempt [@CL-CTF-1867]. Under the representation provision, the United States Government is exempt from payment of IVA tax in accordance with Article 72 of the IVA implementing decree on all supplies and services sold to United States Military Commands in Italy [@CL-CTF-1842], and from the other taxes specified in paragraph (c) of the clause DFARS 252.229-7003, Tax Exemptions (Italy) [@CL-CTF-1906].
 
 ## How it works
 
-The contractor puts the contract number, the IVA exemption claimed and the fiscal code(s) on each invoice [@CL-CTF-1862]. The Contracting Officer must insert the applicable fiscal code(s) for military activities within Italy, and the clause names 80028250241 for Army, 80156020630 for Navy and 91000190933 for Air Force [@CL-CTF-1904]. On receipt, the paying office will include on one copy of the invoice a certification that begins by stating that the invoice is true and correct and reflects expenditures made in Italy for the Common Defense by the United States Government under international agreements [@CL-CTF-1863]. The paying office returns the certified copy with payment, the payment leaves out the IVA tax, and the contractor keeps the certified copy to show the IVA tax was not paid [@CL-CTF-1864].
+The contractor shall include on invoices submitted to the United States Government the contract number, the IVA tax exemption claimed pursuant to Article 72 of Decree Law 633, dated October 26, 1972, and the fiscal code(s) [@CL-CTF-1862]. The Contracting Officer must insert the applicable fiscal code(s) for military activities within Italy, and the clause names 80028250241 for Army, 80156020630 for Navy and 91000190933 for Air Force [@CL-CTF-1904]. Upon receipt of the invoice, the paying office will include on one copy of the invoice a certification that begins by stating that the invoice is true and correct and reflects expenditures made in Italy for the Common Defense by the United States Government under international agreements [@CL-CTF-1863]. The paying office will return the certified copy together with payment to the contractor, the payment will not include the amount of the IVA tax, and the contractor shall retain the certified copy to substantiate non-payment of the IVA tax [@CL-CTF-1864].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor sells supplies to a United States Military Command in Italy for an 
 
 ## Never confuse
 
-The clause governs invoicing and lists the exempt taxes [@CL-CTF-1861; @CL-CTF-1865], while the provision only collects the offeror's representation at the offer stage [@CL-CTF-1867]. The IVA tax is the first exemption, and the other listed taxes are exempt in addition to it [@CL-CTF-1865]. The paying office certification supports non-payment of the IVA tax and is not a separate exemption [@CL-CTF-1864]. For invoice content in general, see [Proper invoice: required content and payment documentation](ctf-proper-invoice-content.md), and for the FAR tax clause see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Neighbouring host countries have their own clauses: see [Spain tax exemptions and the matching representation](ctf-dfars-spain-tax-exemptions-and-representation.md) and [Tax relief, German customs exemption and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md).
+Under the clause, the United States Government is exempt from payment of IVA tax [@CL-CTF-1861], and purchases by the United States Forces in Italy are exempt from the other listed taxes in addition to the IVA tax [@CL-CTF-1865]. Under the provision, by submission of its offer, the offeror represents that the offered price does not include the taxes identified in the provision or any other taxes from which the United States Government is exempt [@CL-CTF-1867]. The contractor shall retain the certified copy to substantiate non-payment of the IVA tax [@CL-CTF-1864]. For invoice content in general, see [Proper invoice: required content and payment documentation](ctf-proper-invoice-content.md), and for the FAR tax clause see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Clauses for other host countries are on [Spain tax exemptions and the matching representation](ctf-dfars-spain-tax-exemptions-and-representation.md) and [Tax relief, German customs exemption and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md).
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Which contracts and offers in Italy carry the exemption clause and representatio
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the provision's exemption lead-in; cut uncited contrasts; matched invoice and certified-copy duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: IVA exemption basis stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Italy and the matching representation.

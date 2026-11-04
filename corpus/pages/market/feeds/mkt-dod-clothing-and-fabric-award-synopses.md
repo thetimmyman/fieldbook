@@ -16,26 +16,24 @@ links = ["mkt-contract-award-synopses", "cmp-acquisition-thresholds", "mkt-publi
 
 ## Purpose
 
-Shows the one announcement duty printed in the DoD publicizing section: which awards must be synopsized, the amount that triggers it, and when the synopsis must be submitted.
+Shows the DoD synopsis duty for exceptions to domestic source requirements: which awards must be synopsized, the threshold that triggers it, when the synopsis must be submitted, and the required statements.
 
 ## The rule
 
 | Field | Value |
 |---|---|
 | Instrument | Codified DFARS [@CL-MKT-0745] |
-| Codified citation | DFARS 205.301(a)(S-70) [@CL-MKT-0745] |
+| Codified citation | DFARS 205.301(a)(S-70) [@CL-MKT-1875; @CL-MKT-0745] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0745] |
 | Applies to | Awards exceeding the simplified acquisition threshold for the listed clothing, fiber, yarn or fabric items, when a listed condition applies [@CL-MKT-0745] |
 
-Contracting officers also must synopsize through the Governmentwide point of entry awards exceeding the simplified acquisition threshold that are for the acquisition of any clothing, fiber, yarn, or fabric items described in the cross-referenced paragraphs, if one of the listed conditions applies [@CL-MKT-0745]. The threshold is the simplified acquisition threshold; its dollar amount is not set in the printed DoD section and is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
-
-The printed DoD section holds only this one synopsis duty. It does not establish a general DoD announcement rule or a general DoD dollar threshold.
+In accordance with title 10 of the United States Code, section 4862(k), contracting officers also must synopsize through the Governmentwide point of entry (https://www.sam.gov) awards exceeding the simplified acquisition threshold that are for the acquisition of any clothing, fiber, yarn, or fabric items described in DFARS 225.7002-1(a)(1)(ii) through (x), if one of the listed conditions applies [@CL-MKT-1875; @CL-MKT-0745]. For the simplified acquisition threshold amount, see the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
 
 ## How it works
 
-The duty applies to an award only when a listed condition is met. One listed condition is that the Secretary concerned has determined that domestic items are not available, in accordance with 225.7002-2(b) [@CL-MKT-0746]. Another listed condition is that the acquisition is for chemical warfare protective clothing and the contracting officer has determined that an exception to domestic source requirements applies because the acquisition furthers an agreement with a qualifying country, in accordance with 225.7002-2(n) [@CL-MKT-0747]. On timing, the synopsis must be submitted in sufficient time to permit its publication not later than 7 days after contract award [@CL-MKT-0748]. In addition to the information otherwise required in a synopsis of contract award, the synopsis must include one of the prescribed statements as applicable [@CL-MKT-0805]. The text of those statements is not set out on this card.
+The first listed condition is that the Secretary concerned has determined that domestic items are not available, in accordance with DFARS 225.7002-2(b) [@CL-MKT-0746]. The second listed condition is that the acquisition is for chemical warfare protective clothing, and the contracting officer has determined that an exception to domestic source requirements applies because the acquisition furthers an agreement with a qualifying country, in accordance with DFARS 225.7002-2(n) [@CL-MKT-0747]. The synopsis must be submitted in sufficient time to permit its publication not later than 7 days after contract award [@CL-MKT-0748]. In addition to the information otherwise required in a synopsis of contract award, the synopsis must include one of the following statements as applicable [@CL-MKT-0805]: (A) that the exception at DFARS 225.7002-2(b) applies to the acquisition because the Secretary concerned has determined that items grown, reprocessed, reused, or produced in the United States cannot be acquired as and when needed in satisfactory quality and sufficient quantity at U.S. market prices [@CL-MKT-1876], or (B) that the exception at DFARS 225.7002-2(n) applies to the acquisition because the contracting officer has determined that the acquisition of chemical warfare protective clothing furthers an agreement with a qualifying country identified in DFARS 225.003 [@CL-MKT-1877].
 
 ## Worked example
 
@@ -45,7 +43,7 @@ A contracting officer awards a contract above the simplified acquisition thresho
 
 ## Never confuse
 
-This duty is not the general synopsis of contract awards, which is on the [Synopses of contract awards](mkt-contract-award-synopses.md) card. It is an added duty for awards that rest on an exception to domestic source requirements, and it is limited to the listed clothing, fiber, yarn and fabric items [@CL-MKT-0745]. The general rules for when a notice is publicized and what exceptions apply are on the [When contract actions must be publicized and the exceptions](mkt-publicizing-requirements-and-exceptions.md) card.
+Under DFARS 205.301(a)(S-70), contracting officers also must synopsize through the Governmentwide point of entry (https://www.sam.gov) awards exceeding the simplified acquisition threshold for the clothing, fiber, yarn, or fabric items described in DFARS 225.7002-1(a)(1)(ii) through (x) when either the domestic nonavailability determination under DFARS 225.7002-2(b) or the chemical warfare protective clothing qualifying-country exception under DFARS 225.7002-2(n) applies, in sufficient time to permit publication not later than 7 days after contract award [@CL-MKT-1875; @CL-MKT-0745; @CL-MKT-0746; @CL-MKT-0747; @CL-MKT-0748]. General synopses of contract awards are on the [Synopses of contract awards](mkt-contract-award-synopses.md) card, and preaward publicizing requirements and exceptions are on the [When contract actions must be publicized and the exceptions](mkt-publicizing-requirements-and-exceptions.md) card.
 
 ## Company calibration
 
@@ -54,5 +52,5 @@ Confirm which public award synopses for these items are relevant market observat
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added statutory lead-in, exact item cross-reference, and both prescribed synopsis statements, and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD publicizing of contract actions.

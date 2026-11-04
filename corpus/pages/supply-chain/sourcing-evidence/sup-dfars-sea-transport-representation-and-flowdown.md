@@ -35,13 +35,13 @@ In the basic clause the representation is one of the listed alternatives, and tw
 
 ## How it works
 
-If the contract exceeds the simplified acquisition threshold and the final invoice lacks the representation, the Government rejects and returns it as an improper invoice for the purposes of the Prompt Payment clause [@CL-SUP-1399]. If foreign-flag vessels were used without authorization, the contracting officer is entitled to equitably adjust the contract based on that use [@CL-SUP-1400]. For flowdown, the contractor shall flow the clause down in subcontracts for the types of supplies described in the subcontractor paragraph of the [U.S.-flag requirement card](sup-dfars-sea-transport-us-flag-requirement.md), including commercial products [@CL-SUP-1401]. Subcontracts above the simplified acquisition threshold receive the substance of the whole clause [@CL-SUP-1402]. Subcontracts at or below it receive the substance of paragraphs (a) through (f) and paragraph (j) [@CL-SUP-1403].
+If the contract exceeds the simplified acquisition threshold and the final invoice lacks the representation, the Government rejects and returns it as an improper invoice for the purposes of the Prompt Payment clause [@CL-SUP-1399]. If foreign-flag vessels were used without authorization, the contracting officer is entitled to equitably adjust the contract based on that use [@CL-SUP-1400]. For flowdown, in the award of subcontracts for the types of supplies described in paragraph (c)(2) of the clause, including subcontracts for commercial products, the contractor shall flow down the requirements of the clause as the listed paragraphs provide [@CL-SUP-1401]. See [U.S.-flag requirement card](sup-dfars-sea-transport-us-flag-requirement.md). Subcontracts above the simplified acquisition threshold receive the substance of the whole clause [@CL-SUP-1402]. Subcontracts at or below it receive the substance of paragraphs (a) through (f) and paragraph (j) [@CL-SUP-1403].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contract above the simplified acquisition threshold ends with one shipment on a foreign-flag vessel that had no waiver. The contractor describes the shipment with its final invoice in the format the clause gives. If it omitted the representation, the Government would return the invoice as improper and the payment clock would not start. The contracting officer could also adjust the price for the unauthorized use.
+A contract above the simplified acquisition threshold ends with one shipment on a foreign-flag vessel that had no waiver. The contractor describes the shipment with its final invoice in the format the clause gives. If it omitted the representation, the Government would reject and return the invoice as an improper invoice for the purposes of the Prompt Payment clause [@CL-SUP-1399]. The contracting officer would also be entitled to equitably adjust the contract based on the unauthorized use [@CL-SUP-1400].
 
 ## Never confuse
 
@@ -55,6 +55,6 @@ Who assembles the bills of lading and the final-invoice representation, and how 
 
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the flowdown trigger and example consequences as the cited text has them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the representation alternatives and the bill of lading sentence to match the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transportation of supplies by sea, representation, reporting and flowdown.

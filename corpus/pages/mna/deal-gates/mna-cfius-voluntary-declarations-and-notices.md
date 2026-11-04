@@ -28,17 +28,15 @@ Shows how a party may choose a declaration instead of a written notice, the thir
 | Text status | Not established. |
 | Applies to | A party to any proposed or completed transaction [@CL-MNA-0633] |
 
-This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. A party to any proposed or completed transaction may submit a declaration to the Committee instead of a written notice, except as otherwise prohibited under paragraph (e) of the declaration-procedures section [@CL-MNA-0633]. The rules govern the parties who choose to file and the Committee that must respond.
+This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text. Except as otherwise prohibited under § 800.403(e), a party to any proposed or completed transaction may submit to the Committee a declaration instead of a written notice with respect to the transaction in accordance with the procedures and requirements set forth in §§ 800.403 and 800.404 [@CL-MNA-0633].
 
 The 30-day assessment period for a declaration starts on the date the Committee receives the declaration from the Staff Chairperson [@CL-MNA-0634]. It ends no later than the thirtieth day after it starts, or no later than the next business day if the thirtieth day is not a business day [@CL-MNA-0635]. The Committee must take action on a declaration within the time period that the assessment-period section sets [@CL-MNA-0665].
 
-On receiving a declaration the Committee may, at its discretion, take the actions that the paragraph lists [@CL-MNA-0636]. One listed response is, if the Committee has reason to believe the transaction may raise national security considerations, to request that the parties file a written notice [@CL-MNA-0637]. Two further listed responses are to initiate a unilateral review of the transaction and to notify the parties in writing that the Committee has concluded all action [@CL-MNA-0638]. The paragraph lists another response that this card does not restate.
-
-This card does not restate the content rules for a declaration or the fee rules for a notice.
+On receiving a declaration the Committee may, at its discretion, take one of the actions that the paragraph lists [@CL-MNA-0636]. One listed response is, if the Committee has reason to believe the transaction may raise national security considerations, to request that the parties file a written notice under subpart E [@CL-MNA-0637]. Two further listed responses are to initiate a unilateral review of the transaction under § 800.501(c) or to notify the parties in writing that the Committee has concluded all action under section 721 with respect to the transaction [@CL-MNA-0638]. The paragraph lists another response that this card does not restate.
 
 ## How it works
 
-The party picks a declaration instead of a notice [@CL-MNA-0633]. The thirty-day assessment period runs from the Committee's receipt of the declaration [@CL-MNA-0634]. At its discretion, the Committee may, if it has reason to believe the transaction may raise national security considerations, ask for a written notice, and it may also start its own review or tell the parties it has concluded action [@CL-MNA-0637; @CL-MNA-0638].
+The party submits a declaration instead of a written notice in accordance with §§ 800.403 and 800.404 [@CL-MNA-0633]. The thirty-day assessment period runs from the Committee's receipt of the declaration from the Staff Chairperson [@CL-MNA-0634]. At its discretion, the Committee may, if it has reason to believe the transaction may raise national security considerations, request that the parties file a written notice under subpart E, or it may initiate a unilateral review under § 800.501(c) or notify the parties in writing that it has concluded all action under section 721 [@CL-MNA-0636; @CL-MNA-0637; @CL-MNA-0638].
 
 ## Worked example
 
@@ -57,6 +55,6 @@ Whether the company would choose a declaration or a notice for a foreign investm
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added section references and aligned Committee response options.
 - COMPATIBLE_EXTENSION, 2026-10-31: Notice-request condition and prohibition paragraph stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review voluntary declarations and notices.

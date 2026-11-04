@@ -27,15 +27,15 @@ Shows which defined terms the Cost Accounting Standards Board definitions sectio
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-RTE-0813] |
-| Applies to | The terms as used in the part or the chapter, as each claim states [@CL-RTE-0813; @CL-RTE-0814] |
+| Applies to | The definitions in 48 CFR 9903.301(a) apply to chapter 99 [@CL-RTE-9220]; CAS-covered contract is defined as used in the part and net awards as used in the chapter [@CL-RTE-0813; @CL-RTE-0814] |
 
 In the definitions section, CAS-covered contract, as used in the part, means any negotiated contract or subcontract in which a CAS clause is required to be included [@CL-RTE-0813]. Net awards, as used in the chapter, means the total value of negotiated CAS-covered prime contract and subcontract awards, including the potential value of contract options, received during the reporting period minus cancellations, terminations, and other related credit transactions [@CL-RTE-0814].
 
-Most other entries only point to a definition elsewhere. The entry for cost accounting practice points to 9903.302-1 [@CL-RTE-0856], and the entry for change to a cost accounting practice points to 9903.302-2 [@CL-RTE-0857]. The section prints a few more full definitions, including Disclosure Statement, currently performing, negotiated subcontract and small business, which this card does not carry.
+Many entries give only a pointer: Cost accounting practice. See 9903.302-1 [@CL-RTE-0856]. Change to a cost accounting practice. See 9903.302-2 [@CL-RTE-0857]. Other entries give a full definition, for example Disclosure statement, as used in this part, means the Disclosure Statement required by 9903.202-1 [@CL-RTE-9221].
 
 ## How it works
 
-A reader checks a term here first. If the entry prints a definition, that text applies as printed. If the entry only points elsewhere, the definition sits in the section it names. The section does not define a required, unilateral or desirable change; the existing cards on [required changes](rte-required-changes-cost-accounting-practice.md) and [unilateral and desirable changes](rte-unilateral-and-desirable-changes.md) cover them, and the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md) shows who makes the finding for each. Examples of what is and is not a change to a cost accounting practice are on the [illustrations of changes](rte-changes-that-are-cost-accounting-practice-changes.md) and the [illustrations of changes that are not](rte-changes-that-are-not-cost-accounting-practice-changes.md).
+The definitions set forth in 9903.301(a) apply to chapter 99 [@CL-RTE-9220]. For required changes, see [required changes](rte-required-changes-cost-accounting-practice.md); for unilateral and desirable changes, see [unilateral and desirable changes](rte-unilateral-and-desirable-changes.md); for who makes each finding, see the [findings card](rte-cas-findings-and-subcontractor-disclosure-statements.md). Examples of what is and is not a change to a cost accounting practice are on the [illustrations of changes](rte-changes-that-are-cost-accounting-practice-changes.md) and the [illustrations of changes that are not](rte-changes-that-are-not-cost-accounting-practice-changes.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A business unit books 60 million of new negotiated CAS-covered prime contract an
 
 ## Never confuse
 
-Net awards are not gross awards, because cancellations, terminations and related credits come off [@CL-RTE-0814]. A CAS-covered contract is not every contract: it is one in which a CAS clause is required [@CL-RTE-0813]. What counts as a cost accounting practice, and what counts as a change to one, is on the [definitions card](../../compliance/cas-allowability/cmp-cost-accounting-practice-definitions.md).
+Net awards, as used in this chapter, means the total value of negotiated CAS-covered prime contract and subcontract awards, including the potential value of contract options, received during the reporting period minus cancellations, terminations, and other related credit transactions [@CL-RTE-0814]. CAS-covered contract, as used in this part, means any negotiated contract or subcontract in which a CAS clause is required to be included [@CL-RTE-0813]. What counts as a cost accounting practice, and what counts as a change to one, is on the [definitions card](../../compliance/cas-allowability/cmp-cost-accounting-practice-definitions.md).
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ How pools, bases and awards are defined and reconciled so that net awards can be
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the definitions card to state the definitions and pointers directly, added the chapter 99 applicability and the Disclosure statement definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Board definitions used with practice changes.

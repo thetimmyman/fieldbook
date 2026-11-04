@@ -35,7 +35,7 @@ For those systems, an authorized representative of the DoD CIO will adjudicate o
 
 ## How it works
 
-The contracting officer will consider SPRS risk assessments during the evaluation of quotations or offers, and item risk will be considered to determine whether the procurement represents a high performance risk to the Government [@CL-CMP-2846]. Price risk will be considered in determining if a proposed price is consistent with historical prices paid for a product or a service or otherwise creates a risk to the Government [@CL-CMP-2847]. Supplier risk, including but not limited to quality and delivery, will be considered to assess the risk of unsuccessful performance and supply chain risk [@CL-CMP-2848]. The contracting officer may also consider any other available and relevant information when evaluating a quotation or an offer [@CL-CMP-2909]. The summary level scores of the NIST assessments, which are also posted in SPRS, are on the [DoD assessment notice and requirements](cmp-nist-sp-800-171-dod-assessment-requirements.md) card. The security controls themselves, and the cyber incident duties, are on the [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md) card and are not restated here.
+The contracting officer will consider SPRS risk assessments during the evaluation of quotations or offers received in response to the solicitation, and item risk will be considered to determine whether the procurement represents a high performance risk to the Government [@CL-CMP-2846]. Price risk will be considered in determining if a proposed price is consistent with historical prices paid for a product or a service or otherwise creates a risk to the Government [@CL-CMP-2847]. Supplier risk, including but not limited to quality and delivery, will be considered to assess the risk of unsuccessful performance and supply chain risk [@CL-CMP-2848]. The contracting officer may also consider any other available and relevant information when evaluating a quotation or an offer [@CL-CMP-2909]. The summary level scores of the NIST assessments are on the [DoD assessment notice and requirements](cmp-nist-sp-800-171-dod-assessment-requirements.md) card. The security controls themselves, and the cyber incident duties, are on the [Safeguarding covered defense information and cyber incident reporting](cmp-safeguarding-covered-defense-information.md) card.
 
 ## Worked example
 
@@ -45,7 +45,7 @@ An offeror answers a solicitation that names the version of the standard in effe
 
 ## Never confuse
 
-The representation in the safeguarding provision is a promise made by the offer, while SPRS risk assessments are inputs the contracting officer considers during evaluation. The source text does not establish how much weight the contracting officer gives each SPRS risk assessment.
+By submission of the offer, the offeror represents that it will implement the specified security requirements [@CL-CMP-2842], while SPRS risk assessments are considered by the contracting officer during the evaluation of quotations or offers received in response to the solicitation [@CL-CMP-2846].
 
 ## Company calibration
 
@@ -55,4 +55,5 @@ Whether the offer's representation matches the controls actually in place, any p
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added solicitation scope to SPRS evaluation sentence and removed meta prose.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for safeguarding covered defense information controls and the notice on use of the Supplier Performance Risk System.

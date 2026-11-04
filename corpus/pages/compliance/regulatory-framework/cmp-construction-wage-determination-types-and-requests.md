@@ -36,7 +36,7 @@ Wage determinations apply only to those laborers and mechanics employed by a con
 
 ## How it works
 
-The agency first looks for a general wage determination that applies to the project. Where one exists, the agency may use it without telling the Department of Labor [@CL-CMP-3014]. Only when none is available does the agency ask for a project wage determination on the standard form [@CL-CMP-3013; @CL-CMP-3015]. Because a project determination is effective for 180 calendar days from its date and may expire before award, the lead time in the request rule matters [@CL-CMP-3013; @CL-CMP-3108; @CL-CMP-3109; @CL-CMP-3016]. What the contracting officer does when one does expire is on [Project wage determination expiration and modifications before and after bid opening or award](cmp-project-wage-determination-expiration-and-modifications.md).
+If a general wage determination applicable to the project is on the Wage Determinations at SAM.gov website, the agency may use it without notifying the Department of Labor [@CL-CMP-3014]. If a general wage determination is not available on that website, a contracting agency shall submit requests for project wage determinations on the standard form to the Department of Labor [@CL-CMP-3015]; a project wage determination is used only when no general wage determination applies [@CL-CMP-3013]. A project wage determination is effective for 180 calendar days from the date of the determination [@CL-CMP-3013], and if it expires before contract award it may be possible to obtain an extension [@CL-CMP-3108]; an agency should expect processing to take at least 30 days [@CL-CMP-3109] and should submit requests for the primary site at least 45 days, or 60 days if possible, before issuing the solicitation or exercising an option to extend the term of a contract [@CL-CMP-3016]. What the contracting officer does when one does expire is on [Project wage determination expiration and modifications before and after bid opening or award](cmp-project-wage-determination-expiration-and-modifications.md).
 
 ## Worked example
 
@@ -46,7 +46,7 @@ An agency plans a building project in a county with no applicable general determ
 
 ## Never confuse
 
-A project wage determination is not a general one with an end date added. It is issued at an agency's specific request and is used only when no general determination applies [@CL-CMP-3013], and it is effective for 180 calendar days from its date [@CL-CMP-3013], while a general determination has no expiration date [@CL-CMP-3106]. Which work and contracts need a determination at all is on [Construction wage rate requirements: definitions and which contracts are covered](cmp-construction-wage-definitions-and-applicability.md). Service contract wage determinations follow a separate regime, covered on [Service Contract Labor Standards: obtaining wage determinations and successor pay under a collective bargaining agreement](cmp-scls-wage-determinations-and-successorship.md).
+A project wage determination is issued at an agency's specific request and is used only when no general determination applies [@CL-CMP-3013], and it is effective for 180 calendar days from its date [@CL-CMP-3013], while a general determination has no expiration date [@CL-CMP-3106]. Which work and contracts need a determination at all is on [Construction wage rate requirements: definitions and which contracts are covered](cmp-construction-wage-definitions-and-applicability.md). Service contract wage determinations follow a separate regime, covered on [Service Contract Labor Standards: obtaining wage determinations and successor pay under a collective bargaining agreement](cmp-scls-wage-determinations-and-successorship.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Who prices a construction proposal from the determination attached to the solici
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Tied the request rules to their conditions and cut uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added whom wage determinations cover and the rate schedules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for general and project construction wage determinations and how they are requested.

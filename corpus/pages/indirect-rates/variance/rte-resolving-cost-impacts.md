@@ -29,17 +29,17 @@ Sets out the CFAO's authority, the limits on combining cost impacts, and the way
 | Text status | Final [@CL-RTE-0622] |
 | Applies to | Cost impacts that the CFAO negotiates and resolves [@CL-RTE-0622] |
 
-The CFAO must coordinate with the affected contracting officers before negotiating and resolving a cost impact when the estimated cost impact on any of their contracts is at least $100,000, but the CFAO has sole authority for negotiating and resolving it [@CL-RTE-0622]. At the conclusion of negotiations, the CFAO must prepare a negotiation memorandum and send copies to the auditor and affected contracting officers [@CL-RTE-0729].
+The CFAO shall coordinate with the affected contracting officers before negotiating and resolving the cost impact when the estimated cost impact on any of their contracts is at least $100,000, but the CFAO has the sole authority for negotiating and resolving the cost impact [@CL-RTE-0622]. The CFAO shall (1) negotiate and resolve the cost impact on behalf of all Government agencies, and (2) at the conclusion of negotiations, prepare a negotiation memorandum and send copies to the auditor and affected contracting officers [@CL-RTE-0729].
 
-The CFAO must not combine the cost impacts of a required change or desirable change with a unilateral change or noncompliance [@CL-RTE-0623]. The CFAO also must not combine the cost impacts of unilateral changes, noncompliances, or both, unless all of the cost impacts are increased costs to the Government [@CL-RTE-0725].
+In resolving the cost impact, the CFAO (i) shall not combine the cost impacts of any of the following: (A) a required change and a unilateral change, (B) a required change and a noncompliance, (C) a desirable change and a unilateral change, or (D) a desirable change and a noncompliance [@CL-RTE-0623]; and (ii) shall not combine the cost impacts of any of the following unless all of the cost impacts are increased costs to the Government: (A) one or more unilateral changes, (B) one or more noncompliances, or (C) unilateral changes and noncompliances [@CL-RTE-0623; @CL-RTE-0725].
 
 ## How it works
 
-For unilateral changes and noncompliances, the CFAO must, to the maximum extent practical, not adjust the price upward for fixed-price contracts [@CL-RTE-0726]. For those unilateral changes and noncompliances, if contract adjustments are made, the CFAO must preclude payment of aggregate increased costs by taking one or both of two actions: reducing the contract price on fixed-price contracts and disallowing costs on flexibly-priced contracts [@CL-RTE-0624].
+For unilateral changes and noncompliances, the CFAO shall (i) to the maximum extent practical, not adjust the price upward for fixed-price contracts [@CL-RTE-0726], and (ii) if contract adjustments are made, preclude payment of aggregate increased costs by taking one or both of the following actions: (A) reduce the contract price on fixed-price contracts, and (B) disallow costs on flexibly-priced contracts [@CL-RTE-0726; @CL-RTE-0624].
 
-Instead of adjusting contracts, the CFAO may use an alternate method, provided the Government will not pay more in the aggregate than it would without the method and the contracting parties agree on its use [@CL-RTE-0625]. The CFAO may not use an alternate method for contracts when applying it to the contracts would result in an under recovery of monies by the Government, or in a further listed result [@CL-RTE-0727]. That further result is distortion of incentive provisions and of the relationships between target costs, ceiling costs and actual costs for incentive type contracts [@CL-RTE-0728].
+The CFAO may use an alternate method instead of adjusting contracts to resolve the cost impact, provided the Government will not pay more, in the aggregate, than would be paid if the CFAO did not use the alternate method and the contracting parties agree on the use of that alternate method [@CL-RTE-0625]. The CFAO may not use an alternate method for contracts when application of the alternate method to contracts would result in (i) an under recovery of monies by the Government (for example, due to cost overruns), or (ii) distortions of incentive provisions and relationships between target costs, ceiling costs, and actual costs for incentive type contracts [@CL-RTE-0727; @CL-RTE-0728].
 
-When an alternate method excludes costs from an indirect cost pool, the CFAO must apply the exclusion only to the determination of final indirect cost rates [@CL-RTE-0626]. The CFAO must also adjust such an exclusion to reflect the Government participation rate for flexibly-priced contracts and subcontracts [@CL-RTE-0731].
+When using an alternate method that excludes the costs from an indirect cost pool, the CFAO shall (i) apply such exclusion only to the determination of final indirect cost rates (see 42.705), and (ii) adjust the exclusion to reflect the Government participation rate for flexibly-priced contracts and subcontracts [@CL-RTE-0626; @CL-RTE-0731].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A unilateral accounting change causes aggregate increased costs to the Governmen
 
 ## Never confuse
 
-Adjusting contracts and using an alternate method are two separate ways to resolve a cost impact. An alternate method needs the agreement of the contracting parties and must leave the Government paying no more in the aggregate [@CL-RTE-0625]. Neither changes who decides, because the CFAO has sole authority for negotiating and resolving the cost impact [@CL-RTE-0622]. For the final rates that an exclusion feeds into, see [Contracting officer final indirect rates](../rate-lifecycle/rte-co-final-indirect-rates.md). For the proposals that come before resolution, see [Processing cost accounting practice changes](rte-processing-accounting-changes-gdm-dci.md).
+The CFAO may use an alternate method instead of adjusting contracts to resolve the cost impact, provided the Government will not pay more, in the aggregate, than would be paid if the CFAO did not use the alternate method and the contracting parties agree on the use of that alternate method [@CL-RTE-0625]. The CFAO shall coordinate with the affected contracting officers before negotiating and resolving the cost impact when the estimated cost impact on any of their contracts is at least $100,000, but the CFAO has the sole authority for negotiating and resolving the cost impact [@CL-RTE-0622]. For the final rates that an exclusion feeds into, see [Contracting officer final indirect rates](../rate-lifecycle/rte-co-final-indirect-rates.md). For the proposals that come before resolution, see [Processing cost accounting practice changes](rte-processing-accounting-changes-gdm-dci.md).
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Which final indirect-rate sets are approved for each period, because an alternat
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the negotiation duty on behalf of all Government agencies, the one-or-more scope on combining cost impacts, the cost-overrun example and shall wording, and removed uncited sentences and clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the unilateral and noncompliance scope into the adjustment sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for resolving cost impacts and recovering increased costs.

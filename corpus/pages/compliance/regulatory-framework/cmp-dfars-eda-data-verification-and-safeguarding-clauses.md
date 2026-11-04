@@ -35,13 +35,13 @@ The procedures at PGI 204.270-2(c) give the details on creating and processing c
 
 Two clauses are prescribed under the safeguarding subpart. The clause at 252.204-7000, Disclosure of Information, is to be used in solicitations and contracts when the contractor will have access to or generate unclassified information that may be sensitive and inappropriate for release to the public [@CL-CMP-7893]. The clause at 252.204-7003, Control of Government Personnel Work Product, is to be used in all solicitations and contracts [@CL-CMP-7894].
 
-The safeguarding subpart's section on responsibilities of contracting officers says contracting officers shall ensure that solicitations comply with PGI 204.403(1) [@CL-SUP-9443]. For additional guidance on determining a project to be fundamental research in accordance with 252.204-7000(a)(3), the section points to PGI 204.403(2) [@CL-SUP-9444].
+Under the safeguarding subpart's section on responsibilities of contracting officers, contracting officers shall ensure that solicitations comply with PGI 204.403(1) [@CL-SUP-9443]. For additional guidance on determining a project to be fundamental research in accordance with 252.204-7000(a)(3), see PGI 204.403(2) [@CL-SUP-9444].
 
 ## How it works
 
-The audit use depends on the PGI procedures being followed: when they are, the documents and data in the system are an accurate representation of the contract and may be used for audit purposes [@CL-CMP-7891]. When a distributed contract has a problem, the deficiency report process is the route the section names for correcting it [@CL-CMP-7892].
+The audit use depends on the PGI procedures being followed: when they are, the documents and data in the system are an accurate representation of the contract and may be used for audit purposes [@CL-CMP-7891]. Contract deficiency reports are used to correct problems with contracts distributed in the system [@CL-CMP-7892].
 
-The disclosure clause turns on what the contractor will see or generate: unclassified information that may be sensitive and inappropriate for release to the public [@CL-CMP-7893]. The section does not say who decides whether information is sensitive and inappropriate for release. The work product clause has no such condition and is to be used in all solicitations and contracts [@CL-CMP-7894]. Both prescriptions direct the drafter of the solicitation or contract; the contractor's own duties come from the clause text, which this card does not restate. The disclosure clause is covered in [the Additional Protocol and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure-of-information.md), and posting rules for the system are in [the contract attachment distribution card](cmp-contract-distribution-line-items-and-service-reporting.md).
+The disclosure clause turns on what the contractor will see or generate: unclassified information that may be sensitive and inappropriate for release to the public [@CL-CMP-7893]. The section does not say who decides whether information is sensitive and inappropriate for release. The work product clause has no such condition and is to be used in all solicitations and contracts [@CL-CMP-7894]. Both prescriptions direct that a clause be used in solicitations and contracts [@CL-CMP-7893; @CL-CMP-7894]. The disclosure clause is covered in [the Additional Protocol and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure-of-information.md), and posting rules for the system are in [the contract attachment distribution card](cmp-contract-distribution-line-items-and-service-reporting.md).
 
 ## Worked example
 
@@ -51,7 +51,7 @@ A contracting office completes the PGI recording procedures for a modification, 
 
 ## Never confuse
 
-Data verification is not information safeguarding. Verification concerns recording the results of data verification in the system [@CL-CMP-7890]; when the PGI procedures are followed, the posted contract documents and data are an accurate representation of the contract and may be used for audit [@CL-CMP-7891]. The disclosure clause concerns unclassified information the contractor will have access to or generate [@CL-CMP-7893]. The work product clause concerns Government personnel work product and is used in all solicitations and contracts [@CL-CMP-7894].
+Verification concerns recording the results of data verification in the system [@CL-CMP-7890]; when the PGI procedures are followed, the posted contract documents and data are an accurate representation of the contract and may be used for audit [@CL-CMP-7891]. The disclosure clause concerns unclassified information the contractor will have access to or generate [@CL-CMP-7893]. The work product clause concerns Government personnel work product and is used in all solicitations and contracts [@CL-CMP-7894].
 
 ## Company calibration
 
@@ -61,5 +61,6 @@ Which data verification exceptions and contract deficiency reports are open, who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, uncited inferences and an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer responsibilities section and its PGI pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for recording data verification results in the electronic document access system and the additional DoD safeguarding clauses.

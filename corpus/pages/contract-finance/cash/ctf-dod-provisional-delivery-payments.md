@@ -29,23 +29,23 @@ Lets a DoD contracting officer pay for delivered and accepted supplies and servi
 | Text status | Final [@CL-CTF-0970] |
 | Applies to | Listed contract actions, if undefinitized [@CL-CTF-0970; @CL-CTF-1078] |
 
-The contracting officer may establish provisional delivery payments to pay contractors for the costs of supplies and services delivered to and accepted by the Government under listed contract actions if undefinitized [@CL-CTF-0970]. The listed actions are letter contracts contemplating a fixed-price contract, orders under basic ordering agreements, spares provisioning documents annexed to contracts, unpriced equitable adjustments on fixed-price contracts, and orders under indefinite-delivery contracts [@CL-CTF-1078].
+The contracting officer may establish provisional delivery payments to pay contractors for the costs of supplies and services delivered to and accepted by the Government under listed contract actions if undefinitized [@CL-CTF-0970]. The listed actions are letter contracts contemplating a fixed-price contract, orders under basic ordering agreements, spares provisioning documents annexed to contracts, unpriced equitable adjustments on fixed-price contracts, and orders under indefinite-delivery contracts [@CL-CTF-0970; @CL-CTF-1078].
 
 Provisional delivery payments shall be used sparingly, priced conservatively, and reduced by liquidating previous progress payments in accordance with the Progress Payments clause [@CL-CTF-0971]. They shall not include profit, exceed funds obligated for the undefinitized contract action, or influence the definitized contract price [@CL-CTF-0972].
 
 ## How it works
 
-A provisional delivery payment pays for the costs of supplies and services that have already been delivered to and accepted by the Government [@CL-CTF-0970]. Because it is reduced by liquidating previous progress payments, the net amount paid is the payment as priced less that liquidation [@CL-CTF-0971]. It carries no profit and does not set the final price, since it shall not influence the definitized contract price [@CL-CTF-0972]. Definitization policy is on [Contract definitization](../funding/ctf-contract-definitization.md), payments of allowable costs before definitization are on [Payments of allowable costs before definitization](../billing-payment/ctf-payments-allowable-costs-before-definitization.md), and general financing rules are on [Progress payments](../financing/ctf-progress-payments.md).
+A provisional delivery payment pays for the costs of supplies and services delivered to and accepted by the Government under one of the five listed undefinitized contract actions [@CL-CTF-0970; @CL-CTF-1078]. It shall be used sparingly, priced conservatively, and reduced by liquidating previous progress payments in accordance with the Progress Payments clause [@CL-CTF-0971]. It shall not include profit, exceed funds obligated for the undefinitized contract action, or influence the definitized contract price [@CL-CTF-0972]. Definitization policy is on [Contract definitization](../funding/ctf-contract-definitization.md), payments of allowable costs before definitization are on [Payments of allowable costs before definitization](../billing-payment/ctf-payments-allowable-costs-before-definitization.md), and general financing rules are on [Progress payments](../financing/ctf-progress-payments.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-Under an undefinitized letter contract with 500,000 in obligated funds, the Government accepts supplies whose costs are 200,000. Earlier progress payments of 80,000 remain unliquidated. The contracting officer sets a conservative provisional delivery payment of 200,000 with no profit, reduced by liquidating the 80,000, so the net payment is 120,000. The payment stays within the obligated funds.
+Under an undefinitized letter contract contemplating a fixed-price contract with 500,000 in obligated funds, the Government accepts delivered supplies whose costs are 200,000 [@CL-CTF-0970; @CL-CTF-1078]. Earlier progress payments of 80,000 remain unliquidated. The contracting officer establishes a conservatively priced provisional delivery payment of 200,000 with no profit, reduced by liquidating the 80,000 in previous progress payments in accordance with the Progress Payments clause, so the net payment is 120,000 and stays within the obligated funds [@CL-CTF-0971; @CL-CTF-0972].
 
 ## Never confuse
 
-A provisional delivery payment is paid for items already delivered and accepted [@CL-CTF-0970], and it is not a definitized price, because it shall not influence the definitized contract price [@CL-CTF-0972]. It is also separate from progress payments, whose earlier amounts it liquidates [@CL-CTF-0971].
+Provisional delivery payments pay for the costs of supplies and services delivered to and accepted by the Government under the listed undefinitized contract actions [@CL-CTF-0970; @CL-CTF-1078], and they shall not include profit, exceed funds obligated for the undefinitized contract action, or influence the definitized contract price [@CL-CTF-0972]. They shall also be reduced by liquidating previous progress payments in accordance with the Progress Payments clause [@CL-CTF-0971].
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Confirm billing terms and cash forecast treatment for deliveries made under unde
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the explanation of provisional delivery payments and progress payment liquidation strictly with the cited DFARS 232.102-70 text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD provisional delivery payments on undefinitized contract actions.

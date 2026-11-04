@@ -29,19 +29,19 @@ States the scope of the Kaspersky Lab prohibition and of the covered application
 | Text status | Final [@CL-CMP-7580] |
 | Applies to | All solicitations and contracts for the Kaspersky Lab clause, and information technology owned or managed by the Government or used or provided by the contractor under a contract for the covered application prohibition [@CL-CMP-7583; @CL-CMP-7584] |
 
-Federal law prohibits Government use on or after October 1, 2018 of any hardware, software or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580]. That statutory prohibition is on Government use. The section then states two prohibitions on contractors. Contractors are prohibited from providing any Kaspersky Lab covered article that the Government will use on or after October 1, 2018 [@CL-CMP-7581]. Contractors are also prohibited from using any Kaspersky Lab covered article on or after October 1, 2018 in the development of data or deliverables first produced in the performance of the contract [@CL-CMP-7582].
+Federal law prohibits Government use on or after October 1, 2018 of any hardware, software or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580]. any Kaspersky Lab covered article that the Government will use on or after October 1, 2018 [@CL-CMP-7581]. Contractors are also prohibited from using any Kaspersky Lab covered article on or after October 1, 2018 in the development of data or deliverables first produced in the performance of the contract [@CL-CMP-7582].
 
-The contracting officer must insert the Kaspersky Lab clause in all solicitations and contracts [@CL-CMP-7583]. The prescription states no threshold, condition or exception.
+The contracting officer must insert the Kaspersky Lab clause in all solicitations and contracts [@CL-CMP-7583].
 
-When a contractor provides notification pursuant to the clause at FAR 52.204-23, the notification section says to follow agency procedures [@CL-SUP-9439]. It names no official who follows them and does not set out the procedures.
+When a contractor provides notification pursuant to the clause at FAR 52.204-23, follow agency procedures [@CL-SUP-9439].
 
-The statute and guidance named in the covered application section collectively prohibit the presence or use of a covered application on information technology, including certain equipment used by Federal contractors [@CL-CMP-7722]. The prohibition applies to any information technology owned or managed by the Government, or used or provided by the contractor under a contract, including equipment provided by the contractor's employees, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584]. The section does not say who grants an exception and points to the memorandum for the route.
+Section 102 of Division R of the Consolidated Appropriations Act, 2023 (Public Law 117-328), the No TikTok on Government Devices Act, and its implementing guidance under Office of Management and Budget (OMB) Memorandum M-23-13, dated February 27, 2023, “No TikTok on Government Devices” Implementation Guidance, collectively prohibit the presence or use of a covered application on information technology, including certain equipment used by Federal contractors [@CL-CMP-8784] [@CL-CMP-8785] [@CL-CMP-7722]. The prohibition applies to any information technology owned or managed by the Government, or used or provided by the contractor under a contract, including equipment provided by the contractor's employees, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584].
 
 ## How it works
 
-The Government-side prohibition and the two contractor prohibitions are separate. The first limits what the Government may use, and the others limit what the contractor may provide to the Government and what it may use in developing data or deliverables first produced in performing the contract [@CL-CMP-7580; @CL-CMP-7581; @CL-CMP-7582]. The dates tie to the statutory prohibition [@CL-CMP-7580].
+The statute prohibits Government use on or after October 1, 2018 of hardware, software, or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580]. Contractors are prohibited from providing any Kaspersky Lab covered article that the Government will use on or after October 1, 2018 [@CL-CMP-7581], and from using any Kaspersky Lab covered article on or after October 1, 2018, in the development of data or deliverables first produced in the performance of the contract [@CL-CMP-7582].
 
-The clause prescription carries no conditions, so the clause goes into every solicitation and contract, and the duty to insert it falls on the contracting officer [@CL-CMP-7583]. The covered application rule works by location. It covers Government owned or managed technology and technology the contractor uses or provides under the contract, and the only exception the section states is one granted in accordance with the OMB memorandum [@CL-CMP-7584]. The clause text, its definitions, its reporting deadlines and its flowdown are on the linked clause card and are not restated here. The contracting officer shall insert the clause at 52.204-27, Prohibition on a ByteDance Covered Application, in all solicitations and contracts, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-9754]. The prescription does not say who grants that exception.
+The contracting officer shall insert the clause at 52.204-23 in all solicitations and contracts [@CL-CMP-7583]. The prohibition on covered applications applies to any information technology owned or managed by the Government, or used or provided by the contractor under a contract, including equipment provided by the contractor's employees, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584]. The contracting officer shall insert the clause at 52.204-27, Prohibition on a ByteDance Covered Application, in all solicitations and contracts, unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-9754].
 
 ## Worked example
 
@@ -53,7 +53,7 @@ In the same contract, staff use their own phones for contract work, and one phon
 
 ## Never confuse
 
-The statutory prohibition on Government use of a covered entity's hardware, software or services is not the same as the contractor prohibitions, which bar providing or using Kaspersky Lab covered articles [@CL-CMP-7580; @CL-CMP-7581; @CL-CMP-7582]. Covered applications are also a separate prohibition from covered articles, with its own exception route [@CL-CMP-7584]. The clause card on [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md) sets out the clause text, and the broader telecommunications prohibitions are on [Covered telecommunications equipment or services: definitions and prohibition](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md).
+The statute prohibits Government use on or after October 1, 2018 of any hardware, software, or services developed or provided, in whole or in part, by a covered entity [@CL-CMP-7580], and contractors are prohibited from providing, and from using in the development of data or deliverables first produced in the performance of the contract, any Kaspersky Lab covered article [@CL-CMP-7581; @CL-CMP-7582]. The prohibition on covered applications applies unless an exception is granted in accordance with OMB Memorandum M-23-13 [@CL-CMP-7584]. For the clause text, see [Kaspersky and ByteDance prohibitions: what is barred, reported and flowed down](cmp-kaspersky-and-bytedance-prohibitions.md); for the broader telecommunications prohibitions, see [Covered telecommunications equipment or services: definitions and prohibition](../trade-cyber/cmp-covered-telecommunications-definitions-and-prohibition.md).
 
 ## Company calibration
 
@@ -63,6 +63,7 @@ Which products and applications in use on contract work fall inside either prohi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Named the covered application statute and guidance; cut uncited negatives, inferences and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the notification section that points to agency procedures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added when the contracting officer inserts the covered application clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Kaspersky Lab and covered application prohibitions.

@@ -35,7 +35,7 @@ Under the clause, the contractor shall provide only products from Afghanistan or
 
 ## How it works
 
-A product from Afghanistan is a product mined, produced, or manufactured in Afghanistan, and a service from Afghanistan is a service, including construction, performed in Afghanistan predominantly by citizens or permanent resident aliens of Afghanistan [@CL-SUP-1801]. The exceptions to the representation are listed in the provision, by line item number and country of origin [@CL-SUP-1798], or in the Trade Agreements Certificate provision if it is included in the solicitation [@CL-SUP-1800]. The clause ties its exception to the offer [@CL-SUP-1802]. The price increase is applied for the purpose of evaluating competitive offers [@CL-SUP-1799]. The provision and the clause texts say each is prescribed in a DFARS section it names [@CL-SUP-1840; @CL-SUP-1841].
+A product from Afghanistan is a product mined, produced, or manufactured in Afghanistan, and a service from Afghanistan is a service, including construction, performed in Afghanistan predominantly by citizens or permanent resident aliens of Afghanistan [@CL-SUP-1801]. The exceptions to the representation are listed in the provision, by line item number and country of origin [@CL-SUP-1798], or in the Trade Agreements Certificate provision if it is included in the solicitation [@CL-SUP-1800]. The clause ties its exception to the offer [@CL-SUP-1802]. The price increase is applied for the purpose of evaluating competitive offers [@CL-SUP-1799]. The provision is prescribed in DFARS 225.7703-4(a) [@CL-SUP-1840], and the clause in DFARS 225.7703-4(b) [@CL-SUP-1841].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ The offeror lists that product with its country of origin. For evaluating compet
 
 ## Never confuse
 
-The provision raises the evaluated price of offers that are not from Afghanistan, which is a preference and not a ban [@CL-SUP-1799]. The clause limits what the contractor provides, with the offer-based exception [@CL-SUP-1802]. The restricted acquisition clause requires only products or services from Afghanistan [@CL-SUP-1803]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). For the Trade Agreements Certificate provision, see [DoD trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md) [@CL-SUP-1800].
+The provision raises by 50 percent the evaluated price of offers of products or services that are not from Afghanistan [@CL-SUP-1799]. The clause limits what the contractor provides, with the offer-based exception [@CL-SUP-1802]. Under the clause for acquisition restricted to products or services from Afghanistan, the contractor shall provide only products from Afghanistan or services from Afghanistan under the contract [@CL-SUP-1803]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). For the Trade Agreements Certificate provision, see [DoD trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md) [@CL-SUP-1800].
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Whether the solicitation or contract includes these Afghanistan provisions, and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the prescribing sections; removed an uncited contrast; reworded the restriction clause pointer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word 'only' from the price-increase sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Afghanistan preference provision and requirement clause.

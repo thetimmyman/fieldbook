@@ -57,7 +57,7 @@ Spreading that segment's share over its contracts is a later step that CAS 403 d
 
 Each of these sections states the purpose of its Standard [@CL-EST-2492; @CL-EST-2495; @CL-EST-2500].
 
-An allocation of home office expense to a segment on a beneficial or causal basis is not a rule for pushing the segment's share to contracts, because that later step is outside CAS 403 [@CL-EST-2495; @CL-EST-2499].
+CAS 403 establishes criteria for allocating home office expenses to segments based on the beneficial or causal relationship [@CL-EST-2495], and it does not cover the reallocation of a segment's share of home office expenses to contracts and other cost objectives [@CL-EST-2499].
 
 The consistency idea is covered in [the consistency Standard](../../compliance/cas-allowability/cmp-cas-401-consistency.md), the allocation mechanics in [home office allocation](../../compliance/cas-allowability/cmp-cas-403-home-office-allocation.md), and the period rules in [cost accounting period](../../compliance/cas-allowability/cmp-cas-406-cost-accounting-period.md).
 
@@ -68,6 +68,6 @@ Who owns the proposal pricing record and the estimating system description, and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose wording aligned with the cited text; meta and uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes of the consistency, home office allocation and cost accounting period Standards.

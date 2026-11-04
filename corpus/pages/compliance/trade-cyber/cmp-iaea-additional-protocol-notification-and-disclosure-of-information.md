@@ -44,7 +44,7 @@ A contractor plans to publish a technical note about contract work. It sends the
 
 ## Never confuse
 
-The notification clause concerns activities that are subject to Additional Protocol reporting, and the disclosure clause concerns releasing contract information. The first is triggered by the contractor's own reporting duty, and the second by any proposed release.
+The notification clause applies where the contractor is required to report any of its activities in accordance with Department of Commerce regulations or Nuclear Regulatory Commission regulations in order to implement the declarations required by the U.S.-International Atomic Energy Agency Additional Protocol [@CL-CMP-2863; @CL-CMP-2864]. Under the disclosure clause, unless an exception applies, the contractor shall not release to anyone outside its organization any unclassified information pertaining to any part of the contract or any program related to the contract [@CL-CMP-2866].
 
 ## Company calibration
 
@@ -53,6 +53,6 @@ Which public files and company data the contractor may release, who asks the con
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: replaced uncited contrast with cited clause statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Flagged the policy references that finish the third exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Additional Protocol notification clause and the disclosure of information clause.

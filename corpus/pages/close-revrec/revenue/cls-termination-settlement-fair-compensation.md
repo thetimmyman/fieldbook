@@ -23,15 +23,15 @@ Establishes the standard of fair compensation and business judgment for terminat
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0500] |
-| Codified citation | FAR 49.201 [@CL-CLS-0500] |
+| Codified citation | FAR 49.201, 49.113, and 49.114 [@CL-CLS-0500; @CL-CLS-0504; @CL-CLS-0505] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0500] |
-| Applies to | Termination settlements: the fair compensation standard sits in the FAR subpart of additional principles for fixed-price contracts terminated for convenience, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. The cost-principles rule and the rule on unsettled contract changes are worded for termination settlements under contracts with other than educational institutions and for completely terminated contracts, and are not limited to fixed-price contracts in their text [@CL-CLS-0504; @CL-CLS-0505]. |
+| Applies to | Additional principles applicable to the termination for convenience and settlement of fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3 [@CL-CLS-0662]. The cost principles and procedures in the applicable subpart of part 31 apply to termination settlements under contracts with other than educational institutions and as a guide for settlements under contracts for experimental, developmental, or research work with educational institutions [@CL-CLS-0504; @CL-CLS-0432]. The rule on unsettled contract changes applies before settlement of a completely terminated contract and when a contract has been partially terminated [@CL-CLS-0505; @CL-CLS-0507]. |
 
 A settlement should compensate the contractor fairly for the work done and the preparations made for the terminated portions of the contract, including a reasonable allowance for profit [@CL-CLS-0500].
 
-Subject to the general principles of fair compensation, the cost principles and procedures in the applicable subpart of part 31 must be used in asserting, negotiating, or determining costs relevant to termination settlements under contracts with other than educational institutions [@CL-CLS-0504].
+The cost principles and procedures in the applicable subpart of part 31 shall, subject to the general principles in 49.201, (a) be used in asserting, negotiating, or determining costs relevant to termination settlements under contracts with other than educational institutions [@CL-CLS-0504], and (b) be a guide for the negotiation of settlements under contracts for experimental, developmental, or research work with educational institutions (but see 31.104) [@CL-CLS-0432].
 
 ## How it works
 
@@ -47,7 +47,7 @@ A contractor incurs direct costs of 400,000 and indirect costs of 80,000 prepari
 
 ## Never confuse
 
-Business judgment in setting fair compensation does not replace the cost principles. The cost principles still guide how costs are asserted and determined, subject to the general principles of fair compensation [@CL-CLS-0504; @CL-CLS-0501]. For the allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For contract change accounting, see [Change order accounting](cls-change-order-accounting.md). For the termination clause that sets proposal deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+The use of business judgment, as distinguished from strict accounting principles, is the heart of a settlement [@CL-CLS-0501], while the cost principles and procedures in the applicable subpart of part 31 shall, subject to the general principles in 49.201, be used in asserting, negotiating, or determining costs relevant to termination settlements under contracts with other than educational institutions and be a guide for the negotiation of settlements under contracts for experimental, developmental, or research work with educational institutions (but see 31.104) [@CL-CLS-0504; @CL-CLS-0432]. For the allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For contract change accounting, see [Change order accounting](cls-change-order-accounting.md). For the termination clause that sets proposal deadlines and settlement mechanics, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Who reviews termination settlement judgments and the close adjustments that foll
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.113(b) educational-institution cost-principles guide and codified citations in table.
 - COMPATIBLE_EXTENSION, 2026-10-31: applies-to row scope separated by section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for fair compensation, cost principles, and unsettled contract changes in termination settlements.

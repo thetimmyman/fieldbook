@@ -41,7 +41,7 @@ A contract subject to full coverage may be performed during a period in which a 
 
 ## How it works
 
-The revenue exemption removes the contract price and cost adjustment requirements for a conforming change [@CL-EST-2476]. It reaches only the two disclosed situations in the rule, so a change outside them has no exemption [@CL-EST-2477].
+The contract price and cost adjustment requirements of part 9903 are not applicable to changes directly associated with conformance of operating revenue to revenue reported in accordance with GAAP [@CL-EST-2476]. This exemption only applies to current disclosed practices in the two situations described in the rule [@CL-EST-2477].
 
 A move onto or away from a revenue base is treated as a unilateral change that goes through the normal cost impact and resolution process [@CL-EST-2479]. See the linked cards for that process.
 
@@ -76,6 +76,6 @@ Which business units carry full coverage, modified coverage or neither, and whic
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Revenue-exemption summary aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Concurrent coverage and revenue exemption wording aligned with the cited text; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for GAAP conformance changes and concurrent full and modified coverage.

@@ -44,9 +44,9 @@ For the purpose of evaluating f.o.b. destination offers, the Government estimate
 
 ## How it works
 
-The destinations listed in the Destination Unknown provision, and the estimated quantity and destination table in the Specific Quantities Unknown clause, are contract-specific entries that the solicitation fills in [@CL-SUP-2437; @CL-SUP-2489]. Under the first provision the listed destinations serve evaluation alone [@CL-SUP-2437]. Under the second, transportation cost drops out of the award evaluation [@CL-SUP-2439]. Under the clause, the estimates serve the evaluation of f.o.b. destination offers, and an appropriate adjustment is made if a variation in the quantity shipped changes transportation costs [@CL-SUP-2441; @CL-SUP-2442].
+The Destination Unknown provision lists the final destinations after the words "as follows" [@CL-SUP-2437], and paragraph (a) of the Specific Quantities Unknown clause has a table headed estimated quantity and destination [@CL-SUP-2489]. Under the first provision the final destinations are considered to be those listed for the purpose of evaluating offers and for no other purpose [@CL-SUP-2437]. Under the No Evaluation of Transportation Costs provision, the costs of transporting supplies to be delivered under the contract will not be an evaluation factor for award [@CL-SUP-2439]. Under the clause, the Government estimates the quantity shipped to the destinations indicated for the purpose of evaluating f.o.b. destination offers, and appropriate adjustment shall be made if the quantity shipped to each destination varies from the estimate and the variation changes the transportation costs [@CL-SUP-2441; @CL-SUP-2442].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.247-49 as [Reserved] [@CL-SUP-0170], FAR 52.247-50 as [Reserved] [@CL-SUP-0171] and FAR 52.247-62 as [Reserved] [@CL-SUP-0172], so the provisions and the clause described above have no text under those numbers in the RFO text.
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text prints FAR 52.247-49 as [Reserved] [@CL-SUP-0170], FAR 52.247-50 as [Reserved] [@CL-SUP-0171] and FAR 52.247-62 as [Reserved] [@CL-SUP-0172]. The codified text prints the provisions and the clause under those numbers [@CL-SUP-2436; @CL-SUP-2438; @CL-SUP-2440].
 
 ## Worked example
 
@@ -56,9 +56,9 @@ Case one: a solicitation lists one depot as the tentative destination. Offers ar
 
 ## Never confuse
 
-Destination unknown does not remove transportation cost from the evaluation: it assumes listed destinations for evaluation only [@CL-SUP-2437]. No evaluation of transportation costs does remove it, because it is impractical to establish tentative or general delivery places [@CL-SUP-2438; @CL-SUP-2439]. Specific quantities unknown applies where the destinations are known and only the quantity split is estimated [@CL-SUP-2440; @CL-SUP-2441]. For how f.o.b. offers are evaluated generally, see [F.o.b. offer evaluation](sup-fob-offer-evaluation.md).
+Destination Unknown is inserted when destinations are tentative and only for the purpose of evaluating offers [@CL-SUP-2436], and the listed destinations are considered the final destinations for evaluating offers and for no other purpose [@CL-SUP-2437]. No Evaluation of Transportation Costs is inserted when exact destinations are not known and it is impractical to establish tentative or general delivery places for the purpose of evaluating transportation costs [@CL-SUP-2438], and transportation costs will not be an evaluation factor for award [@CL-SUP-2439]. Specific Quantities Unknown is inserted when total requirements and destinations are known but the specific quantity to be shipped to each destination cannot be predetermined [@CL-SUP-2440], and the Government estimates the quantity shipped to each destination indicated for evaluating f.o.b. destination offers [@CL-SUP-2441]. For how f.o.b. offers are evaluated generally, see [F.o.b. offer evaluation](sup-fob-offer-evaluation.md).
 
-The codified FAR 52.247-49, 52.247-50 and 52.247-62 carry the three rules described above [@CL-SUP-2436; @CL-SUP-2438; @CL-SUP-2440], but the RFO text prints each of those numbers as [Reserved] [@CL-SUP-0170; @CL-SUP-0171; @CL-SUP-0172], so none of those rules is printed under those numbers in the RFO text.
+The codified FAR 52.247-49, 52.247-50 and 52.247-62 carry the three rules described above [@CL-SUP-2436; @CL-SUP-2438; @CL-SUP-2440]; the RFO text prints each of those numbers as [Reserved] [@CL-SUP-0170; @CL-SUP-0171; @CL-SUP-0172].
 
 ## Company calibration
 
@@ -67,6 +67,6 @@ Which of the three situations a solicitation uses and who confirms that its clau
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned evaluation and RFO wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for destination unknown, no evaluation of transportation costs, and specific quantities unknown.

@@ -29,11 +29,11 @@ Shows what the FAR requires contractors to report each month when an earned valu
 | Text status | Final [@CL-PRG-0855] |
 | Applies to | Contracts for which an EVMS applies, and their subcontractors [@CL-PRG-0855; @CL-PRG-0856] |
 
-As a minimum, contracting officers must require contractors to submit EVMS monthly reports for those contracts for which an EVMS applies [@CL-PRG-0855]. EVMS requirements are applied to subcontractors using the same rules as applied to the prime contractor [@CL-PRG-0856].
+As a minimum, contracting officers shall require contractors to submit EVMS monthly reports for those contracts for which an EVMS applies [@CL-PRG-0855]. EVMS requirements will be applied to subcontractors using the same rules as applied to the prime contractor [@CL-PRG-0856].
 
 ## How it works
 
-The monthly report is a minimum, and the requirement is stated for those contracts for which an EVMS applies [@CL-PRG-0855]. Whether an EVMS applies is not decided by this paragraph; the acquisition rules on [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md) set that [@CL-PRG-0850; @CL-PRG-0851], and the DoD thresholds are on [Earned value management system requirement](../evms/prg-evms-requirement.md). The printed FAR text does not state what the report must contain or its format, so this card does not establish either. For a subcontractor, the question is not answered by a separate test: the same rules as for the prime contractor are used [@CL-PRG-0856].
+As a minimum, contracting officers shall require contractors to submit EVMS monthly reports for those contracts for which an EVMS applies [@CL-PRG-0855]. An Earned Value Management System (EVMS) is required for major acquisitions for development, in accordance with OMB Circular A-11 [@CL-PRG-0850], and the Government may also require an EVMS for other acquisitions, in accordance with agency procedures [@CL-PRG-0851]; see [When the FAR requires an earned value management system](../evms/prg-far-evms-requirement.md) and [Earned value management system requirement](../evms/prg-evms-requirement.md). EVMS requirements will be applied to subcontractors using the same rules as applied to the prime contractor [@CL-PRG-0856].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A prime contract has an EVMS requirement, and the prime places a subcontract wor
 
 ## Never confuse
 
-The monthly report duty [@CL-PRG-0855] is not the estimate-at-completion rules. How control account estimates at completion are updated is on [Update estimates at completion for control accounts and summary level planning packages](prg-evms-guideline-20-eac-updates.md), and the program manager's own estimate is on [Develop the program manager estimate at completion](prg-evms-guideline-23-program-manager-eac.md); the monthly report that [@CL-PRG-0855] requires is a separate duty, and neither page is restated here. Applying the prime's rules to a subcontractor is also not the same as flowing down the prime's dollar thresholds, which the printed FAR text does not state.
+Under FAR 34.201(c) and (d), as a minimum, contracting officers shall require contractors to submit EVMS monthly reports for those contracts for which an EVMS applies [@CL-PRG-0855], and EVMS requirements will be applied to subcontractors using the same rules as applied to the prime contractor [@CL-PRG-0856]. See [Update estimates at completion for control accounts and summary level planning packages](prg-evms-guideline-20-eac-updates.md) and [Develop the program manager estimate at completion](prg-evms-guideline-23-program-manager-eac.md).
 
 ## Company calibration
 
@@ -52,6 +52,6 @@ Who owns the program estimates and reports, and how each monthly report is recon
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored shall and will modals, stated full rules for cited claims, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive 'only' the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR monthly EVMS reports and subcontractor application.

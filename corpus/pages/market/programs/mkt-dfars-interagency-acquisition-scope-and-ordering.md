@@ -16,7 +16,7 @@ links = ["mkt-interagency-acquisitions-scope-and-reporting", "ctf-interagency-ac
 
 ## Purpose
 
-Sets out which purchases made for DoD by another agency fall under the interagency procedures, how DoD components may help each other in the field, and which determination and findings must go with an Economy Act order.
+Sets out which purchases made for DoD by another agency fall under the interagency procedures, how a DoD Component's contracting activity may assist deployed units of another Component, and which determination and findings must go with an Economy Act order.
 
 ## The rule
 
@@ -31,13 +31,13 @@ Sets out which purchases made for DoD by another agency fall under the interagen
 
 Unless more specific statutory authority exists, the procedures in FAR subpart 17.5 and the DFARS subpart apply to all purchases made for DoD by another agency, except micro-purchases [@CL-MKT-1912]. That coverage includes orders under a task or delivery order contract entered into by the other agency [@CL-MKT-1913]. A contracting activity from one DoD Component may provide acquisition assistance to deployed DoD units or personnel from another DoD Component, and the paragraph points to PGI 217.502-1 for guidance and procedures [@CL-MKT-1914; @CL-MKT-2030].
 
-When the requesting agency is within DoD, a copy of the executed determination and findings required by FAR 17.502-2 must be furnished to the servicing agency as an attachment to the order [@CL-MKT-1915]. The paragraph does not name the official who furnishes it. When a DoD contracting office is acting as the servicing agency, a copy of the executed determination and findings must be obtained from the requesting agency and placed in the contract file for the Economy Act order [@CL-MKT-1916].
+When the requesting agency is within DoD, a copy of the executed determination and findings required by FAR 17.502-2 must be furnished to the servicing agency as an attachment to the order [@CL-MKT-1915]. When a DoD contracting office is acting as the servicing agency, a copy of the executed determination and findings must be obtained from the requesting agency and placed in the contract file for the Economy Act order [@CL-MKT-1916].
 
-The FAR definitions section describes the requesting agency as the agency that has the requirement for an interagency acquisition [@CL-MKT-9234], and the servicing agency as the agency that will conduct an assisted acquisition on behalf of the requesting agency [@CL-MKT-9235]. The RFO text of FAR 2.101 defines the requesting agency as the agency that has the requirement for an interagency acquisition and the servicing agency as the agency that will conduct an assisted acquisition on behalf of the requesting agency, the same in substance as the codified definitions [@CL-MKT-9273; @CL-MKT-9274; @CL-MKT-9234; @CL-MKT-9235].
+In FAR 2.101, the requesting agency is the agency that has the requirement for an interagency acquisition [@CL-MKT-9234], and the servicing agency is the agency that will conduct an assisted acquisition on behalf of the requesting agency [@CL-MKT-9235]. In the RFO version of FAR 2.101, the requesting agency is the agency that has the requirement for an interagency acquisition [@CL-MKT-9273], and the servicing agency is the agency that will conduct an assisted acquisition on behalf of the requesting agency [@CL-MKT-9274].
 
 ## How it works
 
-The test for coverage is who buys for whom. A purchase made for DoD by another agency is covered unless a more specific statute applies or the purchase is a micro-purchase, and orders under the other agency's task or delivery order contract are included [@CL-MKT-1912; @CL-MKT-1913]. The paperwork follows the order: with a requesting agency inside DoD, the executed determination and findings goes to the servicing agency with the order, and a DoD office that serves as the servicing agency collects the copy from the requesting agency and files it [@CL-MKT-1915; @CL-MKT-1916]. These paragraphs place their duties on the agencies and their contracting offices and state no duty for the contractor.
+Unless more specific statutory authority exists, the procedures apply to all purchases made for DoD by another agency, except micro-purchases, and that coverage includes orders under a task or delivery order contract entered into by the other agency [@CL-MKT-1912; @CL-MKT-1913]. When the requesting agency is within DoD, a copy of the executed determination and findings is furnished to the servicing agency as an attachment to the order [@CL-MKT-1915]. When a DoD contracting office is acting as the servicing agency, a copy of the executed determination and findings is obtained from the requesting agency and placed in the contract file for the Economy Act order [@CL-MKT-1916].
 
 What the determination and findings must say, and the agreements for assisted acquisitions, are on [Interagency acquisitions: agreements, Economy Act determination and servicing agency duties](../../contract-finance/funding/ctf-interagency-acquisitions.md). The FAR scope and reporting rules are on [Interagency acquisitions: scope, general rules and reporting](mkt-interagency-acquisitions-scope-and-reporting.md).
 
@@ -49,7 +49,7 @@ A DoD component asks another agency to place an Economy Act order worth 250,000 
 
 ## Never confuse
 
-Micro-purchases sit outside the subpart, while a purchase above the micro-purchase level is covered unless more specific statutory authority exists [@CL-MKT-1912]. Acquisition assistance from a contracting activity of one DoD Component to deployed units of another Component is a different permission from buying for DoD through another agency [@CL-MKT-1914; @CL-MKT-1912]. Attaching the determination and findings to the order and placing it in the contract file are two separate steps, each tied to a different role of the DoD office [@CL-MKT-1915; @CL-MKT-1916].
+The procedures apply to purchases made for DoD by another agency, except micro-purchases, unless more specific statutory authority exists [@CL-MKT-1912]. A contracting activity from one DoD Component may provide acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-MKT-1914]. The executed determination and findings is furnished to the servicing agency as an attachment to the order when the requesting agency is within DoD [@CL-MKT-1915], and a copy is placed in the contract file for the Economy Act order when a DoD contracting office is acting as the servicing agency [@CL-MKT-1916].
 
 ## Company calibration
 
@@ -58,7 +58,7 @@ Which contracts are placed for the company by another agency, and where the dete
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed absence, contrast and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of requesting agency and servicing agency.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of requesting agency and servicing agency.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the DoD interagency acquisitions subpart and its ordering procedures.

@@ -37,7 +37,7 @@ Other terms defined elsewhere in part 99 have the meanings given in those defini
 
 ## How it works
 
-The two unallowable definitions differ in how specific the bar must be. An unallowable cost is barred by any pertinent law, regulation or contract [@CL-EST-2874]. An expressly unallowable cost needs an express provision of an applicable law, regulation or contract that specifically names the item or type of cost and states that it is unallowable [@CL-EST-2872]. A contract can be the source of the bar in both definitions [@CL-EST-2874; @CL-EST-2872]. The unallowable cost definition is tied to a Government contract to which the cost is allocable [@CL-EST-2874]. A directly associated cost is defined by cause: it is generated solely by another cost and would not have been incurred without it [@CL-EST-2871]. What the Standard requires for each kind of cost is on the main card.
+An unallowable cost is barred by any pertinent law, regulation or contract [@CL-EST-2874]. An expressly unallowable cost needs an express provision of an applicable law, regulation or contract that specifically names the item or type of cost and states that it is unallowable [@CL-EST-2872]. A contract can be the source of the bar in both definitions [@CL-EST-2874; @CL-EST-2872]. The unallowable cost definition is tied to a Government contract to which the cost is allocable [@CL-EST-2874]. A directly associated cost is defined by cause: it is generated solely by another cost and would not have been incurred without it [@CL-EST-2871]. What the Standard requires for each kind of cost is on the main card.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A bid includes 40,000 of airfare and 6,000 of booking fees that exist only becau
 
 ## Never confuse
 
-An expressly unallowable cost must be specifically named and stated to be unallowable, while an unallowable cost is any cost that a pertinent law, regulation or contract bars from prices, cost reimbursements or settlements [@CL-EST-2872; @CL-EST-2874]. A directly associated cost and an indirect cost are defined by different tests: the first by being generated solely by another cost, the second by identification with two or more final cost objectives or an intermediate cost objective [@CL-EST-2871; @CL-EST-2873].
+An expressly unallowable cost must be specifically named and stated to be unallowable, while an unallowable cost is any cost that a pertinent law, regulation or contract bars from prices, cost reimbursements or settlements [@CL-EST-2872; @CL-EST-2874]. A directly associated cost is a cost generated solely as a result of the incurrence of another cost [@CL-EST-2871]. An indirect cost is a cost not directly identified with a single final cost objective, but identified with two or more final cost objectives or with at least one intermediate cost objective [@CL-EST-2873].
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Confirm which costs the company screens out of proposals and rate submissions, a
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Unallowable and indirect cost definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statement on duties removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unallowable cost Standard definitions.

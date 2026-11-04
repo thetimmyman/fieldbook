@@ -28,13 +28,13 @@ Shows how closely a termination for convenience settlement agreement follows the
 | Text status | Final [@CL-CLS-1356] |
 | Applies to | Termination for convenience settlement agreements [@CL-CLS-1356] |
 
-The formats to be used for termination for convenience settlement agreements should be substantially as shown in the section [@CL-CLS-1356]. Termination contracting officers may, however, modify the contents of these agreements to conform with special termination clauses prescribed or authorized by their agencies [@CL-CLS-1357]. The sentence cites FAR 49.501 and 49.505(c) as examples to see for such special termination clauses [@CL-CLS-1357].
+The formats to be used for termination for convenience settlement agreements should be substantially as shown in the section (see 49.109) [@CL-CLS-1356]. Termination contracting officers may, however, modify the contents of these agreements to conform with special termination clauses prescribed or authorized by their agencies (for example, see 49.501 and 49.505(c)) [@CL-CLS-1357].
 
 ## How it works
 
-The section says the formats "should be substantially as shown"; it does not say they must be [@CL-CLS-1356]. The permission to change the contents belongs to the termination contracting officer, and it is a "may", not a duty [@CL-CLS-1357]. The permission is stated for changes that conform the agreement to a special termination clause that the officer's agency prescribes or authorizes [@CL-CLS-1357]. The text does not address other changes. The section sets no deadline and no dollar threshold, and it does not say who approves a change.
+The formats for termination for convenience settlement agreements should be substantially as shown in FAR 49.603 [@CL-CLS-1356]. Termination contracting officers may modify the contents of these agreements to conform with special termination clauses prescribed or authorized by their agencies [@CL-CLS-1357].
 
-This section's opening text does not say which format fits which settlement. The fixed-price formats are on [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md), and the cost-reimbursement formats are on [Settlement agreement formats for cost-reimbursement contracts](../../contract-finance/billing-payment/ctf-cost-reimbursement-settlement-agreement-formats.md). The standard form that executes an agreement is on [Termination clauses in general and the standard settlement forms](cls-termination-clauses-and-settlement-forms.md).
+The fixed-price formats are on [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md), and the cost-reimbursement formats are on [Settlement agreement formats for cost-reimbursement contracts](../../contract-finance/billing-payment/ctf-cost-reimbursement-settlement-agreement-formats.md). The standard form that executes an agreement is on [Termination clauses in general and the standard settlement forms](cls-termination-clauses-and-settlement-forms.md).
 
 ## Worked example
 
@@ -44,7 +44,7 @@ An agency prescribes a special termination clause for a service contract. The te
 
 ## Never confuse
 
-A settlement agreement format is the body of the agreement, not the form the parties sign it on. The standard form used to execute a settlement agreement is SF 30 [@CL-CLS-1355]. The fixed-price settlement formats page covers which format fits which fixed-price settlement; the execution form and the special clause wording are separate questions. See [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md).
+The formats to be used for termination for convenience settlement agreements should be substantially as shown in FAR 49.603 [@CL-CLS-1356], while Standard Form 30 (SF 30), Amendment of Solicitation/Modification of Contract, shall be used to execute a settlement agreement (see 49.109-1) [@CL-CLS-1355]. See [Settlement agreement formats for terminated fixed-price contracts](cls-settlement-agreement-formats-fixed-price.md).
 
 ## Company calibration
 
@@ -54,4 +54,5 @@ Whether each termination settlement agreement the company signs follows the prin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted contrasts and meta commentary on settlement agreement formats.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination for convenience settlement agreement formats.

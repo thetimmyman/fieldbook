@@ -35,13 +35,13 @@ The section sets a goal of payment 15 days after receipt of proper invoices and 
 
 ## How it works
 
-The duty falls on DoD and runs to small business concerns. The section names no particular office, and the duty is bounded by what the law permits [@CL-CTF-3803].
+DoD shall assist small business concerns by providing payment as quickly as possible, to the fullest extent permitted by law [@CL-CTF-3803].
 
-The 15 days count from receipt of proper invoices together with all required documentation [@CL-CTF-3804]. Acceptance is part of that documentation, so the count does not start until all of it has been received.
+The goal is 15 days after receipt of proper invoices and all required documentation, including acceptance [@CL-CTF-3804].
 
-The measure is a goal, not a deadline. It sits ahead of the normal payment due dates that the contract establishes, and the section does not state that it replaces them [@CL-CTF-3804]. The FAR due-date rules are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
+The goal is before normal payment due dates established in the contract [@CL-CTF-3804]. The FAR due-date rules are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
 
-The section points to DFARS 232.906(a) for the normal payment due dates [@CL-CTF-9596], and paragraph (a)(ii) of that section says the restrictions prohibiting early payment do not apply to invoice payments made to small business concerns, but contractors are not entitled to interest penalties if the Government fails to make early payment [@CL-CTF-0915]. The section does not define a small business concern and states no consequence for missing the goal.
+The section points to DFARS 232.906(a) for the normal payment due dates [@CL-CTF-9596], and paragraph (a)(ii) of that section says the restrictions prohibiting early payment do not apply to invoice payments made to small business concerns, but contractors are not entitled to interest penalties if the Government fails to make early payment [@CL-CTF-0915].
 
 ## Worked example
 
@@ -55,9 +55,7 @@ If acceptance has not occurred on day 1, the 15 days do not start until the acce
 
 ## Never confuse
 
-The goal is not the payment due date. The due date is the one established in the contract [@CL-CTF-3804], while the goal is a DoD effort to pay small business concerns sooner [@CL-CTF-3803].
-
-The 15-day goal is also not a rule that DoD must pay every contractor on that schedule, because the section addresses small business concerns [@CL-CTF-3803; @CL-CTF-3804]. For the agency-wide prompt payment duties, see [Contract financing authority and prompt payment responsibilities](ctf-financing-authority-and-prompt-payment-duties.md).
+The goal is 15 days after receipt of proper invoices and all required documentation, including acceptance, and before normal payment due dates established in the contract [@CL-CTF-3804]. DoD shall assist small business concerns by providing payment as quickly as possible [@CL-CTF-3803]. For the agency-wide prompt payment duties, see [Contract financing authority and prompt payment responsibilities](ctf-financing-authority-and-prompt-payment-duties.md).
 
 ## Company calibration
 
@@ -66,6 +64,6 @@ Whether the company is a small business concern for each contract, and when prop
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: removed added explanations; aligned goal wording to quote
 - COMPATIBLE_EXTENSION, 2026-10-31: Pointer to DFARS 232.906(a) now cites a claim quoting the pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD prompt payment responsibilities for small business concerns.

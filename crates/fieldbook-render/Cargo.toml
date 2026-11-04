@@ -11,5 +11,16 @@ publish.workspace = true
 fieldbook-calc = { path = "../fieldbook-calc" }
 fieldbook-core = { path = "../fieldbook-core" }
 
+serde = { workspace = true }
+csv = { workspace = true }
+pulldown-cmark = { workspace = true }
+askama = { workspace = true }
+serde_json = { workspace = true }
+rust_xlsxwriter = { workspace = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+zip = { workspace = true }
+
 [lints]
 workspace = true

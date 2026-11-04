@@ -35,13 +35,13 @@ Each report carries Report Control Symbol DD-AT&L(A) 1891 and contains the infor
 
 ## How it works
 
-The duty falls on departments and agencies, each acting under its own procedures. The section states no duty for a contractor [@CL-CTF-3786].
+Departments and agencies, in accordance with department/agency procedures, shall prepare and submit annual reports [@CL-CTF-3786].
 
-The report moves upward. It goes to the Under Secretary of Defense (Acquisition and Sustainment) through the Principal Director, Defense Pricing, Contracting, and Acquisition Policy [@CL-CTF-3786].
+The reports go to the Under Secretary of Defense (Acquisition and Sustainment) through the Principal Director, Defense Pricing, Contracting, and Acquisition Policy [@CL-CTF-3786].
 
-The cycle is annual, and the section prints no filing date and no dollar threshold for including a case [@CL-CTF-3786]. The required content comes from the cross-reference to the FAR reporting section, not from a list printed in the supplement [@CL-CTF-3787].
+The reports contain the information required by FAR 32.006-5 [@CL-CTF-3787].
 
-The reports concern the FAR remedy for fraud-based payment requests, which is set out on [Reduction or suspension of payments on a finding of fraud](ctf-reduction-or-suspension-of-payments-for-fraud.md). The FAR reporting rule is also covered on [Contract financing authority and prompt payment responsibilities](ctf-financing-authority-and-prompt-payment-duties.md).
+See [Reduction or suspension of payments on a finding of fraud](ctf-reduction-or-suspension-of-payments-for-fraud.md) for the remedy and [Contract financing authority and prompt payment responsibilities](ctf-financing-authority-and-prompt-payment-duties.md) for the FAR reporting rule.
 
 ## Worked example
 
@@ -51,7 +51,7 @@ A department's remedy coordination official made two recommendations during the 
 
 ## Never confuse
 
-The report is not the remedy. This section governs reporting by departments and agencies and states no duty for a contractor [@CL-CTF-3786]. The decision to reduce or suspend payments is covered on [Financing consideration and fraud payment procedures](ctf-financing-consideration-and-fraud-payment-procedures.md).
+Departments and agencies shall prepare and submit annual reports [@CL-CTF-3786]. The decision to reduce or suspend payments is covered on [Financing consideration and fraud payment procedures](ctf-financing-consideration-and-fraud-payment-procedures.md).
 
 ## Company calibration
 
@@ -60,5 +60,5 @@ Which contracts sit with a DoD department or agency that files these reports, an
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: removed added negatives; aligned report wording to quotes
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD reporting of suspected contractor fraud and the financing remedies it reports on.

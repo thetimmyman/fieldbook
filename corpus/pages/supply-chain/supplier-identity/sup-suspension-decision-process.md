@@ -29,9 +29,9 @@ Shows how a suspension is imposed and decided: the general rules, the notice, th
 | Text status | Final [@CL-SUP-0926] |
 | Applies to | Suspension actions decided by the suspending and debarring official [@CL-SUP-0926; @CL-SUP-0932] |
 
-Suspension is a serious action to be imposed on the basis of adequate evidence, pending the completion of an investigation or legal proceedings, when it has been determined that immediate action is necessary to protect the Government's interest [@CL-SUP-0926]. A contractor has the burden of promptly presenting to the suspending and debarring official evidence of remedial measures or mitigating factors when it has reason to know that a cause for suspension exists [@CL-SUP-0927]. The causes are on the [Causes for suspension](sup-causes-for-suspension.md) card and are not restated here.
+Suspension is a serious action to be imposed on the basis of adequate evidence, pending the completion of an investigation or legal proceedings, when it has been determined that immediate action is necessary to protect the Government's interest [@CL-SUP-0926]. A contractor has the burden of promptly presenting to the suspending and debarring official evidence of remedial measures or mitigating factors when it has reason to know that a cause for suspension exists [@CL-SUP-0927] (see [Causes for suspension](sup-causes-for-suspension.md)).
 
-The deadlines in the printed sections are these. Per one listed item of the suspension notice, the contractor may submit information and argument in opposition within 30 days after receipt of the notice [@CL-SUP-0930; @CL-SUP-0929]. The paragraph on administrative agreements and the paragraph on voluntary exclusions each provide that the suspending and debarring official is responsible for the timely and accurate submission of documentation reflecting the agreement or exclusion, and that the submission should be made within 3 working days [@CL-SUP-0990; @CL-SUP-0991]. The printed section sets no number of days for the decision on a suspension.
+Per one listed item of the suspension notice, the contractor may, within 30 days after receipt of the notice, submit, in person, in writing, or through a representative, information and argument in opposition to the suspension, including any additional specific information that raises a genuine dispute over the material facts [@CL-SUP-0930; @CL-SUP-0929]. The paragraph on administrative agreements and the paragraph on voluntary exclusions each provide that the suspending and debarring official is responsible for the timely and accurate submission of documentation reflecting the agreement or exclusion, and that the submission should be made within 3 working days [@CL-SUP-0990; @CL-SUP-0991].
 
 ## How it works
 
@@ -49,7 +49,7 @@ Answer: the filing is inside the 30 days after receipt. Because the action rests
 
 ## Never confuse
 
-Suspension is not debarment. A suspended contractor is invited to respond following the imposition of suspension [@CL-SUP-0928], while a notice of proposed debarment invites opposition to the proposal within 30 days after receipt [@CL-SUP-0921]. Suspension rests on adequate evidence pending an investigation or legal proceedings [@CL-SUP-0926], and the debarment causes are on the [Causes for debarment](sup-causes-for-debarment.md) card. The debarment procedures, including the decision period and standard of proof, are on the [Debarment: general rules, procedures and the decision](sup-debarment-decision-process.md) card. The effect of a listing is on the [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md) card.
+A suspended contractor is afforded an opportunity following the imposition of suspension to submit information and argument in opposition [@CL-SUP-0928], while a notice of proposed debarment advises that the contractor and any specifically named affiliates may submit information and argument in opposition to the proposed debarment within 30 days after receipt of the notice [@CL-SUP-0921] (see [Debarment: general rules, procedures and the decision](sup-debarment-decision-process.md)). Suspension is imposed on the basis of adequate evidence, pending the completion of an investigation or legal proceedings [@CL-SUP-0926] (see also [Causes for debarment](sup-causes-for-debarment.md) and [SAM exclusion records and the effect of listing](sup-sam-exclusion-records-and-effect-of-listing.md)).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Confirm who owns the response to a suspension notice, how the response clock is 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added full FAR 9.407-3(c)(5) opposition wording and removed uncited meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the alternatives in the notice exception and the record-based decision list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rest of the fact-finding decision basis and the no-prejudice rule on modifying or ending a suspension.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the suspension decision process.

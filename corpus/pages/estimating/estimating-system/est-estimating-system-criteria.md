@@ -26,7 +26,7 @@ Shows what an acceptable estimating system must do, when the requirements apply,
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-0123] |
-| Applies to | The general obligation in paragraph (b) has no award threshold [@CL-EST-0123]; paragraphs (d) and (e) apply to a large business that meets a stated award threshold [@CL-EST-0259; @CL-EST-0124; @CL-EST-0125] |
+| Applies to | The general obligation in paragraph (b) has no award threshold [@CL-EST-0123]; paragraphs (d) and (e) apply to a large business that meets one of two stated conditions [@CL-EST-0259; @CL-EST-0124; @CL-EST-0125] |
 
 The contractor must establish, maintain and comply with an acceptable estimating system, meaning one that complies with the system criteria and provides for a system that, among other requirements, is maintained, reliable and consistently applied and produces verifiable, supportable, documented and timely cost estimates that are an acceptable basis for negotiation of fair and reasonable prices [@CL-EST-0123; @CL-EST-9440; @CL-EST-0121]. That general obligation is stated without any award threshold [@CL-EST-0123]. The applicability paragraph is stated for paragraphs (d) and (e) of the clause, which apply if the contractor is a large business and meets one of two conditions [@CL-EST-0259]. The first condition is receiving $50 million or more in prior-year Department of Defense prime contracts or subcontracts for which certified cost or pricing data were required [@CL-EST-0124].
 
@@ -51,7 +51,6 @@ Who owns proposal pricing and the estimating system description, and when that d
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-ins of the 45-day and payment withholding rules and the full internal review function.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the definition of an acceptable estimating system; stated the second applicability condition as two parts; cited both disclosure acceptability requirements; matched system functions to the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $10 million and $50 million prior-year amounts; cited the clause text for the $10 million to $50 million band and its preceding fiscal year window.

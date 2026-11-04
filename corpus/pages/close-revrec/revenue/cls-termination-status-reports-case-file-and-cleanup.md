@@ -34,15 +34,15 @@ The TCO responsible for negotiating the final settlement shall establish a separ
 
 In the case of terminated construction contracts, the contracting officer shall direct action to ensure the cleanup of the site, protection of serviceable materials, removal of hazards, and other action necessary to leave a safe and healthful site [@CL-CLS-1256].
 
-The Defense Federal Acquisition Regulation Supplement directs that the procedures at PGI 249.105-1 be followed for reporting the status of termination actions [@CL-CLS-1257]. The sentence does not say who must follow them.
+The Defense Federal Acquisition Regulation Supplement directs that the procedures at PGI 249.105-1 be followed for reporting the status of termination actions [@CL-CLS-1257].
 
 ## How it works
 
-The status-report duty applies when the TCO and the contracting officer are in different activities [@CL-CLS-1252]. The report is furnished on request, and the section does not give a reporting interval beyond calling the reports periodic [@CL-CLS-1252]. The contracting office, not the TCO, specifies what information the reports contain [@CL-CLS-1253].
+The status-report duty applies when the TCO and the contracting officer are in different activities [@CL-CLS-1252]. The TCO will furnish periodic status reports on termination actions to the contracting office upon request [@CL-CLS-1252]. The contracting office shall specify the information required [@CL-CLS-1253].
 
-The case file is the duty of the TCO who negotiates the final settlement. There is one file per termination, and it holds memoranda and records of all actions relative to the settlement [@CL-CLS-1254; @CL-CLS-1255].
+The case file is the duty of the TCO responsible for negotiating the final settlement, who shall establish a separate case file for each termination, including memoranda and records of all actions relative to the settlement (see 4.801) [@CL-CLS-1254; @CL-CLS-1255].
 
-Site cleanup is a direction of the contracting officer, not the TCO, and the section states it for terminated construction contracts [@CL-CLS-1256]. The section sets no threshold or deadline for any of these duties.
+In the case of terminated construction contracts, the contracting officer shall direct action to ensure the cleanup of the site, protection of serviceable materials, removal of hazards, and other action necessary to leave a safe and healthful site [@CL-CLS-1256].
 
 ## Worked example
 
@@ -54,9 +54,9 @@ The TCO who will negotiate the final settlement sits in a different activity fro
 
 ## Never confuse
 
-A termination case file is not the settlement proposal. The case file holds memoranda and records of all actions relative to the settlement [@CL-CLS-1255]. A status report is not the case file either. The TCO furnishes the report to the contracting office when the two are in different activities and the office asks for it, while the file is kept by the TCO who negotiates the final settlement [@CL-CLS-1252; @CL-CLS-1254].
+A termination case file holds memoranda and records of all actions relative to the settlement [@CL-CLS-1255]. A status report is furnished by the TCO to the contracting office upon request when the TCO and the contracting officer are in different activities, while a separate case file for each termination is established by the TCO responsible for negotiating the final settlement [@CL-CLS-1252; @CL-CLS-1254].
 
-The cleanup direction is the contracting officer's, not the TCO's [@CL-CLS-1256]. For the TCO's other duties, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
+For terminated construction contracts, the contracting officer shall direct action to ensure site cleanup, protection of serviceable materials, removal of hazards, and other action necessary to leave a safe and healthful site [@CL-CLS-1256]. For the TCO's other duties, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
 
 ## Company calibration
 
@@ -66,5 +66,6 @@ Who maintains the termination case file and who supplies the status report when 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and unquoted actor contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for termination status reports, the case file and construction site cleanup.

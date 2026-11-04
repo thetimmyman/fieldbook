@@ -44,7 +44,7 @@ A contractor uses a staffing firm to place 30 workers. A person at the firm is a
 
 ## Never confuse
 
-An agent is not limited to employees: the definition lists directors, officers, employees and independent contractors [@CL-CMP-3286], while the defined term employee means an employee of the Contractor directly engaged in the work [@CL-CMP-3287]. The definitions are not the prohibition or the certification rules, which are on [Combating trafficking in persons](cmp-combating-trafficking-in-persons.md).
+An agent is not limited to employees: the definition lists directors, officers, employees and independent contractors [@CL-CMP-3286], while the defined term employee means an employee of the Contractor directly engaged in the performance of work under the contract who has other than a minimal impact or involvement in contract performance [@CL-CMP-3287]. The definitions are not the prohibition or the certification rules, which are on [Combating trafficking in persons](cmp-combating-trafficking-in-persons.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which people and firms acting for the company count as agents and employees unde
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the minimal-impact condition in the employee definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: trafficking definitions: removed explanatory wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: trafficking definitions: severe forms stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the trafficking in persons defined terms.

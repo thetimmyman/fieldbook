@@ -45,7 +45,7 @@ An offeror preparing a proposal needs to send a technical data package to a part
 
 ## Never confuse
 
-This provision covers exports and transfers made to prepare a response to a solicitation. Exports and transfers in performance of the awarded contract fall under a separate clause; see [Exports by approved community members in performance of the contract](cmp-approved-community-exports-in-performance.md). The provision is also not the general export-controlled items clause, which requires compliance with export control laws; see [Export-controlled items clause](cmp-export-controlled-items-clause.md).
+This provision covers exports and transfers in preparing a response to the solicitation [@CL-CMP-4023]. The clause on exports in performance of the contract covers exports and transfers in performance of the contract [@CL-CMP-4030]; see [Exports by approved community members in performance of the contract](cmp-approved-community-exports-in-performance.md). The export-controlled items clause requires the contractor to comply with all applicable laws and regulations regarding export-controlled items [@CL-CMP-4017]; see [Export-controlled items clause](cmp-export-controlled-items-clause.md).
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ Which entities and facilities are Approved Community members, and who signs the 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the separate provisions named in the contrast section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word from the flowdown summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the marking and handling duty so it keeps the added articles and the treaty and regulation basis.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exports by approved community members in response to a solicitation.

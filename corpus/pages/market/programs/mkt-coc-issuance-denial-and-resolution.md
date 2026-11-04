@@ -45,7 +45,7 @@ A contract worth 2,000,000 is referred to the SBA. The Area Office tells the con
 
 ## Never confuse
 
-The contracting officer finds a concern nonresponsible, but the SBA decides whether to issue the certificate [@CL-MKT-0491]; the referral step is on the [Certificates of Competency: general rules and referral](mkt-coc-general-and-referral.md) card. A denial does not bar award to the concern and does not bar its other offers [@CL-MKT-0492]. The contracting agency's appeal to SBA Headquarters [@CL-MKT-0489] is a different path from an SBA appeal to the agency head on a program matter [@CL-MKT-0515], which is on the [8(a) limitations on subcontracting and SBA appeals](mkt-8a-subcontracting-limits-and-appeals.md) card. Responsibility information gathered before the determination is on the [Obtaining responsibility information and documenting the determination](../../supply-chain/supplier-identity/sup-responsibility-information-and-determination.md) card.
+For Certificates of Competency valued between $100,000 and $25,000,000, the SBA Associate Administrator for Government Contracting will make a final determination, in writing, to issue or to deny the certificate [@CL-MKT-0487; @CL-MKT-0491]; the referral step is on the [Certificates of Competency: general rules and referral](mkt-coc-general-and-referral.md) card. A denial does not bar award to the concern and does not bar its other offers [@CL-MKT-0492]. An SBA appeal to the agency head on a program matter [@CL-MKT-0515] is on the [8(a) limitations on subcontracting and SBA appeals](mkt-8a-subcontracting-limits-and-appeals.md) card. Responsibility information gathered before the determination is on the [Obtaining responsibility information and documenting the determination](../../supply-chain/supplier-identity/sup-responsibility-information-and-determination.md) card.
 
 ## Company calibration
 
@@ -54,6 +54,6 @@ Whether the company bids as a small business on awards where a Certificate of Co
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast and decision-maker wording not stated by the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Notice of intent to appeal restated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for issuing or denying a Certificate of Competency and resolving differences with SBA.

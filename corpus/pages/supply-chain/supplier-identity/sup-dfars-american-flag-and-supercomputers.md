@@ -16,7 +16,7 @@ links = ["sup-dfars-specialty-metals-restriction", "sup-dfars-domestic-commoditi
 
 ## Purpose
 
-Shows what must be manufactured in the United States under the American flag clause and the supercomputer clause, the exception in the flag clause, and what the contractor delivers.
+Shows what must be manufactured in the United States or its outlying areas under the American flag clause and the supercomputer clause, the exception in the flag clause, and what the contractor delivers.
 
 ## The rule
 
@@ -35,7 +35,7 @@ Supercomputers delivered under the contract shall be manufactured in the United 
 
 ## How it works
 
-Each clause sets the place of manufacture of what the contractor delivers. The flag requirement reaches the materials and components of the flag as well as the finished flag [@CL-SUP-1780]. The flag clause does not apply to end items or components related to flying or displaying the flag, such as flagpoles and accessories [@CL-SUP-1781]. The supercomputer clause sets the place of manufacture as the United States or its outlying areas [@CL-SUP-1782]. The flag clause text says it is prescribed in a DFARS section it names [@CL-SUP-1838].
+The flag clause requires the flags to be manufactured in the United States [@CL-SUP-1780], and the supercomputer clause requires supercomputers to be manufactured in the United States or its outlying areas [@CL-SUP-1782]. The flag requirement reaches the materials and components of the flag as well as the finished flag [@CL-SUP-1780]. The flag clause does not apply to end items or components related to flying or displaying the flag, such as flagpoles and accessories [@CL-SUP-1781]. The supercomputer clause sets the place of manufacture as the United States or its outlying areas [@CL-SUP-1782]. The flag clause is prescribed in DFARS 225.7002-3(c) [@CL-SUP-1838].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ The flags, including their materials and components, must be manufactured in the
 
 ## Never confuse
 
-A flag is not the equipment used to fly or display it, and flagpoles and accessories are outside the flag clause [@CL-SUP-1781]. The supercomputer clause applies to supercomputers delivered under the contract [@CL-SUP-1782]. Other domestic source restrictions are separate clauses; see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md). The uniform components clause for Afghan forces sets its own United States production rule for textile components [@CL-SUP-1805]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). The reporting clause on payment requests is a different duty; see [Identification of expenditures in the United States](sup-dfars-identification-of-expenditures-in-the-united-states.md).
+The flag clause does not apply to the acquisition of any end items or components related to flying or displaying the flag, such as flagpoles and accessories [@CL-SUP-1781]. The supercomputer clause applies to supercomputers delivered under the contract [@CL-SUP-1782]. For other domestic source restrictions, see [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md) and [Preference for certain domestic commodities](sup-dfars-domestic-commodities-preference.md). The uniform components clause for Afghan forces sets its own United States production rule for textile components [@CL-SUP-1805]; see [Restriction to products or services from Afghanistan and uniform components](sup-dfars-afghanistan-restriction-and-uniform-components.md). For the clause on identification of expenditures in the United States, see [Identification of expenditures in the United States](sup-dfars-identification-of-expenditures-in-the-united-states.md).
 
 ## Company calibration
 
@@ -56,7 +56,7 @@ Whether any executed contract delivers flags or supercomputers, and who confirms
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrasts; cited the prescribing section and the flag exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Placed the flag-manufacture citation before the Berry Amendment reference
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the flag requirement is stated to be consistent with the Berry Amendment requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

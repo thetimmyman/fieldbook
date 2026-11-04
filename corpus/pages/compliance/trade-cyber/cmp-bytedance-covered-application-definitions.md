@@ -31,7 +31,7 @@ Defines the two terms printed in the FAR subpart on the prohibition on a ByteDan
 
 The section prints the definitions at FAR 4.2201 [@CL-CMP-8477]. The terms have those meanings as used in the subpart [@CL-CMP-8477].
 
-Covered application means the social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited [@CL-CMP-8478]. The definition lists no exclusion [@CL-CMP-8478].
+Covered application means the social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited [@CL-CMP-8478].
 
 The definition of information technology is introduced as the term defined in section 11101(6) of title 40 of the United States Code, followed by three numbered limbs [@CL-CMP-8479].
 
@@ -43,16 +43,16 @@ Limb 3: information technology does not include any equipment acquired by a Fede
 
 | Term | Definition as printed |
 |---|---|
-| Covered application | The social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited. No exclusion is listed. [@CL-CMP-8478] |
+| Covered application | The social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited. [@CL-CMP-8478] |
 | Information technology | As defined in section 11101(6) of title 40 of the United States Code: (1) means any equipment or interconnected system or subsystem of equipment, used in the automatic acquisition, storage, analysis, evaluation, manipulation, management, movement, control, display, switching, interchange, transmission, or reception of data or information by the executive agency, if the equipment is used by the executive agency directly or is used by a contractor under a contract with the executive agency that requires the use of that equipment, or the use of that equipment to a significant extent in the performance of a service or the furnishing of a product; (2) includes computers, ancillary equipment (including imaging peripherals, input, output, and storage devices necessary for security and surveillance), peripheral equipment designed to be controlled by the central processing unit of a computer, software, firmware and similar procedures, services (including support services), and related resources; but (3) does not include any equipment acquired by a Federal contractor incidental to a Federal contract. [@CL-CMP-8479; @CL-CMP-8480; @CL-CMP-8481; @CL-CMP-8482; @CL-CMP-8483; @CL-CMP-8484] |
 
 ## How it works
 
-The covered-application definition has two parts: the named service TikTok, and any successor application or service developed or provided by ByteDance Limited or by an entity owned by ByteDance Limited [@CL-CMP-8478]. The definition names no ownership percentage [@CL-CMP-8478].
+The covered-application definition has two parts: the named service TikTok, and any successor application or service developed or provided by ByteDance Limited or by an entity owned by ByteDance Limited [@CL-CMP-8478].
 
-Limb 1 of the information technology definition turns on what the equipment is used for, namely the automatic acquisition, storage, analysis, evaluation, manipulation, management, movement, control, display, switching, interchange, transmission, or reception of data or information by the executive agency [@CL-CMP-8480], and on who uses it: the executive agency uses it directly, or a contractor uses it under a contract with the executive agency that requires the use [@CL-CMP-8481]. Limb 2 lists what the term includes [@CL-CMP-8482; @CL-CMP-8483]. Limb 3 excludes equipment acquired by a Federal contractor incidental to a Federal contract [@CL-CMP-8484]. This section does not define incidental.
+Limb 1 of the information technology definition turns on what the equipment is used for, namely the automatic acquisition, storage, analysis, evaluation, manipulation, management, movement, control, display, switching, interchange, transmission, or reception of data or information by the executive agency [@CL-CMP-8480], and on who uses it: the executive agency uses it directly, or a contractor uses it under a contract with the executive agency that requires the use [@CL-CMP-8481]. Limb 2 lists what the term includes [@CL-CMP-8482; @CL-CMP-8483]. Limb 3 excludes equipment acquired by a Federal contractor incidental to a Federal contract [@CL-CMP-8484].
 
-This section defines terms only. They state no duty, dollar threshold, deadline or exception for any contractor or agency [@CL-CMP-8477]. The prohibition that uses these terms is not restated here. See [Kaspersky and ByteDance prohibitions](../regulatory-framework/cmp-kaspersky-and-bytedance-prohibitions.md).
+The definitions apply as used in the subpart [@CL-CMP-8477]. For the prohibition that uses these terms, see [Kaspersky and ByteDance prohibitions](../regulatory-framework/cmp-kaspersky-and-bytedance-prohibitions.md).
 
 ## Worked example
 
@@ -68,7 +68,7 @@ The third is a workstation that the contract requires the contractor to use and 
 
 ## Never confuse
 
-A covered application with information technology. The covered application is the named social networking service and its successors, while information technology is the broader definition of equipment, software, services and related resources, so a tool can be information technology without being a covered application [@CL-CMP-8478; @CL-CMP-8482; @CL-CMP-8483].
+A covered application with information technology. The covered application is the named social networking service TikTok or any successor application or service developed or provided by ByteDance Limited or an entity owned by ByteDance Limited [@CL-CMP-8478], while information technology includes computers, ancillary equipment, peripheral equipment, software, firmware and similar procedures, services and related resources [@CL-CMP-8482; @CL-CMP-8483].
 
 Limb 2 with limb 3: limb 2 lists what information technology includes, while limb 3 excludes equipment acquired by a Federal contractor incidental to a Federal contract [@CL-CMP-8482; @CL-CMP-8484].
 
@@ -79,5 +79,5 @@ Which storage, transfer and assistant tools IT approves for company data, which 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed statements about what the definitions do not say.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered-application definitions.

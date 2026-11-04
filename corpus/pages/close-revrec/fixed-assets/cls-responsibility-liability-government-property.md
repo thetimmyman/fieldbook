@@ -45,7 +45,7 @@ A contractor on a cost-reimbursement contract loses a furnished machine worth 80
 
 ## Never confuse
 
-A general rule of no liability is not a promise that the Government always bears a loss. The rule is stated as general, the Government's assumption of risk can be revoked, and a prime contractor stays responsible to the Government when it passes property to a subcontractor [@CL-CLS-0700; @CL-CLS-0702; @CL-CLS-0703].
+Generally, contractors are not held liable for loss of Government property under cost-reimbursement, time-and-material, and labor-hour contracts [@CL-CLS-0700], or under fixed-price contracts awarded on the basis of submission of certified cost or pricing data [@CL-CLS-0701], whereas the contracting officer may revoke the Government's assumption of risk when the property administrator determines that the contractor's property management practices are noncompliant with contract requirements [@CL-CLS-0702], and a prime contractor that provides Government property to a subcontractor shall not be relieved of any responsibility to the Government that the prime contractor may have under the terms of the prime contract [@CL-CLS-0703].
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which contracts carry the general no-liability rule, and whether the Government'
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers in Never confuse and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for responsibility and liability for Government property.

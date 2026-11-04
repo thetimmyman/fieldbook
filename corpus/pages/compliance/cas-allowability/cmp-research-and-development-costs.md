@@ -16,7 +16,7 @@ links = ["cmp-ird-and-bp-costs"]
 
 ## Purpose
 
-Shows how sponsored or contract-required research and development is defined for cost purposes, and what happens to cost above the money that funds it.
+Defines research and development for cost purposes and states the treatment of costs incurred in excess of the price of a contract or amount of a grant.
 
 ## The rule
 
@@ -29,23 +29,23 @@ Shows how sponsored or contract-required research and development is defined for
 | Text status | Final [@CL-CMP-0873] |
 | Applies to | Not established. |
 
-Research and development, as used here, means the type of technical effort described in the independent research and development cost principle but sponsored by a grant or required in the performance of a contract [@CL-CMP-0873]. Where the effort costs more than the price of the contract or the amount of the grant, the excess is unallowable under any other Government contract [@CL-CMP-0874].
+Research and development, as used in this subsection, means the type of technical effort described in 31.205-18 but sponsored by a grant or required in the performance of a contract [@CL-CMP-8379]. When costs are incurred in excess of either the price of a contract or amount of a grant for research and development effort, the excess is unallowable under any other Government contract [@CL-CMP-0874].
 
 ## How it works
 
-The section defines research and development, for its own purpose, by reference to the independent research and development cost principle [@CL-CMP-0873]. The effort must be sponsored by a grant or required in the performance of a contract before the section applies [@CL-CMP-0873]. The section then limits an overrun: where costs exceed the price of the contract or the amount of the grant for the effort, the excess is unallowable under any other Government contract [@CL-CMP-0874].
+Under FAR 31.205-48, research and development, as used in the subsection, means the type of technical effort described in 31.205-18 but sponsored by a grant or required in the performance of a contract [@CL-CMP-8379]. The treatment of costs in excess of the price of a contract or amount of a grant for research and development effort is that the excess is unallowable under any other Government contract [@CL-CMP-0874].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-48 keeps the rule described above [@CL-CMP-9604; @CL-CMP-9605]. Research and development means the type of technical effort described in 31.205-18 but sponsored by a grant or required in the performance of a contract [@CL-CMP-9604], and costs incurred in excess of either the price of a contract or the amount of a grant for research and development are unallowable under any other Government contract [@CL-CMP-9605]. The RFO text letters the definition and the overrun sentence as paragraphs (a) and (b), says section where the codified text says subsection, and ends the overrun sentence with for research and development where the codified text ends with for research and development effort [@CL-CMP-9604; @CL-CMP-9605; @CL-CMP-0873; @CL-CMP-0874].
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. Under RFO FAR 31.205-48(a), research and development, as used in this section, means the type of technical effort described in 31.205-18 but sponsored by a grant or required in the performance of a contract [@CL-CMP-9604]. Under paragraph (b), when costs are incurred in excess of either the price of a contract or amount of a grant for research and development, the excess is unallowable under any other Government contract [@CL-CMP-9605].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A grant of 500,000 funds a research effort that ends up costing 540,000. The 40,000 excess cannot be charged to any other Government contract.
+A grant of 500,000 funds a research effort that ends up costing 540,000. The 40,000 excess is unallowable under any other Government contract.
 
 ## Never confuse
 
-This section does not restate the independent research and development cost principle it points to; it covers effort that a grant sponsors or a contract requires [@CL-CMP-0873]. An overrun on that effort is not rescued by moving it to another Government contract [@CL-CMP-0874]. The principle it points to is covered in [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md).
+For the independent research and development and bid and proposal cost principle, see [IR&D and B&P costs](../cas-allowability/cmp-ird-and-bp-costs.md).
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ Whether sponsored and contract-required research effort is tracked against its o
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated research and development definition and excess rule from the quotes; added subsection-scope companion; RFO-only paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Removed statements about the independent research and development principle and about where an overrun stays, which the section does not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for research and development costs.

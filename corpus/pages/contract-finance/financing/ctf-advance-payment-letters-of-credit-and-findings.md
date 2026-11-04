@@ -35,7 +35,7 @@ Each determination concerning advance payments shall be supported by written fin
 
 ## How it works
 
-The section requires written findings to support each determination [@CL-CTF-1429]. In the example format, the findings include that advance payments are the only adequate means of financing available to the contractor and that the designated amount is based, to the extent possible, on the use of the contractor's own working capital [@CL-CTF-1430]. The example says that finding should not be included if the contract is for experimental, developmental, or research work with a nonprofit educational or research institution, or only for management and operation of a Government-owned plant [@CL-CTF-1431]. The example format includes a signature block for a signature, a typed name and the title of an authorized official [@CL-CTF-1432]. For the security, covenants and special account, see [Advance payments: security, supervision, covenants and the special account](ctf-advance-payment-security-and-special-account.md).
+The section requires written findings to support each determination [@CL-CTF-1429]. In the example format, the findings include that advance payments are the only adequate means of financing available to the contractor and that the designated amount is based, to the extent possible, on the use of the contractor's own working capital [@CL-CTF-1430]. The example says that finding should not be included if the contract is for experimental, developmental, or research work and with a nonprofit educational or research institution, or only for management and operation of a Government-owned plant [@CL-CTF-1431]. The example format includes a signature block for a signature, a typed name and the title of an authorized official [@CL-CTF-1432]. For the security, covenants and special account, see [Advance payments: security, supervision, covenants and the special account](ctf-advance-payment-security-and-special-account.md).
 
 Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.406(b) keeps the required methods unless the agency has obtained a Treasury waiver: a letter of credit for a continuing relationship of a year or more with advances totaling at least $120,000 a year, and otherwise a direct Treasury check [@CL-CTF-4165; @CL-CTF-4166; @CL-CTF-4167]. RFO FAR 32.406(a) refers to 2 CFR 700.7 for the Treasury regulations on letters of credit [@CL-CTF-4164]. RFO FAR 32.410(a) keeps the requirement that each determination be supported by written findings [@CL-CTF-4168], and its example format keeps the only-adequate-means finding, the instruction to omit it for the two listed contract types, and the signature block [@CL-CTF-4169; @CL-CTF-4170; @CL-CTF-4171].
 
@@ -49,7 +49,7 @@ Answer: the letter of credit method applies, because the relationship is expecte
 
 ## Never confuse
 
-The letter of credit and Treasury check methods govern how an advance payment is made [@CL-CTF-1427; @CL-CTF-1428; @CL-CTF-1463], while the written findings support each determination concerning advance payments [@CL-CTF-1429]. The example findings are an example format, and the finding on the only adequate means of financing is not used in every case [@CL-CTF-1430; @CL-CTF-1431]. See also [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md) and [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
+The letter of credit and Treasury check methods govern how an advance payment is made [@CL-CTF-1427; @CL-CTF-1428; @CL-CTF-1463], while the written findings support each determination concerning advance payments [@CL-CTF-1429]. The findings in FAR 32.410(b) are an example format [@CL-CTF-1430], and the finding on the only adequate means of financing should not be included if the contract is for experimental, developmental, or research work and with a nonprofit educational or research institution, or only for management and operation of a Government-owned plant [@CL-CTF-1431]. See also [Advance payments for non-commercial items](ctf-advance-payments-for-non-commercial-items.md) and [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
 
 ## Company calibration
 
@@ -58,7 +58,7 @@ Which advance payment arrangements the company expects to carry a letter of cred
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Tightened the example-findings sentence to the cited omission rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now says only that written findings support each determination.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for advance payment letters of credit and the findings, determination and authorization.

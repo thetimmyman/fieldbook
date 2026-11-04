@@ -28,7 +28,7 @@ Shows how the guide expects a contractor to pick a performance measurement techn
 | Text status | Not established. |
 | Applies to | Programs that operate an earned value management system [@CL-PRG-0252] |
 
-Each work package carries an objective measurement criterion chosen to fit the way the work is expected to be accomplished, and only effort that cannot be measured is treated as level of effort [@CL-PRG-0252]. Level of effort is confined to activities with no practicable, measurable output that could be planned and measured discretely at the work package level [@CL-PRG-0253].
+Each work package carries an objective measurement criterion chosen to fit the way the work is expected to be accomplished, and only effort that cannot be measured is treated as level of effort [@CL-PRG-0252]. Level of effort is confined to activities with no practicable, measurable output or product associated with technical effort that can be discretely planned and objectively measured at the work package level [@CL-PRG-0253].
 
 Where a long-duration work package is unavoidable, interim milestones that model measurable technical accomplishment are required [@CL-PRG-0255]. Apportioned effort should be used for supporting work that ties directly to a discrete technical activity [@CL-PRG-0256]. If the contractor chooses to use it, the system documentation must cover the requirements for using the technique and the need to document the factor used to establish the relationship, and it must also point out that the progress identified in the base account (percent complete) provides the basis for the progress percentage of the apportioned account [@CL-PRG-0257; @CL-PRG-9149].
 
@@ -55,7 +55,7 @@ Which work packages the company measures as level of effort, and whether the sys
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-04: Aligned the level-of-effort restriction wording with CL-PRG-0253.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added consumable-material examples for PERT and full apportioned-effort documentation rule in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Apportioned-effort documentation, control account manager and PERT wording aligned to the guide.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the PERT claim for the BCWP formula and stated the apportioned-effort documentation condition.

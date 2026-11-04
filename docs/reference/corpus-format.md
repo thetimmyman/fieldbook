@@ -36,6 +36,8 @@ Check codes are stable. A check's message may be improved without a version chan
 | additive | Everything valid before is still valid: a new optional field or column, a new vocabulary value, a new page type, a new check | Stamp-only when existing readers accept both shapes; an exact-header change needs an explicit preserving migration |
 | breaking | Some valid file needs rewriting: a field or column removed, renamed or reordered, a meaning changed, a rule tightened, an id form or frozen string changed | Rewrites the files |
 
+The pre-`edition-001` [ADR 0002 amendment](../decisions/0002-corpus-format-v1.md#amendment-five-digit-claim-continuation-pre-edition-001) folds five-digit public claim continuation (`10000` to `99999`) and numeric-within-area `claims.csv` ordering into `schema_version = 1` before any reader or edition ships: every four-digit claim id and its relative sort order stay unchanged, so no existing file needs rewriting.
+
 **How a bump ships.**
 - Before R2, the bump ships with a one-off migration, `cargo xtask migrate-<from>-to-<to>`, in the same pull request. It runs once, at home, and is deleted by a later card. A test runs it on the `corpus-mini` fixture and compares the result with a committed expected tree.
 - From R2, bumps are batched into planned tool releases. `fieldbook migrate` rewrites a Corpus or a company store in place, is idempotent, and is the only command that changes `schema_version`.
@@ -95,7 +97,8 @@ citation = "[" , cite , { "; " , cite } , "]" ;
 cite     = "@" , key , [ ", " , locator ] ;
 key      = version | claim | question | conflict | company ;
 version  = "S-" , digit , digit , digit , digit , "-v" , digits ;
-claim    = "CL-" , area , "-" , digit , digit , digit , digit ;
+claim    = "CL-" , area , "-" , ( digit , digit , digit , digit
+                                | nonzero , digit , digit , digit , digit ) ;
 question = "Q-" , digit , digit , digit ;
 conflict = "XC-" , digit , digits ;
 company  = "CL-X" , capital , capital , "-" , cnum
@@ -112,7 +115,7 @@ locator  = "p. " , digits
 (* label, name, range, record-key and column are text without ";" or "]" *)
 ```
 
-- `digit` is `0` to `9`. `digits` is one or more digits. `area` is the capitals of an area code (`CMP`). The conflict form needs at least two digits (`XC-14`), which is how `check` is stricter than the lexer in [search.md](search.md). `capital` is `A` to `Z`. A `cnum` has six to ten digits: the writer's digits, then six sequence digits. The lexer reads the company forms generally (a company claim, a company versioned id and a company id), so a new record type needs no lexer change. `check` accepts only the prefixes in the `FAMILIES` table of `fieldbook-core`, and only in a company store: a company form in a file of the repository Corpus is an error (FB0416).
+- `digit` is `0` to `9`. `nonzero` is `1` to `9`. `digits` is one or more digits. `area` is the capitals of an area code (`CMP`). A public claim number has four digits (`0001` to `9999`) or five digits from `10000` (never a leading `0` in five digits). The conflict form needs at least two digits (`XC-14`), which is how `check` is stricter than the lexer in [search.md](search.md). `capital` is `A` to `Z`. A `cnum` has six to ten digits: the writer's digits, then six sequence digits. The lexer reads the company forms generally (a company claim, a company versioned id and a company id), so a new record type needs no lexer change. `check` accepts only the prefixes in the `FAMILIES` table of `fieldbook-core`, and only in a company store: a company form in a file of the repository Corpus is an error (FB0416).
 - A claim, question or conflict key takes no locator. A locator belongs to a source version. The one exception is `field`, which belongs to a record version and exists only in a company store; its `column` is a column name of the record's type, of the form `[a-z][a-z0-9_]*`.
 - Examples: `[@S-0042-v2, p. 14]`, `[@CL-CMP-0011]`, `[@Q-027]`, `[@XC-14]`, `[@CL-CMP-0011; @S-0042-v2, pp. 14-15]`.
 - A `sheet` locator is `sheet NAME!D214` for one cell or `sheet NAME!A2:F9` for a range of two different corners (`A1` to `XFD1048576`, capitals, no `$`). It is split at the last `!`. A sheet name is written with three escapes, so that any name can be cited: `%25` for `%`, `%3B` for `;` and `%5D` for `]`, with the hex in capitals. A name matches exactly, after Unicode NFC. `rec NAME!213` names data row 213 of that sheet, with the name written the same way.
@@ -464,7 +467,7 @@ An id never encodes meaning that can change. A claim id carries its area because
 | Page | `<area>-<kebab>`, at most 64 characters | `^[a-z]{3}(-[a-z0-9]+)+$` | `cmp-withholding` | The author, with `new page` |
 | Source | `S-` and four digits | `^S-[0-9]{4}$` | `S-0042` | `add` |
 | Source version | The source id, `-v`, an integer from 1 | `^S-[0-9]{4}-v[1-9][0-9]*$` | `S-0042-v2` | `add` |
-| Claim | `CL-`, the area in capitals, four digits | `^CL-[A-Z]{3}-[0-9]{4}$` | `CL-CMP-0011` | `new claim` |
+| Claim | `CL-`, the area in capitals, four digits, or five digits from 10000 | `^CL-[A-Z]{3}-([0-9]{4}\|[1-9][0-9]{4})$` | `CL-CMP-0011`, `CL-CMP-10000` | `new claim` |
 | Question | `Q-` and three digits | `^Q-[0-9]{3}$` | `Q-025` | `new question` |
 | Conflict | `XC-` and two or more digits | `^XC-[0-9]{2,}$` | `XC-14` | `new conflict` |
 | Term | snake_case, at most 64 characters | `^[a-z][a-z0-9]*(_[a-z0-9]+)*$` | `material_weakness` | `new term` |
@@ -501,12 +504,12 @@ A company area code is three lowercase letters starting with `x` (`xes`), and a 
 
 Two digits allow 99 cases a prefix and three allow 999, so a family that outgrows 99 needs no second scheme. A case id is never renamed once an edition holds a page that cites it.
 
-**Company numbers.** A company number is the writer's digits followed by exactly six sequence digits. Writer 0 has no extra digits: `SO-000042`. Writer 1 gives `SO-1000042`. A writer index runs from 0 to 9999 and is set in the store's `store.toml`. A sequence runs from 000001 to 999999 for each family and writer. Company ids sort by length, then byte by byte. Public sources and claims use four sequence digits, questions three, and conflicts at least two with no four-digit cap. Company families have distinct prefixes (`SO`, `QO`, `XO`, `CM`), company claim areas start with `x`, and company terms with `x_`. The complete prefix and pattern distinguish the stores; digit count alone does not. One constant in `fieldbook-core`, `FAMILIES`, lists every family. The id parsers read it, and a test compares it with the table above, with the lexer and with the prefixes the tracker-key scan exempts.
+**Company numbers.** A company number is the writer's digits followed by exactly six sequence digits. Writer 0 has no extra digits: `SO-000042`. Writer 1 gives `SO-1000042`. A writer index runs from 0 to 9999 and is set in the store's `store.toml`. A sequence runs from 000001 to 999999 for each family and writer. Company ids sort by length, then byte by byte. Public sources use four sequence digits, public claims four and then five from 10000, questions three, and conflicts at least two with no four-digit cap. Company families have distinct prefixes (`SO`, `QO`, `XO`, `CM`), company claim areas start with `x`, and company terms with `x_`. The complete prefix and pattern distinguish the stores; digit count alone does not. One constant in `fieldbook-core`, `FAMILIES`, lists every family. The id parsers read it, and a test compares it with the table above, with the lexer and with the prefixes the tracker-key scan exempts.
 
 The last two rows (before the company rows) are local to the state folder (`.fieldbook/` at home, `state\` on the laptop). A proposal records the `writer` of the store it was made for, so a queue copied from another device cannot be mistaken for this one's. They are not part of the Corpus: they never appear in a Corpus file, and the id lexer does not read them.
 
 **Allocation.**
-- `new` and `add` choose the next free number: one more than the highest number ever used in that series, retired rows included. In a company store a series is per family and per writer: the allocator reads only the rows of that family whose number carries the store's writer digits, and `sync` takes numbers the same way, so two writers cannot hand out the same id. `check` reports a repeated id (FB0203). A claim series is per area (`CL-CMP-0012` follows `CL-CMP-0011`). Until the card `add-new-and-edition` lands them, the lead allocates by hand, with `sha256sum` and a row in `sources.csv` for a source.
+- `new` and `add` choose the next free number: one more than the highest number ever used in that series, retired rows included. In a company store a series is per family and per writer: the allocator reads only the rows of that family whose number carries the store's writer digits, and `sync` takes numbers the same way, so two writers cannot hand out the same id. `check` reports a repeated id (FB0203). A claim series is per area (`CL-CMP-0012` follows `CL-CMP-0011`). A claim series that reaches 9999 continues with five digits: `CL-CMP-10000` follows `CL-CMP-9999`. A five-digit number never starts with 0, so each number has one spelling. Until the card `add-new-and-edition` lands them, the lead allocates by hand, with `sha256sum` and a row in `sources.csv` for a source.
 - Source numbering starts at `S-0001`. A source's first version is `v1`; each later version of the same source is one more.
 - An id has one spelling everywhere. The version id `S-0042-v2` is the file stem of its original (`S-0042-v2.pdf`), the name of its extraction folder, the name of its site page (`s/S-0042-v2.html`) and the key in a citation (`[@S-0042-v2, p. 14]`).
 - A register id is also the anchor of its row on the register page: `claims.html#CL-CMP-0011`, `sources.html#S-0042-v2`, `questions.html#Q-027`, `conflicts.html#XC-14`, `glossary.html#material_weakness`.
@@ -533,12 +536,12 @@ Five CSV registers live in `corpus/registers/`. Each has a fixed header: the col
 | File | One row is | Key | Columns | Sort order |
 |---|---|---|---|---|
 | `sources.csv` | One version of one source | `source_id` and `version` | 28 | `source_id`, then `version` as a number |
-| `claims.csv` | One claim | `claim_id` | 35 | `claim_id` |
+| `claims.csv` | One claim | `claim_id` | 35 | The area, then the number as a number |
 | `questions.csv` | One question for the company | `question_id` | 13 | `question_id` |
 | `conflicts.csv` | One disagreement between statements | `conflict_id` | 11 | `conflict_id` as a number |
 | `glossary.csv` | One term | `term_id` | 9 | `term_id` |
 
-Ids sort byte by byte, which is also numeric order because their digits have fixed width. Acronyms are glossary `aliases`; there is no separate acronym register.
+Other ids sort byte by byte, which is also numeric order because their digits have fixed width. Claim ids do not have a fixed width once a series passes 9999, so `CL-CMP-9999` sorts before `CL-CMP-10000`. Acronyms are glossary `aliases`; there is no separate acronym register.
 
 **CSV rules, all five** (RFC 4180).
 - UTF-8 without a byte-order mark, LF line endings, Unicode NFC. A header row read by name. Rows sorted as above.
@@ -609,7 +612,7 @@ A version is **superseded** when another row's `supersedes` names it. That state
 
 | # | Column | Type | Required | Values and form | Empty means |
 |---|---|---|---|---|---|
-| 1 | `claim_id` | id | yes | `CL-AAA-nnnn` | |
+| 1 | `claim_id` | id | yes | `CL-AAA-nnnn`, or five digits from `10000` | |
 | 2 | `area` | enum | yes | An area code. Equals the id's area letters in lowercase | |
 | 3 | `kind` | enum | yes | `claim_kind` | |
 | 4 | `statement` | text | yes | One plain sentence a page can cite. No markup | |

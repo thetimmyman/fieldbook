@@ -45,7 +45,7 @@ A modification deletes a 10,000 item, adds a 30,000 item and changes a third for
 
 ## Never confuse
 
-The Contractor shall furnish a price breakdown with any proposal for a contract modification [@CL-EST-1747], and shall include in the prices for the items listed in the Bidding Schedule all costs for work in the specifications, whether or not specifically listed in the Bidding Schedule [@CL-EST-1753]. Related pages are [Changes clause for construction](../../close-revrec/revenue/cls-changes-construction.md) and [Cost principles for construction and architect-engineer contracts](../../compliance/cas-allowability/cmp-cost-principles-construction-architect-engineer.md). For how the Government analyses the breakdown, see [Proposal analysis](est-proposal-analysis.md). For the clause on data from the Canadian Commercial Corporation, see [Data other than certified data for Canadian Commercial Corporation modifications](est-dfars-ccc-modification-data-clause.md), and for the mobilization payment clauses, see [Mobilization payment clauses and the cost limitation provision](est-dfars-mobilization-payment-and-cost-limitation.md).
+The Contractor shall furnish a price breakdown, itemized as required and within the time specified by the Contracting Officer, with any proposal for a contract modification [@CL-EST-1747], and shall include in the prices for the items listed in the Bidding Schedule all costs for work in the specifications, whether or not specifically listed in the Bidding Schedule [@CL-EST-1753]. Related pages are [Changes clause for construction](../../close-revrec/revenue/cls-changes-construction.md) and [Cost principles for construction and architect-engineer contracts](../../compliance/cas-allowability/cmp-cost-principles-construction-architect-engineer.md). For how the Government analyses the breakdown, see [Proposal analysis](est-proposal-analysis.md). For the clause on data from the Canadian Commercial Corporation, see [Data other than certified data for Canadian Commercial Corporation modifications](est-dfars-ccc-modification-data-clause.md), and for the mobilization payment clauses, see [Mobilization payment clauses and the cost limitation provision](est-dfars-mobilization-payment-and-cost-limitation.md).
 
 ## Company calibration
 
@@ -54,6 +54,6 @@ Who prepares modification price breakdowns, how fast they can be itemized when t
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now carries the itemization and time conditions of the price breakdown requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: How it works and Never confuse reworded to follow the clause text; uncited negatives and contrasts replaced with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the modification price breakdown and bidding schedule provisions.

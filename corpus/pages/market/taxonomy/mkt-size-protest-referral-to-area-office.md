@@ -32,7 +32,7 @@ A contracting officer who receives a protest, other than a protest from SBA, mus
 
 ## How it works
 
-The duty is the contracting officer's, and it covers a protest that the officer receives and that does not come from SBA [@CL-MKT-2056]. The referral goes to the SBA Government Contracting Area Office serving the area of the offeror's headquarters [@CL-MKT-2056]. The referral must contain every listed item, three in the first part of the list and four in the second [@CL-MKT-2057; @CL-MKT-2058]. The section states the timing as prompt forwarding and sets no further deadline [@CL-MKT-2056].
+The duty is the contracting officer's, and it covers a protest that the officer receives and that does not come from SBA [@CL-MKT-2056]. The referral goes to the SBA Government Contracting Area Office serving the area of the offeror's headquarters [@CL-MKT-2056]. The referral must contain every listed item, three in the first part of the list and four in the second [@CL-MKT-2057; @CL-MKT-2058]. The section states the timing as prompt forwarding [@CL-MKT-2056].
 
 A protest involving a government procurement or sale must be filed with the contracting officer for the procurement or sale, who must forward the protest to the SBA Government Contracting Area Office serving the area in which the headquarters of the protested concern is located, regardless of the location of any parent company or affiliates [@CL-MKT-2390; @CL-MKT-2391].
 
@@ -44,7 +44,7 @@ A contracting officer receives a size protest from a competitor after bid openin
 
 ## Never confuse
 
-This section covers only the forwarding of a protest and the contents of the referral, and it does not say who decides the protest. It tells the contracting officer to forward the protest promptly and lists what the referral must contain [@CL-MKT-2056; @CL-MKT-2057; @CL-MKT-2058]. Who may protest and the deadlines are in [Small business size protests](../taxonomy/mkt-small-business-size-protests.md) and [Size protest parties and deadlines](../taxonomy/mkt-sba-size-protest-parties-and-deadlines.md). What SBA does after it receives a protest is in [SBA size determination procedure](../taxonomy/mkt-sba-size-determination-procedure.md).
+This section covers the forwarding of a protest and the contents of the referral [@CL-MKT-2056; @CL-MKT-2057; @CL-MKT-2058]. It tells the contracting officer to forward the protest promptly and lists what the referral must contain [@CL-MKT-2056; @CL-MKT-2057; @CL-MKT-2058]. Who may protest and the deadlines are in [Small business size protests](../taxonomy/mkt-small-business-size-protests.md) and [Size protest parties and deadlines](../taxonomy/mkt-sba-size-protest-parties-and-deadlines.md). What SBA does after it receives a protest is in [SBA size determination procedure](../taxonomy/mkt-sba-size-determination-procedure.md).
 
 ## Company calibration
 
@@ -53,6 +53,6 @@ Who receives a size protest on each of the company's set-aside offers, and who a
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unstated only and absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added where a size protest is filed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for referral of a size protest to an area office.

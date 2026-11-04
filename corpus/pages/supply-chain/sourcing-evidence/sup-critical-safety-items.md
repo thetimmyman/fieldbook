@@ -16,7 +16,7 @@ links = ["sup-qualification-requirements-clause", "cmp-dfars-safety-notification
 
 ## Purpose
 
-Shows what the critical safety items clause counts as an aviation or ship critical safety item, how the contract identifies the items, and what extra surveillance follows. It also records what the printed clause text does not say about source approval, qualification and flowdown.
+Shows what the critical safety items clause counts as an aviation or ship critical safety item, how the contract identifies the items, and what extra surveillance follows.
 
 ## The rule
 
@@ -35,21 +35,19 @@ A ship critical safety item is defined in a parallel way for any ship part, asse
 
 The clause states that one or more items being procured under the contract is an aviation or ship critical safety item, and it introduces the list of items designated by the designated design control activity [@CL-SUP-1550]. Items designated in that paragraph are subject to heightened, risk-based surveillance by the designated quality assurance representative [@CL-SUP-1551].
 
-The printed clause has only a definitions paragraph, an identification paragraph and a surveillance paragraph. It holds no paragraph on source approval, qualification or flowdown.
-
 ## How it works
 
-The contract names the designated items in the clause, and the design control activity makes the designations [@CL-SUP-1550]. The definitions turn on what a failure, malfunction, or absence of a characteristic could cause [@CL-SUP-1547; @CL-SUP-1548]. Once an item is designated, it draws heightened, risk-based surveillance by the designated quality assurance representative [@CL-SUP-1551]. The printed clause text does not say what source approval or qualification the contractor must obtain, or whether the clause flows down to subcontracts.
+The contract names the designated items in the clause, and the design control activity makes the designations [@CL-SUP-1550]. The definitions turn on what a failure, malfunction, or absence of a characteristic could cause [@CL-SUP-1547; @CL-SUP-1548]. Once an item is designated, it draws heightened, risk-based surveillance by the designated quality assurance representative [@CL-SUP-1551].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contract lists two items in the designation paragraph: a landing gear actuator and a ground cart. Only the actuator was designated by the design control activity as an aviation critical safety item. The quality assurance representative applies heightened, risk-based surveillance to the actuator. The ground cart is not covered by this clause's surveillance rule.
+A contract procures a landing gear actuator and a ground cart. The design control activity designated only the actuator as an aviation critical safety item, and only the actuator is listed in the identification paragraph [@CL-SUP-1550]. The quality assurance representative applies heightened, risk-based surveillance to the items designated in that paragraph, so to the actuator [@CL-SUP-1551].
 
 ## Never confuse
 
-The definitions describe the characteristic that makes an item a critical safety item [@CL-SUP-1546; @CL-SUP-1548], while the identification paragraph lists the items designated by the design control activity [@CL-SUP-1550]. The surveillance rule applies to the items designated in that paragraph, not to every important part [@CL-SUP-1551]. Qualification before award is a separate subject; see [Qualification requirements clause](../supplier-identity/sup-qualification-requirements-clause.md). Government quality assurance in general is covered in [Government contract quality assurance](sup-government-contract-quality-assurance.md). The duty to notify the Government of nonconformances and safety issues sits in a different clause; see [Notification of potential safety issues and warranty tracking](../../compliance/business-systems/cmp-dfars-safety-notification-and-warranty-tracking.md).
+The definitions describe the characteristic that makes an item a critical safety item [@CL-SUP-1546; @CL-SUP-1548], while the identification paragraph lists the items designated by the design control activity [@CL-SUP-1550]. The surveillance rule applies to the items designated in that paragraph [@CL-SUP-1551]. Qualification before award is on the [Qualification requirements clause](../supplier-identity/sup-qualification-requirements-clause.md) card. Government quality assurance in general is covered in [Government contract quality assurance](sup-government-contract-quality-assurance.md). The duty to notify the Government of nonconformances and safety issues sits in a different clause; see [Notification of potential safety issues and warranty tracking](../../compliance/business-systems/cmp-dfars-safety-notification-and-warranty-tracking.md).
 
 ## Company calibration
 
@@ -58,5 +56,5 @@ Which items on each executed contract are designated critical safety items, and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and made the example match the identification paragraph.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for critical safety items.

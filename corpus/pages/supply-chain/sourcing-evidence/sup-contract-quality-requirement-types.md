@@ -32,7 +32,7 @@ Explains three kinds of contract quality requirement: reliance on the contractor
 Commercial products and commercial services.
 
 - When acquiring commercial products, the Government shall rely on contractors' existing quality assurance systems as a substitute for Government inspection and testing before tender for acceptance [@CL-SUP-3983]. This applies unless customary market practices for the commercial product being acquired include in-process inspection [@CL-SUP-3920]. Any in-process inspection by the Government shall be conducted in a manner consistent with commercial practice [@CL-SUP-3921].
-- For commercial services, the Government shall rely on the contractor to accomplish all inspection and testing needed to ensure that the commercial services acquired conform to contract requirements before they are tendered to the Government [@CL-SUP-3922]. The text states no in-process inspection exception for services.
+- For commercial services, the Government shall rely on the contractor to accomplish all inspection and testing needed to ensure that the commercial services acquired conform to contract requirements before they are tendered to the Government [@CL-SUP-3922]. 
 
 Standard inspection requirements.
 
@@ -49,13 +49,13 @@ Higher-level contract quality requirements.
 
 ## How it works
 
-The section on types of contract quality requirements says that contract quality requirements fall into four general categories, depending on the extent of quality assurance needed by the Government for the acquisition involved [@CL-SUP-4124]. This card covers three of the specific types, and the remaining one is covered in [contract quality requirements](sup-contract-quality-requirements.md).
+The section on types of contract quality requirements says that contract quality requirements fall into four general categories, depending on the extent of quality assurance needed by the Government for the acquisition involved [@CL-SUP-4124]. The remaining one is covered in [contract quality requirements](sup-contract-quality-requirements.md).
 
-Commercial reliance changes who inspects before tender. For commercial products the Government relies on the contractor's existing quality assurance system as a substitute for Government inspection and testing before tender for acceptance, unless customary market practices for the product include in-process inspection [@CL-SUP-3983; @CL-SUP-3920]. For commercial services the contractor accomplishes all the inspection and testing needed before tender [@CL-SUP-3922]. The section does not say who decides whether customary market practices include in-process inspection. The policy section words the same exception as practices that permit in-process inspection, as covered in [quality assurance policy and responsibilities](sup-quality-assurance-policy-and-responsibilities.md) [@CL-SUP-3903]. Another section covers reliance for contracts at or below the simplified acquisition threshold, as covered in [contract quality requirements](sup-contract-quality-requirements.md) [@CL-SUP-0950].
+For commercial products the Government relies on the contractor's existing quality assurance system as a substitute for Government inspection and testing before tender for acceptance, unless customary market practices for the product include in-process inspection [@CL-SUP-3983; @CL-SUP-3920]. For commercial services the contractor accomplishes all the inspection and testing needed before tender [@CL-SUP-3922]. The policy section words the same exception as practices that permit in-process inspection, as covered in [quality assurance policy and responsibilities](sup-quality-assurance-policy-and-responsibilities.md) [@CL-SUP-3903]. Reliance on the contractor for supplies or services acquired at or below the simplified acquisition threshold is covered in [contract quality requirements](sup-contract-quality-requirements.md) [@CL-SUP-0950].
 
-Standard inspection requirements put three things on the contractor and the Government: an inspection system that is acceptable to the Government, a Government right to inspect and test while work is in process, and complete inspection records that the contractor makes available to the Government [@CL-SUP-3924; @CL-SUP-3925; @CL-SUP-3982]. The prescriptions for the clauses are covered in [inspection clause prescriptions](sup-inspection-clause-prescriptions.md) [@CL-SUP-3923].
+Standard inspection requirements put three things on the contractor and the Government: an inspection system that is acceptable to the Government, a Government right to inspect and test while work is in process, and complete inspection records that the contractor makes available to the Government [@CL-SUP-3924; @CL-SUP-3925; @CL-SUP-4005; @CL-SUP-3982]. The prescriptions for the clauses are covered in [inspection clause prescriptions](sup-inspection-clause-prescriptions.md) [@CL-SUP-3923].
 
-Higher-level requirements depend on agency procedures and on the item or the technical requirements. Agencies must establish procedures for determining when higher-level requirements are necessary and for determining the likelihood and impact of nonconformance [@CL-SUP-3926]; the section itself also says when compliance is necessary [@CL-SUP-3928]. They also cover advising the contracting officer about which higher-level standards should be applied and included in the solicitation and contract [@CL-SUP-3927]. The section does not say which agency staff give that advice. The classification of complex and critical items is covered in [contract quality requirements](sup-contract-quality-requirements.md) [@CL-SUP-3928]. The clause that carries a listed higher-level standard into contracts is covered in [inspection duties and higher-level quality requirements](../procure-to-pay/sup-inspection-and-higher-level-quality-requirements.md).
+Higher-level requirements depend on agency procedures and on the item or the technical requirements. Agencies must establish procedures for determining when higher-level requirements are necessary and for determining the likelihood and impact of nonconformance [@CL-SUP-3926]; the section itself also says when compliance is necessary [@CL-SUP-3928]. They also cover advising the contracting officer about which higher-level standards should be applied and included in the solicitation and contract [@CL-SUP-3927]. The classification of complex and critical items is covered in [contract quality requirements](sup-contract-quality-requirements.md) [@CL-SUP-3928]. The clause that carries a listed higher-level standard into contracts is covered in [inspection duties and higher-level quality requirements](../procure-to-pay/sup-inspection-and-higher-level-quality-requirements.md).
 
 ## Worked example
 
@@ -67,7 +67,7 @@ A separate contract buys 20 critical items. Requiring compliance with higher-lev
 
 ## Never confuse
 
-Standard inspection requirements are not higher-level quality requirements. The standard ones are in the prescribed clauses and in the specifications [@CL-SUP-3923]. Requiring compliance with higher-level standards is necessary for complex or critical items, or when the technical requirements call for the listed controls or attention [@CL-SUP-3928; @CL-SUP-3929]. The standards named in the section are examples [@CL-SUP-3984]. Commercial reliance concerns who inspects before tender, not which quality standard applies [@CL-SUP-3983; @CL-SUP-3926].
+Standard inspection requirements are in the prescribed clauses and in the specifications [@CL-SUP-3923]. Requiring compliance with higher-level standards is necessary for complex or critical items, or when the technical requirements call for the listed controls or attention [@CL-SUP-3928; @CL-SUP-3929]. The standards named in the section are examples [@CL-SUP-3984]. Commercial reliance concerns the Government relying on contractors' existing quality assurance systems as a substitute for Government inspection and testing before tender for acceptance [@CL-SUP-3983]; the procedures for higher-level requirements are separate [@CL-SUP-3926].
 
 ## Company calibration
 
@@ -76,6 +76,6 @@ Which product lines fall under commercial reliance, standard inspection requirem
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and cited the all-apply clause requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the four general categories of contract quality requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the types of contract quality requirements.

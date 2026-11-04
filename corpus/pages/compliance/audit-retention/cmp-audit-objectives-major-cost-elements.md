@@ -27,13 +27,13 @@ Details the example audit objectives and internal control criteria the manual gi
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | Major cost elements charged to Government contracts [@CL-CMP-1717] |
+| Applies to | Incurred cost audits encompassing major cost areas and cost elements charged to Government contracts [@CL-CMP-1717] |
 
-Incurred cost audits encompass several major cost areas and cost elements, and include assessing whether costs charged to Government contracts are necessary, comply with contract terms, are allowable, allocable and reasonable, and are consistent with FAR 31, GAAP and the Cost Accounting Standards [@CL-CMP-1717; @CL-CMP-1853]. The manual then lists additional audit objectives, for example, for labor, materials, indirect costs, other direct costs and subcontract costs [@CL-CMP-1854; @CL-CMP-1718; @CL-CMP-1719; @CL-CMP-1720; @CL-CMP-1721; @CL-CMP-1722].
+Incurred cost audits encompass several major cost areas and cost elements, and include assessing and evaluating whether costs charged to Government contracts are necessary, comply with contract terms, and are allowable, allocable, and reasonable and consistent with FAR 31 Contract Cost Principles and Procedures, GAAP, and CAS [@CL-CMP-1717; @CL-CMP-1853]. Additional audit objectives, for example, may include verification of the criteria for labor costs, materials, indirect costs, other direct costs, and subcontract costs [@CL-CMP-1854; @CL-CMP-1718; @CL-CMP-1719; @CL-CMP-1720; @CL-CMP-1721; @CL-CMP-1722; @CL-CMP-1850].
 
 ## How it works
 
-For labor costs, an objective is verifying that costs are supported by proper timekeeping, payroll and personnel records and that internal controls over labor charging and allocation are adequate [@CL-CMP-1718]. For materials, it is verifying that they were received, used and accounted for in accordance with contract terms and that internal controls over purchasing, receiving, inventory and material issuance are adequate [@CL-CMP-1719]. For indirect costs, it is verifying that the methods and bases used to allocate them are acceptable, that rate calculations and their application are accurate and consistent, and that internal controls over charging and allocation are adequate [@CL-CMP-1720]. For other direct costs, it is verifying adequate documentation and adequate internal controls over purchasing and cost charging [@CL-CMP-1721]. For subcontract costs, the objectives are that costs are supported by appropriate documentation and comply with subcontract terms, that internal controls over subcontract award, administration and monitoring are adequate [@CL-CMP-1722], and that the Government is not paying excessive pass-through costs if the contracting officer determines the contractor does not provide added value to subcontracted work [@CL-CMP-1850].
+Additional audit objectives, for example, may include verification [@CL-CMP-1854] that labor costs are supported by proper timekeeping, payroll, and personnel records, and internal controls over labor charging and allocation are adequate [@CL-CMP-1718]. For materials, additional audit objectives may include verification [@CL-CMP-1854] that materials were received, used, and accounted for in accordance with contract terms and internal controls over purchasing, receiving, inventory, and material issuance are adequate [@CL-CMP-1719]. For indirect costs, additional audit objectives may include verification [@CL-CMP-1854] that indirect cost methods and bases used to allocate indirect costs are acceptable, indirect cost rate calculations and the application of those rates are accurate and consistent, and internal controls over indirect cost charging and allocation are adequate [@CL-CMP-1720]. For other direct costs, additional audit objectives may include verification [@CL-CMP-1854] that other direct costs are supported by adequate documentation and internal controls over purchasing and cost charging are adequate [@CL-CMP-1721]. For subcontract costs, additional audit objectives may include verification [@CL-CMP-1854] that subcontract costs are supported by appropriate documentation and comply with subcontract terms, internal controls over subcontract award, administration, and monitoring are adequate [@CL-CMP-1722], and the Government is not paying excessive pass-through costs if the contracting officer determines the contractor does not provide added value to subcontracted work pursuant to FAR 52.215-22, 52.215-23, and 31.203(i) [@CL-CMP-1850].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ During an incurred cost audit of a cost-reimbursement contract, the auditor revi
 
 ## Never confuse
 
-The cost-element objectives are examples of additional objectives, not a complete list of audit procedures, and they sit on top of the general objectives on allowability, allocability and reasonableness [@CL-CMP-1854; @CL-CMP-1853]. For the purchasing controls behind material and subcontract costs, see [Contractor purchasing system](../../supply-chain/procure-to-pay/sup-contractor-purchasing-system.md).
+The cost-element verifications are examples that additional audit objectives may include [@CL-CMP-1854], alongside assessing and evaluating whether costs charged to Government contracts are necessary, comply with contract terms, and are allowable, allocable, and reasonable and consistent with FAR 31 Contract Cost Principles and Procedures, GAAP, and CAS [@CL-CMP-1717; @CL-CMP-1853]. For the purchasing controls behind material and subcontract costs, see [Contractor purchasing system](../../supply-chain/procure-to-pay/sup-contractor-purchasing-system.md).
 
 ## Company calibration
 
@@ -52,5 +52,5 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added assessing and evaluating wording, cited the additional-objectives lead-in on each cost element, and included the FAR citations on excessive pass-through costs.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for audit objectives for major cost elements.

@@ -29,13 +29,13 @@ Shows what the provision tells offerors about commercial treatment of supplies a
 | Text status | Final [@CL-MKT-0944] |
 | Applies to | Solicitations in which the provision is prescribed by DFARS 215.408(6) [@CL-MKT-0954] |
 
-The provision advises offerors that, under the cited statute, supplies and services provided by a nontraditional defense contractor, as defined in the DFARS definitions, may be treated as commercial products or commercial services [@CL-MKT-0944]. The decision to apply commercial product or commercial service procedures to the procurement of supplies and services from a nontraditional defense contractor does not require a commercial item determination and does not mean the supplies or services are commercial [@CL-MKT-0945].
+The provision advises offerors that, in accordance with section 3457 of title 10, United States Code, supplies and services provided by a nontraditional defense contractor, as defined in the DFARS definitions, may be treated as commercial products or commercial services [@CL-MKT-0944]. The decision to apply commercial product or commercial service procedures to the procurement of supplies and services from a nontraditional defense contractor does not require a commercial item determination and does not mean the supplies or services are commercial [@CL-MKT-0945].
 
-The printed provision asks the offeror to represent nothing and to certify nothing, so the source does not establish any offeror representation. It sets no test for who is a nontraditional defense contractor and points to the DFARS definition instead.
+A nontraditional defense contractor is defined in DFARS 202.101 [@CL-MKT-0944].
 
 ## How it works
 
-The provision is notice to the offeror that the supplies and services may be treated as commercial products or commercial services [@CL-MKT-0944]. It speaks of a decision to apply the commercial procedures and does not say who makes that decision [@CL-MKT-0945]. When the decision is made, it does not require a commercial item determination [@CL-MKT-0945]. The decision does not turn the supplies or services into commercial ones [@CL-MKT-0945]. Where the provision is used in negotiated acquisitions is on the DFARS solicitation provisions card.
+The provision is notice to the offeror that the supplies and services may be treated as commercial products or commercial services [@CL-MKT-0944]. The decision to apply commercial product or commercial service procedures to the procurement of supplies and services from a nontraditional defense contractor does not require a commercial item determination and does not mean the supplies or services are commercial [@CL-MKT-0945]. Where the provision is used in negotiated acquisitions is on the DFARS solicitation provisions card.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: commercial procedures may be applied to the buy without a commercial ite
 
 ## Never confuse
 
-Treatment as commercial is not a determination that an item is commercial [@CL-MKT-0945]. The provision advises offerors and does not itself ask them to represent or certify anything. A nontraditional defense contractor is a defined status whose definition is not printed in this provision. The card on the [DFARS solicitation provisions for negotiated acquisitions](../../estimating/pricing/est-dfars-solicitation-provisions-negotiated.md) covers where the provision is used.
+Supplies and services provided by a nontraditional defense contractor, as defined in DFARS 202.101, may be treated as commercial products or commercial services [@CL-MKT-0944]. The card on the [DFARS solicitation provisions for negotiated acquisitions](../../estimating/pricing/est-dfars-solicitation-provisions-negotiated.md) covers where the provision is used.
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Which of the company's customers and product lines may qualify the company as a 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for supplies and services from nontraditional defense contractors.

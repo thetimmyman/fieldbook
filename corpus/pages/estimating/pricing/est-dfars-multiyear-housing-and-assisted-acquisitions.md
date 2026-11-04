@@ -29,17 +29,17 @@ States the DFARS authority for multiyear contracts for the management, maintenan
 | Text status | Final [@CL-EST-3046] |
 | Applies to | Multiyear contracts for military family housing supplies and services [@CL-EST-3046]; DoD Component acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048] |
 
-Housing authority. The head of the agency may enter into multiyear contracts for periods up to 4 years for supplies and services required for management, maintenance and operation of military family housing [@CL-EST-3046]. The head of the agency may also pay the costs of such contracts for each year from annual appropriations for that year [@CL-EST-3047]. The section cites title 10 of the United States Code, section 2829 [@CL-EST-3047].
+Housing authority. The head of the agency may enter into multiyear contracts for periods up to 4 years for supplies and services required for management, maintenance and operation of military family housing [@CL-EST-3046]. The head of the agency may also pay the costs of such contracts for each year from annual appropriations for that year [@CL-EST-3047]. The statutory citation given for these provisions is section 2829 of title 10, United States Code [@CL-EST-3047].
 
-Assisted acquisitions. Paragraph (a)(1) says to follow the procedures at PGI 217.502-1(a)(1) when a contracting activity from a DoD Component provides acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048]. It sits under a paragraph headed written agreement on responsibility for management and administration [@CL-EST-3048].
+Assisted acquisitions. Follow the procedures at PGI 217.502-1(a)(1) when a contracting activity from a DoD Component provides acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048]. This is paragraph (a)(1), headed assisted acquisitions, under paragraph (a), headed written agreement on responsibility for management and administration [@CL-EST-3048].
 
-General multiyear sentence. The general DFARS multiyear section says that before awarding a multiyear contract the head of the agency must compare the cost of that contract to the cost of an annual procurement approach, using a present value analysis [@CL-EST-3057]. It says not to award the multiyear contract unless the analysis shows that it will result in the lower cost [@CL-EST-3058].
+General multiyear sentence. Before awarding a multiyear contract, the head of the agency must compare the cost of that contract to the cost of an annual procurement approach, using a present value analysis [@CL-EST-3057]. Do not award the multiyear contract unless the analysis shows that the multiyear contract will result in the lower cost [@CL-EST-3058].
 
 ## How it works
 
-The housing section is permissive. The head of the agency decides whether to enter into the contract, and the period may be up to 4 years [@CL-EST-3046]. Each year's cost may be paid from the annual appropriations for that year [@CL-EST-3047]. For a contractor, the two sentences bear on the length of the contract and on the funds that may pay each year [@CL-EST-3046; @CL-EST-3047].
+The head of the agency may enter into the contract, for a period of up to 4 years [@CL-EST-3046]. The head of the agency may pay the costs of such contracts for each year from annual appropriations for that year [@CL-EST-3047].
 
-The assisted-acquisition sentence is an imperative with no named subject. Its trigger is a contracting activity from one DoD Component providing acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048]. The procedures are in the PGI and are not stated in the section [@CL-EST-3048].
+The procedures to follow are those at PGI 217.502-1(a)(1), when a contracting activity from a DoD Component provides acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048].
 
 This card covers only these two sections and the cost comparison. The other conditions and notices for multiyear contracts are on [Multiyear contracting: definition, term limit and approval conditions](../../industrialization/ramp/ind-multiyear-contracting.md) and [Multiyear contracts: congressional notification and advance procurement](../../industrialization/ramp/ind-multiyear-congressional-notification-and-advance-procurement.md). The scope and ordering rules for DoD interagency acquisitions are on [DoD interagency acquisitions: scope and ordering procedures](../../market/programs/mkt-dfars-interagency-acquisition-scope-and-ordering.md). The DFARS rules for assisted and direct acquisition through non-DoD agencies are on [Acquisitions through nondefense agencies: assisted and direct acquisition](../../market/programs/mkt-dfars-nondefense-agency-assisted-and-direct-acquisition.md).
 
@@ -53,9 +53,9 @@ Separately, a contracting activity from one DoD Component provides acquisition a
 
 ## Never confuse
 
-The housing authority is not a general multiyear authority. It covers supplies and services required for management, maintenance and operation of military family housing, for periods up to 4 years [@CL-EST-3046].
+The housing authority covers supplies and services required for management, maintenance and operation of military family housing, for periods up to 4 years [@CL-EST-3046]. The cost comparison before awarding a multiyear contract is stated in the general multiyear section, DFARS 217.170(a) [@CL-EST-3057].
 
-The word "may" in the funding sentence does not guarantee payment from annual appropriations in any year [@CL-EST-3047]. The assisted-acquisition rule is about a contracting activity from one DoD Component providing acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048].
+The head of the agency may pay the costs of such contracts for each year from annual appropriations for that year [@CL-EST-3047]. The assisted-acquisition rule applies when a contracting activity from a DoD Component provides acquisition assistance to deployed DoD units or personnel from another DoD Component [@CL-EST-3048].
 
 ## Company calibration
 
@@ -64,6 +64,7 @@ Whether any housing maintenance order the company holds sits under a multiyear c
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded the statutory citation so each sentence carries its claim.
+- COMPATIBLE_EXTENSION, 2026-10-31: Reworded housing, assisted-acquisition and cost-comparison sentences to state the provisions directly and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed negative statements about thresholds, deadlines, contractor duties and non-DoD agencies that no quote states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD multiyear contracts for military family housing and assisted acquisitions.

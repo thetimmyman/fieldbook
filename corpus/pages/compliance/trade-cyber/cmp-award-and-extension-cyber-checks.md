@@ -35,22 +35,22 @@ For CMMC, the contracting officer must include the required level in the solicit
 
 ## How it works
 
-The contracting officer checks SPRS and does not award unless the offeror has a current CMMC status posted there at the required level or higher for each CMMC UID the offeror provides [@CL-CMP-7235]. At award, those UIDs apply to each contractor information system that will process, store or transmit FCI or CUI and will be used in performance [@CL-CMP-7405].
+The contracting officer must check SPRS and must not award to an offeror that does not have a current CMMC status posted there at the level the solicitation requires, or higher, for each CMMC UID the offeror provides [@CL-CMP-7235]. At award, those UIDs apply to each contractor information system that will process, store or transmit FCI or CUI and will be used in performance [@CL-CMP-7405].
 
-Before an option is exercised or the period of performance is extended, the officer checks SPRS and does not proceed unless the contractor has a current CMMC status posted there [@CL-CMP-7236]. That status must be at the level the contract, task order or delivery order requires, or higher, for each UID the contractor provides [@CL-CMP-7406]. The UIDs apply to each system that processes, stores or transmits FCI or CUI and is or will be used in performance [@CL-CMP-7407].
+The contracting officer must check SPRS and must not exercise an option or extend the period of performance unless the contractor has a current CMMC status posted there [@CL-CMP-7236]. That status must be at the level the contract, task order or delivery order requires, or higher, for each UID the contractor provides [@CL-CMP-7406]. The UIDs apply to each system that processes, stores or transmits FCI or CUI and is or will be used in performance [@CL-CMP-7407].
 
-If the contractor provides new UIDs during performance, the officer checks in SPRS, using the UIDs that SPRS assigned, that the contractor has a current status at the required level or higher [@CL-CMP-7237]. That check covers each system identified that will process, store or transmit FCI or CUI during performance [@CL-CMP-7408].
+If the contractor provides new UIDs during performance, the contracting officer must check in SPRS, using the UIDs that SPRS assigned, that the contractor has a current status at the required level or higher [@CL-CMP-7237]. That check covers each system identified that will process, store or transmit FCI or CUI during performance [@CL-CMP-7408].
 
 The contractor must hold, at time of award, a CMMC status at the level the solicitation specifies or higher for all information systems used in performance that will process, store or transmit FCI or CUI [@CL-CMP-7238]. Where the contract requires it, the contractor must keep a current status at that level or higher throughout the life of the contract, task order or delivery order [@CL-CMP-7239].
 
-CMMC levels 2 and 3 can be at a conditional level for no more than 180 days from the CMMC status date, and award can occur with a conditional level, while level 1 requires a final level for award [@CL-CMP-7240]. A status counts as current only inside the limits that the definition at DFARS 204.7501 sets [@CL-CMP-7480]:
+CMMC levels 2 and 3 can be at a conditional level for no more than 180 days from the CMMC status date, and award can occur with a conditional level, while level 1 requires a final level for award [@CL-CMP-7240]. The definition of current at DFARS 204.7501 sets these limits [@CL-CMP-7480]:
 
-- A Conditional Level 2 (Self) or Conditional Level 2 (C3PAO) status is current if it is not older than 180 days [@CL-CMP-7480], with no changes in compliance with the requirements at 32 CFR part 170 since the Conditional CMMC Status date and a corresponding affirmation of continuous compliance by an affirming official [@CL-CMP-7481].
-- A Conditional Level 3 (DIBCAC) status is current if it is not older than 180 days with no such changes [@CL-CMP-7482] and has a corresponding affirmation of continuous compliance by an affirming official [@CL-CMP-7483].
-- A Final Level 1 (Self) status is current if it is not older than 1 year [@CL-CMP-7483], with no changes in compliance since the Final CMMC Status date and a corresponding affirmation of continuous compliance, not older than 1 year, by an affirming official [@CL-CMP-7484].
-- A Final Level 2 (Self) or Final Level 2 (C3PAO) status is current if it is not older than 3 years with no such changes since the Final CMMC Status date [@CL-CMP-7485], and has a corresponding affirmation, not older than 1 year [@CL-CMP-7486].
-- A Final Level 3 (DIBCAC) status is current if it is not older than 3 years [@CL-CMP-7486], with no such changes and a corresponding affirmation, not older than 1 year [@CL-CMP-7487].
-- An affirmation of continuous compliance is itself current when it is not older than 1 year with no changes in compliance [@CL-CMP-7488].
+- For a Conditional Level 2 (Self) or Conditional Level 2 (C3PAO) status, current means not older than 180 days [@CL-CMP-7480], with no changes in compliance with the requirements at 32 CFR part 170 since the Conditional CMMC Status date and a corresponding affirmation of continuous compliance by an affirming official [@CL-CMP-7481].
+- For a Conditional Level 3 (DIBCAC) status, current means not older than 180 days with no such changes [@CL-CMP-7482] and a corresponding affirmation of continuous compliance by an affirming official [@CL-CMP-7483].
+- For a Final Level 1 (Self) status, current means not older than 1 year [@CL-CMP-7483], with no changes in compliance since the Final CMMC Status date and a corresponding affirmation of continuous compliance, not older than 1 year, by an affirming official [@CL-CMP-7484].
+- For a Final Level 2 (Self) or Final Level 2 (C3PAO) status, current means not older than 3 years with no such changes since the Final CMMC Status date [@CL-CMP-7485], and a corresponding affirmation, not older than 1 year [@CL-CMP-7486].
+- For a Final Level 3 (DIBCAC) status, current means not older than 3 years [@CL-CMP-7486], with no such changes and a corresponding affirmation, not older than 1 year [@CL-CMP-7487].
+- For an affirmation of continuous compliance, current means not older than 1 year with no changes in compliance [@CL-CMP-7488].
 
 The contractor's own duties under the CMMC clause are on the [CMMC level compliance clause card](../trade-cyber/cmp-cmmc-level-compliance-clause.md) and are not restated here.
 
@@ -62,9 +62,9 @@ A solicitation requires a Level 2 (C3PAO) status and sets no assessment age shor
 
 ## Never confuse
 
-The verification of a NIST SP 800-171 assessment score under DFARS 204.7303 and the check of a CMMC status under DFARS 204.7503 are separate checks of separate SPRS postings: the first looks for the summary level score of a current assessment, and the second looks for a current CMMC status at the required level for each CMMC UID [@CL-CMP-7230; @CL-CMP-7235].
+Under DFARS 204.7303 the contracting officer verifies that the summary level score of a current NIST SP 800-171 DoD Assessment is posted in SPRS [@CL-CMP-7230; @CL-CMP-7231]. Under DFARS 204.7503 the contracting officer checks SPRS for a current CMMC status at the level the solicitation requires, or higher, for each CMMC UID the offeror provides [@CL-CMP-7235].
 
-A conditional status is not a final status. Levels 2 and 3 can be conditional at award, but level 1 requires a final level [@CL-CMP-7240]. The assessment requirements card explains how an assessment is used in an offer; see [the assessment requirements card](../trade-cyber/cmp-nist-sp-800-171-dod-assessment-requirements.md).
+CMMC levels 2 and 3 can be in a conditional level for award, while CMMC level 1 requires a final CMMC level for award [@CL-CMP-7240]. The assessment requirements card explains how an assessment is used in an offer; see [the assessment requirements card](../trade-cyber/cmp-nist-sp-800-171-dod-assessment-requirements.md).
 
 ## Company calibration
 
@@ -73,6 +73,6 @@ Which information systems are in scope, what assessment score and CMMC UID is po
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored must wording, definition of current, and cited the two checks.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added word from the option check summary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award, option and extension checks on NIST SP 800-171 assessments and CMMC status.

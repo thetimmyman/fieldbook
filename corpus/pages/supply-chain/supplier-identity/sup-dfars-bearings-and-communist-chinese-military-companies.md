@@ -29,7 +29,7 @@ Shows what the bearings clause restricts, what the Communist Chinese military co
 | Text status | Final [@CL-SUP-1340] |
 | Applies to | Ball and roller bearings delivered under a contract with the bearings clause, and munitions items delivered under a contract with the other clause [@CL-SUP-1340; @CL-SUP-1343] |
 
-Except as provided in the exceptions paragraph, each ball and roller bearing delivered under the contract shall be manufactured in the United States, its outlying areas, or Canada [@CL-SUP-1340]. A second listed requirement is that, for each ball or roller bearing, the cost of the bearing components manufactured in the United States, its outlying areas, or Canada shall exceed 50 percent of the total cost of the bearing components [@CL-SUP-1341]. The exceptions lead-in opens both requirements [@CL-SUP-1340; @CL-SUP-1341].
+Except as provided in the exceptions paragraph, each ball and roller bearing delivered under the contract shall be manufactured in the United States, its outlying areas, or Canada [@CL-SUP-1340]. A second listed requirement is that, for each ball or roller bearing, the cost of the bearing components manufactured in the United States, its outlying areas, or Canada shall exceed 50 percent of the total cost of the bearing components [@CL-SUP-1341]. Both requirements are subject to the exceptions paragraph [@CL-SUP-1340; @CL-SUP-1341].
 
 The bearing restriction does not apply to ball or roller bearings acquired as commercial components of an other than commercial end product, or as commercial or other than commercial components of a commercial component of an other than commercial end product [@CL-SUP-1372]. The bearing restriction may be waived upon request from the Contractor in accordance with DFARS 225.7009-4 [@CL-SUP-1342].
 
@@ -47,7 +47,7 @@ A contractor delivers a ball bearing whose bearing components cost 100 in total.
 
 ## Never confuse
 
-The bearings restriction is about where a bearing is made and how its component cost splits. The prohibition on items from Communist Chinese military companies is about the entity the item is acquired from. If the contract includes the specialty metals clause, all bearings that contain specialty metals, as defined in that clause, must meet the requirements of that clause [@CL-SUP-1373], as covered on [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md). The [restriction on certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md) is a different DoD clause that looks at named covered countries. For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
+The bearings restriction concerns where a bearing is manufactured and the cost of its bearing components manufactured in the allowed places [@CL-SUP-1340; @CL-SUP-1341]. The prohibition concerns acquiring items covered by the United States Munitions List or the 600 series of the Commerce Control List from a Communist Chinese military company [@CL-SUP-1343]. If the contract includes the specialty metals clause, all bearings that contain specialty metals, as defined in that clause, must meet the requirements of that clause [@CL-SUP-1373], as covered on [Restriction on acquisition of articles containing specialty metals](sup-dfars-specialty-metals-restriction.md). See also the [restriction on certain magnets, tantalum and tungsten](sup-dfars-magnets-tantalum-tungsten-restriction.md). For flowdown into commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Which executed contracts carry either clause, and whether the matching subcontra
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrasts; cited the never-confuse statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restrictions on ball and roller bearings and on items from Communist Chinese military companies.

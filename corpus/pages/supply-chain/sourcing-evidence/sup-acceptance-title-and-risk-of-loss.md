@@ -31,7 +31,7 @@ Shows who is responsible for acceptance, what acceptance acknowledges, when and 
 
 Acceptance constitutes acknowledgment that the supplies or services conform with applicable contract quality and quantity requirements, except as provided in this subpart and subject to other terms and conditions of the contract [@CL-SUP-3938]. Acceptance may take place before delivery, at the time of delivery, or after delivery, depending on the terms and conditions of the contract [@CL-SUP-3939].
 
-Supplies or services shall ordinarily not be accepted before completion of Government contract quality assurance actions, and the sentence adds a cross-reference to 46.504 [@CL-SUP-3940]. Acceptance shall ordinarily be evidenced by execution of an acceptance certificate on an inspection or receiving report form or commercial shipping document or packing list [@CL-SUP-3941]. That sentence does not name who executes the certificate [@CL-SUP-3941].
+Supplies or services shall ordinarily not be accepted before completion of Government contract quality assurance actions (however, see 46.504) [@CL-SUP-3940]. Acceptance shall ordinarily be evidenced by execution of an acceptance certificate on an inspection or receiving report form or commercial shipping document or packing list [@CL-SUP-3941].
 
 Acceptance of supplies or services is the responsibility of the contracting officer [@CL-SUP-4138]. When that responsibility is assigned to a cognizant contract administration office or to another agency (see 42.202(g)), acceptance by that office or agency is binding on the Government [@CL-SUP-4139].
 
@@ -53,7 +53,7 @@ Three questions have separate answers.
 - When did title pass? On formal acceptance, wherever the supplies physically are, unless the contract specifically provides for earlier passage [@CL-SUP-3942].
 - Who bears loss or damage? The contractor, until the delivery terms move the risk to the Government, unless the contract specifically provides otherwise [@CL-SUP-3943; @CL-SUP-3944].
 
-Supplies that give a right of rejection stay at the contractor's risk until cure or acceptance [@CL-SUP-3945]. The section does not say who decides whether supplies give a right of rejection. Government negligence within the scope of employment is not the contractor's liability under the risk rule [@CL-SUP-3947].
+Supplies that give a right of rejection stay at the contractor's risk until cure or acceptance [@CL-SUP-3945]. Government negligence within the scope of employment is not the contractor's liability under the risk rule [@CL-SUP-3947].
 
 ## Worked example
 
@@ -69,7 +69,7 @@ Shipment three fails to conform so badly that the Government has a right of reje
 
 Title is not risk of loss. Unless the contract specifically provides earlier passage of title, title follows formal acceptance [@CL-SUP-3942]. Unless the contract specifically provides otherwise, risk follows the delivery terms [@CL-SUP-3943; @CL-SUP-3944].
 
-Acceptance is not delivery. It may come before, at or after delivery [@CL-SUP-3939]. Acceptance acknowledges conformity, but only as the subpart and the contract's other terms allow [@CL-SUP-3938].
+Acceptance is not delivery. It may come before, at or after delivery [@CL-SUP-3939]. Acceptance acknowledges conformity, except as provided in the subpart and subject to the contract's other terms and conditions [@CL-SUP-3938].
 
 The risk rule does not cover supplies that give a right of rejection [@CL-SUP-3945]. How acceptance interacts with the fixed-price inspection clause is on [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md). The Responsibility for Supplies clause and payment are on [Payments and responsibility for supplies under fixed-price contracts](../../close-revrec/revenue/cls-payments-and-responsibility-for-supplies.md). The 46.504 cross-reference [@CL-SUP-3940] is discussed on [Certificate of Conformance and dismantling inspection clauses](sup-certificate-of-conformance-and-dismantling-inspection.md). Liability for Government property after acceptance is on [Contractor liability for Government property loss after acceptance](sup-contractor-liability-after-acceptance.md).
 
@@ -80,6 +80,6 @@ How the company records acceptance evidence and shipping terms, so title and ris
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed commentary not in the cited text and restated two cited conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added responsibility for acceptance and place of acceptance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acceptance, title and risk of loss.

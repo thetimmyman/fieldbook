@@ -16,7 +16,7 @@ links = ["ctf-dfars-line-item-and-subline-item-criteria", "ctf-dfars-modificatio
 
 ## Purpose
 
-Shows when a contractor may invoice an item whose price includes an item marked not separately priced, and what the clause leaves out.
+Shows when a contractor may invoice an item whose price includes an item marked not separately priced.
 
 ## The rule
 
@@ -31,11 +31,11 @@ Shows when a contractor may invoice an item whose price includes an item marked 
 
 If the schedule contains any line or subline items identified as not separately priced (NSP), the unit price for the NSP item is included in the unit price of another, related line or subline item [@CL-CTF-1803]. The Contractor shall not invoice the Government for an item that includes an NSP item in its price until the Contractor has also delivered the NSP item and the Government has accepted it [@CL-CTF-1804]. The clause does not apply to technical data [@CL-CTF-1805].
 
-The DFARS directs use of the clause as prescribed in DFARS 204.7109(a) [@CL-CTF-1831]. The printed text puts the NSP item's unit price inside the unit price of the related item, and it gives no separate price for the NSP item itself [@CL-CTF-1803]. The invoice limit is a limit on timing for the item that includes the NSP item in its price [@CL-CTF-1804].
+The DFARS directs use of the clause as prescribed in DFARS 204.7109(a) [@CL-CTF-1831].
 
 ## How it works
 
-For a line or subline item identified as NSP, the unit price is included in the unit price of another, related line or subline item [@CL-CTF-1803]. An invoice for the item that includes the NSP item in its price waits until the Contractor has also delivered the NSP item and the Government has accepted it [@CL-CTF-1804]. Technical data is outside the clause [@CL-CTF-1805]. The line item rules are on [DFARS line item and subline item criteria](ctf-dfars-line-item-and-subline-item-criteria.md), and the billing duty for cost vouchers is on [Billing instructions for cost vouchers](ctf-dfars-billing-instructions-cost-vouchers.md).
+For a line or subline item identified as NSP, the unit price is included in the unit price of another, related line or subline item [@CL-CTF-1803]. The Contractor shall not invoice the Government for an item that includes in its price an NSP item until the Contractor has also delivered the NSP item included in the price of the item being invoiced and the Government has accepted the NSP item [@CL-CTF-1804]. The clause does not apply to technical data [@CL-CTF-1805]. The line item rules are on [DFARS line item and subline item criteria](ctf-dfars-line-item-and-subline-item-criteria.md), and the billing duty for cost vouchers is on [Billing instructions for cost vouchers](ctf-dfars-billing-instructions-cost-vouchers.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the contractor may invoice 0001 only after the tool kit is delivered and
 
 ## Never confuse
 
-A not separately priced item is not a free item or an unpriced one: its unit price is included in the unit price of another, related item [@CL-CTF-1803]. NSP is also not a separate kind of item, because the clause applies it to a line or subline item that the schedule identifies as NSP [@CL-CTF-1803]; [DFARS line item and subline item criteria](ctf-dfars-line-item-and-subline-item-criteria.md) explains how line and subline items are set up.
+For a line or subline item identified as not separately priced, the unit price for the NSP line or subline item is included in the unit price of another, related line or subline item [@CL-CTF-1803]. How line and subline items are set up is on [DFARS line item and subline item criteria](ctf-dfars-line-item-and-subline-item-criteria.md).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Which contracts carry NSP items and how the invoice timing they cause affects th
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, uncited negatives and contrasts; restated the invoice condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for payment for line or subline items not separately priced.

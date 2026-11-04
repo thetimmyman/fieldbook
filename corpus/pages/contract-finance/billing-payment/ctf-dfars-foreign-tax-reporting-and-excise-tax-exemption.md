@@ -35,7 +35,7 @@ Under the full exemption clause, the contractor represented in its offer that an
 
 ## How it works
 
-If the foreign government or entity nevertheless imposes taxes, the contractor must promptly notify the Contracting Officer and provide documentation showing the foreign government was apprised of the exemption [@CL-CTF-1897]. The contractor must insert the substance of the reporting clause in all subcontracts for commodities that exceed $500 [@CL-CTF-1898]. Under the full exemption clause, if a change in circumstances during the contract makes the contractor subject to the 2-percent withholding, it must immediately comply with the notification and billing requirements of the FAR clause on that tax [@CL-CTF-1900].
+If the foreign government or entity nevertheless imposes taxes, the contractor must promptly notify the Contracting Officer and provide documentation showing the foreign government was apprised of the exemption [@CL-CTF-1897]. The contractor must insert the substance of the reporting clause in all subcontracts for commodities that exceed $500 [@CL-CTF-1898]. Under the full exemption clause, if a change in circumstances during the performance of the contract causes the contractor to become subject to the withholding for the 2-percent excise tax, the contractor shall immediately comply with the notification and billing requirements of the FAR clause on that tax [@CL-CTF-1900].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor ships commodities under a contract with the reporting clause, and t
 
 ## Never confuse
 
-The reporting clause is about taxes imposed by the recipient country on commodities, not the withholding on certain foreign procurements [@CL-CTF-1895; @CL-CTF-1899]. The full exemption is a representation made in the offer and is not automatic if circumstances change [@CL-CTF-1899; @CL-CTF-1900]. The notification duty in the reporting clause goes to the Contracting Officer [@CL-CTF-1897]. The FAR clause on applicable taxes separately bars including taxes imposed under the same statute in the contract price or reimbursing them, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md) [@CL-CTF-0428]. For invoice content see [Proper invoice: required content and payment documentation](ctf-proper-invoice-content.md). Host-country exemptions are on [Tax relief, German customs exemption and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md) and [United Kingdom VAT exclusion and relief from import duty](ctf-dfars-uk-vat-exclusion-and-import-duty-relief.md).
+Commodities acquired under the reporting clause are exempt from all value added taxes and customs duties imposed by the recipient country [@CL-CTF-1895]. Under the full exemption clause, as the contractor represented in its offer, delivered items and services are fully exempt from the 2-percent excise tax withholding [@CL-CTF-1899], and if a change in circumstances during the performance of the contract causes the contractor to become subject to that withholding, the contractor shall immediately comply with the notification and billing requirements of FAR clause 52.229-12 [@CL-CTF-1900]. Under the reporting clause, the contractor shall promptly notify the Contracting Officer if the foreign government or entity nevertheless imposes taxes [@CL-CTF-1897]. Under the FAR clause on Federal, State, and Local Taxes [@CL-CTF-0428], taxes imposed under 26 U.S.C. 5000C may not be included in the contract price nor reimbursed [@CL-CTF-0428]; see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). For invoice content see [Proper invoice: required content and payment documentation](ctf-proper-invoice-content.md). Host-country exemptions are on [Tax relief, German customs exemption and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md) and [United Kingdom VAT exclusion and relief from import duty](ctf-dfars-uk-vat-exclusion-and-import-duty-relief.md).
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which contracts carry these clauses, who tells the foreign government and the Co
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated the change-in-circumstances and 5000C tax rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reporting of foreign taxes under United States assistance programs and full exemption from the two-percent excise tax on certain foreign procurements.

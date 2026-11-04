@@ -28,7 +28,7 @@ Shows, under 13 CFR 121.1008 and 121.1009 [@CL-MKT-0412; @CL-MKT-0416], what hap
 | Text status | Not established. |
 | Applies to | Concerns whose size status is the subject of a size protest [@CL-MKT-0412] |
 
-When SBA receives a size protest, the SBA Area Director for Government Contracting, or designee, will notify the contracting officer, the protested concern and the protestor that the protest has been received [@CL-MKT-0412]. The protested concern must return the completed SBA Form 355 and all other requested information within three working days of receiving the blank form, and SBA has discretion to grant an extension [@CL-MKT-0414].
+When SBA receives a size protest, the SBA Area Director for Government Contracting, or designee, will notify the contracting officer, the protested concern and the protestor that the protest has been received [@CL-MKT-0412]. The protested concern or concern whose size is at issue must return the completed SBA Form 355 and all other requested information to SBA within 3 working days from the date of receipt of the blank form from SBA, and SBA has discretion to grant an extension of time to file the form [@CL-MKT-0414].
 
 If no protest is pending under FAR subpart 33.1, the SBA Area Office will issue a formal size determination within 15 business days after receipt of a protest or a request for a formal size determination, if possible [@CL-MKT-0416].
 
@@ -55,7 +55,7 @@ Who would prepare the size form and affiliate information, and whether the recor
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Included the concern whose size is at issue and the scope of the extension on SBA Form 355.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the failure-to-submit alternative and the grounds not raised.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who makes a formal size determination and what is binding.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA size determination procedures.

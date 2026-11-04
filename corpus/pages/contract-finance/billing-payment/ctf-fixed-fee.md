@@ -45,7 +45,7 @@ A cost-plus-fixed-fee contract specifies a fixed fee of 200,000. During contract
 
 ## Never confuse
 
-A fixed fee withhold is a reserve held to protect the Government's interest and released in part after an adequate certified final indirect cost rate proposal is received, provided the contractor has satisfied the other conditions of the clause [@CL-CTF-0264; @CL-CTF-0265; @CL-CTF-0281], not a disallowance of costs or a business system penalty withhold. See [Contract types and what they mean for finance](ctf-contract-types.md) and [Final indirect cost rate proposal deadline](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
+A fixed fee withhold is a reserve held to protect the Government's interest and released in part after an adequate certified final indirect cost rate proposal is received, provided the contractor has satisfied the other conditions of the clause [@CL-CTF-0264; @CL-CTF-0265; @CL-CTF-0281]. See [Contract types and what they mean for finance](ctf-contract-types.md) and [Final indirect cost rate proposal deadline](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ The billing-to-collection workflow for fee billings and tracking requirements fo
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrast from the never-confuse sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the release conditions in the never-confuse sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Fixed Fee clause.
