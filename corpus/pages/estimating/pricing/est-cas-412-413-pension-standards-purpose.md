@@ -49,7 +49,7 @@ The pension plan shows an actuarial gain of 300,000 in one period. A purpose of 
 
 ## Never confuse
 
-An employee stock ownership plan that meets the definition of a pension plan is still outside the composition Standard: the Standard does not cover its cost, and the section treats such a plan as deferred compensation covered under 9904.415 [@CL-EST-2917; @CL-EST-3036]. The composition Standard also differs from the adjustment Standard: the first concerns determining, measuring and assigning to periods the components of pension cost, and the second concerns actuarial gains and losses and allocation to segments [@CL-EST-2914; @CL-EST-2915; @CL-EST-2918; @CL-EST-2919]. The composition rules are in [the composition card](../../compliance/cas-allowability/cmp-cas-412-pension-composition.md), the adjustment and allocation rules in [the adjustment and allocation card](../../compliance/cas-allowability/cmp-cas-413-pension-adjustment-allocation.md), and the transition rules in [the effective date and transition card](../../compliance/cas-allowability/cmp-cas-412-effective-date-transition.md).
+The composition Standard does not cover the cost of employee stock ownership plans that meet the definition of a pension plan [@CL-EST-2917]; such plans are considered a form of deferred compensation and are covered under 9904.415 [@CL-EST-3036]. The composition Standard provides guidance for determining and measuring the components of pension cost and establishes the basis on which pension costs shall be assigned to cost accounting periods [@CL-EST-2914; @CL-EST-2915], and the adjustment Standard provides guidance for adjusting pension cost by measuring actuarial gains and losses and assigning them to cost accounting periods, and provides the bases on which pension cost shall be allocated to segments [@CL-EST-2918; @CL-EST-2919]. The composition rules are in [the composition card](../../compliance/cas-allowability/cmp-cas-412-pension-composition.md), the adjustment and allocation rules in [the adjustment and allocation card](../../compliance/cas-allowability/cmp-cas-413-pension-adjustment-allocation.md), and the transition rules in [the effective date and transition card](../../compliance/cas-allowability/cmp-cas-412-effective-date-transition.md).
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Whether each business unit is under full, modified or no coverage, and how pensi
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse wording restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose sections omit removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes of the pension cost composition and pension cost adjustment Standards.

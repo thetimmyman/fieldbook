@@ -37,7 +37,7 @@ The Standard is effective as of 17 April 1992, and contractors with prior CAS-co
 
 ## How it works
 
-The purpose ties cost of money to the assets under construction, fabrication or development, as an element of the cost of those assets [@CL-EST-2897]. The two asset definitions differ on physical substance, and only the intangible definition names right-of-use assets acquired under leases [@CL-EST-2898; @CL-EST-2899]. The start rule depends on the contractor's history: a contractor already holding full-coverage CAS contracts continues on receipt of a contract to which the Standard applies [@CL-EST-2900], and a contractor with no previous contract subject to the Standard begins with its next full fiscal year after receipt [@CL-EST-2901]. The measurement criteria themselves are on the main cards.
+The purpose ties cost of money to the assets under construction, fabrication or development, as an element of the cost of those assets [@CL-EST-2897]. An intangible capital asset is an asset that has no physical substance and includes right-of-use assets acquired under leases [@CL-EST-2898], and a tangible capital asset is an asset that has physical substance [@CL-EST-2899]. The start rule depends on the contractor's history: a contractor already holding full-coverage CAS contracts continues on receipt of a contract to which the Standard applies [@CL-EST-2900], and a contractor with no previous contract subject to the Standard begins with its next full fiscal year after receipt [@CL-EST-2901]. The measurement criteria themselves are on the main cards.
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A contractor with a calendar fiscal year and no previous contract subject to the
 
 ## Never confuse
 
-The purpose is to establish criteria for measuring the cost of money attributable to capital assets under construction, fabrication or development as an element of the cost of those assets [@CL-EST-2897]. The two asset definitions are close but not identical: both require more than minimal value, only a tangible asset has physical substance, and only the intangible definition names right-of-use assets acquired under leases [@CL-EST-2898; @CL-EST-2899]. The start rule is not the one in the direct and indirect cost Standard: this Standard begins with the next full fiscal year, and that one with the second [@CL-EST-2901; @CL-EST-2905].
+The purpose is to establish criteria for measuring the cost of money attributable to capital assets under construction, fabrication or development as an element of the cost of those assets [@CL-EST-2897]. An intangible capital asset has no physical substance, has more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the benefits it yields [@CL-EST-2898]. A tangible capital asset has physical substance, more than minimal value, and is expected to be held by an enterprise for continued use or possession beyond the current accounting period for the services it yields [@CL-EST-2899]. For contractors with no previous contracts subject to this Standard, it is applied beginning with the contractor's next full fiscal year beginning after the receipt of a contract to which it is applicable [@CL-EST-2901], and the direct and indirect cost Standard is applied beginning with the contractor's second full fiscal year beginning after that receipt [@CL-EST-2905].
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Confirm which capital projects are under construction at each segment and whethe
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Asset definitions and start rules restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the capital assets under construction cost of money Standard purpose, definitions and effective date.

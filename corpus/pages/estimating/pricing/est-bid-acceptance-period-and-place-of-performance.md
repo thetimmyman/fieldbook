@@ -54,7 +54,7 @@ Bidder B also checks intends in the place of performance provision. It inserts t
 
 ## Never confuse
 
-The acceptance period is not a delivery period: it counts the calendar days available to the Government for awarding a contract [@CL-EST-2001], while the delivery time is the one stated in the Schedule [@CL-EST-2106].
+The acceptance period counts the calendar days available to the Government for awarding a contract [@CL-EST-2001], while the delivery time is the one stated in the Schedule [@CL-EST-2106].
 
 A longer period than the minimum is allowed, and a shorter one is not: a bid allowing less than the minimum will be rejected [@CL-EST-2002; @CL-EST-2003].
 
@@ -71,7 +71,7 @@ Confirm who sets the acceptance period the company offers and who signs off on t
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Acceptance-period and delivery-time contrast reworded to what the cited text states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Period for acceptance restated as the bidder's conditional agreement; contract-specific wording replaced.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for place of performance and the bid acceptance period.

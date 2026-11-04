@@ -31,7 +31,7 @@ Covers what a sealed bidder must fill in and sign, how erasures, price discrepan
 
 Bidders are expected to examine the drawings, specifications, Schedule and all instructions, and failure to do so is at the bidder's risk [@CL-EST-1987]. Each bidder must furnish the information required by the solicitation [@CL-EST-2097].
 
-The bidder must sign the bid and print or type its name on the Schedule and on each continuation sheet on which it makes an entry [@CL-EST-1988]. Erasures or other changes must be initialed by the person signing the bid [@CL-EST-1989]. A bid signed by an agent must be accompanied by evidence of the agent's authority unless that evidence was previously furnished to the issuing office [@CL-EST-1990]. The FAR's general definitions say signature or signed means the discrete, verifiable symbol of an individual that, when affixed to a writing with the knowledge and consent of the individual, indicates a present intention to authenticate the writing [@CL-EST-9386]. The RFO model text of FAR 2.101 defines it in the same words, apart from quotation marks around the word signed in the term [@CL-EST-9387; @CL-EST-9386].
+The bidder must sign the bid and print or type its name on the Schedule and on each continuation sheet on which it makes an entry [@CL-EST-1988]. Erasures or other changes must be initialed by the person signing the bid [@CL-EST-1989]. A bid signed by an agent must be accompanied by evidence of the agent's authority unless that evidence was previously furnished to the issuing office [@CL-EST-1990]. The FAR's general definitions say signature or signed means the discrete, verifiable symbol of an individual that, when affixed to a writing with the knowledge and consent of the individual, indicates a present intention to authenticate the writing [@CL-EST-9386]. RFO FAR 2.101 defines it in the same words, apart from quotation marks around the word signed in the term [@CL-EST-9387; @CL-EST-9386].
 
 ## How it works
 
@@ -57,13 +57,13 @@ A construction bidder answers a solicitation that requires bidding on all items.
 
 ## Never confuse
 
-The presumption for the unit price is not a bar to correction, because it is subject to correction in the same manner as any other mistake [@CL-EST-1993].
+The unit price is presumed correct where it and the extended price disagree, subject to correction to the same extent and in the same manner as any other mistake [@CL-EST-1993].
 
 Initialing is stated twice: the general provision requires the person signing the bid to initial erasures or other changes [@CL-EST-1989], and the construction provision requires that person to initial each erasure or change on any bid form [@CL-EST-1996].
 
 A bid for something other than what the solicitation specifies is a different rule from alternate bids in construction, although both are considered only if the solicitation authorizes them [@CL-EST-2098; @CL-EST-1998].
 
-The words no bid are for items on which no price is submitted when bidding on all items is not required; where bidding on all items is required, leaving an item out disqualifies the bid [@CL-EST-2102; @CL-EST-1997].
+The words no bid are for items on which no price is submitted when bidding on all items is not required; where the solicitation requires bidding on all items, failure to bid on all items will disqualify the bid [@CL-EST-2102; @CL-EST-1997].
 
 ## Company calibration
 
@@ -72,7 +72,7 @@ Confirm who signs bids, who initials changes, and what evidence of agent authori
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Unit-price correction, all-items disqualification and definition wording aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified lead-in that states the per-item duty as bidders shall.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of signature or signed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
