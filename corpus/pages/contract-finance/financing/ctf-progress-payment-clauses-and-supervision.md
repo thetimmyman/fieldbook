@@ -58,7 +58,6 @@ Confirm which contracts carry the progress payments clause and which alternate e
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Supervision statement kept at should.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

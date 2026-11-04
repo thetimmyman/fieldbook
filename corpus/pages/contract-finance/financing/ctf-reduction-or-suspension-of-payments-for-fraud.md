@@ -68,7 +68,6 @@ Which payment streams the company receives could be reduced or suspended, and wh
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited framing and matched RFO substantial-evidence citation and Never-confuse statements to their cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Remedy coordination official recommendation carries its finding condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of substantial evidence.

@@ -68,7 +68,6 @@ When the company raised its financing request in the acquisition, and who fields
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts and paraphrases the cited paragraphs do not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the order of preference among financing methods.

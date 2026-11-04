@@ -60,7 +60,6 @@ Whether each contract's progress payments are cost-based, or fall in one of the 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited scope commentary and duplicate RFO exclusion sentence; aligned exclusions with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Paragraph (b) exclusion not stated as only-when; RFO paragraph (b) exclusion added.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

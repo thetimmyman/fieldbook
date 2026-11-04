@@ -60,7 +60,6 @@ Confirm which contracts qualify for alternate liquidation rates and verify that 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraphs (b)(3)-(4) circumstances for excess unliquidated progress payments and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Rate-reduction conditions stated as all applying, with the cost-data, recoupment, payment and certification details.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the annual certification condition so the rule keeps the conditions that the alternate rate must continue to meet.

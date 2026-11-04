@@ -60,7 +60,6 @@ Which assets the company could pledge if a guaranteed loan needs other collatera
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and contrast wording not stated in the cited sections.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.300 subpart scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for other collateral security for guaranteed loans.

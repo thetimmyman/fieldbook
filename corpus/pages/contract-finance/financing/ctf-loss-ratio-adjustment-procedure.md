@@ -64,7 +64,6 @@ Confirm who prepares the costs-to-complete estimate and whether the supporting a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (4) manner reference and removed meta and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Audit-trail direction worded as the DFARS directs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

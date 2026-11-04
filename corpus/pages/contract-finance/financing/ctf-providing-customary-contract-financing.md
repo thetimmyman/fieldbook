@@ -62,7 +62,6 @@ Which financing form each solicitation names as customary, and whether any propo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 32.104(a)(1) and 32.104(d) conditions and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reasonable-doubt duty, billing delay or financial need alternatives, and unusual financing definition aligned with the text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -66,7 +66,6 @@ Whether a financing need would be met by a guaranteed loan, and which agency wou
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts the cited text does not state and tied the subcontract duty to its condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only; duty-to-try condition stated in full.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.302 statement on congressional authority.

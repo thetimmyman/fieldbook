@@ -60,7 +60,6 @@ Who answers a written notice proposing to reduce or suspend payments, and which 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "shall" in the codified consideration, fraud-procedure and review sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Two listed steps stated as both required.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.006-3 agency procedures and fraud reporting duty.

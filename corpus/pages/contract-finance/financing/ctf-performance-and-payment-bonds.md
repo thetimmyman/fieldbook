@@ -69,7 +69,6 @@ Which contracts require bonds, with the threshold, penal percentages and bond de
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for performance and payment bonds, construction and other than construction.

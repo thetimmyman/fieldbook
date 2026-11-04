@@ -53,7 +53,6 @@ Which contracts receive performance-based payments, and at what liquidation rate
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed dual codified-on-RFO citations and contrast wording in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Request frequency stated as a permission; authorizing official named.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

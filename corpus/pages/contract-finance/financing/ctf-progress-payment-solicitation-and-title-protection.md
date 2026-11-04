@@ -60,7 +60,6 @@ Which contracts receive progress payments, at what liquidation rate, and how tit
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed codified citations from RFO sentence and cut uncited label and drafting commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Insert provisions and title-protection duties worded with their conditions as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.502 preaward matters scope.

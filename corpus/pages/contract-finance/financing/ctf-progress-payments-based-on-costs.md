@@ -68,7 +68,6 @@ Which rate, cost base and liquidation method apply to each contract, and whether
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and contrast wording in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Unusual-payment conditions stated as all applying, protective-term and approval wording aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -58,7 +58,6 @@ Confirm the customary progress payment rate and small business status on each co
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full class deviation DFARS 232.501-1(a) citation and removed contrast wording in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Higher-rate and letter-contract rules worded as the quotes state them.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -65,7 +65,6 @@ Which contracts carry these clauses, and what cargo and liability amounts each o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "shall", the contract-duration limit and the exact exceptions in the leased vehicle and insurance sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Public liability limits now include property damage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

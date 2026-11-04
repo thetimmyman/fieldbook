@@ -54,7 +54,6 @@ Whether every contract that carries the foreign procurement tax clause also carr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited negative commentary on contractor action and other card rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported only from the prohibition scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD prohibition on purchase card payment when the foreign procurement tax clause applies.

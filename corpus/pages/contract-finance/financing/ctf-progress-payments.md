@@ -52,7 +52,6 @@ Which contracts carry progress or performance-based payments, and at what rates.
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited customary progress payment computation, unusual rate rule, and subpart 32.10 contrast to source claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: DoD rate sentence carries its full subject; FAR small business rate cited to its own claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD customary progress payment rates.

@@ -62,7 +62,6 @@ Confirm which financing terms each contract states and who tracks the entitlemen
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "shall" and removed contrasts the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Performance-based payment sentences name their subject; consideration duty stated as a direction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

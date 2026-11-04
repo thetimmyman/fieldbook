@@ -54,7 +54,6 @@ Which contracts carry progress payments and whether accounting system controls s
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Included intended-action notice object and amount of unliquidated progress payments from the cited FAR 32.503-6 quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Operations-evaluation basis, actor for immediate action, accounting duty and loss-suspension wording aligned with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

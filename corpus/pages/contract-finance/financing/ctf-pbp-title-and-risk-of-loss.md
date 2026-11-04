@@ -58,7 +58,6 @@ Confirm that inventory systems identify Government-titled property and screen fo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Combined encumbrance sentence and removed contrast wording in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the risk of loss rule.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

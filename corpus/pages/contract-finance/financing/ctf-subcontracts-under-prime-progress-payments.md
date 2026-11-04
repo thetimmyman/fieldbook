@@ -58,7 +58,6 @@ Confirm subcontract financing terms and monitor payment turnaround for subcontra
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-CTF-3233 for the FAR 32.504(e) condition on subcontract flowdown of the Progress Payments clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Unpaid-amount permission kept with its provided-that conditions; paragraph (c) condition added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the review and consent rule.

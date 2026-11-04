@@ -56,6 +56,5 @@ Whether each solicitation, contract and agreement expected to produce orders at 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta commentary and cited the comparison with DFARS 232.1108-70.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD prescription of the mandatory purchase card payment clause.

@@ -60,7 +60,6 @@ Confirm milestone criteria and verification documentation before submitting fina
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added approval content requirements under FAR 32.1007(b)(2) and RFO FAR 32.1007(b)(2).
 - COMPATIBLE_EXTENSION, 2026-10-31: Controls are the contractor's; no-cost-condition point now cited to the DFARS text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

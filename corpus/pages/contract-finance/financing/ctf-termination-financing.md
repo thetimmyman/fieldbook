@@ -60,7 +60,6 @@ Whether the company's cash forecast separates financing received during a termin
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on what FAR 32.109 omits and stated the RFO FAR 32.109 rule directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.100 subpart scope.

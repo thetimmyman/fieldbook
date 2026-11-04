@@ -58,7 +58,6 @@ Confirm the date of the last accounting system review and verify the billing res
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO postpayment review minimum determinations and removed meta and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Postpayment review minimum determinations listed in full; reliability finding worded as the text states.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -51,7 +51,6 @@ Whether the company's financial statements comply with the accounting standards 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named statutory citations and removed meta and contrast commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD criteria for using performance-based payments.

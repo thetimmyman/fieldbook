@@ -47,7 +47,7 @@ Effective February 1, 2026, DoD contracting officers must use the revised FAR pa
 
 Synthetic example. The numbers are made up.
 
-A contract price is 1,000,000, with one milestone worth 200,000 and a liquidation rate of 20 percent set at award. At the milestone the Government pays 200,000. A later delivery invoice of 100,000 is reduced by 20,000, so 80,000 is paid, and the financing is fully recovered by final payment.
+A contract price is 1,000,000, with one milestone worth 200,000 and a liquidation rate of 20 percent set at award. At the milestone the Government pays 200,000. As the 1,000,000 of deliveries are invoiced, 20 percent of each delivery payment is deducted (for example, a 100,000 delivery invoice is reduced by 20,000, so 80,000 is paid), and the 200,000 financing is fully recovered by final payment.
 
 ## Never confuse
 
@@ -62,7 +62,6 @@ Confirm that each performance-based payment schedule in force names verifiable e
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 32.1004(a)(1), RFO 32.1004(b)(2) and FAR 52.232-16 qualifications.
 - COMPATIBLE_EXTENSION, 2026-10-31: Total payment limits now carry both requirements; liquidation described as each clause states it.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

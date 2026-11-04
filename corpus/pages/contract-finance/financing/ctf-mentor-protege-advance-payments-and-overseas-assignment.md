@@ -54,7 +54,6 @@ Whether the company is a mentor firm making advance payments, and which overseas
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added invoice acknowledgment requirement and removed uncited contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Overseas assignment restriction worded as the clause states it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Mentor-Protege advance payment reimbursement and overseas assignment of claims.

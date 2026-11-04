@@ -62,7 +62,6 @@ Which method of financing each order uses, who agrees the payment terms, and whe
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and contrast sentences in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Progress payment conditions and Alternate I direction worded as the text states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the DoD condition for performance-based payments.

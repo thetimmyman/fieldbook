@@ -64,7 +64,6 @@ Confirm that each progress payment request is supported and that liquidation is 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and dual codified-on-RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate I paragraph (k) exception and the total-costs exclusion stated as the clause words them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

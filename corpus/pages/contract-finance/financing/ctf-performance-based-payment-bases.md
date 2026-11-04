@@ -66,7 +66,6 @@ Which contracts receive performance-based payments and which measure of results 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta commentary and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Guidance pointer names the sections it points to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.1000 scope.
