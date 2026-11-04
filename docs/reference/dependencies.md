@@ -185,7 +185,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | `rust_decimal` | 1.43.0 (2026-09-02) | `default-features = false`, `std` | calc | MIT | 1.67.1 |
 | `askama` | 0.16.1 (2026-09-04) | `default-features = false`, `derive`, `std` | render | MIT OR Apache-2.0 | 1.88 |
 | `serde_json` | 1.0.151 (2026-07-20) | default | render, fieldbook, xtask | MIT OR Apache-2.0 | 1.71 |
-| `clap` | 4.6.7 (2026-09-14) | `default-features = false`, `std`, `derive`, `help`, `usage`, `error-context`, `suggestions` | fieldbook | MIT OR Apache-2.0 | 1.85 |
+| `clap` | 4.6.7 (2026-09-14) | `default-features = false`, `std`, `derive`, `help`, `usage`, `error-context`, `suggestions` | fieldbook, xtask | MIT OR Apache-2.0 | 1.85 |
 | `rust_xlsxwriter` | 0.99.1 (2026-09-14) | none (the default set is empty); never `zlib` | render | MIT OR Apache-2.0 | 1.88 |
 | `calamine` (`extract-xlsx-sheets`) | 0.36.1 (2026-07-27) | `default-features = false`; never `chrono`, `dates` or `picture` | core | MIT | 1.88 |
 | `zip` (`extract-xlsx-sheets`) | 8.6.0 (2026-04-25) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |

@@ -17,6 +17,20 @@ pub const EXIT_USAGE: u8 = 2;
 /// Input or output failure (`AD-17`).
 pub const EXIT_IO: u8 = 3;
 
+/// The four exit codes of `AD-17` and their one-line meanings.
+pub const EXIT_CODES: &[(u8, &str)] = &[
+    (
+        EXIT_OK,
+        "Clean (zero errors; warnings do not change the exit code)",
+    ),
+    (EXIT_FINDINGS, "Findings (at least one error)"),
+    (
+        EXIT_USAGE,
+        "Usage error (invalid command-line arguments or configuration refusal)",
+    ),
+    (EXIT_IO, "I/O or operational failure"),
+];
+
 /// Top-level command-line parser for the `fieldbook` program.
 #[derive(Debug, Clone, PartialEq, Eq, Parser)]
 #[command(

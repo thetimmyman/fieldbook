@@ -34,6 +34,13 @@ pub const GENERATORS: &[Generator] = &[
         end: "<!-- /generated:errors -->",
         render: crate::errors::render_errors_section,
     },
+    Generator {
+        file: "docs/reference/cli.md",
+        name: "cli",
+        begin: "<!-- generated:cli -->",
+        end: "<!-- /generated:cli -->",
+        render: crate::cli_doc::render_cli_section,
+    },
 ];
 
 /// Replace the text between the marker lines `begin` and `end` with `body`, leaving all
@@ -343,5 +350,91 @@ mod tests {
             "error was: {}",
             err_missing.1
         );
+    }
+}
+
+#[cfg(test)]
+mod cli {
+    use clap::CommandFactory;
+    use fieldbook_core::check::Code;
+
+    use crate::cli_doc::render_from_root;
+    use crate::errors::parse_catalogue;
+    use crate::proc::repo_root;
+
+    #[test]
+    fn strict_rows_match_catalogue() {
+        let root = repo_root();
+        let rendered = render_from_root(&root).expect("render cli.md");
+        let catalogue_md = std::fs::read_to_string(root.join("docs/reference/corpus-format.md"))
+            .expect("read corpus-format.md");
+        let catalogue_rows = parse_catalogue(&catalogue_md).expect("parse catalogue");
+
+        let expected_strict: Vec<(String, String)> = catalogue_rows
+            .into_iter()
+            .filter(|r| r.severity == "strict")
+            .map(|r| (r.code, r.check))
+            .collect();
+        assert!(!expected_strict.is_empty());
+
+        let mut in_strict = false;
+        let mut actual_strict = Vec::new();
+        for line in rendered.lines() {
+            if let Some(h2) = line.strip_prefix("## ") {
+                in_strict = h2.starts_with("Strict rules");
+                continue;
+            }
+            if !in_strict || !line.starts_with('|') {
+                continue;
+            }
+            let cells: Vec<&str> = line[1..line.len() - 1].split('|').map(str::trim).collect();
+            if cells.len() == 2 && cells[0].starts_with("`FB") {
+                let code_id = cells[0].trim_matches('`').to_owned();
+                assert!(Code::parse(&code_id).is_ok());
+                actual_strict.push((code_id, cells[1].to_owned()));
+            }
+        }
+
+        assert_eq!(actual_strict, expected_strict);
+    }
+
+    #[test]
+    fn every_flag_of_check_appears() {
+        let root = repo_root();
+        let rendered = render_from_root(&root).expect("render cli.md");
+        let cmd = <fieldbook::Cli as CommandFactory>::command();
+        let check_sub = cmd
+            .get_subcommands()
+            .find(|s| s.get_name() == "check")
+            .expect("check subcommand");
+
+        for arg in check_sub.get_arguments() {
+            if arg.get_id() == "help" || arg.get_id() == "version" || arg.is_hide_set() {
+                continue;
+            }
+            if let Some(long) = arg.get_long() {
+                let needle = format!("`--{long}`");
+                assert!(
+                    rendered.contains(&needle),
+                    "expected `{needle}` in rendered cli.md"
+                );
+            } else if let Some(names) = arg.get_value_names()
+                && let Some(first) = names.first()
+            {
+                let needle = format!("`<{first}>`");
+                assert!(
+                    rendered.contains(&needle),
+                    "expected `{needle}` in rendered cli.md"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn two_runs_give_the_same_bytes() {
+        let root = repo_root();
+        let first = render_from_root(&root).expect("first render");
+        let second = render_from_root(&root).expect("second render");
+        assert_eq!(first.as_bytes(), second.as_bytes());
     }
 }

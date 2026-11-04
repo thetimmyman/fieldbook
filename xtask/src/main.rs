@@ -22,6 +22,7 @@
     reason = "xtask starts git, cargo and curl, and reads the environment and files"
 )]
 
+mod cli_doc;
 mod denylist;
 #[cfg_attr(
     not(test),

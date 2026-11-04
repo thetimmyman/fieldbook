@@ -38,7 +38,8 @@ check:
     typos
     # 6. Secrets in the commits not yet on main
     just _gitleaks
-    # 7. `fieldbook check --strict` arrives with the check-v0 card.
+    # 7. Check the Corpus at the commit date under --strict
+    cargo run -q --locked -p fieldbook -- check --strict --today "$(git log -1 --format=%cs)"
     # 8. Regenerate the generated docs and diff
     cargo xtask docs --check
 
