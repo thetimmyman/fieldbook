@@ -58,7 +58,6 @@ The mix of fixed-price architect-engineer and personal services work in the cont
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 49.505(a) prescription for FAR 52.249-12 and the upon-receipt lead-in for FAR 52.249-7(a), separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the whether completed or in process wording and the must wording for the termination notice and the convenience adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

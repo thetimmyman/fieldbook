@@ -56,7 +56,6 @@ Which D&Fs sit behind each contract action, and who holds the signed copies. [@Q
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened FAR 1.704 and FAR 1.602-1(a) qualifiers and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the deviation conditions and the signing rule wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the determinations and findings subpart.

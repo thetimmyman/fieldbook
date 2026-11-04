@@ -56,7 +56,6 @@ Where the certificates of appointment and COR designation letters for each execu
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 1.603-3(b) micro-purchase delegation rules and full FAR 1.602-1(a) and 1.602-2(d)(5) qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how a contracting officer appointment is terminated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for appointment of contracting officers and the contract file.

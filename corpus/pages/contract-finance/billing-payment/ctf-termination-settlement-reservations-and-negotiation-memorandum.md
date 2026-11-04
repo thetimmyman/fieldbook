@@ -68,7 +68,6 @@ How reserved items, the funds held for them, and the memorandum's support are tr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modality in FAR 49.109-2, FAR 49.109-6, and FAR 49.110, removed worked-example citations, and replaced unbacked negative lead-ins in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the must wording for reservations, multi-contract settlement agreements and the negotiation memorandum.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reservations, joint settlement of proposals and the settlement negotiation memorandum.

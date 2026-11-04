@@ -56,7 +56,6 @@ Which payroll and timekeeping systems are authoritative for the hours worked and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.302(a) actor and inflation adjustment and the full FAR 22.305(a)-(g) exclusion list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the contracting officer as the one who assesses liquidated damages.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the administration rule and the overtime clause as stated in the construction subpart.

@@ -58,7 +58,6 @@ Which deviations each executed contract carries, and who confirms that each has 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 1.404(a)(2) and 1.404(c) requirements and full FAR 1.402 qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the deviations subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deviations from the FAR.

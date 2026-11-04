@@ -56,7 +56,6 @@ Who approves overtime requests, and where approved dollar amounts and the clause
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.103-2 and 22.103-4(a) and (f) rules and separated codified and RFO FAR 2.101 citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named paragraph (a) of the overtime premiums clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of overtime and overtime premium.

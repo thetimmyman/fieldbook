@@ -56,7 +56,6 @@ The share of revenue on time-and-materials contracts, the ceiling price on each,
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.601(e)(3) scope-modification procedures, cited the FAR 16.307(a)(1) prescription for FAR 52.216-7, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both description elements together, removed an added only on labor and materials pricing, and added the 52.232-7 conjunction and materials definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope line that these contracts are not fixed-price contracts.

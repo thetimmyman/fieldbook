@@ -58,7 +58,6 @@ Confirm who signs the certificate, who screens costs for expressly unallowable i
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the Public Law 92-41 interest-rate subparagraph in FAR 52.242-3(d)(2)(ii), stated all three certification duties in FAR 52.242-4(a), separated RFO and codified citations, and removed meta comparisons.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the certificate and the penalty scopes separately instead of calling them the same kind of cost.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of unallowable cost.

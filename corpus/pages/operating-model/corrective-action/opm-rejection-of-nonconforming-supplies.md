@@ -53,7 +53,6 @@ Which office holds authority over minor nonconformances on each contract, who as
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 46.407(a) and (c) determination basis and data submission requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named who may withhold the minor nonconformance authority.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rejection of nonconforming supplies.

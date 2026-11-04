@@ -52,7 +52,6 @@ Which quality and contracts roles own price-reduction proposals, withhold tracki
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the remaining sentences of FAR 46.407(f) and full FAR 46.317 qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the clause paragraph that may be modified.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reduction, withholds, rejection notices and counterfeit items.

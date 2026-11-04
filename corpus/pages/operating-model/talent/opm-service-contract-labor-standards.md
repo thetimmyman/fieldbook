@@ -58,7 +58,6 @@ Which contracts the company treats as subject to the Service Contract Labor Stan
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.1023 statute lead-in and full clause titles and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited codified and RFO text for the paragraph heading and verb, and kept the statute lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 52.222-41 prescription cross-reference and the Contractor's Representation paragraph.

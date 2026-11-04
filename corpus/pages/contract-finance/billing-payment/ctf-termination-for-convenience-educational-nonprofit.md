@@ -60,7 +60,6 @@ Whether any award to the institution carries this clause, and who owns the settl
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.249-5(a) notice delivery, (e) contract amendment, (f) lead-in, and (g) partial payments, separated RFO and codified citations, and removed unbacked contrast sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the notice lead-in for the termination obligations and the govern-all-costs wording of the cost principles paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-31: Narrowed the subcontract obligation to one of the listed termination obligations and added the paragraph (d) scope of the appeal bar and the exact short-form and default exceptions.

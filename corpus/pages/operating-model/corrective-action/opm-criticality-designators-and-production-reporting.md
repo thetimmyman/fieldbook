@@ -55,7 +55,6 @@ Which production progress reports the contract requires, who prepares them and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added cross-references and FAR 42.302(a) qualifiers, and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for criticality designators and production reporting.

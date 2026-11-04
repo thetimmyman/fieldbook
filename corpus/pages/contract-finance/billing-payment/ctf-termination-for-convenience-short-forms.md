@@ -64,7 +64,6 @@ Which short form, if either, each fixed-price contract actually carries, and who
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the FAR 52.249-4 prescription lead-in and Alternate I lead-ins to FAR 52.249-1 and RFO FAR 52.249-1, separated RFO and codified citations, and removed uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the short-form exceptions as alternatives and cited the architect-engineer and other-clause alternatives, and restored must for the Alternate I use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

@@ -55,7 +55,7 @@ Effective February 1, 2026 [@CL-CMP-9762], DoD contracting officers shall use th
 
 Synthetic example. The numbers are made up.
 
-A contractor has a fixed-price contract to remove a structure for 500,000. Before the notice it sold 20,000 of scrap in a bona fide sale. The Government terminates the whole contract. The scrap sold stays with the contractor, and any salvage still on the site, with title vested in the contractor, revests in the Government. Payments already made are 200,000, and no work remains that was not terminated. The agreed amount, excluding settlement costs, can be at most 500,000 less 200,000, which is 300,000.
+A contractor has a fixed-price contract to remove a structure for 500,000. Before the notice it sold 20,000 of scrap in a bona fide sale. The Government terminates the whole contract. The scrap sold is excepted from revesting in the Government, and any salvage still on the site, with title vested in the contractor, revests in the Government. Payments already made are 200,000, and no work remains that was not terminated. The agreed amount, excluding settlement costs, can be at most 500,000 less 200,000, which is 300,000.
 
 If instead the parties cannot agree, the contracting officer determines the amount, starting from the cost of the work done. Suppose the contractor's cost of work performed is 150,000 and the contracting officer finds that the contractor would have lost money on the whole contract had it been completed. Then no profit is added and the amount is reduced to reflect the indicated rate of loss. Any advance payments not yet liquidated under the terminated portion are deducted from what is due.
 
@@ -70,7 +70,6 @@ Whether any contract carries this clause and who tracks the schedule and proposa
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.249-3(g)(1)(ii), (b)(9) sale proceeds, (k)(3) deductions, (l) agreed adjustment, and (m)(1) partial payments, separated RFO and codified citations, and removed unbacked contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the second delivery item and the right-of-appeal lead-in for the appeal exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the by-the-contracting-officer profit determination, the must wording, the paragraph (f) or (g) scope of the cap, the among-other-items scope of delivery and the paragraph (e) or (f) appeal exception.

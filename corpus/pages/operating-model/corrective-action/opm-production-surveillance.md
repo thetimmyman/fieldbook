@@ -56,7 +56,6 @@ Which Government office sets surveillance for each production contract, and whic
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 42.1101 and RFO FAR 42.801 sentences and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contract administration office.

@@ -58,7 +58,6 @@ Who holds ratification authority in each contracting activity, and how finance l
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 1.602-3(d) legal advice rule, GAO manual reference, and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that all listed ratification conditions apply.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of contracting activity.

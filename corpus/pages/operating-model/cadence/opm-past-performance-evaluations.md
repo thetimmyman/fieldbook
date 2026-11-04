@@ -58,7 +58,6 @@ Which contracts the company expects to be evaluated, who responds to each notice
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened scope qualifiers, FAPIIS and RFO CPARS rules, and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of past performance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of past performance.

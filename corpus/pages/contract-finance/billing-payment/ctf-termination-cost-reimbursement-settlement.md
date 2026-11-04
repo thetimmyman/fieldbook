@@ -36,7 +36,7 @@ Subject to paragraph (f) of the clause, the contractor and the contracting offic
 
 ## How it works
 
-After receipt of a Notice of Termination, and except as directed by the contracting officer, the contractor shall immediately proceed with the obligations in paragraph (c), regardless of any delay in determining or adjusting any amounts due under the clause, starting with stopping work as specified in the notice [@CL-CTF-0420]. Under the same lead-in, the contractor shall place no further subcontracts or orders except as necessary to complete the continued portion of the contract, terminate all subcontracts to the extent they relate to the work terminated, complete performance of the work not terminated, and take any action that may be necessary, or that the contracting officer may direct, for the protection and preservation of the property related to the contract that is in the possession of the contractor and in which the Government has or may acquire an interest [@CL-CTF-0420; @CL-CLS-1402; @CL-CLS-1404; @CL-CLS-1405].
+After receipt of a Notice of Termination, and except as directed by the contracting officer, the contractor shall immediately proceed with the obligations in paragraph (c), regardless of any delay in determining or adjusting any amounts due under the clause, starting with stopping work as specified in the notice [@CL-CTF-0420]. Under the same lead-in, the contractor shall place no further subcontracts or orders except as necessary to complete the continued portion of the contract, terminate all subcontracts to the extent they relate to the work terminated, complete performance of the work not terminated, and take any action that may be necessary, or that the contracting officer may direct, for the protection and preservation of the property related to the contract that is in the possession of the contractor and in which the Government has or may acquire an interest [@CL-CTF-0420].
 
 Complete termination inventory schedules are due no later than 120 days from the effective date of termination, and the final termination settlement proposal is due promptly, but no later than 1 year from the effective date of termination, each unless extended in writing by the contracting officer upon written request of the contractor within that period, except that if the contracting officer determines that the facts justify it, a termination settlement proposal may be received and acted on after 1 year or any extension [@CL-CTF-0421; @CL-CTF-0422; @CL-CTF-0613].
 
@@ -67,7 +67,6 @@ Which financing and acceptance terms would drive the cash forecast on a terminat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.249-6(h) payment, (h)(4) fee lead-in, and RFO FAR 52.249-6(m)(1), cited paragraph (c) subcontract and property obligations, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the contracting officer determines condition for late proposals, the subcontract-effort exclusion in the convenience fee, the if-any wording, the all-costs scope of the part 31 rule, and must wording on notice and amendment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the convenience and default fee sentences so the termination fee rule keeps the deduction of previous fee payments and the like-kind scope phrase.

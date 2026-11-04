@@ -68,7 +68,6 @@ Which labor categories, billing rates and voucher cut-offs the billing-to-collec
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.232-7(a)(3) qualified labor, (e) ceiling price obligation, and (f) completion voucher lead-in (codified and RFO), separated RFO and codified citations, and included prorated fractional hours and 5 CFR part 1315.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer necessary-amount qualifier on the withhold reserve.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the specified-qualification scope, the paragraph (g) release, the contracting officer determination of material costs, the exact profit exception and the 120-day completion voucher limit.

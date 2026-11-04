@@ -56,7 +56,6 @@ Who from finance attends each postaward conference, and which financing terms th
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added all FAR 42.502 factors, full FAR 42.500 and 42.501(a) qualifiers, and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward orientation.
