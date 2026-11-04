@@ -60,7 +60,7 @@ macro_rules! define_vocab_enum {
         $vis:vis enum $name:ident ($vocab_str:literal, $count:expr) {
             $(
                 $(#[$vmeta:meta])*
-                $variant:ident => $str_val:literal
+                $variant:ident $([overlay = $overlay:tt])? => $str_val:expr
             ),+ $(,)?
         }
     ) => {
@@ -87,12 +87,22 @@ macro_rules! define_vocab_enum {
                 }
             }
 
+            /// Returns `true` when this value is reachable only in a company store (FB0210).
+            #[must_use]
+            pub const fn is_overlay(self) -> bool {
+                match self {
+                    $(Self::$variant => define_vocab_enum!(@overlay $($overlay)?)),+
+                }
+            }
+
             /// Parses a value from its exact Corpus string spelling.
             pub fn parse(input: &str) -> Result<Self, VocabError> {
-                match input {
-                    $($str_val => Ok(Self::$variant),)+
-                    _ => Err(VocabError::new($vocab_str, input)),
+                for candidate in Self::ALL {
+                    if candidate.as_str() == input {
+                        return Ok(candidate);
+                    }
                 }
+                Err(VocabError::new($vocab_str, input))
             }
         }
 
@@ -123,6 +133,9 @@ macro_rules! define_vocab_enum {
             }
         }
     };
+    (@overlay true) => { true };
+    (@overlay false) => { false };
+    (@overlay) => { false };
 }
 
 define_vocab_enum! {
@@ -195,6 +208,208 @@ define_vocab_enum! {
 
 /// The four built-in handling label identifiers.
 pub const BUILTIN_LABELS: [&str; 4] = ["public", "unlabelled", "marked", "owner-supplied"];
+
+define_vocab_enum! {
+    /// Source publisher and document kind (`source_kind` in `sources.csv`).
+    pub enum SourceKind("source_kind", 14) {
+        /// Statutes, FAR, DFARS and CAS text, Federal Register notices, class deviations, eCFR.
+        PrimaryLaw => "primary_law",
+        /// Federal award and entity records, contract-award APIs, trade and price statistics.
+        OfficialData => "official_data",
+        /// Audited annual reports and securities filings of peers and the parent.
+        CompanyFiling => "company_filing",
+        /// Army and DoD releases, daily contract announcements.
+        OfficialAnnouncement => "official_announcement",
+        /// NIST publications, audit-agency manuals, accounting standards.
+        StandardOrGuidance => "standard_or_guidance",
+        /// Peer or parent press releases, investor decks, unaudited releases.
+        CompanyStatement => "company_statement",
+        /// Commercial defense and trade databases.
+        LicensedDatabase => "licensed_database",
+        /// Arms-transfer data, customs and trade flows.
+        StrategicDataset => "strategic_dataset",
+        /// News and trade press.
+        TradePress => "trade_press",
+        /// ERP vendor manuals and release notes.
+        VendorDocumentation => "vendor_documentation",
+        /// Made-up test data.
+        SyntheticFixture => "synthetic_fixture",
+        /// Supplier quotation or proposal letter (company store only).
+        VendorQuote [overlay = true] => "vendor_quote",
+        /// Record or export from a company system (company store only).
+        CompanyRecord [overlay = true] => "company_record",
+        /// Company policy, contract, specification, memo or procedure (company store only).
+        CompanyDocument [overlay = true] => "company_document",
+    }
+}
+
+define_vocab_enum! {
+    /// Evidentiary role of a source (`source_role` in `sources.csv`).
+    pub enum SourceRole("source_role", 6) {
+        /// The original text of the thing it describes.
+        PrimaryEvidence => "primary_evidence",
+        /// A reading by a body whose reading is accepted, such as agency guidance.
+        AcceptedInterpretation => "accepted_interpretation",
+        /// Made-up data for tests and worked examples.
+        SyntheticFixture => "synthetic_fixture",
+        /// Not yet reviewed.
+        Unknown => "unknown",
+        /// Generated synthesis (parsed so `check` can refuse it later).
+        GeneratedSynthesis => "generated_synthesis",
+        /// Working draft (parsed so `check` can refuse it later).
+        WorkingDraft => "working_draft",
+    }
+}
+
+define_vocab_enum! {
+    /// Public publisher weight tier (`authority_tier` in `sources.csv`).
+    pub enum AuthorityTier("authority_tier", 4) {
+        /// Official: law, official data, official announcements, filings.
+        A => "A",
+        /// Manufacturer, licensed or standards body.
+        B => "B",
+        /// Strategic or trade-flow dataset, trade press.
+        C => "C",
+        /// Discovery only.
+        D => "D",
+    }
+}
+
+define_vocab_enum! {
+    /// Confidence that sources in a `source_family` share one original (`family_basis` in `sources.csv`).
+    pub enum FamilyBasis("family_basis", 3) {
+        /// Not yet reviewed.
+        Unknown => "unknown",
+        /// Inferred automatically or heuristically.
+        Inferred => "inferred",
+        /// Reviewed by a person; counts towards corroboration.
+        Reviewed => "reviewed",
+    }
+}
+
+define_vocab_enum! {
+    /// Reliance status of a source version (`lifecycle` in `sources.csv`).
+    pub enum Lifecycle("lifecycle", 3) {
+        /// May be relied on.
+        Active => "active",
+        /// On hold; only its register row ships.
+        Quarantined => "quarantined",
+        /// Withdrawn by publisher or owner; kept for the record.
+        Withdrawn => "withdrawn",
+    }
+}
+
+define_vocab_enum! {
+    /// Company-store document classification (`doc_kind` in `sources.csv`).
+    pub enum DocKind("doc_kind", 11) {
+        /// A contract or task order.
+        Contract => "contract",
+        /// A modification to a contract or task order.
+        Modification => "modification",
+        /// A supplier quotation or proposal letter.
+        Quote => "quote",
+        /// A set of rates for a period, with their bases.
+        RatePackage => "rate_package",
+        /// An estimate-at-completion package for a project.
+        EacPackage => "eac_package",
+        /// An earned-value export.
+        EvmsExport => "evms_export",
+        /// A baseline or a log of changes to one.
+        BaselineLog => "baseline_log",
+        /// A project schedule.
+        ScheduleFile => "schedule_file",
+        /// A billing or invoice export.
+        BillingExport => "billing_export",
+        /// A receivables export.
+        ReceivablesExport => "receivables_export",
+        /// Classified, and none of the words above.
+        Other => "other",
+    }
+}
+
+/// Every value of [`DocKind`], in reference table order.
+pub const DOC_KINDS: [DocKind; 11] = DocKind::ALL;
+
+define_vocab_enum! {
+    /// Status of a question in `questions.csv` (`question_status`).
+    pub enum QuestionStatus("question_status", 3) {
+        /// Asked and not answered.
+        Open => "open",
+        /// No longer asked.
+        Withdrawn => "withdrawn",
+        /// Answered in a company store (company store only).
+        Answered [overlay = true] => "answered",
+    }
+}
+
+define_vocab_enum! {
+    /// Whether work can proceed on the default assumption (`work_can_continue` in `questions.csv`).
+    pub enum WorkCanContinue("work_can_continue", 3) {
+        /// Work can proceed cleanly on the default assumption.
+        Yes => "yes",
+        /// Work can proceed in part.
+        Partly => "partly",
+        /// Work is blocked until answered.
+        No => "no",
+    }
+}
+
+define_vocab_enum! {
+    /// Resolution state of a conflict in `conflicts.csv` (`conflict_status`).
+    pub enum ConflictStatus("conflict_status", 2) {
+        /// Settled by a rule or source.
+        Resolved => "resolved",
+        /// Open and tied to a question.
+        Unresolved => "unresolved",
+    }
+}
+
+define_vocab_enum! {
+    /// Provenance/authority of a glossary definition (`definition_status` in `glossary.csv`).
+    pub enum DefinitionStatus("definition_status", 4) {
+        /// A regulatory or standards term with a citation in `source_ref`.
+        PublicReference => "public_reference",
+        /// Accepted finance or engineering usage.
+        GeneralPractice => "general_practice",
+        /// A modelling rule this project chose.
+        DesignConvention => "design_convention",
+        /// The company must confirm or replace it.
+        PendingCompanyCalibration => "pending_company_calibration",
+    }
+}
+
+define_vocab_enum! {
+    /// Approval state of a claim or question answer (`adoption` in `claims.csv` and `questions.csv`).
+    pub enum Adoption("adoption", 6) {
+        /// Entry value: offered as the method or number to use.
+        Proposed => "proposed",
+        /// Reviewed by the lead or owner for use in prototypes and examples.
+        PrototypeReviewed => "prototype_reviewed",
+        /// Waiting for the company to approve it (company store only).
+        PendingCompanyApproval [overlay = true] => "pending_company_approval",
+        /// Approved by the company with an approval record (company store only).
+        CompanyApproved [overlay = true] => "company_approved",
+        /// Considered and not adopted.
+        Rejected => "rejected",
+        /// Replaced by another claim.
+        Superseded => crate::strings::CITE_STATUSES[3],
+    }
+}
+
+/// Returns `true` when `input` matches the stream/series identifier form
+/// `^[a-z][a-z0-9-]{0,31}$` (1 to 32 ASCII bytes).
+#[must_use]
+pub fn stream_id_form(input: &str) -> bool {
+    let bytes = input.as_bytes();
+    let Some((&first, rest)) = bytes.split_first() else {
+        return false;
+    };
+    first.is_ascii_lowercase()
+        && rest.len() <= 31
+        && rest
+            .iter()
+            .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || *b == b'-')
+}
 
 /// Returns `true` when `input` is one of the four built-in handling labels
 /// (`public`, `unlabelled`, `marked`, `owner-supplied`) or matches the opaque
@@ -400,6 +615,66 @@ mod tests {
             "Change class",
             &ChangeClass::ALL.map(ChangeClass::as_str),
         );
+        assert_vocab_matches(
+            "source_kind",
+            "source_kind",
+            &SourceKind::ALL.map(SourceKind::as_str),
+        );
+        assert_vocab_matches(
+            "source_role",
+            "source_role",
+            &SourceRole::ALL.map(SourceRole::as_str),
+        );
+        assert_vocab_matches(
+            "authority_tier",
+            "authority_tier",
+            &AuthorityTier::ALL.map(AuthorityTier::as_str),
+        );
+        assert_vocab_matches(
+            "family_basis",
+            "family_basis",
+            &FamilyBasis::ALL.map(FamilyBasis::as_str),
+        );
+        assert_vocab_matches(
+            "lifecycle",
+            "lifecycle",
+            &Lifecycle::ALL.map(Lifecycle::as_str),
+        );
+        assert_vocab_matches("doc_kind", "doc_kind", &DOC_KINDS.map(DocKind::as_str));
+        assert_vocab_matches(
+            "question_status",
+            "question_status",
+            &QuestionStatus::ALL.map(QuestionStatus::as_str),
+        );
+        assert_vocab_matches(
+            "work_can_continue",
+            "work_can_continue",
+            &WorkCanContinue::ALL.map(WorkCanContinue::as_str),
+        );
+        assert_vocab_matches(
+            "conflict_status",
+            "conflict_status",
+            &ConflictStatus::ALL.map(ConflictStatus::as_str),
+        );
+        assert_vocab_matches(
+            "definition_status",
+            "definition_status",
+            &DefinitionStatus::ALL.map(DefinitionStatus::as_str),
+        );
+        assert_vocab_matches("adoption", "adoption", &Adoption::ALL.map(Adoption::as_str));
+    }
+
+    #[test]
+    fn stream_id_form_and_doc_kind_parse_rules() {
+        assert!(DocKind::parse("memo").is_err());
+        assert_eq!(DocKind::parse("quote"), Ok(DocKind::Quote));
+        assert!(stream_id_form("commitments"));
+        assert!(stream_id_form("a"));
+        assert!(stream_id_form("a1234567890123456789012345678901")); // 32 chars
+        assert!(!stream_id_form(""));
+        assert!(!stream_id_form("Bad Name"));
+        assert!(!stream_id_form("1commitments"));
+        assert!(!stream_id_form("a12345678901234567890123456789012")); // 33 chars
     }
 
     #[test]
