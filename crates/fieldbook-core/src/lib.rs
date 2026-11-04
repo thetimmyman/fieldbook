@@ -13,6 +13,7 @@
 
 pub mod check;
 pub mod date;
+pub mod hash;
 pub mod hex;
 pub mod ids;
 pub mod schema;
