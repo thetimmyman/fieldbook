@@ -29,7 +29,7 @@ Explains how the Economic Price Adjustment clause for standard supplies moves a 
 | Text status | Final [@CL-EST-0750] |
 | Applies to | Schedule line items covered by the contractor's warranty on its applicable established price [@CL-EST-0750] |
 
-The contractor warrants that the unit price stated in the schedule is not in excess of its applicable established price in effect on the contract date for like quantities of the same item [@CL-EST-0750]. An established price is an established catalog or market price for a commercial product sold in substantial quantities to the general public, taken net of any standard trade discounts [@CL-EST-0751]. The term unit price excludes any part of the price directly resulting from requirements for preservation, packaging, or packing beyond standard commercial practice [@CL-EST-0857].
+The contractor warrants that the unit price stated in the schedule is not in excess of its applicable established price in effect on the contract date for like quantities of the same item [@CL-EST-0750]. An established price is an established catalog or market price for a commercial product sold in substantial quantities to the general public, taken net of any standard trade discounts offered by the Contractor [@CL-EST-0751]. The term unit price excludes any part of the price directly resulting from requirements for preservation, packaging, or packing beyond standard commercial practice [@CL-EST-0857].
 
 A decrease passes through on its own: the contractor promptly notifies the Contracting Officer of the amount and effective date, and each corresponding unit price falls by the same percentage as the established price [@CL-EST-0753]. If the established price is increased after the contract date, the corresponding contract unit price is increased, upon the contractor's written request, by the same percentage, subject to the limitations that follow [@CL-EST-0858; @CL-EST-1040]. That increase is capped, so the aggregate of the increases in any contract unit price cannot exceed 10 percent of the original contract unit price [@CL-EST-0752].
 
@@ -56,7 +56,6 @@ That each schedule line item price sits at or below the applicable established p
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the increase sentence so the price increase rule keeps the limitations that follow.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Economic Price Adjustment clause for standard supplies.

@@ -48,7 +48,7 @@ A contractor sells manufacturing machinery for 40,000 cash when its undepreciate
 
 ## Never confuse
 
-Gains and losses on depreciable property are included in the year they occur as credits or charges to the cost groupings where the depreciation or amortization was included [@CL-CMP-0510], whereas gains and losses of any nature on the sale or exchange of capital assets other than depreciable property are excluded in computing contract costs [@CL-CMP-0511]. In addition, an impairment write-down is not allowed as a loss, and on later disposition the gain or loss is the amount that would have been allowed had the asset not been written down. The codified text prints the rule on write-downs for impairments as paragraph (i) [@CL-CMP-0512], while the RFO text prints that rule as subparagraph (h)(1) and the rule on gains or losses upon later disposition as subparagraph (h)(2), both under the paragraph on non-depreciable capital assets [@CL-CMP-9397; @CL-CMP-9398].
+Gains and losses on depreciable property are included in the year they occur as credits or charges to the cost groupings where the depreciation or amortization was included [@CL-CMP-0510], whereas gains and losses of any nature on the sale or exchange of capital assets other than depreciable property are excluded in computing contract costs [@CL-CMP-0511]. In addition, an impairment write-down is not allowed as a loss, and on later disposition the gain or loss is the amount that would have been allowed had the asset not been written down. The codified text prints the rule on write-downs for impairments as paragraph (i) [@CL-CMP-0512], while the RFO text prints that rule as subparagraph (h)(1) and the rule on gains or losses upon later disposition as subparagraph (h)(2) [@CL-CMP-9397; @CL-CMP-9398].
 
 The cost principles on allowable depreciation and on idle facilities and idle capacity are covered in [Allowable depreciation](cmp-depreciation.md) and [Idle facilities and idle capacity costs](cmp-idle-facilities-and-capacity.md).
 
@@ -59,7 +59,6 @@ How asset sales, involuntary conversions, and impairment reversals are reconcile
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the RFO adjustment sentence and the never-confuse summary with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added amortization and the involuntary-conversion exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on allowable depreciation and idle facilities.

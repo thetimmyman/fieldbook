@@ -45,7 +45,7 @@ Use is a judgment: testing and approval may be appropriate in the listed circums
 
 Synthetic example. The numbers are made up.
 
-A buyer solicits a new bracket that supplier A has never furnished to the Government. First article testing and approval may be appropriate, because the contractor has not previously furnished the product. Supplier B bids a catalog valve normally sold in the commercial market, so testing and approval is normally not required for that contract. Supplier C delivered identical brackets that the Government accepted, and the solicitation told offerors the requirement may be waived in that case. The answer: A is tested, B is normally not, and C may be waived.
+A buyer solicits a new bracket that supplier A has never furnished to the Government. First article testing and approval may be appropriate, because the contractor has not previously furnished the product. Supplier B bids a catalog valve normally sold in the commercial market, so testing and approval is normally not required for that contract. Supplier C delivered identical brackets that the Government accepted, and the solicitation told offerors the requirement may be waived in that case. The answer: A may be tested, B is normally not, and C may be waived.
 
 ## Never confuse
 
@@ -58,7 +58,6 @@ Which new products or process changes would need first article approval before c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the condition on the further exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definitions of first article and first article testing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definitions of first article and first article testing.

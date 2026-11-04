@@ -48,7 +48,7 @@ For DoD, DFARS 234.003 says DoDD 5000.01, The Defense Acquisition System, and Do
 
 Synthetic example. The numbers are made up.
 
-An agency's procedures name 5 key decision points for a major program. The program manager writes the acquisition strategy, and it serves as the acquisition plan. After full-scale development, the system tests successfully. The agency head reaffirms the mission need and approves production. The answer: the contract for full production may be awarded once the agency head has reaffirmed the mission need and program objectives and approved production.
+An agency's procedures name 5 key decision points for a major program. The program manager writes the acquisition strategy, and it serves as the acquisition plan. After full-scale development, the system tests successfully. The agency head reaffirms the mission need and program objectives and approves production. The answer: the contract for full production may be awarded once the agency head has reaffirmed the mission need and program objectives and approved production.
 
 ## Never confuse
 
@@ -61,7 +61,7 @@ Which key decision points and agency officials apply to the company's programs, 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-04: Included program objectives in the worked example premise sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Criteria list stated as all three; full-production sentence restored to may-be-awarded-if.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored program objectives in the reaffirmation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the acquisition planning definition.

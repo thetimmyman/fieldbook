@@ -45,7 +45,7 @@ Under Class Deviation 2026-O0038, effective February 1, 2026, contracting office
 
 Synthetic example. The numbers are made up.
 
-A prospective Contractor leaves facilities capital cost of money out of its offer for a cost-type contract. The contract then includes the waiver clause, so any such cost later claimed on the contract is unallowable. Separately, a plan termination returns 500,000 of fund assets to the Contractor. If the Government's equitable share is taken as 40 percent, the Contractor refunds or credits 200,000. The parties could agree to take it as a cash refund or as a credit spread over several years with interest. If they cannot agree through good faith negotiations, the Contracting Officer designates the method of recovery. The Contractor also puts the substance of the clause into each subcontract that meets the applicability requirements of FAR 15.408(j), or of FAR 15.110(r) under the RFO text [@CL-EST-0262].
+A prospective Contractor leaves facilities capital cost of money out of its offer for a cost-type contract. The contract then includes the waiver clause, so any such cost later claimed on the contract is unallowable. Separately, a plan termination returns 500,000 of fund assets to the Contractor. If the Government's equitable share is taken as 40 percent, the Contractor refunds or credits 200,000. The parties could agree to take it as a cash refund or as a credit spread over several years with interest. If they cannot agree through good faith negotiations, the Contracting Officer designates the method of recovery. The Contractor also puts the substance of the clause into each subcontract that meets the applicability requirements of FAR 15.408(j) [@CL-EST-1884], or of FAR 15.110(r) under the RFO text [@CL-EST-0262].
 
 ## Never confuse
 
@@ -60,7 +60,6 @@ Who owns proposal pricing and so decides whether facilities capital cost of mone
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the allowability criteria and the plan termination case, cited the clause title, restated the deviation as it reads, and cut uncited sequencing and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 31.205-6(o)(5) reference to the refund sentence and restored shall for the RFO subcontract flowdown.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of facilities capital cost of money.
