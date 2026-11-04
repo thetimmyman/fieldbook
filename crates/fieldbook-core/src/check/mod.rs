@@ -8,6 +8,7 @@ pub mod corpus_toml;
 pub mod diag;
 pub mod files;
 pub mod model;
+pub mod registers;
 pub mod tree;
 
 pub use code::{Code, CodeParseError, Level};
@@ -53,7 +54,7 @@ impl Options {
 pub type Pass = fn(&Model, &Options, &mut Report);
 
 /// The fixed list of check passes run after `corpus/corpus.toml` passes `FB0100`.
-const PASSES: &[Pass] = &[files::check];
+const PASSES: &[Pass] = &[files::check, registers::check];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
     let mut report = Report::new();
@@ -105,11 +106,27 @@ mod tests {
         CivilDate::from_ymd(2026, 3, 1).expect("valid date")
     }
 
+    fn insert_empty_registers(tree: &mut Tree) {
+        tree.insert_dir("corpus/registers");
+        for reg in crate::schema::Register::ALL {
+            let mut header = String::new();
+            for (idx, col) in reg.columns().iter().enumerate() {
+                if idx > 0 {
+                    header.push(',');
+                }
+                header.push_str(col.name);
+            }
+            header.push('\n');
+            tree.insert_bytes(super::registers::register_path(reg), header.into_bytes());
+        }
+    }
+
     fn clean_host() -> Host {
         let mut tree = Tree::new();
         tree.insert_dir("corpus");
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
         tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
+        insert_empty_registers(&mut tree);
         Host::new(tree, sample_today())
     }
 
@@ -347,6 +364,7 @@ mod tests {
         tree.insert_dir("corpus/sources/public");
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
         tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
+        insert_empty_registers(&mut tree);
         tree.insert(
             "corpus/sources/public/S-0001-v1.txt",
             Entry::Original {
