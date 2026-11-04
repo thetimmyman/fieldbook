@@ -37,7 +37,7 @@ If the Contractor contemplates award of a subcontract exceeding $1 million to a 
 
 ## How it works
 
-In evaluation, the offeror identifies the levies in its price [@CL-SUP-1740], the United States Government may attempt to obtain a waiver of levies pursuant to the U.S./U.K. reciprocal waiver agreement of July 1987 [@CL-SUP-0075], and the evaluation then turns on whether a waiver came before award [@CL-SUP-1741; @CL-SUP-1742]. After award, a waiver can reduce the contract price [@CL-SUP-1743; @CL-SUP-1763]. In performance, the Contractor gives the listed information to the Contracting Officer before awarding a subcontract above the value in the clause [@CL-SUP-1744; @CL-SUP-1762]. The clause substance goes into any subcontract for supplies where a lower-tier subcontract exceeding $1 million with a United Kingdom firm is anticipated [@CL-SUP-1745].
+In evaluation, the offeror identifies the levies in its price [@CL-SUP-1740], the United States Government may attempt to obtain a waiver of levies pursuant to the U.S./U.K. reciprocal waiver agreement of July 1987 [@CL-SUP-0075], and the evaluation then turns on whether a waiver came before award [@CL-SUP-1741; @CL-SUP-1742]. After award, a waiver can reduce the contract price [@CL-SUP-1743; @CL-SUP-1763]. In performance, the Contractor gives the listed information to the Contracting Officer before awarding a subcontract above the value in the clause [@CL-SUP-1744; @CL-SUP-1762]. The Contractor shall insert the substance of the clause, including paragraph (d), in any subcontract for supplies where a lower-tier subcontract exceeding $1 million with a United Kingdom firm is anticipated [@CL-SUP-1745].
 
 ## Worked example
 
@@ -56,6 +56,5 @@ Which subcontracts to United Kingdom firms exceed the value in the clause and ho
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (a) and (c) lead-in quotes of DFARS 252.225-7032 and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the waiver of United Kingdom levies.
