@@ -19,13 +19,22 @@ pub struct Generator {
 }
 
 /// The registered documentation generators.
-pub const GENERATORS: &[Generator] = &[Generator {
-    file: "docs/reference/corpus-format.md",
-    name: "strings",
-    begin: "<!-- strings:begin -->",
-    end: "<!-- strings:end -->",
-    render: render_strings_section,
-}];
+pub const GENERATORS: &[Generator] = &[
+    Generator {
+        file: "docs/reference/corpus-format.md",
+        name: "strings",
+        begin: "<!-- strings:begin -->",
+        end: "<!-- strings:end -->",
+        render: render_strings_section,
+    },
+    Generator {
+        file: "docs/reference/errors.md",
+        name: "errors",
+        begin: "<!-- generated:errors -->",
+        end: "<!-- /generated:errors -->",
+        render: crate::errors::render_errors_section,
+    },
+];
 
 /// Replace the text between the marker lines `begin` and `end` with `body`, leaving all
 /// other text alone. Returns an error naming the missing marker when either marker line is

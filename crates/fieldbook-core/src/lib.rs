@@ -11,6 +11,7 @@
 //! **Rules.** No files, environment, clock, process or sockets: the `fieldbook` binary
 //! does all I/O and passes bytes in (workspace `clippy.toml`).
 
+pub mod check;
 pub mod date;
 pub mod hex;
 pub mod ids;
