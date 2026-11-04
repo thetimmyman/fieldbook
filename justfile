@@ -39,7 +39,8 @@ check:
     # 6. Secrets in the commits not yet on main
     just _gitleaks
     # 7. `fieldbook check --strict` arrives with the check-v0 card.
-    # 8. Regenerate the generated docs and diff: arrives with the first generated reference.
+    # 8. Regenerate the generated docs and diff
+    cargo xtask docs --check
 
 # Resolve Cargo.lock with the 14-day cooldown (AD-06). The pinned nightly only resolves; it never builds.
 lock:

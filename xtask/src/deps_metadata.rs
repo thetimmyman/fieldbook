@@ -305,7 +305,7 @@ mod tests {
         assert_eq!(actual, expected);
         assert!(
             !metadata
-                .workspace_package("fieldbook")
+                .workspace_package(fieldbook_core::strings::binary())
                 .unwrap()
                 .unwrap()
                 .features
@@ -331,11 +331,16 @@ mod tests {
     #[test]
     fn absent_and_ambiguous_workspace_names_are_distinct() {
         let absent = decode(&std::fs::read(fixture("no-app.json")).unwrap()).unwrap();
-        assert!(absent.workspace_package("fieldbook").unwrap().is_none());
+        assert!(
+            absent
+                .workspace_package(fieldbook_core::strings::binary())
+                .unwrap()
+                .is_none()
+        );
         let ambiguous = decode(&std::fs::read(fixture("ambiguous-app.json")).unwrap()).unwrap();
         assert!(
             ambiguous
-                .workspace_package("fieldbook")
+                .workspace_package(fieldbook_core::strings::binary())
                 .unwrap_err()
                 .contains("ambiguous")
         );
@@ -346,7 +351,7 @@ mod tests {
         let original = std::fs::read(fixture("valid.json")).unwrap();
         let inspect = |bytes: &[u8]| {
             if let Ok(metadata) = decode(bytes) {
-                let _ = metadata.workspace_package("fieldbook");
+                let _ = metadata.workspace_package(fieldbook_core::strings::binary());
             }
         };
         let seeded = std::fs::read(fixture("bytes.bin")).unwrap();
@@ -392,11 +397,11 @@ mod tests {
             let metadata = decode(&output.stdout).unwrap();
             assert_eq!(
                 metadata
-                    .workspace_package("fieldbook")
+                    .workspace_package(fieldbook_core::strings::binary())
                     .unwrap()
                     .unwrap()
                     .name,
-                "fieldbook"
+                fieldbook_core::strings::binary()
             );
         }
     }

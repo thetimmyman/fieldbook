@@ -12,6 +12,7 @@
 //! does all I/O and passes bytes in (workspace `clippy.toml`).
 
 pub mod hex;
+pub mod strings;
 pub mod version;
 
 /// This crate's name in the chain calc, core, render, fieldbook.

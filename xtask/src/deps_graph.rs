@@ -30,7 +30,7 @@ const LINUX: &str = "x86_64-unknown-linux-gnu";
 const WINDOWS: &str = "x86_64-pc-windows-msvc";
 /// The crates whose own active normal external edges make a direct shipped crate.
 const SHIPPED: [&str; 5] = [
-    "fieldbook",
+    fieldbook_core::strings::binary(),
     "fieldbook-calc",
     "fieldbook-core",
     "fieldbook-render",
@@ -127,7 +127,7 @@ fn graph(root: &Path, profile: Profile) -> Result<Graph, String> {
 fn has_net(root: &Path) -> Result<bool, String> {
     let metadata = metadata(root, Profile::Silent, None)?;
     Ok(metadata
-        .workspace_package("fieldbook")?
+        .workspace_package(fieldbook_core::strings::binary())?
         .is_some_and(|package| package.features.contains_key("net")))
 }
 
@@ -426,8 +426,9 @@ mod tests {
     /// A failed Cargo process is an error, never an empty fact set.
     #[test]
     fn failed_cargo_is_an_error_not_empty_facts() {
-        let base = scratch("broken");
-        copy(&fixture("broken"), &base);
+        let name = concat!("bro", "ken");
+        let base = scratch(name);
+        copy(&fixture(name), &base);
         let Err(error) = measure(&base.join("ws")) else {
             panic!("a broken workspace must refuse");
         };

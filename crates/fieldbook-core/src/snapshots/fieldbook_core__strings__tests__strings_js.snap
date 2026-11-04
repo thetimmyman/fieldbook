@@ -1,0 +1,116 @@
+---
+source: crates/fieldbook-core/src/strings.rs
+expression: rendered
+---
+window.FB_STRINGS = {
+  "abstention": "Not established in the library.",
+  "empty_part": "Not established.",
+  "refusal": "Do not use this answer.",
+  "parts": [
+    "Purpose",
+    "The rule",
+    "How it works",
+    "Worked example",
+    "Never confuse",
+    "Company calibration",
+    "Sources",
+    "Change note"
+  ],
+  "brief_parts": [
+    "Question",
+    "Recommendation",
+    "Evidence",
+    "Options",
+    "Unknowns",
+    "Next action"
+  ],
+  "paths": [
+    "data/registers.xlsx",
+    "data/<register>.csv",
+    "templates/<name>.xlsx",
+    "day-one.html",
+    "assistant.html",
+    "map.html",
+    "ASSISTANT.md"
+  ],
+  "rounding": "Each extension rounds half away from zero to cents; totals sum the rounded extensions.",
+  "origin_labels": [
+    "Quoted",
+    "Computed",
+    "Judgment"
+  ],
+  "binary": "fieldbook",
+  "chips": [
+    {"intent": "Start a page", "chip": "fieldbook new page --confirm-public <area>-<slug> --type <type> --subarea <subarea>", "from": "Day 1"},
+    {"intent": "Add a question", "chip": "fieldbook new question --confirm-public --area <a> \"<text>\"", "from": "Day 1"},
+    {"intent": "Start a claim", "chip": "fieldbook new claim --confirm-public --area <a> --source <version-id> --at \"<locator>\" --quote \"<text>\"", "from": "Day 1"},
+    {"intent": "Start a conflict", "chip": "fieldbook new conflict --confirm-public --area <a>", "from": "Day 1"},
+    {"intent": "Start a glossary term", "chip": "fieldbook new term --confirm-public --area <a>", "from": "Day 1"},
+    {"intent": "Add a source file", "chip": "fieldbook add <file>", "from": "Day 1"},
+    {"intent": "Add a new version of a source", "chip": "fieldbook add <file> --source <source-id>", "from": "Day 1"},
+    {"intent": "Check the Corpus", "chip": "fieldbook check", "from": "Day 1"},
+    {"intent": "Format the files", "chip": "fieldbook fmt", "from": "Day 1"},
+    {"intent": "Rebuild the site", "chip": "fieldbook build", "from": "Day 1"},
+    {"intent": "Find an id or a word; list the versions of a source", "chip": "fieldbook search <query>", "from": "Day 1"},
+    {"intent": "See what needs work", "chip": "fieldbook status", "from": "Day 1"},
+    {"intent": "Write the desk pages", "chip": "fieldbook status --page", "from": "Day 1"},
+    {"intent": "Record that the owner verified a claim", "chip": "fieldbook verify <claim-id> --on YYYY-MM-DD", "from": "Day 1"},
+    {"intent": "Add every file in a folder", "chip": "fieldbook add <folder>", "from": "Day 1"},
+    {"intent": "Verify the audit journal", "chip": "fieldbook audit verify", "from": "Day 1"},
+    {"intent": "Show recent activity", "chip": "fieldbook audit show", "from": "Day 1"},
+    {"intent": "Back up the working data", "chip": "fieldbook backup", "from": "Day 1"},
+    {"intent": "Check a backup", "chip": "fieldbook backup verify", "from": "Day 1"},
+    {"intent": "List backups", "chip": "fieldbook backup list", "from": "Day 1"},
+    {"intent": "Prove a backup restores", "chip": "fieldbook restore --snapshot <n> --drill", "from": "Day 1"},
+    {"intent": "Build a context pack", "chip": "fieldbook context \"<question>\"", "from": "Day 30"},
+    {"intent": "Check a pasted answer", "chip": "fieldbook cite-check <file>", "from": "Day 30"},
+    {"intent": "Save an answer as a note", "chip": "fieldbook new note --ai-drafted --confirm-public --area <a> --from <file>", "from": "Day 30"},
+    {"intent": "Propose sources from a folder", "chip": "fieldbook add <folder> --propose", "from": "Day 30"},
+    {"intent": "Review proposals", "chip": "fieldbook queue review", "from": "Day 30"},
+    {"intent": "Accept a proposal", "chip": "fieldbook queue accept <proposal-id>", "from": "Day 30"},
+    {"intent": "Reject a proposal", "chip": "fieldbook queue reject <proposal-id> --reason <word>", "from": "Day 30"},
+    {"intent": "Flag the last question", "chip": "fieldbook queue flag", "from": "Day 30"},
+    {"intent": "Ask a question through the gate", "chip": "fieldbook ask \"<question>\"", "from": "Day 30"},
+    {"intent": "See the state of each AI port", "chip": "fieldbook ai status", "from": "Day 30"},
+    {"intent": "See the policy in force", "chip": "fieldbook policy show", "from": "Day 30"},
+    {"intent": "Put a decision to the model", "chip": "fieldbook decide <file>", "from": "Day 90"},
+    {"intent": "Build the overlay site, then print from Edge", "chip": "fieldbook build --overlay", "from": "R2"},
+    {"intent": "See what the company data sources would add", "chip": "fieldbook sync --dry-run", "from": "R2"}
+  ],
+  "cite_statuses": [
+    "broken",
+    "broken locator",
+    "outside context",
+    "superseded",
+    "weak",
+    "unchecked locator",
+    "unchecked quote",
+    "quote mismatch",
+    "verified"
+  ],
+  "verified_text": "Citation resolves at this locator",
+  "non_canonical": "non-canonical",
+  "left_out_budget": "Left out (budget)",
+  "left_out_policy": "Left out (policy)",
+  "pack_labels": "Labels: <ids>",
+  "not_available": "<Thing> is not available until <release or trigger>.",
+  "unreleased_build": "unreleased build",
+  "print_check": "Check the current edition",
+  "not_remembered": "Not remembered in this browser",
+  "tag_at_home": "At home",
+  "tag_r2_laptop": "R2 · laptop",
+  "assistant_labels": {
+    "ask": "Ask",
+    "send": "Send",
+    "stop": "Stop",
+    "copy_pack": "Copy context pack",
+    "check_citations": "Check citations",
+    "save_note": "Save as note",
+    "copy_draft_note": "Copy as draft note",
+    "this_session_only": "This session only"
+  },
+  "ai_note_label": [
+    "AI-drafted · unreviewed",
+    "AI-drafted · reviewed"
+  ]
+};
