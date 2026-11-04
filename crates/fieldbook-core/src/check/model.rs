@@ -1,16 +1,21 @@
 //! [`Model`]: the immutable parsed Corpus state shared across check passes and `fieldbook-render`.
 
+use std::collections::BTreeMap;
+
+use crate::cite::{self, Citation, KeyKind, LexFinding, Mode};
 use crate::date::CivilDate;
-use crate::ids::PageId;
+use crate::ids::{ClaimId, ConflictId, PageId, QuestionId, SourceId, VersionId};
 use crate::schema::page::{self, MetaError, PageMeta, SplitError};
 use crate::schema::rows::CellProblem;
 use crate::schema::table::{Row, Table};
+use crate::schema::vocab::Lifecycle;
 use crate::schema::{
     ClaimRow, ConflictRow, CorpusToml, GlossaryRow, QuestionRow, Register, SourceRow,
 };
 
+use super::Code;
 use super::files;
-use super::index::Index;
+use super::index::{Index, SourceVersionEntry};
 use super::page_parts::{self, Parts};
 use super::registers;
 use super::tree::Tree;
@@ -97,6 +102,68 @@ where
     (typed, problems)
 }
 
+fn col_index(reg: Register, col_name: &str) -> usize {
+    reg.columns()
+        .iter()
+        .position(|c| c.name == col_name)
+        .unwrap_or(0)
+}
+
+fn cell_str<'a>(reg: Register, row: &'a Row, col_name: &str) -> &'a str {
+    let idx = col_index(reg, col_name);
+    row.cells.get(idx).map_or("", String::as_str)
+}
+
+fn build_citation_resolve_index(index: &Index, registers: &[Option<Table>; 5]) -> Index {
+    let mut out = index.clone();
+
+    if let Some(table) = &registers[register_index(Register::Sources)] {
+        for row in &table.rows {
+            if let (Ok(sid), Ok(ver)) = (
+                SourceId::parse(cell_str(Register::Sources, row, "source_id")),
+                cell_str(Register::Sources, row, "version").parse::<u32>(),
+            ) && let Ok(vid) = VersionId::parse(&format!("{sid}-v{ver}"))
+            {
+                let lifecycle = Lifecycle::parse(cell_str(Register::Sources, row, "lifecycle"))
+                    .unwrap_or(Lifecycle::Active);
+                out.source_versions
+                    .entry(vid)
+                    .or_insert(SourceVersionEntry {
+                        line: row.line,
+                        lifecycle,
+                        superseded: false,
+                    });
+            }
+        }
+    }
+
+    if let Some(table) = &registers[register_index(Register::Claims)] {
+        for row in &table.rows {
+            if let Ok(cid) = ClaimId::parse(cell_str(Register::Claims, row, "claim_id")) {
+                out.claims.entry(cid).or_insert(row.line);
+            }
+        }
+    }
+
+    if let Some(table) = &registers[register_index(Register::Questions)] {
+        for row in &table.rows {
+            if let Ok(qid) = QuestionId::parse(cell_str(Register::Questions, row, "question_id")) {
+                out.questions.entry(qid).or_insert(row.line);
+            }
+        }
+    }
+
+    if let Some(table) = &registers[register_index(Register::Conflicts)] {
+        for row in &table.rows {
+            if let Ok(xcid) = ConflictId::parse(cell_str(Register::Conflicts, row, "conflict_id")) {
+                out.conflicts.entry(xcid).or_insert(row.line);
+            }
+        }
+    }
+
+    out
+}
+
 fn split_page_path(path: &str) -> Option<(String, String, String)> {
     let rest = path.strip_prefix("corpus/pages/")?;
     let mut parts = rest.split('/');
@@ -177,12 +244,18 @@ fn parse_pages(tree: &Tree, corpus: Option<&CorpusToml>) -> (Vec<PageEntry>, Vec
     (pages, raw_pages)
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct PageCitationFinding {
+    pub path: String,
+    pub finding: LexFinding,
+}
+
 /// Parsed state built once by [`super::load`] and shared across passes.
 ///
 /// All fields are private; callers read them through [`Self::tree`], [`Self::today`],
-/// [`Self::corpus`], [`Self::register`], [`Self::register_rows`], [`Self::pages`] and the typed
-/// row accessors ([`Self::sources`], [`Self::claims`], [`Self::questions`], [`Self::conflicts`],
-/// [`Self::glossary`]).
+/// [`Self::corpus`], [`Self::register`], [`Self::register_rows`], [`Self::pages`],
+/// [`Self::citations`] and the typed row accessors ([`Self::sources`], [`Self::claims`],
+/// [`Self::questions`], [`Self::conflicts`], [`Self::glossary`]).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Model {
     tree: Tree,
@@ -198,6 +271,8 @@ pub struct Model {
     pages: Vec<PageEntry>,
     raw_pages: Vec<RawPageRecord>,
     index: Index,
+    page_citations: BTreeMap<PageId, Vec<Citation>>,
+    citation_findings: Vec<PageCitationFinding>,
 }
 
 impl Model {
@@ -226,6 +301,51 @@ impl Model {
             &pages,
         );
 
+        let resolve_index = build_citation_resolve_index(&index, &registers);
+        let sources_loaded = registers[register_index(Register::Sources)].is_some();
+        let claims_loaded = registers[register_index(Register::Claims)].is_some();
+        let questions_loaded = registers[register_index(Register::Questions)].is_some();
+        let conflicts_loaded = registers[register_index(Register::Conflicts)].is_some();
+
+        let mut page_citations = BTreeMap::new();
+        let mut citation_findings = Vec::new();
+        for page in &pages {
+            let base_line = usize::try_from(page.body_line).unwrap_or(1).max(1);
+            let lexed = cite::lex_from_line(&page.body, base_line, Mode::Strict);
+            let missing_reg_keys: Vec<String> = lexed
+                .citations
+                .iter()
+                .filter_map(|c| {
+                    let loaded = match c.key_kind {
+                        KeyKind::Version => sources_loaded,
+                        KeyKind::Claim => claims_loaded,
+                        KeyKind::Question => questions_loaded,
+                        KeyKind::Conflict => conflicts_loaded,
+                        KeyKind::Note => true,
+                    };
+                    (!loaded).then(|| format!("`@{}", c.key))
+                })
+                .collect();
+            let (resolved_cites, _resolved_keys, findings) =
+                cite::resolve_citations(lexed, &resolve_index);
+            page_citations
+                .entry(page.id.clone())
+                .or_insert(resolved_cites);
+            for finding in findings {
+                if finding.code == Code::Fb0303
+                    && missing_reg_keys
+                        .iter()
+                        .any(|prefix| finding.message.contains(prefix))
+                {
+                    continue;
+                }
+                citation_findings.push(PageCitationFinding {
+                    path: page.path.clone(),
+                    finding,
+                });
+            }
+        }
+
         Self {
             tree,
             today,
@@ -240,6 +360,8 @@ impl Model {
             pages,
             raw_pages,
             index,
+            page_citations,
+            citation_findings,
         }
     }
 
@@ -320,6 +442,22 @@ impl Model {
     #[must_use]
     pub const fn index(&self) -> &Index {
         &self.index
+    }
+
+    /// Resolved [`Citation`]s for `page` in reading order, or `&[]` when `page` has none (or does
+    /// not exist).
+    #[must_use]
+    pub fn citations(&self, page: &PageId) -> &[Citation] {
+        match self.page_citations.get(page) {
+            Some(cites) => cites.as_slice(),
+            None => &[],
+        }
+    }
+
+    /// Lexer and resolution findings collected across all parsed pages while building [`Model`].
+    #[must_use]
+    pub(crate) fn citation_findings(&self) -> &[PageCitationFinding] {
+        &self.citation_findings
     }
 
     /// Single-cell [`CellProblem`]s collected while building typed rows for `register`.

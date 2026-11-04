@@ -8,7 +8,8 @@ use std::collections::BTreeSet;
 
 use pulldown_cmark::CodeBlockKind;
 
-use crate::ids::{CaseId, ClaimId, QuestionId, VersionId};
+use crate::cite::{self, KeyKind, Mode};
+use crate::ids::CaseId;
 use crate::schema::{PageType, Register};
 use crate::strings;
 
@@ -557,7 +558,7 @@ fn has_valid_brief_evidence(part_evs: &[Ev<'_>]) -> bool {
     };
     items
         .iter()
-        .all(|item| has_claim_key(item) || has_source_version_key(item))
+        .all(|item| has_key_of_kinds(item, &[KeyKind::Claim, KeyKind::Version]))
 }
 
 fn has_valid_brief_unknowns(part_evs: &[Ev<'_>]) -> bool {
@@ -567,50 +568,18 @@ fn has_valid_brief_unknowns(part_evs: &[Ev<'_>]) -> bool {
     let empty_part = strings::empty_part();
     items
         .iter()
-        .all(|item| item.contains(empty_part) || has_question_key(item))
+        .all(|item| item.contains(empty_part) || has_key_of_kinds(item, &[KeyKind::Question]))
 }
 
-fn extract_bracketed_keys(text: &str) -> Vec<&str> {
-    let mut keys = Vec::new();
-    let mut rest = text;
-    while let Some(pos) = rest.find("[@") {
-        let after_bracket = &rest[pos + 1..];
-        let content = after_bracket
-            .split_once(']')
-            .map_or(after_bracket, |(inside, _)| inside);
-        for part in content.split(';') {
-            let trimmed = part.trim();
-            if let Some(after_at) = trimmed.strip_prefix('@') {
-                let token = after_at
-                    .split(|c: char| c == ',' || c.is_whitespace() || c == ']')
-                    .next()
-                    .unwrap_or("");
-                if !token.is_empty() {
-                    keys.push(token);
-                }
-            }
-        }
-        rest = &rest[pos + 2..];
-    }
-    keys
+fn has_key_of_kinds(text: &str, allowed: &[KeyKind]) -> bool {
+    cite::lex(text, Mode::Tolerant)
+        .citations
+        .iter()
+        .any(|c| allowed.contains(&c.key_kind))
 }
 
 fn has_claim_key(text: &str) -> bool {
-    extract_bracketed_keys(text)
-        .into_iter()
-        .any(|k| ClaimId::parse(k).is_ok())
-}
-
-fn has_source_version_key(text: &str) -> bool {
-    extract_bracketed_keys(text)
-        .into_iter()
-        .any(|k| VersionId::parse(k).is_ok())
-}
-
-fn has_question_key(text: &str) -> bool {
-    extract_bracketed_keys(text)
-        .into_iter()
-        .any(|k| QuestionId::parse(k).is_ok())
+    has_key_of_kinds(text, &[KeyKind::Claim])
 }
 
 fn check_html_images_and_outside_links(
@@ -1340,5 +1309,55 @@ mod tests {
             "non-term bold span must raise nothing, got {:?}",
             report_clear.diagnostics
         );
+    }
+
+    #[test]
+    fn body_uses_the_requested_key_kind() {
+        // 1. clause-card value requires Claim:
+        //    - accepts canonical claim `[@CL-CMP-0001]` and tolerant repair `[CL-CMP-0001]`,
+        //    - rejects source version `[@S-0001-v1, sec. 1]`, question `[@Q-001]` and conflict `[@XC-01]`,
+        //    - rejects malformed citation attempt `[@CL-CMP-0001, p. 3]` (FB0305 in tolerant lexer)
+        //      that a naive string-prefix approximation would accept.
+        assert!(super::has_claim_key("far_codified [@CL-CMP-0001]"));
+        assert!(super::has_claim_key("far_codified [CL-CMP-0001]"));
+        assert!(!super::has_claim_key("far_codified [@S-0001-v1, sec. 1]"));
+        assert!(!super::has_claim_key("far_codified [@Q-001]"));
+        assert!(!super::has_claim_key("far_codified [@XC-01]"));
+        assert!(!super::has_claim_key("far_codified [@CL-CMP-0001, p. 3]"));
+
+        // 2. brief Evidence requires Claim or Version:
+        //    - accepts claim `[@CL-EST-0001]`, source version `[@S-0002-v2, sec. 1]` and tolerant repair `[S-0002-v2 p.14]`,
+        //    - rejects question `[@Q-002]` and conflict `[@XC-01]`,
+        //    - rejects malformed attempt `[@S-0002@v2 p.14]`.
+        let ev_claim = super::markdown::events("- Synthetic evidence [@CL-EST-0001].\n", 1);
+        assert!(super::has_valid_brief_evidence(&ev_claim));
+        let ev_version = super::markdown::events("- Synthetic evidence [@S-0002-v2, sec. 1].\n", 1);
+        assert!(super::has_valid_brief_evidence(&ev_version));
+        let ev_repair = super::markdown::events("- Synthetic evidence [S-0002-v2 p.14].\n", 1);
+        assert!(super::has_valid_brief_evidence(&ev_repair));
+        let ev_wrong_question = super::markdown::events("- Synthetic evidence [@Q-002].\n", 1);
+        assert!(!super::has_valid_brief_evidence(&ev_wrong_question));
+        let ev_wrong_conflict = super::markdown::events("- Synthetic evidence [@XC-01].\n", 1);
+        assert!(!super::has_valid_brief_evidence(&ev_wrong_conflict));
+        let ev_malformed =
+            super::markdown::events("- Synthetic evidence [@CL-EST-0001, p. 3].\n", 1);
+        assert!(!super::has_valid_brief_evidence(&ev_malformed));
+
+        // 3. brief Unknowns requires Question (or empty_part):
+        //    - accepts canonical question `[@Q-002]` and tolerant repair `[Q-002]`,
+        //    - rejects claim `[@CL-EST-0001]`, source version `[@S-0002-v2]` and conflict `[@XC-01]`,
+        //    - rejects malformed attempt `[@Q-002, p. 1]`.
+        let unk_question = super::markdown::events("- Open item [@Q-002].\n", 1);
+        assert!(super::has_valid_brief_unknowns(&unk_question));
+        let unk_repair = super::markdown::events("- Open item [Q-002].\n", 1);
+        assert!(super::has_valid_brief_unknowns(&unk_repair));
+        let unk_wrong_claim = super::markdown::events("- Open item [@CL-EST-0001].\n", 1);
+        assert!(!super::has_valid_brief_unknowns(&unk_wrong_claim));
+        let unk_wrong_version = super::markdown::events("- Open item [@S-0002-v2].\n", 1);
+        assert!(!super::has_valid_brief_unknowns(&unk_wrong_version));
+        let unk_wrong_conflict = super::markdown::events("- Open item [@XC-01].\n", 1);
+        assert!(!super::has_valid_brief_unknowns(&unk_wrong_conflict));
+        let unk_malformed = super::markdown::events("- Open item [@Q-002, p. 1].\n", 1);
+        assert!(!super::has_valid_brief_unknowns(&unk_malformed));
     }
 }

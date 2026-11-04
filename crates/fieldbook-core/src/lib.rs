@@ -12,6 +12,7 @@
 //! does all I/O and passes bytes in (workspace `clippy.toml`).
 
 pub mod check;
+pub mod cite;
 pub mod date;
 pub mod hash;
 pub mod hex;

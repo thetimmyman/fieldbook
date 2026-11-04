@@ -1,26 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-citations
-[[pending]]
-code = "FB0300"
-card = "check-citations"
-
-[[pending]]
-code = "FB0301"
-card = "check-citations"
-
-[[pending]]
-code = "FB0302"
-card = "check-citations"
-
-[[pending]]
-code = "FB0303"
-card = "check-citations"
-
-[[pending]]
-code = "FB0305"
-card = "check-citations"
-
 # check-citation-rules
 [[pending]]
 code = "FB0117"

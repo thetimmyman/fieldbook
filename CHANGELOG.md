@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: check reads every citation in a page body and reports unreadable, uncanonical, touching and unresolved citations, and locators on claim keys (FB0300 to FB0303 and FB0305).
 - Added: check reports required content by page type, raw HTML, images, outside links, long briefs and terms defined on a page (FB0134, FB0135, FB0138, FB0139).
 - Added: check reports part headings, blank parts, the Sources and Worked example parts and the Change note (FB0130 to FB0133, FB0137).
 - Added: check reports unknown page, term, question and conflict ids, prerequisite cycles, page supersession and broken page links (FB0110 to FB0113, FB0115, FB0136).
