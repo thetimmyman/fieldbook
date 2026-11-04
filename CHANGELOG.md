@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: check reports part headings, blank parts, the Sources and Worked example parts and the Change note (FB0130 to FB0133, FB0137).
 - Added: check reports unknown page, term, question and conflict ids, prerequisite cycles, page supersession and broken page links (FB0110 to FB0113, FB0115, FB0136).
 - Added: check reports page front matter, ids, areas, types, computed fields and dates (FB0101 to FB0109, FB0114, FB0116).
 - Added: check reports broken promotion rules, claim dates, claims on superseded versions and incomplete day-one questions (FB0209, FB0213, FB0220 to FB0222, FB0230).

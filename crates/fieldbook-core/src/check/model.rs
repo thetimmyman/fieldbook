@@ -11,6 +11,7 @@ use crate::schema::{
 
 use super::files;
 use super::index::Index;
+use super::page_parts::{self, Parts};
 use super::registers;
 use super::tree::Tree;
 
@@ -46,6 +47,15 @@ pub struct PageEntry {
     pub body: String,
     /// 1-based line number in the page file where `body` starts.
     pub body_line: u32,
+    parts: Parts,
+}
+
+impl PageEntry {
+    /// The parsed [`Parts`] of this page's body.
+    #[must_use]
+    pub const fn parts(&self) -> &Parts {
+        &self.parts
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -146,12 +156,17 @@ fn parse_pages(tree: &Tree, corpus: Option<&CorpusToml>) -> (Vec<PageEntry>, Vec
                         stem,
                         outcome: RawPageOutcome::Parsed(Box::new(meta.clone())),
                     });
+                    let parts = page_parts::split_parts(
+                        &split.body,
+                        usize::try_from(split.body_line).unwrap_or(1),
+                    );
                     pages.push(PageEntry {
                         id: meta.id.clone(),
                         path,
                         meta,
                         body: split.body,
                         body_line: split.body_line,
+                        parts,
                     });
                 }
             },

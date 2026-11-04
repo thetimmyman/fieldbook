@@ -133,6 +133,30 @@ mod tests {
                 "page type {} has no row in the Page types table of corpus-format.md",
                 ty.as_str()
             );
+
+            // And each type's template must hold the parts of its type in order (FB0130).
+            let parts = crate::check::page_parts::split_parts(
+                &s.body,
+                usize::try_from(s.body_line).unwrap_or(1),
+            );
+            let actual_headings: Vec<&str> =
+                parts.parts().iter().map(|p| p.heading.as_str()).collect();
+            let expected_headings: &[&str] = if ty == PageType::Brief {
+                crate::strings::brief_parts()
+            } else {
+                crate::strings::parts()
+            };
+            assert_eq!(
+                actual_headings.as_slice(),
+                expected_headings,
+                "template for page type {} does not hold the parts of its type in order",
+                ty.as_str()
+            );
+            assert!(
+                crate::check::page_parts::first_heading_fault(&parts, ty).is_none(),
+                "template for page type {} raised an FB0130 heading fault",
+                ty.as_str()
+            );
         }
 
         // And the table must have no row for a type outside `PageType::ALL`.
