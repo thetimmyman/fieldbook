@@ -360,6 +360,41 @@ edits = [
 ]
 
 [[case]]
+code = "FB0300"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@S-42]" },
+]
+
+[[case]]
+code = "FB0301"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[S-0001-v1 p.14]" },
+]
+
+[[case]]
+code = "FB0302"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@CL-CMP-0001][@CL-CMP-0002]" },
+]
+
+[[case]]
+code = "FB0303"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@CL-CMP-9999]" },
+]
+
+[[case]]
+code = "FB0305"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@CL-CMP-0001, p. 3]" },
+]
+
+[[case]]
 code = "FB0306"
 at = "corpus/registers/claims.csv:3"
 edits = [

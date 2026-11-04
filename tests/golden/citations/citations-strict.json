@@ -1,0 +1,74 @@
+{
+  "kind": "citation",
+  "version": 1,
+  "cases": [
+    {
+      "id": "cit-001",
+      "mode": "strict",
+      "input": "[@S-0042-v2 p. 14]",
+      "expect": {"ok": false, "code": "FB0301"},
+      "note": "Missing comma before the locator is non-canonical in strict mode"
+    },
+    {
+      "id": "cit-002",
+      "mode": "strict",
+      "input": "[@S-0042-v2, p.14]",
+      "expect": {"ok": false, "code": "FB0301"},
+      "note": "Missing space after p. is non-canonical in strict mode"
+    },
+    {
+      "id": "cit-003",
+      "mode": "strict",
+      "input": "[@S-0042-v2, ext structured_path %2Fitems%2F0%3B%5D]",
+      "expect": {
+        "ok": true,
+        "cites": [
+          {
+            "key": "S-0042-v2",
+            "key_kind": "version",
+            "locator": {
+              "kind": "ext:structured_path",
+              "text": "ext structured_path %2Fitems%2F0%3B%5D"
+            }
+          }
+        ]
+      },
+      "note": "Registered extension locator with escaped delimiters in strict mode"
+    },
+    {
+      "id": "cit-004",
+      "mode": "tolerant",
+      "input": "[@S-0042-v2, ext future_custom_kind sec%2F%CE%B1%CE%B2%3B%5D%0Aline2]",
+      "expect": {
+        "ok": true,
+        "canonical": "[@S-0042-v2, ext future_custom_kind sec%2F%CE%B1%CE%B2%3B%5D%0Aline2]",
+        "cites": [
+          {
+            "key": "S-0042-v2",
+            "key_kind": "version",
+            "locator": {
+              "kind": "ext:future_custom_kind",
+              "text": "ext future_custom_kind sec%2F%CE%B1%CE%B2%3B%5D%0Aline2"
+            },
+            "non_canonical": false
+          }
+        ]
+      },
+      "note": "Unknown future extension kind with Unicode and escaped delimiters preserved in tolerant mode"
+    },
+    {
+      "id": "cit-005",
+      "mode": "strict",
+      "input": "[@S-0042-v2, ext structured_path %2f]",
+      "expect": {"ok": false, "code": "FB0300"},
+      "note": "Lowercase hex escape in an extension locator is rejected"
+    },
+    {
+      "id": "cit-006",
+      "mode": "strict",
+      "input": "[@S-0042-v2, ext structured_path %41]",
+      "expect": {"ok": false, "code": "FB0300"},
+      "note": "Percent-encoded unreserved ASCII byte in an extension locator is rejected"
+    }
+  ]
+}
