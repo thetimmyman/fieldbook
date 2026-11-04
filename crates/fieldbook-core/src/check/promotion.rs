@@ -47,7 +47,7 @@ pub fn check(model: &Model, options: &Options, report: &mut Report) {
     }
 
     for located in model.questions() {
-        check_question(located, strict, report);
+        check_question(model, located, strict, report);
     }
 }
 
@@ -64,14 +64,27 @@ fn build_source_map(sources: &[Located<SourceRow>]) -> BTreeMap<VersionId, &Sour
     map
 }
 
-fn col_number(reg: Register, col_name: &str) -> usize {
-    reg.columns()
+fn col_1based(model: &Model, reg: Register, line: u32, col_name: &str) -> usize {
+    let idx = reg
+        .columns()
         .iter()
         .position(|c| c.name == col_name)
-        .map_or(1, |idx| idx + 1)
+        .unwrap_or(0);
+    model
+        .register_rows(reg)
+        .iter()
+        .find(|r| r.line == line)
+        .and_then(|r| r.cols.get(idx).copied())
+        .and_then(|c| usize::try_from(c).ok())
+        .unwrap_or(1)
 }
 
+#[expect(
+    clippy::too_many_arguments,
+    reason = "internal diagnostic emission helper"
+)]
 fn push_diag(
+    model: &Model,
     reg: Register,
     line: u32,
     col_name: &str,
@@ -85,7 +98,7 @@ fn push_diag(
         strict,
         register_path(reg),
         line as usize,
-        col_number(reg, col_name),
+        col_1based(model, reg, line, col_name),
         message,
     ));
 }
@@ -158,6 +171,7 @@ fn check_claim(
             match (&claim.source_id, claim.version) {
                 (None, _) => {
                     push_diag(
+                        model,
                         reg,
                         line,
                         "source_id",
@@ -171,6 +185,7 @@ fn check_claim(
                 }
                 (Some(_), None) => {
                     push_diag(
+                        model,
                         reg,
                         line,
                         "version",
@@ -198,6 +213,7 @@ fn check_claim(
                         ) || src.source_kind.is_overlay();
                         if !role_ok || !tier_ok {
                             push_diag(
+                                model,
                                 reg,
                                 line,
                                 "source_id",
@@ -219,6 +235,7 @@ fn check_claim(
         // Condition 2: available fine locator, plus a `quote` when consequential.
         if let Err(col_name) = has_available_fine_locator(claim) {
             push_diag(
+                model,
                 reg,
                 line,
                 col_name,
@@ -230,6 +247,7 @@ fn check_claim(
         }
         if claim.consequential && claim.quote.is_none() {
             push_diag(
+                model,
                 reg,
                 line,
                 "quote",
@@ -244,6 +262,7 @@ fn check_claim(
         // required numbering cell for their `instrument`.
         if claim.as_of.is_none() {
             push_diag(
+                model,
                 reg,
                 line,
                 "as_of",
@@ -256,6 +275,7 @@ fn check_claim(
         if let Some(inst) = claim.instrument {
             if claim.effective_from.is_none() {
                 push_diag(
+                    model,
                     reg,
                     line,
                     "effective_from",
@@ -275,6 +295,7 @@ fn check_claim(
             };
             if !has_req_citation {
                 push_diag(
+                    model,
                     reg,
                     line,
                     req_col,
@@ -291,6 +312,7 @@ fn check_claim(
         // Condition 4: a number has both `value` and `unit`.
         if claim.value.is_some() && claim.unit.is_none() {
             push_diag(
+                model,
                 reg,
                 line,
                 "unit",
@@ -301,6 +323,7 @@ fn check_claim(
             );
         } else if claim.value.is_none() && claim.unit.is_some() {
             push_diag(
+                model,
                 reg,
                 line,
                 "value",
@@ -314,6 +337,7 @@ fn check_claim(
         // Condition 5: `verified_on` and `verified_by_role` are set.
         if claim.verified_on.is_none() {
             push_diag(
+                model,
                 reg,
                 line,
                 "verified_on",
@@ -325,6 +349,7 @@ fn check_claim(
         }
         if claim.verified_by_role.is_none() {
             push_diag(
+                model,
                 reg,
                 line,
                 "verified_by_role",
@@ -342,6 +367,7 @@ fn check_claim(
         && role != VerifiedByRole::Owner
     {
         push_diag(
+            model,
             reg,
             line,
             "verified_by_role",
@@ -366,6 +392,7 @@ fn check_claim(
             )
         {
             push_diag(
+                model,
                 reg,
                 line,
                 "version",
@@ -380,6 +407,7 @@ fn check_claim(
         }
         if entry.superseded {
             push_diag(
+                model,
                 reg,
                 line,
                 "version",
@@ -397,6 +425,7 @@ fn check_claim(
         && as_of.first_day() > today
     {
         push_diag(
+            model,
             reg,
             line,
             "as_of",
@@ -423,6 +452,7 @@ fn check_claim(
                 "verified_on"
             };
             push_diag(
+                model,
                 reg,
                 line,
                 col_name,
@@ -437,7 +467,12 @@ fn check_claim(
     }
 }
 
-fn check_question(located: &Located<QuestionRow>, strict: bool, report: &mut Report) {
+fn check_question(
+    model: &Model,
+    located: &Located<QuestionRow>,
+    strict: bool,
+    report: &mut Report,
+) {
     let q = &located.value;
     if !q.day_one {
         return;
@@ -459,6 +494,7 @@ fn check_question(located: &Located<QuestionRow>, strict: bool, report: &mut Rep
 
     if let Some(col_name) = first_empty {
         push_diag(
+            model,
             Register::Questions,
             located.line,
             col_name,
@@ -811,7 +847,7 @@ mod tests {
             );
             assert_eq!(report.diagnostics[0].path, "corpus/registers/claims.csv");
             assert_eq!(report.diagnostics[0].line, 2);
-            assert_eq!(report.diagnostics[0].col, 7); // `version` is column 7
+            assert_eq!(report.diagnostics[0].col, 115); // 1-based code-point column of `version`
         }
 
         // FB0222: claim resting on `S-0002-v1`, which is superseded by `S-0002-v2`
@@ -831,7 +867,7 @@ mod tests {
         );
         assert_eq!(report.diagnostics[0].severity, Severity::Warning);
         assert_eq!(report.diagnostics[0].line, 6);
-        assert_eq!(report.diagnostics[0].col, 7);
+        assert_eq!(report.diagnostics[0].col, 104); // 1-based code-point column of `version`
     }
 
     #[test]
@@ -926,7 +962,7 @@ mod tests {
             "corpus/registers/questions.csv"
         );
         assert_eq!(report_non_strict.diagnostics[0].line, 2);
-        assert_eq!(report_non_strict.diagnostics[0].col, 7); // `default_assumption` is column 7
+        assert_eq!(report_non_strict.diagnostics[0].col, 225); // 1-based code-point column of `default_assumption`
         assert_eq!(report_non_strict.errors(), 0);
 
         let report_strict = run(&Host::new(tree, sample_today()), &Options::new(true));
