@@ -5,7 +5,7 @@
 //!
 //! - `doctor [--ci]`: check the installed tools against `.config/tools.toml`.
 //! - `setup [--no-hooks] [TOOL...]`: install the pinned tools and enable the git hooks.
-//! - `guard-statuses BASE HEAD`: fail when the agent's commits touch protected paths.
+//! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
 //!
 //! Exit codes follow `fieldbook`: 0 clean, 1 findings, 2 usage, 3 an operation failed.
@@ -59,7 +59,7 @@ mod deps_references;
 #[cfg(test)]
 mod graph;
 mod guard;
-mod guard_foundation;
+mod guard_fields;
 mod proc;
 mod tools;
 
@@ -69,7 +69,7 @@ use std::process::ExitCode;
 const USAGE: &str = "usage: cargo xtask <command>
   doctor [--ci]                     check the installed tools against .config/tools.toml
   setup [--no-hooks] [TOOL...]      install the pinned tools and enable the git hooks
-  guard-statuses BASE HEAD          fail if commits by the agent author touch corpus/ or seed-* files
+  guard-statuses BASE HEAD          fail if an agent's commits raise a status or weaken a seed or regression case
   denylist FILE                     fail if a term from FILE appears in tracked content or pushed history";
 
 fn main() -> ExitCode {
