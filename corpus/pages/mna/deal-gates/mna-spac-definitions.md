@@ -68,7 +68,6 @@ Confirm which business-plan statements and representations the company or a coun
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned SPAC definition summary with the two stated alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Concurrent-offering condition and second-alternative wording aligned with the definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

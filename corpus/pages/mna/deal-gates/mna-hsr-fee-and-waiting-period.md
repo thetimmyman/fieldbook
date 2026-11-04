@@ -55,7 +55,6 @@ How the value of a planned acquisition is measured and who tracks the waiting pe
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (b)(3) and statutory references for waiting-period expiry.
 - COMPATIBLE_EXTENSION, 2026-10-31: citation placed after the holiday condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Waiting-period expiry time, extension date and termination conditions restated in full.

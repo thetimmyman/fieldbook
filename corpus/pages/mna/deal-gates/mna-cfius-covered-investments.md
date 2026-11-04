@@ -55,7 +55,6 @@ Whether any foreign investor in or of the company holds observer, board, informa
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned covered-investment rule and involvement list with source phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sole-owner example now states its stated facts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of unaffiliated TID U.S. business.

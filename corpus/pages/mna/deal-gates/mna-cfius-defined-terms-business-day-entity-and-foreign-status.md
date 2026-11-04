@@ -71,6 +71,5 @@ Which ownership and control facts the deal team documents for each target, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned business-day, entity, and foreign-entity wording with source text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the defined terms business day, entity, excepted foreign state and foreign entity.

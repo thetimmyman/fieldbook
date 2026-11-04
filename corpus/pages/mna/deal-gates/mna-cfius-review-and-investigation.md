@@ -67,7 +67,6 @@ Whether a foreign government could control or hold a stake in the company or a c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added deputy-level delegee clause and removed unsupported commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Exception added to the how-it-works summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

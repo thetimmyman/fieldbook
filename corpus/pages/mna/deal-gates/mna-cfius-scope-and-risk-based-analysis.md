@@ -72,7 +72,6 @@ Which body owns the deal decision and what diligence the mandate requires before
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of section 721, the effect on other law and the rules of construction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the CFIUS regulations and the risk-based analysis.

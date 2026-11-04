@@ -61,7 +61,6 @@ Who files and tracks declarations and notices for the company, who may ask to wi
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added submission-instructions reference and exercise-of-right clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Resubmitted-notice and notified-transaction scope tightened.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of contingent equity interest, conversion and completion date.

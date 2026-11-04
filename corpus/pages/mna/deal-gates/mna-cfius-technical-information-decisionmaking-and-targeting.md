@@ -59,6 +59,5 @@ What technical information and decision rights any foreign investor, lender or j
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added vulnerability-information and agreement examples and removed unsupported contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material nonpublic technical information, substantive decisionmaking and targets or tailors.

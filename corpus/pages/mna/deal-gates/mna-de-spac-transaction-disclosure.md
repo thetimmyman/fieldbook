@@ -69,7 +69,6 @@ Confirm what the company's governing law requires of its board, so the determina
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added net tangible book value qualifiers and governing-body parenthetical.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cover-page amounts and representative purposes aligned to rule text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure for de-SPAC transactions.

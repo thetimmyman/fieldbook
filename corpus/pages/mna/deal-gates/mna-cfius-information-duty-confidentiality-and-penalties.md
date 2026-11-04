@@ -63,7 +63,6 @@ Who in the company prepares information for the Committee, and whether any owner
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory references and removed unsupported commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Confidentiality rule now says material may not be made public.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the role of the Secretary of Labor and the materiality rule.

@@ -53,7 +53,6 @@ Whether the company or a target could be acquired, in whole or in part, by a for
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added dollar-value qualifier and branch-office example facts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joint venture type now carries its arrangement condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for covered and non-covered control transactions.

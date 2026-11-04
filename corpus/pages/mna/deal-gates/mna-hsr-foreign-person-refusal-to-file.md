@@ -53,6 +53,5 @@ Which records of the foreign seller the acquirer can reach, and who controls the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added section 7A(e) reference and removed unsupported contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the filing made when a foreign person refuses.

@@ -73,7 +73,6 @@ What identifiable data in the listed categories the company or a target holds, o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added geolocation examples, genetic-test definition reference, and public-record examples.
 - COMPATIBLE_EXTENSION, 2026-10-31: Branch wording tied to the two numbered parts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of identifiable, aggregated, anonymized and encrypted data and personal identifier.

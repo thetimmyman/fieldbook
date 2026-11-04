@@ -53,7 +53,6 @@ Which valuation sources the company uses for consideration paid in shares or non
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added section references and filing-date valuation qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Securities and undetermined-consideration conditions added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the securities valuation sentences so the rule keeps the last published closing price fallback.

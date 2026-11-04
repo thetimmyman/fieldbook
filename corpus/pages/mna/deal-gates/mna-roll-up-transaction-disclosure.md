@@ -79,7 +79,6 @@ Confirm how the company values each partnership and allocates interests in the s
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited roll-up definition in Never confuse and removed unsupported meta note.
 - COMPATIBLE_EXTENSION, 2026-10-31: Item 904, 905, 907 and 902 wording restored to the quoted qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (c)(3) of Item 901 that the quoted rule refers to.

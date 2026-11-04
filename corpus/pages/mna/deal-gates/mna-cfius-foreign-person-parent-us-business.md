@@ -65,7 +65,6 @@ Whether any owner, investor or lender of the company or of a target is a foreign
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: citation placed before the semicolon.
 - COMPATIBLE_EXTENSION, 2026-10-31: Profit and assets parent test reworded to the right held.

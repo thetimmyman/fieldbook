@@ -53,6 +53,5 @@ Whether any foreign person holds or could gain power over the company's budget, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added concert-arrangement and foreign-state control factors.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for what control means under the foreign investment review regulations.

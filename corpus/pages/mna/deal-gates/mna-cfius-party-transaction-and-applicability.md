@@ -59,7 +59,6 @@ Which deals, past or planned, involve a foreign person, who would be a party or 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added affiliate mitigation scope and listed events for the 2020 window.
 - COMPATIBLE_EXTENSION, 2026-10-31: United States spelled out in the transition sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed events now stated as alternatives.

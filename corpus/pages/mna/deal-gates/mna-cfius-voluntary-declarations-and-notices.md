@@ -55,7 +55,6 @@ Whether the company would choose a declaration or a notice for a foreign investm
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added section references and aligned Committee response options.
 - COMPATIBLE_EXTENSION, 2026-10-31: Notice-request condition and prohibition paragraph stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign investment review voluntary declarations and notices.

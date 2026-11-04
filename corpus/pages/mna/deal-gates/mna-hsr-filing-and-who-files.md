@@ -59,7 +59,6 @@ Which entity is the ultimate parent that would file, and who holds authority to 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added all five certification categories and instruction qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certifier wording tightened and certification of later submissions completed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added foreign language translations and the separability rule.

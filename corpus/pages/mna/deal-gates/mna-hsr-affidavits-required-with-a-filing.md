@@ -71,6 +71,5 @@ Which notice steps and transaction documents the deal file must hold so that eac
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added email-notice example details and removed unsupported commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the affidavits required with a filing.

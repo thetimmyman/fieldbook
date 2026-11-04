@@ -66,7 +66,6 @@ How the deal team records where a target's management sits and what a prior fili
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Combined passive-investment example sentences and removed unsupported contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for principal place of business and passive-investment holdings.

@@ -61,7 +61,6 @@ Whether a foreign person with a government link or with access to export-control
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added critical-technology assessment-date rules and air-carrier statutory citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Government-interest wording and voting-interest scope aligned to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (d) of section 800.401 that the quoted rule refers to.

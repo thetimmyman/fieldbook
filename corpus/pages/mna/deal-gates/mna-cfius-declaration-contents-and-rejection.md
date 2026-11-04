@@ -53,7 +53,6 @@ Who prepares and certifies the contents of a declaration, and who can approve a 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added section references for certification and withdrawal.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (e) of section 800.404 that the quoted rule refers to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the declaration contents sentence so the first listed item keeps the primary point of contact details for each party.

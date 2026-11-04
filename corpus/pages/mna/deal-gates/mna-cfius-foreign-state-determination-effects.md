@@ -68,6 +68,5 @@ Which deal records prove that a binding agreement or an offer predates a resciss
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added section references and removed unsupported commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the effect of a determination and of its rescission.

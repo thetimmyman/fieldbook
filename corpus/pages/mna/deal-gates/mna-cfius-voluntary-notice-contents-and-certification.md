@@ -59,7 +59,6 @@ Who in the company would collect the contract, financing and side-agreement info
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added transaction scope to the summary item and removed unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certification wording matched to its definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the certification sentences so the certification keeps the accuracy and completeness statement, and the notice item keeps its law enforcement scope and information about the contract.

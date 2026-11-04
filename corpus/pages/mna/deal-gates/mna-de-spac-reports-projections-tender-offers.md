@@ -65,7 +65,6 @@ Confirm who prepares and affirms the projections, and on what bases, so the proj
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned outside-party and unaffiliated-representative conjunctions with source text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reports, opinions, appraisals, tender offer filings and projections in de-SPAC transactions.

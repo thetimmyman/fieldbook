@@ -65,7 +65,6 @@ Whether any foreign person holds or could acquire an interest, board seat or acc
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added explicit dates, statutory citations, and source qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of minimum excepted ownership.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definitions of manufacture, own, service and supply for column 2 of appendix A.

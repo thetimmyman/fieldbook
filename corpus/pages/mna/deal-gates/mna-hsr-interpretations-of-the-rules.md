@@ -55,6 +55,5 @@ What the deal team needs settled before it files, and whether that calls for a w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported contrasts and commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for formal and informal interpretations.

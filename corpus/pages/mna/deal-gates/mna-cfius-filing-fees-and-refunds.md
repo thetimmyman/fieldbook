@@ -72,7 +72,6 @@ Which convention the deal team uses to record the fee and any refund in the case
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added petition basis and removed unsupported contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules on timing and manner of payment, waiver and refilings.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for filing fees and refunds.

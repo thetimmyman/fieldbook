@@ -58,7 +58,6 @@ Which contracting officer holds each target contract, the unsettled balance on e
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added assumed-liability examples in novation agreement reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Legal-review actor, separate liability agreement, comment sources and documentation wording corrected.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.

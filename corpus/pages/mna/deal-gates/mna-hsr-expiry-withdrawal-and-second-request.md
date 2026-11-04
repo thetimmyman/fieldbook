@@ -38,7 +38,7 @@ A request for additional information or documentary material to any person other
 
 ## How it works
 
-The agencies can extend the waiting period by asking for more information [@CL-MNA-0091; @CL-MNA-0650; @CL-MNA-0618]. If a request stays outstanding without the required certification, an acquiring person's notification, and an acquired person's in an acquisition to which section 801.30 does not apply, lapses eighteen months after receipt [@CL-MNA-0669; @CL-MNA-0613; @CL-MNA-0614]. The general rule is that the notification lasts one year after the waiting period expires [@CL-MNA-0612]. An acquiring person can withdraw and refile once without a new fee, but only if every listed circumstance holds, including a refiling before the close of the second business day after withdrawal [@CL-MNA-0653; @CL-MNA-0616; @CL-MNA-0617].
+A request for additional information or documentary material extends the waiting period by 30 calendar days, or 10 calendar days for a cash tender offer or an acquisition covered by 11 USC 363(b), from the date of receipt of the requested material [@CL-MNA-0091; @CL-MNA-0650; @CL-MNA-0618]. If a request stays outstanding without the required certification, an acquiring person's notification, and an acquired person's in an acquisition to which section 801.30 does not apply, lapses eighteen months after receipt [@CL-MNA-0669; @CL-MNA-0613; @CL-MNA-0614]. The general rule is that the notification lasts one year after the waiting period expires [@CL-MNA-0612]. An acquiring person can withdraw and refile once without a new fee, but only if every listed circumstance holds, including a refiling before the close of the second business day after withdrawal [@CL-MNA-0653; @CL-MNA-0616; @CL-MNA-0617].
 
 ## Worked example
 
@@ -57,7 +57,6 @@ Who tracks the notification's life and any outstanding request for more informat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added second-request recipient list and receipt-date reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the exception in paragraph (a) of section 803.11 that the quoted rule refers to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the eighteen-month expiry to include requests outstanding to the entities included in the person and their officers, directors, partners, agents or employees.

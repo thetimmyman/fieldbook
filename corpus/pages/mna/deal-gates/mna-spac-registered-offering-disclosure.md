@@ -73,7 +73,6 @@ Confirm how the company fixes the maximum redemption threshold, the adjusted net
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added first sentence of Item 506 and removed unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sponsor compensation now covers amounts that have been or will be awarded, earned or paid.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the new card on roll-up transaction disclosure.

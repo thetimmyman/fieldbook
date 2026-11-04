@@ -54,7 +54,6 @@ Whether the transfer agreement for each acquisition case is drafted with the DoD
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added cross-referenced section numbers for restructuring costs and sample format.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restructuring-cost conditions stated as a single all-required list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD restructuring paragraph in the novation agreement.
