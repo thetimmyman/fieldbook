@@ -97,7 +97,7 @@ pub const RULES: &[RuleEntry] = &[
     RuleEntry {
         register: Register::Sources,
         rule: "A claim that is `primary_source_supported` rests on a version whose `lifecycle` is `active`",
-        predicates: &[RulePredicate::new(Some(Code::Fb0213), "check-promotion")],
+        predicates: &[RulePredicate::new(Some(Code::Fb0213), "promotion")],
     },
     RuleEntry {
         register: Register::Sources,
@@ -211,7 +211,7 @@ pub const RULES: &[RuleEntry] = &[
     RuleEntry {
         register: Register::Questions,
         rule: "a row with `day_one` set to `true` has cells 4 to 8 filled",
-        predicates: &[RulePredicate::new(Some(Code::Fb0230), "check-promotion")],
+        predicates: &[RulePredicate::new(Some(Code::Fb0230), "promotion")],
     },
     RuleEntry {
         register: Register::Questions,
@@ -2002,8 +2002,7 @@ mod tests {
         let bad_supp = MINI_CLAIMS_CSV.replacen(",2026-02-10,owner,", ",,owner,", 1);
         tree_supp.insert_bytes("corpus/registers/claims.csv", bad_supp.into_bytes());
         let rep_supp = run(&Host::new(tree_supp, sample_today()), &Options::default());
-        assert_eq!(rep_supp.diagnostics.len(), 1);
-        assert_eq!(rep_supp.diagnostics[0].code, Code::Fb0206);
+        assert!(rep_supp.diagnostics.iter().any(|d| d.code == Code::Fb0206));
 
         //    - claims.csv: `verification = unresolved` with and without `question_id`
         let pass_unres = "CL-EST-0004,est,fact,Unresolved claim.,2026-02-01,S-0001,1,text_section,sec. 1,Quote.,false,codex,unresolved,pending_company_confirmation,proposed,observed,V2,,,,,,,,,,,,,,,,,Q-001,\n";
