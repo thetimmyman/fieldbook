@@ -586,6 +586,7 @@ pub fn join_pipe<T: fmt::Display>(items: &[T]) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::schema::claims::ClaimRow;
     use crate::schema::conflicts::ConflictRow;
     use crate::schema::glossary::GlossaryRow;
     use crate::schema::questions::QuestionRow;
@@ -692,6 +693,50 @@ mod tests {
         ("superseded_by", "significant_deficiency"),
     ];
 
+    const CLAIMS_SAMPLES: [(&str, &str); 35] = [
+        ("claim_id", "CL-CMP-0011"),
+        ("area", "cmp"),
+        ("kind", "fact"),
+        (
+            "statement",
+            "Single-system payment withholding is capped at five percent.",
+        ),
+        ("as_of", "2025-11-01"),
+        ("source_id", "S-0042"),
+        ("version", "2"),
+        ("locator_kind", "pdf_page_box"),
+        ("locator", "p. 14"),
+        ("quote", "five percent for a single business system"),
+        ("consequential", "true"),
+        ("drafted_by", "codex"),
+        ("verification", "unchecked"),
+        ("applicability", "pending_company_confirmation"),
+        ("adoption", "proposed"),
+        ("data_origin", "unknown"),
+        ("volatility", "V1"),
+        ("value", "5"),
+        ("unit", "percent"),
+        ("effective_from", "2025-10-15"),
+        ("effective_to", "2026-10-15"),
+        ("instrument", "dfars_codified"),
+        ("citation_codified", "48 CFR 252.242-7005"),
+        ("citation_rfo", "RFO-252-7005"),
+        ("edition_date", "2025-10"),
+        ("text_status", "final"),
+        (
+            "applies_to",
+            "event=award_date; entered_from=2025-01-01; contract_type=fixed_price",
+        ),
+        ("evidence_grade", "E"),
+        ("verified_on", "2025-11-04"),
+        ("verified_by_role", "owner"),
+        ("supersedes", "CL-CMP-0009"),
+        ("superseded_by", "CL-CMP-0012"),
+        ("conflict_id", "XC-14"),
+        ("question_id", "Q-027"),
+        ("note", "Synthetic claim note for column round-trip test."),
+    ];
+
     fn build_sample_cells(reg: Register, table: &[(&str, &str)]) -> Vec<String> {
         let cols = reg.columns();
         let mut out = Vec::with_capacity(cols.len());
@@ -759,6 +804,20 @@ mod tests {
         let g_row = GlossaryRow::from_row(&make_row(g_cells.clone()))
             .expect("valid synthetic GlossaryRow must parse");
         assert_cells_match(Register::Glossary, &g_cells, &g_row.to_cells());
+
+        // 5. Claims (35 columns, all distinct non-empty samples)
+        assert_eq!(Register::Claims.columns().len(), 35);
+        let cl_cells = build_sample_cells(Register::Claims, &CLAIMS_SAMPLES);
+        let unique_samples: std::collections::BTreeSet<&str> =
+            cl_cells.iter().map(String::as_str).collect();
+        assert_eq!(
+            unique_samples.len(),
+            35,
+            "all 35 claim sample cells must be distinct"
+        );
+        let cl_row = ClaimRow::from_row(&make_row(cl_cells.clone()))
+            .expect("valid synthetic ClaimRow must parse");
+        assert_cells_match(Register::Claims, &cl_cells, &cl_row.to_cells());
     }
 
     #[test]

@@ -4,9 +4,11 @@
 //! of truth for `corpus/corpus.toml`, page front matter, closed vocabularies, and
 //! the CSV registers.
 
+pub mod claims;
 pub mod conflicts;
 pub mod corpus_toml;
 pub mod glossary;
+pub mod locator;
 pub mod page;
 pub mod page_types;
 pub mod questions;
@@ -16,11 +18,20 @@ pub mod sources;
 pub mod table;
 pub mod vocab;
 
+pub use claims::{
+    AppliesTo, AppliesToEvent, AppliesToProblem, ClaimDraft, ClaimRow, ClaimUnit,
+    StructuredAppliesTo, is_raise,
+};
 pub use conflicts::ConflictRow;
 pub use corpus_toml::{
     AreaDef, AssistantConfig, CorpusProblem, CorpusToml, CorpusTomlError, ViewDef, ViewFilter,
 };
 pub use glossary::GlossaryRow;
+pub use locator::{
+    EXTENSION_REGISTRY, ExtensionKindEntry, ExtensionResolution, Locator, LocatorError,
+    LocatorKind, decode_extension_payload, encode_extension_payload, is_valid_extension_kind,
+    lookup_extension_kind,
+};
 pub use page::{
     MetaError, MetaErrorKind, PageMeta, Split, SplitError, SplitErrorKind, parse_meta, split,
 };
@@ -31,7 +42,9 @@ pub use rows::{CellProblem, CellProblemKind, RefId};
 pub use sources::SourceRow;
 pub use table::{Row, Table, TableError, TableErrorKind};
 pub use vocab::{
-    Adoption, AuthorityTier, ChangeClass, ConflictStatus, DOC_KINDS, DefinitionStatus, DocKind,
-    FamilyBasis, Lifecycle, PageStatus, PageType, QuestionStatus, Readiness, SourceKind,
-    SourceRole, VocabError, Volatility, WorkCanContinue, label_form, stream_id_form,
+    Adoption, Applicability, AuthorityTier, BuiltinLocatorKind, ChangeClass, ClaimKind,
+    ConflictStatus, DOC_KINDS, DataOrigin, DefinitionStatus, DocKind, DraftedBy, EvidenceGrade,
+    FamilyBasis, Instrument, Lifecycle, PageStatus, PageType, QuestionStatus, Readiness,
+    SourceKind, SourceRole, TextStatus, Verification, VerifiedByRole, VocabError, Volatility,
+    WorkCanContinue, label_form, stream_id_form,
 };

@@ -396,6 +396,162 @@ define_vocab_enum! {
     }
 }
 
+define_vocab_enum! {
+    /// Kind of statement in `claims.csv` (`claim_kind`).
+    pub enum ClaimKind("claim_kind", 4) {
+        /// A statement a source supports: a rule, a number, a date.
+        Fact => "fact",
+        /// A value the author chose, such as a placeholder rate in a worked example.
+        Assumption => "assumption",
+        /// How a source's text is read, for example agency guidance.
+        Interpretation => "interpretation",
+        /// What to do.
+        Recommendation => "recommendation",
+    }
+}
+
+define_vocab_enum! {
+    /// Verification state of a claim in `claims.csv` (`verification`).
+    pub enum Verification("verification", 5) {
+        /// Entry value: no one has checked the claim against a primary source.
+        Unchecked => "unchecked",
+        /// A person read the original at the locator and it supports the claim.
+        PrimarySourceSupported => "primary_source_supported",
+        /// Primary text for the claim's own scope and date conflicts with it.
+        Contradicted => "contradicted",
+        /// The claim was right for its date and the instrument has since changed, or review date passed.
+        Stale => "stale",
+        /// Two primary sources disagree, or none can be reached.
+        Unresolved => "unresolved",
+    }
+}
+
+define_vocab_enum! {
+    /// Company applicability state of a claim in `claims.csv` (`applicability`).
+    pub enum Applicability("applicability", 5) {
+        /// Holds in general and makes no claim about the company.
+        GeneralReference => "general_reference",
+        /// A stand-in used in an example until a company value arrives.
+        PrototypeAssumption => "prototype_assumption",
+        /// Entry value for facts: may apply to the company; only the company can confirm.
+        PendingCompanyConfirmation => "pending_company_confirmation",
+        /// Confirmed by a named role at the company (company store only).
+        ConfirmedApplicable [overlay = true] => "confirmed_applicable",
+        /// Known not to apply: replaced text, or out of scope.
+        NotApplicable => "not_applicable",
+    }
+}
+
+define_vocab_enum! {
+    /// How a claim's value came to exist (`data_origin` in `claims.csv`).
+    pub enum DataOrigin("data_origin", 4) {
+        /// Read directly from a source.
+        Observed => "observed",
+        /// Computed or judged by the author from other numbers.
+        Estimated => "estimated",
+        /// Concluded from facts that do not state it.
+        Inferred => "inferred",
+        /// Entry value: the origin is not established.
+        Unknown => "unknown",
+    }
+}
+
+define_vocab_enum! {
+    /// The role that drafted a claim row (`drafted_by` in `claims.csv`).
+    pub enum DraftedBy("drafted_by", 4) {
+        /// The repository owner.
+        Owner => "owner",
+        /// The project lead.
+        Lead => "lead",
+        /// An automated agent (`codex`).
+        Codex => "codex",
+        /// Text produced by an assistant outside the repository and pasted in (Day 30).
+        Ai => "ai",
+    }
+}
+
+define_vocab_enum! {
+    /// The role that verified a claim row (`verified_by_role` in `claims.csv`).
+    pub enum VerifiedByRole("verified_by_role", 2) {
+        /// The repository owner.
+        Owner => "owner",
+        /// The project lead.
+        Lead => "lead",
+    }
+}
+
+define_vocab_enum! {
+    /// Built-in locator kinds in `claims.csv` (`locator_kind`; extensions use [`super::locator::LocatorKind`]).
+    pub enum BuiltinLocatorKind("locator_kind", 6) {
+        /// PDF page or page range (`p.`, `pp.`).
+        PdfPageBox => "pdf_page_box",
+        /// Text section, section sign or paragraph (`sec.`, `§`, `para.`).
+        TextSection => "text_section",
+        /// Spreadsheet sheet and cell/range (`sheet`).
+        SheetCells => "sheet_cells",
+        /// Record row key (`rec`).
+        RecordKey => "record_key",
+        /// No fine locator (`no_fine_locator`).
+        NoFineLocator => "no_fine_locator",
+        /// Record field column (`field`, company store only).
+        RecordField [overlay = true] => "record_field",
+    }
+}
+
+define_vocab_enum! {
+    /// Regulatory text status (`text_status` in `claims.csv`).
+    pub enum TextStatus("text_status", 3) {
+        /// The text in force.
+        Final => "final",
+        /// Class-deviation or model-deviation text differing from codified text.
+        DeviationText => "deviation_text",
+        /// A proposed rule; not final.
+        Proposed => "proposed",
+    }
+}
+
+define_vocab_enum! {
+    /// Regulatory instrument (`instrument` in `claims.csv`).
+    pub enum Instrument("instrument", 8) {
+        /// Codified FAR.
+        FarCodified => "far_codified",
+        /// Codified DFARS.
+        DfarsCodified => "dfars_codified",
+        /// Cost Accounting Standards (48 CFR 99xx).
+        Cas => "cas",
+        /// Revolutionary FAR Overhaul model deviation text.
+        RfoModelText => "rfo_model_text",
+        /// A DoD class deviation, with its number in `citation_rfo`.
+        ClassDeviation => "class_deviation",
+        /// A proposed rule, with the FAR case or docket in `citation_rfo`.
+        ProposedRule => "proposed_rule",
+        /// A Federal Register notice.
+        FederalRegisterNotice => "federal_register_notice",
+        /// A statute.
+        Statute => "statute",
+    }
+}
+
+define_vocab_enum! {
+    /// Support grade for a calculation input (`evidence_grade` in `claims.csv`).
+    pub enum EvidenceGrade("evidence_grade", 7) {
+        /// An official public benchmark.
+        E => "E",
+        /// An industry secondary source.
+        F => "F",
+        /// Management judgment (requires `replace by ...` note).
+        G => "G",
+        /// Company actual (company store only).
+        A [overlay = true] => "A",
+        /// Company committed (company store only).
+        B [overlay = true] => "B",
+        /// Company estimate, unapproved (company store only).
+        C [overlay = true] => "C",
+        /// Parent or analogous operation, adjusted (company store only).
+        D [overlay = true] => "D",
+    }
+}
+
 /// Returns `true` when `input` matches the stream/series identifier form
 /// `^[a-z][a-z0-9-]{0,31}$` (1 to 32 ASCII bytes).
 #[must_use]
@@ -567,7 +723,12 @@ mod tests {
                         }
                     }
                     if active {
-                        values.extend(extract_backticked(cells[1]));
+                        let cell_to_scan = if vocab_key == "locator_kind" {
+                            cells[1].split(';').next().unwrap_or(cells[1])
+                        } else {
+                            cells[1]
+                        };
+                        values.extend(extract_backticked(cell_to_scan));
                     }
                 }
                 if active {
@@ -662,6 +823,121 @@ mod tests {
             &DefinitionStatus::ALL.map(DefinitionStatus::as_str),
         );
         assert_vocab_matches("adoption", "adoption", &Adoption::ALL.map(Adoption::as_str));
+        assert_vocab_matches(
+            "claim_kind",
+            "claim_kind",
+            &ClaimKind::ALL.map(ClaimKind::as_str),
+        );
+        assert_vocab_matches(
+            "verification",
+            "verification",
+            &Verification::ALL.map(Verification::as_str),
+        );
+        assert_vocab_matches(
+            "applicability",
+            "applicability",
+            &Applicability::ALL.map(Applicability::as_str),
+        );
+        assert_vocab_matches(
+            "data_origin",
+            "data_origin",
+            &DataOrigin::ALL.map(DataOrigin::as_str),
+        );
+        assert_vocab_matches(
+            "drafted_by",
+            "drafted_by",
+            &DraftedBy::ALL.map(DraftedBy::as_str),
+        );
+        assert_vocab_matches(
+            "verified_by_role",
+            "verified_by_role",
+            &VerifiedByRole::ALL.map(VerifiedByRole::as_str),
+        );
+        assert_vocab_matches(
+            "locator_kind",
+            "locator_kind",
+            &BuiltinLocatorKind::ALL.map(BuiltinLocatorKind::as_str),
+        );
+        assert_vocab_matches(
+            "text_status",
+            "text_status",
+            &TextStatus::ALL.map(TextStatus::as_str),
+        );
+        assert_vocab_matches(
+            "instrument",
+            "instrument",
+            &Instrument::ALL.map(Instrument::as_str),
+        );
+        assert_vocab_matches(
+            "evidence_grade",
+            "evidence_grade",
+            &EvidenceGrade::ALL.map(EvidenceGrade::as_str),
+        );
+    }
+
+    #[test]
+    fn overlay_values_are_marked() {
+        use std::collections::BTreeSet;
+
+        let mut actual = BTreeSet::new();
+        macro_rules! collect_overlays {
+            ($($ty:ty),+ $(,)?) => {
+                $(
+                    for v in <$ty>::ALL {
+                        if v.is_overlay() {
+                            actual.insert(v.as_str());
+                        }
+                    }
+                )+
+            };
+        }
+
+        collect_overlays!(
+            PageType,
+            Readiness,
+            PageStatus,
+            ChangeClass,
+            SourceKind,
+            SourceRole,
+            AuthorityTier,
+            FamilyBasis,
+            Lifecycle,
+            DocKind,
+            QuestionStatus,
+            WorkCanContinue,
+            ConflictStatus,
+            DefinitionStatus,
+            Adoption,
+            ClaimKind,
+            Verification,
+            Applicability,
+            DataOrigin,
+            DraftedBy,
+            VerifiedByRole,
+            BuiltinLocatorKind,
+            TextStatus,
+            Instrument,
+            EvidenceGrade,
+        );
+
+        let expected: BTreeSet<&str> = [
+            "confirmed_applicable",
+            "record_field",
+            "A",
+            "B",
+            "C",
+            "D",
+            "answered",
+            "vendor_quote",
+            "company_record",
+            "company_document",
+            "pending_company_approval",
+            "company_approved",
+        ]
+        .into_iter()
+        .collect();
+
+        assert_eq!(actual, expected);
     }
 
     #[test]
