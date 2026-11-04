@@ -1,22 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-register-links
-[[pending]]
-code = "FB0207"
-card = "check-register-links"
-
-[[pending]]
-code = "FB0208"
-card = "check-register-links"
-
-[[pending]]
-code = "FB0211"
-card = "check-register-links"
-
-[[pending]]
-code = "FB0214"
-card = "check-register-links"
-
 # check-promotion
 [[pending]]
 code = "FB0209"
@@ -530,7 +513,3 @@ card = "check-scans"
 [[pending_control]]
 control = "SC-06"
 card = "check-scans"
-
-[[pending_control]]
-control = "ED-03"
-card = "check-register-links"
