@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cmp-dfars-patent-license-release-readjustment-and-royalty-reporting", "cmp-dfars-patent-rights-large-business-license-and-reporting", "cmp-dfars-running-royalty-license-grant-term-and-computation", "cmp-dfars-non-estoppel-release-and-license-to-other-agencies"]
+links = ["cmp-dfars-patent-license-release-and-royalty-reporting", "cmp-dfars-patent-rights-large-business-license-and-reporting", "cmp-dfars-running-royalty-license-grant-term-and-computation", "cmp-dfars-non-estoppel-release-and-license-to-other-agencies"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ A license agreement lists two patents and uses Alternate I, so the license would
 
 ## Never confuse
 
-For the license the Government holds in inventions the contractor makes under a patent rights clause, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the running royalty license grant clause, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md). For the royalty reporting and readjustment clauses for patent license contracts, see [Patent license and release contracts](cmp-dfars-patent-license-release-readjustment-and-royalty-reporting.md).
+For the license the Government holds in inventions the contractor makes under a patent rights clause, see [Patent rights, large business: license and reporting](cmp-dfars-patent-rights-large-business-license-and-reporting.md). For the running royalty license grant clause, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md). For the royalty reporting and readjustment clauses for patent license contracts, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md).
 
 ## Company calibration
 

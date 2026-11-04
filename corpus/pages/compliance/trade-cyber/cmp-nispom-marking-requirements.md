@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-014"]
-links = ["cmp-nispom-classification-duties-and-challenges", "cmp-nispom-safeguarding-classified-information", "cmp-nispom-international-transfers-and-foreign-government-information"]
+links = ["cmp-nispom-classification-duties-and-challenges", "cmp-nispom-safeguarding-classified-information", "cmp-nispom-international-transfers-and-foreign-gov-info"]
 +++
 
 ## Purpose
@@ -46,7 +46,7 @@ Answer: the contractor asks the GCA first, then re-marks at least those four pla
 
 ## Never confuse
 
-Prior to taking any action to downgrade or declassify information, the contractor will seek guidance from the GCA [@CL-CMP-3467]. For the duties of employees who classify derivatively, see [NISPOM classification duties and challenges](cmp-nispom-classification-duties-and-challenges.md); for handling FGI, see [NISPOM international transfers and foreign government information](cmp-nispom-international-transfers-and-foreign-government-information.md); and for storage of classified material, see [NISPOM safeguarding of classified information](cmp-nispom-safeguarding-classified-information.md).
+Prior to taking any action to downgrade or declassify information, the contractor will seek guidance from the GCA [@CL-CMP-3467]. For the duties of employees who classify derivatively, see [NISPOM classification duties and challenges](cmp-nispom-classification-duties-and-challenges.md); for handling FGI, see [NISPOM international transfers and foreign government information](cmp-nispom-international-transfers-and-foreign-gov-info.md); and for storage of classified material, see [NISPOM safeguarding of classified information](cmp-nispom-safeguarding-classified-information.md).
 
 ## Company calibration
 

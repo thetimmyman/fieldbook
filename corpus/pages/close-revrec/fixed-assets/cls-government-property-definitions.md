@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["system_of_record", "control_evidence"]
 questions = ["Q-013"]
-links = ["cls-title-to-government-furnished-and-contractor-acquired-property", "cls-property-management-system", "cls-government-property-part-scope"]
+links = ["cls-title-to-gfp-and-contractor-acquired-property", "cls-property-management-system", "cls-government-property-part-scope"]
 +++
 
 ## Purpose

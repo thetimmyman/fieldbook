@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cmp-dfars-patent-license-release-readjustment-and-royalty-reporting", "cmp-patent-indemnity-and-refund-of-royalties", "cmp-dfars-patent-license-grant-term-and-termination", "cmp-dfars-running-royalty-license-grant-term-and-computation"]
+links = ["cmp-dfars-patent-license-release-and-royalty-reporting", "cmp-patent-indemnity-and-refund-of-royalties", "cmp-dfars-patent-license-grant-term-and-termination", "cmp-dfars-running-royalty-license-grant-term-and-computation"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A contractor licenses a patent to Department A. Department B later asks in writi
 
 ## Never confuse
 
-For the license grant, term and termination clauses are in [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md), and for the running royalty grant, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For clauses on readjusting payments and royalty reporting, see [Patent license and release contracts](cmp-dfars-patent-license-release-readjustment-and-royalty-reporting.md), and for the contractor's patent indemnity, see [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md).
+For the license grant, term and termination clauses are in [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md), and for the running royalty grant, see [Running royalty license grant, term and computation](cmp-dfars-running-royalty-license-grant-term-and-computation.md). For clauses on readjusting payments and royalty reporting, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md), and for the contractor's patent indemnity, see [Patent indemnity and refund of royalties](cmp-patent-indemnity-and-refund-of-royalties.md).
 
 ## Company calibration
 

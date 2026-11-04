@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "progress_payment"]
 questions = ["Q-026"]
-links = ["ctf-progress-payments", "cls-title-to-government-furnished-and-contractor-acquired-property", "cls-government-title-progress-payment-inventory", "ctf-dfars-ship-repair-bonds-and-default", "ctf-dfars-ship-repair-exchange-changes-and-job-orders"]
+links = ["ctf-progress-payments", "cls-title-to-gfp-and-contractor-acquired-property", "cls-government-title-progress-payment-inventory", "ctf-dfars-ship-repair-bonds-and-default", "ctf-dfars-ship-repair-exchange-changes-and-job-orders"]
 +++
 
 ## Purpose

@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation", "close_reconciliation"]
 questions = ["Q-006", "Q-027"]
-links = ["cls-termination-authority-notice-and-tco-duties", "cls-prime-contractor-duties-after-termination-notice", "cls-termination-inventory-schedules-and-property-accounting", "cls-termination-for-convenience-clauses", "cls-fixed-price-settlement-proposal-submission", "cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices"]
+links = ["cls-termination-authority-notice-and-tco-duties", "cls-prime-contractor-duties-after-termination-notice", "cls-termination-inventory-schedules-and-property-accounting", "cls-termination-for-convenience-clauses", "cls-fixed-price-settlement-proposal-submission", "cls-cost-reimbursement-settlement-format-and-delinquency"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A contracting officer emails a termination notice for a supply contract and asks
 
 ## Never confuse
 
-The texts printed in these sections are suggested formats, and the electronic route's own test for skipping the letter is that confirmation is received and the electronic notice includes all the content of the letter notice [@CL-CLS-1030]. The rules for what a notice of termination must state, and the termination contracting officer's later duties, are on [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). What the prime contractor must do after the notice arrives is on [Prime contractor duties after a notice of termination](cls-prime-contractor-duties-after-termination-notice.md). The clauses under which a contract is terminated are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md), and the submission of the contractor's settlement proposal is on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md). Notices that precede a default termination are on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
+The texts printed in these sections are suggested formats, and the electronic route's own test for skipping the letter is that confirmation is received and the electronic notice includes all the content of the letter notice [@CL-CLS-1030]. The rules for what a notice of termination must state, and the termination contracting officer's later duties, are on [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). What the prime contractor must do after the notice arrives is on [Prime contractor duties after a notice of termination](cls-prime-contractor-duties-after-termination-notice.md). The clauses under which a contract is terminated are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md), and the submission of the contractor's settlement proposal is on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md). Notices that precede a default termination are on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
 ## Company calibration
 

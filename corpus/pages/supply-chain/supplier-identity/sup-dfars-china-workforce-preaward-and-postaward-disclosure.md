@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "commercial_product"]
 questions = ["Q-004", "Q-040"]
-links = ["sup-dfars-xinjiang-uyghur-region-prohibition", "sup-subcontracts-commercial-products-and-services", "sup-dfars-bearings-and-communist-chinese-military-companies", "sup-dfars-maduro-regime-business-operations-representation-and-prohibition"]
+links = ["sup-dfars-xinjiang-uyghur-region-prohibition", "sup-subcontracts-commercial-products-and-services", "sup-dfars-bearings-and-communist-chinese-military-companies", "sup-dfars-maduro-regime-operations-representation-prohibition"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ Assume a company offers on a DoD contract worth 8 million that is not for commer
 
 ## Never confuse
 
-The preaward provision is about the offer, and it bars award unless the disclosure was made [@CL-SUP-1719]. The postaward clause requires a Contractor that is a covered entity to disclose, for the Government's fiscal years 2023 and 2024, its employment of one or more individuals who perform work in the People's Republic of China on any covered contract [@CL-SUP-1722]. Contracts for commercial products and commercial services are outside the covered contract definition [@CL-SUP-1717]. For the prohibition on certain procurements from one region, see [Prohibition on certain procurements from the Xinjiang Uyghur Autonomous Region](sup-dfars-xinjiang-uyghur-region-prohibition.md). For restrictions tied to Communist Chinese military companies, see [Ball and roller bearings and items from Communist Chinese military companies](sup-dfars-bearings-and-communist-chinese-military-companies.md). For the representation about business operations with the Maduro regime [@CL-SUP-1714], see [Business operations with the Maduro regime](sup-dfars-maduro-regime-business-operations-representation-and-prohibition.md). For commercial flowdown generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
+The preaward provision is about the offer, and it bars award unless the disclosure was made [@CL-SUP-1719]. The postaward clause requires a Contractor that is a covered entity to disclose, for the Government's fiscal years 2023 and 2024, its employment of one or more individuals who perform work in the People's Republic of China on any covered contract [@CL-SUP-1722]. Contracts for commercial products and commercial services are outside the covered contract definition [@CL-SUP-1717]. For the prohibition on certain procurements from one region, see [Prohibition on certain procurements from the Xinjiang Uyghur Autonomous Region](sup-dfars-xinjiang-uyghur-region-prohibition.md). For restrictions tied to Communist Chinese military companies, see [Ball and roller bearings and items from Communist Chinese military companies](sup-dfars-bearings-and-communist-chinese-military-companies.md). For the representation about business operations with the Maduro regime [@CL-SUP-1714], see [Business operations with the Maduro regime](sup-dfars-maduro-regime-operations-representation-prohibition.md). For commercial flowdown generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
 
 ## Company calibration
 

@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-012"]
-links = ["est-prospective-price-redetermination-clause", "cls-fixed-price-prospective-price-redetermination", "est-fixed-price-contracts-general", "est-type-of-contract-letter-contract-and-time-and-materials-provisions"]
+links = ["est-prospective-price-redetermination-clause", "cls-fixed-price-prospective-price-redetermination", "est-fixed-price-contracts-general", "est-type-of-contract-letter-and-time-and-materials-provisions"]
 +++
 
 ## Purpose
@@ -36,7 +36,7 @@ Both sections put the duty on the contracting officer [@CL-EST-2975; @CL-EST-297
 
 ## How it works
 
-The contracting officer shall complete and insert the provision in a solicitation unless it is for a fixed-price acquisition made under simplified acquisition procedures or for information or planning purposes [@CL-EST-2975]. The provision tells offerors that the Government contemplates award of the type of contract the contracting officer inserts in the blank [@CL-EST-1842]. See [the type of contract provision](est-type-of-contract-letter-contract-and-time-and-materials-provisions.md).
+The contracting officer shall complete and insert the provision in a solicitation unless it is for a fixed-price acquisition made under simplified acquisition procedures or for information or planning purposes [@CL-EST-2975]. The provision tells offerors that the Government contemplates award of the type of contract the contracting officer inserts in the blank [@CL-EST-1842]. See [the type of contract provision](est-type-of-contract-letter-and-time-and-materials-provisions.md).
 
 The contracting officer shall, when contracting by negotiation, insert the clause in solicitations and contracts when a fixed-price contract is contemplated and the conditions specified in 16.205-2 and 16.205-3(a) through (d) apply [@CL-EST-2976].
 

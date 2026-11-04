@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation", "close_reconciliation"]
 questions = ["Q-006", "Q-027"]
-links = ["cls-termination-settlement-proposal-bases", "cls-partial-termination-equitable-adjustment-and-settlements", "cls-settlement-by-determination", "cls-termination-partial-payments-and-final-payment", "cls-subcontract-settlements-authorization-and-awards", "cls-fixed-price-settlement-proposal-submission", "cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices"]
+links = ["cls-termination-settlement-proposal-bases", "cls-partial-termination-equitable-adjustment-and-settlements", "cls-settlement-by-determination", "cls-termination-partial-payments-and-final-payment", "cls-subcontract-settlements-authorization-and-awards", "cls-fixed-price-settlement-proposal-submission", "cls-cost-reimbursement-settlement-format-and-delinquency"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ A fixed-price contract has three line items and the Government terminates line i
 
 ## Never confuse
 
-Settlement by determination is covered on [Settlement by determination under a terminated contract](cls-settlement-by-determination.md). The equitable adjustment of the continued portion is covered on [Partial termination: equitable adjustment and partial settlements](cls-partial-termination-equitable-adjustment-and-settlements.md). The complete-termination format for a cost-reimbursement contract is on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md). Submission of settlement proposals is shown on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md).
+Settlement by determination is covered on [Settlement by determination under a terminated contract](cls-settlement-by-determination.md). The equitable adjustment of the continued portion is covered on [Partial termination: equitable adjustment and partial settlements](cls-partial-termination-equitable-adjustment-and-settlements.md). The complete-termination format for a cost-reimbursement contract is on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md). Submission of settlement proposals is shown on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md).
 
 ## Company calibration
 

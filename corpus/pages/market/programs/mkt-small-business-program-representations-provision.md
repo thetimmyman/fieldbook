@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation"]
 questions = ["Q-003"]
-links = ["mkt-offeror-size-and-status-representation", "mkt-sba-size-misrepresentation-penalties-and-subcontract-size", "mkt-postaward-rerepresentation-and-subcontracting-liquidated-damages", "mkt-small-business-set-aside-notice-clauses"]
+links = ["mkt-offeror-size-and-status-representation", "mkt-sba-size-misrepresentation-penalties-and-subcontract-size", "mkt-postaward-rerepresentation-and-subcontracting-damages", "mkt-small-business-set-aside-notice-clauses"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A solicitation names a size standard of 600 employees. An offeror has 450 employ
 
 ## Never confuse
 
-Under FAR 52.219-1(c)(1), the offeror represents as part of its offer whether it is, or is not, a small business concern [@CL-MKT-0808]. The rule on when and how the offeror makes the representation is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and the SBA penalty rules for misrepresenting size are on the [Size misrepresentation penalties](../taxonomy/mkt-sba-size-misrepresentation-penalties-and-subcontract-size.md) card. The representation after award is on the [Postaward rerepresentation and subcontracting liquidated damages](mkt-postaward-rerepresentation-and-subcontracting-liquidated-damages.md) card, and the notice clauses that reject offers from concerns that are not small on set-aside solicitations are on the [Small business set-aside notice clauses](mkt-small-business-set-aside-notice-clauses.md) card.
+Under FAR 52.219-1(c)(1), the offeror represents as part of its offer whether it is, or is not, a small business concern [@CL-MKT-0808]. The rule on when and how the offeror makes the representation is on the [Offeror size and status representation](../taxonomy/mkt-offeror-size-and-status-representation.md) card, and the SBA penalty rules for misrepresenting size are on the [Size misrepresentation penalties](../taxonomy/mkt-sba-size-misrepresentation-penalties-and-subcontract-size.md) card. The representation after award is on the [Postaward rerepresentation and subcontracting liquidated damages](mkt-postaward-rerepresentation-and-subcontracting-damages.md) card, and the notice clauses that reject offers from concerns that are not small on set-aside solicitations are on the [Small business set-aside notice clauses](mkt-small-business-set-aside-notice-clauses.md) card.
 
 ## Company calibration
 

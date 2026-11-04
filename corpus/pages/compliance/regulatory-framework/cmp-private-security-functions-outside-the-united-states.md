@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-014"]
-links = ["cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown", "cmp-deployed-contractor-personnel-definitions-and-predeployment"]
+links = ["cmp-deployed-personnel-weapons-evacuation-and-flowdown", "cmp-deployed-contractor-personnel-definitions-and-predeployment"]
 +++
 
 ## Purpose
@@ -43,7 +43,7 @@ The clause reaches only the designated-area part of a mixed contract [@CL-CMP-41
 
 Personnel who fail to comply with or violate applicable requirements can be removed and replaced at the Contractor's expense [@CL-CMP-4180]. The Contractor includes the substance of the clause in subcontracts, including subcontracts for commercial products or commercial services, when private security functions will be performed outside the United States in areas of the listed operations [@CL-CMP-4181].
 
-This card does not set out every requirement. It leaves out the briefing duties for personnel, the management system standards the clause names, the definition of full cooperation, and the remedies other than removal and replacement. The clause text controls. Weapons authorization for deployed contractor personnel generally is covered on [the card on weapons, evacuation and flowdown](cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown.md), and the wider deployed-forces clause is on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
+This card does not set out every requirement. It leaves out the briefing duties for personnel, the management system standards the clause names, the definition of full cooperation, and the remedies other than removal and replacement. The clause text controls. Weapons authorization for deployed contractor personnel generally is covered on [the card on weapons, evacuation and flowdown](cmp-deployed-personnel-weapons-evacuation-and-flowdown.md), and the wider deployed-forces clause is on [the card on definitions and pre-deployment](cmp-deployed-contractor-personnel-definitions-and-predeployment.md).
 
 ## Worked example
 

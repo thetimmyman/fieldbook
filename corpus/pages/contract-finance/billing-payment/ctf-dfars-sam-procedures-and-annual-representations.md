@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "novation_agreement"]
 questions = ["Q-009"]
-links = ["mkt-sam-registration-and-awards", "cmp-annual-representations-and-certifications-in-sam", "cmp-contracted-services-reporting-and-alternate-a-representations", "mna-novation-agreements", "mna-change-of-name-agreements", "sup-cage-code-reporting"]
+links = ["mkt-sam-registration-and-awards", "cmp-annual-representations-and-certifications-in-sam", "cmp-contracted-services-reporting-and-alt-a-representations", "mna-novation-agreements", "mna-change-of-name-agreements", "sup-cage-code-reporting"]
 +++
 
 ## Purpose
@@ -49,7 +49,7 @@ The answer: the name in the contract no longer matches the SAM record, so the co
 
 ## Never confuse
 
-On contract award documents, the contractor's legal or doing business as name and physical address information is used as recorded in the SAM database at the time of award [@CL-CTF-1647]. Registration is on [SAM registration and awards](../../market/feeds/mkt-sam-registration-and-awards.md). The FAR annual representations rules are on [Annual representations and certifications in SAM](../../compliance/trade-cyber/cmp-annual-representations-and-certifications-in-sam.md), and the Alternate A content is on [Contracted services reporting and Alternate A representations](../../compliance/trade-cyber/cmp-contracted-services-reporting-and-alternate-a-representations.md). A novation is on [Novation agreements](../../mna/diligence/mna-novation-agreements.md), a change of name on [Change-of-name agreements](../../mna/diligence/mna-change-of-name-agreements.md), and CAGE codes on [CAGE code reporting](../../supply-chain/supplier-identity/sup-cage-code-reporting.md).
+On contract award documents, the contractor's legal or doing business as name and physical address information is used as recorded in the SAM database at the time of award [@CL-CTF-1647]. Registration is on [SAM registration and awards](../../market/feeds/mkt-sam-registration-and-awards.md). The FAR annual representations rules are on [Annual representations and certifications in SAM](../../compliance/trade-cyber/cmp-annual-representations-and-certifications-in-sam.md), and the Alternate A content is on [Contracted services reporting and Alternate A representations](../../compliance/trade-cyber/cmp-contracted-services-reporting-and-alt-a-representations.md). A novation is on [Novation agreements](../../mna/diligence/mna-novation-agreements.md), a change of name on [Change-of-name agreements](../../mna/diligence/mna-change-of-name-agreements.md), and CAGE codes on [CAGE code reporting](../../supply-chain/supplier-identity/sup-cage-code-reporting.md).
 
 ## Company calibration
 

@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-003"]
-links = ["cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown", "cmp-private-security-functions-outside-the-united-states", "cmp-whistleblower-rights-notice-and-agency-inspector-general"]
+links = ["cmp-deployed-personnel-weapons-evacuation-and-flowdown", "cmp-private-security-functions-outside-the-united-states", "cmp-whistleblower-rights-notice-and-agency-inspector-general"]
 +++
 
 ## Purpose
@@ -53,7 +53,7 @@ Before CAAF deploy, the Contractor ensures the listed requirements are met, with
 
 The Contractor must identify all personnel who occupy a position designated as mission essential [@CL-CMP-4201]. It must also ensure the continuity of essential Contractor services during designated operations, unless, after consultation with the Contracting Officer, Contracting Officer's representative, or local commander, the Contracting Officer directs withdrawal due to security conditions [@CL-CMP-4213].
 
-This card does not set out every duty in the clause. It leaves out, among other things, the advanced law of war training, how basic training is provided, the security plan and other support terms, the notices to personnel, the processing and departure points, the removal of personnel, and the vehicle licence rule. The clause text controls. For weapons, clothing, evacuation and flowdown see [the companion card on weapons, evacuation and flowdown](cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown.md). Private security work has its own clause, covered on [Defense contractors performing private security functions outside the United States](cmp-private-security-functions-outside-the-united-states.md).
+This card does not set out every duty in the clause. It leaves out, among other things, the advanced law of war training, how basic training is provided, the security plan and other support terms, the notices to personnel, the processing and departure points, the removal of personnel, and the vehicle licence rule. The clause text controls. For weapons, clothing, evacuation and flowdown see [the companion card on weapons, evacuation and flowdown](cmp-deployed-personnel-weapons-evacuation-and-flowdown.md). Private security work has its own clause, covered on [Defense contractors performing private security functions outside the United States](cmp-private-security-functions-outside-the-united-states.md).
 
 The Contractor must use the tracking system to enter and maintain the data for all CAAF and, as designated by the Under Secretary of Defense (Acquisition and Sustainment) or the Combatant Commander, for non-CAAF [@CL-CMP-4162]. It must enter the required information about its contractor personnel prior to deployment and continue to use the system to maintain accurate, up-to-date information throughout the deployment for all Contractor personnel [@CL-CMP-4163].
 

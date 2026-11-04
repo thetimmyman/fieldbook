@@ -60,7 +60,7 @@ Under the site visit provision, offerors or quoters are urged and expected to in
 
 Codified FAR 52.237-1 states that the provision is inserted in solicitations for services to be performed on Government installations, unless the solicitation is for construction [@CL-SUP-2911], while RFO FAR 52.237-1 states "As prescribed in 37.802-5(a), insert the following provision:" [@CL-SUP-0491]. RFO FAR 52.237-2 states that the clause is inserted in solicitations and contracts for services to be performed on Government installations, unless a construction contract is contemplated [@CL-SUP-0492].
 
-The construction counterparts, the preconstruction site visit provision and the protection of existing vegetation, structures and equipment, are covered in [Preconstruction conference, site visit and preparation of construction proposals](../../compliance/regulatory-framework/cmp-construction-preconstruction-conference-site-visit-and-proposals.md) and [Other contracts at the site, protection of existing property and cleaning up](../../compliance/regulatory-framework/cmp-construction-other-contracts-protection-and-cleanup.md).
+The construction counterparts, the preconstruction site visit provision and the protection of existing vegetation, structures and equipment, are covered in [Preconstruction conference, site visit and preparation of construction proposals](../../compliance/regulatory-framework/cmp-construction-preconstruction-conference-and-site-visit.md) and [Other contracts at the site, protection of existing property and cleaning up](../../compliance/regulatory-framework/cmp-construction-other-contracts-protection-and-cleanup.md).
 
 ## Company calibration
 

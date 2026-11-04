@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["contract_liability", "close_reconciliation", "progress_payment"]
 questions = ["Q-027"]
-links = ["cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices", "cls-cost-reimbursement-contracts", "cls-cost-reimbursement-termination-proposal-and-inventory-schedules", "ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee"]
+links = ["cls-cost-reimbursement-settlement-format-and-delinquency", "cls-cost-reimbursement-contracts", "cls-cost-reimbursement-termination-proposal-and-schedules", "ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee"]
 +++
 
 ## Purpose
@@ -62,9 +62,9 @@ Had performance of the continued portion been only on spare parts, an exception 
 
 ## Never confuse
 
-The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. In the case of the exceptions in paragraph (a), the procedures in 49.302 and 49.303 apply [@CL-CLS-1315]; see [Termination of cost-reimbursement contracts: settlement proposal, inventory schedules and audit](cls-cost-reimbursement-termination-proposal-and-inventory-schedules.md) and [Cost-reimbursement terminations: vouchers and the adjusted fee](../../contract-finance/billing-payment/ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee.md).
+The contractor shall limit the settlement proposal to a proposed reduction in the amount of fee [@CL-CLS-1316]. In the case of the exceptions in paragraph (a), the procedures in 49.302 and 49.303 apply [@CL-CLS-1315]; see [Termination of cost-reimbursement contracts: settlement proposal, inventory schedules and audit](cls-cost-reimbursement-termination-proposal-and-schedules.md) and [Cost-reimbursement terminations: vouchers and the adjusted fee](../../contract-finance/billing-payment/ctf-cost-reimbursement-termination-vouchers-and-adjusted-fee.md).
 
-Settlement format, subcontract settlement authorization and delinquency notices for cost-reimbursement contracts are covered in [Cost-reimbursement settlement format authorization and delinquency notices](cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
+Settlement format, subcontract settlement authorization and delinquency notices for cost-reimbursement contracts are covered in [Cost-reimbursement settlement format authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
 ## Company calibration
 

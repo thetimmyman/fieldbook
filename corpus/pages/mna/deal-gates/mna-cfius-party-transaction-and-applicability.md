@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-045"]
-links = ["mna-cfius-jurisdiction", "mna-cfius-covered-control-transactions", "mna-cfius-declaration-procedures-withdrawal-and-contingent-interests", "mna-cfius-foreign-person-parent-us-business", "mna-cfius-sensitive-personal-data"]
+links = ["mna-cfius-jurisdiction", "mna-cfius-covered-control-transactions", "mna-cfius-declaration-procedures-withdrawal-and-contingent", "mna-cfius-foreign-person-parent-us-business", "mna-cfius-sensitive-personal-data"]
 +++
 
 ## Purpose
@@ -38,7 +38,7 @@ Except as provided in the listed exceptions and otherwise in the part, the regul
 
 ## How it works
 
-Party status depends on the form of the deal, so the first step is to name the form: acquisition of an interest, merger, consolidation, proxy solicitation, contingent equity interest, change in rights or another listed form [@CL-MNA-0816; @CL-MNA-0818; @CL-MNA-0910; @CL-MNA-0911; @CL-MNA-0912]. A transaction counts whether it is proposed or completed [@CL-MNA-0820]. The date rules are layered: the part applies from one date, earlier transactions can stay under the older provisions or under part 801, and later amendments apply from their own dates [@CL-MNA-0822; @CL-MNA-0823; @CL-MNA-1564; @CL-MNA-0914; @CL-MNA-0915; @CL-MNA-0824; @CL-MNA-0825]. The timing rule for a contingent equity interest is on the [contingent equity card](mna-cfius-declaration-procedures-withdrawal-and-contingent-interests.md). Whether a transaction is a covered transaction is a separate question on the [jurisdiction card](mna-cfius-jurisdiction.md).
+Party status depends on the form of the deal, so the first step is to name the form: acquisition of an interest, merger, consolidation, proxy solicitation, contingent equity interest, change in rights or another listed form [@CL-MNA-0816; @CL-MNA-0818; @CL-MNA-0910; @CL-MNA-0911; @CL-MNA-0912]. A transaction counts whether it is proposed or completed [@CL-MNA-0820]. The date rules are layered: the part applies from one date, earlier transactions can stay under the older provisions or under part 801, and later amendments apply from their own dates [@CL-MNA-0822; @CL-MNA-0823; @CL-MNA-1564; @CL-MNA-0914; @CL-MNA-0915; @CL-MNA-0824; @CL-MNA-0825]. The timing rule for a contingent equity interest is on the [contingent equity card](mna-cfius-declaration-procedures-withdrawal-and-contingent.md). Whether a transaction is a covered transaction is a separate question on the [jurisdiction card](mna-cfius-jurisdiction.md).
 
 ## Worked example
 

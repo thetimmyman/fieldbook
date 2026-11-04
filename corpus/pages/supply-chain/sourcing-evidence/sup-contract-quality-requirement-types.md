@@ -32,7 +32,7 @@ Explains three kinds of contract quality requirement: reliance on the contractor
 Commercial products and commercial services.
 
 - When acquiring commercial products, the Government shall rely on contractors' existing quality assurance systems as a substitute for Government inspection and testing before tender for acceptance [@CL-SUP-3983]. This applies unless customary market practices for the commercial product being acquired include in-process inspection [@CL-SUP-3920]. Any in-process inspection by the Government shall be conducted in a manner consistent with commercial practice [@CL-SUP-3921].
-- For commercial services, the Government shall rely on the contractor to accomplish all inspection and testing needed to ensure that the commercial services acquired conform to contract requirements before they are tendered to the Government [@CL-SUP-3922]. 
+- For commercial services, the Government shall rely on the contractor to accomplish all inspection and testing needed to ensure that the commercial services acquired conform to contract requirements before they are tendered to the Government [@CL-SUP-3922].
 
 Standard inspection requirements.
 

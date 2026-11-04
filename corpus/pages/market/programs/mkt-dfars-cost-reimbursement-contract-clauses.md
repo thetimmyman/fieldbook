@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "allowability"]
 questions = ["Q-004"]
-links = ["cls-cost-reimbursement-contracts", "cls-dfars-foreign-wage-price-whistleblower-legal-costs-and-choice-of-law"]
+links = ["cls-cost-reimbursement-contracts", "cls-dfars-foreign-wage-whistleblower-legal-and-choice-of-law"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ Contract A was awarded in 2012 and includes the FAR Allowable Cost and Payment c
 
 ## Never confuse
 
-The FAR Allowable Cost and Payment clause is a condition for using the DFARS clause at 252.216-7009 in both situations [@CL-MKT-1845; @CL-MKT-1846]. For a contract awarded before September 30, 2013, being modified to include the DFARS clause on informing employees of whistleblower rights, dated September 2013 or later, is the second condition of the second situation [@CL-MKT-1846]. The related legal-costs clause is covered on [Foreign-controlled price representation, whistleblower legal costs and overseas choice of law (DFARS)](../../close-revrec/revenue/cls-dfars-foreign-wage-price-whistleblower-legal-costs-and-choice-of-law.md).
+The FAR Allowable Cost and Payment clause is a condition for using the DFARS clause at 252.216-7009 in both situations [@CL-MKT-1845; @CL-MKT-1846]. For a contract awarded before September 30, 2013, being modified to include the DFARS clause on informing employees of whistleblower rights, dated September 2013 or later, is the second condition of the second situation [@CL-MKT-1846]. The related legal-costs clause is covered on [Foreign-controlled price representation, whistleblower legal costs and overseas choice of law (DFARS)](../../close-revrec/revenue/cls-dfars-foreign-wage-whistleblower-legal-and-choice-of-law.md).
 
 ## Company calibration
 

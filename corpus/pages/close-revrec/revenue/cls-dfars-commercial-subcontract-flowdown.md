@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "federal_acquisition_regulation", "commercial_product"]
 questions = ["Q-004"]
-links = ["mkt-subcontracting-plan-clause-master-commercial-reporting-flowdown", "cmp-far-system-and-agency-supplements", "sup-subcontracts-commercial-products-and-services"]
+links = ["mkt-subcontracting-plan-master-commercial-reporting-flowdown", "cmp-far-system-and-agency-supplements", "sup-subcontracts-commercial-products-and-services"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A prime contractor buys a commercial item from a supplier. One DFARS clause says
 
 ## Never confuse
 
-The Contractor shall not include the terms of any FAR or DFARS clause in subcontracts for commercial products or commercial services at any tier unless an exception applies [@CL-CLS-1170; @CL-CLS-1171]. The Contractor shall include the terms of this clause, including paragraph (c), in subcontracts awarded under the contract, including subcontracts for the acquisition of commercial products or commercial services [@CL-CLS-1173]. The wider rules for subcontracts for commercial products and commercial services are on [Subcontracts for commercial products and commercial services](../../supply-chain/sourcing-evidence/sup-subcontracts-commercial-products-and-services.md). Flowdown of the small business subcontracting plan clause is a separate matter on [Subcontracting plan clause: master and commercial plans, reporting and flowdown](../../market/programs/mkt-subcontracting-plan-clause-master-commercial-reporting-flowdown.md), and the FAR and DFARS structure is on [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md).
+The Contractor shall not include the terms of any FAR or DFARS clause in subcontracts for commercial products or commercial services at any tier unless an exception applies [@CL-CLS-1170; @CL-CLS-1171]. The Contractor shall include the terms of this clause, including paragraph (c), in subcontracts awarded under the contract, including subcontracts for the acquisition of commercial products or commercial services [@CL-CLS-1173]. The wider rules for subcontracts for commercial products and commercial services are on [Subcontracts for commercial products and commercial services](../../supply-chain/sourcing-evidence/sup-subcontracts-commercial-products-and-services.md). Flowdown of the small business subcontracting plan clause is a separate matter on [Subcontracting plan clause: master and commercial plans, reporting and flowdown](../../market/programs/mkt-subcontracting-plan-master-commercial-reporting-flowdown.md), and the FAR and DFARS structure is on [The FAR System and agency supplements](../../compliance/regulatory-framework/cmp-far-system-and-agency-supplements.md).
 
 ## Company calibration
 

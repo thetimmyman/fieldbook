@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["applicability_record", "commercial_product"]
 questions = ["Q-004"]
-links = ["cmp-commercial-clauses-incorporated-by-reference", "cmp-commercial-clause-selection-by-contracting-officer", "cmp-audit-and-records-negotiation", "cmp-contractor-records-retention-policy", "cmp-acquisition-thresholds", "sup-subcontracts-commercial-products-and-services", "mkt-subcontracting-plan-clause-master-commercial-reporting-flowdown"]
+links = ["cmp-commercial-clauses-incorporated-by-reference", "cmp-commercial-clause-selection-by-contracting-officer", "cmp-audit-and-records-negotiation", "cmp-contractor-records-retention-policy", "cmp-acquisition-thresholds", "sup-subcontracts-commercial-products-and-services", "mkt-subcontracting-plan-master-commercial-reporting-flowdown"]
 +++
 
 ## Purpose

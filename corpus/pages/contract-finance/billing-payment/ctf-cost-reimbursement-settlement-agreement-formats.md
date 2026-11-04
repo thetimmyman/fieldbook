@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["billing"]
 questions = ["Q-038"]
-links = ["cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices"]
+links = ["cls-cost-reimbursement-settlement-format-and-delinquency"]
 +++
 
 ## Purpose
@@ -64,7 +64,7 @@ Where settlement is limited to fee, the contractor's allowable costs under the c
 
 The partial-termination format deletes the terminated portion and decreases the fee and, if appropriate, the estimated cost [@CL-CTF-3287; @CL-CTF-3139], and the contractor's allowable costs and earned fee, if any, for the terminated portion continue to be reimbursed on SF 1034 under the applicable provisions of the contract and part 31 [@CL-CTF-3140].
 
-The authorization and delinquency notices for these agreements are on [the cost-reimbursement settlement format card](../../close-revrec/revenue/cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
+The authorization and delinquency notices for these agreements are on [the cost-reimbursement settlement format card](../../close-revrec/revenue/cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
 ## Company calibration
 

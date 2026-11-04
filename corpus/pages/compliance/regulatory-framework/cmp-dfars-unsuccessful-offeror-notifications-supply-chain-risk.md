@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-003"]
-links = ["est-notices-to-unsuccessful-offerors", "cmp-dfars-information-assurance-training-and-supply-chain-risk-notice"]
+links = ["est-notices-to-unsuccessful-offerors", "cmp-dfars-ia-training-and-supply-chain-risk-notice"]
 +++
 
 ## Purpose
@@ -37,7 +37,7 @@ The trigger is the Government's exercise of the authority provided in 239.7305(d
 
 The information the notifications must not reveal is information determined to be withheld from disclosure in accordance with section 3252 of title 10, United States Code, and the provision refers to subpart 239.73 [@CL-CMP-8429].
 
-For when notices are sent and what they otherwise contain, see [Notices to unsuccessful offerors](../../estimating/pricing/est-notices-to-unsuccessful-offerors.md). For the related supply chain risk notice to offerors, see [Information assurance training and supply chain risk notice (DFARS)](cmp-dfars-information-assurance-training-and-supply-chain-risk-notice.md).
+For when notices are sent and what they otherwise contain, see [Notices to unsuccessful offerors](../../estimating/pricing/est-notices-to-unsuccessful-offerors.md). For the related supply chain risk notice to offerors, see [Information assurance training and supply chain risk notice (DFARS)](cmp-dfars-ia-training-and-supply-chain-risk-notice.md).
 
 ## Worked example
 

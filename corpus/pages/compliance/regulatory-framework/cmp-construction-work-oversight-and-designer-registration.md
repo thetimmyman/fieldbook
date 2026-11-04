@@ -54,7 +54,7 @@ Registered architects or engineers shall prepare or review and approve the desig
 
 The codified FAR 52.236-26 is the Preconstruction Conference clause [@CL-CMP-5123], but the RFO text prints section 52.236-26 as reserved [@CL-CMP-0995].
 
-The clauses on design within funding limitations and architect-engineer responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limitations-and-architect-engineer-responsibility.md), and the preconstruction conference and site visit provisions are covered in [Preconstruction conference, site visit and preparation of construction proposals](cmp-construction-preconstruction-conference-site-visit-and-proposals.md).
+The clauses on design within funding limitations and architect-engineer responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limits-and-ae-responsibility.md), and the preconstruction conference and site visit provisions are covered in [Preconstruction conference, site visit and preparation of construction proposals](cmp-construction-preconstruction-conference-and-site-visit.md).
 
 ## Company calibration
 

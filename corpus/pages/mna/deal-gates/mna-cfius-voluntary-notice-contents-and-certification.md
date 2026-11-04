@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-028"]
-links = ["mna-cfius-notice-procedures-and-rejection", "mna-cfius-declaration-contents-and-rejection", "mna-cfius-filing-fee-valuation", "mna-cfius-information-duty-confidentiality-and-penalties", "mna-cfius-declaration-procedures-withdrawal-and-contingent-interests"]
+links = ["mna-cfius-notice-procedures-and-rejection", "mna-cfius-declaration-contents-and-rejection", "mna-cfius-filing-fee-valuation", "mna-cfius-information-duty-confidentiality-and-penalties", "mna-cfius-declaration-procedures-withdrawal-and-contingent"]
 +++
 
 ## Purpose
@@ -50,7 +50,7 @@ Answer: each of those items is something the notice asks for, and the chief exec
 
 ## Never confuse
 
-This card covers what the notice holds [@CL-MNA-0842; @CL-MNA-0843; @CL-MNA-0089], and the [notice procedures card](mna-cfius-notice-procedures-and-rejection.md) covers how it is filed and when it may be rejected. A notice is also not a declaration, whose contents are on the [declaration contents card](mna-cfius-declaration-contents-and-rejection.md). The certification applies to a notice, declaration or information, not only to a notice [@CL-MNA-0847]. A withdrawn notice is a separate matter, and its rules are on the [withdrawal card](mna-cfius-declaration-procedures-withdrawal-and-contingent-interests.md).
+This card covers what the notice holds [@CL-MNA-0842; @CL-MNA-0843; @CL-MNA-0089], and the [notice procedures card](mna-cfius-notice-procedures-and-rejection.md) covers how it is filed and when it may be rejected. A notice is also not a declaration, whose contents are on the [declaration contents card](mna-cfius-declaration-contents-and-rejection.md). The certification applies to a notice, declaration or information, not only to a notice [@CL-MNA-0847]. A withdrawn notice is a separate matter, and its rules are on the [withdrawal card](mna-cfius-declaration-procedures-withdrawal-and-contingent.md).
 
 ## Company calibration
 

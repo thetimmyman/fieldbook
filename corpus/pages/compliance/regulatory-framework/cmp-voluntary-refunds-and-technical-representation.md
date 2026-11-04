@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-003"]
-links = ["cmp-corporate-aco-and-facility-visits", "est-dfars-price-reasonableness-data-and-voluntary-defective-pricing-disclosure"]
+links = ["cmp-corporate-aco-and-facility-visits", "est-dfars-price-reasonableness-and-defective-pricing-disclosure"]
 +++
 
 ## Purpose
@@ -49,7 +49,7 @@ A program manager concludes that the program needs engineering liaison at a cont
 
 ## Never confuse
 
-A voluntary refund is not a payment that a contract or other legal obligation requires; the absence of such an obligation is what makes it voluntary [@CL-CMP-7840]. A voluntary disclosure of defective pricing is not a voluntary refund as defined in DFARS 242.7100 and does not waive the Government entitlement to the recovery of any overpayment plus interest on the overpayments in accordance with FAR 15.407-1(b)(7) [@CL-EST-2453]; see [DoD price reasonableness data and voluntary defective pricing disclosure](../../estimating/pricing/est-dfars-price-reasonableness-data-and-voluntary-defective-pricing-disclosure.md). A technical representative is not a contract administration or contract audit representative, and not a contracting officer's representative [@CL-CMP-7845]. For other Government visits to a contractor facility, see [Corporate ACO and facility visits](cmp-corporate-aco-and-facility-visits.md).
+A voluntary refund is not a payment that a contract or other legal obligation requires; the absence of such an obligation is what makes it voluntary [@CL-CMP-7840]. A voluntary disclosure of defective pricing is not a voluntary refund as defined in DFARS 242.7100 and does not waive the Government entitlement to the recovery of any overpayment plus interest on the overpayments in accordance with FAR 15.407-1(b)(7) [@CL-EST-2453]; see [DoD price reasonableness data and voluntary defective pricing disclosure](../../estimating/pricing/est-dfars-price-reasonableness-and-defective-pricing-disclosure.md). A technical representative is not a contract administration or contract audit representative, and not a contracting officer's representative [@CL-CMP-7845]. For other Government visits to a contractor facility, see [Corporate ACO and facility visits](cmp-corporate-aco-and-facility-visits.md).
 
 ## Company calibration
 

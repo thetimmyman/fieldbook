@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cls-title-to-government-furnished-and-contractor-acquired-property", "cmp-dfars-telecom-access-and-orders-for-facilities", "cmp-dfars-telecom-cancellation-or-termination-of-orders"]
+links = ["cls-title-to-gfp-and-contractor-acquired-property", "cmp-dfars-telecom-access-and-orders-for-facilities", "cmp-dfars-telecom-cancellation-or-termination-of-orders"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ The Government pays a one-time special construction charge of 40,000 for a new l
 
 ## Never confuse
 
-Under the Title to Telecommunication Facilities and Equipment clause, title to Contractor furnished facilities and equipment remains with the Contractor even if the Government paid the costs of constructing them [@CL-CMP-4663]. For Government property in general, see [Title to Government-furnished and contractor-acquired property](../../close-revrec/fixed-assets/cls-title-to-government-furnished-and-contractor-acquired-property.md). The basic agreement is not a contract, and a communication service authorization is a contract that incorporates its terms and conditions [@CL-CMP-4666]. A direct special construction charge shall not include costs covered by a cancellation or termination liability [@CL-CMP-4661]; for that liability, see [Cancellation or termination of orders](cmp-dfars-telecom-cancellation-or-termination-of-orders.md). For access to facilities and how orders are acknowledged and paid, see [Access and orders for facilities and services](cmp-dfars-telecom-access-and-orders-for-facilities.md).
+Under the Title to Telecommunication Facilities and Equipment clause, title to Contractor furnished facilities and equipment remains with the Contractor even if the Government paid the costs of constructing them [@CL-CMP-4663]. For Government property in general, see [Title to Government-furnished and contractor-acquired property](../../close-revrec/fixed-assets/cls-title-to-gfp-and-contractor-acquired-property.md). The basic agreement is not a contract, and a communication service authorization is a contract that incorporates its terms and conditions [@CL-CMP-4666]. A direct special construction charge shall not include costs covered by a cancellation or termination liability [@CL-CMP-4661]; for that liability, see [Cancellation or termination of orders](cmp-dfars-telecom-cancellation-or-termination-of-orders.md). For access to facilities and how orders are acknowledged and paid, see [Access and orders for facilities and services](cmp-dfars-telecom-access-and-orders-for-facilities.md).
 
 ## Company calibration
 

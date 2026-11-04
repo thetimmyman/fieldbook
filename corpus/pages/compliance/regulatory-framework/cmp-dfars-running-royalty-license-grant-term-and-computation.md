@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cmp-dfars-patent-license-release-readjustment-and-royalty-reporting", "cmp-patent-royalties", "cmp-dfars-patent-license-grant-term-and-termination", "cmp-dfars-non-estoppel-release-and-license-to-other-agencies"]
+links = ["cmp-dfars-patent-license-release-and-royalty-reporting", "cmp-patent-royalties", "cmp-dfars-patent-license-grant-term-and-termination", "cmp-dfars-non-estoppel-release-and-license-to-other-agencies"]
 +++
 
 ## Purpose
@@ -35,7 +35,7 @@ Under the Computation of Royalties clause, royalties accrue to the Contractor on
 
 ## How it works
 
-The grant names the Department that may practice the inventions, and the term follows the life of the licensed patents unless the license is sooner terminated as the agreement provides [@CL-CMP-4365; @CL-CMP-4260]. Royalties accrue on acceptance of articles that use a licensed unexpired United States patent, subject to the conditions the clause states [@CL-CMP-4261; @CL-CMP-4262]. For articles whether manufactured by the Government or procured under a fixed price contract the clause provides blanks for a percent of the net selling price or an alternative amount per named item [@CL-CMP-4263], and for articles acquired or manufactured by a Contractor performing under a cost-reimbursement contract it provides a rate stated as an amount per named item [@CL-CMP-4264]. For the reporting clause, see [Patent license and release contracts](cmp-dfars-patent-license-release-readjustment-and-royalty-reporting.md), under which the Contracting Officer or the designated office, in accordance with agency procedures, is the party named to deliver to the Contractor, subject to military security regulations, a written report on or before the sixtieth day following the end of each yearly period during which royalties have accrued [@CL-CMP-8644; @CL-CMP-3961].
+The grant names the Department that may practice the inventions, and the term follows the life of the licensed patents unless the license is sooner terminated as the agreement provides [@CL-CMP-4365; @CL-CMP-4260]. Royalties accrue on acceptance of articles that use a licensed unexpired United States patent, subject to the conditions the clause states [@CL-CMP-4261; @CL-CMP-4262]. For articles whether manufactured by the Government or procured under a fixed price contract the clause provides blanks for a percent of the net selling price or an alternative amount per named item [@CL-CMP-4263], and for articles acquired or manufactured by a Contractor performing under a cost-reimbursement contract it provides a rate stated as an amount per named item [@CL-CMP-4264]. For the reporting clause, see [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md), under which the Contracting Officer or the designated office, in accordance with agency procedures, is the party named to deliver to the Contractor, subject to military security regulations, a written report on or before the sixtieth day following the end of each yearly period during which royalties have accrued [@CL-CMP-8644; @CL-CMP-3961].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ The agreed rate is 5 percent of net selling price, and the part embodies an inve
 
 ## Never confuse
 
-Under the Computation of Royalties clause, royalties accrue to the Contractor [@CL-CMP-4261]. For royalty costs the Contractor pays to others, see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md). The clauses on reporting and readjusting royalties for patent license contracts are in [Patent license and release contracts](cmp-dfars-patent-license-release-readjustment-and-royalty-reporting.md). For the License Grant clause under which the Contractor grants a paid up license [@CL-CMP-4250], see [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md).
+Under the Computation of Royalties clause, royalties accrue to the Contractor [@CL-CMP-4261]. For royalty costs the Contractor pays to others, see [Royalties and other costs for use of patents](../cas-allowability/cmp-patent-royalties.md). The clauses on reporting and readjusting royalties for patent license contracts are in [Patent license and release contracts](cmp-dfars-patent-license-release-and-royalty-reporting.md). For the License Grant clause under which the Contractor grants a paid up license [@CL-CMP-4250], see [Patent license grant, term and termination](cmp-dfars-patent-license-grant-term-and-termination.md). For the release of past infringement and the license to other Government agencies, see [Non-estoppel, release and license to other agencies](cmp-dfars-non-estoppel-release-and-license-to-other-agencies.md).
 
 ## Company calibration
 

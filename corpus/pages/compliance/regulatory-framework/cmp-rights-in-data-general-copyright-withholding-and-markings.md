@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
-links = ["cmp-procurement-integrity-marking-and-violations", "cmp-rights-in-data-general-definitions-and-allocation", "cmp-representation-of-limited-rights-data-and-restricted-software", "cmp-rights-in-data-sbir-and-sttr-program", "cmp-existing-works-and-technical-data-declaration-major-systems"]
+links = ["cmp-procurement-integrity-marking-and-violations", "cmp-rights-in-data-general-definitions-and-allocation", "cmp-representation-limited-rights-data-and-restricted-software", "cmp-rights-in-data-sbir-and-sttr-program", "cmp-existing-works-and-technical-data-declaration-major-systems"]
 +++
 
 ## Purpose

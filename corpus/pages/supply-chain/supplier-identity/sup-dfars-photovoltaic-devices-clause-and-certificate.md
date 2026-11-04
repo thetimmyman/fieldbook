@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["sup-dfars-buy-american-definitions-and-delivery-rule", "sup-dfars-trade-agreements-clause-and-certificate", "sup-dfars-qualifying-country-subcontractors-and-performance-reports"]
+links = ["sup-dfars-buy-american-definitions-and-delivery-rule", "sup-dfars-trade-agreements-clause-and-certificate", "sup-dfars-qualifying-country-subcontractors-and-reports"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A second offer states an estimated value of 150,000, which is above the micro-pu
 
 ## Never confuse
 
-The lower bands of the restriction paragraph name domestic photovoltaic devices, and the top band names U.S.-made, designated country or qualifying country devices [@CL-SUP-1467; @CL-SUP-1511; @CL-SUP-1513; @CL-SUP-1468]. For the DoD Buy American clause, see [DoD Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). For the trade agreements clause, see [Trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md). For the qualifying country sources clause, see [Qualifying country subcontractors and reports of performance outside the United States and Canada](sup-dfars-qualifying-country-subcontractors-and-performance-reports.md).
+The lower bands of the restriction paragraph name domestic photovoltaic devices, and the top band names U.S.-made, designated country or qualifying country devices [@CL-SUP-1467; @CL-SUP-1511; @CL-SUP-1513; @CL-SUP-1468]. For the DoD Buy American clause, see [DoD Buy American definitions and delivery rule](sup-dfars-buy-american-definitions-and-delivery-rule.md). For the trade agreements clause, see [Trade agreements clause and certificate](sup-dfars-trade-agreements-clause-and-certificate.md). For the qualifying country sources clause, see [Qualifying country subcontractors and reports of performance outside the United States and Canada](sup-dfars-qualifying-country-subcontractors-and-reports.md).
 
 ## Company calibration
 
