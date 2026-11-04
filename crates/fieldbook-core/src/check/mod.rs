@@ -10,6 +10,7 @@ pub mod diag;
 pub mod files;
 pub mod index;
 pub mod model;
+pub mod promotion;
 pub mod register_cells;
 pub mod register_links;
 pub mod registers;
@@ -65,6 +66,7 @@ const PASSES: &[Pass] = &[
     register_cells::check,
     claim_cells::check,
     register_links::check,
+    promotion::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {

@@ -1,30 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-promotion
-[[pending]]
-code = "FB0209"
-card = "check-promotion"
-
-[[pending]]
-code = "FB0213"
-card = "check-promotion"
-
-[[pending]]
-code = "FB0220"
-card = "check-promotion"
-
-[[pending]]
-code = "FB0221"
-card = "check-promotion"
-
-[[pending]]
-code = "FB0222"
-card = "check-promotion"
-
-[[pending]]
-code = "FB0230"
-card = "check-promotion"
-
 # check-pages
 [[pending]]
 code = "FB0101"

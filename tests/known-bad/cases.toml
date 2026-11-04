@@ -118,6 +118,14 @@ edits = [
 ]
 
 [[case]]
+code = "FB0209"
+at = "corpus/registers/claims.csv:2"
+also = ["FB0206"]
+edits = [
+  { path = "corpus/registers/claims.csv", find = ",2026-02-10,owner,", replace = ",,owner," },
+]
+
+[[case]]
 code = "FB0210"
 at = "corpus/registers/claims.csv:3"
 edits = [
@@ -133,10 +141,46 @@ edits = [
 ]
 
 [[case]]
+code = "FB0213"
+at = "corpus/registers/claims.csv:2"
+edits = [
+  { path = "corpus/registers/sources.csv", find = ",2026-02-01,2026-02-01,active,,V2,public,Synthetic fixture source", replace = ",2026-02-01,2026-02-01,withdrawn,,V2,public,Synthetic fixture source" },
+]
+
+[[case]]
 code = "FB0214"
 at = "corpus/registers/glossary.csv:4"
 edits = [
   { path = "corpus/registers/glossary.csv", find = ",CL-EST-0003,public_reference,,", replace = ",CL-EST-0003,public_reference,Withholding Holdback," },
+]
+
+[[case]]
+code = "FB0220"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,", replace = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2027-03-01," },
+]
+
+[[case]]
+code = "FB0221"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,", replace = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2025-01-01," },
+]
+
+[[case]]
+code = "FB0222"
+at = "corpus/registers/claims.csv:6"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-EST-0003,est,fact,Synthetic rate review window is 10 days under current guidance.,2026-02-01,S-0002,2,", replace = "CL-EST-0003,est,fact,Synthetic rate review window is 10 days under current guidance.,2026-02-01,S-0002,1," },
+]
+
+[[case]]
+code = "FB0230"
+at = "corpus/registers/questions.csv:2"
+strict = true
+edits = [
+  { path = "corpus/registers/questions.csv", find = ",Synthetic reviews follow the 30-day cycle until confirmed.,yes,true,", replace = ",,yes,true," },
 ]
 
 [[case]]
