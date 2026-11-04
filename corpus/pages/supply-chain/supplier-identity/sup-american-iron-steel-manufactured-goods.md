@@ -73,7 +73,9 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 ## Worked example
 
-Synthetic example. The numbers are made up. The example applies the codified text, and the RFO text prints no text under these section numbers [@CL-SUP-3539; @CL-SUP-3540].
+Synthetic example. The numbers are made up.
+
+The example applies the codified text, and the RFO text prints no text under these section numbers [@CL-SUP-3539; @CL-SUP-3540].
 
 A negotiated construction solicitation includes the notice provision, with no alternate, and the contract will include the clause. The Government's list in paragraph (b)(3) of the clause says none. Award is on price alone, so paragraph (c)(2) of the provision does not apply. Each offer states whether it uses foreign material, and each request for an exception is submitted with the offer and carries the market survey, the cost comparison table and delivered costs.
 
@@ -111,7 +113,7 @@ How the company evidences where its iron and steel were produced, and who approv
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the exception list, iron and steel, award-determination, tie-break, RFO citation and never-confuse wording with their quotes; added the comparable-domestic-material qualifier.
-- COMPATIBLE_EXTENSION, 2026-10-31: post-award modification is to allow use of the foreign material
+- COMPATIBLE_EXTENSION, 2026-10-31: post-award modification is to allow use of the foreign material.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of building or work.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on American iron and steel in construction under trade agreements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

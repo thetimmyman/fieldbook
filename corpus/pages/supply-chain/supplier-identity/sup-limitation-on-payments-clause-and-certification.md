@@ -57,6 +57,6 @@ How lobbying contacts and subcontractor declarations are tracked and retained. [
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for the regularly employed definition and subcontract declaration lead-in, and removed uncited commentary.
-- COMPATIBLE_EXTENSION, 2026-10-31: regularly employed definition carries its 130-day catch-up sentence
+- COMPATIBLE_EXTENSION, 2026-10-31: regularly employed definition carries its 130-day catch-up sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certification and clause on payments to influence Federal transactions.

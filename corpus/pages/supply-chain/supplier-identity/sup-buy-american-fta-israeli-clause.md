@@ -57,6 +57,6 @@ Which executed contracts carry this clause rather than the plain supplies clause
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Alternate III paragraph (c) substitution; aligned the delivery-rule, definitions pointer and never-confuse wording with their quotes.
-- COMPATIBLE_EXTENSION, 2026-10-31: Israeli end product definition stated as two alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: Israeli end product definition stated as two alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American, Free Trade Agreements and Israeli Trade Act clause.

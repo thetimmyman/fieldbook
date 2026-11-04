@@ -58,5 +58,5 @@ Which executed contracts carry the provision or the clause, and whether subcontr
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited waiver-absence and cross-reference commentary sentences.
-- COMPATIBLE_EXTENSION, 2026-10-31: personal protective equipment flowdown sentence no longer adds an only
+- COMPATIBLE_EXTENSION, 2026-10-31: personal protective equipment flowdown sentence no longer adds an only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Xinjiang Uyghur Autonomous Region representation and clause.

@@ -75,7 +75,7 @@ Which officer owns each open assistance request and how the company records the 
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the special priorities assistance routing, forwarding and Form BIS-999 submission statements to 15 CFR 700.50 and 700.54.
-- COMPATIBLE_EXTENSION, 2026-10-31: Discretion condition, passive filing, 700.54 may-not wording
+- COMPATIBLE_EXTENSION, 2026-10-31: Discretion condition, passive filing, 700.54 may-not wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the § 700.93 pointer on how requests, adjustments, exceptions and appeals are submitted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the criteria for assistance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS special priorities assistance general provisions.

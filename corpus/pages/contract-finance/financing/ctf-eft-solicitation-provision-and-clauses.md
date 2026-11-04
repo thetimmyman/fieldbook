@@ -60,7 +60,7 @@ Confirm which EFT clauses and provisions each solicitation and contract carries 
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: added sealed bid and delivery-order clauses; removed meta wording and comparisons; separated RFO statements
+- COMPATIBLE_EXTENSION, 2026-10-31: added sealed bid and delivery-order clauses; removed meta wording and comparisons; separated RFO statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Closing exceptions stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the EFT solicitation provision and contract clauses.

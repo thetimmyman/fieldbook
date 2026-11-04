@@ -55,5 +55,5 @@ How the company records each rating it receives, passes it to suppliers and canc
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the § 700.13 acceptance and rejection cross-reference, the combined replacement order symbol H1 rule, and the complete list of non-new-order amendments.
-- COMPATIBLE_EXTENSION, 2026-10-31: Rating change wording says may and who
+- COMPATIBLE_EXTENSION, 2026-10-31: Rating change wording says may and who.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for changes to priority ratings and use of rated orders.

@@ -57,5 +57,5 @@ Which executed contracts carry the clause, and what estimated value of photovolt
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Merged the band exceptions with their alternatives and conditions; removed absence and meta sentences; replaced contrasts with pointers.
-- COMPATIBLE_EXTENSION, 2026-10-31: exception lists worded as alternatives joined by or
+- COMPATIBLE_EXTENSION, 2026-10-31: exception lists worded as alternatives joined by or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the photovoltaic devices clause and certificate.

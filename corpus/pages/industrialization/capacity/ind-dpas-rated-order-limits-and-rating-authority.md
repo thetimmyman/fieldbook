@@ -58,6 +58,6 @@ Which planned purchases might be mistaken for rated-order items, and who confirm
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the notwithstanding clause in 15 CFR 700.18(b) and aligned the prohibited-use and energy-project application descriptions.
-- COMPATIBLE_EXTENSION, 2026-10-31: Pointer to section 700.51 requests card
+- COMPATIBLE_EXTENSION, 2026-10-31: Pointer to section 700.51 requests card.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory basis for energy-project ratings and the listed kinds of energy projects.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for limits on placing rated orders and applications for rating authority.

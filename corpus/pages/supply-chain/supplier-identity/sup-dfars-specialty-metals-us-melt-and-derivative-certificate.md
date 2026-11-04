@@ -60,6 +60,6 @@ Which executed contracts and modifications carry the clause or the provision, an
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for paragraph (b), (c), (c)(1), and (d) of DFARS 252.225-7010 and removed uncited commentary.
-- COMPATIBLE_EXTENSION, 2026-10-31: definition items worded as alternatives; offer listing and certification scope stated
+- COMPATIBLE_EXTENSION, 2026-10-31: definition items worded as alternatives; offer listing and certification scope stated.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the derivative certificate sentence so the purchase agreements keep their use in producing each commercial derivative military article and the related commercial article.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the specialty metals melt clause and derivative certificate.

@@ -57,5 +57,5 @@ Which executed contracts carry each clause and which subcontracts above the thre
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned vessel component list, subcontract and fuel wording with the quotes; replaced uncited contrasts and absence sentence.
-- COMPATIBLE_EXTENSION, 2026-10-31: fuel certification scope (fuel to be provided under any resulting contract) stated
+- COMPATIBLE_EXTENSION, 2026-10-31: fuel certification scope (fuel to be provided under any resulting contract) stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for large medium-speed diesel engines, vessel components and overseas contingency operation fuel.

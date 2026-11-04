@@ -62,6 +62,6 @@ Whether the surety, allocation and other-borrowing documents behind each guarant
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned surety, borrowing and termination wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned surety, borrowing and termination wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for surety bonds, other borrowing and terminated contracts under loan guarantees.

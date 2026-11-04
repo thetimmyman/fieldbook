@@ -65,5 +65,5 @@ Which construction contracts carry this clause or an alternate, and who confirms
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the manufactured-in-the-United-States condition and iron and steel scope; restored cost-of-components qualifiers; removed meta wording and uncited statements.
-- COMPATIBLE_EXTENSION, 2026-10-31: exceptions and domestic definition described as alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: exceptions and domestic definition described as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Balance of Payments Program construction material under trade agreements basic clause.

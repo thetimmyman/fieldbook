@@ -60,7 +60,7 @@ Which construction contracts allow retainage, which contracts use working-capita
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned retainage, financing-use and payment wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned retainage, financing-use and payment wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Payment-clause retainage sentence now states the unsatisfactory-progress condition.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract financing policy limits.

@@ -70,7 +70,7 @@ What financing terms the company's market actually uses, and whether the solicit
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the commercial financing terms wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: All authorization circumstances apply together (and-list); market-research wording tightened.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

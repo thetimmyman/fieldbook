@@ -59,5 +59,5 @@ Which executed contracts carry each clause, and whether subcontracts for covered
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited absence and contrast statements; cited the two-part chain test; aligned the plate end-product wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: the two chain requirements stated as both applying
+- COMPATIBLE_EXTENSION, 2026-10-31: the two chain requirements stated as both applying.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restrictions on anchor and mooring chain, forgings and steel plate.

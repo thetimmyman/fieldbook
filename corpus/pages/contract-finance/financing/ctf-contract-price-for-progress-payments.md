@@ -60,7 +60,7 @@ Confirm how contract price and obligated funding caps are reconciled for progres
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned contract price, duties and RFO wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned contract price, duties and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined a sentence to its cited claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.503-11 price reduction adjustments.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

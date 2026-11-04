@@ -61,7 +61,7 @@ Which contracts and subcontracts carry the Defense Base Act clause, and who conf
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned shall-duties, waiver coverage and RFO wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned shall-duties, waiver coverage and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: War hazards exception tied to the same-protection rule; waived-employee coverage stated as at least the home-country requirement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for workers' compensation under the Defense Base Act and for waived overseas employees.

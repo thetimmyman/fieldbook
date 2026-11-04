@@ -76,6 +76,6 @@ Which items the company classifies as civil aircraft and related articles, and w
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and advice; cited the framing; reworded the exclusion sentence.
-- COMPATIBLE_EXTENSION, 2026-10-31: second product-of-a-country alternative keeps its materials-from-another-country condition
+- COMPATIBLE_EXTENSION, 2026-10-31: second product-of-a-country alternative keeps its materials-from-another-country condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the civil aircraft waiver.

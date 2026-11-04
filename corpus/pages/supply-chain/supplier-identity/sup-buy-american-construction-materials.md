@@ -63,6 +63,6 @@ Which executed construction contracts carry the clause, and who confirms any lis
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign-origin and unknown-origin component rules and the or joining the listed grounds; aligned the never-confuse wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: offer evaluation percentage tied to the clause paragraph that specifies it
+- COMPATIBLE_EXTENSION, 2026-10-31: offer evaluation percentage tied to the clause paragraph that specifies it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Buy American construction materials.

@@ -58,5 +58,5 @@ Which executed contracts carry the clause, and which offers carried the represen
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta sentence; aligned exception scope and award prohibition wording with the quotes.
-- COMPATIBLE_EXTENSION, 2026-10-31: limitation and exception alternatives and award-prohibition categories stated
+- COMPATIBLE_EXTENSION, 2026-10-31: limitation and exception alternatives and award-prohibition categories stated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on certain foreign commercial satellite services and its representations.

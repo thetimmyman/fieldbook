@@ -58,6 +58,6 @@ Which owned or controlled entities have activity in the countries named in the a
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the either-(1)-or-(2) choice, the joining of the two certification items and the report-review procedures; aligned the example.
-- COMPATIBLE_EXTENSION, 2026-10-31: listed ROTC and recruiting actions described as alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: listed ROTC and recruiting actions described as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the arms control treaty certification and the ROTC and military recruiting clause.

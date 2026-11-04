@@ -76,8 +76,8 @@ Whether the purchasing system flags foreign supplies for notice and flowdown, an
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: exemption conditions worded as both required
-- COMPATIBLE_EXTENSION, 2026-10-31: price-paragraph items, consignee and excepted cases stated as alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: exemption conditions worded as both required.
+- COMPATIBLE_EXTENSION, 2026-10-31: price-paragraph items, consignee and excepted cases stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added import destination, administering office, in-connection-with-contract and eligible-supplies scope to four sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of customs territory of the United States.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of the customs territory of the United States.

@@ -54,6 +54,6 @@ Which contracts are undefinitized and what their schedules and financing say, an
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: added unpriced change orders; removed uncited contrasts
+- COMPATIBLE_EXTENSION, 2026-10-31: added unpriced change orders; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Price determination carries FAR 15.4 and part 31 and extension actor; exemptions stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract definitization and requests for equitable adjustment.

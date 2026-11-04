@@ -56,7 +56,7 @@ Which executed contracts carry the clause and which subcontracts carry the flowd
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the multilateral institution part of the person definition; aligned flowdown and contrast wording with the quotes.
-- COMPATIBLE_EXTENSION, 2026-10-31: representation and clause duty name the Maduro regime authority as quoted
+- COMPATIBLE_EXTENSION, 2026-10-31: representation and clause duty name the Maduro regime authority as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business operations with the Maduro regime.

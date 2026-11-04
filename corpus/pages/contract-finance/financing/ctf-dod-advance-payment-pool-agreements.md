@@ -52,6 +52,6 @@ Confirm whether the company holds several contracts that one financing agreement
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: removed meta wording and added contrast; aligned pool wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: removed meta wording and added contrast; aligned pool wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Pool set-up ways stated as alternatives; wording matched to the clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD advance payment pool agreements.

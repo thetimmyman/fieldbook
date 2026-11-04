@@ -54,5 +54,5 @@ Who submits payment requests and receiving reports in Wide Area WorkFlow for eac
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: added part 12 scope and alternative-method detail; removed uncited contrasts
+- COMPATIBLE_EXTENSION, 2026-10-31: added part 12 scope and alternative-method detail; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for electronic submission of payment requests and receiving reports.

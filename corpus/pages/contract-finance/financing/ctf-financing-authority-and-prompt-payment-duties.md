@@ -64,8 +64,8 @@ Confirm which payment terms apply to each contract line and who confirms clause 
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned shall wording; removed meta wording, uncited contrasts and other-area claim
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned shall wording; removed meta wording, uncited contrasts and other-area claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Referral stated as a direction; fraud recommendation and small business payment condition added.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract financing authority and prompt payment responsibilities.

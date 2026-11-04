@@ -57,7 +57,7 @@ Whether any executed contract delivers flags or supercomputers, and who confirms
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta wording and uncited contrasts; cited the prescribing section and the flag exclusion.
-- COMPATIBLE_EXTENSION, 2026-10-31: Placed the flag-manufacture citation before the Berry Amendment reference
+- COMPATIBLE_EXTENSION, 2026-10-31: Placed the flag-manufacture citation before the Berry Amendment reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that the flag requirement is stated to be consistent with the Berry Amendment requirements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the American flag and supercomputer manufacturing requirements.

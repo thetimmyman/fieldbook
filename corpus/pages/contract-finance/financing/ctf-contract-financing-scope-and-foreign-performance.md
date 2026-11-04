@@ -64,8 +64,8 @@ The award authority behind each contract, and whether foreign jurisdictions may 
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned applicability, foreign security and RFO wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned applicability, foreign security and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Commercial subpart sentence names commercial products and services under part 12.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.003 limit on financing for part 13 purchases.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.003 limit on financing for part 13 purchases.

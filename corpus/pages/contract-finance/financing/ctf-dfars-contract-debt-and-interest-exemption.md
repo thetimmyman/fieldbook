@@ -70,5 +70,5 @@ Which payment office is the disbursing officer for each contract, whether the co
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned disbursing officer and exemption wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned disbursing officer and exemption wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract debt responsibility and the exemption from administrative interest charges.

@@ -62,8 +62,8 @@ Confirm which contracts are paid by EFT or purchase card and which listed except
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: added payment office fallback; replaced comparisons and meta wording; separated RFO statements
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: added payment office fallback; replaced comparisons and meta wording; separated RFO statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Treasury-authorization case reworded to the text; card definition now cited to its own source.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 purchase card transaction sentence and the RFO definition of Governmentwide commercial purchase card.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a U.S.C. citation so the sentence keeps its claim.

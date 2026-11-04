@@ -54,5 +54,5 @@ Which customer orders carry ratings, and how the order book records the rating a
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the delivery-date rule for requirements contracts and basic ordering agreements, the manual-order signature qualifier, and the full emergency preparedness order statement.
-- COMPATIBLE_EXTENSION, 2026-10-31: Marked FAR list as non-exhaustive
+- COMPATIBLE_EXTENSION, 2026-10-31: Marked FAR list as non-exhaustive.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for priorities and allocations in contracts.

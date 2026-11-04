@@ -62,6 +62,6 @@ Which line items of each executed contract carry this clause or one of its alter
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the qualifying country conditions and cost-of-components qualifier; cited the alternates framing; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Buy American and Balance of Payments Program clause, definitions and delivery rule.

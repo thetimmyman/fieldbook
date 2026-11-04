@@ -60,7 +60,7 @@ Whether the company expects to seek a defense production loan guarantee, and whe
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned certificate duties, authority scope and RFO wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned certificate duties, authority scope and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate preparation cases stated as alternatives with companion claim; small-business exception sentence tightened.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for loan guarantees for defense production and the certificate of eligibility.

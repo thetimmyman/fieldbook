@@ -59,7 +59,7 @@ Which commercial contracts include financing terms and whether commercial advanc
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned authorization circumstances, RFO and deviation wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned authorization circumstances, RFO and deviation wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Adaptation sentence carries the full-understanding duty; authorization circumstances apply together.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 32.200 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 32.200 subpart scope.
