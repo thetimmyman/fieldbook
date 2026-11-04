@@ -6,6 +6,8 @@
 pub mod corpus_toml;
 pub mod page;
 pub mod page_types;
+pub mod register;
+pub mod table;
 pub mod vocab;
 
 pub use corpus_toml::{
@@ -15,4 +17,6 @@ pub use page::{
     MetaError, MetaErrorKind, PageMeta, Split, SplitError, SplitErrorKind, parse_meta, split,
 };
 pub use page_types::template;
+pub use register::{Column, ColumnKind, ColumnNeed, Register};
+pub use table::{Row, Table, TableError, TableErrorKind};
 pub use vocab::{ChangeClass, PageStatus, PageType, Readiness, VocabError, Volatility, label_form};
