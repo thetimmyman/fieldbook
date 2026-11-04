@@ -66,6 +66,5 @@ Which of the company's markets and customer groups fall inside the programs the 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the statutory citations in FAR 19.000(a) and removed unquoted meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the small business programs part.

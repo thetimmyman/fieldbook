@@ -58,7 +58,6 @@ Whether the company has represented itself as a small disadvantaged business on 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements not in the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA reviews of small disadvantaged business status.

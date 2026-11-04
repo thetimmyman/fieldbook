@@ -66,6 +66,5 @@ Whether the company's authorized acquisition mandate and decision criteria still
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unstated only and meta wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exiting the 8(a) program and existing contracts.

@@ -65,6 +65,5 @@ Which agency small business specialists and procurement center representatives c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted contrast and meta commentary on solicitation requests.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for locating small business sources and encouraging their response.

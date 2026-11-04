@@ -55,7 +55,6 @@ Who signs size representations and how the company screens subcontractor size se
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the same-page signature rule and statutory penalty citations and removed unstated only and absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined the presumption condition, narrowed the limitation sentence and added the debarment procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size misrepresentation penalties and subcontract size.

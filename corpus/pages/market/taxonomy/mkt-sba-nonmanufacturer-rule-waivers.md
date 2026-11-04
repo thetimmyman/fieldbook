@@ -55,7 +55,6 @@ Which supply items the company resells and whether a small business makes each o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all required items for an individual waiver request and the one-year award and extension rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the periodic review of class waivers and softened the list of request items.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the list of class waivers.

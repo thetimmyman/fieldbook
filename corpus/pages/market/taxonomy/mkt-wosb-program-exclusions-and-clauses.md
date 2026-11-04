@@ -56,7 +56,6 @@ Which product families, customer groups and market segments define the commercia
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the RFO FAR 2.101 definition directly and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Described the exclusions as alternatives and removed the added checking duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of women-owned small business concern.

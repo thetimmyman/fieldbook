@@ -59,7 +59,6 @@ Which kinds of contracts, orders and subcontracts the company offers on as a sma
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the formal-response alternative and section cross-references and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the price element for each order and the reach of the recertification exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the self-certification duty and the contracting officer's acceptance of it.

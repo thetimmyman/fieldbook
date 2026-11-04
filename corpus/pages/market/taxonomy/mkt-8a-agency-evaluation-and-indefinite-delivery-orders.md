@@ -72,7 +72,6 @@ Which product families, customer groups and market segments the company counts i
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the two-participant condition in FAR 19.805-1(a)(1) and removed absence and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the competed-among-all-8(a)-holders condition and softened a 'one mandatory act' claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.

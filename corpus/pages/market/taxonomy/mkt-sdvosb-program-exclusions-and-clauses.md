@@ -54,7 +54,6 @@ Whether the purchasing system review status and any customer consent needed for 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exclusions in FAR 19.1404 as alternatives and removed absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an actor the cited text does not name from the exclusions sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service-disabled veteran-owned small business program exclusions and contract clauses.

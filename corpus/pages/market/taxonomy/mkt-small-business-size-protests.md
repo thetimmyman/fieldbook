@@ -58,7 +58,6 @@ Which of the company's legal entities and contracts depend on a small business r
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Included contractor rerepresentation in the forwarding rule and all appeal parties in FAR 19.302(h).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the timeliness lead-in and the 15-day lead-in for the immediate-need award.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the forwarding sentence so the contracting officer's duty keeps the Area Office that serves the offeror's headquarters.

@@ -53,7 +53,6 @@ Who receives a size protest on each of the company's set-aside offers, and who a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unstated only and absence wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added where a size protest is filed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for referral of a size protest to an area office.

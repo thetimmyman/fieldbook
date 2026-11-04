@@ -51,6 +51,5 @@ Whether any solicitation the company bids relies on a nonmanufacturer rule waive
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast wording not in the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notification of nonmanufacturer rule waivers.

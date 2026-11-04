@@ -68,6 +68,5 @@ Whether the company's authorized acquisition mandate, decision criteria and dili
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prime-and-8(a)-contractor scope of the single contract document and removed absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing competitive 8(a) contracts and inserting the 8(a) contract clauses.

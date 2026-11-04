@@ -55,7 +55,6 @@ Which of the company's product families and market segments it would offer as a 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the member-shareholder rules for small agricultural cooperatives and removed meta and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored 'including' so the characteristics are not read as a closed list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the SBA test for a concern's primary industry.

@@ -54,7 +54,6 @@ Which product and service families map to which NAICS code, and which size stand
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named 13 CFR 121.201 and the Economic Classification Policy Committee, matched mandatory shall wording, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the price wording, the multiple-award code choice and the appeal alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size standards, NAICS codes and appeals of the contracting officer's code.

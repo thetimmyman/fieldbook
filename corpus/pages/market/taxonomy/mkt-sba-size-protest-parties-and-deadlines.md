@@ -55,7 +55,6 @@ Which of the company's offers are small business set-asides that a competitor co
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the lists of protesting SBA officials and interested parties for set-aside and unrestricted procurements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the set-aside program scope and made the contract deadlines specific.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how a size protest is delivered to the contracting officer.

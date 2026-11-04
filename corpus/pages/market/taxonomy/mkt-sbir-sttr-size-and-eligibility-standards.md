@@ -54,7 +54,6 @@ Whether the company or any affiliate would apply for SBIR or STTR awards, who ow
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the STTR ownership list item and named the statutory citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the 50 percent equity rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBIR and STTR size and eligibility standards.

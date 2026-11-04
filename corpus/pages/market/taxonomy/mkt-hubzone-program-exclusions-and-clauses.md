@@ -54,6 +54,5 @@ Whether the requirement falls within the authorized acquisition mandate and deci
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the exclusions in FAR 19.1304 as alternatives and removed an unstated actor and absence wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for HUBZone program exclusions and contract clauses.

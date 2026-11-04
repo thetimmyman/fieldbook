@@ -57,6 +57,5 @@ Which industry codes the company's product families and market segments map to, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an absence statement not in the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for SBA size standards and identification as small.

@@ -56,6 +56,5 @@ Whether the company's authorized acquisition mandate and decision criteria cover
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the FAR 19.502-1(a) grounds directly and removed meta commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the requirement to set aside acquisitions for small business.

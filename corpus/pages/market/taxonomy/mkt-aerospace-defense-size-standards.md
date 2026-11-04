@@ -99,6 +99,5 @@ Which aerospace or defense code each product line falls under, and which printed
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted absence and meta statements in the footnote rules.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for aerospace and defense manufacturing size standards.

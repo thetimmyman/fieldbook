@@ -55,7 +55,6 @@ Which filings carry a size verification, and who responds if the Patent and Trad
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both conjunctive reduced-patent-fee conditions in 13 CFR 121.802.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the public law citation so the claim reference follows it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size rules for reduced patent fees.

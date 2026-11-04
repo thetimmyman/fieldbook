@@ -54,7 +54,6 @@ Which legal entities make these representations, which of them have affiliates o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the written-determination representation and mentor-protégé joint venture alternative and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the entire-contract size sentence and the multiple-award scope of the order rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for offeror size and status representation at initial offer.

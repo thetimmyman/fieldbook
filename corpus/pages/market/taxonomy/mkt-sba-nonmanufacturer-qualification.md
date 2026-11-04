@@ -57,7 +57,6 @@ Whether the company makes its end items itself or resells other firms' products.
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contract and order scope in 13 CFR 121.406(a) and the service and construction NAICS exclusion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the Nonmanufacturer Rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for how a nonmanufacturer qualifies as a small business.

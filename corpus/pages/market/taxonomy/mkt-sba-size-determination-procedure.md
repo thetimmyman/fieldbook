@@ -55,7 +55,6 @@ Who would prepare the size form and affiliate information, and whether the recor
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the concern whose size is at issue and the scope of the extension on SBA Form 355.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the failure-to-submit alternative and the grounds not raised.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who makes a formal size determination and what is binding.

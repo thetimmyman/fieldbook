@@ -53,7 +53,6 @@ Whether the company holds or relies on any status advisory opinion, and on which
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added all three conjunctive requirements in 13 CFR 121.109(b).
 - COMPATIBLE_EXTENSION, 2026-10-31: Said the written analysis is one of the opinion requirements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business status advisory opinions.
