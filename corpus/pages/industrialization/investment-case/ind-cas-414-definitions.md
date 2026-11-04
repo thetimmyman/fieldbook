@@ -52,6 +52,5 @@ Which assets the company counts as facilities capital, and how the net book valu
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added held-by-an-enterprise actor and matched CAS 414 definition wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CAS 414 definitions.

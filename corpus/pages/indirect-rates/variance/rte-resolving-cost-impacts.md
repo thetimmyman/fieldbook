@@ -58,7 +58,6 @@ Which final indirect-rate sets are approved for each period, because an alternat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the negotiation duty on behalf of all Government agencies, the one-or-more scope on combining cost impacts, the cost-overrun example and shall wording, and removed uncited sentences and clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the unilateral and noncompliance scope into the adjustment sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for resolving cost impacts and recovering increased costs.

@@ -54,7 +54,6 @@ How the company groups its home office expenses and which base it uses for each 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the residual-expense threshold lead-in, added the surrogate proportionality rule, matched shall wording and cost per square foot, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the paragraph for the common-base exception and the percentage list.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a residual-expense threshold condition the cited quotes do not state.

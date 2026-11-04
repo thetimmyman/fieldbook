@@ -58,7 +58,6 @@ How the company defines and reconciles its pools, bases and service-center charg
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified benefits-accruing base rule and the RFO pro-rata example tail, restored fiscal-year and other-circumstances qualifiers, and removed uncited paraphrases, contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the tail of the same-purpose rule and the shall wording of the grouping, base and cost accounting period rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the indirect-cost sentences to their quotes; restored "appropriate" and the fragmenting limit; cited the codified text for two RFO comparisons.

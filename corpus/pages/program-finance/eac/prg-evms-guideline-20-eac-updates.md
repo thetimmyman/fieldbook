@@ -52,6 +52,5 @@ Who owns the control account and summary level planning package estimates at com
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0130 and CL-PRG-0131 for CA/SLPP/ETC scope, aligned sentences with quotes, and removed uncited contrast and meta wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 20 estimates at completion.

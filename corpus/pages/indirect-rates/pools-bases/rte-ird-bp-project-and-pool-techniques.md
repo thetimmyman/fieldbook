@@ -54,7 +54,6 @@ How the company opens, charges and reports its IR&D and B&P projects, and which 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the business-unit allocation lead-in, restored 9904.403, shall wording and full special-allocation provisos, and removed overbroad summaries and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named who may agree a business unit special allocation and used the shall wording for home office project allocation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named subparagraph (f)(1) as the quote does; named subparagraph (f)(1) as the quote does.

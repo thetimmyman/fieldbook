@@ -54,6 +54,5 @@ Which planned multiyear or advance procurement commitments could cross a notice 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 17.108(a)-(b) committee recipients and thirty-first-day wait and DFARS 217.170(d)(1)(iii) alternative connector.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for congressional notification and advance procurement for multiyear contracts.

@@ -52,7 +52,6 @@ Who owns the program estimates and reports, and how each monthly report is recon
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall and will modals, stated full rules for cited claims, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive 'only' the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR monthly EVMS reports and subcontractor application.

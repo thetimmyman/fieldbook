@@ -54,7 +54,6 @@ Which fixed-price contracts are incrementally funded, which of the two sets of c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 232.704-70(c) actor companion, matched verbs and recipients to quotes, and removed uncited meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Incremental-funding conditions stated as alternatives, stop-work and risk statements tied to the third notice, clause paragraph and as-appropriate added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 232.001 definition and 232.702 policy.

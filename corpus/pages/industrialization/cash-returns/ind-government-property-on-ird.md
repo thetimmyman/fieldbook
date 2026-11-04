@@ -54,7 +54,6 @@ Whether any advance agreement covers IR&D or the use of Government property on i
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all three FAR 45.303 conditions conjunctively with lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Authorization condition cites all three items
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government property on independent research and development.

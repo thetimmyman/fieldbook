@@ -54,7 +54,6 @@ Which open contracts rest on written assurance of funds, which are conditioned o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Anti-Deficiency Act statutory citation, separated RFO and codified citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the FAR 32.703-2 reference for the express funds condition.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

@@ -54,7 +54,6 @@ Which capital projects depend on offered Government property, and who reconciles
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 45.201(c)(1) accountable-contract and authorization list requirement and accounting-for-property scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for property plan check
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for offering Government property in a solicitation.

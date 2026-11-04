@@ -58,7 +58,6 @@ Which accounting frameworks and cash assumptions management uses to bridge backl
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Item 303(a) impact-scope companion and Item 10(a)(2) filing companions, cited the material-deficiency remedy clause, and restored full quote qualifiers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the must-consider-changes requirement for capital resources and named Instruction 4 to paragraph (b).
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the deficiency step from the unconditional liquidity-source duty and added the as-of date.

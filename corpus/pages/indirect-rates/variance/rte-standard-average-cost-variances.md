@@ -54,7 +54,6 @@ Which pre-established rate sets and standard-cost systems the company has approv
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the "; or" alternative on standard costs and the preestablished indirect rate rule, restored interchangeable-functions, direct-labor-worker and performance qualifiers, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the actual-cost rule, shall wording and variance scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched 'provided that'.

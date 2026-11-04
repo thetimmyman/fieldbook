@@ -53,7 +53,6 @@ Which reporting measures management uses to explain revenue and margin changes, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Item 303(b)(2)(i) significant-components companion and Item 10(a)(2) filing companions, restored full quote conditions, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Price, volume and new-product attribution now carries the source's if-applicable qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added 'not profit' contrast.

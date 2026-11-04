@@ -56,7 +56,6 @@ Whether any contract has received a Title III testing request or modification, a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims CL-PRG-0134 and CL-PRG-0135, restored shall modals, statutory references, and office location, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed mis-cited pointer; policy wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

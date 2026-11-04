@@ -43,7 +43,7 @@ The registrant describes the business done and intended to be done by the regist
 
 Synthetic example. The numbers are made up.
 
-A contractor has two reportable segments. One earns most of its revenue from a single Government program, worth 60 million of 100 million. The description names the dependence on that customer and the program. A small second segment with 5 million of revenue is also described, because it holds the only new product in development.
+A contractor has two reportable segments. One earns most of its revenue from a single Government program, worth 60 million of 100 million. The description names the dependence on that customer and the program. The second reportable segment, with 5 million of revenue, is also described because it holds the only new product in development, which is material to an understanding of the business taken as a whole.
 
 ## Never confuse
 
@@ -56,7 +56,6 @@ Which reporting measures management uses for segment performance and customer de
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Instruction 1 factor companions and Item 10(a)(2) filing companions, restored full quote wording, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored should-not-be-limited wording and the only-material-information-is-required wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business description by segment.

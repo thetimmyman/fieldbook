@@ -58,7 +58,6 @@ Which fiscal years are still open, because the cost impact calculation reaches a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the procedures lead-in, the revised-GDM data examples and the remedy estimate tail, and restored the DCI paragraph-(h) requirement, fiscal-year scope and Never-confuse conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the desirable-change alternative, evaluation lead-in and DCI agreement terms.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated DCI request as a listed alternative; removed 'first' and 'only'.

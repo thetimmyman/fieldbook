@@ -58,7 +58,6 @@ Which supplier license agreements or terms of service sit under company-delivere
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full FAR 32.705 and 52.232-39(a)(2)-(3) click-wrap and stricken-clause rules, removed RFO meta-framing, and cited Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Clause-insertion actor restored (contracting officer shall insert); paragraph (a) exception scope fixed; RFO sentences cite RFO claims only; FAR 32.705 sentence says agreements the section describes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported 'one exception' wording.

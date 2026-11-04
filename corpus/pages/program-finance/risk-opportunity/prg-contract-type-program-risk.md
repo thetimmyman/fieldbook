@@ -55,7 +55,6 @@ Whether each covered program has a recorded risk level and, for a cost-reimburse
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0132 for the DFARS 234.004(2)(ii) lead-in, restored statutory references and full conditions, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored shall wording and military department.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract type selection and program risk.

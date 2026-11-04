@@ -54,6 +54,5 @@ Which capital projects face a decision between buying assets and asking for Gove
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated all four FAR 45.102(b) conditions with paragraph (d) exception and practices and standards wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor-furnished property as the default.

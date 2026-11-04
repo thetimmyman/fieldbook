@@ -54,7 +54,6 @@ Which contract line items are incrementally funded, where the allotment schedule
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 252.232-7007(c) subsequent-period notification companions, restored full quote scope, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Termination notice timing, equitable-adjustment scope and stop-work wording match the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (a) scope, the schedule-dates lead-in and the termination clause reference.

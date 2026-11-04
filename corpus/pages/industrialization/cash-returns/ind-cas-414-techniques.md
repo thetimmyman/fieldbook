@@ -54,6 +54,5 @@ Whether the company computes a factor for each significant pool and keeps the fo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched CAS 414 rate statute, factor shall wording, appendix reference and contract scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CAS 414 techniques.

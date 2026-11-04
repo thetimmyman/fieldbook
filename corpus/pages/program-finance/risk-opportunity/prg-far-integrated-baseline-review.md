@@ -54,7 +54,6 @@ Which baseline, contingency and risk decisions the review changes in the current
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0133 for the conjunctive list ending, aligned all sentences with quotes, and removed unsupported only, meta wording, and uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored successfully, offerors and tasks qualifiers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the FAR Integrated Baseline Review, its purpose and the five joint assessment items.

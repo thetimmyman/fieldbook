@@ -58,7 +58,6 @@ Which contracts carry either availability clause, and who confirms and records t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 32.706-1(b) and 52.232-19 companions, separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Comparison sentences now carry the insertion conditions for both availability clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text of the Availability of Funds clauses at FAR 52.232-18 and 52.232-19.

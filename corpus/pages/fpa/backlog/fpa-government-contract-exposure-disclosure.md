@@ -53,7 +53,6 @@ How backlog, pipeline, funding, capacity and revenue are bridged in the operatin
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Item 10(a)(2) filing companions, restored full quote scope for Item 101(c)(1)(iv) and (c)(2)(i), and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Segment scope of the materiality sentence restored; segment point no longer called an exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for government contract exposure in the business description.

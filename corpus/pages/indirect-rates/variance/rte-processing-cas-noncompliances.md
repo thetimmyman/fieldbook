@@ -56,7 +56,6 @@ How notices of potential noncompliance are tracked and answered within the notic
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 52.230-6 lead-in, cost-impact calculation lead-in, no-adjustments conclusion and 30.605 cross-reference, restored the rationale documentation step and paragraph (d) or (f) scope, and removed uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the unless-immaterial scope and shall wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the notice and immaterial cost impact sentences so each keeps the rationale for an immaterial impact and the reservation of contract adjustments.

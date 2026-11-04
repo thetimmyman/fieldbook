@@ -56,7 +56,6 @@ Which cost input base the company uses for its general and administrative pool, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added cost accounting period and allocation-purpose qualifiers, base selection criteria, value-added base definition, and removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the "and other" wording of the general and administrative expense definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

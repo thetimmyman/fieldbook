@@ -54,7 +54,6 @@ How the company defines its pools, picks the base for each, and reconciles charg
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the material cost base alternative, base-selection lead-in and full cross-allocation tail, restored cost-objective and ascertain qualifiers, and removed uncited contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the pool type that each allocation-measure paragraph covers and cited its heading.
 - COMPATIBLE_EXTENSION, 2026-10-31: Changed "includes" to "must include" to match "shall include"; said the other-base list continues beyond the two bases quoted.

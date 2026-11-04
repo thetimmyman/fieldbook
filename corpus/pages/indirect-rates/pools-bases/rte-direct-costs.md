@@ -58,7 +58,6 @@ How the company assigns a cost as direct versus indirect for the same purpose. [
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched direct-cost and RFO sentences to their quotes and removed uncited paraphrases, contrasts and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the tail of the same-purpose rule and the shall and must wording of the direct-cost charging rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut the direct-cost sentence back to what its quote says.

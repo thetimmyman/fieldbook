@@ -54,7 +54,6 @@ Which long-lead purchases the company would place before first article approval,
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 9.306(a)(2)-(3) solicitation items, FAR 9.307(b) notice contents and Changes-clause rule, and termination-for-convenience condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Approval notice actors and shall wording
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor risk before first article approval.

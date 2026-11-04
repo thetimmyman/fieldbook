@@ -56,6 +56,5 @@ Which supplier commitments and lead times would have to hold across several prog
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 17.105-1(a)(2) second determination, full FAR 17.105-1(b) condition details, and FAR 17.105-1(d) cancellation requirement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting.

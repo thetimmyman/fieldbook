@@ -52,7 +52,6 @@ Who owns the program estimate at completion, how often it is refreshed, and how 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0136, restored Best Case/Worst Case, monthly update, and contractor qualifiers, and removed uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added risk-management and basis qualifiers the guide states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the at-least-annual comprehensive estimate at completion at the contract level.

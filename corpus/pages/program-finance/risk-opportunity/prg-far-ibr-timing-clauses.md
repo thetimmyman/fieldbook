@@ -54,7 +54,6 @@ Which of the company's contracts carry the earned value clause, and whether a re
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals, offerors' pre-award IBR costs scope, and full provision titles and conditions, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: named contracting officer as actor for clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

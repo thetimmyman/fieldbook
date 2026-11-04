@@ -40,7 +40,7 @@ In describing developments of the business of the registrant, its subsidiaries, 
 
 Synthetic example. The numbers are made up.
 
-A listed contractor buys a smaller firm for 40 million, which is material to its business. It describes the purchase and its effects in the development discussion. A private contractor making the same purchase has no filing duty and may record the same description in its planning narrative.
+A listed contractor buys a smaller firm for 40 million, which is material to its business. It describes the purchase and its effects in the development discussion. A private contractor making the same purchase is not subject to the filing requirements of Item 101(a) of Regulation S-K.
 
 ## Never confuse
 
@@ -53,7 +53,6 @@ Which management reporting measures flag a strategy change, merger or asset disp
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Item 101(a)(2) lead-in companion and Item 10(a)(2) filing companions, restored full quote wording, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Topic list now says disclosure may include but should not be limited to the topics, as the source states.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for business development disclosure.
