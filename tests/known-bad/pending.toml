@@ -1,26 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-page-parts
-[[pending]]
-code = "FB0130"
-card = "check-page-parts"
-
-[[pending]]
-code = "FB0131"
-card = "check-page-parts"
-
-[[pending]]
-code = "FB0132"
-card = "check-page-parts"
-
-[[pending]]
-code = "FB0133"
-card = "check-page-parts"
-
-[[pending]]
-code = "FB0137"
-card = "check-page-parts"
-
 # check-page-body
 [[pending]]
 code = "FB0134"
