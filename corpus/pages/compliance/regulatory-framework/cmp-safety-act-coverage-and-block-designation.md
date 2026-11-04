@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
 +++
+
 ## Purpose
 
 Explains the two SAFETY Act solicitation provisions, what an offeror may submit under them, the timing that applies and how a contingent offer affects award [@CL-CMP-5584; @CL-CMP-5587].

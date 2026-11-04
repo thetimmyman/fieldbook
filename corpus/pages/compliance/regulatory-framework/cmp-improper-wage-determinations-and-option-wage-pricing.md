@@ -1,6 +1,6 @@
 +++
 id = "cmp-improper-wage-determinations-and-option-wage-pricing"
-title = "Improper wage determinations before award, option-period wage determinations and Department of Labor construction regulations"
+title = "Improper wage determinations before award, option-period wage determinations and DOL construction rules"
 area = "cmp"
 subarea = "regulatory-framework"
 type = "clause-card"

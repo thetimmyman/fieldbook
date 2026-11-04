@@ -1,6 +1,6 @@
 +++
 id = "ctf-commercial-terms-alternate-i-time-and-materials"
-title = "Commercial contract terms, Alternate I: time-and-materials and labor-hour inspection, payment, ceiling price and termination"
+title = "Commercial contract terms, Alternate I: time-and-materials inspection, payment, ceiling price and termination"
 area = "ctf"
 subarea = "billing-payment"
 type = "clause-card"

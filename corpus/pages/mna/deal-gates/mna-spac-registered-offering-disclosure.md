@@ -1,6 +1,6 @@
 +++
 id = "mna-spac-registered-offering-disclosure"
-title = "Disclosure in registered offerings by special purpose acquisition companies, and the SPAC sponsor and conflicts of interest"
+title = "Disclosure in SPAC registered offerings: sponsor, conflicts of interest and dilution"
 area = "mna"
 subarea = "deal-gates"
 type = "clause-card"

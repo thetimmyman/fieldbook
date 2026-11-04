@@ -1,6 +1,6 @@
 +++
 id = "cmp-acao-assignment-and-rate-negotiation"
-title = "Corporate administrative contracting officer assignment and the contracting officer determination procedure for final indirect cost rates"
+title = "Corporate administrative contracting officer assignment and final indirect cost rate determination"
 area = "cmp"
 subarea = "regulatory-framework"
 type = "clause-card"

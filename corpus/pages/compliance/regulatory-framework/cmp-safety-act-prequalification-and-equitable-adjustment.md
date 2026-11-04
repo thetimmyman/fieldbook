@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
 +++
+
 ## Purpose
 
 Explains what a pre-qualification designation notice does for an offeror, how its alternates treat contingent offers and filing, and when a contractor can obtain an equitable adjustment after a SAFETY Act denial [@CL-CMP-5592; @CL-CMP-5595].

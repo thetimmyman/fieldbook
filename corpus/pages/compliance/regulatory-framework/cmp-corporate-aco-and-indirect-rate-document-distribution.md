@@ -1,6 +1,6 @@
 +++
 id = "cmp-corporate-aco-and-indirect-rate-document-distribution"
-title = "Corporate administrative contracting officers, State and local government indirect cost rates and distribution of rate documents"
+title = "Corporate administrative contracting officers, State and local indirect cost rates and rate document distribution"
 area = "cmp"
 subarea = "regulatory-framework"
 type = "clause-card"
