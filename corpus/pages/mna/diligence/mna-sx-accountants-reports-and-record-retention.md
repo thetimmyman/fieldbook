@@ -53,7 +53,6 @@ Which accountant reports and audit or review records the company obtains, and ho
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0118 on audit procedures in § 210.2-02(b) and aligned report and retention statements with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: opinion wording restated with its alternative.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for accountants' reports and retention of audit records.

@@ -58,7 +58,6 @@ Whether any target or its subsidiaries have recently changed name, and where the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0099 for dollar-value and unpaid-balance requests, separated codified and RFO citations, and aligned wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Unsettled-contract list scope and successor-recognition wording aligned with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of change-of-name agreement.

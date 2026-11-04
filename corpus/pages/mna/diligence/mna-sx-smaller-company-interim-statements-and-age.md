@@ -55,7 +55,6 @@ Which interim statements the company must provide, and whether an accountant rev
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0139 for filing the accountant's review report under § 210.8-03 and combined the § 210.8-08(a) 45-day rule and proviso into one sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: review standard and 135-day reference date added.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for smaller reporting company interim statements and age of statements.

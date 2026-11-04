@@ -53,7 +53,6 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0128 through CL-MNA-0131 for bookkeeping examples in § 210.2-01(c)(4)(i)(A)-(C) and the pre-initial-filing period exclusion in § 210.2-01(f)(5)(iii).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the direct investment case.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the qualifications of accountants and auditor independence.

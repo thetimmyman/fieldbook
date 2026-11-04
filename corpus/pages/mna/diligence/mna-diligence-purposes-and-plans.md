@@ -69,7 +69,6 @@ The company confirms its stated purpose, which post-closing plans it must disclo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated paragraph (c) items as alternatives with CL-MNA-1076 and combined paragraph (d)(1) and its instruction conditions into single sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed outcomes and negotiation matters stated as alternatives; relief stated with both conditions.
 - NEW_KNOWLEDGE, 2026-10-31: Added the remaining listed outcomes in paragraph (c), items (5) through (8): other corporate changes, delisting, deregistration eligibility and suspension of reporting duties.

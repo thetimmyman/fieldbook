@@ -53,7 +53,6 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0137 and CL-MNA-0138 for filing pursuant to Article 8 under § 210.15-01(b) and aligned statements with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: age-of-statements qualifier and cited sections added.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for acquisitions of businesses by a shell company.

@@ -68,6 +68,5 @@ The company confirms which of its filings use these definitions and whether each
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned definitions and summary term sheet instruction qualifiers with the cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Regulation M-A definitions and the summary term sheet.

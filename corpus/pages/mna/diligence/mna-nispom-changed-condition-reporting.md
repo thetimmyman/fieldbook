@@ -55,7 +55,6 @@ Who owns the duty to report ownership changes and foreign-interest talks, and ho
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0100 and CL-MNA-0112 for unchanged SF 328 answers and Schedule 13D forwarding.
 - COMPATIBLE_EXTENSION, 2026-10-31: SF 328 update trigger now covers foreign ownership, control or influence information.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the reporting sentence so the requirement keeps the other kinds of reportable events listed in the same sentence.

@@ -53,7 +53,6 @@ Which reporting measures management uses for the statement of comprehensive inco
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0127 for § 210.2-07(a)(2)(i)-(ii) on alternative GAAP treatments and aligned reconciliation and interim adjustment sentences with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: reconciliation place and update scope added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the interim statement adjustments rule.

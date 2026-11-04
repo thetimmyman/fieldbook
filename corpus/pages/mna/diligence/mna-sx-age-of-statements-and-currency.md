@@ -55,7 +55,6 @@ Which reporting currency and accounting framework the company uses for local and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0120 through CL-MNA-0123 for interim update statements under § 210.3-12(a) and currency recast and note disclosures under § 210.3-20(e).
 - COMPATIBLE_EXTENSION, 2026-10-31: filer definition added and update wording narrowed to the quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for age of financial statements and reporting currency.

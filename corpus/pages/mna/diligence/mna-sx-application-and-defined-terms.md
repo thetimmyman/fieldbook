@@ -53,7 +53,6 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0124 through CL-MNA-0126 for Exchange Act and Investment Company Act filings in § 210.1-01(a)(2)-(3) and aligned definitions with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: income test stated as both components required.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the application of Regulation S-X and its key defined terms.

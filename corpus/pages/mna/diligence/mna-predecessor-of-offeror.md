@@ -54,7 +54,6 @@ How the target's predecessors, their CAGE codes and legal names are identified a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0116 on successor liability under FAR 52.204-20(a) and separated codified and RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: successor definition, SAM wording and novation definition corrected.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched an absolute term to the cited text.

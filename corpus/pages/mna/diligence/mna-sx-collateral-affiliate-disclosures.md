@@ -53,6 +53,5 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0132 for the trading-market disclosure in § 210.13-02(a)(3) and aligned statements with the cited quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for affiliates whose securities collateralize registered securities.

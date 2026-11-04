@@ -53,7 +53,6 @@ Which acquisition mandate, decision criteria and diligence scope the company has
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned § 210.3-10 and § 210.13-01 omission and disclosure statements with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the omission of summarized information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements of guarantors and issuers of guaranteed securities.

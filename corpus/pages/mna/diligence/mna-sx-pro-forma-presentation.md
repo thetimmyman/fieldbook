@@ -55,7 +55,6 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0136 for real estate operations in § 210.11-01(b)(1)(ii) and combined the § 210.11-01(c) aggregate-impact exception into one sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: significance test described as one listed test; exception wording tightened.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that the Article 8 pro forma rule applies to smaller reporting companies.

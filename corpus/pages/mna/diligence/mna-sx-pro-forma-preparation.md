@@ -55,7 +55,6 @@ Which valuation, working-capital and integration conventions the company applies
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companions CL-MNA-0134 and CL-MNA-0135 for the separate Autonomous Entity Adjustments column and retrospective accounting-principle revisions under § 210.11-02.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the no-filing case for income statements and balance sheet scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pro forma financial information preparation requirements.

@@ -69,7 +69,6 @@ The company confirms which counterparties and agreements fall inside these tests
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined conditional and alternative clauses with their qualifying claims across paragraphs (a) through (e).
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed matters and the offeror counterparty stated as alternatives.
 - NEW_KNOWLEDGE, 2026-10-31: Added the instruction to paragraph (a)(1) and Instruction 1 to paragraph (e), and retitled the card to match the heading of Item 1005.

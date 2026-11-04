@@ -73,7 +73,6 @@ The company confirms which entity is the subject company, which persons must be 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Combined principal-market price period with CL-MNA-0268, included entity conviction and proceeding requirements under CL-MNA-0278, and aligned organization wording with CL-MNA-0279 and CL-MNA-0280.
 - COMPATIBLE_EXTENSION, 2026-10-31: Offering proceeds recipient and offeror address source stated as in the rule.
 - NEW_KNOWLEDGE, 2026-10-31: Added the instruction to state the Internet address where transaction information is available, and moved the page to question Q-028.

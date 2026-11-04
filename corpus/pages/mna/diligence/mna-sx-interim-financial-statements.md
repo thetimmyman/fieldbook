@@ -55,7 +55,6 @@ Which accounting frameworks and approved revenue policies govern the interim sta
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0133 for filing the accountant's review report under § 210.10-01(d) and combined the seasonal single-crop sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: review standards qualifier added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the cash flow test.

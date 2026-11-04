@@ -53,6 +53,5 @@ Which reporting measures management uses for restricted net assets and parent-on
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited CL-CLS-0408 and CL-CLS-0410 for Schedule II periods and independent accountant examination under § 210.5-04(a)(2) and (c).
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for schedules and condensed parent-only financial information.
