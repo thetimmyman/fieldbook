@@ -16,6 +16,7 @@ pub mod date;
 pub mod hash;
 pub mod hex;
 pub mod ids;
+pub mod report;
 pub mod schema;
 pub mod strings;
 pub mod version;

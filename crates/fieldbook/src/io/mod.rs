@@ -1,11 +1,17 @@
 //! The process edge: the one place that reads the command line and writes the
-//! standard streams.
+//! standard streams, plus Corpus root discovery and tree reading ([`tree`]).
 //!
 //! Later cards add file access here. Each lifts only the bans it needs, with a
 //! `#![expect(..., reason = "...")]` at the top of this module.
 
+pub mod tree;
+
+pub use tree::{Disk, WorldError, find_root, read_tree};
+
 use std::io::Write;
 use std::process::ExitCode;
+
+use crate::cli::EXIT_IO;
 
 /// Run the program: read the arguments, run the command, write its output.
 ///
@@ -16,7 +22,14 @@ pub fn run_process() -> ExitCode {
         .skip(1)
         .map(|arg| arg.to_string_lossy().into_owned())
         .collect();
-    let outcome = crate::run(&args);
+    let outcome = match Disk::current() {
+        Ok(disk) => crate::run(&args, &disk),
+        Err(err) => crate::Outcome {
+            stdout: String::new(),
+            stderr: format!("{err}\n"),
+            code: EXIT_IO,
+        },
+    };
     ExitCode::from(write_outcome(
         &outcome,
         &mut std::io::stdout().lock(),
@@ -34,7 +47,7 @@ fn write_outcome(outcome: &crate::Outcome, stdout: &mut dyn Write, stderr: &mut 
     if [out, err].iter().any(
         |result| matches!(result, Err(error) if error.kind() != std::io::ErrorKind::BrokenPipe),
     ) {
-        3
+        EXIT_IO
     } else {
         outcome.code
     }

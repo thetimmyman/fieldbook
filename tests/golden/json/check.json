@@ -1,0 +1,21 @@
+{
+  "report_version": 1,
+  "strict": false,
+  "today": "2026-03-01",
+  "errors": 1,
+  "warnings": 0,
+  "notes": [
+    "originals check skipped (no corpus/sources/public/)"
+  ],
+  "diagnostics": [
+    {
+      "code": "FB0100",
+      "severity": "error",
+      "path": "corpus/corpus.toml",
+      "line": 1,
+      "col": 1,
+      "message": "missing corpus/corpus.toml",
+      "help": "Fix corpus/corpus.toml (or store.toml in a company store) so it is valid TOML at a supported schema_version with well-formed areas and views."
+    }
+  ]
+}
