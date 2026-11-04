@@ -373,6 +373,121 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 
 | Lock refresh | Profile | Features | Direct runtime crates | Transitive crates | Notes |
 |---|---|---|---|---|---|
+| 0 | silent | default | 0 | 5 | Actual pre-adoption main `327d4e0`; all-target count 11 (uncapped). Its graph inputs are unchanged by the documentation-only work-order amendment. |
+| 1 | silent | default | 11 | 80 | Initial adoption; all-target count 90 (uncapped). The transitive cap is 80, leaving zero headroom. AI is inapplicable while `net` is absent. |
+
+### Initial resolution evidence
+
+The pinned `nightly-2026-10-08` resolver, Cargo `1.101.0-nightly (f3865b2a4 2026-09-29)`, resolved at the UTC cutoff `2026-10-15T19:47:16Z`. All 104 selected registry packages below were published by that cutoff. Their official sparse-index checksums and retained crate archive hashes match the committed lock. A fresh online resolution with an empty index and no candidate lock produced the same lock bytes, SHA-256 `528168515369bc8ea14c7581212e0068c05f1e4cf7d00d1fa26caa65cda9c246`. This is current cutoff re-resolution evidence; the deferred historical offline-replay capability is still unpassed.
+
+Stable `1.99.1` locked and frozen workspace builds, both locked cargo-deny variants and workspace tests pass in the retained preparation evidence. The silent graph has 11 direct runtime crates within its budget of 12, and 80 transitive crates at its inclusive cap of 80. The uncapped all-target count is 90. A later dependency or feature change must obtain fresh counts; these measurements grant no cap increase or Windows-runtime/AI result.
+
+| Crate | Locked version | Published (UTC) | Primary index |
+|---|---|---|---|
+| `anstyle` | `1.0.14` | 2026-03-13T18:59:28Z | [record](https://index.crates.io/an/st/anstyle) |
+| `arrayvec` | `0.7.8` | 2026-07-02T12:44:35Z | [record](https://index.crates.io/ar/ra/arrayvec) |
+| `askama` | `0.16.1` | 2026-09-04T12:10:52Z | [record](https://index.crates.io/as/ka/askama) |
+| `askama_derive` | `0.16.1` | 2026-09-04T12:10:46Z | [record](https://index.crates.io/as/ka/askama_derive) |
+| `askama_macros` | `0.16.1` | 2026-09-04T12:10:50Z | [record](https://index.crates.io/as/ka/askama_macros) |
+| `askama_parser` | `0.16.1` | 2026-09-04T12:10:42Z | [record](https://index.crates.io/as/ka/askama_parser) |
+| `autocfg` | `1.5.1` | 2026-05-22T11:03:04Z | [record](https://index.crates.io/au/to/autocfg) |
+| `bitflags` | `2.13.2` | 2026-09-10T01:11:38Z | [record](https://index.crates.io/bi/tf/bitflags) |
+| `block-buffer` | `0.12.1` | 2026-06-11T15:40:05Z | [record](https://index.crates.io/bl/oc/block-buffer) |
+| `borsh` | `1.8.1` | 2026-08-26T20:58:11Z | [record](https://index.crates.io/bo/rs/borsh) |
+| `borsh-derive` | `1.8.1` | 2026-08-26T20:58:07Z | [record](https://index.crates.io/bo/rs/borsh-derive) |
+| `bumpalo` | `3.20.3` | 2026-05-22T14:59:11Z | [record](https://index.crates.io/bu/mp/bumpalo) |
+| `bytes` | `1.12.1` | 2026-07-08T10:01:28Z | [record](https://index.crates.io/by/te/bytes) |
+| `cfg-if` | `1.0.5` | 2026-09-16T17:36:11Z | [record](https://index.crates.io/cf/g-/cfg-if) |
+| `cfg_aliases` | `0.2.2` | 2026-07-16T14:57:16Z | [record](https://index.crates.io/cf/g_/cfg_aliases) |
+| `clap` | `4.6.7` | 2026-09-14T18:40:28Z | [record](https://index.crates.io/cl/ap/clap) |
+| `clap_builder` | `4.6.7` | 2026-09-14T18:40:26Z | [record](https://index.crates.io/cl/ap/clap_builder) |
+| `clap_derive` | `4.6.7` | 2026-09-14T18:40:23Z | [record](https://index.crates.io/cl/ap/clap_derive) |
+| `clap_lex` | `1.1.1` | 2026-09-14T18:40:24Z | [record](https://index.crates.io/cl/ap/clap_lex) |
+| `cpufeatures` | `0.3.1` | 2026-08-26T18:39:59Z | [record](https://index.crates.io/cp/uf/cpufeatures) |
+| `crc32fast` | `1.5.2` | 2026-09-12T18:41:46Z | [record](https://index.crates.io/cr/c3/crc32fast) |
+| `crypto-common` | `0.2.2` | 2026-05-19T16:01:22Z | [record](https://index.crates.io/cr/yp/crypto-common) |
+| `csv` | `1.4.0` | 2025-10-17T13:56:07Z | [record](https://index.crates.io/3/c/csv) |
+| `csv-core` | `0.1.13` | 2025-10-17T13:55:35Z | [record](https://index.crates.io/cs/v-/csv-core) |
+| `digest` | `0.11.3` | 2026-05-03T12:54:48Z | [record](https://index.crates.io/di/ge/digest) |
+| `equivalent` | `1.0.3` | 2026-10-13T23:06:49Z | [record](https://index.crates.io/eq/ui/equivalent) |
+| `errno` | `0.3.14` | 2025-09-09T04:35:15Z | [record](https://index.crates.io/er/rn/errno) |
+| `fastrand` | `2.5.0` | 2026-07-19T12:40:53Z | [record](https://index.crates.io/fa/st/fastrand) |
+| `flate2` | `1.1.10` | 2026-08-28T04:35:22Z | [record](https://index.crates.io/fl/at/flate2) |
+| `getrandom` | `0.2.17` | 2026-01-11T21:09:53Z | [record](https://index.crates.io/ge/tr/getrandom) |
+| `getrandom` | `0.3.4` | 2025-10-14T17:47:36Z | [record](https://index.crates.io/ge/tr/getrandom) |
+| `getrandom` | `0.4.3` | 2026-06-17T18:01:59Z | [record](https://index.crates.io/ge/tr/getrandom) |
+| `hashbrown` | `0.17.1` | 2026-05-09T04:35:04Z | [record](https://index.crates.io/ha/sh/hashbrown) |
+| `heck` | `0.5.0` | 2024-03-12T22:42:23Z | [record](https://index.crates.io/he/ck/heck) |
+| `hybrid-array` | `0.4.15` | 2026-09-08T18:21:39Z | [record](https://index.crates.io/hy/br/hybrid-array) |
+| `indexmap` | `2.14.2` | 2026-09-05T01:53:48Z | [record](https://index.crates.io/in/de/indexmap) |
+| `insta` | `1.49.0` | 2026-10-03T01:12:59Z | [record](https://index.crates.io/in/st/insta) |
+| `itoa` | `1.0.18` | 2026-03-20T00:12:37Z | [record](https://index.crates.io/it/oa/itoa) |
+| `libc` | `0.2.190` | 2026-10-02T19:33:19Z | [record](https://index.crates.io/li/bc/libc) |
+| `linux-raw-sys` | `0.12.1` | 2025-12-23T00:00:07Z | [record](https://index.crates.io/li/nu/linux-raw-sys) |
+| `log` | `0.4.34` | 2026-08-22T11:44:27Z | [record](https://index.crates.io/3/l/log) |
+| `memchr` | `2.8.3` | 2026-07-08T00:49:54Z | [record](https://index.crates.io/me/mc/memchr) |
+| `num-traits` | `0.2.19` | 2024-05-03T21:27:39Z | [record](https://index.crates.io/nu/m-/num-traits) |
+| `once_cell` | `1.21.4` | 2026-03-12T10:59:52Z | [record](https://index.crates.io/on/ce/once_cell) |
+| `percent-encoding` | `2.3.2` | 2025-08-21T08:46:50Z | [record](https://index.crates.io/pe/rc/percent-encoding) |
+| `ppv-lite86` | `0.2.21` | 2025-03-09T20:01:40Z | [record](https://index.crates.io/pp/v-/ppv-lite86) |
+| `proc-macro-crate` | `3.5.0` | 2026-03-04T11:12:33Z | [record](https://index.crates.io/pr/oc/proc-macro-crate) |
+| `proc-macro2` | `1.0.107` | 2026-07-19T00:18:25Z | [record](https://index.crates.io/pr/oc/proc-macro2) |
+| `pulldown-cmark` | `0.13.4` | 2026-05-20T08:48:23Z | [record](https://index.crates.io/pu/ll/pulldown-cmark) |
+| `pulldown-cmark-escape` | `0.11.0` | 2024-05-15T17:28:34Z | [record](https://index.crates.io/pu/ll/pulldown-cmark-escape) |
+| `quote` | `1.0.47` | 2026-07-19T00:16:57Z | [record](https://index.crates.io/qu/ot/quote) |
+| `r-efi` | `5.3.0` | 2025-06-17T09:12:38Z | [record](https://index.crates.io/r-/ef/r-efi) |
+| `r-efi` | `6.0.0` | 2026-02-03T09:53:46Z | [record](https://index.crates.io/r-/ef/r-efi) |
+| `rand` | `0.8.8` | 2026-08-25T07:45:50Z | [record](https://index.crates.io/ra/nd/rand) |
+| `rand` | `0.9.5` | 2026-07-11T11:16:46Z | [record](https://index.crates.io/ra/nd/rand) |
+| `rand_chacha` | `0.3.1` | 2021-06-09T19:46:38Z | [record](https://index.crates.io/ra/nd/rand_chacha) |
+| `rand_chacha` | `0.9.0` | 2025-01-27T13:38:26Z | [record](https://index.crates.io/ra/nd/rand_chacha) |
+| `rand_core` | `0.6.4` | 2022-09-15T13:23:44Z | [record](https://index.crates.io/ra/nd/rand_core) |
+| `rand_core` | `0.9.5` | 2026-01-13T09:22:22Z | [record](https://index.crates.io/ra/nd/rand_core) |
+| `rust_decimal` | `1.43.0` | 2026-09-02T00:43:11Z | [record](https://index.crates.io/ru/st/rust_decimal) |
+| `rust_xlsxwriter` | `0.99.1` | 2026-09-14T07:22:55Z | [record](https://index.crates.io/ru/st/rust_xlsxwriter) |
+| `rustc-hash` | `2.1.3` | 2026-07-02T19:13:03Z | [record](https://index.crates.io/ru/st/rustc-hash) |
+| `rustix` | `1.1.5` | 2026-09-16T23:05:02Z | [record](https://index.crates.io/ru/st/rustix) |
+| `rustversion` | `1.0.23` | 2026-07-07T02:10:26Z | [record](https://index.crates.io/ru/st/rustversion) |
+| `ryu` | `1.0.23` | 2026-02-08T20:34:03Z | [record](https://index.crates.io/3/r/ryu) |
+| `serde` | `1.0.229` | 2026-07-18T23:05:13Z | [record](https://index.crates.io/se/rd/serde) |
+| `serde_core` | `1.0.229` | 2026-07-18T23:05:10Z | [record](https://index.crates.io/se/rd/serde_core) |
+| `serde_derive` | `1.0.229` | 2026-07-18T23:05:07Z | [record](https://index.crates.io/se/rd/serde_derive) |
+| `serde_json` | `1.0.154` | 2026-10-11T15:31:46Z | [record](https://index.crates.io/se/rd/serde_json) |
+| `serde_spanned` | `1.1.2` | 2026-10-08T00:54:02Z | [record](https://index.crates.io/se/rd/serde_spanned) |
+| `sha2` | `0.11.1` | 2026-10-12T18:58:22Z | [record](https://index.crates.io/sh/a2/sha2) |
+| `simd-adler32` | `0.3.10` | 2026-07-14T17:42:45Z | [record](https://index.crates.io/si/md/simd-adler32) |
+| `similar` | `2.7.0` | 2025-01-19T14:39:11Z | [record](https://index.crates.io/si/mi/similar) |
+| `strsim` | `0.11.1` | 2024-04-02T22:18:09Z | [record](https://index.crates.io/st/rs/strsim) |
+| `syn` | `2.0.119` | 2026-07-15T00:23:48Z | [record](https://index.crates.io/3/s/syn) |
+| `syn` | `3.0.9` | 2026-10-12T15:04:09Z | [record](https://index.crates.io/3/s/syn) |
+| `tempfile` | `3.27.0` | 2026-03-11T00:20:04Z | [record](https://index.crates.io/te/mp/tempfile) |
+| `tinyvec` | `1.13.3` | 2026-09-13T23:30:12Z | [record](https://index.crates.io/ti/ny/tinyvec) |
+| `toml` | `1.1.8+spec-1.1.0` | 2026-10-09T02:46:31Z | [record](https://index.crates.io/to/ml/toml) |
+| `toml_datetime` | `1.1.2+spec-1.1.0` | 2026-10-08T00:54:03Z | [record](https://index.crates.io/to/ml/toml_datetime) |
+| `toml_edit` | `0.25.17+spec-1.1.0` | 2026-10-09T02:46:32Z | [record](https://index.crates.io/to/ml/toml_edit) |
+| `toml_parser` | `1.1.5+spec-1.1.0` | 2026-10-09T02:46:29Z | [record](https://index.crates.io/to/ml/toml_parser) |
+| `toml_writer` | `1.1.3+spec-1.1.0` | 2026-10-08T00:54:04Z | [record](https://index.crates.io/to/ml/toml_writer) |
+| `typed-path` | `0.12.3` | 2026-02-11T02:30:37Z | [record](https://index.crates.io/ty/pe/typed-path) |
+| `typenum` | `1.20.1` | 2026-05-29T16:00:41Z | [record](https://index.crates.io/ty/pe/typenum) |
+| `unicase` | `2.10.0` | 2026-10-05T13:11:23Z | [record](https://index.crates.io/un/ic/unicase) |
+| `unicode-ident` | `1.0.27` | 2026-10-12T04:20:27Z | [record](https://index.crates.io/un/ic/unicode-ident) |
+| `unicode-normalization` | `0.1.25` | 2025-10-30T16:06:38Z | [record](https://index.crates.io/un/ic/unicode-normalization) |
+| `wasi` | `0.11.1+wasi-snapshot-preview1` | 2025-06-10T14:23:45Z | [record](https://index.crates.io/wa/si/wasi) |
+| `wasip2` | `1.0.4+wasi-0.2.12` | 2026-06-12T17:42:43Z | [record](https://index.crates.io/wa/si/wasip2) |
+| `wasm-bindgen` | `0.2.129` | 2026-09-25T07:13:40Z | [record](https://index.crates.io/wa/sm/wasm-bindgen) |
+| `wasm-bindgen-macro` | `0.2.129` | 2026-09-25T07:13:38Z | [record](https://index.crates.io/wa/sm/wasm-bindgen-macro) |
+| `wasm-bindgen-macro-support` | `0.2.129` | 2026-09-25T07:13:36Z | [record](https://index.crates.io/wa/sm/wasm-bindgen-macro-support) |
+| `wasm-bindgen-shared` | `0.2.129` | 2026-09-25T07:13:33Z | [record](https://index.crates.io/wa/sm/wasm-bindgen-shared) |
+| `windows-link` | `0.2.1` | 2025-10-06T17:35:08Z | [record](https://index.crates.io/wi/nd/windows-link) |
+| `windows-sys` | `0.61.2` | 2025-10-06T19:18:30Z | [record](https://index.crates.io/wi/nd/windows-sys) |
+| `winnow` | `1.0.4` | 2026-07-13T14:31:41Z | [record](https://index.crates.io/wi/nn/winnow) |
+| `wit-bindgen` | `0.57.1` | 2026-04-17T17:49:55Z | [record](https://index.crates.io/wi/t-/wit-bindgen) |
+| `zerocopy` | `0.8.63` | 2026-10-13T20:03:04Z | [record](https://index.crates.io/ze/ro/zerocopy) |
+| `zerocopy-derive` | `0.8.63` | 2026-10-13T20:01:58Z | [record](https://index.crates.io/ze/ro/zerocopy-derive) |
+| `zip` | `8.6.0` | 2026-04-25T19:11:11Z | [record](https://index.crates.io/3/z/zip) |
+| `zlib-rs` | `0.6.8` | 2026-09-15T13:10:00Z | [record](https://index.crates.io/zl/ib/zlib-rs) |
+| `zmij` | `1.0.23` | 2026-07-13T12:58:53Z | [record](https://index.crates.io/zm/ij/zmij) |
+| `zopfli` | `0.8.4` | 2026-10-11T19:45:43Z | [record](https://index.crates.io/zo/pf/zopfli) |
 
 ## Young lockfile entries
 
