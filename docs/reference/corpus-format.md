@@ -36,6 +36,8 @@ Check codes are stable. A check's message may be improved without a version chan
 | additive | Everything valid before is still valid: a new optional field or column, a new vocabulary value, a new page type, a new check | Stamp-only when existing readers accept both shapes; an exact-header change needs an explicit preserving migration |
 | breaking | Some valid file needs rewriting: a field or column removed, renamed or reordered, a meaning changed, a rule tightened, an id form or frozen string changed | Rewrites the files |
 
+The pre-`edition-001` [ADR 0002 amendment](../decisions/0002-corpus-format-v1.md#amendment-five-digit-claim-continuation-pre-edition-001) folds five-digit public claim continuation (`10000` to `99999`) and numeric-within-area `claims.csv` ordering into `schema_version = 1` before any reader or edition ships: every four-digit claim id and its relative sort order stay unchanged, so no existing file needs rewriting.
+
 **How a bump ships.**
 - Before R2, the bump ships with a one-off migration, `cargo xtask migrate-<from>-to-<to>`, in the same pull request. It runs once, at home, and is deleted by a later card. A test runs it on the `corpus-mini` fixture and compares the result with a committed expected tree.
 - From R2, bumps are batched into planned tool releases. `fieldbook migrate` rewrites a Corpus or a company store in place, is idempotent, and is the only command that changes `schema_version`.
@@ -95,7 +97,8 @@ citation = "[" , cite , { "; " , cite } , "]" ;
 cite     = "@" , key , [ ", " , locator ] ;
 key      = version | claim | question | conflict | company ;
 version  = "S-" , digit , digit , digit , digit , "-v" , digits ;
-claim    = "CL-" , area , "-" , digit , digit , digit , digit ;
+claim    = "CL-" , area , "-" , ( digit , digit , digit , digit
+                                | nonzero , digit , digit , digit , digit ) ;
 question = "Q-" , digit , digit , digit ;
 conflict = "XC-" , digit , digits ;
 company  = "CL-X" , capital , capital , "-" , cnum
@@ -112,7 +115,7 @@ locator  = "p. " , digits
 (* label, name, range, record-key and column are text without ";" or "]" *)
 ```
 
-- `digit` is `0` to `9`. `digits` is one or more digits. `area` is the capitals of an area code (`CMP`). The conflict form needs at least two digits (`XC-14`), which is how `check` is stricter than the lexer in [search.md](search.md). `capital` is `A` to `Z`. A `cnum` has six to ten digits: the writer's digits, then six sequence digits. The lexer reads the company forms generally (a company claim, a company versioned id and a company id), so a new record type needs no lexer change. `check` accepts only the prefixes in the `FAMILIES` table of `fieldbook-core`, and only in a company store: a company form in a file of the repository Corpus is an error (FB0416).
+- `digit` is `0` to `9`. `nonzero` is `1` to `9`. `digits` is one or more digits. `area` is the capitals of an area code (`CMP`). A public claim number has four digits (`0001` to `9999`) or five digits from `10000` (never a leading `0` in five digits). The conflict form needs at least two digits (`XC-14`), which is how `check` is stricter than the lexer in [search.md](search.md). `capital` is `A` to `Z`. A `cnum` has six to ten digits: the writer's digits, then six sequence digits. The lexer reads the company forms generally (a company claim, a company versioned id and a company id), so a new record type needs no lexer change. `check` accepts only the prefixes in the `FAMILIES` table of `fieldbook-core`, and only in a company store: a company form in a file of the repository Corpus is an error (FB0416).
 - A claim, question or conflict key takes no locator. A locator belongs to a source version. The one exception is `field`, which belongs to a record version and exists only in a company store; its `column` is a column name of the record's type, of the form `[a-z][a-z0-9_]*`.
 - Examples: `[@S-0042-v2, p. 14]`, `[@CL-CMP-0011]`, `[@Q-027]`, `[@XC-14]`, `[@CL-CMP-0011; @S-0042-v2, pp. 14-15]`.
 - A `sheet` locator is `sheet NAME!D214` for one cell or `sheet NAME!A2:F9` for a range of two different corners (`A1` to `XFD1048576`, capitals, no `$`). It is split at the last `!`. A sheet name is written with three escapes, so that any name can be cited: `%25` for `%`, `%3B` for `;` and `%5D` for `]`, with the hex in capitals. A name matches exactly, after Unicode NFC. `rec NAME!213` names data row 213 of that sheet, with the name written the same way.
@@ -609,7 +612,7 @@ A version is **superseded** when another row's `supersedes` names it. That state
 
 | # | Column | Type | Required | Values and form | Empty means |
 |---|---|---|---|---|---|
-| 1 | `claim_id` | id | yes | `CL-AAA-nnnn` | |
+| 1 | `claim_id` | id | yes | `CL-AAA-nnnn`, or five digits from `10000` | |
 | 2 | `area` | enum | yes | An area code. Equals the id's area letters in lowercase | |
 | 3 | `kind` | enum | yes | `claim_kind` | |
 | 4 | `statement` | text | yes | One plain sentence a page can cite. No markup | |
