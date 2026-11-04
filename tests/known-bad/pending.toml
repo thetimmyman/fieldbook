@@ -1,22 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-page-body
-[[pending]]
-code = "FB0134"
-card = "check-page-body"
-
-[[pending]]
-code = "FB0135"
-card = "check-page-body"
-
-[[pending]]
-code = "FB0138"
-card = "check-page-body"
-
-[[pending]]
-code = "FB0139"
-card = "check-page-body"
-
 # check-citations
 [[pending]]
 code = "FB0300"
