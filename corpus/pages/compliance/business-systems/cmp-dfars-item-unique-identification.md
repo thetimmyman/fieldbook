@@ -54,7 +54,6 @@ Which contracts carry this clause and which delivered line items fall in a liste
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the subcontract flowdown clause with commercial products and commercial services and matched the warranty tracking timing and attachment title.
 - COMPATIBLE_EXTENSION, 2026-10-31: Delivery report scope names the paragraphs; removed unsupported only.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS item unique identification and valuation.

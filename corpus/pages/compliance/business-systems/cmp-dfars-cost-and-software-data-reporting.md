@@ -55,6 +55,5 @@ Which solicitations and contracts carry the basic or the Alternate I text, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the Alternate I subcontractor wording to the cited text and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS cost and software data reporting.

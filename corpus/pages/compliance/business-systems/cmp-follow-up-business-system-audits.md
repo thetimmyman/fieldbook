@@ -58,7 +58,6 @@ Check that enough transactions have accumulated under the corrected practices be
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the DFARS business system requirements compliance standard and matched the follow-up business system audit report and previous business system audit terms to the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored governance qualifier, should, and discussion step; kept and/or in scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the follow-up audit trigger so the rule keeps the purpose that the available transactions must serve.

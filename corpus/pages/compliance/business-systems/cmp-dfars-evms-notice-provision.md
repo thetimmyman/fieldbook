@@ -54,7 +54,6 @@ Which solicitations carry this provision, and whether the company's system has a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the ANSI/EIA-748 standard title and version in paragraph (a)(1) and the subcontracted effort agreement clause in paragraph (c), and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Subcontractor selection is agreed by the offeror and the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DFARS notice of earned value management system provision.

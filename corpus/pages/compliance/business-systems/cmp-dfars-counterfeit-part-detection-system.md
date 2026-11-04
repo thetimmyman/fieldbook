@@ -58,7 +58,6 @@ Whether the company is subject to the Cost Accounting Standards, and the current
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference, the inspection and testing techniques sentence, the risk-based tracking lead-in and discrete-or-assembly scope, the applicable system criteria flowdown phrase, and the Government review lead-in, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statute reference and Government as reviewer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the flowdown sentence so the flowdown area keeps the subcontractors that perform authentication testing.

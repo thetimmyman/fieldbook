@@ -54,7 +54,6 @@ The current government status of each accounting system: approved, disapproved, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the final-determination evaluation lead-in and the 45-day final-determination condition, completed the initial-determination detail sentence, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Accounting system definition keeps its reporting purpose.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

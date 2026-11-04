@@ -51,7 +51,6 @@ The current government status of each contractor business system: approved, disa
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the accounting system definition, added the system criteria and final-determination lead-ins, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed citations for the acceptable-system definition, timekeeping and withholding sentences and kept the written determination and corrective action plan wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

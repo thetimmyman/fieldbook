@@ -60,6 +60,5 @@ Whether each contract carries the Accounting System Administration clause, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the system-criteria clause reference in paragraph (c), the initial-determination notice and description requirements, and the remaining-weaknesses notice requirements, and removed unquoted contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD accounting system policy.

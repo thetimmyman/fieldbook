@@ -54,7 +54,6 @@ Gather and keep evidence that shows each control working, so that the auditor ca
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicable audit area scope and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the analytical procedures and/or tests of details wording to the quote.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.

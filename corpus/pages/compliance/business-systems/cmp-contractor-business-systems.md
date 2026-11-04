@@ -56,7 +56,6 @@ Determining the current approval status of each contractor business system, moni
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the title 41 chapter 15 reference and the final-determination notice-to-withhold sentence, named each system clause in the definition, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: 45-day condition uses the source term, a final determination with a notice to withhold payments.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

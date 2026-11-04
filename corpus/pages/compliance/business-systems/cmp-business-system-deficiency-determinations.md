@@ -60,7 +60,6 @@ Which business systems are approved or disapproved, and whether any determinatio
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the 90-day determination branches, the interim cost voucher withholding clause, and the DFARS 252.242-7005 monitoring reference, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said what the quotes leave out about the first 90-day option and the continue or reinstate withholding paragraph.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor business system deficiencies, withholding and release.

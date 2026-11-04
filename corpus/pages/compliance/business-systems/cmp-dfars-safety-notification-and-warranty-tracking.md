@@ -54,7 +54,6 @@ Which contracts carry either clause and who files the safety notices and the war
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the 5-working-day written notification items and the subcontract flowdown categories, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Notification list stated as two required items; subcontract list as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS safety issue notification and warranty tracking of serialized items.

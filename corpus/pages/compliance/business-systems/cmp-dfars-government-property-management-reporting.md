@@ -56,6 +56,5 @@ Whether the company's property management system is currently approved and wheth
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the GFP reporting items, 7-business-day scope, and data-element wording with the cited quotes and removed meta-wording and unquoted contrast phrasing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS management and reporting of Government property.

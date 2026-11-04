@@ -54,7 +54,6 @@ Whether the company's sales put it above the review threshold, and the Governmen
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the risk assessment basis in paragraph (a)(2) and the initial determination notice and description requirements in paragraph (c)(2)(ii)(A), and removed meta-wording and unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the subpart's contract scope and the exclusion of small businesses, educational institutions and nonprofit organizations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material management and accounting system review procedures.

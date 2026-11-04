@@ -58,7 +58,6 @@ Track open deficiency reports and check whether each could lead to a final deter
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 252.242-7998 citation, GAGAS examination qualifier, audit trail purpose, timely resolution purpose and assignment (11090), and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded three sentences to match the manual: that reporting, only the objective, and who identifies covered contracts and notifies the contractor.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.

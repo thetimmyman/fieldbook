@@ -54,7 +54,6 @@ Keep documentary records, procedure manuals and named personnel available so tha
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the list of factors considered in determining the extent of testing and matched assurance and effectiveness wording to the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Extent of testing now says the auditor should determine it.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.

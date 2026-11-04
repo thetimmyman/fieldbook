@@ -54,7 +54,6 @@ Identify major changes to business system policies or automated controls since t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the walk-through confirmation clause, added the three named DFARS systems and efficiency purpose, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the control objectives sentence to say should identify.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the subsequent-audit and internal-control sentences so the rules keep the added FAR, law and contract-term criteria and the contractor context factors.

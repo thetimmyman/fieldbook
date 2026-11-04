@@ -56,7 +56,6 @@ Confirm the current Government status of each of the three audited systems: appr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the parenthetical examples of business system criteria and related audits, completed the substantive-testing planning clause, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DCAA audits of contractor business systems and audit objectives.

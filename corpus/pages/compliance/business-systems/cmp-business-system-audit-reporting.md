@@ -41,7 +41,7 @@ The auditor is required to identify the audit period in the audit report [@CL-CM
 
 Synthetic example. The numbers are made up.
 
-An audit of a contractor's estimating system finds two issues. The first is a missing control over reconciling actual costs to vendor quotes, with a probable risk of material misstatement in proposals. The auditor reports it as a material weakness in an exhibit, with an adverse opinion in view. The second is a formatting slip in a recurring proposal checklist that does not affect any price. The auditor reports it in an appendix as a less than material noncompliance, with a roughly 4,000 impact noted where applicable.
+An audit of a contractor's estimating system finds two issues. The first is a missing control over reconciling actual costs to vendor quotes, with a probable risk of material misstatement in proposals. The auditor reports it as a material weakness in an exhibit, with an adverse opinion in view. The second is a formatting slip in a recurring proposal checklist that does not affect any price. The auditor reports it in an appendix as a less than material noncompliance.
 
 ## Never confuse
 
@@ -54,7 +54,6 @@ Sort every open audit finding into material weakness, system deficiency or less 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the material weakness and reasonable possibility definitions directly, completed the SOCAR exhibit or appendix clause, and removed meta-wording and unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the exhibit, dollar impact, deficiency report and withholding sentences to carry should, the non-system audit context and the covered contracts scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

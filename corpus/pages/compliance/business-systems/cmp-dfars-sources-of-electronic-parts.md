@@ -52,7 +52,6 @@ Which contracts carry this clause and which subcontracts for electronic parts ha
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the paragraph (b)(1) supplier sources and the paragraph (c)(1) traceability scope, and removed meta-wording and unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Source and circumstance lists stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the paragraph (b)(2) sentence so the contractor-approved supplier route keeps the proviso on industry standards and processes.
