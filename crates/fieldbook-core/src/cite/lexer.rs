@@ -197,18 +197,36 @@ pub fn lex_from_line(text: &str, base_line: usize, mode: Mode) -> LexOutcome {
             continue;
         }
 
-        // Ignore `[[...]]` double brackets unless the inner `[` is itself examined;
-        // "Rejected forms: `[S-0042@v2 p.14]`, `{CL-CMP-0012}` and `[[…]]`."
+        // Reject `[[...]]` double brackets (`docs/reference/corpus-format.md`:
+        // "Rejected forms: `[S-0042@v2 p.14]`, `{CL-CMP-0012}` and `[[…]]`.").
+        // When the inner content is a citation attempt, emit `FB0300`.
         if bytes.get(idx + 1) == Some(&b'[') {
-            // Skip the entire `[[...]]` construct so it is not read as a valid citation.
-            idx += 2;
-            while idx < len && bytes[idx] != b']' && bytes[idx] != b'\n' {
-                let ch_len = text[idx..].chars().next().map_or(1, char::len_utf8);
-                idx += ch_len;
+            let open_idx = idx;
+            let mut end_inner = idx + 2;
+            while end_inner < len
+                && bytes[end_inner] != b']'
+                && bytes[end_inner] != b'['
+                && bytes[end_inner] != b'\n'
+            {
+                let ch_len = text[end_inner..].chars().next().map_or(1, char::len_utf8);
+                end_inner += ch_len;
             }
-            while idx < len && bytes[idx] == b']' {
-                idx += 1;
+            let inner = &text[idx + 2..end_inner];
+            let has_close = end_inner < len && bytes[end_inner] == b']';
+            let mut end_outer = end_inner;
+            while end_outer < len && bytes[end_outer] == b']' {
+                end_outer += 1;
             }
+            if is_citation_attempt(inner, has_close) {
+                let span = make_span(text, &line_starts, base_line, open_idx, end_outer);
+                findings.push(LexFinding {
+                    code: Code::Fb0300,
+                    span,
+                    message: "double-bracketed `[[...]]` citation attempt is not allowed"
+                        .to_owned(),
+                });
+            }
+            idx = end_outer;
             prev_cite_end = None;
             continue;
         }
@@ -498,7 +516,7 @@ fn parse_key_kind(key: &str, mode: Mode) -> Option<KeyKind> {
 
 /// Checks `<area>-note-<nnn>` (three lowercase ASCII letters, `-note-`, three ASCII digits).
 fn is_answer_note_key(key: &str) -> bool {
-    if key.len() != 12 {
+    if key.len() != 12 || !key.is_ascii() {
         return false;
     }
     let area = &key[..3];
@@ -821,6 +839,16 @@ fn compute_code_ranges(text: &str) -> Vec<(usize, usize)> {
         }
         at_line_start = false;
 
+        if b == b'\\' {
+            // Skip escaped ASCII punctuation (such as `\` or `\[` or `` \` ``).
+            if i + 1 < len && bytes[i + 1].is_ascii_punctuation() {
+                i += 2;
+            } else {
+                i += 1;
+            }
+            continue;
+        }
+
         if b == b'`' {
             let tick_start = i;
             let mut tick_len = 1usize;
@@ -923,5 +951,25 @@ mod tests {
                 assert_eq!(out.findings[0].code, Code::Fb0300);
             }
         }
+    }
+
+    #[test]
+    fn non_ascii_12_byte_key_escaped_backticks_and_double_brackets() {
+        // 1. 12-byte non-ASCII key does not panic in tolerant mode and raises FB0300.
+        let non_ascii = lex("[@éééééé]", Mode::Tolerant);
+        assert!(non_ascii.citations.is_empty());
+        assert_eq!(non_ascii.findings.len(), 1);
+        assert_eq!(non_ascii.findings[0].code, Code::Fb0300);
+
+        // 2. Escaped backticks are not treated as an inline code span.
+        let escaped_ticks = lex(r"\` [@CL-CMP-0011] \`", Mode::Strict);
+        assert_eq!(escaped_ticks.citations.len(), 1);
+        assert_eq!(escaped_ticks.citations[0].key, "CL-CMP-0011");
+
+        // 3. Double-bracketed citation attempts raise FB0300.
+        let double_brackets = lex("[[@CL-CMP-0011]]", Mode::Strict);
+        assert!(double_brackets.citations.is_empty());
+        assert_eq!(double_brackets.findings.len(), 1);
+        assert_eq!(double_brackets.findings[0].code, Code::Fb0300);
     }
 }
