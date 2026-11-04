@@ -29,7 +29,7 @@ Shows how EVMS Guideline 26 controls retroactive changes to records pertaining t
 | Text status | Not established. |
 | Applies to | Retroactive changes to records pertaining to work performed that would change previously reported amounts for actual costs, earned value, or budgets [@CL-PRG-0105; @CL-PRG-0373] |
 
-Control retroactive changes to records pertaining to work performed that would change previously reported amounts for actual costs, earned value, or budgets [@CL-PRG-0105]. Adjustments should be made only for correction of errors, routine accounting adjustments, effects of customer or management directed changes, or to improve the baseline integrity and accuracy of performance measurement data (for example, implementation of a Single Point Adjustment) [@CL-PRG-0372]. Retroactive changes should be limited to correction of errors, routine accounting adjustments, customer-directed changes, definitization of contract actions, rate changes, economic price adjustments, or implementation of a Single Point Adjustment [@CL-PRG-0751]. Retroactive changes involve adjustments to previously reported values for Budgeted Cost for Work Scheduled, Budgeted Cost for Work Performed, or Actual Cost of Work Performed related to completed work [@CL-PRG-0373].
+Control retroactive changes to records pertaining to work performed that would change previously reported amounts for actual costs, earned value, or budgets [@CL-PRG-0105]. Adjustments are made only for correction of errors, routine accounting adjustments, or effects of customer or management directed changes, including implementation of a single point adjustment [@CL-PRG-0372]. Retroactive changes should be limited to correction of errors, routine accounting adjustments, customer-directed changes, definitization of contract actions, rate changes, economic price adjustments, or implementation of a Single Point Adjustment [@CL-PRG-0751]. Retroactive changes involve adjustments to previously reported values for Budgeted Cost for Work Scheduled, Budgeted Cost for Work Performed, or Actual Cost of Work Performed related to completed work [@CL-PRG-0373].
 
 ## How it works
 
@@ -43,7 +43,7 @@ A program has an accumulated cost variance of 15 and decides to replan all remai
 
 ## Never confuse
 
-Under Guideline 26, a Single Point Adjustment is one of the adjustments to improve baseline integrity and accuracy of performance measurement data [@CL-PRG-0372; @CL-PRG-0751], is implemented sparingly to set some or all existing contract cost and/or schedule variances to zero, typically accompanies a replan of all remaining effort with the goal of developing a new performance measurement baseline [@CL-PRG-0374], and requires the contractor to provide advance notification to the contracting officer prior to implementation [@CL-PRG-0375].
+Under Guideline 26, a Single Point Adjustment is included among the adjustments made only for correction of errors, routine accounting adjustments, or effects of customer or management directed changes [@CL-PRG-0372; @CL-PRG-0751], is implemented sparingly to set some or all existing contract cost and/or schedule variances to zero, typically accompanies a replan of all remaining effort with the goal of developing a new performance measurement baseline [@CL-PRG-0374], and requires the contractor to provide advance notification to the contracting officer prior to implementation [@CL-PRG-0375].
 
 ## Company calibration
 
@@ -52,7 +52,7 @@ Whether a proposed reset of variances is a permitted retroactive change or a sin
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-04: Aligned the Guideline 26 adjustment list directly with CL-PRG-0372.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim CL-PRG-0105 for the Guideline 26 rule text, populated the instrument field, and removed meta-commentary and unsupported contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose-statement list reworded as alternatives the changes should be limited to.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: added the guide’s fuller list of permitted changes and fixed the single point adjustment contrast.
