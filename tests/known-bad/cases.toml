@@ -1,0 +1,6 @@
+[[case]]
+code = "FB0100"
+at = "corpus/corpus.toml:1"
+edits = [
+  { path = "corpus/corpus.toml", find = "schema_version = 1", replace = "schema_version = 9" },
+]

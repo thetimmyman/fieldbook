@@ -1,0 +1,226 @@
+# Codes raised outside `fieldbook check` (`check-known-bad`).
+
+[[elsewhere]]
+code = "FB0215"
+card = "r2-pull-and-sync"
+test = ""
+
+[[elsewhere]]
+code = "FB0216"
+card = "r2-pull-and-sync"
+test = ""
+
+[[elsewhere]]
+code = "FB0240"
+card = "r2-records"
+test = ""
+
+[[elsewhere]]
+code = "FB0241"
+card = "r2-records"
+test = ""
+
+[[elsewhere]]
+code = "FB0311"
+card = "extract-csv-rows"
+test = ""
+
+[[elsewhere]]
+code = "FB0380"
+card = "r2-records"
+test = ""
+
+[[elsewhere]]
+code = "FB0381"
+card = "r2-records"
+test = ""
+
+[[elsewhere]]
+code = "FB0382"
+card = "r2-records"
+test = ""
+
+[[elsewhere]]
+code = "FB0411"
+card = "core-labels"
+test = ""
+
+[[elsewhere]]
+code = "FB0412"
+card = "core-labels"
+test = ""
+
+[[elsewhere]]
+code = "FB0413"
+card = "core-policy"
+test = ""
+
+[[elsewhere]]
+code = "FB0414"
+card = "policy-load"
+test = ""
+
+[[elsewhere]]
+code = "FB0415"
+card = "core-labels"
+test = ""
+
+[[elsewhere]]
+code = "FB0416"
+card = "r2-company-ids"
+test = ""
+
+[[elsewhere]]
+code = "FB0417"
+card = "r2-company-ids"
+test = ""
+
+[[elsewhere]]
+code = "FB0418"
+card = "policy-load"
+test = ""
+
+[[elsewhere]]
+code = "FB0419"
+card = "policy-load"
+test = ""
+
+[[elsewhere]]
+code = "FB0420"
+card = "r2-company-ids"
+test = ""
+
+[[elsewhere]]
+code = "FB0501"
+card = "calc-cases"
+test = ""
+
+[[elsewhere]]
+code = "FB0502"
+card = "calc-cases"
+test = ""
+
+[[elsewhere]]
+code = "FB0503"
+card = "calc-cases"
+test = ""
+
+[[elsewhere]]
+code = "FB0504"
+card = "calc-cases"
+test = ""
+
+[[elsewhere]]
+code = "FB0600"
+card = "build-v0"
+test = ""
+
+[[elsewhere]]
+code = "FB0601"
+card = "edition-zips"
+test = ""
+
+[[elsewhere]]
+code = "FB0602"
+card = "edition-zips"
+test = ""
+
+[[elsewhere]]
+code = "FB0603"
+card = "build-site-lints"
+test = ""
+
+[[elsewhere]]
+code = "FB0604"
+card = "build-site-lints"
+test = ""
+
+[[elsewhere]]
+code = "FB0605"
+card = "build-site-lints"
+test = ""
+
+[[elsewhere]]
+code = "FB0606"
+card = "build-v0"
+test = ""
+
+[[elsewhere]]
+code = "FB0607"
+card = "day-one-binder-and-registers-xlsx"
+test = ""
+
+[[elsewhere]]
+code = "FB0608"
+card = "edition-zips"
+test = ""
+
+[[elsewhere]]
+code = "FB0700"
+card = "handoff-context"
+test = ""
+
+[[elsewhere]]
+code = "FB0701"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0702"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0703"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0704"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0705"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0706"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0707"
+card = "handoff-cite-check"
+test = ""
+
+[[elsewhere]]
+code = "FB0708"
+card = "handoff-new-note"
+test = ""
+
+[[elsewhere]]
+code = "FB0709"
+card = "handoff-new-note"
+test = ""
+
+[[elsewhere]]
+code = "FB0807"
+card = "review-queue"
+test = ""
+
+[[elsewhere]]
+code = "FB0833"
+card = "r2-pull-and-sync"
+test = ""
+
+[[elsewhere]]
+code = "FB0834"
+card = "r2-pull-and-sync"
+test = ""
+
+[[elsewhere]]
+code = "FB0835"
+card = "r2-pull-and-sync"
+test = ""
