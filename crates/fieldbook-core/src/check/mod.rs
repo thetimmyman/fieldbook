@@ -3,6 +3,7 @@
 //! **Responsibility.** [`Code`], [`Level`], [`Severity`], [`Diagnostic`], [`Report`], [`Tree`],
 //! [`Entry`], [`Host`], [`Options`], [`Model`], [`load`] and [`run`].
 
+pub mod claim_cells;
 pub mod code;
 pub mod corpus_toml;
 pub mod diag;
@@ -55,7 +56,12 @@ impl Options {
 pub type Pass = fn(&Model, &Options, &mut Report);
 
 /// The fixed list of check passes run after `corpus/corpus.toml` passes `FB0100`.
-const PASSES: &[Pass] = &[files::check, registers::check, register_cells::check];
+const PASSES: &[Pass] = &[
+    files::check,
+    registers::check,
+    register_cells::check,
+    claim_cells::check,
+];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
     let mut report = Report::new();

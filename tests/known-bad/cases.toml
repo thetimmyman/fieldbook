@@ -109,3 +109,17 @@ at = "corpus/registers/claims.csv:3"
 edits = [
   { path = "corpus/registers/claims.csv", find = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,pending_company_confirmation,proposed,", replace = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,confirmed_applicable,proposed," },
 ]
+
+[[case]]
+code = "FB0306"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,S-0001,1,text_section,sec. 2,", replace = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,S-0001,1,no_fine_locator,," },
+]
+
+[[case]]
+code = "FB0307"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "S-0001,1,text_section,sec. 2,Synthetic withholding threshold is 5 percent.,true,", replace = "S-0001,1,text_section,sec. 2,,true," },
+]
