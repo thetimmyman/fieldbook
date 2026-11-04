@@ -57,7 +57,6 @@ Which executed contracts contain the Bankruptcy clause, and who confirms its app
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Included agency office examples and the court in which the petition was filed, restored full qualifiers in How it works, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added including those physically completed or terminated to the claim-review action and softened covers to includes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 42.700 scope and 42.701 general duty.

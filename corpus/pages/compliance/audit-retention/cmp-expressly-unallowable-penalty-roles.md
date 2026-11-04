@@ -58,7 +58,6 @@ How unallowable costs are kept out of rate and billing pools: accounts, review a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored review and coordination of remedies wording, removed meta references to the FAR and audit manual, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for expressly unallowable penalty roles.

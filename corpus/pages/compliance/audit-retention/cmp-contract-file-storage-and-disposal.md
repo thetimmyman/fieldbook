@@ -55,7 +55,6 @@ Where the company keeps its copies of contract files, and which retention approv
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored or similar matters and exact retention periods in How it works, cited contractor record-availability claims in Never confuse, and removed uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the contractor record-availability comparison to say longer periods apply in certain cases such as a contract clause.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for storage, handling and disposal of contract files.

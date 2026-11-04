@@ -54,7 +54,6 @@ Which closing contracts still have open interim or disallowed costs, unsettled p
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for final patent report procedures and the twelve contract completion statement items, and included the closeout time standards in the file-types sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the patent-report and file-type sentences to state what the quotes support and note the patent procedures are not restated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procedures for closing out contract files.

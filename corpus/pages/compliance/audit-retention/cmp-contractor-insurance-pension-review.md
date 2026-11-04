@@ -35,7 +35,7 @@ Under DFARS 242.7301(a), an in-depth CIPR is a joint review by the Defense Contr
 
 A special CIPR that concentrates on specific areas of a contractor's insurance programs, pension plans, or other deferred compensation plans shall be performed for a contractor (including, but not limited to, a contractor meeting the requirements in paragraph (a)) when any one of four circumstances exists, but only if the circumstance may result in a material impact on Government contract costs [@CL-CMP-0223; @CL-CMP-2235]: information or data reveals a deficiency in the contractor's insurance/pension program; the contractor proposes or implements changes in its insurance, pension, or other deferred compensation plans [@CL-CMP-2236]; the contractor is involved in a merger, acquisition, or divestiture; or the Government needs to follow up on contractor implementation of prior CIPR recommendations [@CL-CMP-2237].
 
-The DCAA auditor shall use relevant findings and recommendations of previously performed CIPRs in determining the scope of any audits of insurance and pension costs [@CL-CMP-2238]. When a Government organization believes that a review of the contractor's insurance/pension program should be performed, that organization should provide a recommendation for a review to the ACO [@CL-CMP-2239]. If the ACO concurs, the review should be performed as part of an ACO-initiated special review or it should be considered for coverage in a CIPR scheduled for the near future [@CL-CMP-2255].
+The DCAA auditor shall use relevant findings and recommendations of previously performed CIPRs in determining the scope of any audits of insurance and pension costs [@CL-CMP-2238]. When a Government organization believes that a review of the contractor's insurance/pension program should be performed, that organization should provide a recommendation for a review to the ACO [@CL-CMP-2239]. If the ACO concurs, the review should be performed as part of an ACO-initiated special CIPR or as part of a CIPR already scheduled for the near future [@CL-CMP-2255].
 
 ## How it works
 
@@ -58,7 +58,7 @@ Which insurance or pension reviews, recommendations or follow-ups are open, and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Restored the special CIPR and already-scheduled CIPR wording on the ACO concurrence sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the in-depth CIPR and special CIPR lead-ins, included DCAA and contractor qualifiers, and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the in-depth review decision sentence to keep the sales condition and the risk assessment basis.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contractor insurance/pension review.

@@ -52,7 +52,6 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched exact wording on cost representations, single-agency responsibility under FAR 42.503-1, and fraud and illegal-activity detection and referral.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the scope line to say other institution types are addressed in Chapter 13 and added to the contract to the allocability criterion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that a single agency is responsible for establishing final indirect cost rates for each business unit.

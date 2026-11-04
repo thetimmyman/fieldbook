@@ -44,7 +44,7 @@ A DoD component plans a 3,000,000 services contract, and its contracting officer
 
 ## Never confuse
 
-In the presolicitation, solicitation, and award phases, contracting officers review proposed solicitations, include an appropriate Security Requirements clause and any additional security safeguards, and inform contractors and subcontractors of assigned security classifications and requirements [@CL-CMP-2412; @CL-CMP-2413; @CL-CMP-2414; @CL-CMP-2415]. For foreign ownership, control or influence, changed-condition reporting, and safeguarding covered defense information, see [NISPOM foreign ownership, control or influence and its mitigation](../../mna/diligence/mna-nispom-foci-and-mitigation.md), [NISPOM changed conditions and reportable ownership events](../../mna/diligence/mna-nispom-changed-condition-reporting.md), and [Safeguarding covered defense information](../trade-cyber/cmp-safeguarding-covered-defense-information.md).
+In the presolicitation, solicitation, and award phases, contracting officers review proposed solicitations, include an appropriate Security Requirements clause and, as appropriate, in solicitations and contracts when the contract may require access to classified information, a requirement for security safeguards in addition to those provided in the clause, and inform contractors and subcontractors of assigned security classifications and requirements [@CL-CMP-2412; @CL-CMP-2413; @CL-CMP-2414; @CL-CMP-2415]. For foreign ownership, control or influence, changed-condition reporting, and safeguarding covered defense information, see [NISPOM foreign ownership, control or influence and its mitigation](../../mna/diligence/mna-nispom-foci-and-mitigation.md), [NISPOM changed conditions and reportable ownership events](../../mna/diligence/mna-nispom-changed-condition-reporting.md), and [Safeguarding covered defense information](../trade-cyber/cmp-safeguarding-covered-defense-information.md).
 
 ## Company calibration
 
@@ -53,7 +53,7 @@ Which company contracts carry a Security Requirements clause or a classification
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated the condition for additional security safeguards in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for DD Form 254 preparation and coordination and non-NISP agency procedures, restored shall and as appropriate wording, and removed meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the DD Form 254 sentences to keep shall use and the as identified in the requirement documentation limit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the DD Form 254 sentence so the form rule keeps its purpose, guidance for contractors requiring access to classified information.

@@ -52,6 +52,5 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added assessing and evaluating wording, cited the additional-objectives lead-in on each cost element, and included the FAR citations on excessive pass-through costs.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for audit objectives for major cost elements.

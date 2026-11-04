@@ -52,6 +52,5 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for contractor-wide testing comparison, permanent-file documentation, and reducing duplication of audit effort, and removed uncited contrast in Never confuse.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for incurred cost audit approach and scope.

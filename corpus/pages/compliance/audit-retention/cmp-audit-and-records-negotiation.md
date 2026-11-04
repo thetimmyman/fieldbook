@@ -53,7 +53,6 @@ Which control findings, corrective actions, and external requests are open, and 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the certified cost or pricing data audit lead-in and four alternatives, matched exact contract-type and records wording, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the certified-data audit sentence so the four related-records matters are alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records and audit sentence so the records duty keeps its cover of anticipated costs and its plant inspection right.

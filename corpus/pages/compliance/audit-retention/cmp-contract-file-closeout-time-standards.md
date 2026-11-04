@@ -54,6 +54,5 @@ Which closing contracts fall under each standard, and which fiscal years are sti
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched exact time-standard wording in How it works and Never confuse and removed meta wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for closeout time standards for contract files.

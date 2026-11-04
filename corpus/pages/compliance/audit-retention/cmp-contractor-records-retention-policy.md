@@ -53,7 +53,7 @@ Each period below is one of the specific periods designated in FAR 4.705-1 throu
 - Equipment records, consisting of equipment usage and status reports and equipment repair orders: retain 4 years [@CL-CMP-2423; @CL-CMP-2513].
 - Expendable property records, reflecting accountability for the receipt and use of material in the performance of a contract: retain 4 years [@CL-CMP-2423; @CL-CMP-2514].
 - Receiving and inspection report records, consisting of reports reflecting receipt and inspection of supplies, equipment, and materials: retain 4 years [@CL-CMP-2423; @CL-CMP-2515].
-- Property records, consisting of general ledger control accounts and related subsidiary accounts for real property, equipment, and other capital assets: retain 4 years [@CL-CMP-2423; @CL-CMP-2516].
+- Property records (see FAR 45.101 and 52.245-1): retain 4 years [@CL-CMP-2423; @CL-CMP-2516].
 
 ## How it works
 
@@ -76,7 +76,7 @@ Which contract clauses set a longer retention period, which years are still open
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Aligned the property records bullet to the FAR 45.101 and 52.245-1 cross-reference in the cited quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for statutory applicability and imaging requirements, restored full record descriptions in the retention bullets, and removed uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the longer-period cases as alternatives with the clause and late-proposal wording, and added the receivable and material file descriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the records sentence so the retention duty keeps its coverage of records of any type or form and other supporting evidence.

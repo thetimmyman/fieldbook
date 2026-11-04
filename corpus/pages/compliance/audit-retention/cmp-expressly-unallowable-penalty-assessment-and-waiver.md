@@ -58,7 +58,6 @@ How unallowable costs are kept out of rate and billing pools: accounts, review a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for the internal control examples and interest computation rules, cited the penalty trigger lead-in, and separated codified citations from RFO sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the action lists so the two penalty assessments are alternatives and the penalty amounts keep the proposal-submitted qualifier.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 42 citation and how DoD's class deviation applies it.
