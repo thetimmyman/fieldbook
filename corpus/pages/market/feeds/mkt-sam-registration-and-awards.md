@@ -52,7 +52,6 @@ Confirm which of the company's legal entities hold SAM registrations and which c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated RFO and codified FAR 2.101 citations, added exact section cross-references, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the System for Award Management definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of System for Award Management.

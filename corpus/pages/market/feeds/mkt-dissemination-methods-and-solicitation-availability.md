@@ -54,7 +54,6 @@ Confirm which public solicitation notices are relevant market observations for t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory lead-in to FAR 5.101(a), all three exceptions in FAR 5.102(a)(5), and exact exemption cross-references.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the other-security-risks part of the exception and showed that paid-advertisement limits are several.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS 215.205 pointer to PGI guidance on the Solicitation Module.

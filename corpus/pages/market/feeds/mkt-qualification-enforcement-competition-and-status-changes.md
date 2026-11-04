@@ -54,7 +54,6 @@ Confirm which of the company products fall under a qualification requirement and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added post-date enforceability sentence and notice-content requirement and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept 'any of the above or other conditions' in the status-change sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for qualification requirements: general rules, competition and changes in status.

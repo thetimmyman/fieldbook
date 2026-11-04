@@ -52,7 +52,6 @@ Confirm which reported contract actions and orders map to the company's own cont
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exact FAR cross-references for IDV examples and removed uncited contrast framing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said the card covers one of several kinds of actions not reported.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for what is reported to the Federal Procurement Data System.

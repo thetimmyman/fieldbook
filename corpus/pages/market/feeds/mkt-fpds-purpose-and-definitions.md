@@ -56,7 +56,6 @@ Confirm which public market observations drawn from reported contract actions th
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated full micro-purchase threshold exceptions and IDV clause numbers and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the 'or' lists as alternatives and added the emergency or major disaster item and 'among other things'.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the international disaster assistance exception and the inside and outside the United States amounts to the micro-purchase threshold summary.

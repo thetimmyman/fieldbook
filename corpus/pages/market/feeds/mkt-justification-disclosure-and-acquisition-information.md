@@ -54,7 +54,6 @@ Confirm which posted justifications are relevant public market observations for 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added within-agency contracting-activity wording in FAR 5.405(a) and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the purpose of the information exchange.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules for public requests and requests from Members of Congress.

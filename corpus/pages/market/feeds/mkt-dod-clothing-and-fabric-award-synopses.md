@@ -52,6 +52,5 @@ Confirm which public award synopses for these items are relevant market observat
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory lead-in, exact item cross-reference, and both prescribed synopsis statements, and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD publicizing of contract actions.

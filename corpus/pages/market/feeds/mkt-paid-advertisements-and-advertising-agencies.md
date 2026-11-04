@@ -58,7 +58,6 @@ Confirm which public advertising orders are relevant market observations for the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added 44 U.S.C. 3703 and FAR 5.502(a) cross-references and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS delegation to heads of contracting activities for newspaper advertisements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the advertisement and publication definitions and the approval authority.

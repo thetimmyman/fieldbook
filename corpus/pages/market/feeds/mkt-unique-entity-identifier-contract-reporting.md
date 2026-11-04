@@ -52,7 +52,6 @@ Confirm how supplier and customer identifiers in reported contract data are reco
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added second generic-identifier case in FAR 4.605(c)(2)(ii), separated RFO and codified citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who maintains generic identifiers and the other contractor kinds in the first listed case.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

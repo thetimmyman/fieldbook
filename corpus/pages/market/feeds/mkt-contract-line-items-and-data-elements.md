@@ -56,7 +56,6 @@ Which contracts and line structures are inside the finance remit, and which line
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO FAR 2.101 citations, added FAR 4.1005-2 exception and schedule parentheticals, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the delivery schedule, destination, period or place of performance instead of 'those terms'.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of subline item.

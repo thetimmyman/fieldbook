@@ -54,7 +54,6 @@ Confirm which public synopses and subcontracting notices are relevant market obs
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added parenthetical cross-references in FAR 5.204 and FAR 5.207(c)(13) and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the other purposes of a subcontracting opportunity notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for preparing and transmitting synopses.

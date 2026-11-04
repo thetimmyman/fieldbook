@@ -52,7 +52,6 @@ Confirm which public award announcements are relevant market observations for th
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added selection-basis parentheticals and removed uncited contrast framing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the third excluded-contract item, the two local-announcement alternatives and a closer order-reporting statement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for public announcement of contract awards.

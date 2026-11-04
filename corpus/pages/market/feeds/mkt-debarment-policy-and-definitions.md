@@ -56,7 +56,6 @@ Confirm whether any suspension, debarment, pre-notice letter or administrative a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added agency, Nonprocurement Common Rule, and remaining unfair trade practices definitions and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the 'or' lists of control indicia and Government contract types as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the debarment definition.

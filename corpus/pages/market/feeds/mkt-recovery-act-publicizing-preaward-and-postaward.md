@@ -58,7 +58,6 @@ Confirm whether public Recovery Act funded award notices are relevant market obs
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 5.704(a)(1) lead-in and eBuy example and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 5.203 correctly and completed the rationale sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope, applicability and definition of task or delivery order contract.

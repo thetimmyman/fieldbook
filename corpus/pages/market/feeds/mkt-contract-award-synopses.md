@@ -54,7 +54,6 @@ Confirm which public award notices are relevant market observations for the comp
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 8.405-6 and FAR 16.505(b)(2) cross-references and contracting-officer actor in timing and transmittal rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 5.003 as the provision the opening exception points to.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the two award categories.

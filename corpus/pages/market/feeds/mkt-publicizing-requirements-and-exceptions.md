@@ -58,7 +58,6 @@ Confirm which proposed-action notices are relevant public market observations fo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory lead-in in FAR 5.201(a), exact section numbers in FAR 5.201(b)(1), and removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the head of agency determination exception and kept the listed cases as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 5, the contract action definition, the publicizing policy and the GPE transmission rule.

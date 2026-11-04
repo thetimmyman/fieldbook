@@ -54,7 +54,6 @@ Confirm which bids and estimates need immediate support, since these periods set
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added GPE location sentences, separated RFO and codified citations, added DFARS cross-references, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the in-addition lead-in of the 40-day rule and named the period the forecast exception reduces.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the $25,000 words in the codified definition.
