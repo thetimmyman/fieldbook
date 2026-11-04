@@ -1,8 +1,11 @@
 //! [`Model`]: the immutable parsed Corpus state shared across check passes and `fieldbook-render`.
 
 use crate::date::CivilDate;
+use crate::schema::rows::CellProblem;
 use crate::schema::table::{Row, Table};
-use crate::schema::{CorpusToml, Register};
+use crate::schema::{
+    ClaimRow, ConflictRow, CorpusToml, GlossaryRow, QuestionRow, Register, SourceRow,
+};
 
 use super::registers;
 use super::tree::Tree;
@@ -17,16 +20,56 @@ const fn register_index(register: Register) -> usize {
     }
 }
 
+/// A parsed register row paired with its 1-based CSV line number.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Located<T> {
+    /// 1-based line number of the row in its register file.
+    pub line: u32,
+    /// The typed row value.
+    pub value: T,
+}
+
+pub(crate) type RowProblems = (u32, Vec<CellProblem>);
+
+fn parse_rows<T, F>(table: Option<&Table>, parse: F) -> (Vec<Located<T>>, Vec<RowProblems>)
+where
+    F: Fn(&Row) -> Result<T, Vec<CellProblem>>,
+{
+    let Some(table) = table else {
+        return (Vec::new(), Vec::new());
+    };
+    let mut typed = Vec::new();
+    let mut problems = Vec::new();
+    for row in &table.rows {
+        match parse(row) {
+            Ok(value) => typed.push(Located {
+                line: row.line,
+                value,
+            }),
+            Err(errs) => problems.push((row.line, errs)),
+        }
+    }
+    (typed, problems)
+}
+
 /// Parsed state built once by [`super::load`] and shared across passes.
 ///
 /// All fields are private; callers read them through [`Self::tree`], [`Self::today`],
-/// [`Self::corpus`], [`Self::register`] and [`Self::register_rows`].
+/// [`Self::corpus`], [`Self::register`], [`Self::register_rows`] and the typed row accessors
+/// ([`Self::sources`], [`Self::claims`], [`Self::questions`], [`Self::conflicts`],
+/// [`Self::glossary`]).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Model {
     tree: Tree,
     today: CivilDate,
     corpus: Option<CorpusToml>,
     registers: [Option<Table>; 5],
+    sources: Vec<Located<SourceRow>>,
+    claims: Vec<Located<ClaimRow>>,
+    questions: Vec<Located<QuestionRow>>,
+    conflicts: Vec<Located<ConflictRow>>,
+    glossary: Vec<Located<GlossaryRow>>,
+    register_problems: [Vec<RowProblems>; 5],
 }
 
 impl Model {
@@ -36,11 +79,24 @@ impl Model {
         } else {
             [None, None, None, None, None]
         };
+
+        let (sources, p0) = parse_rows(registers[0].as_ref(), SourceRow::from_row);
+        let (claims, p1) = parse_rows(registers[1].as_ref(), ClaimRow::from_row);
+        let (questions, p2) = parse_rows(registers[2].as_ref(), QuestionRow::from_row);
+        let (conflicts, p3) = parse_rows(registers[3].as_ref(), ConflictRow::from_row);
+        let (glossary, p4) = parse_rows(registers[4].as_ref(), GlossaryRow::from_row);
+
         Self {
             tree,
             today,
             corpus,
             registers,
+            sources,
+            claims,
+            questions,
+            conflicts,
+            glossary,
+            register_problems: [p0, p1, p2, p3, p4],
         }
     }
 
@@ -77,5 +133,41 @@ impl Model {
             Some(table) => &table.rows,
             None => &[],
         }
+    }
+
+    /// Typed rows of `sources.csv` in register order, skipping any row with a [`CellProblem`].
+    #[must_use]
+    pub fn sources(&self) -> &[Located<SourceRow>] {
+        &self.sources
+    }
+
+    /// Typed rows of `claims.csv` in register order, skipping any row with a [`CellProblem`].
+    #[must_use]
+    pub fn claims(&self) -> &[Located<ClaimRow>] {
+        &self.claims
+    }
+
+    /// Typed rows of `questions.csv` in register order, skipping any row with a [`CellProblem`].
+    #[must_use]
+    pub fn questions(&self) -> &[Located<QuestionRow>] {
+        &self.questions
+    }
+
+    /// Typed rows of `conflicts.csv` in register order, skipping any row with a [`CellProblem`].
+    #[must_use]
+    pub fn conflicts(&self) -> &[Located<ConflictRow>] {
+        &self.conflicts
+    }
+
+    /// Typed rows of `glossary.csv` in register order, skipping any row with a [`CellProblem`].
+    #[must_use]
+    pub fn glossary(&self) -> &[Located<GlossaryRow>] {
+        &self.glossary
+    }
+
+    /// Single-cell [`CellProblem`]s collected while building typed rows for `register`.
+    #[must_use]
+    pub(crate) fn register_problems(&self, register: Register) -> &[RowProblems] {
+        &self.register_problems[register_index(register)]
     }
 }
