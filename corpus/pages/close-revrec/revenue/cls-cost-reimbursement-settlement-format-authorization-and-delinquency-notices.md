@@ -41,7 +41,7 @@ Contracting officers shall use the printed letter format when granting subcontra
 
 Synthetic example. The numbers are made up.
 
-A contract has a delivery date 40 days away and the contractor is missing milestones. The contracting officer issues a cure notice, because well over a 10 day cure period remains. In another case the delivery date has passed with no delivery. The contracting officer sends a show cause notice immediately. The prime contractor with a written authorization of 50,000 per settlement settles a 30,000 claim from an unaffiliated subcontractor, whose subcontract was terminated because the Government terminated the prime contract for its convenience, without asking the Government first, because the claim is within the limit and the letter's other conditions are met.
+A contract has a delivery date 40 days away and the contractor is missing milestones. The contracting officer issues a cure notice, because well over a 10 day cure period remains. In another case the delivery date has passed with no delivery. The contracting officer sends a show cause notice immediately. The prime contractor with a written authorization of 50,000 per settlement settles a subcontract where the computed settlement amount (after deducting amounts payable for completed articles or work at the contract price) is 30,000, from an unaffiliated subcontractor whose subcontract was terminated because the Government terminated the prime contract for its convenience, without asking the Government first, because the computed amount is within the limit and the letter's other conditions are met.
 
 ## Never confuse
 

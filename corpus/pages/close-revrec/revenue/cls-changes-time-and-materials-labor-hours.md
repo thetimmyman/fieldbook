@@ -50,7 +50,7 @@ A labor-hour contract has a ceiling price of 600,000. A written order moves the 
 
 Under this clause the Contracting Officer will make the equitable adjustment in any one or more of the ceiling price, hourly rates, delivery schedule and other affected terms [@CL-CLS-1086]. The fixed-price clause is on [Changes, Fixed-Price clause and equitable adjustment](../../contract-finance/funding/ctf-changes-fixed-price-equitable-adjustment.md), and the contract type is on [Time-and-materials contracts](../../contract-finance/billing-payment/ctf-time-and-materials-contracts.md). The cost-reimbursement version is on [Changes clause for cost-reimbursement contracts](cls-changes-cost-reimbursement.md), and the construction version is on [Changes clause for construction contracts](cls-changes-construction.md).
 
-The RFO text numbers the paragraph (a) items (a)(1)(i) to (vii) and puts the sureties rule at (a)(2) [@CL-CLS-0039; @CL-CLS-0040; @CL-CLS-0041], where the codified clause numbers the items (a)(1) to (7) and puts the words on the sureties in the lead-in of paragraph (a) [@CL-CLS-1084; @CL-CLS-1130; @CL-CLS-1083].
+The RFO text numbers the paragraph (a) items (a)(1)(i) to (vii) and puts the sureties rule at (a)(2) [@CL-CLS-0039; @CL-CLS-0040; @CL-CLS-0041], where the codified clause numbers the items (1) to (7) under paragraph (a) and puts the words on the sureties in the lead-in of paragraph (a) [@CL-CLS-1084; @CL-CLS-1130; @CL-CLS-1083].
 
 ## Company calibration
 
