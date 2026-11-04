@@ -8,12 +8,13 @@ pub mod corpus_toml;
 pub mod diag;
 pub mod files;
 pub mod model;
+pub mod register_cells;
 pub mod registers;
 pub mod tree;
 
 pub use code::{Code, CodeParseError, Level};
 pub use diag::{Diagnostic, Report, Severity};
-pub use model::Model;
+pub use model::{Located, Model};
 pub use tree::{Entry, Tree};
 
 use crate::date::CivilDate;
@@ -54,7 +55,7 @@ impl Options {
 pub type Pass = fn(&Model, &Options, &mut Report);
 
 /// The fixed list of check passes run after `corpus/corpus.toml` passes `FB0100`.
-const PASSES: &[Pass] = &[files::check, registers::check];
+const PASSES: &[Pass] = &[files::check, registers::check, register_cells::check];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
     let mut report = Report::new();

@@ -1,26 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-register-cells
-[[pending]]
-code = "FB0114"
-card = "check-register-cells"
-
-[[pending]]
-code = "FB0204"
-card = "check-register-cells"
-
-[[pending]]
-code = "FB0205"
-card = "check-register-cells"
-
-[[pending]]
-code = "FB0206"
-card = "check-register-cells"
-
-[[pending]]
-code = "FB0210"
-card = "check-register-cells"
-
 # check-claim-cells
 [[pending]]
 code = "FB0306"

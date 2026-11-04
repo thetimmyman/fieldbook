@@ -6,6 +6,13 @@ edits = [
 ]
 
 [[case]]
+code = "FB0114"
+at = "corpus/registers/sources.csv:3"
+edits = [
+  { path = "corpus/registers/sources.csv", find = ",2026-01-15,2026-01-15,active,", replace = ",2026-01-15,2025-02-30,active," },
+]
+
+[[case]]
 code = "FB0120"
 at = "corpus/changes.md:1"
 edits = [
@@ -73,4 +80,32 @@ code = "FB0203"
 at = "corpus/registers/claims.csv:3"
 edits = [
   { path = "corpus/registers/claims.csv", find = "CL-CMP-0001,cmp,fact,Synthetic compliance reviews occur every 30 days under the synthetic rule.,2026-02-01,S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,codex,primary_source_supported,general_reference,prototype_reviewed,observed,V2,30,days,2026-01-15,,far_codified,48 CFR 9900.101,,2026-01,final,event=award_date; entered_from=2026-01-15; contract_type=fixed_price,,2026-02-10,owner,,,,,Synthetic owner-verified fact for fixture tests.\n", replace = "CL-CMP-0001,cmp,fact,Synthetic compliance reviews occur every 30 days under the synthetic rule.,2026-02-01,S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,codex,primary_source_supported,general_reference,prototype_reviewed,observed,V2,30,days,2026-01-15,,far_codified,48 CFR 9900.101,,2026-01,final,event=award_date; entered_from=2026-01-15; contract_type=fixed_price,,2026-02-10,owner,,,,,Synthetic owner-verified fact for fixture tests.\nCL-CMP-0001,cmp,fact,Synthetic compliance reviews occur every 30 days under the synthetic rule.,2026-02-01,S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,codex,primary_source_supported,general_reference,prototype_reviewed,observed,V2,30,days,2026-01-15,,far_codified,48 CFR 9900.101,,2026-01,final,event=award_date; entered_from=2026-01-15; contract_type=fixed_price,,2026-02-10,owner,,,,,Synthetic owner-verified fact for fixture tests.\n" },
+]
+
+[[case]]
+code = "FB0204"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,pending_company_confirmation,", replace = "Synthetic withholding threshold is 5 percent.,true,codex,checked,pending_company_confirmation," },
+]
+
+[[case]]
+code = "FB0205"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,", replace = "CL-CMP-0002,cmp,fact,,2026-02-01," },
+]
+
+[[case]]
+code = "FB0206"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = ",observed,V2,5,percent,2026-01-15,", replace = ",observed,V2,5,,2026-01-15," },
+]
+
+[[case]]
+code = "FB0210"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,pending_company_confirmation,proposed,", replace = "Synthetic withholding threshold is 5 percent.,true,codex,unchecked,confirmed_applicable,proposed," },
 ]
