@@ -10,6 +10,7 @@ pub mod diag;
 pub mod files;
 pub mod index;
 pub mod model;
+pub mod pages;
 pub mod promotion;
 pub mod register_cells;
 pub mod register_links;
@@ -19,7 +20,7 @@ pub mod tree;
 pub use code::{Code, CodeParseError, Level};
 pub use diag::{Diagnostic, Report, Severity};
 pub use index::{Index, SourceVersionEntry};
-pub use model::{Located, Model};
+pub use model::{Located, Model, PageEntry};
 pub use tree::{Entry, Tree};
 
 use crate::date::CivilDate;
@@ -67,6 +68,7 @@ const PASSES: &[Pass] = &[
     claim_cells::check,
     register_links::check,
     promotion::check,
+    pages::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
