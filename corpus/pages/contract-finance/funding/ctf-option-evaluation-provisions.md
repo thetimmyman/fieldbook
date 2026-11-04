@@ -47,7 +47,7 @@ Answer: under the evaluation of options provision, Offer X is evaluated at 1,350
 
 ## Never confuse
 
-Under FAR 52.217-3, the Government will evaluate offers for award purposes by including only the price for the basic requirement, whereas FAR 52.217-4 and FAR 52.217-5 evaluate option prices exercised at the time of award or add the total price for all options to the total price for the basic requirement [@CL-CTF-2295; @CL-CTF-2296; @CL-CTF-2297]. See [Evaluation exclusive of options provision](ctf-evaluation-exclusive-of-options-provision.md) and [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
+Under FAR 52.217-3, the Government will evaluate offers for award purposes by including only the price for the basic requirement, whereas FAR 52.217-4 and FAR 52.217-5, except when it is determined in accordance with FAR 17.206(b) not to be in the Government's best interests, evaluate the total price for the basic requirement together with any option(s) exercised at the time of award or add the total price for all options to the total price for the basic requirement [@CL-CTF-2295; @CL-CTF-2296; @CL-CTF-2297]. See [Evaluation exclusive of options provision](ctf-evaluation-exclusive-of-options-provision.md) and [Option solicitation provisions and contract clauses](ctf-option-clauses-and-provisions.md).
 
 Under FAR 52.217-4 and FAR 52.217-5, the exception refers to a determination in accordance with FAR 17.206(b) [@CL-CTF-2296; @CL-CTF-2297]. Under RFO FAR 52.217-4 and RFO FAR 52.217-5, the exception refers to a determination in accordance with FAR 17.202(b) [@CL-CTF-1269; @CL-CTF-1270].
 
