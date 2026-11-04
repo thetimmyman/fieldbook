@@ -71,7 +71,6 @@ Confirm who sets the acceptance period the company offers and who signs off on t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Acceptance-period and delivery-time contrast reworded to what the cited text states.
 - COMPATIBLE_EXTENSION, 2026-10-31: Period for acceptance restated as the bidder's conditional agreement; contract-specific wording replaced.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

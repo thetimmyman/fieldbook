@@ -57,7 +57,6 @@ How the company freezes each proposal version and records every change an offero
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated communications list items, competitive range scope, minimum discussion paragraphs and actors; removed unsupported contrasts; added two companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer determination that precedes limiting the competitive range; price too high or low statement now names the contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.203 award without negotiation.

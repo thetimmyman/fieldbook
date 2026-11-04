@@ -74,7 +74,6 @@ The company must confirm which approval date, amendment and revision of each cit
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: specifications: joined the exception lead-in to its cited first alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated exceptions as alternatives; cut meta and absence sentences; restated duties and contrasts with source wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the competent-evaluation object, restored not normally furnished, and removed an unstated actor contrast.

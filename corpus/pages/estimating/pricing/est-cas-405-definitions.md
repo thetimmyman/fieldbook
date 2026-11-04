@@ -56,7 +56,6 @@ Confirm which costs the company screens out of proposals and rate submissions, a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Unallowable and indirect cost definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statement on duties removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the unallowable cost Standard definitions.

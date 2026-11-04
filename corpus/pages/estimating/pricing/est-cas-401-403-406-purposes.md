@@ -68,7 +68,6 @@ Who owns the proposal pricing record and the estimating system description, and 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose wording aligned with the cited text; meta and uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes of the consistency, home office allocation and cost accounting period Standards.

@@ -53,7 +53,6 @@ Which award-fee bids need immediate support, and what review evidence and approv
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Award-fee earning condition, plan support and determination wording aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Award-amount, suitability, plan and award-condition wording aligned with the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for award-fee contracts.

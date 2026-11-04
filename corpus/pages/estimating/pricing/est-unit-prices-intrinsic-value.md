@@ -60,7 +60,6 @@ Confirm which line items in upcoming proposals will be priced on adequate price 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Statute citation reworded so the sentence carries its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence statements; carried codified follow-on sentence and example wording; restated contrasts with cited text; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed two uses of only that the quotes do not state.

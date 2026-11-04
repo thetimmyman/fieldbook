@@ -62,7 +62,6 @@ Which bids and estimates need prior-sale price support first, and who supplies a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: pricing policy: joined the alternatives lead-in to its cited first alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the two alternatives, full threshold conditions and cross-references; replaced contrasts and meta wording with cited statements; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied threshold sentences to their exception and lead-in claims.

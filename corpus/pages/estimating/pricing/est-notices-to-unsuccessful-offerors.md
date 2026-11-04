@@ -57,7 +57,6 @@ Who sends these notices for proposals the company submits, and who owns the prop
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored actors and part 13 scope; replaced contrasts and absence claims with cited statements; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened exclusion-notice, impracticability and debriefing wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.206(b) applicability.

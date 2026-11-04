@@ -54,7 +54,6 @@ Which pool carries business unit general and administrative expense and which ba
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose section omits removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the Standard on allocating business unit general and administrative expense to final cost objectives.

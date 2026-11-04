@@ -72,7 +72,6 @@ Confirm who signs bids, who initials changes, and what evidence of agent authori
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Unit-price correction, all-items disqualification and definition wording aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified lead-in that states the per-item duty as bidders shall.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO definitions of signature or signed.

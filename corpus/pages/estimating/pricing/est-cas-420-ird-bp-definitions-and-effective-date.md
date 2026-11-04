@@ -74,7 +74,6 @@ Which pool carries independent research and development and bid and proposal cos
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Effective-date and exclusion wording aligned with the cited text; uncited statements and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the definitions and effective date of the Standard on independent research and development and bid and proposal costs.

@@ -58,7 +58,6 @@ Which upcoming proposals may need certified cost or pricing data, and whether ea
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternatives, steps, RFO comparisons and cited provisions tied to their quotes; added or-alternative and best-interest companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternatives list completed, waiver and RFO comparison wording tied to quotes, shall and must restored.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the adequate-price-competition lead-in and finding approval; added data-other-than parenthetical.

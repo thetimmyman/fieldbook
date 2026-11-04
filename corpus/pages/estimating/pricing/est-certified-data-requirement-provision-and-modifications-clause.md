@@ -58,7 +58,6 @@ Which proposals expected in the next two quarters may need certified cost or pri
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied provision and modifications-clause wording to quotes: lead-ins, threshold, exception condition on certificate; added two companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certificate timing, decision wording and shall/must restored; uncited price-reduction contrast removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

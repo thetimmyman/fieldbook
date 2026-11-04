@@ -54,7 +54,6 @@ Whether each business unit was outside full coverage at the publication date, an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Exemption wording restated from the cited text without added contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Examples of other Federal regulations restated as alternatives; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the exemption from the Standard on cost of money as an element of the cost of facilities capital.

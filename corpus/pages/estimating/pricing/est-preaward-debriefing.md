@@ -61,7 +61,6 @@ Who prepares the evaluation material for a debriefing request and who owns the p
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried codified cross-references and RFO third content item; replaced vague 'keeps' comparisons with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Scoped the one-debriefing limit to offerors generally.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.206(a) meaning of day.

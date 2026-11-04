@@ -55,7 +55,6 @@ Which bids need immediate support and the approval route that must finish before
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried designated-office scope and FAR 15.306(a) clarification cross-reference; replaced contrasts and meta wording with cited statements; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.105-2 negotiations disclosure.

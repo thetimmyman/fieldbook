@@ -73,7 +73,6 @@ Confirm who produces and ships samples, and who can prove the delivery date for 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse wording tied to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Class deviation wording changed to must use; unsupported contrast on waiver removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 and RFO FAR 2.101 definitions of bid sample.

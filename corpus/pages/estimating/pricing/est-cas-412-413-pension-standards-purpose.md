@@ -58,7 +58,6 @@ Whether each business unit is under full, modified or no coverage, and how pensi
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse wording restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose sections omit removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purposes of the pension cost composition and pension cost adjustment Standards.

@@ -64,7 +64,6 @@ Whether each business unit already carries CAS-covered contracts under full cove
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Transition cases stated as two separate cases from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the sections omit removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the effective date and transition of the home office allocation, cost accounting period and insurance Standards.

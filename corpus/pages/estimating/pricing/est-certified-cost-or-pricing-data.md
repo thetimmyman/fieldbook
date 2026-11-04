@@ -45,7 +45,7 @@ A DoD prime contract expected at 8 million is awarded after the DoD threshold ch
 
 ## Never confuse
 
-Certified cost or pricing data are cost or pricing data that were required to be submitted in accordance with FAR 15.403-4 and 15.403-5 and have been certified, or are required to be certified, in accordance with 15.406-2 [@CL-EST-9277]; data other than certified cost or pricing data are what the contracting officer shall obtain when certified data are not required by 15.403-4 [@CL-EST-1252]. The FAR definition says cost or pricing data are required to be certified in certain procurements under chapter 271 of title 10 and chapter 35 of title 41 of the United States Code [@CL-EST-9399], and chapter 35 of title 41 is cross-referenced as Truthful Cost or Pricing Data [@CL-CMP-8392].
+Certified cost or pricing data are cost or pricing data that were required to be submitted in accordance with FAR 15.403-4 and 15.403-5 and have been certified, or are required to be certified, in accordance with 15.406-2 [@CL-EST-9277]; data other than certified cost or pricing data are what the contracting officer shall obtain as necessary to establish a fair and reasonable price when certified data are not required by 15.403-4 [@CL-EST-1252]. The FAR definition says cost or pricing data are required to be certified in certain procurements under chapter 271 of title 10 and chapter 35 of title 41 of the United States Code [@CL-EST-9399], and chapter 35 of title 41 is cross-referenced as Truthful Cost or Pricing Data [@CL-CMP-8392].
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ How many open and planned proposals need certified data under each threshold. [@
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Added as necessary to establish a fair and reasonable price on data other than certified cost or pricing data in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Table rows: RFO citation tied to an RFO claim and instrument row limited to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Deviation threshold, exception and certificate wording corrected to the cited text; false statement that the deviation has no earlier-award threshold or subcontract rule removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the exceptions, other-data and statute sentences to cited claims.

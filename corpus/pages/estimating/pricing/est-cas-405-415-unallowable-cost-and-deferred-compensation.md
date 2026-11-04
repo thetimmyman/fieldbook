@@ -74,7 +74,6 @@ Which business units hold full coverage contracts and which advance agreements o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: How-it-works wording for CAS 405 and 415 aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: CAS 405 and 415 comparison restated as the cited text; inferences and added actor removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the lead-in of the CAS 405 predicate sentence.

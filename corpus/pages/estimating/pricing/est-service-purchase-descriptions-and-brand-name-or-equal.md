@@ -68,7 +68,6 @@ The company must confirm, for every service solicitation it bids, which of the l
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated provision triggers and identification condition from the source wording; removed absence and contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: The pointer to section 11.104 now cites its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the policy on brand name or equal purchase descriptions.

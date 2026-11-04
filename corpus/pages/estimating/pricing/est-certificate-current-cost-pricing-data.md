@@ -29,7 +29,7 @@ Shows when a contractor executes a Certificate of Current Cost or Pricing Data a
 | Text status | Final [@CL-EST-0170] |
 | Applies to | Actions where certified cost or pricing data are required [@CL-EST-0170] |
 
-When certified cost or pricing data are required, the contracting officer shall require the contractor to execute a Certificate of Current Cost or Pricing Data using the format in that paragraph, and must include the executed certificate in the contract file [@CL-EST-9460; @CL-EST-0170]. The certificate states that, to the best of the signer's knowledge and belief, the cost or pricing data (as defined in FAR 2.101 and required under FAR 15.403-4) submitted are accurate, complete, and current as of the date inserted [@CL-EST-9461; @CL-EST-0175]. The form says to insert the day, month and year when price negotiations were concluded and price agreement was reached or, if applicable, an earlier date agreed between the parties that is as close as practicable to the date of agreement on price [@CL-EST-9462]. It also covers the cost or pricing data supporting any advance agreements and forward pricing rate agreements that are part of the proposal [@CL-EST-0171].
+When certified cost or pricing data are required, the contracting officer shall require the contractor to execute a Certificate of Current Cost or Pricing Data using the format in that paragraph, and must include the executed certificate in the contract file [@CL-EST-9460; @CL-EST-0170]. The certificate states that, to the best of the signer's knowledge and belief, the cost or pricing data (as defined in FAR 2.101 and required under FAR 15.403-4) submitted are accurate, complete, and current as of the date inserted [@CL-EST-9461; @CL-EST-0175]. The form says to insert the day, month and year when price negotiations were concluded and price agreement was reached or, if applicable, an earlier date agreed between the parties that is as close as practicable to the date of agreement on price [@CL-EST-9462]. It also covers the cost or pricing data supporting any advance agreements and forward pricing rate agreements between the offeror and the Government that are part of the proposal [@CL-EST-0171].
 
 ## How it works
 
@@ -56,7 +56,7 @@ Which upcoming proposals may need a Certificate of Current Cost or Pricing Data.
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated between the offeror and the Government on advance agreements and forward pricing rate agreements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the fact-and-judgment qualification and tied certificate wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the codified lead-in, signer statement, date footnote and accuracy sentence for the certificate.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on the certificate.

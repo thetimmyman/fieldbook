@@ -72,7 +72,6 @@ Who owns the pricing and technical content of a submission that goes out as an u
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated policy and definitions in source wording with the alternatives list; removed meta and contrast clauses; kept RFO and codified citations apart.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored routine correspondence to the list of submissions that are not unsolicited proposals.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of broad agency announcement.

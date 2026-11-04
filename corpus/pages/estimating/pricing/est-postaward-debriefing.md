@@ -55,7 +55,6 @@ Who owns the pricing and the cost breakdowns that must stay out of a debriefing,
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried second timing sentence and the full minimum-content and nondisclosure wording; replaced contrasts with cited statements; added two companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named whose proposals are compared and the past performance reference names.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.301 meaning of day and the RFO FAR 15.301-2 follow up questions.

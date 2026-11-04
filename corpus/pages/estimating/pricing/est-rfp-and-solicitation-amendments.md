@@ -61,7 +61,6 @@ Who reads each amendment and updates the estimate and its assumptions when requi
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried alternative-terms sentence and cancellation condition in full; kept RFO and codified citations separate; replaced contrasts with cited statements; added one companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how solicitations are issued and the master solicitation.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

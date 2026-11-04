@@ -70,7 +70,6 @@ What share of the company's revenue sits in each contract type, and which approv
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed absence statements and unsupported framing; restated Never-confuse contrasts as cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 16.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for selecting contract types.

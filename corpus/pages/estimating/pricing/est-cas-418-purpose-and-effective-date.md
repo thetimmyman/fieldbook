@@ -56,7 +56,6 @@ Confirm how the company classifies each cost as direct or indirect and which all
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Start-rule comparison restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose and start-rule wording aligned with the cited text; uncited statements and contrasts removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the allocation of direct and indirect costs Standard purpose and effective date.

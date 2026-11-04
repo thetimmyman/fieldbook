@@ -33,7 +33,7 @@ Accumulating costs means the collecting of cost data in an organized manner, suc
 
 An indirect cost pool means a grouping of incurred costs identified with two or more objectives but not identified specifically with any final cost objective [@CL-EST-2859]. Pricing means the process of establishing the amount or amounts to be paid in return for goods or services [@CL-EST-2860]. A proposal means any offer or other submission used as a basis for pricing a contract, contract modification or termination settlement, or for securing payments under it [@CL-EST-2861].
 
-Other terms defined elsewhere in part 99 have the meanings given in those definitions unless paragraph (b) of the section requires otherwise [@CL-EST-2956]. Paragraph (b) applies no modification to those terms for this Standard [@CL-EST-2957].
+Other terms defined elsewhere in part 99 have the meanings given in those definitions unless paragraph (b) of the section requires otherwise [@CL-EST-2956]. Paragraph (b) applies no modification to terms defined elsewhere in chapter 99 for this Standard [@CL-EST-2957].
 
 ## How it works
 
@@ -56,7 +56,7 @@ Confirm who owns proposal pricing and the estimating system description, and whe
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated terms defined elsewhere in chapter 99 on the paragraph (b) sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse definitions restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Proposal definition restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the consistency Standard definitions.

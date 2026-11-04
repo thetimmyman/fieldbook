@@ -76,7 +76,6 @@ The company must confirm, for each requirement set it prices, which version of t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Statute citations written in a form that keeps the citation on the sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated agencies' structure and lead-ins; removed contrasts and unsupported explanations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited paragraph count and aligned the metric guidance wording.

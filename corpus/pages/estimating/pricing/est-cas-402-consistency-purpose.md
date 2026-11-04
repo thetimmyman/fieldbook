@@ -56,7 +56,6 @@ Whether the proposal applies one basis to each type of cost and removes like cos
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Double-counting sentence restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Uncited statements about what the purpose section omits removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the purpose of the consistency Standard on allocating costs incurred for the same purpose.

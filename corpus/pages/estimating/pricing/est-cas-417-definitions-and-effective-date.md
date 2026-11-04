@@ -58,7 +58,6 @@ Confirm which capital projects are under construction at each segment and whethe
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Asset definitions and start rules restated from the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Purpose restated as quoted; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the capital assets under construction cost of money Standard purpose, definitions and effective date.

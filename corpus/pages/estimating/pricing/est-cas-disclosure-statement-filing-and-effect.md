@@ -74,7 +74,6 @@ Whether a Disclosure Statement is on file for each covered business unit and who
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: disclosure statement: cut an uncited remark about the form illustrations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Disclosure-effect and advance-request wording aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the caution on complete and accurate disclosures as the source words it.

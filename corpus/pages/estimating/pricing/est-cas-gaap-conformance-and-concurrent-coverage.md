@@ -76,7 +76,6 @@ Which business units carry full coverage, modified coverage or neither, and whic
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Revenue-exemption summary aligned with the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Concurrent coverage and revenue exemption wording aligned with the cited text; uncited statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for GAAP conformance changes and concurrent full and modified coverage.

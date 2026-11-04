@@ -56,7 +56,6 @@ Which bids and estimates need immediate support, who approves a field pricing re
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored actors and shall wording; carried deficient-data follow-up and referral details; replaced contrasts with cited statements; added four companions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added commerciality lead-in and denied-access trigger.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on field pricing or audit assistance.

@@ -55,7 +55,6 @@ How the target cost and the fee limits in a proposal are frozen and later compar
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse contrast restated from the quotes; added award-amount companion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on cost-plus-incentive-fee contracts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer in section 16.405 to the general cost-reimbursement requirements.
