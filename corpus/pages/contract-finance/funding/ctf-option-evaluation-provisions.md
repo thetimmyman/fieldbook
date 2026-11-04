@@ -58,7 +58,6 @@ Confirm which option evaluation provision each executed contract carries and how
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations and removed meta-wording and uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected three sentences to say the FAR 17.206(b) reference is in the codified provisions; the RFO provisions refer to FAR 17.202(b).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

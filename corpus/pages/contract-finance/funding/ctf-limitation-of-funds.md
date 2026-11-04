@@ -66,7 +66,6 @@ Confirm which contracts are incrementally funded, which notice dates and thresho
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 52.232-22(c) and RFO FAR 52.232-22(c) required notice content, separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Used the clause's wording for the later termination date condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the 75 percent base, the funds-notice scope and the Termination clause tie.

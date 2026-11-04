@@ -62,7 +62,6 @@ Which awards carry the Levies on Contract Payments clause, and where its applica
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 10 U.S.C. 2801 construction definition reference in DFARS 216.306(c)(ii)(A) and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sentences on DFARS 232.7102 now cite its claim directly.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the military construction payment restriction and the Levies on Contract Payments clause.

@@ -56,6 +56,5 @@ Confirm who checks which option provisions and clauses are in each executed cont
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the FAR 17.208(c)(4) sealed-bid written determination requirement, included the 17.200, 17.202, and 37.111 cross-references, and cited lead-in sentences.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for option solicitation provisions and contract clauses.

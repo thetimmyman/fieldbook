@@ -64,7 +64,6 @@ How the company ties its settlement estimate to the obligated balance so that ex
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Preserved shall and shall not modality from FAR 49.105-2 and FAR 49.604 and removed an uncited sentence in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS pointer to PGI guidance on recommending the release of excess funds.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for release of excess funds on a terminated contract.

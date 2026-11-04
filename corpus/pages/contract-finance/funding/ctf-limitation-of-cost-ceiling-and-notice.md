@@ -70,7 +70,6 @@ Which live contracts carry the Limitation of Cost clause, who watches the estima
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, cited RFO FAR 32.706-2(a) variation and substitution rules, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected two sentences to say the notice period, percentage and "Schedule" substitutions come from the codified prescription.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

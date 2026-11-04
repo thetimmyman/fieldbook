@@ -58,7 +58,6 @@ Where the executed contracts and modifications are kept, and who confirms that t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for FAR 52.243-1(a) change areas, preserved shall modality, separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded never-confuse text that added an only and an out-of-scope contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

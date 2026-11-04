@@ -68,7 +68,6 @@ Confirm which multiyear contracts carry this clause, the ceiling in each Schedul
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, added the Subpart 15.4 cross-reference in FAR 52.217-2(f)(1), and removed meta-wording and uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed a connecting word the facility-cost item does not contain.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

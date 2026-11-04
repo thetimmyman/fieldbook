@@ -56,7 +56,6 @@ Which contracts are fully or incrementally funded, which notices apply, and who 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, stated the full DFARS 232.703-1 incremental-funding conditions, and removed uncited meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 32.703-2 condition on the expressly conditioned alternative.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the quote that joins the two DFARS condition sets.

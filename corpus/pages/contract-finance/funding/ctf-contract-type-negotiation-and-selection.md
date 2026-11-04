@@ -56,6 +56,5 @@ Which contracts are fixed-price, cost-type, time-and-materials or incentive, by 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.103(d)(1)(iv)(B)-(D) documentation items and removed uncited meta-wording and extrapolations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for negotiating and selecting contract type.

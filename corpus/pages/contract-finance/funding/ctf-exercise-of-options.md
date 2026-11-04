@@ -58,7 +58,6 @@ Confirm who tracks option exercise dates and notice periods, and who confirms fu
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 17.207(c)(6)-(7) and FAR 17.207(e), preserved part 5 exemption and SAM cross-references, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected what the most-advantageous determination points to.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exercise of options.

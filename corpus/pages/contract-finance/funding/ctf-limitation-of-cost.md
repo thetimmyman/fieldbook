@@ -51,7 +51,6 @@ Which contracts carry the limitation of cost or limitation of funds clause, and 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added citations to Never confuse and How it works, included the cost-sharing and Termination-clause qualifiers in FAR 52.232-20(d), and stated RFO FAR 52.232-20(b)(1) in body prose.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited RFO text for the RFO citation and tied the funding limits to their clause text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the notice triggers with their lead-in and cited the right claims.

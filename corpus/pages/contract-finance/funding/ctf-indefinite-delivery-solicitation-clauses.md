@@ -53,7 +53,6 @@ Which executed indefinite-delivery contracts carry which of these clauses, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added solicitations and contracts scope to all five clause prescriptions and removed uncited meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an actor the FAR text does not name for the insertion directions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indefinite-delivery solicitation provisions and clauses.

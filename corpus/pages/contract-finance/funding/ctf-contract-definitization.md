@@ -31,7 +31,7 @@ Shows what the definitization clause requires after a letter contract is awarded
 
 The contractor agrees to begin promptly negotiating with the contracting officer the terms of a definitive contract [@CL-CTF-0609]. That contract will include all clauses required by the Federal Acquisition Regulation on the date of execution of the letter contract, all clauses required by law on the date of execution of the definitive contract, and any other mutually agreeable clauses, terms and conditions [@CL-CTF-0412].
 
-The proposal has to include data other than certified cost or pricing data and certified cost or pricing data, in accordance with FAR 15.408, Table 15-2, supporting the proposal [@CL-CTF-0413]. If agreement on a definitive contract is not reached by the target date in the clause schedule or within any extension the contracting officer grants [@CL-CTF-0415], the contracting officer may, with the approval of the head of the contracting activity, determine a reasonable price or fee in accordance with FAR subpart 15.4 and part 31, subject to contractor appeal under the Disputes clause [@CL-CTF-0414]. The contractor must proceed with completion in any event, subject only to the Limitation of Government Liability clause [@CL-CTF-0416].
+The contractor agrees to submit a proposal of the specific type inserted in the clause (such as fixed-price or cost-and-fee), including data other than certified cost or pricing data, and certified cost or pricing data, in accordance with FAR 15.408, Table 15-2, supporting its proposal [@CL-CTF-0413]. If agreement on a definitive contract is not reached by the target date in the clause schedule or within any extension the contracting officer grants [@CL-CTF-0415], the contracting officer may, with the approval of the head of the contracting activity, determine a reasonable price or fee in accordance with FAR subpart 15.4 and part 31, subject to contractor appeal under the Disputes clause [@CL-CTF-0414]. The contractor must proceed with completion in any event, subject only to the Limitation of Government Liability clause [@CL-CTF-0416].
 
 ## How it works
 
@@ -70,7 +70,6 @@ Whether each letter contract has a target date, a proposal carrying both kinds o
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, removed meta-wording, and added citation to the first sentence of How it works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an added contrast about funding ceilings from the duty-to-proceed sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

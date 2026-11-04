@@ -58,7 +58,6 @@ Confirming which contracts are incrementally funded, tracking formal agency fund
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 32.704(a)(1)(iv) and RFO FAR 32.704(a)(1)(i), (iii), and (iv), separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the codified text that states the clause condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the written notices as alternatives, not cumulative matters.

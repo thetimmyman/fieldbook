@@ -56,7 +56,6 @@ Confirm which contracts carry options and in which contract types, so the contra
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 17.202(b)(1)(i)-(ii) and removed meta-wording and uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the paragraphs on normally-not-in-interest and shall-not-employ cases; learning or testing exception now states both conditions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for use of options.

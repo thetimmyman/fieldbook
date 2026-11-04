@@ -56,7 +56,6 @@ Which basic agreements and basic ordering agreements the company holds, the poin
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.702(b)(3) revision rules and FAR 16.703(d)(3) urgent-need definition and pricing duties, and removed uncited meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of subpart 16.7 and its cross-references.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for basic agreements and basic ordering agreements.

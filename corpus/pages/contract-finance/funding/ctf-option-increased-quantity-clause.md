@@ -56,7 +56,6 @@ Confirm which contracts carry this clause and the notice period inserted in each
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality for delivery rate, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed words about the Schedule that the unit-price quote does not contain.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

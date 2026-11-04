@@ -54,7 +54,6 @@ Which indefinite-quantity awards the company holds, their stated minimums and ma
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.504(c)(2)(i)(A)-(C), FAR 16.504(c)(1)(ii)(B)(2)-(6), and FAR 16.504(c)(1)(ii)(D)(1)-(2), included Subpart 6.3 in (D)(3), and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the multiple-award preference sentence so the rule keeps that the awards are made under a single solicitation to two or more sources.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for indefinite-delivery and indefinite-quantity contracts.

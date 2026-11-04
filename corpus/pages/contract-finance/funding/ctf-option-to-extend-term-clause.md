@@ -58,7 +58,6 @@ Confirm which contracts carry this clause, the exercise window, preliminary noti
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated codified and RFO citations, preserved shall modality in How it works, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Clarified who the preliminary notice does not commit.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

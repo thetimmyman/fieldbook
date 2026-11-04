@@ -54,7 +54,6 @@ Which contracts are requirements contracts, the estimate and limits each states,
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for FAR 16.503(d)(1)-(2) advisory and assistance services limitations and removed uncited and meta-wording sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Single-award paragraph now also states the Subpart 6.3 point; limits sentence matches optional per-order and per-period wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the audience of the estimate disclaimer.

@@ -58,7 +58,6 @@ Confirm where the executed contracts and modifications sit, and who confirms whi
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for FAR 17.203(g)(1), included the Service Contract Labor Standards example in FAR 17.204(e) and the examples in FAR 17.203(f), separated codified and RFO citations, and removed meta-wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of option.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of option.
