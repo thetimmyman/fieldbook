@@ -41,7 +41,7 @@ After a rejection, the contracting officer must give written notice to SBA withi
 
 Synthetic example. The numbers are made up.
 
-Market research for a multiple-award procurement shows that neither a total nor a partial set-aside is feasible. The contracting officer may reserve one or more awards for small business concerns in the full and open procurement. For a different buy, SBA recommends a set-aside. The contracting officer receives the recommendation on a Monday and rejects it two days later. Written notice to SBA is due within 5 working days of receipt, so a notice sent by the following Monday is in time, assuming no holidays.
+Market research for a multiple-award procurement shows that neither a total nor a partial set-aside is feasible. The contracting officer may reserve one or more awards for small business concerns identified in 19.000(a)(3) in the full and open procurement when market research indicates both listed conditions. For a different buy, SBA recommends a set-aside. The contracting officer receives the recommendation on a Monday and rejects it two days later. Written notice to SBA is due within 5 working days of receipt, so a notice sent by the following Monday is in time, assuming no holidays.
 
 ## Never confuse
 

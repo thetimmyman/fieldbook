@@ -49,7 +49,7 @@ A requirement in a non-manufacturing NAICS code has an anticipated award price, 
 
 ## Never confuse
 
-A set-aside restricts competition among SDVOSB concerns and depends on a reasonable expectation of two or more offers [@CL-MKT-0619]. A sole-source award has its own conditions and price ceiling [@CL-MKT-0620; @CL-MKT-0621]. Size is a separate question; see the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card. Protests of SDVOSB status are on the [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) card.
+A set-aside restricts competition among SDVOSB concerns and depends on a reasonable expectation, based on market research, that two or more such concerns will submit offers and that award will be made at a fair market price [@CL-MKT-0619]. A sole-source award has its own conditions and price ceiling [@CL-MKT-0620; @CL-MKT-0621]. Size is a separate question; see the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card. Protests of SDVOSB status are on the [Protesting a firm's service-disabled veteran-owned small business status](mkt-sdvosb-status-protests.md) card.
 
 ## Company calibration
 
