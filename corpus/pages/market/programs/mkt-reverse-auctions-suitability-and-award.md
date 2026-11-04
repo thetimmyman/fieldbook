@@ -66,7 +66,6 @@ Which product families and customer segments the company would offer through a r
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 17.803(d)(3) statutory citation, restored 'shall only use', and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: reverse auction wording follows quotes.
 - COMPATIBLE_EXTENSION, 2026-10-30: Stated that the provider offers the proprietary data protection agreement as part of registration, as FAR 17.802(d)(3) says.

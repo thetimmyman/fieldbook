@@ -54,7 +54,6 @@ Which of the company's contracts carry each clause and alternate, and which are 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the categories and conditions in FAR 19.708(c)(1) and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternate cross-references and exceptions wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracting contract clauses.

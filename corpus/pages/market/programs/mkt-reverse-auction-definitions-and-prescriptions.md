@@ -54,7 +54,6 @@ Which agreements use reverse auctions, and who confirms the provision and clause
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the parenthetical business-records examples and removed unquoted commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: exclusions wording follows definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the reverse auction definitions and the provision and clause prescriptions.

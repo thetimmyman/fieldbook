@@ -56,7 +56,6 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 19.507(e)(2) and 19.507(h)(1) prescriptions and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: order-set-aside and definition alternatives wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of multiple-award contract.

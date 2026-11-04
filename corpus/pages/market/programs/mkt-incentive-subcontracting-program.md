@@ -55,7 +55,6 @@ Whether the purchasing system has been reviewed, and how plan goals and the doll
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: incentive percent sentence carries goal condition and exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

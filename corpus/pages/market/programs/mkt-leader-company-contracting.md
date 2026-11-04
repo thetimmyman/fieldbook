@@ -65,7 +65,6 @@ Whether any program depends on a leader-follower arrangement, which agency proce
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternative awards cite the lead-in claim.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for leader company contracting.

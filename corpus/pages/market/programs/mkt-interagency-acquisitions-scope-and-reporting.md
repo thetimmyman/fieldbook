@@ -66,7 +66,6 @@ Which interagency orders the company performs under, which agency is the servici
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.501(d) statutory example and removed unquoted commentary and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: applicability alternatives stated as either-or, subpart 17.7 wording follows quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the interagency acquisition definition.

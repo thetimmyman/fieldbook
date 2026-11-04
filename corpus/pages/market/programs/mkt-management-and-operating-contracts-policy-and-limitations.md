@@ -71,7 +71,6 @@ Which contracts in the finance remit are authorized management and operating con
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS statement that FAR subpart 17.6 does not apply to DoD.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for management and operating contract policy, limitations and identification.

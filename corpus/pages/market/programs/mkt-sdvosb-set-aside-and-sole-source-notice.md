@@ -59,7 +59,6 @@ Which service-disabled veteran-owned entities in the finance remit hold a curren
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on RFO text omissions and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition alternatives and award wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

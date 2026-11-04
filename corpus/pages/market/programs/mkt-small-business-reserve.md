@@ -55,7 +55,6 @@ How a reserve and any direct orders are recorded against the purchasing system a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the small business reserve and direct orders under it.

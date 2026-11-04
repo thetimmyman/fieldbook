@@ -54,7 +54,6 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the second reserve condition in FAR 19.503(a)(2) and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both SBA appeal steps after the head of the contracting activity agrees, including the notification duty and the deemed-withdrawal rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: SBA further appeal restated with cites.

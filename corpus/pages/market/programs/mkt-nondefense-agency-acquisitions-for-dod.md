@@ -66,7 +66,6 @@ Which contracts the company performs for a nondefense agency acting for the Depa
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 17.703(c) submission address and removed unquoted meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: compliance wording follows quote, terms provided for incorporation, waiver lifts the limitation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the head of the nondefense agency, as the cited text does.

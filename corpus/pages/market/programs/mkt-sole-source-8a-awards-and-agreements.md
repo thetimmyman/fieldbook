@@ -71,7 +71,6 @@ Whether any planned sole-source award sits near the justification trigger, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the statutory citations in FAR 19.811-1(a)-(c) and removed unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: 8a signature return wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for sole-source 8(a) awards, agreement orders and the agency contract.

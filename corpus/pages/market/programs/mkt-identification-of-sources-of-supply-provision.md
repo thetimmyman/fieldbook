@@ -54,6 +54,5 @@ Which supply solicitations ran outside full and open competition, and who confir
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Trimmed unquoted meta-commentary and restated the solicitation rule directly from the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the solicitation provision on identification of sources of supply.

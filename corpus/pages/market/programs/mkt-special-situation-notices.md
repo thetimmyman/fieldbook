@@ -56,7 +56,6 @@ Confirm which product families, customer groups and market segments define the c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the bundling notice and R&D advance notice comparisons directly from the cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: separate smaller contract cite; general 15-day exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the bundling definition.

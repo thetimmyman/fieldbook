@@ -54,7 +54,6 @@ How subcontract spend is tracked against the amount paid by the Government on ea
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 52.219-14(c)(1)-(6) and RFO FAR 52.219-14(c)(3)-(6) applicability lists, parenthetical examples, and citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the limits sentence to keep the cost-of-materials exclusion for supplies and construction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

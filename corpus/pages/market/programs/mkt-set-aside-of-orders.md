@@ -55,7 +55,6 @@ Which orders and contracts sit inside the finance remit, so a set-aside notice i
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: clause concerns wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

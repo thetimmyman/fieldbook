@@ -58,7 +58,6 @@ Which negotiated solicitations and awards used which forms, and who confirms the
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted 'only', negative contrasts, and meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the forms used in negotiated acquisitions and the clause section of the uniform contract format.

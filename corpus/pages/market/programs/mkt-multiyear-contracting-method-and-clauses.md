@@ -60,7 +60,6 @@ Which executed contracts are multiyear and who confirms the cancellation clause 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and restated cancellation versus termination directly from the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: funding sentence carries lead-in, cancellation or default exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting, cancellation and the related clauses.

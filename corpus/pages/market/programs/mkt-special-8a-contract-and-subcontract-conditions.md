@@ -55,7 +55,6 @@ Which entity in the finance remit holds the special subcontract and books the di
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on the printed text, 'RFO text of' phrasing, and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: contract clause wording and delegation tail.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

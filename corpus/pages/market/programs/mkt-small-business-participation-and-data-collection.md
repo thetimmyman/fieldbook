@@ -54,6 +54,5 @@ Which customer groups and contract vehicles are subject to these packaging steps
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the list of categories in FAR 19.202-5(a) and removed meta-commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for encouraging small business participation and data collection.

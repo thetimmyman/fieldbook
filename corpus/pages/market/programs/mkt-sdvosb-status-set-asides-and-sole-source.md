@@ -58,7 +58,6 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the joint venture conditions in FAR 19.1403(d)(1)-(3) and sole-source conditions in FAR 19.1406(a)(1)-(5), and removed meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: second alternative cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of an SDVOSB concern eligible under the SDVOSB Program and both definitions of the SDVOSB Program.

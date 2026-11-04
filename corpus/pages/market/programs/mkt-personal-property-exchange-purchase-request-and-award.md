@@ -54,6 +54,5 @@ Which entities and contracts in the finance remit are priced with a trade-in all
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the DoD Manual 4140.01, Volume 9 title and grounded How it works in the cited claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for exchange of personal property.

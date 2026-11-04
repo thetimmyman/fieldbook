@@ -56,7 +56,6 @@ Which legal entities make offers under this provision, and who confirms size and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' and 'prints' meta-phrasing and unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: size-standard and representation alternatives; consequences all apply.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

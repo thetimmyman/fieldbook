@@ -56,7 +56,6 @@ Which entities and contracts sit in the finance remit for these methods, and who
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: options subpart exclusion wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the special contracting methods part and its two subparts.

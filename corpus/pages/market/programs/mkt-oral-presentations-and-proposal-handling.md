@@ -64,7 +64,6 @@ Whether any live solicitation calls for oral presentations, and where the presen
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the 52.204-8(d) and 52.212-3(b) provisions and removed meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: lead-in claim for may-describe list, provided not only-if, 3.104 reference cited.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

@@ -57,7 +57,6 @@ Whether the acquisition file holds the documented rationale wherever a set-aside
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the documentation sentence so the rule keeps the designee and the subparts the recommendations address.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business specialist recommendations and file documentation.

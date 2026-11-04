@@ -54,6 +54,5 @@ Which product families and customer groups the company sells into where agencies
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted negative contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the general small business policy.

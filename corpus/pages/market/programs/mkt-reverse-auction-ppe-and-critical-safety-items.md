@@ -54,7 +54,6 @@ Which catalogue items the requiring activity designates as personal protective e
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 17.803(d)(3) statutory citation and removed unquoted meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: general bar on personal protective equipment cited to lead-in and item.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prohibition on reverse auctions for protective equipment and aviation critical safety items.

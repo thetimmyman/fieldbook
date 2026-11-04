@@ -56,7 +56,6 @@ Which product families and customer groups buy through activities with an assign
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: recommendation lead-in and package conditions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agency focal points for interfacing with SBA.

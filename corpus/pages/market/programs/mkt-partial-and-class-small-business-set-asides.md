@@ -56,7 +56,6 @@ Which product families and customer groups are bought through partial or class s
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and restated partial versus class set-asides directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: size sentence keeps only for the set-aside portion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size procedure for partial set-asides.

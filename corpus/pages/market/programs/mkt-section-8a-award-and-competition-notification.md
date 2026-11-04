@@ -59,7 +59,6 @@ Which certified participants in the finance remit carry a support limitation and
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted commentary and 'RFO text of' phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternatives wording and plan reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

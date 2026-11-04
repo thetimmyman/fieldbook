@@ -68,7 +68,6 @@ Whether the file records the specific reason an acquisition was not set aside an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and restated insufficient reasons, withdrawal, and dissolution directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: withdrawal completion cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the construction change order notice.

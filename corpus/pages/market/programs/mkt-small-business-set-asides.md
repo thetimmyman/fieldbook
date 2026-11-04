@@ -54,7 +54,6 @@ Which product families and customer groups are bought through set-asides, and wh
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary and unquoted contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: refer-to cross-references and scope wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the order of consideration.

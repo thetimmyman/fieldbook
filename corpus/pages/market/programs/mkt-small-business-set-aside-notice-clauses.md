@@ -54,7 +54,6 @@ Which product families and customer groups the company bids on as set-aside work
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed 'RFO text of' phrasing and meta-commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: partial clause cites identified concerns.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the total clause applicability sentence to keep the orders under multiple-award contracts.
