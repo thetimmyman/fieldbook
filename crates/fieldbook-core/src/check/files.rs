@@ -1,7 +1,7 @@
 //! Pass `files`: `FB0120`–`FB0125` (file encoding, layout, normal form, path rules,
 //! `corpus/changes.md` and rule files) (`docs/reference/corpus-format.md#layout-of-corpus`).
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use unicode_normalization::is_nfc;
 
@@ -372,6 +372,8 @@ fn check_fb0123(
     report: &mut Report,
 ) {
     let mut seen_lower: BTreeSet<String> = BTreeSet::new();
+    let mut seen_dir_lower: BTreeMap<String, String> = BTreeMap::new();
+    let mut reported_colliding_dirs: BTreeSet<String> = BTreeSet::new();
 
     // Collect all paths to check: every file path (except non-UTF-8 files skipped by FB0120)
     // plus any leaf explicit directories that have no files or deeper directories under them.
@@ -400,7 +402,22 @@ fn check_fb0123(
 
     for path in all_paths {
         let lower = path.to_lowercase();
-        let case_collision = !seen_lower.insert(lower);
+        let mut case_collision = !seen_lower.insert(lower);
+        for (idx, _) in path.match_indices('/') {
+            let prefix = &path[..idx];
+            let lower_prefix = prefix.to_lowercase();
+            match seen_dir_lower.get(&lower_prefix) {
+                Some(first) if first != prefix => {
+                    if reported_colliding_dirs.insert(prefix.to_owned()) {
+                        case_collision = true;
+                    }
+                }
+                Some(_) => {}
+                None => {
+                    seen_dir_lower.insert(lower_prefix, prefix.to_owned());
+                }
+            }
+        }
         if let Some(msg) = first_path_rule_fault(path, case_collision) {
             report.push(Diagnostic::new(
                 Code::Fb0123,
@@ -496,8 +513,7 @@ fn is_windows_reserved(stem: &str) -> bool {
 }
 
 fn is_forbidden_path_char(c: char) -> bool {
-    matches!(c, '<' | '>' | ':' | '"' | '\\' | '|' | '?' | '*')
-        || matches!(c as u32, 0x00..=0x1F | 0x7F)
+    matches!(c, '<' | '>' | ':' | '"' | '\\' | '|' | '?' | '*') || c.is_control()
 }
 
 fn is_valid_original_filename(name: &str) -> bool {
@@ -1078,7 +1094,7 @@ mod tests {
         assert_eq!(report.diagnostics[0].code, Code::Fb0123);
         assert_eq!(report.diagnostics[0].path, long_path);
 
-        // 2. Case collision.
+        // 2. Case collision (file and directory).
         let mut tree = mini_tree();
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/Cmp-Review-Steps.md",
@@ -1087,6 +1103,17 @@ mod tests {
         let report = run(&Host::new(tree, sample_today()), &Options::default());
         assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
         assert_eq!(report.diagnostics[0].code, Code::Fb0123);
+
+        let mut tree = mini_tree();
+        tree.insert_bytes("corpus/sources/text/S-0001-v1/p0001.txt", b"ok\n");
+        tree.insert_bytes("corpus/sources/text/s-0001-v1/p0002.txt", b"ok\n");
+        let report = run(&Host::new(tree, sample_today()), &Options::default());
+        assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
+        assert_eq!(report.diagnostics[0].code, Code::Fb0123);
+        assert_eq!(
+            report.diagnostics[0].path,
+            "corpus/sources/text/s-0001-v1/p0002.txt"
+        );
 
         // 3. Windows reserved names, trailing dot/space, forbidden chars, control char, NFD segment,
         // 65-char page stem.
@@ -1107,6 +1134,7 @@ mod tests {
             "corpus/pages/compliance/business-systems/bad*1.md",
             "corpus/pages/compliance/business-systems/bad\x071.md",
             "corpus/pages/compliance/business-systems/bad\x7f1.md",
+            "corpus/pages/compliance/business-systems/bad\u{0085}1.md",
             "corpus/pages/compliance/business-systems/cafe\u{0301}.md",
         ];
         for bad_path in page_bad_segments {
