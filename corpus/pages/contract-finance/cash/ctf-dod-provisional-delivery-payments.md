@@ -29,7 +29,7 @@ Lets a DoD contracting officer pay for delivered and accepted supplies and servi
 | Text status | Final [@CL-CTF-0970] |
 | Applies to | Listed contract actions, if undefinitized [@CL-CTF-0970; @CL-CTF-1078] |
 
-The contracting officer may establish provisional delivery payments to pay contractors for the costs of supplies and services delivered to and accepted by the Government under listed contract actions if undefinitized [@CL-CTF-0970]. The listed actions are letter contracts contemplating a fixed-price contract, orders under basic ordering agreements, spares provisioning documents annexed to contracts, unpriced equitable adjustments on fixed-price contracts, and orders under indefinite-delivery contracts [@CL-CTF-1078].
+The contracting officer may establish provisional delivery payments to pay contractors for the costs of supplies and services delivered to and accepted by the Government under listed contract actions if undefinitized [@CL-CTF-0970]. The listed actions are letter contracts contemplating a fixed-price contract, orders under basic ordering agreements, spares provisioning documents annexed to contracts, unpriced equitable adjustments on fixed-price contracts, and orders under indefinite-delivery contracts [@CL-CTF-0970; @CL-CTF-1078].
 
 Provisional delivery payments shall be used sparingly, priced conservatively, and reduced by liquidating previous progress payments in accordance with the Progress Payments clause [@CL-CTF-0971]. They shall not include profit, exceed funds obligated for the undefinitized contract action, or influence the definitized contract price [@CL-CTF-0972].
 
