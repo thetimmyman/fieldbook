@@ -408,8 +408,12 @@ fn has_valid_checklist_how_it_works(part_evs: &[Ev<'_>]) -> bool {
                 let mut list_depth = 1usize;
                 while idx < part_evs.len() && list_depth > 0 {
                     match &part_evs[idx].event {
-                        Event::Start(Tag::Item) if list_depth == 1 => {
-                            // A task item starts with TaskListMarker (directly or right after Paragraph start).
+                        Event::Start(Tag::List(Some(_))) => {
+                            return false;
+                        }
+                        Event::Start(Tag::Item) => {
+                            // Every item (including nested items) must start with a TaskListMarker
+                            // (directly or right after Paragraph start).
                             let next_is_task = match part_evs.get(idx + 1).map(|e| &e.event) {
                                 Some(Event::TaskListMarker(_)) => true,
                                 Some(Event::Start(Tag::Paragraph)) => matches!(
@@ -495,20 +499,19 @@ fn collect_top_level_list_items(part_evs: &[Ev<'_>]) -> Option<Vec<String>> {
     }
     let mut items = Vec::new();
     let mut depth = 0usize;
-    let mut in_list = false;
-    let mut in_item = false;
-    let mut current_item = String::new();
+    let mut item_stack: Vec<String> = Vec::new();
 
     for ev in part_evs {
         match &ev.event {
-            Event::Start(Tag::List(_)) if depth == 0 => {
-                in_list = true;
+            Event::Start(Tag::List(_)) => {
                 depth += 1;
             }
-            Event::Start(Tag::Item) if depth == 1 && in_list => {
-                in_item = true;
-                current_item.clear();
+            Event::Start(Tag::Item) => {
+                if depth == 0 {
+                    return None;
+                }
                 depth += 1;
+                item_stack.push(String::new());
             }
             Event::Start(_) => {
                 if depth == 0 {
@@ -516,20 +519,26 @@ fn collect_top_level_list_items(part_evs: &[Ev<'_>]) -> Option<Vec<String>> {
                 }
                 depth += 1;
             }
-            Event::End(_) => {
+            Event::End(TagEnd::Item) => {
                 depth = depth.saturating_sub(1);
-                if depth == 1 && in_item {
-                    items.push(std::mem::take(&mut current_item));
-                    in_item = false;
-                } else if depth == 0 {
-                    in_list = false;
+                if let Some(finished_item) = item_stack.pop() {
+                    items.push(finished_item);
                 }
             }
-            Event::Text(t) | Event::Code(t) if in_item => {
-                current_item.push_str(t);
+            Event::End(_) => {
+                depth = depth.saturating_sub(1);
             }
-            Event::SoftBreak | Event::HardBreak if in_item => {
-                current_item.push(' ');
+            Event::Text(t) | Event::Code(t) => {
+                if let Some(top) = item_stack.last_mut() {
+                    top.push_str(t);
+                } else if depth == 0 {
+                    return None;
+                }
+            }
+            Event::SoftBreak | Event::HardBreak => {
+                if let Some(top) = item_stack.last_mut() {
+                    top.push(' ');
+                }
             }
             _ => {
                 if depth == 0 {
@@ -680,12 +689,32 @@ fn check_brief_word_count(page: &PageEntry, evs: &[Ev<'_>], strict: bool, report
     }
 }
 
+fn is_inline_tag(tag: &Tag<'_>) -> bool {
+    matches!(
+        tag,
+        Tag::Emphasis | Tag::Strong | Tag::Strikethrough | Tag::Link { .. } | Tag::Image { .. }
+    )
+}
+
+fn is_inline_tag_end(tag_end: &TagEnd) -> bool {
+    matches!(
+        tag_end,
+        TagEnd::Emphasis | TagEnd::Strong | TagEnd::Strikethrough | TagEnd::Link | TagEnd::Image
+    )
+}
+
 fn count_body_words(evs: &[Ev<'_>]) -> usize {
     let mut combined = String::new();
     for ev in evs {
         match &ev.event {
             Event::Text(t) | Event::Code(t) => combined.push_str(t),
-            Event::SoftBreak | Event::HardBreak | Event::Start(_) | Event::End(_) => {
+            Event::SoftBreak | Event::HardBreak => {
+                combined.push(' ');
+            }
+            Event::Start(tag) if !is_inline_tag(tag) => {
+                combined.push(' ');
+            }
+            Event::End(tag_end) if !is_inline_tag_end(tag_end) => {
                 combined.push(' ');
             }
             _ => {}
@@ -1078,6 +1107,21 @@ mod tests {
                 strings::empty_part(),
             );
             tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, broken_cl_prose.as_bytes());
+            let report = run(
+                &Host::new(tree.clone(), sample_today()),
+                &Options::new(false),
+            );
+            assert_eq!(report.diagnostics.len(), 1);
+            assert_eq!(report.diagnostics[0].code, Code::Fb0134);
+
+            // Nested plain bullet under a valid task item must also fail.
+            let broken_cl_nested = eight_part_page(
+                "checklist",
+                "Synthetic checklist rule [@CL-CMP-0001].",
+                "### Day 1 to Day 30\n\n- [ ] Gather synthetic logs\n  - Plain nested bullet",
+                strings::empty_part(),
+            );
+            tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, broken_cl_nested.as_bytes());
             let report = run(&Host::new(tree, sample_today()), &Options::new(false));
             assert_eq!(report.diagnostics.len(), 1);
             assert_eq!(report.diagnostics[0].code, Code::Fb0134);
@@ -1140,9 +1184,22 @@ mod tests {
                     "- Uncited unknown item without empty_part.",
                 );
             tree.insert_bytes(PATH_EST_RATE_WINDOW_BRIEF, broken_brief.as_bytes());
-            let report = run(&Host::new(tree, sample_today()), &Options::new(false));
+            let report = run(
+                &Host::new(tree.clone(), sample_today()),
+                &Options::new(false),
+            );
             assert_eq!(report.diagnostics.len(), 2);
             assert!(report.diagnostics.iter().all(|d| d.code == Code::Fb0134));
+
+            // Nested list item without its own citation in Evidence or Unknowns must fail.
+            let broken_brief_nested = PAGE_EST_RATE_WINDOW_BRIEF.replace(
+                "- Synthetic escalation placeholder stands at 3 percent per year [@CL-EST-0001].",
+                "- Synthetic escalation placeholder stands at 3 percent per year [@CL-EST-0001].\n  - Nested evidence bullet without a citation.",
+            );
+            tree.insert_bytes(PATH_EST_RATE_WINDOW_BRIEF, broken_brief_nested.as_bytes());
+            let report = run(&Host::new(tree, sample_today()), &Options::new(false));
+            assert_eq!(report.diagnostics.len(), 1);
+            assert_eq!(report.diagnostics[0].code, Code::Fb0134);
         }
     }
 
@@ -1202,7 +1259,11 @@ mod tests {
         // That is 7 + 5 = 12 words outside `## Question`'s body.
         // So 388 words in `## Question` gives exactly 400 words total, and 389 words gives 401 words.
         let make_brief = |question_words: usize| -> String {
-            let filler = vec!["word"; question_words].join(" ");
+            let mut words_vec = vec!["word"; question_words.saturating_sub(1)];
+            if question_words > 0 {
+                words_vec.push("**word**.");
+            }
+            let filler = words_vec.join(" ");
             format!(
                 "+++\nid = \"est-rate-window-brief\"\ntitle = \"Synthetic decision brief on forward pricing rate review window\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"brief\"\nstage = 3\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\"]\n+++\n\n## {}\n\n{filler}\n\n## {}\n\nAdopt.\n\n## {}\n\n- [@CL-EST-0003]\n\n## {}\n\nWait.\n\n## {}\n\n- [@Q-002]\n\n## {}\n\nRevisit.\n",
                 bp[0], bp[1], bp[2], bp[3], bp[4], bp[5],
