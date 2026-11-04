@@ -37,7 +37,7 @@ Under FAR 2.101, overtime means time worked by a contractor's employee in excess
 
 ## How it works
 
-Under FAR 22.103-5(b), the contracting officer shall include the clause at FAR 52.222-2, Payment for Overtime Premiums, in solicitations and contracts when a cost-reimbursement contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, unless either a cost-reimbursement contract for operation of vessels is contemplated, or a cost-plus-incentive-fee contract that will provide a swing from the target fee of at least plus or minus 3 percent and a contractor's share of at least 10 percent is contemplated [@CL-OPM-0086; @CL-OPM-0087]. Under FAR 22.103-4(f), during contract performance, contractor requests for overtime exceeding the amount authorized by paragraph (a) of the clause at FAR 52.222-2 shall be submitted as stated in paragraph (b) of that clause to the office designated by the contracting officer, and the office receiving the request shall review the request and report in writing its facts and recommendations to the approving official [@CL-CMP-6469; @CL-CMP-6470; @CL-CMP-6471].
+Under FAR 22.103-5(b), the contracting officer shall include the clause at FAR 52.222-2, Payment for Overtime Premiums, in solicitations and contracts when a cost-reimbursement contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, unless either a cost-reimbursement contract for operation of vessels is contemplated, or a cost-plus-incentive-fee contract that will provide a swing from the target fee of at least plus or minus 3 percent and a contractor's share of at least 10 percent is contemplated [@CL-OPM-0086; @CL-OPM-0087]. Under FAR 22.103-4(f), during contract performance, contractor requests for overtime exceeding the amount authorized by paragraph (a) of the clause at FAR 52.222-2, Payment for Overtime Premiums, shall be submitted as stated in paragraph (b) of the clause to the office administering the contract, and that office will review the request and, if it approves, send the request to the contracting officer [@CL-CMP-6469; @CL-CMP-6470]. If the contracting officer determines that the requested overtime should be approved in whole or in part, the contracting officer shall request the approval of the agency's designated approving official and modify paragraph (a) of the clause to reflect any approval [@CL-CMP-6471].
 
 ## Worked example
 
@@ -56,6 +56,7 @@ Who approves overtime requests, and where approved dollar amounts and the clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-04: Aligned FAR 22.103-4(f) request routing and approval steps with CL-CMP-6469, CL-CMP-6470, and CL-CMP-6471.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 22.103-2 and 22.103-4(a) and (f) rules and separated codified and RFO FAR 2.101 citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named paragraph (a) of the overtime premiums clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of overtime and overtime premium.
