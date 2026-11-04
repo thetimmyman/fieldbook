@@ -126,7 +126,7 @@ pub const RULES: &[RuleEntry] = &[
         rule: "`locator_kind` is `no_fine_locator`",
         predicates: &[
             RulePredicate::new(Some(Code::Fb0206), "register_cells"),
-            RulePredicate::new(Some(Code::Fb0306), "check-claim-cells"),
+            RulePredicate::new(Some(Code::Fb0306), "claim_cells"),
         ],
     },
     RuleEntry {
@@ -150,7 +150,7 @@ pub const RULES: &[RuleEntry] = &[
     RuleEntry {
         register: Register::Claims,
         rule: "`consequential` is `true`",
-        predicates: &[RulePredicate::new(Some(Code::Fb0307), "check-claim-cells")],
+        predicates: &[RulePredicate::new(Some(Code::Fb0307), "claim_cells")],
     },
     RuleEntry {
         register: Register::Claims,
@@ -1260,6 +1260,13 @@ mod tests {
                     assert!(
                         !pred.owner.is_empty(),
                         "rule `{}` in {} has empty owner",
+                        entry.rule,
+                        reg.file_name()
+                    );
+                    assert_ne!(
+                        pred.owner,
+                        "check-claim-cells",
+                        "rule `{}` in {} still points at `check-claim-cells`",
                         entry.rule,
                         reg.file_name()
                     );
