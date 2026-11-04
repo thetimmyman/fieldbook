@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "source_version",
+  "cases": [
+    {
+      "id": "id-version-01",
+      "op": "parse",
+      "input": "S-0001-v1",
+      "expect": { "ok": true, "source": "S-0001", "number": 1 },
+      "note": "First version of first source"
+    },
+    {
+      "id": "id-version-02",
+      "op": "parse",
+      "input": "S-0042-v2",
+      "expect": { "ok": true, "source": "S-0042", "number": 2 },
+      "note": "Second version of S-0042"
+    },
+    {
+      "id": "id-version-03",
+      "op": "parse",
+      "input": "S-0042-v15",
+      "expect": { "ok": true, "source": "S-0042", "number": 15 },
+      "note": "Multi-digit version number after gap"
+    },
+    {
+      "id": "id-version-04",
+      "op": "parse",
+      "input": "S-0042-v4294967296",
+      "expect": { "ok": false },
+      "note": "Representation overflow boundary past u32::MAX"
+    },
+    {
+      "id": "id-version-05",
+      "op": "parse",
+      "input": "S-0042-v0",
+      "expect": { "ok": false },
+      "note": "Malformed version starting at zero"
+    }
+  ]
+}

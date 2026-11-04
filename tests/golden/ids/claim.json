@@ -1,0 +1,46 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "claim",
+  "cases": [
+    {
+      "id": "id-claim-01",
+      "op": "next",
+      "area": "cmp",
+      "existing": [],
+      "expect": { "ok": true, "next": "CL-CMP-0001" },
+      "note": "First claim id in an area"
+    },
+    {
+      "id": "id-claim-02",
+      "op": "next",
+      "area": "cmp",
+      "existing": ["CL-CMP-0001"],
+      "expect": { "ok": true, "next": "CL-CMP-0002" },
+      "note": "Next claim id after CL-CMP-0001"
+    },
+    {
+      "id": "id-claim-03",
+      "op": "next",
+      "area": "cmp",
+      "existing": ["CL-CMP-0001", "CL-CMP-9999"],
+      "expect": { "ok": true, "next": "CL-CMP-10000" },
+      "note": "Gap and transition from four digits to five digits at 10000"
+    },
+    {
+      "id": "id-claim-04",
+      "op": "next",
+      "area": "cmp",
+      "existing": ["CL-CMP-99999"],
+      "expect": { "ok": false },
+      "note": "Capacity boundary exhausted after CL-CMP-99999"
+    },
+    {
+      "id": "id-claim-05",
+      "op": "parse",
+      "input": "CL-CM-0011",
+      "expect": { "ok": false },
+      "note": "Malformed claim id with two-letter area"
+    }
+  ]
+}

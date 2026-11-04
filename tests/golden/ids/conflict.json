@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "conflict",
+  "cases": [
+    {
+      "id": "id-conflict-01",
+      "op": "next",
+      "existing": [],
+      "expect": { "ok": true, "next": "XC-01" },
+      "note": "First conflict id"
+    },
+    {
+      "id": "id-conflict-02",
+      "op": "next",
+      "existing": ["XC-01"],
+      "expect": { "ok": true, "next": "XC-02" },
+      "note": "Next conflict id"
+    },
+    {
+      "id": "id-conflict-03",
+      "op": "next",
+      "existing": ["XC-02", "XC-9999"],
+      "expect": { "ok": true, "next": "XC-10000" },
+      "note": "Gap and continuation past 9999 without four-digit cap"
+    },
+    {
+      "id": "id-conflict-04",
+      "op": "next",
+      "existing": ["XC-4294967295"],
+      "expect": { "ok": false },
+      "note": "Checked integer representation overflow at u32::MAX"
+    },
+    {
+      "id": "id-conflict-05",
+      "op": "parse",
+      "input": "XC-1",
+      "expect": { "ok": false },
+      "note": "Malformed single-digit conflict id"
+    }
+  ]
+}

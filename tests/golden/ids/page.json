@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "page",
+  "cases": [
+    {
+      "id": "id-page-01",
+      "op": "parse",
+      "input": "cmp-a",
+      "expect": { "ok": true, "area": "cmp" },
+      "note": "First minimal page id"
+    },
+    {
+      "id": "id-page-02",
+      "op": "parse",
+      "input": "cmp-b",
+      "expect": { "ok": true, "area": "cmp" },
+      "note": "Next minimal page id"
+    },
+    {
+      "id": "id-page-03",
+      "op": "parse",
+      "input": "cmp-withholding",
+      "expect": { "ok": true, "area": "cmp" },
+      "note": "Example page id from reference"
+    },
+    {
+      "id": "id-page-04",
+      "op": "parse",
+      "input": "cmp-012345678901234567890123456789012345678901234567890123456789",
+      "expect": { "ok": true, "area": "cmp" },
+      "note": "Exact 64-character length capacity boundary"
+    },
+    {
+      "id": "id-page-05",
+      "op": "parse",
+      "input": "cmp-0123456789012345678901234567890123456789012345678901234567890",
+      "expect": { "ok": false },
+      "note": "Malformed 65-character page id past capacity"
+    }
+  ]
+}

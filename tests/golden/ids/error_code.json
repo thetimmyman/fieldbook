@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "error_code",
+  "cases": [
+    {
+      "id": "id-error-01",
+      "op": "parse",
+      "input": "FB0100",
+      "expect": { "ok": true },
+      "note": "First error code in range 01"
+    },
+    {
+      "id": "id-error-02",
+      "op": "parse",
+      "input": "FB0102",
+      "expect": { "ok": true },
+      "note": "Example error code from reference"
+    },
+    {
+      "id": "id-error-03",
+      "op": "parse",
+      "input": "FB0401",
+      "expect": { "ok": true },
+      "note": "Gap to range 04 error code"
+    },
+    {
+      "id": "id-error-04",
+      "op": "parse",
+      "input": "FB9999",
+      "expect": { "ok": true },
+      "note": "Upper four-digit capacity boundary"
+    },
+    {
+      "id": "id-error-05",
+      "op": "parse",
+      "input": "FB-0102",
+      "expect": { "ok": false },
+      "note": "Malformed error code with hyphen"
+    }
+  ]
+}

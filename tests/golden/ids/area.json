@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "area",
+  "cases": [
+    {
+      "id": "id-area-01",
+      "op": "parse",
+      "input": "aaa",
+      "expect": { "ok": true },
+      "note": "First lexicographic area code"
+    },
+    {
+      "id": "id-area-02",
+      "op": "parse",
+      "input": "aab",
+      "expect": { "ok": true },
+      "note": "Next lexicographic area code"
+    },
+    {
+      "id": "id-area-03",
+      "op": "parse",
+      "input": "cmp",
+      "expect": { "ok": true },
+      "note": "Gap to compliance area example"
+    },
+    {
+      "id": "id-area-04",
+      "op": "parse",
+      "input": "zzz",
+      "expect": { "ok": true },
+      "note": "Upper three-letter boundary"
+    },
+    {
+      "id": "id-area-05",
+      "op": "parse",
+      "input": "cm",
+      "expect": { "ok": false },
+      "note": "Malformed two-letter area code"
+    }
+  ]
+}

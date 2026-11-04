@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "case",
+  "cases": [
+    {
+      "id": "id-case-01",
+      "op": "parse",
+      "input": "CALC-01",
+      "expect": { "ok": true, "prefix": "CALC", "number": 1 },
+      "note": "First case id with a prefix in use"
+    },
+    {
+      "id": "id-case-02",
+      "op": "parse",
+      "input": "CALC-02",
+      "expect": { "ok": true, "prefix": "CALC", "number": 2 },
+      "note": "Next case id with a prefix in use"
+    },
+    {
+      "id": "id-case-03",
+      "op": "parse",
+      "input": "RTE-14",
+      "expect": { "ok": true, "prefix": "RTE", "number": 14 },
+      "note": "Case id from a reserved prefix"
+    },
+    {
+      "id": "id-case-04",
+      "op": "parse",
+      "input": "CALC-999",
+      "expect": { "ok": true, "prefix": "CALC", "number": 999 },
+      "note": "Three-digit capacity boundary"
+    },
+    {
+      "id": "id-case-05",
+      "op": "parse",
+      "input": "ZZ-01",
+      "expect": { "ok": false },
+      "note": "Malformed case id with unlisted prefix"
+    }
+  ]
+}

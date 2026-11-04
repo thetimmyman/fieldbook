@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "tool_release",
+  "cases": [
+    {
+      "id": "id-release-01",
+      "op": "parse",
+      "input": "v0.1.0",
+      "expect": { "ok": true },
+      "note": "First tool release id"
+    },
+    {
+      "id": "id-release-02",
+      "op": "parse",
+      "input": "v0.2.0",
+      "expect": { "ok": true },
+      "note": "Next tool release id and reference example"
+    },
+    {
+      "id": "id-release-03",
+      "op": "parse",
+      "input": "v1.0.0",
+      "expect": { "ok": true },
+      "note": "Gap to major release tag"
+    },
+    {
+      "id": "id-release-04",
+      "op": "parse",
+      "input": "v12.34.56",
+      "expect": { "ok": true },
+      "note": "Multi-digit version components"
+    },
+    {
+      "id": "id-release-05",
+      "op": "parse",
+      "input": "0.2.0",
+      "expect": { "ok": false },
+      "note": "Malformed tool release missing leading v"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "question",
+  "cases": [
+    {
+      "id": "id-question-01",
+      "op": "next",
+      "existing": [],
+      "expect": { "ok": true, "next": "Q-001" },
+      "note": "First question id"
+    },
+    {
+      "id": "id-question-02",
+      "op": "next",
+      "existing": ["Q-001"],
+      "expect": { "ok": true, "next": "Q-002" },
+      "note": "Next question id"
+    },
+    {
+      "id": "id-question-03",
+      "op": "next",
+      "existing": ["Q-001", "Q-024"],
+      "expect": { "ok": true, "next": "Q-025" },
+      "note": "Gap is not filled; allocates Q-025"
+    },
+    {
+      "id": "id-question-04",
+      "op": "next",
+      "existing": ["Q-999"],
+      "expect": { "ok": false },
+      "note": "Capacity boundary exhausted after Q-999"
+    },
+    {
+      "id": "id-question-05",
+      "op": "parse",
+      "input": "Q-1000",
+      "expect": { "ok": false },
+      "note": "Malformed four-digit question id"
+    }
+  ]
+}

@@ -11,9 +11,20 @@
 //! **Rules.** No files, environment, clock, process or sockets: the `fieldbook` binary
 //! does all I/O and passes bytes in (workspace `clippy.toml`).
 
+pub mod date;
 pub mod hex;
+pub mod ids;
 pub mod strings;
 pub mod version;
+
+pub use date::{
+    CivilDate, Duration, EffectivePeriod, PartialDate, Volatility, interval_days, review_by,
+};
+pub use ids::{
+    AdrId, AreaCode, CaseId, ClaimId, ConflictId, EditionId, FAMILIES, Family, IdError,
+    IdErrorKind, PageId, QuestionId, ReleaseId, SourceId, SourceVersionId, TermId, ToolRelease,
+    VersionId, is_error_code, next_claim_id, next_conflict_id, next_question_id, next_source_id,
+};
 
 /// This crate's name in the chain calc, core, render, fieldbook.
 pub const LAYER: &str = "core";

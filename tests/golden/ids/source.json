@@ -1,0 +1,42 @@
+{
+  "kind": "ids",
+  "version": 1,
+  "family": "source",
+  "cases": [
+    {
+      "id": "id-source-01",
+      "op": "next",
+      "existing": [],
+      "expect": { "ok": true, "next": "S-0001" },
+      "note": "First source id in empty series"
+    },
+    {
+      "id": "id-source-02",
+      "op": "next",
+      "existing": ["S-0001"],
+      "expect": { "ok": true, "next": "S-0002" },
+      "note": "Next source id after S-0001"
+    },
+    {
+      "id": "id-source-03",
+      "op": "next",
+      "existing": ["S-0001", "S-0041"],
+      "expect": { "ok": true, "next": "S-0042" },
+      "note": "Gap is not filled; takes one past the highest"
+    },
+    {
+      "id": "id-source-04",
+      "op": "next",
+      "existing": ["S-9999"],
+      "expect": { "ok": false },
+      "note": "Capacity boundary exhausted after S-9999"
+    },
+    {
+      "id": "id-source-05",
+      "op": "parse",
+      "input": "S-42",
+      "expect": { "ok": false },
+      "note": "Malformed source id with two digits"
+    }
+  ]
+}
