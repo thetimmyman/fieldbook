@@ -14,6 +14,7 @@
 pub mod date;
 pub mod hex;
 pub mod ids;
+pub mod schema;
 pub mod strings;
 pub mod version;
 
