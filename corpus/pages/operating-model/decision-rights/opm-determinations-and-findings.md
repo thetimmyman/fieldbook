@@ -43,7 +43,7 @@ When a D&F is required, it shall be signed by the appropriate official in accord
 
 Synthetic example. The numbers are made up.
 
-A contracting officer files a D&F for an action worth 5,000,000. The D&F names the agency, cites a statute, lists findings with technical support, states the determination, shows an expiration date, and is signed by the official the applicable FAR part names. The finance reader sees that the expiration date has passed and asks the contracting officer whether a new D&F is needed before relying on it.
+A contracting officer files a D&F for an action worth 5,000,000. The D&F names the agency, cites a statute, lists findings with technical support, states the determination, shows an expiration date, and is signed by the official the applicable FAR part names. The finance reader confirms that the D&F includes an expiration date, as required by FAR 1.706(b).
 
 ## Never confuse
 
