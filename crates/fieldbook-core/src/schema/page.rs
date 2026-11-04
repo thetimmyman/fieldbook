@@ -10,7 +10,7 @@ use std::collections::BTreeMap;
 use std::fmt;
 
 use serde::de::{self, Deserializer, MapAccess, SeqAccess, Visitor};
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Serialize, Serializer};
 
 use crate::date::{CivilDate, Volatility};
 use crate::ids::{AreaCode, ClaimId, ConflictId, PageId, QuestionId, TermId};
@@ -171,7 +171,7 @@ pub fn split(input: &str) -> Result<Split, SplitError> {
 ///
 /// Note-only fields (`origin`, `reviewed`, `question`, `context_fingerprint`) are
 /// not part of v1 pages and are refused as unknown fields until `handoff-new-note`.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct PageMeta {
     /// Page identifier (`<area>-<kebab>`).
@@ -199,7 +199,7 @@ pub struct PageMeta {
     #[serde(deserialize_with = "de_status")]
     pub status: PageStatus,
     /// Content as-of date (TOML local date).
-    #[serde(deserialize_with = "de_as_of")]
+    #[serde(deserialize_with = "de_as_of", serialize_with = "ser_date")]
     pub as_of: CivilDate,
     /// Handling label strings, kept as written for FB0410.
     #[serde(deserialize_with = "de_handling")]
@@ -220,7 +220,11 @@ pub struct PageMeta {
     #[serde(default, deserialize_with = "de_links")]
     pub links: Vec<PageId>,
     /// Optional explicit volatility class (`V1`, `V2`, `V3`).
-    #[serde(default, deserialize_with = "de_volatility")]
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        deserialize_with = "de_volatility"
+    )]
     pub volatility: Option<Volatility>,
     /// Page ids this page replaces.
     #[serde(default, deserialize_with = "de_supersedes")]
@@ -229,15 +233,49 @@ pub struct PageMeta {
     #[serde(default, deserialize_with = "de_superseded_by")]
     pub superseded_by: Vec<PageId>,
     /// Computed field (`claims`); present in the schema only so writing it can be reported as FB0109.
-    #[serde(default, deserialize_with = "de_claims")]
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        deserialize_with = "de_claims"
+    )]
     pub claims: Option<Vec<ClaimId>>,
     /// Computed field (`review_by`); present in the schema only so writing it can be reported as FB0109.
-    #[serde(default, deserialize_with = "de_review_by")]
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        deserialize_with = "de_review_by",
+        serialize_with = "ser_opt_date"
+    )]
     pub review_by: Option<CivilDate>,
 
     /// Parser-recorded 1-based `(line, col)` positions of keys written in the page file.
     #[serde(skip)]
     field_locations: BTreeMap<String, (u32, u32)>,
+}
+
+impl PartialEq for PageMeta {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+            && self.title == other.title
+            && self.area == other.area
+            && self.subarea == other.subarea
+            && self.r#type == other.r#type
+            && self.stage == other.stage
+            && self.readiness == other.readiness
+            && self.status == other.status
+            && self.as_of == other.as_of
+            && self.handling == other.handling
+            && self.terms == other.terms
+            && self.prereq == other.prereq
+            && self.questions == other.questions
+            && self.conflicts == other.conflicts
+            && self.links == other.links
+            && self.volatility == other.volatility
+            && self.supersedes == other.supersedes
+            && self.superseded_by == other.superseded_by
+            && self.claims == other.claims
+            && self.review_by == other.review_by
+    }
 }
 
 impl PageMeta {
@@ -617,6 +655,26 @@ fn de_review_by<'de, D: Deserializer<'de>>(deserializer: D) -> Result<Option<Civ
     de_date_for_field(deserializer, "review_by").map(Some)
 }
 
+fn ser_date<S: Serializer>(date: &CivilDate, serializer: S) -> Result<S::Ok, S::Error> {
+    let dt = toml::value::Datetime {
+        date: Some(toml::value::Date {
+            year: date.year(),
+            month: date.month(),
+            day: date.day(),
+        }),
+        time: None,
+        offset: None,
+    };
+    dt.serialize(serializer)
+}
+
+fn ser_opt_date<S: Serializer>(date: &Option<CivilDate>, serializer: S) -> Result<S::Ok, S::Error> {
+    match date {
+        Some(d) => ser_date(d, serializer),
+        None => serializer.serialize_none(),
+    }
+}
+
 fn de_handling<'de, D: Deserializer<'de>>(deserializer: D) -> Result<Vec<String>, D::Error> {
     de_string_vec_for_field(deserializer, "handling")
 }
@@ -678,6 +736,70 @@ fn de_volatility<'de, D: Deserializer<'de>>(
         .ok_or_else(|| tagged_err(TAG_VALUE, "volatility", "invalid volatility"))
 }
 
+#[derive(Deserialize)]
+struct QuotedKeyHelper {
+    v: String,
+}
+
+fn decode_quoted_toml_key(raw_quoted: &str, raw_inner: &str, quote: u8) -> String {
+    if let Ok(parsed) = toml::from_str::<QuotedKeyHelper>(&format!("v = {raw_quoted}")) {
+        return parsed.v;
+    }
+    if quote == b'"' {
+        decode_toml_basic_key(raw_inner)
+    } else {
+        raw_inner.to_owned()
+    }
+}
+
+fn decode_toml_basic_key(raw_inner: &str) -> String {
+    let mut out = String::with_capacity(raw_inner.len());
+    let mut chars = raw_inner.chars();
+    while let Some(ch) = chars.next() {
+        if ch != '\\' {
+            out.push(ch);
+            continue;
+        }
+        let Some(esc) = chars.next() else {
+            out.push('\\');
+            break;
+        };
+        match esc {
+            'b' => out.push('\u{0008}'),
+            't' => out.push('\t'),
+            'n' => out.push('\n'),
+            'f' => out.push('\u{000C}'),
+            'r' => out.push('\r'),
+            '"' => out.push('"'),
+            '\\' => out.push('\\'),
+            'u' | 'U' => {
+                let count = if esc == 'u' { 4 } else { 8 };
+                let mut hex = String::with_capacity(count);
+                for _ in 0..count {
+                    if let Some(hc) = chars.next() {
+                        hex.push(hc);
+                    }
+                }
+                if hex.len() == count
+                    && let Ok(code) = u32::from_str_radix(&hex, 16)
+                    && let Some(decoded) = char::from_u32(code)
+                {
+                    out.push(decoded);
+                } else {
+                    out.push('\\');
+                    out.push(esc);
+                    out.push_str(&hex);
+                }
+            }
+            other => {
+                out.push('\\');
+                out.push(other);
+            }
+        }
+    }
+    out
+}
+
 #[derive(Debug, Clone)]
 struct ScannedKey {
     name: String,
@@ -685,8 +807,6 @@ struct ScannedKey {
     key_col: u32,
     raw_value_trimmed: String,
 }
-
-/// Scans top-level `key = value` entries in `front_matter`, recording the 1-based
 /// page-file `(line, col)` of each key (offset by 1 line for the opening `+++` fence).
 fn scan_top_level_keys(front_matter: &str, fence_line_offset: u32) -> Vec<ScannedKey> {
     let bytes = front_matter.as_bytes();
@@ -733,11 +853,12 @@ fn scan_top_level_keys(front_matter: &str, fence_line_offset: u32) -> Vec<Scanne
                         idx += 1;
                     }
                 }
-                let name = front_matter[start_inner..idx].to_owned();
+                let raw_inner = &front_matter[start_inner..idx];
                 if idx < len && bytes[idx] == quote {
                     idx += 1;
                 }
-                name
+                let raw_quoted = &front_matter[key_start..idx];
+                decode_quoted_toml_key(raw_quoted, raw_inner, quote)
             } else {
                 while idx < len
                     && (bytes[idx].is_ascii_alphanumeric()
@@ -1214,8 +1335,17 @@ claims = [\"CL-CMP-0001\"]
         assert_eq!(meta_empty.handling, Vec::<String>::new());
         assert_eq!(meta_empty.field_location("handling"), Some((12, 1)));
 
-        // Serialization skips field_locations
+        // Escaped quoted key decodes and retains its position
+        let escaped_key = custom.replace("handling =", "\"handl\\u0069ng\" =");
+        let meta_escaped = parse_meta(&escaped_key).expect("escaped quoted key must parse");
+        assert_eq!(meta_escaped.field_location("handling"), Some((12, 1)));
+
+        // Serialization skips field_locations and emits unquoted local dates that round-trip
         let serialized = toml::to_string(&meta).expect("PageMeta must serialize");
         assert!(!serialized.contains("field_locations"));
+        assert!(serialized.contains("as_of = 2025-11-01"));
+        assert!(serialized.contains("review_by = 2026-01-01"));
+        let reparsed = parse_meta(&serialized).expect("serialized PageMeta must re-parse");
+        assert_eq!(reparsed, meta);
     }
 }
