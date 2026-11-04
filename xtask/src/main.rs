@@ -58,6 +58,7 @@ mod deps_metadata;
 )]
 mod deps_references;
 mod docs;
+mod errors;
 #[cfg(test)]
 mod graph;
 mod guard;
