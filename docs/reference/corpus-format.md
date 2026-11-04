@@ -1388,7 +1388,7 @@ The shapes and the scopes are in [Scans](#scans).
 
 ### 05: calculation
 
-Raised by `fieldbook-calc` and its tests (`calc-day1`, `calc-cases`). `check` raises FB0500 for a `value` cell and for a `money` or `decimal` cell of a record in a company store, FB0501 for a record cell outside the range of the calculation core, and FB0504 for a `calc_run` cell that names a function the core does not have.
+Raised by `fieldbook-calc` and its tests (`calc-day1`, `calc-ops`, `calc-cases`). `check` raises FB0500 for a `value` cell and for a `money` or `decimal` cell of a record in a company store, FB0501 for a record cell outside the range of the calculation core, and FB0504 for a `calc_run` cell that names a function the core does not have.
 
 | Code | Severity | Check | Known-bad example |
 |---|---|---|---|
