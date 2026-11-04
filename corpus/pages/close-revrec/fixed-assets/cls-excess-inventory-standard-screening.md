@@ -90,7 +90,7 @@ The 46-day period is the standard screening period [@CL-CLS-0363]. The 21 days t
 
 Allocation to donees is not part of the screening itself: property is not available for allocation to donees until after screening is complete [@CL-CLS-0369]. The first-stage paragraph separately allows excess personal property that meets the conditions of 45.603 to be abandoned, destroyed or donated to public bodies [@CL-CLS-0366].
 
-A GSA transfer request is not an intra-agency transfer request. GSA normally honors transfer requests through the 41st day, while an intra-agency transfer request during the screening periods requires the plant clearance officer to ask GSA to approve withdrawal of the item from the schedule [@CL-CLS-0368; @CL-CLS-0370].
+A GSA transfer request is not an intra-agency transfer request. GSA normally honors transfer requests through the 41st day, while an intra-agency transfer request during the screening periods in paragraph (a)(2) requires the plant clearance officer to ask GSA to approve withdrawal of the item from the schedule [@CL-CLS-0368; @CL-CLS-0370].
 
 ## Company calibration
 
@@ -99,7 +99,6 @@ Which of the company's excess inventory schedules are under screening, and what 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Example now places the day 33 request inside the screening period.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the plant clearance officer definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of plant clearance officer.

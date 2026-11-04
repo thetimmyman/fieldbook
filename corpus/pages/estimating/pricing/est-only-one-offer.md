@@ -16,7 +16,7 @@ links = ["est-certified-cost-or-pricing-data", "est-certified-data-exceptions"]
 
 ## Purpose
 
-Shows what an offeror agrees to do when the Contracting Officer notifies it that only one offer was received: submit additional cost or pricing data and, above the threshold, certify.
+Shows what an offeror agrees to do when the Contracting Officer notifies it that only one offer was received: submit additional cost or pricing data and, above the threshold and subject to the provision's exceptions, certify.
 
 ## The rule
 
@@ -35,7 +35,7 @@ If the offeror is the Canadian Commercial Corporation, certified cost or pricing
 
 ## How it works
 
-The offeror's agreement applies after the Contracting Officer notifies it that only one offer was received [@CL-EST-0352]. There are two agreements, joined by "and". The first is the submission of additional cost or pricing data needed to determine whether the price is fair and reasonable [@CL-EST-0352]. The second is the certification of all cost or pricing data, which applies where the acquisition exceeds the certified cost or pricing data threshold and no listed exception applies [@CL-EST-9515; @CL-EST-0353]. The Canadian Commercial Corporation follows a separate route [@CL-EST-0354; @CL-EST-0461].
+The offeror's agreement applies after the Contracting Officer notifies it that only one offer was received [@CL-EST-0352]. There are two agreements, joined by "and". The first is the submission of additional cost or pricing data needed to determine whether the price is fair and reasonable [@CL-EST-0352]. The second is the certification of all cost or pricing data, which applies where the offeror is not the Canadian Commercial Corporation, the acquisition exceeds the certified cost or pricing data threshold, and no listed exception applies [@CL-EST-9515; @CL-EST-0353]. The Canadian Commercial Corporation follows a separate route [@CL-EST-0354; @CL-EST-0461].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor submits a proposal of 5,000,000 for communications hardware. After 
 
 ## Never confuse
 
-The duty to submit additional data applies after the Contracting Officer's notification [@CL-EST-0352], while the duty to certify depends on the acquisition exceeding the certified cost or pricing data threshold and no listed exception applying [@CL-EST-0352; @CL-EST-0353]. Receiving only one offer therefore does not by itself trigger the duty to certify; the threshold and exception conditions also apply. For the general rules, see [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) and [Certified data exceptions](est-certified-data-exceptions.md).
+The duty to submit additional data applies after the Contracting Officer's notification [@CL-EST-0352], while the duty to certify depends on the offeror not being the Canadian Commercial Corporation, the acquisition exceeding the certified cost or pricing data threshold, and no listed exception applying [@CL-EST-0352; @CL-EST-0353]. Receiving only one offer therefore does not by itself trigger the duty to certify; the threshold and exception conditions also apply. For the general rules, see [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) and [Certified data exceptions](est-certified-data-exceptions.md).
 
 ## Company calibration
 
@@ -54,7 +54,6 @@ Determining certified cost or pricing data requirements and approval routing whe
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (c) of 252.215-7010 qualifier to the duty to certify; reworded a contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Made the two agreements joined by and, and removed only-where wording.
 - COMPATIBLE_EXTENSION, 2026-10-29: Corrected the scope of the provision, added the statutory data route and the Canadian Commercial Corporation data, and rewrote the worked example and the contrast section to follow the provision.

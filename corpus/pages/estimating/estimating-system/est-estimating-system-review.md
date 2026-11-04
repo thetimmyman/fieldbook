@@ -27,7 +27,7 @@ Explains how reviewing an estimating system narrows the review work done on indi
 | RFO citation | RFO FAR 15.305 [@CL-EST-2253; @CL-EST-2254; @CL-EST-2255] |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-0768] |
-| Applies to | Large business contractors meeting the preceding fiscal year thresholds [@CL-EST-0769; @CL-EST-0770] |
+| Applies to | Large business contractors meeting the preceding fiscal year thresholds, including the lower band only when the contracting officer determines it is in the Government's best interest [@CL-EST-0769; @CL-EST-0770; @CL-EST-0861] |
 
 The FAR side of the subject sits in Part 15: an acceptable estimating system benefits both the Government and the contractor by increasing the accuracy and reliability of individual proposals [@CL-EST-0763]. Where it is appropriate to do so, cognizant audit activities shall establish and manage regular programs for reviewing selected contractors' estimating systems or methods, in order to reduce the scope of reviews performed on individual proposals [@CL-EST-0764].
 
@@ -58,7 +58,6 @@ Which business unit owns the estimating system description, and when the descrip
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched shall and must wording of the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the auditor report conditions as the source does; stated the second band condition as the source does; stated what the notice of remaining material weaknesses must contain.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.305 estimating system review programs and uncorrected deficiencies.

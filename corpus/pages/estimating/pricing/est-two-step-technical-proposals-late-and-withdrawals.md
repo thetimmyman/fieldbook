@@ -40,7 +40,7 @@ A late modification of an otherwise successful proposal that makes its terms mor
 
 Acceptable evidence of the time of receipt at the Government installation includes the installation's time and date stamp on the technical proposal wrapper, other documentary evidence of receipt maintained by the installation, or oral testimony or statements of Government personnel [@CL-EST-2159].
 
-The time for receipt can be extended after an emergency. Two conditions apply. An emergency or unanticipated event interrupts normal Government processes so that technical proposals cannot be received at the designated office by the exact time specified in the request for technical proposals [@CL-EST-2193], and urgent Government requirements preclude amendment of the request [@CL-EST-2228]. The time specified for receipt is then deemed extended to the same time of day on the first work day on which normal Government processes resume [@CL-EST-2194].
+The time for receipt can be extended after an emergency. Two conditions apply. An emergency or unanticipated event interrupts normal Government processes so that technical proposals cannot be received at the designated office by the exact time specified in the request for technical proposals [@CL-EST-2193], and urgent Government requirements preclude amendment of the request [@CL-EST-2228]. The time specified for receipt is then deemed extended to the same time of day specified in the request for technical proposals on the first work day on which normal Government processes resume [@CL-EST-2194].
 
 Technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt of technical proposals [@CL-EST-2160]. If the request authorizes facsimile technical proposals, they may be withdrawn by facsimile received at any time before that time, subject to the conditions in the provision on facsimile bids, FAR 52.214-31 [@CL-EST-2195]. A technical proposal may be withdrawn in person by a bidder or its authorized representative if, before the exact time set for receipt, the identity of the person requesting withdrawal is established and the person signs a receipt for the technical proposal [@CL-EST-2196].
 
@@ -76,7 +76,7 @@ The three further conditions are joined by or [@CL-EST-2156; @CL-EST-2157; @CL-E
 
 A late modification of an otherwise successful proposal that makes its terms more favorable to the Government will be considered at any time it is received and may be accepted [@CL-EST-2192].
 
-The emergency extension applies where an emergency or unanticipated event interrupts normal Government processes so that technical proposals cannot be received by the exact time specified, and urgent Government requirements preclude amendment of the request [@CL-EST-2193; @CL-EST-2228]. A withdrawal of a technical proposal received at the designated office after the exact time specified for receipt will not be considered unless the further conditions of paragraph (b)(1) are met [@CL-EST-2154]; technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt [@CL-EST-2160].
+The emergency extension applies where an emergency or unanticipated event interrupts normal Government processes so that technical proposals cannot be received at the Government office designated for receipt of technical proposals by the exact time specified in the request for technical proposals, and urgent Government requirements preclude amendment of the request for technical proposals [@CL-EST-2193; @CL-EST-2228]. A withdrawal of a technical proposal received at the designated office after the exact time specified for receipt will not be considered unless the further conditions of paragraph (b)(1) are met [@CL-EST-2154]; technical proposals may be withdrawn by written notice received at any time before the exact time set for receipt [@CL-EST-2160].
 
 ## Company calibration
 
@@ -85,8 +85,6 @@ Confirm who owns delivery and withdrawal of technical proposals, and what proof 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements and unquoted contrasts and restated the alternatives and emergency-extension rules in the provision's words.
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.
-- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it; removed an unsupported contract-specific gloss and a necessary-condition reading of the emergency extension.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for late submissions, modifications, revisions and withdrawals of technical proposals under two-step sealed bidding.
