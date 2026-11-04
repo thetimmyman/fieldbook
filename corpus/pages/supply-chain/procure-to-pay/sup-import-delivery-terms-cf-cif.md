@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
-links = ["sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier", "sup-fob-destination-terms", "sup-commercial-bill-of-lading-notation-audit-submission-and-repship"]
+links = ["sup-export-delivery-terms-fas-fob-vessel-and-inland-carrier", "sup-fob-destination-terms", "sup-commercial-bol-notation-audit-submission-and-repship"]
 +++
 
 ## Purpose

@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-045"]
-links = ["mna-cfius-review-and-investigation", "mna-cfius-mandatory-declarations", "mna-cfius-voluntary-notice-contents-and-certification", "mna-cfius-declaration-procedures-withdrawal-and-contingent-interests"]
+links = ["mna-cfius-review-and-investigation", "mna-cfius-mandatory-declarations", "mna-cfius-voluntary-notice-contents-and-certification", "mna-cfius-declaration-procedures-withdrawal-and-contingent"]
 +++
 
 ## Purpose
@@ -30,7 +30,7 @@ Shows what parties must provide to the Committee, how the Committee runs a gener
 
 This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text.
 
-Parties to a transaction that is notified or declared under subpart D or E of the part shall provide information to the Staff Chairperson that will enable the Committee to conduct a full assessment, review, and/or investigation of the transaction [@CL-MNA-0856]. Parties to a transaction that have filed information with the Committee shall promptly advise the Staff Chairperson of any material changes to such information [@CL-MNA-0933]. The section has further duties, on a transaction with no notice or declaration, on compliance, on requests about misstatements, on subpoenas, on English translations and on certifications, that this card does not restate. For a declaration, the duty to report material changes is also on the [declaration procedures card](mna-cfius-declaration-procedures-withdrawal-and-contingent-interests.md).
+Parties to a transaction that is notified or declared under subpart D or E of the part shall provide information to the Staff Chairperson that will enable the Committee to conduct a full assessment, review, and/or investigation of the transaction [@CL-MNA-0856]. Parties to a transaction that have filed information with the Committee shall promptly advise the Staff Chairperson of any material changes to such information [@CL-MNA-0933]. The section has further duties, on a transaction with no notice or declaration, on compliance, on requests about misstatements, on subpoenas, on English translations and on certifications, that this card does not restate. For a declaration, the duty to report material changes is also on the [declaration procedures card](mna-cfius-declaration-procedures-withdrawal-and-contingent.md).
 
 The general section on Committee procedure says that in any assessment, review, or investigation of a covered transaction, the Committee should consider the factors specified in section 721(f) and, as appropriate, require the parties to provide to the Committee the information necessary to consider such factors [@CL-MNA-0934]. The Staff Chairperson is the point of contact for receiving material filed with the Committee, including notices and declarations [@CL-MNA-0931]. During an investigation, a party to the transaction under investigation may request a meeting with the Committee staff, and such a request ordinarily will be granted [@CL-MNA-0932]. The later stages of a case are on the [review and investigation card](mna-cfius-review-and-investigation.md).
 

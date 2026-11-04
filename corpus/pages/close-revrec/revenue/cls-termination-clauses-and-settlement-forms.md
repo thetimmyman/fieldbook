@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-027"]
-links = ["cls-termination-for-convenience-clauses", "ctf-termination-settlement-proposal-forms-and-clause-prescriptions", "cls-fixed-price-settlement-proposal-submission", "cls-termination-partial-payments-and-final-payment", "cls-settlement-agreement-formats-fixed-price"]
+links = ["cls-termination-for-convenience-clauses", "ctf-termination-settlement-proposal-forms-and-prescriptions", "cls-fixed-price-settlement-proposal-submission", "cls-termination-partial-payments-and-final-payment", "cls-settlement-agreement-formats-fixed-price"]
 +++
 
 ## Purpose
@@ -36,7 +36,7 @@ The standard forms listed in FAR 49.602 shall be used for settling terminated pr
 
 Each form's section states its use:
 
-- Settlement proposal. Under FAR 49.602-1, Standard Form 1436, Settlement Proposal (Total Cost Basis), shall be used to submit settlement proposals resulting from the termination of fixed-price contracts if the proposals are computed on a total cost basis [@CL-CTF-3149], and Standard Form 1438, Settlement Proposal (Short Form), shall be used to submit settlement proposals resulting from the termination of fixed-price contracts if the total proposal is less than $10,000 [@CL-CTF-3151]. See [Settlement proposal forms, subcontract settlement requests and clause prescriptions](../../contract-finance/billing-payment/ctf-termination-settlement-proposal-forms-and-clause-prescriptions.md). Settlement proposals must be on the forms prescribed in 49.602 unless the forms are inadequate for a particular contract [@CL-CLS-1004], as covered on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md).
+- Settlement proposal. Under FAR 49.602-1, Standard Form 1436, Settlement Proposal (Total Cost Basis), shall be used to submit settlement proposals resulting from the termination of fixed-price contracts if the proposals are computed on a total cost basis [@CL-CTF-3149], and Standard Form 1438, Settlement Proposal (Short Form), shall be used to submit settlement proposals resulting from the termination of fixed-price contracts if the total proposal is less than $10,000 [@CL-CTF-3151]. See [Settlement proposal forms, subcontract settlement requests and clause prescriptions](../../contract-finance/billing-payment/ctf-termination-settlement-proposal-forms-and-prescriptions.md). Settlement proposals must be on the forms prescribed in 49.602 unless the forms are inadequate for a particular contract [@CL-CLS-1004], as covered on [Submission of settlement proposals after termination of a fixed-price contract](cls-fixed-price-settlement-proposal-submission.md).
 - Inventory. SF 1428, Inventory Disposal Schedule, and SF 1429, Inventory Disposal Schedule—Continuation Sheet, shall be used to support settlement proposals submitted on the forms specified in 49.602-1(b) and (d) [@CL-CLS-1352], which are SF 1436 and SF 1438 [@CL-CTF-3149; @CL-CTF-3151].
 - Accounting information. SF 1439, Schedule of Accounting Information, shall be filed in support of a settlement proposal unless the proposal is filed on SF 1438, Settlement Proposal (Short Form) (see 49.206-1(e)) [@CL-CLS-1353].
 - Partial payments. SF 1440, Application for Partial Payment, shall be used to apply for partial payments (see 49.112-1) [@CL-CLS-1354]. See [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md).

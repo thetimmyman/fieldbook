@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
-links = ["cmp-rights-in-data-general-definitions-and-allocation", "cmp-rights-in-data-general-copyright-withholding-and-markings", "cmp-representation-of-limited-rights-data-and-restricted-software"]
+links = ["cmp-rights-in-data-general-definitions-and-allocation", "cmp-rights-in-data-general-copyright-withholding-and-markings", "cmp-representation-limited-rights-data-and-restricted-software"]
 +++
 
 ## Purpose

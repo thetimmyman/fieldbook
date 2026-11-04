@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-014"]
-links = ["cmp-contracted-services-reporting-and-alternate-a-representations", "mkt-fpds-reporting-responsibilities-and-deadlines"]
+links = ["cmp-contracted-services-reporting-and-alt-a-representations", "mkt-fpds-reporting-responsibilities-and-deadlines"]
 +++
 
 ## Purpose
@@ -34,7 +34,7 @@ The service contract reporting subpart applies to all FAIR Act agencies, except 
 
 ## How it works
 
-If the agency believes revisions to contractor reported information are warranted, it shall notify the contractor no later than November 15, and by November 30 the contractor shall revise the report or document its rationale for the agency [@CL-CMP-2998]. Information not collected in FPDS will be provided by the contractor, as specified in the two service contract reporting clauses [@CL-CMP-2999]. Agencies shall submit a service contract inventory to OMB by January 15 annually, and each agency must then post the inventory on its Web site and publish a Federal Register Notice of Availability by February 15 annually [@CL-CMP-2947]. For the defense supplement's reporting clause, see [Contracted services reporting and Alternate A representations](cmp-contracted-services-reporting-and-alternate-a-representations.md). For FPDS reporting, see [FPDS reporting responsibilities and deadlines](../../market/feeds/mkt-fpds-reporting-responsibilities-and-deadlines.md).
+If the agency believes revisions to contractor reported information are warranted, it shall notify the contractor no later than November 15, and by November 30 the contractor shall revise the report or document its rationale for the agency [@CL-CMP-2998]. Information not collected in FPDS will be provided by the contractor, as specified in the two service contract reporting clauses [@CL-CMP-2999]. Agencies shall submit a service contract inventory to OMB by January 15 annually, and each agency must then post the inventory on its Web site and publish a Federal Register Notice of Availability by February 15 annually [@CL-CMP-2947]. For the defense supplement's reporting clause, see [Contracted services reporting and Alternate A representations](cmp-contracted-services-reporting-and-alt-a-representations.md). For FPDS reporting, see [FPDS reporting responsibilities and deadlines](../../market/feeds/mkt-fpds-reporting-responsibilities-and-deadlines.md).
 
 ## Worked example
 

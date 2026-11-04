@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "administrative_contracting_officer"]
 questions = ["Q-004", "Q-021", "Q-040"]
-links = ["sup-ofac-restrictions-and-duty-free-entry", "sup-dfars-trade-agreements-clause-and-certificate", "sup-dfars-qualifying-country-subcontractors-and-performance-reports", "sup-dfars-identification-of-expenditures-in-the-united-states"]
+links = ["sup-ofac-restrictions-and-duty-free-entry", "sup-dfars-trade-agreements-clause-and-certificate", "sup-dfars-qualifying-country-subcontractors-and-reports", "sup-dfars-identification-of-expenditures-in-the-united-states"]
 +++
 
 ## Purpose

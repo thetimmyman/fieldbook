@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["certified_cost_or_pricing_data", "defective_pricing"]
 questions = ["Q-047"]
-links = ["est-defective-pricing", "est-subcontractor-certified-cost-or-pricing-data", "est-certificate-current-cost-pricing-data", "est-certified-cost-or-pricing-data", "est-certified-data-requirement-provision-and-modifications-clause"]
+links = ["est-defective-pricing", "est-subcontractor-certified-cost-or-pricing-data", "est-certificate-current-cost-pricing-data", "est-certified-cost-or-pricing-data", "est-certified-data-requirement-provision-and-modifications"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A modification above the threshold is priced at 4,000,000 from certified data. A
 
 ## Never confuse
 
-The subcontractor data clause makes the Contractor require subcontractor data [@CL-EST-1858] and insert the substance of the clause in subcontracts [@CL-EST-1812], while the price reduction clause provides that the price or cost shall be reduced accordingly and the contract modified [@CL-EST-1808]. An offset is allowed against the amount of a contract price reduction if the Contractor certifies that it is entitled to the offset in the amount requested and proves that the certified data were available before the as-of date on its certificate and were not submitted before that date [@CL-EST-1809; @CL-EST-1853; @CL-EST-1854]. The wider treatment of defective data sits in [Defective pricing](est-defective-pricing.md), the subcontractor side sits in [Subcontractor Certified Cost or Pricing Data clause](est-subcontractor-certified-cost-or-pricing-data.md), and the exceptions to the requirement for certified cost or pricing data are covered in [Requirements for certified cost or pricing data](est-certified-data-requirement-provision-and-modifications-clause.md).
+The subcontractor data clause makes the Contractor require subcontractor data [@CL-EST-1858] and insert the substance of the clause in subcontracts [@CL-EST-1812], while the price reduction clause provides that the price or cost shall be reduced accordingly and the contract modified [@CL-EST-1808]. An offset is allowed against the amount of a contract price reduction if the Contractor certifies that it is entitled to the offset in the amount requested and proves that the certified data were available before the as-of date on its certificate and were not submitted before that date [@CL-EST-1809; @CL-EST-1853; @CL-EST-1854]. The wider treatment of defective data sits in [Defective pricing](est-defective-pricing.md), the subcontractor side sits in [Subcontractor Certified Cost or Pricing Data clause](est-subcontractor-certified-cost-or-pricing-data.md), and the exceptions to the requirement for certified cost or pricing data are covered in [Requirements for certified cost or pricing data](est-certified-data-requirement-provision-and-modifications.md).
 
 Both RFO clauses name the certified cost or pricing data threshold at FAR 15.403-3(a) [@CL-EST-0433; @CL-EST-0457], where the codified clauses name it at FAR 15.403-4(a)(1) [@CL-EST-1806; @CL-EST-1857], and cite FAR 15.403-2 for the exception [@CL-EST-0434; @CL-EST-0465], where the codified clauses cite FAR 15.403-1(b) [@CL-EST-1806; @CL-EST-1859].
 

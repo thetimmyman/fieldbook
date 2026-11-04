@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["mkt-non-dod-order-review-source-identification-and-replenishment-parts"]
+links = ["mkt-non-dod-order-review-source-id-and-replenishment-parts"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ A solicitation for supplies is run under other than full and open competition. T
 
 ## Never confuse
 
-The contract-level requirement that a contractor identify its sources of supply, and the exception in DFARS 217.7302(b) for commercial products and contracts valued at or below the simplified acquisition threshold, are on [Order review, source identification and replenishment parts](mkt-non-dod-order-review-source-identification-and-replenishment-parts.md) [@CL-MKT-2155]. Under DFARS 217.7303(a), the provision is used in solicitations for supplies when the acquisition is being conducted under other than full and open competition, except in the listed situations [@CL-MKT-2105].
+The contract-level requirement that a contractor identify its sources of supply, and the exception in DFARS 217.7302(b) for commercial products and contracts valued at or below the simplified acquisition threshold, are on [Order review, source identification and replenishment parts](mkt-non-dod-order-review-source-id-and-replenishment-parts.md) [@CL-MKT-2155]. Under DFARS 217.7303(a), the provision is used in solicitations for supplies when the acquisition is being conducted under other than full and open competition, except in the listed situations [@CL-MKT-2105].
 
 ## Company calibration
 

@@ -47,7 +47,7 @@ A nonprofit institute created largely with Government funds offers on a 2,000,00
 
 ## Never confuse
 
-The subpart applies to contracts with nonprofit organizations, including nonprofit organizations created largely or wholly with Government funds [@CL-CMP-8244]. A conflict may result when factors create an actual or potential conflict of interest on an instant contract, or when the nature of the work on the instant contract creates an actual or potential conflict on a future acquisition, and in the latter case some restrictions on future activities of the contractor may be required [@CL-CMP-8248; @CL-CMP-8249]. For the systems engineering situation in detail, see the [systems engineering and technical direction](./cmp-organizational-conflicts-systems-engineering-and-technical-direction.md) card.
+The subpart applies to contracts with nonprofit organizations, including nonprofit organizations created largely or wholly with Government funds [@CL-CMP-8244]. A conflict may result when factors create an actual or potential conflict of interest on an instant contract, or when the nature of the work on the instant contract creates an actual or potential conflict on a future acquisition, and in the latter case some restrictions on future activities of the contractor may be required [@CL-CMP-8248; @CL-CMP-8249]. For the systems engineering situation in detail, see the [systems engineering and technical direction](./cmp-oci-systems-engineering-and-technical-direction.md) card.
 
 ## Company calibration
 

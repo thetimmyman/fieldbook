@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cmp-representation-of-limited-rights-data-and-restricted-software", "cmp-dod-technical-data-markings", "cmp-dod-technical-data-restriction-validation", "cmp-dod-software-restriction-validation", "cmp-dod-technical-data-rights-categories", "cmp-dod-noncommercial-software-rights"]
+links = ["cmp-representation-limited-rights-data-and-restricted-software", "cmp-dod-technical-data-markings", "cmp-dod-technical-data-restriction-validation", "cmp-dod-software-restriction-validation", "cmp-dod-technical-data-rights-categories", "cmp-dod-noncommercial-software-rights"]
 +++
 
 ## Purpose
@@ -51,7 +51,7 @@ An offeror proposes to deliver a software tool and a design report. It lists the
 
 ## Never confuse
 
-Under the clause, a contractor and its subcontractors or suppliers may only assert restrictions on the Government's rights to use, modify, reproduce, release, perform, display, or disclose technical data to be delivered under the contract by marking the deliverable data subject to restriction [@CL-CMP-3809]; see [DoD rights in technical data: markings](cmp-dod-technical-data-markings.md). Validation of restrictions is covered in [validation for technical data](cmp-dod-technical-data-restriction-validation.md) and [validation for computer software](cmp-dod-software-restriction-validation.md). The FAR representation about limited rights data and restricted computer software is covered in [Representation of limited rights data and restricted computer software](cmp-representation-of-limited-rights-data-and-restricted-software.md).
+Under the clause, a contractor and its subcontractors or suppliers may only assert restrictions on the Government's rights to use, modify, reproduce, release, perform, display, or disclose technical data to be delivered under the contract by marking the deliverable data subject to restriction [@CL-CMP-3809]; see [DoD rights in technical data: markings](cmp-dod-technical-data-markings.md). Validation of restrictions is covered in [validation for technical data](cmp-dod-technical-data-restriction-validation.md) and [validation for computer software](cmp-dod-software-restriction-validation.md). The FAR representation about limited rights data and restricted computer software is covered in [Representation of limited rights data and restricted computer software](cmp-representation-limited-rights-data-and-restricted-software.md).
 
 ## Company calibration
 

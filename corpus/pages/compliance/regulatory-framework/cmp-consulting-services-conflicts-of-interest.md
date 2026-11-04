@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-014"]
-links = ["cmp-foreign-government-control-and-terrorist-state-subcontracting"]
+links = ["cmp-foreign-government-control-and-terrorist-subcontracting"]
 +++
 
 ## Purpose
@@ -51,7 +51,7 @@ Answer: the offeror cannot certify that none of its affiliates holds such a cont
 
 ## Never confuse
 
-The prohibition is stated for a contract assigned a code beginning with 5416 [@CL-CMP-4093], and its two listed conditions are joined by the word and [@CL-CMP-4094]. The second condition is that the Offeror does not maintain a conflict-of-interest mitigation plan [@CL-CMP-4094]. An Offeror that answered in the affirmative in paragraphs (c)(1) and (2) shall submit its plan to the Contracting Officer for approval [@CL-CMP-4096]. For the foreign-government side of the covered foreign entity list, see [the foreign government control card](cmp-foreign-government-control-and-terrorist-state-subcontracting.md).
+The prohibition is stated for a contract assigned a code beginning with 5416 [@CL-CMP-4093], and its two listed conditions are joined by the word and [@CL-CMP-4094]. The second condition is that the Offeror does not maintain a conflict-of-interest mitigation plan [@CL-CMP-4094]. An Offeror that answered in the affirmative in paragraphs (c)(1) and (2) shall submit its plan to the Contracting Officer for approval [@CL-CMP-4096]. For the foreign-government side of the covered foreign entity list, see [the foreign government control card](cmp-foreign-government-control-and-terrorist-subcontracting.md).
 
 ## Company calibration
 

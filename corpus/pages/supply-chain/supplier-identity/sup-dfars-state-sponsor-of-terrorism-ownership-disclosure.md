@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["sup-ownership-or-control-of-offeror", "sup-dfars-foreign-commercial-satellite-services-prohibition", "cmp-foreign-government-control-and-terrorist-state-subcontracting"]
+links = ["sup-ownership-or-control-of-offeror", "sup-dfars-foreign-commercial-satellite-services-prohibition", "cmp-foreign-government-control-and-terrorist-subcontracting"]
 +++
 
 ## Purpose
@@ -49,7 +49,7 @@ Answer: the offeror attaches the disclosure to its offer, naming that government
 
 ## Never confuse
 
-This provision is about a significant interest that the government of a country that is a state sponsor of terrorism owns or controls in the Offeror, a subsidiary of the Offeror, or any other firm that owns or controls the Offeror [@CL-SUP-1503] (see also [Foreign government ownership disclosure and subcontracting with terrorist-state firms](../../compliance/regulatory-framework/cmp-foreign-government-control-and-terrorist-state-subcontracting.md) and [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md)). The satellite services clause defines a covered foreign country to include any country that is a state sponsor of terrorism [@CL-SUP-1495]; it is covered on [Prohibition on acquisition of certain foreign commercial satellite services](sup-dfars-foreign-commercial-satellite-services-prohibition.md).
+This provision is about a significant interest that the government of a country that is a state sponsor of terrorism owns or controls in the Offeror, a subsidiary of the Offeror, or any other firm that owns or controls the Offeror [@CL-SUP-1503] (see also [Foreign government ownership disclosure and subcontracting with terrorist-state firms](../../compliance/regulatory-framework/cmp-foreign-government-control-and-terrorist-subcontracting.md) and [Ownership or control of offeror](sup-ownership-or-control-of-offeror.md)). The satellite services clause defines a covered foreign country to include any country that is a state sponsor of terrorism [@CL-SUP-1495]; it is covered on [Prohibition on acquisition of certain foreign commercial satellite services](sup-dfars-foreign-commercial-satellite-services-prohibition.md).
 
 ## Company calibration
 

@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "price_analysis"]
 questions = ["Q-047"]
-links = ["cmp-dfars-deferred-delivery-ordering-and-previously-delivered-data"]
+links = ["cmp-dfars-deferred-delivery-ordering-and-prior-delivered-data"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ A solicitation requires data under a contract and includes DD Form 1423 [@CL-EST
 
 ## Never confuse
 
-The contracting officer must ensure that the contract does not include a requirement for data that the contractor has delivered or is obligated to deliver to the government under another contract or subcontract [@CL-EST-2462]. However, where duplicate data are desired, the contract price must include the costs of duplication, but not of preparation, of such data [@CL-EST-2463]. For deferred delivery and technical data previously delivered, see [Deferred delivery, deferred ordering and technical data previously delivered](../../compliance/regulatory-framework/cmp-dfars-deferred-delivery-ordering-and-previously-delivered-data.md).
+The contracting officer must ensure that the contract does not include a requirement for data that the contractor has delivered or is obligated to deliver to the government under another contract or subcontract [@CL-EST-2462]. However, where duplicate data are desired, the contract price must include the costs of duplication, but not of preparation, of such data [@CL-EST-2463]. For deferred delivery and technical data previously delivered, see [Deferred delivery, deferred ordering and technical data previously delivered](../../compliance/regulatory-framework/cmp-dfars-deferred-delivery-ordering-and-prior-delivered-data.md).
 
 ## Company calibration
 

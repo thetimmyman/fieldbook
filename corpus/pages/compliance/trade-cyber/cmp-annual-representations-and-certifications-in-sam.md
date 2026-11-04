@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-014"]
-links = ["mkt-sam-registration-and-awards", "cmp-contracted-services-reporting-and-alternate-a-representations"]
+links = ["mkt-sam-registration-and-awards", "cmp-contracted-services-reporting-and-alt-a-representations"]
 +++
 
 ## Purpose
@@ -34,7 +34,7 @@ The provision at 52.204-8, Annual Representations and Certifications, is to be i
 
 ## How it works
 
-All registrants are required to review and update the representations and certifications in SAM as necessary, but at least annually [@CL-CMP-0086; @CL-CMP-2983]. They are effective until one year from the date of submission or update [@CL-CMP-2983]. The contracting officer incorporates them by reference in the contract [@CL-CMP-2945]. Registration itself is on [SAM registration and awards](../../market/feeds/mkt-sam-registration-and-awards.md), and the defense supplement's Alternate A to the annual representations provision is on [Contracted services reporting and Alternate A representations](cmp-contracted-services-reporting-and-alternate-a-representations.md). The section has further rules on small business updates and contract file records, which this card does not set out.
+All registrants are required to review and update the representations and certifications in SAM as necessary, but at least annually [@CL-CMP-0086; @CL-CMP-2983]. They are effective until one year from the date of submission or update [@CL-CMP-2983]. The contracting officer incorporates them by reference in the contract [@CL-CMP-2945]. Registration itself is on [SAM registration and awards](../../market/feeds/mkt-sam-registration-and-awards.md), and the defense supplement's Alternate A to the annual representations provision is on [Contracted services reporting and Alternate A representations](cmp-contracted-services-reporting-and-alt-a-representations.md). The section has further rules on small business updates and contract file records, which this card does not set out.
 
 ## Worked example
 

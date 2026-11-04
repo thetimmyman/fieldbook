@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-012"]
-links = ["est-fixed-price-incentive-and-letter-contracts", "est-type-of-contract-letter-contract-and-time-and-materials-provisions"]
+links = ["est-fixed-price-incentive-and-letter-contracts", "est-type-of-contract-letter-and-time-and-materials-provisions"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ The gate is a written determination by the head of the contracting activity or a
 
 It may not commit the Government to a definitive contract in excess of the funds available at the time the letter contract is executed [@CL-EST-0969]. It may not be entered into without competition when competition is required by part 6 [@CL-EST-0970]. It may not be amended to satisfy a new requirement unless that requirement is inseparable from the existing letter contract [@CL-EST-0971]. An amendment to satisfy a new requirement is subject to the same requirements and limitations as a new letter contract [@CL-EST-0972].
 
-The competition limit is conditional. It applies when part 6 requires competition [@CL-EST-0970]. The amendment limit has one exception: a new requirement that is inseparable from the existing letter contract [@CL-EST-0971]. For when a letter contract fits and how it is definitized, see [fixed-price incentive contracts and letter contracts](est-fixed-price-incentive-and-letter-contracts.md). For the offeror provisions about letter contracts, see [type of contract and letter contract provisions](est-type-of-contract-letter-contract-and-time-and-materials-provisions.md).
+The competition limit is conditional. It applies when part 6 requires competition [@CL-EST-0970]. The amendment limit has one exception: a new requirement that is inseparable from the existing letter contract [@CL-EST-0971]. For when a letter contract fits and how it is definitized, see [fixed-price incentive contracts and letter contracts](est-fixed-price-incentive-and-letter-contracts.md). For the offeror provisions about letter contracts, see [type of contract and letter contract provisions](est-type-of-contract-letter-and-time-and-materials-provisions.md).
 
 ## Worked example
 

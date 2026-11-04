@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["sup-dfars-laundry-delivery-tickets-and-loss-or-damage", "cmp-dfars-mortuary-group-interment-preparation-and-military-animals"]
+links = ["sup-dfars-laundry-delivery-tickets-and-loss-or-damage", "cmp-dfars-mortuary-group-interment-and-military-animals"]
 +++
 
 ## Purpose
@@ -45,7 +45,7 @@ Under the count-of-articles instruction, an offeror prices every item in a lot a
 
 ## Never confuse
 
-Under the count-of-articles provision the offeror shall include unit prices for each item in a lot [@CL-CMP-4685], and under the bulk weight provision offers shall be submitted on a unit price per pound of serviced laundry [@CL-CMP-4687]. For the delivery ticket and loss or damage clause, see [Laundry delivery tickets and loss or damage](../../supply-chain/sourcing-evidence/sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md). For mortuary services, see [Group interment, preparation history, and transfer and adoption of military animals](cmp-dfars-mortuary-group-interment-preparation-and-military-animals.md).
+Under the count-of-articles provision the offeror shall include unit prices for each item in a lot [@CL-CMP-4685], and under the bulk weight provision offers shall be submitted on a unit price per pound of serviced laundry [@CL-CMP-4687]. For the delivery ticket and loss or damage clause, see [Laundry delivery tickets and loss or damage](../../supply-chain/sourcing-evidence/sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md). For mortuary services, see [Group interment, preparation history, and transfer and adoption of military animals](cmp-dfars-mortuary-group-interment-and-military-animals.md).
 
 ## Company calibration
 

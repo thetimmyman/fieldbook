@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cmp-iaea-additional-protocol-notification-and-disclosure-of-information"]
+links = ["cmp-iaea-additional-protocol-notification-and-disclosure"]
 +++
 
 ## Purpose
@@ -39,7 +39,7 @@ The clause at 252.204-7010 is the notification clause this section prescribes [@
 
 ## How it works
 
-If a DoD program manager receives notification from a contractor that the contractor is required to report any of its activities under the Additional Protocol, the program manager will take one of the two alternative steps [@CL-CMP-7897]. The clause is titled as a requirement for the contractor to notify DoD if the contractor's activities are subject to reporting under the Additional Protocol [@CL-CMP-7899]. What the notification must contain, and when it is due, are set in the clause text, which this card does not restate; see [the notification and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure-of-information.md).
+If a DoD program manager receives notification from a contractor that the contractor is required to report any of its activities under the Additional Protocol, the program manager will take one of the two alternative steps [@CL-CMP-7897]. The clause is titled as a requirement for the contractor to notify DoD if the contractor's activities are subject to reporting under the Additional Protocol [@CL-CMP-7899]. What the notification must contain, and when it is due, are set in the clause text, which this card does not restate; see [the notification and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure.md).
 
 The prescription is met by either kind of program (research and development or major defense acquisition) that involves any one of the three listed subjects [@CL-CMP-7900; @CL-CMP-7901]. Former activities stay in scope for the exclusion review [@CL-CMP-7896].
 

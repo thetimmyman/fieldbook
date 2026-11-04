@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["applicability_record", "federal_acquisition_regulation"]
 questions = ["Q-022"]
-links = ["cls-government-property-clause", "cls-responsibility-liability-government-property", "cls-title-to-government-furnished-and-contractor-acquired-property"]
+links = ["cls-government-property-clause", "cls-responsibility-liability-government-property", "cls-title-to-gfp-and-contractor-acquired-property"]
 +++
 
 ## Purpose
@@ -51,7 +51,7 @@ During the work the contractor also produces unserviceable parts and scrap. The 
 
 ## Never confuse
 
-The Government Property clause of the contract governs Government property furnished under the contract, except as provided in the installation operation services clause [@CL-SUP-3104]. Under the installation operation services clause the contractor shall have title to all replacement property [@CL-SUP-3101], and the listed property is furnished in an "as-is, where is" condition with no Government warranty regarding suitability for use [@CL-SUP-3187; @CL-SUP-3099]. Compare [the Government property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md), [responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md) and [title to Government-furnished and contractor-acquired property](../../close-revrec/fixed-assets/cls-title-to-government-furnished-and-contractor-acquired-property.md).
+The Government Property clause of the contract governs Government property furnished under the contract, except as provided in the installation operation services clause [@CL-SUP-3104]. Under the installation operation services clause the contractor shall have title to all replacement property [@CL-SUP-3101], and the listed property is furnished in an "as-is, where is" condition with no Government warranty regarding suitability for use [@CL-SUP-3187; @CL-SUP-3099]. Compare [the Government property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md), [responsibility and liability for Government property](../../close-revrec/fixed-assets/cls-responsibility-liability-government-property.md) and [title to Government-furnished and contractor-acquired property](../../close-revrec/fixed-assets/cls-title-to-gfp-and-contractor-acquired-property.md).
 
 ## Company calibration
 

@@ -66,7 +66,7 @@ A shop drawing approval is not an acceptance of design responsibility, because t
 
 The codified Alternates I and II add sentences to paragraph (g) [@CL-CMP-5109; @CL-CMP-5111], while the RFO Alternates add them to paragraph (j) [@CL-CMP-6197; @CL-CMP-6199].
 
-The architect-engineer clauses on design within funding limitations and design responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limitations-and-architect-engineer-responsibility.md), and the DFARS clause on checking contract drawings and specifications is covered in [Construction drawings, obstruction of navigable waterways, and additive or deductive items](cmp-dfars-construction-drawings-waterways-and-additive-items.md).
+The architect-engineer clauses on design within funding limitations and design responsibility are covered in [Design within funding limitations and architect-engineer responsibility](cmp-design-within-funding-limits-and-ae-responsibility.md), and the DFARS clause on checking contract drawings and specifications is covered in [Construction drawings, obstruction of navigable waterways, and additive or deductive items](cmp-dfars-construction-drawings-waterways-and-additive-items.md).
 
 ## Company calibration
 

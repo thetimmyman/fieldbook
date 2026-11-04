@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-012"]
-links = ["est-far-ordering-indefinite-delivery-contracts", "est-order-limitations-and-indefinite-quantity-clauses", "est-dod-ordering-multiple-award-contracts", "ctf-indefinite-delivery-and-indefinite-quantity-contracts", "ctf-requirements-contracts", "est-type-of-contract-letter-contract-and-time-and-materials-provisions"]
+links = ["est-far-ordering-indefinite-delivery-contracts", "est-order-limitations-and-indefinite-quantity-clauses", "est-dod-ordering-multiple-award-contracts", "ctf-indefinite-delivery-and-indefinite-quantity-contracts", "ctf-requirements-contracts", "est-type-of-contract-letter-and-time-and-materials-provisions"]
 +++
 
 ## Purpose
@@ -46,7 +46,7 @@ A requirements contract lists an estimate of 10,000 units a year. The activity o
 
 ## Never confuse
 
-Under the definite quantity clause the Government shall order the quantity specified in the Schedule [@CL-EST-1837], while under the requirements clause the Schedule quantities are estimates only and are not purchased by the contract [@CL-EST-1870] and, in the basic clause and except as the contract otherwise provides, the Government shall order from the Contractor all the supplies or services in the Schedule that the specified activity is required to purchase [@CL-EST-1840]. Minimum and maximum order rules are in a different clause, covered in [Order limitations and indefinite quantity clauses](est-order-limitations-and-indefinite-quantity-clauses.md), and fair opportunity among awardees is in [Ordering under indefinite-delivery contracts](est-far-ordering-indefinite-delivery-contracts.md). The requirements contract as a contract type is explained in [Requirements contracts](../../contract-finance/funding/ctf-requirements-contracts.md), and the provision that names the contemplated contract type is in [Type of contract and letter contract provisions](est-type-of-contract-letter-contract-and-time-and-materials-provisions.md).
+Under the definite quantity clause the Government shall order the quantity specified in the Schedule [@CL-EST-1837], while under the requirements clause the Schedule quantities are estimates only and are not purchased by the contract [@CL-EST-1870] and, in the basic clause and except as the contract otherwise provides, the Government shall order from the Contractor all the supplies or services in the Schedule that the specified activity is required to purchase [@CL-EST-1840]. Minimum and maximum order rules are in a different clause, covered in [Order limitations and indefinite quantity clauses](est-order-limitations-and-indefinite-quantity-clauses.md), and fair opportunity among awardees is in [Ordering under indefinite-delivery contracts](est-far-ordering-indefinite-delivery-contracts.md). The requirements contract as a contract type is explained in [Requirements contracts](../../contract-finance/funding/ctf-requirements-contracts.md), and the provision that names the contemplated contract type is in [Type of contract and letter contract provisions](est-type-of-contract-letter-and-time-and-materials-provisions.md).
 
 RFO FAR 52.216-20(d) says ordering period in its sentence on completing orders [@CL-EST-0393; @CL-EST-0394] but effective period in its sentence on the contract governing the order [@CL-EST-0394], while RFO FAR 52.216-21(f) says ordering period in both sentences [@CL-EST-0410; @CL-EST-0411]. The codified text says effective period in all of these sentences [@CL-EST-1912; @CL-EST-1913; @CL-EST-1915; @CL-EST-1916].
 

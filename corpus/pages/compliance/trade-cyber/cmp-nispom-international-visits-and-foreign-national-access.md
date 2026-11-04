@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-045"]
-links = ["cmp-nispom-training-briefings-visits-and-meetings", "cmp-nispom-international-transfers-and-foreign-government-information", "cmp-nispom-definitions-and-cognizant-security-offices"]
+links = ["cmp-nispom-training-briefings-visits-and-meetings", "cmp-nispom-international-transfers-and-foreign-gov-info", "cmp-nispom-definitions-and-cognizant-security-offices"]
 +++
 
 ## Purpose
@@ -48,7 +48,7 @@ Answer: the contractor limits disclosure to the information the approved request
 
 ## Never confuse
 
-Contractors cannot use visit authorizations to employ or otherwise acquire the services of foreign nationals that require access to export-controlled information; an export authorization is required for such situations [@CL-CMP-3509]. For visits by cleared employees, see [NISPOM security briefings, visits and classified meetings](cmp-nispom-training-briefings-visits-and-meetings.md); for disclosure and export authorization, see [NISPOM international transfers and foreign government information](cmp-nispom-international-transfers-and-foreign-government-information.md); and for the meaning of foreign interest, see [NISPOM acronyms, definitions and cognizant security office information](cmp-nispom-definitions-and-cognizant-security-offices.md).
+Contractors cannot use visit authorizations to employ or otherwise acquire the services of foreign nationals that require access to export-controlled information; an export authorization is required for such situations [@CL-CMP-3509]. For visits by cleared employees, see [NISPOM security briefings, visits and classified meetings](cmp-nispom-training-briefings-visits-and-meetings.md); for disclosure and export authorization, see [NISPOM international transfers and foreign government information](cmp-nispom-international-transfers-and-foreign-gov-info.md); and for the meaning of foreign interest, see [NISPOM acronyms, definitions and cognizant security office information](cmp-nispom-definitions-and-cognizant-security-offices.md).
 
 ## Company calibration
 

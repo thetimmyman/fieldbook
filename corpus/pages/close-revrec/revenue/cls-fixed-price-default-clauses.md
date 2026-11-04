@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation", "close_reconciliation"]
 questions = ["Q-006", "Q-027"]
-links = ["cls-termination-for-default-effect-and-repurchase", "ctf-termination-for-convenience-settlement", "cls-surety-takeover-agreements", "cls-termination-for-convenience-clauses", "cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices"]
+links = ["cls-termination-for-default-effect-and-repurchase", "ctf-termination-for-convenience-settlement", "cls-surety-takeover-agreements", "cls-termination-for-convenience-clauses", "cls-cost-reimbursement-settlement-format-and-delinquency"]
 +++
 
 ## Purpose
@@ -47,7 +47,7 @@ Assume an illustrative threshold of 250,000. A fixed-price construction contract
 
 ## Never confuse
 
-The effects of a termination for default are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md), the convenience clauses are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md), and a convenience termination is settled as shown on [Termination for Convenience of the Government (Fixed-Price): settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md). Where a surety completes a defaulted construction contract, a separate takeover agreement may apply, and [Surety-takeover agreements](cls-surety-takeover-agreements.md) covers it. The notices that precede a default termination are on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices.md).
+The effects of a termination for default are on [Termination for default: effect, notices and repurchase against the contractor](cls-termination-for-default-effect-and-repurchase.md), the convenience clauses are on [Termination for convenience clauses and when each goes in](cls-termination-for-convenience-clauses.md), and a convenience termination is settled as shown on [Termination for Convenience of the Government (Fixed-Price): settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md). Where a surety completes a defaulted construction contract, a separate takeover agreement may apply, and [Surety-takeover agreements](cls-surety-takeover-agreements.md) covers it. The notices that precede a default termination are on [Cost-reimbursement settlement format, subcontract settlement authorization and delinquency notices](cls-cost-reimbursement-settlement-format-and-delinquency.md).
 
 ## Company calibration
 

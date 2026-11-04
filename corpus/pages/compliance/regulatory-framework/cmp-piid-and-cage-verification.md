@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation", "applicability_record", "entity_resolution_ladder"]
 questions = ["Q-004"]
-links = ["cmp-piid-and-supplementary-piid", "cmp-solicitation-provisions-wosb-uei-cage-and-covered-telecommunications", "cmp-cage-code-and-telecommunications-representation", "sup-cage-code-reporting", "cmp-sam-registration-and-maintenance-clauses"]
+links = ["cmp-piid-and-supplementary-piid", "cmp-solicitation-provisions-wosb-uei-cage-and-covered-telecom", "cmp-cage-code-and-telecommunications-representation", "sup-cage-code-reporting", "cmp-sam-registration-and-maintenance-clauses"]
 +++
 
 ## Purpose

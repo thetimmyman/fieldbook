@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["actual_cost", "billing"]
 questions = ["Q-027"]
-links = ["cls-settlement-by-determination", "cls-termination-authority-notice-and-tco-duties", "cls-cost-reimbursement-settlement-format-authorization-and-delinquency-notices", "cls-termination-settlement-fair-compensation"]
+links = ["cls-settlement-by-determination", "cls-termination-authority-notice-and-tco-duties", "cls-cost-reimbursement-settlement-format-and-delinquency", "cls-termination-settlement-fair-compensation"]
 +++
 
 ## Purpose

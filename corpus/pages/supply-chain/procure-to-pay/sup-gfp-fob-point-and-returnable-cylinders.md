@@ -10,7 +10,7 @@ status = "draft"
 as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
-links = ["cls-government-property-clause", "cls-title-to-government-furnished-and-contractor-acquired-property"]
+links = ["cls-government-property-clause", "cls-title-to-gfp-and-contractor-acquired-property"]
 +++
 
 ## Purpose

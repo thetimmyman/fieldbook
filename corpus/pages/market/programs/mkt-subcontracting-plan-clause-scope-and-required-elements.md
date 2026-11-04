@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["federal_acquisition_regulation"]
 questions = ["Q-040"]
-links = ["mkt-subcontracting-plan-content-and-compliance", "mkt-subcontracting-plan-when-required", "mkt-subcontracting-plan-clause-master-commercial-reporting-flowdown", "mkt-utilization-of-small-business-concerns-clause"]
+links = ["mkt-subcontracting-plan-content-and-compliance", "mkt-subcontracting-plan-when-required", "mkt-subcontracting-plan-master-commercial-reporting-flowdown", "mkt-utilization-of-small-business-concerns-clause"]
 +++
 
 ## Purpose
@@ -35,7 +35,7 @@ An individual subcontracting plan is a subcontracting plan that covers the entir
 
 ## How it works
 
-The clause first excludes small business concerns, then states the time allowed for negotiating a plan and the consequence of not submitting and negotiating it, and then lists what the plan must include [@CL-MKT-0821; @CL-MKT-0822; @CL-MKT-0824]. See the [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) card for plan content, good faith effort and liquidated damages. The assurances on flowdown and reporting, master plans, commercial plans and the material-breach rule are on the [master and commercial plans, reporting and flowdown](mkt-subcontracting-plan-clause-master-commercial-reporting-flowdown.md) card. When a plan is required at all is on the [When a subcontracting plan is required](mkt-subcontracting-plan-when-required.md) card.
+The clause first excludes small business concerns, then states the time allowed for negotiating a plan and the consequence of not submitting and negotiating it, and then lists what the plan must include [@CL-MKT-0821; @CL-MKT-0822; @CL-MKT-0824]. See the [Subcontracting plan content, good faith effort and liquidated damages](mkt-subcontracting-plan-content-and-compliance.md) card for plan content, good faith effort and liquidated damages. The assurances on flowdown and reporting, master plans, commercial plans and the material-breach rule are on the [master and commercial plans, reporting and flowdown](mkt-subcontracting-plan-master-commercial-reporting-flowdown.md) card. When a plan is required at all is on the [When a subcontracting plan is required](mkt-subcontracting-plan-when-required.md) card.
 
 Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760; @CL-CMP-9762]. RFO FAR 52.219-9 keeps the rule that the clause does not apply to small business concerns [@CL-MKT-1232], the rule that the offeror, upon request by the contracting officer, shall submit and negotiate a subcontracting plan, where applicable, that separately addresses subcontracting with small business, veteran-owned small business (VOSB), service-disabled veteran-owned small business (SDVOSB), HUBZone small business, small disadvantaged business (SDB), and women-owned small business (WOSB) concerns [@CL-MKT-1233; @CL-MKT-1234], the definition of an individual subcontracting plan and the proration of indirect costs [@CL-MKT-1992; @CL-MKT-1236], the rule that the plan shall include the listed elements [@CL-MKT-1237], and the element naming the individual employed by the offeror who will administer the subcontracting program and describing that individual's duties [@CL-MKT-1238]. RFO FAR 52.219-9(c)(1) states that the offeror shall negotiate the subcontracting plan within the timeframe specified by the contracting officer, and if the offeror fails to submit and negotiate the subcontracting plan, then the offeror will not be eligible for award of a contract [@CL-MKT-1235].
 
@@ -47,7 +47,7 @@ A large company bids on a contract that includes the plan clause, and the contra
 
 ## Never confuse
 
-An individual subcontracting plan covers the entire contract period (including option periods), applies to a specific contract, and has goals based on the offeror's planned subcontracting in support of the specific contract [@CL-MKT-1991; @CL-MKT-0823]. Commercial and master plans are on the [master and commercial plan](mkt-subcontracting-plan-clause-master-commercial-reporting-flowdown.md) card for this clause. The policy clause on small business utilization is on the [Utilization of small business concerns](mkt-utilization-of-small-business-concerns-clause.md) card.
+An individual subcontracting plan covers the entire contract period (including option periods), applies to a specific contract, and has goals based on the offeror's planned subcontracting in support of the specific contract [@CL-MKT-1991; @CL-MKT-0823]. Commercial and master plans are on the [master and commercial plan](mkt-subcontracting-plan-master-commercial-reporting-flowdown.md) card for this clause. The policy clause on small business utilization is on the [Utilization of small business concerns](mkt-utilization-of-small-business-concerns-clause.md) card.
 
 ## Company calibration
 

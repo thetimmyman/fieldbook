@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement", "system_of_record"]
 questions = ["Q-014"]
-links = ["cmp-contract-distribution-line-items-and-service-reporting", "cmp-government-contract-files", "cmp-dfars-safeguarding-definitions-policy-and-clause-prescriptions", "cmp-iaea-additional-protocol-notification-and-disclosure-of-information"]
+links = ["cmp-contract-distribution-line-items-and-service-reporting", "cmp-government-contract-files", "cmp-dfars-safeguarding-definitions-policy-and-prescriptions", "cmp-iaea-additional-protocol-notification-and-disclosure"]
 +++
 
 ## Purpose
@@ -41,7 +41,7 @@ Under the safeguarding subpart's section on responsibilities of contracting offi
 
 The audit use depends on the PGI procedures being followed: when they are, the documents and data in the system are an accurate representation of the contract and may be used for audit purposes [@CL-CMP-7891]. Contract deficiency reports are used to correct problems with contracts distributed in the system [@CL-CMP-7892].
 
-The disclosure clause turns on what the contractor will see or generate: unclassified information that may be sensitive and inappropriate for release to the public [@CL-CMP-7893]. The section does not say who decides whether information is sensitive and inappropriate for release. The work product clause has no such condition and is to be used in all solicitations and contracts [@CL-CMP-7894]. Both prescriptions direct that a clause be used in solicitations and contracts [@CL-CMP-7893; @CL-CMP-7894]. The disclosure clause is covered in [the Additional Protocol and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure-of-information.md), and posting rules for the system are in [the contract attachment distribution card](cmp-contract-distribution-line-items-and-service-reporting.md).
+The disclosure clause turns on what the contractor will see or generate: unclassified information that may be sensitive and inappropriate for release to the public [@CL-CMP-7893]. The section does not say who decides whether information is sensitive and inappropriate for release. The work product clause has no such condition and is to be used in all solicitations and contracts [@CL-CMP-7894]. Both prescriptions direct that a clause be used in solicitations and contracts [@CL-CMP-7893; @CL-CMP-7894]. The disclosure clause is covered in [the Additional Protocol and disclosure card](../trade-cyber/cmp-iaea-additional-protocol-notification-and-disclosure.md), and posting rules for the system are in [the contract attachment distribution card](cmp-contract-distribution-line-items-and-service-reporting.md).
 
 ## Worked example
 

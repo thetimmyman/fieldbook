@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["applicability_record", "billing"]
 questions = ["Q-021"]
-links = ["sup-commercial-bill-of-lading-notation-audit-submission-and-repship", "sup-supervision-labor-and-accessorial-services"]
+links = ["sup-commercial-bol-notation-audit-submission-and-repship", "sup-supervision-labor-and-accessorial-services"]
 +++
 
 ## Purpose

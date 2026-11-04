@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-004"]
-links = ["cmp-rights-in-data-sbir-and-sttr-program", "cmp-rights-in-data-general-definitions-and-allocation", "cmp-representation-of-limited-rights-data-and-restricted-software", "cmp-dfars-sttr-preaward-and-postaward-requirements", "cmp-dfars-government-furnished-information-restrictive-legends", "cmp-dfars-bid-or-proposal-information-and-special-works"]
+links = ["cmp-rights-in-data-sbir-and-sttr-program", "cmp-rights-in-data-general-definitions-and-allocation", "cmp-representation-limited-rights-data-and-restricted-software", "cmp-dfars-sttr-preaward-and-postaward-requirements", "cmp-dfars-government-furnished-information-restrictive-legends", "cmp-dfars-bid-or-proposal-information-and-special-works"]
 +++
 
 ## Purpose

@@ -11,7 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 terms = ["defense_far_supplement"]
 questions = ["Q-003"]
-links = ["cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown", "cmp-former-dod-official-compensation"]
+links = ["cmp-deployed-personnel-weapons-evacuation-and-flowdown", "cmp-former-dod-official-compensation"]
 +++
 
 ## Purpose
@@ -51,7 +51,7 @@ During performance the COR asks the contractor to speed up a delivery date. The 
 
 This card covers the offer's representation [@CL-CMP-4194]. Covered DoD official is defined in the clause at 252.203-7000 [@CL-CMP-4196], which is covered on [Compensation of former DoD officials](cmp-former-dod-official-compensation.md).
 
-The COR acts within the written designation [@CL-CMP-4197] and is not authorized to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-CMP-4198]. Under the deployed-forces clause, the Contracting Officer may, at any time, by written order identified as a change order, make changes in the place of performance or Government-furnished facilities, equipment, material, services, or site [@CL-CMP-4173]; see [the card on weapons, evacuation, changes and flowdown](cmp-deployed-contractor-personnel-weapons-evacuation-and-flowdown.md).
+The COR acts within the written designation [@CL-CMP-4197] and is not authorized to make commitments or changes that affect price, quality, quantity, delivery, or other terms [@CL-CMP-4198]. Under the deployed-forces clause, the Contracting Officer may, at any time, by written order identified as a change order, make changes in the place of performance or Government-furnished facilities, equipment, material, services, or site [@CL-CMP-4173]; see [the card on weapons, evacuation, changes and flowdown](cmp-deployed-personnel-weapons-evacuation-and-flowdown.md).
 
 ## Company calibration
 
