@@ -56,7 +56,6 @@ Which accounting frameworks and group reporting rules apply to subsidiaries and 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and section cross-references, and removed meta wording and uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the individual or aggregated alternatives for summarized information.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the general notes.

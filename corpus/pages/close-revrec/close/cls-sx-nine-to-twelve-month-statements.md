@@ -55,7 +55,6 @@ Which fiscal-year changes, significant acquisitions and Commission permissions t
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on the length-alone deeming sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements covering nine to twelve months.

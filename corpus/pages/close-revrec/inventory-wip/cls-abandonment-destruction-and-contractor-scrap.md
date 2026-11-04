@@ -56,7 +56,6 @@ Who approves abandonment or destruction, and who reconciles the inventory dispos
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 2.101 to the table, restored FMR 102-36.305 through 325 citation, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the destroy or abandon actions as alternatives and added the public notice rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.

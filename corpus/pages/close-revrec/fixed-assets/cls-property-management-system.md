@@ -62,7 +62,6 @@ Who owns the property title and inventory records, and how physical and accounti
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and clause qualifiers, and replaced uncited Never confuse commentary with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the 45-day lead-in and the contracting officer as the actor on determinations and withholding.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added that failure to maintain an acceptable property management system may result in disapproval of the system and withholding of payments.

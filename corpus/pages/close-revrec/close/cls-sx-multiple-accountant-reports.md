@@ -59,7 +59,6 @@ Which engagements split an examination across more than one firm, whether the pr
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the foreign governmental agency examination rule and the rule on statements of other persons.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for another accountant's separate report.

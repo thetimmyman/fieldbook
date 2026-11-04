@@ -58,7 +58,6 @@ Who selects the proposal basis and reconciles unliquidated financing balances an
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.100 to the citation row and restored section cross-references and shall modal.
 - COMPATIBLE_EXTENSION, 2026-10-31: scoped the applies-to row and the total-cost basis, added the examples lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inventory basis and total-cost basis termination settlement proposals.

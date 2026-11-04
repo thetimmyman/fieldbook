@@ -35,7 +35,7 @@ Acceptable material management and accounting system means a material management
 
 ## How it works
 
-The system must ensure that costs of purchased and fabricated material charged or allocated to a contract are based on valid time-phased requirements, its costing methodology may be standard or actual cost or any of the inventory costing methods in 48 CFR 9904.411-50(b), and the contractor shall maintain consistency across all contract and customer types, and from accounting period to accounting period, for initial charging and transfer charging [@CL-CLS-0111; @CL-CLS-0117]. The clause still points to 48 CFR 9904.411-50(b), but CAS 411 was wholly rescinded with an effective date of August 7, 2026, and section 9904.411 is printed as reserved, as covered in [CAS-GAAP conformance](../../compliance/cas-allowability/cmp-cas-gaap-conformance-2026.md) [@CL-CMP-1500; @CL-CMP-1501; @CL-CMP-1524].
+The system must ensure that costs of purchased and fabricated material charged or allocated to a contract are based on valid time-phased requirements [@CL-CLS-0111]. Its costing methodology may be standard or actual cost or any of the inventory costing methods in 48 CFR 9904.411-50(b), and the contractor shall maintain consistency across all contract and customer types, and from accounting period to accounting period, for initial charging and transfer charging [@CL-CLS-0117]. The clause still points to 48 CFR 9904.411-50(b), but CAS 411 was wholly rescinded with an effective date of August 7, 2026, and section 9904.411 is printed as reserved, as covered in [CAS-GAAP conformance](../../compliance/cas-allowability/cmp-cas-gaap-conformance-2026.md) [@CL-CMP-1500; @CL-CMP-1501; @CL-CMP-1524].
 
 A 98 percent bill of material accuracy and a 95 percent master production schedule accuracy are desirable as a goal in order to ensure that requirements are both valid and appropriately time-phased, and a 95 percent record accuracy level is desirable [@CL-CLS-0112; @CL-CLS-0113]. If systems have accuracy levels below those, the contractor shall provide adequate evidence both that there is no material harm to the Government due to lower accuracy levels and that the cost to meet the accuracy goal is excessive in relation to the impact on the Government [@CL-CLS-0166; @CL-CLS-0167]. Record accuracy also includes reconciliation of recorded inventory quantities to physical inventory by part number on a periodic basis [@CL-CLS-0113].
 
@@ -64,7 +64,6 @@ Who owns the inventory and Government property title records, and how physical a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers on accuracy goals, internal reviews, and 252.242-7005, and replaced uncited Never confuse commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the continuation of the corrective action rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated the actors and conditions in the determination and response rules.

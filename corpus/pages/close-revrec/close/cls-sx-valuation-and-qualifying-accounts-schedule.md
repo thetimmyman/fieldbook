@@ -55,7 +55,6 @@ Which valuation and qualifying accounts and reserves the company carries, their 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers in § 210.5-04(b) and § 210.12-09 footnote 1, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the Schedule II sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the valuation and qualifying accounts schedule.

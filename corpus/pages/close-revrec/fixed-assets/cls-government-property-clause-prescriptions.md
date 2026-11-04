@@ -54,7 +54,6 @@ Which of the company's contracts and solicitations fall in a listed situation, a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 45.107(b) lead-in companion (CL-CLS-0075), restored FAR 35.014 cross-reference and Government-property qualifier, and cited Never confuse rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tightened the Part 12, Alternate I and Alternate II wording to match the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government property contract clauses.

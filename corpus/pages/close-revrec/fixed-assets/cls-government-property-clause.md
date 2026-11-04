@@ -58,7 +58,6 @@ Who owns Government property title records and how physical and accounting balan
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers and shall modals, separated RFO and codified citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the fixture and personal-property continuation of the title-not-affected sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

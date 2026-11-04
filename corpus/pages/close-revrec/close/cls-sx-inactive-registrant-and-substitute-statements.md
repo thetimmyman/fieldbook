@@ -55,7 +55,6 @@ Whether a dormant or run-off registrant still meets every inactivity condition, 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the audited-statement demand condition with the source wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inactive registrant statements and substituted financial statements.

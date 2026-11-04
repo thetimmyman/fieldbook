@@ -55,7 +55,6 @@ Which accounting framework the company uses for local and group reporting, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and cross-references in § 210.5-01, and removed meta wording and uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on who the sections apply to.
 - COMPATIBLE_EXTENSION, 2026-10-31: The sentences on Rule 5-01 now name the sections it covers instead of describing them as line-item rules.

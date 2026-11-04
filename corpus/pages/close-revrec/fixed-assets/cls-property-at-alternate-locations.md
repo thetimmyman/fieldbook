@@ -54,6 +54,5 @@ Which sites hold Government property for the contractor, and who handles a disag
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers on subcontractor consent and removed uncited commentary in Never confuse.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for property at alternate locations.

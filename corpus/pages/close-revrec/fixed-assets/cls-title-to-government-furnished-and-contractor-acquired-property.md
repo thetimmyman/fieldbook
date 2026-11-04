@@ -54,7 +54,6 @@ Who keeps the title records for Government-furnished and contractor-acquired pro
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the contractor-acquisition qualifier on fixed-price title and cited the Never confuse contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the financing-provisions title rule to property acquired or fabricated by the contractor.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for title to Government-furnished and contractor-acquired property.

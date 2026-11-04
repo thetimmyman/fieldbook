@@ -54,6 +54,5 @@ Who runs the corrective action plan when the property administrator gives notice
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and full qualifiers in FAR 45.105 and 45.106, and removed uncited Never confuse commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for property management system compliance and transferring accountability.

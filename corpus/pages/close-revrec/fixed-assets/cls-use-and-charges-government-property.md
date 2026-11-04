@@ -60,7 +60,6 @@ Who maintains Government property usage logs and reconciles commercial rental ho
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claim for the rental-request formula reference, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subcontract case to the rent-free uses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

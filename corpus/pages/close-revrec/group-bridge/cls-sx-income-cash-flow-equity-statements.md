@@ -53,7 +53,6 @@ Which statements, how many years and which audit level the company's owners, len
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and § 210.10-01 interim-detail qualifier, and removed uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the shorter-period alternative for emerging growth companies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the equity analysis sentence so the reconciliation rule keeps the requirement to describe significant reconciling items by captions and show contributions from and distributions to owners separately.

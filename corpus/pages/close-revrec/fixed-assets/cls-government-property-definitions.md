@@ -98,7 +98,6 @@ Which of the company's property records use these defined terms unaltered, and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 2.101 table citation, separated RFO and codified citations, removed worked-example citations, and removed meta wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the or-lists in loss, exclusions and sensitive-property examples as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of special tooling.

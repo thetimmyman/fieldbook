@@ -56,7 +56,6 @@ How excess inventory and work in process on terminated contracts are reviewed fo
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and supporting-data qualifier, removed an unsupported date from the deviation note, and removed meta numbering commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: added common-item usability tests and the subcontract settlement item.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

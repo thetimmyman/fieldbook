@@ -56,7 +56,6 @@ Who owns inventory title records under progress payments and how physical balanc
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 32.503-16 and DFARS 232.503-15 to the table, restored shall modals, and removed meta comparison wording.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Government title to progress payment inventory.

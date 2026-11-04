@@ -57,7 +57,6 @@ Which affiliates' securities collateralize a registered issue, which of the list
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers, removed worked-example citations, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed amounts now stated as alternatives, whichever is the greatest.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for statements of affiliates whose securities collateralize a registered issue.

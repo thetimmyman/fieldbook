@@ -54,7 +54,6 @@ How inventory reserves, excess production cost and the netting of progress payme
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored shall modals and full qualifiers in § 210.5-02.6, and removed meta wording and uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: joined the section numbers to the claim that follows.
 - COMPATIBLE_EXTENSION, 2026-10-31: named both kinds of long-term contract and the scope of the definition.

@@ -56,7 +56,6 @@ How manufacturing process development and tooling expenditures are reviewed for 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the full list of production functions in FAR 31.205-25(a)(3), removed an unsupported date from the deviation note, and removed meta comparison wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: restored the research definition scope and full list wording.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.

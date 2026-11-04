@@ -37,7 +37,7 @@ Sales procedures. Surplus personal property that has completed screening in acco
 
 GSA sponsored sales centers. Agencies may use sales center services [@CL-CLS-1402]. Use of such centers for sale of surplus property is authorized when in the best interest of the Government, consistent with contract terms and conditions [@CL-CLS-1403].
 
-Proceeds. Proceeds of any sale are to be credited to the Treasury of the United States as miscellaneous receipts, unless otherwise authorized by statute or the contract or any subcontract thereunder authorizes the proceeds to be credited to the price or cost of the work (40 [@CL-CLS-1404; @CL-CLS-1408] U.S.C. 571 and 574) [@CL-CLS-1404; @CL-CLS-1408].
+Proceeds. Proceeds of any sale are to be credited to the Treasury of the United States as miscellaneous receipts, unless otherwise authorized by statute or the contract or any subcontract thereunder authorizes the proceeds to be credited to the price or cost of the work (40 USC 571 and 574) [@CL-CLS-1404; @CL-CLS-1408].
 
 Exchange/sale authority. Agencies should consider the sale of property pursuant to the exchange/sale authority in FMR 102-39 (41 CFR part 102-39) when agencies are acquiring or plan to acquire similar products and other requirements of the authority are satisfied [@CL-CLS-1405].
 
@@ -68,7 +68,6 @@ Confirm who owns the inventory and Government property title records and how phy
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 45.600 to the citation row, removed worked-example citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the 45.602-3(a) screening scope on the sales rule and softened one inference.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for reutilization and disposal of Government property.

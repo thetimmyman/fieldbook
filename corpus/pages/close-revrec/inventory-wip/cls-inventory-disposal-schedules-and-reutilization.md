@@ -54,7 +54,6 @@ Who prepares inventory disposal schedules and tracks the plant clearance officer
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the 45.603(b) and FMR 102-36.285 cross-references and removed uncited meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: named the plant clearance officer as the actor for the 120-day instructions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inventory disposal schedules and reutilization priorities.

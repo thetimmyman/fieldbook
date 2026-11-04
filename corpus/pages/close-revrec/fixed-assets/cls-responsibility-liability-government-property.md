@@ -54,6 +54,5 @@ Which contracts carry the general no-liability rule, and whether the Government'
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored full qualifiers in Never confuse and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for responsibility and liability for Government property.

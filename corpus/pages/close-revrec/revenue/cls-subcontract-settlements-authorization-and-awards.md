@@ -56,7 +56,6 @@ Which subcontract termination settlements were approved, ratified or settled und
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.104 to the citation row, restored shall modals and cross-references, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: arbitration actors stated as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

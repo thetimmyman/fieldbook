@@ -58,7 +58,6 @@ Who reconciles inventory disposal schedules and Government property accounts aga
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.109-3, 52.249-2, 52.249-6, and RFO FAR 2.101 to the table, restored shall modals, and separated RFO and codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the termination inventory definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination inventory.

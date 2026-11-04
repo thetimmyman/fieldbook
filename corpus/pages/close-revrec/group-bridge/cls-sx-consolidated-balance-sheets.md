@@ -55,7 +55,6 @@ Whether the company is a registrant, and if not, which lender or investor calend
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored must and shall modals, added full qualifiers in § 210.3-01, and removed uncited scope commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the three paragraph (c) conditions as all required.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the unaudited interim balance sheet rule.
