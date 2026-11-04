@@ -26,7 +26,7 @@ Shows what the pay ratio compares and who counts as an employee for it under par
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | A registrant, for the Item 402(u) pay ratio disclosure; a registrant that qualifies as a smaller reporting company, as defined by Item 10(f)(1), may provide the scaled disclosure in paragraphs (m) through (r) instead of paragraphs (a) through (k) and (s), and a registrant that is an emerging growth company, as defined in Rule 405 of the Securities Act or Rule 12b-2 of the Exchange Act, is not required to comply with paragraph (u) [@CL-FPA-1113; @CL-FPA-1072; @CL-FPA-1129] |
+| Applies to | A registrant, for the Item 402(u) pay ratio disclosure; a registrant that qualifies as a smaller reporting company, as defined by Item 10(f)(1), may provide the scaled disclosure in paragraphs (m) through (r) instead of paragraphs (a) through (k), (s), and (u), and a registrant that is an emerging growth company, as defined in Rule 405 of the Securities Act or Rule 12b-2 of the Exchange Act, is not required to comply with paragraph (u) [@CL-FPA-1113; @CL-FPA-1072; @CL-FPA-1129] |
 
 The registrant discloses (A) the median of the annual total compensation of all employees of the registrant (except the PEO), (B) the annual total compensation of the PEO of the registrant, and (C) the ratio of the amount in (A) to the amount in (B) [@CL-FPA-1113]. For purposes of the ratio, the amount in (A) must be expressed as a ratio in which that amount equals one, or narratively in terms of the multiple that the amount in (B) bears to the amount in (A) [@CL-FPA-1114]. Total compensation for both the median of the annual total compensation of all employees of the registrant and the PEO of the registrant must be determined in accordance with paragraph (c)(2)(x) of Item 402 [@CL-FPA-1115]. For purposes of paragraph (u), registrant means the registrant and its consolidated subsidiaries [@CL-FPA-1116].
 
@@ -58,5 +58,5 @@ How the company would identify its employee population and payroll data across s
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added unpaid-leave qualifier in Item 402(u)(3) and definition citations in Applies to, and removed meta-wording and uncited contrast.
-- NEW_KNOWLEDGE, 2026-10-31: Pay ratio timing lead-in added.
+- COMPATIBLE_EXTENSION, 2026-10-31: Pay ratio timing lead-in added.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for pay ratio disclosure.
