@@ -9,7 +9,9 @@ pub mod corpus_toml;
 pub mod diag;
 pub mod files;
 pub mod index;
+pub mod markdown;
 pub mod model;
+pub mod page_links;
 pub mod pages;
 pub mod promotion;
 pub mod register_cells;
@@ -69,6 +71,7 @@ const PASSES: &[Pass] = &[
     register_links::check,
     promotion::check,
     pages::check,
+    page_links::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {

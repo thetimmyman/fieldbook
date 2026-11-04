@@ -69,10 +69,46 @@ edits = [
 ]
 
 [[case]]
+code = "FB0110"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:13"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "prereq = [\"cmp-system-review\"]", replace = "prereq = [\"cmp-nope\"]" },
+]
+
+[[case]]
+code = "FB0111"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:13"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "stage = 2", replace = "stage = 3" },
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "volatility = \"V2\"\n+++", replace = "prereq = [\"cmp-review-steps\"]\nvolatility = \"V2\"\n+++" },
+]
+
+[[case]]
+code = "FB0112"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:12"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "terms = [\"system_review\"]", replace = "terms = [\"no_such_term\"]" },
+]
+
+[[case]]
+code = "FB0113"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:14"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "questions = [\"Q-001\"]", replace = "questions = [\"Q-999\"]" },
+]
+
+[[case]]
 code = "FB0114"
 at = "corpus/registers/sources.csv:3"
 edits = [
   { path = "corpus/registers/sources.csv", find = ",2026-01-15,2026-01-15,active,", replace = ",2026-01-15,2025-02-30,active," },
+]
+
+[[case]]
+code = "FB0115"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:16"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "volatility = \"V2\"\n+++", replace = "volatility = \"V2\"\nsuperseded_by = [\"cmp-system-review\"]\n+++" },
 ]
 
 [[case]]
@@ -122,6 +158,13 @@ code = "FB0125"
 at = "corpus/ASSISTANT.md:1"
 edits = [
   { path = "corpus/ASSISTANT.md", delete = true },
+]
+
+[[case]]
+code = "FB0136"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:29"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[review concept](cmp-system-review.md)", replace = "[review concept](missing.md)" },
 ]
 
 [[case]]
