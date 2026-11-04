@@ -1,46 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-pages
-[[pending]]
-code = "FB0101"
-card = "check-pages"
-
-[[pending]]
-code = "FB0102"
-card = "check-pages"
-
-[[pending]]
-code = "FB0103"
-card = "check-pages"
-
-[[pending]]
-code = "FB0104"
-card = "check-pages"
-
-[[pending]]
-code = "FB0105"
-card = "check-pages"
-
-[[pending]]
-code = "FB0106"
-card = "check-pages"
-
-[[pending]]
-code = "FB0107"
-card = "check-pages"
-
-[[pending]]
-code = "FB0108"
-card = "check-pages"
-
-[[pending]]
-code = "FB0109"
-card = "check-pages"
-
-[[pending]]
-code = "FB0116"
-card = "check-pages"
-
 # check-page-links
 [[pending]]
 code = "FB0110"

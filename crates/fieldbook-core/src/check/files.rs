@@ -15,12 +15,16 @@ use crate::schema::{PageType, Register, table};
 /// `model.tree()` that belong to a declared `(area.slug, subarea)` pair in `corpus/corpus.toml`.
 #[must_use]
 pub fn page_paths(model: &Model) -> Vec<String> {
-    let Some(corpus) = model.corpus() else {
+    page_paths_for(model.tree(), model.corpus())
+}
+
+pub(crate) fn page_paths_for(tree: &super::Tree, corpus: Option<&CorpusToml>) -> Vec<String> {
+    let Some(corpus) = corpus else {
         return Vec::new();
     };
     let declared = declared_subareas(corpus);
     let mut out = Vec::new();
-    for path in model.tree().paths() {
+    for path in tree.paths() {
         if is_declared_page_path(path, &declared) {
             out.push(path.to_owned());
         }
@@ -998,8 +1002,13 @@ mod tests {
             b"line 1\nline 2 \nline 3\n",
         );
         let report = run(&Host::new(tree, sample_today()), &Options::default());
-        assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
-        let d = &report.diagnostics[0];
+        let fb0122: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0122)
+            .collect();
+        assert_eq!(fb0122.len(), 1, "{:?}", report.diagnostics);
+        let d = fb0122[0];
         assert_eq!(d.code, Code::Fb0122);
         assert_eq!(
             d.path,
@@ -1077,10 +1086,15 @@ mod tests {
             let mut tree = mini_tree();
             tree.insert_bytes(target, bytes.to_vec());
             let report = run(&Host::new(tree, sample_today()), &Options::default());
-            assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
-            assert_eq!(report.diagnostics[0].code, Code::Fb0122);
-            assert_eq!(report.diagnostics[0].path, target);
-            assert_eq!(report.diagnostics[0].line, expected_line);
+            let fb0122: Vec<_> = report
+                .diagnostics
+                .iter()
+                .filter(|d| d.code == Code::Fb0122)
+                .collect();
+            assert_eq!(fb0122.len(), 1, "{:?}", report.diagnostics);
+            assert_eq!(fb0122[0].code, Code::Fb0122);
+            assert_eq!(fb0122[0].path, target);
+            assert_eq!(fb0122[0].line, expected_line);
         }
     }
 
@@ -1095,9 +1109,14 @@ mod tests {
         let mut tree = mini_tree();
         tree.insert_bytes(&long_path, b"ok\n");
         let report = run(&Host::new(tree, sample_today()), &Options::default());
-        assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
-        assert_eq!(report.diagnostics[0].code, Code::Fb0123);
-        assert_eq!(report.diagnostics[0].path, long_path);
+        let fb0123: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0123)
+            .collect();
+        assert_eq!(fb0123.len(), 1, "{:?}", report.diagnostics);
+        assert_eq!(fb0123[0].code, Code::Fb0123);
+        assert_eq!(fb0123[0].path, long_path);
 
         // 2. Case collision (file and directory).
         let mut tree = mini_tree();
@@ -1106,19 +1125,26 @@ mod tests {
             b"ok\n",
         );
         let report = run(&Host::new(tree, sample_today()), &Options::default());
-        assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
-        assert_eq!(report.diagnostics[0].code, Code::Fb0123);
+        let fb0123: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0123)
+            .collect();
+        assert_eq!(fb0123.len(), 1, "{:?}", report.diagnostics);
+        assert_eq!(fb0123[0].code, Code::Fb0123);
 
         let mut tree = mini_tree();
         tree.insert_bytes("corpus/sources/text/S-0001-v1/p0001.txt", b"ok\n");
         tree.insert_bytes("corpus/sources/text/s-0001-v1/p0002.txt", b"ok\n");
         let report = run(&Host::new(tree, sample_today()), &Options::default());
-        assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
-        assert_eq!(report.diagnostics[0].code, Code::Fb0123);
-        assert_eq!(
-            report.diagnostics[0].path,
-            "corpus/sources/text/s-0001-v1/p0002.txt"
-        );
+        let fb0123: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0123)
+            .collect();
+        assert_eq!(fb0123.len(), 1, "{:?}", report.diagnostics);
+        assert_eq!(fb0123[0].code, Code::Fb0123);
+        assert_eq!(fb0123[0].path, "corpus/sources/text/s-0001-v1/p0002.txt");
 
         // 3. Windows reserved names, trailing dot/space, forbidden chars, control char, NFD segment,
         // 65-char page stem.
@@ -1146,14 +1172,19 @@ mod tests {
             let mut tree = mini_tree();
             tree.insert_bytes(bad_path, b"ok\n");
             let report = run(&Host::new(tree, sample_today()), &Options::default());
+            let fb0123: Vec<_> = report
+                .diagnostics
+                .iter()
+                .filter(|d| d.code == Code::Fb0123)
+                .collect();
             assert_eq!(
-                report.diagnostics.len(),
+                fb0123.len(),
                 1,
                 "path {bad_path:?}: {:?}",
                 report.diagnostics
             );
-            assert_eq!(report.diagnostics[0].code, Code::Fb0123);
-            assert_eq!(report.diagnostics[0].path, bad_path);
+            assert_eq!(fb0123[0].code, Code::Fb0123);
+            assert_eq!(fb0123[0].path, bad_path);
         }
 
         // 65-char page stem.
@@ -1164,9 +1195,14 @@ mod tests {
         let mut tree = mini_tree();
         tree.insert_bytes(&stem65, b"ok\n");
         let report = run(&Host::new(tree, sample_today()), &Options::default());
-        assert_eq!(report.diagnostics.len(), 1, "{:?}", report.diagnostics);
-        assert_eq!(report.diagnostics[0].code, Code::Fb0123);
-        assert_eq!(report.diagnostics[0].path, stem65);
+        let fb0123: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0123)
+            .collect();
+        assert_eq!(fb0123.len(), 1, "{:?}", report.diagnostics);
+        assert_eq!(fb0123[0].code, Code::Fb0123);
+        assert_eq!(fb0123[0].path, stem65);
 
         // Original file rules: missing dot, stem > 64 chars, ext > 5 chars, uppercase ext.
         let orig_65 = format!("corpus/sources/public/S-0001-v1-{}.pdf", "a".repeat(56));

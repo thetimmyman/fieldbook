@@ -1,17 +1,17 @@
-//! [`Index`]: resolved register and `corpus.toml` identifiers built once in [`Model`](super::Model).
+//! [`Index`]: resolved register, page and `corpus.toml` identifiers built once in [`Model`](super::Model).
 //!
 //! **Responsibility.** Hold the source versions (with `lifecycle` and the computed `superseded`
-//! state), claims, questions, conflicts, terms and areas, with the 1-based line number of each
-//! register row. `check-pages` adds page ids later.
+//! state), claims, questions, conflicts, terms, areas and pages, with the 1-based line number of
+//! each register row.
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::ids::{AreaCode, ClaimId, ConflictId, QuestionId, TermId, VersionId};
+use crate::ids::{AreaCode, ClaimId, ConflictId, PageId, QuestionId, TermId, VersionId};
 use crate::schema::rows::RefId;
 use crate::schema::vocab::Lifecycle;
 use crate::schema::{ClaimRow, ConflictRow, CorpusToml, GlossaryRow, QuestionRow, SourceRow};
 
-use super::model::Located;
+use super::model::{Located, PageEntry};
 
 /// Resolved metadata for one source version in [`Index`].
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -39,10 +39,12 @@ pub struct Index {
     pub terms: BTreeMap<TermId, u32>,
     /// Area codes declared in `corpus/corpus.toml`.
     pub areas: BTreeSet<AreaCode>,
+    /// Page identifiers of parsed pages in `corpus/pages/`.
+    pub pages: BTreeSet<PageId>,
 }
 
 impl Index {
-    /// Build an [`Index`] from `corpus` and the typed register slices.
+    /// Build an [`Index`] from `corpus`, the typed register slices and the parsed `pages`.
     #[must_use]
     pub fn build(
         corpus: Option<&CorpusToml>,
@@ -51,6 +53,7 @@ impl Index {
         questions: &[Located<QuestionRow>],
         conflicts: &[Located<ConflictRow>],
         glossary: &[Located<GlossaryRow>],
+        pages: &[PageEntry],
     ) -> Self {
         let mut superseded_versions: BTreeSet<VersionId> = BTreeSet::new();
         for located in sources {
@@ -120,6 +123,8 @@ impl Index {
             }
         }
 
+        let page_set: BTreeSet<PageId> = pages.iter().map(|p| p.id.clone()).collect();
+
         Self {
             source_versions,
             claims: claim_map,
@@ -127,6 +132,7 @@ impl Index {
             conflicts: conflict_map,
             terms: term_map,
             areas,
+            pages: page_set,
         }
     }
 
@@ -170,6 +176,12 @@ impl Index {
     #[must_use]
     pub fn contains_area(&self, code: &AreaCode) -> bool {
         self.areas.contains(code)
+    }
+
+    /// Return `true` when `id` is a known parsed page.
+    #[must_use]
+    pub fn contains_page(&self, id: &PageId) -> bool {
+        self.pages.contains(id)
     }
 
     /// Return `true` when `r` resolves to a known claim or source version.

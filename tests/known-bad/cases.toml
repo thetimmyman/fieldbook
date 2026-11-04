@@ -6,10 +6,80 @@ edits = [
 ]
 
 [[case]]
+code = "FB0101"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:1"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "+++\nid = \"cmp-review-steps\"", replace = "---\nid = \"cmp-review-steps\"" },
+]
+
+[[case]]
+code = "FB0102"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:7"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "stage = 3", replace = "stage = \"3\"" },
+]
+
+[[case]]
+code = "FB0103"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:2"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "as_of = 2026-02-01\n", replace = "" },
+]
+
+[[case]]
+code = "FB0104"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:9"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "status = \"draft\"", replace = "status = \"final\"" },
+]
+
+[[case]]
+code = "FB0105"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:2"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "id = \"cmp-review-steps\"", replace = "id = \"cmp-review-step\"" },
+]
+
+[[case]]
+code = "FB0106"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:4"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "area = \"cmp\"", replace = "area = \"est\"" },
+]
+
+[[case]]
+code = "FB0107"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:5"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "subarea = \"business-systems\"", replace = "subarea = \"cash\"" },
+]
+
+[[case]]
+code = "FB0108"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:6"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "type = \"procedure\"", replace = "type = \"note\"" },
+]
+
+[[case]]
+code = "FB0109"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:16"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "volatility = \"V2\"\n+++", replace = "volatility = \"V2\"\nreview_by = 2026-01-01\n+++" },
+]
+
+[[case]]
 code = "FB0114"
 at = "corpus/registers/sources.csv:3"
 edits = [
   { path = "corpus/registers/sources.csv", find = ",2026-01-15,2026-01-15,active,", replace = ",2026-01-15,2025-02-30,active," },
+]
+
+[[case]]
+code = "FB0116"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:10"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "as_of = 2026-02-01", replace = "as_of = 2027-03-01" },
 ]
 
 [[case]]

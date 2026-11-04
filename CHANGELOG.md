@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: check reports page front matter, ids, areas, types, computed fields and dates (FB0101 to FB0109, FB0114, FB0116).
 - Added: check reports broken promotion rules, claim dates, claims on superseded versions and incomplete day-one questions (FB0209, FB0213, FB0220 to FB0222, FB0230).
 - Added: check reports broken register references, supersession, original hashes and repeated glossary labels (FB0207, FB0208, FB0211, FB0214).
 - Added: check reports a consequential claim without a fine locator or a quote (FB0306, FB0307).

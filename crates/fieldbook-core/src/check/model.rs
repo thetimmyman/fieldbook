@@ -1,12 +1,15 @@
 //! [`Model`]: the immutable parsed Corpus state shared across check passes and `fieldbook-render`.
 
 use crate::date::CivilDate;
+use crate::ids::PageId;
+use crate::schema::page::{self, MetaError, PageMeta, SplitError};
 use crate::schema::rows::CellProblem;
 use crate::schema::table::{Row, Table};
 use crate::schema::{
     ClaimRow, ConflictRow, CorpusToml, GlossaryRow, QuestionRow, Register, SourceRow,
 };
 
+use super::files;
 use super::index::Index;
 use super::registers;
 use super::tree::Tree;
@@ -28,6 +31,37 @@ pub struct Located<T> {
     pub line: u32,
     /// The typed row value.
     pub value: T,
+}
+
+/// A parsed page in [`Model`], sorted by [`PageId`].
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PageEntry {
+    /// The page's identifier (`meta.id`).
+    pub id: PageId,
+    /// Relative path in `corpus/` (`corpus/pages/<area-slug>/<subarea>/<page-id>.md`).
+    pub path: String,
+    /// Parsed TOML front matter.
+    pub meta: PageMeta,
+    /// Markdown body following the blank line after the closing `+++` fence.
+    pub body: String,
+    /// 1-based line number in the page file where `body` starts.
+    pub body_line: u32,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) enum RawPageOutcome {
+    SplitErr(SplitError),
+    MetaErr(MetaError),
+    Parsed(Box<PageMeta>),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct RawPageRecord {
+    pub path: String,
+    pub area_folder: String,
+    pub subarea_folder: String,
+    pub stem: String,
+    pub outcome: RawPageOutcome,
 }
 
 pub(crate) type RowProblems = (u32, Vec<CellProblem>);
@@ -53,11 +87,86 @@ where
     (typed, problems)
 }
 
+fn split_page_path(path: &str) -> Option<(String, String, String)> {
+    let rest = path.strip_prefix("corpus/pages/")?;
+    let mut parts = rest.split('/');
+    let (area_folder, subarea_folder, file, None) =
+        (parts.next()?, parts.next()?, parts.next()?, parts.next())
+    else {
+        return None;
+    };
+    let stem = file.strip_suffix(".md")?;
+    Some((
+        area_folder.to_owned(),
+        subarea_folder.to_owned(),
+        stem.to_owned(),
+    ))
+}
+
+fn parse_pages(tree: &Tree, corpus: Option<&CorpusToml>) -> (Vec<PageEntry>, Vec<RawPageRecord>) {
+    let mut pages = Vec::new();
+    let mut raw_pages = Vec::new();
+
+    for path in files::page_paths_for(tree, corpus) {
+        let Some(bytes) = tree.get_bytes(&path) else {
+            continue;
+        };
+        let Ok(text) = std::str::from_utf8(bytes) else {
+            continue;
+        };
+        let Some((area_folder, subarea_folder, stem)) = split_page_path(&path) else {
+            continue;
+        };
+
+        match page::split(text) {
+            Err(err) => {
+                raw_pages.push(RawPageRecord {
+                    path,
+                    area_folder,
+                    subarea_folder,
+                    stem,
+                    outcome: RawPageOutcome::SplitErr(err),
+                });
+            }
+            Ok(split) => match page::parse_meta(&split.front_matter) {
+                Err(err) => {
+                    raw_pages.push(RawPageRecord {
+                        path,
+                        area_folder,
+                        subarea_folder,
+                        stem,
+                        outcome: RawPageOutcome::MetaErr(err),
+                    });
+                }
+                Ok(meta) => {
+                    raw_pages.push(RawPageRecord {
+                        path: path.clone(),
+                        area_folder,
+                        subarea_folder,
+                        stem,
+                        outcome: RawPageOutcome::Parsed(Box::new(meta.clone())),
+                    });
+                    pages.push(PageEntry {
+                        id: meta.id.clone(),
+                        path,
+                        meta,
+                        body: split.body,
+                        body_line: split.body_line,
+                    });
+                }
+            },
+        }
+    }
+
+    pages.sort_by(|a, b| (&a.id, &a.path).cmp(&(&b.id, &b.path)));
+    (pages, raw_pages)
+}
+
 /// Parsed state built once by [`super::load`] and shared across passes.
 ///
 /// All fields are private; callers read them through [`Self::tree`], [`Self::today`],
-/// [`Self::corpus`], [`Self::register`], [`Self::register_rows`] and the typed row accessors
-/// ([`Self::sources`], [`Self::claims`], [`Self::questions`], [`Self::conflicts`],
+/// [`Self::corpus`], [`Self::register`], [`Self::register_rows`], [`Self::pages`] and the typed
+/// row accessors ([`Self::sources`], [`Self::claims`], [`Self::questions`], [`Self::conflicts`],
 /// [`Self::glossary`]).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Model {
@@ -71,6 +180,8 @@ pub struct Model {
     conflicts: Vec<Located<ConflictRow>>,
     glossary: Vec<Located<GlossaryRow>>,
     register_problems: [Vec<RowProblems>; 5],
+    pages: Vec<PageEntry>,
+    raw_pages: Vec<RawPageRecord>,
     index: Index,
 }
 
@@ -88,6 +199,8 @@ impl Model {
         let (conflicts, p3) = parse_rows(registers[3].as_ref(), ConflictRow::from_row);
         let (glossary, p4) = parse_rows(registers[4].as_ref(), GlossaryRow::from_row);
 
+        let (pages, raw_pages) = parse_pages(&tree, corpus.as_ref());
+
         let index = Index::build(
             corpus.as_ref(),
             &sources,
@@ -95,6 +208,7 @@ impl Model {
             &questions,
             &conflicts,
             &glossary,
+            &pages,
         );
 
         Self {
@@ -108,6 +222,8 @@ impl Model {
             conflicts,
             glossary,
             register_problems: [p0, p1, p2, p3, p4],
+            pages,
+            raw_pages,
             index,
         }
     }
@@ -177,7 +293,15 @@ impl Model {
         &self.glossary
     }
 
-    /// The resolved identifier [`Index`] built from the typed register rows and `corpus.toml`.
+    /// Parsed pages in `corpus/pages/`, sorted by [`PageId`], skipping any page whose fences or
+    /// front matter did not parse.
+    #[must_use]
+    pub fn pages(&self) -> &[PageEntry] {
+        &self.pages
+    }
+
+    /// The resolved identifier [`Index`] built from the typed register rows, parsed pages and
+    /// `corpus.toml`.
     #[must_use]
     pub const fn index(&self) -> &Index {
         &self.index
@@ -187,5 +311,12 @@ impl Model {
     #[must_use]
     pub(crate) fn register_problems(&self, register: Register) -> &[RowProblems] {
         &self.register_problems[register_index(register)]
+    }
+
+    /// All UTF-8 page records from `files::page_paths`, in path order, including split and
+    /// front-matter parse failures.
+    #[must_use]
+    pub(crate) fn raw_pages(&self) -> &[RawPageRecord] {
+        &self.raw_pages
     }
 }
