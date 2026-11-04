@@ -60,5 +60,5 @@ Which executed contracts and offers carry the provision, and who prepares the ow
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (c) party list and beneficial interest definition quote, and removed uncited commentary.
-- COMPATIBLE_EXTENSION, 2026-10-31: listed positions and the five significant-interest tests described as alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: listed positions and the five significant-interest tests described as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure of ownership or control by a state sponsor of terrorism.

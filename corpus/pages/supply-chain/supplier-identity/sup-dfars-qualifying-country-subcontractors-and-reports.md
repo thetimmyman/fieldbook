@@ -58,6 +58,6 @@ Whether the purchasing process lets qualifying country and U.S. sources compete,
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the cited DFARS sections; removed meta sentence; replaced uncited contrasts with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for qualifying country subcontractors and reports of intended performance outside the United States and Canada.

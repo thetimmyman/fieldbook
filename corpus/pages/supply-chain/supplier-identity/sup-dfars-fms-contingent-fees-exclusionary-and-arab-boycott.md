@@ -56,7 +56,7 @@ Which foreign military sale contracts carry the clause and whether any contingen
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contingent fee definition and fee limits; removed absence sentence and uncited contrasts.
-- COMPATIBLE_EXTENSION, 2026-10-31: staffing conditions cited to the quote joining them with and
+- COMPATIBLE_EXTENSION, 2026-10-31: staffing conditions cited to the quote joining them with and.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for foreign military sales contingent fees, exclusionary policies and the Arab boycott.

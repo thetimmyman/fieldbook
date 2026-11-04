@@ -57,6 +57,6 @@ Who counts as a covered employee and how disclosures are kept. [@Q-014]
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta sentences and standardized RFO FAR part 52 wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: personal conflicts clause: added the disclosure list, the "and" join, the prevention detail and the self-employed reason
+- COMPATIBLE_EXTENSION, 2026-10-31: personal conflicts clause: added the disclosure list, the "and" join, the prevention detail and the self-employed reason.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the clause on preventing personal conflicts of interest.

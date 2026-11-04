@@ -55,5 +55,5 @@ Who tracks Government property use by contract and by commercial share, and who 
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched FAR 45.301 normally rent-free scope, contracting officer actors and nonprofit benefit wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: Added nonprofit rent-free use; rent-free scope
+- COMPATIBLE_EXTENSION, 2026-10-31: Added nonprofit rent-free use; rent-free scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rent-free use and rental of Government property.

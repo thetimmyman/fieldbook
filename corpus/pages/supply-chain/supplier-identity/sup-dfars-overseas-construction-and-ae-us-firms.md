@@ -57,5 +57,5 @@ Whether the solicitation includes either provision, and who confirms the clause 
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the full tax filing condition; aligned contrasts and prescription wording with the quotes.
-- COMPATIBLE_EXTENSION, 2026-10-31: US firm conditions cited to the quote joining them with and
+- COMPATIBLE_EXTENSION, 2026-10-31: US firm conditions cited to the quote joining them with and.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the overseas construction and architect-engineer restrictions to United States firms.

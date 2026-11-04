@@ -64,6 +64,6 @@ Whether the company is a small business concern for each contract, and when prop
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: removed added explanations; aligned goal wording to quote
+- COMPATIBLE_EXTENSION, 2026-10-31: removed added explanations; aligned goal wording to quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Pointer to DFARS 232.906(a) now cites a claim quoting the pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD prompt payment responsibilities for small business concerns.

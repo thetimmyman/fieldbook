@@ -54,6 +54,6 @@ Which contracts receive progress payments or performance-based payments, which h
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned lot definitions, duties and inoperative wording to quotes; removed uncited contrasts
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned lot definitions, duties and inoperative wording to quotes; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Performance-based payment conditions stated as all required; FAR references restored.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD notice of progress or performance-based payments and progress payments for multiple lots.

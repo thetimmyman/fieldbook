@@ -64,5 +64,5 @@ Whether any contract in the portfolio is a personal services contract, whether e
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned prohibition, exclusion and setoff wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned prohibition, exclusion and setoff wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD policies on assignment of claims.

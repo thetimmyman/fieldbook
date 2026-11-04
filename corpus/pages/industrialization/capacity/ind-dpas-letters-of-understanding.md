@@ -60,6 +60,6 @@ Confirm which schedule commitments with suppliers are already agreed, and whethe
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the letter of understanding and directive descriptions in How it works and Never confuse to 15 CFR 700.62 and 700.63.
-- COMPATIBLE_EXTENSION, 2026-10-31: Applies-to row says may be issued
+- COMPATIBLE_EXTENSION, 2026-10-31: Applies-to row says may be issued.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the general provisions on official actions and the rules for directives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS letters of understanding.

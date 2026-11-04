@@ -58,7 +58,7 @@ Whether the company's systems for submitting payment requests and receiving repo
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: removed meta wording, negatives and mixed-source comparison
+- COMPATIBLE_EXTENSION, 2026-10-31: removed meta wording, negatives and mixed-source comparison.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of receiving report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a U.S.C. citation so the sentence keeps its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of receiving report.

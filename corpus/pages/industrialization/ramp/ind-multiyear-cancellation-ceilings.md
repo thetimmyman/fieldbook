@@ -57,6 +57,6 @@ Whether the learning curve and the cost history behind the nonrecurring cost est
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 17.106-1(c)(1)-(2) program-year scope, full nonrecurring-cost list and labor-and-materials exclusion, and DFARS 217.172(e) shall-not wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for ceiling reduction
+- COMPATIBLE_EXTENSION, 2026-10-31: Shall wording for ceiling reduction.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the estimating sentence so the cancellation ceiling costs keep the amortization limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear cancellation ceilings and nonrecurring costs.

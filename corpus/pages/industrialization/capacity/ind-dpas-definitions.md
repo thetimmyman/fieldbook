@@ -96,7 +96,7 @@ Which capacity assumptions and program terms the company maps onto the orders it
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the complete definitions and effective-date note in 15 CFR 700.8 and separated the codified and RFO FAR 2.101 definitions of national defense.
-- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported only from industrial resources
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported only from industrial resources.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of national defense.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of national defense for contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Defense Priorities and Allocations System definitions.

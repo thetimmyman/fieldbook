@@ -57,6 +57,6 @@ Where rated-order records are kept, in what detail, and who can produce them on 
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the § 700.71 reference in the examination rule and the destination branch, division or section phrase in 15 CFR 700.92(b).
-- COMPATIBLE_EXTENSION, 2026-10-31: Records duties restated with scope and actors
+- COMPATIBLE_EXTENSION, 2026-10-31: Records duties restated with scope and actors.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the protection against claims for acting in compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for records and reports and the applicability of the part.

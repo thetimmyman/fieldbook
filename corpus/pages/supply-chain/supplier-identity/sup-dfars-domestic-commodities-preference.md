@@ -52,7 +52,7 @@ Which executed contracts carry this clause, and which delivered items fall in th
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta sentences; aligned exception wording and contrasts with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Presented the first exception as one of several listed exceptions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the preference for certain domestic commodities.

@@ -117,9 +117,9 @@ How the company evidences component cost and country of origin for each construc
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the public-interest ground claim again.
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: restored actors and scope, alternatives, cited pointers
-- COMPATIBLE_EXTENSION, 2026-10-31: country construction material definitions described as two alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: restored actors and scope, alternatives, cited pointers.
+- COMPATIBLE_EXTENSION, 2026-10-31: country construction material definitions described as two alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the text that states the 55 percent domestic content rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Buy American construction materials under trade agreements.

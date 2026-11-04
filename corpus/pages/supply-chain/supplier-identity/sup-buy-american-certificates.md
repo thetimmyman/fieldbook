@@ -62,7 +62,7 @@ Which offers and executed contracts carry each certificate, and who confirms wha
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: Purpose sentence now cites its claims
+- COMPATIBLE_EXTENSION, 2026-10-31: Purpose sentence now cites its claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the Alternate II and III paragraph (b) substitutions; aligned the evaluation, domestic-content and delivery wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two Buy American certificate provisions.

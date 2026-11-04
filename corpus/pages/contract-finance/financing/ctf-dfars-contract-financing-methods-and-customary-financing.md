@@ -66,6 +66,6 @@ Which contracts are construction or ship work, whether each fixed-price contract
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned financing basis and DoD determination wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned financing basis and DoD determination wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD financing methods and the finding on customary contract financing.

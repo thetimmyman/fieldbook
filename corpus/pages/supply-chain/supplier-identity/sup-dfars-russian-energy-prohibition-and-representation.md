@@ -55,5 +55,5 @@ Which executed contracts carry the clause and which subcontracts for furnished e
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned flowdown wording; replaced uncited contrasts with cited statements.
-- COMPATIBLE_EXTENSION, 2026-10-31: representation covers instruments resulting from the solicitation; waiver and scope limit separated
+- COMPATIBLE_EXTENSION, 2026-10-31: representation covers instruments resulting from the solicitation; waiver and scope limit separated.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Russian Federation energy representation and prohibition.

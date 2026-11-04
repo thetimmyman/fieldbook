@@ -62,6 +62,6 @@ Confirm who supplies financial data, credit information and accounting system in
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the standards in 9.104 in FAR 9.105-1(a) and removed uncited meta sentences.
-- COMPATIBLE_EXTENSION, 2026-10-31: responsibility information: added the limit on requests, auditor accounting-system information and linked FAPIIS sources
+- COMPATIBLE_EXTENSION, 2026-10-31: responsibility information: added the limit on requests, auditor accounting-system information and linked FAPIIS sources.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the timing of responsibility information.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for obtaining responsibility information and documenting the determination.

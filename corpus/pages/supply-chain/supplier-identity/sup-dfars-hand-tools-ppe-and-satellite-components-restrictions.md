@@ -56,7 +56,7 @@ Which executed contracts carry each clause, and whether subcontracts for covered
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation
+- COMPATIBLE_EXTENSION, 2026-10-31: wording changed so each sentence carries its citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and absence sentences; aligned flowdown and contrast wording with the quotes.
-- COMPATIBLE_EXTENSION, 2026-10-31: covered item list worded as alternatives joined by or
+- COMPATIBLE_EXTENSION, 2026-10-31: covered item list worded as alternatives joined by or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the restrictions on hand tools, personal protective equipment and satellite components.

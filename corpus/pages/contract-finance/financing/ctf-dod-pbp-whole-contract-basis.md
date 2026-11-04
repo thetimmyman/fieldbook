@@ -56,6 +56,6 @@ Which contracts use the whole-contract clause, and what events, amounts and secu
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: added solicitation scope and security qualifiers; removed uncited comparisons
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: added solicitation scope and security qualifiers; removed uncited comparisons.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD performance-based payments on a whole-contract basis.

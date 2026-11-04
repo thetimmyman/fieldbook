@@ -58,6 +58,6 @@ Which executed contracts carry this clause, and whether subcontracts for items c
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (d)(2) COTS-inclusion rule for the commercial derivative alternative and removed uncited commentary.
-- COMPATIBLE_EXTENSION, 2026-10-31: commercial derivative alternative states its purpose, both conditions and the certified agreements
+- COMPATIBLE_EXTENSION, 2026-10-31: commercial derivative alternative states its purpose, both conditions and the certified agreements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the flowdown insertion rule.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the specialty metals restriction.

@@ -57,6 +57,6 @@ Which principals and which contracts feed these certifications and the system en
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited commentary and RFO meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the judicial appeal condition to when a tax liability is finally determined.
-- COMPATIBLE_EXTENSION, 2026-10-31: responsibility provisions: added tax delinquency criteria, funds-total definition and second information item; and/or and payment wording
+- COMPATIBLE_EXTENSION, 2026-10-31: responsibility provisions: added tax delinquency criteria, funds-total definition and second information item; and/or and payment wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the certification and information provisions on responsibility matters.

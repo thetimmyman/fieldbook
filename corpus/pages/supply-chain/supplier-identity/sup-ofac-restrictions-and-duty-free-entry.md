@@ -60,7 +60,7 @@ Whether the purchasing system passes the restrictions clause to every subcontrac
 ## Change note
 
 - COMPATIBLE_EXTENSION, 2026-10-31: Added without-limitation parenthetical on foreign supplies and removed uncited commentary and RFO meta wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: OFAC clause: stated the authorization as an exception, not the only route
+- COMPATIBLE_EXTENSION, 2026-10-31: OFAC clause: stated the authorization as an exception, not the only route.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the duty-free entry sentence so the claim rule keeps the duty owed on supplies diverted to nongovernmental use.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for restrictions on certain foreign purchases and duty-free entry.

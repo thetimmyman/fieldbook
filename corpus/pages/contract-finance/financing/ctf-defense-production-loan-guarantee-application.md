@@ -62,7 +62,7 @@ Which defense contracts sit under a guaranteed loan, and how each guarantee, its
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned asset formula, Reserve Bank steps and RFO wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned asset formula, Reserve Bank steps and RFO wording to quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Asset formula sentences now carry the working-capital lead-in and cite its companion claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

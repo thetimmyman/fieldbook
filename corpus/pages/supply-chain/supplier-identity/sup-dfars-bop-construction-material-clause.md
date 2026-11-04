@@ -69,5 +69,5 @@ Which construction contracts carry this clause or an alternate, and who confirms
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the manufactured-in-the-United-States condition, the iron and steel scope and the emergency systems timing; narrowed the exceptions and waiver wording.
-- COMPATIBLE_EXTENSION, 2026-10-31: domestic construction material definition stated as two alternatives
+- COMPATIBLE_EXTENSION, 2026-10-31: domestic construction material definition stated as two alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Balance of Payments Program construction material clause.

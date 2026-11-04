@@ -60,5 +60,5 @@ Which contracts sit with a DoD department or agency that files these reports, an
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: removed added negatives; aligned report wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: removed added negatives; aligned report wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD reporting of suspected contractor fraud and the financing remedies it reports on.

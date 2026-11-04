@@ -54,5 +54,5 @@ Which customer orders carry DO or DX ratings, and which agency assigned each rat
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the full food and agricultural item list in 15 CFR 700.10(b) and aligned the priority rating and Directive comparisons.
-- COMPATIBLE_EXTENSION, 2026-10-31: Delegate Agency authority worded as authorized
+- COMPATIBLE_EXTENSION, 2026-10-31: Delegate Agency authority worded as authorized.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DPAS authority and the DO and DX priority levels.

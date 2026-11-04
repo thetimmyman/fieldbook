@@ -73,6 +73,6 @@ Which of the company's solicitations provide for progress payments, so a bid nev
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: cited the opening sentence.
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: aligned clause use, bid rejection, postaward and customary payment wording to quotes
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned clause use, bid rejection, postaward and customary payment wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for customary progress payments.

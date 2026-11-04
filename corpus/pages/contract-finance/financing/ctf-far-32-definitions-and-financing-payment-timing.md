@@ -60,7 +60,7 @@ Confirm which designated billing and payment offices its contracts name and what
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation
-- COMPATIBLE_EXTENSION, 2026-10-31: separated RFO and codified statements; removed uncited negatives and meta wording
+- COMPATIBLE_EXTENSION, 2026-10-31: reworded so each sentence keeps its citation.
+- COMPATIBLE_EXTENSION, 2026-10-31: separated RFO and codified statements; removed uncited negatives and meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for FAR 32 definitions and contract financing payment timing.

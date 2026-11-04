@@ -88,6 +88,6 @@ Whether the company files its request early enough for a decision before offers 
 
 ## Change note
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion quotes for paragraphs (b), (c)(1), Alternate I, and Alternate II, and removed uncited commentary.
-- COMPATIBLE_EXTENSION, 2026-10-31: Alternate II repeated sentence cited to its own quote; definition alternatives and solicitation listing stated
+- COMPATIBLE_EXTENSION, 2026-10-31: Alternate II repeated sentence cited to its own quote; definition alternatives and solicitation listing stated.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the notice of Buy American requirement for construction materials under trade agreements.
