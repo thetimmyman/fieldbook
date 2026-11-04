@@ -33,15 +33,15 @@ The cost of money applicable to the investment in tangible and intangible capita
 
 ## How it works
 
-The cost of money for an asset is calculated as follows. The cost of money rate used shall be based on interest rates determined by the Secretary of the Treasury pursuant to Public Law 92-41 [@CL-CMP-1793].
+The cost of money for an asset shall be calculated as follows [@CL-CMP-8202]. The cost of money rate used shall be based on interest rates determined by the Secretary of the Treasury pursuant to Public Law 92-41 [@CL-CMP-1793].
 
 A representative investment amount shall be determined each cost accounting period for each capital asset being constructed, fabricated or developed, giving appropriate consideration to the rate at which construction costs are incurred [@CL-CMP-1794].
 
-Another method, such as the method used for financial accounting and reporting, may be used provided the resulting amount does not differ materially from the prescribed calculation [@CL-CMP-1795].
+Other methods for calculating the cost of money to be capitalized, such as the method used for financial accounting and reporting, may be used, provided the resulting amount does not differ materially from the amount calculated by use of paragraphs (a)(1) and (2) [@CL-CMP-1795].
 
-Where substantially all the activities needed to get the asset ready for its intended use are discontinued, cost of money is not capitalized for the period of discontinuance [@CL-CMP-1796].
+If substantially all the activities necessary to get the asset ready for its intended use are discontinued, cost of money shall not be capitalized for the period of discontinuance [@CL-CMP-1796].
 
-Cessation of cost of money capitalization is not required where the discontinuance arises from causes beyond the contractor's control and without its fault or negligence [@CL-CMP-1797].
+However, if such discontinuance arises out of causes beyond the control and without the fault or negligence of the contractor, cessation of cost of money capitalization is not required [@CL-CMP-1797].
 
 ## Worked example
 
@@ -51,11 +51,9 @@ An asset is built over two periods, with 100,000 of construction cost incurred i
 
 ## Never confuse
 
-Capitalization of cost of money does not simply run until the asset is finished: it stops for a period when substantially all the activities needed to get the asset ready for its intended use are discontinued, with an exception for causes beyond the contractor's control and without its fault or negligence [@CL-CMP-1796; @CL-CMP-1797].
+If substantially all the activities necessary to get the asset ready for its intended use are discontinued, cost of money shall not be capitalized for the period of discontinuance [@CL-CMP-1796]. However, if such discontinuance arises out of causes beyond the control and without the fault or negligence of the contractor, cessation of cost of money capitalization is not required [@CL-CMP-1797].
 
 The allowability of cost of money is covered in [Cost of money](../cas-allowability/cmp-cost-of-money.md), and facilities capital cost of money in [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md).
-
-Another method may be used, provided the result does not differ materially from the prescribed calculation [@CL-CMP-1795].
 
 ## Company calibration
 
@@ -64,7 +62,7 @@ Whether cost of money on assets under construction is captured in the capital pr
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the calculation lead-in with a companion claim; restated limits and exception as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording and the calculation lead-in; example no longer assumes capitalization resumes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for cost of money on capital assets under construction.

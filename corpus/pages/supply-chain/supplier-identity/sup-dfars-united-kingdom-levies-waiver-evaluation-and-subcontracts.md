@@ -27,17 +27,17 @@ Shows how United Kingdom levies in offered prices are identified and treated in 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-1740] |
-| Applies to | Solicitations with the evaluation provision [@CL-SUP-1740], and contracts with the clause where DFARS 225.1101(8) prescribes it [@CL-SUP-1770], where United Kingdom firms are involved [@CL-SUP-1744] |
+| Applies to | Solicitations with the evaluation provision where offered prices for contracts or subcontracts with United Kingdom firms may contain commercial exploitation levies [@CL-SUP-0074; @CL-SUP-1740], and contracts with the clause where DFARS 225.1101(8) prescribes it [@CL-SUP-1770], where United Kingdom firms are involved [@CL-SUP-1744] |
 
-The offeror shall identify to the Contracting Officer all levies included in the offered price by describing the name of the United Kingdom firm, the item and quantity to which the levy applies, and the amount of levy plus any associated indirect costs and profit or fee [@CL-SUP-1740].
+Offered prices for contracts or subcontracts with United Kingdom firms may contain commercial exploitation levies assessed by the Government of the United Kingdom [@CL-SUP-0074]. The offeror shall identify to the Contracting Officer all levies included in the offered price by describing the name of the United Kingdom firm, the item and quantity to which the levy applies, and the amount of levy plus any associated indirect costs and profit or fee [@CL-SUP-1740].
 
-If the United Kingdom waives levies before award, the Contracting Officer will evaluate the offer without the levy [@CL-SUP-1741]. If levies are identified but not waived before award, the Contracting Officer will evaluate the offer inclusive of the levies [@CL-SUP-1742]. If a waiver comes after award, the United States Government reserves the right to reduce the contract price by the amount of the levy waived plus associated indirect costs and profit or fee [@CL-SUP-1743]. The clause states the same reservation for levies included in the price of the contract [@CL-SUP-1763].
+The United States Government may attempt to obtain a waiver of levies pursuant to the U.S./U.K. reciprocal waiver agreement of July 1987 [@CL-SUP-0075]. If the United Kingdom waives levies before award, the Contracting Officer will evaluate the offer without the levy [@CL-SUP-1741]. If levies are identified but not waived before award, the Contracting Officer will evaluate the offer inclusive of the levies [@CL-SUP-1742]. If a waiver comes after award, the United States Government reserves the right to reduce the contract price by the amount of the levy waived plus associated indirect costs and profit or fee [@CL-SUP-1743]. The clause states the same reservation for levies included in the price of the contract [@CL-SUP-1763].
 
 If the Contractor contemplates award of a subcontract exceeding $1 million to a United Kingdom firm, it shall provide information to the Contracting Officer before award of the subcontract [@CL-SUP-1744]. The information is the name of the firm, the prime contract number, a description of the item to which the levy applies, the quantity being acquired, and the amount of levy plus any associated indirect costs and profit or fee [@CL-SUP-1762].
 
 ## How it works
 
-In evaluation, the offeror identifies the levies in its price [@CL-SUP-1740], and the evaluation then turns on whether a waiver came before award [@CL-SUP-1741; @CL-SUP-1742]. After award, a waiver can reduce the contract price [@CL-SUP-1743; @CL-SUP-1763]. In performance, the Contractor gives the listed information to the Contracting Officer before awarding a subcontract above the value in the clause [@CL-SUP-1744; @CL-SUP-1762]. The clause substance goes into any subcontract for supplies where a lower-tier subcontract exceeding $1 million with a United Kingdom firm is anticipated [@CL-SUP-1745].
+In evaluation, the offeror identifies the levies in its price [@CL-SUP-1740], the United States Government may attempt to obtain a waiver of levies pursuant to the U.S./U.K. reciprocal waiver agreement of July 1987 [@CL-SUP-0075], and the evaluation then turns on whether a waiver came before award [@CL-SUP-1741; @CL-SUP-1742]. After award, a waiver can reduce the contract price [@CL-SUP-1743; @CL-SUP-1763]. In performance, the Contractor gives the listed information to the Contracting Officer before awarding a subcontract above the value in the clause [@CL-SUP-1744; @CL-SUP-1762]. The Contractor shall insert the substance of the clause, including paragraph (d), in any subcontract for supplies where a lower-tier subcontract exceeding $1 million with a United Kingdom firm is anticipated [@CL-SUP-1745].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Assume an offeror's price includes a levy of 40, plus 4 of indirect cost and 6 o
 
 ## Never confuse
 
-A levy identified on an offer is not a levy on contract payments, which is a separate topic; see [Levies on contract payments](../../contract-finance/cash/ctf-levies-on-contract-payments.md). A levy waived before award changes how the offer is evaluated [@CL-SUP-1741], while a levy waived after award is a price reduction right [@CL-SUP-1743]. The foreign military sales fee clause is a different price-related rule; see [Foreign military sales contingent fees, exclusionary policies and the Arab boycott certification](sup-dfars-fms-contingent-fees-exclusionary-policies-and-arab-boycott.md). The United Kingdom is also a listed origin in the engine and vessel component clauses [@CL-SUP-1732; @CL-SUP-1734]; see [Diesel engines, vessel components and overseas contingency operation fuel](sup-dfars-diesel-engines-tao-vessel-components-and-ocs-fuel.md). For commercial subcontracts generally, see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md).
+A levy waived before award changes how the offer is evaluated [@CL-SUP-1741], while a levy waived after award is a price reduction right [@CL-SUP-1743] (see also [Levies on contract payments](../../contract-finance/cash/ctf-levies-on-contract-payments.md) and [Foreign military sales contingent fees, exclusionary policies and the Arab boycott certification](sup-dfars-fms-contingent-fees-exclusionary-policies-and-arab-boycott.md)). The United Kingdom is also a listed origin in the engine and vessel component clauses [@CL-SUP-1732; @CL-SUP-1734]; see [Diesel engines, vessel components and overseas contingency operation fuel](sup-dfars-diesel-engines-tao-vessel-components-and-ocs-fuel.md) (and see [Subcontracts for commercial products and commercial services](../sourcing-evidence/sup-subcontracts-commercial-products-and-services.md)).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Which subcontracts to United Kingdom firms exceed the value in the clause and ho
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (a) and (c) lead-in quotes of DFARS 252.225-7032 and removed uncited commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the waiver of United Kingdom levies.

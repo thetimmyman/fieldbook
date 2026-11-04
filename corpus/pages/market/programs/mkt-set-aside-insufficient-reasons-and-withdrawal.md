@@ -49,7 +49,7 @@ If the agency small business specialist does not agree to a withdrawal or modifi
 
 If a set-aside acquisition, or a portion of one, is not awarded, the determination to set it aside is automatically dissolved for the unawarded portion [@CL-MKT-1305]. The required supplies or services for which no award was made may be acquired by sealed bidding or negotiation, as appropriate [@CL-MKT-1403]. Before issuing a solicitation for the items in a dissolved set-aside, the contracting officer ensures that the delivery schedule is realistic in the light of all relevant factors, including the capabilities of small business concerns [@CL-MKT-1404].
 
-For the requirement to give offerors a notice about definitization of equitable adjustments for change orders under construction contracts, the set-aside section on solicitation notices points to FAR 36.211 [@CL-MKT-2022]. The section itself states no notice wording and names no official.
+For the requirement to give offerors a notice about definitization of equitable adjustments for change orders under construction contracts, the set-aside section on solicitation notices points to FAR 36.211 [@CL-MKT-2022].
 
 ## Worked example
 
@@ -59,7 +59,7 @@ An agency plans a total small business set-aside, and the schedule allows only 2
 
 ## Never confuse
 
-A reason that does not justify skipping a set-aside in advance is not the same as a ground for withdrawing one afterwards: the FAR example for withdrawal is a public interest concern such as paying more than a fair market price [@CL-MKT-1303]. Dissolution is also not withdrawal: it follows automatically when part of a set-aside is not awarded, and it applies only to the unawarded portion [@CL-MKT-1305]. The general set-aside rules are on [the set-aside card](mkt-small-business-set-asides.md).
+FAR 19.502-5 lists circumstances that are not in themselves sufficient cause for not setting aside an acquisition [@CL-MKT-1299], whereas under FAR 19.502-9(a) the contracting officer may withdraw a set-aside before award if the contracting officer considers that award would be detrimental to the public interest, for example payment of more than a fair market price [@CL-MKT-1303; @CL-MKT-9346]. Under FAR 19.502-10(a), if the entire set-aside acquisition or a portion is not awarded, the determination to set it aside is automatically dissolved for the unawarded portion [@CL-MKT-1305]. The general set-aside rules are on [the set-aside card](mkt-small-business-set-asides.md).
 
 ## Company calibration
 
@@ -68,7 +68,7 @@ Whether the file records the specific reason an acquisition was not set aside an
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and restated insufficient reasons, withdrawal, and dissolution directly.
 - COMPATIBLE_EXTENSION, 2026-10-31: withdrawal completion cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the construction change order notice.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for insufficient reasons, withdrawal and dissolution of a set-aside.

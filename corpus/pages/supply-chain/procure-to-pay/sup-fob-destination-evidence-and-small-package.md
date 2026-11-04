@@ -34,11 +34,11 @@ When the Contracting Officer authorizes it, f.o.b. origin freight shipments with
 
 ## How it works
 
-The evidence clause ties invoicing to shipment: no invoice before the supplies are shipped to the destination, and the documents stay on file for review [@CL-SUP-1986; @CL-SUP-1987].
+Under the evidence clause the contractor shall not submit an invoice for payment until the supplies covered by the invoice have been shipped to the destination [@CL-SUP-1986], and shall retain the evidence of shipment documentation for a period of 3 years after final payment and make it available to the Government for review as necessary [@CL-SUP-1987].
 
 For small package shipments the contractor annotates the commercial bill of lading as the contract's commercial bill of lading notations clause requires [@CL-SUP-2080] and consolidates prepaid shipments under procedures set by the cognizant transportation office [@CL-SUP-2081]. It may combine Government prepaid shipments with its own commercial shipments for delivery to one or more consignees, and the Government reimburses its pro rata share of the total freight costs [@CL-SUP-2082]. It provides a copy of the commercial bill of lading promptly to each consignee, and may not divide quantities into mailable lots to avoid movement by other modes of transportation [@CL-SUP-2083]. The Government processes loss and damage claims [@CL-SUP-2084].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. For a contract awarded on an f.o.b. destination basis, RFO FAR 52.247-48 keeps the evidence of shipment rules described above: no invoice before the supplies are shipped, keeping the documents for 3 years after final payment, the document for each kind of transport, and no need to send the documents with the invoice [@CL-SUP-1986; @CL-SUP-1987; @CL-SUP-1988; @CL-SUP-1989; @CL-SUP-1990; @CL-SUP-0246; @CL-SUP-0247; @CL-SUP-0248; @CL-SUP-0249; @CL-SUP-0250]. The RFO text lists FAR 52.247-65, the small package clause, as [Reserved] [@CL-SUP-0251].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. If an RFO contract is awarded on an f.o.b. destination basis, RFO FAR 52.247-48 provides that the Contractor shall not submit an invoice for payment until the supplies covered by the invoice have been shipped to the destination [@CL-SUP-0246], and shall retain, and make available to the Government for review as necessary, the evidence of shipment documentation for a period of 3 years after final payment under the contract [@CL-SUP-0247]. If transportation is accomplished by common carrier the documentation is a signed copy of the commercial bill of lading indicating the carrier's intent to ship the supplies to the destination specified in the contract [@CL-SUP-0248]; if by parcel post, a copy of the certificate of mailing; and if by other than common carrier or parcel post, a copy of the delivery document showing receipt at the destination specified in the contract [@CL-SUP-0249]. The Contractor is not required to submit evidence of shipment documentation with its invoice [@CL-SUP-0250]. The RFO text lists FAR 52.247-65, the small package clause, as [Reserved] [@CL-SUP-0251].
 
 ## Worked example
 
@@ -48,7 +48,7 @@ A contract is f.o.b. destination. The contractor ships 500 units by common carri
 
 ## Never confuse
 
-A shipment document is not proof of delivery. The signed bill of lading used for a common carrier indicates the carrier's intent to ship the supplies to the destination [@CL-SUP-1988]. Only the delivery document used for other transport shows receipt at the destination [@CL-SUP-1989]. The codified text lets the Contracting Officer authorize prepaid small package freight shipments [@CL-SUP-1991], while the RFO text lists FAR 52.247-65 as [Reserved] [@CL-SUP-0251].
+For transportation by common carrier, the signed copy of the commercial bill of lading indicates the carrier's intent to ship the supplies to the destination specified in the contract [@CL-SUP-1988]. For transportation by other than common carrier or parcel post, the document is a copy of the delivery document showing receipt at the destination specified in the contract [@CL-SUP-1989]. The codified text lets the Contracting Officer authorize prepaid small package freight shipments [@CL-SUP-1991], while the RFO text lists FAR 52.247-65 as [Reserved] [@CL-SUP-0251].
 
 ## Company calibration
 
@@ -57,6 +57,6 @@ Confirm who holds the shipment documents for each f.o.b. destination contract an
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned RFO and evidence-retention wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for f.o.b. destination evidence of shipment and prepaid small package freight.

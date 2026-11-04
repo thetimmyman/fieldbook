@@ -24,7 +24,7 @@ Gives the deadline for the final indirect cost rate proposal under the Allowable
 |---|---|
 | Instrument | Codified FAR clause [@CL-RTE-0001] |
 | Codified citation | FAR 52.216-7(d)(2)(i) [@CL-RTE-0001] |
-| RFO citation | RFO FAR 52.216-7(d)(2)(i) [@CL-RTE-0001] |
+| RFO citation | RFO FAR 52.216-7(d)(2)(iv) [@CL-RTE-9039; @CL-RTE-9040] |
 | Edition date | 2018-08 [@CL-RTE-0001] |
 | Text status | Final [@CL-RTE-0001] |
 | Applies to | Contracts with the Allowable Cost and Payment clause [@CL-RTE-0001] |
@@ -33,9 +33,9 @@ The contractor shall submit an adequate final indirect cost rate proposal to the
 
 ## How it works
 
-During the year the contractor bills at provisional billing rates. After year end it builds the incurred cost submission from its books, removes unallowable costs, and submits the proposal. The government audits it and negotiates final indirect rates, and the contracts are then adjusted from the billing rates to the final rates. A late or inadequate proposal delays settlement and closeout.
+Final annual indirect cost rates and the appropriate bases shall be established in accordance with subpart 42.7 of the Federal Acquisition Regulation (FAR) in effect for the period covered by the indirect cost rate proposal [@CL-RTE-9232]. The proposed rates shall be based on the Contractor's actual cost experience for that period, and the appropriate Government representative and the Contractor shall establish the final indirect cost rates as promptly as practical after receipt of the Contractor's proposal [@CL-RTE-9233].
 
-Under the RFO text of the clause, listed supplemental information is not required to determine if a proposal is adequate, but may be required during the audit process [@CL-RTE-9039]. One listed item is general organizational information and limitation on allowability of compensation for certain contractor personnel, with a reference to 31.205-6(p) [@CL-RTE-9040].
+RFO FAR 52.216-7(d)(2)(iv) says the following supplemental information is not required to determine if a proposal is adequate, but may be required during the audit process [@CL-RTE-9039]. One item is general organizational information and limitation on allowability of compensation for certain contractor personnel; see 31.205-6(p) [@CL-RTE-9040].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor's fiscal year ends on the last day of month 12. Six months later, a
 
 ## Never confuse
 
-The final indirect rate is the settled rate; the provisional billing rate is the interim rate used to bill during the year. The proposal is the contractor's submission; the final rate comes from negotiation or audit.
+For billing rates and final rates, see [final and billing rate purpose](rte-final-and-billing-rate-purpose.md); for the proposal itself, see [final indirect rate proposal](rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -54,7 +54,7 @@ Which fiscal years are open, and the status of each incurred cost submission. [@
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Replaced the uncited process summary with cited clause paragraphs (d)(1) and (d)(2)(ii), pointed the RFO row at RFO claims, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the shall wording and recipients of the proposal duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the clause's own extension sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO supplemental information paragraph of the Allowable Cost and Payment clause.

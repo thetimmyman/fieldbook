@@ -33,13 +33,13 @@ The subpart provides policies and procedures for retention of records by contrac
 
 The retention periods in FAR 4.705 are calculated from the end of the contractor's fiscal year in which an entry is made charging or allocating a cost to a Government contract or subcontract [@CL-SUP-3318]. If a specific record contains a series of entries, the retention period is calculated from the end of the contractor's fiscal year in which the final entry is made [@CL-SUP-3319]. The contractor should cut off the records in annual blocks and retain them for block disposal under the prescribed retention periods [@CL-SUP-3382].
 
-When records generated during a prior contract are relied upon by a contractor for certified cost or pricing data in negotiating a succeeding contract, the prescribed periods run from the date of the succeeding contract [@CL-SUP-3320]. If two or more of the record categories described in FAR 4.705 are interfiled and screening for disposal is not practical, the contractor must retain the entire record series for the longest period prescribed for any category of records [@CL-SUP-3321].
+When records generated during a prior contract are relied upon by a contractor for certified cost or pricing data in negotiating a succeeding contract, the prescribed periods shall run from the date of the succeeding contract [@CL-SUP-3320]. If two or more of the record categories described in FAR 4.705 are interfiled and screening for disposal is not practical, the contractor shall retain the entire record series for the longest period prescribed for any category of records [@CL-SUP-3321].
 
 ## How it works
 
-The general trigger is the fiscal year of the entry rather than the contract date, so a cost carries a period that starts at the end of the year in which it was booked [@CL-SUP-3318]. A record that holds a series of entries is governed by its last entry [@CL-SUP-3319]. The contractor should cut off the records in annual blocks and retain them for block disposal under the prescribed periods [@CL-SUP-3382].
+The retention periods in FAR 4.705 are calculated from the end of the contractor's fiscal year in which an entry is made charging or allocating a cost to a Government contract or subcontract [@CL-SUP-3318]. If a specific record contains a series of entries, the retention period is calculated from the end of the contractor's fiscal year in which the final entry is made [@CL-SUP-3319]. The contractor should cut off the records in annual blocks and retain them for block disposal under the prescribed retention periods [@CL-SUP-3382].
 
-Where prior-contract records are relied upon for certified cost or pricing data in negotiating a succeeding contract, the periods run from the date of the succeeding contract [@CL-SUP-3320]. Interfiling borrows the longest category period because the series cannot practically be screened apart [@CL-SUP-3321]. The periods themselves are on [Contractor records retention policy](../../compliance/audit-retention/cmp-contractor-records-retention-policy.md), and the Government's own contract file storage and disposal is a separate subject on [Contract file storage and disposal](../../compliance/audit-retention/cmp-contract-file-storage-and-disposal.md).
+When records generated during a prior contract are relied upon by a contractor for certified cost or pricing data in negotiating a succeeding contract, the prescribed periods shall run from the date of the succeeding contract [@CL-SUP-3320]. If two or more of the record categories described in FAR 4.705 are interfiled and screening for disposal is not practical, the contractor shall retain the entire record series for the longest period prescribed for any category of records [@CL-SUP-3321]. The periods themselves are on [Contractor records retention policy](../../compliance/audit-retention/cmp-contractor-records-retention-policy.md), and the Government's own contract file storage and disposal is on [Contract file storage and disposal](../../compliance/audit-retention/cmp-contract-file-storage-and-disposal.md).
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A cost is booked in fiscal year 1, and the same record carries entries into fisc
 
 ## Never confuse
 
-Retention is not the accounting period or the contract period: the period generally starts at the end of the fiscal year of the entry, and its length depends on the record category described in FAR 4.705 [@CL-SUP-3318; @CL-SUP-3321]. A later contract that relies on the old records for certified cost or pricing data does not run the period from the old entry; it runs it from the date of the succeeding contract [@CL-SUP-3320].
+The retention periods in FAR 4.705 are calculated from the end of the contractor's fiscal year in which an entry is made charging or allocating a cost to a Government contract or subcontract, and if two or more of the record categories described in FAR 4.705 are interfiled and screening for disposal is not practical, the contractor shall retain the entire record series for the longest period prescribed for any category of records [@CL-SUP-3318; @CL-SUP-3321]. When records generated during a prior contract are relied upon by a contractor for certified cost or pricing data in negotiating a succeeding contract, the prescribed periods shall run from the date of the succeeding contract [@CL-SUP-3320].
 
 ## Company calibration
 
@@ -59,5 +59,6 @@ Confirm which record categories the company holds, how they are blocked by fisca
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality and removed uncited contrasts in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope and purpose of the records retention subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for calculating contractor record retention periods.

@@ -35,7 +35,7 @@ The contractor shall give American steel producers, fabricators, and manufacture
 
 ## How it works
 
-A Marshallese firm is a local firm incorporated or otherwise legally organized under the laws of the Marshall Islands that is more than 50 percent owned by citizens of the Marshall Islands, or that meets all of the further conditions listed in the provision [@CL-SUP-1816; @CL-SUP-1835]. One further condition is that the firm has done business in the Marshall Islands on a continuing basis for not less than 3 years before the solicitation was issued [@CL-SUP-1834]. Others are that substantially all of its directors of local operations, senior staff, and operating personnel are resident in the Marshall Islands or are United States citizens, and that most of its operating equipment and physical plant are in the Marshall Islands [@CL-SUP-1835]. A United States firm is a firm incorporated in the United States that complies with listed conditions, the first being that its corporate headquarters are in the United States [@CL-SUP-1836]. In the steel clause, construction material is an article, material, or supply brought to the construction site by the contractor or a subcontractor for incorporation into the building or work [@CL-SUP-1819]. The contractor inserts the substance of the steel clause in any subcontract that involves acquiring steel as a construction material, including subcontracts for commercial products [@CL-SUP-1821].
+A Marshallese firm is a local firm incorporated or otherwise legally organized under the laws of the Marshall Islands that is more than 50 percent owned by citizens of the Marshall Islands, or that meets all of the further conditions listed in the provision [@CL-SUP-1816; @CL-SUP-1835]. One further condition is that the firm has done business in the Marshall Islands on a continuing basis for not less than 3 years before the solicitation was issued [@CL-SUP-1834]. Others are that substantially all of its directors of local operations, senior staff, and operating personnel are resident in the Marshall Islands or are United States citizens, and that most of its operating equipment and physical plant are in the Marshall Islands [@CL-SUP-1835]. A United States firm is a firm incorporated in the United States that complies with listed conditions, the first being that its corporate headquarters are in the United States [@CL-SUP-1836]. In the steel clause, construction material is an article, material, or supply brought to the construction site by the contractor or a subcontractor for incorporation into the building or work [@CL-SUP-1819]. The Contractor shall insert the substance of the steel clause, including paragraph (c), in any subcontract that involves acquiring steel as a construction material, including subcontracts for commercial products [@CL-SUP-1821].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Evaluation adds 20 percent to the other firm's offer, so it is evaluated at 10,8
 
 ## Never confuse
 
-The Kwajalein provision is an evaluation preference that adds a percentage to some offers [@CL-SUP-1817]. The steel clause is about an opportunity to compete when the contractor acquires steel, not about evaluating offers [@CL-SUP-1820]. The overseas construction provision also adds a percentage to offers from firms that do not qualify as United States firms [@CL-SUP-1811]; see [Overseas construction preference and architect-engineer restriction for United States firms](sup-dfars-overseas-construction-and-ae-us-firms.md). For the separate Buy American rule on construction materials, see [Buy American for construction materials](sup-buy-american-construction-materials.md).
+Under the Kwajalein provision, offers from firms that do not qualify as United States firms or Marshallese firms will be evaluated by adding 20 percent to the offer, unless application of the factor would not result in award to a United States firm [@CL-SUP-1817]. Under the steel clause, the Contractor shall provide American steel producers, fabricators, and manufacturers the opportunity to compete when acquiring steel as a construction material [@CL-SUP-1820]. Under the overseas construction provision, offers from firms that do not qualify as United States firms will be evaluated by adding 20 percent to the offer [@CL-SUP-1811]; see [Overseas construction preference and architect-engineer restriction for United States firms](sup-dfars-overseas-construction-and-ae-us-firms.md). For the separate Buy American rule on construction materials, see [Buy American for construction materials](sup-buy-american-construction-materials.md).
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Whether subcontracts that acquire steel as a construction material carry the ste
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned flowdown wording and replaced uncited contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said all of the further Marshallese firm conditions must be met.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Kwajalein Atoll evaluation preference and American steel competition.

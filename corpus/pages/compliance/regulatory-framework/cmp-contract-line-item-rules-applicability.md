@@ -32,7 +32,7 @@ The subpart on line items prescribes policies and procedures for assigning line 
 
 ## How it works
 
-The applicability section works as a coverage list rather than as a set of duties: it states that the line item policies shall apply and then enumerates the instruments [@CL-CMP-8286]. It does not say who applies the policies, and it names no approving official and sets no threshold or exception, and it does not tie coverage to the value of the instrument [@CL-CMP-8286; @CL-CMP-8288]. The scope section gives agencies, not contractors, until October 1, 2019, to apply the requirements of 4.1002 through 4.1008 so that they have time to transition their information systems [@CL-CMP-8598]. Because the reach extends to amendments, modifications and change orders, a later change to a covered instrument stays inside the same policies [@CL-CMP-8286]. Coverage turns on the type of instrument, and a purchase order is a covered contract [@CL-CMP-8288]. For what a line item and a subline item are and when a separate line item is needed, see [Separately identified line items and subline items](../../supply-chain/procure-to-pay/sup-line-items-and-subline-items.md). For the data each line item carries, see [Contract line items: subline items and required data elements](../../market/feeds/mkt-contract-line-items-and-data-elements.md).
+The applicability section works as a coverage list rather than as a set of duties: it states that the line item policies shall apply and then enumerates the instruments [@CL-CMP-8286]. It does not say who applies the policies, and it names no approving official and sets no threshold or exception, and it does not tie coverage to the value of the instrument [@CL-CMP-8286; @CL-CMP-8288]. The scope section gives agencies until October 1, 2019, to apply the requirements of 4.1002 through 4.1008 so that they have time to transition their information systems [@CL-CMP-8598]. Because the reach extends to amendments, modifications and change orders, a later change to a covered instrument stays inside the same policies [@CL-CMP-8286]. The policies apply to the listed procurement instruments [@CL-CMP-8286], and purchase orders are among the contracts listed [@CL-CMP-8288]. For what a line item and a subline item are and when a separate line item is needed, see [Separately identified line items and subline items](../../supply-chain/procure-to-pay/sup-line-items-and-subline-items.md). For the data each line item carries, see [Contract line items: subline items and required data elements](../../market/feeds/mkt-contract-line-items-and-data-elements.md).
 
 ## Worked example
 
@@ -54,6 +54,7 @@ Where the company keeps the executed contracts and modifications, and who confir
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast and inference about coverage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on market research and alternative line items.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for which procurement instruments the contract line item and subline item rules apply to.

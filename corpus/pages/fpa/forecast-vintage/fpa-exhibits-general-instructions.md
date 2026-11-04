@@ -38,11 +38,9 @@ If a material contract or plan of acquisition, reorganization, arrangement, liqu
 
 Schedules (or similar attachments) to the exhibits required by Item 601 are not required to be filed provided that they do not contain information material to an investment or voting decision and that information is not otherwise disclosed in the exhibit or the disclosure document [@CL-FPA-1172]. Each exhibit filed must contain a list briefly identifying the contents of all omitted schedules, but a separate list of omitted information need not be prepared if that information is already included within the exhibit in a manner that conveys the subject matter of the omitted schedules and attachments [@CL-FPA-1173; @CL-FPA-1226]. In addition, the registrant must provide a copy of any omitted schedule to the Commission or its staff upon request [@CL-FPA-1244]. The registrant may redact information from exhibits required to be filed by Item 601 if disclosure of such information would constitute a clearly unwarranted invasion of personal privacy (e.g., disclosure of bank account numbers, social security numbers, home addresses, and similar information) [@CL-FPA-1174].
 
-The card does not restate the rules on active hyperlinks in the exhibit index, on amendments to previously filed exhibits, on preliminary exhibits and substantially identical documents, on filing copies, and on paper and confirming electronic copies. It also leaves out the form-by-form marks in the table and its footnotes.
-
 ## How it works
 
-The reader finds the form in the exhibit table and reads across to see which exhibit numbers are marked [@CL-FPA-1176; @CL-FPA-1177]. Each number points to the description of that exhibit in paragraph (b) [@CL-FPA-1178]. The filing then carries each required exhibit, or an incorporation by reference to one filed earlier [@CL-FPA-1167; @CL-FPA-1177], and lists every exhibit in the index by its table number before the signatures [@CL-FPA-1168; @CL-FPA-1169]. A schedule that is not material and is not otherwise disclosed can be left out; the exhibit must then list what was omitted, unless it already conveys the subject matter of what was omitted, in which case no separate list is needed, and a copy of the omitted schedule must be provided on request [@CL-FPA-1172; @CL-FPA-1173; @CL-FPA-1226; @CL-FPA-1244].
+Item 601 applies only to the forms specified in the exhibit table, where the “X” designation indicates the documents required to be filed with each form (or incorporated by reference if previously filed with another document) and the far-left number refers to the subsection in paragraph (b) describing the exhibit [@CL-FPA-1171; @CL-FPA-1176; @CL-FPA-1177; @CL-FPA-1178]. Subject to Rule 411(c) under the Securities Act and Rule 12b-23(c) under the Exchange Act regarding incorporation of exhibits by reference, the required exhibits must be filed as indicated as part of the registration statement or report, and each registration statement or report shall contain an exhibit index appearing before the required signatures that lists each exhibit by its table number and notes any incorporation by reference [@CL-FPA-1166; @CL-FPA-1167; @CL-FPA-1168; @CL-FPA-1169; @CL-FPA-1170]. A material contract or plan of acquisition, reorganization, arrangement, liquidation or succession executed or becoming effective during a Form 10-Q or Form 10-K reporting period shall be filed as an exhibit to the corresponding Form 10-Q or Form 10-K [@CL-FPA-1175]. Schedules (or similar attachments) not containing information material to an investment or voting decision and not otherwise disclosed need not be filed, provided each exhibit contains a list briefly identifying omitted schedules unless the exhibit already conveys their subject matter, and a copy of any omitted schedule must be provided to the Commission or its staff upon request; information whose disclosure would constitute a clearly unwarranted invasion of personal privacy may be redacted [@CL-FPA-1172; @CL-FPA-1173; @CL-FPA-1226; @CL-FPA-1244; @CL-FPA-1174].
 
 ## Worked example
 
@@ -52,7 +50,7 @@ A company signs a credit agreement in the fourth quarter that is a material cont
 
 ## Never confuse
 
-The exhibit table says which documents are filed; the disclosure those documents support sits elsewhere in the filing, for example the code of ethics and insider trading policy items on [Code of ethics and insider trading policies](fpa-code-of-ethics-and-insider-trading-policies.md). An exhibit description in paragraph (b) is not the same as the table: the table marks the forms, and the description says what the document is, as set out on the [exhibit categories card](fpa-exhibits-categories.md).
+Under Item 601(a), the exhibit table indicates those documents that must be filed as exhibits to the respective forms listed, and the number in the far left column refers to the subsection in paragraph (b) where a description of the exhibit can be found [@CL-FPA-1176; @CL-FPA-1177; @CL-FPA-1178]; for the exhibit categories in paragraph (b), see [Exhibits: the categories a finance reader uses](fpa-exhibits-categories.md). For the code of ethics and insider trading policy disclosures and exhibit provisions, see [Code of ethics and insider trading arrangements and policies](fpa-code-of-ethics-and-insider-trading-policies.md).
 
 ## Company calibration
 
@@ -61,7 +59,7 @@ How the company would keep an exhibit register that matches each filing, with th
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-wording and uncited contrasts and aligned How it works and Never confuse with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Omitted-schedule list as a duty, copy on request added.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the omitted schedules list.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for the exhibit table, the index and the general instructions.

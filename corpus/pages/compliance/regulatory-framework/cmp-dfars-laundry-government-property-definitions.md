@@ -37,17 +37,15 @@ The clause is used as prescribed in DFARS 237.7101(g) [@CL-CMP-9072].
 
 ## How it works
 
-The clause classifies property. It does not set a price, threshold, deadline or approval route, it names no official who decides, and it states no duty for the contractor or the Government in terms [@CL-CMP-9070; @CL-CMP-9071].
+The classification covers articles delivered to the contractor to be laundered or dry-cleaned, including any articles actually owned by individual Government personnel [@CL-CMP-9070]. Because these articles are Government-owned property and not Government-furnished property, Government-owned property does not fall under the requirements of any Government-furnished property clause of the contract [@CL-CMP-9070; @CL-CMP-9071].
 
-The classification covers every article delivered to the contractor to be laundered or dry-cleaned, so articles owned by individual Government personnel stay inside it [@CL-CMP-9070]. Because these articles are Government-owned property and not Government-furnished property, the requirements of the contract's Government-furnished property clauses do not apply to them [@CL-CMP-9070; @CL-CMP-9071].
-
-This clause says nothing about what the contractor must do with the articles, such as delivery tickets or liability for loss or damage. Other laundry clauses are covered in [DFARS laundry delivery tickets and loss or damage](../../supply-chain/sourcing-evidence/sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md) and [DFARS laundry offeror instructions and individual laundry](cmp-dfars-laundry-offeror-instructions-and-individual-laundry.md).
+Other laundry clauses are covered in [DFARS laundry delivery tickets and loss or damage](../../supply-chain/sourcing-evidence/sup-dfars-laundry-delivery-tickets-and-loss-or-damage.md) and [DFARS laundry offeror instructions and individual laundry](cmp-dfars-laundry-offeror-instructions-and-individual-laundry.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A laundry contract that includes the clause receives 400 uniform items, of which 50 are owned by individual service members. All 400 are Government-owned property, not Government-furnished property, including the 50 that individuals own [@CL-CMP-9070]. The Government-furnished property clauses of the contract therefore do not apply to any of the 400 [@CL-CMP-9071]. A washing machine that the Government separately lends to the contractor is not an article delivered to be laundered, and the cited sentence is about those articles [@CL-CMP-9070]. The clause does not classify the machine, so the contract's other terms govern it.
+A laundry contract that includes the clause receives 400 uniform items, of which 50 are owned by individual service members. All 400 are Government-owned property, not Government-furnished property, including the 50 that individuals own. The Government-furnished property clauses of the contract therefore do not apply to any of the 400.
 
 ## Never confuse
 
@@ -62,6 +60,6 @@ Which laundry or dry-cleaning contracts this company performs, and how the artic
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example and removed meta commentary on unstated elements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special definitions of Government property in laundry and dry-cleaning contracts.

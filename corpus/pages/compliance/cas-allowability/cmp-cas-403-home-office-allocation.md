@@ -29,11 +29,11 @@ Explains how a contractor with more than one segment allocates home office expen
 | Text status | Final [@CL-CMP-0551] |
 | Applies to | Segments that receive home office support or services [@CL-CMP-0551] |
 
-Home office expenses are allocated on the basis of the beneficial or causal relationship between the supporting and receiving activities [@CL-CMP-0551]. Expenses that can be identified with segments are charged directly to those segments to the maximum extent practical [@CL-CMP-0552]. Residual expenses, the cost of managing the organization as a whole, are spread over all segments under a base representative of total segment activity, except where a special rule applies [@CL-CMP-0555]. A cost may not be charged to a segment indirectly through a pool when costs incurred for the same purpose were charged directly to a segment [@CL-CMP-0553].
+Home office expenses are allocated on the basis of the beneficial or causal relationship between the supporting and receiving activities [@CL-CMP-0551]. Such expenses are also allocated directly to segments to the maximum extent practical [@CL-CMP-0552]. Residual expenses are allocated to all segments under a home office by means of a base representative of the total activity of such segments, except where paragraph (c)(2) or (3) of the subsection applies [@CL-CMP-0555]. No segment may have allocated to it as an indirect cost any cost, if other costs incurred for the same purpose have been allocated directly to that or any other segment [@CL-CMP-0553].
 
 ## How it works
 
-The standard builds three layers: direct charges, homogeneous expense pools for expenses not directly allocated that are significant in amount and in relation to total home office expenses, and a residual pool for the cost of managing the organization as a whole [@CL-CMP-0551; @CL-CMP-0552]. Centralized service functions, such as personnel administration and data processing, are charged on the service furnished to or received by each segment, because those functions would otherwise be performed or acquired by some or all of the segments individually [@CL-CMP-0554]. Residual expenses are allocated under 9904.403-50(c)(1) if the previous fiscal year's total residual expenses, excluding unallowable costs and before eliminating amounts specially allocated under (c)(3), exceed the amount from the percentage ladder applied to the aggregate revenue of all segments for that year [@CL-CMP-0556].
+Home office expenses are allocated on the basis of the beneficial or causal relationship between supporting and receiving activities, and directly to segments to the maximum extent practical [@CL-CMP-0551; @CL-CMP-0552]. Centralized service functions, such as personnel administration and data processing, are allocated to segments on the basis of the service furnished to or received by each segment [@CL-CMP-0554]. Residual expenses are allocated pursuant to 9904.403-50(c)(1) if the total amount of such expenses for the contractor's previous fiscal year (excluding any unallowable costs and before eliminating any amounts to be allocated in accordance with paragraph (c)(3)) exceeds the amount obtained by applying 3.35 percent of the first $100 million, 0.95 percent of the next $200 million, 0.30 percent of the next $2.7 billion and 0.20 percent of all amounts over $3 billion to the aggregate revenue of all segments for such previous year [@CL-CMP-8036; @CL-CMP-8037; @CL-CMP-0556].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A home office keeps a residual pool of 10 million and two segments whose aggrega
 
 ## Never confuse
 
-Residual expenses here are the general cost of managing the organization, while a home office's independent research and development and bid and proposal pools are allocated under the standard that covers those projects [@CL-CMP-0577]. The reach of the standards across business units is a separate question; see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
+The independent research and development and bid and proposal cost pools of a home office are allocated to segments on the basis of the beneficial or causal relationship between those costs and the segments reporting to that home office [@CL-CMP-0577]. The reach of the standards across business units is a separate question; see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
@@ -52,5 +52,5 @@ Whether every home office pool has a documented base and whether service center 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched cited sentences to the quoted scope and cited the residual expense test lead.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for home office expense allocation.

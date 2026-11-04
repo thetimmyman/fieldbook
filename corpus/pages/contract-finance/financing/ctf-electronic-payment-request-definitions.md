@@ -33,13 +33,13 @@ The subpart prescribes policies and procedures for submitting and processing pay
 
 The definitions apply as used in the subpart on electronic submission and processing of payment requests and receiving reports [@CL-CTF-3842]. An electronic form is any automated system that transmits information electronically from the initiating system to affected systems [@CL-CTF-3842].
 
-A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of the chapter, Material Inspection and Receiving Report [@CL-CTF-3844]. The FAR definitions section separately describes a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed, with a cross-reference to subpart 46.6, and says receiving reports must meet the requirements of 32.905(c) [@CL-CTF-9422]. The RFO text of FAR 2.101 defines a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed, and says receiving reports must meet the requirements of 32.905(c), the same in substance as the codified definition [@CL-CTF-9453; @CL-CTF-9422].
+A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of this chapter, Material Inspection and Receiving Report [@CL-CTF-3844]. FAR 2.101 defines a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed (see subpart 46.6), and says receiving reports must meet the requirements of 32.905(c) [@CL-CTF-9422]. RFO FAR 2.101 defines a receiving report as written evidence that indicates Government acceptance of supplies delivered or services performed (see subpart 46.6), and says receiving reports must meet the requirements of 32.905(c) [@CL-CTF-9453].
 
 ## How it works
 
-This section only defines terms. It states no duty, deadline or threshold, and it names no official who decides anything. The operative rules that use the terms are on [DoD payment applicability and electronic submission](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md) and [DoD clause on electronic submission of payment requests and receiving reports](ctf-dod-electronic-payment-request-clause.md).
+For the operative rules that use the terms, see [DoD payment applicability and electronic submission](../billing-payment/ctf-dod-payment-applicability-and-electronic-submission.md) and [DoD clause on electronic submission of payment requests and receiving reports](ctf-dod-electronic-payment-request-clause.md).
 
-A payment request covers both a request for contract financing payment and a request for invoice payment, so one definition reaches financing and billing submissions alike [@CL-CTF-3843]. The definition covers a request submitted by the contractor under a contract or under a task or delivery order [@CL-CTF-3843]. A receiving report takes its content from appendix F of the chapter, which sets the manner and extent of preparation [@CL-CTF-3844]. An electronic form is identified by the transmission of information from the initiating system to affected systems, and the definition names no particular system [@CL-CTF-3842]. Which electronic form is acceptable is a separate rule, covered on [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](../billing-payment/ctf-wide-area-workflow-payment-instructions.md).
+A payment request covers both a request for contract financing payment and a request for invoice payment [@CL-CTF-3843]. The definition covers a request submitted by the contractor under a contract or under a task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of this chapter [@CL-CTF-3844]. An electronic form is any automated system that transmits information electronically from the initiating system to affected systems [@CL-CTF-3842]. For which electronic form is acceptable, see [Electronic submission of payment requests: Wide Area WorkFlow payment instructions](../billing-payment/ctf-wide-area-workflow-payment-instructions.md).
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A contractor sends a request for an invoice payment of 900,000 under a task orde
 
 ## Never confuse
 
-A payment request is not limited to invoices, because the definition covers requests for contract financing payment as well as invoice payment [@CL-CTF-3843]. A receiving report is not a payment request. It is the data prepared under appendix F of the chapter, and the section defines it separately [@CL-CTF-3843; @CL-CTF-3844].
+A payment request is any request for contract financing payment or invoice payment submitted by the contractor under a contract or task or delivery order [@CL-CTF-3843]. A receiving report is the data prepared in the manner and to the extent required by appendix F of this chapter [@CL-CTF-3844].
 
 ## Company calibration
 
@@ -58,7 +58,7 @@ Whether the company's systems for submitting payment requests and receiving repo
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: removed meta wording, negatives and mixed-source comparison
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of receiving report.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded a U.S.C. citation so the sentence keeps its claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of receiving report.

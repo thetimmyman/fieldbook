@@ -29,13 +29,13 @@ Shows the taxes from which Spain-related contracts are exempt and what an offero
 | Text status | Final [@CL-CTF-1879] |
 | Applies to | Contracts that include the Spain tax exemptions clause [@CL-CTF-1920], and offers that include the matching representation provision [@CL-CTF-1921] |
 
-In accordance with tax relief agreements between the United States Government and the Spanish Government, and because the incumbent contract arises from the activities of the United States Forces in Spain, the contract will be exempt from the excise, luxury, and transaction taxes that the clause then lists [@CL-CTF-1880]. The first four items of the numbered list are customs duties, the compensation tax on imports, the property transfer tax and the luxury tax [@CL-CTF-1881]. Items five to eight are the legal official transactions tax, the business trade tax, the special products tax and the tax on petroleum and its by-products [@CL-CTF-1912]. This card does not set out the later items of the list, so read the clause for them.
+In accordance with tax relief agreements between the United States Government and the Spanish Government, and because the incumbent contract arises from the activities of the United States Forces in Spain, the contract will be exempt from the excise, luxury, and transaction taxes that the clause then lists [@CL-CTF-1880]. The first four items of the numbered list are customs duties, the compensation tax on imports, the property transfer tax and the luxury tax [@CL-CTF-1881]. Items five to eight are the legal official transactions tax, the business trade tax, the special products tax and the tax on petroleum and its by-products [@CL-CTF-1912].
 
 As the contractor represented in its offer, the contract price, including subcontract prices, does not include taxes from which the United States Government is exempt [@CL-CTF-1879]. By submitting its offer, the offeror represents that the offered price, including the prices of subcontracts to be awarded under the contract, does not include the taxes identified in the provision or any other taxes from which the United States Government is exempt [@CL-CTF-1882].
 
 ## How it works
 
-The clause and the provision work as a pair. The offeror makes the representation when it submits the offer [@CL-CTF-1882]. The clause then says that the contract price, including subcontract prices, excludes taxes from which the Government is exempt [@CL-CTF-1879]. The exempt taxes are the excise, luxury and transaction taxes listed in the clause [@CL-CTF-1880]. This card sets out no invoice or certificate procedure for the Spain exemption, because the clause text it reads sets none out.
+The offeror makes the representation when it submits the offer [@CL-CTF-1882]. The clause says that the contract price, including subcontract prices, excludes taxes from which the Government is exempt [@CL-CTF-1879]. The exempt taxes are the excise, luxury and transaction taxes listed in the clause [@CL-CTF-1880].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ An offeror prices a Spanish services contract at an assumed 200,000 and a subcon
 
 ## Never confuse
 
-The representation is made in the offer, and the clause states the exemption in the contract [@CL-CTF-1882; @CL-CTF-1880]. Exemption from the listed taxes is not the same as direct-contractor status, which concerns duty-free import under a written agreement and has its own clause, see [Status as a direct contractor in Spain](ctf-dfars-spain-direct-contractor-status.md) [@CL-CTF-1868]. Whether a tax is an allowable cost is a cost-principle question, see [Taxes](../../compliance/cas-allowability/cmp-taxes.md). For the FAR tax clause, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Italy has a parallel clause and provision, see [Italy tax exemptions and the matching representation](ctf-dfars-italy-tax-exemptions-and-representation.md).
+The representation is made in the offer, and the clause states the exemption in the contract [@CL-CTF-1882; @CL-CTF-1880]. For direct-contractor status in Spain, see [Status as a direct contractor in Spain](ctf-dfars-spain-direct-contractor-status.md). For whether a tax is an allowable cost, see [Taxes](../../compliance/cas-allowability/cmp-taxes.md). For the FAR tax clause, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md). Italy has a parallel clause and provision, see [Italy tax exemptions and the matching representation](ctf-dfars-italy-tax-exemptions-and-representation.md).
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which Spain contracts and offers carry the exemption clause and representation p
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited commentary and the cut-short direct-contractor description.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for tax exemptions in Spain and the matching representation.

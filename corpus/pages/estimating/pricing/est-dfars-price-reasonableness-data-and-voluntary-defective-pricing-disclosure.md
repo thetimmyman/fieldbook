@@ -39,7 +39,7 @@ A voluntary disclosure of defective pricing is not a voluntary refund as defined
 
 The contracting officer determines whether the information provided is sufficient to determine price reasonableness and, where price information is not adequate, the extent of uncertified cost data to require, which must be provided in the form regularly maintained in the offeror's business operations [@CL-EST-2443; @CL-EST-2445; @CL-EST-2447]. The contracting officer shall not limit the Government's ability to obtain any data that may be necessary to support a determination of fair and reasonable pricing by agreeing to contract terms that preclude obtaining necessary supporting information [@CL-EST-2446].
 
-On a voluntary disclosure the contracting officer discusses it with DCAA, and that discussion informs the contracting officer's decision on DCAA's involvement, whether a limited-scope audit, a full-scope audit or technical assistance [@CL-EST-2449; @CL-EST-2450]. The discussion covers at least completeness, the cost impact calculation and the effect on other contracts, orders and proposals [@CL-EST-2451; @CL-EST-2452]. The Government's entitlement to the overpayment plus interest and its right to pursue defective pricing claims on the affected contract or any other Government contract both remain [@CL-EST-2453; @CL-EST-2454].
+When a contractor voluntarily discloses defective pricing after contract award, the contracting officer discusses it with DCAA, and that discussion informs the contracting officer's decision on DCAA's involvement, whether a limited-scope audit, a full-scope audit or technical assistance [@CL-EST-2449; @CL-EST-2450]. The discussion covers at least completeness, the cost impact calculation and the effect on other contracts, orders and proposals [@CL-EST-2451; @CL-EST-2452]. The Government's entitlement to the overpayment plus interest and its right to pursue defective pricing claims on the affected contract or any other Government contract both remain [@CL-EST-2453; @CL-EST-2454].
 
 ## Worked example
 
@@ -51,7 +51,7 @@ The disclosure process below is a separate case, on a different, noncommercial c
 
 ## Never confuse
 
-A voluntary disclosure is not a voluntary refund as defined in DFARS 242.7100, and it does not waive the Government entitlement to recover any overpayment plus interest [@CL-EST-2453]. It is also not a release of the Government's right to pursue defective pricing claims on the affected contract or any other Government contract [@CL-EST-2454]. The price reduction rules for defective certified data and the audit scope for data other than certified data are covered on their own cards and are not repeated here.
+A voluntary disclosure is not a voluntary refund as defined in DFARS 242.7100, and does not waive the Government entitlement to the recovery of any overpayment plus interest on the overpayments in accordance with FAR 15.407-1(b)(7) [@CL-EST-2453]. It also does not waive the Government's rights to pursue defective pricing claims on the affected contract or any other Government contract [@CL-EST-2454]. For defective pricing generally, see [Defective pricing: price reduction for defective certified cost or pricing data](est-defective-pricing.md), and for what an auditor can examine in data other than certified data, see [Data other than certified data: what an auditor can examine](est-data-other-than-certified-audit-scope.md).
 
 ## Company calibration
 
@@ -60,7 +60,7 @@ That the pricing file records why the information was sufficient and who handles
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse paragraph now states the full recovery wording and links the related cards; how-it-works adds the after-award condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the how-it-works data-access sentence to the rule's own limit on the contracting officer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored "any data that may be necessary" in the data-access limit.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for price reasonableness data and voluntary disclosure of defective pricing after award.

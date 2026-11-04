@@ -35,11 +35,11 @@ Assistance is provided at the discretion of the Determination Departments, Deleg
 
 ## How it works
 
-The usual situations are these. A person is experiencing difficulty in obtaining delivery against a rated order by the required delivery date [@CL-IND-0262]. A person cannot locate a supplier for an item needed to fill a rated order [@CL-IND-0263]. A person is experiencing difficulty in obtaining delivery for an unrated order by the required delivery date [@CL-IND-0263].
+Special priorities assistance is usually provided in situations where a person is experiencing difficulty in obtaining delivery against a rated order by the required delivery date, or where a person cannot locate a supplier for an item needed to fill a rated order, or where a person is experiencing difficulty in obtaining delivery for an unrated order by the required delivery date [@CL-IND-0261; @CL-IND-0262; @CL-IND-0263].
 
 Other examples of assistance are ensuring that rated orders receive preferential treatment by suppliers, resolving production or delivery conflicts between various rated orders, and assisting in placing rated orders with suppliers [@CL-IND-0264]. They also include verifying the urgency of rated orders and determining the validity of rated orders [@CL-IND-0265].
 
-Section 700.54 gives examples where assistance may not be provided, in situations when a person is attempting to secure a price advantage, obtain delivery prior to the time required to fill a rated order, or gain competitive advantage [@CL-IND-0267]. The examples also include attempting to disrupt an industry apportionment program in a manner designed to provide the person with an unwarranted share of scarce items, or to overcome a supplier's regularly established terms of sale or conditions of doing business [@CL-IND-0268].
+Section 700.54 gives examples where assistance may not be provided, in situations when a person is attempting to secure a price advantage, obtain delivery prior to the time required to fill a rated order, or gain competitive advantage [@CL-IND-0267]. Those examples also include situations when a person is attempting to disrupt an industry apportionment program in a manner designed to provide the person with an unwarranted share of scarce items, or to overcome a supplier's regularly established terms of sale or conditions of doing business [@CL-IND-0267; @CL-IND-0268].
 
 The section heading calls these instances where assistance will not be provided, while the text of the examples says assistance may not be provided [@CL-IND-0278; @CL-IND-0267]. The general provisions on filing a request are on [the special priorities assistance card](ind-dpas-special-priorities-assistance.md).
 
@@ -53,11 +53,11 @@ A second company asks for assistance in obtaining delivery two weeks earlier tha
 
 ## Never confuse
 
-Assistance is not a price or competitive tool. A person who is attempting to secure a price advantage, gain competitive advantage, obtain delivery prior to the time required to fill a rated order, or overcome a supplier's regularly established terms of sale or conditions of doing business is in one of the examples where assistance may not be provided, which the section heading calls instances where assistance will not be provided [@CL-IND-0278; @CL-IND-0267; @CL-IND-0268].
+Section 700.54 is headed "Instances where assistance will not be provided," and gives examples where assistance may not be provided in situations when a person is attempting to secure a price advantage, obtain delivery prior to the time required to fill a rated order, gain competitive advantage, disrupt an industry apportionment program in a manner designed to provide the person with an unwarranted share of scarce items, or overcome a supplier's regularly established terms of sale or conditions of doing business [@CL-IND-0278; @CL-IND-0267; @CL-IND-0268].
 
-The usual situations are not a limit on assistance. Assistance may be provided for any reason in support of the regulation and an approved program [@CL-IND-0261].
+Special priorities assistance may be provided for any reason in support of the regulation and an approved program, and is usually provided in the three situations in § 700.52(a) [@CL-IND-0261; @CL-IND-0262; @CL-IND-0263].
 
-A request outside the examples where assistance may not be provided is not guaranteed to succeed, because assistance is provided at the discretion of the decision makers when they determine it is warranted [@CL-IND-0266].
+Special priorities assistance is provided at the discretion of the Determination Departments, Delegate Agencies, and the Department of Commerce when it is determined that such assistance is warranted to meet the objectives of the regulation [@CL-IND-0266].
 
 ## Company calibration
 
@@ -67,5 +67,6 @@ Which supplier commitments and lead times would be cited to show that a delivery
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Joined the three usual assistance situations as alternatives and aligned the exclusion and discretion statements to 15 CFR 700.52 and 700.54.
 - COMPATIBLE_EXTENSION, 2026-10-31: Separated the heading wording will not from the text wording may not.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for examples of special priorities assistance and instances where it will not be provided.

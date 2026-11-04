@@ -29,11 +29,11 @@ Lists the contract actions, indefinite delivery vehicles and orders that agencie
 | Text status | Final [@CL-MKT-0016; @CL-MKT-0023] |
 | Applies to | Agencies reporting contract actions over the micro-purchase threshold [@CL-MKT-0016] |
 
-At a minimum, agencies must report the listed contract actions over the micro-purchase threshold, regardless of solicitation process used, and any modification to those actions that changes previously reported contract action data, regardless of dollar value [@CL-MKT-0016]. The list includes definitive contracts, including purchase orders and imprest fund buys over the micro-purchase threshold awarded by a contracting officer [@CL-MKT-0017]. It also includes the indefinite delivery vehicle, identified as an IDV in FPDS [@CL-MKT-0100], and all calls and orders awarded under the indefinite delivery vehicles identified in that item [@CL-MKT-0019].
+As a minimum, agencies must report the following contract actions over the micro-purchase threshold, regardless of solicitation process used, and agencies must report any modification to these contract actions that change previously reported contract action data, regardless of dollar value [@CL-MKT-0016]: (i) definitive contracts, including purchase orders and imprest fund buys over the micro-purchase threshold awarded by a contracting officer [@CL-MKT-0017], (ii) indefinite delivery vehicle (identified as an "IDV" in FPDS) [@CL-MKT-0100], and (iii) all calls and orders awarded under the indefinite delivery vehicles identified in FAR 4.606(a)(1)(ii) [@CL-MKT-0019].
 
 ## How it works
 
-The listed examples of indefinite delivery vehicles include task and delivery order contracts, including government-wide acquisition contracts and multi-agency contracts [@CL-MKT-0100]. The examples listed after those are GSA Federal supply schedules, blanket purchase agreements, basic ordering agreements, and any other agreement or contract against which individual orders or purchases may be placed [@CL-MKT-0018]. The GSA Office of Charge Card Management will provide the Government purchase card data at a minimum annually, and GSA will incorporate that data into FPDS for reports [@CL-MKT-0020]. Agencies may use the Express Reporting capability for consolidated multiple action reports for a vendor when it would be overly burdensome to report each action individually, and when used it should be done at least monthly [@CL-MKT-0021]. Imprest fund transactions below the micro-purchase threshold, including those made via the Government purchase card, are not to be reported to FPDS unless specific agency procedures prescribe reporting these actions [@CL-MKT-0022]. In addition to the FAR section, the DFARS section directs following the procedures at PGI 204.606 for reporting data to FPDS [@CL-MKT-0023].
+Examples of IDVs include task and delivery order contracts (see FAR subpart 16.5), including government-wide acquisition contracts and multi-agency contracts [@CL-MKT-0100], GSA Federal supply schedules, Blanket Purchase Agreements (see FAR 13.303), Basic Ordering Agreements (see FAR 16.703), and any other agreement or contract against which individual orders or purchases may be placed [@CL-MKT-0018]. The GSA Office of Charge Card Management will provide the Government purchase card data, at a minimum annually, and GSA will incorporate that data into FPDS for reports [@CL-MKT-0020]. Agencies may use the FPDS Express Reporting capability for consolidated multiple action reports for a vendor when it would be overly burdensome to report each action individually, and when used, Express Reporting should be done at least monthly [@CL-MKT-0021]. Under the actions not reported paragraph, imprest fund transactions below the micro-purchase threshold, including those made via the Government purchase card, are not to be reported to FPDS unless specific agency procedures prescribe reporting these actions [@CL-MKT-0022]. In addition to FAR 4.606, DFARS 204.606 directs following the procedures at PGI 204.606 for reporting data to FPDS [@CL-MKT-0023].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ An agency makes a purchase card order of 2,000 for office supplies. Separately i
 
 ## Never confuse
 
-Government purchase card data that GSA incorporates into FPDS for reports [@CL-MKT-0020] is not the same thing as an individual purchase card transaction below the micro-purchase threshold, which is not to be reported unless agency procedures prescribe it [@CL-MKT-0022]. Express Reporting is a consolidated report for one vendor and is available when individual reports would be overly burdensome [@CL-MKT-0021]. For the micro-purchase threshold amount, see [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
+The GSA Office of Charge Card Management will provide the Government purchase card data, at a minimum annually, and GSA will incorporate that data into FPDS for reports [@CL-MKT-0020], whereas imprest fund transactions below the micro-purchase threshold, including those made via the Government purchase card, are not to be reported to FPDS unless specific agency procedures prescribe reporting these actions [@CL-MKT-0022]. Agencies may use the FPDS Express Reporting capability for consolidated multiple action reports for a vendor when it would be overly burdensome to report each action individually, and when used, Express Reporting should be done at least monthly [@CL-MKT-0021]. For the micro-purchase threshold amount, see [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md).
 
 ## Company calibration
 
@@ -52,6 +52,6 @@ Confirm which reported contract actions and orders map to the company's own cont
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added exact FAR cross-references for IDV examples and removed uncited contrast framing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Said the card covers one of several kinds of actions not reported.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for what is reported to the Federal Procurement Data System.

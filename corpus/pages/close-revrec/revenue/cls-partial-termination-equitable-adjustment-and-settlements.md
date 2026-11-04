@@ -31,7 +31,7 @@ Governs the equitable adjustment in the price of the continued portion of a part
 
 Under the termination clause, after partial termination, a contractor may request an equitable adjustment in the price or prices of the continued portion of a fixed-price contract [@CL-CLS-0526].
 
-In the FAR's general definitions, the continued portion of the contract means the portion of a contract that the contractor must continue to perform following a partial termination [@CL-CLS-1498]. The RFO model text of FAR 2.101 defines the continued portion of the contract in the same words as the codified definition [@CL-CLS-1529; @CL-CLS-1498].
+In the FAR's general definitions, the continued portion of the contract means the portion of a contract that the contractor must continue to perform following a partial termination [@CL-CLS-1498]. RFO FAR 2.101 defines continued portion of the contract as the portion of a contract that the contractor must continue to perform following a partial termination [@CL-CLS-1529].
 
 The termination contracting officer should attempt to settle in one agreement all rights and liabilities of the parties under the contract except those arising from any continued portion of the contract [@CL-CLS-0530].
 
@@ -39,7 +39,7 @@ The termination contracting officer should attempt to settle in one agreement al
 
 The termination contracting officer must forward the equitable adjustment proposal to the contracting officer except when negotiation authority is delegated to the termination contracting officer [@CL-CLS-0527]. When the contracting officer retains responsibility for negotiating the adjustment and executing a supplemental agreement, that officer must ensure that no portion of an increase in price is included in a termination settlement made or in process [@CL-CLS-0528]. The termination contracting officer must also ensure that no portion of the costs included in the equitable adjustment are included in the termination settlement [@CL-CLS-0529].
 
-Generally the termination contracting officer must not attempt partial settlements covering particular items of the prime contractor's settlement proposal, but when a termination contracting officer cannot promptly complete settlement under the terminated contract, a partial settlement may be entered into if conditions stated in the same section are met [@CL-CLS-0660]. Those conditions are that the issues on which agreement has been reached are clearly severable from other issues and that the partial settlement will not prejudice the Government's or contractor's interests in disposing of the unsettled part of the settlement proposal [@CL-CLS-0531].
+Generally the termination contracting officer shall not attempt to make partial settlements covering particular items of the prime contractor's settlement proposal [@CL-CLS-0660]. However, when a termination contracting officer cannot promptly complete settlement under the terminated contract, a partial settlement may be entered into if (a) the issues on which agreement has been reached are clearly severable from other issues and (b) the partial settlement will not prejudice the Government's or contractor's interests in disposing of the unsettled part of the settlement proposal [@CL-CLS-0660; @CL-CLS-0531].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A fixed-price production contract for 100 units is partially terminated, cancell
 
 ## Never confuse
 
-An equitable adjustment changes the price of the continued portion, whereas a termination settlement covers the terminated portion, and the termination settlement must not include any portion of an increase in price or of the costs included in the equitable adjustment [@CL-CLS-0526; @CL-CLS-0528; @CL-CLS-0529]. A partial settlement, which settles part of a settlement proposal early, is not a partial termination, which leaves a continued portion of the contract [@CL-CLS-0531; @CL-CLS-0530]. For change order accounting, see [Change order accounting](cls-change-order-accounting.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For the clause that sets partial termination adjustment deadlines, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+For change order accounting, see [Change order accounting](cls-change-order-accounting.md). For payment for supplies, see [Payments and responsibility for supplies](cls-payments-and-responsibility-for-supplies.md). For termination for convenience settlement, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -58,7 +58,8 @@ Who verifies that costs in a continued-portion adjustment are kept out of the te
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: cited the general rule on partial settlements.
+- COMPATIBLE_EXTENSION, 2026-10-31: partial termination adjustment and settlements: RFO definition cited alone, partial settlement conditions stated in full, uncited contrast removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: stated the no-overlap rule as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of continued portion of the contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of continued portion of the contract.

@@ -51,7 +51,7 @@ The analysis shall include credible evidence demonstrating the risk and an asses
 | Vulnerabilities | The extent to which the nature of the United States business presents susceptibility to impairment of national security [@CL-MNA-0559] |
 | Consequences | The potential effects on national security that could reasonably result from the exploitation of the vulnerabilities by the threat actor [@CL-MNA-0560] |
 
-The duty to conduct the analysis falls on the Committee [@CL-MNA-0017]. Neither section states a duty for a party to a transaction.
+The duty to conduct the analysis falls on the Committee [@CL-MNA-0017].
 
 ## Worked example
 
@@ -63,7 +63,7 @@ A fund proposes to buy a business that services a government program. Before the
 
 The Committee's risk-based analysis is not the President's decision to suspend or prohibit. The Committee conducts the analysis [@CL-MNA-0017]. The President acts on a separate judgment about credible evidence and the adequacy of other law [@CL-MNA-0014; @CL-MNA-0015].
 
-These two sections state authority and the Committee's analysis. They are not filing rules. The [jurisdiction card](mna-cfius-jurisdiction.md) shows which transactions are covered, and the [review and investigation card](mna-cfius-review-and-investigation.md) covers what follows a filing.
+The [jurisdiction card](mna-cfius-jurisdiction.md) shows which transactions are covered, and the [review and investigation card](mna-cfius-review-and-investigation.md) covers what follows a filing.
 
 ## Company calibration
 
@@ -72,6 +72,6 @@ Which body owns the deal decision and what diligence the mandate requires before
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the definition of section 721, the effect on other law and the rules of construction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of the CFIUS regulations and the risk-based analysis.

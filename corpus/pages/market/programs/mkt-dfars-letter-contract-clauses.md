@@ -31,11 +31,9 @@ Shows the two DoD contract-clause directions at DFARS 216.603-4, Contract clause
 
 For the clause at FAR 52.216-24, Limitation of Government Liability, the section says to see 217.7405(a) for additional guidance regarding its use [@CL-MKT-1870]. The section also says to use the clause at 252.217-7027, Contract Definitization, in accordance with its prescription at 217.7406(b), instead of the clause at FAR 52.216-25, Contract Definitization [@CL-MKT-1871].
 
-The first direction is a pointer to guidance; it does not say to include or omit the Limitation of Government Liability clause [@CL-MKT-1870]. The second direction names no official who applies it, and the condition for using the DoD clause lies in the prescription at 217.7406(b), which this section does not set out [@CL-MKT-1871].
-
 ## How it works
 
-The section does not restate when a definitization clause is needed; that depends on the prescription at 217.7406(b) [@CL-MKT-1871]. Where that prescription calls for the DoD clause, the clause takes the place of the FAR definitization clause and is not added to it [@CL-MKT-1871]. For the Limitation of Government Liability clause the section adds only a cross-reference to further guidance [@CL-MKT-1870]. The section sets no deadline, threshold or approval step of its own. Section 216.603-3, Limitations, separately says to see subpart 217.74 for additional limitations on the use of letter contracts [@CL-MKT-9163].
+The DoD clause at 252.217-7027, Contract Definitization, is used in accordance with its prescription at 217.7406(b), instead of the clause at FAR 52.216-25, Contract Definitization [@CL-MKT-1871]. Additional guidance regarding use of the clause at FAR 52.216-24, Limitation of Government Liability, is at 217.7405(a) [@CL-MKT-1870]. Section 216.603-3, Limitations, says to see subpart 217.74 for additional limitations on the use of letter contracts [@CL-MKT-9163].
 
 ## Worked example
 
@@ -45,7 +43,7 @@ A letter contract is awarded, and a definitive contract is to replace it later. 
 
 ## Never confuse
 
-The DoD definitization clause replaces the FAR clause; it is not an addition to it [@CL-MKT-1871]. The section does not say the Limitation of Government Liability clause is replaced; it only cross-references guidance on its use [@CL-MKT-1870]. The definitization clause itself is described on [Contract definitization for letter contracts](../../contract-finance/funding/ctf-contract-definitization.md).
+The DoD definitization clause is used instead of the FAR definitization clause [@CL-MKT-1871]. Additional guidance on the Limitation of Government Liability clause is at 217.7405(a) [@CL-MKT-1870]. The definitization clause itself is described on [Contract definitization for letter contracts](../../contract-finance/funding/ctf-contract-definitization.md).
 
 ## Company calibration
 
@@ -54,6 +52,6 @@ Which letter contracts the company holds, which definitization clause each carri
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed absence and contrast statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the pointer to the additional limitations on letter contracts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract clauses under DFARS 216.603-4.

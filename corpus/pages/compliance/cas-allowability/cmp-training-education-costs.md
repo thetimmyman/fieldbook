@@ -16,7 +16,7 @@ links = ["cmp-unallowable-cost-penalty"]
 
 ## Purpose
 
-Training and education costs related to the field the employee works in or may reasonably be expected to work in are allowable, except as the cost principle lists.
+Sets out the allowability of training and education costs and the listed exceptions.
 
 ## The rule
 
@@ -29,13 +29,13 @@ Training and education costs related to the field the employee works in or may r
 | Text status | Final [@CL-CMP-0455] |
 | Applies to | Training and education costs related to the field the employee works in or may reasonably be expected to work in [@CL-CMP-0455] |
 
-Costs of training and education related to the employee's field are allowable, except as the cost principle otherwise lists [@CL-CMP-0455; @CL-CMP-0824]. The cost of salaries for attending undergraduate or part-time graduate classes during working hours is unallowable, except when unusual circumstances prevent attendance outside regular working hours [@CL-CMP-0456]. Costs in connection with full-time graduate education are unallowable for any portion of the program exceeding two school years or the length of the degree program, whichever is less [@CL-CMP-0457].
+Under FAR 31.205-44, costs of training and education that are related to the field in which the employee is working or may reasonably be expected to work are allowable, except as follows [@CL-CMP-0455]. The exceptions include: (a) overtime compensation for training and education is unallowable [@CL-CMP-0824]; (b) the cost of salaries for attending undergraduate level classes or part-time graduate level classes during working hours is unallowable, except when unusual circumstances do not permit attendance at such classes outside of regular working hours [@CL-CMP-0456]; (c) costs of tuition, fees, training materials and textbooks, subsistence, salary, and any other payments in connection with full-time graduate level education are unallowable for any portion of the program that exceeds two school years or the length of the degree program, whichever is less [@CL-CMP-8488]; (d) grants to educational or training institutions, including the donation of facilities or other properties, scholarships, and fellowships are considered contributions and are unallowable [@CL-CMP-8489]; and (f) contractor contributions to college savings plans for employee dependents are unallowable [@CL-CMP-8490].
 
 ## How it works
 
-Training and education costs are allowable when they relate to the employee's field. The cost principle then carves out unallowable items: overtime compensation for training, salaries for attending undergraduate or part-time graduate classes during working hours (unless unusual circumstances prevent attendance outside regular working hours), and the costs of any portion of a full-time graduate program that exceeds two school years or the length of the degree program, whichever is less. Grants and contributions to educational institutions, and contributions to college savings plans for dependents, are unallowable.
+Paragraph (b) makes the cost of salaries for attending undergraduate level classes or part-time graduate level classes during working hours unallowable, except when unusual circumstances do not permit attendance at such classes outside of regular working hours [@CL-CMP-0456]. Paragraph (c) makes the listed costs in connection with full-time graduate level education unallowable for any portion of the program that exceeds two school years or the length of the degree program, whichever is less [@CL-CMP-8488; @CL-CMP-0457].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. RFO FAR 31.205-44 keeps the rule that costs for employee training and education related to the field in which the employee works, or may reasonably be expected to work, are allowable except for the items that follow [@CL-CMP-9535]. It keeps the exceptions for overtime compensation [@CL-CMP-9536], for full-time graduate education beyond two school years or the length of the degree program, whichever is less [@CL-CMP-9538], for grants and scholarships treated as contributions [@CL-CMP-9539], and for contributions to college savings plans for employee dependents [@CL-CMP-9540]. The salary exception for classes during working hours is worded differently: the RFO unusual-circumstances exception refers to attendance outside of working hours [@CL-CMP-9537].
+Under the RFO text, DoD contracting officers must use the RFO FAR part 31 text in place of the codified text [@CL-CMP-9350], effective immediately under Revision 1 signed on 2026-08-04 [@CL-CMP-9351]. Under RFO FAR 31.205-44, costs for employee training and education that are related to the field in which the employee works, or may reasonably be expected to work, are allowable except for the following [@CL-CMP-9535]: (a) overtime compensation for training and education is unallowable [@CL-CMP-9536]; (b) the cost of salaries for attending undergraduate level classes or part-time graduate level classes during working hours is unallowable, except when unusual circumstances do not permit attendance at such classes outside of working hours [@CL-CMP-9537]; (c) costs of tuition, fees, training materials, textbooks, subsistence, salary, and any other payments in connection with full-time graduate level education, are unallowable for any portion of the program that exceeds two school years or the length of the degree program, whichever is less [@CL-CMP-9538]; (d) grants to educational or training institutions, including the donation of facilities or other properties, scholarships, and fellowships are considered contributions and are unallowable [@CL-CMP-9539]; and (f) contractor contributions to college savings plans for employee dependents are unallowable [@CL-CMP-9540].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ An engineer takes a part-time graduate course in systems engineering. Classes me
 
 ## Never confuse
 
-Training related to the employee's field is not the same as contributions to educational institutions. Grants, scholarships, and donations of facilities are treated as contributions and are unallowable, not as training costs. The company also must keep unallowable training costs out of its rate pools; see [Penalties for unallowable costs](cmp-unallowable-cost-penalty.md). The codified exception for unusual circumstances refers to attendance outside regular working hours [@CL-CMP-0456], and the RFO text refers to attendance outside of working hours [@CL-CMP-9537].
+Grants to educational or training institutions, including the donation of facilities or other properties, scholarships, and fellowships are considered contributions and are unallowable [@CL-CMP-8489]. For unallowable costs in rate pools, see [Penalties for unallowable costs](cmp-unallowable-cost-penalty.md). The codified exception for unusual circumstances refers to attendance outside of regular working hours [@CL-CMP-0456], and the RFO text refers to attendance outside of working hours [@CL-CMP-9537].
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How unallowable training and education costs are kept out of rate and billing po
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: cited the codified two-school-year limit claim.
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated training and education rules from the quotes; added companions for codified items (c), (d) and (f); RFO-only paragraph.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 31 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for training and education costs.

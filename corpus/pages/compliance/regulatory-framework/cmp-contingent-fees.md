@@ -46,7 +46,7 @@ A contractor agrees to pay a consultant a success fee of 100,000 if it wins a co
 
 ## Never confuse
 
-The statutes require the warranty in every negotiated contract [@CL-CMP-2031], and the subpart applies to all contracts, with the statutory requirements for negotiated contracts extended to sealed bid contracts as a matter of policy [@CL-CMP-2106; @CL-CMP-2107]. The clause prescription is narrower: it covers solicitations and contracts exceeding the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2033]. The remedy is measured by the full amount of the contingent fee [@CL-CMP-2032], not by the contract value.
+The statutes require the warranty in every negotiated contract [@CL-CMP-2031], and the subpart applies to all contracts, with the statutory requirements for negotiated contracts extended to sealed bid contracts as a matter of policy [@CL-CMP-2106; @CL-CMP-2107]. The clause prescription is narrower: it covers solicitations and contracts exceeding the simplified acquisition threshold, other than those for commercial products or commercial services [@CL-CMP-2033]. For breach or violation of the warranty by the contractor, the Government may annul the contract without liability, or deduct from the contract price or consideration, or otherwise recover, the full amount of the contingent fee [@CL-CMP-2032].
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which contracts carry the covenant clause, and whether any sales commission or s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the full-amount remedy as one of the alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the record-keeping rule for suspected violations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the covenant against contingent fees.

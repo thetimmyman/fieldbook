@@ -30,7 +30,7 @@ Shows what information a voluntary notice must hold, what that means for deal-te
 
 This card rests on the regulations on certain investments in the United States by foreign persons. They are not FAR, DFARS or CAS text.
 
-If the parties to a transaction file a voluntary notice, they shall provide in detail the information the section sets out, which must be accurate and complete with respect to all parties and to the transaction [@CL-MNA-0842]. A voluntary notice shall describe or provide, as applicable, the listed information, the first item being a summary setting forth the essentials of the transaction, including a statement of its purpose [@CL-MNA-0843].
+If the parties to a transaction file a voluntary notice, they shall provide in detail the information the section sets out, which must be accurate and complete with respect to all parties and to the transaction [@CL-MNA-0842]. A voluntary notice shall describe or provide, as applicable, the listed information, the first item being a summary setting forth the essentials of the transaction, including a statement of the purpose of the transaction, and its scope, both within and outside of the United States [@CL-MNA-0843; @CL-MNA-0089].
 
 One listed item is the value of the transaction in U.S. dollars as determined under the valuation section and the parties' assessment of the applicable fee, including an explanation of the methodology used to determine the valuation and fee [@CL-MNA-0844]. Two listed items are the name of every financial institution involved in the transaction, including as advisors, underwriters or sources of financing, and a copy of any partnership agreements, integration agreements or other side agreements relating to the transaction [@CL-MNA-0845]. A group of the listed items is required with respect to the U.S. business that is the subject of the transaction and any entity of which it is a parent, unless that entity is excluded from the scope of the transaction [@CL-MNA-0925]. One listed item in that group is each other contract, identified by agency and number, that is currently in effect or was in effect within the past three years with a federal agency or component with national defense, homeland security or other national security responsibilities, including law enforcement responsibility as it relates to defense, homeland security or national security, together with the contract's estimated final completion date and the name, office and telephone number of the contracting official [@CL-MNA-0846; @CL-MNA-0084]. The section lists many further items, including items on the foreign person, its parents and the officers and directors, that this card does not restate.
 
@@ -50,7 +50,7 @@ Answer: each of those items is something the notice asks for, and the chief exec
 
 ## Never confuse
 
-The contents list is not the filing procedure. This card covers what the notice holds, and the [notice procedures card](mna-cfius-notice-procedures-and-rejection.md) covers how it is filed and when it may be rejected. A notice is also not a declaration, whose contents are on the [declaration contents card](mna-cfius-declaration-contents-and-rejection.md). The certification applies to a notice, declaration or information, not only to a notice [@CL-MNA-0847]. A withdrawn notice is a separate matter, and its rules are on the [withdrawal card](mna-cfius-declaration-procedures-withdrawal-and-contingent-interests.md).
+This card covers what the notice holds [@CL-MNA-0842; @CL-MNA-0843; @CL-MNA-0089], and the [notice procedures card](mna-cfius-notice-procedures-and-rejection.md) covers how it is filed and when it may be rejected. A notice is also not a declaration, whose contents are on the [declaration contents card](mna-cfius-declaration-contents-and-rejection.md). The certification applies to a notice, declaration or information, not only to a notice [@CL-MNA-0847]. A withdrawn notice is a separate matter, and its rules are on the [withdrawal card](mna-cfius-declaration-procedures-withdrawal-and-contingent-interests.md).
 
 ## Company calibration
 
@@ -59,7 +59,7 @@ Who in the company would collect the contract, financing and side-agreement info
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added transaction scope to the summary item and removed unsupported contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Certification wording matched to its definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the certification sentences so the certification keeps the accuracy and completeness statement, and the notice item keeps its law enforcement scope and information about the contract.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the contents of a voluntary notice and the certification.

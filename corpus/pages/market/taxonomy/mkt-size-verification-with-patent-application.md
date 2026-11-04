@@ -32,9 +32,9 @@ A concern verifies its size status with its submission of its patent application
 
 ## How it works
 
-The concern verifies its size when it submits the patent application [@CL-MKT-2052]. The Patent and Trademark Office may accept the verification as true in the absence of credible information indicating otherwise [@CL-MKT-2054]. The section does not say what that office does when it has such information. Questions about the verification are resolved initially by that office [@CL-MKT-2055]. An applicant that is not verified as small may request a formal SBA size determination [@CL-MKT-2055]. An improper attempt to establish small size status, whether fraudulent, grossly negligent or otherwise, may result in remedial action by that office [@CL-MKT-2053].
+The concern verifies its size when it submits the patent application [@CL-MKT-2052]. The Patent and Trademark Office may accept the verification as true in the absence of credible information indicating otherwise [@CL-MKT-2054]. Questions about the verification are resolved initially by that office [@CL-MKT-2055]. An applicant that is not verified as small may request a formal SBA size determination [@CL-MKT-2055]. An improper attempt to establish small size status, whether fraudulent, grossly negligent or otherwise, may result in remedial action by that office [@CL-MKT-2053].
 
-The size sections for reduced patent fees apply to size status for the purpose of paying reduced patent fees authorized by Public Law 97-247, at volume 96 of the Statutes at Large, page 317 [@CL-MKT-2380]. One condition for a concern to be eligible for reduced patent fees is that its number of employees, including affiliates, does not exceed 500 persons [@CL-MKT-2381]. The same sentence lists a second condition on rights in the invention, which this card does not state.
+The size sections for reduced patent fees apply to size status for the purpose of paying reduced patent fees authorized by Public Law 97-247, at volume 96 of the Statutes at Large, page 317 [@CL-MKT-2380]. To be eligible for reduced patent fees, a business concern must be small both by having a number of employees, including affiliates, that does not exceed 500 persons and by not having assigned, granted, conveyed, or licensed, and not being under an obligation by contract or law to assign, grant, convey, or license, any rights in the invention to any person who could not be classified as an independent inventor, or to any concern which would not qualify as a non-profit organization or a small business concern under that section [@CL-MKT-2381; @CL-MKT-1609; @CL-MKT-1610].
 
 Size determinations by authorized SBA officials are formal actions, based upon a specific patent application pursuant to the rules of the Patent and Trademark Office, Department of Commerce, and are binding upon the parties [@CL-MKT-2382]. Other SBA opinions provided to patent applicants or others are only advisory, and are not binding or appealable [@CL-MKT-2383]. Size status is determined as of the date of the patent applicant's written verification of size [@CL-MKT-2384].
 
@@ -55,7 +55,7 @@ Which filings carry a size verification, and who responds if the Patent and Trad
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated both conjunctive reduced-patent-fee conditions in 13 CFR 121.802.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the public law citation so the claim reference follows it.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size rules for reduced patent fees.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for size verification with a patent application.

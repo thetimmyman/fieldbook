@@ -28,11 +28,11 @@ Shows which affidavit a notification must contain, what each affidavit must atte
 | Text status | Not established. |
 | Applies to | The notification of each acquiring person in an acquisition to which § 801.30 applies, and the notification in an acquisition to which it does not apply [@CL-MNA-0220; @CL-MNA-0233] |
 
-Which affidavit a notification must contain depends on whether § 801.30 applies to the acquisition [@CL-MNA-0220; @CL-MNA-0233]. The affidavit is part of the notification [@CL-MNA-0220; @CL-MNA-0233]. The rule text does not say who decides whether an affidavit is sufficient; the examples say how the enforcement agencies and the Commission would treat particular notices [@CL-MNA-0245; @CL-MNA-0249].
+Which affidavit a notification must contain depends on whether § 801.30 applies to the acquisition [@CL-MNA-0220; @CL-MNA-0233]. The affidavit is part of the notification [@CL-MNA-0220; @CL-MNA-0233].
 
 ### Acquisitions to which § 801.30 applies
 
-The notification required from each acquiring person must contain an affidavit attesting that the issuer or unincorporated entity whose voting securities or non-corporate interests are to be acquired has received written notice [@CL-MNA-0220]. The notice must be delivered to an officer, or to a person exercising similar functions where the entity has no officers, by email, certified or registered mail, wire, or hand delivery, at the entity's principal executive offices [@CL-MNA-0221]. In the example to paragraph (a)(1)(vi), a notice letter emailed to a general email account is not sufficient notice, and a notice letter emailed to a named officer is email notice to a specific officer [@CL-MNA-0208; @CL-MNA-0209; @CL-MNA-0219]. The paragraph gives the addresses and the officer's name.
+The notification required from each acquiring person must contain an affidavit attesting that the issuer or unincorporated entity whose voting securities or non-corporate interests are to be acquired has received written notice [@CL-MNA-0220]. The notice must be delivered to an officer, or to a person exercising similar functions where the entity has no officers, by email, certified or registered mail, wire, or hand delivery, at the entity's principal executive offices [@CL-MNA-0221]. In the example to paragraph (a)(1)(vi), “A” intends to acquire voting securities of Company B, and if “A” sends, via email, a notice letter to a general email account, information@CompanyB.com, “A” has not provided sufficient notice, whereas if “A” sends, via email, a notice letter to “B's” President, Jane Doe, at Jane.Doe@CompanyB.com, “A” has provided email notice to a specific officer of “B” [@CL-MNA-0208; @CL-MNA-0090; @CL-MNA-0209; @CL-MNA-0219].
 
 The notice must state the identity of the acquiring person and that it intends to acquire voting securities or non-corporate interests of the issuer or unincorporated entity [@CL-MNA-0222]. It must state the specific classes sought and, if known, the number of each class that the acquiring person would hold as a result of the acquisition [@CL-MNA-0223]. If the number of voting securities is not known in the case of an issuer, it must state the specific notification threshold that the acquiring person intends to meet or exceed [@CL-MNA-0224]. If the acquiring person designates one, it must also state a higher threshold for additional voting securities that the person may hold in the year following the expiration of the waiting period [@CL-MNA-0225].
 
@@ -62,7 +62,7 @@ Assume § 801.30 applies [@CL-MNA-0220]. A buyer hand-delivers written notice to
 
 ## Never confuse
 
-The two affidavits differ. The first attests notice to the target and states the filer's good faith intention to make the acquisition. The second attests an executed contract, agreement in principle or letter of intent and the intention to complete the transaction [@CL-MNA-0220; @CL-MNA-0229; @CL-MNA-0233; @CL-MNA-0234]. In a tender offer, the first affidavit (paragraph (a)(2)) adds the attestation that the intention to make the offer has been publicly announced [@CL-MNA-0229]. In examples 4 and 5, a notice that did not state an intent to meet or exceed any notification threshold did not comply [@CL-MNA-0231; @CL-MNA-1023]. Paragraph (a)(1)(iii) asks for that threshold when the number of voting securities is not known in the case of an issuer [@CL-MNA-0224]. A filing made on behalf of a refusing foreign person has its own affidavit statement of the refusal, described on [the foreign person card](mna-hsr-foreign-person-refusal-to-file.md) [@CL-MNA-0213].
+The paragraph (a) affidavit attests notice to the issuer or unincorporated entity and states the filer's good faith intention to make the acquisition [@CL-MNA-0220; @CL-MNA-0229]. The paragraph (b) affidavit attests an executed contract, agreement in principle or letter of intent and the intention to complete the transaction [@CL-MNA-0233; @CL-MNA-0234]. In a tender offer, the first affidavit (paragraph (a)(2)) adds the attestation that the intention to make the offer has been publicly announced [@CL-MNA-0229]. In examples 4 and 5, a notice that did not state an intent to meet or exceed any notification threshold did not comply [@CL-MNA-0231; @CL-MNA-1023]. Paragraph (a)(1)(iii) asks for that threshold when the number of voting securities is not known in the case of an issuer [@CL-MNA-0224]. A filing made on behalf of a refusing foreign person has its own affidavit statement of the refusal, described on [the foreign person card](mna-hsr-foreign-person-refusal-to-file.md) [@CL-MNA-0213].
 
 ## Company calibration
 
@@ -71,5 +71,5 @@ Which notice steps and transaction documents the deal file must hold so that eac
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added email-notice example details and removed unsupported commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the affidavits required with a filing.

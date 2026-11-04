@@ -30,15 +30,13 @@ Shows what the Cost Accounting Standards statute requires of certain contractors
 
 The statute is title 41 of the United States Code, chapter 15, Cost Accounting Standards [@CL-CMP-7026]. It requires certain contractors and subcontractors to comply with the Cost Accounting Standards (CAS) and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-7026]. The CAS Board text at 48 CFR 9903.101 [@CL-CMP-9677] names Public Law 100-679 (41 U.S.C. 422) [@CL-CMP-9677] as requiring certain contractors and subcontractors to comply with Cost Accounting Standards (CAS) and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-9677].
 
-A contract that refers to FAR part 30 for the purpose of applying the policies, procedures, standards and regulations that the CASB promulgated under that statute is deemed to refer to the CAS and to any other regulations promulgated by the CASB [@CL-CMP-7027]. The same sentence states that the CAS and those other regulations, cross-referenced to 48 CFR chapter 99, are all hereby incorporated in FAR part 30 [@CL-CMP-7028].
+A contract that refers to FAR part 30 for the purpose of applying the policies, procedures, standards and regulations that the CASB promulgated under that statute is deemed to refer to the CAS and to any other regulations promulgated by the CASB [@CL-CMP-7027]. The CAS and any other regulations promulgated by the CASB (see 48 CFR chapter 99) are all hereby incorporated in FAR part 30 [@CL-CMP-7028].
 
 ## How it works
 
-The statute reaches certain contractors and subcontractors, not every one [@CL-CMP-7026]. This section does not say which ones, and it prints no dollar threshold, exemption or coverage test. For those, see [CAS applicability, coverage and Disclosure Statement thresholds](cmp-cas-applicability.md).
+The statute requires certain contractors and subcontractors to comply with the CAS and to disclose in writing and follow consistently their cost accounting practices [@CL-CMP-7026]. For the coverage and Disclosure Statement thresholds, see [CAS applicability, coverage and Disclosure Statement thresholds](cmp-cas-applicability.md).
 
-The duty has two parts: compliance with the CAS, and written disclosure of cost accounting practices together with consistent following of them [@CL-CMP-7026]. Both parts are stated for the same certain contractors and subcontractors [@CL-CMP-7026].
-
-The deemed-reference rule is conditional. It applies to a contract that refers to FAR part 30 for the purpose of applying the CASB's policies, procedures, standards and regulations [@CL-CMP-7027]. The section names no official who decides, and no deadline or filing step.
+Contracts that refer to FAR part 30 for the purpose of applying the policies, procedures, standards and regulations promulgated by the CASB pursuant to chapter 15 of title 41 of the United States Code shall be deemed to refer to the CAS, and any other regulations promulgated by the CASB [@CL-CMP-7027].
 
 ## Worked example
 
@@ -50,9 +48,7 @@ The example does not decide whether the company is one of the certain contractor
 
 ## Never confuse
 
-The statutory duty to disclose in writing and follow consistently is not a Disclosure Statement submission or an adequacy determination [@CL-CMP-7026]. A separate section bars the contracting officer from awarding a CAS-covered contract until the cognizant Federal agency official has made a written determination that a required Disclosure Statement is adequate, unless the agency head, on a nondelegable basis and in order to protect the Government's interest, authorizes award without obtaining submission of the required Disclosure Statement [@CL-CMP-7035; @CL-CMP-7036]. That section says the official issues the determinations of adequacy and compliance [@CL-CMP-7039]. See [Contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage](cmp-cas-disclosure-statement-responsibilities.md).
-
-The deemed-reference rule is not a general rule for all contracts. It covers a contract that refers to FAR part 30 for the stated purpose [@CL-CMP-7027].
+Under FAR 30.202-6(b), the contracting officer shall not award a CAS-covered contract until the cognizant Federal agency official (CFAO) has made a written determination that a required Disclosure Statement is adequate [@CL-CMP-7035], unless, in order to protect the Government's interest, the agency head, on a nondelegable basis, authorizes award without obtaining submission of the required Disclosure Statement [@CL-CMP-7036]. The CFAO is responsible for issuing determinations of adequacy and compliance of the Disclosure Statement [@CL-CMP-7039]. See [Contracting officer, auditor and CFAO responsibilities for Disclosure Statements and CAS coverage](cmp-cas-disclosure-statement-responsibilities.md).
 
 ## Company calibration
 
@@ -61,7 +57,8 @@ Which legal entities, business units and contracts sit inside the finance remit,
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Spelled out the statute reference in how-it-works.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, negative glosses and uncited contrasts; restated provisions as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Kept the claim citation inside each part of the Public Law sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Gave the Public Law and its United States Code reference as the text prints them.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.

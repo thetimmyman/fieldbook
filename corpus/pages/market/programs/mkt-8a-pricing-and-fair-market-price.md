@@ -16,7 +16,7 @@ links = ["mkt-8a-offering-and-acceptance", "mkt-8a-competitive-awards", "mkt-8a-
 
 ## Purpose
 
-Shows who prices an 8(a) contract, how the fair market price is estimated, and why the SBA must concur, so the file can show that the price was set under the stated procedures [@CL-MKT-1265; @CL-MKT-1268].
+Shows who prices an 8(a) contract, how the fair market price is estimated, and that the negotiated price and the estimated fair market price are subject to the concurrence of the SBA, so the file can show that the price was set under the stated procedures [@CL-MKT-1265; @CL-MKT-1268].
 
 ## The rule
 
@@ -41,7 +41,7 @@ For an acquisition other than a repeat purchase, the contracting officer uses co
 
 For a repeat purchase, the contracting officer considers recent award prices for the same items or work if quantities, conditions, terms and performance times are comparable [@CL-MKT-1271]. The estimated price should be adjusted for differences in specifications, plans, transportation costs, packaging and packing costs, and other circumstances [@CL-MKT-1367]. Price indices may be used as guides to changes in labor and material costs, and a comparison of commercial prices for similar items may also be used [@CL-MKT-1368].
 
-Separately, the FAR ties the fair market price for other set-asides to a different standard. For total and partial small business set-asides and reserves, and for HUBZone set-asides, it is the price achieved under the reasonable price guidelines in 15.404-1(b) [@CL-MKT-1369]. The same guidelines apply to contracts using the HUBZone price evaluation preference, to set-asides for SDVOSB concerns eligible under the SDVOSB Program, and to set-asides for EDWOSB and WOSB concerns eligible under the WOSB Program [@CL-MKT-1370]. See [Small business set-asides](mkt-small-business-set-asides.md).
+For total and partial small business set-asides and reserves, and for HUBZone set-asides, the fair market price shall be the price achieved in accordance with the reasonable price guidelines in 15.404-1(b) [@CL-MKT-1369]. The same guidelines apply to contracts using the HUBZone price evaluation preference, to set-asides for SDVOSB concerns eligible under the SDVOSB Program, and to set-asides for EDWOSB and WOSB concerns eligible under the WOSB Program [@CL-MKT-1370]. See [Small business set-asides](mkt-small-business-set-asides.md).
 
 ## Worked example
 
@@ -51,7 +51,7 @@ An agency proposes a sole-source 8(a) award at 1,200,000, and the contracting of
 
 ## Never confuse
 
-The fair market price limit applies to every 8(a) award, sole source or competitive [@CL-MKT-1266]. It is not the same as the reasonable price guidelines that set the fair market price for the other set-asides, because for 8(a) contracts the contracting officer follows the 19.807 procedures [@CL-MKT-1371; @CL-MKT-1369]. It is also separate from the offering and acceptance steps that come before pricing, which are on [the offering and acceptance card](mkt-8a-offering-and-acceptance.md).
+The fair market price limit applies to every 8(a) award, sole source or competitive [@CL-MKT-1266]. For 8(a) contracts the contracting officer follows the 19.807 procedures [@CL-MKT-1371], while the reasonable price guidelines in 15.404-1(b) set the fair market price for the other set-asides listed in 19.202-6 [@CL-MKT-1369; @CL-MKT-1370]. The offering and acceptance steps are on [the offering and acceptance card](mkt-8a-offering-and-acceptance.md).
 
 ## Company calibration
 
@@ -60,5 +60,5 @@ Whether the pricing file holds the cost or price analysis, the commercial and in
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed contrast and reason clauses and stated the SBA concurrence directly.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing an 8(a) contract and estimating the fair market price.

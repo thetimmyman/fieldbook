@@ -35,9 +35,9 @@ The two listed conditions are joined by "and": placement of orders or calls valu
 
 ## How it works
 
-The prescription turns on what orders are anticipated and on how the contract or agreement requires small orders to be paid. Because the conditions are joined by "and", the section calls for the clause when both are met [@CL-CTF-3841]. It does not prescribe the clause where only one is met. The section does not name who applies the test. It is written as an instruction to use the clause, and it puts no duty on a contractor itself. Any contractor obligation comes from the clause itself and not from this section, and that clause is on [Mandatory purchase card payment and the advance payment pool clause](../billing-payment/ctf-dfars-purchase-card-and-advance-payment-pool.md).
+Because the two conditions are joined by "and", the section calls for the clause at 252.232-7009 when both are met [@CL-CTF-3840; @CL-CTF-3841]. The clause itself is covered on [Mandatory purchase card payment and the advance payment pool clause](../billing-payment/ctf-dfars-purchase-card-and-advance-payment-pool.md).
 
-The commercial acquisition procedures of FAR part 12 do not take a solicitation, contract or agreement out of the prescription, because the section names them expressly [@CL-CTF-3840]. The section does not state the amount of the micro-purchase threshold; the FAR definition is on [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md). The FAR rules on when payment is made by card are on [EFT applicability and payment by Governmentwide commercial purchase card](ctf-eft-applicability-and-purchase-card-payment.md), and the other payment clause prescriptions are on [EFT solicitation provision and contract clauses](ctf-eft-solicitation-provision-and-clauses.md).
+The commercial acquisition procedures of FAR part 12 do not take a solicitation, contract or agreement out of the prescription, because the section names them expressly [@CL-CTF-3840]. The FAR definition of the micro-purchase threshold is on [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md). The FAR rules on when payment is made by card are on [EFT applicability and payment by Governmentwide commercial purchase card](ctf-eft-applicability-and-purchase-card-payment.md), and the other payment clause prescriptions are on [EFT solicitation provision and contract clauses](ctf-eft-solicitation-provision-and-clauses.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ The applicable micro-purchase threshold is taken to be 10,000. An agreement is e
 
 ## Never confuse
 
-The prescription of the mandatory card payment clause is a different rule from the prohibition on card payment where the foreign procurement tax clause applies, which is on [Prohibition on purchase card payment when the foreign procurement tax clause applies](ctf-purchase-card-foreign-tax-prohibition.md) [@CL-CTF-3838]. The first decides whether a clause goes into the instrument, and the second bars the contracting officer from authorizing the card as a payment method.
+The prescription of the mandatory card payment clause is a different rule from the prohibition on card payment where the foreign procurement tax clause applies, which is on [Prohibition on purchase card payment when the foreign procurement tax clause applies](ctf-purchase-card-foreign-tax-prohibition.md) [@CL-CTF-3838]. DFARS 232.1110 directs use of the clause at 252.232-7009 when both conditions on orders or calls at or below the micro-purchase threshold are met [@CL-CTF-3840; @CL-CTF-3841], whereas DFARS 232.1108-70 bars the contracting officer from authorizing the card as a method of payment during any contract period of performance if the contract includes FAR 52.229-12 without 252.229-7014 [@CL-CTF-3838; @CL-CTF-3839].
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Whether each solicitation, contract and agreement expected to produce orders at 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited meta commentary and cited the comparison with DFARS 232.1108-70.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD prescription of the mandatory purchase card payment clause.

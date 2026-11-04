@@ -39,7 +39,7 @@ Paragraph (a)(ii) directs the basic clause for solicitations and contracts other
 
 ## How it works
 
-The value test is measured on the solicitation, contract, agreement or order itself, including options; the section sets no threshold on a subcontract [@CL-CMP-7910; @CL-CMP-7911]. A value of exactly 3 million dollars does not exceed the threshold [@CL-CMP-7911]. The portfolio group test is separate, so a large contract for services outside the four groups is not caught by this prescription [@CL-CMP-7912].
+The value test is measured on the solicitation, contract, agreement or order itself, including options; the section sets no threshold on a subcontract [@CL-CMP-7910; @CL-CMP-7911]. A value of exactly 3 million dollars does not exceed the threshold [@CL-CMP-7911]. The portfolio group criterion applies in addition to the value criterion: the work must be for services in one of the four listed service acquisition portfolio groups [@CL-CMP-7911; @CL-CMP-7912].
 
 The form follows the vehicle. The basic clause is for solicitations and contracts other than indefinite-delivery solicitations and awards, and for orders placed under non-DoD contracts, that meet the criteria, while Alternate I is for solicitations and resultant awards of indefinite-delivery contracts, basic ordering agreements and blanket purchase agreements when one or more orders are expected to meet the criteria [@CL-CMP-7913; @CL-CMP-7914]. The definition of a first-tier subcontract applies in this subpart: a direct award to acquire services for the prime contract counts, while a vendor supply arrangement does not [@CL-CMP-7908; @CL-CMP-7909]. What the clause requires the contractor to report is in the clause text and the linked cards [@CL-CMP-7910].
 
@@ -63,5 +63,6 @@ Which legal entities, business units and contracts fall under the criteria, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Stated the portfolio test as an additional criterion.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the service contracts inventory definition and the contract clause prescriptions.

@@ -37,9 +37,7 @@ CAS 420 states that its purpose is to provide criteria for the accumulation of i
 
 ## How it works
 
-Each of the three sections is headed as a purpose section and says what its standard is for [@CL-CMP-8690; @CL-CMP-8692; @CL-CMP-8694]. None of them states a duty, a threshold, a deadline or an exception, and none names an official who decides [@CL-CMP-8690; @CL-CMP-8691; @CL-CMP-8692; @CL-CMP-8693; @CL-CMP-8694; @CL-CMP-8695; @CL-CMP-8696]. They do not say which contractors the standards cover, and their only mentions of contracts are the reference to contract cost in the CAS 414 purpose sentence and the reference to negotiated contracts in the CAS 414 benefit sentence [@CL-CMP-8690; @CL-CMP-8691]. The CAS 414 and CAS 420 sections use "will" for the expected result of consistent application of the criteria, and the insurance section uses "should" for the stated effect of applying its criteria, an increased probability of uniform and consistent allocation [@CL-CMP-8691; @CL-CMP-8696; @CL-CMP-8693]; none of these words states a duty on anyone [@CL-CMP-8691; @CL-CMP-8696; @CL-CMP-8693].
-
-CAS 414 is about the cost of capital committed to facilities, and its stated benefit is better cost measurement through allocation of contractor investment in facilities capital to negotiated contracts [@CL-CMP-8690; @CL-CMP-8691]. CAS 416 is about insurance costs, their assignment to cost accounting periods and their allocation to cost objectives, with, as the stated effect of applying the criteria, an increased probability that insurance costs are allocated to cost objectives in a uniform and consistent manner [@CL-CMP-8692; @CL-CMP-8693]. CAS 420 is about accumulating and allocating independent research and development costs and bid and proposal costs, and its stated benefit is improved cost allocation [@CL-CMP-8694; @CL-CMP-8695; @CL-CMP-8696]. The detailed insurance rules are on [Accounting for insurance costs under the Cost Accounting Standards](../cas-allowability/cmp-cas-416-insurance.md) and are not restated here.
+CAS 414 is about the cost of capital committed to facilities as an element of contract cost [@CL-CMP-8690], and consistent application of its criteria will improve cost measurement by providing for allocation of cost of contractor investment in facilities capital to negotiated contracts [@CL-CMP-8691]. CAS 416 provides criteria for the measurement of insurance costs, the assignment of such costs to cost accounting periods, and their allocation to cost objectives [@CL-CMP-8692], and the application of those criteria should increase the probability that insurance costs are allocated to cost objectives in a uniform and consistent manner [@CL-CMP-8693]. CAS 420 provides criteria for the accumulation of independent research and development costs and bid and proposal costs [@CL-CMP-8694] and for the allocation of such costs to cost objectives based on the beneficial or causal relationship between such costs and cost objectives [@CL-CMP-8695], and consistent application of those criteria will improve cost allocation [@CL-CMP-8696]. The detailed insurance rules are on [Accounting for insurance costs under the Cost Accounting Standards](../cas-allowability/cmp-cas-416-insurance.md).
 
 ## Worked example
 
@@ -49,9 +47,7 @@ A contractor to which these standards apply holds facilities capital, pays insur
 
 ## Never confuse
 
-A purpose statement is not a measurement rule. It names the target of the standard and prints no rate, base or dollar limit, so the techniques and allocation rules have to be read separately [@CL-CMP-8690; @CL-CMP-8692; @CL-CMP-8694].
-
-The three standards cover different costs. The facilities capital cost of money standard addresses the cost of capital committed to facilities, the insurance standard addresses insurance costs by period and by cost objective, and the independent research and development standard reaches both independent research and development costs and bid and proposal costs [@CL-CMP-8690; @CL-CMP-8692; @CL-CMP-8694]. The detailed cards are [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md), [Insurance](../cas-allowability/cmp-cas-416-insurance.md) and [IR&D and B&P allocation](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
+CAS 414 addresses the cost of capital committed to facilities [@CL-CMP-8690], CAS 416 addresses insurance costs [@CL-CMP-8692], and CAS 420 addresses independent research and development costs and bid and proposal costs [@CL-CMP-8694]. The detailed cards are [Facilities capital cost of money](../cas-allowability/cmp-cas-414-facilities-capital-cost-of-money.md), [Insurance](../cas-allowability/cmp-cas-416-insurance.md) and [IR&D and B&P allocation](../cas-allowability/cmp-cas-420-ird-bp-allocation.md).
 
 ## Company calibration
 
@@ -60,7 +56,7 @@ How independent research and development and bid and proposal projects are opene
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated how-it-works and Never confuse from the purpose sentences and removed uncited negatives and commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Insurance purpose sentence now says the criteria should increase the probability of uniform allocation, not that it is the expected result.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims on the will and should wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the note on mentions of contracts to include the contract cost reference in the CAS 414 purpose sentence.

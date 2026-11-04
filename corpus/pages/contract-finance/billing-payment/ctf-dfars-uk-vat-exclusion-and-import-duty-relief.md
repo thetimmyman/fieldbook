@@ -35,7 +35,7 @@ Any import dutiable articles, components, or raw materials supplied to the Unite
 
 ## How it works
 
-The value added tax clause fixes the price basis: the price is exclusive of the tax [@CL-CTF-1883]. The Contracting Officer makes the official-purposes certification on executing the contract [@CL-CTF-1884]. For imported items on which import duty has already been paid, the price excludes the duty paid, and the contractor is advised to contact Her Majesty's Revenue and Customs for a refund upon completion of the contract [@CL-CTF-1886].
+Under the value added tax clause, the supplies or services identified in the contract are to be delivered at a price exclusive of value added tax [@CL-CTF-1883]. The Contracting Officer makes the official-purposes certification on executing the contract [@CL-CTF-1884]. For imported items on which import duty has already been paid, the price excludes the duty paid, and the contractor is advised to contact Her Majesty's Revenue and Customs for a refund upon completion of the contract [@CL-CTF-1886].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor supplies imported components for a United Kingdom contract and has 
 
 ## Never confuse
 
-The value added tax clause and the import duty clause cover different charges [@CL-CTF-1883; @CL-CTF-1885]. The clause says the contractor is advised to contact the tax authority about a refund [@CL-CTF-1886]. The official-purposes certification is made by the Contracting Officer on executing the contract [@CL-CTF-1884]. Fuel has its own United Kingdom relief clauses, see [United Kingdom relief from customs duty and VAT on fuel](ctf-dfars-uk-fuel-customs-duty-and-vat-relief.md). Germany has its own duty-free clause, see [Tax relief, German customs exemption and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md). For the FAR tax clause, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md), and for tax allowability see [Taxes](../../compliance/cas-allowability/cmp-taxes.md).
+The value added tax clause concerns a price exclusive of value added tax [@CL-CTF-1883], and the import duty clause concerns import dutiable articles, components, or raw materials being exclusive of United Kingdom import duties [@CL-CTF-1885]. The contractor is advised to contact Her Majesty's Revenue and Customs to obtain a refund upon completion of the contract [@CL-CTF-1886]. The official-purposes certification is made by the Contracting Officer on executing the contract [@CL-CTF-1884]. Fuel has its own United Kingdom relief clauses, see [United Kingdom relief from customs duty and VAT on fuel](ctf-dfars-uk-fuel-customs-duty-and-vat-relief.md). Germany has its own duty-free clause, see [Tax relief, German customs exemption and receipt verification](ctf-dfars-germany-tax-relief-customs-and-receipt-verification.md). For the FAR tax clause, see [Federal, State, and Local Taxes clause](ctf-federal-state-local-taxes.md), and for tax allowability see [Taxes](../../compliance/cas-allowability/cmp-taxes.md).
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which United Kingdom contracts carry these clauses, and how duty paid on imports
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrast; restated the refund advice with its timing.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for value added tax exclusion and relief from import duty in the United Kingdom.

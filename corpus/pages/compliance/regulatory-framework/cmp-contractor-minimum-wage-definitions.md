@@ -15,7 +15,7 @@ links = ["cmp-eo-wage-and-sick-leave-coverage-and-exclusions", "cmp-minimum-wage
 
 ## Purpose
 
-Defines the two terms FAR 22.1901 prints, United States and worker, as used in FAR subpart 22.19 on the minimum wage for contractors, where a worker is a person working on or in connection with a contract covered by Executive Order 14026 [@CL-CMP-8172]. The definitions are stated so that contract coverage, geographic scope and headcount rest on the printed definitions.
+Defines the two terms FAR 22.1901 prints, United States and worker, as used in FAR subpart 22.19 on the minimum wage for contractors, where a worker is a person working on or in connection with a contract covered by Executive Order 14026 [@CL-CMP-8172].
 
 ## The rule
 
@@ -64,7 +64,7 @@ The worker definition has a coverage element and a wage element. The person must
 
 Executive, administrative and professional employees as defined in 29 CFR part 541 are outside paragraph (1)(i) of the definition [@CL-CMP-8174]. The content of those terms is Not established here.
 
-The label the parties give the relationship does not decide who is a worker. The definition applies regardless of the contractual relationship alleged to exist between the individual and the employer [@CL-CMP-8190].
+The definition applies regardless of the contractual relationship alleged to exist between the individual and the employer [@CL-CMP-8190].
 
 Two groups are added by their own paragraphs. They are workers paid under special certificates, and persons individually registered in a bona fide apprenticeship or training program of the kind described [@CL-CMP-8175; @CL-CMP-8176; @CL-CMP-8177].
 
@@ -98,6 +98,7 @@ Which covered contracts, labor categories and headcounts the company counts insi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited purpose clause and an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Joined worker definition sentences to their claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope section.

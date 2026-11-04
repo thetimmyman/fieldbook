@@ -23,7 +23,7 @@ Shows which justifications for other than full and open competition must be post
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-MKT-0095] |
-| Codified citation | FAR 5.405; FAR 5.406 [@CL-MKT-0098; @CL-MKT-0095] |
+| Codified citation | FAR 5.402; FAR 5.403; FAR 5.405; FAR 5.406 [@CL-MKT-2219; @CL-MKT-2220; @CL-MKT-0098; @CL-MKT-0095] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-MKT-0095] |
@@ -31,13 +31,11 @@ Shows which justifications for other than full and open competition must be post
 
 Justifications and approvals for other than full and open competition must be posted in accordance with FAR 6.305 [@CL-MKT-0095]. Limited-source justifications (excluding brand name) for Federal Supply Schedule orders or blanket purchase agreements with an estimated value greater than the simplified acquisition threshold must be posted in accordance with FAR 8.405-6(a)(2) [@CL-MKT-0096]. Justifications for task or delivery orders greater than the simplified acquisition threshold and awarded without providing for fair opportunity must be posted in accordance with FAR 16.505(b)(2)(ii)(D) [@CL-MKT-0097].
 
-When the same item or class of items is being acquired by more than one agency or contracting activity, the exchange and coordination of pertinent information, particularly cost and pricing data, is necessary to promote uniformity of treatment of major issues and the resolution of particularly difficult or controversial issues [@CL-MKT-0098; @CL-MKT-9389]. When substantial acquisitions of major items are involved or when the contracting activity deems it desirable, the contracting activity shall request appropriate information, on both the end item and on major subcontracted components [@CL-MKT-0099], from other agencies or contracting activities responsible for acquiring similar items [@CL-MKT-0155].
+When the same item or class of items is being acquired by more than one agency, or by more than one contracting activity within an agency, the exchange and coordination of pertinent information, particularly cost and pricing data, between these agencies or contracting activities is necessary to promote uniformity of treatment of major issues and the resolution of particularly difficult or controversial issues [@CL-MKT-0098; @CL-MKT-9389]. When substantial acquisitions of major items are involved or when the contracting activity deems it desirable, the contracting activity shall request appropriate information (on both the end item and on major subcontracted components) [@CL-MKT-0099] from other agencies or contracting activities responsible for acquiring similar items [@CL-MKT-0155].
 
 ## How it works
 
-The posting rules point to the sections that govern each justification, so the detail of what is posted and when sits in those sections [@CL-MKT-0095; @CL-MKT-0096; @CL-MKT-0097]. The exchange rule is about information moving between agencies and contracting activities, with cost and pricing data singled out [@CL-MKT-0098; @CL-MKT-0099]. The cost and pricing data side overlaps with the [certified data exceptions](../../estimating/pricing/est-certified-data-exceptions.md) card, and the other-than-full-and-open side with the [Only One Offer provision](../../estimating/pricing/est-only-one-offer.md) card. This card does not restate them.
-
-Contracting officers shall process requests for specific information from the general public, including suppliers, in accordance with FAR subpart 24.1 or 24.2, as appropriate [@CL-MKT-2219]. Contracting officers shall give Members of Congress, upon their request, detailed information regarding any particular contract [@CL-MKT-2220]. When responsiveness would result in disclosure of classified matter, business confidential information, or information prejudicial to competitive acquisition, the contracting officer shall refer the proposed reply, with full documentation, to the agency head and inform the legislative liaison office of the action [@CL-MKT-2220; @CL-MKT-2221].
+Contracting officers shall process requests for specific information from the general public, including suppliers, in accordance with FAR subpart 24.1 or 24.2, as appropriate [@CL-MKT-2219]. Contracting officers shall give Members of Congress, upon their request, detailed information regarding any particular contract [@CL-MKT-2220]. When responsiveness would result in disclosure of classified matter, business confidential information, or information prejudicial to competitive acquisition, the contracting officer shall refer the proposed reply, with full documentation, to the agency head and inform the legislative liaison office of the action [@CL-MKT-2220; @CL-MKT-2221]. For certified cost or pricing data exceptions, see the [certified data exceptions](../../estimating/pricing/est-certified-data-exceptions.md) card, and for the single-offer provision, see the [Only One Offer provision](../../estimating/pricing/est-only-one-offer.md) card.
 
 ## Worked example
 
@@ -47,7 +45,7 @@ A contracting officer awards a task order of 900,000 without providing for fair 
 
 ## Never confuse
 
-Posting a justification is not the exchange of acquisition information: posting is public disclosure under the cited sections [@CL-MKT-0095], while the exchange is between agencies and contracting activities and centres on cost and pricing data [@CL-MKT-0098]. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
+Under FAR 5.406, justifications and approvals for other than full and open competition must be posted in accordance with FAR 6.305 [@CL-MKT-0095], limited-source justifications (excluding brand name) for FSS orders or blanket purchase agreements with an estimated value greater than the simplified acquisition threshold must be posted in accordance with FAR 8.405-6(a)(2) [@CL-MKT-0096], and justifications for task or delivery orders greater than the simplified acquisition threshold and awarded without providing for fair opportunity must be posted in accordance with FAR 16.505(b)(2)(ii)(D) [@CL-MKT-0097]. Under FAR 5.405(a), when the same item or class of items is being acquired by more than one agency, or by more than one contracting activity within an agency, the exchange and coordination of pertinent information, particularly cost and pricing data, between these agencies or contracting activities is necessary to promote uniformity of treatment of major issues and the resolution of particularly difficult or controversial issues [@CL-MKT-0098; @CL-MKT-9389]. The dollar amount of the simplified acquisition threshold is on the [Simplified acquisition and micro-purchase thresholds](../../compliance/regulatory-framework/cmp-acquisition-thresholds.md) card.
 
 ## Company calibration
 
@@ -56,7 +54,7 @@ Confirm which posted justifications are relevant public market observations for 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added within-agency contracting-activity wording in FAR 5.405(a) and removed meta-wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the purpose of the information exchange.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rules for public requests and requests from Members of Congress.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for public disclosure of justification documents and exchange of acquisition information.

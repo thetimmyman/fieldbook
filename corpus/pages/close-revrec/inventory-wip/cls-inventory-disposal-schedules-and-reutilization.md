@@ -31,11 +31,11 @@ Shows how plant clearance officers handle contractor inventory disposal schedule
 
 Plant clearance officers should review and accept, or return for correction, inventory disposal schedules within 10 days following receipt from a contractor [@CL-CLS-0733]. Plant clearance officers shall use Standard Form 1423 to verify accepted schedules, in accordance with agency procedures, within 20 days following acceptance [@CL-CLS-0734].
 
-Plant clearance officers shall initiate reutilization actions for all property not meeting the abandonment or destruction criteria of the paragraph on approved abandonment or destruction, using authorized methods listed in descending order from highest to lowest priority [@CL-CLS-0736]. The first authorized method is reuse within the owning agency [@CL-CLS-0737]. The third lettered method is report to GSA for reuse within the Federal Government or donation as surplus property [@CL-CLS-0738]. The fourth lettered method is to dispose of listed categories of property in accordance with agency procedures without reporting to GSA [@CL-CLS-0739].
+Plant clearance officers shall initiate reutilization actions for all property not meeting the abandonment or destruction criteria of 45.603(b), using authorized methods listed in descending order from highest to lowest priority [@CL-CLS-0736]. The first authorized method is reuse within the owning agency [@CL-CLS-0737]. The third lettered method is report to GSA for reuse within the Federal Government or donation as surplus property [@CL-CLS-0738]. The fourth lettered method is to dispose of listed categories of property in accordance with agency procedures without reporting to GSA [@CL-CLS-0739].
 
 ## How it works
 
-Plant clearance officers shall provide the contractor disposition instructions for property identified on an acceptable inventory disposal schedule within 120 days, and a failure to provide timely disposition instructions may entitle the contractor to an equitable adjustment [@CL-CLS-0734; @CL-CLS-0735]. This section as printed covers the officer's handling of schedules after receipt, so the contractor's own submission deadline is not established here. When property is transferred to another agency, the transferring agency shall not be reimbursed for the property in any manner unless the circumstances of the cited regulation apply [@CL-CLS-0740]. The receiving agency shall pay any transportation costs that are not the contractor's responsibility and any costs to pack, crate, or otherwise prepare the property for shipment [@CL-CLS-0741]. For schedules after a termination, see [Termination inventory: disposal schedules and government property accounting](cls-termination-inventory-schedules-and-property-accounting.md).
+Plant clearance officers shall provide the contractor disposition instructions for property identified on an acceptable inventory disposal schedule within 120 days, and a failure to provide timely disposition instructions may entitle the contractor to an equitable adjustment [@CL-CLS-0734; @CL-CLS-0735]. Agencies whose property is transferred to other agencies shall not be reimbursed for the property in any manner unless the circumstances of FMR 102-36.285 (41 CFR 102-36.285) apply [@CL-CLS-0740]. The agency receiving the property shall pay any transportation costs that are not the contractor's responsibility and any costs to pack, crate, or otherwise prepare the property for shipment [@CL-CLS-0741]. For schedules after a termination, see [Termination inventory: disposal schedules and government property accounting](cls-termination-inventory-schedules-and-property-accounting.md).
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A contractor submits an inventory disposal schedule on Day 1. The plant clearanc
 
 ## Never confuse
 
-Reutilization is not abandonment. Reutilization actions are for property that does not meet the abandonment or destruction criteria of the paragraph on approved abandonment or destruction [@CL-CLS-0736]. An interagency transfer is also not a sale: the transferring agency is not reimbursed, subject to the exception the section names [@CL-CLS-0740].
+Reutilization actions are initiated for all property not meeting the abandonment or destruction criteria of 45.603(b) [@CL-CLS-0736]. An interagency transfer is also not a sale: agencies whose property is transferred to other agencies shall not be reimbursed for the property in any manner unless the circumstances of FMR 102-36.285 (41 CFR 102-36.285) apply [@CL-CLS-0740].
 
 ## Company calibration
 
@@ -54,6 +54,6 @@ Who prepares inventory disposal schedules and tracks the plant clearance officer
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the 45.603(b) and FMR 102-36.285 cross-references and removed uncited meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: named the plant clearance officer as the actor for the 120-day instructions.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inventory disposal schedules and reutilization priorities.

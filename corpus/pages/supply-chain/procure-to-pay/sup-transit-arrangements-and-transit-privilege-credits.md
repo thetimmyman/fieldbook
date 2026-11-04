@@ -23,7 +23,7 @@ Explains how transit arrangements are evaluated, how an offeror proposes to use 
 |---|---|
 | Instrument | Codified FAR [@CL-SUP-2458; @CL-SUP-2460] |
 | Codified citation | FAR 52.247-56 and FAR 52.247-57 [@CL-SUP-2458; @CL-SUP-2460] |
-| RFO citation | RFO FAR 52.247-56 [@CL-SUP-0639; @CL-SUP-0640; @CL-SUP-0641]; No RFO equivalent for FAR 52.247-57, which the RFO text prints as [Reserved] [@CL-SUP-0642] |
+| RFO citation | RFO FAR 52.247-56 [@CL-SUP-0639; @CL-SUP-0640; @CL-SUP-0641]; No RFO equivalent for FAR 52.247-57, which is marked [Reserved] [@CL-SUP-0642] |
 | Edition date | Not established. |
 | Text status | Final [@CL-SUP-2458; @CL-SUP-2460] |
 | Applies to | Solicitations when benefits may accrue to the Government because transit arrangements may apply [@CL-SUP-2458], and solicitations and contracts when offerors may have potential transit credits that the Government may use to reduce transportation costs [@CL-SUP-2460] |
@@ -46,7 +46,7 @@ The rate per CWT quoted will be used by the Government to evaluate the offered f
 
 An offeror with a transit privilege proposes the credit-adjusted rate, ships on its own commercial bills of lading, pays the remaining charges, and is reimbursed up to its quoted amount [@CL-SUP-2461; @CL-SUP-2462]. The quoted rate is net of the transit credit [@CL-SUP-2528], and the Government uses it to evaluate the offered f.o.b. origin price unless a lower rate applies on the date of bid opening or the closing date for offers [@CL-SUP-2464].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text of FAR 52.247-56 keeps the insertion of the Transit Arrangements provision in solicitations when benefits may accrue to the Government because transit arrangements may apply [@CL-SUP-0639; @CL-SUP-2458]. It keeps the evaluation of offers on the lowest appropriate common carrier transportation costs, including the offeror's through transit rates and charges when applicable, via the transit point to the ultimate destination [@CL-SUP-0640; @CL-SUP-2459], and the blanks for the transit points and the destinations [@CL-SUP-0641; @CL-SUP-2525]. The RFO text prints FAR 52.247-57 as [Reserved] [@CL-SUP-0642]. The transit privilege credits rules described above are the codified FAR 52.247-57 [@CL-SUP-2460].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text from February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.247-56 keeps the insertion of the Transit Arrangements provision in solicitations when benefits may accrue to the Government because transit arrangements may apply [@CL-SUP-0639; @CL-SUP-2458]. It keeps the evaluation of offers on the lowest appropriate common carrier transportation costs, including the offeror's through transit rates and charges when applicable, from the offeror's shipping points, via the transit point, to the ultimate destination [@CL-SUP-0640; @CL-SUP-2459], and the headings for the transit points and the destinations [@CL-SUP-0641; @CL-SUP-2525]. RFO FAR 52.247-57 is marked [Reserved] [@CL-SUP-0642]. The transit privilege credits rules described above are in codified FAR 52.247-57 [@CL-SUP-2460].
 
 ## Worked example
 
@@ -56,7 +56,7 @@ An offeror holds a transit privilege and quotes a rate of 50 cents per 100 pound
 
 ## Never confuse
 
-A transit credit is not a discount that the offeror keeps. The credit is netted out of the quoted rate, and the Government reimburses only the remaining charges, up to the amount quoted [@CL-SUP-2528; @CL-SUP-2462]. Transit arrangements, which evaluate the through rate via the transit point, also differ from transit privilege credits, where the offeror ships under commercial bills of lading and is reimbursed [@CL-SUP-2459; @CL-SUP-2462]. For stopping in transit and multiple shipments, see [Charges for multiple shipments and stopping in transit](sup-charges-multiple-shipments-and-stopping-in-transit.md). The codified text has both the Transit Arrangements provision and the Transportation Transit Privilege Credits clause [@CL-SUP-2458; @CL-SUP-2460], but the RFO text keeps the transit arrangements provision as FAR 52.247-56 and prints FAR 52.247-57 as [Reserved] [@CL-SUP-0639; @CL-SUP-0642].
+Under the Transportation Transit Privilege Credits clause, the quoted amount includes the carrier's transit privilege charge, less the applicable transit credit (i.e., the amount (rate) initially paid to the carrier for shipment from original source to the offeror's transit plant or point), and the offeror ships the supplies under commercial bills of lading and pays all remaining transportation charges connected with the shipment, subject to reimbursement by the Government in an amount equal to the remaining charges but not exceeding the amount quoted by the offeror [@CL-SUP-2528; @CL-SUP-2462]. Under the Transit Arrangements provision, the lowest appropriate common carrier transportation costs, including the offeror's through transit rates and charges when applicable, from the offeror's shipping points, via the transit point, to the ultimate destination will be used in evaluating offers [@CL-SUP-2459]. For stopping in transit and multiple shipments, see [Charges for multiple shipments and stopping in transit](sup-charges-multiple-shipments-and-stopping-in-transit.md). Codified FAR 52.247-56 and FAR 52.247-57 set out the Transit Arrangements provision and the Transportation Transit Privilege Credits clause [@CL-SUP-2458; @CL-SUP-2460], while RFO FAR 52.247-56 sets out the Transit Arrangements provision and RFO FAR 52.247-57 is marked [Reserved] [@CL-SUP-0639; @CL-SUP-0642].
 
 ## Company calibration
 
@@ -66,6 +66,7 @@ Whether the company holds transit privileges it can apply, and what shipping and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed uncited contrasts and meta wording and aligned RFO reserved status with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed statements about who completes the blanks, which the clause does not make.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for transit arrangements and transportation transit privilege credits.

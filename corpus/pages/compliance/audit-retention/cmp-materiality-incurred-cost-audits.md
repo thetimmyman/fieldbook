@@ -39,11 +39,11 @@ Auditors must design and perform procedures on all material balances to support 
 
 Synthetic example. The numbers are made up.
 
-An auditor sets a quantitative materiality threshold of 100,000 for an incurred cost audit. A balance of 400,000 is above the threshold, so the auditor performs procedures on it whatever the assessed risk, and the assessed risk only changes how much testing is done. A second balance of 60,000 is below the threshold, but the account has a history of questioned costs. The auditor documents that history as objective evidence and tests the balance anyway.
+An auditor sets a quantitative materiality threshold of 100,000 for an incurred cost audit. A balance of 400,000 is above the threshold, so the auditor performs procedures on it whatever the assessed risk, and the assessed risk influences the nature, timing, and extent of those procedures. A second balance of 60,000 is below the threshold, but the account has a history of questioned costs. The auditor documents that history as objective evidence and tests the balance anyway.
 
 ## Never confuse
 
-Procedures are performed on all material balances regardless of assessed risk [@CL-CMP-1712], and qualitative risks may justify auditing amounts below the quantitative materiality threshold [@CL-CMP-1713]. It does not decide whether a proposal is audited at all, which is a separate sampling decision. See [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
+Auditors must design and perform procedures on all material balances to support their audit opinion, regardless of the assessed risk, while risk assessment influences the nature, timing, and extent of these procedures [@CL-CMP-1712], and qualitative risks may justify auditing amounts below the quantitative materiality threshold [@CL-CMP-1713]. See [Final indirect cost rate proposal](../../indirect-rates/rate-lifecycle/rte-final-indirect-rate-proposal.md).
 
 ## Company calibration
 
@@ -52,6 +52,7 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated in the worked example that assessed risk influences the nature, timing, and extent of procedures.
+- COMPATIBLE_EXTENSION, 2026-10-31: Included the effect of risk assessment on procedures in Never confuse and removed the uncited sampling contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the materiality comparison to say what the quotes support about material balances and qualitative risks.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for materiality in incurred cost audits.

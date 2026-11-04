@@ -29,11 +29,11 @@ A contractor's cost estimating practices and its cost accounting practices for a
 | Text status | Final [@CL-CMP-0201] |
 | Applies to | A contractor's estimating practices and cost accounting practices [@CL-CMP-0201] |
 
-A contractor must price a proposal with estimating practices consistent with the practices used to accumulate and report costs [@CL-CMP-0201]. The estimating practices and the accumulating and reporting practices must also be consistent as to the direct-or-indirect classification of cost elements or functions, the indirect cost pools to which each is charged or proposed to be charged, and the methods of allocating indirect costs to the contract [@CL-CMP-0202]. Grouping homogeneous costs together in an estimate is not by itself an inconsistency when those costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203; @CL-CMP-0834].
+A contractor's practices used in estimating costs in pricing a proposal must be consistent with his cost accounting practices used in accumulating and reporting costs [@CL-CMP-0201]. In any event, the cost accounting practices used in estimating costs in pricing a proposal and in accumulating and reporting costs on the resulting contract must be consistent with respect to the classification of elements or functions of cost as direct or indirect, the indirect cost pools to which each element or function of cost is charged or proposed to be charged, and the methods of allocating indirect costs to the contract [@CL-CMP-8033; @CL-CMP-0202]. The grouping of homogeneous costs in estimates prepared for proposal purposes is not per se an inconsistent application of cost accounting practices under paragraphs (a) and (b) when such costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203; @CL-CMP-0834].
 
 ## How it works
 
-Consistency is judged at the date of award, or at the date of final agreement on price when certified cost or pricing data are submitted. Grouping homogeneous costs is allowed to cover cases where it is not practicable to estimate contract costs by individual cost element or function, provided the costs are accumulated and reported in greater detail on an actual cost basis during contract performance. Any significant cost must be presented so it can be compared with the actual cost accumulated and reported for it. During performance a contractor may change an established practice, but only under the cost accounting standards change rules.
+Adherence to the requirement in paragraph (a) of the fundamental requirement shall be determined as of the date of award of the contract, unless the contractor has submitted cost or pricing data under section 2306a of title 10, United States Code, or section 254(d) of title 41, United States Code, in which case it shall be determined as of the date of final agreement on price, as shown on the signed certificate of current cost or pricing data [@CL-CMP-8803; @CL-CMP-8804]. The standard allows grouping of homogeneous costs to cover cases where it is not practicable to estimate contract costs by individual cost element or function [@CL-CMP-8801]. The grouping of homogeneous costs in estimates prepared for proposal purposes shall not per se be deemed an inconsistent application of cost accounting practices under paragraphs (a) and (b) when such costs are accumulated and reported in greater detail on an actual cost basis during contract performance [@CL-CMP-0203; @CL-CMP-0834]. However, costs estimated for proposal purposes shall be presented in such a manner and in such detail that any significant cost can be compared with the actual cost accumulated and reported for it [@CL-CMP-8802]. Notwithstanding 9904.401-40(b), changes in established cost accounting practices during contract performance may be made in accordance with part 99 [@CL-CMP-8805].
 
 ## Worked example
 
@@ -43,7 +43,7 @@ A contractor estimates a proposal treating an engineer's time as a direct cost. 
 
 ## Never confuse
 
-Consistency between estimating and accumulating and reporting is not the same as the same-purpose rule, which requires costs incurred for the same purpose in like circumstances to be either direct or indirect only. The first governs agreement between the estimate and the records; the second governs how one cost is classified.
+The same-purpose Standard requires all costs incurred for the same purpose, in like circumstances, to be either direct costs only or indirect costs only with respect to final cost objectives [@CL-CMP-0204].
 
 ## Company calibration
 
@@ -52,5 +52,8 @@ Whether each business unit is subject to full CAS coverage, modified coverage or
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-11-03: Stated under paragraphs (a) and (b) on the grouping rule in How it works.
+- COMPATIBLE_EXTENSION, 2026-10-31: cited the adherence date, grouping and part 99 change rules.
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed figures from uncited sentences.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the subject of the techniques requirement and kept the grouping scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for consistency in estimating, accumulating and reporting costs.

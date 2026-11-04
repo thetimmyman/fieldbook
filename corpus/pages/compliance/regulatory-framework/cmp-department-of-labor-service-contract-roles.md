@@ -60,7 +60,7 @@ For the first question, the section lists wage determination procedures at 29 CF
 
 ## Never confuse
 
-This section describes the Secretary of Labor's authority, not a contracting officer's. It authorizes the Secretary of Labor to enforce, make rules and regulations, issue orders, hold hearings and make decisions [@CL-CMP-8099]. It does not describe a contracting officer decision.
+The Secretary of Labor is authorized and directed to enforce, make rules and regulations, issue orders, hold hearings and make decisions [@CL-CMP-8099].
 
 The list of regulations is a list of matters the Department of Labor has issued regulations on. The section does not restate the content of those regulations [@CL-CMP-8100; @CL-CMP-8101; @CL-CMP-8102].
 
@@ -74,5 +74,6 @@ Who owns the response when the Department of Labor raises an enforcement or wage
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut an uncited contrast about contracting officers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on withholding and ineligibility for violations.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Department of Labor service contract roles.

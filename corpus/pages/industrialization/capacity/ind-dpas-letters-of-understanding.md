@@ -29,7 +29,7 @@ Shows what a letter of understanding can do in a special priorities assistance c
 | Text status | Not established. |
 | Applies to | Special priorities assistance cases in which a letter of understanding may be issued to reflect an agreement reached by all parties [@CL-IND-0306] |
 
-15 CFR 700.63 provides that a letter of understanding is an official action that may be issued in resolving special priorities assistance cases, to reflect an agreement reached by all parties, such as the Department of Commerce, the Determination Department, the Delegate Agency, the supplier and the customer [@CL-IND-0306]. The paragraph does not say who issues it.
+15 CFR 700.63 provides that a letter of understanding is an official action that may be issued in resolving special priorities assistance cases, to reflect an agreement reached by all parties, such as the Department of Commerce, the Determination Department, the Delegate Agency, the supplier and the customer [@CL-IND-0306].
 
 A letter of understanding is not used to alter scheduling between rated orders, to authorize the use of priority ratings, to impose restrictions under this regulation, or to take other official actions [@CL-IND-0307]. Letters of understanding are used to confirm production or shipping schedules which do not require modifications to other rated orders [@CL-IND-0308].
 
@@ -39,7 +39,7 @@ A directive is an official action which requires a person to take or refrain fro
 
 ## How it works
 
-A letter of understanding follows an agreement that the parties have reached in a special priorities assistance case, and it reflects that agreement [@CL-IND-0306]. The schedules that letters of understanding are used to confirm are ones that need no change to other rated orders [@CL-IND-0308]. If the case needs a change in scheduling between rated orders, a new rating or a restriction, the letter is not the tool [@CL-IND-0307]. The section names no deadline, dollar threshold or form for the letter, and does not say who decides when one is issued.
+A letter of understanding is an official action that may be issued in resolving special priorities assistance cases to reflect an agreement reached by all parties (the Department of Commerce, the Determination Department, the Delegate Agency, the supplier, and the customer) [@CL-IND-0306]. Letters of understanding are used to confirm production or shipping schedules which do not require modifications to other rated orders, and a letter of understanding is not used to alter scheduling between rated orders, to authorize the use of priority ratings, to impose restrictions under the regulation, or to take other official actions [@CL-IND-0307; @CL-IND-0308].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ In a special priorities assistance case, the supplier, the customer and the othe
 
 ## Never confuse
 
-A letter of understanding is not used to authorize the use of a priority rating, to impose a restriction or to take other official actions [@CL-IND-0307]. It also differs from special priorities assistance itself: the letter may be issued in resolving a case and reflects the agreement reached, and the section does not make it the assistance [@CL-IND-0306]. A letter of understanding also differs from a directive: a letter reflects an agreement reached by all parties, while a directive requires a person to take or refrain from taking certain actions [@CL-IND-0306; @CL-IND-1027].
+A letter of understanding is not used to alter scheduling between rated orders, to authorize the use of priority ratings, to impose restrictions under the regulation, or to take other official actions, and is used to confirm production or shipping schedules which do not require modifications to other rated orders [@CL-IND-0307; @CL-IND-0308]. A letter of understanding is an official action that may be issued in resolving special priorities assistance cases to reflect an agreement reached by all parties, whereas a directive is an official action which requires a person to take or refrain from taking certain actions in accordance with its provisions [@CL-IND-0306; @CL-IND-1027].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Confirm which schedule commitments with suppliers are already agreed, and whethe
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the letter of understanding and directive descriptions in How it works and Never confuse to 15 CFR 700.62 and 700.63.
 - COMPATIBLE_EXTENSION, 2026-10-31: Applies-to row says may be issued
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the general provisions on official actions and the rules for directives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS letters of understanding.

@@ -37,17 +37,15 @@ Paragraph (a)(7) of the same section lists other exceptions: contracts for instr
 
 ## How it works
 
-Debt work follows the payment stream. The official designated to make or receive payments is the one responsible for determining the amount of a debt and collecting it after an overpayment or erroneous payment [@CL-CTF-3793; @CL-CTF-3794].
+Disbursing officers are those officials designated to make payments under a contract or to receive payments of amounts due under a contract [@CL-CTF-3793]. The disbursing officer is responsible for determining the amount and collecting contract debts whenever overpayments or erroneous payments have been made [@CL-CTF-3794].
 
-The last sentence of paragraph (b) adds a case of primary responsibility. It applies when the contract states the amounts due and the payment dates and the disbursing officer has the contract copy and a notice to collect [@CL-CTF-3795]. The sentence does not say what the primary responsibility covers.
+The disbursing officer also has primary responsibility when the amounts due and dates for payment are contained in the contract, and a copy of the contract has been furnished to the disbursing officer with notice to collect as amounts become due [@CL-CTF-3795].
 
-The disbursing officer's responsibility sits beside the FAR roles of the contracting officer and the payment office, which are on [Contract debts: responsibilities and the debt determination](../cash/ctf-contract-debt-responsibilities-and-determination.md). The DFARS text does not say how the two fit together.
+The FAR roles of the contracting officer and the payment office are on [Contract debts: responsibilities and the debt determination](../cash/ctf-contract-debt-responsibilities-and-determination.md).
 
-Only the Principal Director is named as the official who may exempt. The text names no request process, deadline or dollar threshold [@CL-CTF-3796]. The authority is stated to apply "in exceptional circumstances", and the text does not define that phrase [@CL-CTF-3797].
+The Principal Director, Defense Pricing, Contracting, and Acquisition Policy, Office of the Under Secretary of Defense (Acquisition and Sustainment), may exempt the contracts in FAR 32.611(a)(2) through (5) and other contracts [@CL-CTF-3796], in exceptional circumstances, from the administrative interest charges required by this subpart [@CL-CTF-3797].
 
-The exemption reaches the administrative interest charges. The text does not exempt the debt itself [@CL-CTF-3797].
-
-The paragraph (a)(7) exceptions are listed separately from the Principal Director's exemption authority, and the text does not say they need that exemption [@CL-CTF-3796; @CL-CTF-3798]. The FAR list of categories excepted from the Interest clause ends with any other exceptions authorized under agency procedures [@CL-CTF-3201]. The FAR categories and the Interest clause are on [Contract debt final decisions and collection](../cash/ctf-contract-debt-final-decisions-and-collection.md) and [Interest on amounts due the Government](../billing-payment/ctf-interest-and-assignment-of-claims-clauses.md).
+In FAR 32.611(a), item (7) of the list of categories is any other exceptions authorized under agency procedures [@CL-CTF-3201]. The FAR categories and the Interest clause are on [Contract debt final decisions and collection](../cash/ctf-contract-debt-final-decisions-and-collection.md) and [Interest on amounts due the Government](../billing-payment/ctf-interest-and-assignment-of-claims-clauses.md).
 
 ## Worked example
 
@@ -61,9 +59,9 @@ A third contract falls in none of the paragraph (a)(7) exceptions and in none of
 
 ## Never confuse
 
-Exempting a contract from administrative interest charges is not forgiving the debt. The exemption reaches the charges [@CL-CTF-3797], while the disbursing officer's responsibility to determine and collect the debt is stated separately [@CL-CTF-3794].
+The Principal Director's authority is to exempt contracts, in exceptional circumstances, from the administrative interest charges required by the subpart [@CL-CTF-3797]. The disbursing officer is responsible for determining the amount and collecting contract debts whenever overpayments or erroneous payments have been made [@CL-CTF-3794].
 
-A disbursing officer is the official designated to make or receive payments [@CL-CTF-3793]. That is not the contracting officer, whose FAR role is on [Contract debts: responsibilities and the debt determination](../cash/ctf-contract-debt-responsibilities-and-determination.md).
+Disbursing officers are those officials designated to make payments under a contract or to receive payments of amounts due under a contract [@CL-CTF-3793]. The contracting officer's FAR role is on [Contract debts: responsibilities and the debt determination](../cash/ctf-contract-debt-responsibilities-and-determination.md).
 
 ## Company calibration
 
@@ -72,5 +70,5 @@ Which payment office is the disbursing officer for each contract, whether the co
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned disbursing officer and exemption wording to quotes
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD contract debt responsibility and the exemption from administrative interest charges.

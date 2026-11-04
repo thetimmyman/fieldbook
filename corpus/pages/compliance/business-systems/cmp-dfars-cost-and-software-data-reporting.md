@@ -34,9 +34,9 @@ In performance, the Contractor shall use a documented standard CSDR process that
 
 ## How it works
 
-The provision and the clause each carry a basic text and an Alternate I text that set different subcontractor rules. The basic provision is prescribed at paragraphs (a) and (a)(1) of DFARS 234.7101 [@CL-CMP-3884], and the Alternate I provision at paragraphs (a) and (a)(2), with a different paragraph (c) than the basic provision [@CL-CMP-3885]. In the basic text of the provision, CSDR reporting will be required for subcontractors at any tier with a subcontract that exceeds $50 million [@CL-CMP-3844], while the Alternate I text says it will be required for selected subcontracts identified in the CSDR contract plan as requiring such reporting [@CL-CMP-3845].
+The basic provision is prescribed at DFARS 234.7101(a) and (a)(1) [@CL-CMP-3884], and the Alternate I provision at DFARS 234.7101(a) and (a)(2), with a different paragraph (c) than the basic provision [@CL-CMP-3885]. In the basic text of the provision, CSDR reporting will be required for subcontractors at any tier with a subcontract that exceeds $50 million [@CL-CMP-3844], while the Alternate I text says CSDR reporting will be required for subcontractors for selected subcontracts identified in the CSDR contract plan as requiring such reporting [@CL-CMP-3845].
 
-The basic clause is prescribed at paragraphs (b) and (b)(1) of DFARS 234.7101 [@CL-CMP-3886], and the Alternate I clause at paragraphs (b) and (b)(2), with a different paragraph (b) than the basic clause [@CL-CMP-3887]. In the basic text of the clause, the Contractor shall require CSDR reporting from subcontractors at any tier with a subcontract that exceeds $50 million and shall notify the Government if it changes subcontractors or makes new subcontract awards for subcontracts that exceed $50 million [@CL-CMP-3848]. The Alternate I clause text instead has the Contractor require reporting from selected subcontractors identified in the CSDR contract plan, and notify the Government if it changes subcontractors or makes new awards for selected subcontract effort [@CL-CMP-3849]. The printed clause text names the prescribing paragraphs but does not say which contracts take the basic or the Alternate I version.
+The basic clause is prescribed at DFARS 234.7101(b) and (b)(1) [@CL-CMP-3886], and the Alternate I clause at DFARS 234.7101(b) and (b)(2), with a different paragraph (b) than the basic clause [@CL-CMP-3887]. In the basic text of the clause, the Contractor shall require CSDR reporting from subcontractors at any tier with a subcontract that exceeds $50 million and shall notify the Government if, for subcontracts that exceed $50 million, the Contractor changes subcontractors or makes new subcontract awards [@CL-CMP-3848]. In the Alternate I text of the clause, the Contractor shall require CSDR reporting from selected subcontractors identified in the CSDR contract plan as requiring such reporting, and shall notify the Government if the Contractor changes subcontractors or makes new awards for selected subcontract effort [@CL-CMP-3849].
 
 ## Worked example
 
@@ -46,7 +46,7 @@ A contract carries the basic clause text. The contractor awards a subcontract wo
 
 ## Never confuse
 
-The provision tells the offeror what to put in the proposal, and the clause sets what the contractor does once the contract is awarded [@CL-CMP-3842; @CL-CMP-3846]. The basic and Alternate I texts differ in the subcontractor paragraph, so a flowdown check must start from the version in the contract [@CL-CMP-3844; @CL-CMP-3845; @CL-CMP-3848; @CL-CMP-3849].
+As part of its proposal under the provision, the offeror describes the process to be used to satisfy the CSDR Manual and the Government-approved CSDR plan for the proposed contract, while in the performance of the contract under the clause, the Contractor uses a documented standard CSDR process that satisfies the guidelines in the CSDR Manual [@CL-CMP-3842; @CL-CMP-3846]. The basic and Alternate I texts use a different subcontractor paragraph [@CL-CMP-3885; @CL-CMP-3887; @CL-CMP-3844; @CL-CMP-3845; @CL-CMP-3848; @CL-CMP-3849].
 
 ## Company calibration
 
@@ -55,5 +55,5 @@ Which solicitations and contracts carry the basic or the Alternate I text, and w
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the Alternate I subcontractor wording to the cited text and removed meta-wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DFARS cost and software data reporting.

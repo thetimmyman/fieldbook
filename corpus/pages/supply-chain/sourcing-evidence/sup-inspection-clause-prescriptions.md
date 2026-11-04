@@ -33,9 +33,9 @@ The contracting officer shall insert the clause at 52.246-2, Inspection of Suppl
 
 The contracting officer may insert the same clause when the contract amount is expected to be at or below the simplified acquisition threshold and inclusion of the clause is in the Government's interest [@CL-SUP-3932]. If a fixed-price incentive contract is contemplated, the contracting officer shall use the clause with its Alternate I [@CL-SUP-3933]. If a fixed-ceiling-price contract with retroactive price redetermination is contemplated, the contracting officer shall use the clause with its Alternate II [@CL-SUP-3934].
 
-The contracting officer shall insert the clause at 52.246-14, Inspection of Transportation, in solicitations and contracts for freight transportation services, including local drayage, by the carriers named next [@CL-SUP-3935; @CL-SUP-3936]. The covered carriers are rail, motor including bus, domestic freight forwarder, and domestic water carriers, including inland, coastwise and intercoastal [@CL-SUP-3936].
+The contracting officer shall insert the clause at 52.246-14, Inspection of Transportation, in solicitations and contracts for freight transportation services (including local drayage) by rail, motor (including bus), domestic freight forwarder, and domestic water carriers (including inland, coastwise, and intercoastal) [@CL-SUP-3935; @CL-SUP-3936].
 
-The contracting officer shall not use that clause for transportation services by domestic or international air carriers or by international ocean carriers, for freight services provided under bills of lading, or for freight services negotiated for reduced rates under sections 10721 or 13712 of title 49 of the United States Code [@CL-SUP-3937]. The section closes with a cross-reference to part 47, Transportation [@CL-SUP-3957].
+The contracting officer shall not use that clause for the acquisition of transportation services by domestic or international air carriers or by international ocean carriers, or to freight services provided under bills of lading or to those negotiated for reduced rates under section 10721 or 13712 of title 49 of the United States Code [@CL-SUP-3937]. See part 47, Transportation [@CL-SUP-3957].
 
 The contracting officer shall insert the clause at 52.246-1, Contractor Inspection Requirements, in solicitations and contracts for supplies or services when the contract amount is expected to be at or below the simplified acquisition threshold and either inclusion of the clause is necessary to ensure an explicit understanding of the contractor's inspection responsibilities, or inclusion is required under agency procedures [@CL-SUP-4125; @CL-SUP-4126]. The clause shall not be used if the contracting officer has made the determination specified in 46.202-2(b) [@CL-SUP-4127].
 
@@ -45,27 +45,27 @@ The contracting officer shall insert the clause at 52.246-11, Higher-Level Contr
 
 ## How it works
 
-Every operative sentence in both sections is addressed to the contracting officer. They say which inspection clause goes into a solicitation or contract [@CL-SUP-3930; @CL-SUP-3935].
+Each prescription directs when the contracting officer shall or may insert the clause in solicitations and contracts [@CL-SUP-4125; @CL-SUP-3930; @CL-SUP-3932; @CL-SUP-4128; @CL-SUP-4129; @CL-SUP-4130; @CL-SUP-3935].
 
-For supplies, the choice follows the contract type and the expected amount. A contemplated fixed-price contract with an expected amount above the simplified acquisition threshold calls for the clause [@CL-SUP-3931]. At or below the threshold, the clause is optional, and the contracting officer may insert it when inclusion is in the Government's interest [@CL-SUP-3932]. The section does not say who else must agree. A contemplated fixed-price incentive contract calls for Alternate I, and a contemplated fixed-ceiling-price contract with retroactive price redetermination calls for Alternate II [@CL-SUP-3933; @CL-SUP-3934]. Those two sentences state no amount condition [@CL-SUP-3933; @CL-SUP-3934].
+For solicitations and contracts for supplies, or services that involve the furnishing of supplies, the contracting officer shall insert the clause at 52.246-2 when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, and may insert the clause in such solicitations and contracts when the contract amount is expected to be at or below the simplified acquisition threshold and inclusion of the clause is in the Government's interest [@CL-SUP-3930; @CL-SUP-3931; @CL-SUP-3932]. If a fixed-price incentive contract is contemplated, the contracting officer shall use the clause with its Alternate I, and if a fixed-ceiling-price contract with retroactive price redetermination is contemplated, the contracting officer shall use the clause with its Alternate II [@CL-SUP-3933; @CL-SUP-3934]. When a cost-reimbursement contract is contemplated for supplies, or services that involve the furnishing of supplies, the contracting officer shall insert the clause at 52.246-3 [@CL-SUP-4128].
 
-For freight, the choice follows the carrier and the type of service. Rail, motor including bus, domestic freight forwarder and domestic water carrier service is within the clause, unless an exclusion below applies [@CL-SUP-3936; @CL-SUP-3937]. Air carriage, international ocean carriage, freight under bills of lading and freight negotiated at reduced rates under the two named sections of title 49 are excluded [@CL-SUP-3937].
+For solicitations and contracts for freight transportation services (including local drayage) by rail, motor (including bus), domestic freight forwarder, and domestic water carriers (including inland, coastwise, and intercoastal), the contracting officer shall insert the clause at 52.246-14 [@CL-SUP-3935; @CL-SUP-3936]. The contracting officer shall not use the clause for the acquisition of transportation services by domestic or international air carriers or by international ocean carriers, or to freight services provided under bills of lading or to those negotiated for reduced rates under section 10721 or 13712 of title 49 of the United States Code [@CL-SUP-3937].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contracting officer plans a fixed-price supply contract whose amount is expected to exceed the simplified acquisition threshold. The contracting officer shall insert the Inspection of Supplies—Fixed-Price clause [@CL-SUP-3931]. If the plan is a fixed-price incentive contract, the contracting officer shall use the clause with Alternate I [@CL-SUP-3933].
+A contracting officer plans a fixed-price supply contract whose amount is expected to exceed the simplified acquisition threshold. The contracting officer inserts the Inspection of Supplies—Fixed-Price clause. If the plan is a fixed-price incentive contract, the contracting officer uses the clause with Alternate I.
 
-A second fixed-price supply contract is expected to come in at or below the threshold. The contracting officer may insert the clause if inclusion is in the Government's interest [@CL-SUP-3932].
+A second fixed-price supply contract is expected to come in at or below the threshold. The contracting officer may insert the clause if inclusion is in the Government's interest.
 
-A third contract buys freight service from a rail carrier, and the service is not provided under bills of lading or negotiated for reduced rates under the two named sections of title 49 [@CL-SUP-3937]. The contracting officer shall insert the Inspection of Transportation clause [@CL-SUP-3935; @CL-SUP-3936]. A fourth buys domestic air carriage. The contracting officer shall not use that clause there [@CL-SUP-3937].
+A third contract buys freight service from a rail carrier, and the service is not provided under bills of lading or negotiated for reduced rates under the two named sections of title 49. The contracting officer inserts the Inspection of Transportation clause. A fourth buys domestic air carriage. The contracting officer does not use that clause there.
 
 ## Never confuse
 
-A prescription is not the clause. This card says which clause goes in. The clause itself is on [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
+See [Inspection of Supplies—Fixed-Price clause](../../close-revrec/revenue/cls-inspection-of-supplies-fixed-price.md).
 
-The two supply sentences point different ways: shall above the threshold and may at or below it [@CL-SUP-3931; @CL-SUP-3932]. The transportation exclusions name carriers and kinds of freight, and neither transportation sentence states a dollar threshold [@CL-SUP-3935; @CL-SUP-3937]. The standard inspection clauses are also listed on [Types of contract quality requirements](sup-contract-quality-requirement-types.md).
+Under FAR 46.302, the contracting officer shall insert the clause at 52.246-2 in solicitations and contracts for supplies, or services that involve the furnishing of supplies, when a fixed-price contract is contemplated and the contract amount is expected to exceed the simplified acquisition threshold, and may insert the clause in such solicitations and contracts when the contract amount is expected to be at or below the simplified acquisition threshold and inclusion of the clause is in the Government's interest [@CL-SUP-3930; @CL-SUP-3931; @CL-SUP-3932]. Under FAR 46.314, the contracting officer shall insert the clause at 52.246-14 in solicitations and contracts for freight transportation services (including local drayage) by the covered carriers, and shall not use the clause for the acquisition of transportation services by domestic or international air carriers or by international ocean carriers, or to freight services provided under bills of lading or to those negotiated for reduced rates under section 10721 or 13712 of title 49 of the United States Code [@CL-SUP-3935; @CL-SUP-3936; @CL-SUP-3937]. See [Types of contract quality requirements](sup-contract-quality-requirement-types.md).
 
 ## Company calibration
 
@@ -74,6 +74,6 @@ Which contract types, expected amounts and modes of carriage the company's suppl
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta commentary and aligned prescription wording with quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the prescriptions for four more inspection clauses.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for inspection clause prescriptions for fixed-price supply contracts and transportation contracts.

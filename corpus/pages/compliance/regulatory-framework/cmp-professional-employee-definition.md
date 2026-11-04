@@ -26,13 +26,13 @@ Shows who counts as a professional employee when the company applies the compens
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-8154] |
-| Applies to | The term as the subpart uses it; the section states no contract threshold of its own [@CL-CMP-8154] |
+| Applies to | The term as used in the subpart [@CL-CMP-8154] |
 
-The section defines the term for use in its own subpart. Professional employee means any person meeting the definition of employee employed in a bona fide professional capacity given in 29 CFR part 541 [@CL-CMP-8154]. The section prints an omission mark between "bona fide" and "professional capacity" [@CL-CMP-8154].
+As used in the subpart, professional employee means any person meeting the definition of employee employed in a bona fide . . . professional capacity given in 29 CFR part 541 [@CL-CMP-8154].
 
 The term embraces members of those professions having a recognized status based upon acquiring professional knowledge through prolonged study [@CL-CMP-8155].
 
-The section gives examples of those professions [@CL-CMP-8156]. They are listed in the table below.
+Examples of these professions include accountancy, actuarial computation, architecture, dentistry, engineering, law, medicine, nursing, pharmacy, the sciences (such as biology, chemistry, and physics), and teaching [@CL-CMP-8156].
 
 To be a professional employee, a person must not only be a professional but must be involved essentially in discharging professional duties [@CL-CMP-8157].
 
@@ -40,25 +40,19 @@ To be a professional employee, a person must not only be a professional but must
 
 | Term | Definition as printed |
 |---|---|
-| Professional employee | Any person meeting the definition of employee employed in a bona fide professional capacity given in 29 CFR part 541 [@CL-CMP-8154]. To be one, the person must not only be a professional but must be involved essentially in discharging professional duties [@CL-CMP-8157] |
+| Professional employee | Any person meeting the definition of employee employed in a bona fide . . . professional capacity given in 29 CFR part 541 [@CL-CMP-8154]. To be one, the person must not only be a professional but must be involved essentially in discharging professional duties [@CL-CMP-8157] |
 | Professions the term embraces | Members of those professions having a recognized status based upon acquiring professional knowledge through prolonged study [@CL-CMP-8155] |
 | Examples of those professions | Accountancy, actuarial computation, architecture, dentistry, engineering, law, medicine, nursing, pharmacy, the sciences (such as biology, chemistry, and physics), and teaching [@CL-CMP-8156] |
 
 ## How it works
 
-The section is a definition. The text printed here sets no duty on the contractor, the contracting officer or any agency; it tells the reader how the term is read in the subpart [@CL-CMP-8154].
+The term is defined by reference to the definition of employee employed in a bona fide . . . professional capacity given in 29 CFR part 541 [@CL-CMP-8154].
 
-It takes the professional capacity test from 29 CFR part 541 and does not restate it [@CL-CMP-8154]. The content of that test is Not established here [@CL-CMP-8154].
-
-Two further requirements sit on top of that test. The person must be a professional, and must be involved essentially in discharging professional duties [@CL-CMP-8157].
-
-The listed professions are examples. The section says its examples include those professions; it does not say the list is closed [@CL-CMP-8156].
-
-The section does not say who decides whether a given person meets the definition. That is Not established here.
+To be a professional employee, a person must not only be a professional but must be involved essentially in discharging professional duties [@CL-CMP-8157].
 
 The opening section of the same subpart says the Service Contract Labor Standards statute was enacted to ensure that Government contractors compensate their blue-collar service workers and some white-collar service workers fairly, but does not cover bona fide executive, administrative, or professional employees [@CL-CMP-8507].
 
-The compensation rules that use the term are on [Evaluation of compensation for professional employees](cmp-professional-employee-compensation-plan-evaluation.md) and [Evaluation of compensation for professional employees in service contract proposals](cmp-professional-employee-compensation-evaluation.md). This card does not restate them.
+The compensation rules that use the term are on [Evaluation of compensation for professional employees](cmp-professional-employee-compensation-plan-evaluation.md) and [Evaluation of compensation for professional employees in service contract proposals](cmp-professional-employee-compensation-evaluation.md).
 
 ## Worked example
 
@@ -70,9 +64,9 @@ The twelfth nurse spends nearly all working time on scheduling and billing. That
 
 ## Never confuse
 
-Never confuse the professional capacity test with the full definition. The part 541 test is the definition of employee employed in a bona fide professional capacity [@CL-CMP-8154]. The section adds that the person must be a professional and must be involved essentially in discharging professional duties, so a person in a listed profession who is not involved essentially in discharging professional duties does not meet it [@CL-CMP-8154; @CL-CMP-8157].
+Never confuse the capacity definition with the full test: a professional employee is any person meeting the definition of employee employed in a bona fide . . . professional capacity given in 29 CFR part 541 [@CL-CMP-8154], and to be one the person must not only be a professional but must be involved essentially in discharging professional duties [@CL-CMP-8157].
 
-Never confuse a listed example with a requirement. The listed professions are examples, and the section does not make membership in one of them enough on its own [@CL-CMP-8156; @CL-CMP-8157].
+Never confuse a listed example with the test. Examples of these professions include those listed in the table above [@CL-CMP-8156], and to be a professional employee a person must be involved essentially in discharging professional duties [@CL-CMP-8157].
 
 ## Company calibration
 
@@ -82,6 +76,7 @@ Which job families the company maps to this definition, and whether the mapping 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the definition with its omission mark; cut uncited negatives and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence tied to the stated duties test.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability section on who the Service Contract Labor Standards statute does not cover.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the professional employee definition.

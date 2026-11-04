@@ -35,7 +35,7 @@ DFARS directs use of the overseas clause instead of the FAR assignment of claims
 
 ## How it works
 
-For a fixed price type contract, advance payments to a protege firm are paid and administered as if there were 100 percent progress payments [@CL-CTF-1762]. For cost reimbursable contracts, reimbursement of the advance payments is made through a public voucher [@CL-CTF-1763]. An overseas assignment covers all amounts payable and not already paid and is not made to more than one party, except to one party as agent or trustee for two or more parties participating in the financing [@CL-CTF-1765]. On each invoice or voucher to which an assignment applies and for which direct payment is to be made to an assignee, the contractor identifies the assignee by name and complete address [@CL-CTF-1766]. The mentor-protege clause text states no dollar limit on advance payments to the protege firm.
+For a fixed price type contract, advance payments made to a protege firm are paid and administered as if there were 100 percent progress payments [@CL-CTF-1762]. For cost reimbursable contracts, reimbursement of the advance payments is made through a public voucher [@CL-CTF-1763]. An overseas assignment covers all amounts payable under the contract and not already paid and is not made to more than one party, except that an assignment may be made to one party as agent or trustee for two or more parties participating in the financing [@CL-CTF-1765]. On each invoice or voucher submitted for payment under the contract to which any assignment applies, and for which direct payment is to be made to an assignee, the contractor must identify the assignee by name and complete address and acknowledge the validity of the assignment and the right of the named assignee to receive payment in the amount invoiced or vouchered [@CL-CTF-1766; @CL-CTF-3219].
 
 ## Worked example
 
@@ -45,7 +45,7 @@ A mentor firm holds a fixed price contract and advances 50,000 to its protege un
 
 ## Never confuse
 
-Reimbursement of the mentor firm is not a guarantee against loss: the loss from a protege firm that cannot repay stays with the contractor [@CL-CTF-1761]. The overseas assignment restriction is also not the general assignment of claims rule for United States contracts, which is on [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md) and [Interest on amounts due the Government and the assignment of claims clause](../billing-payment/ctf-interest-and-assignment-of-claims-clauses.md). The basic advance payments clause is on [Advance Payments clause](ctf-advance-payments-clause.md).
+Under the mentor-protege reimbursement clause, the contractor agrees that any financial loss resulting from the failure or inability of the protege firm to repay any unliquidated advance payments is the sole financial responsibility of the contractor [@CL-CTF-1761]. DFARS directs use of the overseas assignment clause instead of the FAR assignment of claims clause when contract performance will be in a foreign country [@CL-CTF-1795]; the general assignment of claims rules are on [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md) and [Interest on amounts due the Government and the assignment of claims clause](../billing-payment/ctf-interest-and-assignment-of-claims-clauses.md). The basic advance payments clause is on [Advance Payments clause](ctf-advance-payments-clause.md).
 
 ## Company calibration
 
@@ -54,6 +54,6 @@ Whether the company is a mentor firm making advance payments, and which overseas
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added invoice acknowledgment requirement and removed uncited contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Overseas assignment restriction worded as the clause states it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Mentor-Protege advance payment reimbursement and overseas assignment of claims.

@@ -15,7 +15,7 @@ links = ["cls-sx-income-cash-flow-equity-statements"]
 
 ## Purpose
 
-Shows which balance sheets a smaller reporting company that is a limited partnership must provide for its general partners, according to what each general partner is. The rule is part of Regulation S-X, which is not FAR, DFARS or CAS.
+Shows which balance sheets a smaller reporting company that is a limited partnership must provide for its general partners under § 210.8-07 [@CL-FPA-0307; @CL-FPA-0308; @CL-FPA-0311; @CL-FPA-0312].
 
 ## The rule
 
@@ -28,17 +28,15 @@ Shows which balance sheets a smaller reporting company that is a limited partner
 | Text status | Not established. |
 | Applies to | Smaller reporting companies that are limited partnerships [@CL-FPA-0307] |
 
-Smaller reporting companies that are limited partnerships must provide the balance sheets of the general partners as described in paragraphs (b) through (d) of the section [@CL-FPA-0307]. The duty falls on the smaller reporting company. What it provides depends on whether each general partner is a corporation, a partnership or a natural person [@CL-FPA-0307; @CL-FPA-0308; @CL-FPA-0311; @CL-FPA-0312]. The section states no rule for any other kind of general partner. For the statements of a smaller reporting company itself, see [Statements of comprehensive income, cash flows and equity under Regulation S-X](../../close-revrec/group-bridge/cls-sx-income-cash-flow-equity-statements.md).
+Smaller reporting companies that are limited partnerships must provide the balance sheets of the general partners as described in paragraphs (b) through (d) of § 210.8-07 [@CL-FPA-0307], which address a general partner that is a corporation, a partnership, or a natural person [@CL-FPA-0308; @CL-FPA-0311; @CL-FPA-0312]. For the statements of a smaller reporting company itself, see [Statements of comprehensive income, cash flows and equity under Regulation S-X](../../close-revrec/group-bridge/cls-sx-income-cash-flow-equity-statements.md).
 
 ## How it works
 
-Paragraph (b) covers a corporate general partner. The audited balance sheet of the corporation as of the end of its most recently completed fiscal year must be filed [@CL-FPA-0308]. Receivables, other than trade receivables, from affiliates of the general partner should be deducted from shareholders' equity of the general partner [@CL-FPA-0309]. Where an affiliate has committed itself to increase or maintain the general partner's capital, the audited balance sheet of that affiliate must also be presented [@CL-FPA-0310].
+Where the general partner is a corporation, the audited balance sheet of the corporation as of the end of its most recently completed fiscal year must be filed [@CL-FPA-0308]. Receivables, other than trade receivables, from affiliates of the general partner should be deducted from shareholders' equity of the general partner [@CL-FPA-0309]. Where an affiliate has committed itself to increase or maintain the general partner's capital, the audited balance sheet of such affiliate must also be presented [@CL-FPA-0310].
 
-Paragraph (c) covers a partnership general partner. An audited balance sheet of that partnership as of the end of its most recently completed fiscal year shall be filed [@CL-FPA-0311].
+Where the general partner is a partnership, there shall be filed an audited balance sheet of such partnership as of the end of its most recently completed fiscal year [@CL-FPA-0311].
 
-Paragraph (d) covers a natural person general partner. A balance sheet of that person as of a recent date shall be filed as supplemental information, and it need not be audited [@CL-FPA-0312]. The section does not define a recent date [@CL-FPA-0312]. The assets and liabilities should be carried at estimated fair market value, with provisions for estimated income taxes on unrealized gains [@CL-FPA-0313]. The net worth of the natural person general partner or partners, based on those balance sheets, singly or in the aggregate, shall be disclosed in the registration statement [@CL-FPA-0314]. The section does not say who makes that disclosure [@CL-FPA-0314].
-
-The section names no approving body and no filing deadline. The word "must" or "shall" governs the audited balance sheets, the supplemental balance sheet and the net worth disclosure. The word "should" governs the deduction of receivables and the fair market value basis [@CL-FPA-0308; @CL-FPA-0309; @CL-FPA-0310; @CL-FPA-0311; @CL-FPA-0312; @CL-FPA-0313; @CL-FPA-0314].
+Where the general partner is a natural person, there shall be filed, as supplemental information, a balance sheet of such natural person as of a recent date, which need not be audited [@CL-FPA-0312]. The assets and liabilities should be carried at estimated fair market value, with provisions for estimated income taxes on unrealized gains [@CL-FPA-0313]. The net worth of such general partner(s), based on such balance sheet(s), singly or in the aggregate, shall be disclosed in the registration statement [@CL-FPA-0314].
 
 ## Worked example
 
@@ -48,11 +46,11 @@ A limited partnership that is a smaller reporting company has two general partne
 
 For the corporation, the company files the audited balance sheet for its most recently completed fiscal year [@CL-FPA-0308]. Shareholders' equity on that balance sheet is 400,000 before adjustment. The corporation has 25,000 of non-trade receivables from its affiliates. These should be deducted, which leaves 375,000 [@CL-FPA-0309]. No affiliate has committed to increase or maintain the corporation's capital, so no affiliate balance sheet is added. Had one so committed, its audited balance sheet would also be presented [@CL-FPA-0310].
 
-For the natural person, a supplemental balance sheet as of a recent date is filed, and it is not audited [@CL-FPA-0312]. Its assets and liabilities should be carried at estimated fair market value, with a provision for tax on unrealized gains [@CL-FPA-0313]. The registration statement discloses that person's net worth, and the corporation's net worth is not covered by that sentence [@CL-FPA-0314].
+For the natural person, a supplemental balance sheet as of a recent date is filed, and it need not be audited [@CL-FPA-0312]. Its assets and liabilities should be carried at estimated fair market value, with provisions for estimated income taxes on unrealized gains [@CL-FPA-0313]. The registration statement discloses the net worth of the natural person general partner based on that balance sheet [@CL-FPA-0314].
 
 ## Never confuse
 
-Paragraph (a) covers the balance sheets of the general partners and states no rule for the statements of the limited partnership itself [@CL-FPA-0307]. A corporate general partner's audited balance sheet and an affiliate's audited balance sheet are separate requirements, and the affiliate's is triggered by a commitment to increase or maintain the general partner's capital [@CL-FPA-0308; @CL-FPA-0310]. A natural person's supplemental balance sheet is the one that need not be audited [@CL-FPA-0312].
+Section 210.8-07(a) requires smaller reporting companies that are limited partnerships to provide the balance sheets of the general partners as described in paragraphs (b) through (d) [@CL-FPA-0307]. For a corporate general partner, the audited balance sheet of the corporation as of the end of its most recently completed fiscal year must be filed, and where an affiliate has committed itself to increase or maintain the general partner's capital, the audited balance sheet of such affiliate must also be presented [@CL-FPA-0308; @CL-FPA-0310]. For a partnership general partner, an audited balance sheet as of the end of its most recently completed fiscal year shall be filed [@CL-FPA-0311], whereas for a natural person general partner, a balance sheet as of a recent date shall be filed as supplemental information and need not be audited [@CL-FPA-0312].
 
 ## Company calibration
 
@@ -61,5 +59,5 @@ Which reporting measures management uses for each general partner's balance shee
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted absence and meta statements, aligned Never confuse with the cited quotes, and cited the Purpose sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for financial statements of limited partnerships in smaller reporting company filings.

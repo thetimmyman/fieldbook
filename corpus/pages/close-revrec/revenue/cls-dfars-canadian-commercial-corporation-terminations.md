@@ -31,19 +31,19 @@ Explains how DoD terminates contracts placed with the Canadian Commercial Corpor
 
 ### Authorities
 
-Contracts with the Canadian Commercial Corporation are to be terminated in accordance with the Letter of Agreement between the Department of Defence Production (Canada) and the United States Department of Defense, called the Canadian Agreement, and with the other authorities the paragraph lists [@CL-CLS-0275]. The other authorities are the policies in the Canadian Agreement and part 249, and the Canadian Supply Manual, Chapter 8, Annex 8.3 [@CL-CLS-0276]. The paragraph gives a contact address for the Letter of Agreement and a web address for the manual [@CL-CLS-0275; @CL-CLS-0276]. It does not name who carries out the instruction to terminate.
+Contracts with the Canadian Commercial Corporation are to be terminated in accordance with the Letter of Agreement between the Department of Defence Production (Canada) and the United States Department of Defense, called the Canadian Agreement, and with the other authorities the paragraph lists [@CL-CLS-0275]. The other authorities are the policies in the Canadian Agreement and part 249, and the Canadian Supply Manual, Chapter 8, Annex 8.3 [@CL-CLS-0276].
 
 ### Proposals and agreements
 
 Contracting officers must ensure that the Canadian Commercial Corporation submits termination settlement proposals in the format prescribed in FAR 49.602 and that the proposals contain the amount of settlements with subcontractors [@CL-CLS-0277]. The termination contracting officer (TCO) must prepare an appropriate settlement agreement [@CL-CLS-0278].
 
-The letter that transmits a settlement proposal must certify two matters [@CL-CLS-0279]. One is that disposition of inventory has been completed. The other is that the Contract Claims Resolution Board of the Public Works and Government Services Canada has approved settlements with Canadian subcontractors, when the Procedures Manual on Termination of Contracts requires such approval [@CL-CLS-0280]. The text does not say who signs the letter.
+The letter that transmits a settlement proposal must certify two matters [@CL-CLS-0279]. One is that disposition of inventory has been completed. The other is that the Contract Claims Resolution Board of the Public Works and Government Services Canada has approved settlements with Canadian subcontractors, when the Procedures Manual on Termination of Contracts requires such approval [@CL-CLS-0280].
 
 ### Inventory and Canadian subcontract claims
 
 The Canadian Commercial Corporation will settle all Canadian subcontractor termination claims under the Canadian Agreement [@CL-CLS-0281]. It will also submit schedules listing serviceable and usable contractor inventory for screening to the TCO [@CL-CLS-0282]. After screening, the TCO must provide guidance to the Canadian Commercial Corporation for disposition of the contractor inventory [@CL-CLS-0283].
 
-Settlement of Canadian subcontractor claims is not subject to the approval and ratification of the TCO [@CL-CLS-0284]. The next sentence of the paragraph makes an exception: when the proposed negotiated settlement exceeds the total contract price of the prime contract, the TCO must obtain from the United States contracting officer, before final settlement, ratification of the proposed settlement and a contract modification increasing the contract price and obligating the additional funds [@CL-CLS-0285; @CL-CLS-0286].
+Settlement of Canadian subcontractor claims is not subject to the approval and ratification of the TCO [@CL-CLS-0284]. However, when the proposed negotiated settlement exceeds the total contract price of the prime contract, the TCO must obtain from the United States contracting officer, before final settlement, ratification of the proposed settlement and a contract modification increasing the contract price and obligating the additional funds [@CL-CLS-0285; @CL-CLS-0286].
 
 ### United States subcontractors, administration and services
 
@@ -51,7 +51,7 @@ The Canadian Commercial Corporation should send all termination settlement propo
 
 The Canadian Commercial Corporation will continue administering contracts that the United States contracting officer terminates [@CL-CLS-0290]. It will settle all Canadian subcontracts in accordance with the policies, practices, and procedures of the Canadian Government [@CL-CLS-0291].
 
-The United States agency administering the contract with the Canadian Commercial Corporation must provide any services the Canadian Commercial Corporation requires, including disposal of inventory, for settlement of any subcontracts placed in the United States [@CL-CLS-0292]. Settlement of those subcontracts will be in accordance with this regulation, as the paragraph words it [@CL-CLS-0293].
+The United States agency administering the contract with the Canadian Commercial Corporation must provide any services the Canadian Commercial Corporation requires, including disposal of inventory, for settlement of any subcontracts placed in the United States [@CL-CLS-0292]. Settlement of such United States subcontracts will be in accordance with this regulation [@CL-CLS-0293].
 
 ## How it works
 
@@ -66,9 +66,9 @@ The United States agency administering the contract with the Canadian Commercial
 
 The Canadian Commercial Corporation settles Canadian subcontractor claims and keeps administering contracts that the United States contracting officer terminates [@CL-CLS-0281; @CL-CLS-0290].
 
-The only amount test is the total contract price of the prime contract. The paragraph compares it with the proposed negotiated settlement [@CL-CLS-0285]. At or below that price, this paragraph does not require ratification or a modification from the United States contracting officer, and the settlement of Canadian subcontractor claims stays outside the TCO's approval and ratification [@CL-CLS-0284; @CL-CLS-0285].
+The amount test compares the proposed negotiated settlement with the total contract price of the prime contract [@CL-CLS-0285]. Settlement of Canadian subcontractor claims is not subject to the approval and ratification of the TCO [@CL-CLS-0284].
 
-Two rule sets apply to subcontracts. Canadian subcontracts follow Canadian Government policies, practices and procedures, and subcontracts placed in the United States follow this regulation [@CL-CLS-0291; @CL-CLS-0293].
+The Canadian Commercial Corporation will settle all Canadian subcontracts in accordance with the policies, practices, and procedures of the Canadian Government [@CL-CLS-0291]. Settlement of such United States subcontracts will be in accordance with this regulation [@CL-CLS-0293].
 
 ## Worked example
 
@@ -80,11 +80,11 @@ On a second contract with a total contract price of 5,000,000, the proposed nego
 
 ## Never confuse
 
-The TCO does not approve or ratify the settlement of Canadian subcontractor claims [@CL-CLS-0284]. When the proposed negotiated settlement exceeds the total contract price of the prime contract, the TCO must instead obtain ratification and a price-increasing modification from the United States contracting officer before final settlement [@CL-CLS-0285; @CL-CLS-0286].
+Settlement of Canadian subcontractor claims is not subject to the approval and ratification of the TCO [@CL-CLS-0284]. However, when the proposed negotiated settlement exceeds the total contract price of the prime contract, the TCO shall obtain from the United States contracting officer, prior to final settlement, ratification of the proposed settlement and a contract modification increasing the contract price and obligating the additional funds [@CL-CLS-0285; @CL-CLS-0286].
 
 The Canadian Commercial Corporation should send United States subcontractor proposals to the TCO of the Defense Contract Management Agency office for settlement, and the corporation is responsible for executing the settlement agreement [@CL-CLS-0287; @CL-CLS-0289].
 
-The paragraph says that settlement of subcontracts placed in the United States will be in accordance with this regulation, and it ties the Canadian Government policies, practices and procedures to Canadian subcontracts [@CL-CLS-0293; @CL-CLS-0291].
+Settlement of subcontracts placed in the United States will be in accordance with this regulation [@CL-CLS-0293], and the Canadian Commercial Corporation will settle all Canadian subcontracts in accordance with the policies, practices, and procedures of the Canadian Government [@CL-CLS-0291].
 
 The authorization rules for settling subcontracts in the ordinary case are separate; see [Subcontract settlements, authorization and awards](cls-subcontract-settlements-authorization-and-awards.md).
 
@@ -95,5 +95,5 @@ Which contracts with the Canadian Commercial Corporation the company holds, and 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Canadian Commercial Corporation terminations: uncited gap statements and inferences removed, exception wording tied to the sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for terminated contracts with the Canadian Commercial Corporation.

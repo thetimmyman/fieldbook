@@ -29,13 +29,13 @@ Gives the auditor's view of which contractor business systems the Defense Contra
 | Text status | Not established. |
 | Applies to | Contractor business systems used to propose, charge, or bill significant costs to Government contracts [@CL-CMP-1651] |
 
-The Defense Contract Audit Agency audits three primary contractor business systems: the Accounting System, the Material Management and Accounting System, and the Cost Estimating System [@CL-CMP-1650]. The objective of each audit is to gather sufficient appropriate evidence to express an opinion on the contractor's compliance with the applicable business system criteria during the audit period [@CL-CMP-1653].
+The Defense Contract Audit Agency audits three primary contractor business systems: the Accounting System, the Material Management and Accounting System, and the Cost Estimating System [@CL-CMP-1650]. The objective of each business system audit is to gather sufficient appropriate evidence to express an opinion on the contractor's compliance with the applicable business system criteria (such as DFARS, FAR, applicable laws and regulations, and contract terms) during the audit period [@CL-CMP-1653].
 
-The audit report will serve to support the contracting officer's compliance determination [@CL-CMP-1963]. After audit or review of a business system, the contracting officer is responsible for determining whether the system is acceptable [@CL-CMP-1652].
+The audit report will serve to support the contracting officer's compliance determination [@CL-CMP-1963]. After audit or review of a business system, the contracting officer is responsible for determining if the system is acceptable [@CL-CMP-1652].
 
 ## How it works
 
-The fundamental audit requirements apply to each contractor business system that is used to propose, charge, or bill significant costs to Government contracts [@CL-CMP-1651]. Business system audits are also used to support the assessment of control risk for other related audits, to decide how far the auditor can rely on the contractor's systems [@CL-CMP-1962]. When the auditor can rely on a system to record, process, summarize, and report consistently with the applicable DFARS and Government contract laws and regulations, control risk would be considered low [@CL-CMP-1654]. At contractors with outstanding business system deficiencies, the auditor should recommend actions to the administrative contracting officer to encourage correction, such as suspension of costs, disapproval of the system, or penalties [@CL-CMP-1655].
+The fundamental audit requirements apply to audits of each of the contractor's business systems that are used to propose, charge, or bill significant costs to Government contracts [@CL-CMP-1651]. Business system audits are also used to support the assessment of control risk for other related audits (such as incurred cost, proposals, labor, and material) to determine the degree of reliance that can be placed on the contractor's business systems as a basis for planning the scope of substantive testing in other related audits [@CL-CMP-1962; @CL-CMP-0173]. In those cases where the auditor can rely on the contractor's business system to record, process, summarize, and report in a manner consistent with the applicable DFARS and Government contract laws and regulations, control risk would be considered low [@CL-CMP-1654]. At those contractors with outstanding business system deficiencies, the auditor should recommend actions to the administrative contracting officer to encourage the contractor to correct the deficiencies, such as suspension of costs, disapproval of the system, or penalties [@CL-CMP-1655].
 
 The clauses, the six systems and the withhold rules are on [Contractor business systems](cmp-contractor-business-systems.md), and the split of roles between contracting officer and auditor is on [Contracting officers, DCMA and DCAA](../audit-retention/cmp-oversight-roles.md). How the auditor assesses control risk is on [Assessing control risk](cmp-business-system-control-risk.md).
 
@@ -47,7 +47,7 @@ A contractor bills a large share of its costs to Government contracts through it
 
 ## Never confuse
 
-The audit opinion is on the contractor's compliance with the applicable criteria, and it supports the contracting officer's determination [@CL-CMP-1653; @CL-CMP-1963]. It is not the determination itself, which the contracting officer makes [@CL-CMP-1652]. See [Accounting system criteria](cmp-accounting-system-criteria.md) for the clause criteria.
+The objective of each business system audit is to gather sufficient appropriate evidence to express an opinion on the contractor's compliance with the applicable business system criteria during the audit period, and the audit report will serve to support the contracting officer's compliance determination [@CL-CMP-1653; @CL-CMP-1963]. After audit or review of a business system, the contracting officer is responsible for determining if the system is acceptable [@CL-CMP-1652]. See [Accounting system criteria](cmp-accounting-system-criteria.md) for the clause criteria.
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Confirm the current Government status of each of the three audited systems: appr
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the parenthetical examples of business system criteria and related audits, completed the substantive-testing planning clause, and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-29: Repaired quotes and statements against the manual text and cut repeated clause rules to pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DCAA audits of contractor business systems and audit objectives.

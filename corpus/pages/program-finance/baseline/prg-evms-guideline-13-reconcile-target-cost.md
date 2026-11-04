@@ -15,7 +15,7 @@ questions = ["Q-025"]
 
 ## Purpose
 
-Shows how the internal budgets and management reserve reconcile to the contract target cost, so that the program target cost goal is reconciled with the sum of all internal program budgets and management reserve [@CL-PRG-0281].
+Shows how EVMS Guideline 13 establishes and maintains the baseline and management reserve by reconciling the program target cost goal with the sum of all internal program budgets and management reserve [@CL-PRG-0280; @CL-PRG-0281].
 
 ## The rule
 
@@ -26,15 +26,15 @@ Shows how the internal budgets and management reserve reconcile to the contract 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Not established. |
-| Applies to | Programs that operate an earned value management system [@CL-PRG-0283] |
+| Applies to | Internal program budgets and management reserve reconciled to the contract target cost under EVMS Guideline 13 [@CL-PRG-0280; @CL-PRG-0281; @CL-PRG-0283] |
 
-The program target cost goal is reconciled with the sum of all internal program budgets and management reserve [@CL-PRG-0281]. The guide treats contract target cost and negotiated contract cost as the same figure [@CL-PRG-0282].
+Establish and maintain the baseline and management reserve so that the program target cost goal is reconciled with the sum of all internal program budgets and management reserve [@CL-PRG-0280; @CL-PRG-0281]. The DoD EVMS Interpretation Guide considers contract target cost to be synonymous with negotiated contract cost [@CL-PRG-0282].
 
-The contract target cost plus authorized unpriced work must reconcile with the contract budget base and the total allocated budget [@CL-PRG-0283]. Control account budgets, summary level planning packages and undistributed budget sum to the budget at completion of the baseline, and that sum plus management reserve equals the contract budget base [@CL-PRG-0284].
+The contract target cost plus authorized unpriced work must reconcile with the contract budget base and the total allocated budget [@CL-PRG-0283]. Control account budgets, summary level planning packages and undistributed budget are summed to determine the budget at completion of the performance measurement baseline, and that total plus management reserve establishes the contract budget base [@CL-PRG-0284].
 
 ## How it works
 
-Reconciliation compares the program target cost goal with the sum of all internal program budgets and management reserve [@CL-PRG-0281]. The control account budgets, summary level planning packages and undistributed budget are summed first, and management reserve is added to that total to give the contract budget base [@CL-PRG-0284]. Authorized unpriced work is added to the target cost for the comparison, so the reconciliation covers scope that is authorized but not yet priced [@CL-PRG-0283]. The contract budget base and the total allocated budget are the same value unless a recognized over-target baseline exists, in which case the total allocated budget is the contract budget base plus the above target budget [@CL-PRG-0285].
+The program target cost goal is reconciled with the sum of all internal program budgets and management reserve [@CL-PRG-0281]. Control account budgets, summary level planning packages and undistributed budget are summed to determine the budget at completion of the performance measurement baseline, and that total plus management reserve establishes the contract budget base [@CL-PRG-0284]. The contract target cost plus authorized unpriced work must reconcile with the contract budget base and the total allocated budget [@CL-PRG-0283]. The contract budget base and the total allocated budget are the same value unless there is a recognized over-target baseline, in which case the total allocated budget equals the contract budget base plus the above target budget [@CL-PRG-0285].
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A contract target cost is 2,000,000 and authorized unpriced work is estimated at
 
 ## Never confuse
 
-The contract budget base is not the contract target cost. The target cost is the negotiated figure, while the base is built from the internal budgets plus management reserve and is compared with the target cost plus authorized unpriced work [@CL-PRG-0282; @CL-PRG-0283; @CL-PRG-0284].
+Contract target cost is synonymous with negotiated contract cost [@CL-PRG-0282], whereas the contract budget base is established by the sum of control account budgets, summary level planning packages, and undistributed budget plus management reserve, and reconciles with the contract target cost plus authorized unpriced work [@CL-PRG-0283; @CL-PRG-0284].
 
 ## Company calibration
 
@@ -54,5 +54,6 @@ Which figure the company treats as the contract budget base, and how unpriced ch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the applies-to field, rule statement, reconciliation mechanics, and target-cost versus contract-budget-base comparison directly with the Guideline 13 claims.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed an unsupported description of the reconciliation direction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 13 reconciliation to target costs.

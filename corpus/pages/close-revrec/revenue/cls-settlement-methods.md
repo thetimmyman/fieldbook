@@ -33,9 +33,9 @@ Settlement of a terminated cost-reimbursement contract, or of a fixed-price cont
 
 ## How it works
 
-The TCO settles a proposal by determination only when it cannot be settled by agreement, and the section does not say who judges that it cannot [@CL-CLS-1251]. Negotiation is the route the TCO should take where it is possible [@CL-CLS-1250]. Both the direction to negotiate where possible (a "should") and the limit on determination (a "shall") are stated for the TCO. The section states no duty for the contractor.
+The TCO shall settle a proposal by determination only when it cannot be settled by agreement [@CL-CLS-1251]. When possible, the TCO should negotiate a fair and prompt settlement with the contractor [@CL-CLS-1250].
 
-The text ties costing-out under vouchers to cost-reimbursement contracts and to subpart 49.3 [@CL-CLS-1249]. A combination of the methods is also listed [@CL-CLS-1249]. The TCO's duties elsewhere include settling by determination the elements that cannot be agreed on when a complete settlement cannot be negotiated [@CL-CLS-0906]. See [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
+Costing-out under vouchers using SF 1034 is a method for cost-reimbursement contracts, as prescribed in subpart 49.3 [@CL-CLS-1249]. A combination of these methods is also a method of settlement [@CL-CLS-1249]. The TCO's duties elsewhere include settling by determination the elements that cannot be agreed on when a complete settlement cannot be negotiated [@CL-CLS-0906]. See [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Suppose instead that the sides agree on 400,000 of the proposal and cannot agree
 
 ## Never confuse
 
-Negotiated agreement is not the same route as determination by the TCO. The TCO should negotiate where possible, and shall use determination only when the proposal cannot be settled by agreement [@CL-CLS-1250; @CL-CLS-1251]. Costing-out under vouchers is a separate route that the text ties to cost-reimbursement contracts [@CL-CLS-1249]. It is not another name for a negotiated settlement. The determination route itself is the subject of [Settlement by determination](cls-settlement-by-determination.md).
+Negotiated agreement and determination by the TCO are separate items in the list of methods [@CL-CLS-1248]. The TCO should negotiate where possible, and shall settle by determination only when the proposal cannot be settled by agreement [@CL-CLS-1250; @CL-CLS-1251]. Costing-out under vouchers is listed as its own method, for cost-reimbursement contracts [@CL-CLS-1249]. The determination route itself is the subject of [Settlement by determination](cls-settlement-by-determination.md).
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Which settlement route each open termination will follow, and who approves the n
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrast and gap wording; cited the TCO duties.
 - COMPATIBLE_EXTENSION, 2026-10-31: settlement methods stated as four alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for methods of settling terminated contracts.

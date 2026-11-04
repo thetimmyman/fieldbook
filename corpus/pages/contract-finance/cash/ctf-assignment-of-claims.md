@@ -31,7 +31,7 @@ Specifies the statutory conditions and agency policies under which a contractor 
 
 Under the Assignment of Claims Act, a contractor may assign moneys due or to become due under a contract if all the listed conditions are met, one of which is that the contract specifies payments aggregating $1,000 or more [@CL-CTF-0771]. The assignment must be made to a bank, trust company, or other financing institution, including any Federal lending agency, and the contract must not prohibit the assignment [@CL-CTF-0772].
 
-Unless otherwise expressly permitted in the contract, the assignment must cover all unpaid amounts payable under the contract [@CL-CTF-0867]. Unless otherwise expressly permitted, it must also be made only to one party, except that any assignment may be made to one party as agent or trustee for two or more parties participating in the financing of the contract, and must not be subject to further assignment [@CL-CTF-0867; @CL-CTF-0875]. The assignee must send a written notice of assignment together with a true copy of the assignment instrument to the contracting officer or agency head, the surety on any bond applicable to the contract, and the disbursing officer designated in the contract [@CL-CTF-0773].
+Unless otherwise expressly permitted in the contract, the assignment must cover all unpaid amounts payable under the contract [@CL-CTF-0867]. Unless otherwise expressly permitted in the contract, it must also be made only to one party, except that any assignment may be made to one party as agent or trustee for two or more parties participating in the financing of the contract, and must not be subject to further assignment [@CL-CTF-0867; @CL-CTF-0875]. The assignee must send a written notice of assignment together with a true copy of the assignment instrument to the contracting officer or agency head, the surety on any bond applicable to the contract, and the disbursing officer designated in the contract [@CL-CTF-0773].
 
 ## How it works
 
@@ -56,7 +56,6 @@ Confirm whether financing arrangements involve assignment of contract payments a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the never-confuse paragraph to what the cited text says.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the single-party rule to its lead-in and used the section's own reference for reassignment conditions.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

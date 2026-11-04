@@ -27,7 +27,7 @@ Specifies how profit is allowed on preparations made and work done, and how a se
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0513] |
-| Applies to | Fixed-price contracts terminated for convenience: these sections sit in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
+| Applies to | Fixed-price contracts terminated for convenience: additional principles applicable to the termination for convenience and settlement of fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3 [@CL-CLS-0662]. |
 
 The termination contracting officer must allow profit on preparations made and work done by the contractor for the terminated portion of the contract, but not on the settlement expenses [@CL-CLS-0513].
 
@@ -35,9 +35,9 @@ In the negotiation or determination of any settlement, the termination contracti
 
 ## How it works
 
-Anticipatory profits and consequential damages are not allowed, subject to the cross-reference in that rule to FAR 49.108-5, the section on recognizing subcontract judgments and arbitration awards as settlement costs [@CL-CLS-0513]. The termination contracting officer may use any reasonable method to arrive at a fair profit [@CL-CLS-0654]. Profit must not be allowed for material or services that, as of the effective date of termination, have not been delivered by a subcontractor, regardless of the percentage of completion [@CL-CLS-0514].
+Anticipatory profits and consequential damages shall not be allowed (but see 49.108-5) [@CL-CLS-0513]. Profit for the contractor's efforts in settling subcontractor proposals shall not be based on the dollar amount of the subcontract settlement agreements, but the contractor's efforts will be considered in determining the overall rate of profit allowed the contractor [@CL-CLS-0433]. The termination contracting officer may use any reasonable method to arrive at a fair profit [@CL-CLS-0654]. Profit must not be allowed for material or services that, as of the effective date of termination, have not been delivered by a subcontractor, regardless of the percentage of completion [@CL-CLS-0514].
 
-When a loss is indicated, the termination contracting officer must negotiate or determine the amount of loss and adjust the amount of the settlement [@CL-CLS-0515]. On an inventory-basis settlement, the contractor must not be paid more than the total of three listed amounts, less all disposal credits and all unliquidated advance and progress payments previously made under the contract [@CL-CLS-0655]. One of those amounts is a remainder that is reduced by multiplying the remainder by the ratio of the total contract price to the total cost incurred before termination plus the estimated cost to complete the entire contract [@CL-CLS-0516].
+When a loss is indicated, the termination contracting officer must negotiate or determine the amount of loss and make an adjustment in the amount of settlement as specified in paragraph (b) or (c) of FAR 49.203, and in estimating the cost to complete the TCO shall consider expected production efficiencies and other factors affecting the cost to complete [@CL-CLS-0515; @CL-CLS-0434]. On an inventory-basis settlement, the contractor must not be paid more than the total of three listed amounts, less all disposal credits and all unliquidated advance and progress payments previously made under the contract [@CL-CLS-0655]. Those three amounts are (1) the amount negotiated or determined for settlement expenses, (2) the contract price, as adjusted, for acceptable completed end items (see 49.205), and (3) the remainder of the settlement amount otherwise agreed upon or determined (including the allocable portion of initial costs (see 31.205-42(c))), reduced by multiplying the remainder by the ratio of the total contract price to the total cost incurred before termination plus the estimated cost to complete the entire contract [@CL-CLS-0435; @CL-CLS-0516].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ A contractor has a terminated fixed-price contract with a total price of 800,000
 
 ## Never confuse
 
-Profit on preparations and work already done is not anticipatory profit, which is not allowed subject to the cross-reference to FAR 49.108-5 on judgments and arbitration awards [@CL-CLS-0513]. These rules belong to fixed-price terminations for convenience; they do not settle a terminated cost-reimbursement contract. A loss indication removes profit and, on the inventory basis, reduces the remainder through the ratio [@CL-CLS-0515; @CL-CLS-0516]. For allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For the two proposal bases, see [Termination settlement proposals](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the matching loss rule in the fixed-price termination clause, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
+Anticipatory profits and consequential damages shall not be allowed (but see 49.108-5) [@CL-CLS-0513]. Additional principles applicable to the termination for convenience and settlement of fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3 [@CL-CLS-0662]. A loss indication removes profit and, on the inventory basis, reduces the remainder through the ratio [@CL-CLS-0515; @CL-CLS-0516]. For allowability of individual termination costs, see [Termination costs](../inventory-wip/cls-termination-costs.md). For the two proposal bases, see [Termination settlement proposals](../inventory-wip/cls-termination-settlement-proposal-bases.md). For the matching loss rule in the fixed-price termination clause, see [Termination for convenience settlement](../../contract-finance/billing-payment/ctf-termination-for-convenience-settlement.md).
 
 ## Company calibration
 
@@ -57,5 +57,6 @@ Who estimates the cost to complete the entire contract and signs off profit excl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added subcontract-settlement profit rule, cost-to-complete factors, and all three inventory-basis loss cap amounts.
 - COMPATIBLE_EXTENSION, 2026-10-31: loss rule worded as quoted.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for profit allowance and loss adjustments in termination settlements.

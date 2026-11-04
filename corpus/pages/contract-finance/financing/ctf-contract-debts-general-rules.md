@@ -16,7 +16,7 @@ links = ["ctf-contract-debts", "ctf-assignment-procedure-and-debt-installments",
 
 ## Purpose
 
-Defines a contract debt and shows what the printed text says about who determines one.
+Defines a contract debt and points to the items listed as contract debts.
 
 ## The rule
 
@@ -31,13 +31,13 @@ Defines a contract debt and shows what the printed text says about who determine
 
 Contract debts are amounts that have been paid to a contractor to which the contractor is not currently entitled under the terms and conditions of the contract, or that are otherwise due from the contractor under the terms and conditions of the contract [@CL-CTF-1531].
 
-The printed text of this general section does not say who determines that a contract debt exists. It also gives a list of examples that it says is not limited to those items, and this card does not restate that list. The demand, deferment and interest steps that follow a determination are on [Contract debts demand deferment and interest](../cash/ctf-contract-debts.md), where the contracting officer's role appears.
+Contract debts include, but are not limited to, the items listed in paragraph (b) of the section [@CL-CTF-2962]. For demand, deferment and interest, see [Contract debts demand deferment and interest](../cash/ctf-contract-debts.md).
 
 ## How it works
 
-A contract debt arises in one of two ways: the contractor was paid an amount it was not entitled to under the contract terms, or an amount is otherwise due from it under those terms [@CL-CTF-1531]. The definition itself sets no amount threshold or deadline.
+A contract debt arises in one of two ways: the contractor was paid an amount it was not entitled to under the contract terms, or an amount is otherwise due from it under those terms [@CL-CTF-1531].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 32 text in place of the codified text from February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.601 keeps the rule described above: contract debts are amounts paid to a contractor to which it is not currently entitled under the terms and conditions of the contract, or otherwise due from it under those terms and conditions [@CL-CTF-4247], and the list of examples is still stated as not limited to the items listed [@CL-CTF-4248].
+Under the RFO text, DoD contracting officers must use the RFO FAR part 32 text in place of the codified text, effective February 1, 2026 [@CL-CTF-4046]. RFO FAR 32.601 keeps the rule described above: contract debts are amounts paid to a contractor to which it is not currently entitled under the terms and conditions of the contract, or otherwise due from it under those terms and conditions [@CL-CTF-4247], and the list of examples is still stated as not limited to the items listed [@CL-CTF-4248].
 
 ## Worked example
 
@@ -49,7 +49,7 @@ Answer: the contract debt is 10,000.
 
 ## Never confuse
 
-A contract debt is an amount owed to the Government under the contract, which differs from a contractor's own bad debts, see [Bad debts and associated collection costs](../../compliance/cas-allowability/cmp-bad-debts.md). Installment payments of contract debts are on [Assignment of claims procedure and installment payments of contract debts](../cash/ctf-assignment-procedure-and-debt-installments.md).
+Contract debts are amounts that have been paid to a contractor to which the contractor is not currently entitled, or that are otherwise due from the contractor, under the terms and conditions of the contract [@CL-CTF-1531]. For a contractor's bad debts, see [Bad debts and associated collection costs](../../compliance/cas-allowability/cmp-bad-debts.md). Installment payments of contract debts are on [Assignment of claims procedure and installment payments of contract debts](../cash/ctf-assignment-procedure-and-debt-installments.md).
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Confirm how the company records and tracks amounts the Government says are owed 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Aligned the contract debts wording with the cited paragraphs; added the non-exclusive list lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the general rules on contract debts.

@@ -35,7 +35,7 @@ A nonprofit organization is not precluded from competing for a contract for reli
 
 ## How it works
 
-The delay clause sets a waiting period during which the SBA may notify the contractor that the 8(a) award is ineligible [@CL-MKT-0933]. The printed text counts working days and does not define them here, so how they are counted is not established. The competition provision says a nonprofit organization is not precluded from competing for religious-related services, notwithstanding that it is not a small business concern identified in the FAR [@CL-MKT-0935]. The provision says what the contracting officer verifies, and it does not say what happens when the verification fails, so the source does not establish that.
+The delay clause sets a waiting period during which the SBA may notify the contractor that the 8(a) award is ineligible [@CL-MKT-0933]. The competition provision says a nonprofit organization is not precluded from competing for a contract for religious-related services to be performed on a United States military installation, notwithstanding that it is not a small business concern identified in the FAR [@CL-MKT-0935].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the contractor waits two working days and may begin on Thursday, the thi
 
 ## Never confuse
 
-The delay clause is a waiting period, not an eligibility finding: the purchase order is considered canceled if a determination of ineligibility is issued within the period [@CL-MKT-0934]. The religious-services provision addresses nonprofit organizations that are not small business concerns [@CL-MKT-0935]. The direct award and competition notice clauses for the same program are on the [direct award and limited competition notice](mkt-dfars-8a-direct-award-and-limited-competition-notice.md) card. How the SBA accepts a requirement is on the [offering and acceptance](mkt-8a-offering-and-acceptance.md) card, and registration in SAM is on the [SAM registration and awards](../feeds/mkt-sam-registration-and-awards.md) card.
+Under the delay clause, if a determination of ineligibility is issued within the 2-day period, the purchase order shall be considered canceled [@CL-MKT-0934]. Under the religious-services provision, a nonprofit organization is not precluded from competing for a contract for religious-related services to be performed on a United States military installation [@CL-MKT-0935]. The direct award and competition notice clauses for the same program are on the [direct award and limited competition notice](mkt-dfars-8a-direct-award-and-limited-competition-notice.md) card. How the SBA accepts a requirement is on the [offering and acceptance](mkt-8a-offering-and-acceptance.md) card, and registration in SAM is on the [SAM registration and awards](../feeds/mkt-sam-registration-and-awards.md) card.
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ Which purchase orders under the program or religious-related services contracts 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta absence statements and contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Religious-services provision restated as notwithstanding.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for delay of performance and religious-related services competition.

@@ -34,7 +34,7 @@ The Accreditation Body shall be US-based, remain a member in good standing of th
 
 ## How it works
 
-The Accreditation Body's conflict of interest policy shall include a detailed risk mitigation plan for all potential conflicts of interest that may pose a risk to compliance with ISO/IEC 17011:2017(E) [@CL-CMP-3222]. That sentence opens the list of what the policy must contain. One listed requirement is that employees, Board directors, and members of accreditation or appeals adjudication committees who leave the board or organization enter a cooling off period of one year during which they are prohibited from working with the Accreditation Body [@CL-CMP-3223; @CL-CMP-3222]. The cooling off period also bars them from participating in any and all CMMC activities described in Subpart C [@CL-CMP-3331]. All policies in the Accreditation Body section must be approved by the CMMC PMO prior to effectivity, in accordance with the requirements that follow in that section [@CL-CMP-3332]. Oversight sits with the CMMC PMO, which retains the prerogative to review the Accreditation Body's decisions and to evaluate any alleged conflicts of interest purported to influence its objectivity [@CL-CMP-3211]. The printed text lists further policy requirements that this card does not set out.
+The Accreditation Body's conflict of interest policy shall include a detailed risk mitigation plan for all potential conflicts of interest that may pose a risk to compliance with ISO/IEC 17011:2017(E) [@CL-CMP-3222]. That sentence opens the list of what the policy must contain. One listed requirement is that employees, Board directors, and members of accreditation or appeals adjudication committees who leave the board or organization enter a cooling off period of one year during which they are prohibited from working with the Accreditation Body [@CL-CMP-3223; @CL-CMP-3222]. The cooling off period also bars them from participating in any and all CMMC activities described in Subpart C [@CL-CMP-3331]. All policies in the Accreditation Body section must be approved by the CMMC PMO prior to effectivity, in accordance with the requirements that follow in that section [@CL-CMP-3332]. The CMMC PMO retains, on behalf of the DoD CIO(CS), the prerogative to review decisions of the Accreditation Body as part of its oversight of the CMMC program and to evaluate any alleged conflicts of interest purported to influence the Accreditation Body's objectivity [@CL-CMP-3211]. The Accreditation Body section lists further policy requirements that this card does not set out.
 
 ## Worked example
 
@@ -44,7 +44,7 @@ A Board director leaves the Accreditation Body in month 0. For the next 12 month
 
 ## Never confuse
 
-The Accreditation Body, the third-party assessment organizations and the CMMC PMO are three different parties. The Accreditation Body authorizes and ensures the accreditation of C3PAOs [@CL-CMP-3218]. A C3PAO conducts the Level 2 certification assessments of contractors [@CL-CMP-3224]. The CMMC PMO oversees the Accreditation Body and can review its decisions [@CL-CMP-3211]. The roles of the PMO and DCMA DIBCAC are on the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the certification body for assessors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card.
+The Accreditation Body is responsible for authorizing and ensuring the accreditation of C3PAOs [@CL-CMP-3218]. C3PAOs are responsible for conducting Level 2 certification assessments [@CL-CMP-3224]. The CMMC PMO retains the prerogative to review decisions of the Accreditation Body as part of its oversight of the CMMC program [@CL-CMP-3211]. The roles of the PMO and DCMA DIBCAC are on the [PMO and DIBCAC roles](cmp-cmmc-pmo-and-dcma-dibcac-roles.md) card, the duties of the third-party assessment organizations are on the [third-party assessment organization requirements](cmp-cmmc-c3pao-requirements.md) card, and the certification body for assessors is on the [CAICO and certified assessors](cmp-cmmc-caico-and-certified-assessors.md) card.
 
 ## Company calibration
 
@@ -53,6 +53,6 @@ Which third-party assessment organization the company engages, whether it appear
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Matched the PMO review wording and role statements to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the following-requirements qualifier to the approval sentence.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC Accreditation Body.

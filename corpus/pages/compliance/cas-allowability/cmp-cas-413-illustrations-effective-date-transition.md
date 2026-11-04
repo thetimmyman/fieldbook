@@ -37,7 +37,7 @@ The exemption section of the pension adjustment and allocation standard says the
 
 ## How it works
 
-The illustrations show the amortization periods for gains and losses, which depend on whether the period begins before or on or after the Applicability Date [@CL-CMP-3411; @CL-CMP-3440], and the test on asset value that the linked rule card concerns [@CL-CMP-3412; @CL-CMP-3441]. The effective date sets the cost accounting periods in which the standard applies [@CL-CMP-3413]. The transition rule keeps adjustments forward-looking, while still letting earlier contract costs and prices inform the choice of method, within the stated limit on contracts not subject to price adjustment [@CL-CMP-3414]. The [adjustment and allocation card](cmp-cas-413-pension-adjustment-allocation.md) and the [segment closing card](../../mna/diligence/mna-segment-closing-pension-adjustment.md) hold the rules themselves, and this card does not restate them. The [pension harmonization transition card](cmp-cas-412-effective-date-transition.md) covers the phase-in of the harmonization rule under the pension cost standard, and the [pension cost illustrations card](cmp-cas-412-illustrations.md) shows worked outcomes under it.
+The illustrations show the amortization periods for gains and losses, which depend on whether the period begins before or on or after the Applicability Date [@CL-CMP-3411; @CL-CMP-3440], and the corridor test on the actuarial value of the assets of the pension plan [@CL-CMP-3412; @CL-CMP-3441]. The effective date sets the cost accounting periods in which the standard applies [@CL-CMP-3413]. Under the transition rule all adjustments shall be prospective only, but costs and prices of prior and existing contracts not subject to price adjustment may be considered in determining the appropriate transition method or adjustment amount [@CL-CMP-3414]. The [adjustment and allocation card](cmp-cas-413-pension-adjustment-allocation.md) and the [segment closing card](../../mna/diligence/mna-segment-closing-pension-adjustment.md) hold the rules themselves. The [pension harmonization transition card](cmp-cas-412-effective-date-transition.md) covers the phase-in of the harmonization rule under the pension cost standard, and the [pension cost illustrations card](cmp-cas-412-illustrations.md) shows worked outcomes under it.
 
 ## Worked example
 
@@ -49,7 +49,7 @@ A gain of 30 is measured for a period beginning on or after the Applicability Da
 
 ## Never confuse
 
-The corridor tests the actuarial value of the assets against market, and a value outside it is moved to the nearest boundary [@CL-CMP-3412; @CL-CMP-3441]. It is a separate test from the assignment of pension cost, which the linked adjustment card covers. A prospective adjustment is also not a refusal to look back: prior contract costs and prices may be considered in choosing the method [@CL-CMP-3414].
+The corridor requires the actuarial value of the assets of the pension plan to fall within 80 to 120 percent of market [@CL-CMP-3412]; in the illustration, a value that falls outside the corridor must be adjusted to the nearest boundary of the corridor [@CL-CMP-3441]. All adjustments under the transition rule shall be prospective only, but costs and prices of prior and existing contracts not subject to price adjustment may be considered in determining the appropriate transition method or adjustment amount [@CL-CMP-3414].
 
 ## Company calibration
 
@@ -58,6 +58,6 @@ Which contracts are subject to the pension adjustment standard and who confirms 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Removed meta and uncited contrasts, matched transition wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added exemption section of CAS 413.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS 413 illustrations, effective date and transition.

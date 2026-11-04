@@ -29,7 +29,7 @@ What a termination for default is, when it is treated as a termination for conve
 | Text status | Final [@CL-CTF-3141] |
 | Applies to | Contracts terminated for default, with the last rules limited to cost-reimbursement contracts [@CL-CTF-3141; @CL-CTF-3145] |
 
-Termination for default is generally the exercise of the Government's contractual right to terminate a contract completely or partially because of the contractor's actual or anticipated failure to perform its contractual obligations [@CL-CTF-3141]. The contractor may establish, or it may otherwise be determined, that the contractor was not in default or that its failure to perform is excusable, meaning that it arose out of causes beyond the control and without the fault or negligence of the contractor [@CL-CTF-3142]. In that case the default clauses prescribed in FAR 49.503 and located at FAR 52.249 provide that a termination for default will be considered to have been a termination for the convenience of the Government, and the rights and obligations of the parties are governed accordingly [@CL-CTF-3289].
+Termination for default is generally the exercise of the Government's contractual right to terminate a contract completely or partially because of the contractor's actual or anticipated failure to perform its contractual obligations [@CL-CTF-3141]. If the contractor can establish, or it is otherwise determined, that the contractor was not in default or that the failure to perform is excusable, that is, arose out of causes beyond the control and without the fault or negligence of the contractor [@CL-CTF-3142], the default clauses prescribed in FAR 49.503 and located at FAR 52.249 provide that a termination for default will be considered to have been a termination for the convenience of the Government, and the rights and obligations of the parties are governed accordingly [@CL-CTF-3289].
 
 The Government may, in appropriate cases, exercise termination or cancellation rights in addition to those in the contract clauses, for example under paragraph (h) of the Default clause at FAR 52.249-8 [@CL-CTF-3290]. For default terminations of orders under Federal Supply Schedule contracts, FAR subpart 8.4 applies [@CL-CTF-3291].
 
@@ -39,7 +39,7 @@ The contracting officer may, with the written consent of the contractor, reinsta
 
 If the contracting officer terminates a contract for default or follows a course of action instead of termination for default, the contracting officer promptly must assess and demand any liquidated damages to which the Government is entitled under the contract [@CL-CTF-3144]. Under the contract clause at FAR 52.211-11, liquidated damages are in addition to any excess repurchase costs [@CL-CTF-3293]. If the Government has suffered any other ascertainable damages, including administrative costs, as a result of the contractor's default, the contracting officer must, on the basis of legal advice, take appropriate action as prescribed in FAR subpart 32.6 to assert the Government's demand for the damages [@CL-CTF-3294].
 
-The right to terminate a cost-reimbursement contract for default is provided for in the Termination for Default or for Convenience of the Government clause at FAR 52.249-6, which requires a 10-day notice to the contractor before termination for default in every case [@CL-CTF-3145]. Settlement of such a contract is subject to the principles in FAR subparts 49.1 and 49.3 as for a convenience termination, except that the costs of preparing the contractor's settlement proposal are not allowable [@CL-CTF-3146]. The second exception is that the contractor is reimbursed the allowable costs, and an appropriate reduction is made in the total fee, if any [@CL-CTF-3295]. The contracting officer uses the procedures in FAR 49.402 to the extent appropriate in considering the termination for default of a cost-reimbursement contract [@CL-CTF-3296]. A cost-reimbursement contract does not contain any provision for recovery of excess repurchase costs after termination for default, but paragraph (g) of the clause at FAR 52.246-3 addresses the contractor's failure to replace or correct defective supplies [@CL-CTF-3147].
+The right to terminate a cost-reimbursement contract for default is provided for in the Termination for Default or for Convenience of the Government clause at FAR 52.249-6, which requires a 10-day notice to the contractor before termination for default in every case [@CL-CTF-3145]. Settlement of a cost-reimbursement contract terminated for default is subject to the principles in FAR subparts 49.1 and 49.3 the same as when a contract is terminated for convenience, except that (1) the costs of preparing the contractor's settlement proposal are not allowable [@CL-CTF-3146] and (2) the contractor is reimbursed the allowable costs, and an appropriate reduction is made in the total fee, if any [@CL-CTF-3295]. The contracting officer shall use the procedures in FAR 49.402 to the extent appropriate in considering the termination for default of a cost-reimbursement contract [@CL-CTF-3296]. However, a cost-reimbursement contract does not contain any provision for recovery of excess repurchase costs after termination for default (but see paragraph (g) of the clause at FAR 52.246-3 with respect to failure of the contractor to replace or correct defective supplies) [@CL-CTF-3147].
 
 ## Worked example
 
@@ -53,11 +53,11 @@ A cost-reimbursement contract is instead terminated for default after the 10-day
 
 ## Never confuse
 
-A default termination is not automatically a convenience termination. Conversion follows where the contractor was not in default or the failure is excusable [@CL-CTF-3142; @CL-CTF-3289].
+If the contractor can establish, or it is otherwise determined, that the contractor was not in default or that the failure to perform is excusable, a termination for default will be considered to have been a termination for the convenience of the Government [@CL-CTF-3142; @CL-CTF-3289].
 
-Reinstatement is not conversion. Reinstatement amends the notice of termination with the contractor's written consent after a written determination [@CL-CTF-3143], while conversion treats the termination as one for convenience [@CL-CTF-3289].
+The contracting officer may reinstate the terminated contract, with the written consent of the contractor, by amending the notice of termination, after a written determination is made that the supplies or services are still required and reinstatement is advantageous to the Government [@CL-CTF-3143].
 
-Liquidated damages are not excess repurchase costs. Liquidated damages are in addition to them [@CL-CTF-3293], and a cost-reimbursement contract has no provision for recovering excess repurchase costs [@CL-CTF-3147].
+Under the contract clause at FAR 52.211-11, liquidated damages are in addition to any excess repurchase costs [@CL-CTF-3293]. A cost-reimbursement contract does not contain any provision for recovery of excess repurchase costs after termination for default [@CL-CTF-3147].
 
 The repurchase and effect side of the default clauses is on [the default termination effect card](../../close-revrec/revenue/cls-termination-for-default-effect-and-repurchase.md). Cost-reimbursement settlement mechanics are on [the cost-reimbursement termination settlement card](ctf-termination-cost-reimbursement-settlement.md).
 
@@ -68,6 +68,6 @@ Which contract types in the portfolio carry liquidated damages and default claus
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restored the if-condition for conversion; cut uncited contrasts; stated both settlement exceptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: second settlement exception stated as an exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default terminations, reinstatement and damages.

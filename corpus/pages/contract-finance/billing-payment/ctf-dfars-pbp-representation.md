@@ -27,15 +27,15 @@ Shows what an offeror represents about its financial statements under the DFARS 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CTF-1816] |
-| Applies to | Offerors, who mark one of two alternatives on their financial statements [@CL-CTF-1817] |
+| Applies to | Offerors, who represent that their financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817] |
 
-The provision states that, in accordance with the statute it cites, the Contractor's financial statements shall be in compliance with Generally Accepted Accounting Principles in order to receive performance-based payments [@CL-CTF-1816]. The Offeror then represents, by marking one of two alternatives, whether its financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817].
+The provision states that, in accordance with the statute it cites, the Contractor's financial statements shall be in compliance with Generally Accepted Accounting Principles in order to receive performance-based payments [@CL-CTF-1816]. The Offeror represents that its financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817].
 
-The DFARS directs use of the provision as prescribed in DFARS 232.1005-70(b) [@CL-CTF-1835]. The printed provision speaks only of the offeror's financial statements and does not mention an accounting system, so the source does not establish any accounting system representation.
+The DFARS directs use of the provision as prescribed in DFARS 232.1005-70(b) [@CL-CTF-1835].
 
 ## How it works
 
-The provision sets the condition for payments in its first paragraph and collects the offeror's answer in its second [@CL-CTF-1816; @CL-CTF-1817]. The printed text does not say what follows from marking the not-in-compliance alternative. The DoD clause for whole-contract performance-based payments repeats the financial statement condition [@CL-CTF-1727], as does the clause for the deliverable-item basis [@CL-CTF-1733]; they are on [DoD performance-based payments: whole-contract basis](../financing/ctf-dod-pbp-whole-contract-basis.md) and [DoD performance-based payments: deliverable-item basis](../financing/ctf-dod-pbp-deliverable-item-basis.md). The FAR clause is on [Performance-based payments clause](../financing/ctf-performance-based-payments.md). Other financing clauses are on [Progress payment rates and FMS requests](ctf-dfars-progress-payment-rates-and-fms.md) and [Mandatory purchase card payment and the advance payment pool clause](ctf-dfars-purchase-card-and-advance-payment-pool.md).
+Under paragraph (a), the Contractor's financial statements shall be in compliance with Generally Accepted Accounting Principles in order to receive performance-based payments [@CL-CTF-1816], and under paragraph (b) the Offeror represents that its financial statements are or are not in compliance [@CL-CTF-1817]. The DoD clause for whole-contract performance-based payments repeats the financial statement condition [@CL-CTF-1727], as does the clause for the deliverable-item basis [@CL-CTF-1733]; they are on [DoD performance-based payments: whole-contract basis](../financing/ctf-dod-pbp-whole-contract-basis.md) and [DoD performance-based payments: deliverable-item basis](../financing/ctf-dod-pbp-deliverable-item-basis.md). The FAR clause is on [Performance-based payments clause](../financing/ctf-performance-based-payments.md). Other financing clauses are on [Progress payment rates and FMS requests](ctf-dfars-progress-payment-rates-and-fms.md) and [Mandatory purchase card payment and the advance payment pool clause](ctf-dfars-purchase-card-and-advance-payment-pool.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the representation states that its financial statements comply, which is
 
 ## Never confuse
 
-The representation is about financial statements and not about the accounting system that records costs. It is also an offer-stage statement; the payment events and their evidence are set in the contract and are covered on the linked criteria page [Performance-based payment criteria](../financing/ctf-pbp-criteria.md).
+The Offeror represents that its financial statements are or are not in compliance with Generally Accepted Accounting Principles [@CL-CTF-1817]. The payment events and their evidence are covered on [Performance-based payment criteria](../financing/ctf-pbp-criteria.md).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Whether the company's financial statements meet the stated accounting principles
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; matched representation wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the performance-based payments representation.

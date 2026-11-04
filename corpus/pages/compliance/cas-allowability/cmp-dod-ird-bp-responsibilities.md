@@ -33,21 +33,21 @@ The cognizant administrative contracting officer (ACO) or corporate ACO shall de
 
 The Defense Contract Management Agency or the military department performing contract administration functions is responsible for giving DCAA statistical information, as necessary [@CL-CMP-2247]. The Office of the Under Secretary of Defense for Research and Engineering is responsible for establishing a regular method for communication [@CL-CMP-2248]. One direction of that method is from DoD to contractors, of timely and comprehensive information regarding planned or expected needs of DoD for future technology and advanced capability, by posting information on communities of interest and upcoming meetings on the Defense Technical Information Center website [@CL-CMP-2270]. The other direction is from contractors to DoD, of brief technical descriptions of contractor IR&D projects [@CL-CMP-2271].
 
-The printed section assigns its listed responsibilities to the ACO, DCAA, the administering agency and the research and engineering office, not to the contractor. The contractor's project reporting duty is covered on [DoD IR&D and B&P costs](cmp-dod-ird-bp-costs.md).
+The contractor's project reporting duty is covered on [DoD IR&D and B&P costs](cmp-dod-ird-bp-costs.md).
 
 ## How it works
 
-The ACO decides allowability, and DCAA reports to the Principal Director and to the congressional defense committees [@CL-CMP-2244; @CL-CMP-2245; @CL-CMP-2246]. DCAA draws on statistical information from the administering agency [@CL-CMP-2247]. The contract administration list points to the first paragraph of this section for additional functions on projects performed by major contractors [@CL-CMP-2204]. Another holder, the research and engineering office, sets up the communication method [@CL-CMP-2248]. For the contract administration list, see [DoD additions to contract administration functions](../regulatory-framework/cmp-dod-contract-administration-additions.md). For the corporate ACO, see [Corporate ACO assignment and Government visits](../regulatory-framework/cmp-corporate-aco-and-facility-visits.md).
+The cognizant ACO or corporate ACO shall determine cost allowability of IR&D costs and B&P costs as set forth in 231.205-18 and FAR 31.205-18 [@CL-CMP-2244]. DCAA shall submit an annual report to the Principal Director, Defense Pricing, Contracting, and Acquisition Policy, and an annual report to the congressional defense committees [@CL-CMP-2245; @CL-CMP-2246]. The Defense Contract Management Agency or the military department responsible for performing contract administration functions is responsible for providing DCAA with statistical information, as necessary [@CL-CMP-2247]. For additional contract administration functions related to IR&D projects and B&P projects performed by major contractors, DFARS 242.302(a)(9) says to see 242.771-3(a) [@CL-CMP-2204]. The Office of the Under Secretary of Defense for Research and Engineering is responsible for establishing a regular method for communication [@CL-CMP-2248]. For the contract administration list, see [DoD additions to contract administration functions](../regulatory-framework/cmp-dod-contract-administration-additions.md). For the corporate ACO, see [Corporate ACO assignment and Government visits](../regulatory-framework/cmp-corporate-aco-and-facility-visits.md).
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contractor's B&P cost of 300,000 on a DoD contract is questioned by the auditor. The cognizant ACO decides whether the cost is allowable. DCAA does not decide allowability. It includes B&P data in its annual reports, and the administering agency supplies statistics where needed.
+A contractor's B&P cost of 300,000 on a DoD contract is questioned by the auditor. The cognizant ACO determines cost allowability as set forth in 231.205-18 and FAR 31.205-18. DCAA submits its annual reports, and the administering agency supplies statistical information as necessary.
 
 ## Never confuse
 
-Deciding allowability is not reporting. The ACO decides allowability [@CL-CMP-2244]. DCAA submits the annual reports [@CL-CMP-2245; @CL-CMP-2246]. The cost principle and its limits are on [IR&D and B&P costs](cmp-ird-and-bp-costs.md), and the DoD supplement details are on [DoD IR&D and B&P costs](cmp-dod-ird-bp-costs.md).
+The cognizant ACO or corporate ACO shall determine cost allowability [@CL-CMP-2244]. DCAA shall submit the annual reports [@CL-CMP-2245; @CL-CMP-2246]. The cost principle and its limits are on [IR&D and B&P costs](cmp-ird-and-bp-costs.md), and the DoD supplement details are on [DoD IR&D and B&P costs](cmp-dod-ird-bp-costs.md).
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ How IR&D and B&P projects are opened, charged and reported, and who answers the 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated the responsibilities with the as-set-forth reference and cut statements the quotes do not make.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD IR&D and B&P responsibilities.

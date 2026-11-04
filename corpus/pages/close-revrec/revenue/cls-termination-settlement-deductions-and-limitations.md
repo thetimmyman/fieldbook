@@ -23,21 +23,21 @@ Controls the deductions taken from a termination settlement, the separate invoic
 | Field | Value |
 |---|---|
 | Instrument | Codified FAR [@CL-CLS-0517] |
-| Codified citation | FAR 49.204 [@CL-CLS-0517] |
+| Codified citation | FAR 49.204, 49.205, and 49.207 [@CL-CLS-0517; @CL-CLS-0658; @CL-CLS-0520] |
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CLS-0517] |
-| Applies to | Fixed-price contracts terminated for convenience: these sections sit in the FAR subpart of additional principles for those contracts, and a terminated cost-reimbursement contract is settled under its own subpart [@CL-CLS-0662]. |
+| Applies to | Fixed-price contracts terminated for convenience: additional principles applicable to the termination for convenience and settlement of fixed-price and cost-reimbursement contracts are included in subparts 49.2 and 49.3 [@CL-CLS-0662]. |
 
-From the amount payable to the contractor under a settlement, the termination contracting officer must deduct the agreed price for any part of the termination inventory purchased or retained by the contractor, and the proceeds from any materials sold that have not been paid or credited to the Government [@CL-CLS-0517].
+From the amount payable to the contractor under a settlement, the termination contracting officer must deduct (a) the agreed price for any part of the termination inventory purchased or retained by the contractor, and the proceeds from any materials sold that have not been paid or credited to the Government [@CL-CLS-0517], (b) the fair value, as determined by the TCO, of any part of the termination inventory that, before transfer of title to the Government or to a buyer under part 45, is lost or so damaged as to become undeliverable (normal spoilage is excepted, as is inventory for which the Government has expressly assumed the risk of loss) [@CL-CLS-0656; @CL-CLS-0657], and (c) any other amounts as appropriate in the particular case [@CL-CLS-0430].
 
 The total amount payable to the contractor for a settlement, before deducting disposal or other credits and exclusive of settlement costs, must not exceed the contract price less payments otherwise made or to be made under the contract [@CL-CLS-0520].
 
 ## How it works
 
-A further deduction is the fair value, as determined by the termination contracting officer, of termination inventory that is lost or so damaged as to become undeliverable before transfer of title to the Government or to a buyer under part 45 [@CL-CLS-0656]. Normal spoilage is excepted, as is inventory for which the Government has expressly assumed the risk of loss [@CL-CLS-0657].
+All three deduction categories in FAR 49.204 apply together: the agreed price of purchased or retained termination inventory and uncredited sale proceeds [@CL-CLS-0517], the TCO-determined fair value of termination inventory lost or damaged so as to become undeliverable before title transfer under part 45 (excepting normal spoilage and inventory for which the Government has expressly assumed the risk of loss) [@CL-CLS-0656; @CL-CLS-0657], and any other amounts as appropriate in the particular case [@CL-CLS-0430].
 
-Promptly after the effective date of termination, the termination contracting officer must have all undelivered completed end items inspected and accepted if they comply with the contract requirements, and must determine which accepted end items are to be delivered under the contract [@CL-CLS-0658]. The contractor invoices accepted and delivered end items at the contract price in the usual manner and does not include them in the settlement proposal [@CL-CLS-0518]. When completed end items, though accepted, are not to be delivered under the contract, the contractor includes them in the settlement proposal at the contract price, adjusted for any saving of freight or other charges, together with any credits for their purchase, retention, or sale [@CL-CLS-0519].
+Promptly after the effective date of termination, the termination contracting officer must have all undelivered completed end items inspected and accepted if they comply with the contract requirements, and must determine which accepted end items are to be delivered under the contract [@CL-CLS-0658]. The contractor invoices accepted and delivered end items at the contract price in the usual manner and does not include them in the settlement proposal [@CL-CLS-0518]. When completed end items, though accepted, are not to be delivered under the contract, the contractor includes them in the settlement proposal at the contract price, adjusted for any saving of freight or other charges, together with any credits for their purchase, retention, or sale [@CL-CLS-0519]. Work in place accepted by the Government under a construction contract is not considered a completed item even though that work may have been paid for at unit prices specified in the contract [@CL-CLS-0431].
 
 ## Worked example
 
@@ -57,5 +57,6 @@ Who tracks completed end items, retention credits, and the contract price ceilin
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 49.204(c) deduction, FAR 49.205(b) construction work-in-place rule, and exact subpart scope wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: added under part 45 to the lost-inventory deduction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for deductions, completed end items, and settlement limitations.

@@ -16,7 +16,7 @@ links = ["cls-termination-settlement-proposal-bases", "cls-termination-inventory
 
 ## Purpose
 
-Lists the duties that the notice and termination clause for a convenience termination generally require of a prime contractor after it receives a notice of termination, and shows which duties drive the close and the settlement proposal.
+Lists the duties that the notice and termination clause for a convenience termination generally require of a prime contractor after it receives a notice of termination.
 
 ## The rule
 
@@ -35,7 +35,7 @@ The listed duties include that the contractor stops work immediately on the term
 
 ## How it works
 
-The section does not rank the duties. A finance reader looks first at the listed duties that bear most directly on amounts or inventory: the subcontract settlements [@CL-CLS-0912], the contractor's own settlement proposal and the disposal of termination inventory [@CL-CLS-0913], and the property held for the Government [@CL-CLS-0910]. Stopping work and terminating subcontracts are the first listed duties [@CL-CLS-0908]. A partial termination adds a price adjustment request for the continued portion [@CL-CLS-0909]. For how the TCO handles the contractor's settlement proposal and subcontract settlements, see [Subcontract settlements: authority, judgments and arbitration awards](cls-subcontract-settlements-authorization-and-awards.md) and [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md). The existing pages linked below cover what the settlement proposal contains, so this page does not restate it.
+Stopping work on the terminated portion and terminating related subcontracts are the first listed duties [@CL-CLS-0908]. The listed duties also include settling outstanding liabilities and proposals arising out of termination of subcontracts, obtaining any approvals or ratifications required by the TCO [@CL-CLS-0912]; promptly submitting the contractor's own settlement proposal, supported by appropriate schedules, and disposing of termination inventory, as directed or authorized by the TCO [@CL-CLS-0913]; and taking necessary or directed action to protect and preserve property in the contractor's possession in which the Government has or may acquire an interest [@CL-CLS-0910]. If the termination is partial, the listed duties include performing the continued portion and promptly submitting any request for an equitable adjustment of price for the continued portion [@CL-CLS-0909]. For how the TCO handles the contractor's settlement proposal and subcontract settlements, see [Subcontract settlements: authority, judgments and arbitration awards](cls-subcontract-settlements-authorization-and-awards.md) and [Audit referral of termination settlement proposals and subcontract settlements](cls-termination-settlement-audit-referral.md).
 
 ## Worked example
 
@@ -47,7 +47,7 @@ It settles two supplier terminations, with the approvals the TCO requires, and t
 
 ## Never confuse
 
-The contractor's duty is to comply with the notice and the termination clause except as otherwise directed by the TCO, and the listed duties are those the notice and clause generally require [@CL-CLS-0907]. They are not the content or pricing of the settlement proposal, which the linked pages cover: see [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md) and [Termination inventory: disposal schedules and government property accounting](../inventory-wip/cls-termination-inventory-schedules-and-property-accounting.md). The duty to stop work is also not a duty to stop all work, because a partial termination leaves the continued portion to be performed [@CL-CLS-0909]. For the equitable adjustment and partial settlements, see [Partial termination: equitable adjustment and partial settlements](cls-partial-termination-equitable-adjustment-and-settlements.md). For the TCO's duties after the notice, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). For payments on the settlement proposal, see [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md).
+The contractor's duty is to comply with the notice and the termination clause except as otherwise directed by the TCO, and the listed duties are those the notice and clause generally require [@CL-CLS-0907]. For the settlement proposal and termination inventory, see [Termination settlement proposals: inventory basis and total-cost basis](../inventory-wip/cls-termination-settlement-proposal-bases.md) and [Termination inventory: disposal schedules and government property accounting](../inventory-wip/cls-termination-inventory-schedules-and-property-accounting.md). The duty to stop work immediately applies to the terminated portion of the contract [@CL-CLS-0908], and if the termination is partial the contractor shall perform the continued portion [@CL-CLS-0909]. For the equitable adjustment and partial settlements, see [Partial termination: equitable adjustment and partial settlements](cls-partial-termination-equitable-adjustment-and-settlements.md). For the TCO's duties after the notice, see [Termination authority, the notice of termination and the TCO's duties](cls-termination-authority-notice-and-tco-duties.md). For payments on the settlement proposal, see [Partial payments and final payment under a terminated contract](cls-termination-partial-payments-and-final-payment.md).
 
 ## Company calibration
 
@@ -56,6 +56,6 @@ How the contractor tracks subcontract terminations, held property and settlement
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: prime contractor duties after termination notice: uncited ranking, contrasts and meta sentences removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: added property in the contractor's possession.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the prime contractor's duties after receipt of a notice of termination.

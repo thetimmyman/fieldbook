@@ -31,21 +31,21 @@ Shows the contractor's duty to comply with export control laws under the export-
 
 The clause defines export-controlled items as items subject to the Export Administration Regulations or the International Traffic in Arms Regulations [@CL-CMP-4016]. The contractor shall comply with all applicable laws and regulations regarding export-controlled items, including, but not limited to, the requirement for contractors to register with the Department of State in accordance with the International Traffic in Arms Regulations [@CL-CMP-4017]. The contractor shall consult the Department of State on questions about compliance with the International Traffic in Arms Regulations and the Department of Commerce on questions about compliance with the Export Administration Regulations [@CL-CMP-4018].
 
-The contractor's responsibility to comply with all applicable laws and regulations regarding export-controlled items exists independent of, and is not established or limited by, the information provided by the clause [@CL-CMP-4019]. The contractor shall include the substance of the clause, including its flowdown paragraph, in all subcontracts [@CL-CMP-4020].
+The contractor's responsibility to comply with all applicable laws and regulations regarding export-controlled items exists independent of, and is not established or limited by, the information provided by the clause [@CL-CMP-4019]. Nothing in the terms of the contract adds, changes, supersedes, or waives any of the requirements of applicable Federal laws, Executive orders, and regulations, including but not limited to those listed in paragraph (d) [@CL-CMP-0144]. The contractor shall include the substance of the clause, including its flowdown paragraph, in all subcontracts [@CL-CMP-4020].
 
 ## How it works
 
-The clause points to the export duty rather than setting it out. The duty is to comply with the applicable laws and regulations, and the contractor's responsibility exists independent of, and is not established or limited by, the information the clause provides [@CL-CMP-4017; @CL-CMP-4019]. The contractor registers where required, asks the Department of State about one regime and the Department of Commerce about the other, and passes the clause to every subcontract [@CL-CMP-4017; @CL-CMP-4018; @CL-CMP-4020]. This card does not establish a threshold, fee or licensing test; the clause text printed for it holds none.
+The duty is to comply with the applicable laws and regulations, and the contractor's responsibility exists independent of, and is not established or limited by, the information the clause provides [@CL-CMP-4017; @CL-CMP-4019]. That includes the requirement for contractors to register with the Department of State in accordance with the ITAR [@CL-CMP-4017]. The contractor shall consult the Department of State on questions about compliance with the ITAR and the Department of Commerce on questions about compliance with the EAR [@CL-CMP-4018], and shall include the substance of the clause in all subcontracts [@CL-CMP-4020].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A contractor makes 50 parts for a defense contract. One part is a defense article under the arms regulations. The contractor registers with the Department of State as the regulations require and asks that department how the part is treated. It asks the Department of Commerce about a second, commercial part. It puts the clause into the supplier subcontract for the housing. Compliance rests on the laws, not on the contract text.
+A contractor makes 50 parts for a defense contract. One part is a defense article under the arms regulations. The contractor registers with the Department of State as the regulations require and asks that department how the part is treated. It asks the Department of Commerce about a second, commercial part. It puts the clause into the supplier subcontract for the housing. The contractor's responsibility to comply exists independent of the information provided by the clause [@CL-CMP-4019].
 
 ## Never confuse
 
-The export-controlled items clause requires general compliance with export control laws. It is not the same as the provisions on exports by Approved Community members under the defense trade cooperation treaties, which are separate clauses with their own cards: [Exports by approved community members in response to a solicitation](cmp-approved-community-exports-in-response-to-solicitation.md) and [Exports by approved community members in performance of the contract](cmp-approved-community-exports-in-performance.md).
+The export-controlled items clause requires the contractor to comply with all applicable laws and regulations regarding export-controlled items [@CL-CMP-4017]. For exports by Approved Community members under the defense trade cooperation treaties, see [Exports by approved community members in response to a solicitation](cmp-approved-community-exports-in-response-to-solicitation.md) and [Exports by approved community members in performance of the contract](cmp-approved-community-exports-in-performance.md).
 
 ## Company calibration
 
@@ -54,5 +54,5 @@ Which contracts involve export-controlled items, which entities are registered w
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: added no-change paragraph; removed absence and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for export-controlled items.

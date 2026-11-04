@@ -39,15 +39,13 @@ Paragraph (c): an official who refuses to terminate employment discussions (see 
 
 ## How it works
 
-The section does not state penalty amounts or terms, and it does not say who imposes them. It points to section 2105 of title 41 of the United States Code for the official and the offeror [@CL-CMP-7642; @CL-CMP-7643]. For the official who refuses to terminate employment discussions, it names agency administrative actions [@CL-CMP-7644]. It sets no deadline.
+The section points to section 2105 of title 41 of the United States Code for the official and the offeror [@CL-CMP-7642; @CL-CMP-7643]. For the official who refuses to terminate employment discussions, it names agency administrative actions [@CL-CMP-7644].
 
-Each route turns on what the person knew or did.
+- Under paragraph (a), an official who knowingly fails to comply with the requirements of 3.104-3 is subject to the penalties and administrative action set forth in section 2105 of title 41 of the United States Code [@CL-CMP-7642].
+- Under paragraph (b), an offeror who engages in employment discussion with an official subject to the restrictions of 3.104-3, knowing that the official has not complied with 3.104-3(c)(1), is subject to the criminal, civil, or administrative penalties set forth in section 2105 of title 41 of the United States Code [@CL-CMP-7643].
+- Under paragraph (c), an official who refuses to terminate employment discussions may be subject to agency administrative actions under 5 CFR 2635.604(d) if the official's disqualification from participation in a particular procurement interferes substantially with the individual's ability to perform assigned duties [@CL-CMP-7644; @CL-CMP-7645].
 
-- The official in paragraph (a) must knowingly fail to comply with 3.104-3 [@CL-CMP-7642].
-- The offeror in paragraph (b) must engage in employment discussion with an official subject to the restrictions of 3.104-3, and must know that the official has not complied with 3.104-3(c)(1) [@CL-CMP-7643].
-- Paragraph (c) covers an official who refuses to terminate employment discussions, who may be subject to agency administrative actions, stated for the case where the disqualification interferes substantially with the official's assigned duties [@CL-CMP-7644; @CL-CMP-7645].
-
-Paragraph 3.104-3(c)(1) covers an agency official who participates personally and substantially in a procurement for a contract above the simplified acquisition threshold [@CL-CMP-7122]. If an offeror in that procurement contacts the official, or the official contacts the offeror, about possible non-Federal employment, the official must act [@CL-CMP-7113]. The official must promptly report the contact in writing to the official's supervisor and to the agency ethics official [@CL-CMP-7123]. The official must also either reject the possibility of non-Federal employment or disqualify himself or herself until the agency authorizes resumption [@CL-CMP-7124]. Disqualification notice and resumption are in [Procurement integrity: related statutes, disqualification and ethics opinions](cmp-procurement-integrity-related-statutes-and-disqualification.md). The section points to 3.104-7 for administrative remedies relating to contracts [@CL-CMP-7656]; see [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md). Voiding and rescinding is a separate route that this section does not name; see [Voiding and rescinding contracts after a conviction or proven offense](cmp-voiding-and-rescinding-contracts.md).
+Paragraph 3.104-3(c)(1) covers an agency official who participates personally and substantially in a procurement for a contract above the simplified acquisition threshold [@CL-CMP-7122]. If an offeror in that procurement contacts the official, or the official contacts the offeror, about possible non-Federal employment, the official must act [@CL-CMP-7113]. The official must promptly report the contact in writing to the official's supervisor and to the agency ethics official [@CL-CMP-7123]. The official must also either reject the possibility of non-Federal employment or disqualify himself or herself from further personal and substantial participation in that Federal agency procurement (see 3.104-5) until such time as the agency authorizes the official to resume participation in that procurement [@CL-CMP-7124], in accordance with the requirements of 18 U.S.C. 208 and applicable agency regulations, because the person is no longer an offeror in that Federal agency procurement [@CL-CMP-8787], or because all discussions with the offeror regarding possible non-Federal employment have terminated without an agreement or arrangement for employment [@CL-CMP-8788]. Disqualification notice and resumption are in [Procurement integrity: related statutes, disqualification and ethics opinions](cmp-procurement-integrity-related-statutes-and-disqualification.md). The section points to 3.104-7 for administrative remedies relating to contracts [@CL-CMP-7656]; see [Procurement integrity: protection, marking and possible violations](cmp-procurement-integrity-marking-and-violations.md). For voiding and rescinding, see [Voiding and rescinding contracts after a conviction or proven offense](cmp-voiding-and-rescinding-contracts.md).
 
 ## Worked example
 
@@ -59,9 +57,7 @@ The official knowingly failed to comply with 3.104-3, so the official is subject
 
 ## Never confuse
 
-The opening sentence says that penalties and remedies may apply [@CL-CMP-7641]. Paragraphs (a) and (b) say that the official and the offeror are subject to the penalties [@CL-CMP-7642; @CL-CMP-7643]. Paragraph (c) is a separate route. It speaks of agency administrative actions, not of the statutory penalties, and it has its own condition [@CL-CMP-7644; @CL-CMP-7645].
-
-Paragraph (a) puts the knowledge element on the official, who must knowingly fail to comply [@CL-CMP-7642]. Paragraph (b) puts it on the offeror, who must know the official has not complied [@CL-CMP-7643]. The wording also differs: paragraph (a) names penalties and administrative action, and paragraph (b) names criminal, civil or administrative penalties [@CL-CMP-7642; @CL-CMP-7643].
+Criminal and civil penalties, and administrative remedies, may apply to conduct that violates chapter 21 of title 41 of the United States Code [@CL-CMP-7641]. Paragraph (a) names penalties and administrative action [@CL-CMP-7642], and paragraph (b) names criminal, civil, or administrative penalties [@CL-CMP-7643]. Paragraph (c) names agency administrative actions under 5 CFR 2635.604(d) if the official's disqualification interferes substantially with the individual's ability to perform assigned duties [@CL-CMP-7644; @CL-CMP-7645].
 
 ## Company calibration
 
@@ -71,5 +67,6 @@ The company must confirm which procurement integrity control findings, correctiv
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Added the resumption conditions and participation scope for the official; cut uncited negatives, characterizations and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for procurement integrity penalties and remedies.

@@ -29,19 +29,17 @@ Shows where the Cost Accounting Standards Board standards and regulations are pr
 | Text status | Final [@CL-CMP-8677] |
 | Applies to | The CAS requirement in FAR 30.201 is stated for negotiated contracts that are not exempt in accordance with 48 CFR 9903.201-1(b) [@CL-CMP-8680] |
 
-Under FAR 30.102, the CASB Standards and Regulations are printed in title 48 of the Code of Federal Regulations, chapter 99, and copies may be obtained by writing the Superintendent of Documents, or by calling the Washington, DC, ordering desk at the telephone number the section prints [@CL-CMP-8677; @CL-CMP-8678]. That section places no duty on a contractor, an acquirer or a filer, and it sets no deadline or threshold [@CL-CMP-8677].
+Under FAR 30.102, copies of the CASB Standards and Regulations are printed in title 48 of the Code of Federal Regulations, chapter 99 [@CL-CMP-8677], and may be obtained by writing the Superintendent of Documents, U.S. Government Publishing Office, Washington, DC 20402 [@CL-CMP-8677], or by calling the Washington, DC, ordering desk at area code (202) 512-1800 [@CL-CMP-8678].
 
-FAR 30.201 says that 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. A negotiated contract that is not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. A CAS-covered contract may be subject to either full or modified coverage [@CL-CMP-8681]. The rules for determining which applies are in 48 CFR 9903.201-2 [@CL-CMP-8682]. FAR 30.201 names no official who decides, and it prints no dollar threshold, deadline or exception [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681; @CL-CMP-8682]; those sit in the rules it cites [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681; @CL-CMP-8682].
+Under FAR 30.201, title 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. Negotiated contracts not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. A CAS-covered contract may be subject to either full or modified coverage [@CL-CMP-8681]. The rules for determining whether full or modified coverage applies are in 48 CFR 9903.201-2 [@CL-CMP-8682].
 
-In FAR 30.201-1, paragraph (a) refers the reader to 48 CFR 9903.201-1 [@CL-CMP-8684]. Paragraph (b), in accordance with section 1502(b)(1)(B) of title 41 of the United States Code, sets the threshold for determining the tentative applicability of CAS at the contract level as the amount set forth in section 3702(a)(1)(A) of title 10 of the United States Code, as adjusted for inflation in accordance with section 1908 of title 41 of the United States Code [@CL-CMP-8683]. Paragraph (b) prints no dollar figure and names no official who decides [@CL-CMP-8683].
+In FAR 30.201-1, paragraph (a) says to see 48 CFR 9903.201-1 [@CL-CMP-8684]. Paragraph (b), in accordance with section 1502(b)(1)(B) of title 41 of the United States Code, sets the threshold for determining the tentative applicability of CAS at the contract level as the amount set forth in section 3702(a)(1)(A) of title 10 of the United States Code, as adjusted for inflation in accordance with section 1908 of title 41 of the United States Code [@CL-CMP-8683].
 
 ## How it works
 
-The publication section only tells a reader where the text is printed and how to order it [@CL-CMP-8677; @CL-CMP-8678]. The contract requirement section then works in three steps. The rules in 48 CFR 9903.201-1 decide whether a proposed contract or subcontract is exempt [@CL-CMP-8679]. A negotiated contract that is not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. The rules in 48 CFR 9903.201-2 then decide whether the covered contract carries full or modified coverage [@CL-CMP-8681; @CL-CMP-8682].
+Copies of the CASB Standards and Regulations are printed in title 48 of the Code of Federal Regulations, chapter 99 [@CL-CMP-8677]. The rules in 48 CFR 9903.201-1 describe whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. Negotiated contracts not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. A CAS-covered contract may be subject to either full or modified coverage [@CL-CMP-8681], and the rules for determining which applies are in 48 CFR 9903.201-2 [@CL-CMP-8682].
 
-The section states the CAS requirement for negotiated contracts only. It does not say what follows for a contract that is not negotiated [@CL-CMP-8680].
-
-The contract-level threshold in paragraph (b) of FAR 30.201-1 is a threshold for tentative applicability, not a statement that a contract above or below it is exempt or covered [@CL-CMP-8683]. This card does not restate the current dollar figures or the exemption list; they are on [CAS applicability, coverage and Disclosure Statement thresholds](../cas-allowability/cmp-cas-applicability.md). The statute behind these rules is on [What the Cost Accounting Standards statute requires and who it applies to](../cas-allowability/cmp-cas-statute-scope-and-application.md).
+The threshold for determining the tentative applicability of CAS at the contract level is, in accordance with section 1502(b)(1)(B) of title 41 of the United States Code, the amount set forth in section 3702(a)(1)(A) of title 10 of the United States Code, as adjusted for inflation in accordance with section 1908 of title 41 of the United States Code [@CL-CMP-8683]. For the current dollar figures and the exemption list, see [CAS applicability, coverage and Disclosure Statement thresholds](../cas-allowability/cmp-cas-applicability.md). The statute behind these rules is on [What the Cost Accounting Standards statute requires and who it applies to](../cas-allowability/cmp-cas-statute-scope-and-application.md).
 
 ## Worked example
 
@@ -51,17 +49,16 @@ A company has 2 proposed negotiated contracts, A and B. Under 48 CFR 9903.201-1(
 
 ## Never confuse
 
-Ordering the printed standards is not the same step as deciding that a contract is covered. The publication section states where the text is printed and how copies may be obtained, while coverage turns on the exemption rules and on the coverage rules [@CL-CMP-8677; @CL-CMP-8679; @CL-CMP-8682].
-
-The exemption rules and the coverage rules are separate questions. Exemption decides whether a proposed contract or subcontract is exempt from CAS. FAR 30.201 makes a negotiated contract that is not exempt subject to CAS, and a CAS-covered contract then moves on to the full or modified coverage question [@CL-CMP-8680; @CL-CMP-8681]; the section does not say what follows for a contract that is not negotiated [@CL-CMP-8679; @CL-CMP-8680; @CL-CMP-8681]. The exemption detail itself lives in the existing card [CAS applicability](../cas-allowability/cmp-cas-applicability.md) and is not restated here.
+Title 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. The rules for determining whether full or modified coverage applies are in 48 CFR 9903.201-2 [@CL-CMP-8682]. For the exemption detail, see [CAS applicability](../cas-allowability/cmp-cas-applicability.md).
 
 ## Company calibration
 
-Whether the company has an advance agreement with the government on any cost. This card does not say that an advance agreement changes whether CAS applies. [@Q-043]
+Whether the company has an advance agreement with the government on any cost. [@Q-043]
 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Fixed statute citations in rule and how-it-works.
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, negative glosses and uncited contrasts; restated provisions as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims before two semicolon breaks.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Board publication and CAS applicability, with the coverage rules.

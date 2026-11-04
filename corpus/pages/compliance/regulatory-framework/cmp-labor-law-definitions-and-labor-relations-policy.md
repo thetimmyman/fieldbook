@@ -36,7 +36,7 @@ FAR part 22 deals with general policies regarding contractor labor relations as 
 
 ## How it works
 
-The definition turns on the principal purpose of the contract and on the use of service employees [@CL-CMP-3091]. The impartiality rule is a duty of agencies [@CL-CMP-3092]. The administration rule has agencies work with the Department of Labor's employment and training offices, and has contracting officers contact the Wage and Hour Division's regional offices when the wage and hour subparts require it [@CL-CMP-3143; @CL-CMP-3144]. The sections also cover sound relations with industry and labor, the exchange of labor information, steps agencies should take on a dispute, a designation by the head of the contracting activity for contractor notices, and the list of wage and hour statutes the Wage and Hour Division administers, and this card does not set those out. Project labor agreements have their own card at [Project labor agreements on federal construction](cmp-project-labor-agreements.md).
+The definition refers to a contract the principal purpose of which is to furnish services in the United States through the use of service employees [@CL-CMP-3091]. The impartiality rule is a duty of agencies [@CL-CMP-3092]. The administration rule has agencies work with the Department of Labor's employment and training offices, and has contracting officers contact the Wage and Hour Division's regional offices when the wage and hour subparts require it [@CL-CMP-3143; @CL-CMP-3144]. This card does not set out the other provisions of these sections. Project labor agreements have their own card at [Project labor agreements on federal construction](cmp-project-labor-agreements.md).
 
 ## Worked example
 
@@ -46,7 +46,7 @@ A contractor holds a contract to run a cafeteria in the United States with 40 ho
 
 ## Never confuse
 
-The definition of a service contract is not the labor standards clause itself. The clause and the wage determinations are on [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). Labor relations policy is also not the cost treatment of strike costs, which is on [Labor relations: labor policies and strike costs in pricing and cost allowance](cmp-labor-disputes-and-labor-costs-in-pricing.md).
+For the service contract labor standards clause and wage determinations, see [Service contract labor standards clause and wage determinations](../../operating-model/talent/opm-service-contract-labor-standards.md). For the cost treatment of strike costs, see [Labor relations: labor policies and strike costs in pricing and cost allowance](cmp-labor-disputes-and-labor-costs-in-pricing.md).
 
 ## Company calibration
 
@@ -56,5 +56,6 @@ Which service contracts the company holds, and who owns any notice of a labor di
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited characterizations and contrasts; restated the definition scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of part 22 and the agency cooperation policy.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for labor law definitions and labor relations policy.

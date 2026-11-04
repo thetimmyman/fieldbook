@@ -34,7 +34,7 @@ When performance is in part within and in part outside the United States, the su
 
 Section 22.2103(b) covers employees performing on or in connection with such contracts whose wages are governed by the Service Contract Labor Standards statute, the Wage Rate Requirements (Construction) statute, or the Fair Labor Standards Act [@CL-CMP-8183]. It includes employees who qualify for an exemption from the Fair Labor Standards Act's minimum wage and overtime provisions [@CL-CMP-8195; @CL-CMP-8183; @CL-CMP-8184].
 
-Section 22.2106 begins that, in accordance with 29 CFR 13.6 and by operation of the clause at 52.222-62, a contractor may not do the following [@CL-CMP-8185].
+Under section 22.2106, in accordance with 29 CFR 13.6 and by operation of the clause at 52.222-62, Paid Sick Leave Under Executive Order 13706, a contractor may not do the following [@CL-CMP-8185].
 
 Paragraph (a): interfere with an employee's accrual or use of paid sick leave as required by Executive Order 13706 or 29 CFR part 13 [@CL-CMP-8185].
 
@@ -42,25 +42,23 @@ Paragraph (b): discharge or in any other manner discriminate against any employe
 
 Paragraph (c): fail to make and maintain, or to make available to authorized representatives of the Wage and Hour Division, records for inspection, copying, and transcription as required by 29 CFR 13.25, or otherwise fail to comply with the requirements of 29 CFR 13.25 [@CL-CMP-8189].
 
-Section 22.2107 is a separate rule on waiver of rights: employees cannot waive, nor may contractors induce employees to waive, their rights under Executive Order 13706 or 29 CFR part 13 (see 29 CFR 13.7) [@CL-CMP-9545].
+Under section 22.2107, employees cannot waive, nor may contractors induce employees to waive, their rights under Executive Order 13706 or 29 CFR part 13 (see 29 CFR 13.7) [@CL-CMP-9545].
 
 ## How it works
 
-Coverage is tested twice. The contract must be covered by one of the two statutes and must require performance at least in part within the United States, and the employee's wages must be governed by one of the three statutes named in paragraph (b) [@CL-CMP-8180; @CL-CMP-8194; @CL-CMP-8181; @CL-CMP-8183].
-
-Both contract conditions must be met. A contract covered by one of the statutes but not requiring performance within the United States is outside paragraph (a) [@CL-CMP-8180; @CL-CMP-8194; @CL-CMP-8181].
+The subpart applies to contracts that are covered by the Service Contract Labor Standards statute or the Wage Rate Requirements (Construction) statute and require performance in whole or in part within the United States [@CL-CMP-8180; @CL-CMP-8194; @CL-CMP-8181], and to employees performing on or in connection with such contracts whose wages are governed by the Service Contract Labor Standards statute, the Wage Rate Requirements (Construction) statute, or the Fair Labor Standards Act [@CL-CMP-8183].
 
 For a contract performed partly abroad, the subpart applies to the part performed within the United States [@CL-CMP-8182].
 
-The employee test keeps people who qualify for an exemption from the minimum wage and overtime provisions of the Fair Labor Standards Act inside paragraph (b) [@CL-CMP-8184]. Any other limits on coverage are on [Executive order minimum wage coverage and paid sick leave exclusions](cmp-eo-wage-and-sick-leave-coverage-and-exclusions.md). This card does not restate them.
+Paragraph (b) includes employees who qualify for an exemption from the Fair Labor Standards Act's minimum wage and overtime provisions [@CL-CMP-8184]. For coverage and exclusions, see [Executive order minimum wage coverage and paid sick leave exclusions](cmp-eo-wage-and-sick-leave-coverage-and-exclusions.md).
 
-Every prohibition in section 22.2106 falls on the contractor [@CL-CMP-8185]. The section does not state a decision for a contracting officer or an agency [@CL-CMP-8185].
+Section 22.2106 provides that a contractor may not do the listed acts [@CL-CMP-8185].
 
-Paragraph (a) protects accrual and use of the leave. Paragraph (b) protects the employee from discharge or other discrimination for using or attempting to use the leave, for filing a complaint, starting a proceeding or asserting a right or claim, for cooperating in an investigation or testifying, or for telling others about the employee's rights [@CL-CMP-8185; @CL-CMP-8186; @CL-CMP-8187; @CL-CMP-8188].
+Paragraph (a) bars interference with an employee's accrual or use of paid sick leave [@CL-CMP-8185]. Paragraph (b) bars discharge or any other manner of discrimination against any employee for using or attempting to use paid sick leave, for filing a complaint, initiating a proceeding or otherwise asserting a right or claim, for cooperating in an investigation or testifying in a proceeding, or for informing any other person about his or her rights [@CL-CMP-8186; @CL-CMP-8187; @CL-CMP-8188].
 
-Paragraph (c) concerns records. The contractor must not fail to make and maintain them, or to make them available to authorized representatives of the Wage and Hour Division, as 29 CFR 13.25 requires, or otherwise fail to comply with that regulation [@CL-CMP-8189]. What the records must contain is in 29 CFR 13.25 and is Not established here [@CL-CMP-8189].
+Paragraph (c) bars a contractor from failing to make and maintain records, or to make them available to authorized representatives of the Wage and Hour Division for inspection, copying, and transcription, as required by 29 CFR 13.25, or otherwise failing to comply with the requirements of 29 CFR 13.25 [@CL-CMP-8189].
 
-The section prints no deadline, dollar threshold or penalty. The clause and the other rules are on [Paid sick leave under Executive Order 13706](cmp-paid-sick-leave-eo-13706.md) and [Minimum wage and paid sick leave policy on covered contracts](cmp-minimum-wage-and-paid-sick-leave-policy.md) [@CL-CMP-8185].
+For the clause and the other rules, see [the paid sick leave order page](cmp-paid-sick-leave-eo-13706.md) and [Minimum wage and paid sick leave policy on covered contracts](cmp-minimum-wage-and-paid-sick-leave-policy.md).
 
 ## Worked example
 
@@ -74,11 +72,11 @@ Separately, the contractor fails to make its records available to authorized rep
 
 ## Never confuse
 
-Never confuse a partial place of performance with full coverage. A contract performed partly outside the United States is not outside the subpart, because the subpart applies to the part performed within the United States [@CL-CMP-8182].
+When performance is in part within and in part outside the United States, the subpart applies to the part of the contract that is performed within the United States [@CL-CMP-8182].
 
-Never confuse the exemption from the minimum wage and overtime provisions of the Fair Labor Standards Act with an exemption from the subpart. The section includes employees who qualify for the first [@CL-CMP-8184].
+Paragraph (b) of section 22.2103 includes employees who qualify for an exemption from the Fair Labor Standards Act's minimum wage and overtime provisions [@CL-CMP-8184].
 
-Never confuse the coverage section with the prohibited acts. Section 22.2103 says what the subpart covers [@CL-CMP-8195; @CL-CMP-8180; @CL-CMP-8194]. Section 22.2106 says what a contractor may not do [@CL-CMP-8185].
+Section 22.2103 states what the subpart applies to [@CL-CMP-8195; @CL-CMP-8180; @CL-CMP-8194], and section 22.2106 states what a contractor may not do [@CL-CMP-8185].
 
 ## Company calibration
 
@@ -88,6 +86,7 @@ Whether each service and construction contract the company performs is covered, 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-10-31: Restated coverage and prohibited acts as quoted; cut uncited characterizations, negatives, meta wording and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Paragraph (b) summary joins its protected acts with the source's or.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the claim on section 22.2103(b) coverage.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule that employees cannot waive their paid sick leave rights.

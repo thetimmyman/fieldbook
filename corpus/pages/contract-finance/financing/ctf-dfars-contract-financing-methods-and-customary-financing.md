@@ -35,15 +35,13 @@ For fixed-price contracts with a period of performance in excess of a year that 
 
 ## How it works
 
-The first limit concerns one payment basis. Progress payments measured by percentage or stage of completion are available only for the listed construction and ship work [@CL-CTF-3788]. Progress payments based on costs are covered on [Progress payments based on costs](ctf-progress-payments-based-on-costs.md).
+Progress payments based on percentage or stage of completion are authorized only for contracts for construction (as defined in FAR 36.102), shipbuilding, and ship conversion, alteration, or repair [@CL-CTF-3788]. Progress payments based on costs are covered on [Progress payments based on costs](ctf-progress-payments-based-on-costs.md).
 
-The second sentence is an exception to the first for performance-based payments. Percentage or stage of completion may measure contractor performance there, in accordance with FAR Subpart 32.10 [@CL-CTF-3788; @CL-CTF-3789]. See [Performance-based payments](ctf-performance-based-payments.md).
+However, percentage or stage of completion methods of measuring contractor performance may be used for performance-based payments in accordance with FAR Subpart 32.10 [@CL-CTF-3789]. See [Performance-based payments](ctf-performance-based-payments.md).
 
-The customary financing determination is DoD's. The section names no individual official [@CL-CTF-3791]. For a covered contract, the contractor need not make the showing of financial need or unavailable private financing that FAR 32.104(d)(1)(ii) would otherwise require [@CL-CTF-3792].
+For fixed-price contracts with a period of performance in excess of a year that meet the dollar thresholds established in FAR 32.104(d), and for solicitations expected to result in such contracts [@CL-CTF-3790], in lieu of the requirement at FAR 32.104(d)(1)(ii) for the contractor to demonstrate actual financial need or the unavailability of private financing, DoD has determined that the use of customary contract financing, other than loan guarantees and advance payments, is in DoD's best interest [@CL-CTF-3792; @CL-CTF-3791], and that further justification of its use in individual acquisitions is unnecessary [@CL-CTF-3886].
 
-The determination replaces only that one requirement. It covers fixed-price contracts that run over a year and meet the dollar thresholds in FAR 32.104(d), so a contract outside any of those limits is not named in it [@CL-CTF-3790; @CL-CTF-3792]. The remaining conditions for providing financing are on [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
-
-Loan guarantees and advance payments are outside the determination [@CL-CTF-3791].
+The remaining conditions for providing financing are on [Providing contract financing and customary contract financing](ctf-providing-customary-contract-financing.md).
 
 ## Worked example
 
@@ -57,9 +55,9 @@ For both contracts, DoD has determined that customary contract financing other t
 
 ## Never confuse
 
-Percentage of completion as a basis for progress payments, which is limited to the listed construction and ship work, is not percentage of completion as a measure of performance for performance-based payments [@CL-CTF-3788; @CL-CTF-3789].
+Progress payments based on percentage or stage of completion are authorized only for contracts for construction (as defined in FAR 36.102), shipbuilding, and ship conversion, alteration, or repair [@CL-CTF-3788]. Percentage or stage of completion methods of measuring contractor performance may be used for performance-based payments in accordance with FAR Subpart 32.10 [@CL-CTF-3789].
 
-The determination on customary financing is also not a rule that financing must be provided. It speaks to the contractor's showing and to justification, and it excludes loan guarantees and advance payments [@CL-CTF-3791; @CL-CTF-3792; @CL-CTF-3886].
+DoD has determined that the use of customary contract financing, other than loan guarantees and advance payments, is in DoD's best interest [@CL-CTF-3791], and that further justification of its use in individual acquisitions is unnecessary [@CL-CTF-3886].
 
 ## Company calibration
 
@@ -68,6 +66,6 @@ Which contracts are construction or ship work, whether each fixed-price contract
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned financing basis and DoD determination wording to quotes
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD financing methods and the finding on customary contract financing.

@@ -29,13 +29,13 @@ Shows what a contractor team arrangement is, the policy of recognizing it, and t
 | Text status | Final [@CL-SUP-0793] |
 | Applies to | Arrangements in which companies form a partnership or joint venture, or a potential prime contractor agrees to have others act as its subcontractors [@CL-SUP-0793; @CL-SUP-0794] |
 
-A contractor team arrangement is, in one form, an arrangement in which two or more companies form a partnership or joint venture to act as a potential prime contractor [@CL-SUP-0793]. In its other listed form, a potential prime contractor agrees with one or more other companies to have them act as its subcontractors under a specified Government contract or acquisition program [@CL-SUP-0793; @CL-SUP-0794].
+A contractor team arrangement is, in one form, an arrangement in which two or more companies form a partnership or joint venture to act as a potential prime contractor [@CL-SUP-0793]. In its other form, a potential prime contractor agrees with one or more other companies to have them act as its subcontractors under a specified Government contract or acquisition program [@CL-SUP-0793; @CL-SUP-4004; @CL-SUP-0794].
 
 The Government will recognize the integrity and validity of contractor team arrangements, provided the arrangements are identified and company relationships are fully disclosed in an offer or, for arrangements entered into after submission of an offer, before the arrangement becomes effective [@CL-SUP-0795]. The Government will not normally require or encourage the dissolution of contractor team arrangements [@CL-SUP-0796].
 
 ## How it works
 
-The policy has one condition, which is disclosure of the arrangement and the company relationships at the stated time [@CL-SUP-0795]. The limits are set by the subpart itself. Nothing in it authorizes team arrangements in violation of antitrust statutes or limits the Government's right to require consent to subcontracts [@CL-SUP-0797]. As further listed rights, nothing in the subpart limits the Government's right to determine the responsibility of the prime contractor on the basis of the stated arrangement [@CL-SUP-0797; @CL-SUP-0798], or to hold the prime contractor fully responsible for contract performance regardless of any team arrangement [@CL-SUP-0797; @CL-SUP-0799].
+The policy has one condition, which is disclosure of the arrangement and the company relationships at the stated time [@CL-SUP-0795]. The limits are set by the subpart itself. Nothing in it authorizes team arrangements in violation of antitrust statutes or limits the Government's right to require consent to subcontracts [@CL-SUP-0797]. As further rights among those listed, nothing in the subpart limits the Government's right to determine the responsibility of the prime contractor on the basis of the stated arrangement [@CL-SUP-0797; @CL-SUP-0798], or to hold the prime contractor fully responsible for contract performance regardless of any team arrangement [@CL-SUP-0797; @CL-SUP-0799].
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Answer: the Government recognizes the arrangement because it was identified and 
 
 ## Never confuse
 
-Recognition is not an exemption. A recognized team arrangement does not remove the Government's rights listed in the limitations [@CL-SUP-0797; @CL-SUP-0798; @CL-SUP-0799]. A team arrangement is also not a make-or-buy decision; that topic is on the [Make-or-buy programs: when they are required and what they contain](sup-make-or-buy-programs.md) card and is not repeated here.
+Nothing in the subpart limits the Government's rights listed in the limitations, among them the rights to require consent to subcontracts, to determine the prime contractor's responsibility on the basis of the stated arrangement and to hold the prime contractor fully responsible for contract performance [@CL-SUP-0797; @CL-SUP-0798; @CL-SUP-0799]. Make-or-buy programs are on the [Make-or-buy programs: when they are required and what they contain](sup-make-or-buy-programs.md) card.
 
 ## Company calibration
 
@@ -56,5 +56,5 @@ Confirm whether teaming arrangements are identified and disclosed in offers, and
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: Cited the alternative form and stated the limitations as one of several listed rights.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contractor team arrangements.

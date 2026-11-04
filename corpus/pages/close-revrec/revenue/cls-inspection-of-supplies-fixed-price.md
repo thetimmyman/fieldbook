@@ -37,7 +37,7 @@ The Government must accept or reject supplies as promptly as practicable after d
 
 The Government has the right to inspect and test all supplies called for by the contract, to the extent practicable, at all places and times, including the period of manufacture, and in any event before acceptance [@CL-CLS-0303]. Government inspections and tests do not relieve the contractor of responsibility for defects or other failures to meet contract requirements discovered before acceptance [@CL-CLS-0205]. Government failure to inspect and accept or reject the supplies does not relieve the contractor from responsibility, or impose liability on the Government, for nonconforming supplies [@CL-CLS-0304]. Acceptance is conclusive except as the rule states [@CL-CLS-0204].
 
-Under the RFO text, DoD contracting officers must use the RFO FAR part 52 text in place of the codified FAR part 52 text, as Class Deviation 2026-O0038 directs, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. RFO FAR 52.246-2 keeps the Government's right to inspect and test all supplies called for by the contract, to the extent practicable, at all places and times, including the period of manufacture, and in any event before acceptance [@CL-CLS-0097; @CL-CLS-0303]. It keeps the duty to accept or reject supplies as promptly as practicable after delivery, unless otherwise provided in the contract [@CL-CLS-0098; @CL-CLS-0206]. It keeps the rule that Government failure to inspect and accept or reject the supplies does not relieve the Contractor from responsibility, or impose liability on the Government, for nonconforming supplies [@CL-CLS-0099; @CL-CLS-0304]. It keeps the rule that inspections and tests by the Government do not relieve the Contractor of responsibility for defects or other failures to meet contract requirements discovered before acceptance [@CL-CLS-0100; @CL-CLS-0205]. It also keeps the rule that acceptance is conclusive, except for latent defects, fraud, gross mistakes amounting to fraud, or as otherwise provided in the contract [@CL-CLS-0123; @CL-CLS-0204].
+Class Deviation 2026-O0038 provides that contracting officers shall use the revised FAR Part 52 published on the Revolutionary FAR Overhaul web page in lieu of the text codified at 48 CFR chapter 1 [@CL-CMP-9760], effective February 1, 2026 [@CL-CMP-9762]. RFO FAR 52.246-2 provides that the Government has the right to inspect and test all supplies called for by the contract, to the extent practicable, at all places and times, including the period of manufacture, and in any event before acceptance [@CL-CLS-0097]. It provides that the Government shall accept or reject supplies as promptly as practicable after delivery, unless otherwise provided in the contract [@CL-CLS-0098]. It provides that Government failure to inspect and accept or reject the supplies shall not relieve the Contractor from responsibility, nor impose liability on the Government, for nonconforming supplies [@CL-CLS-0099]. It provides that inspections and tests by the Government do not relieve the Contractor of responsibility for defects or other failures to meet contract requirements discovered before acceptance [@CL-CLS-0100]. It provides that acceptance shall be conclusive, except for latent defects, fraud, gross mistakes amounting to fraud, or as otherwise provided in the contract [@CL-CLS-0123].
 
 ## Worked example
 
@@ -47,9 +47,9 @@ A contractor delivers 500 units of custom hardware. The Government inspects them
 
 ## Never confuse
 
-Government inspection is not acceptance. Inspections and tests do not relieve the contractor of responsibility for defects discovered before acceptance [@CL-CLS-0205], whereas acceptance is conclusive except for the listed exceptions [@CL-CLS-0204].
+Inspections and tests by the Government do not relieve the Contractor of responsibility for defects or other failures to meet contract requirements discovered before acceptance [@CL-CLS-0205]. Acceptance shall be conclusive, except for latent defects, fraud, gross mistakes amounting to fraud, or as otherwise provided in the contract [@CL-CLS-0204].
 
-When title passes to the Government is a separate question, covered in [Payments and responsibility for supplies](../revenue/cls-payments-and-responsibility-for-supplies.md).
+Responsibility for supplies and payments are covered in [Payments and responsibility for supplies](../revenue/cls-payments-and-responsibility-for-supplies.md).
 
 ## Company calibration
 
@@ -58,7 +58,7 @@ Whether revenue recognition procedures confirm formal acceptance before closing 
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: inspection of supplies: RFO paragraph cites RFO claims only, uncited contrast removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: added including the period of manufacture.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Inspection of Supplies—Fixed-Price clause.

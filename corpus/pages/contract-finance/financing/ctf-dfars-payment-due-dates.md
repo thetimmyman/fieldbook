@@ -37,13 +37,13 @@ A constructive acceptance period of less than the cited 7 or 14 days is not auth
 
 ## How it works
 
-The two periods describe what can usually be done. They are not guarantees, because the text says "in most cases" [@CL-CTF-3805; @CL-CTF-3806].
+In most cases, Government acceptance or approval can occur within the 7-day constructive acceptance period specified in the FAR Prompt Payment clauses [@CL-CTF-3805], and Government payment of construction progress payments can, in most cases, be made within the 14-day period allowed by the Prompt Payment for Construction Contracts clause [@CL-CTF-3806].
 
-The contracting officer is the one who specifies a longer period. The text says the change should be coordinated with the acceptance and payment offices, and it names no approval step [@CL-CTF-3807; @CL-CTF-3889]. It prints no deadline or dollar threshold for the coordination.
+The contracting officer may specify a longer period because the period specified in the contract is not reasonable or practical, and such change should be coordinated with the Government offices responsible for acceptance or approval and for payment [@CL-CTF-3807; @CL-CTF-3889].
 
-The listed reasons are examples, not a closed list, so a reason outside the list can also support a longer period [@CL-CTF-3808].
+Reasons for specifying a longer period include but are not limited to the nature of the work or supplies or services, inspection or testing requirements, shipping and acceptance terms, and resources available at the acceptance activity [@CL-CTF-3808].
 
-The last sentence sets a floor. The text allows a longer period and does not authorize a constructive acceptance period below the cited periods, and it names the cited 7 or 14 days together [@CL-CTF-3809]. How constructive acceptance and due dates work for interest purposes is on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md), and the construction clause is on [Prompt payment for construction contracts](../billing-payment/ctf-prompt-payment-construction-contracts.md).
+A constructive acceptance period of less than the cited 7 or 14 days is not authorized [@CL-CTF-3809]. How constructive acceptance and due dates work for interest purposes is on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md), and the construction clause is on [Prompt payment for construction contracts](../billing-payment/ctf-prompt-payment-construction-contracts.md).
 
 ## Worked example
 
@@ -55,9 +55,9 @@ A 5-day constructive acceptance period would be shorter than the cited 7 days, s
 
 ## Never confuse
 
-A longer period is a specification by the contracting officer for a stated cause, not the default [@CL-CTF-3807]. The usual periods are the 7-day and 14-day periods that the text says can in most cases be met [@CL-CTF-3805; @CL-CTF-3806].
+The contracting officer may specify a longer period because the period specified in the contract is not reasonable or practical [@CL-CTF-3807]. In most cases, Government acceptance or approval can occur within the 7-day constructive acceptance period [@CL-CTF-3805], and Government payment of construction progress payments can be made within the 14-day period [@CL-CTF-3806].
 
-The 7-day constructive acceptance period concerns acceptance or approval, not payment [@CL-CTF-3805], while the 14-day period is a payment period for construction progress payments [@CL-CTF-3806]. Due dates are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
+The 7-day constructive acceptance period relates to Government acceptance or approval [@CL-CTF-3805], while the 14-day period relates to Government payment of construction progress payments [@CL-CTF-3806]. Due dates are on [Prompt payment: determining invoice payment due dates](../billing-payment/ctf-prompt-payment-due-dates.md).
 
 ## Company calibration
 
@@ -66,5 +66,5 @@ Which acceptance and payment offices are involved, what acceptance period each c
 ## Sources
 
 ## Change note
-
+- COMPATIBLE_EXTENSION, 2026-10-31: aligned payment period and coordination wording to quotes
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD rules for determining payment due dates.
