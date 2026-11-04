@@ -1,0 +1,23 @@
+schema_version = 1
+
+[assistant]
+pack_budget_chars = 12000
+
+[[area]]
+code = "cmp"
+slug = "compliance"
+name = "Compliance"
+summary = "Synthetic compliance area for fixture tests"
+subareas = ["business-systems"]
+
+[[area]]
+code = "est"
+slug = "estimating"
+name = "Estimating"
+summary = "Synthetic estimating area for fixture tests"
+subareas = ["pricing"]
+
+[[view]]
+code = "PRC"
+name = "Pricing"
+filter = { area = "est", subarea = "pricing" }
