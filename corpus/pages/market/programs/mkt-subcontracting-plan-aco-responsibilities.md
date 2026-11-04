@@ -54,7 +54,6 @@ Who at the company answers the contract administration office about plan perform
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 19.706(b)-(d) items, FAR 19.708(b) clause cross-reference, and FAR 19.705-7 reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: support wording and liquidated damages duty.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for responsibilities of the administrative contracting officer for subcontracting plans.

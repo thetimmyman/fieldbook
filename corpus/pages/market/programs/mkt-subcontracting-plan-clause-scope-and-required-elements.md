@@ -56,7 +56,6 @@ Who administers the subcontracting program, who is named in the plan, and which 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed individual subcontracting plan definition and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the plan submission sentence so the submission duty keeps the six categories the plan separately addresses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

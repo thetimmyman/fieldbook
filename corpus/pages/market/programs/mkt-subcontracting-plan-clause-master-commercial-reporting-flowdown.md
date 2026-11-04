@@ -68,7 +68,6 @@ Whether the company has an approved master plan or commercial plan, which subcon
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named paragraph (l), listed excepted indirect costs, completed individual plan definition, and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: threshold wording, plan exemption alternatives, goals exception.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

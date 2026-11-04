@@ -56,7 +56,6 @@ Who owns the subcontracting reports in the eSRS and how rejections and requests 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added Office of Government Contracting title, monitoring lead-in, FAR 19.705-7 cross-reference, and report acknowledgment duty.
 - COMPATIBLE_EXTENSION, 2026-10-31: liquidated damages trigger wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for postaward responsibilities of the contracting officer for subcontracting plans.

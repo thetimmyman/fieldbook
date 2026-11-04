@@ -64,7 +64,6 @@ Who approves an unsolicited proposal before it leaves the company and what revie
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 15.603(c), FAR 15.602, and FAR 15.609 cross-references and separated RFO citations from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.500 subpart scope.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 15 citation and how DoD's class deviation applies it.

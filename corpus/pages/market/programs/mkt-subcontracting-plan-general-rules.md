@@ -54,7 +54,6 @@ Whether the company holds a commercial plan or an approved master plan, and whic
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 19.702(a) cross-reference, FAR 19.705-1(a) incentive lead-in, and complete commercial plan definition.
 - COMPATIBLE_EXTENSION, 2026-10-31: individual plan goals exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for general rules for subcontracting plans.

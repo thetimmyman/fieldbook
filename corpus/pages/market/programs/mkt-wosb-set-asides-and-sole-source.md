@@ -56,7 +56,6 @@ Which product families, customer groups and market segments the company reaches 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed all set-aside and sole-source conditions in FAR 19.1505(b)-(c) and FAR 19.1506(a)-(c).
 - COMPATIBLE_EXTENSION, 2026-10-31: set-aside options as alternatives, sole-source condition scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the agencies the subpart applies to.

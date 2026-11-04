@@ -54,6 +54,5 @@ How the company records each subcontractor's size and status representation, inc
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed FAR 19.701 definitions of ANC, Indian tribe, and commercial plan and FAR 19.703(a) and (c)(1)(i) eligibility wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for small business subcontracting program definitions and eligibility.

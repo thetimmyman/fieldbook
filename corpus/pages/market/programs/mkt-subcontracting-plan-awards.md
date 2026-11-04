@@ -56,7 +56,6 @@ Which earlier subcontracting plans and compliance records the company can show f
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 19.402(a), FAR 19.702(a)(1)(i)-(ii), and FAR 19.704 cross-references and full notice wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: postaward notice duty lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for awards involving subcontracting plans.

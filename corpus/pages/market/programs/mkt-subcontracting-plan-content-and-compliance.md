@@ -54,6 +54,5 @@ Who administers the subcontracting program, how goals and subcontract spend are 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named FAR 19.301-2(e) and FAR 19.702(a)(1)(i)-(iii) and added FAR 19.705-7(d)-(e) written notice and final decision details.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for subcontracting plan content, good faith effort and liquidated damages.

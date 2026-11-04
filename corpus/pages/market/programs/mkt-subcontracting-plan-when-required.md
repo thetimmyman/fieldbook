@@ -56,7 +56,6 @@ Which pending awards and modifications may cross the thresholds, which are const
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added award ineligibility rule in FAR 19.702(a)(1)(i) and joined the four FAR 19.702(b) exclusions.
 - COMPATIBLE_EXTENSION, 2026-10-31: size status change lead-in and solicitation reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the review period for the procurement center representative before the solicitation is issued.

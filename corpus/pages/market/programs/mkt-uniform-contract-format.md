@@ -63,7 +63,6 @@ Which executed contracts follow the uniform contract format, where the filed Par
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added full address items in FAR 15.204-2(a)(2)(viii) and separated RFO citations from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: cite codified alternatives for factor importance.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.100 scope and the FAR 15.204-4 Section J list of attachments.

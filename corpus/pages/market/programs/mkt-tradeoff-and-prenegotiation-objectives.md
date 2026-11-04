@@ -60,7 +60,6 @@ Which estimates need a documented tradeoff rationale and prenegotiation objectiv
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added RFO FAR 15.104(d) opening clause and separated RFO citations from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: tradeoff process lead-in cited.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 15.103-4 phased acquisition.

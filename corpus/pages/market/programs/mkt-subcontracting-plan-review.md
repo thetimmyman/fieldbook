@@ -54,7 +54,6 @@ Whether the company sets its subcontracting goals from past subcontract records,
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Named all six small business categories and all three goal attainability factors in FAR 19.705-4(d)(2).
 - COMPATIBLE_EXTENSION, 2026-10-31: goals practicable extent, administrative burden, cross-reference wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence that follows the subcontracting past performance evaluation.

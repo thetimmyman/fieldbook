@@ -55,7 +55,6 @@ Which legal entities in the group meet the ownership and control test, and which
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated FAR 52.204-5 definition directly and separated RFO citations from codified citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the women-owned business representation.

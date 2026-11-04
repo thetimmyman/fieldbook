@@ -57,7 +57,6 @@ Which vessel repair job orders sit within the finance remit, and who confirms th
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added required and applicable clause qualifier and foreign vessel repair scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the subpart scope and the pointers to the PGI procedures.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for vessel repair master agreements and job orders.

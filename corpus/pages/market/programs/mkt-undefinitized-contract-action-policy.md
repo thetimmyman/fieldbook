@@ -54,7 +54,6 @@ Which open undefinitized actions exist, what each file records about the two con
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated DFARS 217.7403(a)-(b) policy directly without uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope of the subpart.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the policy on undefinitized contract actions.

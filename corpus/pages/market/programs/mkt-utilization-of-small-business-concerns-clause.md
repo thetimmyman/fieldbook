@@ -31,7 +31,7 @@ Shows the policy the clause states, the contractor's duty to carry it out when i
 
 The clause states a policy of the United States that names six categories of concern: small business, veteran-owned small business, service-disabled veteran-owned small business, HUBZone small business, small disadvantaged business and women-owned small business [@CL-MKT-0814]. Those concerns shall have the maximum practicable opportunity to participate in performing contracts let by any Federal agency, including contracts and subcontracts for subsystems, assemblies, components, and related services for major systems [@CL-MKT-0815]. It is further the policy that prime contractors establish procedures to ensure the timely payment of amounts due under their subcontracts with small business, veteran-owned small business, service-disabled veteran-owned small business, HUBZone small business, small disadvantaged business, and women-owned small business concerns [@CL-MKT-0816; @CL-MKT-0975].
 
-The contractor agrees to carry out this policy in the awarding of subcontracts to the fullest extent consistent with efficient contract performance [@CL-MKT-0817]. The contractor further agrees to cooperate in any studies or surveys as may be required by the United States Small Business Administration or the awarding agency of the United States as may be necessary to determine the extent of the contractor's compliance with FAR 52.219-8 [@CL-MKT-2013].
+The contractor agrees to carry out this policy in the awarding of subcontracts to the fullest extent consistent with efficient contract performance [@CL-MKT-0817]. The contractor further agrees to cooperate in any studies or surveys as may be conducted by the United States Small Business Administration or the awarding agency of the United States as may be necessary to determine the extent of the contractor's compliance with FAR 52.219-8 [@CL-MKT-2013].
 
 ## How it works
 
@@ -56,7 +56,6 @@ How the company records a subcontractor's size and status representation, when i
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 52.219-8(d) cooperation agreement and codified SAM representation and HUBZone confirmation rules, and separated RFO citations.
 - COMPATIBLE_EXTENSION, 2026-10-31: good-faith liability opening phrase.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

@@ -60,7 +60,6 @@ How the qualifying proposal date, the definitization date and the profit risk as
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 217.7405(a) management and oversight purpose lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: exclusions list cites lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for undefinitized contract action exclusions, profit and reporting.
