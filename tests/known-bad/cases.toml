@@ -46,3 +46,31 @@ at = "corpus/ASSISTANT.md:1"
 edits = [
   { path = "corpus/ASSISTANT.md", delete = true },
 ]
+
+[[case]]
+code = "FB0200"
+at = "corpus/registers/claims.csv:1"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "claim_id,", replace = "" },
+]
+
+[[case]]
+code = "FB0201"
+at = "corpus/registers/claims.csv:2"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "Synthetic compliance reviews occur every 30 days under the synthetic rule.", replace = "\"Synthetic compliance reviews occur\nevery 30 days under the synthetic rule.\"" },
+]
+
+[[case]]
+code = "FB0202"
+at = "corpus/registers/claims.csv:1"
+edits = [
+  { path = "corpus/registers/claims.csv", prepend_hex = "ff" },
+]
+
+[[case]]
+code = "FB0203"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "CL-CMP-0001,cmp,fact,Synthetic compliance reviews occur every 30 days under the synthetic rule.,2026-02-01,S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,codex,primary_source_supported,general_reference,prototype_reviewed,observed,V2,30,days,2026-01-15,,far_codified,48 CFR 9900.101,,2026-01,final,event=award_date; entered_from=2026-01-15; contract_type=fixed_price,,2026-02-10,owner,,,,,Synthetic owner-verified fact for fixture tests.\n", replace = "CL-CMP-0001,cmp,fact,Synthetic compliance reviews occur every 30 days under the synthetic rule.,2026-02-01,S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,codex,primary_source_supported,general_reference,prototype_reviewed,observed,V2,30,days,2026-01-15,,far_codified,48 CFR 9900.101,,2026-01,final,event=award_date; entered_from=2026-01-15; contract_type=fixed_price,,2026-02-10,owner,,,,,Synthetic owner-verified fact for fixture tests.\nCL-CMP-0001,cmp,fact,Synthetic compliance reviews occur every 30 days under the synthetic rule.,2026-02-01,S-0001,1,text_section,sec. 1,Synthetic compliance reviews occur every 30 days.,true,codex,primary_source_supported,general_reference,prototype_reviewed,observed,V2,30,days,2026-01-15,,far_codified,48 CFR 9900.101,,2026-01,final,event=award_date; entered_from=2026-01-15; contract_type=fixed_price,,2026-02-10,owner,,,,,Synthetic owner-verified fact for fixture tests.\n" },
+]

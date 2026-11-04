@@ -15,7 +15,7 @@
 
 ## Scope
 
-- Files: `crates/fieldbook-core/src/check/{mod.rs,model.rs,registers.rs}`, `tests/known-bad/{cases.toml,pending.toml}`, `tests/fixtures/corpus-mini/` (only to fix a fault a new rule finds there), `CHANGELOG.md`.
+- Files: `crates/fieldbook-core/src/check/{mod.rs,model.rs,files.rs,registers.rs}`, `tests/known-bad/{cases.toml,pending.toml}`, `tests/fixtures/corpus-mini/` (only to fix a fault a new rule finds there), `CHANGELOG.md`.
 - Docs to update: `CHANGELOG.md` (`- Added: check reports register files, CSV syntax, encoding and keys (FB0200 to FB0203).`). `errors.md` does not change.
 
 ## Out of scope

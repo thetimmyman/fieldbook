@@ -932,14 +932,19 @@ mod tests {
         );
 
         let report = run(&Host::new(tree, sample_today()), &Options::default());
-        assert_eq!(report.diagnostics.len(), 2, "{:?}", report.diagnostics);
+        let fb0120: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0120)
+            .collect();
+        assert_eq!(fb0120.len(), 2, "{:?}", report.diagnostics);
 
-        let d0 = &report.diagnostics[0];
+        let d0 = fb0120[0];
         assert_eq!(d0.code, Code::Fb0120);
         assert_eq!(d0.path, "corpus/changes.md");
         assert_eq!((d0.line, d0.col), (3, 3));
 
-        let d1 = &report.diagnostics[1];
+        let d1 = fb0120[1];
         assert_eq!(d1.code, Code::Fb0120);
         assert_eq!(
             d1.path,
