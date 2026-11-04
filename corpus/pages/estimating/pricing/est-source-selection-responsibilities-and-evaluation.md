@@ -64,7 +64,6 @@ Which proposals need cost realism support because they are cost-reimbursement, a
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added all SSA responsibilities in FAR 15.303(b) and RFO FAR 15.201(b), the full past-performance solicitation requirements and cost-realism provisions, separated codified and RFO citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the price-analysis sentence to firm-fixed-price and economic-price-adjustment contracting.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 15.300 subpart scope.

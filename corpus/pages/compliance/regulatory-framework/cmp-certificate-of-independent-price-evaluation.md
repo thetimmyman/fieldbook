@@ -58,7 +58,6 @@ Which of the company's offers carry the certificate, who signs for each business
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the conjunctive bridge claim for FAR 3.103-2(a)(2)(i)-(ii) and the lead-in claim for FAR 3.103-3, removed citations from the worked example, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the rule on further certificates with work-order proposals.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for evaluating the Certificate of Independent Price Determination.

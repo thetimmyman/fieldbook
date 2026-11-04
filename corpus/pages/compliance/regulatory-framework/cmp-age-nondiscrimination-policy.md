@@ -68,7 +68,6 @@ Whether any employing entity or worksite inside the finance remit states age lim
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example, removed meta commentary on unstated elements, and cited paragraph (a) in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added how agencies handle complaints about compliance.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the age nondiscrimination policy.

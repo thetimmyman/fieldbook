@@ -69,7 +69,6 @@ Which contracts and offers rely on individual sureties, and who holds the pledge
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the lead-in claims for FAR 52.228-11(a) and RFO FAR 52.228-11(a), the codified FAR 2.101 surety types, separated codified and RFO citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Never-confuse sentence now follows the contract-type periods and the discretionary bid release.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the qualifying sentence of the surety definition.

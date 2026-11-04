@@ -59,7 +59,6 @@ Which NAICS code the company, as a prime contractor, believes best describes eac
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example and removed meta commentary on unstated elements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the size standard for a Certificate of Competency in an unrestricted procurement.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for Certificate of Competency size procedures and section 8(d) subcontract size standards.

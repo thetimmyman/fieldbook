@@ -43,6 +43,5 @@ Where the executed contracts are, and who confirms which clauses and deviations 
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the FAR and DFARS system rules, FAR change effective-date rules, and the RFO Phase 1 and Phase 2 class deviation announcements with verbatim claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 page on the regulations and class deviations.

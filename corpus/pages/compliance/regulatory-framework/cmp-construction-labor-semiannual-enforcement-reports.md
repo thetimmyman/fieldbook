@@ -59,6 +59,5 @@ Whether any open enforcement finding or external request touches the company's c
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched modal verbs to the verbatim text, removed citations from the worked example, and removed meta commentary and uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for semiannual enforcement reports on construction labor standards.

@@ -43,7 +43,6 @@ Which contracts carry progress or performance-based payments, and which financin
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced source-level citations with verbatim claim citations for advance, progress, and performance-based payments, separated codified and deviation citations for DoD progress payment rates, and added full conditions for the business-system payment withhold.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the interest penalty rule separately and scoped the withhold to DoD progress and performance-based payments.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the stage 2 overview of contract financing.

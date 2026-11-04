@@ -61,6 +61,5 @@ Whether a change in the company's ownership or management would support a recert
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example, removed meta commentary on unstated elements, and cited the SAM annual certification rule completely.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for recertification as a small business.

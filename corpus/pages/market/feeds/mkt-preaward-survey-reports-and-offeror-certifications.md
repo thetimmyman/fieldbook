@@ -60,7 +60,6 @@ Confirm which preaward survey requests and offeror certifications are open and w
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Added narrative, short-form, AbilityOne capability survey, arms-control certification submission, and 10 U.S.C. 983 list and exception claims, separated codified and RFO citations, and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: False-certification remedies now name the 52.209-13 condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of preaward survey.

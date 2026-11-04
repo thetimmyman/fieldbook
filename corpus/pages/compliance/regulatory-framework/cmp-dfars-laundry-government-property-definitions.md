@@ -60,7 +60,6 @@ Which laundry or dry-cleaning contracts this company performs, and how the artic
 ## Sources
 
 ## Change note
-
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed claim citations from the worked example and removed meta commentary on unstated elements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special definitions of Government property in laundry and dry-cleaning contracts.
