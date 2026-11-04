@@ -16,7 +16,7 @@ use std::ops::Deref;
 use serde::{Deserialize, Serialize};
 
 use crate::date::{CivilDate, PartialDate};
-use crate::ids::{ClaimId, IdError, TermId, VersionId};
+use crate::ids::{ClaimId, IdError, VersionId};
 use crate::schema::table::Row;
 use crate::schema::vocab::VocabError;
 
@@ -212,6 +212,22 @@ pub fn req_sha256(
     Some(raw.to_owned())
 }
 
+fn is_snake_case(s: &str) -> bool {
+    let bytes = s.as_bytes();
+    let Some((&first, _)) = bytes.split_first() else {
+        return false;
+    };
+    if !first.is_ascii_lowercase() {
+        return false;
+    }
+    s.split('_').all(|seg| {
+        !seg.is_empty()
+            && seg
+                .bytes()
+                .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit())
+    })
+}
+
 /// Parses an optional snake_case text cell (`source_family`).
 pub fn opt_snake_case_text(
     row: &Row,
@@ -227,7 +243,7 @@ pub fn opt_snake_case_text(
         problems.push(CellProblem::new(column, CellProblemKind::TooLong));
         return None;
     }
-    if TermId::parse(raw).is_err() {
+    if !is_snake_case(raw) {
         problems.push(CellProblem::new(column, CellProblemKind::Form));
         return None;
     }

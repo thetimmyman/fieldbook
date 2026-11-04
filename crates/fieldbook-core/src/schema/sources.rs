@@ -380,5 +380,16 @@ mod tests {
         assert_eq!(tail_parsed.doc_kind.as_deref(), Some("memo"));
         assert_eq!(tail_parsed.series.as_deref(), Some("Bad Name"));
         assert_eq!(tail_parsed.to_cells(), unjudged_tail);
+
+        // source_family > 64 chars (up to 1,000 chars) is accepted when valid snake_case
+        let mut long_family = valid_cells();
+        let family_70 = format!("family_{}", "a".repeat(65));
+        long_family[9] = family_70.clone();
+        let fam_parsed =
+            SourceRow::from_row(&row_from(long_family)).expect("72-char snake_case source_family");
+        assert_eq!(
+            fam_parsed.source_family.as_deref(),
+            Some(family_70.as_str())
+        );
     }
 }
