@@ -189,6 +189,20 @@ edits = [
 ]
 
 [[case]]
+code = "FB0134"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:26"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "1. Open the synthetic control checklist and gather the sample logs.\n2. Verify each synthetic control checkpoint against the [review concept](cmp-system-review.md).\n3. Record the synthetic sign-off outcome before the billing cutoff.", replace = "1. Open the synthetic control checklist and gather the sample logs." },
+]
+
+[[case]]
+code = "FB0135"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:20"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "Explain how a synthetic system review interacts with a synthetic billing withhold.", replace = "<!-- todo -->" },
+]
+
+[[case]]
 code = "FB0136"
 at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:29"
 edits = [
@@ -200,6 +214,20 @@ code = "FB0137"
 at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:50"
 edits = [
   { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "- NEW_KNOWLEDGE, 2026-02-01: Added the synthetic business-system review procedure page.", replace = "- UPDATE, 2025-11-01: text." },
+]
+
+[[case]]
+code = "FB0138"
+at = "corpus/pages/estimating/pricing/est-rate-window-brief.md:18"
+edits = [
+  { path = "corpus/pages/estimating/pricing/est-rate-window-brief.md", find = "The Estimating Lead will revisit this synthetic decision when the escalation index question closes.", replace = "The Estimating Lead will revisit this synthetic decision when the escalation index question closes. alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu." },
+]
+
+[[case]]
+code = "FB0139"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:20"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "Explain how a synthetic system review interacts with a synthetic billing withhold.", replace = "**System review**: a synthetic review of business-system controls." },
 ]
 
 [[case]]

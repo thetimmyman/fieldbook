@@ -820,8 +820,11 @@ mod tests {
             &Options::new(false),
         );
         assert!(
-            report_outside.diagnostics.is_empty(),
-            "expected outside-corpus links and adjacent citations to raise nothing here, got {:?}",
+            report_outside
+                .diagnostics
+                .iter()
+                .all(|d| d.code != Code::Fb0136),
+            "expected outside-corpus links and adjacent citations to raise no FB0136 here, got {:?}",
             report_outside.diagnostics
         );
     }
