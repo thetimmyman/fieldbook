@@ -148,7 +148,7 @@ Handoff means the owner pastes a context pack into an assistant IT has approved,
 | AL-05 | A chat session with no trace: `chat.session` is appended at start and stop and `chat.pack` when a named pack is saved; a journal that cannot append blocks the session (`fieldbook chat` exits 3, and a send in a running session returns FB0903) | PR CI | Contract suite M and the Bridge test | A journal that refuses appends makes `chat` exit 3 and `/api/send` send nothing † | `chat-bridge` |
 | AL-06 | A journal that can be deleted without anyone knowing. `audit export` writes the journal's own lines byte for byte and a manifest (the first and last `seq`, `prev`, `head`, the hash of the lines, the policy hash and the tool version) to the policy's `[audit] sink`, a folder that IT owns. IT verifies the copy with `audit verify --export MANIFEST`, then compares the live prefix with `audit verify --anchor-seq N --anchor-head HEX`, using manifest.last_seq and its full head. Fieldbook installs no scheduled task | home; laptop; PR CI (test) | The exported files; `audit verify --export MANIFEST` and live anchor output | One changed byte in an exported copy gives FB0800; a truncated exported copy fails `audit verify --export MANIFEST` (FB0802); a target file that exists with other bytes is FB0806; a valid live tail passes `audit verify --anchor-seq N --anchor-head HEX`, while missing/mismatched anchors and a corrupt tail fail † | `audit-export` |
 
-AL-02 is not assigned.
+AL-02 is not assigned. The known-bad harness in `crates/fieldbook/tests/known_bad.rs` and its data under `tests/known-bad/` run the `check` negative controls, and a control that runs in `check` is named by a case's `control` key.
 
 ## Critical failures
 

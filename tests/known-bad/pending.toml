@@ -1,0 +1,608 @@
+# Pending check codes and pending check controls (`check-known-bad`).
+
+# check-files
+[[pending]]
+code = "FB0120"
+card = "check-files"
+
+[[pending]]
+code = "FB0121"
+card = "check-files"
+
+[[pending]]
+code = "FB0122"
+card = "check-files"
+
+[[pending]]
+code = "FB0123"
+card = "check-files"
+
+[[pending]]
+code = "FB0124"
+card = "check-files"
+
+[[pending]]
+code = "FB0125"
+card = "check-files"
+
+# check-registers
+[[pending]]
+code = "FB0200"
+card = "check-registers"
+
+[[pending]]
+code = "FB0201"
+card = "check-registers"
+
+[[pending]]
+code = "FB0202"
+card = "check-registers"
+
+[[pending]]
+code = "FB0203"
+card = "check-registers"
+
+# check-register-cells
+[[pending]]
+code = "FB0114"
+card = "check-register-cells"
+
+[[pending]]
+code = "FB0204"
+card = "check-register-cells"
+
+[[pending]]
+code = "FB0205"
+card = "check-register-cells"
+
+[[pending]]
+code = "FB0206"
+card = "check-register-cells"
+
+[[pending]]
+code = "FB0210"
+card = "check-register-cells"
+
+# check-claim-cells
+[[pending]]
+code = "FB0306"
+card = "check-claim-cells"
+
+[[pending]]
+code = "FB0307"
+card = "check-claim-cells"
+
+# check-register-links
+[[pending]]
+code = "FB0207"
+card = "check-register-links"
+
+[[pending]]
+code = "FB0208"
+card = "check-register-links"
+
+[[pending]]
+code = "FB0211"
+card = "check-register-links"
+
+[[pending]]
+code = "FB0214"
+card = "check-register-links"
+
+# check-promotion
+[[pending]]
+code = "FB0209"
+card = "check-promotion"
+
+[[pending]]
+code = "FB0213"
+card = "check-promotion"
+
+[[pending]]
+code = "FB0220"
+card = "check-promotion"
+
+[[pending]]
+code = "FB0221"
+card = "check-promotion"
+
+[[pending]]
+code = "FB0222"
+card = "check-promotion"
+
+[[pending]]
+code = "FB0230"
+card = "check-promotion"
+
+# check-pages
+[[pending]]
+code = "FB0101"
+card = "check-pages"
+
+[[pending]]
+code = "FB0102"
+card = "check-pages"
+
+[[pending]]
+code = "FB0103"
+card = "check-pages"
+
+[[pending]]
+code = "FB0104"
+card = "check-pages"
+
+[[pending]]
+code = "FB0105"
+card = "check-pages"
+
+[[pending]]
+code = "FB0106"
+card = "check-pages"
+
+[[pending]]
+code = "FB0107"
+card = "check-pages"
+
+[[pending]]
+code = "FB0108"
+card = "check-pages"
+
+[[pending]]
+code = "FB0109"
+card = "check-pages"
+
+[[pending]]
+code = "FB0116"
+card = "check-pages"
+
+# check-page-links
+[[pending]]
+code = "FB0110"
+card = "check-page-links"
+
+[[pending]]
+code = "FB0111"
+card = "check-page-links"
+
+[[pending]]
+code = "FB0112"
+card = "check-page-links"
+
+[[pending]]
+code = "FB0113"
+card = "check-page-links"
+
+[[pending]]
+code = "FB0115"
+card = "check-page-links"
+
+[[pending]]
+code = "FB0136"
+card = "check-page-links"
+
+# check-page-parts
+[[pending]]
+code = "FB0130"
+card = "check-page-parts"
+
+[[pending]]
+code = "FB0131"
+card = "check-page-parts"
+
+[[pending]]
+code = "FB0132"
+card = "check-page-parts"
+
+[[pending]]
+code = "FB0133"
+card = "check-page-parts"
+
+[[pending]]
+code = "FB0137"
+card = "check-page-parts"
+
+# check-page-body
+[[pending]]
+code = "FB0134"
+card = "check-page-body"
+
+[[pending]]
+code = "FB0135"
+card = "check-page-body"
+
+[[pending]]
+code = "FB0138"
+card = "check-page-body"
+
+[[pending]]
+code = "FB0139"
+card = "check-page-body"
+
+# check-citations
+[[pending]]
+code = "FB0300"
+card = "check-citations"
+
+[[pending]]
+code = "FB0301"
+card = "check-citations"
+
+[[pending]]
+code = "FB0302"
+card = "check-citations"
+
+[[pending]]
+code = "FB0303"
+card = "check-citations"
+
+[[pending]]
+code = "FB0305"
+card = "check-citations"
+
+# check-citation-rules
+[[pending]]
+code = "FB0117"
+card = "check-citation-rules"
+
+[[pending]]
+code = "FB0118"
+card = "check-citation-rules"
+
+[[pending]]
+code = "FB0309"
+card = "check-citation-rules"
+
+[[pending]]
+code = "FB0310"
+card = "check-citation-rules"
+
+[[pending]]
+code = "FB0320"
+card = "check-citation-rules"
+
+# check-scans
+[[pending]]
+code = "FB0400"
+card = "check-scans"
+
+[[pending]]
+code = "FB0401"
+card = "check-scans"
+
+[[pending]]
+code = "FB0402"
+card = "check-scans"
+
+[[pending]]
+code = "FB0403"
+card = "check-scans"
+
+[[pending]]
+code = "FB0404"
+card = "check-scans"
+
+[[pending]]
+code = "FB0405"
+card = "check-scans"
+
+[[pending]]
+code = "FB0410"
+card = "check-scans"
+
+# calc-cases
+[[pending]]
+code = "FB0500"
+card = "calc-cases"
+
+# extract-and-locators
+[[pending]]
+code = "FB0212"
+card = "extract-and-locators"
+
+[[pending]]
+code = "FB0223"
+card = "extract-and-locators"
+
+# quote-match-and-anchors
+[[pending]]
+code = "FB0304"
+card = "quote-match-and-anchors"
+
+[[pending]]
+code = "FB0308"
+card = "quote-match-and-anchors"
+
+# search-cli-and-regression
+[[pending]]
+code = "FB0126"
+card = "search-cli-and-regression"
+
+[[pending]]
+code = "FB0127"
+card = "search-cli-and-regression"
+
+[[pending]]
+code = "FB0128"
+card = "search-cli-and-regression"
+
+# Ranges 08 and 09 pending codes
+[[pending]]
+code = "FB0800"
+card = "audit-journal"
+
+[[pending]]
+code = "FB0801"
+card = "audit-journal"
+
+[[pending]]
+code = "FB0802"
+card = "audit-journal"
+
+[[pending]]
+code = "FB0803"
+card = "audit-journal"
+
+[[pending]]
+code = "FB0804"
+card = "audit-journal"
+
+[[pending]]
+code = "FB0805"
+card = "audit-journal"
+
+[[pending]]
+code = "FB0806"
+card = "audit-export"
+
+[[pending]]
+code = "FB0808"
+card = "r2-state-and-journal"
+
+[[pending]]
+code = "FB0810"
+card = "backup-snapshot"
+
+[[pending]]
+code = "FB0811"
+card = "backup-snapshot"
+
+[[pending]]
+code = "FB0812"
+card = "backup-snapshot"
+
+[[pending]]
+code = "FB0813"
+card = "backup-snapshot"
+
+[[pending]]
+code = "FB0814"
+card = "backup-snapshot"
+
+[[pending]]
+code = "FB0815"
+card = "restore-and-drill"
+
+[[pending]]
+code = "FB0816"
+card = "restore-and-drill"
+
+[[pending]]
+code = "FB0820"
+card = "review-queue"
+
+[[pending]]
+code = "FB0821"
+card = "add-folder-mode"
+
+[[pending]]
+code = "FB0822"
+card = "review-queue"
+
+[[pending]]
+code = "FB0823"
+card = "pipeline-model-adapters"
+
+[[pending]]
+code = "FB0825"
+card = "review-queue"
+
+[[pending]]
+code = "FB0826"
+card = "pipeline-rules-classify"
+
+[[pending]]
+code = "FB0830"
+card = "r2-pull-and-sync"
+
+[[pending]]
+code = "FB0831"
+card = "r2-pull-and-sync"
+
+[[pending]]
+code = "FB0832"
+card = "r2-pull-and-sync"
+
+[[pending]]
+code = "FB0836"
+card = "r2-company-ids"
+
+[[pending]]
+code = "FB0900"
+card = "ai-config-and-keys"
+
+[[pending]]
+code = "FB0901"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0902"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0903"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0904"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0905"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0906"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0907"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0908"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0909"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0910"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0911"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0912"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0913"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0914"
+card = "model-adapter-openai"
+
+[[pending]]
+code = "FB0915"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0916"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0917"
+card = "review-queue"
+
+[[pending]]
+code = "FB0918"
+card = "backup-snapshot"
+
+[[pending]]
+code = "FB0919"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0920"
+card = "decide-port"
+
+[[pending]]
+code = "FB0921"
+card = "decide-port"
+
+[[pending]]
+code = "FB0922"
+card = "decide-port"
+
+[[pending]]
+code = "FB0923"
+card = "decide-port"
+
+[[pending]]
+code = "FB0924"
+card = "decide-port"
+
+[[pending]]
+code = "FB0925"
+card = "model-handoff-ask"
+
+[[pending]]
+code = "FB0930"
+card = "index-output-ports"
+
+[[pending]]
+code = "FB0931"
+card = "index-output-ports"
+
+[[pending]]
+code = "FB0940"
+card = "mcp-server"
+
+[[pending]]
+code = "FB0941"
+card = "mcp-server"
+
+[[pending]]
+code = "FB0942"
+card = "mcp-server"
+
+[[pending]]
+code = "FB0943"
+card = "mcp-server"
+
+[[pending]]
+code = "FB0944"
+card = "mcp-server"
+
+[[pending]]
+code = "FB0950"
+card = "chat-bridge"
+
+[[pending]]
+code = "FB0951"
+card = "chat-bridge"
+
+[[pending]]
+code = "FB0952"
+card = "chat-bridge"
+
+[[pending]]
+code = "FB0953"
+card = "chat-bridge"
+
+[[pending]]
+code = "FB0954"
+card = "chat-bridge"
+
+[[pending]]
+code = "FB0955"
+card = "chat-bridge"
+
+# Pending controls whose Runs cell names Fieldbook `check`
+[[pending_control]]
+control = "ZN-01"
+card = "check-scans"
+
+[[pending_control]]
+control = "SC-02"
+card = "check-scans"
+
+[[pending_control]]
+control = "SC-03"
+card = "check-scans"
+
+[[pending_control]]
+control = "SC-05"
+card = "check-scans"
+
+[[pending_control]]
+control = "SC-06"
+card = "check-scans"
+
+[[pending_control]]
+control = "ED-03"
+card = "check-register-links"
