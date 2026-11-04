@@ -93,12 +93,13 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - day1-dependencies-checks-3: complete profile budgets and measurement reports
 - day1-dependencies-3: initial crate adoption with committed-lock Cargo/cargo-deny and exact-source MAX/JEV pin/profile/release-age evidence
 - core-types-and-strings-2: complete frozen words/chips, `strings::js()`, docs generation and the literal control
-- calc-day1: the decimal grammar, `Money`, `Value<T>`, `RoundingPolicy`, checked operations, `Unit`, the civil and partial date, the period and the duration, and the seeded `Rng` with its one-copy test
+- calc-day1: the decimal grammar, `Money`, `Value<T>`, the `Unit` words, the civil and partial date, the period and the duration, and the seeded `Rng` with its one-copy test
 - core-ids-and-dates: every identifier form and the `FAMILIES` table, next-id allocation, and the dates of `fieldbook-calc` re-exported
 - core-schema-pages: typed `corpus.toml` and page front matter with error positions
 - core-csv: read and write the five registers in normal form
 - core-schema-registers: typed rows for sources, questions, conflicts and glossary
 - core-schema-claims: typed claim rows and the raise-or-not test for statuses
+- guard-statuses: the field-level status guard replaces the path rule
 - corpus-mini-fixture: the synthetic Corpus every negative control copies
 - Write `tests/golden/search/seed-ranked.json`, 10 ranked cases, after `corpus-mini-fixture` merges and before `search-ranking-and-index` (lead)
 - check-v0: the diagnostic model and generated `errors.md`
@@ -121,6 +122,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - check-citation-rules: FB0117, FB0118, FB0309, FB0310 and FB0320
 - check-scans: the marking, identity, claim-language and formula scans, FB0400 to FB0405 and FB0410
 - core-labels: the label types and sets, the store rules and admission, the labeller, the placement rules, FB0411, FB0412 and FB0415 (owner review)
+- calc-ops: `RoundingPolicy`, exact checked operations, `div_at_stage` and unit conversion
 - calc-cases: the Day-1 calculation cases CALC-01 to CALC-04 (see [FM0](../decisions/0001-foundation.md#calculation-core-fm0)), the function table `CALC_FNS`, the run record and `CALC_EPOCH`, FB0500, FB0503 and FB0504
 - windows-facts: the Windows system calls in fieldbook-win (known folder, principal, group, interactive logons, place test, writers, not-indexed mark), their wrappers in `io/win.rs`, and the windows CI job (owner review)
 - audit-journal: the hash-chained journal and its lock, `audit verify` (with `--repair`) and `audit show` (both with `--json`), the `Audited` token, FB0800 to FB0805
@@ -138,7 +140,6 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - build-home-and-areas: `index.html` and the 13 area pages with coverage bars
 - build-about: `about.html` and the command chip
 - build-charts: inline SVG charts and the calc table, `Unavailable` where data is missing
-- guard-statuses: the field-level status guard replaces the path rule
 
 ### Day-1 content
 

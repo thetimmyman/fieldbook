@@ -16,7 +16,7 @@
 
 ## Scope
 
-- Files: `xtask/src/{guard.rs,guard_fields.rs}`, `xtask/Cargo.toml` and `Cargo.lock` (xtask's `dependencies` list only: the path edge to `fieldbook-core`, if it is not there yet).
+- Files: `xtask/src/{guard.rs,guard_fields.rs}`. `xtask`'s path edge to `fieldbook-core` already exists (`day1-dependencies-3`), so no manifest or lock change.
 
 ## Out of scope
 

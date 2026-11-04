@@ -31,7 +31,7 @@ The Day-1 calculation cases CALC-01 to CALC-04 are synthetic case files that `fi
 
 ## Preconditions
 
-- Cards merged: `calc-day1`, `check-scans`.
+- Cards merged: `calc-day1`, `calc-ops`, `check-scans`.
 
 ## Steps
 
