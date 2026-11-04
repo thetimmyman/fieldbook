@@ -1,6 +1,6 @@
 +++
 id = "mna-additional-information"
-title = "Additional information: agreements, regulatory requirements, legal proceedings, transaction-related executive compensation under Item 402(t) and other material information"
+title = "Regulation M-A additional information: agreements, approvals, legal proceedings and Item 402(t) compensation"
 area = "mna"
 subarea = "valuation"
 type = "clause-card"

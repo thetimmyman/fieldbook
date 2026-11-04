@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
 +++
+
 ## Purpose
 
 Explains the reporting and assistance duties that apply when performance of a contract is said to infringe a patent or copyright, and the construction patent indemnity and waiver that shift or remove liability [@CL-CMP-5598; @CL-CMP-5744; @CL-CMP-5746].

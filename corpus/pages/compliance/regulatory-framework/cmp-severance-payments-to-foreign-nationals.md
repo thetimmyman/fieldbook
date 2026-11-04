@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-003"]
 +++
+
 ## Purpose
 
 Explains the limit on the cost allowability of severance payments to foreign nationals under a service contract performed outside the United States, the matters the agency determines before waiving it, and the waiver clause [@CL-CMP-5618; @CL-CMP-5623].

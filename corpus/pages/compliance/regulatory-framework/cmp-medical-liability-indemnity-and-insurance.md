@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-003"]
 +++
+
 ## Purpose
 
 Explains the indemnity and the medical liability insurance a contractor carries under a contract for health care services [@CL-CMP-5612].

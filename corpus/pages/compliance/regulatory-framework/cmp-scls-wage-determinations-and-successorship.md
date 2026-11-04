@@ -1,6 +1,6 @@
 +++
 id = "cmp-scls-wage-determinations-and-successorship"
-title = "Service Contract Labor Standards: obtaining wage determinations and successor pay under a collective bargaining agreement"
+title = "Service Contract Labor Standards: obtaining wage determinations and collective bargaining successor pay"
 area = "cmp"
 subarea = "regulatory-framework"
 type = "clause-card"

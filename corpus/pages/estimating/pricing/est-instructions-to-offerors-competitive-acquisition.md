@@ -1,6 +1,6 @@
 +++
 id = "est-instructions-to-offerors-competitive-acquisition"
-title = "Instructions to offerors in competitive acquisitions: submission, late proposals, withdrawal and the no-discussions default"
+title = "Instructions to offerors in competitive acquisitions: submission, late proposals, withdrawal and discussions"
 area = "est"
 subarea = "pricing"
 type = "clause-card"

@@ -1,6 +1,6 @@
 +++
 id = "ctf-commercial-terms-order-of-precedence-and-license-terms"
-title = "Commercial contract terms: other compliances, order of precedence, end user license terms and incorporated certifications"
+title = "Commercial contract terms: other compliances, order of precedence, end user licenses and certifications"
 area = "ctf"
 subarea = "billing-payment"
 type = "clause-card"

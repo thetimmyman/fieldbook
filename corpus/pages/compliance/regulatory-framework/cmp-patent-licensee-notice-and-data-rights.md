@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
 +++
+
 ## Purpose
 
 Explains the notice a solicitation gives about a Government royalty and how an offer is evaluated, the minimum rights the Government keeps in major system technical data, and the rights it takes in proposal technical data [@CL-CMP-5606; @CL-CMP-5749; @CL-CMP-5750].

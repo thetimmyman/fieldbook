@@ -1,6 +1,6 @@
 +++
 id = "sup-telecom-domestic-source-and-employee-owned-provisions"
-title = "Covered telecommunications representation, domestic source restriction and employee-owned business representation (DFARS)"
+title = "Covered telecommunications representation, domestic source restriction and employee-owned business provision"
 area = "sup"
 subarea = "sourcing-evidence"
 type = "clause-card"

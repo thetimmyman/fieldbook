@@ -11,6 +11,7 @@ as_of = 2026-10-29
 handling = ["public"]
 questions = ["Q-004"]
 +++
+
 ## Purpose
 
 Explains the clause under which the Government indemnifies a contractor against unusually hazardous or nuclear risks that the contract defines, with the limits, the contractor's duties and the cost-reimbursement alternate [@CL-CMP-5574; @CL-CMP-5575].
