@@ -119,6 +119,21 @@ edits = [
 ]
 
 [[case]]
+code = "FB0117"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:10"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "as_of = 2026-02-01", replace = "as_of = 2025-07-01" },
+]
+
+[[case]]
+code = "FB0118"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:10"
+strict = true
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "as_of = 2026-02-01", replace = "as_of = 2026-02-15" },
+]
+
+[[case]]
 code = "FB0120"
 at = "corpus/changes.md:1"
 edits = [
@@ -340,6 +355,7 @@ edits = [
 [[case]]
 code = "FB0221"
 at = "corpus/registers/claims.csv:3"
+also = ["FB0118"]
 edits = [
   { path = "corpus/registers/claims.csv", find = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2026-02-01,", replace = "CL-CMP-0002,cmp,fact,Synthetic withholding threshold is 5 percent of billed amounts.,2025-01-01," },
 ]
@@ -361,16 +377,16 @@ edits = [
 
 [[case]]
 code = "FB0300"
-at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:44"
 edits = [
-  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@S-42]" },
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[@Q-001]", replace = "[@S-42]" },
 ]
 
 [[case]]
 code = "FB0301"
-at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:44"
 edits = [
-  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[S-0001-v1 p.14]" },
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[@Q-001]", replace = "[S-0001-v1 p.14]" },
 ]
 
 [[case]]
@@ -389,9 +405,9 @@ edits = [
 
 [[case]]
 code = "FB0305"
-at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:44"
 edits = [
-  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@CL-CMP-0001, p. 3]" },
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[@Q-001]", replace = "[@CL-CMP-0001, p. 3]" },
 ]
 
 [[case]]
@@ -406,4 +422,26 @@ code = "FB0307"
 at = "corpus/registers/claims.csv:3"
 edits = [
   { path = "corpus/registers/claims.csv", find = "S-0001,1,text_section,sec. 2,Synthetic withholding threshold is 5 percent.,true,", replace = "S-0001,1,text_section,sec. 2,,true," },
+]
+
+[[case]]
+code = "FB0309"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:28"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "Synthetic reviewers check control operation and record open items before billing runs.", replace = "The threshold is 15 percent." },
+]
+
+[[case]]
+code = "FB0310"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:42"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@Q-001; @XC-01]", replace = "[@Q-001; @XC-01; @S-0002-v1, sec. 1]" },
+]
+
+[[case]]
+code = "FB0320"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
+strict = true
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "status = \"draft\"", replace = "status = \"stable\"" },
 ]

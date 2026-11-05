@@ -3,6 +3,7 @@
 //! **Responsibility.** [`Code`], [`Level`], [`Severity`], [`Diagnostic`], [`Report`], [`Tree`],
 //! [`Entry`], [`Host`], [`Options`], [`Model`], [`load`] and [`run`].
 
+pub mod citation_rules;
 pub mod citations;
 pub mod claim_cells;
 pub mod code;
@@ -78,6 +79,7 @@ const PASSES: &[Pass] = &[
     page_parts::check,
     page_body::check,
     citations::check,
+    citation_rules::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
