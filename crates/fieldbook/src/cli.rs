@@ -3,7 +3,7 @@
 use std::path::PathBuf;
 
 use clap::{Parser, Subcommand};
-use fieldbook_core::CivilDate;
+use fieldbook_core::{CivilDate, SourceId};
 
 /// Clean run with zero error findings (`AD-17`).
 pub const EXIT_OK: u8 = 0;
@@ -57,8 +57,30 @@ pub struct Cli {
 pub enum Commands {
     /// Check the Corpus and print findings.
     Check(CheckArgs),
+    /// Add a source or source version to the Corpus.
+    Add(AddArgs),
     /// Inspect or verify the audit journal.
     Audit(AuditArgs),
+}
+
+/// Arguments for `fieldbook add`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct AddArgs {
+    /// Path to the source file to add.
+    #[arg(value_name = "FILE")]
+    pub file: PathBuf,
+
+    /// Existing source ID (`S-nnnn`) when adding a new version of an existing source.
+    #[arg(long, value_name = "SOURCE-ID")]
+    pub source: Option<SourceId>,
+
+    /// Append the register row without storing a copy of the original file.
+    #[arg(long)]
+    pub metadata_only: bool,
+
+    /// Confirm that the unlabelled file is public and may enter the repository Corpus.
+    #[arg(long)]
+    pub confirm_public: bool,
 }
 
 /// Arguments for `fieldbook check`.

@@ -24,6 +24,17 @@ Check the Corpus and print findings
 | `--json` | - | - | Print the report as a JSON object |
 | `<PATHS>` | `PATHS` | - | Optional paths (relative to the working directory) to filter diagnostics |
 
+### `fieldbook add`
+
+Add a source or source version to the Corpus
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `<FILE>` | `FILE` | - | Path to the source file to add |
+| `--source` | `SOURCE-ID` | - | Existing source ID (`S-nnnn`) when adding a new version of an existing source |
+| `--metadata-only` | - | - | Append the register row without storing a copy of the original file |
+| `--confirm-public` | - | - | Confirm that the unlabelled file is public and may enter the repository Corpus |
+
 ### `fieldbook audit`
 
 Inspect or verify the audit journal

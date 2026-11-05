@@ -9,19 +9,20 @@
 //! External crates join through their cards, each at its pin in
 //! `docs/reference/dependencies.md`.
 
+pub mod add;
 pub mod audit;
 pub mod cli;
 pub mod io;
 
 pub use cli::Cli;
-pub use io::{StoreLease, WorldError};
+pub use io::{Audited, Error, StoreLease, WorldError};
 
 use std::ffi::OsString;
 use std::path::{Component, Path, PathBuf};
 
 use clap::Parser;
 use fieldbook_core::CivilDate;
-use fieldbook_core::audit::{Now, Principal};
+use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::{self, Host, Options, Report, Tree};
 use fieldbook_core::report::CheckReport;
 
@@ -37,6 +38,17 @@ pub trait World {
 
     /// Read the in-memory Corpus [`Tree`] under an already-held [`StoreLease`] without relocking.
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError>;
+
+    /// Atomically write `bytes` to `path` under an active [`Audited`] token.
+    fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError>;
+
+    /// Return whether a company store exists on this layout (`false` on the Home layout).
+    fn has_company_store(&self) -> bool;
 
     /// Return today's calendar date from the system clock when `--today` is not provided.
     fn today(&self) -> CivilDate;
@@ -148,6 +160,18 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 run_check(&check_args, world)
             }
         }
+        Commands::Add(add_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                add::run(&add_args, &overridden)
+            } else {
+                add::run(&add_args, world)
+            }
+        }
         Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), world),
     }
 }
@@ -168,6 +192,19 @@ impl World for StateOverrideWorld<'_> {
 
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
         io::journal::read_tree_under_lease(self.inner.tree_root(), &self.state_dir, lease)
+    }
+
+    fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        self.inner.write_file(audited, path, bytes)
+    }
+
+    fn has_company_store(&self) -> bool {
+        self.inner.has_company_store()
     }
 
     fn today(&self) -> CivilDate {
@@ -324,6 +361,19 @@ mod tests {
 
         fn read_tree_under(&self, _lease: &StoreLease) -> Result<Tree, WorldError> {
             Ok(Tree::new())
+        }
+
+        fn write_file(
+            &self,
+            _audited: &super::Audited,
+            path: &Path,
+            _bytes: &[u8],
+        ) -> Result<fieldbook_core::audit::Sha256, WorldError> {
+            Err(WorldError::new(path, "unsupported in FakeWorld"))
+        }
+
+        fn has_company_store(&self) -> bool {
+            false
         }
 
         fn today(&self) -> CivilDate {

@@ -829,7 +829,7 @@ impl<'a> Journal<'a> {
     /// Returns [`JournalError`] if the journal lock is busy, the existing tail hash is broken,
     /// `settings.toml` is invalid, or an event cannot be written.
     pub fn open(world: &'a dyn World, state_dir: &Path, via: Via) -> Result<Self, JournalError> {
-        init_state_locks(state_dir).map_err(|err| JournalError::io(err.path, err.message))?;
+        init_state_locks(state_dir).map_err(|err| JournalError::io(err.path(), err.to_string()))?;
         let (role, current_baseline) = crate::io::state::read_role_and_baseline(state_dir)?;
         let actor = Actor::new(world.principal(), role, via);
         let store = StoreId::Corpus;
@@ -927,7 +927,7 @@ impl<'a> Journal<'a> {
                 "open_for_repair requires an exclusive matching StoreLease".to_owned(),
             ));
         }
-        init_state_locks(state_dir).map_err(|err| JournalError::io(err.path, err.message))?;
+        init_state_locks(state_dir).map_err(|err| JournalError::io(err.path(), err.to_string()))?;
         let (role, _) = crate::io::state::read_role_and_baseline(state_dir).unwrap_or_else(|_| {
             (
                 fieldbook_core::audit::Role::Agent,
@@ -1104,10 +1104,14 @@ impl<'a> Journal<'a> {
             let after_sha256 =
                 Sha256::parse(&wf.sha256).map_err(|err| JournalError::Vocab(err.to_string()))?;
             let disk_path = self.world.tree_root().join(canon_path.as_str());
-            let before_sha256 = match std::fs::read(&disk_path) {
-                Ok(bytes) => Some(Sha256::digest(&bytes)),
-                Err(err) if err.kind() == std::io::ErrorKind::NotFound => None,
-                Err(err) => return Err(JournalError::io(&disk_path, err.to_string())),
+            let before_sha256 = if disk_path.is_dir() {
+                None
+            } else {
+                match std::fs::read(&disk_path) {
+                    Ok(bytes) => Some(Sha256::digest(&bytes)),
+                    Err(err) if err.kind() == std::io::ErrorKind::NotFound => None,
+                    Err(err) => return Err(JournalError::io(&disk_path, err.to_string())),
+                }
             };
             pending_files.push(PendingFile {
                 path: canon_path,
@@ -1699,7 +1703,7 @@ pub fn write_sync_file(path: &Path, bytes: &[u8]) -> Result<(), JournalError> {
 
 fn publish_committed_generation(tree_root: &Path, state_dir: &Path) -> Result<(), JournalError> {
     let tree = crate::io::tree::read_tree(tree_root)
-        .map_err(|err| JournalError::io(err.path, err.message))?;
+        .map_err(|err| JournalError::io(err.path(), err.to_string()))?;
     let gen_hash = tree.generation_hash();
     let gen_path = state_dir.join("generation");
     write_sync_file(&gen_path, format!("{gen_hash}\n").as_bytes())?;

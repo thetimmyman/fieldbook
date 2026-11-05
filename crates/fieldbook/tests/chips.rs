@@ -1,13 +1,22 @@
+#![expect(
+    clippy::disallowed_methods,
+    reason = "chip tests prepare temporary fixture copies for add chip execution"
+)]
+
 #[path = "../../../tests/support/chip_cases.rs"]
 mod chip_cases;
+mod support;
 
 use std::collections::BTreeSet;
+use std::path::Path;
 
 use clap::{Command, CommandFactory, Parser};
-use fieldbook::Cli;
+use fieldbook::{Cli, World};
 use fieldbook_core::strings;
 
 use chip_cases::{CASES, ChipCase, ChipContext, ChipOutcome, substitute_chip, terminal_only};
+use support::temp_copy;
+use support::world::TestWorld;
 
 const NO_CHIP: &[&str] = &[
     "audit export",
@@ -30,15 +39,12 @@ fieldbook new question --confirm-public --area <a> "<text>"
 fieldbook new claim --confirm-public --area <a> --source <version-id> --at "<locator>" --quote "<text>"
 fieldbook new conflict --confirm-public --area <a>
 fieldbook new term --confirm-public --area <a>
-fieldbook add <file>
-fieldbook add <file> --source <source-id>
 fieldbook fmt
 fieldbook build
 fieldbook search <query>
 fieldbook status
 fieldbook status --page
 fieldbook verify <claim-id> --on YYYY-MM-DD
-fieldbook add <folder>
 fieldbook backup
 fieldbook backup verify
 fieldbook backup list
@@ -274,5 +280,76 @@ fn new_leaf_without_chip_and_stale_pending_and_bad_cases_fail() {
     assert!(err.contains(check_chip), "{err}");
 
     let err = validate_chip_cases(&[], &pending).unwrap_err();
-    assert!(err.contains(check_chip), "{err}");
+    assert!(
+        err.contains("has no case in tests/support/chip_cases.rs"),
+        "{err}"
+    );
+}
+
+#[test]
+fn add_chip_cases_refuse_unconfirmed_and_add_when_confirmed() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let add_cases: Vec<&ChipCase> = CASES
+        .iter()
+        .filter(|c| c.chip.starts_with("fieldbook add "))
+        .collect();
+    assert_eq!(add_cases.len(), 3);
+
+    for case in add_cases {
+        let fixture_path = repo_root.join(case.fixture);
+
+        // 1. Literal base chip without --confirm-public exits 1 with FB0410 and unchanged Corpus.
+        let unconfirmed_tmp = temp_copy(&fixture_path);
+        for &rel in case.setup {
+            std::fs::write(
+                unconfirmed_tmp.path().join(rel),
+                b"Synthetic plain text for chip case.\n",
+            )
+            .expect("write chip setup file");
+        }
+        let world_before = TestWorld::new(unconfirmed_tmp.path());
+        let tree_before = world_before.read_tree().expect("read tree before");
+
+        let argv_full = substitute_chip(case.chip, case.samples);
+        let args: Vec<String> = argv_full.into_iter().skip(1).collect();
+        let out = fieldbook::run(&args, &world_before);
+        assert_eq!(out.code, 1, "unconfirmed chip `{}` must exit 1", case.chip);
+        assert!(
+            out.stderr.contains("FB0410"),
+            "unconfirmed chip `{}` must report FB0410: {}",
+            case.chip,
+            out.stderr
+        );
+        let tree_after = world_before.read_tree().expect("read tree after");
+        assert_eq!(
+            tree_before, tree_after,
+            "unconfirmed chip `{}` must leave Corpus unchanged",
+            case.chip
+        );
+
+        // 2. Confirmed variant on another fresh copy adds successfully.
+        let confirmed_tmp = temp_copy(&fixture_path);
+        for &rel in case.setup {
+            std::fs::write(
+                confirmed_tmp.path().join(rel),
+                b"Synthetic plain text for chip case.\n",
+            )
+            .expect("write chip setup file");
+        }
+        let world_confirmed = TestWorld::new(confirmed_tmp.path());
+        let mut confirmed_args = args;
+        confirmed_args.push("--confirm-public".to_owned());
+        let out_ok = fieldbook::run(&confirmed_args, &world_confirmed);
+        assert_eq!(
+            out_ok.code, 0,
+            "confirmed chip `{}` must exit 0: stderr={}",
+            case.chip, out_ok.stderr
+        );
+        assert!(
+            out_ok.stdout.starts_with("added "),
+            "confirmed chip `{}` must print added: stdout={}",
+            case.chip,
+            out_ok.stdout
+        );
+    }
 }

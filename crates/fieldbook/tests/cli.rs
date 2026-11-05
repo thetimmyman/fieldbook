@@ -31,7 +31,6 @@ const NOT_BUILT: &[&str] = &[
     "new conflict",
     "new term",
     "new note",
-    "add",
     "audit export",
     "backup",
     "backup verify",
