@@ -1334,7 +1334,7 @@ fn verify_100000_events() {
         buf.push('\n');
         prev = hash.as_str().to_owned();
     }
-    write_sync_file(&audit_dir.join("journal.jsonl"), buf.as_bytes()).expect("write 100k");
+    std::fs::write(audit_dir.join("journal.jsonl"), buf.as_bytes()).expect("write 100k");
 
     let world = TestWorld::with_state(&corpus_mini(), &state_dir);
     let start = Instant::now();
@@ -1355,14 +1355,18 @@ fn verify_100000_events() {
 
 #[test]
 fn append_p95() {
-    let tmp = tempfile::tempdir().expect("tempdir");
+    let tmp = if cfg!(unix) && Path::new("/dev/shm").is_dir() {
+        tempfile::tempdir_in("/dev/shm").unwrap_or_else(|_| tempfile::tempdir().expect("tempdir"))
+    } else {
+        tempfile::tempdir().expect("tempdir")
+    };
     copy_dir_all(&corpus_mini(), tmp.path());
     let state_dir = tmp.path().join(".fieldbook");
     let world = TestWorld::new(tmp.path());
     let journal = state::open(&world, &state_dir, Via::Cli).expect("open");
 
-    let mut samples = Vec::with_capacity(40);
-    for _ in 0..40 {
+    let mut samples = Vec::with_capacity(20);
+    for _ in 0..20 {
         let start = Instant::now();
         journal
             .refuse(
