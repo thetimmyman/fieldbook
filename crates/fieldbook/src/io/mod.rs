@@ -295,7 +295,7 @@ fn write_outcome(outcome: &crate::Outcome, stdout: &mut dyn Write, stderr: &mut 
 
 #[cfg(test)]
 mod tests {
-    use super::write_outcome;
+    use super::{write_outcome, write_prompt_to};
     use std::io::{self, Write};
 
     struct FailsAfter {
@@ -369,6 +369,45 @@ mod tests {
             assert_eq!(code, 3);
             assert!(!good.is_empty(), "the other stream is still written");
         }
+    }
+
+    #[test]
+    fn prompt_writes_the_flag_and_flushes() {
+        struct Spy {
+            bytes: Vec<u8>,
+            flushed_after: Option<usize>,
+        }
+        impl Write for Spy {
+            fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
+                self.bytes.extend_from_slice(bytes);
+                Ok(bytes.len())
+            }
+            fn flush(&mut self) -> io::Result<()> {
+                self.flushed_after = Some(self.bytes.len());
+                Ok(())
+            }
+        }
+        let mut spy = Spy {
+            bytes: Vec::new(),
+            flushed_after: None,
+        };
+        write_prompt_to(&mut spy, "text").expect("prompt");
+        assert_eq!(spy.bytes, b"text: ");
+        assert_eq!(
+            spy.flushed_after,
+            Some(6),
+            "flushed once the prompt is written"
+        );
+    }
+
+    #[test]
+    fn a_failed_prompt_write_or_flush_is_an_error() {
+        let failing_write = FailsAfter {
+            remaining: 0,
+            kind: io::ErrorKind::WriteZero,
+        };
+        assert!(write_prompt_to(failing_write, "text").is_err());
+        assert!(write_prompt_to(FailsOnFlush, "text").is_err());
     }
 
     #[test]

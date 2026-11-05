@@ -156,6 +156,12 @@ pub enum NewError {
     MissingRegister(Register),
     /// An id series has no free number left (carries the typed exhausted family).
     Exhausted(IdError),
+    /// A supplied value holds a line break or another control character, which a register cell
+    /// cannot carry.
+    ControlCharacter {
+        /// The flag whose value held it.
+        field: String,
+    },
 }
 
 impl fmt::Display for NewError {
@@ -188,6 +194,10 @@ impl fmt::Display for NewError {
                 )
             }
             Self::Exhausted(err) => write!(f, "{} id space exhausted", err.form()),
+            Self::ControlCharacter { field } => write!(
+                f,
+                "the value of `{field}` holds a line break or control character"
+            ),
         }
     }
 }
@@ -461,6 +471,14 @@ fn build_row(
     id: String,
     planned_on: CivilDate,
 ) -> Result<RowPlan, NewError> {
+    if let Some((field, _)) = fields
+        .iter()
+        .find(|(_, value)| value.chars().any(char::is_control))
+    {
+        return Err(NewError::ControlCharacter {
+            field: field.to_owned(),
+        });
+    }
     let register = kind.register();
     let cells = match kind {
         RowKind::Claim => claim_cells(model, area, fields, &id, planned_on)?,

@@ -113,18 +113,37 @@ pub fn run_with_policy(args: &NewArgs, world: &dyn World, policy: &Policy) -> Ou
 /// The prompt is written to standard error and flushed before the line is read, and nothing
 /// is held while it waits. An empty answer is the same usage error as a missing flag.
 fn resolve_flag(world: &dyn World, current: Option<&str>, flag: &str) -> Result<String, Outcome> {
+    resolve_value(world, current, flag, &format!("flag `--{flag}`"))
+}
+
+/// A positional argument's value, with the same prompt and error as [`resolve_flag`] but named
+/// as an argument, since it has no flag.
+fn resolve_positional(
+    world: &dyn World,
+    current: Option<&str>,
+    name: &str,
+) -> Result<String, Outcome> {
+    resolve_value(world, current, name, &format!("argument `<{name}>`"))
+}
+
+fn resolve_value(
+    world: &dyn World,
+    current: Option<&str>,
+    prompt: &str,
+    described: &str,
+) -> Result<String, Outcome> {
     if let Some(value) = current.map(str::trim).filter(|v| !v.is_empty()) {
         return Ok(value.to_owned());
     }
     if world.stdin_is_terminal() {
-        world.prompt(flag).map_err(io_err)?;
+        world.prompt(prompt).map_err(io_err)?;
         let line = world.read_line();
         let line = line.trim();
         if !line.is_empty() {
             return Ok(line.to_owned());
         }
     }
-    Err(usage_err(format!("missing required flag `--{flag}`")))
+    Err(usage_err(format!("missing required {described}")))
 }
 
 fn parse_area(raw: &str) -> Result<AreaCode, Outcome> {
@@ -132,7 +151,7 @@ fn parse_area(raw: &str) -> Result<AreaCode, Outcome> {
 }
 
 fn page_job(args: &NewPageArgs, world: &dyn World) -> Result<Job, Outcome> {
-    let id = resolve_flag(world, args.id.as_deref(), "id")?;
+    let id = resolve_positional(world, args.id.as_deref(), "id")?;
     let ty = resolve_flag(world, args.ty.as_deref(), "type")?;
     let subarea = resolve_flag(world, args.subarea.as_deref(), "subarea")?;
     let page_id = PageId::parse(&id).map_err(usage_err)?;
@@ -166,7 +185,7 @@ fn claim_job(args: &NewClaimArgs, world: &dyn World) -> Result<Job, Outcome> {
 
 fn question_job(args: &NewQuestionArgs, world: &dyn World) -> Result<Job, Outcome> {
     let area = resolve_flag(world, args.area.as_deref(), "area")?;
-    let text = resolve_flag(world, args.text.as_deref(), "text")?;
+    let text = resolve_positional(world, args.text.as_deref(), "text")?;
     let fields = Fields::new().with("area", &area).with("text", text);
     row_job(Leaf::Question, &area, "", fields, args.confirm_public)
 }
@@ -280,7 +299,10 @@ fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
         Ok(tree) => tree,
         Err(err) => return io_err(err),
     };
-    let (model, _) = check::load(&Host::new(tree, world.today()), &check::Options::new(false));
+    // One clock read serves the model, the plan and the recorded intent, so a run that crosses
+    // midnight cannot replan to different bytes when it resumes.
+    let today = world.today();
+    let (model, _) = check::load(&Host::new(tree, today), &check::Options::new(false));
 
     let template = match template_text(&model, job) {
         Ok(template) => template,
@@ -289,6 +311,14 @@ fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
     let template_sha = template.as_ref().map_or_else(String::new, |t| {
         Sha256::digest(t.as_bytes()).as_str().to_owned()
     });
+
+    // Admission of the supplied values and the template comes first, so a request that would
+    // be refused is refused whether or not an interrupted original is waiting.
+    let screen = screening(job, template.as_deref());
+    if let Err(out) = admit(world, policy, &journal, job, &screen) {
+        return out;
+    }
+
     let key = operation_key(job.leaf);
     let request = request_hash(job, &template_sha);
 
@@ -298,7 +328,7 @@ fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
     };
     let (planned_on, allocated) = match &pending {
         Some(op) => (op.intent.planned_on, op.intent.allocated.first().cloned()),
-        None => (world.today(), None),
+        None => (today, None),
     };
     let planned = match plan(
         &model,
@@ -351,6 +381,28 @@ fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
         stdout: format!("{}\n", planned.printed),
         stderr: String::new(),
         code: EXIT_OK,
+    }
+}
+
+/// What admission can classify before anything is planned: the supplied values with the
+/// template (a page) or the destination register (a row).
+fn screening(job: &Job, template: Option<&str>) -> Planned {
+    let text = template.unwrap_or_default().to_owned();
+    let path = match job.leaf.row_kind() {
+        Some(kind) => fieldbook_core::new::register_path(kind.register())
+            .to_string_lossy()
+            .replace('\\', "/"),
+        None => job
+            .page_type
+            .map_or_else(String::new, fieldbook_core::new::template_path),
+    };
+    Planned {
+        path,
+        bytes: text.clone().into_bytes(),
+        printed: String::new(),
+        id: String::new(),
+        input_labels: template.map_or_else(LabelSet::public, template_labels),
+        text,
     }
 }
 
@@ -409,10 +461,11 @@ fn plan(
     if kind == RowKind::Claim
         && let Some(version) = job.fields.get("source")
         && let Ok(version) = fieldbook_core::ids::VersionId::parse(version)
-        && let Some(handling) = source_handling(model, &version)
-        && let Ok(set) = LabelSet::parse_cell(&handling)
     {
-        input_labels = set;
+        // A missing or unreadable `handling` cell fails closed: admission refuses `unlabelled`.
+        input_labels = source_handling(model, &version)
+            .and_then(|handling| LabelSet::parse_cell(&handling).ok())
+            .unwrap_or_else(LabelSet::unlabelled);
     }
     Ok(row_planned(&row, bytes, input_labels))
 }

@@ -406,11 +406,7 @@ fn missing_flag_without_terminal_is_usage_error() {
     ] {
         let out = run(&world, args);
         assert_eq!(out.code, 2, "{args:?}: {}", out.stderr);
-        assert!(
-            out.stderr.contains("missing required flag"),
-            "{}",
-            out.stderr
-        );
+        assert!(out.stderr.contains("missing required"), "{}", out.stderr);
         assert!(out.stdout.is_empty());
     }
     assert!(
@@ -448,36 +444,40 @@ fn missing_flag_on_a_terminal_is_prompted() {
         &["new", "question", "--confirm-public", "--area", "cmp"],
     );
     assert_eq!(empty.code, 2, "{}", empty.stderr);
-    assert!(empty.stderr.contains("missing required flag"));
+    assert!(
+        empty.stderr.contains("missing required argument `<text>`"),
+        "a positional is named as an argument: {}",
+        empty.stderr
+    );
     assert_eq!(corpus_files(tmp.path()), before);
-}
 
-#[test]
-fn missing_flag_prompt_is_flushed_before_input_is_read() {
-    let tmp = temp_copy(&fixture_root());
-    let world = TestWorld::new(tmp.path());
-    world.set_stdin_terminal(true);
-    world.set_wait_for_input(true);
+    // The prompt is flushed before the line is read: input is withheld until it has been.
+    {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        world.set_stdin_terminal(true);
+        world.set_wait_for_input(true);
 
-    std::thread::scope(|scope| {
-        let handle = scope.spawn(|| {
-            run(
-                &world,
-                &["new", "question", "--confirm-public", "--area", "cmp"],
-            )
+        std::thread::scope(|scope| {
+            let handle = scope.spawn(|| {
+                run(
+                    &world,
+                    &["new", "question", "--confirm-public", "--area", "cmp"],
+                )
+            });
+            // Input is withheld until the prompt has been flushed.
+            assert!(
+                world.wait_for_prompts(1),
+                "the prompt was not flushed before input was read"
+            );
+            assert_eq!(world.prompts(), vec!["text: ".to_owned()]);
+            world.push_input_line("Answered after the flush?");
+            let out = handle.join().expect("command thread");
+            assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+            assert_eq!(out.stdout, "Q-003\n");
         });
-        // Input is withheld until the prompt has been flushed.
-        assert!(
-            world.wait_for_prompts(1),
-            "the prompt was not flushed before input was read"
-        );
-        assert_eq!(world.prompts(), vec!["text: ".to_owned()]);
-        world.push_input_line("Answered after the flush?");
-        let out = handle.join().expect("command thread");
-        assert_eq!(out.code, 0, "stderr: {}", out.stderr);
-        assert_eq!(out.stdout, "Q-003\n");
-    });
-    assert_eq!(world.prompts().len(), 1, "one prompt only");
+        assert_eq!(world.prompts().len(), 1, "one prompt only");
+    }
 }
 
 #[test]
@@ -569,6 +569,75 @@ fn unknown_version_writes_nothing() {
         assert!(out.stderr.contains(version), "stderr: {}", out.stderr);
         assert!(out.stdout.is_empty());
     }
+    assert_eq!(corpus_files(tmp.path()), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn a_line_break_in_a_value_is_refused_and_writes_nothing() {
+    let tmp = temp_copy(&fixture_root());
+    let world = TestWorld::new(tmp.path());
+    let before = corpus_files(tmp.path());
+
+    for bad in [
+        "First line\nsecond line?",
+        "carriage\rreturn?",
+        "tab\tseparated?",
+    ] {
+        let out = run(
+            &world,
+            &["new", "question", "--confirm-public", "--area", "cmp", bad],
+        );
+        assert_eq!(out.code, 2, "{bad:?}: {}", out.stderr);
+        assert!(out.stderr.contains("`text`"), "{}", out.stderr);
+        let out = run(
+            &world,
+            &[
+                "new",
+                "claim",
+                "--confirm-public",
+                "--area",
+                "cmp",
+                "--source",
+                "S-0002-v2",
+                "--at",
+                "p. 1",
+                "--quote",
+                bad,
+            ],
+        );
+        assert_eq!(out.code, 2, "{bad:?}: {}", out.stderr);
+        assert!(out.stderr.contains("`quote`"), "{}", out.stderr);
+    }
+    assert_eq!(corpus_files(tmp.path()), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+    // The registers still read, and the next question still takes the next id.
+    assert_eq!(run(&world, QUESTION_ARGS).stdout, "Q-003\n");
+}
+
+#[test]
+fn an_unreadable_source_handling_cell_is_refused_as_unlabelled() {
+    let tmp = temp_copy(&fixture_root());
+    let rel = "corpus/registers/sources.csv";
+    let mut table = table_at(tmp.path(), rel);
+    let at = table
+        .header
+        .cells
+        .iter()
+        .position(|c| c == "handling")
+        .expect("handling column");
+    let target = table
+        .rows
+        .iter_mut()
+        .find(|r| r.cells.first().is_some_and(|c| c == "S-0002") && r.cells[1] == "2")
+        .expect("S-0002 v2");
+    target.cells[at] = "not a label!".to_owned();
+    std::fs::write(tmp.path().join(rel), write_csv(&table)).expect("write sources");
+
+    let world = TestWorld::new(tmp.path());
+    let before = corpus_files(tmp.path());
+    let out = run(&world, CLAIM_ARGS);
+    assert_refused(&world, &out, "FB0410", "unlabelled", 0);
     assert_eq!(corpus_files(tmp.path()), before);
     assert_eq!(count(&world, "write.begin"), 0);
 }
@@ -724,8 +793,16 @@ fn new_page_recovers_after_write_before_end() {
     assert_eq!(run(&world, PAGE_ARGS).code, 3);
     std::fs::write(root.join(PAGE_PATH), &planned).expect("restore");
 
-    // The same request finishes the original transaction: no occupied-id error, no new write.
-    let recovered = run(&world, PAGE_ARGS);
+    // The same request finishes the original transaction: no occupied-id error, and no content
+    // write at all (a write to the page would fail here).
+    let no_write = FaultyWorld::new(
+        TestWorld::new(root),
+        Fault::FailOnName {
+            name: "cmp-synthetic-test.md",
+            kind: FaultKind::Io,
+        },
+    );
+    let recovered = run(&no_write, PAGE_ARGS);
     assert_eq!(recovered.code, 0, "{}", recovered.stderr);
     assert_eq!(recovered.stdout, format!("{PAGE_PATH}\n"));
     assert_eq!(
@@ -801,7 +878,15 @@ fn new_row_recovery_keeps_the_original_id() {
     assert_eq!(run(&world, CLAIM_ARGS).code, 3);
     std::fs::write(root.join(rel), &planned).expect("restore");
 
-    let recovered = run(&world, CLAIM_ARGS);
+    // Finishing writes no content: a write to the register would fail here.
+    let no_write = FaultyWorld::new(
+        TestWorld::new(root),
+        Fault::FailOnName {
+            name: "claims.csv",
+            kind: FaultKind::Io,
+        },
+    );
+    let recovered = run(&no_write, CLAIM_ARGS);
     assert_eq!(recovered.code, 0, "{}", recovered.stderr);
     assert_eq!(recovered.stdout, "CL-CMP-0003\n");
     assert_eq!(read_bytes(root, rel).as_deref(), Some(planned.as_slice()));
@@ -1056,15 +1141,20 @@ fn new_admission_precedes_write_and_recovery() {
             assert_eq!(count(&world, "write.begin"), 1, "{name}");
             assert!(root.join(".fieldbook/pending.toml").exists(), "{name}");
 
-            // Marked content in what would be written (a register; a page has no free text
-            // that the pending request does not already bind).
-            if name != "page" {
-                mark_register(root, leaf.target);
-                let marked = read_bytes(root, leaf.target);
-                let out = run(&world, leaf.args);
-                assert_refused(&world, &out, "FB0400", "store", 1);
-                assert_eq!(read_bytes(root, leaf.target), marked, "{name}");
-                assert_eq!(count(&world, "write.begin"), 1, "{name}");
+            // Marked content where the leaf will write: a register, or the page template.
+            // A marked template also changes the request, so admission must come first.
+            let template = root.join("corpus/templates/concept.md");
+            let template_on_disk = std::fs::read(&template).expect("template");
+            mark_destination(root, leaf);
+            let marked = read_bytes(root, leaf.target);
+            let out = run(&world, leaf.args);
+            assert_refused(&world, &out, "FB0400", "store", 1);
+            assert_eq!(read_bytes(root, leaf.target), marked, "{name}");
+            assert_eq!(count(&world, "write.begin"), 1, "{name}");
+            assert!(root.join(".fieldbook/pending.toml").exists(), "{name}");
+            if name == "page" {
+                std::fs::write(&template, &template_on_disk).expect("restore template");
+            } else {
                 std::fs::write(
                     root.join(leaf.target),
                     on_disk.as_ref().expect("register on disk"),
@@ -1072,13 +1162,15 @@ fn new_admission_precedes_write_and_recovery() {
                 .expect("restore register");
             }
 
-            // Missing confirmation changes the request, which the pending original refuses.
+            // Missing confirmation changes the request, but admission refuses it first: FB0410
+            // and a recorded refusal, not a pending-write mismatch.
             let before = read_bytes(root, leaf.target);
             let args = without_confirmation(leaf.args);
             let out = fieldbook::run(&args, &world);
-            assert_eq!(out.code, 3, "{name}: {}", out.stderr);
+            assert_refused(&world, &out, "FB0410", "unlabelled", 2);
             assert_eq!(read_bytes(root, leaf.target), before, "{name}");
             assert_eq!(count(&world, "write.begin"), 1, "{name}");
+            assert!(root.join(".fieldbook/pending.toml").exists(), "{name}");
 
             // And the original still finishes once nothing is refused.
             let done = run(&world, leaf.args);
