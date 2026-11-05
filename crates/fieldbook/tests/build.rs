@@ -163,7 +163,7 @@ mod build {
         let index_html = std::fs::read_to_string(edition.join("index.html"))
             .unwrap_or_else(|e| panic!("read index.html: {e}"));
         assert!(index_html.contains(CSP_STATIC));
-        assert!(index_html.contains("<main id=\"main\" tabindex=\"-1\"></main>"));
+        assert!(index_html.contains("<main id=\"fb:main\" tabindex=\"-1\"></main>"));
         assert!(index_html.contains("<nav aria-label=\"Sections\">"));
         assert!(index_html.contains("class=\"not-available\""));
     }

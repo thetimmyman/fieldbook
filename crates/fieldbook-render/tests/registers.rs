@@ -1007,7 +1007,7 @@ mod registers {
         }
         let claims = render_main(Register::Claims, &view, &planned);
         assert!(
-            claims.contains("id=\"claimsFilter\"") && claims.contains(" hidden>"),
+            claims.contains("id=\"fb:claimsFilter\"") && claims.contains(" hidden>"),
             "the claims filter stays hidden until the script reveals it"
         );
         for needle in [
@@ -1303,7 +1303,7 @@ mod registers {
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
             assert!(
-                html.contains("id=\"registerPager\"") && html.contains("hidden>"),
+                html.contains("id=\"fb:registerPager\"") && html.contains("hidden>"),
                 "`{}` ships the pager hidden: the script shows it past 50 rows",
                 output_path(reg)
             );
@@ -1316,11 +1316,290 @@ mod registers {
         for needle in [
             "PAGE_SIZE = 50",
             "const NUMBER = /^-?\\d+(\\.\\d+)?$/",
-            "Number(x)",
+            "compareDecimal(x, y)",
             "window.addEventListener('hashchange', revealHash)",
         ] {
             assert!(APP_JS.contains(needle), "app.js must contain `{needle}`");
         }
+    }
+
+    /// Every `id="..."` attribute of a complete document, in order. A `data-id=` attribute is not one.
+    fn id_attributes(html: &str) -> Vec<String> {
+        html.split(" id=\"")
+            .skip(1)
+            .map(|rest| rest.split('"').next().unwrap().to_owned())
+            .collect()
+    }
+
+    const FRAME_NAMED_TERMS: [&str; 9] = [
+        "main", "sidebar", "crumbs", "banners", "scrim", "toast", "sr", "reader", "popover",
+    ];
+
+    /// A tree whose glossary holds terms named like the ids the page frame and its scripts use.
+    fn frame_named_terms_tree() -> Tree {
+        let mut tree = fixture_tree();
+        let (header, existing) = GLOSSARY_CSV.split_once('\n').unwrap();
+        let mut rows: Vec<String> = existing.lines().map(str::to_owned).collect();
+        for term in FRAME_NAMED_TERMS {
+            rows.push(format!(
+                "{term},{term},Synthetic term named like a frame element.,Synthetic boundary.,cmp,,general_practice,,"
+            ));
+        }
+        rows.sort();
+        let csv = format!("{header}\n{}\n", rows.join("\n"));
+        tree.insert_bytes("corpus/registers/glossary.csv", csv.into_bytes());
+        tree
+    }
+
+    #[test]
+    fn complete_documents_have_unique_ids() {
+        let (_model, view) = load_view(frame_named_terms_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let navigation = nav::build(&view, &planned);
+
+        let mut docs: Vec<(String, String)> = Register::ALL
+            .iter()
+            .map(|&reg| {
+                (
+                    output_path(reg).to_owned(),
+                    render_page(reg, &view, &ctx, &navigation, &planned),
+                )
+            })
+            .collect();
+        docs.push((
+            "ids.html".to_owned(),
+            ids::render_page(&view, &ctx, &navigation, &planned),
+        ));
+        for page_entry in view.pages() {
+            docs.push((
+                format!("p/{}.html", page_entry.id),
+                page::render_page(page_entry, &view, &ctx, &navigation, &planned),
+            ));
+        }
+
+        for (name, html) in &docs {
+            let ids = id_attributes(html);
+            let unique: BTreeSet<&String> = ids.iter().collect();
+            assert_eq!(
+                unique.len(),
+                ids.len(),
+                "`{name}` repeats an element id: {ids:?}"
+            );
+        }
+
+        // The glossary keeps one canonical anchor per term, named by the term id, and the frame
+        // elements sit in a namespace no row id can take.
+        let glossary = docs.iter().find(|(n, _)| n == "glossary.html").unwrap();
+        let ids = id_attributes(&glossary.1);
+        for term in [
+            "main", "sidebar", "crumbs", "banners", "scrim", "toast", "sr", "reader", "popover",
+        ] {
+            assert_eq!(
+                ids.iter().filter(|i| i.as_str() == term).count(),
+                1,
+                "`glossary.html#{term}` must be the term row alone"
+            );
+            assert!(
+                glossary.1.contains(&format!("<tr id=\"{term}\"")),
+                "term `{term}` keeps its row anchor"
+            );
+        }
+        assert!(
+            glossary.1.contains("<main id=\"fb:main\"") && glossary.1.contains("href=\"#fb:main\""),
+            "the frame's main landmark and its skip link use the frame namespace"
+        );
+        // Register and id pages emit only row anchors and namespaced control ids; a content page
+        // also carries its part anchors, which sit on pages that have no register rows.
+        for (name, html) in docs.iter().filter(|(n, _)| !n.starts_with("p/")) {
+            for id in id_attributes(html) {
+                let is_row = html.contains(&format!("<tr id=\"{id}\""));
+                assert!(
+                    is_row || id.starts_with("fb:"),
+                    "`{name}` has the unnamespaced control id `{id}`"
+                );
+            }
+        }
+        for (name, html) in docs.iter().filter(|(n, _)| n.starts_with("p/")) {
+            for id in [
+                "main", "sidebar", "reader", "popover", "toast", "scrim", "sr", "crumbs", "banners",
+            ] {
+                assert!(
+                    !id_attributes(html).iter().any(|i| i == id),
+                    "`{name}` emits the bare frame id `{id}`"
+                );
+            }
+        }
+    }
+
+    /// A Rust port of app.js `parseDecimal`, `compareMagnitude` and `compareDecimal`, step for step.
+    fn compare_decimal(x: &str, y: &str) -> i32 {
+        struct Dec {
+            negative: bool,
+            whole: String,
+            fraction: String,
+        }
+        fn parse(text: &str) -> Dec {
+            let mut negative = text.starts_with('-');
+            let body = text.strip_prefix('-').unwrap_or(text);
+            let (whole, fraction) = body.split_once('.').unwrap_or((body, ""));
+            let whole = whole.trim_start_matches('0').to_owned();
+            let fraction = fraction.trim_end_matches('0').to_owned();
+            if whole.is_empty() && fraction.is_empty() {
+                negative = false;
+            }
+            Dec {
+                negative,
+                whole,
+                fraction,
+            }
+        }
+        fn sign(o: std::cmp::Ordering) -> i32 {
+            match o {
+                std::cmp::Ordering::Less => -1,
+                std::cmp::Ordering::Equal => 0,
+                std::cmp::Ordering::Greater => 1,
+            }
+        }
+        fn magnitude(a: &Dec, b: &Dec) -> i32 {
+            if a.whole.len() != b.whole.len() {
+                return sign(a.whole.len().cmp(&b.whole.len()));
+            }
+            if a.whole != b.whole {
+                return sign(a.whole.cmp(&b.whole));
+            }
+            let width = a.fraction.len().max(b.fraction.len());
+            let fa = format!("{:0<width$}", a.fraction);
+            let fb = format!("{:0<width$}", b.fraction);
+            sign(fa.cmp(&fb))
+        }
+        let (a, b) = (parse(x), parse(y));
+        if a.negative != b.negative {
+            return if a.negative { -1 } else { 1 };
+        }
+        let m = magnitude(&a, &b);
+        if a.negative && m != 0 { -m } else { m }
+    }
+
+    /// The `COMPARE-CASES` table embedded in app.js: `x | y | expected`.
+    fn compare_cases() -> Vec<(String, String, i32)> {
+        let table = APP_JS
+            .split("COMPARE-CASES\n")
+            .nth(1)
+            .and_then(|t| t.split("END-COMPARE-CASES").next())
+            .unwrap();
+        table
+            .lines()
+            .filter_map(|l| l.trim().strip_prefix("//"))
+            .filter(|l| l.contains('|'))
+            .map(|l| {
+                let f: Vec<&str> = l.split('|').map(str::trim).collect();
+                assert_eq!(f.len(), 3, "case row `{l}`");
+                (f[0].to_owned(), f[1].to_owned(), f[2].parse().unwrap())
+            })
+            .collect()
+    }
+
+    #[test]
+    fn numeric_sort_compares_decimal_strings_exactly() {
+        let cases = compare_cases();
+        assert!(cases.len() >= 15, "the case table is the shared evidence");
+        for (x, y, expected) in &cases {
+            assert_eq!(
+                compare_decimal(x, y),
+                *expected,
+                "app.js case `{x}` vs `{y}`"
+            );
+            assert_eq!(
+                compare_decimal(y, x),
+                -*expected,
+                "app.js case is antisymmetric: `{y}` vs `{x}`"
+            );
+        }
+        // The point of the exact comparator: these pairs are one and the same double.
+        let collapsing: Vec<_> = cases
+            .iter()
+            .filter(|(x, y, e)| {
+                *e != 0
+                    && x.parse::<f64>().unwrap().to_bits() == y.parse::<f64>().unwrap().to_bits()
+            })
+            .collect();
+        assert!(
+            collapsing.len() >= 3,
+            "the table holds distinct decimals that collapse to the same f64, got {collapsing:?}"
+        );
+
+        // The port agrees with exact integer arithmetic on scaled decimals.
+        let scaled = |n: i128| {
+            let sign = if n < 0 { "-" } else { "" };
+            let a = n.abs();
+            format!("{sign}{}.{:06}", a / 1_000_000, a % 1_000_000)
+        };
+        let samples: [i128; 12] = [
+            0,
+            1,
+            -1,
+            999_999,
+            1_000_000,
+            -1_000_001,
+            123_456_789,
+            -123_456_789,
+            10_000_000,
+            -10_000_000,
+            5,
+            -5,
+        ];
+        for &a in &samples {
+            for &b in &samples {
+                assert_eq!(
+                    compare_decimal(&scaled(a), &scaled(b)),
+                    match a.cmp(&b) {
+                        std::cmp::Ordering::Less => -1,
+                        std::cmp::Ordering::Equal => 0,
+                        std::cmp::Ordering::Greater => 1,
+                    },
+                    "{} vs {}",
+                    scaled(a),
+                    scaled(b)
+                );
+            }
+        }
+
+        // app.js really does what the port does, and no longer converts to Number.
+        for needle in [
+            "const compareDecimal = function (x, y)",
+            "replace(/^0+/, '')",
+            "replace(/0+$/, '')",
+            "a.whole.length !== b.whole.length",
+            "padEnd(width, '0')",
+            "return compareDecimal(x, y);",
+        ] {
+            assert!(APP_JS.contains(needle), "app.js must contain `{needle}`");
+        }
+        assert!(
+            !APP_JS.contains("Number(x)") && !APP_JS.contains("Number(y)"),
+            "numeric sort must not convert cells to doubles"
+        );
+    }
+
+    #[test]
+    fn script_never_looks_up_a_bare_frame_id() {
+        // Every id the script reads is in the frame namespace or is a content anchor prefix.
+        for part in APP_JS.split("getElementById(").skip(1) {
+            let arg = part.split(')').next().unwrap();
+            assert!(
+                arg.starts_with("'fb:") || arg.starts_with("'cite-") || arg.starts_with("'ev-"),
+                "app.js looks up an id outside the frame namespace: getElementById({arg})"
+            );
+        }
+        assert!(
+            !APP_JS.contains("document.getElementById(id)"),
+            "revealHash must look up the register row, not any element with that id"
+        );
+        assert!(
+            APP_JS.contains("rowById"),
+            "revealHash finds the row among the table's own rows"
+        );
     }
 
     #[test]

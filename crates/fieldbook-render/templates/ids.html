@@ -15,7 +15,7 @@
 
   <div class="id-groups">
     {% for group in view.groups %}
-    <section class="panel id-group" id="ids-{{ group.slug }}" data-id-kind="{{ group.slug }}">
+    <section class="panel id-group" id="fb:ids-{{ group.slug }}" data-id-kind="{{ group.slug }}">
       <div class="panel-head">
         <h2 class="panel-title">{{ group.title }}</h2>
         <span class="panel-sub mono">{% if group.items.is_empty() %}None recorded{% else %}{{ group.items.len() }}{% endif %}</span>

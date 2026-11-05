@@ -12,8 +12,8 @@
   </header>
 
   {% if view.show_claims_filter && !view.rows.is_empty() %}
-  <div class="reg-toolbar" id="claimsFilter" role="region" aria-label="Claims filter" hidden>
-    <div class="seg" id="claimsFilterSeg" role="group" aria-label="Filter by verification">
+  <div class="reg-toolbar" id="fb:claimsFilter" role="region" aria-label="Claims filter" hidden>
+    <div class="seg" id="fb:claimsFilterSeg" role="group" aria-label="Filter by verification">
       {% for opt in view.filter_options %}
       <button type="button" data-cf="{{ opt.key }}" aria-pressed="{% if opt.active %}true{% else %}false{% endif %}">{{ opt.label }}</button>
       {% endfor %}
@@ -68,12 +68,12 @@
   {% if view.rows.is_empty() %}
   <p class="empty-state muted" data-empty-register>None recorded</p>
   {% else if view.show_claims_filter %}
-  <p class="empty-state muted" id="registerEmptyFilter" hidden>An empty filter means none are recorded, not that none exist.</p>
+  <p class="empty-state muted" id="fb:registerEmptyFilter" hidden>An empty filter means none are recorded, not that none exist.</p>
   {% endif %}
 
   {% if !view.rows.is_empty() %}
   <div class="table-wrap">
-    <table class="reg-table" id="registerTable">
+    <table class="reg-table" id="fb:registerTable">
       <caption>{{ view.caption }}</caption>
       <thead>
         <tr>
@@ -93,12 +93,12 @@
       </tbody>
     </table>
   </div>
-  <nav class="pager" id="registerPager" aria-label="Register pages" hidden>
+  <nav class="pager" id="fb:registerPager" aria-label="Register pages" hidden>
     <div class="seg" role="group" aria-label="Page">
       <button type="button" data-pg="prev">Previous</button>
       <button type="button" data-pg="next">Next</button>
     </div>
-    <span id="registerPageInfo" aria-live="polite"></span>
+    <span id="fb:registerPageInfo" aria-live="polite"></span>
   </nav>
   {% endif %}
 </div>

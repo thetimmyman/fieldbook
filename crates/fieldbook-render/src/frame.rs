@@ -141,7 +141,7 @@ pub struct FrameInput<'a> {
     pub store: &'a StoreContext,
     /// Breadcrumb trail; rendered only when `crumbs.len() >= 2`.
     pub crumbs: &'a [Crumb],
-    /// Pre-rendered HTML placed inside `<main id="main">`.
+    /// Pre-rendered HTML placed inside `<main id="fb:main">`.
     pub main_html: &'a str,
     /// Navigation model built from [`LabelledView`] and [`PlannedPaths`].
     pub nav: &'a Navigation,
