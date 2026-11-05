@@ -10,12 +10,15 @@ use serde::{Deserialize, Serialize};
 pub enum Reason {
     /// Division by a zero denominator.
     ZeroDenominator,
+    /// Exact mathematical result is not representable in a 28-scale 96-bit decimal.
+    Inexact,
 }
 
 impl fmt::Display for Reason {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::ZeroDenominator => f.write_str("zero denominator"),
+            Self::Inexact => f.write_str("inexact decimal result"),
         }
     }
 }
