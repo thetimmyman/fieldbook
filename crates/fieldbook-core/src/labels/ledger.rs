@@ -349,8 +349,9 @@ impl Ledger {
     /// Plans appending one `add` line for each id in `ids` with `labels` and `origin`.
     ///
     /// Writes the header when the ledger is new/empty, retains all existing lines, and appends
-    /// the new lines continuing `seq`. Refuses (`Err`) when this ledger is broken (`FB0412`).
-    /// Writes nothing to disk.
+    /// the new lines continuing `seq`. Refuses (`Err`) when this ledger is broken (`FB0412`),
+    /// when `labels` contains a built-in label, or when an item id is empty or contains commas,
+    /// whitespace, or control characters. Writes nothing to disk.
     pub fn plan_add<I, S>(
         &self,
         ids: I,
@@ -364,12 +365,32 @@ impl Ledger {
         if let Some(err) = &self.broken {
             return Err(err.clone());
         }
+        let first_new_line = self.entries.len() + 2;
+        if labels.ids().iter().any(LabelId::is_builtin) {
+            return Err(LedgerError::new(
+                first_new_line,
+                format!(
+                    "ledger line may not add built-in label in `{}`",
+                    labels.to_cell()
+                ),
+            ));
+        }
         let mut text = self.to_csv();
         let start_seq = self.entries.last().map_or(1, |last| last.seq + 1);
         let mut added = Vec::new();
         for (offset, id) in ids.into_iter().enumerate() {
+            let line_no = first_new_line + offset;
             let next_seq = start_seq + (offset as u64);
-            let item_id = id.as_ref().to_owned();
+            let item_id_ref = id.as_ref();
+            if item_id_ref.is_empty()
+                || item_id_ref.contains(',')
+                || item_id_ref
+                    .chars()
+                    .any(|c| c.is_whitespace() || c.is_control())
+            {
+                return Err(LedgerError::new(line_no, "invalid item_id in label ledger"));
+            }
+            let item_id = item_id_ref.to_owned();
             let entry = LedgerEntry {
                 seq: next_seq,
                 item_id,
@@ -597,6 +618,24 @@ seq,item_id,kind,labels,origin
                 .unwrap_err()
                 .code,
             Code::Fb0412
+        );
+        assert!(
+            Ledger::empty()
+                .plan_add(
+                    ["SO-000042-v1"],
+                    &LabelSet::unlabelled(),
+                    LedgerOrigin::Intake
+                )
+                .is_err()
+        );
+        assert!(
+            Ledger::empty()
+                .plan_add(
+                    ["bad,id"],
+                    &LabelSet::from_ids([id("np-0007")]),
+                    LedgerOrigin::Person
+                )
+                .is_err()
         );
     }
 }

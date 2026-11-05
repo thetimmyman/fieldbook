@@ -189,3 +189,27 @@ fn a_public_graph_remains_public() {
     assert!(eff.is_public());
     assert!(!eff.is_unresolved());
 }
+
+#[test]
+fn shared_dag_above_a_cycle_evaluates_in_linear_time() {
+    let np = id("np-0007");
+    let mut graph = TestGraph::default();
+    let n0 = ItemRef::new(StoreId::Overlay, "N-0000");
+    graph.insert_node(
+        n0.clone(),
+        LabelSet::from_ids([np.clone()]),
+        vec![n0.clone()],
+    );
+    let n1 = ItemRef::new(StoreId::Overlay, "N-0001");
+    graph.insert_node(n1, LabelSet::public(), vec![n0]);
+    for i in 2..=35 {
+        let cur = ItemRef::new(StoreId::Overlay, format!("N-{i:04}"));
+        let p1 = ItemRef::new(StoreId::Overlay, format!("N-{:04}", i - 1));
+        let p2 = ItemRef::new(StoreId::Overlay, format!("N-{:04}", i - 2));
+        graph.insert_node(cur, LabelSet::public(), vec![p1, p2]);
+    }
+    let top = ItemRef::new(StoreId::Overlay, "N-0035");
+    let eff = effective_item(&graph, &top);
+    assert!(eff.is_unresolved());
+    assert!(eff.contains(&np));
+}
