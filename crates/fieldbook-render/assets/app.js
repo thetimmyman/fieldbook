@@ -261,6 +261,7 @@
     }
 
     initPageReader();
+    initRegister();
   }
 
   function localIsoDate() {
@@ -454,6 +455,92 @@
       document.addEventListener('keydown', function (ev) {
         if (ev.key === 'Escape') {
           hidePopover();
+        }
+      });
+    }
+  }
+
+  function initRegister() {
+    const regTable = document.getElementById('registerTable');
+    if (regTable) {
+      const thead = regTable.querySelector('thead');
+      const tbody = regTable.querySelector('tbody');
+      if (thead && tbody) {
+        thead.addEventListener('click', function (ev) {
+          const btn =
+            ev.target && typeof ev.target.closest === 'function'
+              ? ev.target.closest('[data-sort-col]')
+              : null;
+          if (!btn) {
+            return;
+          }
+          const colName = btn.getAttribute('data-sort-col');
+          const th = btn.closest('th');
+          if (!colName || !th) {
+            return;
+          }
+          const currentSort = th.getAttribute('aria-sort');
+          const nextDir = currentSort === 'ascending' ? 'descending' : 'ascending';
+          const headers = thead.querySelectorAll('th[scope="col"]');
+          for (let i = 0; i < headers.length; i += 1) {
+            headers[i].removeAttribute('aria-sort');
+          }
+          th.setAttribute('aria-sort', nextDir);
+
+          const rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+          const sign = nextDir === 'ascending' ? 1 : -1;
+          rows.sort(function (a, b) {
+            const cellA = a.querySelector('td[data-col="' + colName + '"]');
+            const cellB = b.querySelector('td[data-col="' + colName + '"]');
+            const valA = cellA ? cellA.getAttribute('data-sort-val') || '' : '';
+            const valB = cellB ? cellB.getAttribute('data-sort-val') || '' : '';
+            if (valA !== valB) {
+              return (valA < valB ? -1 : 1) * sign;
+            }
+            const idA = a.id || '';
+            const idB = b.id || '';
+            return (idA < idB ? -1 : idA > idB ? 1 : 0) * sign;
+          });
+          for (let i = 0; i < rows.length; i += 1) {
+            tbody.appendChild(rows[i]);
+          }
+        });
+      }
+    }
+
+    const filterSeg = document.getElementById('claimsFilterSeg');
+    if (filterSeg && regTable) {
+      filterSeg.addEventListener('click', function (ev) {
+        const btn =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-cf]')
+            : null;
+        if (!btn) {
+          return;
+        }
+        const filterVal = btn.getAttribute('data-cf') || 'all';
+        const buttons = filterSeg.querySelectorAll('[data-cf]');
+        for (let i = 0; i < buttons.length; i += 1) {
+          const b = buttons[i];
+          b.setAttribute(
+            'aria-pressed',
+            b.getAttribute('data-cf') === filterVal ? 'true' : 'false'
+          );
+        }
+        const rows = regTable.querySelectorAll('tbody tr');
+        let shown = 0;
+        for (let i = 0; i < rows.length; i += 1) {
+          const row = rows[i];
+          const ver = row.getAttribute('data-verification') || '';
+          const match = filterVal === 'all' || ver === filterVal;
+          row.hidden = !match;
+          if (match) {
+            shown += 1;
+          }
+        }
+        const emptyPanel = document.getElementById('registerEmptyFilter');
+        if (emptyPanel) {
+          emptyPanel.hidden = shown > 0;
         }
       });
     }

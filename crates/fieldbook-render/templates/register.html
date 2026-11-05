@@ -1,0 +1,106 @@
+<div class="register-view" data-register="{{ view.slug }}">
+  <header class="page-head">
+    <div class="eyebrow">
+      <span class="chip accent">Register</span>
+      <span class="chip mono">{{ view.file_name }}</span>
+      {% if view.rows.is_empty() %}
+      <span class="chip mono">None recorded</span>
+      {% else %}
+      <span class="chip mono">{{ view.rows.len() }} rows</span>
+      {% endif %}
+    </div>
+    <h1>{{ view.title }}</h1>
+    <p class="muted">{{ view.subtitle }}</p>
+  </header>
+
+  {% if view.show_claims_filter %}
+  <div class="reg-toolbar" role="region" aria-label="Claims filter">
+    <div class="seg" id="claimsFilterSeg" role="group" aria-label="Filter by verification">
+      {% for opt in view.filter_options %}
+      <button type="button" data-cf="{{ opt.key }}" aria-pressed="{% if opt.active %}true{% else %}false{% endif %}">{{ opt.label }}</button>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if !view.conflict_boxes.is_empty() %}
+  <section class="register-conflicts" aria-label="Conflict cards">
+    {% for cbox in view.conflict_boxes %}
+    <div class="conflict-box register{% if cbox.is_resolved %} resolved{% endif %}" data-conflict="{{ cbox.conflict_id }}">
+      <div class="conflict-head">
+        {{ cbox.conflict_chip_html|safe }}
+        {{ cbox.area_chip_html|safe }}
+        {{ cbox.status_chip_html|safe }}
+        <strong>{{ cbox.topic }}</strong>
+      </div>
+      <div class="conflict-sides">
+        {% for pos in cbox.positions %}
+        <div class="conflict-side">
+          <div class="conflict-side-label">Position {{ loop.index }}</div>
+          <div>{{ pos }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="conflict-foot">
+        <div>Disputed claims: {{ cbox.claims_html|safe }}</div>
+        {% if cbox.is_resolved %}
+          {% if let Some(res) = cbox.resolution %}
+          <div><strong>Library adopts:</strong> {{ res }}</div>
+          {% endif %}
+          {% if let Some(rat) = cbox.rationale %}
+          <div>Rationale: {{ rat }}</div>
+          {% endif %}
+          {% if let Some(ev) = cbox.evidence_html %}
+          <div>Evidence: {{ ev|safe }}</div>
+          {% endif %}
+          {% if let Some(on) = cbox.resolved_on %}
+          <div>Resolved on <span class="mono">{{ on }}</span></div>
+          {% endif %}
+        {% else %}
+          <div>Unresolved: every position is kept. No winner or average is shown.</div>
+          {% if let Some(q_html) = cbox.question_chip_html %}
+          <div>Settled by {{ q_html|safe }}</div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if view.rows.is_empty() %}
+  <div class="panel empty-state" data-empty-register>
+    <div class="panel-title">None recorded</div>
+    <p class="muted">An empty filter means none are recorded, not that none exist.</p>
+  </div>
+  {% elif view.show_claims_filter %}
+  <div class="panel empty-state" id="registerEmptyFilter" hidden>
+    <div class="panel-title">None recorded</div>
+    <p class="muted">An empty filter means none are recorded, not that none exist.</p>
+  </div>
+  {% endif %}
+
+  <div class="table-wrap">
+    <table class="reg-table" id="registerTable">
+      <caption>{{ view.caption }}</caption>
+      <thead>
+        <tr>
+          {% for col in view.columns %}
+          <th scope="col" data-col="{{ col }}"{% if loop.first %} aria-sort="ascending"{% endif %}>
+            <button type="button" class="th-sort" data-sort-col="{{ col }}">{{ col }}</button>
+          </th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in view.rows %}
+        <tr id="{{ row.id }}"{% if let Some(ver) = row.verification_filter %} data-verification="{{ ver }}"{% endif %}>
+          {% for cell in row.cells %}
+          <td data-col="{{ cell.col_name }}" data-sort-val="{{ cell.sort_key }}">{{ cell.html|safe }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

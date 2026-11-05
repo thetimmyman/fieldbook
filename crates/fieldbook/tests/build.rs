@@ -1056,4 +1056,152 @@ mod build {
             );
         }
     }
+
+    #[test]
+    fn build_registers_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let tree_base = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model_base, report_base) = load(
+            &Host::new(tree_base.clone(), world.today()),
+            &Options::new(false),
+        );
+        assert!(report_base.is_ok());
+
+        let eff = EffectivePolicy::floor(false);
+        let now = world.now();
+        let shipped = Shipped::Hours(1);
+        let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+            panic!("expected selection Allowed");
+        };
+        let view_base = LabelledView::new(&model_base, &sel, &ReadableStores::corpus());
+
+        // Add forbidden (`np-0007`) register rows (source S-0099-v1 and dependent claim, conflict, glossary term) and page to a mixed tree.
+        let mut tree_mixed = tree_base;
+        let sources_mixed = format!(
+            "{}S-0099,1,s-forbidden,\"Forbidden source canary, made up for tests\",Synthetic Standards Board,primary_law,primary_evidence,A,\"Synthetic, no restrictions\",,,metadata-only: made up for tests,9999999999999999999999999999999999999999999999999999999999999999,2026-01-05,2026-01-10,2026-02-01,2026-02-01,active,,V2,public|np-0007,Forbidden source note.,Secret,,,,,\n",
+            std::str::from_utf8(
+                tree_mixed
+                    .get_bytes("corpus/registers/sources.csv")
+                    .unwrap()
+            )
+            .unwrap()
+        );
+        tree_mixed.insert_bytes("corpus/registers/sources.csv", sources_mixed.into_bytes());
+        let claims_mixed = format!(
+            "{}CL-CMP-0099,cmp,fact,Forbidden claim canary statement.,2026-02-01,S-0099,1,text_section,sec. 9,Forbidden quote.,false,codex,unchecked,general_reference,proposed,observed,V2,,,,,,,,,,,,,,,,,Forbidden claim note.\n",
+            std::str::from_utf8(tree_mixed.get_bytes("corpus/registers/claims.csv").unwrap())
+                .unwrap()
+        );
+        tree_mixed.insert_bytes("corpus/registers/claims.csv", claims_mixed.into_bytes());
+        let conflicts_mixed = format!(
+            "{}XC-99,cmp,Forbidden conflict canary topic,First secret position|Second secret position,,,,,unresolved,CL-CMP-0001|CL-CMP-0099,Q-001\n",
+            std::str::from_utf8(
+                tree_mixed
+                    .get_bytes("corpus/registers/conflicts.csv")
+                    .unwrap()
+            )
+            .unwrap()
+        );
+        tree_mixed.insert_bytes(
+            "corpus/registers/conflicts.csv",
+            conflicts_mixed.into_bytes(),
+        );
+        let glossary_mixed = format!(
+            "{}forbidden_term_canary,Forbidden term canary,Secret definition.,Secret boundary.,cmp,CL-CMP-0099,public_reference,secret_alias,\n",
+            std::str::from_utf8(
+                tree_mixed
+                    .get_bytes("corpus/registers/glossary.csv")
+                    .unwrap()
+            )
+            .unwrap()
+        );
+        tree_mixed.insert_bytes("corpus/registers/glossary.csv", glossary_mixed.into_bytes());
+        tree_mixed.insert_bytes(
+            "corpus/pages/estimating/pricing/est-forbidden-canary.md",
+            b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-02-01: Secret.\n"
+                .to_vec(),
+        );
+
+        let (model_mixed, report_mixed) =
+            load(&Host::new(tree_mixed, world.today()), &Options::new(false));
+        assert!(
+            report_mixed.is_ok(),
+            "mixed tree must load cleanly:\n{}",
+            report_mixed.render_text()
+        );
+        let view_mixed = LabelledView::new(&model_mixed, &sel, &ReadableStores::corpus());
+        assert!(view_mixed.left_out() >= 5);
+
+        let out_base = tmp.path().join("out-reg-base");
+        let plan_base = plan_edition(
+            &view_base,
+            &BuildInfo::default(),
+            &out_base,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        let out_mixed = tmp.path().join("out-reg-mixed");
+        let plan_mixed = plan_edition(
+            &view_mixed,
+            &BuildInfo::default(),
+            &out_mixed,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        // All 5 register pages and ids.html are built, and sidebar/header counts and row contents
+        // are identical between base and mixed because both read strictly from LabelledView.
+        for req_page in [
+            "claims.html",
+            "sources.html",
+            "questions.html",
+            "conflicts.html",
+            "glossary.html",
+            "ids.html",
+        ] {
+            assert!(
+                plan_base.site.files().contains_key(req_page),
+                "`{req_page}` must be built in edition site"
+            );
+        }
+        assert_eq!(
+            plan_mixed.site.files(),
+            plan_base.site.files(),
+            "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
+        );
+
+        // Verify FB0603 checks every row anchor linked from pages (e.g. claims.html#CL-CMP-0001).
+        let diags = lint::lint(&plan_base.site, &OriginalNames::default());
+        assert!(diags.is_empty(), "edition site must pass FB0603: {diags:?}");
+        let mut broken_site = plan_base.site.clone();
+        let broken_claims =
+            String::from_utf8_lossy(broken_site.files().get("claims.html").unwrap())
+                .replace("id=\"CL-CMP-0001\"", "id=\"CL-CMP-MISSING\"");
+        let mut rebuilt = Site::new();
+        for (k, v) in broken_site.files() {
+            if k == "claims.html" {
+                rebuilt.insert(k, broken_claims.as_bytes().to_vec());
+            } else {
+                rebuilt.insert(k, v.clone());
+            }
+        }
+        broken_site = rebuilt;
+        let broken_diags = lint::lint(&broken_site, &OriginalNames::default());
+        assert!(
+            broken_diags
+                .iter()
+                .any(|d| d.code == Code::Fb0603 && d.message.contains("CL-CMP-0001")),
+            "removing row anchor id=\"CL-CMP-0001\" from claims.html must trigger FB0603 from pages linking to it, got: {broken_diags:?}"
+        );
+    }
 }

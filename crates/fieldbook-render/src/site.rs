@@ -7,13 +7,14 @@ use fieldbook_core::edition::latest_edition_heading;
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::manifest::shipped_corpus;
+use fieldbook_core::schema::Register;
 use fieldbook_core::schema::vocab::Lifecycle;
 use fieldbook_core::strings;
 use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
 use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page};
 use crate::meta::{BuildInfo, MetadataError, RenderContext};
-use crate::nav;
+use crate::{ids, nav, register};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -131,8 +132,12 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         "assets/app.css".to_owned(),
         "assets/app.js".to_owned(),
         "assets/strings.js".to_owned(),
+        ids::OUTPUT_PATH.to_owned(),
         "index.html".to_owned(),
     ];
+    for reg in Register::ALL {
+        paths.push(register::output_path(reg).to_owned());
+    }
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
     }
@@ -166,6 +171,13 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
 
     let mut site = Site::new();
     site.insert("index.html", index_html.into_bytes());
+    for reg in Register::ALL {
+        let reg_path = register::output_path(reg);
+        let html = register::render_page(reg, view, ctx, &navigation, &planned);
+        site.insert(reg_path, html.into_bytes());
+    }
+    let ids_html = ids::render_page(view, ctx, &navigation, &planned);
+    site.insert(ids::OUTPUT_PATH, ids_html.into_bytes());
     for page in view.pages() {
         let page_path = format!("p/{}.html", page.id);
         let html = crate::page::render_page(page, view, ctx, &navigation, &planned);

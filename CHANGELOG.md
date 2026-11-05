@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the five register pages and the id list.
 - Added: briefs, checklists with their timeline, and the other page types.
 - Added: page files in the frozen part order with Sources from citations.
 - Added: the page frame with section tabs, sidebar and theme toggle.
