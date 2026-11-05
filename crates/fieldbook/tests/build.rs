@@ -14,7 +14,9 @@ use std::process::{Command, Output};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, Ordering};
 
-use fieldbook::build::{plan_edition, run_with_info, write_edition_outputs};
+use fieldbook::build::{
+    BuildPlanError, plan_edition, plan_edition_with_site, run_with_info, write_edition_outputs,
+};
 use fieldbook::cli::BuildArgs;
 use fieldbook::io::journal::set_write_pause_hook;
 use fieldbook::io::{dirs, state};
@@ -28,8 +30,9 @@ use fieldbook_core::labels::PUBLIC;
 use fieldbook_core::policy::EffectivePolicy;
 use fieldbook_core::strings;
 use fieldbook_render::csp::CSP_STATIC;
+use fieldbook_render::lint::{self, OriginalNames};
 use fieldbook_render::meta::{BuildInfo, BuildProfile};
-use fieldbook_render::site::Site;
+use fieldbook_render::site::{self, Site};
 
 use support::temp_copy;
 use support::world::TestWorld;
@@ -800,6 +803,97 @@ mod build {
         assert_eq!(
             write_begins_after, write_begins_before,
             "failed released build must emit no write.begin"
+        );
+    }
+
+    #[test]
+    fn the_fixture_site_is_lint_clean() {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        assert!(report.is_ok());
+
+        let eff = EffectivePolicy::floor(false);
+        let sel = match check(
+            &eff,
+            &Dest::Edition,
+            None,
+            None,
+            world.now(),
+            Shipped::Never,
+        ) {
+            Decision::Allowed(a) => a,
+            Decision::Denied(d) => panic!("denied: {d:?}"),
+        };
+        let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
+        let site = site::render(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
+        let diags = lint::lint(&site, &OriginalNames::default());
+        assert!(
+            diags.is_empty(),
+            "fixture site must be lint-clean, got:\n{}",
+            fieldbook_core::check::Report::from_parts(diags, Vec::new()).render_text()
+        );
+    }
+
+    #[test]
+    fn a_lint_finding_writes_nothing() {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        assert!(report.is_ok());
+
+        let eff = EffectivePolicy::floor(false);
+        let sel = match check(
+            &eff,
+            &Dest::Edition,
+            None,
+            None,
+            world.now(),
+            Shipped::Never,
+        ) {
+            Decision::Allowed(a) => a,
+            Decision::Denied(d) => panic!("denied: {d:?}"),
+        };
+        let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
+        let ctx =
+            site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
+        let mut site = site::render_with_context(&ctx);
+        site.insert(
+            "bad.html",
+            format!(
+                "<!doctype html><html><head><meta http-equiv=\"Content-Security-Policy\" content=\"{CSP_STATIC}\"></head><body><a href=\"missing.html\">Dead</a></body></html>"
+            )
+            .into_bytes(),
+        );
+
+        let out_dir = tmp.path().join("out-lint-fail");
+        let res = plan_edition_with_site(
+            &view,
+            ctx,
+            site,
+            &out_dir,
+            &eff,
+            &LabelSet::public(),
+            world.now(),
+            Shipped::Never,
+        );
+        match res {
+            Err(BuildPlanError::Lint(diags)) => {
+                assert_eq!(diags.len(), 1);
+                assert_eq!(diags[0].code, Code::Fb0603);
+            }
+            other => panic!("expected BuildPlanError::Lint, got {other:?}"),
+        }
+        assert!(
+            !out_dir.exists(),
+            "a lint finding must write no file to out_dir"
+        );
+        let events = read_journal_events(world.state_dir());
+        assert!(
+            events.iter().all(|e| e.kind() != Kind::WriteBegin),
+            "a lint finding must append no write.begin"
         );
     }
 }

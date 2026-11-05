@@ -128,17 +128,17 @@ test = ""
 [[elsewhere]]
 code = "FB0603"
 card = "build-site-lints"
-test = ""
+test = "dead_link_is_fb0603"
 
 [[elsewhere]]
 code = "FB0604"
 card = "build-site-lints"
-test = ""
+test = "style_attribute_is_fb0604"
 
 [[elsewhere]]
 code = "FB0605"
 card = "build-site-lints"
-test = ""
+test = "script_over_budget_is_fb0605"
 
 [[elsewhere]]
 code = "FB0606"
