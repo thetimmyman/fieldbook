@@ -17,6 +17,7 @@ pub mod date;
 pub mod hash;
 pub mod hex;
 pub mod ids;
+pub mod labels;
 pub mod report;
 pub mod review;
 pub mod scan;
