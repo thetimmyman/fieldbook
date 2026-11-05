@@ -668,10 +668,10 @@ fn held_open_target_is_in_use() {
         fn has_company_store(&self) -> bool {
             self.inner.has_company_store()
         }
-        fn today(&self) -> CivilDate {
+        fn today(&self) -> fieldbook_core::CivilDate {
             self.inner.today()
         }
-        fn now(&self) -> Now {
+        fn now(&self) -> fieldbook_core::audit::Now {
             self.inner.now()
         }
         fn principal(&self) -> Principal {
