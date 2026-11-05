@@ -440,9 +440,14 @@ mod tests {
             &Host::new(tree_handling, sample_today()),
             &Options::new(false),
         );
-        assert!(
-            report_handling.diagnostics.is_empty(),
-            "expected handling values to be deferred to check-scans: {:?}",
+        assert_eq!(
+            report_handling
+                .diagnostics
+                .iter()
+                .map(|d| d.code)
+                .collect::<Vec<_>>(),
+            vec![Code::Fb0410],
+            "expected handling values to be judged by FB0410 in check-scans without FB0104: {:?}",
             report_handling.diagnostics
         );
     }

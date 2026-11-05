@@ -1,34 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# check-scans
-[[pending]]
-code = "FB0400"
-card = "check-scans"
-
-[[pending]]
-code = "FB0401"
-card = "check-scans"
-
-[[pending]]
-code = "FB0402"
-card = "check-scans"
-
-[[pending]]
-code = "FB0403"
-card = "check-scans"
-
-[[pending]]
-code = "FB0404"
-card = "check-scans"
-
-[[pending]]
-code = "FB0405"
-card = "check-scans"
-
-[[pending]]
-code = "FB0410"
-card = "check-scans"
-
 # calc-cases
 [[pending]]
 code = "FB0500"
@@ -321,24 +292,3 @@ card = "chat-bridge"
 [[pending]]
 code = "FB0955"
 card = "chat-bridge"
-
-# Pending controls whose Runs cell names Fieldbook `check`
-[[pending_control]]
-control = "ZN-01"
-card = "check-scans"
-
-[[pending_control]]
-control = "SC-02"
-card = "check-scans"
-
-[[pending_control]]
-control = "SC-03"
-card = "check-scans"
-
-[[pending_control]]
-control = "SC-05"
-card = "check-scans"
-
-[[pending_control]]
-control = "SC-06"
-card = "check-scans"

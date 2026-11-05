@@ -1030,7 +1030,7 @@ mod tests {
                 "calc",
                 "Synthetic calculation rule [@CL-CMP-0001].",
                 "Multiply synthetic base by rate.",
-                "Synthetic example. The numbers are made up.\n\nFixture: BAD-1\n\nBase 100 times 0.05 equals 5.",
+                "Synthetic example. The numbers are made up.\n\nFixture: bad_calc\n\nBase 100 times 0.05 equals 5.",
             );
             tree.insert_bytes(PATH_CMP_SYSTEM_REVIEW, broken_calc.as_bytes());
             let report = run(&Host::new(tree, sample_today()), &Options::new(false));

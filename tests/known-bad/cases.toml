@@ -446,3 +446,57 @@ strict = true
 edits = [
   { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "status = \"draft\"", replace = "status = \"stable\"" },
 ]
+
+[[case]]
+code = "FB0400"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:20"
+control = "SC-02"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "Describe the synthetic step-by-step procedure for completing a system review.", replace = "CUI// CONTROLLED UNCLASSIFIED INFORMATION" },
+]
+
+[[case]]
+code = "FB0401"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:20"
+control = "SC-03"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "Describe the synthetic step-by-step procedure for completing a system review.", replace = "Contact jane.doe@example.org for the synthetic procedure." },
+]
+
+[[case]]
+code = "FB0402"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:20"
+control = "SC-05"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "Describe the synthetic step-by-step procedure for completing a system review.", replace = "The program is CMMC compliant." },
+]
+
+[[case]]
+code = "FB0403"
+at = "corpus/registers/claims.csv:2"
+control = "SC-06"
+edits = [
+  { path = "corpus/registers/claims.csv", find = "Synthetic owner-verified fact for fixture tests.", replace = "=1+1" },
+]
+
+[[case]]
+code = "FB0404"
+at = "corpus/scan-allow.toml:1"
+edits = [
+  { path = "corpus/scan-allow.toml", create = "[[allow]]\nsha256 = \"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef\"\nmatch = \"CUI//\"\nreason = \"\"\n" },
+]
+
+[[case]]
+code = "FB0405"
+at = "corpus/scan-allow.toml:1"
+edits = [
+  { path = "corpus/scan-allow.toml", create = "[[allow]]\nsha256 = \"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef\"\nmatch = \"CUI//\"\nreason = \"Public regulation quoting the marking banner.\"\n" },
+]
+
+[[case]]
+code = "FB0410"
+at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:11"
+control = "ZN-01"
+edits = [
+  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "handling = [\"public\"]", replace = "handling = [\"np-0007\"]" },
+]

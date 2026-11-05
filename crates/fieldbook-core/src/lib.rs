@@ -19,6 +19,7 @@ pub mod hex;
 pub mod ids;
 pub mod report;
 pub mod review;
+pub mod scan;
 pub mod schema;
 pub mod strings;
 pub mod version;
