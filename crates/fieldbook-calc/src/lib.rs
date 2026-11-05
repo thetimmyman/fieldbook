@@ -20,7 +20,9 @@ pub mod date;
 pub mod decimal;
 pub mod error;
 pub mod money;
+pub mod ops;
 pub mod period;
+pub mod rounding;
 pub mod unit;
 pub mod value;
 
@@ -28,8 +30,10 @@ pub use date::{CivilDate, PartialDate};
 pub use decimal::Dec;
 pub use error::CalcError;
 pub use money::{Currency, Money};
+pub use ops::{add, add_dec, div, div_at_stage, div_dec, mul, mul_dec, percent_of, sub, sub_dec};
 pub use period::{Duration, EffectivePeriod};
-pub use unit::Unit;
+pub use rounding::{RoundingPolicy, Stage, round_at_stage, round_money_at_stage};
+pub use unit::{Unit, UnitFamily, convert};
 pub use value::{Reason, Value};
 
 /// This crate's name in the chain calc, core, render, fieldbook.

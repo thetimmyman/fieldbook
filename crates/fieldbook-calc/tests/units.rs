@@ -1,7 +1,12 @@
 //! Drift test keeping `Unit::ALL` in step with `docs/reference/corpus-format.md`.
 
 mod units {
-    use fieldbook_calc::{Currency, Unit};
+    use fieldbook_calc::unit::{UnitFamily, convert};
+    use fieldbook_calc::{CalcError, Currency, Dec, Reason, Unit, Value};
+
+    fn dec(s: &str) -> Dec {
+        Dec::parse(s).unwrap_or_else(|e| panic!("valid Dec `{s}`: {e}"))
+    }
 
     const CORPUS_FORMAT: &str = include_str!("../../../docs/reference/corpus-format.md");
 
@@ -80,6 +85,115 @@ mod units {
         assert_eq!(
             code_plain_time_words, ref_time_words,
             "plain time words in Unit::ALL must match the time words of the number-unit lint sentence"
+        );
+    }
+
+    #[test]
+    fn every_unit_has_one_family() {
+        let expected = [
+            (Unit::Percent, UnitFamily::Percent),
+            (Unit::BasisPoints, UnitFamily::Percent),
+            (Unit::Days, UnitFamily::Days),
+            (Unit::BusinessDays, UnitFamily::BusinessDays),
+            (Unit::Weeks, UnitFamily::Days),
+            (Unit::Months, UnitFamily::Months),
+            (Unit::Years, UnitFamily::Months),
+            (Unit::Hours, UnitFamily::Hours),
+            (Unit::Count, UnitFamily::Count),
+            (Unit::Ratio, UnitFamily::Ratio),
+            (Unit::Each, UnitFamily::PriceBasis),
+            (Unit::Per100, UnitFamily::PriceBasis),
+            (Unit::Per1000, UnitFamily::PriceBasis),
+            (Unit::PerDozen, UnitFamily::PriceBasis),
+        ];
+        assert_eq!(expected.len(), Unit::ALL.len());
+        for (unit, fam) in expected {
+            assert_eq!(unit.family(), fam);
+            assert_eq!(convert(dec("1"), unit, unit), Ok(Value::Known(dec("1"))));
+        }
+    }
+
+    #[test]
+    fn weeks_convert_to_days_exactly() {
+        assert_eq!(
+            convert(dec("1"), Unit::Weeks, Unit::Days),
+            Ok(Value::Known(dec("7")))
+        );
+        assert_eq!(
+            convert(dec("3.5"), Unit::Weeks, Unit::Days),
+            Ok(Value::Known(dec("24.5")))
+        );
+        assert_eq!(
+            convert(dec("14"), Unit::Days, Unit::Weeks),
+            Ok(Value::Known(dec("2")))
+        );
+        assert_eq!(
+            convert(dec("2"), Unit::Years, Unit::Months),
+            Ok(Value::Known(dec("24")))
+        );
+    }
+
+    #[test]
+    fn per_100_converts_to_each() {
+        assert_eq!(
+            convert(dec("900.00"), Unit::Per100, Unit::Each),
+            Ok(Value::Known(dec("9.00")))
+        );
+        assert_eq!(
+            convert(dec("9.00"), Unit::Each, Unit::Per100),
+            Ok(Value::Known(dec("900.00")))
+        );
+        assert_eq!(
+            convert(dec("120.00"), Unit::PerDozen, Unit::Each),
+            Ok(Value::Known(dec("10.00")))
+        );
+        assert_eq!(
+            convert(dec("250.00"), Unit::Per1000, Unit::Each),
+            Ok(Value::Known(dec("0.250")))
+        );
+    }
+
+    #[test]
+    fn basis_points_convert_to_percent() {
+        assert_eq!(
+            convert(dec("250"), Unit::BasisPoints, Unit::Percent),
+            Ok(Value::Known(dec("2.5")))
+        );
+        assert_eq!(
+            convert(dec("2.5"), Unit::Percent, Unit::BasisPoints),
+            Ok(Value::Known(dec("250")))
+        );
+    }
+
+    #[test]
+    fn conversion_across_families_is_refused() {
+        let err = convert(dec("1"), Unit::Days, Unit::Each).unwrap_err();
+        assert_eq!(err, CalcError::Mismatch);
+        assert_eq!(err.code(), "FB0502");
+
+        assert_eq!(
+            convert(dec("1"), Unit::Days, Unit::Months),
+            Err(CalcError::Mismatch)
+        );
+        assert_eq!(
+            convert(dec("1"), Unit::Days, Unit::BusinessDays),
+            Err(CalcError::Mismatch)
+        );
+    }
+
+    #[test]
+    fn inexact_conversion_is_unknown() {
+        assert_eq!(
+            convert(dec("1"), Unit::Days, Unit::Weeks),
+            Ok(Value::Unknown(Reason::Inexact))
+        );
+        assert_eq!(
+            convert(dec("10"), Unit::Days, Unit::Weeks),
+            Ok(Value::Unknown(Reason::Inexact))
+        );
+        assert_eq!(
+            convert(dec("10.00"), Unit::PerDozen, Unit::Each),
+            Ok(Value::Unknown(Reason::Inexact))
         );
     }
 }

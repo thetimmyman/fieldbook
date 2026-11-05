@@ -6,7 +6,33 @@ use std::str::FromStr;
 use serde::de::{self, Visitor};
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
+use crate::decimal::Dec;
 use crate::error::CalcError;
+use crate::ops::{gcd_u128, scale_dec_by_ratio};
+use crate::value::Value;
+
+/// Basis family of a [`Unit`] (AD-14).
+///
+/// Conversion exists only within a single [`UnitFamily`].
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub enum UnitFamily {
+    /// `days` (1) and `weeks` (7).
+    Days,
+    /// `months` (1) and `years` (12).
+    Months,
+    /// `hours` (1).
+    Hours,
+    /// `business_days` (1).
+    BusinessDays,
+    /// `percent` (1) and `basis_points` (1/100).
+    Percent,
+    /// `ratio` (1).
+    Ratio,
+    /// `count` (1).
+    Count,
+    /// Price bases: `each` (1), `per_100` (100), `per_1000` (1000), `per_dozen` (12).
+    PriceBasis,
+}
 
 /// Closed enum of the non-currency words of the `unit` vocabulary in the Corpus format.
 ///
@@ -130,6 +156,89 @@ impl Unit {
                 | Self::Hours
         )
     }
+
+    /// Returns the [`UnitFamily`] to which this unit belongs.
+    #[must_use]
+    pub const fn family(self) -> UnitFamily {
+        match self {
+            Self::Days | Self::Weeks => UnitFamily::Days,
+            Self::Months | Self::Years => UnitFamily::Months,
+            Self::Hours => UnitFamily::Hours,
+            Self::BusinessDays => UnitFamily::BusinessDays,
+            Self::Percent | Self::BasisPoints => UnitFamily::Percent,
+            Self::Ratio => UnitFamily::Ratio,
+            Self::Count => UnitFamily::Count,
+            Self::Each | Self::Per100 | Self::Per1000 | Self::PerDozen => UnitFamily::PriceBasis,
+        }
+    }
+
+    /// Exact rational conversion factor `(numerator, denominator)` to this family's base unit
+    /// for ordinary (non-price-basis) families. For price-basis units, returns the basis
+    /// denominator `(basis, 1)`.
+    #[must_use]
+    pub const fn factor(self) -> (u128, u128) {
+        match self {
+            Self::Days
+            | Self::Months
+            | Self::Hours
+            | Self::BusinessDays
+            | Self::Percent
+            | Self::Ratio
+            | Self::Count
+            | Self::Each => (1, 1),
+            Self::Weeks => (7, 1),
+            Self::Years | Self::PerDozen => (12, 1),
+            Self::BasisPoints => (1, 100),
+            Self::Per100 => (100, 1),
+            Self::Per1000 => (1000, 1),
+        }
+    }
+
+    /// Returns the denominator basis (`1`, `100`, `1000`, `12`) when `self` is in
+    /// [`UnitFamily::PriceBasis`], or `None` for ordinary families.
+    #[must_use]
+    pub const fn price_basis(self) -> Option<u128> {
+        match self {
+            Self::Each => Some(1),
+            Self::Per100 => Some(100),
+            Self::Per1000 => Some(1000),
+            Self::PerDozen => Some(12),
+            Self::Percent
+            | Self::BasisPoints
+            | Self::Days
+            | Self::BusinessDays
+            | Self::Weeks
+            | Self::Months
+            | Self::Years
+            | Self::Hours
+            | Self::Count
+            | Self::Ratio => None,
+        }
+    }
+}
+
+/// Converts `amount` from `from` to `to` within the same [`UnitFamily`].
+///
+/// - Across two different families, returns `Err(CalcError::Mismatch)` (`FB0502`).
+/// - Ordinary families compute `amount × from_factor / to_factor`.
+/// - Price-basis units (`each`, `per_100`, `per_1000`, `per_dozen`) are denominators and
+///   compute `amount × to_basis / from_basis`.
+/// - Integer factors are cancelled before the representability test; a non-representable
+///   exact result returns `Ok(Value::Unknown(Reason::Inexact))`.
+pub fn convert(amount: Dec, from: Unit, to: Unit) -> Result<Value<Dec>, CalcError> {
+    if from.family() != to.family() {
+        return Err(CalcError::Mismatch);
+    }
+    let (raw_num, raw_den) = match (from.price_basis(), to.price_basis()) {
+        (Some(from_basis), Some(to_basis)) => (to_basis, from_basis),
+        _ => {
+            let (fn_num, fn_den) = from.factor();
+            let (tn_num, tn_den) = to.factor();
+            (fn_num * tn_den, fn_den * tn_num)
+        }
+    };
+    let g = gcd_u128(raw_num, raw_den);
+    scale_dec_by_ratio(amount, raw_num / g, raw_den / g)
 }
 
 impl fmt::Display for Unit {
