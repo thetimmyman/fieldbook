@@ -246,7 +246,13 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         "applicability",
         "not_applicable",
     );
-    set_register_cell(tree, "claims", "CL-CMP-0099", "adoption", "superseded");
+    set_register_cell(
+        tree,
+        "claims",
+        "CL-CMP-0099",
+        "adoption",
+        fieldbook_core::schema::Adoption::Superseded.as_str(),
+    );
     set_register_cell(tree, "sources", "S-0001", "supersedes", "S-0099-v1");
     set_register_cell(
         tree,
