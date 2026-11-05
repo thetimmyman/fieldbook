@@ -35,7 +35,7 @@ For sealed bid acquisitions, an interested party's protest to the contracting of
 
 ## How it works
 
-The contracting officer forwards all protests to the U.S. Small Business Administration, Office of Hearings and Appeals, 409 Third Street SW, Washington, DC 20416, or by email at OHAfilings@sba.gov, marked "Attn: SDVOSB Status Protest" [@CL-MKT-0586; @CL-MKT-1814]. OHA determines the merits of the status protest, has no standard timeline for issuing decisions, and issues a decision that is effective immediately and final [@CL-MKT-0587]. If the contracting officer withheld award and OHA sustained the protest and found that the concern is not an SDVOSB, the contracting officer shall not award the contract to the protested concern [@CL-MKT-0588].
+The contracting officer forwards all protests to the U.S. Small Business Administration, Office of Hearings and Appeals, 409 Third Street SW, Washington, DC 20416, or by email at the SBA Office of Hearings and Appeals filing address that the paragraph gives, marked "Attn: SDVOSB Status Protest" [@CL-MKT-0586; @CL-MKT-1814]. OHA determines the merits of the status protest, has no standard timeline for issuing decisions, and issues a decision that is effective immediately and final [@CL-MKT-0587]. If the contracting officer withheld award and OHA sustained the protest and found that the concern is not an SDVOSB, the contracting officer shall not award the contract to the protested concern [@CL-MKT-0588].
 
 ## Worked example
 

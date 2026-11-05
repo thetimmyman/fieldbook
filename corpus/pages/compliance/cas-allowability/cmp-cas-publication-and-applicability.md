@@ -29,7 +29,7 @@ Shows where the Cost Accounting Standards Board standards and regulations are pr
 | Text status | Final [@CL-CMP-8677] |
 | Applies to | The CAS requirement in FAR 30.201 is stated for negotiated contracts that are not exempt in accordance with 48 CFR 9903.201-1(b) [@CL-CMP-8680] |
 
-Under FAR 30.102, copies of the CASB Standards and Regulations are printed in title 48 of the Code of Federal Regulations, chapter 99 [@CL-CMP-8677], and may be obtained by writing the Superintendent of Documents, U.S. Government Publishing Office, Washington, DC 20402 [@CL-CMP-8677], or by calling the Washington, DC, ordering desk at area code (202) 512-1800 [@CL-CMP-8678].
+Under FAR 30.102, copies of the CASB Standards and Regulations are printed in title 48 of the Code of Federal Regulations, chapter 99 [@CL-CMP-8677], and may be obtained by writing the Superintendent of Documents, U.S. Government Publishing Office, Washington, DC 20402 [@CL-CMP-8677], or by calling the Washington, DC, ordering desk at the telephone number that the section prints [@CL-CMP-8678].
 
 Under FAR 30.201, title 48 CFR 9903.201-1 describes the rules for determining whether a proposed contract or subcontract is exempt from CAS [@CL-CMP-8679]. Negotiated contracts not exempt in accordance with 48 CFR 9903.201-1(b) shall be subject to CAS [@CL-CMP-8680]. A CAS-covered contract may be subject to either full or modified coverage [@CL-CMP-8681]. The rules for determining whether full or modified coverage applies are in 48 CFR 9903.201-2 [@CL-CMP-8682].
 

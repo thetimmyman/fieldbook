@@ -39,7 +39,7 @@ Federal agencies shall prescribe regulations and establish internal procedures b
 
 ### Preambles
 
-Preambles to the Cost Accounting Standards published by the original Cost Accounting Standards Board, as well as those published by the signatories to the Federal Acquisition Regulation respecting changes made under their regulatory authorities, are available [@CL-CMP-7548]. They are available by writing to the Publications Office, Office of Administration, Executive Office of the President, 725 17th Street NW., room 2200, Washington, DC 20500, or by calling (202) 395-7332 [@CL-CMP-7549].
+Preambles to the Cost Accounting Standards published by the original Cost Accounting Standards Board, as well as those published by the signatories to the Federal Acquisition Regulation respecting changes made under their regulatory authorities, are available [@CL-CMP-7548]. They are available by writing to the Publications Office, Office of Administration, Executive Office of the President, 725 17th Street NW., room 2200, Washington, DC 20500, or by calling the telephone number that the section gives [@CL-CMP-7549].
 
 ## How it works
 
