@@ -1,0 +1,108 @@
+# Synthetic policy fixture for core-policy and the label-leak matrix.
+
+policy_schema = 1
+revision = 3
+
+[[label]]
+id = "np-0007"
+title = "Supplier terms under an NDA (fixture)"
+banner = "NP-0007: restricted to the named counterparty"
+restricted = true
+
+[[label]]
+id = "bid-0003"
+title = "Bid cost build (fixture)"
+banner = "BID-0003: proposal sensitive"
+
+[[label]]
+id = "ctl-0002"
+title = "Export-controlled technical data (fixture)"
+banner = "CTL-0002: controlled, do not move"
+
+[[marking]]
+match = "NP-0007 NDA"
+labels = ["np-0007"]
+
+[[marking]]
+match = "BID-0003 COST"
+labels = ["bid-0003"]
+
+[[source]]
+id = "finance-exports"
+root = "/srv/company/finance"
+default = ["bid-0003"]
+
+[[source.rule]]
+prefix = "suppliers/"
+labels = ["np-0007"]
+
+[[source.map]]
+native = "Restricted"
+labels = ["np-0007"]
+
+[[source]]
+id = "public-notices"
+root = "/srv/company/public"
+default = ["public"]
+
+[[store]]
+id = "overlay"
+holds = ["public", "unlabelled", "np-0007", "bid-0003"]
+default = ["bid-0003"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+changers = 'EXAMPLE\Fieldbook-Label-Owners'
+
+[[store]]
+id = "working"
+holds = ["public", "unlabelled", "bid-0003"]
+
+[[store]]
+id = "state"
+holds = ["public", "unlabelled", "owner-supplied", "np-0007", "bid-0003"]
+readers = 'EXAMPLE\Fieldbook-Readers'
+
+[[destination]]
+kind = "model"
+name = "approved-gateway"
+url = "https://ai-gateway.example/v1"
+allow = ["public", "owner-supplied", "bid-0003"]
+expires = 2027-06-30
+keep_calls_days_max = 14
+ref = "CHG-0001"
+
+[[destination]]
+kind = "handoff"
+name = "approved-assistant"
+allow = ["public", "owner-supplied", "np-0007", "bid-0003"]
+ref = "CHG-0002"
+
+[[destination]]
+kind = "mcp"
+allow = ["public"]
+clients = ["0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"]
+
+[[destination]]
+kind = "bridge"
+allow = ["public", "bid-0003"]
+
+[[destination]]
+kind = "export"
+allow = ["public", "bid-0003"]
+paths = ["/srv/company/exports"]
+
+[[destination]]
+kind = "backup"
+allow = ["public", "owner-supplied", "np-0007", "bid-0003"]
+paths = ["/srv/company/backups"]
+
+[[destination]]
+kind = "print"
+allow = ["public", "owner-supplied", "bid-0003"]
+
+[[destination]]
+kind = "clipboard"
+allow = ["public"]
+
+[audit]
+sink = "/srv/company/audit"
+max_unshipped_hours = 24

@@ -1,9 +1,10 @@
-//! Canonical input-path hashing (`input_path_sha256`) and Git work-tree / ignored Home State
-//! context resolution (`git_context`) (`add-new-and-edition`).
+//! Canonical input-path hashing (`input_path_sha256`), Git work-tree / ignored Home State
+//! context resolution (`git_context`), and bounded store roots (`RootPath`, `Roots`)
+//! (`add-new-and-edition`, `core-policy`).
 
 #![expect(
     clippy::disallowed_methods,
-    reason = "io::root canonicalizes input paths and inspects .git and .gitignore on disk"
+    reason = "io::root canonicalizes paths and inspects .git and .gitignore on disk"
 )]
 
 use std::ffi::{OsStr, OsString};
@@ -11,12 +12,150 @@ use std::path::{Component, Path, PathBuf};
 
 use fieldbook_core::audit::Sha256;
 use fieldbook_core::hash::Sha256Stream;
-use fieldbook_core::labels::{GitContext, fieldbook_is_ignored};
+use fieldbook_core::labels::{GitContext, StoreId, fieldbook_is_ignored};
 
 use crate::World;
 use crate::io::Error;
 
 const INPUT_PATH_DOMAIN: &[u8] = b"input-path 1\n";
+
+/// A bounded root folder paired with the [`StoreId`] it holds (`core-policy` step 11).
+///
+/// Has private fields and a private constructor (`RootPath::new`); only [`Roots`] in this
+/// module constructs [`RootPath`] values.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RootPath {
+    path: PathBuf,
+    store: StoreId,
+}
+
+impl RootPath {
+    fn new(path: PathBuf, store: StoreId) -> Self {
+        Self { path, store }
+    }
+
+    /// Returns the filesystem path of this root folder.
+    #[must_use]
+    pub fn path(&self) -> &Path {
+        &self.path
+    }
+
+    /// Returns the [`StoreId`] held by this root folder.
+    #[must_use]
+    pub const fn store(&self) -> StoreId {
+        self.store
+    }
+}
+
+/// The bounded root folders held by [`crate::io::Disk`] (`core-policy` step 11).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Roots {
+    /// The Corpus root (`StoreId::Corpus`).
+    pub corpus: RootPath,
+    /// The State root (`StoreId::State`).
+    pub state: RootPath,
+    /// Default Home `.fieldbook` state folder (`StoreId::State`).
+    pub(crate) home_state: RootPath,
+}
+
+impl Roots {
+    /// Constructs [`Roots`] for the Home layout from `corpus` and `state`.
+    #[must_use]
+    pub fn at_home(corpus: &Path, state: &Path) -> Self {
+        Self {
+            corpus: RootPath::new(corpus.to_path_buf(), StoreId::Corpus),
+            state: RootPath::new(state.to_path_buf(), StoreId::State),
+            home_state: RootPath::new(corpus.join(".fieldbook"), StoreId::State),
+        }
+    }
+}
+
+/// Resolves `rel` inside `root` by canonicalizing existing ancestors and checking that the
+/// resolved target remains strictly inside the canonical `root` on whole components.
+///
+/// Any `..` escape, symlink-parent escape, or Windows junction-parent escape returns
+/// [`Error::OutOfScope`].
+pub(crate) fn resolve_in_root(root: &RootPath, rel: &Path) -> Result<PathBuf, Error> {
+    let raw_target = if rel.is_absolute() {
+        rel.to_path_buf()
+    } else {
+        root.path().join(rel)
+    };
+
+    if rel.as_os_str().is_empty() {
+        return Err(Error::OutOfScope(raw_target));
+    }
+
+    let rel_tail = if rel.is_absolute() {
+        let Ok(stripped) = rel.strip_prefix(root.path()) else {
+            return Err(Error::OutOfScope(raw_target));
+        };
+        if stripped.as_os_str().is_empty() {
+            return Err(Error::OutOfScope(raw_target));
+        }
+        stripped.to_path_buf()
+    } else {
+        rel.to_path_buf()
+    };
+
+    let canon_root = resolve_canonical_with_tail(Path::new("."), root.path())
+        .map_err(|_| Error::OutOfScope(raw_target.clone()))?;
+
+    let mut cur_canon = canon_root.clone();
+    for comp in rel_tail.components() {
+        match comp {
+            Component::CurDir => {}
+            Component::ParentDir => {
+                if cur_canon == canon_root
+                    || !cur_canon.pop()
+                    || !cur_canon.starts_with(&canon_root)
+                {
+                    return Err(Error::OutOfScope(raw_target));
+                }
+            }
+            Component::RootDir | Component::Prefix(_) => {
+                return Err(Error::OutOfScope(raw_target));
+            }
+            Component::Normal(part) => {
+                let candidate = cur_canon.join(part);
+                match std::fs::symlink_metadata(&candidate) {
+                    Ok(_) => {
+                        let actual_canon = std::fs::canonicalize(&candidate)
+                            .map(strip_windows_verbatim)
+                            .map_err(|_| Error::OutOfScope(raw_target.clone()))?;
+                        if !actual_canon.starts_with(&canon_root) || actual_canon == canon_root {
+                            return Err(Error::OutOfScope(raw_target));
+                        }
+                        cur_canon = actual_canon;
+                    }
+                    Err(err) if err.kind() == std::io::ErrorKind::NotFound => {
+                        cur_canon = candidate;
+                    }
+                    Err(_) => {
+                        return Err(Error::OutOfScope(raw_target));
+                    }
+                }
+            }
+        }
+    }
+
+    if !cur_canon.starts_with(&canon_root) || cur_canon == canon_root {
+        return Err(Error::OutOfScope(raw_target));
+    }
+
+    Ok(cur_canon)
+}
+
+/// Resolves an outside target path by canonicalizing its existing ancestors and appending any
+/// non-existent tail components without `..`.
+pub(crate) fn resolve_outside_path(path: &Path) -> Result<PathBuf, Error> {
+    for comp in path.components() {
+        if matches!(comp, Component::ParentDir) {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        }
+    }
+    resolve_canonical_with_tail(Path::new("."), path)
+}
 
 /// Compute the lossless canonical input-path digest (`input-path 1\n`, length-framed OS tag
 /// `unix` or `windows`, then length-framed raw path bytes: Unix `OsStr` bytes or Windows
@@ -77,9 +216,24 @@ fn encode_utf16le_units(units: &[u16]) -> Vec<u8> {
     out
 }
 
+fn strip_windows_verbatim(path: PathBuf) -> PathBuf {
+    #[cfg(windows)]
+    {
+        if let Some(s) = path.to_str() {
+            if let Some(rest) = s.strip_prefix(r"\\?\UNC\") {
+                return PathBuf::from(format!(r"\\{rest}"));
+            }
+            if let Some(rest) = s.strip_prefix(r"\\?\") {
+                return PathBuf::from(rest);
+            }
+        }
+    }
+    path
+}
+
 /// Resolve canonical existing ancestors and remaining components of `target` (relative to `base`
 /// when `target` is relative).
-fn resolve_canonical_with_tail(base: &Path, target: &Path) -> Result<PathBuf, Error> {
+pub(crate) fn resolve_canonical_with_tail(base: &Path, target: &Path) -> Result<PathBuf, Error> {
     let joined = if target.is_absolute() {
         target.to_path_buf()
     } else {
@@ -91,7 +245,8 @@ fn resolve_canonical_with_tail(base: &Path, target: &Path) -> Result<PathBuf, Er
 
     loop {
         match std::fs::canonicalize(cur) {
-            Ok(mut resolved) => {
+            Ok(resolved) => {
+                let mut resolved = strip_windows_verbatim(resolved);
                 for part in tail.into_iter().rev() {
                     if part == OsStr::new(".") {
                         continue;
@@ -201,23 +356,26 @@ pub fn git_context(world: &dyn World, destination: &Path) -> Result<GitContext, 
 mod tests {
     use super::*;
     use fieldbook_core::CivilDate;
-    use fieldbook_core::audit::{Now, Principal, Via};
+    use fieldbook_core::audit::{
+        LabelSet, Now, OperationIntent, OperationKey, Principal, RecordRef, Verb, Via, Word,
+        WriteFile, WriteSet, request_sha256,
+    };
     use fieldbook_core::check::Tree;
+    use fieldbook_core::egress::Allowed;
 
     use crate::StoreLease;
-    use crate::io::{Audited, atomic};
+    use crate::io::{Audited, Disk};
 
     struct TestDiskWorld {
-        root: PathBuf,
-        state_dir: PathBuf,
+        disk: Disk,
         company_store: bool,
     }
 
     impl TestDiskWorld {
         fn new(root: &Path) -> Self {
+            let state_dir = root.join(".fieldbook");
             Self {
-                root: root.to_path_buf(),
-                state_dir: root.join(".fieldbook"),
+                disk: Disk::new(Roots::at_home(root, &state_dir)),
                 company_store: false,
             }
         }
@@ -229,7 +387,7 @@ mod tests {
         }
 
         fn write_lease(&self) -> Result<StoreLease, Error> {
-            crate::io::journal::acquire_write_lease(&self.root, &self.state_dir)
+            self.disk.write_lease()
         }
 
         fn read_tree_under(&self, _lease: &StoreLease) -> Result<Tree, Error> {
@@ -242,7 +400,17 @@ mod tests {
             path: &Path,
             bytes: &[u8],
         ) -> Result<Sha256, Error> {
-            atomic::write_file(audited, path, bytes)
+            self.disk.write_file(audited, path, bytes)
+        }
+
+        fn write_outside(
+            &self,
+            allowed: &Allowed,
+            audited: &Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<Sha256, Error> {
+            self.disk.write_outside(allowed, audited, path, bytes)
         }
 
         fn has_company_store(&self) -> bool {
@@ -262,15 +430,15 @@ mod tests {
         }
 
         fn cwd(&self) -> &Path {
-            &self.root
+            self.disk.cwd()
         }
 
         fn tree_root(&self) -> &Path {
-            &self.root
+            self.disk.tree_root()
         }
 
         fn state_dir(&self) -> &Path {
-            &self.state_dir
+            self.disk.state_dir()
         }
     }
 
@@ -303,18 +471,41 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
         let world = TestDiskWorld::new(tmp.path());
         let lease = world.write_lease().unwrap_or_else(|e| panic!("{e}"));
-        let journal = crate::io::state::open(&world, world.state_dir(), Via::Cli)
+        let mut journal = crate::io::state::open(&world, world.state_dir(), Via::Cli)
             .unwrap_or_else(|e| panic!("{e}"));
+        let intent = OperationIntent {
+            schema: 1,
+            key: OperationKey::new(Verb::parse("add").unwrap(), Sha256::digest(b"subject")),
+            request_sha256: request_sha256(&[("req", b"1")]).unwrap(),
+            allocated: vec![RecordRef::parse("corpus/S-0001").unwrap()],
+            allocated_store_uid: None,
+            planned_on: world.today(),
+        };
+        let ws = WriteSet {
+            labels: LabelSet::public(),
+            files: vec![WriteFile::new(
+                "corpus/sources/public/S-0001-v1.txt",
+                Sha256::digest(b"hello\n").as_str().to_owned(),
+            )],
+            affected: vec![RecordRef::parse("corpus/S-0001").unwrap()],
+        };
         let audited = journal
-            .state_scope(&lease)
+            .begin(&lease, &intent, &ws)
             .unwrap_or_else(|e| panic!("{e}"));
 
-        let file_path = tmp.path().join("sub").join("note.txt");
+        let file_path = tmp.path().join("corpus/sources/public/S-0001-v1.txt");
         world
             .write_file(&audited, &file_path, b"hello\n")
             .unwrap_or_else(|e| panic!("{e}"));
+        journal
+            .end(audited, Word::new_static("ok"))
+            .unwrap_or_else(|e| panic!("{e}"));
 
-        let dot_path = tmp.path().join("sub").join(".").join("note.txt");
+        let dot_path = tmp
+            .path()
+            .join("corpus/sources/public")
+            .join(".")
+            .join("S-0001-v1.txt");
         let d1 = input_path_sha256(&file_path).unwrap_or_else(|e| panic!("{e}"));
         let d2 = input_path_sha256(&dot_path).unwrap_or_else(|e| panic!("{e}"));
         assert_eq!(d1, d2);
@@ -325,10 +516,7 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
         let mut world = TestDiskWorld::new(tmp.path());
         let lease = world.write_lease().unwrap_or_else(|e| panic!("{e}"));
-        let journal = crate::io::state::open(&world, world.state_dir(), Via::Cli)
-            .unwrap_or_else(|e| panic!("{e}"));
-        let audited = journal
-            .state_scope(&lease)
+        let mut journal = crate::io::state::open(&world, world.state_dir(), Via::Cli)
             .unwrap_or_else(|e| panic!("{e}"));
 
         // Outside Git initially.
@@ -336,7 +524,26 @@ mod tests {
             .unwrap_or_else(|e| panic!("{e}"));
         assert_eq!(ctx_outside, GitContext::outside());
 
-        // Create .git marker file.
+        // Create .git marker file and .gitignore inside corpus root using a store write token.
+        let intent = OperationIntent {
+            schema: 1,
+            key: OperationKey::new(Verb::parse("add").unwrap(), Sha256::digest(b"git-test")),
+            request_sha256: request_sha256(&[("req", b"2")]).unwrap(),
+            allocated: vec![RecordRef::parse("corpus/S-0001").unwrap()],
+            allocated_store_uid: None,
+            planned_on: world.today(),
+        };
+        let ws = WriteSet {
+            labels: LabelSet::public(),
+            files: vec![WriteFile::new(
+                "corpus/sources/public/S-0001-v1.txt",
+                Sha256::digest(b".fieldbook/\n").as_str().to_owned(),
+            )],
+            affected: vec![RecordRef::parse("corpus/S-0001").unwrap()],
+        };
+        let audited = journal
+            .begin(&lease, &intent, &ws)
+            .unwrap_or_else(|e| panic!("{e}"));
         world
             .write_file(
                 &audited,
@@ -355,6 +562,7 @@ mod tests {
         world
             .write_file(&audited, &tmp.path().join(".gitignore"), b".fieldbook/\n")
             .unwrap_or_else(|e| panic!("{e}"));
+        drop(audited);
 
         // Canonical containment inside .fieldbook and .fieldbook/drill.
         let ctx_state = git_context(&world, &tmp.path().join(".fieldbook/reports/last-add.json"))
@@ -383,7 +591,7 @@ mod tests {
 
         // Custom state folder outside <tree_root>/.fieldbook never grants ignored_home_state.
         world.company_store = false;
-        world.state_dir = tmp.path().join("custom-state");
+        world.disk = Disk::new(Roots::at_home(tmp.path(), &tmp.path().join("custom-state")));
         let ctx_custom = git_context(
             &world,
             &tmp.path().join("custom-state/reports/last-add.json"),

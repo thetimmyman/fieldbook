@@ -665,6 +665,15 @@ fn held_open_target_is_in_use() {
             }
             self.inner.write_file(audited, path, bytes)
         }
+        fn write_outside(
+            &self,
+            allowed: &fieldbook_core::egress::Allowed,
+            audited: &fieldbook::Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<Sha256, fieldbook::WorldError> {
+            self.inner.write_outside(allowed, audited, path, bytes)
+        }
         fn has_company_store(&self) -> bool {
             self.inner.has_company_store()
         }

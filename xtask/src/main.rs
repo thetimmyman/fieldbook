@@ -23,6 +23,7 @@
 )]
 
 mod audit_doc;
+mod binscan;
 mod cli_doc;
 mod compat;
 mod denylist;
@@ -80,7 +81,8 @@ const USAGE: &str = "usage: cargo xtask <command>
   docs [--check]                    regenerate generated documentation blocks or check for drift
   guard-statuses BASE HEAD          fail if an agent's commits raise a status or weaken a seed or regression case
   denylist FILE                     fail if a term from FILE appears in tracked content or pushed history
-  compat --base FILE                verify published compatibility bindings and vectors against FILE";
+  compat --base FILE                verify published compatibility bindings and vectors against FILE
+  binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans";
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -101,6 +103,7 @@ fn main() -> ExitCode {
             denylist::pushed(&root, &PathBuf::from(file), &PathBuf::from(updates))
         }
         ["compat", "--base", file] => compat::command(&root, &PathBuf::from(file)),
+        ["binscan", exe, "--build", build] => binscan::command(&root, &PathBuf::from(exe), build),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {
             eprintln!("{USAGE}");

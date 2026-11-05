@@ -24,6 +24,7 @@ use clap::Parser;
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::{self, Host, Options, Report, Tree};
+use fieldbook_core::egress::Allowed;
 use fieldbook_core::report::CheckReport;
 
 use crate::cli::{CheckArgs, Commands, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
@@ -42,6 +43,15 @@ pub trait World {
     /// Atomically write `bytes` to `path` under an active [`Audited`] token.
     fn write_file(
         &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError>;
+
+    /// Atomically write `bytes` to `path` outside the data roots under `allowed` and `audited`.
+    fn write_outside(
+        &self,
+        allowed: &Allowed,
         audited: &Audited,
         path: &Path,
         bytes: &[u8],
@@ -201,6 +211,16 @@ impl World for StateOverrideWorld<'_> {
         bytes: &[u8],
     ) -> Result<Sha256, WorldError> {
         self.inner.write_file(audited, path, bytes)
+    }
+
+    fn write_outside(
+        &self,
+        allowed: &Allowed,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        self.inner.write_outside(allowed, audited, path, bytes)
     }
 
     fn has_company_store(&self) -> bool {
@@ -365,6 +385,16 @@ mod tests {
 
         fn write_file(
             &self,
+            _audited: &super::Audited,
+            path: &Path,
+            _bytes: &[u8],
+        ) -> Result<fieldbook_core::audit::Sha256, WorldError> {
+            Err(WorldError::new(path, "unsupported in FakeWorld"))
+        }
+
+        fn write_outside(
+            &self,
+            _allowed: &fieldbook_core::egress::Allowed,
             _audited: &super::Audited,
             path: &Path,
             _bytes: &[u8],

@@ -16,6 +16,11 @@ setup:
 doctor:
     cargo xtask doctor
 
+# Build fieldbook and scan its imported OS symbols against the silent allowlist.
+binscan:
+    cargo build --locked -p fieldbook
+    cargo xtask binscan target/debug/fieldbook --build silent
+
 # Everything a pull request must pass, in the order of AD-07. CI runs this too.
 check:
     # 1. Formatting

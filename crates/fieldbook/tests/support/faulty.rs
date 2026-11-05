@@ -6,6 +6,7 @@ use fieldbook::{Audited, Error, StoreLease, World, WorldError};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::Tree;
+use fieldbook_core::egress::Allowed;
 
 use super::world::TestWorld;
 
@@ -74,6 +75,23 @@ impl World for FaultyWorld {
             };
         }
         self.inner.write_file(audited, path, bytes)
+    }
+
+    fn write_outside(
+        &self,
+        allowed: &Allowed,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        let Fault::FailOnName { name, kind } = self.fault;
+        if path.file_name().and_then(|n| n.to_str()) == Some(name) {
+            return match kind {
+                FaultKind::Io => Err(Error::new(path, "injected I/O write fault")),
+                FaultKind::InUse => Err(Error::InUse(path.to_path_buf())),
+            };
+        }
+        self.inner.write_outside(allowed, audited, path, bytes)
     }
 
     fn has_company_store(&self) -> bool {

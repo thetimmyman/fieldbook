@@ -191,7 +191,7 @@ All come from crates.io. The two tables below are one table split for width: the
 | `zip` (`extract-xlsx-sheets`) | 8.6.0 (2026-04-25) | `default-features = false`, `deflate` | core, xtask; render (tests) | MIT | 1.88 |
 | `embed-resource` (R2) | 3.0.12 (2026-10-06) | default | `fieldbook` `build.rs`, Windows only | MIT | 1.76 |
 | `windows-sys` (`windows-facts`) | 0.61.2 (2025-10-06) | `default-features = false`, `Win32_Foundation`, `Win32_Security`, `Win32_Security_Authorization`, `Win32_Storage_FileSystem`, `Win32_Storage_CloudFilters`, `Win32_System_Com`, `Win32_System_RemoteDesktop`, `Win32_System_Threading`, `Win32_UI_Shell` | `fieldbook-win`, in `src/sys.rs`; Windows only | MIT OR Apache-2.0 | 1.71 |
-| `object` (`core-policy`) | 0.40.0 (2026-08-01) | `default-features = false`, `read_core`, `elf`, `pe` (the build settles the list) | `xtask`, in `binscan`; not shipped | MIT OR Apache-2.0 | 1.85 |
+| `object` (`core-policy`) | 0.40.0 (2026-08-01) | `default-features = false`, `read_core`, `elf`, `pe` | `xtask`, in `binscan`; not shipped | MIT OR Apache-2.0 | 1.85 |
 | `ureq` (AI build) | 3.4.2 (proposed; lands with `net-stack-spike`) | `rustls-no-provider`, `platform-verifier`; optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
 | `rustls` (AI build) | 0.23.45 (proposed; lands with `net-stack-spike`) | `std`, `tls12`, `custom-provider`; optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
 | `rustls-graviola` (AI build) | 0.4.0 with `graviola` 0.4.1 (proposed; lands with `net-stack-spike`) | optional | `fieldbook`, in `io/net`; AI build only | Confirmed by the spike | Confirmed by the spike |
@@ -376,6 +376,7 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 | 0 | silent | default | 0 | 5 | Actual pre-adoption main `327d4e0`; all-target count 11 (uncapped). Its graph inputs are unchanged by the documentation-only work-order amendment. |
 | 1 | silent | default | 11 | 80 | Initial adoption; all-target count 90 (uncapped). The transitive cap is 80, leaving zero headroom. AI is inapplicable while `net` is absent. |
 | 2 | silent | default | 12 | 82 | Card `windows-facts`; adds `fieldbook-win` and `windows-sys` `0.61.2` (`windows-link` `0.2.1` on Windows); all-target count 92 (uncapped), `cargo tree --workspace -e normal` union 64 (62 Linux, 64 Windows, 65 `--target all`). AI is inapplicable while `net` is absent. |
+| 3 | silent | default | 12 | 83 | Card `core-policy`; adds `object` `0.40.0` in `xtask` (`memchr` `2.8.3` already in graph); all-target count 93 (uncapped), `cargo tree --workspace -e normal` union 66 (64 Linux, 66 Windows, 67 `--target all`). AI is inapplicable while `net` is absent. |
 
 ### Initial resolution evidence
 

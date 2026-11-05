@@ -1,0 +1,33 @@
+# Synthetic leak-matrix records fixture.
+# Plants one record for each label of tests/fixtures/policy/policy.toml, plus
+# one public record and one marked record, each with a unique canary string.
+
+[[record]]
+id = "fnd-leak-public"
+store = "corpus"
+label = "public"
+canary = "CANARY_PUBLIC_9A1F3C"
+
+[[record]]
+id = "fnd-leak-np-0007"
+store = "overlay"
+label = "np-0007"
+canary = "CANARY_NP_0007_4E8B2D"
+
+[[record]]
+id = "fnd-leak-bid-0003"
+store = "overlay"
+label = "bid-0003"
+canary = "CANARY_BID_0003_7C5D1A"
+
+[[record]]
+id = "fnd-leak-ctl-0002"
+store = "overlay"
+label = "ctl-0002"
+canary = "CANARY_CTL_0002_2F9E6B"
+
+[[record]]
+id = "fnd-leak-marked"
+store = "overlay"
+label = "marked"
+canary = "CANARY_MARKED_8D3A5E"
