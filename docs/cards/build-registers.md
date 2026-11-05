@@ -16,7 +16,7 @@
 ## Scope
 
 - Files: `crates/fieldbook-render/templates/{register.html,ids.html}`, `crates/fieldbook-render/src/{lib.rs,site.rs,register.rs,ids.rs,status_chip.rs}`, `crates/fieldbook-render/assets/{app.css,app.js}`, `crates/fieldbook-render/tests/registers.rs`, `crates/fieldbook-render/tests/snapshots/` (new snapshots), `CHANGELOG.md`.
-- Registration lines: `crates/fieldbook-render/src/links.rs` (source-id selection and lifecycle eligibility).; `crates/fieldbook/tests/build.rs` and `crates/fieldbook/tests/leak_outputs.rs` (registers and ids delivery/count assertions and surface registration only)
+- Registration lines: `crates/fieldbook-render/src/links.rs` (source-id selection, lifecycle eligibility and the version, source-id, page and term chips); `crates/fieldbook/tests/build.rs` and `crates/fieldbook/tests/leak_outputs.rs` (registers and ids delivery/count assertions and surface registration only); `crates/fieldbook/tests/support/mod.rs` (canary register rows, including kept rows that name an omitted record)
 - Docs to update: `CHANGELOG.md` (`- Added: the five register pages and the id list.` under `## Unreleased`).
 
 ## Out of scope

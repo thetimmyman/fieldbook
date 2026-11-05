@@ -1098,6 +1098,16 @@ mod registers {
                 assert_eq!(row.cells.len(), expected_cols);
                 for cell in &row.cells {
                     let trimmed = cell.html.trim();
+                    // The format reference leaves "Empty means" blank for these columns, so an
+                    // empty value is an empty cell and nothing is invented for it.
+                    if trimmed.is_empty()
+                        && matches!(
+                            cell.col_name,
+                            "unit" | "citation_codified" | "citation_rfo" | "note"
+                        )
+                    {
+                        continue;
+                    }
                     assert!(
                         !trimmed.is_empty(),
                         "register `{}` row `{}` column `{}` must not be blank",
@@ -1123,10 +1133,9 @@ mod registers {
             "<span class=\"muted\">No quote</span>",
             "<span class=\"muted\">Still in force at as_of</span>",
             "<span class=\"muted\">Not a regulatory claim</span>",
-            "<span class=\"muted\">Not required for this instrument</span>",
-            "<span class=\"muted\">Not scoped</span>",
+            "<span class=\"muted\">No such test</span>",
             "<span class=\"muted\">The claim is not an input to a calculation</span>",
-            "<span class=\"muted unver\">Never verified</span>",
+            "<span class=\"unver\">Never verified</span>",
             "<span class=\"muted\">Not checked</span>",
             "<span class=\"muted\">Replaces nothing</span>",
             "<span class=\"muted\">Not replaced</span>",
@@ -1162,6 +1171,156 @@ mod registers {
             glossary_html.contains("<span class=\"muted\">Not replaced</span>"),
             "glossary.html must render empty-cell meaning `Not replaced` for `superseded_by`"
         );
+    }
+
+    /// The first `n` comma-separated fields of every data line of a fixture CSV (ids hold no commas).
+    fn csv_lead_fields(csv: &str, n: usize) -> Vec<String> {
+        csv.lines()
+            .skip(1)
+            .filter(|l| !l.is_empty())
+            .map(|l| l.split(',').take(n).collect::<Vec<_>>().join("-v"))
+            .collect()
+    }
+
+    fn row_ids(reg: Register, view: &LabelledView, planned: &PlannedPaths) -> Vec<String> {
+        build_register_view(reg, view, planned)
+            .rows
+            .into_iter()
+            .map(|r| r.id)
+            .collect()
+    }
+
+    #[test]
+    fn rows_follow_the_format_order() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        for (reg, csv, n) in [
+            (Register::Sources, SOURCES_CSV, 2),
+            (Register::Claims, CLAIMS_CSV, 1),
+            (Register::Questions, QUESTIONS_CSV, 1),
+            (Register::Conflicts, CONFLICTS_CSV, 1),
+            (Register::Glossary, GLOSSARY_CSV, 1),
+        ] {
+            let expected = csv_lead_fields(csv, n);
+            assert!(
+                !expected.is_empty(),
+                "fixture `{}` has rows",
+                reg.file_name()
+            );
+            assert_eq!(
+                row_ids(reg, &view, &planned),
+                expected,
+                "`{}` rows follow the register's sort order",
+                output_path(reg)
+            );
+        }
+    }
+
+    fn conflicts_tree() -> Tree {
+        let mut tree = fixture_tree();
+        let mut csv = CONFLICTS_CSV.to_owned();
+        csv.push_str(
+            "XC-99,cmp,Synthetic resolved topic,Synthetic position C|Synthetic position D,Synthetic adopted rule,Synthetic rationale text,CL-CMP-0001,2026-02-15,resolved,CL-CMP-0001|CL-CMP-0002,\n",
+        );
+        csv.push_str(
+            "XC-100,cmp,Synthetic third topic,Synthetic position A|Synthetic position B,,,,,unresolved,CL-CMP-0001|CL-CMP-0002,Q-001\n",
+        );
+        tree.insert_bytes("corpus/registers/conflicts.csv", csv.into_bytes());
+        tree
+    }
+
+    #[test]
+    fn conflicts_sort_by_number_and_resolved_box_shows_adoption() {
+        let (_model, view) = load_view(conflicts_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+
+        assert_eq!(
+            row_ids(Register::Conflicts, &view, &planned),
+            ["XC-01", "XC-99", "XC-100"],
+            "XC-99 sorts before XC-100"
+        );
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let navigation = nav::build(&view, &planned);
+        let ids_html = ids::render_page(&view, &ctx, &navigation, &planned);
+        let at = |id: &str| ids_html.find(&format!(">{id}<")).unwrap();
+        assert!(
+            at("XC-01") < at("XC-99") && at("XC-99") < at("XC-100"),
+            "ids.html lists conflicts in numeric order"
+        );
+
+        let html = render_main(Register::Conflicts, &view, &planned);
+        let resolved = html
+            .split("<div class=\"conflict-box")
+            .find(|b| b.contains("data-conflict=\"XC-99\""))
+            .and_then(|b| b.split("</section>").next())
+            .unwrap();
+        assert!(resolved.contains("Resolved · never averaged"), "{resolved}");
+        for needle in [
+            "Synthetic adopted rule",
+            "Synthetic rationale text",
+            "2026-02-15",
+        ] {
+            assert!(resolved.contains(needle), "resolved box shows `{needle}`");
+        }
+        assert!(
+            resolved.contains("Synthetic position C") && resolved.contains("Synthetic position D"),
+            "a resolved conflict still keeps every position"
+        );
+        let unresolved = html
+            .split("<div class=\"conflict-box")
+            .find(|b| b.contains("data-conflict=\"XC-100\""))
+            .and_then(|b| b.split("</section>").next())
+            .unwrap();
+        for needle in [
+            "Synthetic adopted rule",
+            "Synthetic rationale text",
+            "Resolved on",
+        ] {
+            assert!(
+                !unresolved.contains(needle),
+                "an unresolved box never shows `{needle}`"
+            );
+        }
+    }
+
+    #[test]
+    fn empty_ids_page_shows_no_bare_zero() {
+        let (_model, view) = load_view(empty_registers_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let navigation = nav::build(&view, &planned);
+        let html = ids::render_page(&view, &ctx, &navigation, &planned);
+        assert!(html.contains("None recorded"));
+        assert!(!html.contains("id-row"), "an empty edition lists no id");
+        let main = html.split("class=\"ids-view\"").nth(1).unwrap();
+        assert!(!main.contains(">0<") && !main.contains("0 IDs"));
+    }
+
+    #[test]
+    fn registers_page_in_fifties_and_numbers_sort_numerically() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        for reg in Register::ALL {
+            let html = render_main(reg, &view, &planned);
+            assert!(
+                html.contains("id=\"registerPager\"") && html.contains("hidden>"),
+                "`{}` ships the pager hidden: the script shows it past 50 rows",
+                output_path(reg)
+            );
+            assert!(
+                html.matches("<tr id=").count() > 0,
+                "`{}` ships every row, so the table is complete without the script",
+                output_path(reg)
+            );
+        }
+        for needle in [
+            "PAGE_SIZE = 50",
+            "const NUMBER = /^-?\\d+(\\.\\d+)?$/",
+            "Number(x)",
+            "window.addEventListener('hashchange', revealHash)",
+        ] {
+            assert!(APP_JS.contains(needle), "app.js must contain `{needle}`");
+        }
     }
 
     #[test]

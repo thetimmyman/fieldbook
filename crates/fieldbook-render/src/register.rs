@@ -4,9 +4,11 @@
 //! **Responsibility.** Build [`RegisterView`] from [`LabelledView`] for any [`Register`] and
 //! render all five register pages through the single `templates/register.html` template.
 
+use std::collections::BTreeSet;
+
 use askama::Template;
 use fieldbook_core::egress::LabelledView;
-use fieldbook_core::ids::{AreaCode, ClaimId, VersionId};
+use fieldbook_core::ids::{AreaCode, ClaimId, TermId, VersionId};
 use fieldbook_core::schema::{
     ClaimRow, ClaimUnit, ConflictRow, ConflictStatus, GlossaryRow, QuestionRow, RefId, Register,
     SourceRow, Verification,
@@ -220,6 +222,48 @@ fn empty_cell(col_name: &'static str, empty_means: &str) -> RegisterCellView {
     }
 }
 
+/// A cell whose "Empty means" column in the format reference is blank: nothing to say, so the
+/// cell stays empty.
+fn blank_cell(col_name: &'static str) -> RegisterCellView {
+    RegisterCellView {
+        col_name,
+        sort_key: String::new(),
+        html: String::new(),
+    }
+}
+
+/// Records the permitted view keeps. A cross-reference to a record the view left out is never
+/// printed or linked, so a kept row cannot name an omitted one.
+struct Kept {
+    claims: BTreeSet<ClaimId>,
+    terms: BTreeSet<TermId>,
+    versions: BTreeSet<VersionId>,
+}
+
+impl Kept {
+    fn of(view: &LabelledView) -> Self {
+        Self {
+            claims: view
+                .claims()
+                .iter()
+                .map(|l| l.value.claim_id.clone())
+                .collect(),
+            terms: view
+                .glossary()
+                .iter()
+                .map(|l| l.value.term_id.clone())
+                .collect(),
+            versions: view
+                .sources()
+                .iter()
+                .filter_map(|l| {
+                    VersionId::parse(&format!("{}-v{}", l.value.source_id, l.value.version)).ok()
+                })
+                .collect(),
+        }
+    }
+}
+
 fn text_cell(col_name: &'static str, text: &str) -> RegisterCellView {
     RegisterCellView {
         col_name,
@@ -282,6 +326,7 @@ fn render_ref_id_list(
 
 fn build_source_row_view(
     from_path: &str,
+    kept: &Kept,
     row: &SourceRow,
     view: &LabelledView,
     planned: &PlannedPaths,
@@ -291,17 +336,20 @@ fn build_source_row_view(
     let vid = VersionId::parse(&vid_str)
         .unwrap_or_else(|e| unreachable!("valid SourceRow produces valid VersionId: {e}"));
 
-    let supersedes_cell = if row.supersedes.is_empty() {
+    let shown_supersedes: Vec<&VersionId> = row
+        .supersedes
+        .iter()
+        .filter(|v| kept.versions.contains(*v))
+        .collect();
+    let supersedes_cell = if shown_supersedes.is_empty() {
         empty_cell(cols[18].name, "Replaces nothing")
     } else {
-        let sort_key = row
-            .supersedes
+        let sort_key = shown_supersedes
             .iter()
-            .map(VersionId::as_str)
+            .map(|v| v.as_str())
             .collect::<Vec<_>>()
             .join("|");
-        let html = row
-            .supersedes
+        let html = shown_supersedes
             .iter()
             .map(|sup_vid| {
                 render_version_chip(
@@ -396,7 +444,10 @@ fn build_source_row_view(
             html: render_handling_chips(&row.handling),
         },
         // 21: note
-        opt_text_cell(cols[21].name, row.note.as_deref(), "None"),
+        match row.note.as_deref().filter(|s| !s.is_empty()) {
+            Some(v) => text_cell(cols[21].name, v),
+            None => blank_cell(cols[21].name),
+        },
         // 22: purpose
         opt_text_cell(cols[22].name, row.purpose.as_deref(), "Unassigned"),
         // 23: origin_system
@@ -432,6 +483,7 @@ fn build_source_row_view(
 
 fn build_claim_row_view(
     from_path: &str,
+    kept: &Kept,
     row: &ClaimRow,
     view: &LabelledView,
     planned: &PlannedPaths,
@@ -462,53 +514,31 @@ fn build_claim_row_view(
         None => RegisterCellView {
             col_name: cols[28].name,
             sort_key: String::new(),
-            html: "<span class=\"muted unver\">Never verified</span>".to_owned(),
+            html: "<span class=\"unver\">Never verified</span>".to_owned(),
         },
     };
 
-    let supersedes_cell = if row.supersedes.is_empty() {
-        empty_cell(cols[30].name, "Replaces nothing")
-    } else {
-        let sort_key = row
-            .supersedes
-            .iter()
-            .map(ClaimId::as_str)
-            .collect::<Vec<_>>()
-            .join("|");
-        let html = row
-            .supersedes
-            .iter()
-            .map(|cid| render_claim_chip(from_path, cid, planned))
-            .collect::<Vec<_>>()
-            .join(" ");
+    let claim_list_cell = |col: usize, ids: &[ClaimId], empty_means: &str| {
+        let shown: Vec<&ClaimId> = ids.iter().filter(|c| kept.claims.contains(*c)).collect();
+        if shown.is_empty() {
+            return empty_cell(cols[col].name, empty_means);
+        }
         RegisterCellView {
-            col_name: cols[30].name,
-            sort_key,
-            html,
+            col_name: cols[col].name,
+            sort_key: shown
+                .iter()
+                .map(|c| c.as_str())
+                .collect::<Vec<_>>()
+                .join("|"),
+            html: shown
+                .iter()
+                .map(|cid| render_claim_chip(from_path, cid, planned))
+                .collect::<Vec<_>>()
+                .join(" "),
         }
     };
-
-    let superseded_by_cell = if row.superseded_by.is_empty() {
-        empty_cell(cols[31].name, "Not replaced")
-    } else {
-        let sort_key = row
-            .superseded_by
-            .iter()
-            .map(ClaimId::as_str)
-            .collect::<Vec<_>>()
-            .join("|");
-        let html = row
-            .superseded_by
-            .iter()
-            .map(|cid| render_claim_chip(from_path, cid, planned))
-            .collect::<Vec<_>>()
-            .join(" ");
-        RegisterCellView {
-            col_name: cols[31].name,
-            sort_key,
-            html,
-        }
-    };
+    let supersedes_cell = claim_list_cell(30, &row.supersedes, "Replaces nothing");
+    let superseded_by_cell = claim_list_cell(31, &row.superseded_by, "Not replaced");
 
     let cells = vec![
         // 0: claim_id
@@ -593,11 +623,10 @@ fn build_claim_row_view(
             "The claim states no number",
         ),
         // 18: unit (unmapped enum -> canonical text)
-        opt_text_cell(
-            cols[18].name,
-            row.unit.as_ref().map(ClaimUnit::as_str),
-            "No value",
-        ),
+        match row.unit.as_ref().map(ClaimUnit::as_str) {
+            Some(unit) => text_cell(cols[18].name, unit),
+            None => blank_cell(cols[18].name),
+        },
         // 19: effective_from
         opt_mono_cell(
             cols[19].name,
@@ -617,17 +646,15 @@ fn build_claim_row_view(
             "Not a regulatory claim",
         ),
         // 22: citation_codified
-        opt_text_cell(
-            cols[22].name,
-            row.citation_codified.as_deref(),
-            "Not required for this instrument",
-        ),
+        match row.citation_codified.as_deref().filter(|s| !s.is_empty()) {
+            Some(v) => text_cell(cols[22].name, v),
+            None => blank_cell(cols[22].name),
+        },
         // 23: citation_rfo
-        opt_text_cell(
-            cols[23].name,
-            row.citation_rfo.as_deref(),
-            "Not required for this instrument",
-        ),
+        match row.citation_rfo.as_deref().filter(|s| !s.is_empty()) {
+            Some(v) => text_cell(cols[23].name, v),
+            None => blank_cell(cols[23].name),
+        },
         // 24: edition_date
         opt_mono_cell(
             cols[24].name,
@@ -641,7 +668,7 @@ fn build_claim_row_view(
             "Not regulatory",
         ),
         // 26: applies_to
-        opt_text_cell(cols[26].name, row.applies_to.as_deref(), "Not scoped"),
+        opt_text_cell(cols[26].name, row.applies_to.as_deref(), "No such test"),
         // 27: evidence_grade (unmapped enum -> canonical text)
         opt_text_cell(
             cols[27].name,
@@ -689,7 +716,10 @@ fn build_claim_row_view(
             None => empty_cell(cols[33].name, "No question"),
         },
         // 34: note
-        opt_text_cell(cols[34].name, row.note.as_deref(), "None"),
+        match row.note.as_deref().filter(|s| !s.is_empty()) {
+            Some(v) => text_cell(cols[34].name, v),
+            None => blank_cell(cols[34].name),
+        },
     ];
 
     RegisterRowView {
@@ -770,7 +800,7 @@ pub fn build_register_conflict_box(
 ) -> RegisterConflictBoxView {
     let is_resolved = row.status == ConflictStatus::Resolved;
     let status_chip_html = if is_resolved {
-        format!("<span class=\"chip ok\">{ICON_CHECK}<span>Resolved</span></span>")
+        format!("<span class=\"chip ok\">{ICON_CHECK}<span>Resolved · never averaged</span></span>")
     } else {
         format!(
             "<span class=\"chip warn\">{ICON_ALERT}<span>Unresolved · every position kept</span></span>"
@@ -948,6 +978,7 @@ fn build_conflict_row_view(
 
 fn build_glossary_row_view(
     from_path: &str,
+    kept: &Kept,
     row: &GlossaryRow,
     view: &LabelledView,
     planned: &PlannedPaths,
@@ -1007,7 +1038,11 @@ fn build_glossary_row_view(
         // 7: aliases
         aliases_cell,
         // 8: superseded_by
-        match &row.superseded_by {
+        match row
+            .superseded_by
+            .as_ref()
+            .filter(|t| kept.terms.contains(*t))
+        {
             Some(tid) => RegisterCellView {
                 col_name: cols[8].name,
                 sort_key: tid.as_str().to_owned(),
@@ -1075,6 +1110,7 @@ pub fn build_register_view(
         other => other.columns().iter().map(|c| c.name).collect(),
     };
 
+    let kept = Kept::of(view);
     let mut conflict_boxes = Vec::new();
     let rows: Vec<RegisterRowView> = match reg {
         Register::Sources => {
@@ -1086,7 +1122,7 @@ pub fn build_register_view(
             });
             sorted
                 .into_iter()
-                .map(|r| build_source_row_view(from_path, r, view, planned))
+                .map(|r| build_source_row_view(from_path, &kept, r, view, planned))
                 .collect()
         }
         Register::Claims => {
@@ -1094,7 +1130,7 @@ pub fn build_register_view(
             sorted.sort_by(|a, b| a.claim_id.cmp(&b.claim_id));
             sorted
                 .into_iter()
-                .map(|r| build_claim_row_view(from_path, r, view, planned))
+                .map(|r| build_claim_row_view(from_path, &kept, r, view, planned))
                 .collect()
         }
         Register::Questions => {
@@ -1107,7 +1143,7 @@ pub fn build_register_view(
         }
         Register::Conflicts => {
             let mut sorted: Vec<&ConflictRow> = view.conflicts().iter().map(|l| &l.value).collect();
-            sorted.sort_by(|a, b| a.conflict_id.cmp(&b.conflict_id));
+            sorted.sort_by_key(|c| (c.conflict_id.number(), c.conflict_id.as_str().to_owned()));
             conflict_boxes = sorted
                 .iter()
                 .map(|r| build_register_conflict_box(from_path, r, view, planned))
@@ -1122,7 +1158,7 @@ pub fn build_register_view(
             sorted.sort_by(|a, b| a.term_id.cmp(&b.term_id));
             sorted
                 .into_iter()
-                .map(|r| build_glossary_row_view(from_path, r, view, planned))
+                .map(|r| build_glossary_row_view(from_path, &kept, r, view, planned))
                 .collect()
         }
     };

@@ -470,9 +470,9 @@ pub fn render_citation_chip(
 
 /// Render a mono version id chip (`S-nnnn-v<k>`) for register cells and `ids.html`.
 ///
-/// Checks lifecycle eligibility via [`is_version_eligible`] before choosing either
-/// `s/<version-id>.html` or `sources.html#<version-id>`: a held (`Quarantined`) or missing
-/// version is always plain text.
+/// A missing version is plain text. Otherwise [`render_citation_chip`] decides: a held
+/// (`Quarantined`) version is plain text with its reason and never a link, and any other
+/// version links to `s/<version-id>.html` or `sources.html#<version-id>`.
 #[must_use]
 pub fn render_version_chip(
     from_path: &str,
@@ -480,23 +480,13 @@ pub fn render_version_chip(
     source: Option<&SourceRow>,
     planned: &PlannedPaths,
 ) -> String {
-    if !is_version_eligible(source) {
-        let vid_esc = escape_html(version_id.as_str());
-        if let Some(s) = source
-            && s.lifecycle == Lifecycle::Quarantined
-        {
-            let reason = s
-                .note
-                .as_deref()
-                .filter(|n| !n.is_empty())
-                .unwrap_or("held");
-            return format!(
-                "<span class=\"cite held\"><span>{vid_esc}</span> <span class=\"hold-reason\">(Held: {})</span></span>",
-                escape_html(reason)
-            );
-        }
-        return format!("<span class=\"cite neutral\">{vid_esc}</span>");
+    if source.is_none() {
+        return format!(
+            "<span class=\"cite neutral\">{}</span>",
+            escape_html(version_id.as_str())
+        );
     }
+    // A held version is rendered as plain text with its reason by the citation chip itself.
     render_citation_chip(from_path, version_id.as_str(), None, source, planned)
 }
 

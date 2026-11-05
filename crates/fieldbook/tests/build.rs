@@ -1173,6 +1173,48 @@ mod build {
             "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
         );
 
+        // The real build handler selects and views the records itself. Its delivered register
+        // pages carry the permitted counts and equal the planned bytes, so a view bypass inside
+        // the handler (counting the unrestricted model) changes them and fails here. The canary
+        // tree stays at plan level because the loader refuses it (FB0410) before the handler runs.
+        let handler_out = tmp.path().join("out-reg-handler");
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: handler_out.clone(),
+            },
+            &world,
+            &BuildInfo::default(),
+        );
+        assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+        for (page, permitted_rows) in [
+            ("claims.html", "5 rows"),
+            ("sources.html", "4 rows"),
+            ("questions.html", "2 rows"),
+            ("conflicts.html", "1 row"),
+            ("glossary.html", "4 rows"),
+        ] {
+            let delivered = std::fs::read(handler_out.join("edition").join(page))
+                .unwrap_or_else(|e| panic!("handler must deliver `{page}`: {e}"));
+            assert!(
+                String::from_utf8_lossy(&delivered).contains(&format!(
+                    "<span class=\"chip mono\">{permitted_rows}</span>"
+                )),
+                "the delivered `{page}` must show `{permitted_rows}`"
+            );
+            assert_eq!(
+                &delivered,
+                &plan_base.site.files()[page],
+                "the delivered `{page}` equals the planned page"
+            );
+        }
+        let delivered_ids = std::fs::read(handler_out.join("edition/ids.html"))
+            .unwrap_or_else(|e| panic!("handler must deliver ids.html: {e}"));
+        assert_eq!(
+            &delivered_ids,
+            &plan_base.site.files()["ids.html"],
+            "the delivered ids.html equals the planned page"
+        );
+
         // Verify FB0603 checks every row anchor linked from pages (e.g. claims.html#CL-CMP-0001).
         let diags = lint::lint(&plan_base.site, &OriginalNames::default());
         assert!(diags.is_empty(), "edition site must pass FB0603: {diags:?}");

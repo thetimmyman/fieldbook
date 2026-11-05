@@ -1737,6 +1737,16 @@ th[aria-sort="descending"] .sort-arrow::after {
   content: " \25BC";
 }
 
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
 .pos-list {
   margin: 0;
   padding-left: var(--indent-list);

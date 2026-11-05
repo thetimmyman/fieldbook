@@ -159,7 +159,7 @@ pub fn build_ids_view(view: &LabelledView, planned: &PlannedPaths) -> IdsView {
 
     // 6. Conflicts
     let mut conflicts: Vec<&ConflictRow> = view.conflicts().iter().map(|l| &l.value).collect();
-    conflicts.sort_by(|a, b| a.conflict_id.cmp(&b.conflict_id));
+    conflicts.sort_by_key(|c| (c.conflict_id.number(), c.conflict_id.as_str().to_owned()));
     let conflict_items: Vec<IdItemView> = conflicts
         .into_iter()
         .map(|xc| IdItemView {
