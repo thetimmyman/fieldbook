@@ -1,0 +1,367 @@
+//! Binary integration tests for real outward surfaces and journal canary absence
+//! (`core-policy` steps 17 and 20).
+
+#![expect(
+    clippy::disallowed_methods,
+    reason = "integration tests write and inspect temporary files and real journal segments"
+)]
+
+mod support;
+
+use std::collections::BTreeSet;
+use std::path::PathBuf;
+
+use fieldbook::io::state;
+use fieldbook::{Error, World};
+use fieldbook_core::CivilDate;
+use fieldbook_core::audit::{
+    DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Now, RecordRef, Sha256, StoreId, Via,
+    Word, WriteFile, WriteSet, sample_payload,
+};
+use fieldbook_core::authz::ReadableStores;
+use fieldbook_core::check::{Host, Model, Options, Tree, load};
+use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
+use fieldbook_core::labels::PUBLIC;
+use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
+use fieldbook_core::schema::Register;
+use serde::Deserialize;
+
+use support::temp_copy;
+use support::world::TestWorld;
+
+const POLICY_TOML: &str = include_str!("../../../tests/fixtures/policy/policy.toml");
+const RECORDS_TOML: &str = include_str!("../../../tests/fixtures/leak/records.toml");
+const MINI_CORPUS_TOML: &str =
+    include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+
+/// One executable outward surface row in [`SURFACES`].
+pub struct Surface {
+    /// Stable surface identifier matching [`BUILT_SINKS`].
+    pub name: &'static str,
+    /// Executable harness that invokes the real sink, checks binding/refusal, and verifies
+    /// permitted and forbidden canaries on the emitted bytes.
+    pub run: fn(),
+}
+
+/// Built outward sinks in `fieldbook` covered by [`SURFACES`].
+const BUILT_SINKS: &[&str] = &["atomic_outside_writer", "journal_holds_ids_and_no_canary"];
+
+/// Registered real-output surfaces (`core-policy` step 17).
+pub const SURFACES: &[Surface] = &[
+    Surface {
+        name: "atomic_outside_writer",
+        run: run_atomic_outside_writer,
+    },
+    Surface {
+        name: "journal_holds_ids_and_no_canary",
+        run: run_journal_holds_ids_and_no_canary,
+    },
+];
+
+#[derive(Debug, Deserialize)]
+struct LeakFixture {
+    record: Vec<PlantedRecord>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+struct PlantedRecord {
+    id: String,
+    store: StoreId,
+    label: String,
+    canary: String,
+}
+
+fn load_fixture() -> LeakFixture {
+    toml::from_str(RECORDS_TOML).unwrap_or_else(|e| panic!("parse records.toml: {e}"))
+}
+
+fn default_now() -> Now {
+    let d = CivilDate::from_ymd(2026, 11, 1).unwrap_or_else(|e| panic!("{e}"));
+    Now::new(d, 3600).unwrap_or_else(|e| panic!("{e}"))
+}
+
+fn corpus_mini() -> PathBuf {
+    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/corpus-mini")
+}
+
+fn insert_register_headers(tree: &mut Tree) {
+    tree.insert_dir("corpus/registers");
+    for reg in Register::ALL {
+        let mut header = String::new();
+        for (idx, col) in reg.columns().iter().enumerate() {
+            if idx > 0 {
+                header.push(',');
+            }
+            header.push_str(col.name);
+        }
+        header.push('\n');
+        tree.insert_bytes(
+            format!("corpus/registers/{}", reg.file_name()),
+            header.into_bytes(),
+        );
+    }
+}
+
+fn build_model_from_records(records: &[PlantedRecord]) -> Model {
+    let mut tree = Tree::new();
+    tree.insert_dir("corpus");
+    tree.insert_dir("corpus/pages");
+    tree.insert_dir("corpus/sources");
+    tree.insert_dir("corpus/sources/public");
+    tree.insert_dir("overlay");
+    tree.insert_dir("overlay/records");
+    tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
+    tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
+    insert_register_headers(&mut tree);
+
+    for rec in records {
+        let path = format!("{}/records/{}.toml", rec.store.as_str(), rec.id);
+        let content = format!(
+            "id = \"{}\"\nhandling = \"{}\"\ncanary = \"{}\"\n",
+            rec.id, rec.label, rec.canary
+        );
+        tree.insert_bytes(path, content.into_bytes());
+    }
+
+    let today = CivilDate::from_ymd(2026, 3, 1).unwrap_or_else(|e| panic!("{e}"));
+    load(&Host::new(tree, today), &Options::new(false)).0
+}
+
+fn run_atomic_outside_writer() {
+    let fixture = load_fixture();
+    let model = build_model_from_records(&fixture.record);
+
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let out_dir_str = out_tmp.path().to_string_lossy().replace('\\', "/");
+
+    // Replace the export path prefix in the fixture policy with `out_tmp.path()` so the real
+    // atomic outside writer writes into `out_tmp`.
+    let policy_toml = POLICY_TOML.replace("/srv/company/exports", &out_dir_str);
+    let policy = Policy::parse(&policy_toml, None).unwrap_or_else(|e| panic!("{e}"));
+    let state = PolicyState::Loaded(policy);
+    let eff = EffectivePolicy::new(&state, &OwnerSettings::unset());
+
+    let out_file = out_tmp.path().join("export-pack.txt");
+    let dest = Dest::Export {
+        path: out_file.to_string_lossy().into_owned(),
+    };
+    let now = default_now();
+    let shipped = Shipped::Hours(1);
+
+    // 1. Select view using a selection token `(None, None)`.
+    let Decision::Allowed(sel_token) = check(&eff, &dest, None, None, now, shipped) else {
+        panic!("expected export selection Allowed");
+    };
+    let readable = ReadableStores::new(vec![
+        StoreId::Corpus,
+        StoreId::Overlay,
+        StoreId::Working,
+        StoreId::State,
+    ]);
+    let view = LabelledView::new(&model, &sel_token, &readable);
+    let rendered = view.render_summary(&dest);
+
+    // 2. Bind the exact rendered payload and check again.
+    let bid3 = LabelId::parse("bid-0003").unwrap_or_else(|e| panic!("{e}"));
+    let labels = LabelSet::from_ids([PUBLIC, bid3]);
+    let delivery = Delivery {
+        entries: vec![Transfer::write_path(out_file.clone(), rendered.as_bytes())],
+        markings: None,
+    };
+    let Decision::Allowed(allowed) =
+        check(&eff, &dest, Some(&labels), Some(&delivery), now, shipped)
+    else {
+        panic!("expected delivery-bound Allowed");
+    };
+
+    let ws = WriteSet {
+        labels,
+        files: vec![WriteFile::new(
+            "export-pack.txt",
+            Sha256::digest(rendered.as_bytes()).as_str().to_owned(),
+        )],
+        affected: vec![RecordRef::parse("corpus/S-0001").unwrap_or_else(|e| panic!("{e}"))],
+    };
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("context", &ws, &allowed, &out_file)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // 3. Attempting to write a forbidden canary payload (`ctl-0002` / `np-0007` / `marked`) or
+    //    using the selection token at the atomic outside door MUST be refused with OutOfScope.
+    let sel_attempt = world.write_outside(&sel_token, &audited, &out_file, rendered.as_bytes());
+    assert!(
+        matches!(sel_attempt, Err(Error::OutOfScope(_))),
+        "selection token must be refused at write_outside"
+    );
+    for rec in &fixture.record {
+        if rec.label != "public" && rec.label != "bid-0003" {
+            let unapproved_bytes = format!("leaked:{}\n", rec.canary);
+            let res =
+                world.write_outside(&allowed, &audited, &out_file, unapproved_bytes.as_bytes());
+            assert!(
+                matches!(res, Err(Error::OutOfScope(_))),
+                "unapproved payload for label `{}` must be refused by write_outside, got {res:?}",
+                rec.label
+            );
+        }
+    }
+    assert!(
+        !out_file.exists(),
+        "refused writes must not create the output file"
+    );
+
+    // 4. Write the approved bytes through the real atomic outside writer and inspect disk bytes.
+    world
+        .write_outside(&allowed, &audited, &out_file, rendered.as_bytes())
+        .unwrap_or_else(|e| panic!("{e}"));
+    journal
+        .end(audited, Word::new_static("ok"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let disk_text = std::fs::read_to_string(&out_file).unwrap_or_else(|e| panic!("{e}"));
+    for rec in &fixture.record {
+        let should_appear = rec.label == "public" || rec.label == "bid-0003";
+        assert_eq!(
+            disk_text.contains(&rec.canary),
+            should_appear,
+            "canary `{}` (label `{}`) presence on disk must be {should_appear}",
+            rec.canary,
+            rec.label
+        );
+    }
+}
+
+fn run_journal_holds_ids_and_no_canary() {
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+
+    let mut affected_refs: Vec<RecordRef> = fixture
+        .record
+        .iter()
+        .map(|r| {
+            RecordRef::parse(&format!("{}/{}", r.store.as_str(), r.id))
+                .unwrap_or_else(|e| panic!("{e}"))
+        })
+        .collect();
+    affected_refs.sort();
+
+    // Emit every Kind in Kind::EGRESS through the real binary Journal and verify the on-disk
+    // journal segment holds record IDs and zero canaries.
+    let seg_path = world.state_dir().join("audit/journal.jsonl");
+    for kind in Kind::EGRESS {
+        let next_seq = std::fs::read_to_string(&seg_path)
+            .unwrap_or_else(|e| panic!("{e}"))
+            .lines()
+            .filter(|l| !l.is_empty())
+            .count() as u64
+            + 1;
+        let mut payload = sample_payload(kind, next_seq);
+        match &mut payload {
+            EventPayload::WriteBegin {
+                affected,
+                dest,
+                path_sha256,
+                policy,
+                file_hashes,
+                ..
+            } => {
+                *affected = affected_refs.clone();
+                *file_hashes = None;
+                *dest = Some(DestKind::Export);
+                *path_sha256 = Some(Sha256::digest(b"/srv/company/exports/out.txt"));
+                *policy = Some(Sha256::digest(POLICY_TOML.as_bytes()));
+            }
+            EventPayload::WriteEnd {
+                affected,
+                dest,
+                path_sha256,
+                policy,
+                ..
+            } => {
+                *affected = affected_refs.clone();
+                *dest = Some(DestKind::Export);
+                *path_sha256 = Some(Sha256::digest(b"/srv/company/exports/out.txt"));
+                *policy = Some(Sha256::digest(POLICY_TOML.as_bytes()));
+            }
+            EventPayload::AiBegin { context_ids, .. }
+            | EventPayload::AiPack { context_ids, .. } => {
+                *context_ids = affected_refs.clone();
+            }
+            EventPayload::McpCall { result_ids, .. } => {
+                *result_ids = affected_refs.clone();
+            }
+            EventPayload::RestoreBegin { dest, policy, .. } => {
+                *dest = Some(DestKind::Export);
+                *policy = Some(Sha256::digest(POLICY_TOML.as_bytes()));
+            }
+            _ => {}
+        }
+        journal
+            .append_payload(payload)
+            .unwrap_or_else(|e| panic!("append {kind}: {e}"));
+    }
+
+    let raw_journal = std::fs::read_to_string(world.state_dir().join("audit/journal.jsonl"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    let mut seen_egress = BTreeSet::new();
+    for line in raw_journal.lines().filter(|l| !l.is_empty()) {
+        let (ev, _) = Event::parse_line(line).unwrap_or_else(|e| panic!("parse journal line: {e}"));
+        if ev.kind().is_egress() {
+            seen_egress.insert(ev.kind().as_str().to_owned());
+        }
+    }
+    let expected_egress: BTreeSet<String> =
+        Kind::EGRESS.iter().map(|k| k.as_str().to_owned()).collect();
+    assert_eq!(seen_egress, expected_egress);
+
+    for rec in &fixture.record {
+        assert!(
+            raw_journal.contains(&rec.id),
+            "journal must hold record id `{}`",
+            rec.id
+        );
+        assert!(
+            !raw_journal.contains(&rec.canary),
+            "journal must never contain canary `{}`",
+            rec.canary
+        );
+    }
+}
+
+#[test]
+fn output_surfaces_cover_built_sinks() {
+    let mut surface_names = Vec::new();
+    let mut unique = BTreeSet::new();
+    for s in SURFACES {
+        assert!(
+            unique.insert(s.name),
+            "duplicate surface row `{}` in SURFACES",
+            s.name
+        );
+        surface_names.push(s.name);
+    }
+    assert_eq!(
+        surface_names, BUILT_SINKS,
+        "SURFACES must match BUILT_SINKS inventory"
+    );
+}
+
+#[test]
+fn real_outputs_keep_permitted_canaries_and_refuse_others() {
+    for surface in SURFACES {
+        (surface.run)();
+    }
+}
+
+#[test]
+fn journal_holds_ids_and_no_canary() {
+    run_journal_holds_ids_and_no_canary();
+}

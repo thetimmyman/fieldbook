@@ -13,14 +13,17 @@
 
 pub mod add;
 pub mod audit;
+pub mod authz;
 pub mod cases;
 pub mod check;
 pub mod cite;
 pub mod date;
+pub mod egress;
 pub mod hash;
 pub mod hex;
 pub mod ids;
 pub mod labels;
+pub mod policy;
 pub mod report;
 pub mod review;
 pub mod scan;

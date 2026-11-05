@@ -21,19 +21,46 @@ use std::path::Path;
 use std::process::ExitCode;
 
 use fieldbook_core::audit::Sha256;
+use fieldbook_core::egress::Allowed;
 
 use crate::cli::EXIT_IO;
 
 impl Disk {
-    /// Atomically write `bytes` to `path` under `audited` via [`atomic::write_file`].
+    /// Atomically write `bytes` to `path` under `audited` via [`atomic::write_in_root`],
+    /// selecting the [`root::RootPath`] whose folder holds `path` (longest whole-component match).
     pub fn write_file(
         &self,
         audited: &Audited,
         path: &Path,
         bytes: &[u8],
     ) -> Result<Sha256, Error> {
+        let roots = self.roots();
+        let mut best: Option<(&root::RootPath, &Path, usize)> = None;
+        for candidate in [&roots.state, &roots.home_state, &roots.corpus] {
+            if let Ok(rel) = path.strip_prefix(candidate.path()) {
+                let depth = candidate.path().components().count();
+                if best.is_none_or(|(_, _, b_depth)| depth > b_depth) {
+                    best = Some((candidate, rel, depth));
+                }
+            }
+        }
+        let Some((selected_root, rel, _)) = best else {
+            return Err(Error::OutOfScope(path.to_path_buf()));
+        };
+        atomic::write_in_root(selected_root, rel, bytes, audited)
+    }
+
+    /// Atomically write `bytes` to `path` outside the data roots under `allowed` and `audited`
+    /// via [`atomic::write_outside`].
+    pub fn write_outside(
+        &self,
+        allowed: &Allowed,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, Error> {
         let _ = self;
-        atomic::write_file(audited, path, bytes)
+        atomic::write_outside(allowed, path, bytes, audited)
     }
 
     /// Return whether a company store exists on this layout (`false` on the Home layout).

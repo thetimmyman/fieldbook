@@ -53,7 +53,7 @@ test = "overlay_floor_refuses_a_company_label_with_fb0412"
 [[elsewhere]]
 code = "FB0413"
 card = "core-policy"
-test = ""
+test = "unlabelled_in_allow_is_invalid"
 
 [[elsewhere]]
 code = "FB0414"

@@ -17,12 +17,13 @@ use std::thread::ThreadId;
 use std::time::{Duration, Instant};
 
 use fieldbook_core::audit::{
-    Actor, Count, Event, EventEnvelope, EventPayload, Kind, Now, OperationIntent, OperationKey,
-    PendingFile, PendingKey, PendingOperation, PendingWrite, RecordRef, RefuseAbout, SemVer,
-    Sha256, StoreId, Verb, Via, Word, WriteSet, ZERO_HASH, completed_after_hash,
+    Actor, Count, DestKind, Event, EventEnvelope, EventPayload, Kind, Now, OperationIntent,
+    OperationKey, PendingFile, PendingKey, PendingOperation, PendingWrite, RecordRef, RefuseAbout,
+    SemVer, Sha256, StoreId, Verb, Via, Word, WriteSet, ZERO_HASH, completed_after_hash,
     compute_file_hashes, normalize_affected, split_hash_suffix, verify_line,
 };
 use fieldbook_core::check::{Code, Tree};
+use fieldbook_core::egress::{Allowed, Operation, Target};
 
 use crate::World;
 use crate::io::WorldError;
@@ -146,6 +147,7 @@ type InitPauseHook = Arc<dyn Fn(&Path) + Send + Sync>;
 struct TestHooks {
     init_pause: Option<InitPauseHook>,
     no_state_read_pause: Option<InitPauseHook>,
+    write_pause: Option<InitPauseHook>,
     lock_timeout: Vec<(ThreadId, Duration)>,
     fail_before_begin_append: Option<ThreadId>,
     fail_after_end_append: Option<ThreadId>,
@@ -170,6 +172,21 @@ pub fn set_init_pause_hook(hook: Option<InitPauseHook>) {
 pub fn set_no_state_read_hook(hook: Option<InitPauseHook>) {
     if let Ok(mut guard) = test_hooks().lock() {
         guard.no_state_read_pause = hook;
+    }
+}
+
+/// Set or clear a pause hook called inside `io::atomic` right before writing a resolved target
+/// (used by `egress_doors` tests).
+pub fn set_write_pause_hook(hook: Option<InitPauseHook>) {
+    if let Ok(mut guard) = test_hooks().lock() {
+        guard.write_pause = hook;
+    }
+}
+
+pub(crate) fn run_write_pause_hook(path: &Path) {
+    let hook = test_hooks().lock().ok().and_then(|g| g.write_pause.clone());
+    if let Some(h) = hook {
+        h(path);
     }
 }
 
@@ -727,7 +744,8 @@ struct ActiveTx {
     state_scope_count: usize,
 }
 
-/// Proof token returned by [`Journal::begin`], [`Journal::recover`], or [`Journal::state_scope`].
+/// Proof token returned by [`Journal::begin`], [`Journal::begin_export`], [`Journal::recover`],
+/// or [`Journal::state_scope`].
 ///
 /// Can only be constructed inside `io::journal`. Dropping an unfinished [`Audited`] token
 /// releases its journal lease immediately.
@@ -739,6 +757,7 @@ pub struct Audited {
     verb: Option<Verb>,
     labels: Option<fieldbook_core::audit::LabelSet>,
     affected: Vec<RecordRef>,
+    export_context: Option<(DestKind, Sha256, Sha256)>,
     active_tx: Arc<Mutex<Option<ActiveTx>>>,
     ended: bool,
 }
@@ -760,6 +779,25 @@ impl Audited {
     #[must_use]
     pub const fn begin_seq(&self) -> Option<u64> {
         self.begin_seq
+    }
+
+    pub(crate) fn has_active_lease(&self) -> bool {
+        if self.ended {
+            return false;
+        }
+        self.active_tx
+            .lock()
+            .ok()
+            .and_then(|g| {
+                g.as_ref().map(|tx| {
+                    if self.state_only {
+                        tx.state_scope_count > 0
+                    } else {
+                        tx.has_write_begin
+                    }
+                })
+            })
+            .unwrap_or(false)
     }
 }
 
@@ -1195,14 +1233,187 @@ impl<'a> Journal<'a> {
             verb: Some(intent.key.verb.clone()),
             labels: Some(writes.labels.clone()),
             affected,
+            export_context: None,
             active_tx: Arc::clone(&self.active_tx),
             ended: false,
         })
     }
 
-    /// Finish a store write transaction: append `write.end` with the retained `verb`, `labels`
-    /// and `affected` references, update `state/generation` and remove `state/pending.toml` when
-    /// `outcome == "ok"`, and release the journal lock.
+    /// Begin an outward export/backup write transaction (`core-policy` step 19).
+    ///
+    /// Requires a delivery-bound [`Allowed`] token, verifies `set.labels` and every file path
+    /// and digest in `set.files` against `allowed`'s delivery under the canonical `target_root`,
+    /// appends `write.begin` with `dest`, `labels`, `policy`, and `path_sha256` of the canonical
+    /// target root (or single-file path), and retains that context in [`Audited`] for [`Journal::end`].
+    /// Never creates `state/pending.toml`.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`JournalError`] if `verb` is invalid, `allowed` has no delivery or mismatches
+    /// `set` or `target_root`, the journal lock is busy, or the event cannot be written.
+    pub fn begin_export(
+        &mut self,
+        verb: &str,
+        set: &WriteSet,
+        allowed: &Allowed,
+        target_root: &Path,
+    ) -> Result<Audited, JournalError> {
+        let parsed_verb =
+            Verb::parse(verb).map_err(|_| JournalError::InvalidVerb(verb.to_owned()))?;
+        if !allowed.has_delivery() {
+            return Err(JournalError::Vocab(
+                "begin_export requires a delivery-bound Allowed token".to_owned(),
+            ));
+        }
+        if allowed.labels() != Some(&set.labels) {
+            return Err(JournalError::Vocab(
+                "WriteSet labels do not match Allowed token labels".to_owned(),
+            ));
+        }
+        if set.files.is_empty() {
+            return Err(JournalError::Vocab(
+                "WriteSet must contain at least one file".to_owned(),
+            ));
+        }
+
+        let canon_root = crate::io::root::resolve_outside_path(target_root)
+            .map_err(|err| JournalError::Vocab(err.to_string()))?;
+
+        let mut bound_writes: Vec<(PathBuf, String)> = Vec::new();
+        for transfer in allowed.transfers().unwrap_or(&[]) {
+            if transfer.operation == Operation::Write {
+                let Target::Path(bound_path) = &transfer.target else {
+                    return Err(JournalError::Vocab(
+                        "export delivery write entry must target a path".to_owned(),
+                    ));
+                };
+                let canon_bound = crate::io::root::resolve_outside_path(bound_path)
+                    .map_err(|err| JournalError::Vocab(err.to_string()))?;
+                if !canon_bound.starts_with(&canon_root) {
+                    return Err(JournalError::Vocab(
+                        "bound delivery path lies outside target_root".to_owned(),
+                    ));
+                }
+                bound_writes.push((canon_bound, transfer.sha256.clone()));
+            }
+        }
+
+        if bound_writes.len() != set.files.len() {
+            return Err(JournalError::Vocab(
+                "WriteSet file count does not match bound delivery writes".to_owned(),
+            ));
+        }
+
+        let mut set_writes: Vec<(PathBuf, String)> = Vec::with_capacity(set.files.len());
+        for wf in &set.files {
+            let _ =
+                Sha256::parse(&wf.sha256).map_err(|err| JournalError::Vocab(err.to_string()))?;
+            let wf_path = Path::new(&wf.path);
+            for comp in wf_path.components() {
+                if matches!(comp, Component::ParentDir) {
+                    return Err(JournalError::Vocab(
+                        "export WriteFile path cannot contain `..`".to_owned(),
+                    ));
+                }
+            }
+            let resolved_wf = if wf_path.is_absolute() {
+                crate::io::root::resolve_outside_path(wf_path)
+                    .map_err(|err| JournalError::Vocab(err.to_string()))?
+            } else if set.files.len() == 1
+                && bound_writes.len() == 1
+                && bound_writes[0].0 == canon_root
+                && (wf.path.is_empty()
+                    || canon_root
+                        .file_name()
+                        .is_some_and(|n| n == wf_path.as_os_str()))
+            {
+                canon_root.clone()
+            } else {
+                crate::io::root::resolve_outside_path(&canon_root.join(wf_path))
+                    .map_err(|err| JournalError::Vocab(err.to_string()))?
+            };
+            if !resolved_wf.starts_with(&canon_root) {
+                return Err(JournalError::Vocab(
+                    "WriteFile path lies outside target_root".to_owned(),
+                ));
+            }
+            set_writes.push((resolved_wf, wf.sha256.clone()));
+        }
+
+        bound_writes.sort();
+        set_writes.sort();
+        if bound_writes != set_writes {
+            return Err(JournalError::Vocab(
+                "WriteSet files do not match bound delivery transfers".to_owned(),
+            ));
+        }
+
+        let canon_hash_target = if set.files.len() == 1 {
+            &set_writes[0].0
+        } else {
+            &canon_root
+        };
+        let path_sha256 = Sha256::digest(canon_hash_target.to_string_lossy().as_bytes());
+        let policy = Sha256::parse(allowed.policy_hash())
+            .map_err(|err| JournalError::Vocab(err.to_string()))?;
+        let dest = allowed.kind();
+        let affected = normalize_affected(&set.affected);
+
+        let already_active = self.active_tx.lock().map(|g| g.is_some()).unwrap_or(false);
+        if already_active {
+            let _ = acquire_journal_lock(&self.state_dir)?;
+            return Err(JournalError::Busy);
+        }
+
+        let lock = acquire_journal_lock(&self.state_dir)?;
+        let tail = inspect_tail_strict(&self.state_dir)?;
+        let begin_seq = tail.last_seq + 1;
+
+        let payload = EventPayload::WriteBegin {
+            verb: parsed_verb.clone(),
+            labels: set.labels.clone(),
+            files: Count::new(set.files.len() as u64),
+            file_hashes: None,
+            affected: affected.clone(),
+            dest: Some(dest),
+            path_sha256: Some(path_sha256.clone()),
+            policy: Some(policy.clone()),
+        };
+        let _ = append_event_locked(
+            &self.state_dir,
+            &tail,
+            self.segment_limit,
+            self.world.now(),
+            &self.actor,
+            self.store,
+            &payload,
+        )?;
+
+        if let Ok(mut guard) = self.active_tx.lock() {
+            *guard = Some(ActiveTx {
+                _lock: lock,
+                has_write_begin: true,
+                state_scope_count: 0,
+            });
+        }
+
+        Ok(Audited {
+            state_only: false,
+            state_dir: self.state_dir.clone(),
+            begin_seq: Some(begin_seq),
+            verb: Some(parsed_verb),
+            labels: Some(set.labels.clone()),
+            affected,
+            export_context: Some((dest, path_sha256, policy)),
+            active_tx: Arc::clone(&self.active_tx),
+            ended: false,
+        })
+    }
+
+    /// Finish a store or export write transaction: append `write.end` with the retained `verb`,
+    /// `labels`, `affected` references, and optional export context, update `state/generation` and
+    /// remove `state/pending.toml` when `outcome == "ok"` for in-store transactions, and release
+    /// the journal lock.
     ///
     /// # Errors
     ///
@@ -1226,6 +1437,11 @@ impl<'a> Journal<'a> {
             JournalError::InvalidLease("missing labels on Audited token".to_owned())
         })?;
         let affected = token.affected.clone();
+        let (dest, path_sha256, policy) = match &token.export_context {
+            Some((d, p, pol)) => (Some(*d), Some(p.clone()), Some(pol.clone())),
+            None => (None, None, None),
+        };
+        let is_export = token.export_context.is_some();
 
         let tail = inspect_tail_strict(&self.state_dir)?;
         let payload = EventPayload::WriteEnd {
@@ -1233,9 +1449,9 @@ impl<'a> Journal<'a> {
             labels,
             affected,
             outcome,
-            dest: None,
-            path_sha256: None,
-            policy: None,
+            dest,
+            path_sha256,
+            policy,
         };
         let _ = append_event_locked(
             &self.state_dir,
@@ -1247,7 +1463,7 @@ impl<'a> Journal<'a> {
             &payload,
         )?;
 
-        if outcome.as_str() == "ok" {
+        if outcome.as_str() == "ok" && !is_export {
             let tid = std::thread::current().id();
             let fail_after = test_hooks()
                 .lock()
@@ -1386,6 +1602,7 @@ impl<'a> Journal<'a> {
             verb: None,
             labels: None,
             affected: Vec::new(),
+            export_context: None,
             active_tx: Arc::clone(&self.active_tx),
             ended: false,
         })
@@ -1610,6 +1827,7 @@ impl<'a> Journal<'a> {
                 verb: Some(pw.intent.key.verb.clone()),
                 labels: Some(pw.labels.clone()),
                 affected: pw.affected,
+                export_context: None,
                 active_tx: Arc::clone(&self.active_tx),
                 ended: false,
             },

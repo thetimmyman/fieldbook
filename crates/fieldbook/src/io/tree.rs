@@ -13,10 +13,12 @@ use std::path::{Path, PathBuf};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{Now, Principal};
 use fieldbook_core::check::Tree;
+use fieldbook_core::egress::Allowed;
 use fieldbook_core::hash::Sha256Stream;
 
 use crate::World;
 use crate::io::Audited;
+use crate::io::root::Roots;
 use crate::io::store_lease::StoreLease;
 
 /// An I/O error raised while reading or writing the Corpus tree or working directory.
@@ -31,6 +33,8 @@ pub enum WorldError {
     },
     /// A target file is held open in another program during an atomic rename.
     InUse(PathBuf),
+    /// A target path is outside the folder(s) the write operation is permitted to touch.
+    OutOfScope(PathBuf),
 }
 
 /// Alias for [`WorldError`].
@@ -62,7 +66,7 @@ impl WorldError {
     #[must_use]
     pub fn path(&self) -> &Path {
         match self {
-            Self::Io { path, .. } | Self::InUse(path) => path.as_path(),
+            Self::Io { path, .. } | Self::InUse(path) | Self::OutOfScope(path) => path.as_path(),
         }
     }
 }
@@ -74,6 +78,11 @@ impl fmt::Display for WorldError {
             Self::InUse(path) => write!(
                 f,
                 "{} is open in another program; close it and run the command again",
+                path.display()
+            ),
+            Self::OutOfScope(path) => write!(
+                f,
+                "refused: {} is outside the folder this write may touch",
                 path.display()
             ),
         }
@@ -190,20 +199,21 @@ pub struct Disk {
     cwd: PathBuf,
     tree_root: PathBuf,
     state_dir: PathBuf,
+    roots: Roots,
 }
 
 impl Disk {
-    /// Create a [`Disk`] rooted at `cwd`, discovering `tree_root` once via [`find_root`] and
-    /// defaulting `state_dir` to `<tree_root>/.fieldbook`.
+    /// Create a [`Disk`] holding bounded [`Roots`].
     #[must_use]
-    pub fn new(cwd: impl Into<PathBuf>) -> Self {
-        let cwd = cwd.into();
+    pub fn new(roots: Roots) -> Self {
+        let cwd = roots.corpus.path().to_path_buf();
         let tree_root = find_root(&cwd);
-        let state_dir = tree_root.join(".fieldbook");
+        let state_dir = roots.state.path().to_path_buf();
         Self {
             cwd,
             tree_root,
             state_dir,
+            roots,
         }
     }
 
@@ -213,10 +223,12 @@ impl Disk {
         let cwd = cwd.into();
         let tree_root = find_root(&cwd);
         let state_dir = state_dir.into();
+        let roots = Roots::at_home(&tree_root, &state_dir);
         Self {
             cwd,
             tree_root,
             state_dir,
+            roots,
         }
     }
 
@@ -224,14 +236,23 @@ impl Disk {
     pub fn current() -> Result<Self, WorldError> {
         let cwd = std::env::current_dir()
             .map_err(|err| WorldError::new(PathBuf::from("."), err.to_string()))?;
-        let mut disk = Self::new(&cwd);
-        if let Some(env_state) = std::env::var_os("FIELDBOOK_STATE")
-            && !env_state.is_empty()
-        {
-            disk.state_dir =
-                crate::io::state::resolve(&disk.tree_root, &disk.cwd, Some(Path::new(&env_state)));
-        }
-        Ok(disk)
+        let tree_root = find_root(&cwd);
+        let env_state = std::env::var_os("FIELDBOOK_STATE").filter(|v| !v.is_empty());
+        let state_dir =
+            crate::io::state::resolve(&tree_root, &cwd, env_state.as_deref().map(Path::new));
+        let roots = Roots::at_home(&tree_root, &state_dir);
+        Ok(Self {
+            cwd,
+            tree_root,
+            state_dir,
+            roots,
+        })
+    }
+
+    /// Return the bounded [`Roots`] held by this [`Disk`].
+    #[must_use]
+    pub const fn roots(&self) -> &Roots {
+        &self.roots
     }
 
     /// Return the state directory bound to this [`Disk`].
@@ -261,6 +282,16 @@ impl World for Disk {
         bytes: &[u8],
     ) -> Result<fieldbook_core::audit::Sha256, WorldError> {
         Disk::write_file(self, audited, path, bytes)
+    }
+
+    fn write_outside(
+        &self,
+        allowed: &Allowed,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<fieldbook_core::audit::Sha256, WorldError> {
+        Disk::write_outside(self, allowed, audited, path, bytes)
     }
 
     fn has_company_store(&self) -> bool {
