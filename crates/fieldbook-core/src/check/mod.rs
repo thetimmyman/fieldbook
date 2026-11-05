@@ -21,6 +21,7 @@ pub mod promotion;
 pub mod register_cells;
 pub mod register_links;
 pub mod registers;
+pub mod scans;
 pub mod tree;
 
 pub use code::{Code, CodeParseError, Level};
@@ -80,6 +81,7 @@ const PASSES: &[Pass] = &[
     page_body::check,
     citations::check,
     citation_rules::check,
+    scans::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
