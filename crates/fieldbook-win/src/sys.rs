@@ -7,8 +7,8 @@ use std::ptr;
 
 use windows_sys::Win32::Foundation::{
     CloseHandle, ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT, ERROR_INSUFFICIENT_BUFFER,
-    ERROR_NOT_A_CLOUD_FILE, ERROR_NOT_FOUND, GENERIC_ALL, GENERIC_WRITE, GetLastError, HANDLE,
-    LocalFree,
+    ERROR_INVALID_FUNCTION, ERROR_NOT_A_CLOUD_FILE, ERROR_NOT_FOUND, GENERIC_ALL, GENERIC_WRITE,
+    GetLastError, HANDLE, LocalFree,
 };
 use windows_sys::Win32::Security::Authorization::{
     ConvertStringSidToSidW, GetNamedSecurityInfoW, SE_FILE_OBJECT,
@@ -381,7 +381,10 @@ fn check_sync_root(existing: &Path) -> Result<bool, WinError> {
     }
     let code = hr.cast_unsigned();
     let low_win32 = code & 0xFFFF;
-    if low_win32 == ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT || low_win32 == ERROR_NOT_A_CLOUD_FILE {
+    if low_win32 == ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT
+        || low_win32 == ERROR_NOT_A_CLOUD_FILE
+        || low_win32 == ERROR_INVALID_FUNCTION
+    {
         Ok(false)
     } else {
         Err(WinError {
