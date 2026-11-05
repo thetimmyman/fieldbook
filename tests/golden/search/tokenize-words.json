@@ -1,0 +1,216 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-031",
+      "side": "index",
+      "input": "single a b c x y z 0 9",
+      "tokens": ["single", "a", "b", "c", "x", "y", "z", "0", "9"],
+      "note": "Single-letter words and single-digit numbers are kept; there is no minimum token length or stopword list"
+    },
+    {
+      "id": "tok-032",
+      "side": "index",
+      "input": "the and of to in for on with by at from as is are was were be been",
+      "tokens": ["the", "and", "of", "to", "in", "for", "on", "with", "by", "at", "from", "as", "is", "are", "was", "were", "be", "been"],
+      "note": "Common English function words are kept because the tokenizer has no stopword list"
+    },
+    {
+      "id": "tok-033",
+      "side": "index",
+      "input": "contracting contractors contracted contract",
+      "tokens": ["contracting", "contractors", "contracted", "contract"],
+      "note": "Inflected forms stay distinct because the tokenizer has no stemmer"
+    },
+    {
+      "id": "tok-034",
+      "side": "index",
+      "input": "cost_accounting_standards truth_in_negotiations_act",
+      "tokens": ["cost", "accounting", "standards", "truth", "in", "negotiations", "act"],
+      "note": "Underscores are not word characters and split snake_case identifiers into words"
+    },
+    {
+      "id": "tok-035",
+      "side": "index",
+      "input": "firm-fixed-price cost-plus-fixed-fee time-and-materials",
+      "tokens": ["firm", "fixed", "price", "cost", "plus", "fixed", "fee", "time", "and", "materials"],
+      "note": "Hyphens between ordinary words split hyphenated compounds into their component words"
+    },
+    {
+      "id": "tok-036",
+      "side": "index",
+      "input": "gov't's officer\u2018s agency\u2019s \"clause\" \u201cquote\u201d \u00abtext\u00bb",
+      "tokens": ["gov", "t", "s", "officer", "s", "agency", "s", "clause", "quote", "text"],
+      "note": "ASCII and curly apostrophes and quotation marks including guillemets split or strip cleanly"
+    },
+    {
+      "id": "tok-037",
+      "side": "index",
+      "input": "\u00a7 15.404 and \u00b6 3 \u2022 item \u2026 more...",
+      "tokens": ["15.404", "and", "3", "item", "more"],
+      "note": "Section sign, pilcrow, bullet, horizontal ellipsis and three ASCII dots are non-word separators"
+    },
+    {
+      "id": "tok-038",
+      "side": "query",
+      "input": "\u20ac2,500.75 \u00a310,000 \u00a5500,000 $99.95",
+      "tokens": ["2500.75", "10000", "500000", "99.95"],
+      "note": "Euro, pound, yen and dollar currency signs are stripped while comma-grouped numbers stay intact"
+    },
+    {
+      "id": "tok-039",
+      "side": "index",
+      "input": "1st 2nd 3rd 4th 21st 100th",
+      "tokens": ["1st", "2nd", "3rd", "4th", "21st", "100th"],
+      "note": "Ordinal numbers fail the number shape boundary because of the trailing letters and are taken whole by the word shape"
+    },
+    {
+      "id": "tok-040",
+      "side": "index",
+      "input": "500k 10m 2b 64bit sha256 utf8",
+      "tokens": ["500k", "10m", "2b", "64bit", "sha256", "utf8"],
+      "note": "Digits and letters with no separator form a single word token regardless of whether digits or letters come first"
+    },
+    {
+      "id": "tok-041",
+      "side": "index",
+      "input": "1,000 12,345 123,456 1,234,567,890",
+      "tokens": ["1000", "12345", "123456", "1234567890"],
+      "note": "Integers with one or more three-digit comma groups match the number shape and strip every comma"
+    },
+    {
+      "id": "tok-042",
+      "side": "index",
+      "input": "0.5 0.05 0.005 0.0005 12,345.6789",
+      "tokens": ["0.5", "0.05", "0.005", "0.0005", "12345.6789"],
+      "note": "Decimal numbers with one, two, three or four fractional digits keep their decimal point and strip thousands commas"
+    },
+    {
+      "id": "tok-043",
+      "side": "index",
+      "input": "1,2 1,23 1,2345 1,234,56 1,,000",
+      "tokens": ["1", "2", "1", "23", "1", "2345", "1234", "56", "1", "000"],
+      "note": "Commas that are not followed by exactly three digits and a non-digit do not join into the number token"
+    },
+    {
+      "id": "tok-044",
+      "side": "index",
+      "input": "100. .25 1..2 1.2.3",
+      "tokens": ["100", "25", "1", "2", "1.2.3"],
+      "note": "Trailing dots, leading dots and double dots are not part of a number; 1.2.3 has two .[0-9]+ groups and stays one number token"
+    },
+    {
+      "id": "tok-045",
+      "side": "index",
+      "input": "1,000a 1,000.50b 25.5kg",
+      "tokens": ["1", "000a", "1", "000", "50b", "25", "5kg"],
+      "note": "When a comma or decimal number is immediately followed by a letter, the number shape fails the boundary check without backtracking and the word shape takes the leading digits"
+    },
+    {
+      "id": "tok-046",
+      "side": "index",
+      "input": "corpus/claims/CL-CMP-0011.md#verification",
+      "tokens": ["corpus", "claims", "cl-cmp-0011", "md", "verification"],
+      "note": "Slashes, dots and hashes in a file path or URL fragment separate path segments while preserving an embedded claim id"
+    },
+    {
+      "id": "tok-047",
+      "side": "index",
+      "input": "https://acquisition.gov/far/15.404-1?view=full&rev=2",
+      "tokens": ["https", "acquisition", "gov", "far", "15.404-1", "15.404", "view", "full", "rev", "2"],
+      "note": "URL punctuation separates scheme, host and query parameters while the clause number in the path still matches"
+    },
+    {
+      "id": "tok-048",
+      "side": "index",
+      "input": "`:cite:` and `**bold**` and `_italic_` and `~~strike~~`",
+      "tokens": ["cite", "and", "bold", "and", "italic", "and", "strike"],
+      "note": "Backticks, colons, asterisks, underscores and tildes are stripped around words"
+    },
+    {
+      "id": "tok-049",
+      "side": "query",
+      "input": "a+b=c a*b/c <tag> {brace} |pipe| ~tilde~ ^caret^",
+      "tokens": ["a", "b", "c", "tag", "brace", "pipe", "tilde", "caret"],
+      "note": "ASCII operators, angle brackets, braces, pipes, tildes and carets separate word tokens; duplicates are removed on the query side"
+    },
+    {
+      "id": "tok-050",
+      "side": "index",
+      "input": "!@#$%^&*()-=_+[]{}\\|;:'\",.<>/?`~",
+      "tokens": [],
+      "note": "A string containing every ASCII punctuation and symbol character and no alphanumerics yields no tokens"
+    },
+    {
+      "id": "tok-051",
+      "side": "index",
+      "input": "0000 0042 0123456789",
+      "tokens": ["0000", "0042", "0123456789"],
+      "note": "Leading zeros on integer tokens are preserved verbatim"
+    },
+    {
+      "id": "tok-052",
+      "side": "index",
+      "input": "100,000.00 0,000.00 999,999,999.999",
+      "tokens": ["100000.00", "0000.00", "999999999.999"],
+      "note": "Zero digits in comma groups and fractional parts are preserved after stripping commas"
+    },
+    {
+      "id": "tok-053",
+      "side": "query",
+      "input": "rate: 12.5%, ceiling: $1,250,000, fee: 8%",
+      "tokens": ["rate", "12.5", "ceiling", "1250000", "fee", "8"],
+      "note": "Colons, percent signs, commas after numbers and dollar signs separate cleanly in prose"
+    },
+    {
+      "id": "tok-054",
+      "side": "index",
+      "input": "form_sf_1408 and dd_254 and sf33",
+      "tokens": ["form", "sf", "1408", "and", "dd", "254", "and", "sf33"],
+      "note": "Underscore-separated form names split into words and numbers while unseparated sf33 stays one word"
+    },
+    {
+      "id": "tok-055",
+      "side": "index",
+      "input": "2026-10-15T14:30:00Z",
+      "tokens": ["2026", "10", "15t14", "30", "00z"],
+      "note": "An ISO timestamp splits on hyphens and colons while the T and Z join with adjacent digits into word tokens"
+    },
+    {
+      "id": "tok-056",
+      "side": "index",
+      "input": "v1.2.3-beta.4",
+      "tokens": ["v1", "2.3", "beta", "4"],
+      "note": "After v1 and the dot, 2.3 has a one-digit fraction so shape 10 takes 2.3, followed by beta and 4"
+    },
+    {
+      "id": "tok-057",
+      "side": "query",
+      "input": "(a) (1) (i) (ii) (iii) (iv)",
+      "tokens": ["a", "1", "i", "ii", "iii", "iv"],
+      "note": "Standalone parenthesised paragraph designators without a leading part.section become ordinary word and number tokens"
+    },
+    {
+      "id": "tok-058",
+      "side": "index",
+      "input": "caf\u00e9 na\u00efve r\u00e9sum\u00e9",
+      "tokens": ["caf\u00e9", "na\u00efve", "r\u00e9sum\u00e9"],
+      "note": "Non-ASCII alphabetic characters with diaeresis and acute accents are word characters and stay attached to ASCII letters"
+    },
+    {
+      "id": "tok-059",
+      "side": "index",
+      "input": "1,000,000,000.123456",
+      "tokens": ["1000000000.123456"],
+      "note": "Three thousands commas and a six-digit decimal fraction are taken as a single number token with commas removed"
+    },
+    {
+      "id": "tok-060",
+      "side": "query",
+      "input": "   ---   ///   ...   ",
+      "tokens": [],
+      "note": "Runs of hyphens, slashes, dots and spaces with no word characters produce no tokens"
+    }
+  ]
+}
