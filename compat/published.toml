@@ -1,0 +1,108 @@
+compat_schema = 1
+calculation_epoch = 1
+case_set_sha256 = "749cd0ca62154bdb58fcdc04735a5714a32321cfd8b6d6bed86a0baca916ad70"
+
+[[binding]]
+kind = "calculation"
+id = "build_up@1"
+runner = "calculation"
+
+[[binding.files]]
+role = "contract"
+path = "compat/calculation/build_up@1/contract.toml"
+sha256 = "21e45ad566235df7d2c7b22c0a4b7eb719ade44746584b2460a258b41a451532"
+
+[[binding.files]]
+role = "expected"
+case = "calc-01"
+path = "compat/calculation/build_up@1/calc-01.out.txt"
+sha256 = "a61831c7e58e16631dd6f2068ca7a47995b18f3714a5218a6b00ff76bc5c0a4a"
+
+[[binding.files]]
+role = "expected"
+case = "calc-90"
+path = "compat/calculation/build_up@1/calc-90.out.txt"
+sha256 = "32f130db8c0e9fedad0b5a769048cdbf193cb8a170b80494f0310d28b03f2b1a"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-calc/src/versions/build_up_v1.rs"
+sha256 = "ec49080296fc20d09465b1c65853fe029952cb722df20404d02f7a823f9b6b25"
+
+[[binding.files]]
+role = "input"
+case = "calc-01"
+path = "compat/calculation/build_up@1/calc-01.in.toml"
+sha256 = "a57b8ddd7aec8dd8083245636deb0edb981107520d4548d70d5a8fe424126c38"
+
+[[binding.files]]
+role = "input"
+case = "calc-90"
+path = "compat/calculation/build_up@1/calc-90.in.toml"
+sha256 = "b0984fdb32e0edc0dbc42313c59b945bcb79aab9cd64e8be6d36e78b78b50bf3"
+
+[[binding]]
+kind = "calculation"
+id = "children_sum@1"
+runner = "calculation"
+
+[[binding.files]]
+role = "contract"
+path = "compat/calculation/children_sum@1/contract.toml"
+sha256 = "c0eedc2541a19d59463d5df1cb57a9a66486e7154bfcff04498b3c8e832fdbca"
+
+[[binding.files]]
+role = "expected"
+case = "calc-04"
+path = "compat/calculation/children_sum@1/calc-04.out.txt"
+sha256 = "c80616fd3c69d5329dc6584544aac8ea7cfca64d2acd5ae580682817dd5c3d94"
+
+[[binding.files]]
+role = "expected"
+case = "calc-91"
+path = "compat/calculation/children_sum@1/calc-91.out.txt"
+sha256 = "32f130db8c0e9fedad0b5a769048cdbf193cb8a170b80494f0310d28b03f2b1a"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-calc/src/versions/children_sum_v1.rs"
+sha256 = "4a6aa0e10eea35cf930682fe1e2dd40ca3aaa615186f7527011cd405b9dc93ae"
+
+[[binding.files]]
+role = "input"
+case = "calc-04"
+path = "compat/calculation/children_sum@1/calc-04.in.toml"
+sha256 = "4112e1cecdd1fa374feecfb5df058989d0d856a59985a3e4a070dc7001a0480b"
+
+[[binding.files]]
+role = "input"
+case = "calc-91"
+path = "compat/calculation/children_sum@1/calc-91.in.toml"
+sha256 = "e6bb84b7e36fa007309052525bee19c5dac29243ab252cc1c8a885d056552216"
+
+[[binding]]
+kind = "run-schema"
+id = "canonical-run@1"
+runner = "run-schema"
+
+[[binding.files]]
+role = "contract"
+path = "compat/run-schema/canonical-run@1/contract.toml"
+sha256 = "b17e90eae759589955b52a79c51a5bebcb7f108a21d0cc0fd9fc16e5fa017964"
+
+[[binding.files]]
+role = "expected"
+case = "calc-01"
+path = "compat/run-schema/canonical-run@1/calc-01.out.txt"
+sha256 = "a61831c7e58e16631dd6f2068ca7a47995b18f3714a5218a6b00ff76bc5c0a4a"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-calc/src/versions/run_v1.rs"
+sha256 = "178645c8d123c243ab4cdd13a944ae54387133278c52142ea97afb9d0eeef0a4"
+
+[[binding.files]]
+role = "input"
+case = "calc-01"
+path = "compat/run-schema/canonical-run@1/calc-01.in.toml"
+sha256 = "9b5c584298800e0b252a84731e6e84f3793775d585af3e5e94b4a7fd33f9251c"

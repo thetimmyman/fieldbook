@@ -500,3 +500,10 @@ control = "ZN-01"
 edits = [
   { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "handling = [\"public\"]", replace = "handling = [\"np-0007\"]" },
 ]
+
+[[case]]
+code = "FB0500"
+at = "corpus/registers/claims.csv:3"
+edits = [
+  { path = "corpus/registers/claims.csv", find = ",5,percent,", replace = ",\"1,000.00\",USD," },
+]

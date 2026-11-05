@@ -1,0 +1,24 @@
+run 1
+fn 10:build_up@1
+epoch 1
+rounding 7:default 2 23:midpoint_away_from_zero
+stage 5:total
+complete true
+inputs 8
+in 11:quote_price 12:known:900.00 9:synthetic 7:CALC-01 7:per_100 3:USD
+in 8:quantity 9:known:200 9:synthetic 7:CALC-01 4:each 0:
+in 5:setup 12:known:200.00 9:synthetic 7:CALC-01 4:each 3:USD
+in 7:freight 11:known:50.00 9:synthetic 7:CALC-01 4:each 3:USD
+in 12:labour_hours 8:known:10 9:synthetic 7:CALC-01 5:hours 0:
+in 11:labour_rate 11:known:45.00 9:synthetic 7:CALC-01 5:hours 3:USD
+in 16:overhead_percent 8:known:20 9:synthetic 7:CALC-01 7:percent 0:
+in 14:markup_percent 8:known:10 9:synthetic 7:CALC-01 7:percent 0:
+outputs 8
+out 4:unit 10:known:9.00 4:each 3:USD
+out 9:extension 13:known:1800.00 4:each 3:USD
+out 6:landed 13:known:2050.00 4:each 3:USD
+out 6:labour 12:known:450.00 4:each 3:USD
+out 8:overhead 11:known:90.00 4:each 3:USD
+out 4:cost 13:known:2590.00 4:each 3:USD
+out 6:profit 12:known:259.00 4:each 3:USD
+out 5:price 13:known:2849.00 4:each 3:USD

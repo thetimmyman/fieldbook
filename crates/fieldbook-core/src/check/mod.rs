@@ -6,6 +6,7 @@
 pub mod citation_rules;
 pub mod citations;
 pub mod claim_cells;
+pub mod claim_value;
 pub mod code;
 pub mod corpus_toml;
 pub mod diag;
@@ -73,6 +74,7 @@ const PASSES: &[Pass] = &[
     registers::check,
     register_cells::check,
     claim_cells::check,
+    claim_value::check,
     register_links::check,
     promotion::check,
     pages::check,

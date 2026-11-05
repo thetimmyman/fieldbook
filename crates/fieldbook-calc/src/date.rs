@@ -367,30 +367,22 @@ impl<'de> Deserialize<'de> for PartialDate {
     }
 }
 
-const fn parse_digit(b: u8) -> Result<u8, CalcError> {
-    if b >= b'0' && b <= b'9' {
+fn parse_digit(b: u8) -> Result<u8, CalcError> {
+    if b.is_ascii_digit() {
         Ok(b - b'0')
     } else {
         Err(CalcError::Grammar)
     }
 }
 
-const fn parse_two_digits(b0: u8, b1: u8) -> Result<u8, CalcError> {
-    let Ok(d0) = parse_digit(b0) else {
-        return Err(CalcError::Grammar);
-    };
-    let Ok(d1) = parse_digit(b1) else {
-        return Err(CalcError::Grammar);
-    };
+fn parse_two_digits(b0: u8, b1: u8) -> Result<u8, CalcError> {
+    let d0 = parse_digit(b0)?;
+    let d1 = parse_digit(b1)?;
     Ok(d0 * 10 + d1)
 }
 
-const fn parse_four_digits(b0: u8, b1: u8, b2: u8, b3: u8) -> Result<u16, CalcError> {
-    let Ok(hi) = parse_two_digits(b0, b1) else {
-        return Err(CalcError::Grammar);
-    };
-    let Ok(lo) = parse_two_digits(b2, b3) else {
-        return Err(CalcError::Grammar);
-    };
+fn parse_four_digits(b0: u8, b1: u8, b2: u8, b3: u8) -> Result<u16, CalcError> {
+    let hi = parse_two_digits(b0, b1)?;
+    let lo = parse_two_digits(b2, b3)?;
     Ok((hi as u16) * 100 + (lo as u16))
 }

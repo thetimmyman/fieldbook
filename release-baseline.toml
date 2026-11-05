@@ -1,0 +1,10 @@
+baseline_schema = 1
+
+[compatibility]
+kind = "empty"
+
+[tool]
+kind = "empty"
+
+[edition]
+kind = "empty"

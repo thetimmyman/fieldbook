@@ -1,0 +1,32 @@
+run 1
+fn 14:children_sum@1
+epoch 1
+rounding 7:default 2 23:midpoint_away_from_zero
+stage 0:
+complete true
+inputs 18
+in 12:row_1_parent 11:known:50.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_1_child_1 11:known:10.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_1_child_2 11:known:15.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_1_child_3 11:known:12.50 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_1_child_4 11:known:12.50 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_1_child_5 10:known:5.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 12:row_2_parent 11:known:50.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_2_child_1 11:known:10.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_2_child_2 11:known:15.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_2_child_3 11:known:12.50 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_2_child_4 10:known:7.50 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_2_child_5 10:known:5.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 12:row_3_parent 11:known:50.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_3_child_1 11:known:10.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_3_child_2 11:known:15.00 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_3_child_3 11:known:12.50 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_3_child_4 10:known:7.49 9:synthetic 7:CALC-04 4:each 3:USD
+in 13:row_3_child_5 10:known:5.00 9:synthetic 7:CALC-04 4:each 3:USD
+outputs 6
+out 11:row_1_total 11:known:55.00 4:each 3:USD
+out 9:row_1_gap 10:known:5.00 4:each 3:USD
+out 11:row_2_total 11:known:50.00 4:each 3:USD
+out 9:row_2_gap 10:known:0.00 4:each 3:USD
+out 11:row_3_total 11:known:49.99 4:each 3:USD
+out 9:row_3_gap 10:known:0.01 4:each 3:USD

@@ -1,0 +1,36 @@
+replay_schema = 1
+calculation_epoch = 1
+
+[case]
+id = "CALC-01"
+fn = "build_up@1"
+synthetic = true
+as_of = "2026-01-15"
+currency = "USD"
+overhead_base = "direct_labour"
+stages = ["unit_price", "extension", "total"]
+
+[case.rounding]
+scale = 2
+
+[case.inputs]
+quote_price = "900.00"
+quote_unit = "per_100"
+quantity = "200"
+quantity_unit = "each"
+setup = "200.00"
+freight = "50.00"
+labour_hours = "10"
+labour_rate = "45.00"
+overhead_percent = "20"
+markup_percent = "10"
+
+[case.outputs]
+unit = "9.00"
+extension = "1800.00"
+landed = "2050.00"
+labour = "450.00"
+overhead = "90.00"
+cost = "2590.00"
+profit = "259.00"
+price = "2849.00"

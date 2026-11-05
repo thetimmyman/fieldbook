@@ -1,0 +1,29 @@
+id = "CALC-04"
+fn = "children_sum@1"
+synthetic = true
+as_of = "2026-01-15"
+currency = "USD"
+overhead_base = "none"
+stages = []
+
+[rounding]
+scale = 2
+
+[[budget]]
+parent = "50.00"
+children = ["10.00", "15.00", "12.50", "12.50", "5.00"]
+expect = "refused"
+total = "55.00"
+gap = "5.00"
+
+[[budget]]
+parent = "50.00"
+children = ["10.00", "15.00", "12.50", "7.50", "5.00"]
+expect = "accepted"
+
+[[budget]]
+parent = "50.00"
+children = ["10.00", "15.00", "12.50", "7.49", "5.00"]
+expect = "refused"
+total = "49.99"
+gap = "0.01"

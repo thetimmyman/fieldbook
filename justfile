@@ -42,6 +42,8 @@ check:
     cargo run -q --locked -p fieldbook -- check --strict --today "$(git log -1 --format=%cs)"
     # 8. Regenerate the generated docs and diff
     cargo xtask docs --check
+    # 9. Published compatibility
+    cargo xtask compat --base release-baseline.toml
 
 # Resolve Cargo.lock with the 14-day cooldown (AD-06). The pinned nightly only resolves; it never builds.
 lock:

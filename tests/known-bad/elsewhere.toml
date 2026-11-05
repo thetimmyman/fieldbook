@@ -93,22 +93,22 @@ test = ""
 [[elsewhere]]
 code = "FB0501"
 card = "calc-cases"
-test = ""
+test = "a_refusal_case_matches_its_code"
 
 [[elsewhere]]
 code = "FB0502"
 card = "calc-cases"
-test = ""
+test = "mixed_currency_is_an_error"
 
 [[elsewhere]]
 code = "FB0503"
 card = "calc-cases"
-test = ""
+test = "a_mismatch_is_fb0503"
 
 [[elsewhere]]
 code = "FB0504"
 card = "calc-cases"
-test = ""
+test = "an_unknown_function_is_fb0504"
 
 [[elsewhere]]
 code = "FB0600"

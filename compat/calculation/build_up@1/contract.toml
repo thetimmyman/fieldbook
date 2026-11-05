@@ -1,0 +1,5 @@
+kind = "calculation"
+id = "build_up@1"
+origin = "computed"
+iterative = false
+stages = ["unit_price", "extension", "total"]

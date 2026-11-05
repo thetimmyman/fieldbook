@@ -1113,21 +1113,43 @@ http = "http.toml"
     fn elsewhere_pointers_follow_owner_completion() {
         let root = repo_root();
 
-        // Open/draft cards with empty pointer pass in both ranges:
+        // Open/draft cards with empty pointer pass in both ranges (using a synthetic temp root
+        // so closing any real repository card never invalidates this fixture):
+        let temp_open_root =
+            std::env::temp_dir().join(format!("fieldbook-elsewhere-open-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&temp_open_root);
+        std::fs::create_dir_all(temp_open_root.join("docs/cards/drafts"))
+            .unwrap_or_else(|e| panic!("create temp card dirs: {e}"));
+        std::fs::write(
+            temp_open_root.join("docs/cards/synthetic-open.md"),
+            "# synthetic-open\n",
+        )
+        .unwrap_or_else(|e| panic!("write synthetic-open.md: {e}"));
+        std::fs::write(
+            temp_open_root.join("docs/cards/drafts/synthetic-draft.md"),
+            "# synthetic-draft\n",
+        )
+        .unwrap_or_else(|e| panic!("write synthetic-draft.md: {e}"));
+
         let open_rows = vec![
             ElsewhereRow {
                 code: "FB0501".to_owned(),
-                card: "calc-cases".to_owned(),
+                card: "synthetic-open".to_owned(),
                 test: String::new(),
             },
             ElsewhereRow {
                 code: "FB0807".to_owned(),
-                card: "review-queue".to_owned(),
+                card: "synthetic-draft".to_owned(),
                 test: String::new(),
             },
         ];
-        assert!(validate_elsewhere_pointers(&root, &open_rows, CodeRange::Fb01To07).is_ok());
-        assert!(validate_elsewhere_pointers(&root, &open_rows, CodeRange::Fb08To09).is_ok());
+        assert!(
+            validate_elsewhere_pointers(&temp_open_root, &open_rows, CodeRange::Fb01To07).is_ok()
+        );
+        assert!(
+            validate_elsewhere_pointers(&temp_open_root, &open_rows, CodeRange::Fb08To09).is_ok()
+        );
+        let _ = std::fs::remove_dir_all(&temp_open_root);
 
         // Completed/missing owner with empty pointer fails in both FB01..=FB07 and FB08..=FB09:
         let completed_empty = vec![
