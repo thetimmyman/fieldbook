@@ -157,12 +157,15 @@ mod build {
         assert!(edition.join("index.html").is_file());
         assert!(edition.join("assets/strings.js").is_file());
         assert!(edition.join("assets/app.css").is_file());
+        assert!(edition.join("assets/app.js").is_file());
         assert!(tmp.path().join("out/.fieldbook-out").is_file());
 
         let index_html = std::fs::read_to_string(edition.join("index.html"))
             .unwrap_or_else(|e| panic!("read index.html: {e}"));
         assert!(index_html.contains(CSP_STATIC));
-        assert!(index_html.contains("<main></main>"));
+        assert!(index_html.contains("<main id=\"main\" tabindex=\"-1\"></main>"));
+        assert!(index_html.contains("<nav aria-label=\"Sections\">"));
+        assert!(index_html.contains("class=\"not-available\""));
     }
 
     #[test]
@@ -859,7 +862,7 @@ mod build {
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let ctx =
             site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let mut site = site::render_with_context(&ctx);
+        let mut site = site::render_with_context(&view, &ctx);
         site.insert(
             "bad.html",
             format!(
@@ -895,5 +898,67 @@ mod build {
             events.iter().all(|e| e.kind() != Kind::WriteBegin),
             "a lint finding must append no write.begin"
         );
+    }
+
+    #[test]
+    fn navigation_noninterference_in_edition_shell() {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let tree_base = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model_base, report_base) = load(
+            &Host::new(tree_base.clone(), world.today()),
+            &Options::new(false),
+        );
+        assert!(report_base.is_ok());
+
+        let eff = EffectivePolicy::floor(false);
+        let now = world.now();
+        let shipped = Shipped::Hours(1);
+        let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+            panic!("expected selection Allowed");
+        };
+        let view_base = LabelledView::new(&model_base, &sel, &ReadableStores::corpus());
+        let out_base = tmp.path().join("out-nav-base");
+        let plan_base = plan_edition(
+            &view_base,
+            &BuildInfo::default(),
+            &out_base,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        // Add a forbidden (`np-0007`) page to an in-memory copy of the tree and confirm neither
+        // shell delivery, available links, nor navigation counts change.
+        let mut tree_mixed = tree_base;
+        tree_mixed.insert_bytes(
+            "corpus/pages/estimating/pricing/est-forbidden-canary.md",
+            b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
+                .to_vec(),
+        );
+        let (model_mixed, _report_mixed) =
+            load(&Host::new(tree_mixed, world.today()), &Options::new(false));
+        let view_mixed = LabelledView::new(&model_mixed, &sel, &ReadableStores::corpus());
+        let out_mixed = tmp.path().join("out-nav-mixed");
+        let plan_mixed = plan_edition(
+            &view_mixed,
+            &BuildInfo::default(),
+            &out_mixed,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        assert_eq!(plan_mixed.site.files(), plan_base.site.files());
+        let nav_base = fieldbook_render::nav::build(&view_base, &site::planned_paths(&view_base));
+        let nav_mixed =
+            fieldbook_render::nav::build(&view_mixed, &site::planned_paths(&view_mixed));
+        assert_eq!(nav_mixed, nav_base);
     }
 }

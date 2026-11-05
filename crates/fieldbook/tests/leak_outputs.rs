@@ -506,6 +506,30 @@ fn run_edition_surface() {
         .unwrap_or_else(|e| panic!("{e}"));
 
     assert!(plan.marker_path.is_file(), ".fieldbook-out must exist");
+    let nav_base =
+        fieldbook_render::nav::build(&view, &fieldbook_render::site::planned_paths(&view));
+    let mut mixed_tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    mixed_tree.insert_bytes(
+        "corpus/pages/estimating/pricing/est-forbidden-canary.md",
+        b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
+            .to_vec(),
+    );
+    let (mixed_model, _) = load(&Host::new(mixed_tree, world.today()), &Options::new(false));
+    let mixed_view = LabelledView::new(&mixed_model, &sel_token, &ReadableStores::corpus());
+    let nav_mixed = fieldbook_render::nav::build(
+        &mixed_view,
+        &fieldbook_render::site::planned_paths(&mixed_view),
+    );
+    assert_eq!(
+        nav_mixed, nav_base,
+        "edition navigation counts and destinations must reflect only the permitted view"
+    );
+
+    let index_disk = std::fs::read_to_string(plan.edition_dir.join("index.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert!(index_disk.contains("<nav aria-label=\"Sections\">"));
+    assert!(index_disk.contains("class=\"not-available\""));
+
     for (rel, expected_bytes) in plan.site.files() {
         let disk_path = plan.edition_dir.join(rel);
         let disk_bytes = std::fs::read(&disk_path).unwrap_or_else(|e| panic!("{e}"));

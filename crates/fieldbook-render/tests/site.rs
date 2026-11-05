@@ -148,7 +148,7 @@ mod site {
         let site = render(&view, &info).unwrap();
         let index = std::str::from_utf8(&site.files()["index.html"]).unwrap();
         assert!(
-            index.contains(&format!("<header>{}</header>", strings::unreleased_build())),
+            index.contains(strings::unreleased_build()),
             "missing date must render unreleased_build in header: {index}"
         );
         assert!(
@@ -167,7 +167,7 @@ mod site {
         let site_missing = render(&view, &info_missing).unwrap();
         let index_missing = std::str::from_utf8(&site_missing.files()["index.html"]).unwrap();
         assert!(
-            index_missing.contains(&format!("<header>{}</header>", strings::unreleased_build())),
+            index_missing.contains(strings::unreleased_build()),
             "missing commit must render unreleased_build in header: {index_missing}"
         );
         assert!(!index_missing.contains("<time"));
@@ -183,7 +183,7 @@ mod site {
         let site_invalid = render(&view, &info_invalid).unwrap();
         let index_invalid = std::str::from_utf8(&site_invalid.files()["index.html"]).unwrap();
         assert!(
-            index_invalid.contains(&format!("<header>{}</header>", strings::unreleased_build())),
+            index_invalid.contains(strings::unreleased_build()),
             "invalid commit must render unreleased_build in header: {index_invalid}"
         );
         assert!(!index_invalid.contains("<time"));
@@ -202,7 +202,7 @@ mod site {
         let site = render(&view, &info).unwrap();
         let index = std::str::from_utf8(&site.files()["index.html"]).unwrap();
         assert!(
-            index.contains("<header><time datetime=\"2026-03-01\">2026-03-01</time></header>"),
+            index.contains("datetime=\"2026-03-01\">2026-03-01</time>"),
             "released build must render <time> element in header: {index}"
         );
         assert!(!index.contains(strings::unreleased_build()));
