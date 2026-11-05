@@ -389,7 +389,7 @@
             }
           );
         } else {
-          showToast('Link copied');
+          showToast('Copy failed');
         }
       });
     }

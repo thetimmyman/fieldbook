@@ -597,4 +597,41 @@ mod page {
         let html = render_page(page, &view, &ctx, &navigation, &planned);
         insta::assert_snapshot!("procedure_page_renders", html);
     }
+
+    #[test]
+    fn decoded_entities_and_task_list_markers_render_cleanly() {
+        let mut tree = fixture_tree();
+        let updated = CMP_REVIEW_STEPS_MD.replace(
+            "## How it works\n",
+            "## How it works\n\n- [ ] Check R&amp;D &#37; rate\n- [x] Verify Done\n\n",
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-review-steps.md",
+            updated.as_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-review-steps")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        assert!(
+            html.contains("Check R&amp;D % rate"),
+            "HTML entities must decode once without double-escaping: {html}"
+        );
+        assert!(
+            !html.contains("&amp;amp;") && !html.contains("&amp;#37;"),
+            "HTML entities must not be double-escaped: {html}"
+        );
+        assert!(
+            html.contains("<input type=\"checkbox\" disabled> Check"),
+            "unchecked task list item must render disabled checkbox: {html}"
+        );
+        assert!(
+            html.contains("<input type=\"checkbox\" checked disabled> Verify Done"),
+            "checked task list item must render checked disabled checkbox: {html}"
+        );
+    }
 }

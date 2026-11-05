@@ -291,6 +291,33 @@ fn parse_md_link_target(dest_url: &str) -> Option<(&str, Option<&str>)> {
     Some((stem, frag_opt))
 }
 
+fn decode_body_range(
+    body: &str,
+    segments: &[(&str, Range<usize>)],
+    start: usize,
+    end: usize,
+) -> String {
+    if start >= end {
+        return String::new();
+    }
+    let mut out = String::new();
+    for (dec, r) in segments {
+        if r.end <= start || r.start >= end {
+            continue;
+        }
+        if r.start >= start && r.end <= end {
+            out.push_str(dec);
+        } else {
+            let s = start.max(r.start);
+            let e = end.min(r.end);
+            if s < e {
+                out.push_str(&body[s..e]);
+            }
+        }
+    }
+    out
+}
+
 /// Extract the plain-text first sentence of the `Purpose` (or `Question`) part of `page`
 /// for popover and area summaries.
 #[must_use]
@@ -318,8 +345,14 @@ pub fn first_sentence_of_purpose(page: &PageEntry) -> String {
     opts.insert(Options::ENABLE_TABLES);
     opts.insert(Options::ENABLE_TASKLISTS);
 
+    enum ParaEvent {
+        Text(Range<usize>, String),
+        Code(String),
+        Break,
+    }
+
     let mut text_ranges: Vec<Range<usize>> = Vec::new();
-    let mut para_events: Vec<(Option<Range<usize>>, Option<String>, bool)> = Vec::new();
+    let mut para_events: Vec<ParaEvent> = Vec::new();
     let mut in_first_para = false;
     for (ev_idx, (event, range)) in Parser::new_ext(&page.body, opts)
         .into_offset_iter()
@@ -338,15 +371,15 @@ pub fn first_sentence_of_purpose(page: &PageEntry) -> String {
             Event::End(TagEnd::Paragraph) if in_first_para => {
                 break;
             }
-            Event::Text(_) if in_first_para => {
+            Event::Text(cow) if in_first_para => {
                 text_ranges.push(range.clone());
-                para_events.push((Some(range), None, false));
+                para_events.push(ParaEvent::Text(range, cow.into_string()));
             }
             Event::Code(code) if in_first_para => {
-                para_events.push((None, Some(code.into_string()), false));
+                para_events.push(ParaEvent::Code(code.into_string()));
             }
             Event::SoftBreak | Event::HardBreak if in_first_para => {
-                para_events.push((None, None, true));
+                para_events.push(ParaEvent::Break);
             }
             _ => {}
         }
@@ -369,24 +402,50 @@ pub fn first_sentence_of_purpose(page: &PageEntry) -> String {
     };
 
     let mut para_text = String::new();
-    for (range_opt, code_opt, is_break) in para_events {
-        if let Some(range) = range_opt {
-            let mut cursor = range.start;
+    let mut idx = 0usize;
+    while idx < para_events.len() {
+        if matches!(para_events[idx], ParaEvent::Text(_, _)) {
+            let mut segments: Vec<(&str, Range<usize>)> = Vec::new();
+            let mut text_start = 0usize;
+            let mut text_end = 0usize;
+            while idx < para_events.len() {
+                let ParaEvent::Text(ref r, ref dec) = para_events[idx] else {
+                    break;
+                };
+                if segments.is_empty() {
+                    text_start = r.start;
+                    text_end = r.end;
+                } else if r.start == text_end {
+                    text_end = r.end;
+                } else {
+                    break;
+                }
+                segments.push((dec.as_str(), r.clone()));
+                idx += 1;
+            }
+            let mut cursor = text_start;
             for g in &groups {
-                if g.open_byte >= range.start && g.close_byte <= range.end && g.open_byte >= cursor
-                {
-                    para_text.push_str(&page.body[cursor..g.open_byte]);
+                if g.open_byte >= text_start && g.close_byte <= text_end && g.open_byte >= cursor {
+                    para_text.push_str(&decode_body_range(
+                        &page.body,
+                        &segments,
+                        cursor,
+                        g.open_byte,
+                    ));
                     cursor = g.close_byte;
                 }
             }
-            if cursor < range.end {
-                para_text.push_str(&page.body[cursor..range.end]);
+            if cursor < text_end {
+                para_text.push_str(&decode_body_range(&page.body, &segments, cursor, text_end));
             }
-        } else if let Some(code) = code_opt {
-            para_text.push_str(&code);
-        } else if is_break {
-            para_text.push(' ');
+            continue;
         }
+        match &para_events[idx] {
+            ParaEvent::Code(code) => para_text.push_str(code),
+            ParaEvent::Break => para_text.push(' '),
+            ParaEvent::Text(_, _) => {}
+        }
+        idx += 1;
     }
 
     let collapsed = para_text.split_whitespace().collect::<Vec<_>>().join(" ");
@@ -507,16 +566,20 @@ impl<'a> InlineRenderer<'a> {
         while idx < all_events.len() {
             let (ev_idx, ref event, ref range) = all_events[idx];
 
-            // Coalesce contiguous Event::Text slices so citation spans never split across events.
-            if matches!(event, Event::Text(_)) {
+            // Coalesce contiguous Event::Text slices so citation spans never split across events,
+            // while retaining pulldown-cmark's decoded text for entities and escapes.
+            if let Event::Text(ref first_cow) = *event {
                 let mut text_start = range.start;
                 let mut text_end = range.end;
+                let mut segments: Vec<(&str, Range<usize>)> =
+                    vec![(first_cow.as_ref(), range.clone())];
                 idx += 1;
                 while idx < all_events.len() {
-                    if matches!(all_events[idx].1, Event::Text(_))
+                    if let Event::Text(ref next_cow) = all_events[idx].1
                         && all_events[idx].2.start == text_end
                     {
                         text_end = all_events[idx].2.end;
+                        segments.push((next_cow.as_ref(), all_events[idx].2.clone()));
                         idx += 1;
                     } else {
                         break;
@@ -536,8 +599,13 @@ impl<'a> InlineRenderer<'a> {
 
                 let allow_cites = !in_code_block;
                 let allow_terms = !in_code_block && !in_heading && active_link.is_none();
-                let rendered =
-                    self.render_text_span(text_start, text_end, allow_cites, allow_terms);
+                let rendered = self.render_text_span(
+                    &segments,
+                    text_start,
+                    text_end,
+                    allow_cites,
+                    allow_terms,
+                );
                 if let Some((_, ref mut link_buf)) = active_link {
                     link_buf.push_str(&rendered);
                 } else {
@@ -672,6 +740,13 @@ impl<'a> InlineRenderer<'a> {
                 Event::Code(code) => {
                     target_buf.push_str(&format!("<code>{}</code>", escape_html(code)));
                 }
+                Event::TaskListMarker(checked) => {
+                    if *checked {
+                        target_buf.push_str("<input type=\"checkbox\" checked disabled> ");
+                    } else {
+                        target_buf.push_str("<input type=\"checkbox\" disabled> ");
+                    }
+                }
                 Event::SoftBreak => target_buf.push('\n'),
                 Event::HardBreak => target_buf.push_str("<br>\n"),
                 Event::Rule => target_buf.push_str("<hr>\n"),
@@ -734,6 +809,7 @@ impl<'a> InlineRenderer<'a> {
 
     fn render_text_span(
         &mut self,
+        segments: &[(&str, Range<usize>)],
         start: usize,
         end: usize,
         allow_cites: bool,
@@ -743,7 +819,7 @@ impl<'a> InlineRenderer<'a> {
             return String::new();
         }
         if !allow_cites {
-            return escape_html(&self.page.body[start..end]);
+            return escape_html(&decode_body_range(&self.page.body, segments, start, end));
         }
 
         let matching_indices: Vec<usize> = self
@@ -762,8 +838,8 @@ impl<'a> InlineRenderer<'a> {
                 continue;
             }
             if open_byte > cursor {
-                let plain = &self.page.body[cursor..open_byte];
-                out.push_str(&self.render_plain_segment(plain, allow_terms));
+                let plain = decode_body_range(&self.page.body, segments, cursor, open_byte);
+                out.push_str(&self.render_plain_segment(&plain, allow_terms));
             }
             let cites = self.groups[g_idx].citations.clone();
             for (c_idx, cite) in cites.iter().enumerate() {
@@ -775,8 +851,8 @@ impl<'a> InlineRenderer<'a> {
             cursor = close_byte;
         }
         if cursor < end {
-            let tail = &self.page.body[cursor..end];
-            out.push_str(&self.render_plain_segment(tail, allow_terms));
+            let tail = decode_body_range(&self.page.body, segments, cursor, end);
+            out.push_str(&self.render_plain_segment(&tail, allow_terms));
         }
         out
     }
