@@ -55,11 +55,13 @@ fn a_derived_set_checked_against_a_store() {
 fn an_added_label_is_admitted_by_the_store() {
     let np = id("np-0007");
     let ledger = Ledger::empty();
-    let plan = ledger.plan_add(
-        ["SO-000042-v1"],
-        &LabelSet::from_ids([np.clone()]),
-        LedgerOrigin::Person,
-    );
+    let plan = ledger
+        .plan_add(
+            ["SO-000042-v1"],
+            &LabelSet::from_ids([np.clone()]),
+            LedgerOrigin::Person,
+        )
+        .unwrap();
     let updated_ledger = Ledger::parse(&plan.text).unwrap();
     let eff = effective(&LabelSet::unlabelled(), "SO-000042-v1", &updated_ledger);
     assert_eq!(eff, LabelSet::from_ids([np.clone()]));

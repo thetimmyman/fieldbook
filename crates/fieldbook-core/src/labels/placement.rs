@@ -221,7 +221,7 @@ pub fn fieldbook_is_ignored(ignore_text: &str) -> bool {
                 | "/.fieldbook/**"
         ) {
             ignored = true;
-        } else if line.starts_with("!.fieldbook") || line.starts_with("!/.fieldbook") {
+        } else if line.starts_with('!') {
             ignored = false;
         }
     }
@@ -485,5 +485,6 @@ mod tests {
         assert!(fieldbook_is_ignored("/.fieldbook/\n"));
         assert!(!fieldbook_is_ignored("target/\nout/\n"));
         assert!(!fieldbook_is_ignored(".fieldbook/\n!.fieldbook/\n"));
+        assert!(!fieldbook_is_ignored(".fieldbook/**\n!**/call.json\n"));
     }
 }

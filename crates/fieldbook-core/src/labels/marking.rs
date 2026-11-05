@@ -136,10 +136,7 @@ fn canonical_components(path: &Path) -> Option<Vec<String>> {
     }
 
     let bytes = raw.as_bytes();
-    let (prefix, rest, case_insensitive) = if let Some(stripped) = raw.strip_prefix('/') {
-        (vec!["/".to_owned()], stripped, false)
-    } else if raw.starts_with("\\\\") || raw.starts_with("//") {
-        let trimmed = &raw[2..];
+    let (prefix, rest, windows_path) = if let Some(trimmed) = raw.strip_prefix("\\\\") {
         let mut parts = trimmed.split(['\\', '/']);
         let server = parts.next().filter(|s| !s.is_empty())?;
         let share = parts.next().filter(|s| !s.is_empty())?;
@@ -157,6 +154,8 @@ fn canonical_components(path: &Path) -> Option<Vec<String>> {
             tail,
             true,
         )
+    } else if let Some(stripped) = raw.strip_prefix('/') {
+        (vec!["/".to_owned()], stripped, false)
     } else if bytes.len() >= 3
         && bytes[0].is_ascii_alphabetic()
         && bytes[1] == b':'
@@ -169,16 +168,24 @@ fn canonical_components(path: &Path) -> Option<Vec<String>> {
     };
 
     let mut comps = prefix;
-    for seg in rest.split(['/', '\\']) {
-        if seg.is_empty() {
-            continue;
-        }
-        if seg == "." || seg == ".." {
-            return None;
-        }
-        if case_insensitive {
+    if windows_path {
+        for seg in rest.split(['/', '\\']) {
+            if seg.is_empty() {
+                continue;
+            }
+            if seg == "." || seg == ".." {
+                return None;
+            }
             comps.push(seg.to_ascii_lowercase());
-        } else {
+        }
+    } else {
+        for seg in rest.split('/') {
+            if seg.is_empty() {
+                continue;
+            }
+            if seg == "." || seg == ".." {
+                return None;
+            }
             comps.push(seg.to_owned());
         }
     }
@@ -258,15 +265,87 @@ fn normalize_ws_lower(input: &str) -> String {
     out
 }
 
+/// Normalized lowercase text alongside the start and end byte offsets in the original input
+/// for each byte of `norm`.
+struct NormalizedText {
+    norm: String,
+    orig_start: Vec<usize>,
+    orig_end: Vec<usize>,
+}
+
+impl NormalizedText {
+    fn from_input(input: &str) -> Self {
+        let mut norm = String::with_capacity(input.len());
+        let mut orig_start = Vec::with_capacity(input.len());
+        let mut orig_end = Vec::with_capacity(input.len());
+        let mut ws_span: Option<(usize, usize)> = None;
+
+        for (idx, ch) in input.char_indices() {
+            let ch_end = idx + ch.len_utf8();
+            if ch.is_whitespace() {
+                if !norm.is_empty() {
+                    ws_span = Some(match ws_span {
+                        Some((s, _)) => (s, ch_end),
+                        None => (idx, ch_end),
+                    });
+                }
+            } else {
+                if let Some((ws_s, ws_e)) = ws_span.take() {
+                    norm.push(' ');
+                    orig_start.push(ws_s);
+                    orig_end.push(ws_e);
+                }
+                let mut buf = [0u8; 4];
+                for lower in ch.to_lowercase() {
+                    let encoded = lower.encode_utf8(&mut buf);
+                    norm.push_str(encoded);
+                    for _ in 0..encoded.len() {
+                        orig_start.push(idx);
+                        orig_end.push(ch_end);
+                    }
+                }
+            }
+        }
+
+        Self {
+            norm,
+            orig_start,
+            orig_end,
+        }
+    }
+
+    /// Returns all original-input byte spans `(start, end)` where `needle_norm` matches `self.norm`.
+    fn match_spans(&self, needle_norm: &str) -> Vec<(usize, usize)> {
+        if needle_norm.is_empty() || needle_norm.len() > self.norm.len() {
+            return Vec::new();
+        }
+        let mut spans = Vec::new();
+        let mut search_from = 0usize;
+        while let Some(rel) = self.norm[search_from..].find(needle_norm) {
+            let m_start = search_from + rel;
+            let m_end = m_start + needle_norm.len();
+            let orig_s = self.orig_start[m_start];
+            let orig_e = self.orig_end[m_end - 1];
+            spans.push((orig_s, orig_e));
+            let next_step = self.norm[m_start..]
+                .chars()
+                .next()
+                .map_or(1, char::len_utf8);
+            search_from = m_start + next_step;
+        }
+        spans
+    }
+}
+
 /// Pure scan of `text` against `rules` and the built-in banner shapes of [`crate::scan::marking`].
 ///
 /// Unions the labels of every [`MarkingRow`] that matches, plus `marked` for any built-in shape
-/// that no matching row covers. Returns `None` when `text` holds no marking.
+/// occurrence that no matching row span covers. Returns `None` when `text` holds no marking.
 #[must_use]
 pub fn markings_in(text: &str, rules: &MarkingRules) -> Option<LabelSet> {
-    let norm_text = normalize_ws_lower(text);
+    let norm_text = NormalizedText::from_input(text);
     let mut found_ids: Vec<LabelId> = Vec::new();
-    let mut matched_row_norms: Vec<String> = Vec::new();
+    let mut matched_spans: Vec<(usize, usize)> = Vec::new();
 
     for row in &rules.rows {
         let char_count = row.matched.chars().count();
@@ -277,18 +356,18 @@ pub fn markings_in(text: &str, rules: &MarkingRules) -> Option<LabelSet> {
         if norm_row.is_empty() {
             continue;
         }
-        if norm_text.contains(&norm_row) {
+        let spans = norm_text.match_spans(&norm_row);
+        if !spans.is_empty() {
             found_ids.extend(row.labels.ids().iter().cloned());
-            matched_row_norms.push(norm_row);
+            matched_spans.extend(spans);
         }
     }
 
     let builtin_findings = banner_scan::scan(text);
     for finding in &builtin_findings {
-        let norm_finding = normalize_ws_lower(&finding.matched);
-        let covered = matched_row_norms
+        let covered = matched_spans
             .iter()
-            .any(|row_norm| row_norm.contains(&norm_finding) || norm_finding.contains(row_norm));
+            .any(|&(r_start, r_end)| r_start <= finding.span.start && finding.span.end <= r_end);
         if !covered {
             found_ids.push(MARKED);
         }
@@ -551,5 +630,26 @@ mod tests {
             ),
             LabelSet::from_ids([np])
         );
+    }
+
+    #[test]
+    fn posix_backslash_in_segment_is_not_a_path_separator() {
+        assert!(
+            PublicAct::source_row(Path::new(r"/srv/public\private"), Path::new("/srv/public"))
+                .is_none()
+        );
+    }
+
+    #[test]
+    fn uncovered_second_banner_occurrence_still_adds_marked() {
+        let banner = banner_scan::PATTERNS[9].text; // "EXPORT CONTROLLED"
+        let aa = id("aa-0001");
+        let rules = MarkingRules::with_rows([MarkingRow::new(
+            format!("{banner} ALPHA"),
+            LabelSet::from_ids([aa.clone()]),
+        )]);
+        let text = format!("{banner} ALPHA section one; standalone {banner} section two");
+        let found = markings_in(&text, &rules).expect("marking expected");
+        assert_eq!(found, LabelSet::from_ids([aa, MARKED]));
     }
 }

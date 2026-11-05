@@ -81,11 +81,13 @@ fn source_reclassification_restricts_every_derivative() {
     }
 
     // Reclassify the source in the overlay ledger by adding `ctl-0002`.
-    let plan = Ledger::empty().plan_add(
-        ["SO-000042-v1"],
-        &LabelSet::from_ids([ctl.clone()]),
-        LedgerOrigin::Person,
-    );
+    let plan = Ledger::empty()
+        .plan_add(
+            ["SO-000042-v1"],
+            &LabelSet::from_ids([ctl.clone()]),
+            LedgerOrigin::Person,
+        )
+        .unwrap();
     graph.set_ledger(StoreId::Overlay, Ledger::parse(&plan.text).unwrap());
 
     // On the next read, the note, pack, call record and calculation all carry `ctl-0002` as well.
@@ -154,11 +156,13 @@ fn classification_does_not_clear_an_inputs_unresolved_label() {
     );
 
     // Explicitly classify `derived_note` in the `working` ledger.
-    let plan = Ledger::empty().plan_add(
-        ["N-0001"],
-        &LabelSet::from_ids([np.clone()]),
-        LedgerOrigin::Person,
-    );
+    let plan = Ledger::empty()
+        .plan_add(
+            ["N-0001"],
+            &LabelSet::from_ids([np.clone()]),
+            LedgerOrigin::Person,
+        )
+        .unwrap();
     graph.set_ledger(StoreId::Working, Ledger::parse(&plan.text).unwrap());
 
     // The note's own `unlabelled` was resolved to `np-0007`, but its input `SO-000042-v1` is

@@ -349,13 +349,21 @@ impl Ledger {
     /// Plans appending one `add` line for each id in `ids` with `labels` and `origin`.
     ///
     /// Writes the header when the ledger is new/empty, retains all existing lines, and appends
-    /// the new lines continuing `seq`. Writes nothing to disk.
-    #[must_use]
-    pub fn plan_add<I, S>(&self, ids: I, labels: &LabelSet, origin: LedgerOrigin) -> LedgerPlan
+    /// the new lines continuing `seq`. Refuses (`Err`) when this ledger is broken (`FB0412`).
+    /// Writes nothing to disk.
+    pub fn plan_add<I, S>(
+        &self,
+        ids: I,
+        labels: &LabelSet,
+        origin: LedgerOrigin,
+    ) -> Result<LedgerPlan, LedgerError>
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
+        if let Some(err) = &self.broken {
+            return Err(err.clone());
+        }
         let mut text = self.to_csv();
         let start_seq = self.entries.last().map_or(1, |last| last.seq + 1);
         let mut added = Vec::new();
@@ -379,7 +387,7 @@ impl Ledger {
             ));
             added.push(entry);
         }
-        LedgerPlan { text, added }
+        Ok(LedgerPlan { text, added })
     }
 }
 
@@ -533,11 +541,13 @@ seq,item_id,kind,labels,origin
 1,SO-000042-v1,add,np-0007,person
 ";
         let ledger = Ledger::parse(initial).unwrap();
-        let plan = ledger.plan_add(
-            ["SO-000043-v1", "SO-000044-v1"],
-            &LabelSet::from_ids([id("bid-0003")]),
-            LedgerOrigin::Person,
-        );
+        let plan = ledger
+            .plan_add(
+                ["SO-000043-v1", "SO-000044-v1"],
+                &LabelSet::from_ids([id("bid-0003")]),
+                LedgerOrigin::Person,
+            )
+            .unwrap();
         let reparsed = Ledger::parse(&plan.text).unwrap();
         assert_eq!(reparsed.entries().len(), 3);
         assert_eq!(reparsed.entries()[1].seq, 2);
@@ -549,11 +559,13 @@ seq,item_id,kind,labels,origin
     #[test]
     fn plan_add_on_a_new_ledger_writes_the_header() {
         let ledger = Ledger::empty();
-        let plan = ledger.plan_add(
-            ["SO-000042-v1"],
-            &LabelSet::from_ids([id("np-0007")]),
-            LedgerOrigin::Person,
-        );
+        let plan = ledger
+            .plan_add(
+                ["SO-000042-v1"],
+                &LabelSet::from_ids([id("np-0007")]),
+                LedgerOrigin::Person,
+            )
+            .unwrap();
         assert!(plan.text.starts_with("seq,item_id,kind,labels,origin\n1,"));
         let reparsed = Ledger::parse(&plan.text).unwrap();
         assert_eq!(reparsed.entries().len(), 1);
@@ -575,5 +587,16 @@ seq,item_id,kind,labels,origin
         );
         assert!(eff_company.is_unresolved());
         assert!(eff_company.contains(&id("np-0007")));
+        assert_eq!(
+            broken
+                .plan_add(
+                    ["SO-000042-v1"],
+                    &LabelSet::from_ids([id("np-0007")]),
+                    LedgerOrigin::Person,
+                )
+                .unwrap_err()
+                .code,
+            Code::Fb0412
+        );
     }
 }

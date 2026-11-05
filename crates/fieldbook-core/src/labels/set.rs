@@ -34,10 +34,20 @@ impl std::error::Error for LabelSetError {}
 /// - An empty input becomes `unlabelled`.
 /// - `public` is dropped when any other label is present.
 /// - `unlabelled` and `marked` survive beside every other label.
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize)]
 #[serde(transparent)]
 pub struct LabelSet {
     ids: Vec<LabelId>,
+}
+
+impl<'de> Deserialize<'de> for LabelSet {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let ids = Vec::<LabelId>::deserialize(deserializer)?;
+        Ok(Self::from_ids(ids))
+    }
 }
 
 impl LabelSet {
@@ -214,10 +224,20 @@ impl LabelSet {
 /// Unlike [`LabelSet`], a [`LabelAllow`] may be empty and retains `public` beside company
 /// or built-in labels without data-label normalization. Used for `StoreRule::holds` and
 /// destination/owner allow-lists.
-#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize)]
 #[serde(transparent)]
 pub struct LabelAllow {
     ids: Vec<LabelId>,
+}
+
+impl<'de> Deserialize<'de> for LabelAllow {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let ids = Vec::<LabelId>::deserialize(deserializer)?;
+        Ok(Self::from_ids(ids))
+    }
 }
 
 impl LabelAllow {
@@ -450,5 +470,21 @@ mod tests {
                 }
             }
         }
+    }
+
+    #[test]
+    fn deserialization_normalizes_label_set_and_allow() {
+        let empty_set: LabelSet = serde_json::from_str("[]").unwrap();
+        assert_eq!(empty_set, LabelSet::unlabelled());
+
+        let raw_set: LabelSet =
+            serde_json::from_str(r#"["public","np-0007","bid-0003","np-0007"]"#).unwrap();
+        assert_eq!(raw_set.ids(), &[id("bid-0003"), id("np-0007")]);
+        assert!(raw_set.contains(&id("np-0007")));
+
+        let raw_allow: LabelAllow =
+            serde_json::from_str(r#"["public","np-0007","np-0007"]"#).unwrap();
+        assert_eq!(raw_allow.ids(), &[id("np-0007"), PUBLIC]);
+        assert!(raw_allow.contains(&PUBLIC));
     }
 }
