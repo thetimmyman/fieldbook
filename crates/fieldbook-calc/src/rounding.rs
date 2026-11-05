@@ -7,14 +7,14 @@
 use std::fmt;
 use std::str::FromStr;
 
-use rust_decimal::{Decimal, RoundingStrategy};
+use rust_decimal::RoundingStrategy;
 use serde::de::{self, Visitor};
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::decimal::Dec;
 use crate::error::CalcError;
 use crate::money::Money;
-use crate::ops::{MAX_MANTISSA, U384};
+use crate::ops::{U384, exact_rational_to_dec};
 use crate::value::Value;
 
 /// Closed enum of the three named rounding stages of AD-14.
@@ -221,7 +221,7 @@ pub(crate) fn round_quotient_at_stage(
     den: U384,
     stage: Stage,
     policy: &RoundingPolicy,
-) -> Result<Dec, CalcError> {
+) -> Result<Value<Dec>, CalcError> {
     if policy.scale > RoundingPolicy::MAX_SCALE {
         return Err(CalcError::InvalidScale);
     }
@@ -232,18 +232,6 @@ pub(crate) fn round_quotient_at_stage(
     } else {
         quot
     };
-    let q_u128 = rounded_quot
-        .to_u128()
-        .filter(|&v| v <= MAX_MANTISSA)
-        .ok_or(CalcError::Overflow)?;
-    let q_i128 = i128::try_from(q_u128).map_err(|_| CalcError::Overflow)?;
-    let signed_m = if negative && q_i128 != 0 {
-        -q_i128
-    } else {
-        q_i128
-    };
-    Ok(Dec::from_decimal(Decimal::from_i128_with_scale(
-        signed_m,
-        policy.scale,
-    )))
+    let scale_den = U384::from_u128(1).mul_pow10(policy.scale);
+    exact_rational_to_dec(negative, rounded_quot, scale_den, policy.scale)
 }

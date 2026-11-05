@@ -547,8 +547,8 @@ pub fn div_at_stage(
     let scaled_num = U384::from_u128(num_mag).mul_pow10(s_b + target_scale);
     let scaled_den = U384::from_u128(den_mag).mul_pow10(s_a);
     let (quot, rem) = scaled_num.div_rem(scaled_den);
-    let dec = round_quotient_at_stage(negative, quot, rem, scaled_den, stage, policy)?;
-    Ok(Value::Known(Money::new(dec, m.currency)))
+    let out = round_quotient_at_stage(negative, quot, rem, scaled_den, stage, policy)?;
+    Ok(out.map(|dec| Money::new(dec, m.currency)))
 }
 
 /// Scales `amount` by the exact positive integer ratio `num_factor / den_factor`

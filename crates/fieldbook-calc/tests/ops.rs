@@ -313,6 +313,18 @@ mod ops {
             div_at_stage(neg_midpoint, divisor, Stage::Total, &policy),
             Ok(usd("-1.01"))
         );
+
+        // Trailing zeros at the policy scale reduce so representable values fit 96-bit mantissa.
+        let max_usd = Value::Known(Money::usd(Dec::MAX));
+        assert_eq!(
+            div_at_stage(max_usd, known_dec("1"), Stage::Total, &policy),
+            Ok(max_usd)
+        );
+        let p28 = RoundingPolicy::new(28).unwrap();
+        assert_eq!(
+            div_at_stage(usd("100"), known_dec("2"), Stage::Total, &p28),
+            Ok(usd("50"))
+        );
     }
 
     #[test]
