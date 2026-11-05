@@ -1,0 +1,37 @@
+[package]
+name = "fieldbook-win"
+description = "Windows operating-system facts for Fieldbook. Only fieldbook depends on this crate."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+
+[lints.rust]
+unsafe_code = "deny"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+cast_possible_truncation = "deny"
+cast_sign_loss = "deny"
+cast_possible_wrap = "deny"
+float_cmp = "deny"
+needless_pass_by_value = "deny"
+semicolon_if_nothing_returned = "deny"
+implicit_clone = "deny"
+manual_let_else = "deny"
+redundant_else = "deny"
+match_same_arms = "deny"
+allow_attributes = "deny"
+allow_attributes_without_reason = "deny"
+unwrap_used = "deny"
+expect_used = "deny"
+print_stdout = "deny"
+print_stderr = "deny"
+dbg_macro = "deny"

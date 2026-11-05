@@ -7,13 +7,19 @@ use serde_json::Value;
 use std::collections::{BTreeMap, BTreeSet};
 
 /// The shipped crates and the workspace crates each may depend on, in any dependency kind.
-const SHIPPED: [(&str, &[&str]); 4] = [
+const SHIPPED: [(&str, &[&str]); 5] = [
     ("fieldbook-calc", &[]),
     ("fieldbook-core", &["fieldbook-calc"]),
     ("fieldbook-render", &["fieldbook-calc", "fieldbook-core"]),
+    ("fieldbook-win", &[]),
     (
         fieldbook_core::strings::binary(),
-        &["fieldbook-calc", "fieldbook-core", "fieldbook-render"],
+        &[
+            "fieldbook-calc",
+            "fieldbook-core",
+            "fieldbook-render",
+            "fieldbook-win",
+        ],
     ),
 ];
 
@@ -70,7 +76,7 @@ pub fn violations(meta: &Value) -> Vec<String> {
 
     let mut out = Vec::new();
     let name = |id: &str| name_of.get(id).copied().unwrap_or("?");
-    // Rule 1: the workspace holds the four shipped crates and xtask, and no other crate.
+    // Rule 1: the workspace holds the five shipped crates and xtask, and no other crate.
     let member_names: BTreeSet<&str> = member_ids.iter().map(|id| name(id)).collect();
     let want_names: BTreeSet<&str> = SHIPPED
         .iter()
@@ -150,10 +156,11 @@ mod tests {
     use super::violations;
     use serde_json::{Value, json};
 
-    const MEMBERS: [&str; 5] = [
+    const MEMBERS: [&str; 6] = [
         "fieldbook-calc",
         "fieldbook-core",
         "fieldbook-render",
+        "fieldbook-win",
         fieldbook_core::strings::binary(),
         "xtask",
     ];
@@ -180,13 +187,14 @@ mod tests {
         json!({"packages": packages, "workspace_members": ids, "resolve": {"nodes": nodes}})
     }
 
-    const GOOD: [(&str, &str, Option<&str>); 6] = [
+    const GOOD: [(&str, &str, Option<&str>); 7] = [
         ("fieldbook-core", "fieldbook-calc", None),
         ("fieldbook-render", "fieldbook-core", None),
         ("fieldbook-render", "fieldbook-calc", None),
         (fieldbook_core::strings::binary(), "fieldbook-render", None),
         (fieldbook_core::strings::binary(), "fieldbook-core", None),
         (fieldbook_core::strings::binary(), "fieldbook-calc", None),
+        (fieldbook_core::strings::binary(), "fieldbook-win", None),
     ];
 
     #[test]
@@ -243,13 +251,27 @@ mod tests {
     }
 
     #[test]
-    fn a_fifth_workspace_crate_is_rejected() {
+    fn a_sixth_workspace_crate_is_rejected() {
         let mut meta = metadata(&GOOD, &[]);
         meta["workspace_members"]
             .as_array_mut()
             .expect("an array")
             .push(json!("fieldbook-extra 0.0.0"));
         assert!(!violations(&meta).is_empty());
+    }
+
+    // control: DP-03
+    #[test]
+    fn a_core_crate_may_not_depend_on_fieldbook_win() {
+        for crate_name in ["fieldbook-calc", "fieldbook-core", "fieldbook-render"] {
+            let mut edges = GOOD.to_vec();
+            edges.push((crate_name, "fieldbook-win", None));
+            assert_eq!(
+                violations(&metadata(&edges, &[])).len(),
+                1,
+                "{crate_name} -> fieldbook-win should produce 1 violation"
+            );
+        }
     }
 
     #[test]
