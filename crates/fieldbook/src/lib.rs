@@ -17,7 +17,7 @@ pub use cli::Cli;
 pub use io::{StoreLease, WorldError};
 
 use std::ffi::OsString;
-use std::path::{Component, Path};
+use std::path::{Component, Path, PathBuf};
 
 use clap::Parser;
 use fieldbook_core::CivilDate;
@@ -136,8 +136,62 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
     }
 
     match parsed.command {
-        Commands::Check(check_args) => run_check(&check_args, world),
+        Commands::Check(check_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                run_check(&check_args, &overridden)
+            } else {
+                run_check(&check_args, world)
+            }
+        }
         Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), world),
+    }
+}
+
+struct StateOverrideWorld<'a> {
+    inner: &'a dyn World,
+    state_dir: PathBuf,
+}
+
+impl World for StateOverrideWorld<'_> {
+    fn read_tree(&self) -> Result<Tree, WorldError> {
+        io::journal::read_tree_coherent(self.inner.tree_root(), &self.state_dir)
+    }
+
+    fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        io::journal::acquire_write_lease(self.inner.tree_root(), &self.state_dir)
+    }
+
+    fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
+        io::journal::read_tree_under_lease(self.inner.tree_root(), &self.state_dir, lease)
+    }
+
+    fn today(&self) -> CivilDate {
+        self.inner.today()
+    }
+
+    fn now(&self) -> Now {
+        self.inner.now()
+    }
+
+    fn principal(&self) -> Principal {
+        self.inner.principal()
+    }
+
+    fn cwd(&self) -> &Path {
+        self.inner.cwd()
+    }
+
+    fn tree_root(&self) -> &Path {
+        self.inner.tree_root()
+    }
+
+    fn state_dir(&self) -> &Path {
+        &self.state_dir
     }
 }
 

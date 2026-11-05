@@ -334,15 +334,16 @@ fn init_state_locks(state_dir: &Path) -> Result<(), WorldError> {
     let audit_dir = state_dir.join("audit");
     let journal_lock = state_dir.join("lock");
     let store_lock = state_dir.join("store.lock");
+    let init_marker = state_dir.join(".init");
 
-    if audit_dir.is_dir() && journal_lock.is_file() && store_lock.is_file() {
+    if audit_dir.is_dir() && journal_lock.is_file() && store_lock.is_file() && !init_marker.exists()
+    {
         return Ok(());
     }
 
     std::fs::create_dir_all(&audit_dir)
         .map_err(|err| WorldError::new(&audit_dir, err.to_string()))?;
 
-    let init_marker = state_dir.join(".init");
     let _ = OpenOptions::new()
         .create(true)
         .write(true)
@@ -1087,6 +1088,13 @@ impl<'a> Journal<'a> {
 
         let lock = acquire_journal_lock(&self.state_dir)?;
         let tail = inspect_tail_strict(&self.state_dir)?;
+        let pending_path = self.state_dir.join("pending.toml");
+        if pending_path.exists() {
+            return Err(JournalError::InvalidPending(
+                "cannot begin a new write while a pending transaction exists; recover it first"
+                    .to_owned(),
+            ));
+        }
         let begin_seq = tail.last_seq + 1;
 
         let mut pending_files = Vec::with_capacity(writes.files.len());
@@ -1122,7 +1130,6 @@ impl<'a> Journal<'a> {
             .validate()
             .map_err(|err| JournalError::InvalidPending(err.to_string()))?;
 
-        let pending_path = self.state_dir.join("pending.toml");
         write_sync_file(&pending_path, pending_write.to_toml().as_bytes())?;
 
         let tid = std::thread::current().id();
@@ -1781,6 +1788,7 @@ fn inspect_and_recover_tail(
     }
 
     let mut all_lines: Vec<(u32, PathBuf, String)> = Vec::new();
+    let mut last_seg_raw = String::new();
     for (seg_num, seg_path) in &segments {
         let raw = std::fs::read_to_string(seg_path)
             .map_err(|err| JournalError::io(seg_path, err.to_string()))?;
@@ -1789,6 +1797,7 @@ fn inspect_and_recover_tail(
                 all_lines.push((*seg_num, seg_path.clone(), line.to_owned()));
             }
         }
+        last_seg_raw = raw;
     }
 
     let &(last_seg_num, ref last_seg_path) = segments.last().unwrap_or_else(|| unreachable!());
@@ -1865,6 +1874,11 @@ fn inspect_and_recover_tail(
         );
     }
 
+    if !last_seg_raw.is_empty() && !last_seg_raw.ends_with('\n') {
+        last_seg_raw.push('\n');
+        write_sync_file(last_seg_path, last_seg_raw.as_bytes())?;
+    }
+
     inspect_tail_strict(state_dir)
 }
 
@@ -1888,6 +1902,11 @@ fn inspect_tail_strict(state_dir: &Path) -> Result<TailState, JournalError> {
     for (_, seg_path) in &segments {
         let raw = std::fs::read_to_string(seg_path)
             .map_err(|err| JournalError::io(seg_path, err.to_string()))?;
+        if !raw.is_empty() && !raw.ends_with('\n') {
+            return Err(JournalError::BrokenChain(
+                "unterminated journal segment line".to_owned(),
+            ));
+        }
         for line in raw.lines() {
             if !line.is_empty() {
                 all_lines.push(line.to_owned());
@@ -1958,6 +1977,7 @@ fn read_verified_events(state_dir: &Path) -> Result<Vec<Event>, JournalError> {
     let segments = list_segments(&audit_dir)?;
     let mut events = Vec::new();
     let mut prev_hex = ZERO_HASH.to_owned();
+    let mut expected_seq = 1u64;
 
     for (_, seg_path) in segments {
         let raw = std::fs::read_to_string(&seg_path)
@@ -1966,14 +1986,19 @@ fn read_verified_events(state_dir: &Path) -> Result<Vec<Event>, JournalError> {
             if line.is_empty() {
                 continue;
             }
-            if let Ok(verified) = verify_line(&prev_hex, line)
-                && let Ok((event, _)) = Event::parse_line(line)
-            {
-                prev_hex = verified.hash.as_str().to_owned();
-                events.push(event);
-            } else if let Ok((_, hash)) = split_hash_suffix(line) {
-                prev_hex = hash.as_str().to_owned();
+            let verified = verify_line(&prev_hex, line)
+                .map_err(|err| JournalError::BrokenChain(err.to_string()))?;
+            let (event, _) = Event::parse_line(line)
+                .map_err(|err| JournalError::BrokenChain(err.to_string()))?;
+            if event.seq != expected_seq {
+                return Err(JournalError::BrokenChain(format!(
+                    "sequence {} does not match expected {expected_seq}",
+                    event.seq
+                )));
             }
+            prev_hex = verified.hash.as_str().to_owned();
+            expected_seq = expected_seq.saturating_add(1);
+            events.push(event);
         }
     }
     Ok(events)

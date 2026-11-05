@@ -182,7 +182,7 @@ fn inspect_journal(state_dir: &Path) -> Result<VerifyInspection, JournalError> {
                     head_hash = stored_hash.as_str().to_owned();
                     seq_hashes.insert(event.seq, head_hash.clone());
                     prev_hex = head_hash.clone();
-                    expected_seq = event.seq + 1;
+                    expected_seq = current_seq.saturating_add(1);
                 }
                 (Ok((event, _)), Err(_)) => {
                     if !chain_error_reported {
@@ -215,7 +215,7 @@ fn inspect_journal(state_dir: &Path) -> Result<VerifyInspection, JournalError> {
                     head_hash = stored_hash.as_str().to_owned();
                     seq_hashes.insert(event.seq, head_hash.clone());
                     prev_hex = head_hash.clone();
-                    expected_seq = event.seq + 1;
+                    expected_seq = current_seq.saturating_add(1);
                 }
                 (Err(err), _) => {
                     if parse_json_object(line).is_ok() {
@@ -251,7 +251,7 @@ fn inspect_journal(state_dir: &Path) -> Result<VerifyInspection, JournalError> {
                     head_hash = stored_hash.as_str().to_owned();
                     seq_hashes.insert(current_seq, head_hash.clone());
                     prev_hex = head_hash.clone();
-                    expected_seq = current_seq + 1;
+                    expected_seq = current_seq.saturating_add(1);
                 }
             }
         }
