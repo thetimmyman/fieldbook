@@ -1,0 +1,159 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-131",
+      "side": "query",
+      "input": "1,000 1000 $1,000",
+      "tokens": ["1000"],
+      "note": "Comma-formatted, plain and dollar-prefixed forms of the same number normalise and lex to the same token and deduplicate to one"
+    },
+    {
+      "id": "tok-132",
+      "side": "query",
+      "input": "252.204-7012 252.204\u20137012 252.204\u22127012",
+      "tokens": ["252.204-7012"],
+      "note": "Clause numbers written with ASCII hyphen, en dash and minus sign fold to the same token and deduplicate"
+    },
+    {
+      "id": "tok-133",
+      "side": "query",
+      "input": "CL-CMP-0011 cl-cmp-0011 Cl-\u00adCmp\u20100011",
+      "tokens": ["cl-cmp-0011"],
+      "note": "Claim ids differing only in case, soft hyphen and U+2010 hyphen deduplicate to a single token"
+    },
+    {
+      "id": "tok-134",
+      "side": "query",
+      "input": "SO-000042-v2 so-000042-v2 SO-000042",
+      "tokens": ["so-000042-v2", "so-000042"],
+      "note": "The versioned company id deduplicates with its lowercase twin while the distinct unversioned id is kept second"
+    },
+    {
+      "id": "tok-135",
+      "side": "query",
+      "input": "S-0042-v2 S-0042-v1 S-0042",
+      "tokens": ["s-0042-v2", "s-0042-v1", "s-0042"],
+      "note": "Distinct versions of a source and its unversioned id stay three distinct query tokens in first-seen order"
+    },
+    {
+      "id": "tok-136",
+      "side": "query",
+      "input": "252.204-7012(b)(2) 252.204-7012(b) 252.204-7012 252.204 7012",
+      "tokens": ["252.204-7012(b)(2)", "252.204-7012(b)", "252.204-7012", "252.204", "7012"],
+      "note": "When a query explicitly lists a clause and its ancestors, each is kept as a distinct query token"
+    },
+    {
+      "id": "tok-137",
+      "side": "query",
+      "input": "S-0042-v2 SO-000042-v2 CM-000012-v2 252.204-7012(b)(2) 15.404-1(a)(4)",
+      "tokens": ["s-0042-v2", "so-000042-v2", "cm-000012-v2", "252.204-7012(b)(2)", "15.404-1(a)(4)"],
+      "note": "None of the versioned id or clause shapes emit extras on the query side, so only the five primary tokens appear"
+    },
+    {
+      "id": "tok-138",
+      "side": "query",
+      "input": "t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11",
+      "tokens": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11"],
+      "note": "Eleven distinct query tokens are all kept"
+    },
+    {
+      "id": "tok-139",
+      "side": "query",
+      "input": "t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12",
+      "tokens": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12"],
+      "note": "Exactly twelve distinct query tokens are all kept at the 12-token boundary"
+    },
+    {
+      "id": "tok-140",
+      "side": "query",
+      "input": "t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13",
+      "tokens": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12"],
+      "note": "Thirteen distinct query tokens truncate to the first twelve, dropping t13"
+    },
+    {
+      "id": "tok-141",
+      "side": "query",
+      "input": "t1 t1 t1 t2 t2 t3 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13",
+      "tokens": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12"],
+      "note": "Early duplicates do not consume slots in the 12-token cap: t1 through t12 are kept and only t13 is dropped"
+    },
+    {
+      "id": "tok-142",
+      "side": "query",
+      "input": "a b c a b c d e f d e f g h i g h i j k l m n",
+      "tokens": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"],
+      "note": "Interleaved repeated groups preserve first-appearance order across 23 raw tokens before capping at 12 unique tokens"
+    },
+    {
+      "id": "tok-143",
+      "side": "query",
+      "input": "cost-type cost type",
+      "tokens": ["cost", "type"],
+      "note": "A hyphenated compound splits into cost and type, so the following unhyphenated words are removed as duplicates"
+    },
+    {
+      "id": "tok-144",
+      "side": "query",
+      "input": "[@CL-CMP-0011; @S-0042-v2, p. 14; @Q-027; @XC-14]",
+      "tokens": ["cl-cmp-0011", "s-0042-v2", "p", "14", "q-027", "xc-14"],
+      "note": "A full multi-citation bracket pasted into search extracts every key and locator token in order"
+    },
+    {
+      "id": "tok-145",
+      "side": "query",
+      "input": "\"certified cost or pricing data\" (FAR 15.403-4)",
+      "tokens": ["certified", "cost", "or", "pricing", "data", "far", "15.403-4"],
+      "note": "Quotation marks and parentheses in a natural search query are stripped while keeping words and the FAR clause whole"
+    },
+    {
+      "id": "tok-146",
+      "side": "query",
+      "input": "What is the TINA threshold in 15.403-4(a)(1)?",
+      "tokens": ["what", "is", "the", "tina", "threshold", "in", "15.403-4(a)(1)"],
+      "note": "A question-sentence query keeps question words, acronyms and the full paragraph-qualified clause citation"
+    },
+    {
+      "id": "tok-147",
+      "side": "query",
+      "input": "\ufb01le file FILE Fi\u00adle",
+      "tokens": ["file"],
+      "note": "Ligature, plain, uppercase and soft-hyphenated spellings of file all fold to one query token"
+    },
+    {
+      "id": "tok-148",
+      "side": "query",
+      "input": "CL-XES-000012 cl-xes-000012 SO-000042-v2 so-000042-v2 QO-000003 qo-000003",
+      "tokens": ["cl-xes-000012", "so-000042-v2", "qo-000003"],
+      "note": "Uppercase and lowercase pairs of company identifiers deduplicate to three tokens in order"
+    },
+    {
+      "id": "tok-149",
+      "side": "query",
+      "input": "15.404-1(A)(4) 15.404-1(a)(4)",
+      "tokens": ["15.404-1(a)(4)"],
+      "note": "Clause numbers differing only in the case of a paragraph group letter deduplicate after case folding"
+    },
+    {
+      "id": "tok-150",
+      "side": "query",
+      "input": "S-0042-v2 CL-CMP-0011 Q-027 XC-14 CL-XES-000012 SO-000042-v2 CM-000012-v2 SO-000042 QO-000003 XO-000002 252.204-7012 1,000.50 extra",
+      "tokens": [
+        "s-0042-v2",
+        "cl-cmp-0011",
+        "q-027",
+        "xc-14",
+        "cl-xes-000012",
+        "so-000042-v2",
+        "cm-000012-v2",
+        "so-000042",
+        "qo-000003",
+        "xo-000002",
+        "252.204-7012",
+        "1000.50"
+      ],
+      "note": "Twelve distinct identifier, clause and number tokens fill the 12-token query cap and drop the 13th token extra"
+    }
+  ]
+}

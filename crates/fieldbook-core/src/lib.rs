@@ -30,6 +30,7 @@ pub mod report;
 pub mod review;
 pub mod scan;
 pub mod schema;
+pub mod search;
 pub mod strings;
 pub mod version;
 
