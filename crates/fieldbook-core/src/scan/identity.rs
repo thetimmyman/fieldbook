@@ -285,9 +285,13 @@ fn scan_phones(text: &str, out: &mut Vec<Finding>) {
             && bytes[i + 11].is_ascii_digit()
         {
             let end = i + 12;
-            if end == bytes.len()
-                || (!bytes[end].is_ascii_alphanumeric() && bytes[end] != b'-' && bytes[end] != b'.')
-            {
+            let right_ok = end == bytes.len()
+                || (!bytes[end].is_ascii_alphanumeric()
+                    && bytes[end] != b'-'
+                    && (bytes[end] != b'.'
+                        || end + 1 == bytes.len()
+                        || !bytes[end + 1].is_ascii_alphanumeric()));
+            if right_ok {
                 out.push(Finding::new(&text[i..end], i..end));
                 i = end;
                 continue;
@@ -409,8 +413,18 @@ fn scan_internal_hosts(text: &str, out: &mut Vec<Finding>) {
                 start += 1;
             }
             if start > 0 && matches!(bytes[start - 1], b'/' | b'\\') {
-                // Avoid matching a filesystem path segment unless preceded by `://`
-                if !(start >= 3 && &bytes[start - 3..start] == b"://") {
+                // Allow URL authorities (`://host`), protocol-relative (`//host`), and UNC shares (`\\host`),
+                // while skipping ordinary filesystem path segments (`/dir/file.local` or `a\b.local`).
+                let is_network_authority = (start >= 3 && &bytes[start - 3..start] == b"://")
+                    || (start >= 2
+                        && matches!(&bytes[start - 2..start], b"//" | b"\\\\")
+                        && (start == 2
+                            || (!bytes[start - 3].is_ascii_alphanumeric()
+                                && !matches!(
+                                    bytes[start - 3],
+                                    b'/' | b'\\' | b'.' | b'-' | b'_'
+                                ))));
+                if !is_network_authority {
                     continue;
                 }
             }

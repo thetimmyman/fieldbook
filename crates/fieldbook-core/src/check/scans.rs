@@ -206,17 +206,61 @@ fn advance_line_col(mut line: usize, mut col: usize, prefix: &str) -> (usize, us
     (line, col)
 }
 
+fn flush_claim_language_buf(
+    buf: &mut String,
+    pos_map: &mut Vec<(usize, usize)>,
+    out: &mut Vec<(Finding, usize, usize)>,
+) {
+    if buf.is_empty() {
+        return;
+    }
+    for hit in claim_language::scan(buf) {
+        let (line, col) = pos_map.get(hit.span.start).copied().unwrap_or((1, 1));
+        out.push((hit, line, col));
+    }
+    buf.clear();
+    pos_map.clear();
+}
+
+const fn is_inline_formatting_start(tag: &Tag<'_>) -> bool {
+    matches!(
+        tag,
+        Tag::Emphasis
+            | Tag::Strong
+            | Tag::Strikethrough
+            | Tag::Link { .. }
+            | Tag::Superscript
+            | Tag::Subscript
+    )
+}
+
+const fn is_inline_formatting_end(tag: &TagEnd) -> bool {
+    matches!(
+        tag,
+        TagEnd::Emphasis
+            | TagEnd::Strong
+            | TagEnd::Strikethrough
+            | TagEnd::Link
+            | TagEnd::Superscript
+            | TagEnd::Subscript
+    )
+}
+
 fn collect_claim_language_from_events(evs: &[Ev<'_>], out: &mut Vec<(Finding, usize, usize)>) {
+    let mut buf = String::new();
+    let mut pos_map: Vec<(usize, usize)> = Vec::new();
     let mut i = 0usize;
     while i < evs.len() {
         match &evs[i].event {
             Event::Start(Tag::CodeBlock(_)) => {
+                flush_claim_language_buf(&mut buf, &mut pos_map, out);
                 i += 1;
                 while i < evs.len() && !matches!(evs[i].event, Event::End(TagEnd::CodeBlock)) {
                     i += 1;
                 }
             }
             Event::Start(Tag::BlockQuote(_)) => {
+                flush_claim_language_buf(&mut buf, &mut pos_map, out);
                 let start = i;
                 let mut depth = 1usize;
                 i += 1;
@@ -235,16 +279,29 @@ fn collect_claim_language_from_events(evs: &[Ev<'_>], out: &mut Vec<(Finding, us
                 continue;
             }
             Event::Text(text) => {
-                for hit in claim_language::scan(text) {
-                    let prefix = &text[..hit.span.start];
-                    let (line, col) = advance_line_col(evs[i].line, evs[i].col, prefix);
-                    out.push((hit, line, col));
+                for (byte_idx, ch) in text.char_indices() {
+                    let (line, col) = advance_line_col(evs[i].line, evs[i].col, &text[..byte_idx]);
+                    for _ in 0..ch.len_utf8() {
+                        pos_map.push((line, col));
+                    }
+                    buf.push(ch);
                 }
             }
-            _ => {}
+            Event::SoftBreak | Event::HardBreak => {
+                if !buf.is_empty() {
+                    pos_map.push((evs[i].line, evs[i].col));
+                    buf.push(' ');
+                }
+            }
+            Event::Start(tag) if is_inline_formatting_start(tag) => {}
+            Event::End(tag) if is_inline_formatting_end(tag) => {}
+            _ => {
+                flush_claim_language_buf(&mut buf, &mut pos_map, out);
+            }
         }
         i += 1;
     }
+    flush_claim_language_buf(&mut buf, &mut pos_map, out);
 }
 
 fn col_index(reg: Register, col_name: &str) -> usize {
