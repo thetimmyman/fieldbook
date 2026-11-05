@@ -601,11 +601,15 @@ mod tests {
         let future = PAGE_CMP_REVIEW_STEPS.replace("as_of = 2026-02-01", "as_of = 2027-03-01");
         tree.insert_bytes(PATH_CMP_REVIEW_STEPS, future.as_bytes());
         let report = run(&Host::new(tree, sample_today()), &Options::new(true));
-        assert_eq!(report.diagnostics.len(), 1);
-        assert_eq!(report.diagnostics[0].code, Code::Fb0116);
-        assert_eq!(report.diagnostics[0].severity, Severity::Warning);
-        assert_eq!(report.diagnostics[0].path, PATH_CMP_REVIEW_STEPS);
-        assert_eq!(report.diagnostics[0].line, 10);
+        let fb0116: Vec<_> = report
+            .diagnostics
+            .iter()
+            .filter(|d| d.code == Code::Fb0116)
+            .collect();
+        assert_eq!(fb0116.len(), 1);
+        assert_eq!(fb0116[0].severity, Severity::Warning);
+        assert_eq!(fb0116[0].path, PATH_CMP_REVIEW_STEPS);
+        assert_eq!(fb0116[0].line, 10);
 
         // Non-UTF-8 page raises only FB0120 from `files::check` and nothing from `pages::check`
         let mut tree_non_utf8 = mini_tree();

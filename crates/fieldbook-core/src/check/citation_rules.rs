@@ -56,7 +56,7 @@ pub fn check(model: &Model, options: &Options, report: &mut Report) {
             .collect();
 
         check_fb0117(model, page, &cited_claims, options.strict, report);
-        check_fb0118(model, page, &cited_claims, options.strict, report);
+        check_fb0118(page, &cited_claims, options.strict, report);
         check_fb0310_and_fb0320(model, page, cites, &claim_map, options.strict, report);
         check_fb0309(page, &plain_time_words, options.strict, report);
     }
@@ -93,16 +93,7 @@ fn check_fb0117(
     }
 }
 
-fn check_fb0118(
-    model: &Model,
-    page: &PageEntry,
-    cited_claims: &[&ClaimRow],
-    strict: bool,
-    report: &mut Report,
-) {
-    if page.meta.as_of > model.today() {
-        return;
-    }
+fn check_fb0118(page: &PageEntry, cited_claims: &[&ClaimRow], strict: bool, report: &mut Report) {
     let mut oldest: Option<(&ClaimId, PartialDate, CivilDate)> = None;
     for claim in cited_claims {
         let Some(claim_as_of) = claim.as_of else {
@@ -283,14 +274,6 @@ fn check_part_blocks_for_fb0309(
     let mut i = 0usize;
     while i < part_evs.len() {
         match &part_evs[i].event {
-            Event::Start(Tag::Heading { .. }) => {
-                i += 1;
-                while i < part_evs.len()
-                    && !matches!(part_evs[i].event, Event::End(TagEnd::Heading(_)))
-                {
-                    i += 1;
-                }
-            }
             Event::Start(Tag::CodeBlock(_)) => {
                 i += 1;
                 while i < part_evs.len()
@@ -325,17 +308,21 @@ fn check_part_blocks_for_fb0309(
                 );
                 continue;
             }
-            Event::Start(Tag::Paragraph | Tag::TableRow | Tag::TableHead) => {
+            Event::Start(Tag::Paragraph | Tag::Heading { .. } | Tag::TableRow | Tag::TableHead) => {
                 let is_para = matches!(part_evs[i].event, Event::Start(Tag::Paragraph));
+                let is_heading = matches!(part_evs[i].event, Event::Start(Tag::Heading { .. }));
                 let is_row = matches!(part_evs[i].event, Event::Start(Tag::TableRow));
                 let mut chunks = Vec::new();
                 i += 1;
                 while i < part_evs.len() {
                     match &part_evs[i].event {
                         Event::End(TagEnd::Paragraph) if is_para => break,
+                        Event::End(TagEnd::Heading(_)) if is_heading => break,
                         Event::End(TagEnd::TableRow) if is_row => break,
-                        Event::End(TagEnd::TableHead) if !is_para && !is_row => break,
-                        Event::End(TagEnd::TableCell) if !is_para => {
+                        Event::End(TagEnd::TableHead) if !is_para && !is_heading && !is_row => {
+                            break;
+                        }
+                        Event::End(TagEnd::TableCell) if !is_para && !is_heading => {
                             chunks.push(TextChunk {
                                 text: " ".to_owned(),
                                 line: part_evs[i].line,
@@ -501,12 +488,21 @@ fn check_block_chunks(
     // Mark any `[...]` citation spans inside `combined` as exempt from figure scanning.
     let lexed = cite::lex(&combined, Mode::Tolerant);
     let mut bracket_ranges = Vec::new();
+    let c_bytes = combined.as_bytes();
     for c in &lexed.citations {
-        // Expand to enclosing `[` and `]` around `c.span`.
-        let open = combined[..c.span.start].rfind('[').unwrap_or(c.span.start);
-        let close = combined[c.span.end..]
-            .find(']')
-            .map_or(c.span.end, |off| c.span.end + off + 1);
+        // Expand to enclosing `[` and `]` around `c.span` only when `c.span` is an item-only span.
+        let open = if c_bytes.get(c.span.start) == Some(&b'[') {
+            c.span.start
+        } else {
+            combined[..c.span.start].rfind('[').unwrap_or(c.span.start)
+        };
+        let close = if c.span.end > 0 && c_bytes.get(c.span.end - 1) == Some(&b']') {
+            c.span.end
+        } else {
+            combined[c.span.end..]
+                .find(']')
+                .map_or(c.span.end, |off| c.span.end + off + 1)
+        };
         bracket_ranges.push((open, close));
     }
     for f in &lexed.findings {
@@ -528,10 +524,12 @@ fn check_block_chunks(
     // Also be sure abbreviations inside citations (`p. 14`, `pp. 14-15`, `sec. 2`, `para. 3`) do not split a sentence!
     for (sent_start, sent_end) in split_sentences(&combined, &byte_exempt) {
         let sentence = &combined[sent_start..sent_end];
-        let has_claim_citation = cite::lex(sentence, Mode::Tolerant)
-            .citations
-            .iter()
-            .any(|c| c.key_kind == KeyKind::Claim);
+        let strict_lex = cite::lex(sentence, Mode::Strict);
+        let has_claim_citation = !strict_lex.findings.is_empty()
+            || strict_lex
+                .citations
+                .iter()
+                .any(|c| c.key_kind == KeyKind::Claim);
         if has_claim_citation {
             continue;
         }
@@ -605,7 +603,6 @@ fn split_sentences(text: &str, byte_exempt: &[bool]) -> Vec<(usize, usize)> {
 }
 
 const SCALE_AND_MONEY_WORDS: &[&str] = &["dollars", "million", "billion", "thousand", "percent"];
-const RECOGNIZED_CURRENCY_CODES: &[&str] = &["USD", "EUR", "GBP", "CAD", "AUD", "JPY", "CHF"];
 
 fn is_currency_sign(ch: char) -> bool {
     matches!(ch, '$' | '€' | '£' | '¥')
@@ -827,7 +824,6 @@ fn scan_currency_code(s: &str, idx: usize) -> Option<usize> {
     }
     let candidate = &s[idx..idx + 3];
     if Currency::parse(candidate).is_ok()
-        && RECOGNIZED_CURRENCY_CODES.contains(&candidate)
         && s[idx + 3..]
             .chars()
             .next()
@@ -1114,6 +1110,21 @@ mod tests {
         assert_eq!(d.path, PATH_CMP_SYSTEM_REVIEW);
         assert_eq!(d.line, 28);
         assert!(d.message.contains("15 percent"), "{}", d.message);
+
+        // Verify non-exempt subheading (`### ...`), non-USD currency code (`100 NZD`),
+        // and uncited sentence bracketed by neighboring citations (`[@Q-001] ... [@Q-001]`).
+        let mut tree2 = mini_tree();
+        let modified2 = PAGE_CMP_SYSTEM_REVIEW.replace(
+            "Synthetic reviewers check control operation and record open items before billing runs.",
+            "### Withholding threshold: 15 percent\n\nContext [@Q-001]. The threshold is 100 NZD. Context [@Q-001].",
+        );
+        tree2.insert_bytes(PATH_CMP_SYSTEM_REVIEW, modified2.as_bytes());
+        let report2 = run(&Host::new(tree2, sample_today()), &Options::new(false));
+        assert_eq!(report2.diagnostics.len(), 2, "{:?}", report2.diagnostics);
+        assert_eq!(report2.diagnostics[0].code, Code::Fb0309);
+        assert!(report2.diagnostics[0].message.contains("15 percent"));
+        assert_eq!(report2.diagnostics[1].code, Code::Fb0309);
+        assert!(report2.diagnostics[1].message.contains("100 NZD"));
     }
 
     #[test]

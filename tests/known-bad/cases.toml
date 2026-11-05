@@ -114,6 +114,7 @@ edits = [
 [[case]]
 code = "FB0116"
 at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:10"
+also = ["FB0118"]
 edits = [
   { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "as_of = 2026-02-01", replace = "as_of = 2027-03-01" },
 ]
@@ -377,16 +378,16 @@ edits = [
 
 [[case]]
 code = "FB0300"
-at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:44"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
 edits = [
-  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[@Q-001]", replace = "[@S-42]" },
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@S-42]" },
 ]
 
 [[case]]
 code = "FB0301"
-at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:44"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
 edits = [
-  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[@Q-001]", replace = "[S-0001-v1 p.14]" },
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[S-0001-v1 p.14]" },
 ]
 
 [[case]]
@@ -405,9 +406,9 @@ edits = [
 
 [[case]]
 code = "FB0305"
-at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:44"
+at = "corpus/pages/compliance/business-systems/cmp-system-review.md:24"
 edits = [
-  { path = "corpus/pages/compliance/business-systems/cmp-review-steps.md", find = "[@Q-001]", replace = "[@CL-CMP-0001, p. 3]" },
+  { path = "corpus/pages/compliance/business-systems/cmp-system-review.md", find = "[@CL-CMP-0001]", replace = "[@CL-CMP-0001, p. 3]" },
 ]
 
 [[case]]
