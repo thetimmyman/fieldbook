@@ -40,6 +40,8 @@ pub enum Fault {
         /// Error kind to return before writing anything on the `nth` match.
         kind: FaultKind,
     },
+    /// Fail every prompt write, as a broken standard error does.
+    BrokenPrompt,
 }
 
 /// [`World`] test double that injects [`Fault`] on matching `write_file` calls and forwards
@@ -71,6 +73,7 @@ impl FaultyWorld {
                     return Err(make_fault_error(path, kind));
                 }
             }
+            Fault::BrokenPrompt => {}
             Fault::FailOnNthName { name, nth, kind } => {
                 if actual == Some(name) {
                     let count = self.matches.fetch_add(1, Ordering::SeqCst) + 1;
@@ -127,6 +130,21 @@ impl World for FaultyWorld {
 
     fn has_company_store(&self) -> bool {
         self.inner.has_company_store()
+    }
+
+    fn stdin_is_terminal(&self) -> bool {
+        self.inner.stdin_is_terminal()
+    }
+
+    fn read_line(&self) -> String {
+        self.inner.read_line()
+    }
+
+    fn prompt(&self, flag: &str) -> Result<(), WorldError> {
+        if self.fault == Fault::BrokenPrompt {
+            return Err(WorldError::new("stderr", "injected prompt write fault"));
+        }
+        self.inner.prompt(flag)
     }
 
     fn today(&self) -> CivilDate {

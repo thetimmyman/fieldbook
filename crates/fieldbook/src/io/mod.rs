@@ -197,6 +197,60 @@ impl Disk {
         let _ = self;
         false
     }
+
+    /// Return whether standard input is connected to an interactive terminal.
+    #[must_use]
+    pub fn stdin_is_terminal(&self) -> bool {
+        let _ = self;
+        stdin_is_terminal()
+    }
+
+    /// Read one line from standard input.
+    #[must_use]
+    pub fn read_line(&self) -> String {
+        let _ = self;
+        read_line()
+    }
+
+    /// Write `<flag>: ` to standard error and flush immediately.
+    pub fn prompt(&self, flag: &str) -> Result<(), Error> {
+        let _ = self;
+        prompt(flag)
+    }
+}
+
+/// Return whether standard input is connected to an interactive terminal.
+#[must_use]
+pub fn stdin_is_terminal() -> bool {
+    use std::io::IsTerminal as _;
+    std::io::stdin().is_terminal()
+}
+
+/// Read one line from standard input, stripping any trailing `\n` or `\r\n`.
+#[must_use]
+pub fn read_line() -> String {
+    let mut line = String::new();
+    let _ = std::io::stdin().read_line(&mut line);
+    if line.ends_with('\n') {
+        line.pop();
+        if line.ends_with('\r') {
+            line.pop();
+        }
+    }
+    line
+}
+
+/// Write `<flag>: ` to `out` and flush immediately, mapping any write or flush error to [`WorldError`].
+pub fn write_prompt_to<W: Write>(mut out: W, flag: &str) -> Result<(), WorldError> {
+    out.write_all(flag.as_bytes())
+        .and_then(|()| out.write_all(b": "))
+        .and_then(|()| out.flush())
+        .map_err(|err| WorldError::new("stderr", err.to_string()))
+}
+
+/// Write `<flag>: ` to standard error and flush immediately.
+pub fn prompt(flag: &str) -> Result<(), WorldError> {
+    write_prompt_to(&mut std::io::stderr().lock(), flag)
 }
 
 /// Run the program: read the arguments, run the command, write its output.
