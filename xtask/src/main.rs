@@ -22,6 +22,14 @@
     reason = "xtask starts git, cargo and curl, and reads the environment and files"
 )]
 
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the packaging consumers and edition_release use allowlist helpers"
+    )
+)]
+mod allowlist;
 mod audit_doc;
 mod binscan;
 mod cli_doc;
@@ -62,6 +70,14 @@ mod deps_metadata;
 )]
 mod deps_references;
 mod docs;
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "raw-edition and release-workflow register their archive providers next"
+    )
+)]
+mod edition_release;
 mod errors;
 #[cfg(test)]
 mod graph;
@@ -71,6 +87,14 @@ mod guard_fields;
 mod literals;
 mod proc;
 mod tools;
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the packaging consumers and edition_release use zipdet helpers"
+    )
+)]
+mod zipdet;
 
 use std::path::PathBuf;
 use std::process::ExitCode;
@@ -82,7 +106,10 @@ const USAGE: &str = "usage: cargo xtask <command>
   guard-statuses BASE HEAD          fail if an agent's commits raise a status or weaken a seed or regression case
   denylist FILE                     fail if a term from FILE appears in tracked content or pushed history
   compat --base FILE                verify published compatibility bindings and vectors against FILE
-  binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans";
+  binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans
+  archive-release [FLAGS]           copy a verified release set and compatibility evidence into a durable archive
+  verify-archive DIR [FLAGS]        reopen and verify a durable archive and its stream predecessor
+  edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version";
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -104,6 +131,9 @@ fn main() -> ExitCode {
         }
         ["compat", "--base", file] => compat::command(&root, &PathBuf::from(file)),
         ["binscan", exe, "--build", build] => binscan::command(&root, &PathBuf::from(exe), build),
+        ["archive-release", rest @ ..] => edition_release::command_archive_release(rest),
+        ["verify-archive", rest @ ..] => edition_release::command_verify_archive(rest),
+        ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {
             eprintln!("{USAGE}");
