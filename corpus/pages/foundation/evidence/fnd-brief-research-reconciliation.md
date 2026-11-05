@@ -7,7 +7,7 @@ type = "brief"
 stage = 2
 readiness = "PUBLIC-NOW"
 status = "draft"
-as_of = 2026-10-29
+as_of = 2025-12-18
 handling = ["public"]
 questions = ["Q-020"]
 
