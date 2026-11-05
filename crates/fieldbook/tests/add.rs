@@ -1931,3 +1931,49 @@ fn folder_recovery_distinguishes_equal_basenames() {
     assert_eq!(begins["events"].as_array().expect("begins").len(), 1);
     assert_eq!(ends["events"].as_array().expect("ends").len(), 1);
 }
+
+#[test]
+fn add_dot_imports_current_directory() {
+    let tmp = temp_copy(&fixture_root());
+    std::fs::create_dir_all(tmp.path().join("inbox/sub")).expect("create inbox/sub");
+    write_input(
+        tmp.path(),
+        "inbox/dot-note.txt",
+        b"Public note inside current directory.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+    // Both `.` and `inbox/sub/..` have `Path::file_name() == None`.
+    let out = fieldbook::run(&svec(&["add", "inbox/sub/..", "--confirm-public"]), &world);
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    assert_eq!(
+        out.stdout,
+        "added     S-0004-v1  dot-note.txt\ndone: 1 added\n"
+    );
+}
+
+#[test]
+fn recursive_folder_refuses_marked_subdirectory_name() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(
+        tmp.path(),
+        "inbox/PROPRIETARY/note.txt",
+        b"Unmarked body inside a marked directory.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--recursive", "--confirm-public"]),
+        &world,
+    );
+    assert_eq!(out.code, 1, "marked subdirectory must be refused");
+    assert!(
+        out.stderr.contains("FB0400"),
+        "stderr must report FB0400: {}",
+        out.stderr
+    );
+    let sources_csv = std::fs::read_to_string(tmp.path().join("corpus/registers/sources.csv"))
+        .expect("read sources.csv");
+    assert!(
+        !sources_csv.contains("PROPRIETARY"),
+        "sources.csv must not persist marked directory path"
+    );
+}

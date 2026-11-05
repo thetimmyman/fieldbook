@@ -2,12 +2,7 @@
 //! version row to `corpus/registers/sources.csv` (`add-new-and-edition`, `add-folder-mode`,
 //! AD-17, ADR 0004).
 
-#![expect(
-    clippy::disallowed_methods,
-    reason = "add folder traversal reads directory entries and symlink metadata"
-)]
-
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 use fieldbook_core::add::{
     AddError, AddOptions, AddOutcome, AddPlan, check_type, needs_extraction, plan_add,
@@ -137,49 +132,13 @@ pub fn run(args: &AddArgs, world: &dyn World) -> Outcome {
 /// state-store rules).
 #[must_use]
 pub fn run_with_policy(args: &AddArgs, world: &dyn World, policy: &Policy) -> Outcome {
-    let Some(file_name) = args.file.file_name().and_then(|n| n.to_str()) else {
-        return Outcome {
-            stdout: String::new(),
-            stderr: format!("invalid file name: {}\n", args.file.display()),
-            code: EXIT_USAGE,
+    let (input_path, is_dir) =
+        match crate::io::inspect_add_input(&args.file, world.cwd(), world.state_dir()) {
+            Ok(pair) => pair,
+            Err(err) => return io_err(err),
         };
-    };
-    if file_name.is_empty() {
-        return Outcome {
-            stdout: String::new(),
-            stderr: "file name must not be empty\n".to_owned(),
-            code: EXIT_USAGE,
-        };
-    }
 
-    let primary_path = if args.file.is_absolute() {
-        args.file.clone()
-    } else {
-        world.cwd().join(&args.file)
-    };
-    let (input_path, meta) = match std::fs::symlink_metadata(&primary_path) {
-        Ok(m) => (primary_path, m),
-        Err(primary_err) => {
-            if !args.file.is_absolute() && primary_err.kind() == std::io::ErrorKind::NotFound {
-                let state_fallback = world.state_dir().join(&args.file);
-                if let Ok(m) = std::fs::symlink_metadata(&state_fallback) {
-                    (state_fallback, m)
-                } else {
-                    return io_err(crate::WorldError::new(
-                        &primary_path,
-                        primary_err.to_string(),
-                    ));
-                }
-            } else {
-                return io_err(crate::WorldError::new(
-                    &primary_path,
-                    primary_err.to_string(),
-                ));
-            }
-        }
-    };
-
-    if meta.is_dir() {
+    if is_dir {
         if args.source.is_some() {
             return Outcome {
                 stdout: String::new(),
@@ -189,8 +148,41 @@ pub fn run_with_policy(args: &AddArgs, world: &dyn World, policy: &Policy) -> Ou
         }
         run_folder(args, world, policy, &input_path)
     } else {
+        let Some(file_name) = args
+            .file
+            .file_name()
+            .or_else(|| input_path.file_name())
+            .and_then(|n| n.to_str())
+        else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("invalid file name: {}\n", args.file.display()),
+                code: EXIT_USAGE,
+            };
+        };
+        if file_name.is_empty() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "file name must not be empty\n".to_owned(),
+                code: EXIT_USAGE,
+            };
+        }
         run_single_file(args, world, policy, &input_path, file_name)
     }
+}
+
+fn candidate_labels(
+    file_name: &str,
+    file_bytes: &[u8],
+    policy: &Policy,
+    context: &LabelContext,
+) -> LabelSet {
+    let text = String::from_utf8_lossy(file_bytes);
+    let mut labels = labels::for_text(&text, &policy.marking_rules(), context);
+    if let Some(name_markings) = labels::markings_in(file_name, &policy.marking_rules()) {
+        labels = labels.union(&name_markings);
+    }
+    labels
 }
 
 struct OneSuccess {
@@ -293,8 +285,7 @@ fn add_one(
         }
     };
 
-    let text = String::from_utf8_lossy(&file_bytes);
-    let labels = labels::for_text(&text, &policy.marking_rules(), context);
+    let labels = candidate_labels(file_name, &file_bytes, policy, context);
 
     if let Err(refusal) = labels::admit(&labels, &StoreRule::corpus()) {
         if let Err(err) = record_add_refusal(
@@ -612,59 +603,6 @@ fn run_single_file(
     }
 }
 
-#[derive(Debug, Clone)]
-struct FolderCandidate {
-    rel_name: String,
-    disk_path: PathBuf,
-}
-
-fn enumerate_folder_candidates(
-    folder_path: &Path,
-    recursive: bool,
-) -> Result<Vec<FolderCandidate>, crate::WorldError> {
-    let mut out = Vec::new();
-    enumerate_folder_inner(folder_path, "", recursive, &mut out)?;
-    out.sort_by(|a, b| a.rel_name.as_bytes().cmp(b.rel_name.as_bytes()));
-    Ok(out)
-}
-
-fn enumerate_folder_inner(
-    dir_path: &Path,
-    prefix: &str,
-    recursive: bool,
-    out: &mut Vec<FolderCandidate>,
-) -> Result<(), crate::WorldError> {
-    let read_dir = std::fs::read_dir(dir_path)
-        .map_err(|err| crate::WorldError::new(dir_path, err.to_string()))?;
-    for entry_res in read_dir {
-        let entry = entry_res.map_err(|err| crate::WorldError::new(dir_path, err.to_string()))?;
-        let entry_path = entry.path();
-        let meta = std::fs::symlink_metadata(&entry_path)
-            .map_err(|err| crate::WorldError::new(&entry_path, err.to_string()))?;
-        let ft = meta.file_type();
-        if ft.is_symlink() {
-            continue;
-        }
-        let name = entry.file_name().to_string_lossy().into_owned();
-        let rel_name = if prefix.is_empty() {
-            name
-        } else {
-            format!("{prefix}/{name}")
-        };
-        if ft.is_dir() {
-            if recursive {
-                enumerate_folder_inner(&entry_path, &rel_name, recursive, out)?;
-            }
-        } else if ft.is_file() {
-            out.push(FolderCandidate {
-                rel_name,
-                disk_path: entry_path,
-            });
-        }
-    }
-    Ok(())
-}
-
 fn corpus_relative_dir(target_dir: &Path, raw_arg: &Path, world: &dyn World) -> String {
     let rel = if let Ok(stripped) = target_dir.strip_prefix(world.tree_root()) {
         stripped
@@ -706,7 +644,7 @@ fn run_folder(args: &AddArgs, world: &dyn World, policy: &Policy, folder_path: &
         }
     };
 
-    let candidates = match enumerate_folder_candidates(folder_path, args.recursive) {
+    let candidates = match crate::io::enumerate_folder_candidates(folder_path, args.recursive) {
         Ok(cands) => cands,
         Err(err) => return io_err(err),
     };
@@ -785,8 +723,7 @@ fn run_folder(args: &AddArgs, world: &dyn World, policy: &Policy, folder_path: &
                 code: EXIT_IO,
             };
         };
-        let text = String::from_utf8_lossy(&file_bytes);
-        let labels = labels::for_text(&text, &policy.marking_rules(), context);
+        let labels = candidate_labels(&cand.rel_name, &file_bytes, policy, context);
         if labels::admit(&labels, &StoreRule::corpus()).is_err() {
             return Outcome {
                 stdout: String::new(),
