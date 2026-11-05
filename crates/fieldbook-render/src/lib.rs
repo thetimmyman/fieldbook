@@ -4,5 +4,6 @@
 pub const LAYER: &str = "render";
 
 pub mod csp;
+pub mod lint;
 pub mod meta;
 pub mod site;

@@ -14,6 +14,7 @@ use fieldbook_core::egress::{
 };
 use fieldbook_core::labels::{self, ItemRef, MarkingRules};
 use fieldbook_core::policy::EffectivePolicy;
+use fieldbook_render::lint::{self, OriginalNames};
 use fieldbook_render::meta::{BuildInfo, MetadataError, RenderContext};
 use fieldbook_render::site::{self, Site};
 
@@ -52,6 +53,8 @@ pub struct BuildPlan {
 pub enum BuildPlanError {
     /// Edition metadata validation failed (`MetadataError`).
     Metadata(MetadataError),
+    /// Site lint findings (`FB0603`, `FB0604`, `FB0605`).
+    Lint(Vec<Diagnostic>),
     /// Filesystem or scope check failed (`io::Error`).
     Io(Error),
 }
@@ -87,24 +90,24 @@ pub fn collect_view_inputs(view: &LabelledView) -> (Vec<ItemRef>, Vec<RecordRef>
     )
 }
 
-/// Validate `RenderContext`, render [`Site`], repeat the root check, construct the [`Delivery`]
-/// and [`WriteSet`], and obtain the final delivery-bound [`Allowed`] token.
-///
-/// # Errors
-///
-/// Returns [`BuildPlanError::Metadata`] if `RenderContext` validation fails, or
-/// [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
-pub fn plan_edition(
+#[expect(
+    clippy::too_many_arguments,
+    reason = "shares the 7 plan_edition arguments plus pre-rendered Site"
+)]
+fn build_plan_from_site(
     view: &LabelledView,
-    info: &BuildInfo,
+    context: RenderContext,
+    site: Site,
     out_dir: &Path,
     eff: &EffectivePolicy,
     labels: &LabelSet,
     now: Now,
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
-    let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(&context);
+    let lint_diags = lint::lint(&site, &OriginalNames::default());
+    if !lint_diags.is_empty() {
+        return Err(BuildPlanError::Lint(lint_diags));
+    }
 
     dirs::check_build_roots(out_dir, &[BuildRoot::Edition]).map_err(BuildPlanError::Io)?;
 
@@ -174,6 +177,51 @@ pub fn plan_edition(
         })),
         Decision::Denied(denial) => Ok(Err(denial)),
     }
+}
+
+/// Validate `RenderContext`, render [`Site`], lint the rendered site (`FB0603`..=`FB0605`),
+/// repeat the root check, construct the [`Delivery`] and [`WriteSet`], and obtain the final
+/// delivery-bound [`Allowed`] token.
+///
+/// # Errors
+///
+/// Returns [`BuildPlanError::Metadata`] if `RenderContext` validation fails,
+/// [`BuildPlanError::Lint`] if `fieldbook_render::lint::lint` reports findings, or
+/// [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
+pub fn plan_edition(
+    view: &LabelledView,
+    info: &BuildInfo,
+    out_dir: &Path,
+    eff: &EffectivePolicy,
+    labels: &LabelSet,
+    now: Now,
+    shipped: Shipped,
+) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
+    let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
+    let site = site::render_with_context(&context);
+    build_plan_from_site(view, context, site, out_dir, eff, labels, now, shipped)
+}
+
+/// Like [`plan_edition`], using an already-rendered [`Site`] (e.g. for testing lint failures in the build pipeline).
+///
+/// # Errors
+///
+/// Returns [`BuildPlanError`] on lint findings or root/path resolution errors.
+#[expect(
+    clippy::too_many_arguments,
+    reason = "shares the 7 plan_edition arguments plus pre-rendered Site"
+)]
+pub fn plan_edition_with_site(
+    view: &LabelledView,
+    context: RenderContext,
+    site: Site,
+    out_dir: &Path,
+    eff: &EffectivePolicy,
+    labels: &LabelSet,
+    now: Now,
+    shipped: Shipped,
+) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
+    build_plan_from_site(view, context, site, out_dir, eff, labels, now, shipped)
 }
 
 /// Execute the final outward writes for `plan` under `audited`: replace `DIR/edition` via
@@ -399,6 +447,14 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
             return Outcome {
                 stdout: String::new(),
                 stderr: format!("error: {meta_err}\n"),
+                code: EXIT_FINDINGS,
+            };
+        }
+        Err(BuildPlanError::Lint(diags)) => {
+            let report = Report::from_parts(diags, Vec::new());
+            return Outcome {
+                stdout: String::new(),
+                stderr: report.render_text(),
                 code: EXIT_FINDINGS,
             };
         }

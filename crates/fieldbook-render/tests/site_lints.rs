@@ -1,0 +1,415 @@
+//! Unit and property tests for `fieldbook_render::lint` (`build-site-lints`).
+
+#[path = "../../../tests/support/rng.rs"]
+mod rng;
+
+use std::collections::BTreeSet;
+
+use fieldbook_core::check::Code;
+use fieldbook_render::csp::CSP_STATIC;
+use fieldbook_render::lint::{
+    APP_JS, ASSIST_JS, DATA_FILE, OriginalNames, SCRIPTS_TOTAL, SEARCH_JS, lint, scan_html,
+};
+use fieldbook_render::site::Site;
+
+const CORPUS_FORMAT_MD: &str = include_str!("../../../docs/reference/corpus-format.md");
+
+fn valid_page_with_prefix(prefix: &str, body_inner: &str) -> Vec<u8> {
+    format!(
+        "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"Content-Security-Policy\" content=\"{CSP_STATIC}\">\n<title>Fieldbook</title>\n<link rel=\"stylesheet\" href=\"{prefix}assets/app.css\">\n</head>\n<body>\n<main>{body_inner}</main>\n<script src=\"{prefix}assets/strings.js\"></script>\n</body>\n</html>\n"
+    )
+    .into_bytes()
+}
+
+fn valid_page(body_inner: &str) -> Vec<u8> {
+    valid_page_with_prefix("", body_inner)
+}
+
+fn clean_site() -> Site {
+    let mut site = Site::new();
+    site.insert("index.html", valid_page("<h1 id=\"top\">Fieldbook</h1>"));
+    site.insert(
+        "assets/app.css",
+        b"body { color: var(--color-fg); }\n".to_vec(),
+    );
+    site.insert("assets/strings.js", b"var FB_STRINGS = {};\n".to_vec());
+    site
+}
+
+mod site_lints {
+    use super::*;
+
+    #[test]
+    fn clean_site_passes() {
+        let site = clean_site();
+        let diags = lint(&site, &OriginalNames::default());
+        assert!(diags.is_empty(), "expected clean site, got {diags:?}");
+    }
+
+    #[test]
+    fn dead_link_is_fb0603() {
+        let mut site = clean_site();
+        site.insert(
+            "page.html",
+            valid_page("<a href=\"missing.html\">Missing</a>"),
+        );
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0603);
+        assert_eq!(diags[0].path, "page.html");
+        assert!(diags[0].message.contains("missing.html"));
+    }
+
+    #[test]
+    fn style_attribute_is_fb0604() {
+        let mut site = clean_site();
+        site.insert(
+            "page.html",
+            valid_page("<p style=\"color: red\">Styled</p>"),
+        );
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0604);
+        assert_eq!(diags[0].path, "page.html");
+    }
+
+    // control: WB-03
+    #[test]
+    fn script_over_budget_is_fb0605() {
+        let mut site = clean_site();
+        let oversized = usize::try_from(APP_JS).unwrap_or(30_000) + 1;
+        site.insert("assets/app.js", vec![b'a'; oversized]);
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0605);
+        assert_eq!(diags[0].path, "assets/app.js");
+    }
+
+    #[test]
+    fn fragment_must_exist() {
+        let mut site = clean_site();
+        site.insert(
+            "page.html",
+            valid_page(
+                "<a href=\"index.html#top\">Ok</a><a href=\"index.html#missing-anchor\">Bad</a>",
+            ),
+        );
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0603);
+        assert!(diags[0].message.contains("missing-anchor"));
+    }
+
+    #[test]
+    fn directory_link_needs_index_html() {
+        let mut site = clean_site();
+        site.insert(
+            "a/index.html",
+            valid_page_with_prefix("../", "<h1>Area</h1>"),
+        );
+        site.insert("page.html", valid_page("<a href=\"a/\">Area dir</a>"));
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0603);
+        assert!(diags[0].message.contains("index.html"));
+    }
+
+    #[test]
+    fn originals_link_resolves_by_name() {
+        let mut site = clean_site();
+        site.insert(
+            "s/S-0001-v1.html",
+            format!(
+                "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"Content-Security-Policy\" content=\"{CSP_STATIC}\">\n<title>Fieldbook</title>\n<link rel=\"stylesheet\" href=\"../assets/app.css\">\n</head>\n<body>\n<main><a href=\"../originals/S-0001-v1.html.txt\">HTML original</a><a href=\"../originals/S-0001-v1.html\">Unrenamed</a></main>\n</body>\n</html>\n"
+            )
+            .into_bytes(),
+        );
+        let originals = OriginalNames(BTreeSet::from(["S-0001-v1.html.txt".to_owned()]));
+        let diags = lint(&site, &originals);
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0603);
+        assert!(diags[0].message.contains("S-0001-v1.html"));
+    }
+
+    #[test]
+    fn budget_counts_all_scripts() {
+        let mut site = clean_site();
+        // Each individual script is within its own limit, and strings.js + extra.js bring total > 64_000.
+        site.insert("assets/app.js", vec![b'a'; 25_000]);
+        site.insert("assets/search.js", vec![b'b'; 9_000]);
+        site.insert("assets/assist.js", vec![b'c'; 19_000]);
+        site.insert("assets/extra.js", vec![b'd'; 12_000]);
+        // Also add search-index.js and assist-data.js well over 64_000 but under 3_000_000 to verify they are data, not scripts.
+        site.insert("assets/search-index.js", vec![b'e'; 100_000]);
+        site.insert("assets/assist-data.js", vec![b'f'; 100_000]);
+
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(
+            diags.len(),
+            1,
+            "expected 1 total-script FB0605 diagnostic, got {diags:?}"
+        );
+        assert_eq!(diags[0].code, Code::Fb0605);
+        assert!(diags[0].message.contains("total script size"));
+
+        // A .js file under data/ is still counted toward the script budget.
+        let mut site_data_js = clean_site();
+        site_data_js.insert("data/extra.js", vec![b'x'; 65_000]);
+        let diags_data_js = lint(&site_data_js, &OriginalNames::default());
+        assert_eq!(diags_data_js.len(), 1);
+        assert_eq!(diags_data_js[0].code, Code::Fb0605);
+    }
+
+    // control: WB-02
+    #[test]
+    fn remote_script_is_fb0604() {
+        let mut site = clean_site();
+        site.insert(
+            "page.html",
+            valid_page("<script src=\"https://example.invalid/x.js\"></script>"),
+        );
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0604);
+        assert_eq!(diags[0].path, "page.html");
+
+        // Unclosed inline script at EOF is also caught as FB0604.
+        let mut site_unclosed = clean_site();
+        site_unclosed.insert("page.html", valid_page("<script>var x = 1;"));
+        let diags_unclosed = lint(&site_unclosed, &OriginalNames::default());
+        assert!(
+            diags_unclosed.iter().any(|d| d.code == Code::Fb0604),
+            "expected FB0604 for unclosed inline script"
+        );
+    }
+
+    // control: WB-02
+    #[test]
+    fn external_href_is_fb0604() {
+        let mut site = clean_site();
+        site.insert(
+            "page.html",
+            valid_page(
+                "<a href=\"https://example.invalid/doc\">External</a><a href=\"HTTPS://example.invalid/upper\">Upper</a>",
+            ),
+        );
+        let diags = lint(&site, &OriginalNames::default());
+        assert_eq!(diags.len(), 2, "expected 2 diagnostics, got {diags:?}");
+        assert!(diags.iter().all(|d| d.code == Code::Fb0604));
+        assert_eq!(diags[0].path, "page.html");
+    }
+
+    #[test]
+    fn budgets_match_the_reference() {
+        let fb0605_line = CORPUS_FORMAT_MD
+            .lines()
+            .find(|l| l.starts_with("| FB0605 |"))
+            .unwrap_or_else(|| panic!("FB0605 row missing from corpus-format.md"));
+
+        assert!(
+            fb0605_line.contains("`app.js` 30 KB") && APP_JS == 30_000,
+            "APP_JS must match `app.js` 30 KB (30,000 bytes)"
+        );
+        assert!(
+            fb0605_line.contains("`search.js` 10 KB") && SEARCH_JS == 10_000,
+            "SEARCH_JS must match `search.js` 10 KB (10,000 bytes)"
+        );
+        assert!(
+            fb0605_line.contains("`assist.js` 20 KB") && ASSIST_JS == 20_000,
+            "ASSIST_JS must match `assist.js` 20 KB (20,000 bytes)"
+        );
+        assert!(
+            fb0605_line.contains("64 KB of scripts in all") && SCRIPTS_TOTAL == 64_000,
+            "SCRIPTS_TOTAL must match 64 KB (64,000 bytes)"
+        );
+        assert!(
+            fb0605_line.contains("3 MB for any data file of the edition") && DATA_FILE == 3_000_000,
+            "DATA_FILE must match 3 MB (3,000,000 bytes)"
+        );
+        assert!(
+            fb0605_line.contains("A KB is 1,000 bytes"),
+            "FB0605 row must state decimal KB"
+        );
+        assert!(
+            fb0605_line.contains("Scripts are app.js, search.js, strings.js and assist.js; strings.js counts only in the 64 KB total."),
+            "FB0605 row must state script list and strings.js rule"
+        );
+        assert!(
+            fb0605_line.contains("search-index.js and assist-data.js are data, not scripts. Other .js files count as scripts."),
+            "FB0605 row must state data vs script classification"
+        );
+
+        // Verify runtime classification of search-index.js and assist-data.js vs other .js files:
+        // 1. A 70 KB search-index.js and 70 KB assist-data.js pass (they are data files, <= DATA_FILE, not scripts).
+        let mut site_data = clean_site();
+        site_data.insert("assets/search-index.js", vec![b'x'; 70_000]);
+        site_data.insert("assets/assist-data.js", vec![b'y'; 70_000]);
+        assert!(
+            lint(&site_data, &OriginalNames::default()).is_empty(),
+            "70 KB search-index.js and assist-data.js must be classified as data and pass"
+        );
+
+        // 2. A data file exceeding DATA_FILE raises FB0605.
+        let mut site_data_over = clean_site();
+        let over_data = usize::try_from(DATA_FILE).unwrap_or(3_000_000) + 1;
+        site_data_over.insert("assets/search-index.js", vec![b'x'; over_data]);
+        let over_diags = lint(&site_data_over, &OriginalNames::default());
+        assert_eq!(over_diags.len(), 1);
+        assert_eq!(over_diags[0].code, Code::Fb0605);
+
+        // 3. A 40 KB strings.js passes on its own (no individual limit, under 64 KB total).
+        let mut site_strings = Site::new();
+        site_strings.insert("index.html", valid_page("<h1 id=\"top\">Fieldbook</h1>"));
+        site_strings.insert(
+            "assets/app.css",
+            b"body { color: var(--color-fg); }\n".to_vec(),
+        );
+        site_strings.insert("assets/strings.js", vec![b's'; 40_000]);
+        assert!(
+            lint(&site_strings, &OriginalNames::default()).is_empty(),
+            "40 KB strings.js has no individual limit and fits in 64 KB total"
+        );
+
+        // 4. An unnamed other .js file of 65 KB raises FB0605 against SCRIPTS_TOTAL.
+        let mut site_other_js = clean_site();
+        site_other_js.insert("assets/other.js", vec![b'o'; 65_000]);
+        let other_diags = lint(&site_other_js, &OriginalNames::default());
+        assert_eq!(other_diags.len(), 1);
+        assert_eq!(other_diags[0].code, Code::Fb0605);
+    }
+
+    #[test]
+    fn html_scanner_never_panics_on_200_seeded_inputs() {
+        let mut prng = rng::Rng::new(1);
+        for _ in 0..200 {
+            let len = usize::try_from(prng.next_u64() % 256).unwrap_or(64);
+            let buf = prng.bytes(len);
+            if let Err(err) = scan_html(&buf) {
+                assert!(err.byte_offset <= buf.len());
+                assert!(err.line >= 1);
+                assert!(err.col >= 1);
+            }
+        }
+
+        let sample = "<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\" content=\"§14 — 252.242‑7005 • café\"></head><body><a href='p/cmp-test.html#sec-1' data-label=\"quote\">Text</a><!-- comment --></body></html>".as_bytes();
+        for idx in 0..sample.len() {
+            // Flip byte
+            let mut flipped = sample.to_vec();
+            flipped[idx] ^= 0xff;
+            if let Err(err) = scan_html(&flipped) {
+                assert!(err.byte_offset <= flipped.len());
+                assert!(err.line >= 1);
+                assert!(err.col >= 1);
+            }
+
+            // Delete byte
+            let mut deleted = sample.to_vec();
+            deleted.remove(idx);
+            if let Err(err) = scan_html(&deleted) {
+                assert!(err.byte_offset <= deleted.len());
+                assert!(err.line >= 1);
+                assert!(err.col >= 1);
+            }
+        }
+    }
+
+    #[test]
+    fn pdf_page_and_search_query_fragments_are_valid() {
+        let mut site = clean_site();
+        site.insert("search.html", valid_page("<h1>Search</h1>"));
+        site.insert(
+            "p/test.html",
+            format!(
+                "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"Content-Security-Policy\" content=\"{CSP_STATIC}\">\n<title>Fieldbook</title>\n<link rel=\"stylesheet\" href=\"../assets/app.css\">\n</head>\n<body>\n<main><a href=\"../../originals/S-0042-v2.pdf#page=1\">PDF p.1</a><a href=\"../search.html#q=252.242-7005%20clause\">Search</a></main>\n</body>\n</html>\n"
+            )
+            .into_bytes(),
+        );
+        let originals = OriginalNames(BTreeSet::from(["S-0042-v2.pdf".to_owned()]));
+        let diags = lint(&site, &originals);
+        assert!(
+            diags.is_empty(),
+            "valid PDF #page=1 and search.html#q=... fragments must pass, got {diags:?}"
+        );
+    }
+
+    #[test]
+    fn fragment_exceptions_still_require_targets() {
+        let originals = OriginalNames(BTreeSet::from([
+            "S-0042-v2.pdf".to_owned(),
+            "S-0001-v1.html.txt".to_owned(),
+        ]));
+
+        // 1. #page=0 on a shipped PDF raises FB0603
+        let mut s1 = Site::new();
+        s1.insert("assets/app.css", b"body {}\n".to_vec());
+        s1.insert("assets/strings.js", b"var FB_STRINGS = {};\n".to_vec());
+        s1.insert(
+            "index.html",
+            valid_page("<a href=\"../originals/S-0042-v2.pdf#page=0\">p0</a>"),
+        );
+        let d1 = lint(&s1, &originals);
+        assert_eq!(d1.len(), 1, "expected FB0603 for #page=0, got {d1:?}");
+        assert_eq!(d1[0].code, Code::Fb0603);
+
+        // 2. Non-integer page selector (#page=abc) on a shipped PDF raises FB0603
+        let mut s2 = Site::new();
+        s2.insert("assets/app.css", b"body {}\n".to_vec());
+        s2.insert("assets/strings.js", b"var FB_STRINGS = {};\n".to_vec());
+        s2.insert(
+            "index.html",
+            valid_page("<a href=\"../originals/S-0042-v2.pdf#page=abc\">pabc</a>"),
+        );
+        let d2 = lint(&s2, &originals);
+        assert_eq!(d2.len(), 1, "expected FB0603 for #page=abc, got {d2:?}");
+        assert_eq!(d2[0].code, Code::Fb0603);
+
+        // 3. Valid #page=1 on a missing original raises FB0603
+        let mut s3 = Site::new();
+        s3.insert("assets/app.css", b"body {}\n".to_vec());
+        s3.insert("assets/strings.js", b"var FB_STRINGS = {};\n".to_vec());
+        s3.insert(
+            "index.html",
+            valid_page("<a href=\"../originals/S-9999-v1.pdf#page=1\">missing pdf</a>"),
+        );
+        let d3 = lint(&s3, &originals);
+        assert_eq!(
+            d3.len(),
+            1,
+            "expected FB0603 for missing PDF original, got {d3:?}"
+        );
+        assert_eq!(d3[0].code, Code::Fb0603);
+
+        // 4. Valid #q=foo on a missing search.html raises FB0603
+        let mut s4 = Site::new();
+        s4.insert("assets/app.css", b"body {}\n".to_vec());
+        s4.insert("assets/strings.js", b"var FB_STRINGS = {};\n".to_vec());
+        s4.insert(
+            "index.html",
+            valid_page("<a href=\"search.html#q=foo\">missing search.html</a>"),
+        );
+        let d4 = lint(&s4, &originals);
+        assert_eq!(
+            d4.len(),
+            1,
+            "expected FB0603 when search.html is absent, got {d4:?}"
+        );
+        assert_eq!(d4[0].code, Code::Fb0603);
+
+        // 5. Missing ordinary HTML anchor on search.html raises FB0603
+        let mut s5 = Site::new();
+        s5.insert("assets/app.css", b"body {}\n".to_vec());
+        s5.insert("assets/strings.js", b"var FB_STRINGS = {};\n".to_vec());
+        s5.insert("search.html", valid_page("<h1 id=\"top\">Search</h1>"));
+        s5.insert(
+            "index.html",
+            valid_page("<a href=\"search.html#missing-id\">bad anchor</a>"),
+        );
+        let d5 = lint(&s5, &originals);
+        assert_eq!(
+            d5.len(),
+            1,
+            "expected FB0603 for missing ordinary HTML anchor on search.html, got {d5:?}"
+        );
+        assert_eq!(d5[0].code, Code::Fb0603);
+    }
+}
