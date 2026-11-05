@@ -164,4 +164,36 @@ impl Tree {
             .collect();
         Self { entries, dirs }
     }
+
+    /// Compute the deterministic SHA-256 generation digest of all directories and file entries in this [`Tree`].
+    #[must_use]
+    pub fn generation_hash(&self) -> crate::audit::Sha256 {
+        let mut hasher = crate::hash::Sha256Stream::new();
+        hasher.update(b"fieldbook-tree-generation-1\n");
+        hasher.update(&(self.dirs.len() as u64).to_be_bytes());
+        for dir in &self.dirs {
+            hasher.update(&(dir.len() as u64).to_be_bytes());
+            hasher.update(dir.as_bytes());
+        }
+        hasher.update(&(self.entries.len() as u64).to_be_bytes());
+        for (path, entry) in &self.entries {
+            hasher.update(&(path.len() as u64).to_be_bytes());
+            hasher.update(path.as_bytes());
+            match entry {
+                Entry::Bytes(bytes) => {
+                    hasher.update(&[0x01]);
+                    hasher.update(&(bytes.len() as u64).to_be_bytes());
+                    let file_digest = crate::hash::sha256_hex(bytes);
+                    hasher.update(file_digest.as_bytes());
+                }
+                Entry::Original { sha256, len } => {
+                    hasher.update(&[0x02]);
+                    hasher.update(&len.to_be_bytes());
+                    hasher.update(sha256.as_bytes());
+                }
+            }
+        }
+        let hex_digest = hasher.finish();
+        crate::audit::Sha256::parse(&hex_digest).unwrap_or_else(|_| unreachable!())
+    }
 }

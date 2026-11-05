@@ -33,30 +33,6 @@ card = "search-cli-and-regression"
 
 # Ranges 08 and 09 pending codes
 [[pending]]
-code = "FB0800"
-card = "audit-journal"
-
-[[pending]]
-code = "FB0801"
-card = "audit-journal"
-
-[[pending]]
-code = "FB0802"
-card = "audit-journal"
-
-[[pending]]
-code = "FB0803"
-card = "audit-journal"
-
-[[pending]]
-code = "FB0804"
-card = "audit-journal"
-
-[[pending]]
-code = "FB0805"
-card = "audit-journal"
-
-[[pending]]
 code = "FB0806"
 card = "audit-export"
 

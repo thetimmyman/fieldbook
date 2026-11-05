@@ -9,17 +9,19 @@
 //! External crates join through their cards, each at its pin in
 //! `docs/reference/dependencies.md`.
 
+pub mod audit;
 pub mod cli;
 pub mod io;
 
 pub use cli::Cli;
-pub use io::WorldError;
+pub use io::{StoreLease, WorldError};
 
 use std::ffi::OsString;
-use std::path::{Component, Path};
+use std::path::{Component, Path, PathBuf};
 
 use clap::Parser;
 use fieldbook_core::CivilDate;
+use fieldbook_core::audit::{Now, Principal};
 use fieldbook_core::check::{self, Host, Options, Report, Tree};
 use fieldbook_core::report::CheckReport;
 
@@ -27,17 +29,32 @@ use crate::cli::{CheckArgs, Commands, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAG
 
 /// The environment seam supplied by [`io::Disk`] in production or a test double in unit tests.
 pub trait World {
-    /// Read the in-memory Corpus [`Tree`] from [`Self::tree_root`].
+    /// Read a coherent in-memory Corpus [`Tree`] from [`Self::tree_root`].
     fn read_tree(&self) -> Result<Tree, WorldError>;
+
+    /// Acquire an exclusive [`StoreLease`] over `state/store.lock`.
+    fn write_lease(&self) -> Result<StoreLease, WorldError>;
+
+    /// Read the in-memory Corpus [`Tree`] under an already-held [`StoreLease`] without relocking.
+    fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError>;
 
     /// Return today's calendar date from the system clock when `--today` is not provided.
     fn today(&self) -> CivilDate;
+
+    /// Return the current UTC event timestamp (`Now`).
+    fn now(&self) -> Now;
+
+    /// Return the OS or local principal (`Principal`).
+    fn principal(&self) -> Principal;
 
     /// Return the working directory captured at the start of the run.
     fn cwd(&self) -> &Path;
 
     /// Return the Corpus root directory (the directory containing `corpus/`).
     fn tree_root(&self) -> &Path;
+
+    /// Return the resolved default state directory (`.fieldbook/` beside the Corpus unless overridden).
+    fn state_dir(&self) -> &Path;
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -119,7 +136,62 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
     }
 
     match parsed.command {
-        Commands::Check(check_args) => run_check(&check_args, world),
+        Commands::Check(check_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                run_check(&check_args, &overridden)
+            } else {
+                run_check(&check_args, world)
+            }
+        }
+        Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), world),
+    }
+}
+
+struct StateOverrideWorld<'a> {
+    inner: &'a dyn World,
+    state_dir: PathBuf,
+}
+
+impl World for StateOverrideWorld<'_> {
+    fn read_tree(&self) -> Result<Tree, WorldError> {
+        io::journal::read_tree_coherent(self.inner.tree_root(), &self.state_dir)
+    }
+
+    fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        io::journal::acquire_write_lease(self.inner.tree_root(), &self.state_dir)
+    }
+
+    fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
+        io::journal::read_tree_under_lease(self.inner.tree_root(), &self.state_dir, lease)
+    }
+
+    fn today(&self) -> CivilDate {
+        self.inner.today()
+    }
+
+    fn now(&self) -> Now {
+        self.inner.now()
+    }
+
+    fn principal(&self) -> Principal {
+        self.inner.principal()
+    }
+
+    fn cwd(&self) -> &Path {
+        self.inner.cwd()
+    }
+
+    fn tree_root(&self) -> &Path {
+        self.inner.tree_root()
+    }
+
+    fn state_dir(&self) -> &Path {
+        &self.state_dir
     }
 }
 
@@ -220,13 +292,15 @@ mod tests {
     use std::path::{Path, PathBuf};
 
     use fieldbook_core::CivilDate;
+    use fieldbook_core::audit::{Now, Principal};
     use fieldbook_core::check::Tree;
 
-    use super::{World, WorldError, identity, run, version_line};
+    use super::{StoreLease, World, WorldError, identity, run, version_line};
 
     struct FakeWorld {
         cwd: PathBuf,
         tree_root: PathBuf,
+        state_dir: PathBuf,
     }
 
     impl Default for FakeWorld {
@@ -234,6 +308,7 @@ mod tests {
             Self {
                 cwd: PathBuf::from("/repo"),
                 tree_root: PathBuf::from("/repo"),
+                state_dir: PathBuf::from("/repo/.fieldbook"),
             }
         }
     }
@@ -243,8 +318,24 @@ mod tests {
             Ok(Tree::new())
         }
 
+        fn write_lease(&self) -> Result<StoreLease, WorldError> {
+            Err(WorldError::new(&self.state_dir, "unsupported in FakeWorld"))
+        }
+
+        fn read_tree_under(&self, _lease: &StoreLease) -> Result<Tree, WorldError> {
+            Ok(Tree::new())
+        }
+
         fn today(&self) -> CivilDate {
             CivilDate::from_ymd(2026, 3, 1).expect("valid date")
+        }
+
+        fn now(&self) -> Now {
+            Now::new(self.today(), 43_200).expect("valid now")
+        }
+
+        fn principal(&self) -> Principal {
+            Principal::local()
         }
 
         fn cwd(&self) -> &Path {
@@ -253,6 +344,10 @@ mod tests {
 
         fn tree_root(&self) -> &Path {
             &self.tree_root
+        }
+
+        fn state_dir(&self) -> &Path {
+            &self.state_dir
         }
     }
 
@@ -284,7 +379,7 @@ mod tests {
     }
 
     #[test]
-    fn anything_else_prints_usage_and_exits_two() {
+    fn anything_else_prints_usage_and_exit_two() {
         let world = FakeWorld::default();
         for other in [&["--help"][..], &["--version", "extra"], &["-V"]] {
             assert_eq!(run(&args(other), &world).code, 2, "{other:?}");

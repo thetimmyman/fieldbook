@@ -4,9 +4,14 @@
 //! Later cards add file access here. Each lifts only the bans it needs, with a
 //! `#![expect(..., reason = "...")]` at the top of this module.
 
+pub mod journal;
+pub mod state;
+pub mod store_lease;
 pub mod tree;
 pub mod win;
 
+pub use journal::{Audited, Journal, JournalError, Recovery};
+pub use store_lease::{GenerationStatus, LeaseMode, StoreLease};
 pub use tree::{Disk, WorldError, find_root, read_tree};
 
 use std::io::Write;

@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the audit journal, audit verify and its repair mode.
 - Added: check reports marking, identity, claim-language and formula problems and non-public labels (FB0400 to FB0405, FB0410).
 - Added: check reports the citation and review-date rules (FB0117, FB0118, FB0309, FB0310 and FB0320).
 - Added: check reads every citation in a page body and reports unreadable, uncanonical, touching and unresolved citations, and locators on claim keys (FB0300 to FB0303 and FB0305).

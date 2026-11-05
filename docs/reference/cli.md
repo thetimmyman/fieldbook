@@ -9,6 +9,7 @@ Offline finance reference and Corpus toolkit.
 | Option | Value | Default | Help |
 |---|---|---|---|
 | `--version` | - | - | Print version and build identity |
+| `--state` | `PATH` | - | Path to the state folder (defaults to `.fieldbook/` beside the Corpus) |
 
 ## Commands
 
@@ -22,6 +23,13 @@ Check the Corpus and print findings
 | `--today` | `YYYY-MM-DD` | - | Calendar date (YYYY-MM-DD) for freshness and as_of checks |
 | `--json` | - | - | Print the report as a JSON object |
 | `<PATHS>` | `PATHS` | - | Optional paths (relative to the working directory) to filter diagnostics |
+
+### `fieldbook audit`
+
+Inspect or verify the audit journal
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
 
 ## Exit codes
 
@@ -53,6 +61,99 @@ Check the Corpus and print findings
 | `warnings` | `integer` |
 
 ## JSON reports
+
+### `audit-show`
+
+```json
+{
+  "report_version": 1,
+  "verb": "audit show",
+  "head": {
+    "seq": 12,
+    "hash": "333c06e7324ba0462583de262a461c8935ccabd7bbf915ed76d9d7c3989b59bf"
+  },
+  "count": 12,
+  "shown": 3,
+  "events": [
+    {
+      "seq": 10,
+      "time": "2026-03-01T12:00:00Z",
+      "kind": "write.begin",
+      "actor": "local",
+      "role": "lead",
+      "store": "corpus",
+      "via": "cli",
+      "verb": "new page",
+      "labels": [
+        "public"
+      ],
+      "files": 1,
+      "file_hashes": [
+        {
+          "path_sha256": "5151515151515151515151515151515151515151515151515151515151515151",
+          "sha256": "5252525252525252525252525252525252525252525252525252525252525252"
+        }
+      ],
+      "affected": [
+        "corpus/fnd-overview"
+      ],
+      "hash": "078274465a4703aa1876e0e5e5a747dd26dcc1959b3166e7738f01a41f4bb8a2"
+    },
+    {
+      "seq": 11,
+      "time": "2026-03-01T12:00:00Z",
+      "kind": "write.end",
+      "actor": "local",
+      "role": "lead",
+      "store": "corpus",
+      "via": "cli",
+      "verb": "new page",
+      "labels": [
+        "public"
+      ],
+      "affected": [
+        "corpus/fnd-overview"
+      ],
+      "outcome": "ok",
+      "hash": "0d70a231c53782f8f75b9f31ab386c3c75f979492bda7e11e0c8b049d213dc61"
+    },
+    {
+      "seq": 12,
+      "time": "2026-03-01T12:00:00Z",
+      "kind": "backup.verify",
+      "actor": "local",
+      "role": "lead",
+      "store": "corpus",
+      "via": "cli",
+      "verification": "snapshot",
+      "outcome": "ok",
+      "target_sha256": "6161616161616161616161616161616161616161616161616161616161616161",
+      "snapshot": 1,
+      "manifest_sha256": "6262626262626262626262626262626262626262626262626262626262626262",
+      "hash": "333c06e7324ba0462583de262a461c8935ccabd7bbf915ed76d9d7c3989b59bf"
+    }
+  ],
+  "exit": 0
+}
+```
+
+### `audit-verify`
+
+```json
+{
+  "report_version": 1,
+  "verb": "audit verify",
+  "state": "ok",
+  "events": 12,
+  "head": {
+    "seq": 12,
+    "hash": "333c06e7324ba0462583de262a461c8935ccabd7bbf915ed76d9d7c3989b59bf"
+  },
+  "findings": [],
+  "unfinished": [],
+  "exit": 0
+}
+```
 
 ### `check`
 

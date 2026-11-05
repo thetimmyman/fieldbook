@@ -2,6 +2,7 @@
 
 use serde::Serialize;
 
+use crate::audit::chain::RawEventObject;
 use crate::check::{Diagnostic, Report};
 use crate::date::CivilDate;
 
@@ -78,4 +79,64 @@ impl CheckReport {
                 .collect(),
         }
     }
+}
+
+/// Journal head `{ "seq", "hash" }` in [`AuditShowReport`] and [`AuditVerifyReport`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct AuditHead {
+    /// Sequence number of the last line (`0` when the journal is empty).
+    pub seq: u64,
+    /// 64-hex hash of the last line (64 zeros when the journal is empty).
+    pub hash: String,
+}
+
+/// The `--json` report produced by `fieldbook audit show`.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct AuditShowReport {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"audit show"`.
+    pub verb: &'static str,
+    /// Sequence number and hash of the journal head.
+    pub head: AuditHead,
+    /// Total number of events in the journal.
+    pub count: usize,
+    /// Number of events in `events`.
+    pub shown: usize,
+    /// Selected journal events as objects preserving exact stored key order, oldest first.
+    pub events: Vec<RawEventObject>,
+    /// Process exit code (`0`).
+    pub exit: u8,
+}
+
+/// One diagnostic finding in [`AuditVerifyReport`].
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct AuditVerifyFinding {
+    /// Four-digit `FB08xx` catalogue code.
+    pub code: &'static str,
+    /// Effective severity (`"error"` or `"warning"`).
+    pub severity: &'static str,
+    /// Sequence number of the offending line (`0` for whole-journal findings such as FB0802).
+    pub seq: u64,
+}
+
+/// The `--json` report produced by `fieldbook audit verify`.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct AuditVerifyReport {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// Always `"audit verify"`.
+    pub verb: &'static str,
+    /// Verification state (`ok`, `broken`, `torn`, or `unfinished`).
+    pub state: &'static str,
+    /// Number of events in the journal.
+    pub events: usize,
+    /// Sequence number and hash of the journal head.
+    pub head: AuditHead,
+    /// Findings in the order raised.
+    pub findings: Vec<AuditVerifyFinding>,
+    /// Sequence numbers of `write.begin` events with no matching `write.end`.
+    pub unfinished: Vec<u64>,
+    /// Process exit code (`0` or `1`).
+    pub exit: u8,
 }

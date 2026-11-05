@@ -22,6 +22,7 @@
     reason = "xtask starts git, cargo and curl, and reads the environment and files"
 )]
 
+mod audit_doc;
 mod cli_doc;
 mod compat;
 mod denylist;

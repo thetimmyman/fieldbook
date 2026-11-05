@@ -32,8 +32,6 @@ const NOT_BUILT: &[&str] = &[
     "new term",
     "new note",
     "add",
-    "audit verify",
-    "audit show",
     "audit export",
     "backup",
     "backup verify",
