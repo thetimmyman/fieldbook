@@ -447,32 +447,19 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
                     && let Some((s_line, s_col, src_opt, content_start)) = open_script.take()
                 {
                     let inner = text.get(content_start..tag.start_byte).unwrap_or("").trim();
-                    match src_opt {
-                        None => {
-                            diags.push(Diagnostic::new(
-                                Code::Fb0604,
-                                false,
-                                page_path.clone(),
-                                s_line,
-                                s_col,
-                                format!("inline `<script>` is forbidden in `{page_path}`"),
-                            ));
-                        }
-                        Some(src_val) => {
-                            if !inner.is_empty() {
-                                diags.push(Diagnostic::new(
-                                    Code::Fb0604,
-                                    false,
-                                    page_path.clone(),
-                                    s_line,
-                                    s_col,
-                                    format!(
-                                        "`<script src=\"{src_val}\">` must not have inline content in `{page_path}`"
-                                    ),
-                                ));
-                            }
-                            check_script_src(page_path, s_line, s_col, &src_val, &mut diags);
-                        }
+                    if let Some(src_val) = src_opt
+                        && !inner.is_empty()
+                    {
+                        diags.push(Diagnostic::new(
+                            Code::Fb0604,
+                            false,
+                            page_path.clone(),
+                            s_line,
+                            s_col,
+                            format!(
+                                "`<script src=\"{src_val}\">` must not have inline content in `{page_path}`"
+                            ),
+                        ));
                     }
                 }
                 continue;
@@ -494,28 +481,37 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
             }
 
             if tag.name == "script" {
+                if let Some((prev_line, prev_col, _, _)) = open_script.take() {
+                    diags.push(Diagnostic::new(
+                        Code::Fb0604,
+                        false,
+                        page_path.clone(),
+                        prev_line,
+                        prev_col,
+                        format!("unclosed `<script>` tag in `{page_path}`"),
+                    ));
+                }
                 let src_attr = tag
                     .attrs
                     .iter()
                     .find(|a| a.name == "src")
                     .map(|a| a.value.clone());
-                if tag.self_closing {
-                    match src_attr {
-                        None => {
-                            diags.push(Diagnostic::new(
-                                Code::Fb0604,
-                                false,
-                                page_path.clone(),
-                                tag.line,
-                                tag.col,
-                                format!("inline `<script>` is forbidden in `{page_path}`"),
-                            ));
-                        }
-                        Some(src_val) => {
-                            check_script_src(page_path, tag.line, tag.col, &src_val, &mut diags);
-                        }
+                match src_attr.as_deref() {
+                    None => {
+                        diags.push(Diagnostic::new(
+                            Code::Fb0604,
+                            false,
+                            page_path.clone(),
+                            tag.line,
+                            tag.col,
+                            format!("inline `<script>` is forbidden in `{page_path}`"),
+                        ));
                     }
-                } else {
+                    Some(src_val) => {
+                        check_script_src(page_path, tag.line, tag.col, src_val, &mut diags);
+                    }
+                }
+                if !tag.self_closing {
                     open_script = Some((tag.line, tag.col, src_attr, tag.end_byte));
                 }
             }
@@ -546,10 +542,11 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
 
                 if attr.name == "href" || attr.name == "src" {
                     let raw_val = attr.value.as_str();
+                    let raw_lower = raw_val.to_ascii_lowercase();
                     if attr.name == "href"
-                        && (raw_val.starts_with("http:")
-                            || raw_val.starts_with("https:")
-                            || raw_val.starts_with("http"))
+                        && (raw_lower.starts_with("http:")
+                            || raw_lower.starts_with("https:")
+                            || raw_lower.starts_with("http"))
                         && has_scheme(raw_val)
                     {
                         diags.push(Diagnostic::new(
@@ -572,6 +569,17 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
                     }
                 }
             }
+        }
+
+        if let Some((s_line, s_col, _, _)) = open_script.take() {
+            diags.push(Diagnostic::new(
+                Code::Fb0604,
+                false,
+                page_path.clone(),
+                s_line,
+                s_col,
+                format!("unclosed `<script>` tag in `{page_path}`"),
+            ));
         }
 
         if csp_metas.len() != 1 {
@@ -804,22 +812,6 @@ fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
             continue;
         }
 
-        if path.starts_with("data/") {
-            if size > DATA_FILE {
-                diags.push(Diagnostic::new(
-                    Code::Fb0605,
-                    false,
-                    path.clone(),
-                    1,
-                    1,
-                    format!(
-                        "data file `{path}` is {size} bytes, exceeding budget of {DATA_FILE} bytes"
-                    ),
-                ));
-            }
-            continue;
-        }
-
         let is_js = std::path::Path::new(path)
             .extension()
             .is_some_and(|ext| ext.eq_ignore_ascii_case("js"));
@@ -847,6 +839,32 @@ fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
                     ),
                 ));
             }
+            if path.starts_with("data/") && size > DATA_FILE {
+                diags.push(Diagnostic::new(
+                    Code::Fb0605,
+                    false,
+                    path.clone(),
+                    1,
+                    1,
+                    format!(
+                        "data file `{path}` is {size} bytes, exceeding budget of {DATA_FILE} bytes"
+                    ),
+                ));
+            }
+            continue;
+        }
+
+        if path.starts_with("data/") && size > DATA_FILE {
+            diags.push(Diagnostic::new(
+                Code::Fb0605,
+                false,
+                path.clone(),
+                1,
+                1,
+                format!(
+                    "data file `{path}` is {size} bytes, exceeding budget of {DATA_FILE} bytes"
+                ),
+            ));
         }
     }
 

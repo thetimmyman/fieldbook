@@ -151,6 +151,13 @@ mod site_lints {
         );
         assert_eq!(diags[0].code, Code::Fb0605);
         assert!(diags[0].message.contains("total script size"));
+
+        // A .js file under data/ is still counted toward the script budget.
+        let mut site_data_js = clean_site();
+        site_data_js.insert("data/extra.js", vec![b'x'; 65_000]);
+        let diags_data_js = lint(&site_data_js, &OriginalNames::default());
+        assert_eq!(diags_data_js.len(), 1);
+        assert_eq!(diags_data_js[0].code, Code::Fb0605);
     }
 
     // control: WB-02
@@ -165,6 +172,15 @@ mod site_lints {
         assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
         assert_eq!(diags[0].code, Code::Fb0604);
         assert_eq!(diags[0].path, "page.html");
+
+        // Unclosed inline script at EOF is also caught as FB0604.
+        let mut site_unclosed = clean_site();
+        site_unclosed.insert("page.html", valid_page("<script>var x = 1;"));
+        let diags_unclosed = lint(&site_unclosed, &OriginalNames::default());
+        assert!(
+            diags_unclosed.iter().any(|d| d.code == Code::Fb0604),
+            "expected FB0604 for unclosed inline script"
+        );
     }
 
     // control: WB-02
@@ -173,11 +189,13 @@ mod site_lints {
         let mut site = clean_site();
         site.insert(
             "page.html",
-            valid_page("<a href=\"https://example.invalid/doc\">External</a>"),
+            valid_page(
+                "<a href=\"https://example.invalid/doc\">External</a><a href=\"HTTPS://example.invalid/upper\">Upper</a>",
+            ),
         );
         let diags = lint(&site, &OriginalNames::default());
-        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
-        assert_eq!(diags[0].code, Code::Fb0604);
+        assert_eq!(diags.len(), 2, "expected 2 diagnostics, got {diags:?}");
+        assert!(diags.iter().all(|d| d.code == Code::Fb0604));
         assert_eq!(diags[0].path, "page.html");
     }
 
