@@ -1326,3 +1326,103 @@ fn new_admission_precedes_write_and_recovery() {
         }
     }
 }
+
+/// Append a second `S-0002` version 2 row, with `handling` replaced, before or after the
+/// original, so the version key repeats.
+fn duplicate_source_row(root: &Path, handling: &str, before: bool) {
+    let rel = "corpus/registers/sources.csv";
+    let mut table = table_at(root, rel);
+    let at = table
+        .header
+        .cells
+        .iter()
+        .position(|c| c == "handling")
+        .expect("handling column");
+    let found = table
+        .rows
+        .iter()
+        .position(|r| r.cells.first().is_some_and(|c| c == "S-0002") && r.cells[1] == "2")
+        .expect("S-0002 v2");
+    let mut copy = table.rows[found].clone();
+    copy.cells[at] = handling.to_owned();
+    copy.line += 100;
+    if before {
+        table.rows.insert(found, copy);
+    } else {
+        table.rows.push(copy);
+    }
+    std::fs::write(root.join(rel), write_csv(&table)).expect("write sources");
+}
+
+#[test]
+fn a_repeated_source_version_is_judged_on_every_row_in_either_order() {
+    for before in [false, true] {
+        let tmp = temp_copy(&fixture_root());
+        duplicate_source_row(tmp.path(), "np-0007", before);
+        let world = TestWorld::new(tmp.path());
+        let files = corpus_files(tmp.path());
+        let out = run(&world, CLAIM_ARGS);
+        assert_refused(&world, &out, "FB0410", "unlabelled", 0);
+        assert!(out.stderr.contains("np-0007"), "{}", out.stderr);
+        assert_eq!(corpus_files(tmp.path()), files, "before={before}");
+        assert_eq!(count(&world, "write.begin"), 0, "before={before}");
+    }
+}
+
+#[test]
+fn a_template_that_is_not_utf8_is_a_usage_error_and_writes_nothing() {
+    let tmp = temp_copy(&fixture_root());
+    let path = tmp.path().join("corpus/templates/concept.md");
+    let text = std::fs::read(&path).expect("read template");
+    let needle = b"Not est";
+    let at = text
+        .windows(needle.len())
+        .position(|w| w == needle)
+        .expect("template placeholder text");
+    let mut edited = text[..at].to_vec();
+    edited.extend_from_slice(b"Not \xff est");
+    edited.extend_from_slice(&text[at + needle.len()..]);
+    std::fs::write(&path, edited).expect("write template");
+
+    let world = TestWorld::new(tmp.path());
+    let before = corpus_files(tmp.path());
+    let out = run(&world, PAGE_ARGS);
+    assert_eq!(out.code, 2, "stdout {} stderr {}", out.stdout, out.stderr);
+    assert!(out.stderr.contains("UTF-8"), "{}", out.stderr);
+    assert_eq!(corpus_files(tmp.path()), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn a_register_saved_after_planning_is_not_overwritten() {
+    let tmp = temp_copy(&fixture_root());
+    let rel = "corpus/registers/questions.csv";
+    let authored = "Q-777,cmp,Authored between planning and writing?,,,,,yes,false,open,,,\n";
+    let world = FaultyWorld::new(
+        TestWorld::new(tmp.path()),
+        Fault::EditAfterTreeRead {
+            path: rel,
+            append: authored,
+        },
+    );
+    let out = run(&world, QUESTION_ARGS);
+    assert_eq!(out.code, 3, "stdout {} stderr {}", out.stdout, out.stderr);
+    assert!(out.stdout.is_empty(), "{}", out.stdout);
+    assert!(out.stderr.contains(rel), "{}", out.stderr);
+    assert!(out.stderr.contains("changed"), "{}", out.stderr);
+    let saved = std::fs::read_to_string(tmp.path().join(rel)).expect("read register");
+    assert!(saved.ends_with(authored), "the authored row survives");
+    assert!(
+        !saved.contains("Synthetic question"),
+        "the new row is not written"
+    );
+    assert_eq!(count(&world, "write.begin"), 0);
+
+    // Run again: nothing is pending, and the retry plans from the saved file.
+    let again = TestWorld::new(tmp.path());
+    let retry = run(&again, QUESTION_ARGS);
+    assert_eq!(retry.code, 0, "stderr {}", retry.stderr);
+    let saved = std::fs::read_to_string(tmp.path().join(rel)).expect("read register");
+    assert!(saved.contains("Q-777"), "the authored row is kept");
+    assert!(saved.contains("Synthetic question"), "the new row is added");
+}

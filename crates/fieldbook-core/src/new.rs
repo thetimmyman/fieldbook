@@ -409,12 +409,21 @@ pub fn template_handling(template_text: &str) -> Option<LabelSet> {
     Some(LabelSet::from_ids(ids))
 }
 
-/// The `handling` labels (`|`-separated cell) of the source version row, for admission.
+/// The `handling` labels (`|`-separated cell) of the source version, for admission. A version
+/// key that repeats (a Corpus `check` already refuses) is judged on every one of its rows, so the
+/// verdict never depends on row order; a row without a `handling` cell makes the whole answer
+/// `None`.
 #[must_use]
 pub fn source_handling(model: &Model, version: &VersionId) -> Option<String> {
-    let row = source_row(model, version)?;
     let at = column_index(Register::Sources, "handling")?;
-    row.cells.get(at).cloned()
+    let mut cells = Vec::new();
+    for row in source_rows(model, version) {
+        cells.push(row.cells.get(at)?.as_str());
+    }
+    if cells.is_empty() {
+        return None;
+    }
+    Some(cells.join("|"))
 }
 
 fn page_exists(model: &Model, id: &PageId) -> bool {
@@ -613,14 +622,20 @@ fn claim_cells(
     Ok(row.to_cells())
 }
 
-fn source_row<'m>(model: &'m Model, version: &VersionId) -> Option<&'m Row> {
+fn source_rows<'m>(model: &'m Model, version: &VersionId) -> impl Iterator<Item = &'m Row> {
     let number = version.version().to_string();
-    model.register_rows(Register::Sources).iter().find(|row| {
-        row.cells
-            .first()
-            .is_some_and(|s| s == version.source().as_str())
-            && row.cells.get(1).is_some_and(|v| *v == number)
-    })
+    let source = version.source();
+    model
+        .register_rows(Register::Sources)
+        .iter()
+        .filter(move |row| {
+            row.cells.first().is_some_and(|s| s == source.as_str())
+                && row.cells.get(1).is_some_and(|v| *v == number)
+        })
+}
+
+fn source_row<'m>(model: &'m Model, version: &VersionId) -> Option<&'m Row> {
+    source_rows(model, version).next()
 }
 
 fn source_cell<'r>(row: &'r Row, column: &str) -> Option<&'r str> {

@@ -42,6 +42,14 @@ pub enum Fault {
     },
     /// Fail every prompt write, as a broken standard error does.
     BrokenPrompt,
+    /// Append `append` to the file at root-relative `path` once, right after the first locked
+    /// tree read, as an editor save landing between planning and writing does.
+    EditAfterTreeRead {
+        /// Root-relative path of the file an editor saves.
+        path: &'static str,
+        /// Text the editor appends.
+        append: &'static str,
+    },
 }
 
 /// [`World`] test double that injects [`Fault`] on matching `write_file` calls and forwards
@@ -73,7 +81,7 @@ impl FaultyWorld {
                     return Err(make_fault_error(path, kind));
                 }
             }
-            Fault::BrokenPrompt => {}
+            Fault::BrokenPrompt | Fault::EditAfterTreeRead { .. } => {}
             Fault::FailOnNthName { name, nth, kind } => {
                 if actual == Some(name) {
                     let count = self.matches.fetch_add(1, Ordering::SeqCst) + 1;
@@ -104,7 +112,20 @@ impl World for FaultyWorld {
     }
 
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
-        self.inner.read_tree_under(lease)
+        let tree = self.inner.read_tree_under(lease)?;
+        if let Fault::EditAfterTreeRead { path, append } = self.fault
+            && self.matches.fetch_add(1, Ordering::SeqCst) == 0
+        {
+            use std::io::Write as _;
+            let target = self.inner.tree_root().join(path);
+            let mut file = std::fs::OpenOptions::new()
+                .append(true)
+                .open(&target)
+                .map_err(|e| Error::new(&target, e.to_string()))?;
+            file.write_all(append.as_bytes())
+                .map_err(|e| Error::new(&target, e.to_string()))?;
+        }
+        Ok(tree)
     }
 
     fn write_file(

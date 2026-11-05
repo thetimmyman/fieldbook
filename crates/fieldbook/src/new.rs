@@ -284,6 +284,8 @@ struct Planned {
     text: String,
     /// Input labels from the template or the source row.
     input_labels: LabelSet,
+    /// The digest of the destination as the planning snapshot read it (`None`: it was absent).
+    seen: Option<Sha256>,
 }
 
 fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
@@ -337,7 +339,10 @@ fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
         allocated.as_ref().map(|r| r.id().as_str()),
         planned_on,
     ) {
-        Ok(planned) => planned,
+        Ok(planned) => Planned {
+            seen: seen_digest(&model, &planned.path),
+            ..planned
+        },
         Err(out) => return out,
     };
 
@@ -384,6 +389,15 @@ fn execute(world: &dyn World, policy: &Policy, job: &Job) -> Outcome {
     }
 }
 
+/// The digest of `path` as the planning snapshot read it; `None` when it was absent.
+fn seen_digest(model: &Model, path: &str) -> Option<Sha256> {
+    match model.tree().get(path) {
+        Some(Entry::Bytes(bytes)) => Some(Sha256::digest(bytes)),
+        Some(Entry::Original { sha256, .. }) => Sha256::parse(sha256).ok(),
+        None => None,
+    }
+}
+
 /// What admission can classify before anything is planned: the supplied values with the
 /// template (a page) or the destination register (a row).
 fn screening(job: &Job, template: Option<&str>) -> Planned {
@@ -402,6 +416,7 @@ fn screening(job: &Job, template: Option<&str>) -> Planned {
         printed: String::new(),
         id: String::new(),
         input_labels: template.map_or_else(LabelSet::public, template_labels),
+        seen: None,
         text,
     }
 }
@@ -412,7 +427,13 @@ fn template_text(model: &Model, job: &Job) -> Result<Option<String>, Outcome> {
         return Ok(None);
     };
     match model.tree().get(&template_path(ty)) {
-        Some(Entry::Bytes(bytes)) => Ok(Some(String::from_utf8_lossy(bytes).into_owned())),
+        // A template that is not UTF-8 is refused, never rewritten with replacement characters.
+        Some(Entry::Bytes(bytes)) => String::from_utf8(bytes.clone()).map(Some).map_err(|_| {
+            usage_err(format!(
+                "template `{}` is not valid UTF-8",
+                fieldbook_core::new::template_path(ty)
+            ))
+        }),
         _ => Err(new_err_outcome(&NewError::MissingTemplate(ty))),
     }
 }
@@ -478,6 +499,7 @@ fn row_planned(row: &RowPlan, bytes: Vec<u8>, input_labels: LabelSet) -> Planned
         text: String::from_utf8_lossy(&bytes).into_owned(),
         bytes,
         input_labels,
+        seen: None,
     }
 }
 
@@ -505,6 +527,7 @@ fn plan_page_write(
         text: format!("{template}\n{}", page.text),
         bytes: page.text.into_bytes(),
         input_labels: template_labels(template),
+        seen: None,
     })
 }
 
@@ -603,8 +626,14 @@ fn commit(
             Recovery::None => {}
         }
     }
+    // The plan read the file under the lease; an editor save since then is not ours to replace.
     let audited = journal
-        .begin(lease, intent, writes)
+        .begin_expecting(
+            lease,
+            intent,
+            writes,
+            &[(planned.path.as_str(), planned.seen.clone())],
+        )
         .map_err(|e| journal_err(&e))?;
     world
         .write_file(&audited, &target, &planned.bytes)
