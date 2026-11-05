@@ -1,0 +1,696 @@
+//! Integration tests for `fieldbook_render::frame` and `fieldbook_render::nav` (`build-frame`).
+
+#![expect(clippy::unwrap_used, reason = "integration test helpers")]
+
+mod frame {
+    use std::collections::{BTreeMap, BTreeSet};
+
+    use fieldbook_core::audit::{LabelId, LabelSet, Now};
+    use fieldbook_core::authz::ReadableStores;
+    use fieldbook_core::check::{Host, Model, Options, Tree, load};
+    use fieldbook_core::date::CivilDate;
+    use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
+    use fieldbook_core::policy::EffectivePolicy;
+    use fieldbook_core::schema::Register;
+    use fieldbook_render::frame::{Crumb, FrameInput, PRODUCT_TITLE, StoreContext, render_page};
+    use fieldbook_render::meta::{BuildInfo, BuildProfile};
+    use fieldbook_render::nav::{self, NavTarget, SectionId};
+    use fieldbook_render::site::{self, PlannedPaths};
+
+    const APP_JS: &str = include_str!("../assets/app.js");
+    const MINI_CORPUS_TOML: &str =
+        include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+
+    fn insert_register_headers(tree: &mut Tree) {
+        tree.insert_dir("corpus/registers");
+        for reg in Register::ALL {
+            let mut header = String::new();
+            for (idx, col) in reg.columns().iter().enumerate() {
+                if idx > 0 {
+                    header.push(',');
+                }
+                header.push_str(col.name);
+            }
+            header.push('\n');
+            tree.insert_bytes(
+                format!("corpus/registers/{}", reg.file_name()),
+                header.into_bytes(),
+            );
+        }
+    }
+
+    fn base_tree() -> Tree {
+        let mut tree = Tree::new();
+        tree.insert_dir("corpus");
+        tree.insert_dir("corpus/pages");
+        tree.insert_dir("corpus/pages/compliance");
+        tree.insert_dir("corpus/pages/compliance/business-systems");
+        tree.insert_dir("corpus/pages/estimating");
+        tree.insert_dir("corpus/pages/estimating/pricing");
+        tree.insert_dir("corpus/sources");
+        tree.insert_dir("corpus/sources/public");
+        tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
+        tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
+        tree.insert_bytes(
+            "corpus/changes.md",
+            b"# Changes\n\n## edition-001\n\n- Added: initial.\n",
+        );
+        tree.insert_bytes("corpus/eval/regression.toml", b"case = []\n");
+        insert_register_headers(&mut tree);
+        tree
+    }
+
+    fn sample_page_md(id: &str, title: &str, area: &str, subarea: &str, handling: &str) -> String {
+        format!(
+            "+++\nid = \"{id}\"\ntitle = \"{title}\"\narea = \"{area}\"\nsubarea = \"{subarea}\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [{handling}]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSynthetic purpose.\n\n## The rule\n\nSynthetic rule.\n\n## How it works\n\nSynthetic body.\n\n## Worked example\n\nSynthetic example.\n\n## Never confuse\n\nSynthetic distinction.\n\n## Company calibration\n\nSynthetic calibration.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Added synthetic page.\n"
+        )
+    }
+
+    fn build_public_view_from_tree(tree: Tree) -> (Model, LabelledView) {
+        let today = CivilDate::parse("2026-03-01").unwrap();
+        let (model, _report) = load(&Host::new(tree, today), &Options::new(false));
+        let eff = EffectivePolicy::floor(false);
+        let now = Now::new(today, 0).unwrap();
+        let Decision::Allowed(allowed) =
+            check(&eff, &Dest::Edition, None, None, now, Shipped::Never)
+        else {
+            panic!("edition selection must succeed");
+        };
+        let view = LabelledView::new(&model, &allowed, &ReadableStores::corpus());
+        (model, view)
+    }
+
+    fn build_public_view() -> (Model, LabelledView) {
+        build_public_view_from_tree(base_tree())
+    }
+
+    fn parse_js_route_sections(js: &str) -> BTreeMap<String, (String, String)> {
+        let marker = "const ROUTE_SECTIONS = {";
+        let Some(start) = js.find(marker) else {
+            panic!("missing `const ROUTE_SECTIONS = {{` in app.js");
+        };
+        let after = &js[start + marker.len()..];
+        let Some(end) = after.find("};") else {
+            panic!("missing closing `}};` for ROUTE_SECTIONS in app.js");
+        };
+        let body = &after[..end];
+        let mut out = BTreeMap::new();
+        for raw_line in body.lines() {
+            let line = raw_line.trim().trim_end_matches(',');
+            if line.is_empty() || line.starts_with("//") {
+                continue;
+            }
+            let Some((key_part, val_part)) = line.split_once(':') else {
+                continue;
+            };
+            let route = key_part
+                .trim()
+                .trim_matches(|c| c == '\'' || c == '"')
+                .to_owned();
+            let mut section = None;
+            let mut item = None;
+            let inner = val_part
+                .trim()
+                .trim_start_matches('{')
+                .trim_end_matches('}');
+            for field in inner.split(',') {
+                if let Some((fk, fv)) = field.split_once(':') {
+                    let k = fk.trim().trim_matches(|c| c == '\'' || c == '"');
+                    let v = fv.trim().trim_matches(|c| c == '\'' || c == '"').to_owned();
+                    match k {
+                        "section" => section = Some(v),
+                        "item" => item = Some(v),
+                        _ => {}
+                    }
+                }
+            }
+            let sec = section.unwrap_or_else(|| panic!("missing section for route `{route}`"));
+            let it = item.unwrap_or_else(|| panic!("missing item for route `{route}`"));
+            out.insert(route, (sec, it));
+        }
+        out
+    }
+
+    fn extract_anchor_hrefs(html: &str) -> Vec<String> {
+        let mut out = Vec::new();
+        let mut rest = html;
+        while let Some(a_idx) = rest.find("<a ") {
+            let after_a = &rest[a_idx + 3..];
+            let Some(close_idx) = after_a.find('>') else {
+                break;
+            };
+            let tag = &after_a[..close_idx];
+            if let Some(h_idx) = tag.find("href=\"") {
+                let after_h = &tag[h_idx + 6..];
+                if let Some(end_q) = after_h.find('"') {
+                    out.push(after_h[..end_q].to_owned());
+                }
+            }
+            rest = &after_a[close_idx + 1..];
+        }
+        out
+    }
+
+    #[test]
+    fn section_map_matches_nav_rs() {
+        let js_map = parse_js_route_sections(APP_JS);
+        let rust_rows = nav::route_sections();
+
+        let mut rust_map = BTreeMap::new();
+        for row in &rust_rows {
+            rust_map.insert(
+                row.route.to_owned(),
+                (row.section.key().to_owned(), row.item.to_owned()),
+            );
+        }
+
+        for (route, expected) in &rust_map {
+            let actual = js_map.get(route).unwrap_or_else(|| {
+                panic!("route `{route}` present in nav.rs is missing from ROUTE_SECTIONS in app.js")
+            });
+            assert_eq!(
+                actual, expected,
+                "route `{route}` in app.js has {actual:?}, expected {expected:?} from nav.rs"
+            );
+        }
+        for route in js_map.keys() {
+            assert!(
+                rust_map.contains_key(route),
+                "route `{route}` in app.js is missing from nav.rs"
+            );
+        }
+    }
+
+    #[test]
+    fn planned_paths_equal_the_site_keys() {
+        let (_model, view) = build_public_view();
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let rendered = site::render(&view, &info).unwrap();
+        let planned = site::planned_paths(&view);
+
+        for key in rendered.files().keys() {
+            assert!(
+                planned.contains(key),
+                "site key `{key}` is missing from site::planned_paths"
+            );
+        }
+        for path in planned.iter() {
+            assert!(
+                rendered.files().contains_key(path),
+                "planned path `{path}` is not a key in rendered Site"
+            );
+        }
+    }
+
+    #[test]
+    fn links_only_to_built_paths() {
+        let (_model, view) = build_public_view();
+        let planned = site::planned_paths(&view);
+        let navigation = nav::build(&view, &planned);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            built_date: None,
+            store: &StoreContext::Public,
+            crumbs: &[
+                Crumb::linked("Today", "index.html", &planned),
+                Crumb::linked("Unbuilt map", fieldbook_core::strings::paths()[5], &planned),
+                Crumb::current("Current"),
+            ],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        for href in extract_anchor_hrefs(&html) {
+            if href.starts_with('#') {
+                continue;
+            }
+            let target = href.split('#').next().unwrap_or(&href);
+            assert!(
+                planned.contains(target),
+                "rendered link href `{href}` points to unbuilt path `{target}` not in PlannedPaths"
+            );
+        }
+    }
+
+    #[test]
+    fn unbuilt_entries_show_the_landing_line() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html"]);
+        let navigation = nav::build(&view, &planned);
+        let html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            built_date: None,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+
+        assert!(
+            html.contains("class=\"not-available\""),
+            "unbuilt entries must render with class=\"not-available\""
+        );
+
+        for tab in &navigation.tabs {
+            if let NavTarget::Unbuilt { landing_line } = &tab.target {
+                let amp = landing_line.replace('&', "&amp;");
+                let num = landing_line.replace('&', "&#38;");
+                assert!(
+                    html.contains(landing_line) || html.contains(&amp) || html.contains(&num),
+                    "unbuilt tab `{}` must include landing line `{landing_line}`",
+                    tab.label
+                );
+            }
+        }
+
+        for group in &navigation.groups {
+            for entry in &group.entries {
+                match &entry.target {
+                    NavTarget::Built { href } => {
+                        assert_eq!(href, "index.html");
+                    }
+                    NavTarget::Unbuilt { landing_line } => {
+                        let amp = landing_line.replace('&', "&amp;");
+                        let num = landing_line.replace('&', "&#38;");
+                        assert!(
+                            html.contains(landing_line)
+                                || html.contains(&amp)
+                                || html.contains(&num),
+                            "unbuilt entry `{}` must render its landing line `{landing_line}`",
+                            entry.id
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn current_tab_and_item_are_marked() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html", "a/cmp.html", "claims.html"]);
+        let navigation = nav::build(&view, &planned);
+
+        // 1. Canonical Today state on index.html (Step 8) + Public StoreContext (Step 9).
+        assert_eq!(
+            nav::resolve_route("index.html", None),
+            Some((SectionId::Today, "today".to_owned()))
+        );
+        // Before build-home-and-areas creates #areas, All areas and Browse fragment aliases are suppressed.
+        assert!(
+            matches!(
+                navigation.entry("areas").unwrap().target,
+                NavTarget::Unbuilt { .. }
+            ),
+            "All areas alias must stay unbuilt until build-home-and-areas creates #areas"
+        );
+        assert!(
+            matches!(
+                navigation.entry("browse").unwrap().target,
+                NavTarget::Unbuilt { .. }
+            ),
+            "Browse alias must stay unbuilt until build-home-and-areas creates #areas"
+        );
+
+        let index_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            built_date: None,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+        assert!(
+            index_html.contains("data-sec=\"today\" aria-current=\"true\""),
+            "Today tab must have aria-current=\"true\" on index.html"
+        );
+        assert!(
+            index_html.contains("<div class=\"nav-group\" data-sec=\"today\">"),
+            "Today nav-group must be visible without scripts on index.html"
+        );
+        assert!(
+            index_html.contains("<div class=\"nav-group\" data-sec=\"areas\" hidden>"),
+            "non-current nav-groups must carry `hidden` on index.html"
+        );
+        assert!(
+            index_html.contains("data-item=\"today\" aria-current=\"page\""),
+            "Today sidebar item must have aria-current=\"page\" on index.html"
+        );
+        assert!(
+            !index_html.contains("index.html#areas"),
+            "unavailable #areas fragment links must be suppressed on index.html"
+        );
+        assert!(index_html.contains("Public data only"));
+        assert!(index_html.contains("Company data is not connected."));
+        assert!(!index_html.contains("aria-label=\"Handling notice\""));
+
+        // 2. Area page (a/cmp.html) + Company StoreContext (Step 9).
+        let bid3 = LabelId::parse("bid-0003").unwrap();
+        let np7 = LabelId::parse("np-0007").unwrap();
+        let company_store = StoreContext::Company {
+            effective_labels: LabelSet::from_ids([bid3, np7]),
+        };
+        let area_html = render_page(&FrameInput {
+            output_path: "a/cmp.html",
+            title: "Compliance",
+            page_area: None,
+            built_date: Some("2026-03-01"),
+            store: &company_store,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+        assert!(
+            area_html.contains("data-sec=\"areas\" aria-current=\"true\""),
+            "Areas tab must have aria-current=\"true\" on a/cmp.html"
+        );
+        assert!(
+            area_html.contains("<div class=\"nav-group\" data-sec=\"areas\">"),
+            "Areas nav-group must be visible without scripts on a/cmp.html"
+        );
+        assert!(
+            area_html.contains("<div class=\"nav-group\" data-sec=\"today\" hidden>"),
+            "Today nav-group must carry `hidden` on a/cmp.html"
+        );
+        assert!(
+            area_html.contains("data-item=\"area-cmp\" aria-current=\"page\""),
+            "area-cmp sidebar item must have aria-current=\"page\" on a/cmp.html"
+        );
+        assert!(area_html.contains("Company storage"));
+        assert!(area_html.contains("Handling: bid-0003, np-0007."));
+        assert!(area_html.contains("Local view; no outward permission is implied."));
+    }
+
+    #[test]
+    fn crumbs_only_with_two_levels() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html", "a/cmp.html"]);
+        let navigation = nav::build(&view, &planned);
+
+        let zero_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            built_date: None,
+            store: &StoreContext::Public,
+            crumbs: &[],
+            main_html: "",
+            nav: &navigation,
+        });
+        assert!(
+            !zero_html.contains("aria-label=\"Breadcrumb\""),
+            "0 crumbs must not render CrumbsRow"
+        );
+
+        let one_html = render_page(&FrameInput {
+            output_path: "index.html",
+            title: PRODUCT_TITLE,
+            page_area: None,
+            built_date: None,
+            store: &StoreContext::Public,
+            crumbs: &[Crumb::current("Today")],
+            main_html: "",
+            nav: &navigation,
+        });
+        assert!(
+            !one_html.contains("aria-label=\"Breadcrumb\""),
+            "1 crumb must not render CrumbsRow"
+        );
+
+        let two_html = render_page(&FrameInput {
+            output_path: "a/cmp.html",
+            title: "Compliance",
+            page_area: None,
+            built_date: None,
+            store: &StoreContext::Public,
+            crumbs: &[
+                Crumb::linked("Today", "index.html", &planned),
+                Crumb::current("Compliance"),
+            ],
+            main_html: "",
+            nav: &navigation,
+        });
+        assert!(
+            two_html.contains("<nav class=\"crumbs\" id=\"crumbs\" aria-label=\"Breadcrumb\">"),
+            "2 crumbs must render CrumbsRow"
+        );
+        assert!(two_html.contains("<a href=\"../index.html\">Today</a>"));
+        assert!(two_html.contains("<span aria-current=\"page\">Compliance</span>"));
+    }
+
+    #[test]
+    fn relative_paths_at_each_depth() {
+        let (_model, view) = build_public_view();
+        let planned = PlannedPaths::of(&["index.html", "a/cmp.html"]);
+        let navigation = nav::build(&view, &planned);
+
+        for (path, expected_prefix) in [
+            ("index.html", ""),
+            ("a/cmp.html", "../"),
+            ("p/sub/deep.html", "../../"),
+        ] {
+            let html = render_page(&FrameInput {
+                output_path: path,
+                title: PRODUCT_TITLE,
+                page_area: Some("cmp"),
+                built_date: None,
+                store: &StoreContext::Public,
+                crumbs: &[
+                    Crumb::linked("Today", "index.html", &planned),
+                    Crumb::current("Here"),
+                ],
+                main_html: "",
+                nav: &navigation,
+            });
+            assert!(
+                html.contains(&format!("href=\"{expected_prefix}assets/app.css\"")),
+                "missing relative app.css link at `{path}`"
+            );
+            assert!(
+                html.contains(&format!("src=\"{expected_prefix}assets/strings.js\"")),
+                "missing relative strings.js link at `{path}`"
+            );
+            assert!(
+                html.contains(&format!("src=\"{expected_prefix}assets/app.js\"")),
+                "missing relative app.js link at `{path}`"
+            );
+            assert!(
+                html.contains(&format!("href=\"{expected_prefix}index.html\"")),
+                "missing relative index.html link at `{path}`"
+            );
+        }
+    }
+
+    #[test]
+    fn no_inline_handler_or_style_attribute() {
+        let (_model, view) = build_public_view();
+        let info = BuildInfo::new(None, None, BuildProfile::Silent, None);
+        let site = site::render(&view, &info).unwrap();
+
+        for (path, bytes) in site.files() {
+            if !path.ends_with(".html") {
+                continue;
+            }
+            let text = std::str::from_utf8(bytes).unwrap();
+            assert!(
+                !text.contains("style=\""),
+                "{path} must not contain inline style attribute"
+            );
+            let lower = text.to_ascii_lowercase();
+            for attr in [
+                " onclick=",
+                " onload=",
+                " onchange=",
+                " oninput=",
+                " onsubmit=",
+                " onkeydown=",
+                " onkeyup=",
+                " onfocus=",
+                " onblur=",
+            ] {
+                assert!(
+                    !lower.contains(attr),
+                    "{path} must not contain inline handler `{attr}`"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn storage_only_inside_try() {
+        let mut search_from = 0usize;
+        let mut count = 0usize;
+        while let Some(rel) = APP_JS[search_from..].find("localStorage") {
+            let idx = search_from + rel;
+            count += 1;
+
+            // Walk backwards from `idx` to verify `localStorage` is enclosed in an active `try { ... }` block.
+            let prefix = &APP_JS[..idx];
+            let mut open_braces = Vec::new();
+            let tokens: Vec<&str> = prefix
+                .split(|c: char| c.is_whitespace() || matches!(c, '(' | ')' | ';'))
+                .filter(|t| !t.is_empty())
+                .collect();
+            let mut prev_try = false;
+            for ch in prefix.chars() {
+                if ch == '{' {
+                    open_braces.push(prev_try);
+                    prev_try = false;
+                } else if ch == '}' {
+                    open_braces.pop();
+                    prev_try = false;
+                }
+                // Track `try` keyword immediately preceding `{`.
+                let _ = &tokens;
+            }
+
+            // Precise lexical scan of `prefix` for `try { ... }` containment.
+            let mut in_try_stack = Vec::new();
+            let bytes = prefix.as_bytes();
+            let mut i = 0usize;
+            let mut pending_try = false;
+            while i < bytes.len() {
+                if bytes[i..].starts_with(b"try")
+                    && (i == 0 || !bytes[i - 1].is_ascii_alphanumeric())
+                    && (i + 3 >= bytes.len() || !bytes[i + 3].is_ascii_alphanumeric())
+                {
+                    pending_try = true;
+                    i += 3;
+                    continue;
+                }
+                if bytes[i] == b'{' {
+                    in_try_stack.push(pending_try);
+                    pending_try = false;
+                } else if bytes[i] == b'}' {
+                    in_try_stack.pop();
+                    pending_try = false;
+                } else if !bytes[i].is_ascii_whitespace() {
+                    pending_try = false;
+                }
+                i += 1;
+            }
+
+            assert!(
+                in_try_stack.iter().any(|&is_try| is_try),
+                "localStorage at byte offset {idx} in app.js must sit inside a `try` block"
+            );
+            search_from = idx + "localStorage".len();
+        }
+        assert!(
+            count >= 2,
+            "expected at least 2 localStorage references in app.js (getItem and setItem), found {count}"
+        );
+    }
+
+    #[test]
+    fn navigation_counts_use_the_filtered_view() {
+        // 1. Permitted-only tree with known public pages and register rows.
+        let mut permitted_tree = base_tree();
+        permitted_tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-public-one.md",
+            sample_page_md(
+                "cmp-public-one",
+                "Public compliance concept",
+                "cmp",
+                "business-systems",
+                "\"public\"",
+            )
+            .into_bytes(),
+        );
+        permitted_tree.insert_bytes(
+            "corpus/pages/estimating/pricing/est-public-one.md",
+            sample_page_md(
+                "est-public-one",
+                "Public pricing concept",
+                "est",
+                "pricing",
+                "\"public\"",
+            )
+            .into_bytes(),
+        );
+        permitted_tree.insert_bytes(
+            "corpus/registers/questions.csv",
+            include_bytes!("../../../tests/fixtures/corpus-mini/corpus/registers/questions.csv")
+                .to_vec(),
+        );
+
+        let (_model_perm, view_perm) = build_public_view_from_tree(permitted_tree.clone());
+        let planned_perm = site::planned_paths(&view_perm);
+        let nav_perm = nav::build(&view_perm, &planned_perm);
+
+        assert_eq!(nav_perm.entry("area-cmp").unwrap().count, Some(1));
+        assert_eq!(nav_perm.entry("area-est").unwrap().count, Some(1));
+        assert_eq!(nav_perm.entry("view-prc").unwrap().count, Some(1));
+        assert_eq!(nav_perm.entry("questions").unwrap().count, Some(2));
+        assert_eq!(nav_perm.entry("claims").unwrap().count, Some(0));
+
+        // 2. Add forbidden (`np-0007`) pages and relabelled records to the unrestricted model.
+        let mut mixed_tree = permitted_tree;
+        mixed_tree.insert_bytes(
+            "corpus/pages/estimating/pricing/est-secret-two.md",
+            sample_page_md(
+                "est-secret-two",
+                "Forbidden pricing concept",
+                "est",
+                "pricing",
+                "\"public\", \"np-0007\"",
+            )
+            .into_bytes(),
+        );
+        mixed_tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-secret-two.md",
+            sample_page_md(
+                "cmp-secret-two",
+                "Forbidden compliance concept",
+                "cmp",
+                "business-systems",
+                "\"public\", \"np-0007\"",
+            )
+            .into_bytes(),
+        );
+
+        let (model_mixed, view_mixed) = build_public_view_from_tree(mixed_tree);
+        assert_eq!(
+            model_mixed.pages().len(),
+            4,
+            "unrestricted model must hold all 4 pages"
+        );
+        assert_eq!(
+            view_mixed.pages().len(),
+            2,
+            "filtered view must retain only the 2 public pages"
+        );
+        assert!(view_mixed.left_out() >= 2);
+
+        let planned_mixed = site::planned_paths(&view_mixed);
+        let nav_mixed = nav::build(&view_mixed, &planned_mixed);
+
+        // Forbidden pages change neither counts nor available destinations.
+        assert_eq!(nav_mixed, nav_perm);
+        let built_dests_perm: BTreeSet<String> = nav_perm
+            .groups
+            .iter()
+            .flat_map(|g| &g.entries)
+            .filter_map(|e| match &e.target {
+                NavTarget::Built { href } => Some(href.clone()),
+                NavTarget::Unbuilt { .. } => None,
+            })
+            .collect();
+        let built_dests_mixed: BTreeSet<String> = nav_mixed
+            .groups
+            .iter()
+            .flat_map(|g| &g.entries)
+            .filter_map(|e| match &e.target {
+                NavTarget::Built { href } => Some(href.clone()),
+                NavTarget::Unbuilt { .. } => None,
+            })
+            .collect();
+        assert_eq!(built_dests_mixed, built_dests_perm);
+    }
+}

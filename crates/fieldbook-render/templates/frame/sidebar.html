@@ -1,0 +1,48 @@
+<aside class="sidebar" id="sidebar" aria-label="Navigation">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">F</div>
+    <div class="brand-text">
+      <div class="brand-title">{{ product }}</div>
+      <div class="brand-sub">Finance role workbench</div>
+    </div>
+    <button class="btn ghost icon-btn sidebar-close" id="sidebarCloseBtn" type="button" aria-label="Close navigation">&times;</button>
+  </div>
+  <div class="sec-switch" id="secSwitch" role="group" aria-label="Sections">
+    {% for group in groups %}
+    <button type="button" data-secpick="{{ group.key }}" aria-pressed="{% if group.is_current %}true{% else %}false{% endif %}">
+      <span>{{ group.label }}</span>
+    </button>
+    {% endfor %}
+  </div>
+  {% for group in groups %}
+  <div class="nav-group" data-sec="{{ group.key }}"{% if !group.is_current %} hidden{% endif %}>
+    <div class="nav-head">{{ group.aria_label }}</div>
+    <nav class="nav" aria-label="{{ group.aria_label }}">
+      {% for entry in group.entries %}
+      {% if let Some(sub) = &entry.sub_group %}
+      <div class="nav-sub">{{ sub }}</div>
+      {% endif %}
+      {% if let Some(href) = &entry.href %}
+      <a href="{{ root_prefix }}{{ href }}" data-item="{{ entry.id }}"{% if entry.is_current %} aria-current="page"{% endif %}>
+        <span>{% if let Some(code) = &entry.code %}<span class="code">{{ code }}</span>{% endif %}{{ entry.label }}</span>
+        {% if let Some(c) = entry.count %}<span class="count">{{ c }}</span>{% endif %}
+      </a>
+      {% else %}
+      <span class="not-available" data-item="{{ entry.id }}"{% if entry.is_current %} aria-current="page"{% endif %}>
+        <span>{% if let Some(code) = &entry.code %}<span class="code">{{ code }}</span>{% endif %}{{ entry.landing_line }}</span>
+      </span>
+      {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+  {% endfor %}
+  <div class="side-foot">
+    <div class="build-note" id="sideFootNote">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span><b>{{ store_foot_lead }}</b> {{ store_foot_body }}</span>
+    </div>
+    <div class="byline">
+      <span>A personal working tool. Not an official company product.</span>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,12 @@
+{% if crumbs.len() >= 2 %}
+<nav class="crumbs" id="crumbs" aria-label="Breadcrumb">
+  {% for (idx, crumb) in crumbs.iter().enumerate() %}
+  {% if idx > 0 %}<span class="sep" aria-hidden="true">/</span>{% endif %}
+  {% if let Some(href) = &crumb.href %}
+  <a href="{{ root_prefix }}{{ href }}">{{ crumb.label }}</a>
+  {% else %}
+  <span aria-current="page">{{ crumb.label }}</span>
+  {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}

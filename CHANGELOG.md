@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the page frame with section tabs, sidebar and theme toggle.
 - Added: the build command.
 - Added: the add command.
 - Added: the audit journal, audit verify and its repair mode.

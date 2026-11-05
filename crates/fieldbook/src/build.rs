@@ -198,7 +198,7 @@ pub fn plan_edition(
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(&context);
+    let site = site::render_with_context(view, &context);
     build_plan_from_site(view, context, site, out_dir, eff, labels, now, shipped)
 }
 

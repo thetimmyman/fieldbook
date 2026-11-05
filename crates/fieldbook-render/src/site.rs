@@ -1,9 +1,9 @@
-//! Site container and static edition renderer (`build-v0`).
+//! Site container and static edition renderer (`build-v0`, `build-frame`).
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Component, Path};
 
-use askama::Template;
+use fieldbook_core::edition::latest_edition_heading;
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::manifest::shipped_corpus;
@@ -11,12 +11,35 @@ use fieldbook_core::schema::vocab::Lifecycle;
 use fieldbook_core::strings;
 use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
-use crate::csp::CSP_STATIC;
+use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page};
 use crate::meta::{BuildInfo, MetadataError, RenderContext};
-use fieldbook_core::edition::latest_edition_heading;
+use crate::nav;
 
 const APP_CSS: &str = include_str!("../assets/app.css");
-const PRODUCT_TITLE: &str = "Fieldbook";
+const APP_JS: &str = include_str!("../assets/app.js");
+
+/// Deterministic set of relative output paths planned for a build (`build-frame`).
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct PlannedPaths(BTreeSet<String>);
+
+impl PlannedPaths {
+    /// Builds a [`PlannedPaths`] set from a slice of path literals (e.g. for unit/snapshot tests).
+    #[must_use]
+    pub fn of(paths: &[&str]) -> Self {
+        Self(paths.iter().map(|&p| p.to_owned()).collect())
+    }
+
+    /// Returns `true` when `path` is in the planned output set.
+    #[must_use]
+    pub fn contains(&self, path: &str) -> bool {
+        self.0.contains(path)
+    }
+
+    /// Iterates over the planned output paths in deterministic lexicographical order.
+    pub fn iter(&self) -> impl Iterator<Item = &str> {
+        self.0.iter().map(String::as_str)
+    }
+}
 
 /// In-memory map of relative output paths (`/`-separated) to deterministic file bytes.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
@@ -58,16 +81,6 @@ fn is_valid_relative_site_path(path: &str) -> bool {
         .all(|c| matches!(c, Component::Normal(_)))
 }
 
-#[derive(Template)]
-#[template(path = "base.html")]
-struct BaseTemplate<'a> {
-    csp: &'a str,
-    product: &'a str,
-    root_prefix: &'a str,
-    built_date: Option<&'a str>,
-    unreleased_build: &'a str,
-}
-
 /// Validates and constructs the [`RenderContext`] for a public edition build.
 ///
 /// # Errors
@@ -105,44 +118,51 @@ pub fn render_context(
     )
 }
 
-/// Returns the deterministic list of relative paths planned for `ctx`.
+/// Returns the deterministic set of relative output paths planned for `view`.
 #[must_use]
-pub fn planned_paths(ctx: &RenderContext) -> Vec<String> {
-    match ctx {
-        RenderContext::Public(_edition) => vec![
-            "assets/app.css".to_owned(),
-            "assets/strings.js".to_owned(),
-            "index.html".to_owned(),
-        ],
-    }
+pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
+    let _ = view;
+    PlannedPaths::of(&[
+        "assets/app.css",
+        "assets/app.js",
+        "assets/strings.js",
+        "index.html",
+    ])
 }
 
-/// Renders a [`Site`] from a [`RenderContext`].
+/// Renders a [`Site`] from `view` and a validated [`RenderContext`].
 #[must_use]
-pub fn render_with_context(ctx: &RenderContext) -> Site {
+pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
     let built_date = match ctx {
         RenderContext::Public(edition) => {
             (!edition.built.is_empty()).then_some(edition.built.as_str())
         }
     };
-    let index_tpl = BaseTemplate {
-        csp: CSP_STATIC,
-        product: PRODUCT_TITLE,
-        root_prefix: "",
-        built_date,
-        unreleased_build: strings::unreleased_build(),
+    let planned = planned_paths(view);
+    let navigation = nav::build(view, &planned);
+    let store = match ctx {
+        RenderContext::Public(_) => StoreContext::Public,
     };
-    let index_html = index_tpl
-        .render()
-        .unwrap_or_else(|err| unreachable!("infallible base.html template rendering: {err}"));
+
+    let index_html = render_page(&FrameInput {
+        output_path: "index.html",
+        title: PRODUCT_TITLE,
+        page_area: None,
+        built_date,
+        store: &store,
+        crumbs: &[],
+        main_html: "",
+        nav: &navigation,
+    });
 
     let mut site = Site::new();
     site.insert("index.html", index_html.into_bytes());
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
+    site.insert("assets/app.js", APP_JS.as_bytes().to_vec());
     debug_assert_eq!(
-        site.files().keys().cloned().collect::<Vec<_>>(),
-        planned_paths(ctx)
+        site.files().keys().map(String::as_str).collect::<Vec<_>>(),
+        planned.iter().collect::<Vec<_>>()
     );
     site
 }
@@ -156,5 +176,5 @@ pub fn render_with_context(ctx: &RenderContext) -> Site {
 /// Returns [`MetadataError`] if `view` is non-public or if `changes.md` fails edition metadata checks.
 pub fn render(view: &LabelledView, info: &BuildInfo) -> Result<Site, MetadataError> {
     let ctx = render_context(view, info)?;
-    Ok(render_with_context(&ctx))
+    Ok(render_with_context(view, &ctx))
 }
