@@ -1,0 +1,16 @@
+<ol class="stage-track" aria-label="Curriculum stages">
+  {% for col in &stage_columns %}
+  <li class="stage" data-stage="{{ col.stage }}"{% if col.is_current %} aria-current="step"{% endif %}>
+    <div class="stage-head">Stage {{ col.stage }}</div>
+    {% if col.pages.is_empty() %}
+    <p class="stage-empty">No pages in this stage.</p>
+    {% else %}
+    <ul class="stage-pages">
+      {% for item in &col.pages %}
+      <li>{{ item.link_html|safe }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>

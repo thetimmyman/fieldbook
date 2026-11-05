@@ -24,11 +24,17 @@ const CONFLICTS_CSV: &str =
 const GLOSSARY_CSV: &str =
     include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
 
-const PAGES: [(&str, &str); 4] = [
+const PAGES: [(&str, &str); 9] = [
     (
-        "corpus/pages/compliance/business-systems/cmp-system-review.md",
+        "corpus/pages/compliance/business-systems/cmp-clause-9900-101.md",
         include_str!(
-            "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
+            "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-clause-9900-101.md"
+        ),
+    ),
+    (
+        "corpus/pages/compliance/business-systems/cmp-onboarding-checklist.md",
+        include_str!(
+            "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-onboarding-checklist.md"
         ),
     ),
     (
@@ -38,9 +44,33 @@ const PAGES: [(&str, &str); 4] = [
         ),
     ),
     (
+        "corpus/pages/compliance/business-systems/cmp-system-review.md",
+        include_str!(
+            "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
+        ),
+    ),
+    (
+        "corpus/pages/compliance/business-systems/cmp-withhold-case.md",
+        include_str!(
+            "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-withhold-case.md"
+        ),
+    ),
+    (
+        "corpus/pages/estimating/pricing/est-baseline-template.md",
+        include_str!(
+            "../../../tests/fixtures/corpus-mini/corpus/pages/estimating/pricing/est-baseline-template.md"
+        ),
+    ),
+    (
         "corpus/pages/estimating/pricing/est-calc-01.md",
         include_str!(
             "../../../tests/fixtures/corpus-mini/corpus/pages/estimating/pricing/est-calc-01.md"
+        ),
+    ),
+    (
+        "corpus/pages/estimating/pricing/est-rate-reference.md",
+        include_str!(
+            "../../../tests/fixtures/corpus-mini/corpus/pages/estimating/pricing/est-rate-reference.md"
         ),
     ),
     (
@@ -112,7 +142,7 @@ fn every_register_row_parses() {
     assert_eq!(corpus.areas().len(), 2, "expected 2 areas in corpus.toml");
     assert_eq!(corpus.views().len(), 1, "expected 1 view in corpus.toml");
 
-    assert_eq!(PAGES.len(), 4, "expected 4 pages in fixture");
+    assert_eq!(PAGES.len(), 9, "expected 9 pages in fixture");
     for (path, raw) in PAGES {
         let sp = split(raw).unwrap_or_else(|err| panic!("{path}:{err}"));
         let meta = parse_meta(&sp.front_matter).unwrap_or_else(|err| panic!("{path}:{err}"));

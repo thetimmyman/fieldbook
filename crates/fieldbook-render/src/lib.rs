@@ -11,5 +11,8 @@ pub mod lint;
 pub mod meta;
 pub mod nav;
 pub mod page;
+pub mod plan;
 pub mod site;
 pub mod sources_block;
+pub mod stages;
+pub mod types;
