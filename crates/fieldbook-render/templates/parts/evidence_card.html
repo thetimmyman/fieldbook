@@ -1,0 +1,34 @@
+{% for card in &evidence_cards %}
+<div class="ev-card" id="ev-{{ card.claim_id }}" data-claim-card="{{ card.claim_id }}">
+  <div class="ev-head">
+    {{ card.claim_chip_html|safe }}
+    {{ card.status_chip_html|safe }}
+    <span class="chip">{{ card.kind_label }}</span>
+  </div>
+  <p class="ev-stmt">{{ card.statement }}</p>
+  {% if let Some(q) = &card.quote %}
+  <blockquote class="ev-quote">“{{ q }}”</blockquote>
+  {% endif %}
+  <div class="ev-meta">
+    <div class="ev-source">{{ card.citation_chip_html|safe }}</div>
+    <div class="ev-row">
+      <span>Applicability: <b>{{ card.applicability }}</b></span>
+      <span>Adoption: <b>{{ card.adoption }}</b></span>
+      <span>Volatility: <b>{{ card.volatility }}</b></span>
+    </div>
+    <div class="ev-row">
+      {% if let Some(vdate) = &card.verified_on %}
+      <span>Verified <time datetime="{{ vdate }}">{{ vdate }}</time>{% if let Some(role) = &card.verified_by_role %} ({{ role }}){% endif %}</span>
+      {% else %}
+      <span class="unver">Never verified</span>
+      {% endif %}
+      {% if let Some(qhtml) = &card.question_chip_html %}
+      <span>Waits on {{ qhtml|safe }}</span>
+      {% endif %}
+      {% if let Some(xhtml) = &card.conflict_chip_html %}
+      <span>Waits on {{ xhtml|safe }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}

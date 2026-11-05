@@ -961,4 +961,99 @@ mod build {
             fieldbook_render::nav::build(&view_mixed, &site::planned_paths(&view_mixed));
         assert_eq!(nav_mixed, nav_base);
     }
+
+    #[test]
+    fn build_from_view_omits_hidden_canary() {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        tree.insert_bytes(
+            "corpus/pages/estimating/pricing/est-forbidden-canary.md",
+            b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nForbidden pricing canary body text.\n\n## The rule\n\nSecret rule.\n\n## How it works\n\nSecret steps.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret example.\n\n## Never confuse\n\nSecret distinction.\n\n## Company calibration\n\nSecret calibration.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-02-01: Added forbidden pricing canary.\n"
+                .to_vec(),
+        );
+
+        let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        let eff = EffectivePolicy::floor(false);
+        let now = world.now();
+        let shipped = Shipped::Hours(1);
+        let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+            panic!("expected selection Allowed");
+        };
+        let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
+
+        let out_dir = tmp.path().join("out-canary");
+        let plan = plan_edition(
+            &view,
+            &BuildInfo::default(),
+            &out_dir,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("plan_edition: {e:?}"))
+        .unwrap_or_else(|d| panic!("plan_edition denied: {d:?}"));
+
+        let mut journal =
+            state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+        let audited = journal
+            .begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+            .unwrap_or_else(|e| panic!("{e}"));
+        write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
+        journal
+            .end(audited, Word::new_static("ok"))
+            .unwrap_or_else(|e| panic!("{e}"));
+
+        let edition = out_dir.join("edition");
+        let concept_path = edition.join("p/cmp-system-review.html");
+        let steps_path = edition.join("p/cmp-review-steps.html");
+        assert!(
+            concept_path.is_file(),
+            "permitted page p/cmp-system-review.html must be written"
+        );
+        assert!(
+            steps_path.is_file(),
+            "permitted page p/cmp-review-steps.html must be written"
+        );
+        let concept_html = std::fs::read_to_string(&concept_path).unwrap_or_else(|e| panic!("{e}"));
+        let steps_html = std::fs::read_to_string(&steps_path).unwrap_or_else(|e| panic!("{e}"));
+
+        // Permitted page title, body, and emitted inter-page PageLink must reach the site.
+        assert!(
+            concept_html.contains("Synthetic business-system review and withholding overview"),
+            "permitted page title must appear in p/cmp-system-review.html"
+        );
+        assert!(
+            concept_html.contains(
+                "Synthetic reviewers check control operation and record open items before billing runs."
+            ),
+            "permitted page body must appear in p/cmp-system-review.html"
+        );
+        assert!(
+            steps_html.contains("class=\"plink\" href=\"cmp-system-review.html\""),
+            "permitted inter-page PageLink must appear in p/cmp-review-steps.html, got:\n{steps_html}"
+        );
+
+        // Forbidden page file, title, body, and link must be absent across the entire edition.
+        assert!(
+            !edition.join("p/est-forbidden-canary.html").exists(),
+            "forbidden page p/est-forbidden-canary.html must not exist"
+        );
+        for (rel, bytes) in collect_tree_bytes(&edition) {
+            let text = String::from_utf8_lossy(&bytes);
+            assert!(
+                !text.contains("Forbidden pricing canary"),
+                "forbidden page title must not appear in `{rel}`"
+            );
+            assert!(
+                !text.contains("Forbidden pricing canary body text."),
+                "forbidden page body must not appear in `{rel}`"
+            );
+            assert!(
+                !text.contains("est-forbidden-canary.html"),
+                "forbidden page link must not appear in `{rel}`"
+            );
+        }
+    }
 }

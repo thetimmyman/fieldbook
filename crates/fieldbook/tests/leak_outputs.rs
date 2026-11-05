@@ -530,6 +530,56 @@ fn run_edition_surface() {
     assert!(index_disk.contains("<nav aria-label=\"Sections\">"));
     assert!(index_disk.contains("class=\"not-available\""));
 
+    let concept_disk = std::fs::read_to_string(plan.edition_dir.join("p/cmp-system-review.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let steps_disk = std::fs::read_to_string(plan.edition_dir.join("p/cmp-review-steps.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    assert!(
+        concept_disk.contains("Synthetic business-system review and withholding overview"),
+        "permitted page title must reach edition output"
+    );
+    assert!(
+        concept_disk.contains(
+            "Synthetic reviewers check control operation and record open items before billing runs."
+        ),
+        "permitted page body must reach edition output"
+    );
+    assert!(
+        steps_disk.contains("class=\"plink\" href=\"cmp-system-review.html\""),
+        "permitted inter-page PageLink must reach edition output"
+    );
+
+    let mixed_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let mixed_plan = plan_edition(
+        &mixed_view,
+        &BuildInfo::default(),
+        mixed_out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition mixed failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition mixed denied: {d:?}"));
+    assert!(
+        !mixed_plan
+            .site
+            .files()
+            .contains_key("p/est-forbidden-canary.html"),
+        "forbidden page must be absent from mixed edition plan"
+    );
+    for (rel, bytes) in mixed_plan.site.files() {
+        let s = String::from_utf8_lossy(bytes);
+        assert!(
+            !s.contains("Forbidden pricing canary"),
+            "forbidden page title must not appear in {rel}"
+        );
+        assert!(
+            !s.contains("est-forbidden-canary.html"),
+            "forbidden page link must not appear in {rel}"
+        );
+    }
+
     for (rel, expected_bytes) in plan.site.files() {
         let disk_path = plan.edition_dir.join(rel);
         let disk_bytes = std::fs::read(&disk_path).unwrap_or_else(|e| panic!("{e}"));

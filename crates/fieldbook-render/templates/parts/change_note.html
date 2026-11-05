@@ -1,0 +1,14 @@
+{% if change_entries.is_empty() %}
+<p class="empty-part">{{ empty_part_text }}</p>
+{% else %}
+<div class="change-list">
+{% for item in &change_entries %}
+{% match item %}
+{% when crate::page::ChangeNoteLine::Structured with { class_name, date, sentence } %}
+<p class="change"><span class="chip">{{ class_name }}</span> <time datetime="{{ date }}">{{ date }}</time> {{ sentence }}</p>
+{% when crate::page::ChangeNoteLine::Plain with (line) %}
+<p class="change-text">{{ line }}</p>
+{% endmatch %}
+{% endfor %}
+</div>
+{% endif %}
