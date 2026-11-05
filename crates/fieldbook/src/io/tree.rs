@@ -16,35 +16,80 @@ use fieldbook_core::check::Tree;
 use fieldbook_core::hash::Sha256Stream;
 
 use crate::World;
+use crate::io::Audited;
 use crate::io::store_lease::StoreLease;
 
-/// An I/O error raised while reading the working directory or Corpus tree from disk.
+/// An I/O error raised while reading or writing the Corpus tree or working directory.
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct WorldError {
-    /// The filesystem path whose operation failed.
-    pub path: PathBuf,
-    /// Human-readable error description.
-    pub message: String,
+pub enum WorldError {
+    /// An underlying filesystem read or write error.
+    Io {
+        /// The filesystem path whose operation failed.
+        path: PathBuf,
+        /// Human-readable error description.
+        message: String,
+    },
+    /// A target file is held open in another program during an atomic rename.
+    InUse(PathBuf),
 }
 
+/// Alias for [`WorldError`].
+pub type Error = WorldError;
+
 impl WorldError {
-    /// Construct a [`WorldError`] for `path` and `message`.
+    /// Construct a [`WorldError::Io`] for `path` and `message`.
     #[must_use]
     pub fn new(path: impl Into<PathBuf>, message: impl Into<String>) -> Self {
-        Self {
+        Self::Io {
             path: path.into(),
             message: message.into(),
+        }
+    }
+
+    /// Construct a [`WorldError::Io`] for `path` and `message`.
+    #[must_use]
+    pub fn io(path: impl Into<PathBuf>, message: impl Into<String>) -> Self {
+        Self::new(path, message)
+    }
+
+    /// Construct a [`WorldError::InUse`] for `path`.
+    #[must_use]
+    pub fn in_use(path: impl Into<PathBuf>) -> Self {
+        Self::InUse(path.into())
+    }
+
+    /// Return the path associated with this error.
+    #[must_use]
+    pub fn path(&self) -> &Path {
+        match self {
+            Self::Io { path, .. } | Self::InUse(path) => path.as_path(),
         }
     }
 }
 
 impl fmt::Display for WorldError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}: {}", self.path.display(), self.message)
+        match self {
+            Self::Io { path, message } => write!(f, "{}: {message}", path.display()),
+            Self::InUse(path) => write!(
+                f,
+                "{} is open in another program; close it and run the command again",
+                path.display()
+            ),
+        }
     }
 }
 
 impl std::error::Error for WorldError {}
+
+/// Read all bytes of `path` from disk, rejecting non-regular files.
+pub fn read_file(path: &Path) -> Result<Vec<u8>, WorldError> {
+    let meta = std::fs::metadata(path).map_err(|err| WorldError::new(path, err.to_string()))?;
+    if !meta.is_file() {
+        return Err(WorldError::new(path, "not a regular file"));
+    }
+    std::fs::read(path).map_err(|err| WorldError::new(path, err.to_string()))
+}
 
 /// Walk up from `start` to the nearest ancestor containing a `corpus/` directory, even if
 /// `corpus/corpus.toml` is missing; return `start` itself if no ancestor contains `corpus/`.
@@ -207,6 +252,19 @@ impl World for Disk {
 
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
         crate::io::journal::read_tree_under_lease(&self.tree_root, &self.state_dir, lease)
+    }
+
+    fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<fieldbook_core::audit::Sha256, WorldError> {
+        Disk::write_file(self, audited, path, bytes)
+    }
+
+    fn has_company_store(&self) -> bool {
+        Disk::has_company_store(self)
     }
 
     fn today(&self) -> CivilDate {

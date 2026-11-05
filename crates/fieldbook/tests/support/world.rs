@@ -2,11 +2,12 @@
 
 use std::path::Path;
 use std::sync::Mutex;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use fieldbook::io::Disk;
-use fieldbook::{StoreLease, World, WorldError};
+use fieldbook::{Audited, StoreLease, World, WorldError};
 use fieldbook_core::CivilDate;
-use fieldbook_core::audit::{Now, Principal};
+use fieldbook_core::audit::{Now, Principal, Sha256};
 use fieldbook_core::check::Tree;
 
 const FIXTURE_TODAY: &str = include_str!("../../../../tests/fixtures/corpus-mini/TODAY");
@@ -17,6 +18,7 @@ pub struct TestWorld {
     inner: Disk,
     now: Mutex<Now>,
     principal: Mutex<Principal>,
+    company_store: AtomicBool,
 }
 
 impl TestWorld {
@@ -31,6 +33,7 @@ impl TestWorld {
             inner: Disk::new(root.to_path_buf()),
             now: Mutex::new(now),
             principal: Mutex::new(Principal::local()),
+            company_store: AtomicBool::new(false),
         }
     }
 
@@ -44,6 +47,7 @@ impl TestWorld {
             inner: Disk::with_state(root.to_path_buf(), state_dir.to_path_buf()),
             now: Mutex::new(now),
             principal: Mutex::new(Principal::local()),
+            company_store: AtomicBool::new(false),
         }
     }
 
@@ -60,6 +64,12 @@ impl TestWorld {
             *g = principal;
         }
     }
+
+    /// Override whether this `TestWorld` reports having a company store (`World::has_company_store`).
+    pub fn set_company_store(&self, has_company_store: bool) {
+        self.company_store
+            .store(has_company_store, Ordering::Relaxed);
+    }
 }
 
 impl World for TestWorld {
@@ -73,6 +83,19 @@ impl World for TestWorld {
 
     fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
         self.inner.read_tree_under(lease)
+    }
+
+    fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, WorldError> {
+        self.inner.write_file(audited, path, bytes)
+    }
+
+    fn has_company_store(&self) -> bool {
+        self.company_store.load(Ordering::Relaxed)
     }
 
     fn today(&self) -> CivilDate {

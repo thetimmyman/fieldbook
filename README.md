@@ -17,7 +17,7 @@ just setup
 
 **The owner, reading.** Open `edition/index.html` from an edition in Edge or Chrome. No server or install is needed. Editions are built by the card `build-v0`, and `just edition` arrives with the card `edition-zips`. The first is `edition-001`.
 
-**The owner, authoring at home.** Copy `corpus/templates/<type>.md` into `corpus/pages/`, fill it in, then run `fieldbook check`. The authoring verbs (`new`, `add`, `fmt`, `build`, `search`, `status`, `verify`) arrive with the cards listed in [PLAN.md](docs/plan/PLAN.md). The page rules are in [corpus/README.md](corpus/README.md).
+**The owner, authoring at home.** Run `fieldbook add <file> --confirm-public` to add a public source, copy `corpus/templates/<type>.md` into `corpus/pages/`, fill it in, then run `fieldbook check`. The remaining authoring verbs (`new`, `fmt`, `build`, `search`, `status`, `verify`) arrive with the cards listed in [PLAN.md](docs/plan/PLAN.md). The page rules are in [corpus/README.md](corpus/README.md).
 
 **A developer or an agent.** Read [AGENTS.md](AGENTS.md), then run `just check`. Pick the next card from [PLAN.md](docs/plan/PLAN.md).
 

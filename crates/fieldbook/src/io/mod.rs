@@ -4,7 +4,9 @@
 //! Later cards add file access here. Each lifts only the bans it needs, with a
 //! `#![expect(..., reason = "...")]` at the top of this module.
 
+pub mod atomic;
 pub mod journal;
+pub mod root;
 pub mod state;
 pub mod store_lease;
 pub mod tree;
@@ -12,12 +14,35 @@ pub mod win;
 
 pub use journal::{Audited, Journal, JournalError, Recovery};
 pub use store_lease::{GenerationStatus, LeaseMode, StoreLease};
-pub use tree::{Disk, WorldError, find_root, read_tree};
+pub use tree::{Disk, Error, WorldError, find_root, read_file, read_tree};
 
 use std::io::Write;
+use std::path::Path;
 use std::process::ExitCode;
 
+use fieldbook_core::audit::Sha256;
+
 use crate::cli::EXIT_IO;
+
+impl Disk {
+    /// Atomically write `bytes` to `path` under `audited` via [`atomic::write_file`].
+    pub fn write_file(
+        &self,
+        audited: &Audited,
+        path: &Path,
+        bytes: &[u8],
+    ) -> Result<Sha256, Error> {
+        let _ = self;
+        atomic::write_file(audited, path, bytes)
+    }
+
+    /// Return whether a company store exists on this layout (`false` on the Home layout).
+    #[must_use]
+    pub const fn has_company_store(&self) -> bool {
+        let _ = self;
+        false
+    }
+}
 
 /// Run the program: read the arguments, run the command, write its output.
 ///

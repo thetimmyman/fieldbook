@@ -68,6 +68,30 @@ pub const CASES: &[ChipCase] = &[
         setup: &[],
         outcome: ChipOutcome::Exit0,
     },
+    ChipCase {
+        chip: "fieldbook add <file>",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &["sample.txt"],
+        outcome: ChipOutcome::FindingsExit1("FB0410"),
+    },
+    ChipCase {
+        chip: "fieldbook add <file> --source <source-id>",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &["sample.txt"],
+        outcome: ChipOutcome::FindingsExit1("FB0410"),
+    },
+    ChipCase {
+        chip: "fieldbook add <folder>",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &["incoming"],
+        outcome: ChipOutcome::FindingsExit1("FB0410"),
+    },
 ];
 
 pub fn substitute_chip(chip: &str, samples: &[(&str, &str)]) -> Vec<String> {

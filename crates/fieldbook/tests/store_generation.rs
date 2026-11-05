@@ -237,7 +237,10 @@ fn pending_write_needs_recovery() {
     let err = world
         .read_tree()
         .expect_err("ordinary read_tree must refuse while pending.toml exists");
-    assert!(err.message.contains("pending"), "unexpected error: {err}");
+    assert!(
+        err.to_string().contains("pending"),
+        "unexpected error: {err}"
+    );
 }
 
 #[test]
@@ -367,14 +370,14 @@ fn store_precedes_journal() {
         .write_lease()
         .expect_err("acquiring store.lock while holding journal lock must fail");
     assert!(
-        err.message.contains("lock order violation"),
+        err.to_string().contains("lock order violation"),
         "unexpected error: {err}"
     );
     let read_err = world
         .read_tree()
         .expect_err("read_tree while holding journal lock must fail");
     assert!(
-        read_err.message.contains("lock order violation"),
+        read_err.to_string().contains("lock order violation"),
         "unexpected error: {read_err}"
     );
 
