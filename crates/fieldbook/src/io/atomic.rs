@@ -13,7 +13,7 @@
 
 use std::fs::OpenOptions;
 use std::io::Write;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Duration;
 
@@ -61,6 +61,30 @@ pub fn write_in_root(
     write_atomic(&resolved, bytes)
 }
 
+pub(crate) fn check_outside_write_binding(
+    allowed: &Allowed,
+    path: &Path,
+    bytes: &[u8],
+) -> Result<PathBuf, Error> {
+    let resolved = crate::io::root::resolve_outside_path(path)?;
+    let permitted =
+        allowed.permits_transfer(&Target::Path(resolved.clone()), &Operation::Write, bytes)
+            || allowed.transfers().unwrap_or(&[]).iter().any(|t| {
+                if let Target::Path(bound_path) = &t.target
+                    && let Ok(bound_resolved) = crate::io::root::resolve_outside_path(bound_path)
+                    && bound_resolved == resolved
+                {
+                    allowed.permits_transfer(&t.target, &Operation::Write, bytes)
+                } else {
+                    false
+                }
+            });
+    if !permitted {
+        return Err(Error::OutOfScope(path.to_path_buf()));
+    }
+    Ok(resolved)
+}
+
 /// Write `bytes` to `path` outside the data roots atomically under `allowed` and `audited`.
 ///
 /// Verifies that `audited` is not state-only and holds an active lease, canonicalizes existing
@@ -82,22 +106,7 @@ pub fn write_outside(
     if audited.is_state_only() || !audited.has_active_lease() {
         return Err(Error::OutOfScope(path.to_path_buf()));
     }
-    let resolved = crate::io::root::resolve_outside_path(path)?;
-    let permitted =
-        allowed.permits_transfer(&Target::Path(resolved.clone()), &Operation::Write, bytes)
-            || allowed.transfers().unwrap_or(&[]).iter().any(|t| {
-                if let Target::Path(bound_path) = &t.target
-                    && let Ok(bound_resolved) = crate::io::root::resolve_outside_path(bound_path)
-                    && bound_resolved == resolved
-                {
-                    allowed.permits_transfer(&t.target, &Operation::Write, bytes)
-                } else {
-                    false
-                }
-            });
-    if !permitted {
-        return Err(Error::OutOfScope(path.to_path_buf()));
-    }
+    let resolved = check_outside_write_binding(allowed, path, bytes)?;
     crate::io::journal::run_write_pause_hook(&resolved);
     write_atomic(&resolved, bytes)
 }

@@ -1,0 +1,448 @@
+//! `fieldbook build [--out DIR]`: static site and edition builder (`build-v0`).
+
+use std::collections::BTreeSet;
+use std::path::{Path, PathBuf};
+
+use fieldbook_core::audit::{
+    DestKind, Kind, LabelSet, Now, RecordRef, RefuseAbout, Sha256, StoreId, Via, Word, WriteFile,
+    WriteSet,
+};
+use fieldbook_core::authz::ReadableStores;
+use fieldbook_core::check::{self, Code, Diagnostic, Host, Model, Options, Report};
+use fieldbook_core::egress::{
+    self, Allowed, Decision, Delivery, Denial, Dest, LabelledView, Shipped, Transfer,
+};
+use fieldbook_core::labels::{self, ItemRef, MarkingRules};
+use fieldbook_core::policy::EffectivePolicy;
+use fieldbook_render::meta::{BuildInfo, MetadataError, RenderContext};
+use fieldbook_render::site::{self, Site};
+
+use crate::cli::{BuildArgs, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
+use crate::io::dirs::{self, BuildRoot};
+use crate::io::{Audited, Error, out, state};
+use crate::{Outcome, World};
+
+/// Planned and delivery-bound edition output ready for `Journal::begin_export` and [`write_edition_outputs`].
+#[derive(Debug)]
+pub struct BuildPlan {
+    /// Canonical or resolved parent output directory (`DIR`).
+    pub out_dir: PathBuf,
+    /// Resolved `DIR/edition` directory.
+    pub edition_dir: PathBuf,
+    /// Resolved `DIR/.fieldbook-out` marker file path.
+    pub marker_path: PathBuf,
+    /// Exact bytes of `.fieldbook-out`.
+    pub marker_bytes: Vec<u8>,
+    /// Validated [`RenderContext`] for this edition build.
+    pub context: RenderContext,
+    /// Rendered site files (`index.html`, `assets/strings.js`, `assets/app.css`).
+    pub site: Site,
+    /// Provenance input [`ItemRef`]s contributing to this output (`labels::effective_item`).
+    pub input_items: Vec<ItemRef>,
+    /// Journal [`WriteSet`] covering `.fieldbook-out` and every file under `edition/`.
+    pub write_set: WriteSet,
+    /// Outbound [`Delivery`] covering optional directory removal, `.fieldbook-out`, and all site files.
+    pub delivery: Delivery,
+    /// Delivery-bound [`Allowed`] token issued by `egress::check`.
+    pub allowed: Allowed,
+}
+
+/// Error returned while planning an edition build before `Journal::begin_export`.
+#[derive(Debug)]
+pub enum BuildPlanError {
+    /// Edition metadata validation failed (`MetadataError`).
+    Metadata(MetadataError),
+    /// Filesystem or scope check failed (`io::Error`).
+    Io(Error),
+}
+
+/// Collect the sorted provenance input [`ItemRef`]s and journal [`RecordRef`]s from `view`.
+#[must_use]
+pub fn collect_view_inputs(view: &LabelledView) -> (Vec<ItemRef>, Vec<RecordRef>) {
+    let mut item_refs = BTreeSet::new();
+    let mut record_refs = BTreeSet::new();
+
+    for src in view.sources() {
+        let ver_id = format!("{}-v{}", src.value.source_id, src.value.version);
+        item_refs.insert(ItemRef::new(StoreId::Corpus, &ver_id));
+        if let Ok(rr) = RecordRef::parse(&format!("corpus/{}", src.value.source_id)) {
+            record_refs.insert(rr);
+        }
+    }
+    for page in view.pages() {
+        item_refs.insert(ItemRef::new(StoreId::Corpus, page.id.as_str()));
+        if let Ok(rr) = RecordRef::parse(&format!("corpus/{}", page.id)) {
+            record_refs.insert(rr);
+        }
+    }
+    if record_refs.is_empty()
+        && let Ok(fallback) = RecordRef::parse("corpus/S-0001")
+    {
+        record_refs.insert(fallback);
+    }
+
+    (
+        item_refs.into_iter().collect(),
+        record_refs.into_iter().collect(),
+    )
+}
+
+/// Validate `RenderContext`, render [`Site`], repeat the root check, construct the [`Delivery`]
+/// and [`WriteSet`], and obtain the final delivery-bound [`Allowed`] token.
+///
+/// # Errors
+///
+/// Returns [`BuildPlanError::Metadata`] if `RenderContext` validation fails, or
+/// [`BuildPlanError::Io`] if `dirs::check_build_roots` or path resolution fails.
+pub fn plan_edition(
+    view: &LabelledView,
+    info: &BuildInfo,
+    out_dir: &Path,
+    eff: &EffectivePolicy,
+    labels: &LabelSet,
+    now: Now,
+    shipped: Shipped,
+) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
+    let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
+    let site = site::render_with_context(&context);
+
+    dirs::check_build_roots(out_dir, &[BuildRoot::Edition]).map_err(BuildPlanError::Io)?;
+
+    let resolved_out_dir =
+        crate::io::root::resolve_outside_path(out_dir).map_err(BuildPlanError::Io)?;
+    let edition_dir = resolved_out_dir.join(BuildRoot::Edition.as_str());
+    let marker_path = resolved_out_dir.join(dirs::MARKER_FILE);
+    let marker_bytes = dirs::marker_bytes();
+
+    let mut entries = Vec::new();
+    if let Some(remove_tx) = dirs::tree_remove_transfer(&edition_dir).map_err(BuildPlanError::Io)? {
+        entries.push(remove_tx);
+    }
+    entries.push(Transfer::write_path(marker_path.clone(), &marker_bytes));
+
+    let mut write_files = Vec::with_capacity(site.files().len() + 1);
+    write_files.push(WriteFile::new(
+        dirs::MARKER_FILE,
+        Sha256::digest(&marker_bytes).as_str().to_owned(),
+    ));
+
+    let rules = MarkingRules::default();
+    let mut markings: Option<LabelSet> = None;
+    for (rel, bytes) in site.files() {
+        let target_path = edition_dir.join(rel);
+        entries.push(Transfer::write_path(target_path, bytes));
+        write_files.push(WriteFile::new(
+            format!("{}/{rel}", BuildRoot::Edition.as_str()),
+            Sha256::digest(bytes).as_str().to_owned(),
+        ));
+        if let Ok(text) = std::str::from_utf8(bytes)
+            && let Some(mset) = labels::markings_in(text, &rules)
+        {
+            markings = Some(match markings {
+                Some(prev) => prev.union(&mset),
+                None => mset,
+            });
+        }
+    }
+    let delivery = Delivery { entries, markings };
+    let (input_items, affected) = collect_view_inputs(view);
+    let write_set = WriteSet {
+        labels: labels.clone(),
+        files: write_files,
+        affected,
+    };
+
+    match egress::check(
+        eff,
+        &Dest::Edition,
+        Some(labels),
+        Some(&delivery),
+        now,
+        shipped,
+    ) {
+        Decision::Allowed(allowed) => Ok(Ok(BuildPlan {
+            out_dir: resolved_out_dir,
+            edition_dir,
+            marker_path,
+            marker_bytes,
+            context,
+            site,
+            input_items,
+            write_set,
+            delivery,
+            allowed,
+        })),
+        Decision::Denied(denial) => Ok(Err(denial)),
+    }
+}
+
+/// Execute the final outward writes for `plan` under `audited`: replace `DIR/edition` via
+/// [`out::replace`] and write `DIR/.fieldbook-out` via [`crate::io::atomic::write_outside`].
+///
+/// # Errors
+///
+/// Returns [`Error`] if any delivery-binding check, marker check, directory removal, or atomic
+/// file write fails.
+pub fn write_edition_outputs(plan: &BuildPlan, audited: &Audited) -> Result<(), Error> {
+    out::replace(&plan.edition_dir, plan.site.files(), &plan.allowed, audited)?;
+    let _ = crate::io::atomic::write_outside(
+        &plan.allowed,
+        &plan.marker_path,
+        &plan.marker_bytes,
+        audited,
+    )?;
+    Ok(())
+}
+
+fn format_fb0600_failure(report: &Report) -> Outcome {
+    let mut out = report.render_text();
+    let diag = Diagnostic::new(
+        Code::Fb0600,
+        false,
+        "corpus/corpus.toml",
+        1,
+        1,
+        format!(
+            "refusing to build: Corpus has {} check error(s)",
+            report.errors()
+        ),
+    );
+    let mut extra = Report::new();
+    extra.push(diag);
+    out.push_str(&extra.render_text());
+    Outcome {
+        stdout: String::new(),
+        stderr: out,
+        code: EXIT_FINDINGS,
+    }
+}
+
+fn map_root_error(err: Error) -> Outcome {
+    match err {
+        Error::OutOfScope(root_path) => Outcome {
+            stdout: String::new(),
+            stderr: format!("{}\n", dirs::foreign_root_message(&root_path)),
+            code: EXIT_USAGE,
+        },
+        other => Outcome {
+            stdout: String::new(),
+            stderr: format!("{other}\n"),
+            code: EXIT_IO,
+        },
+    }
+}
+
+fn resolve_out_dir(world: &dyn World, arg_out: &Path) -> PathBuf {
+    if arg_out.is_absolute() {
+        arg_out.to_path_buf()
+    } else if arg_out == Path::new("out") {
+        world.tree_root().join(arg_out)
+    } else {
+        world.cwd().join(arg_out)
+    }
+}
+
+fn load_checked_snapshot(
+    tree: fieldbook_core::check::Tree,
+    today: fieldbook_core::CivilDate,
+) -> Result<Model, Outcome> {
+    let host = Host::new(tree, today);
+    let options = Options::new(false);
+    let (model, report) = check::load(&host, &options);
+    if !report.is_ok() {
+        return Err(format_fb0600_failure(&report));
+    }
+    Ok(model)
+}
+
+/// Run `fieldbook build` with an explicit [`BuildInfo`].
+#[must_use]
+pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> Outcome {
+    let out_dir = resolve_out_dir(world, &args.out);
+    let today = world.today();
+
+    // 1. Read coherent snapshot under shared store lease and run non-strict check.
+    let initial_tree = match world.read_tree() {
+        Ok(t) => t,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+    let initial_gen = initial_tree.generation_hash();
+    let mut model = match load_checked_snapshot(initial_tree, today) {
+        Ok(m) => m,
+        Err(outcome) => return outcome,
+    };
+
+    // 2. Check target build roots before opening the journal or taking the exclusive lease.
+    if let Err(err) = dirs::check_build_roots(&out_dir, &[BuildRoot::Edition]) {
+        return map_root_error(err);
+    }
+
+    // 3. Take exclusive store lease and confirm snapshot generation is unchanged; if changed,
+    //    reload and re-check under the lease before opening the journal.
+    let lease = match world.write_lease() {
+        Ok(l) => l,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+    let lease_tree = match world.read_tree_under(&lease) {
+        Ok(t) => t,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: EXIT_IO,
+            };
+        }
+    };
+    if lease_tree.generation_hash() != initial_gen {
+        model = match load_checked_snapshot(lease_tree, today) {
+            Ok(m) => m,
+            Err(outcome) => return outcome,
+        };
+    }
+
+    // 4. Open the audit journal and capture `now`, `shipped`, and `EffectivePolicy::floor(false)`.
+    let mut journal = match state::open(world, world.state_dir(), Via::Cli) {
+        Ok(j) => j,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: err.exit_code(),
+            };
+        }
+    };
+    let now = world.now();
+    let shipped = egress::shipped(journal.last_time_of(Kind::AuditExport), now);
+    let eff = EffectivePolicy::floor(false);
+
+    // 5. Select the edition view (`Dest::Edition`).
+    let selection = match egress::check(&eff, &Dest::Edition, None, None, now, shipped) {
+        Decision::Allowed(sel) => sel,
+        Decision::Denied(denial) => {
+            let about = RefuseAbout {
+                labels: (!denial.labels.is_empty())
+                    .then(|| LabelSet::from_ids(denial.labels.clone())),
+                dest: Some(DestKind::Edition),
+                ..RefuseAbout::default()
+            };
+            if let Err(j_err) =
+                journal.refuse(Some("build"), denial.code, denial.reason.to_word(), &about)
+            {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("{j_err}\n"),
+                    code: j_err.exit_code(),
+                };
+            }
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!(
+                    "error[{}]: edition build refused ({})\n",
+                    denial.code, denial.reason
+                ),
+                code: EXIT_USAGE,
+            };
+        }
+    };
+
+    let view = LabelledView::new(&model, &selection, &ReadableStores::corpus());
+
+    // 6. Plan and render edition, validating RenderContext and binding Delivery.
+    let plan = match plan_edition(
+        &view,
+        info,
+        &out_dir,
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    ) {
+        Ok(Ok(plan)) => plan,
+        Ok(Err(denial)) => {
+            let about = RefuseAbout {
+                labels: (!denial.labels.is_empty())
+                    .then(|| LabelSet::from_ids(denial.labels.clone())),
+                dest: Some(DestKind::Edition),
+                ..RefuseAbout::default()
+            };
+            if let Err(j_err) =
+                journal.refuse(Some("build"), denial.code, denial.reason.to_word(), &about)
+            {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("{j_err}\n"),
+                    code: j_err.exit_code(),
+                };
+            }
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!(
+                    "error[{}]: edition build refused ({})\n",
+                    denial.code, denial.reason
+                ),
+                code: EXIT_USAGE,
+            };
+        }
+        Err(BuildPlanError::Metadata(meta_err)) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("error: {meta_err}\n"),
+                code: EXIT_FINDINGS,
+            };
+        }
+        Err(BuildPlanError::Io(io_err)) => return map_root_error(io_err),
+    };
+
+    // 7. Append `write.begin`, replace `DIR/edition` and write `.fieldbook-out`, and append `write.end`.
+    let audited = match journal.begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+    {
+        Ok(a) => a,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: err.exit_code(),
+            };
+        }
+    };
+
+    if let Err(err) = write_edition_outputs(&plan, &audited) {
+        let _ = journal.end(audited, Word::new_static("failed"));
+        return map_root_error(err);
+    }
+
+    if let Err(err) = journal.end(audited, Word::new_static("ok")) {
+        return Outcome {
+            stdout: String::new(),
+            stderr: format!("{err}\n"),
+            code: err.exit_code(),
+        };
+    }
+
+    drop(lease);
+    Outcome {
+        stdout: String::new(),
+        stderr: String::new(),
+        code: EXIT_OK,
+    }
+}
+
+/// Run `fieldbook build` reading `SOURCE_DATE_EPOCH` and compile-time `FIELDBOOK_GIT_SHA`
+/// from the process boundary.
+#[must_use]
+pub fn run(args: &BuildArgs, world: &dyn World) -> Outcome {
+    let info = crate::io::build_info_from_env();
+    run_with_info(args, world, &info)
+}

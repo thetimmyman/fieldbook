@@ -24,6 +24,14 @@ Check the Corpus and print findings
 | `--json` | - | - | Print the report as a JSON object |
 | `<PATHS>` | `PATHS` | - | Optional paths (relative to the working directory) to filter diagnostics |
 
+### `fieldbook build`
+
+Build the static site and workbooks into an edition directory
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `--out` | `DIR` | `out` | Parent output directory (`DIR/edition` holds the built site) |
+
 ### `fieldbook add`
 
 Add a source or source version to the Corpus

@@ -4,8 +4,15 @@
 //! Later cards add file access here. Each lifts only the bans it needs, with a
 //! `#![expect(..., reason = "...")]` at the top of this module.
 
+#![expect(
+    clippy::disallowed_methods,
+    reason = "io reads SOURCE_DATE_EPOCH at the process boundary for build metadata"
+)]
+
 pub mod atomic;
+pub mod dirs;
 pub mod journal;
+pub mod out;
 pub mod root;
 pub mod state;
 pub mod store_lease;
@@ -20,10 +27,35 @@ use std::io::Write;
 use std::path::Path;
 use std::process::ExitCode;
 
+use fieldbook_core::CivilDate;
 use fieldbook_core::audit::Sha256;
 use fieldbook_core::egress::Allowed;
+use fieldbook_render::meta::{BuildInfo, BuildProfile};
 
 use crate::cli::EXIT_IO;
+
+/// Read `SOURCE_DATE_EPOCH` and compile-time `FIELDBOOK_GIT_SHA` at the process boundary
+/// and construct [`BuildInfo`] (`build-v0` step 2).
+#[must_use]
+pub fn build_info_from_env() -> BuildInfo {
+    let raw_epoch = std::env::var("SOURCE_DATE_EPOCH").ok();
+    let parsed_epoch = raw_epoch
+        .as_deref()
+        .map(str::trim)
+        .filter(|s| !s.is_empty() && s.bytes().all(|b| b.is_ascii_digit()))
+        .and_then(|s| s.parse::<i64>().ok())
+        .and_then(|sec| {
+            CivilDate::from_epoch_seconds(sec)
+                .ok()
+                .map(|date| (date, sec))
+        });
+    let (built, epoch_opt) = match parsed_epoch {
+        Some((date, sec)) => (Some(date), Some(sec)),
+        None => (None, None),
+    };
+    let commit = option_env!("FIELDBOOK_GIT_SHA").map(str::to_owned);
+    BuildInfo::new(built, commit, BuildProfile::Silent, epoch_opt)
+}
 
 impl Disk {
     /// Atomically write `bytes` to `path` under `audited` via [`atomic::write_in_root`],

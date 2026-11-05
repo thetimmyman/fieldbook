@@ -1,6 +1,6 @@
 # Fieldbook developer recipes. Run `just` to list them.
 # Bootstrap: `cargo install --locked just@1.58.0`, then `just setup`.
-# Recipes still to come: site, browser, edition, release and new-card. Each arrives with its card.
+# Recipes still to come: browser, edition, release and new-card. Each arrives with its card.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
@@ -20,6 +20,10 @@ doctor:
 binscan:
     cargo build --locked -p fieldbook
     cargo xtask binscan target/debug/fieldbook --build silent
+
+# Build the static site into out/edition at the commit timestamp.
+site:
+    SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)" cargo run -q --locked -p fieldbook -- build --out out
 
 # Everything a pull request must pass, in the order of AD-07. CI runs this too.
 check:

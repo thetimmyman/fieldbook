@@ -97,6 +97,8 @@ jobs:
         run: chmod +x fieldbook
       - name: Check the Corpus
         run: ./fieldbook check --strict --today "$(git log -1 --format=%cs)"
+      - name: Build the site
+        run: SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)" ./fieldbook build --out out
       - name: Install the pinned Rust toolchain
         run: rustup toolchain install
       - name: Check generated documentation

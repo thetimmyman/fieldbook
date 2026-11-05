@@ -49,6 +49,7 @@ LockFileEx
 LookupAccountSidW
 MoveFileExW
 MultiByteToWideChar
+NtOpenFile
 NtReadFile
 NtWriteFile
 OpenProcessToken
@@ -56,6 +57,7 @@ ProcessPrng
 QueryPerformanceCounter
 QueryPerformanceFrequency
 ReleaseMutex
+RemoveDirectoryW
 RtlCaptureContext
 RtlLookupFunctionEntry
 RtlNtStatusToDosError
@@ -67,6 +69,7 @@ SetThreadStackGuarantee
 SetUnhandledExceptionFilter
 SetWaitableTimer
 Sleep
+SwitchToThread
 URLDownloadToFileW
 UnlockFile
 WSASocketW
@@ -143,6 +146,7 @@ dup
 exit
 fcntl
 fdatasync
+fdopendir
 flock
 free
 fstat64
@@ -169,6 +173,7 @@ mmap64
 mprotect
 munmap
 open64
+openat64
 opendir
 pause
 poll
@@ -188,6 +193,7 @@ realloc
 realpath
 recvfrom
 rename
+rmdir
 sendto
 sigaction
 sigaltstack
@@ -200,6 +206,7 @@ syscall
 sysconf
 terminate
 unlink
+unlinkat
 wcslen
 write
 writev

@@ -449,26 +449,32 @@ fn io_writes_only_through_atomic() {
     entries.sort();
     assert!(!entries.is_empty());
 
-    let forbidden = [
-        "fs::rename(",
-        "fs::write(",
+    let forbidden_file_writes = ["fs::write(", "File::create(", "OpenOptions::new()"];
+    let forbidden_folder_ops = [
+        "fs::remove_dir_all(",
         "fs::create_dir(",
         "fs::create_dir_all(",
-        "File::create(",
-        "OpenOptions::new()",
+        "fs::rename(",
     ];
 
     for path in entries {
         let name = path.file_name().and_then(|n| n.to_str()).unwrap_or("");
-        if matches!(name, "atomic.rs" | "journal.rs") {
-            continue;
-        }
         let text = std::fs::read_to_string(&path).expect("read io source file");
-        for pat in forbidden {
-            assert!(
-                !text.contains(pat),
-                "raw filesystem call `{pat}` found in {name} outside atomic.rs and journal.rs"
-            );
+        if !matches!(name, "atomic.rs" | "journal.rs") {
+            for pat in forbidden_file_writes {
+                assert!(
+                    !text.contains(pat),
+                    "raw file write call `{pat}` found in {name} outside atomic.rs and journal.rs"
+                );
+            }
+        }
+        if !matches!(name, "atomic.rs" | "journal.rs" | "dirs.rs") {
+            for pat in forbidden_folder_ops {
+                assert!(
+                    !text.contains(pat),
+                    "raw folder operation `{pat}` found in {name} outside atomic.rs, journal.rs and dirs.rs"
+                );
+            }
         }
     }
 }
