@@ -54,6 +54,7 @@ Which bids need immediate support when a status protest could be filed or answer
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal OHA filing email address with a reference to the filing email address given in FAR 19.307(f)(1).
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 19.307(e)(1)(ii)-(v) protest deadlines and FAR 19.307(f)(1) OHA filing address.
 - COMPATIBLE_EXTENSION, 2026-10-31: protest notice and SBA timing wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for protests of service-disabled veteran-owned small business status.

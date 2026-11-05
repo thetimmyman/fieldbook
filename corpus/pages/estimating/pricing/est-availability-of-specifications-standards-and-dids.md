@@ -68,6 +68,7 @@ Confirm how the company records which version of each cited specification and st
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal telephone number in FAR 52.211-2(b)(2) with a reference to the telephone number and email address given in the provision.
 - COMPATIBLE_EXTENSION, 2026-10-31: Availability routes restated as may or can; RFO reserved sections cited; examination wording aligned.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for availability of specifications, standards and data item descriptions.

@@ -61,5 +61,6 @@ Confirm which Canadian and other foreign suppliers sit behind rated orders, whic
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal telephone number in 15 CFR 700.57 with a reference to the telephone number listed in the section.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope lead-ins and address and telephone details in 15 CFR 700.56 and 700.57 and removed uncited contact and process statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS military assistance programs with Canada and with other nations and international organizations.

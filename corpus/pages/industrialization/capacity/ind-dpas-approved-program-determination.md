@@ -69,5 +69,6 @@ Which program office owns the determination request and who is responsible for t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced literal telephone and fax numbers in paragraphs (a) through (c) with references to the contact numbers, email addresses and websites listed in 15 CFR 700.55.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the office addresses, telephone numbers and fax numbers from 15 CFR 700.55 and aligned the determination and rating authority statements.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for requests for an approved program determination.

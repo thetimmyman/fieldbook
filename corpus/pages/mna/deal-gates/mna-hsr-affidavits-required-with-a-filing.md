@@ -71,5 +71,6 @@ Which notice steps and transaction documents the deal file must hold so that eac
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal illustrative email addresses in Example 1 to 16 CFR 803.5(a)(1)(vi) with descriptions of the general-account and officer email addresses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added email-notice example details and removed unsupported commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the affidavits required with a filing.

@@ -66,6 +66,7 @@ Which pools, bases, service centers and intercompany charges the Disclosure Stat
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal telephone number in the preambles subsection with a reference to the telephone number given in 48 CFR 9903.307.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed all three codified sections in the citation row and softened the resubmission sentence in the worked example.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for CAS Disclosure Statement amendments, revisions and adequacy.

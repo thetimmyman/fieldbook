@@ -57,5 +57,6 @@ Confirm that the program a foreign customer cites for a rated order is a critica
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced literal telephone and fax numbers with a reference to the telephone and fax numbers listed in 15 CFR 700.58.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope lead-in and international organization examples and stated the exact address, telephone and fax in 15 CFR 700.58.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS critical infrastructure assistance programs to foreign nations and international organizations.

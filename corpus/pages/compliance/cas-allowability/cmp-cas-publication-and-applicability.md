@@ -58,6 +58,7 @@ Whether the company has an advance agreement with the government on any cost. [@
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal ordering-desk telephone number with a reference to the telephone number printed in FAR 30.102.
 - COMPATIBLE_EXTENSION, 2026-10-31: Fixed statute citations in rule and how-it-works.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording, negative glosses and uncited contrasts; restated provisions as the quotes read.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited claims before two semicolon breaks.
