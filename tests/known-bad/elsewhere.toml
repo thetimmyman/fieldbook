@@ -43,12 +43,12 @@ test = ""
 [[elsewhere]]
 code = "FB0411"
 card = "core-labels"
-test = ""
+test = "unknown_id_is_fb0411"
 
 [[elsewhere]]
 code = "FB0412"
 card = "core-labels"
-test = ""
+test = "overlay_floor_refuses_a_company_label_with_fb0412"
 
 [[elsewhere]]
 code = "FB0413"
@@ -63,7 +63,7 @@ test = ""
 [[elsewhere]]
 code = "FB0415"
 card = "core-labels"
-test = ""
+test = "a_company_label_under_git_is_refused"
 
 [[elsewhere]]
 code = "FB0416"
