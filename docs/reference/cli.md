@@ -38,10 +38,12 @@ Add a source or source version to the Corpus
 
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
-| `<FILE>` | `FILE` | - | Path to the source file to add |
+| `<FILE>` | `FILE` | - | Path to the source file or folder to add |
 | `--source` | `SOURCE-ID` | - | Existing source ID (`S-nnnn`) when adding a new version of an existing source |
 | `--metadata-only` | - | - | Append the register row without storing a copy of the original file |
 | `--confirm-public` | - | - | Confirm that the unlabelled file is public and may enter the repository Corpus |
+| `--recursive` | - | - | Descend into subfolders when adding a folder |
+| `--json` | - | - | Print the report as a JSON object |
 
 ### `fieldbook audit`
 
@@ -80,6 +82,71 @@ Inspect or verify the audit journal
 | `warnings` | `integer` |
 
 ## JSON reports
+
+### `add`
+
+```json
+{
+  "report_version": 1,
+  "verb": "add",
+  "dir": "inbox",
+  "labels": [
+    "owner-supplied",
+    "unlabelled"
+  ],
+  "inputs": [
+    {
+      "store": "corpus",
+      "id": "S-0004-v1"
+    },
+    {
+      "store": "corpus",
+      "id": "S-0005-v1"
+    }
+  ],
+  "files": [
+    {
+      "name": "a-note.txt",
+      "result": "added",
+      "id": "S-0004-v1",
+      "sha256": "1aa0592a6ef1b53921b5131ff20cb88ee9762c37b66ecf13f02b69c584a2cf76",
+      "bytes": 35,
+      "needs_extraction": false
+    },
+    {
+      "name": "b-copy.txt",
+      "result": "present",
+      "id": "S-0004-v1",
+      "sha256": "1aa0592a6ef1b53921b5131ff20cb88ee9762c37b66ecf13f02b69c584a2cf76",
+      "bytes": 35,
+      "needs_extraction": false
+    },
+    {
+      "name": "c-tool.ps1",
+      "result": "refused",
+      "sha256": "f3a8b50c420c9dddd9bc1d419dd06cc37f01a302989c2054fbb1503ac7ed1203",
+      "bytes": 52,
+      "needs_extraction": false,
+      "code": "FB0821"
+    },
+    {
+      "name": "d-scan.pdf",
+      "result": "added",
+      "id": "S-0005-v1",
+      "sha256": "d7db14408935826d640466e3c20f37ebdae1b5b06b3b54bd0a6afea34c52bea5",
+      "bytes": 95,
+      "needs_extraction": true
+    }
+  ],
+  "counts": {
+    "added": 2,
+    "present": 1,
+    "refused": 1,
+    "needs_extraction": 1
+  },
+  "exit": 1
+}
+```
 
 ### `audit-show`
 

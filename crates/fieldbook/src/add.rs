@@ -1,21 +1,28 @@
 //! `fieldbook add`: store a public original under `corpus/sources/public/` and append its
-//! version row to `corpus/registers/sources.csv` (`add-new-and-edition`, AD-17, ADR 0004).
+//! version row to `corpus/registers/sources.csv` (`add-new-and-edition`, `add-folder-mode`,
+//! AD-17, ADR 0004).
+
+use std::path::Path;
 
 use fieldbook_core::add::{
-    AddError, AddOptions, AddOutcome, AddPlan, plan_add, plan_add_with_allocation, source_exists,
+    AddError, AddOptions, AddOutcome, AddPlan, check_type, needs_extraction, plan_add,
+    plan_add_with_allocation, source_exists,
 };
 use fieldbook_core::audit::{
     Id, OperationIntent, OperationKey, PendingOperation, RecordRef, RefuseAbout, Sha256, StoreId,
     Verb, Via, Word, WriteSet, normalize_affected, request_sha256,
 };
-use fieldbook_core::check::{self, Code, Host};
+use fieldbook_core::check::{self, Code, Host, Model};
 use fieldbook_core::ids::{SourceId, VersionId};
-use fieldbook_core::labels::{
-    self, LabelContext, LabelSet, MarkingRules, PublicAct, Refusal, StoreRule,
-};
+use fieldbook_core::labels::{self, LabelContext, LabelSet, PublicAct, Refusal, StoreRule};
+use fieldbook_core::policy::{FloorKind, Policy};
+use fieldbook_core::report::{AddFileReport, AddFileResult};
 
 use crate::cli::{AddArgs, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
 use crate::io::{Journal, Recovery};
+use crate::report::{
+    FileReportEntry, build_add_report, render_add_json, render_add_text, save_last_add_report,
+};
 use crate::{Outcome, StoreLease, World};
 
 /// Build the [`LabelContext`] for a run of `add` or `new` (`add-new-and-edition` step 3).
@@ -76,6 +83,7 @@ pub fn record_add_refusal(
 
 /// Compute the `OperationKey` for a single-file `add` from the verb, destination store, and
 /// input content hash (`add-new-and-edition` step 10).
+#[must_use]
 pub fn add_operation_key(store: StoreId, content_sha256: &Sha256) -> OperationKey {
     let subject = request_sha256(&[
         ("verb", b"add"),
@@ -113,135 +121,254 @@ pub fn add_request_sha256(
     .unwrap_or_else(|_| unreachable!())
 }
 
-/// Run `fieldbook add`.
+/// Run `fieldbook add` under the active floor policy for `world`.
 #[must_use]
 pub fn run(args: &AddArgs, world: &dyn World) -> Outcome {
-    let Some(file_name) = args.file.file_name().and_then(|n| n.to_str()) else {
-        return Outcome {
-            stdout: String::new(),
-            stderr: format!("invalid file name: {}\n", args.file.display()),
-            code: EXIT_USAGE,
+    let policy = Policy::floor(FloorKind::for_machine(world.has_company_store()));
+    run_with_policy(args, world, &policy)
+}
+
+/// Run `fieldbook add` with an explicit [`Policy`] (used by tests exercising custom marking or
+/// state-store rules).
+#[must_use]
+pub fn run_with_policy(args: &AddArgs, world: &dyn World, policy: &Policy) -> Outcome {
+    let (input_path, is_dir) =
+        match crate::io::inspect_add_input(&args.file, world.cwd(), world.state_dir()) {
+            Ok(pair) => pair,
+            Err(err) => return io_err(err),
         };
-    };
-    if file_name.is_empty() {
-        return Outcome {
-            stdout: String::new(),
-            stderr: "file name must not be empty\n".to_owned(),
-            code: EXIT_USAGE,
-        };
-    }
 
-    let input_path = if args.file.is_absolute() {
-        args.file.clone()
-    } else {
-        world.cwd().join(&args.file)
-    };
-    let display_file = args.file.display().to_string();
-
-    let lease = match world.write_lease() {
-        Ok(lease) => lease,
-        Err(err) => return io_err(err),
-    };
-
-    let mut journal = match crate::io::state::open(world, world.state_dir(), Via::Cli) {
-        Ok(journal) => journal,
-        Err(err) => {
+    if is_dir {
+        if args.source.is_some() {
             return Outcome {
+                stdout: String::new(),
+                stderr: "--source cannot be used when adding a folder\n".to_owned(),
+                code: EXIT_USAGE,
+            };
+        }
+        run_folder(args, world, policy, &input_path)
+    } else {
+        let Some(file_name) = args
+            .file
+            .file_name()
+            .or_else(|| input_path.file_name())
+            .and_then(|n| n.to_str())
+        else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("invalid file name: {}\n", args.file.display()),
+                code: EXIT_USAGE,
+            };
+        };
+        if file_name.is_empty() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "file name must not be empty\n".to_owned(),
+                code: EXIT_USAGE,
+            };
+        }
+        run_single_file(args, world, policy, &input_path, file_name)
+    }
+}
+
+fn candidate_labels(
+    file_name: &str,
+    file_bytes: &[u8],
+    policy: &Policy,
+    context: &LabelContext,
+) -> LabelSet {
+    let text = String::from_utf8_lossy(file_bytes);
+    let mut labels = labels::for_text(&text, &policy.marking_rules(), context);
+    if let Some(name_markings) = labels::markings_in(file_name, &policy.marking_rules()) {
+        labels = labels.union(&name_markings);
+    }
+    labels
+}
+
+struct OneSuccess {
+    entry: FileReportEntry,
+    refusal_diag: Option<String>,
+    wrote_store: bool,
+}
+
+#[expect(
+    clippy::too_many_arguments,
+    reason = "single-file and folder modes share the complete per-file pipeline"
+)]
+fn add_one(
+    args: &AddArgs,
+    world: &dyn World,
+    policy: &Policy,
+    label_ctx: &Result<LabelContext, Refusal>,
+    journal: &mut Journal<'_>,
+    lease: &StoreLease,
+    cached_model: Option<&Model>,
+    input_path: &Path,
+    file_name: &str,
+    diag_name: &str,
+    single_file_recovery: bool,
+) -> Result<OneSuccess, Outcome> {
+    let file_bytes = crate::io::read_file(input_path).map_err(io_err)?;
+    let byte_len = file_bytes.len() as u64;
+    let file_sha = Sha256::digest(&file_bytes);
+    let name_sha = Sha256::digest(file_name.as_bytes());
+    let input_path_sha = crate::io::root::input_path_sha256(input_path).map_err(io_err)?;
+
+    let first_bytes = &file_bytes[..file_bytes.len().min(4)];
+    if let Err(type_refusal) = check_type(file_name, first_bytes, StoreId::Corpus) {
+        if let Err(err) = record_add_refusal(
+            journal,
+            type_refusal.code,
+            Some(file_sha.clone()),
+            Some(name_sha),
+            None,
+        ) {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("{err}\n"),
                 code: err.exit_code(),
-            };
+            });
         }
-    };
+        return Ok(OneSuccess {
+            entry: FileReportEntry {
+                file: AddFileReport {
+                    name: file_name.to_owned(),
+                    result: AddFileResult::Refused,
+                    id: None,
+                    sha256: file_sha.as_str().to_owned(),
+                    bytes: byte_len,
+                    needs_extraction: false,
+                    code: Some(type_refusal.code.id().to_owned()),
+                },
+                observed_labels: None,
+            },
+            refusal_diag: Some(format!(
+                "{diag_name}:1:1: error[{}]: executable or disallowed file type\n",
+                type_refusal.code.id()
+            )),
+            wrote_store: false,
+        });
+    }
 
-    let file_bytes = match crate::io::read_file(&input_path) {
-        Ok(bytes) => bytes,
-        Err(err) => return io_err(err),
-    };
-    let file_sha = Sha256::digest(&file_bytes);
-    let name_sha = Sha256::digest(file_name.as_bytes());
-    let input_path_sha = match crate::io::root::input_path_sha256(&input_path) {
-        Ok(sha) => sha,
-        Err(err) => return io_err(err),
-    };
-
-    let context = match label_context(world, args.confirm_public) {
+    let context = match label_ctx {
         Ok(ctx) => ctx,
         Err(refusal) => {
             if let Err(err) = record_add_refusal(
-                &journal,
+                journal,
                 refusal.code,
-                Some(file_sha),
+                Some(file_sha.clone()),
                 Some(name_sha),
                 Some(refusal.labels.clone()),
             ) {
-                return Outcome {
+                return Err(Outcome {
                     stdout: String::new(),
                     stderr: format!("{err}\n"),
                     code: err.exit_code(),
-                };
+                });
             }
-            return refused_outcome(&display_file, &refusal);
+            return Ok(OneSuccess {
+                entry: FileReportEntry {
+                    file: AddFileReport {
+                        name: file_name.to_owned(),
+                        result: AddFileResult::Refused,
+                        id: None,
+                        sha256: file_sha.as_str().to_owned(),
+                        bytes: byte_len,
+                        needs_extraction: false,
+                        code: Some(refusal.code.id().to_owned()),
+                    },
+                    observed_labels: None,
+                },
+                refusal_diag: Some(format_refusal_diag(diag_name, refusal)),
+                wrote_store: false,
+            });
         }
     };
 
-    let text = String::from_utf8_lossy(&file_bytes);
-    let labels = labels::for_text(&text, &MarkingRules::builtin(), &context);
+    let labels = candidate_labels(file_name, &file_bytes, policy, context);
 
     if let Err(refusal) = labels::admit(&labels, &StoreRule::corpus()) {
         if let Err(err) = record_add_refusal(
-            &journal,
+            journal,
             refusal.code,
-            Some(file_sha),
+            Some(file_sha.clone()),
             Some(name_sha),
             Some(refusal.labels.clone()),
         ) {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("{err}\n"),
                 code: err.exit_code(),
-            };
+            });
         }
-        return refused_outcome(&display_file, &refusal);
+        return Ok(OneSuccess {
+            entry: FileReportEntry {
+                file: AddFileReport {
+                    name: file_name.to_owned(),
+                    result: AddFileResult::Refused,
+                    id: None,
+                    sha256: file_sha.as_str().to_owned(),
+                    bytes: byte_len,
+                    needs_extraction: false,
+                    code: Some(refusal.code.id().to_owned()),
+                },
+                observed_labels: Some(refusal.labels.clone()),
+            },
+            refusal_diag: Some(format_refusal_diag(diag_name, &refusal)),
+            wrote_store: false,
+        });
     }
 
-    let git_ctx = match crate::io::root::git_context(world, world.tree_root()) {
-        Ok(ctx) => ctx,
-        Err(err) => return io_err(err),
-    };
+    let git_ctx = crate::io::root::git_context(world, world.tree_root()).map_err(io_err)?;
     if let Err(refusal) = labels::git_guard(&labels, git_ctx) {
         if let Err(err) = record_add_refusal(
-            &journal,
+            journal,
             refusal.code,
-            Some(file_sha),
+            Some(file_sha.clone()),
             Some(name_sha),
             Some(refusal.labels.clone()),
         ) {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("{err}\n"),
                 code: err.exit_code(),
-            };
+            });
         }
-        return refused_outcome(&display_file, &refusal);
+        return Ok(OneSuccess {
+            entry: FileReportEntry {
+                file: AddFileReport {
+                    name: file_name.to_owned(),
+                    result: AddFileResult::Refused,
+                    id: None,
+                    sha256: file_sha.as_str().to_owned(),
+                    bytes: byte_len,
+                    needs_extraction: false,
+                    code: Some(refusal.code.id().to_owned()),
+                },
+                observed_labels: Some(refusal.labels.clone()),
+            },
+            refusal_diag: Some(format_refusal_diag(diag_name, &refusal)),
+            wrote_store: false,
+        });
     }
 
-    let tree = match world.read_tree_under(&lease) {
-        Ok(tree) => tree,
-        Err(err) => return io_err(err),
+    let owned_model;
+    let model = if let Some(m) = cached_model {
+        m
+    } else {
+        let tree = world.read_tree_under(lease).map_err(io_err)?;
+        owned_model = check::load(&Host::new(tree, world.today()), &check::Options::new(false)).0;
+        &owned_model
     };
-    let today = world.today();
-    let host = Host::new(tree, today);
-    let (model, _) = check::load(&host, &check::Options::new(false));
 
     if let Some(ref src_id) = args.source
-        && !source_exists(&model, src_id)
+        && !source_exists(model, src_id)
     {
-        return Outcome {
+        return Err(Outcome {
             stdout: String::new(),
             stderr: format!("unknown source `{src_id}` in sources.csv\n"),
             code: EXIT_USAGE,
-        };
+        });
     }
 
     let add_options = AddOptions {
@@ -259,8 +386,152 @@ pub fn run(args: &AddArgs, world: &dyn World) -> Outcome {
         args.confirm_public,
     );
 
-    let pending_op = match journal.pending_intent(&lease, &op_key, req_sha.clone()) {
-        Ok(op) => op,
+    if single_file_recovery {
+        let pending_op = match journal.pending_intent(lease, &op_key, req_sha.clone()) {
+            Ok(op) => op,
+            Err(err) => {
+                return Err(Outcome {
+                    stdout: String::new(),
+                    stderr: format!("{err}\n"),
+                    code: err.exit_code(),
+                });
+            }
+        };
+        if let Some(pending) = pending_op {
+            let version_id = recover_pending_add(
+                world,
+                journal,
+                lease,
+                model,
+                file_name,
+                &file_bytes,
+                &file_sha,
+                &add_options,
+                &labels,
+                &op_key,
+                req_sha,
+                &pending,
+            )?;
+            return Ok(OneSuccess {
+                entry: FileReportEntry {
+                    file: AddFileReport {
+                        name: file_name.to_owned(),
+                        result: AddFileResult::Added,
+                        id: Some(version_id.to_string()),
+                        sha256: file_sha.as_str().to_owned(),
+                        bytes: byte_len,
+                        needs_extraction: needs_extraction(file_name),
+                        code: None,
+                    },
+                    observed_labels: Some(labels),
+                },
+                refusal_diag: None,
+                wrote_store: true,
+            });
+        }
+    }
+
+    let today = world.today();
+    let outcome = match plan_add(
+        model,
+        file_name,
+        file_sha.as_str(),
+        &add_options,
+        None,
+        today,
+    ) {
+        Ok(outcome) => outcome,
+        Err(AddError::Exhausted(id_err)) => {
+            return Err(Outcome {
+                stdout: String::new(),
+                stderr: format!("{} id space exhausted\n", id_err.form()),
+                code: EXIT_USAGE,
+            });
+        }
+        Err(AddError::UnknownSource(src_id)) => {
+            return Err(Outcome {
+                stdout: String::new(),
+                stderr: format!("unknown source `{src_id}` in sources.csv\n"),
+                code: EXIT_USAGE,
+            });
+        }
+        Err(err) => {
+            return Err(Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: EXIT_IO,
+            });
+        }
+    };
+
+    match outcome {
+        AddOutcome::Present(version_id) => Ok(OneSuccess {
+            entry: FileReportEntry {
+                file: AddFileReport {
+                    name: file_name.to_owned(),
+                    result: AddFileResult::Present,
+                    id: Some(version_id.to_string()),
+                    sha256: file_sha.as_str().to_owned(),
+                    bytes: byte_len,
+                    needs_extraction: needs_extraction(file_name),
+                    code: None,
+                },
+                observed_labels: Some(labels),
+            },
+            refusal_diag: None,
+            wrote_store: false,
+        }),
+        AddOutcome::Planned(plan) => {
+            execute_planned_add(
+                world,
+                journal,
+                lease,
+                model.tree(),
+                &file_bytes,
+                &add_options,
+                &labels,
+                op_key,
+                req_sha,
+                today,
+                &plan,
+            )?;
+            Ok(OneSuccess {
+                entry: FileReportEntry {
+                    file: AddFileReport {
+                        name: file_name.to_owned(),
+                        result: AddFileResult::Added,
+                        id: Some(plan.ids.version_id.to_string()),
+                        sha256: file_sha.as_str().to_owned(),
+                        bytes: byte_len,
+                        needs_extraction: needs_extraction(file_name),
+                        code: None,
+                    },
+                    observed_labels: Some(labels),
+                },
+                refusal_diag: None,
+                wrote_store: true,
+            })
+        }
+    }
+}
+
+fn run_single_file(
+    args: &AddArgs,
+    world: &dyn World,
+    policy: &Policy,
+    input_path: &Path,
+    file_name: &str,
+) -> Outcome {
+    let display_file = args.file.display().to_string();
+    let label_ctx = label_context(world, args.confirm_public);
+
+    let lease = match world.write_lease() {
+        Ok(lease) => lease,
+        Err(err) => return io_err(err),
+    };
+
+    let mut journal = match crate::io::state::open(world, world.state_dir(), Via::Cli) {
+        Ok(journal) => journal,
         Err(err) => {
             return Outcome {
                 stdout: String::new(),
@@ -270,76 +541,416 @@ pub fn run(args: &AddArgs, world: &dyn World) -> Outcome {
         }
     };
 
-    if let Some(pending) = pending_op {
-        return recover_pending_add(
+    let step = match add_one(
+        args,
+        world,
+        policy,
+        &label_ctx,
+        &mut journal,
+        &lease,
+        None,
+        input_path,
+        file_name,
+        &display_file,
+        true,
+    ) {
+        Ok(step) => step,
+        Err(err_outcome) => return err_outcome,
+    };
+
+    let exit = match step.entry.file.result {
+        AddFileResult::Added | AddFileResult::Present => EXIT_OK,
+        AddFileResult::Refused => EXIT_FINDINGS,
+    };
+
+    let parent_dir = input_path.parent().unwrap_or_else(|| Path::new("."));
+    let raw_parent = args.file.parent().unwrap_or_else(|| Path::new("."));
+    let dir_display = corpus_relative_dir(parent_dir, raw_parent, world);
+    let entries = [step.entry];
+    let report = build_add_report(dir_display, &entries, StoreId::Corpus, policy, exit);
+    let saved = save_last_add_report(world, &journal, &lease, policy, &report);
+
+    let mut stderr = step.refusal_diag.unwrap_or_default();
+    if !saved {
+        stderr.push_str("report not saved\n");
+    }
+
+    let stdout = if args.json {
+        render_add_json(&report)
+    } else {
+        let file = &entries[0].file;
+        match file.result {
+            AddFileResult::Added => {
+                format!(
+                    "added {} {display_file}\n",
+                    file.id.as_deref().unwrap_or("")
+                )
+            }
+            AddFileResult::Present => {
+                format!(
+                    "present {} {display_file}\n",
+                    file.id.as_deref().unwrap_or("")
+                )
+            }
+            AddFileResult::Refused => format!("refused {display_file}\n"),
+        }
+    };
+
+    Outcome {
+        stdout,
+        stderr,
+        code: exit,
+    }
+}
+
+fn corpus_relative_dir(target_dir: &Path, raw_arg: &Path, world: &dyn World) -> String {
+    let rel = if let Ok(stripped) = target_dir.strip_prefix(world.tree_root()) {
+        stripped
+    } else if let Ok(stripped) = target_dir.strip_prefix(world.cwd()) {
+        stripped
+    } else if raw_arg.is_relative() {
+        raw_arg
+    } else {
+        target_dir
+            .file_name()
+            .map_or_else(|| Path::new("."), Path::new)
+    };
+    let s = rel.to_string_lossy().replace('\\', "/");
+    let trimmed = s.trim_end_matches('/');
+    if trimmed.is_empty() {
+        ".".to_owned()
+    } else {
+        trimmed.to_owned()
+    }
+}
+
+fn run_folder(args: &AddArgs, world: &dyn World, policy: &Policy, folder_path: &Path) -> Outcome {
+    let dir_display = corpus_relative_dir(folder_path, &args.file, world);
+    let label_ctx = label_context(world, args.confirm_public);
+
+    let lease = match world.write_lease() {
+        Ok(lease) => lease,
+        Err(err) => return io_err(err),
+    };
+
+    let mut journal = match crate::io::state::open(world, world.state_dir(), Via::Cli) {
+        Ok(journal) => journal,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: err.exit_code(),
+            };
+        }
+    };
+
+    let candidates = match crate::io::enumerate_folder_candidates(folder_path, args.recursive) {
+        Ok(cands) => cands,
+        Err(err) => return io_err(err),
+    };
+
+    let mut recovered_candidate: Option<(usize, FileReportEntry)> = None;
+    let pending_key_opt = match journal.pending_key(&lease) {
+        Ok(pk) => pk,
+        Err(err) => {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!("{err}\n"),
+                code: err.exit_code(),
+            };
+        }
+    };
+
+    if let Some(pending_key) = pending_key_opt {
+        if pending_key.key.verb.as_str() != "add" {
+            return Outcome {
+                stdout: String::new(),
+                stderr: format!(
+                    "pending write belongs to verb `{}`, not `add`\n",
+                    pending_key.key.verb
+                ),
+                code: EXIT_IO,
+            };
+        }
+
+        let mut matches = Vec::new();
+        for (idx, cand) in candidates.iter().enumerate() {
+            let Ok(bytes) = crate::io::read_file(&cand.disk_path) else {
+                continue;
+            };
+            let Ok(input_path_sha) = crate::io::root::input_path_sha256(&cand.disk_path) else {
+                continue;
+            };
+            let file_sha = Sha256::digest(&bytes);
+            let op_key = add_operation_key(StoreId::Corpus, &file_sha);
+            let req_sha = add_request_sha256(
+                &input_path_sha,
+                &cand.rel_name,
+                &file_sha,
+                None,
+                args.metadata_only,
+                args.confirm_public,
+            );
+            if op_key == pending_key.key && req_sha == pending_key.request_sha256 {
+                matches.push((idx, bytes, file_sha, op_key, req_sha));
+            }
+        }
+
+        if matches.len() != 1 {
+            return Outcome {
+                stdout: String::new(),
+                stderr:
+                    "pending add write does not match a unique candidate in the target folder\n"
+                        .to_owned(),
+                code: EXIT_IO,
+            };
+        }
+
+        let (match_idx, file_bytes, file_sha, op_key, req_sha) = matches.remove(0);
+        let cand = &candidates[match_idx];
+        let first_bytes = &file_bytes[..file_bytes.len().min(4)];
+        if check_type(&cand.rel_name, first_bytes, StoreId::Corpus).is_err() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "pending candidate failed file type check during recovery\n".to_owned(),
+                code: EXIT_IO,
+            };
+        }
+        let Ok(ref context) = label_ctx else {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "pending candidate failed label context check during recovery\n".to_owned(),
+                code: EXIT_IO,
+            };
+        };
+        let labels = candidate_labels(&cand.rel_name, &file_bytes, policy, context);
+        if labels::admit(&labels, &StoreRule::corpus()).is_err() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "pending candidate failed store admission during recovery\n".to_owned(),
+                code: EXIT_IO,
+            };
+        }
+        let git_ctx = match crate::io::root::git_context(world, world.tree_root()) {
+            Ok(ctx) => ctx,
+            Err(err) => return io_err(err),
+        };
+        if labels::git_guard(&labels, git_ctx).is_err() {
+            return Outcome {
+                stdout: String::new(),
+                stderr: "pending candidate failed git guard during recovery\n".to_owned(),
+                code: EXIT_IO,
+            };
+        }
+
+        let tree = match world.read_tree_under(&lease) {
+            Ok(tree) => tree,
+            Err(err) => return io_err(err),
+        };
+        let (model, _) = check::load(&Host::new(tree, world.today()), &check::Options::new(false));
+        let add_options = AddOptions {
+            source: None,
+            metadata_only: args.metadata_only,
+        };
+        let pending_op = match journal.pending_intent(&lease, &op_key, req_sha.clone()) {
+            Ok(Some(op)) => op,
+            Ok(None) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: "pending write disappeared before recovery\n".to_owned(),
+                    code: EXIT_IO,
+                };
+            }
+            Err(err) => {
+                return Outcome {
+                    stdout: String::new(),
+                    stderr: format!("{err}\n"),
+                    code: err.exit_code(),
+                };
+            }
+        };
+
+        let version_id = match recover_pending_add(
             world,
             &mut journal,
             &lease,
             &model,
-            file_name,
-            &display_file,
+            &cand.rel_name,
             &file_bytes,
             &file_sha,
             &add_options,
             &labels,
             &op_key,
             req_sha,
-            &pending,
-        );
+            &pending_op,
+        ) {
+            Ok(ver_id) => ver_id,
+            Err(err_outcome) => return err_outcome,
+        };
+
+        recovered_candidate = Some((
+            match_idx,
+            FileReportEntry {
+                file: AddFileReport {
+                    name: cand.rel_name.clone(),
+                    result: AddFileResult::Added,
+                    id: Some(version_id.to_string()),
+                    sha256: file_sha.as_str().to_owned(),
+                    bytes: file_bytes.len() as u64,
+                    needs_extraction: needs_extraction(&cand.rel_name),
+                    code: None,
+                },
+                observed_labels: Some(labels),
+            },
+        ));
     }
 
-    let outcome = match plan_add(
-        &model,
-        file_name,
-        file_sha.as_str(),
-        &add_options,
-        None,
-        today,
-    ) {
-        Ok(outcome) => outcome,
-        Err(AddError::Exhausted(id_err)) => {
-            return Outcome {
-                stdout: String::new(),
-                stderr: format!("{} id space exhausted\n", id_err.form()),
-                code: EXIT_USAGE,
-            };
-        }
-        Err(AddError::UnknownSource(src_id)) => {
-            return Outcome {
-                stdout: String::new(),
-                stderr: format!("unknown source `{src_id}` in sources.csv\n"),
-                code: EXIT_USAGE,
-            };
-        }
-        Err(err) => {
-            return Outcome {
-                stdout: String::new(),
-                stderr: format!("{err}\n"),
-                code: EXIT_IO,
-            };
-        }
+    let initial_tree = match world.read_tree_under(&lease) {
+        Ok(tree) => tree,
+        Err(err) => return io_err(err),
     };
+    let mut model = check::load(
+        &Host::new(initial_tree, world.today()),
+        &check::Options::new(false),
+    )
+    .0;
 
-    match outcome {
-        AddOutcome::Present(version_id) => Outcome {
-            stdout: format!("present {version_id} {display_file}\n"),
-            stderr: String::new(),
-            code: EXIT_OK,
-        },
-        AddOutcome::Planned(plan) => execute_planned_add(
+    let mut entries: Vec<FileReportEntry> = Vec::with_capacity(candidates.len());
+    let mut refusal_stderr = String::new();
+
+    for (idx, cand) in candidates.iter().enumerate() {
+        if let Some((rec_idx, ref rec_entry)) = recovered_candidate
+            && rec_idx == idx
+        {
+            entries.push(rec_entry.clone());
+            continue;
+        }
+
+        match add_one(
+            args,
             world,
+            policy,
+            &label_ctx,
             &mut journal,
             &lease,
-            model.tree(),
-            &display_file,
-            &file_bytes,
-            &add_options,
-            &labels,
-            op_key,
-            req_sha,
-            today,
-            &plan,
-        ),
+            Some(&model),
+            &cand.disk_path,
+            &cand.rel_name,
+            &cand.rel_name,
+            false,
+        ) {
+            Ok(step) => {
+                if let Some(diag) = step.refusal_diag {
+                    refusal_stderr.push_str(&diag);
+                }
+                if step.wrote_store {
+                    let refreshed_tree = match world.read_tree_under(&lease) {
+                        Ok(t) => t,
+                        Err(err) => {
+                            entries.push(step.entry);
+                            let mut err_out = io_err(err);
+                            err_out.stderr = format!("{refusal_stderr}{}", err_out.stderr);
+                            return partial_folder_io_outcome(
+                                args,
+                                world,
+                                policy,
+                                &journal,
+                                &lease,
+                                dir_display,
+                                &entries,
+                                err_out,
+                            );
+                        }
+                    };
+                    model = check::load(
+                        &Host::new(refreshed_tree, world.today()),
+                        &check::Options::new(false),
+                    )
+                    .0;
+                }
+                entries.push(step.entry);
+            }
+            Err(mut err_outcome) => {
+                if err_outcome.code == EXIT_IO {
+                    err_outcome.stderr = format!("{refusal_stderr}{}", err_outcome.stderr);
+                    return partial_folder_io_outcome(
+                        args,
+                        world,
+                        policy,
+                        &journal,
+                        &lease,
+                        dir_display,
+                        &entries,
+                        err_outcome,
+                    );
+                }
+                return err_outcome;
+            }
+        }
+    }
+
+    let exit = if entries
+        .iter()
+        .any(|e| e.file.result == AddFileResult::Refused)
+    {
+        EXIT_FINDINGS
+    } else {
+        EXIT_OK
+    };
+
+    let report = build_add_report(dir_display, &entries, StoreId::Corpus, policy, exit);
+    let saved = save_last_add_report(world, &journal, &lease, policy, &report);
+
+    let mut stderr = refusal_stderr;
+    if !saved {
+        stderr.push_str("report not saved\n");
+    }
+
+    let stdout = if args.json {
+        render_add_json(&report)
+    } else {
+        render_add_text(&report)
+    };
+
+    Outcome {
+        stdout,
+        stderr,
+        code: exit,
+    }
+}
+
+#[expect(
+    clippy::too_many_arguments,
+    reason = "partial folder failure persists completed entries and formats JSON when requested"
+)]
+fn partial_folder_io_outcome(
+    args: &AddArgs,
+    world: &dyn World,
+    policy: &Policy,
+    journal: &Journal<'_>,
+    lease: &StoreLease,
+    dir_display: String,
+    entries: &[FileReportEntry],
+    err_outcome: Outcome,
+) -> Outcome {
+    let report = build_add_report(dir_display, entries, StoreId::Corpus, policy, EXIT_IO);
+    let saved = save_last_add_report(world, journal, lease, policy, &report);
+
+    let mut stderr = err_outcome.stderr;
+    if !saved {
+        stderr.push_str("report not saved\n");
+    }
+
+    let stdout = if args.json {
+        render_add_json(&report)
+    } else {
+        err_outcome.stdout
+    };
+
+    Outcome {
+        stdout,
+        stderr,
+        code: EXIT_IO,
     }
 }
 
@@ -383,7 +994,6 @@ fn recover_pending_add(
     lease: &StoreLease,
     model: &fieldbook_core::check::Model,
     file_name: &str,
-    display_file: &str,
     file_bytes: &[u8],
     file_sha: &Sha256,
     add_options: &AddOptions,
@@ -391,15 +1001,15 @@ fn recover_pending_add(
     op_key: &OperationKey,
     req_sha: Sha256,
     pending: &PendingOperation,
-) -> Outcome {
+) -> Result<VersionId, Outcome> {
     let Some((alloc_source, alloc_version)) = parse_stored_allocations(&pending.intent.allocated)
     else {
-        return Outcome {
+        return Err(Outcome {
             stdout: String::new(),
             stderr: "pending write descriptor is missing valid source/version allocations\n"
                 .to_owned(),
             code: EXIT_IO,
-        };
+        });
     };
 
     let plan = match plan_add_with_allocation(
@@ -414,11 +1024,11 @@ fn recover_pending_add(
     ) {
         Ok(plan) => plan,
         Err(err) => {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("{err}\n"),
                 code: EXIT_IO,
-            };
+            });
         }
     };
 
@@ -432,20 +1042,16 @@ fn recover_pending_add(
     let recovery = match journal.recover(lease, op_key, req_sha.clone(), &write_set) {
         Ok(rec) => rec,
         Err(err) => {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("{err}\n"),
                 code: err.exit_code(),
-            };
+            });
         }
     };
 
     match recovery {
-        Recovery::Completed { .. } => Outcome {
-            stdout: format!("added {} {display_file}\n", plan.ids.version_id),
-            stderr: String::new(),
-            code: EXIT_OK,
-        },
+        Recovery::Completed { .. } => Ok(plan.ids.version_id),
         Recovery::Resume { audited, .. } => {
             if !add_options.metadata_only
                 && let Some(orig_wf) = plan.files.first()
@@ -454,46 +1060,44 @@ fn recover_pending_add(
                 let already_written = crate::io::read_file(&orig_disk)
                     .ok()
                     .is_some_and(|b| &Sha256::digest(&b) == file_sha);
-                if !already_written
-                    && let Err(err) = world.write_file(&audited, &orig_disk, file_bytes)
-                {
-                    return io_err(err);
+                if !already_written {
+                    world
+                        .write_file(&audited, &orig_disk, file_bytes)
+                        .map_err(io_err)?;
                 }
             }
 
             let reg_disk = world.tree_root().join("corpus/registers/sources.csv");
-            if let Err(err) = world.write_file(&audited, &reg_disk, &plan.sources_csv) {
-                return io_err(err);
-            }
+            world
+                .write_file(&audited, &reg_disk, &plan.sources_csv)
+                .map_err(io_err)?;
 
             if let Err(err) = journal.end(audited, Word::new_static("ok")) {
-                return Outcome {
+                return Err(Outcome {
                     stdout: String::new(),
                     stderr: format!("{err}\n"),
                     code: err.exit_code(),
-                };
+                });
             }
 
-            Outcome {
-                stdout: format!("added {} {display_file}\n", plan.ids.version_id),
-                stderr: String::new(),
-                code: EXIT_OK,
-            }
+            Ok(plan.ids.version_id)
         }
-        Recovery::None => execute_planned_add(
-            world,
-            journal,
-            lease,
-            model.tree(),
-            display_file,
-            file_bytes,
-            add_options,
-            labels,
-            op_key.clone(),
-            req_sha,
-            pending.intent.planned_on,
-            &plan,
-        ),
+        Recovery::None => {
+            execute_planned_add(
+                world,
+                journal,
+                lease,
+                model.tree(),
+                file_bytes,
+                add_options,
+                labels,
+                op_key.clone(),
+                req_sha,
+                pending.intent.planned_on,
+                &plan,
+            )?;
+            Ok(plan.ids.version_id)
+        }
     }
 }
 
@@ -506,7 +1110,6 @@ fn execute_planned_add(
     journal: &mut Journal<'_>,
     lease: &StoreLease,
     tree: &fieldbook_core::check::Tree,
-    display_file: &str,
     file_bytes: &[u8],
     add_options: &AddOptions,
     labels: &LabelSet,
@@ -514,7 +1117,7 @@ fn execute_planned_add(
     req_sha: Sha256,
     planned_on: fieldbook_core::CivilDate,
     plan: &AddPlan,
-) -> Outcome {
+) -> Result<(), Outcome> {
     if !add_options.metadata_only
         && let Some(orig_wf) = plan.files.first()
     {
@@ -534,14 +1137,14 @@ fn execute_planned_add(
                         }
                     };
                 if !matches_plan {
-                    return Outcome {
+                    return Err(Outcome {
                         stdout: String::new(),
                         stderr: format!(
                             "{path}: existing original for {} has conflicting content; refusing to overwrite\n",
                             plan.ids.version_id
                         ),
                         code: EXIT_IO,
-                    };
+                    });
                 }
             }
         }
@@ -565,11 +1168,11 @@ fn execute_planned_add(
     let audited = match journal.begin(lease, &intent, &write_set) {
         Ok(token) => token,
         Err(err) => {
-            return Outcome {
+            return Err(Outcome {
                 stdout: String::new(),
                 stderr: format!("{err}\n"),
                 code: err.exit_code(),
-            };
+            });
         }
     };
 
@@ -577,48 +1180,40 @@ fn execute_planned_add(
         && let Some(orig_wf) = plan.files.first()
     {
         let orig_disk = world.tree_root().join(&orig_wf.path);
-        if let Err(err) = world.write_file(&audited, &orig_disk, file_bytes) {
-            return io_err(err);
-        }
+        world
+            .write_file(&audited, &orig_disk, file_bytes)
+            .map_err(io_err)?;
     }
 
     let reg_disk = world.tree_root().join("corpus/registers/sources.csv");
-    if let Err(err) = world.write_file(&audited, &reg_disk, &plan.sources_csv) {
-        return io_err(err);
-    }
+    world
+        .write_file(&audited, &reg_disk, &plan.sources_csv)
+        .map_err(io_err)?;
 
     if let Err(err) = journal.end(audited, Word::new_static("ok")) {
-        return Outcome {
+        return Err(Outcome {
             stdout: String::new(),
             stderr: format!("{err}\n"),
             code: err.exit_code(),
-        };
+        });
     }
 
-    Outcome {
-        stdout: format!("added {} {display_file}\n", plan.ids.version_id),
-        stderr: String::new(),
-        code: EXIT_OK,
-    }
+    Ok(())
 }
 
-fn refused_outcome(display_file: &str, refusal: &Refusal) -> Outcome {
+fn format_refusal_diag(display_file: &str, refusal: &Refusal) -> String {
     let reason = add_refuse_reason(refusal.code);
-    Outcome {
-        stdout: format!("refused {display_file}\n"),
-        stderr: format!(
-            "{display_file}:1:1: error[{}]: store `{}` refused labels `{}` ({reason})\n",
-            refusal.code.id(),
-            StoreId::Corpus,
-            refusal.labels.to_cell(),
-        ),
-        code: EXIT_FINDINGS,
-    }
+    format!(
+        "{display_file}:1:1: error[{}]: store `{}` refused labels `{}` ({reason})\n",
+        refusal.code.id(),
+        StoreId::Corpus,
+        refusal.labels.to_cell(),
+    )
 }
 
 #[expect(
     clippy::needless_pass_by_value,
-    reason = "match arms pass owned WorldError into io_err"
+    reason = "match arms and Result::map_err pass owned WorldError into io_err"
 )]
 fn io_err(err: crate::WorldError) -> Outcome {
     Outcome {

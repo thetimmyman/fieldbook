@@ -1095,3 +1095,885 @@ fn direct_add_row_bytes_are_unchanged() {
     assert_eq!(expected_row, literal_row.as_bytes());
     assert_eq!(&after_csv[before_csv.len()..], expected_row.as_slice());
 }
+
+#[test]
+fn folder_report_is_in_byte_order() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/z-last.txt", b"Zebra synthetic note.\n");
+    write_input(tmp.path(), "inbox/A-upper.txt", b"Upper synthetic note.\n");
+    write_input(tmp.path(), "inbox/a-lower.txt", b"Lower synthetic note.\n");
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "added     S-0004-v1  A-upper.txt\n",
+            "added     S-0005-v1  a-lower.txt\n",
+            "added     S-0006-v1  z-last.txt\n",
+            "done: 3 added\n",
+        )
+    );
+}
+
+#[test]
+fn folder_adds_present_and_refuses() {
+    let tmp = temp_copy(&fixture_root());
+    let shared = b"Synthetic shared note for folder test.\n";
+    write_input(tmp.path(), "inbox/a-new.txt", shared);
+    write_input(tmp.path(), "inbox/b-copy.txt", shared);
+    write_input(
+        tmp.path(),
+        "inbox/c-marked.txt",
+        b"CONTROLLED UNCLASSIFIED INFORMATION\nSynthetic marked note.\n",
+    );
+    write_input(
+        tmp.path(),
+        "inbox/d-script.ps1",
+        b"Write-Output 'synthetic'\n",
+    );
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 1);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "added     S-0004-v1  a-new.txt\n",
+            "present   S-0004-v1  b-copy.txt\n",
+            "refused   FB0400  c-marked.txt\n",
+            "refused   FB0821  d-script.ps1\n",
+            "done: 1 added, 1 present, 2 refused\n",
+        )
+    );
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0004-v1.txt")
+            .is_file()
+    );
+    assert!(
+        !tmp.path()
+            .join("corpus/sources/public/S-0005-v1.txt")
+            .exists()
+    );
+}
+
+#[test]
+fn refusal_does_not_stop_the_folder() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a-bad.ps1", b"echo synthetic\n");
+    write_input(tmp.path(), "inbox/b-good.txt", b"Good synthetic text.\n");
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 1);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "refused   FB0821  a-bad.ps1\n",
+            "added     S-0004-v1  b-good.txt\n",
+            "done: 1 added, 1 refused\n",
+        )
+    );
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0004-v1.txt")
+            .is_file()
+    );
+}
+
+#[test]
+fn exit_is_1_when_any_file_is_refused() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a-good.txt", b"Good synthetic text.\n");
+    write_input(tmp.path(), "inbox/b-bad.sh", b"#!/bin/sh\necho synthetic\n");
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 1);
+    assert!(out.stdout.contains("done: 1 added, 1 refused\n"));
+}
+
+#[test]
+fn io_error_exits_3_and_keeps_earlier_files() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a-first.txt", b"First synthetic file.\n");
+    write_input(
+        tmp.path(),
+        "inbox/b-second.txt",
+        b"Second synthetic file.\n",
+    );
+    write_input(tmp.path(), "inbox/c-third.txt", b"Third synthetic file.\n");
+
+    let faulty = FaultyWorld::new(
+        TestWorld::new(tmp.path()),
+        Fault::FailOnName {
+            name: "S-0005-v1.txt",
+            kind: FaultKind::Io,
+        },
+    );
+
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--confirm-public", "--json"]),
+        &faulty,
+    );
+    assert_eq!(out.code, 3, "stderr: {}", out.stderr);
+
+    // First file was committed; second file failed during its original write; third file was never visited.
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0004-v1.txt")
+            .is_file()
+    );
+    assert!(
+        !tmp.path()
+            .join("corpus/sources/public/S-0006-v1.txt")
+            .exists()
+    );
+
+    let stdout_report: Value = serde_json::from_str(&out.stdout)
+        .unwrap_or_else(|e| panic!("parse partial stdout json: {e}; stdout={}", out.stdout));
+    assert_eq!(stdout_report["exit"], 3);
+    assert_eq!(stdout_report["counts"]["added"], 1);
+    assert_eq!(stdout_report["counts"]["present"], 0);
+    assert_eq!(stdout_report["counts"]["refused"], 0);
+    let files = stdout_report["files"].as_array().expect("files array");
+    assert_eq!(
+        files.len(),
+        1,
+        "later files must remain unvisited on I/O error"
+    );
+    assert_eq!(files[0]["name"], "a-first.txt");
+    assert_eq!(files[0]["result"], "added");
+    assert_eq!(files[0]["id"], "S-0004-v1");
+
+    // Best-effort saved report in reports/last-add.json must match the partial stdout JSON.
+    let saved_raw = std::fs::read_to_string(tmp.path().join(".fieldbook/reports/last-add.json"))
+        .expect("read saved partial last-add.json");
+    let saved_report: Value =
+        serde_json::from_str(&saved_raw).expect("parse saved partial last-add.json");
+    assert_eq!(saved_report, stdout_report);
+}
+
+#[test]
+fn recursive_walks_subfolders() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/top.txt", b"Top synthetic file.\n");
+    write_input(
+        tmp.path(),
+        "inbox/sub/deep.txt",
+        b"Deep synthetic subfolder file.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--recursive", "--confirm-public"]),
+        &world,
+    );
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "added     S-0004-v1  sub/deep.txt\n",
+            "added     S-0005-v1  top.txt\n",
+            "done: 2 added\n",
+        )
+    );
+}
+
+#[test]
+fn without_recursive_ignores_subfolders() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/top.txt", b"Top synthetic file.\n");
+    write_input(
+        tmp.path(),
+        "inbox/sub/deep.txt",
+        b"Deep synthetic subfolder file.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    assert_eq!(
+        out.stdout,
+        concat!("added     S-0004-v1  top.txt\n", "done: 1 added\n")
+    );
+    assert!(
+        !tmp.path()
+            .join("corpus/sources/public/S-0005-v1.txt")
+            .exists()
+    );
+}
+
+#[test]
+fn json_report_has_version_1() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a.txt", b"Synthetic JSON report file.\n");
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--confirm-public", "--json"]),
+        &world,
+    );
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    let v: Value = serde_json::from_str(&out.stdout).expect("parse add --json");
+    assert_eq!(v["report_version"], 1);
+    assert_eq!(v["verb"], "add");
+    assert_eq!(v["dir"], "inbox");
+    assert_eq!(v["exit"], 0);
+    assert_eq!(v["counts"]["added"], 1);
+}
+
+#[test]
+fn last_report_is_written_and_replaced() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox1/one.txt", b"First folder run.\n");
+    write_input(tmp.path(), "inbox2/two.txt", b"Second folder run.\n");
+    let world = TestWorld::new(tmp.path());
+    let report_path = tmp.path().join(".fieldbook/reports/last-add.json");
+
+    let first = fieldbook::run(&svec(&["add", "inbox1", "--confirm-public"]), &world);
+    assert_eq!(first.code, 0, "stderr: {}", first.stderr);
+    let first_json: Value =
+        serde_json::from_str(&std::fs::read_to_string(&report_path).expect("read first report"))
+            .expect("parse first report");
+    assert_eq!(first_json["dir"], "inbox1");
+    assert_eq!(first_json["files"][0]["name"], "one.txt");
+
+    let second = fieldbook::run(&svec(&["add", "inbox2", "--confirm-public"]), &world);
+    assert_eq!(second.code, 0, "stderr: {}", second.stderr);
+    let second_json: Value =
+        serde_json::from_str(&std::fs::read_to_string(&report_path).expect("read second report"))
+            .expect("parse second report");
+    assert_eq!(second_json["dir"], "inbox2");
+    assert_eq!(second_json["files"][0]["name"], "two.txt");
+}
+
+#[test]
+fn report_write_failure_is_a_warning() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(
+        tmp.path(),
+        "inbox/note.txt",
+        b"Synthetic note for report failure.\n",
+    );
+
+    let faulty = FaultyWorld::new(
+        TestWorld::new(tmp.path()),
+        Fault::FailOnName {
+            name: "last-add.json",
+            kind: FaultKind::Io,
+        },
+    );
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &faulty);
+    assert_eq!(out.code, 0, "report save failure must not change exit code");
+    assert!(
+        out.stderr.contains("report not saved"),
+        "stderr must warn when report is not saved: {}",
+        out.stderr
+    );
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0004-v1.txt")
+            .is_file()
+    );
+}
+
+#[test]
+fn needs_extraction_is_true_for_a_pdf() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a.txt", b"Plain synthetic text.\n");
+    write_input(
+        tmp.path(),
+        "inbox/b.pdf",
+        b"%PDF-1.4\n% Synthetic PDF.\n%%EOF\n",
+    );
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--confirm-public", "--json"]),
+        &world,
+    );
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    let v: Value = serde_json::from_str(&out.stdout).expect("parse add --json");
+    assert_eq!(v["files"][0]["name"], "a.txt");
+    assert_eq!(v["files"][0]["needs_extraction"], false);
+    assert_eq!(v["files"][1]["name"], "b.pdf");
+    assert_eq!(v["files"][1]["needs_extraction"], true);
+    assert_eq!(v["counts"]["needs_extraction"], 1);
+}
+
+#[test]
+fn source_with_a_folder_is_a_usage_error() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a.txt", b"Plain synthetic text.\n");
+    let world = TestWorld::new(tmp.path());
+    let before = world.read_tree().expect("tree before");
+
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--source", "S-0001", "--confirm-public"]),
+        &world,
+    );
+    assert_eq!(out.code, 2);
+    assert!(out.stderr.contains("--source"), "stderr: {}", out.stderr);
+    assert_eq!(before, world.read_tree().expect("tree after"));
+}
+
+#[test]
+fn renamed_executable_is_refused() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(
+        tmp.path(),
+        "inbox/pe_as_text.txt",
+        b"MZ\x90\x00not really text",
+    );
+    write_input(
+        tmp.path(),
+        "inbox/elf_as_text.txt",
+        b"\x7fELF\x02\x01\x01\x00not text",
+    );
+    let world = TestWorld::new(tmp.path());
+    let before = world.read_tree().expect("tree before");
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 1);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "refused   FB0821  elf_as_text.txt\n",
+            "refused   FB0821  pe_as_text.txt\n",
+            "done: 2 refused\n",
+        )
+    );
+    assert_eq!(before, world.read_tree().expect("tree after"));
+}
+
+#[test]
+fn each_added_file_has_one_begin_and_end() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a.txt", b"First synthetic file.\n");
+    write_input(tmp.path(), "inbox/b.txt", b"Second synthetic file.\n");
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+
+    let shown = audit_show_json(&world, &[]);
+    let events = shown["events"].as_array().expect("events");
+    let kinds: Vec<&str> = events.iter().filter_map(|e| e["kind"].as_str()).collect();
+    assert_eq!(
+        kinds,
+        vec![
+            "journal.open",
+            "settings.change",
+            "write.begin",
+            "write.end",
+            "write.begin",
+            "write.end"
+        ]
+    );
+}
+
+#[test]
+fn folder_without_confirmation_refuses_every_file_fb0410() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a.txt", b"First unconfirmed file.\n");
+    write_input(tmp.path(), "inbox/b.txt", b"Second unconfirmed file.\n");
+    let world = TestWorld::new(tmp.path());
+    let before = world.read_tree().expect("tree before");
+
+    let out = fieldbook::run(&svec(&["add", "inbox"]), &world);
+    assert_eq!(out.code, 1);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "refused   FB0410  a.txt\n",
+            "refused   FB0410  b.txt\n",
+            "done: 2 refused\n",
+        )
+    );
+    assert_eq!(before, world.read_tree().expect("tree after"));
+
+    let begins = audit_show_json(&world, &["--kind", "write.begin"]);
+    assert_eq!(begins["events"].as_array().expect("events").len(), 0);
+}
+
+#[test]
+fn one_confirmation_covers_the_whole_folder() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a.txt", b"First confirmed file.\n");
+    write_input(tmp.path(), "inbox/b.txt", b"Second confirmed file.\n");
+    write_input(tmp.path(), "inbox/c.md", b"# Third confirmed file\n");
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    assert_eq!(
+        out.stdout,
+        concat!(
+            "added     S-0004-v1  a.txt\n",
+            "added     S-0005-v1  b.txt\n",
+            "added     S-0006-v1  c.md\n",
+            "done: 3 added\n",
+        )
+    );
+}
+
+#[test]
+fn macro_types_are_refused_in_the_corpus_and_pass_for_another_store() {
+    use fieldbook_core::add::check_type;
+    use fieldbook_core::audit::StoreId;
+    use fieldbook_core::check::Code;
+
+    for name in ["sheet.xlsm", "LETTER.DOCM", "deck.pptm"] {
+        let err = check_type(name, b"PK\x03\x04", StoreId::Corpus)
+            .expect_err("macro Office file must be refused in Corpus");
+        assert_eq!(err.code, Code::Fb0821);
+        assert_eq!(err.file_name, name);
+
+        check_type(name, b"PK\x03\x04", StoreId::Overlay)
+            .expect("macro Office file must be allowed in Overlay store");
+    }
+
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/vendor.xlsm", b"PK\x03\x04synthetic zip");
+    let world = TestWorld::new(tmp.path());
+    let out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(out.code, 1);
+    assert_eq!(
+        out.stdout,
+        concat!("refused   FB0821  vendor.xlsm\n", "done: 1 refused\n")
+    );
+}
+
+#[test]
+fn each_refusal_has_one_refuse_event() {
+    // 1. Folder with FB0821 (script), FB0400 (marking), and FB0410 (unconfirmed plain file).
+    let tmp = temp_copy(&fixture_root());
+    let ps1_bytes = b"Write-Output 'synthetic'\n";
+    let marked_bytes = b"CONTROLLED UNCLASSIFIED INFORMATION\nSynthetic marked text.\n";
+    let plain_bytes = b"Plain unconfirmed text.\n";
+    write_input(tmp.path(), "inbox/a-tool.ps1", ps1_bytes);
+    write_input(tmp.path(), "inbox/b-marked.txt", marked_bytes);
+    write_input(tmp.path(), "inbox/c-plain.txt", plain_bytes);
+    let world = TestWorld::new(tmp.path());
+
+    let out = fieldbook::run(&svec(&["add", "inbox"]), &world);
+    assert_eq!(out.code, 1);
+
+    let refuse_json = audit_show_json(&world, &["--kind", "refuse"]);
+    let events = refuse_json["events"].as_array().expect("events");
+    assert_eq!(
+        events.len(),
+        3,
+        "expected one refuse event per refused file"
+    );
+
+    // Event 0: FB0821 (type refusal before classification -> no fabricated labels).
+    assert_eq!(events[0]["code"], "FB0821");
+    assert_eq!(events[0]["reason"], "store");
+    assert_eq!(events[0]["sha256"], Sha256::digest(ps1_bytes).as_str());
+    assert_eq!(
+        events[0]["name_sha256"],
+        Sha256::digest(b"a-tool.ps1").as_str()
+    );
+    assert!(
+        events[0].get("labels").is_none(),
+        "FB0821 occurs before classification and must not fabricate labels: {}",
+        events[0]
+    );
+
+    // Event 1: FB0400 (marking refusal -> reason `store`, labels `["marked"]`).
+    assert_eq!(events[1]["code"], "FB0400");
+    assert_eq!(events[1]["reason"], "store");
+    assert_eq!(events[1]["sha256"], Sha256::digest(marked_bytes).as_str());
+    assert_eq!(
+        events[1]["name_sha256"],
+        Sha256::digest(b"b-marked.txt").as_str()
+    );
+    assert_eq!(events[1]["labels"], serde_json::json!(["marked"]));
+
+    // Event 2: FB0410 (unconfirmed plain file -> reason `unlabelled`, labels `["unlabelled"]`).
+    assert_eq!(events[2]["code"], "FB0410");
+    assert_eq!(events[2]["reason"], "unlabelled");
+    assert_eq!(events[2]["sha256"], Sha256::digest(plain_bytes).as_str());
+    assert_eq!(
+        events[2]["name_sha256"],
+        Sha256::digest(b"c-plain.txt").as_str()
+    );
+    assert_eq!(events[2]["labels"], serde_json::json!(["unlabelled"]));
+
+    let begins = audit_show_json(&world, &["--kind", "write.begin"]);
+    assert_eq!(begins["events"].as_array().expect("events").len(), 0);
+
+    let verify = fieldbook::run(&svec(&["audit", "verify"]), &world);
+    assert_eq!(verify.code, 0, "stderr: {}", verify.stderr);
+
+    // 2. FB0822 (--confirm-public on a machine with a company store -> reason `label`, labels `["public"]`).
+    let tmp_co = temp_copy(&fixture_root());
+    write_input(tmp_co.path(), "inbox/c-plain.txt", plain_bytes);
+    let world_co = TestWorld::new(tmp_co.path());
+    world_co.set_company_store(true);
+
+    let out_co = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world_co);
+    assert_eq!(out_co.code, 1);
+
+    let refuse_co = audit_show_json(&world_co, &["--kind", "refuse"]);
+    let events_co = refuse_co["events"].as_array().expect("events");
+    assert_eq!(events_co.len(), 1);
+    assert_eq!(events_co[0]["code"], "FB0822");
+    assert_eq!(events_co[0]["reason"], "label");
+    assert_eq!(events_co[0]["sha256"], Sha256::digest(plain_bytes).as_str());
+    assert_eq!(
+        events_co[0]["name_sha256"],
+        Sha256::digest(b"c-plain.txt").as_str()
+    );
+    assert_eq!(events_co[0]["labels"], serde_json::json!(["public"]));
+
+    let begins_co = audit_show_json(&world_co, &["--kind", "write.begin"]);
+    assert_eq!(begins_co["events"].as_array().expect("events").len(), 0);
+
+    let verify_co = fieldbook::run(&svec(&["audit", "verify"]), &world_co);
+    assert_eq!(verify_co.code, 0, "stderr: {}", verify_co.stderr);
+}
+
+#[test]
+fn state_add_folder_matches_the_writer() {
+    let dir = tempfile::tempdir().expect("tempdir");
+    let events = &support::state::state_mini_events()[..2];
+    support::state::build_state(dir.path(), events);
+
+    let expected_path = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../../tests/fixtures/state-add-folder/audit/journal.jsonl");
+    let expected = std::fs::read_to_string(&expected_path).expect("read state-add-folder journal");
+    let actual = std::fs::read_to_string(dir.path().join("audit/journal.jsonl"))
+        .expect("read built journal");
+    assert_eq!(actual, expected);
+}
+
+#[test]
+fn folder_rerun_recovers_a_later_file() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a-first.txt", b"First synthetic file.\n");
+    write_input(
+        tmp.path(),
+        "inbox/b-second.txt",
+        b"Second synthetic file.\n",
+    );
+
+    // Fail on the 2nd sources.csv write (after a-first.txt succeeded and b-second.txt's original
+    // S-0005-v1.txt was written).
+    let faulty = FaultyWorld::new(
+        TestWorld::new(tmp.path()),
+        Fault::FailOnNthName {
+            name: "sources.csv",
+            nth: 2,
+            kind: FaultKind::Io,
+        },
+    );
+    let interrupted = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &faulty);
+    assert_eq!(interrupted.code, 3);
+    assert!(tmp.path().join(".fieldbook/pending.toml").is_file());
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0004-v1.txt")
+            .is_file()
+    );
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0005-v1.txt")
+            .is_file()
+    );
+
+    // Rerun the exact folder command on a healthy World:
+    // - pre-traversal recovers b-second.txt (Added S-0005-v1),
+    // - ordinary traversal reports a-first.txt as Present S-0004-v1 and skips b-second.txt,
+    // - final output is in byte order of filename.
+    let world = TestWorld::new(tmp.path());
+    let recovered = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(recovered.code, 0, "stderr: {}", recovered.stderr);
+    assert_eq!(
+        recovered.stdout,
+        concat!(
+            "present   S-0004-v1  a-first.txt\n",
+            "added     S-0005-v1  b-second.txt\n",
+            "done: 1 added, 1 present\n",
+        )
+    );
+    assert!(!tmp.path().join(".fieldbook/pending.toml").exists());
+    assert!(
+        !tmp.path()
+            .join("corpus/sources/public/S-0006-v1.txt")
+            .exists()
+    );
+
+    let sources_bytes =
+        std::fs::read(tmp.path().join("corpus/registers/sources.csv")).expect("read sources.csv");
+    let table = read_csv(&sources_bytes).expect("parse sources.csv");
+    assert_eq!(
+        table.rows.len(),
+        6,
+        "must have 3 initial rows + 2 added rows"
+    );
+
+    let begins = audit_show_json(&world, &["--kind", "write.begin"]);
+    let ends = audit_show_json(&world, &["--kind", "write.end"]);
+    assert_eq!(
+        begins["events"].as_array().expect("begins").len(),
+        2,
+        "recovery must not append an extra write.begin"
+    );
+    assert_eq!(ends["events"].as_array().expect("ends").len(), 2);
+}
+
+#[test]
+fn folder_recovery_refuses_missing_or_changed_candidate() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(tmp.path(), "inbox/a-first.txt", b"First synthetic file.\n");
+    let second_path = write_input(
+        tmp.path(),
+        "inbox/b-second.txt",
+        b"Second synthetic file.\n",
+    );
+
+    let faulty = FaultyWorld::new(
+        TestWorld::new(tmp.path()),
+        Fault::FailOnNthName {
+            name: "sources.csv",
+            nth: 2,
+            kind: FaultKind::Io,
+        },
+    );
+    let interrupted = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &faulty);
+    assert_eq!(interrupted.code, 3);
+
+    let world = TestWorld::new(tmp.path());
+    let begins_before = audit_show_json(&world, &["--kind", "write.begin"])["events"]
+        .as_array()
+        .expect("events")
+        .len();
+
+    // Case 1: Mutate the second candidate while pending -> must refuse with exit 3 before any write.
+    std::fs::write(&second_path, b"Tampered second candidate.\n").expect("tamper second file");
+    let changed_out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(changed_out.code, 3);
+    assert!(tmp.path().join(".fieldbook/pending.toml").is_file());
+
+    // Case 2: Remove the second candidate while pending -> must refuse with exit 3 before any write.
+    std::fs::remove_file(&second_path).expect("remove second file");
+    let missing_out = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(missing_out.code, 3);
+    assert!(tmp.path().join(".fieldbook/pending.toml").is_file());
+
+    let begins_after = audit_show_json(&world, &["--kind", "write.begin"])["events"]
+        .as_array()
+        .expect("events")
+        .len();
+    assert_eq!(begins_before, begins_after);
+
+    // Restore the second candidate and confirm recovery succeeds cleanly.
+    std::fs::write(&second_path, b"Second synthetic file.\n").expect("restore second file");
+    let recovered = fieldbook::run(&svec(&["add", "inbox", "--confirm-public"]), &world);
+    assert_eq!(recovered.code, 0, "stderr: {}", recovered.stderr);
+    assert!(!tmp.path().join(".fieldbook/pending.toml").exists());
+}
+
+#[test]
+fn report_state_admission_failure_preserves_previous() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(
+        tmp.path(),
+        "inbox1/clean.txt",
+        b"Clean public synthetic text.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+    let report_path = tmp.path().join(".fieldbook/reports/last-add.json");
+
+    // 1. First run saves a valid last-add.json.
+    let first = fieldbook::run(&svec(&["add", "inbox1", "--confirm-public"]), &world);
+    assert_eq!(first.code, 0, "stderr: {}", first.stderr);
+    let saved_before = std::fs::read_to_string(&report_path).expect("read initial last-add.json");
+
+    // 2. Second run inspects a file with a marking banner (`marked`), which FloorKind::A denies in
+    // the State store (`StoreRule::floor(StoreId::State, false)`). The add command exits 1 for the
+    // refused file, warns `report not saved` on stderr, and leaves the previous last-add.json intact.
+    write_input(
+        tmp.path(),
+        "inbox2/marked.txt",
+        b"CONTROLLED UNCLASSIFIED INFORMATION\nSynthetic marked text.\n",
+    );
+    let second = fieldbook::run(&svec(&["add", "inbox2", "--confirm-public"]), &world);
+    assert_eq!(second.code, 1);
+    assert!(
+        second.stderr.contains("report not saved"),
+        "stderr must warn when state admission denies report: {}",
+        second.stderr
+    );
+    let saved_after = std::fs::read_to_string(&report_path).expect("read preserved last-add.json");
+    assert_eq!(
+        saved_after, saved_before,
+        "previous report must be preserved"
+    );
+}
+
+#[test]
+fn saved_report_requires_classification() {
+    use fieldbook::report::parse_saved_add_report;
+
+    let valid = r#"{
+  "report_version": 1,
+  "verb": "add",
+  "dir": "inbox",
+  "labels": ["owner-supplied"],
+  "inputs": [{ "store": "corpus", "id": "S-0004-v1" }],
+  "files": [
+    {
+      "name": "a.txt",
+      "result": "added",
+      "id": "S-0004-v1",
+      "sha256": "1aa0592a6ef1b53921b5131ff20cb88ee9762c37b66ecf13f02b69c584a2cf76",
+      "bytes": 35,
+      "needs_extraction": false
+    }
+  ],
+  "counts": { "added": 1, "present": 0, "refused": 0, "needs_extraction": 0 },
+  "exit": 0
+}"#;
+    let parsed = parse_saved_add_report(valid).expect("valid saved report must parse");
+    assert_eq!(parsed.files[0].name, "a.txt");
+
+    // Missing `labels`
+    let no_labels = valid.replace(r#"  "labels": ["owner-supplied"],"#, "");
+    assert!(parse_saved_add_report(&no_labels).is_err());
+
+    // Empty `labels`
+    let empty_labels = valid.replace(r#"["owner-supplied"]"#, "[]");
+    assert!(parse_saved_add_report(&empty_labels).is_err());
+
+    // Missing `inputs`
+    let no_inputs = valid.replace(
+        r#"  "inputs": [{ "store": "corpus", "id": "S-0004-v1" }],"#,
+        "",
+    );
+    assert!(parse_saved_add_report(&no_inputs).is_err());
+
+    // Added file missing from `inputs`
+    let missing_input_ref = valid.replace(
+        r#"  "inputs": [{ "store": "corpus", "id": "S-0004-v1" }],"#,
+        r#"  "inputs": [],"#,
+    );
+    assert!(parse_saved_add_report(&missing_input_ref).is_err());
+}
+
+#[test]
+fn folder_recovery_distinguishes_equal_basenames() {
+    let tmp = temp_copy(&fixture_root());
+    let shared = b"Identical content under two subfolders.\n";
+    write_input(tmp.path(), "inbox/a/note.txt", shared);
+    write_input(tmp.path(), "inbox/b/note.txt", shared);
+
+    // Interrupt the first register write (`inbox/a/note.txt`).
+    let faulty = FaultyWorld::new(
+        TestWorld::new(tmp.path()),
+        Fault::FailOnNthName {
+            name: "sources.csv",
+            nth: 1,
+            kind: FaultKind::Io,
+        },
+    );
+    let interrupted = fieldbook::run(
+        &svec(&["add", "inbox", "--recursive", "--confirm-public"]),
+        &faulty,
+    );
+    assert_eq!(interrupted.code, 3);
+    assert!(tmp.path().join(".fieldbook/pending.toml").is_file());
+
+    // Rerun: canonical input-path hash uniquely matches `inbox/a/note.txt` (not `inbox/b/note.txt`).
+    // `a/note.txt` recovers as Added S-0004-v1, and `b/note.txt` sees S-0004-v1 as Present.
+    let world = TestWorld::new(tmp.path());
+    let recovered = fieldbook::run(
+        &svec(&["add", "inbox", "--recursive", "--confirm-public"]),
+        &world,
+    );
+    assert_eq!(recovered.code, 0, "stderr: {}", recovered.stderr);
+    assert_eq!(
+        recovered.stdout,
+        concat!(
+            "added     S-0004-v1  a/note.txt\n",
+            "present   S-0004-v1  b/note.txt\n",
+            "done: 1 added, 1 present\n",
+        )
+    );
+    assert!(!tmp.path().join(".fieldbook/pending.toml").exists());
+    assert!(
+        tmp.path()
+            .join("corpus/sources/public/S-0004-v1.txt")
+            .is_file()
+    );
+    assert!(
+        !tmp.path()
+            .join("corpus/sources/public/S-0005-v1.txt")
+            .exists()
+    );
+
+    let sources_bytes =
+        std::fs::read(tmp.path().join("corpus/registers/sources.csv")).expect("read sources.csv");
+    let table = read_csv(&sources_bytes).expect("parse sources.csv");
+    assert_eq!(
+        table.rows.len(),
+        5,
+        "must have 4 initial rows + 1 added row"
+    );
+
+    let begins = audit_show_json(&world, &["--kind", "write.begin"]);
+    let ends = audit_show_json(&world, &["--kind", "write.end"]);
+    assert_eq!(begins["events"].as_array().expect("begins").len(), 1);
+    assert_eq!(ends["events"].as_array().expect("ends").len(), 1);
+}
+
+#[test]
+fn add_dot_imports_current_directory() {
+    let tmp = temp_copy(&fixture_root());
+    std::fs::create_dir_all(tmp.path().join("inbox/sub")).expect("create inbox/sub");
+    write_input(
+        tmp.path(),
+        "inbox/dot-note.txt",
+        b"Public note inside current directory.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+    // Both `.` and `inbox/sub/..` have `Path::file_name() == None`.
+    let out = fieldbook::run(&svec(&["add", "inbox/sub/..", "--confirm-public"]), &world);
+    assert_eq!(out.code, 0, "stderr: {}", out.stderr);
+    assert_eq!(
+        out.stdout,
+        "added     S-0004-v1  dot-note.txt\ndone: 1 added\n"
+    );
+}
+
+#[test]
+fn recursive_folder_refuses_marked_subdirectory_name() {
+    let tmp = temp_copy(&fixture_root());
+    write_input(
+        tmp.path(),
+        "inbox/PROPRIETARY/note.txt",
+        b"Unmarked body inside a marked directory.\n",
+    );
+    let world = TestWorld::new(tmp.path());
+    let out = fieldbook::run(
+        &svec(&["add", "inbox", "--recursive", "--confirm-public"]),
+        &world,
+    );
+    assert_eq!(out.code, 1, "marked subdirectory must be refused");
+    assert!(
+        out.stderr.contains("FB0400"),
+        "stderr must report FB0400: {}",
+        out.stderr
+    );
+    let sources_csv = std::fs::read_to_string(tmp.path().join("corpus/registers/sources.csv"))
+        .expect("read sources.csv");
+    assert!(
+        !sources_csv.contains("PROPRIETARY"),
+        "sources.csv must not persist marked directory path"
+    );
+}
