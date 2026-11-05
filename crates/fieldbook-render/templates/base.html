@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="{{ csp|safe }}">
+<title>{{ product }}</title>
+<link rel="stylesheet" href="{{ root_prefix }}assets/app.css">
+<script src="{{ root_prefix }}assets/strings.js" defer></script>
+</head>
+<body>
+<header>{% if let Some(date) = built_date %}<time datetime="{{ date }}">{{ date }}</time>{% else %}{{ unreleased_build }}{% endif %}</header>
+<main></main>
+</body>
+</html>

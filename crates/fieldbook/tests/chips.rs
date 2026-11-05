@@ -40,7 +40,6 @@ fieldbook new claim --confirm-public --area <a> --source <version-id> --at "<loc
 fieldbook new conflict --confirm-public --area <a>
 fieldbook new term --confirm-public --area <a>
 fieldbook fmt
-fieldbook build
 fieldbook search <query>
 fieldbook status
 fieldbook status --page

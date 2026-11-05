@@ -113,7 +113,7 @@ test = "an_unknown_function_is_fb0504"
 [[elsewhere]]
 code = "FB0600"
 card = "build-v0"
-test = ""
+test = "refuses_a_corpus_with_errors"
 
 [[elsewhere]]
 code = "FB0601"
@@ -143,7 +143,7 @@ test = ""
 [[elsewhere]]
 code = "FB0606"
 card = "build-v0"
-test = ""
+test = "two_builds_are_identical"
 
 [[elsewhere]]
 code = "FB0607"

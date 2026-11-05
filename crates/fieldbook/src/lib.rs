@@ -11,6 +11,7 @@
 
 pub mod add;
 pub mod audit;
+pub mod build;
 pub mod cli;
 pub mod io;
 
@@ -180,6 +181,18 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 add::run(&add_args, &overridden)
             } else {
                 add::run(&add_args, world)
+            }
+        }
+        Commands::Build(build_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                build::run(&build_args, &overridden)
+            } else {
+                build::run(&build_args, world)
             }
         }
         Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), world),

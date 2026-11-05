@@ -8,9 +8,10 @@
 
 mod support;
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 
+use fieldbook::build::{plan_edition, write_edition_outputs};
 use fieldbook::io::state;
 use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
@@ -21,9 +22,11 @@ use fieldbook_core::audit::{
 use fieldbook_core::authz::ReadableStores;
 use fieldbook_core::check::{Host, Model, Options, Tree, load};
 use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
-use fieldbook_core::labels::PUBLIC;
+use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
 use fieldbook_core::schema::Register;
+use fieldbook_render::meta::BuildInfo;
+use fieldbook_render::site::Site;
 use serde::Deserialize;
 
 use support::temp_copy;
@@ -44,7 +47,11 @@ pub struct Surface {
 }
 
 /// Built outward sinks in `fieldbook` covered by [`SURFACES`].
-const BUILT_SINKS: &[&str] = &["atomic_outside_writer", "journal_holds_ids_and_no_canary"];
+const BUILT_SINKS: &[&str] = &[
+    "atomic_outside_writer",
+    "journal_holds_ids_and_no_canary",
+    "edition",
+];
 
 /// Registered real-output surfaces (`core-policy` step 17).
 pub const SURFACES: &[Surface] = &[
@@ -55,6 +62,10 @@ pub const SURFACES: &[Surface] = &[
     Surface {
         name: "journal_holds_ids_and_no_canary",
         run: run_journal_holds_ids_and_no_canary,
+    },
+    Surface {
+        name: "edition",
+        run: run_edition_surface,
     },
 ];
 
@@ -333,6 +344,182 @@ fn run_journal_holds_ids_and_no_canary() {
             "journal must never contain canary `{}`",
             rec.canary
         );
+    }
+}
+
+struct TestProvenanceGraph {
+    nodes: BTreeMap<ItemRef, LabelNode>,
+    ledger: Ledger,
+}
+
+impl LabelGraph for TestProvenanceGraph {
+    fn node(&self, item: &ItemRef) -> Option<LabelNode> {
+        self.nodes.get(item).cloned()
+    }
+
+    fn ledger(&self, _store: StoreId) -> &Ledger {
+        &self.ledger
+    }
+}
+
+fn run_edition_surface() {
+    let fixture = load_fixture();
+    let tmp = temp_copy(&corpus_mini());
+    let world = TestWorld::new(tmp.path());
+    let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+
+    let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
+    assert!(report.is_ok(), "corpus-mini must load cleanly");
+
+    let eff = EffectivePolicy::floor(false);
+    let now = default_now();
+    let shipped = Shipped::Hours(1);
+
+    let Decision::Allowed(sel_token) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+        panic!("expected edition selection Allowed");
+    };
+    let view = LabelledView::new(&model, &sel_token, &ReadableStores::corpus());
+
+    let mut plan = plan_edition(
+        &view,
+        &BuildInfo::default(),
+        out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition denied: {d:?}"));
+
+    // Verify persisted output metadata keeps the input ItemRefs needed by `labels::effective_item`,
+    // and reopening after source relabelling re-evaluates them.
+    assert!(
+        !plan.input_items.is_empty(),
+        "edition plan must record input ItemRefs for effective_item"
+    );
+    let edition_item = ItemRef::new(StoreId::Corpus, "edition-output");
+    let mut nodes = BTreeMap::new();
+    for item in &plan.input_items {
+        nodes.insert(item.clone(), LabelNode::new(LabelSet::public(), Vec::new()));
+    }
+    nodes.insert(
+        edition_item.clone(),
+        LabelNode::new(LabelSet::public(), plan.input_items.clone()),
+    );
+    let initial_graph = TestProvenanceGraph {
+        nodes: nodes.clone(),
+        ledger: Ledger::default(),
+    };
+    assert_eq!(
+        effective_item(&initial_graph, &edition_item),
+        LabelSet::public()
+    );
+
+    // Relabel one source input to a non-public label (`np-0007`) and confirm `effective_item`
+    // re-evaluates the persisted `input_items` on reopen.
+    let np7 = LabelId::parse("np-0007").unwrap_or_else(|e| panic!("{e}"));
+    let first_input = plan.input_items[0].clone();
+    nodes.insert(
+        first_input,
+        LabelNode::new(LabelSet::from_ids([PUBLIC, np7.clone()]), Vec::new()),
+    );
+    let relabelled_graph = TestProvenanceGraph {
+        nodes,
+        ledger: Ledger::default(),
+    };
+    let relabelled_eff = effective_item(&relabelled_graph, &edition_item);
+    assert!(
+        relabelled_eff.contains(&np7),
+        "reopening after source relabelling must propagate np-0007 via effective_item"
+    );
+    assert!(
+        matches!(
+            check(
+                &eff,
+                &Dest::Edition,
+                Some(&relabelled_eff),
+                Some(&plan.delivery),
+                now,
+                shipped
+            ),
+            Decision::Denied(_)
+        ),
+        "Dest::Edition must deny relabelled effective_item set"
+    );
+
+    let mut journal =
+        state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+    let audited = journal
+        .begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    // Negative plants at the final sink (`write_edition_outputs`):
+    // 1. Planting any non-public canary into a planned file after approval must be refused.
+    let orig_site = plan.site.clone();
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            let mut mutated_site = Site::new();
+            for (rel, bytes) in orig_site.files() {
+                if rel == "index.html" {
+                    let mut planted = bytes.clone();
+                    planted.extend_from_slice(rec.canary.as_bytes());
+                    mutated_site.insert(rel, planted);
+                } else {
+                    mutated_site.insert(rel, bytes.clone());
+                }
+            }
+            plan.site = mutated_site;
+            let res = write_edition_outputs(&plan, &audited);
+            assert!(
+                matches!(res, Err(Error::OutOfScope(_))),
+                "mutated bytes with canary for `{}` must be refused at write_edition_outputs",
+                rec.label
+            );
+        }
+    }
+    plan.site = orig_site;
+    assert!(
+        !plan.edition_dir.join("index.html").exists(),
+        "refused byte-mutated write must not leave index.html on disk"
+    );
+
+    // 2. Changing the target directory path after approval must be refused.
+    let rogue_dir = plan.out_dir.join("rogue-edition");
+    let orig_edition_dir = std::mem::replace(&mut plan.edition_dir, rogue_dir.clone());
+    let rogue_res = write_edition_outputs(&plan, &audited);
+    plan.edition_dir = orig_edition_dir;
+    assert!(
+        matches!(rogue_res, Err(Error::OutOfScope(_))),
+        "mutated target path must be refused at write_edition_outputs"
+    );
+    assert!(
+        !rogue_dir.exists(),
+        "refused target-mutated write must not create rogue directory"
+    );
+
+    // 3. Deliver the approved public shell through the real sink and verify disk outputs.
+    write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
+    journal
+        .end(audited, Word::new_static("ok"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    assert!(plan.marker_path.is_file(), ".fieldbook-out must exist");
+    for (rel, expected_bytes) in plan.site.files() {
+        let disk_path = plan.edition_dir.join(rel);
+        let disk_bytes = std::fs::read(&disk_path).unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(&disk_bytes, expected_bytes, "mismatch on {rel}");
+        let disk_str = String::from_utf8_lossy(&disk_bytes);
+        for rec in &fixture.record {
+            if rec.label != "public" {
+                assert!(
+                    !disk_str.contains(&rec.canary),
+                    "forbidden canary `{}` must not appear in {rel}",
+                    rec.canary
+                );
+            }
+        }
     }
 }
 

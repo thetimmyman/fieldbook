@@ -57,10 +57,20 @@ pub struct Cli {
 pub enum Commands {
     /// Check the Corpus and print findings.
     Check(CheckArgs),
+    /// Build the static site and workbooks into an edition directory.
+    Build(BuildArgs),
     /// Add a source or source version to the Corpus.
     Add(AddArgs),
     /// Inspect or verify the audit journal.
     Audit(AuditArgs),
+}
+
+/// Arguments for `fieldbook build`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct BuildArgs {
+    /// Parent output directory (`DIR/edition` holds the built site).
+    #[arg(long = "out", value_name = "DIR", default_value = "out")]
+    pub out: PathBuf,
 }
 
 /// Arguments for `fieldbook add`.

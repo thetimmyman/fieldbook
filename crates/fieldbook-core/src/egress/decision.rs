@@ -643,12 +643,12 @@ fn validate_delivery_binding(
                 endpoint_matches_base_url(ep, base_url)
             }
             (
-                Dest::Export { .. } | Dest::Backup { .. } | Dest::Audit,
+                Dest::Export { .. } | Dest::Backup { .. } | Dest::Audit | Dest::Edition,
                 Target::Path(p),
                 Operation::Write | Operation::CreateDir | Operation::RemoveTree,
             ) => transfer_path_matches_dest_and_policy(policy, dest, set, now, p),
             (
-                Dest::Export { .. } | Dest::Backup { .. } | Dest::Audit,
+                Dest::Export { .. } | Dest::Backup { .. } | Dest::Audit | Dest::Edition,
                 Target::Path(p),
                 Operation::RenameTree { to },
             ) => {
@@ -765,7 +765,7 @@ fn transfer_path_matches_dest_and_policy(
                     .is_ok_and(|allow| allow.permits(set))
             }
         }
-        Dest::Audit => set.is_public(),
+        Dest::Audit | Dest::Edition => set.is_public(),
         _ => false,
     }
 }
