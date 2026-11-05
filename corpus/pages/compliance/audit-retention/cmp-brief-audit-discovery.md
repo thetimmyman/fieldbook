@@ -41,7 +41,7 @@ Walking the audit manual chapter by chapter was rejected: it is long and not tie
 - CAS coverage by business unit [@Q-033].
 - Open control findings and external requests, and their owners [@Q-014].
 - Whether the purchasing system has been reviewed [@Q-040].
-- Which contracts carry an earned value requirement, and under which text [@Q-037].
+- Which contracts carry an earned value requirement [@Q-037].
 
 ## Next action
 
