@@ -1,0 +1,30 @@
+{% for conflict in &conflict_boxes %}
+<div class="conflict-box{% if conflict.is_resolved %} resolved{% endif %}" id="conflict-{{ conflict.conflict_id }}">
+  <div class="conflict-head">
+    {{ conflict.status_chip_html|safe }}
+    {{ conflict.conflict_chip_html|safe }}
+    <b class="conflict-topic">{{ conflict.topic }}</b>
+    {% if let Some(q_html) = &conflict.question_chip_html %}
+    <span class="conflict-q">Settled by {{ q_html|safe }}</span>
+    {% endif %}
+  </div>
+  <div class="conflict-sides">
+    {% for (idx, pos) in conflict.positions.iter().enumerate() %}
+    <div class="conflict-side">
+      <div class="conflict-side-label">Position {{ idx + 1 }}</div>
+      <div class="conflict-side-body">{{ pos }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="conflict-foot">
+    <span>Disputed claims: {{ conflict.claims_html|safe }}</span>
+    {% if let Some(res) = &conflict.resolution %}
+    <div class="conflict-resolution">
+      <b>Resolution:</b> {{ res }}
+      {% if let Some(rat) = &conflict.rationale %} ({{ rat }}){% endif %}
+      {% if let Some(rdate) = &conflict.resolved_on %} · <time datetime="{{ rdate }}">{{ rdate }}</time>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}

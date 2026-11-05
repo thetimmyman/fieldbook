@@ -2,6 +2,7 @@
   'use strict';
 
   const THEME_KEY = 'fieldbook.theme';
+  const WORDING_KEY = 'fieldbook.wording';
 
   const ROUTE_SECTIONS = {
     'index.html': { section: 'today', item: 'today' },
@@ -257,6 +258,204 @@
       if (mapped && !appRoot.getAttribute('data-section')) {
         selectSidebarSection(mapped.section);
       }
+    }
+
+    initPageReader();
+  }
+
+  function localIsoDate() {
+    const now = new Date();
+    const y = String(now.getFullYear());
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + d;
+  }
+
+  function applyWording(mode) {
+    const reader = document.getElementById('reader') || document.body;
+    const isPlain = mode === 'plain';
+    if (reader) {
+      reader.classList.toggle('hide-precise', isPlain);
+    }
+    const buttons = document.querySelectorAll('#wordingSeg [data-wording]');
+    for (let i = 0; i < buttons.length; i += 1) {
+      const btn = buttons[i];
+      const active = btn.getAttribute('data-wording') === (isPlain ? 'plain' : 'both');
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+  }
+
+  function showPopoverFor(el) {
+    const pop = document.getElementById('popover');
+    if (!pop || !el) {
+      return;
+    }
+    let title = el.getAttribute('data-pv-title') || '';
+    let body = el.getAttribute('data-pv-body') || '';
+    const pv = el.getAttribute('data-pv') || '';
+    if (!body && pv.indexOf('cite:') === 0) {
+      const num = pv.slice(5);
+      const row = document.getElementById('cite-' + num);
+      if (row) {
+        body = (row.textContent || '').trim();
+      }
+    }
+    if (!title && !body) {
+      pop.hidden = true;
+      return;
+    }
+    while (pop.firstChild) {
+      pop.removeChild(pop.firstChild);
+    }
+    if (title) {
+      const tDiv = document.createElement('div');
+      tDiv.className = 'popover-title';
+      tDiv.textContent = title;
+      pop.appendChild(tDiv);
+    }
+    if (body) {
+      const bDiv = document.createElement('div');
+      bDiv.className = 'popover-body';
+      bDiv.textContent = body;
+      pop.appendChild(bDiv);
+    }
+    pop.hidden = false;
+  }
+
+  function hidePopover() {
+    const pop = document.getElementById('popover');
+    if (pop) {
+      pop.hidden = true;
+    }
+  }
+
+  function initPageReader() {
+    const reviewBanners = document.querySelectorAll('[data-review-by]');
+    if (reviewBanners.length > 0) {
+      const today = localIsoDate();
+      for (let i = 0; i < reviewBanners.length; i += 1) {
+        const banner = reviewBanners[i];
+        const reviewBy = banner.getAttribute('data-review-by') || '';
+        if (reviewBy && today > reviewBy) {
+          banner.hidden = false;
+        }
+      }
+    }
+
+    const wordingSeg = document.getElementById('wordingSeg');
+    if (wordingSeg) {
+      let storedWording = null;
+      try {
+        storedWording = window.localStorage.getItem(WORDING_KEY);
+      } catch (_err) {
+        storedWording = null;
+      }
+      if (storedWording === 'plain' || storedWording === 'both') {
+        applyWording(storedWording);
+      }
+      wordingSeg.addEventListener('click', function (ev) {
+        const btn =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-wording]')
+            : null;
+        if (!btn) {
+          return;
+        }
+        const mode = btn.getAttribute('data-wording') === 'plain' ? 'plain' : 'both';
+        applyWording(mode);
+        try {
+          window.localStorage.setItem(WORDING_KEY, mode);
+        } catch (_err) {
+          const msg =
+            window.FB_STRINGS && window.FB_STRINGS.not_remembered
+              ? window.FB_STRINGS.not_remembered
+              : '';
+          showToast(msg);
+        }
+      });
+    }
+
+    const copyBtn = document.getElementById('copyLinkBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        const text = window.location ? window.location.href : '';
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          navigator.clipboard.writeText(text).then(
+            function () {
+              showToast('Link copied');
+            },
+            function () {
+              showToast('Copy failed');
+            }
+          );
+        } else {
+          showToast('Copy failed');
+        }
+      });
+    }
+
+    const reader = document.getElementById('reader');
+    if (reader) {
+      reader.addEventListener('click', function (ev) {
+        const mark =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-claim]')
+            : null;
+        if (!mark) {
+          return;
+        }
+        const claimId = mark.getAttribute('data-claim');
+        const card = claimId ? document.getElementById('ev-' + claimId) : null;
+        if (card) {
+          if (typeof card.scrollIntoView === 'function') {
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+          card.classList.add('flash');
+          window.setTimeout(function () {
+            card.classList.remove('flash');
+          }, 1400);
+        }
+      });
+
+      reader.addEventListener('mouseover', function (ev) {
+        const pv =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-pv]')
+            : null;
+        if (pv) {
+          showPopoverFor(pv);
+        }
+      });
+
+      reader.addEventListener('mouseout', function (ev) {
+        const pv =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-pv]')
+            : null;
+        if (pv) {
+          hidePopover();
+        }
+      });
+
+      reader.addEventListener('focusin', function (ev) {
+        const pv =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-pv]')
+            : null;
+        if (pv) {
+          showPopoverFor(pv);
+        }
+      });
+
+      reader.addEventListener('focusout', function () {
+        hidePopover();
+      });
+
+      document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape') {
+          hidePopover();
+        }
+      });
     }
   }
 

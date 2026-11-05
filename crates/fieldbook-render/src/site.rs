@@ -29,6 +29,12 @@ impl PlannedPaths {
         Self(paths.iter().map(|&p| p.to_owned()).collect())
     }
 
+    /// Builds a [`PlannedPaths`] set from owned path strings.
+    #[must_use]
+    pub fn from_owned(paths: impl IntoIterator<Item = String>) -> Self {
+        Self(paths.into_iter().collect())
+    }
+
     /// Returns `true` when `path` is in the planned output set.
     #[must_use]
     pub fn contains(&self, path: &str) -> bool {
@@ -121,13 +127,16 @@ pub fn render_context(
 /// Returns the deterministic set of relative output paths planned for `view`.
 #[must_use]
 pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
-    let _ = view;
-    PlannedPaths::of(&[
-        "assets/app.css",
-        "assets/app.js",
-        "assets/strings.js",
-        "index.html",
-    ])
+    let mut paths = vec![
+        "assets/app.css".to_owned(),
+        "assets/app.js".to_owned(),
+        "assets/strings.js".to_owned(),
+        "index.html".to_owned(),
+    ];
+    for page in view.pages() {
+        paths.push(format!("p/{}.html", page.id));
+    }
+    PlannedPaths::from_owned(paths)
 }
 
 /// Renders a [`Site`] from `view` and a validated [`RenderContext`].
@@ -157,6 +166,11 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
 
     let mut site = Site::new();
     site.insert("index.html", index_html.into_bytes());
+    for page in view.pages() {
+        let page_path = format!("p/{}.html", page.id);
+        let html = crate::page::render_page(page, view, ctx, &navigation, &planned);
+        site.insert(&page_path, html.into_bytes());
+    }
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());

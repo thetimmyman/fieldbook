@@ -1,0 +1,17 @@
+<div class="meta-row">
+  <span>As of <time datetime="{{ meta_row.as_of }}">{{ meta_row.as_of }}</time></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span>Review by <time datetime="{{ meta_row.review_by }}">{{ meta_row.review_by }}</time></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span><b>{{ meta_row.supported_claims }} of {{ meta_row.total_claims }}</b> claims supported</span>
+  <span class="sep" aria-hidden="true">·</span>
+  {% if let Some(ver_date) = &meta_row.last_verified %}
+  <span>Last verified <time datetime="{{ ver_date }}">{{ ver_date }}</time></span>
+  {% else %}
+  <span>Last verified <span class="unver">Never verified</span></span>
+  {% endif %}
+  <span class="sep" aria-hidden="true">·</span>
+  <span>Readiness <b>{{ meta_row.readiness }}</b></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span class="mono">{{ meta_row.page_id }}</span>
+</div>

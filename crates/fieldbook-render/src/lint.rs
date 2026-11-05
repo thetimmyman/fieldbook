@@ -69,22 +69,26 @@ pub struct ScanError {
     pub col: usize,
 }
 
-fn line_col_at(text: &str, byte_offset: usize) -> (usize, usize) {
+fn compute_line_starts(text: &str) -> Vec<usize> {
+    let mut starts = vec![0usize];
+    for (idx, b) in text.bytes().enumerate() {
+        if b == b'\n' {
+            starts.push(idx + 1);
+        }
+    }
+    starts
+}
+
+fn line_col_at(text: &str, line_starts: &[usize], byte_offset: usize) -> (usize, usize) {
     let clamped = byte_offset.min(text.len());
     let mut end = clamped;
     while end > 0 && !text.is_char_boundary(end) {
         end -= 1;
     }
-    let prefix = &text[..end];
-    let mut line = 1usize;
-    let mut last_nl = 0usize;
-    for (idx, b) in prefix.bytes().enumerate() {
-        if b == b'\n' {
-            line += 1;
-            last_nl = idx + 1;
-        }
-    }
-    let line_slice = &prefix[last_nl..];
+    let line_idx = line_starts.partition_point(|&s| s <= end).saturating_sub(1);
+    let line = line_idx + 1;
+    let last_nl = line_starts[line_idx];
+    let line_slice = &text[last_nl..end];
     let col = line_slice.chars().count() + 1;
     (line, col)
 }
@@ -103,6 +107,7 @@ pub fn scan_html(input: &[u8]) -> Result<Vec<HtmlTag>, ScanError> {
 fn scan_html_str(text: &str, raw_len: usize) -> Result<Vec<HtmlTag>, ScanError> {
     let bytes = text.as_bytes();
     let len = bytes.len();
+    let line_starts = compute_line_starts(text);
     let mut tags = Vec::new();
     let mut i = 0usize;
 
@@ -111,7 +116,7 @@ fn scan_html_str(text: &str, raw_len: usize) -> Result<Vec<HtmlTag>, ScanError> 
             break;
         };
         let tag_start = i + rel_lt;
-        let (tag_line, tag_col) = line_col_at(text, tag_start);
+        let (tag_line, tag_col) = line_col_at(text, &line_starts, tag_start);
 
         if tag_start + 1 >= len {
             return Err(ScanError {
@@ -212,7 +217,7 @@ fn scan_html_str(text: &str, raw_len: usize) -> Result<Vec<HtmlTag>, ScanError> 
             }
 
             let attr_start = p;
-            let (attr_line, attr_col) = line_col_at(text, attr_start);
+            let (attr_line, attr_col) = line_col_at(text, &line_starts, attr_start);
             while p < len
                 && !bytes[p].is_ascii_whitespace()
                 && !matches!(bytes[p], b'=' | b'>' | b'/' | b'"' | b'\'')
@@ -381,40 +386,13 @@ fn is_valid_search_query_fragment(frag: &str) -> bool {
     true
 }
 
-fn collect_html_ids(site: &Site) -> BTreeMap<String, BTreeSet<String>> {
-    let mut page_ids = BTreeMap::new();
-    for (path, bytes) in site.files() {
-        if !(std::path::Path::new(path)
-            .extension()
-            .is_some_and(|ext| ext.eq_ignore_ascii_case("html")))
-        {
-            continue;
-        }
-        let mut ids = BTreeSet::new();
-        if let Ok(tags) = scan_html(bytes) {
-            for tag in tags {
-                if tag.is_closing {
-                    continue;
-                }
-                for attr in tag.attrs {
-                    if attr.name == "id" && !attr.value.is_empty() {
-                        ids.insert(attr.value);
-                    }
-                }
-            }
-        }
-        page_ids.insert(path.clone(), ids);
-    }
-    page_ids
-}
-
 /// Lints `site` and `originals` in memory for `FB0603`, `FB0604` and `FB0605`.
 #[must_use]
 pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
     let mut diags = Vec::new();
-    let html_ids = collect_html_ids(site);
+    let mut html_ids: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
+    let mut scanned_pages: Vec<(String, std::borrow::Cow<'_, str>, Vec<HtmlTag>)> = Vec::new();
 
-    // 1. Per-HTML-file checks (FB0603 & FB0604)
     for (page_path, bytes) in site.files() {
         if !(std::path::Path::new(page_path)
             .extension()
@@ -423,9 +401,24 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
             continue;
         }
         let text = String::from_utf8_lossy(bytes);
-        let tags = match scan_html_str(&text, bytes.len()) {
-            Ok(t) => t,
+        match scan_html_str(&text, bytes.len()) {
+            Ok(tags) => {
+                let mut ids = BTreeSet::new();
+                for tag in &tags {
+                    if tag.is_closing {
+                        continue;
+                    }
+                    for attr in &tag.attrs {
+                        if attr.name == "id" && !attr.value.is_empty() {
+                            ids.insert(attr.value.clone());
+                        }
+                    }
+                }
+                html_ids.insert(page_path.clone(), ids);
+                scanned_pages.push((page_path.clone(), text, tags));
+            }
             Err(err) => {
+                html_ids.insert(page_path.clone(), BTreeSet::new());
                 diags.push(Diagnostic::new(
                     Code::Fb0604,
                     false,
@@ -434,14 +427,16 @@ pub fn lint(site: &Site, originals: &OriginalNames) -> Vec<Diagnostic> {
                     err.col,
                     format!("malformed HTML in `{page_path}`: {}", err.message),
                 ));
-                continue;
             }
-        };
+        }
+    }
 
+    // 1. Per-HTML-file checks (FB0603 & FB0604)
+    for (page_path, text, tags) in &scanned_pages {
         let mut csp_metas: Vec<(usize, usize, String)> = Vec::new();
         let mut open_script: Option<(usize, usize, Option<String>, usize)> = None;
 
-        for tag in &tags {
+        for tag in tags {
             if tag.is_closing {
                 if tag.name == "script"
                     && let Some((s_line, s_col, src_opt, content_start)) = open_script.take()
