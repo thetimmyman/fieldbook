@@ -41,7 +41,7 @@ Synthetic example. The numbers are made up.
 
 A contract containing the codified clause, whose acceptability line is $50 million, is valued at 60,000,000. The Cognizant Federal Agency has not determined the contractor's system acceptable. Under the codified clause, a contractor whose system has not been determined compliant at award applies its current system to the contract and takes the necessary actions to meet the milestones in its EVMS plan.
 
-Under the class deviation clause, whose acceptability line is $100 million, the same 60,000,000 contract is below the line, so paragraph (c) of that clause does not require the Cognizant Federal Agency's acceptability determination.
+Under the class deviation clause, whose acceptability line is $100 million, the same 60,000,000 contract is below the line in paragraph (c) of that clause [@CL-PRG-9153], so that paragraph does not require the Cognizant Federal Agency's acceptability determination.
 
 ## Never confuse
 
@@ -55,7 +55,7 @@ Which contracts carry the earned value requirement, and whether the earned value
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart clause and its threshold, added the statutory exemption for nontraditional defense contractors stated in the memo, stated that the memo does not link that exemption to the waiver, and filled the RFO citation and edition date rows.
+- COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart clause and its threshold, added the statutory exemption for nontraditional defense contractors stated in the memo, stated that the memo does not link that exemption to the waiver, narrowed the Applies to row to the codified clause, added a worked example under the class deviation clause, and filled the RFO citation and edition date rows.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned system and management-procedure wording to cited quotes and removed uncited contrast in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the award-time rule, the shall-use lead-in and the reports the CPR and IMS data items require.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Earned Value Management System clause.

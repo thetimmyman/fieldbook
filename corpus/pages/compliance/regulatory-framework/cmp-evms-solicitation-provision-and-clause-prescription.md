@@ -59,6 +59,6 @@ Which contracts sit at or above the value threshold or otherwise bring earned va
 
 ## Change note
 
-- COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart prescription at 234.203-70, its threshold, and the provision and clause it prescribes, and filled the RFO citation and edition date rows.
+- COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart prescription at 234.203-70, its threshold, and the provision and clause it prescribes, added a sentence to the worked examples comparing them with the class deviation threshold, and filled the RFO citation and edition date rows.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported absence statements and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the earned value management system provision and clause prescription.

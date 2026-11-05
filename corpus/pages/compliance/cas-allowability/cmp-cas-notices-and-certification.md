@@ -94,7 +94,7 @@ Which business units are inside the certification decision for this solicitation
 ## Sources
 
 ## Change note
-- COMPATIBLE_EXTENSION, 2026-11-05: Stated that the printed $50 million figures are FAR and RFO text, and that the Board's regulation states coverage at $100 million from 2026-10-01.
+- COMPATIBLE_EXTENSION, 2026-11-05: Stated that the printed $50 million figures are FAR and RFO text, and that the Board's regulation states coverage at $100 million from 2026-10-01; added a closing sentence to the worked example saying so.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed the ungrounded 35 million cross-card figure from the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: CAS notices: cited the RFO Part III question text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated references and exceptions as the quotes read.

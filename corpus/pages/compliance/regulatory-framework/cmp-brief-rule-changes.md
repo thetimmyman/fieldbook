@@ -28,7 +28,7 @@ Treat the DoD class deviation text as current for DoD work, and re-baseline ever
 - DoD Class Deviation 2026-O0011 Rev 1, DFARS 234.201-70, effective 2026-08-05 (supersedes the 2025-12-18 version [@CL-PRG-9161]): earned value requirements start at $50 million and $100 million [@CL-PRG-0001; @CL-PRG-0002], with exemptions for software and nontraditional defense contractors [@CL-PRG-0003]. Codified DFARS 234.201 says $20 million and $50 million [@CL-PRG-9144; @CL-PRG-9145].
 - DoD Class Deviation 2026-O0022, effective 2026-02-01: the customary progress payment rate for small business is 90 percent [@CL-CTF-0002]. Codified FAR 32.501-1 says 85 percent [@CL-CTF-0951].
 - Codified FAR 2.101 (no deviation value stored): the simplified acquisition threshold is $350,000 and the micro-purchase threshold is $15,000 [@CL-FND-0001; @CL-FND-0002].
-- DoD announced the initial release of 31 overhaul class deviations, effective 2026-02-01 [@CL-CMP-0696; @CL-CMP-0697]. That date is for the initial release only.
+- DoD announced the initial release of 31 overhaul class deviations, effective 2026-02-01 [@CL-CMP-0696; @CL-CMP-0697].
 
 ## Options
 
