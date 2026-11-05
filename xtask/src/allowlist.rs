@@ -544,6 +544,18 @@ pub fn verify_staged_maps(
         }
     }
 
+    for (expected_path, (vid, _expected_sha)) in &expected_originals {
+        if !originals_files.contains_key(expected_path) {
+            return Err(AllowlistViolation {
+                code: Code::Fb0608,
+                path: expected_path.clone(),
+                message: format!(
+                    "expected shipped original `{expected_path}` for `{vid}` is missing from `originals`"
+                ),
+            });
+        }
+    }
+
     // Check that no quarantined version has any original in `originals_files`.
     for q_vid in &quarantined_versions {
         let prefix = format!("{q_vid}.");
@@ -562,9 +574,7 @@ pub fn verify_staged_maps(
 
     // 6. Verify `SHA256SUMS` in `edition_files` and `originals_files` (`FB0608`).
     verify_tree_sha256sums(edition_files, "SHA256SUMS")?;
-    if originals_files.contains_key("SHA256SUMS") || !originals_files.is_empty() {
-        verify_tree_sha256sums(originals_files, "originals/SHA256SUMS")?;
-    }
+    verify_tree_sha256sums(originals_files, "originals/SHA256SUMS")?;
 
     // 7. Verify `edition.toml` fingerprint against `shipped_corpus` (`FB0608`).
     let edition_toml_bytes =
@@ -837,7 +847,7 @@ fn check_edition_file_allowed(
         }
         if (path == "assets/search-index.js" || path == "assets/assist-data.js")
             && let Ok(text) = std::str::from_utf8(bytes)
-            && text.contains(q_vid.as_str())
+            && contains_complete_version_id(text, q_vid.as_str())
         {
             return Err(AllowlistViolation {
                 code: Code::Fb0601,
@@ -868,6 +878,26 @@ fn check_edition_file_allowed(
     }
 
     Ok(())
+}
+
+/// Match a complete version identifier (`S-NNNN-vM`) in `text` without matching a prefix of
+/// another identifier (e.g. `S-0042-v1` must not match `S-0042-v10`).
+#[must_use]
+pub fn contains_complete_version_id(text: &str, vid: &str) -> bool {
+    if vid.is_empty() {
+        return false;
+    }
+    let bytes = text.as_bytes();
+    let is_id_byte = |b: u8| b.is_ascii_alphanumeric() || b == b'-' || b == b'_';
+    for (idx, _) in text.match_indices(vid) {
+        let before_ok = idx == 0 || !is_id_byte(bytes[idx - 1]);
+        let end = idx + vid.len();
+        let after_ok = end == bytes.len() || !is_id_byte(bytes[end]);
+        if before_ok && after_ok {
+            return true;
+        }
+    }
+    false
 }
 
 fn check_raw_profile_path(path: &str) -> Result<(), AllowlistViolation> {

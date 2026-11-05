@@ -1194,11 +1194,18 @@ fn verify_archive_directory_bytes(
 
     // Verify reopened `corpus-support.toml` and `corpus-support.sha256` sidecars and their equality with the zip copy.
     let VerifiedEditionArtifacts {
+        ed_tag,
         ed_info,
         support_bytes: zip_support,
         support_sha_bytes: zip_support_sha,
         ..
     } = verify_edition_artifact_set(archive_dir, manifest.kind)?;
+    if manifest.stream == ReleaseStream::Edition && manifest.tag != ed_tag {
+        return Err(format!(
+            "archived `archive.toml` tag `{}` differs from packaged edition tag `{ed_tag}`",
+            manifest.tag
+        ));
+    }
     if ed_info.commit != manifest.commit {
         return Err(format!(
             "archived `edition.toml` commit `{}` differs from `archive.toml` commit `{}`",
@@ -1703,7 +1710,7 @@ fn evaluate_tag_impact(
     for search_asset in ["assets/search-index.js", "assets/assist-data.js"] {
         if let Some(bytes) = ed_map.get(search_asset)
             && let Ok(text) = std::str::from_utf8(bytes)
-            && text.contains(target_vid.as_str())
+            && crate::allowlist::contains_complete_version_id(text, target_vid.as_str())
         {
             payload_hits.push(format!("edition/{search_asset}"));
         }
