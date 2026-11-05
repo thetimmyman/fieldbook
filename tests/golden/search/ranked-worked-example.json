@@ -1,0 +1,138 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "CL-CMP-0011",
+      "kind": "claim",
+      "fields": {
+        "id": "CL-CMP-0011",
+        "title": "",
+        "headings": "",
+        "claim": "The contracting officer may withhold 5 percent of payments",
+        "body": ""
+      },
+      "display": {
+        "title": "CL-CMP-0011",
+        "parent": "",
+        "snippet": "The contracting officer may withhold 5 percent of payments",
+        "status": "unchecked",
+        "as_of": "2025-11-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-withholding",
+      "kind": "page",
+      "fields": {
+        "id": "cmp-withholding",
+        "title": "Payment withholding",
+        "headings": "",
+        "claim": "",
+        "body": "Withholding applies to business system deficiencies"
+      },
+      "display": {
+        "title": "Payment withholding",
+        "parent": "",
+        "snippet": "Withholding applies to business system deficiencies",
+        "status": "draft",
+        "as_of": "2025-11-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-withholding#the-rule",
+      "kind": "page",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "The rule",
+        "claim": "",
+        "body": "Withholding is permitted when a significant deficiency exists"
+      },
+      "display": {
+        "title": "The rule",
+        "parent": "Payment withholding",
+        "snippet": "Withholding is permitted when a significant deficiency exists",
+        "status": "draft",
+        "as_of": "2025-11-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [],
+  "cases": [
+    {
+      "id": "rk-01",
+      "query": "withholding",
+      "expect": ["cmp-withholding", "cmp-withholding#the-rule"],
+      "scores": [858, 364],
+      "impacts": [
+        { "unit": "cmp-withholding", "token": "withholding", "impact": 858 },
+        { "unit": "cmp-withholding#the-rule", "token": "withholding", "impact": 364 },
+        { "unit": "CL-CMP-0011", "token": "withhold", "impact": 863 },
+        { "unit": "CL-CMP-0011", "token": "the", "impact": 414 },
+        { "unit": "cmp-withholding#the-rule", "token": "the", "impact": 414 },
+        { "unit": "cmp-withholding#the-rule", "token": "rule", "impact": 863 },
+        { "unit": "cmp-withholding", "token": "payment", "impact": 1233 },
+        { "unit": "cmp-withholding", "token": "cmp", "impact": 1598 }
+      ],
+      "note": "Worked example query for withholding with all worked-example postings pinned"
+    },
+    {
+      "id": "rk-02",
+      "query": "withhold",
+      "expect": ["CL-CMP-0011", "cmp-withholding", "cmp-withholding#the-rule"],
+      "scores": [863, 429, 182],
+      "note": "Worked example query for withhold combining exact claim match and half-impact prefix matches"
+    },
+    {
+      "id": "rk-03",
+      "query": "payment withholding",
+      "expect": ["cmp-withholding", "cmp-withholding#the-rule"],
+      "scores": [2091, 364],
+      "note": "Worked example two-token query ranking two matched tokens before one"
+    },
+    {
+      "id": "rk-04",
+      "query": "cmp-withholding",
+      "expect": ["cmp-withholding", "cmp-withholding#the-rule"],
+      "scores": [2456, 364],
+      "note": "Worked example exact page id query"
+    },
+    {
+      "id": "rk-05",
+      "query": "cmp-withholding#the-rule",
+      "expect": ["cmp-withholding#the-rule", "cmp-withholding", "CL-CMP-0011"],
+      "scores": [1641, 2456, 414],
+      "note": "Worked example exact section id ranks first with 3 matched tokens and retains its ordinary token score"
+    },
+    {
+      "id": "rk-06",
+      "query": "the rule",
+      "expect": ["cmp-withholding#the-rule", "CL-CMP-0011"],
+      "scores": [1277, 414],
+      "note": "Worked example heading query matching the section on two tokens and the claim on one"
+    },
+    {
+      "id": "rk-07",
+      "query": "w",
+      "expect": [],
+      "scores": [],
+      "note": "A single-code-unit last token does not trigger prefix matching"
+    },
+    {
+      "id": "rk-08",
+      "query": "   ",
+      "expect": [],
+      "scores": [],
+      "note": "A whitespace-only query returns an empty result list"
+    }
+  ]
+}

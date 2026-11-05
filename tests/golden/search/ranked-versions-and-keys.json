@@ -1,0 +1,231 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "CM-000012-v1",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000012-v1 PO-2026-009",
+        "title": "Subcontract purchase order baseline",
+        "headings": "",
+        "claim": "",
+        "body": "Initial titanium forging schedule with standard delivery inspection terms and packaging notes"
+      },
+      "display": {
+        "title": "Subcontract purchase order baseline",
+        "parent": "purchase-order",
+        "snippet": "Initial titanium forging schedule with standard delivery inspection terms and packaging notes",
+        "status": "superseded",
+        "as_of": "2026-01-10",
+        "effective_from": "2026-01-01",
+        "verified_on": ""
+      },
+      "exact_key": "PO-2026-009"
+    },
+    {
+      "id": "CM-000012-v2",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000012-v2 PO-2026-009",
+        "title": "Subcontract purchase order modification",
+        "headings": "",
+        "claim": "",
+        "body": "Updated titanium forging schedule and titanium lot traceability requirements"
+      },
+      "display": {
+        "title": "Subcontract purchase order modification",
+        "parent": "purchase-order",
+        "snippet": "Updated titanium forging schedule and titanium lot traceability requirements",
+        "status": "superseded",
+        "as_of": "2026-02-01",
+        "effective_from": "2026-02-01",
+        "verified_on": ""
+      },
+      "exact_key": "PO-2026-009"
+    },
+    {
+      "id": "CM-000012-v10",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000012-v10 PO-2026-009 PO-2026-009",
+        "title": "Subcontract purchase order PO-2026-009",
+        "headings": "",
+        "claim": "",
+        "body": "Titanium titanium titanium forging schedule for CM-000012"
+      },
+      "display": {
+        "title": "Subcontract purchase order PO-2026-009",
+        "parent": "purchase-order",
+        "snippet": "Titanium titanium titanium forging schedule for CM-000012",
+        "status": "active",
+        "as_of": "2026-03-01",
+        "effective_from": "2026-03-01",
+        "verified_on": ""
+      },
+      "exact_key": "PO-2026-009"
+    },
+    {
+      "id": "CM-000020-v1",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000020-v1 quote-a",
+        "title": "Vendor quote alpha",
+        "headings": "",
+        "claim": "",
+        "body": "Machined housing assembly"
+      },
+      "display": {
+        "title": "Vendor quote alpha",
+        "parent": "vendor-quote",
+        "snippet": "Machined housing assembly",
+        "status": "active",
+        "as_of": "2026-03-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": "quote-a"
+    },
+    {
+      "id": "CM-000021-v1",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000021-v1 quote a",
+        "title": "Vendor quote alpha",
+        "headings": "",
+        "claim": "",
+        "body": "Machined housing assembly"
+      },
+      "display": {
+        "title": "Vendor quote alpha",
+        "parent": "vendor-quote",
+        "snippet": "Machined housing assembly",
+        "status": "active",
+        "as_of": "2026-03-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": "quote a"
+    },
+    {
+      "id": "S-0042-v1",
+      "kind": "source",
+      "fields": {
+        "id": "S-0042-v1",
+        "title": "Audit guidance baseline edition",
+        "headings": "",
+        "claim": "",
+        "body": "Initial audit procedures for incurred cost submissions and working paper retention"
+      },
+      "display": {
+        "title": "Audit guidance baseline edition",
+        "parent": "",
+        "snippet": "Initial audit procedures for incurred cost submissions and working paper retention",
+        "status": "superseded",
+        "as_of": "2025-01-01",
+        "effective_from": "2025-01-01",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0042-v2",
+      "kind": "source",
+      "fields": {
+        "id": "S-0042-v2",
+        "title": "Audit guidance interim revision",
+        "headings": "",
+        "claim": "",
+        "body": "Updated audit procedures and audit sampling thresholds"
+      },
+      "display": {
+        "title": "Audit guidance interim revision",
+        "parent": "",
+        "snippet": "Updated audit procedures and audit sampling thresholds",
+        "status": "superseded",
+        "as_of": "2025-06-01",
+        "effective_from": "2025-06-01",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0042-v10",
+      "kind": "source",
+      "fields": {
+        "id": "S-0042-v10 S-0042",
+        "title": "Audit guidance S-0042",
+        "headings": "",
+        "claim": "",
+        "body": "Audit audit audit procedures for S-0042"
+      },
+      "display": {
+        "title": "Audit guidance S-0042",
+        "parent": "",
+        "snippet": "Audit audit audit procedures for S-0042",
+        "status": "active",
+        "as_of": "2026-01-01",
+        "effective_from": "2026-01-01",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [],
+  "cases": [
+    {
+      "id": "rk-09",
+      "query": "S-0042",
+      "expect": ["S-0042-v1", "S-0042-v2", "S-0042-v10"],
+      "note": "Exact unversioned source ID orders unequal-scoring versions by natural ID order alone"
+    },
+    {
+      "id": "rk-10",
+      "query": "S-0042 audit",
+      "expect": ["S-0042-v10", "S-0042-v2", "S-0042-v1"],
+      "note": "Non-exact query over unequal-scoring source versions orders by matched count, summed impact, then natural ID"
+    },
+    {
+      "id": "rk-11",
+      "query": "CM-000012",
+      "expect": ["CM-000012-v1", "CM-000012-v2", "CM-000012-v10"],
+      "note": "Exact unversioned company record ID orders unequal-scoring versions by natural ID order alone"
+    },
+    {
+      "id": "rk-12",
+      "query": "PO-2026-009",
+      "expect": ["CM-000012-v1", "CM-000012-v2", "CM-000012-v10"],
+      "note": "Exact origin_key places every version of the record in the exact class and orders by natural ID alone"
+    },
+    {
+      "id": "rk-13",
+      "query": "PO-2026-009 titanium",
+      "expect": ["CM-000012-v10", "CM-000012-v2", "CM-000012-v1"],
+      "note": "Non-exact query including an origin_key and a keyword orders unequal-scoring versions by matched count and summed impact"
+    },
+    {
+      "id": "rk-14",
+      "query": "quote-a",
+      "expect": ["CM-000020-v1", "CM-000021-v1"],
+      "note": "Exact-key comparison before tokenization puts quote-a in the exact class ahead of token-colliding quote a"
+    },
+    {
+      "id": "rk-15",
+      "query": "quote a",
+      "expect": ["CM-000021-v1", "CM-000020-v1"],
+      "note": "Exact-key comparison before tokenization puts quote a in the exact class ahead of token-colliding quote-a"
+    },
+    {
+      "id": "rk-16",
+      "query": "CM-000012-v2",
+      "expect": ["CM-000012-v2"],
+      "note": "An exact versioned record ID matches only that version because query-side tokenization does not emit the unversioned stem"
+    },
+    {
+      "id": "rk-17",
+      "query": "  QUOTE\u2013A  ",
+      "expect": ["CM-000020-v1", "CM-000021-v1"],
+      "note": "Normalised and trimmed query with uppercase and en dash matches exact_key quote-a"
+    }
+  ]
+}

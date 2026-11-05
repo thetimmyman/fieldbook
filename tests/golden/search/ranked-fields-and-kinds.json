@@ -1,0 +1,188 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "Q-027",
+      "kind": "question",
+      "fields": {
+        "id": "Q-027",
+        "title": "Does the prime contract require certified cost or pricing data below the threshold?",
+        "headings": "",
+        "claim": "",
+        "body": "Determines whether 15.404-1(a)(4) price analysis suffices for the modification"
+      },
+      "display": {
+        "title": "Does the prime contract require certified cost or pricing data below the threshold?",
+        "parent": "",
+        "snippet": "Determines whether 15.404-1(a)(4) price analysis suffices for the modification",
+        "status": "open",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "SO-000042-v2#p0001",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "Internal rate manual",
+        "headings": "",
+        "claim": "",
+        "body": "Escalation indices for outyear labor rates, estimating tables, and calibration factors from the source page"
+      },
+      "display": {
+        "title": "Internal rate manual",
+        "parent": "SO-000042-v2",
+        "snippet": "Escalation indices for outyear labor rates, estimating tables, and calibration factors from the source page",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "2026-01-01",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "XC-14",
+      "kind": "conflict",
+      "fields": {
+        "id": "XC-14",
+        "title": "Treatment of calibration rework under CAS 401",
+        "headings": "",
+        "claim": "",
+        "body": "Position A treats rework as direct; Position B treats rework as overhead"
+      },
+      "display": {
+        "title": "Treatment of calibration rework under CAS 401",
+        "parent": "",
+        "snippet": "Position A treats rework as direct; Position B treats rework as overhead",
+        "status": "unresolved",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-calibration",
+      "kind": "page",
+      "fields": {
+        "id": "cmp-calibration",
+        "title": "Overview of rate reviews",
+        "headings": "Scope",
+        "claim": "",
+        "body": "General background on rate reviews"
+      },
+      "display": {
+        "title": "Overview of rate reviews",
+        "parent": "",
+        "snippet": "General background on rate reviews",
+        "status": "stable",
+        "as_of": "2025-11-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-cas-consistency",
+      "kind": "clause",
+      "fields": {
+        "id": "cmp-cas-consistency",
+        "title": "CAS 9904.401 consistency in estimating and accumulating costs",
+        "headings": "Calibration",
+        "claim": "",
+        "body": "Requires consistency between estimating and accounting practices"
+      },
+      "display": {
+        "title": "CAS 9904.401 consistency in estimating and accumulating costs",
+        "parent": "",
+        "snippet": "Requires consistency between estimating and accounting practices",
+        "status": "stable",
+        "as_of": "2025-11-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "material_weakness",
+      "kind": "term",
+      "fields": {
+        "id": "material_weakness",
+        "title": "Material weakness",
+        "headings": "significant deficiency",
+        "claim": "",
+        "body": "A shortcoming in a business system that materially affects the ability to rely on information"
+      },
+      "display": {
+        "title": "Material weakness",
+        "parent": "",
+        "snippet": "A shortcoming in a business system that materially affects the ability to rely on information",
+        "status": "settled",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [
+    {
+      "label": "9904.401",
+      "aliases": ["cas 401"]
+    }
+  ],
+  "cases": [
+    {
+      "id": "rk-18",
+      "query": "calibration",
+      "expect": ["cmp-calibration", "XC-14", "cmp-cas-consistency", "SO-000042-v2#p0001"],
+      "note": "Field weights rank an id hit (weight 6) above a title hit (weight 4), a headings hit (weight 2), and a body hit (weight 1)"
+    },
+    {
+      "id": "rk-19",
+      "query": "estimating",
+      "expect": ["cmp-cas-consistency", "SO-000042-v2#p0001"],
+      "note": "A unit matching in both title and body outranks a text-window unit matching in title only"
+    },
+    {
+      "id": "rk-20",
+      "query": "Q-027",
+      "expect": ["Q-027"],
+      "note": "Exact question id matches the question unit in the exact class"
+    },
+    {
+      "id": "rk-21",
+      "query": "9904.401",
+      "expect": ["cmp-cas-consistency", "XC-14"],
+      "note": "Literal clause number 9904.401 in title outranks a unit that receives 9904.401 in body through the cas 401 glossary alias"
+    },
+    {
+      "id": "rk-22",
+      "query": "15.404-1",
+      "expect": ["Q-027"],
+      "note": "Intermediate clause ancestor 15.404-1 finds a unit containing 15.404-1(a)(4)"
+    },
+    {
+      "id": "rk-23",
+      "query": "calibration calibration calibration",
+      "expect": ["cmp-calibration", "XC-14", "cmp-cas-consistency", "SO-000042-v2#p0001"],
+      "note": "Duplicate query tokens are removed so each distinct query token scores at most once"
+    },
+    {
+      "id": "rk-24",
+      "query": "material_weakness",
+      "expect": ["material_weakness"],
+      "note": "Exact term id with underscore is in the exact class and matches both split words"
+    },
+    {
+      "id": "rk-25",
+      "query": "cas 401",
+      "expect": ["XC-14", "cmp-cas-consistency"],
+      "note": "Multi-word alias query cas 401 ranks literal title match above synonym-expanded body match"
+    }
+  ]
+}
