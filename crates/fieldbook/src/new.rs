@@ -14,10 +14,10 @@ use fieldbook_core::audit::{
 };
 use fieldbook_core::check::{self, Entry, Host, Model};
 use fieldbook_core::ids::{AreaCode, PageId};
-use fieldbook_core::labels::{self, LabelId, LabelSet, Refusal, StoreRule};
+use fieldbook_core::labels::{self, LabelSet, Refusal, StoreRule};
 use fieldbook_core::new::{
     Fields, NewError, RowKind, RowPlan, plan_page, plan_row, render_register, replan_page,
-    replan_row, source_handling, template_path,
+    replan_row, source_handling, template_handling, template_path,
 };
 use fieldbook_core::policy::{FloorKind, Policy};
 use fieldbook_core::schema::vocab::{DraftedBy, PageType};
@@ -508,32 +508,10 @@ fn plan_page_write(
     })
 }
 
-/// The labels a template's `handling` front-matter line names.
+/// The labels a template's `handling` front matter names. A template whose `handling` cannot
+/// be read completely fails closed as `unlabelled`, which admission refuses.
 fn template_labels(template: &str) -> LabelSet {
-    let mut fences = 0usize;
-    let mut ids = Vec::new();
-    for line in template.lines() {
-        if line.trim_end() == "+++" {
-            fences += 1;
-            continue;
-        }
-        if fences == 1
-            && let Some(rest) = line.strip_prefix("handling")
-            && let Some((_, rhs)) = rest.split_once('=')
-        {
-            for item in rhs
-                .trim()
-                .trim_start_matches('[')
-                .trim_end_matches(']')
-                .split(',')
-            {
-                if let Ok(id) = LabelId::parse(item.trim().trim_matches('"')) {
-                    ids.push(id);
-                }
-            }
-        }
-    }
-    LabelSet::from_ids(ids)
+    template_handling(template).unwrap_or_else(LabelSet::unlabelled)
 }
 
 /// Classify every supplied value and the planned content, union the input labels and admit the

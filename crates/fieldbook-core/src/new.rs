@@ -21,13 +21,14 @@ use crate::ids::{
     AreaCode, ClaimId, ConflictId, IdError, PageId, QuestionId, TermId, VersionId, next_claim_id,
     next_conflict_id, next_question_id,
 };
-use crate::schema::Register;
+use crate::labels::{LabelId, LabelSet};
 use crate::schema::claims::{ClaimDraft, ClaimRow};
 use crate::schema::locator::{Locator, LocatorError};
 use crate::schema::table::{Row, write as write_csv};
 use crate::schema::vocab::{
     ClaimKind, ConflictStatus, DefinitionStatus, DraftedBy, PageType, QuestionStatus,
 };
+use crate::schema::{Register, page};
 
 /// A planned new page: the file path under the repository root and its full text.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -376,6 +377,27 @@ pub fn render_register(model: &Model, kind: RowKind, plan: &RowPlan) -> Result<V
         });
     }
     Ok(write_csv(&table).into_bytes())
+}
+
+/// The complete `handling` label set a page template's front matter declares.
+///
+/// The front matter is read with the same fence split and TOML parser as every page, so a
+/// multiline array is read whole. Returns `None` (the caller fails closed) when the fences are
+/// malformed, the front matter is not TOML, `handling` is missing, is not an array of strings,
+/// is empty, or names an item that is not a label id.
+#[must_use]
+pub fn template_handling(template_text: &str) -> Option<LabelSet> {
+    let split = page::split(template_text).ok()?;
+    let table: toml::Table = toml::from_str(split.front_matter()).ok()?;
+    let items = table.get("handling")?.as_array()?;
+    if items.is_empty() {
+        return None;
+    }
+    let mut ids = Vec::with_capacity(items.len());
+    for item in items {
+        ids.push(LabelId::parse(item.as_str()?).ok()?);
+    }
+    Some(LabelSet::from_ids(ids))
 }
 
 /// The `handling` labels (`|`-separated cell) of the source version row, for admission.

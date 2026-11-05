@@ -642,6 +642,54 @@ fn an_unreadable_source_handling_cell_is_refused_as_unlabelled() {
     assert_eq!(count(&world, "write.begin"), 0);
 }
 
+/// Rewrite the `concept` template's `handling` line to `replacement` (empty removes it).
+fn set_template_handling(root: &Path, replacement: &str) {
+    let path = root.join("corpus/templates/concept.md");
+    let text = std::fs::read_to_string(&path).expect("read template");
+    assert!(
+        text.contains("handling = [\"public\"]\n"),
+        "template handling line"
+    );
+    let edited = text.replacen("handling = [\"public\"]\n", replacement, 1);
+    std::fs::write(&path, edited).expect("write template");
+}
+
+#[test]
+fn a_multiline_template_handling_array_keeps_every_label() {
+    let tmp = temp_copy(&fixture_root());
+    set_template_handling(tmp.path(), "handling = [\"public\",\n  \"np-0007\"\n]\n");
+    let world = TestWorld::new(tmp.path());
+    let before = corpus_files(tmp.path());
+    let out = run(&world, PAGE_ARGS);
+    // The second label is not public: the Corpus refuses it, naming it, even with
+    // `--confirm-public`.
+    assert_refused(&world, &out, "FB0410", "unlabelled", 0);
+    assert!(out.stderr.contains("np-0007"), "{}", out.stderr);
+    assert_eq!(corpus_files(tmp.path()), before);
+    assert_eq!(count(&world, "write.begin"), 0);
+}
+
+#[test]
+fn a_missing_or_malformed_template_handling_is_refused_as_unlabelled() {
+    for replacement in [
+        "",
+        "handling = 5\n",
+        "handling = [\"public\", 5]\n",
+        "handling = []\n",
+        "handling = [\"public\",\n",
+        "handling = [\"Not A Label!\"]\n",
+    ] {
+        let tmp = temp_copy(&fixture_root());
+        set_template_handling(tmp.path(), replacement);
+        let world = TestWorld::new(tmp.path());
+        let before = corpus_files(tmp.path());
+        let out = run(&world, PAGE_ARGS);
+        assert_refused(&world, &out, "FB0410", "unlabelled", 0);
+        assert_eq!(corpus_files(tmp.path()), before, "{replacement:?}");
+        assert_eq!(count(&world, "write.begin"), 0, "{replacement:?}");
+    }
+}
+
 #[test]
 fn unknown_area_subarea_type_and_a_taken_page_write_nothing() {
     let tmp = temp_copy(&fixture_root());
