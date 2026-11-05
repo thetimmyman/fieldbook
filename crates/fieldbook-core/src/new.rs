@@ -24,7 +24,7 @@ use crate::ids::{
 use crate::labels::{LabelId, LabelSet};
 use crate::schema::claims::{ClaimDraft, ClaimRow};
 use crate::schema::locator::{Locator, LocatorError};
-use crate::schema::table::{Row, write as write_csv};
+use crate::schema::table::{Row, normalize as normalize_register, write as write_csv};
 use crate::schema::vocab::{
     ClaimKind, ConflictStatus, DefinitionStatus, DraftedBy, PageType, QuestionStatus,
 };
@@ -326,6 +326,11 @@ pub fn plan_row(
             .map_err(NewError::Exhausted)?,
         RowKind::Term => term_id(&area, &existing, fields)?,
     };
+    // An allocated id is free by construction; a register that says otherwise is a series with
+    // nothing left to give, never a row to overwrite.
+    if !matches!(kind, RowKind::Term) && existing.contains(&id) {
+        return Err(NewError::Exhausted(IdError::exhausted(kind.as_str(), id)));
+    }
     build_row(model, kind, &area, fields, id, model.today())
 }
 
@@ -348,7 +353,7 @@ pub fn replan_row(
 }
 
 /// The bytes of `plan`'s register with the planned row appended, or replacing the row that
-/// already has its id, in normal form.
+/// already has its id, in normal form (NFC cells, rows in key order, as `fmt` writes it).
 ///
 /// # Errors
 ///
@@ -376,7 +381,11 @@ pub fn render_register(model: &Model, kind: RowKind, plan: &RowPlan) -> Result<V
             cells: plan.cells.clone(),
         });
     }
-    Ok(write_csv(&table).into_bytes())
+    // Normal form (NFC cells, rows in key order) is the register's own normaliser, so a
+    // successful `new` never leaves `check` an FB0122 to report.
+    normalize_register(register, write_csv(&table).as_bytes())
+        .map(String::into_bytes)
+        .map_err(|_| NewError::MissingRegister(register))
 }
 
 /// The complete `handling` label set a page template's front matter declares.
@@ -477,12 +486,24 @@ fn term_id(area: &AreaCode, existing: &[String], fields: &Fields) -> Result<Stri
         return Ok(id.to_string());
     }
     let prefix = format!("{area}_term_");
-    let next = existing
+    let highest = existing
         .iter()
         .filter_map(|e| e.strip_prefix(&prefix)?.parse::<u32>().ok())
-        .max()
-        .map_or(1, |n| n.saturating_add(1));
-    Ok(format!("{prefix}{next}"))
+        .max();
+    let exhausted = || {
+        NewError::Exhausted(IdError::exhausted(
+            "term",
+            highest.map_or_else(|| prefix.clone(), |n| format!("{prefix}{n}")),
+        ))
+    };
+    let next = highest
+        .map_or(Some(1), |n| n.checked_add(1))
+        .ok_or_else(exhausted)?;
+    let id = format!("{prefix}{next}");
+    if TermId::parse(&id).is_err() || existing.contains(&id) {
+        return Err(exhausted());
+    }
+    Ok(id)
 }
 
 fn build_row(
@@ -651,14 +672,18 @@ mod tests {
     );
 
     fn model_with(claims: &str, questions: &str) -> Model {
+        model_registers(claims, questions, CONFLICTS, GLOSSARY)
+    }
+
+    fn model_registers(claims: &str, questions: &str, conflicts: &str, glossary: &str) -> Model {
         let mut tree = Tree::new();
         tree.insert_dir("corpus");
         tree.insert_bytes("corpus/corpus.toml", CORPUS_TOML);
         tree.insert_bytes("corpus/registers/sources.csv", SOURCES);
         tree.insert_bytes("corpus/registers/claims.csv", claims);
         tree.insert_bytes("corpus/registers/questions.csv", questions);
-        tree.insert_bytes("corpus/registers/conflicts.csv", CONFLICTS);
-        tree.insert_bytes("corpus/registers/glossary.csv", GLOSSARY);
+        tree.insert_bytes("corpus/registers/conflicts.csv", conflicts);
+        tree.insert_bytes("corpus/registers/glossary.csv", glossary);
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-system-review.md",
             PAGE,
@@ -843,6 +868,115 @@ mod tests {
         assert_eq!(plan.id, "XC-02");
         assert_eq!(plan.cells[1], "cmp");
         assert_eq!(plan.cells[8], "unresolved");
+    }
+
+    /// The ids of the first column of rendered register bytes, in file order.
+    fn rendered_ids(bytes: &[u8]) -> Vec<String> {
+        let table = crate::schema::table::read(bytes).unwrap_or_else(|e| panic!("{e}"));
+        table
+            .rows
+            .iter()
+            .filter_map(|row| row.cells.first().cloned())
+            .collect()
+    }
+
+    #[test]
+    fn a_new_term_lands_in_sorted_position_and_normal_form() {
+        let m = model();
+        let plan = plan_row(&m, RowKind::Term, Some(&area("cmp")), &Fields::new())
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(plan.id, "cmp_term_1");
+        let bytes = render_register(&m, RowKind::Term, &plan).unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(
+            rendered_ids(&bytes),
+            [
+                "billing_withhold",
+                "cmp_term_1",
+                "cost_baseline",
+                "rate_window",
+                "system_review"
+            ]
+        );
+        assert!(crate::schema::table::is_normal(Register::Glossary, &bytes));
+    }
+
+    #[test]
+    fn a_new_claim_lands_after_its_area_and_before_later_areas() {
+        let m = model();
+        let fields = Fields::new()
+            .with("source", "S-0002-v2")
+            .with("at", "p. 3")
+            .with("quote", "synthetic");
+        let plan = plan_row(&m, RowKind::Claim, Some(&area("cmp")), &fields)
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(plan.id, "CL-CMP-0003");
+        let bytes = render_register(&m, RowKind::Claim, &plan).unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(
+            rendered_ids(&bytes),
+            [
+                "CL-CMP-0001",
+                "CL-CMP-0002",
+                "CL-CMP-0003",
+                "CL-EST-0001",
+                "CL-EST-0002",
+                "CL-EST-0003"
+            ]
+        );
+        assert!(crate::schema::table::is_normal(Register::Claims, &bytes));
+    }
+
+    #[test]
+    fn a_decomposed_supplied_value_is_written_in_nfc() {
+        let m = model();
+        let fields = Fields::new().with("text", "Cafe\u{301}?");
+        let plan = plan_row(&m, RowKind::Question, Some(&area("cmp")), &fields)
+            .unwrap_or_else(|e| panic!("{e}"));
+        let bytes = render_register(&m, RowKind::Question, &plan).unwrap_or_else(|e| panic!("{e}"));
+        let text = String::from_utf8(bytes.clone()).unwrap_or_else(|e| panic!("{e}"));
+        assert!(text.contains("Caf\u{e9}?"), "{text}");
+        assert!(crate::schema::table::is_normal(Register::Questions, &bytes));
+    }
+
+    #[test]
+    fn the_default_term_id_series_exhausts_instead_of_reusing_an_id() {
+        let header = GLOSSARY.lines().next().unwrap_or_default();
+        let columns = header.split(',').count();
+        let last = format!(
+            "{header}\ncmp_term_4294967295,last,Synthetic.,,cmp,,general_practice{}\n",
+            ",".repeat(columns - 7)
+        );
+        let m = model_registers(CLAIMS, QUESTIONS, CONFLICTS, &last);
+        assert!(m.register_rows(Register::Glossary).iter().any(|row| {
+            row.cells
+                .first()
+                .is_some_and(|c| c == "cmp_term_4294967295")
+        }));
+        let err = plan_row(&m, RowKind::Term, Some(&area("cmp")), &Fields::new())
+            .expect_err("the term series has no free number after u32::MAX");
+        assert!(
+            matches!(&err, NewError::Exhausted(e) if e.is_exhausted()),
+            "{err:?}"
+        );
+        assert_eq!(err.to_string(), "term id space exhausted");
+        // Another area's series is unaffected.
+        let est = plan_row(&m, RowKind::Term, Some(&area("est")), &Fields::new())
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(est.id, "est_term_1");
+    }
+
+    #[test]
+    fn the_conflict_series_exhausts_at_the_integer_limit() {
+        let header = CONFLICTS.lines().next().unwrap_or_default();
+        let columns = header.split(',').count();
+        let row = format!("XC-4294967295,cmp{}", ",".repeat(columns - 2));
+        let m = model_registers(CLAIMS, QUESTIONS, &format!("{header}\n{row}\n"), GLOSSARY);
+        let err = plan_row(&m, RowKind::Conflict, Some(&area("cmp")), &Fields::new())
+            .expect_err("no conflict number follows u32::MAX");
+        assert!(
+            matches!(&err, NewError::Exhausted(e) if e.is_exhausted()),
+            "{err:?}"
+        );
+        assert_eq!(err.to_string(), "conflict id space exhausted");
     }
 
     #[test]

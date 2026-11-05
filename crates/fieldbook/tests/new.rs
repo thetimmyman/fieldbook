@@ -239,7 +239,13 @@ fn new_claim_takes_next_id_in_its_area() {
     let before = table_at(&fixture_root(), "corpus/registers/claims.csv");
     let after = table_at(tmp.path(), "corpus/registers/claims.csv");
     assert_eq!(after.rows.len(), before.rows.len() + 2);
-    for (a, b) in before.rows.iter().zip(&after.rows) {
+    let old_rows: Vec<_> = after
+        .rows
+        .iter()
+        .filter(|r| !["CL-CMP-0003", "CL-EST-0004"].contains(&r.cells[0].as_str()))
+        .collect();
+    assert_eq!(old_rows.len(), before.rows.len());
+    for (a, b) in before.rows.iter().zip(old_rows) {
         assert_eq!(a.cells, b.cells);
     }
 }
@@ -980,6 +986,98 @@ fn new_claim_events_carry_the_affected_reference() {
         .filter_map(|e| e["kind"].as_str())
         .collect();
     assert_eq!(kinds, vec!["write.begin", "write.end"]);
+}
+
+#[test]
+fn a_new_row_lands_in_sorted_position_without_an_fb0122() {
+    let tmp = temp_copy(&fixture_root());
+    let world = TestWorld::new(tmp.path());
+    let root = tmp.path();
+
+    let term = run(&world, TERM_ARGS);
+    assert_eq!(term.stdout, "cmp_term_1\n", "{}", term.stderr);
+    assert_eq!(
+        ids(root, "corpus/registers/glossary.csv"),
+        [
+            "billing_withhold",
+            "cmp_term_1",
+            "cost_baseline",
+            "rate_window",
+            "system_review"
+        ]
+    );
+
+    // CMP claims sit before the EST rows already in the file.
+    let claim = run(&world, CLAIM_ARGS);
+    assert_eq!(claim.stdout, "CL-CMP-0003\n", "{}", claim.stderr);
+    assert_eq!(
+        ids(root, "corpus/registers/claims.csv"),
+        [
+            "CL-CMP-0001",
+            "CL-CMP-0002",
+            "CL-CMP-0003",
+            "CL-EST-0001",
+            "CL-EST-0002",
+            "CL-EST-0003"
+        ]
+    );
+
+    for rel in ["claims", "glossary"] {
+        let bytes = read_bytes(root, &format!("corpus/registers/{rel}.csv")).expect("register");
+        let normal = fieldbook_core::schema::table::normalize(
+            if rel == "claims" {
+                fieldbook_core::schema::Register::Claims
+            } else {
+                fieldbook_core::schema::Register::Glossary
+            },
+            &bytes,
+        )
+        .expect("normalize");
+        assert_eq!(
+            normal.as_bytes(),
+            bytes.as_slice(),
+            "{rel} is in normal form"
+        );
+    }
+    let check = run(&world, &["check", "--strict", "--today", TODAY]);
+    assert!(
+        !check.stdout.contains("FB0122") && !check.stderr.contains("FB0122"),
+        "stdout {} stderr {}",
+        check.stdout,
+        check.stderr
+    );
+}
+
+#[test]
+fn term_id_exhaustion_writes_nothing() {
+    let tmp = temp_copy(&fixture_root());
+    let root = tmp.path();
+    append_row(root, "corpus/registers/glossary.csv", |cells| {
+        cells[0] = "cmp_term_4294967295".to_owned();
+    });
+    let world = TestWorld::new(root);
+    let before = corpus_files(root);
+
+    let out = run(&world, TERM_ARGS);
+    assert_eq!(out.code, 2, "{}", out.stderr);
+    assert!(
+        out.stderr.contains("term id space exhausted"),
+        "{}",
+        out.stderr
+    );
+    assert_eq!(
+        corpus_files(root),
+        before,
+        "the last row is not overwritten"
+    );
+    assert_eq!(count(&world, "write.begin"), 0);
+
+    // A supplied id still works, and so does another area's series.
+    let est = run(
+        &world,
+        &["new", "term", "--confirm-public", "--area", "est"],
+    );
+    assert_eq!(est.stdout, "est_term_1\n", "{}", est.stderr);
 }
 
 #[test]
