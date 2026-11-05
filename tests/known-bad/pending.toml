@@ -73,10 +73,6 @@ code = "FB0820"
 card = "review-queue"
 
 [[pending]]
-code = "FB0821"
-card = "add-folder-mode"
-
-[[pending]]
 code = "FB0822"
 card = "review-queue"
 

@@ -1,0 +1,7 @@
+verb = "add"
+args = ["inbox"]
+state = "state-add-folder"
+
+[expect]
+code = "FB0821"
+status = 1

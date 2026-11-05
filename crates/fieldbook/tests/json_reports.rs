@@ -26,6 +26,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("check", generate_check_report),
     ("audit-show", generate_audit_show_report),
     ("audit-verify", generate_audit_verify_report),
+    ("add", generate_add_report),
 ];
 
 fn repo_root() -> PathBuf {
@@ -78,6 +79,32 @@ fn generate_audit_verify_report() -> String {
     assert_eq!(
         outcome.code, 0,
         "audit verify --json failed: {}",
+        outcome.stderr
+    );
+    outcome.stdout
+}
+
+fn generate_add_report() -> String {
+    let root = repo_root();
+    let tmp = support::temp_copy(&root.join("tests/fixtures/corpus-mini"));
+    let inbox = tmp.path().join("inbox");
+    std::fs::create_dir_all(&inbox).expect("create inbox dir");
+    for entry in std::fs::read_dir(root.join("tests/fixtures/add-folder")).expect("read add-folder")
+    {
+        let entry = entry.expect("add-folder entry");
+        std::fs::copy(entry.path(), inbox.join(entry.file_name())).expect("copy add-folder file");
+    }
+    let world = TestWorld::new(tmp.path());
+    let args = vec![
+        "add".to_owned(),
+        "inbox".to_owned(),
+        "--confirm-public".to_owned(),
+        "--json".to_owned(),
+    ];
+    let outcome = fieldbook::run(&args, &world);
+    assert_eq!(
+        outcome.code, 1,
+        "add inbox --json expected exit 1: {}",
         outcome.stderr
     );
     outcome.stdout
