@@ -9,12 +9,14 @@ publish.workspace = true
 
 [dependencies]
 clap = { workspace = true }
+serde = { workspace = true }
 serde_json = { workspace = true }
 
 toml = { workspace = true }
 sha2 = { workspace = true }
 zip = { workspace = true }
 fieldbook = { path = "../crates/fieldbook" }
+fieldbook-calc = { path = "../crates/fieldbook-calc" }
 fieldbook-core = { path = "../crates/fieldbook-core" }
 
 [dev-dependencies]

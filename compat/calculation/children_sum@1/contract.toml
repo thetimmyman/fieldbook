@@ -1,0 +1,5 @@
+kind = "calculation"
+id = "children_sum@1"
+origin = "computed"
+iterative = false
+stages = []

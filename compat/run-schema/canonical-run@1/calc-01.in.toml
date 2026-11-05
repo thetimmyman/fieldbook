@@ -1,0 +1,117 @@
+func = "build_up@1"
+calculation_epoch = 1
+stage = "total"
+complete = true
+
+[rounding]
+policy = "default"
+scale = 2
+mode = "midpoint_away_from_zero"
+
+[[inputs]]
+name = "quote_price"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "per_100"
+currency = "USD"
+value = { Known = "900.00" }
+
+[[inputs]]
+name = "quantity"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "each"
+value = { Known = "200" }
+
+[[inputs]]
+name = "setup"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "each"
+currency = "USD"
+value = { Known = "200.00" }
+
+[[inputs]]
+name = "freight"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "each"
+currency = "USD"
+value = { Known = "50.00" }
+
+[[inputs]]
+name = "labour_hours"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "hours"
+value = { Known = "10" }
+
+[[inputs]]
+name = "labour_rate"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "hours"
+currency = "USD"
+value = { Known = "45.00" }
+
+[[inputs]]
+name = "overhead_percent"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "percent"
+value = { Known = "20" }
+
+[[inputs]]
+name = "markup_percent"
+origin = "synthetic"
+pointer = "CALC-01"
+unit = "percent"
+value = { Known = "10" }
+
+[[outputs]]
+name = "unit"
+unit = "each"
+currency = "USD"
+value = { Known = "9.00" }
+
+[[outputs]]
+name = "extension"
+unit = "each"
+currency = "USD"
+value = { Known = "1800.00" }
+
+[[outputs]]
+name = "landed"
+unit = "each"
+currency = "USD"
+value = { Known = "2050.00" }
+
+[[outputs]]
+name = "labour"
+unit = "each"
+currency = "USD"
+value = { Known = "450.00" }
+
+[[outputs]]
+name = "overhead"
+unit = "each"
+currency = "USD"
+value = { Known = "90.00" }
+
+[[outputs]]
+name = "cost"
+unit = "each"
+currency = "USD"
+value = { Known = "2590.00" }
+
+[[outputs]]
+name = "profit"
+unit = "each"
+currency = "USD"
+value = { Known = "259.00" }
+
+[[outputs]]
+name = "price"
+unit = "each"
+currency = "USD"
+value = { Known = "2849.00" }

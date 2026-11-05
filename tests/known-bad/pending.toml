@@ -1,10 +1,5 @@
 # Pending check codes and pending check controls (`check-known-bad`).
 
-# calc-cases
-[[pending]]
-code = "FB0500"
-card = "calc-cases"
-
 # extract-and-locators
 [[pending]]
 code = "FB0212"

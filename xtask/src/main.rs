@@ -23,6 +23,7 @@
 )]
 
 mod cli_doc;
+mod compat;
 mod denylist;
 #[cfg_attr(
     not(test),
@@ -77,7 +78,8 @@ const USAGE: &str = "usage: cargo xtask <command>
   setup [--no-hooks] [TOOL...]      install the pinned tools and enable the git hooks
   docs [--check]                    regenerate generated documentation blocks or check for drift
   guard-statuses BASE HEAD          fail if an agent's commits raise a status or weaken a seed or regression case
-  denylist FILE                     fail if a term from FILE appears in tracked content or pushed history";
+  denylist FILE                     fail if a term from FILE appears in tracked content or pushed history
+  compat --base FILE                verify published compatibility bindings and vectors against FILE";
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -97,6 +99,7 @@ fn main() -> ExitCode {
         ["denylist", file, "--updates", updates] => {
             denylist::pushed(&root, &PathBuf::from(file), &PathBuf::from(updates))
         }
+        ["compat", "--base", file] => compat::command(&root, &PathBuf::from(file)),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {
             eprintln!("{USAGE}");

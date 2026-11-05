@@ -24,7 +24,7 @@ const CONFLICTS_CSV: &str =
 const GLOSSARY_CSV: &str =
     include_str!("../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
 
-const PAGES: [(&str, &str); 3] = [
+const PAGES: [(&str, &str); 4] = [
     (
         "corpus/pages/compliance/business-systems/cmp-system-review.md",
         include_str!(
@@ -35,6 +35,12 @@ const PAGES: [(&str, &str); 3] = [
         "corpus/pages/compliance/business-systems/cmp-review-steps.md",
         include_str!(
             "../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-review-steps.md"
+        ),
+    ),
+    (
+        "corpus/pages/estimating/pricing/est-calc-01.md",
+        include_str!(
+            "../../../tests/fixtures/corpus-mini/corpus/pages/estimating/pricing/est-calc-01.md"
         ),
     ),
     (
@@ -106,7 +112,7 @@ fn every_register_row_parses() {
     assert_eq!(corpus.areas().len(), 2, "expected 2 areas in corpus.toml");
     assert_eq!(corpus.views().len(), 1, "expected 1 view in corpus.toml");
 
-    assert_eq!(PAGES.len(), 3, "expected 3 pages in fixture");
+    assert_eq!(PAGES.len(), 4, "expected 4 pages in fixture");
     for (path, raw) in PAGES {
         let sp = split(raw).unwrap_or_else(|err| panic!("{path}:{err}"));
         let meta = parse_meta(&sp.front_matter).unwrap_or_else(|err| panic!("{path}:{err}"));

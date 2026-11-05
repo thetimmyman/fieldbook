@@ -16,23 +16,35 @@
 
 #![deny(clippy::float_arithmetic, clippy::indexing_slicing)]
 
+pub mod cases;
+pub mod children;
 pub mod date;
 pub mod decimal;
 pub mod error;
+pub mod fns;
 pub mod money;
 pub mod ops;
 pub mod period;
 pub mod rounding;
+pub mod run;
 pub mod unit;
 pub mod value;
+pub mod versions;
 
+pub use cases::{
+    BudgetOutcome, BudgetRow, Case, CaseInputs, CaseOutputs, CaseRounding, Mismatch, Outcome,
+    ReplayCase, broken_fixture_rules, compare, evaluate, evaluate_replay, verify_case,
+};
+pub use children::{SumMismatch, check_children_sum};
 pub use date::{CivilDate, PartialDate};
 pub use decimal::Dec;
 pub use error::CalcError;
+pub use fns::{CALC_EPOCH, CALC_FNS, FnRow, Origin, Slot, lookup};
 pub use money::{Currency, Money};
 pub use ops::{add, add_dec, div, div_at_stage, div_dec, mul, mul_dec, percent_of, sub, sub_dec};
 pub use period::{Duration, EffectivePeriod};
 pub use rounding::{RoundingPolicy, Stage, round_at_stage, round_money_at_stage};
+pub use run::{Run, RunInput, RunOutput, RunRounding};
 pub use unit::{Unit, UnitFamily, convert};
 pub use value::{Reason, Value};
 
