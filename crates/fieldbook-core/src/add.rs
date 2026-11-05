@@ -582,17 +582,19 @@ pub fn source_exists(model: &Model, source_id: &SourceId) -> bool {
 }
 
 /// Computes the stored original file name under `corpus/sources/public/`:
-/// `<version-id>.<lowercase-ext>` when `file_name` has an extension, or `<version-id>` otherwise.
+/// `<version-id>.<lowercase-ext>` when `file_name` has a 1..=5 character ASCII alphanumeric
+/// extension, or `<version-id>.bin` otherwise so the stored filename always satisfies `FB0123`.
 #[must_use]
 pub fn stored_original_name(version_id: &VersionId, file_name: &str) -> String {
     let base = file_name.rsplit(['/', '\\']).next().unwrap_or(file_name);
     if let Some((stem, ext)) = base.rsplit_once('.')
         && !stem.is_empty()
-        && !ext.is_empty()
+        && (1..=5).contains(&ext.len())
+        && ext.bytes().all(|b| b.is_ascii_alphanumeric())
     {
         format!("{version_id}.{}", ext.to_ascii_lowercase())
     } else {
-        version_id.to_string()
+        format!("{version_id}.bin")
     }
 }
 

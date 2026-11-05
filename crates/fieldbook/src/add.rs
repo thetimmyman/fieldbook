@@ -330,6 +330,7 @@ pub fn run(args: &AddArgs, world: &dyn World) -> Outcome {
             world,
             &mut journal,
             &lease,
+            model.tree(),
             &display_file,
             &file_bytes,
             &add_options,
@@ -483,6 +484,7 @@ fn recover_pending_add(
             world,
             journal,
             lease,
+            model.tree(),
             display_file,
             file_bytes,
             add_options,
@@ -503,6 +505,7 @@ fn execute_planned_add(
     world: &dyn World,
     journal: &mut Journal<'_>,
     lease: &StoreLease,
+    tree: &fieldbook_core::check::Tree,
     display_file: &str,
     file_bytes: &[u8],
     add_options: &AddOptions,
@@ -512,6 +515,38 @@ fn execute_planned_add(
     planned_on: fieldbook_core::CivilDate,
     plan: &AddPlan,
 ) -> Outcome {
+    if !add_options.metadata_only
+        && let Some(orig_wf) = plan.files.first()
+    {
+        let prefix = format!("corpus/sources/public/{}.", plan.ids.version_id);
+        for (path, entry) in tree.iter() {
+            let is_direct_public_file = path
+                .strip_prefix("corpus/sources/public/")
+                .is_some_and(|rest| !rest.contains('/'));
+            if is_direct_public_file && (path == orig_wf.path || path.starts_with(&prefix)) {
+                let matches_plan = path == orig_wf.path
+                    && match entry {
+                        fieldbook_core::check::Entry::Original { sha256, .. } => {
+                            sha256 == &orig_wf.sha256
+                        }
+                        fieldbook_core::check::Entry::Bytes(bytes) => {
+                            Sha256::digest(bytes).as_str() == orig_wf.sha256
+                        }
+                    };
+                if !matches_plan {
+                    return Outcome {
+                        stdout: String::new(),
+                        stderr: format!(
+                            "{path}: existing original for {} has conflicting content; refusing to overwrite\n",
+                            plan.ids.version_id
+                        ),
+                        code: EXIT_IO,
+                    };
+                }
+            }
+        }
+    }
+
     let affected = build_affected_refs(plan);
     let intent = OperationIntent {
         schema: 1,

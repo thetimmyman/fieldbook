@@ -628,18 +628,72 @@ fn no_write_without_journal() {
 #[test]
 fn held_open_target_is_in_use() {
     use std::os::windows::fs::OpenOptionsExt as _;
+    use std::sync::Mutex;
+
+    struct HoldOnWrite {
+        inner: TestWorld,
+        held: Mutex<Option<std::fs::File>>,
+    }
+
+    impl World for HoldOnWrite {
+        fn read_tree(&self) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
+            self.inner.read_tree()
+        }
+        fn write_lease(&self) -> Result<fieldbook::StoreLease, fieldbook::WorldError> {
+            self.inner.write_lease()
+        }
+        fn read_tree_under(
+            &self,
+            lease: &fieldbook::StoreLease,
+        ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
+            self.inner.read_tree_under(lease)
+        }
+        fn write_file(
+            &self,
+            audited: &fieldbook::Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<Sha256, fieldbook::WorldError> {
+            if path.file_name().and_then(|n| n.to_str()) == Some("sources.csv") {
+                let file = std::fs::OpenOptions::new()
+                    .read(true)
+                    .write(true)
+                    .share_mode(0)
+                    .open(path)
+                    .unwrap_or_else(|e| panic!("open sources.csv with share_mode(0): {e}"));
+                *self.held.lock().unwrap_or_else(|e| panic!("{e}")) = Some(file);
+            }
+            self.inner.write_file(audited, path, bytes)
+        }
+        fn has_company_store(&self) -> bool {
+            self.inner.has_company_store()
+        }
+        fn today(&self) -> CivilDate {
+            self.inner.today()
+        }
+        fn now(&self) -> Now {
+            self.inner.now()
+        }
+        fn principal(&self) -> Principal {
+            self.inner.principal()
+        }
+        fn cwd(&self) -> &Path {
+            self.inner.cwd()
+        }
+        fn tree_root(&self) -> &Path {
+            self.inner.tree_root()
+        }
+        fn state_dir(&self) -> &Path {
+            self.inner.state_dir()
+        }
+    }
 
     let tmp = temp_copy(&fixture_root());
     write_input(tmp.path(), "note.txt", b"Windows share-mode test.\n");
-    let world = TestWorld::new(tmp.path());
-
-    let reg_path = tmp.path().join("corpus/registers/sources.csv");
-    let _held = std::fs::OpenOptions::new()
-        .read(true)
-        .write(true)
-        .share_mode(0)
-        .open(&reg_path)
-        .expect("open sources.csv with share_mode(0)");
+    let world = HoldOnWrite {
+        inner: TestWorld::new(tmp.path()),
+        held: Mutex::new(None),
+    };
 
     let out = fieldbook::run(&svec(&["add", "note.txt", "--confirm-public"]), &world);
     assert_eq!(out.code, 3);
