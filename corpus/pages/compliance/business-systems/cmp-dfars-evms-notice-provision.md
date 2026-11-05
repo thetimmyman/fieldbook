@@ -7,11 +7,11 @@ type = "clause-card"
 stage = 3
 readiness = "PUBLIC-NOW"
 status = "draft"
-as_of = 2026-10-27
+as_of = 2026-08-05
 handling = ["public"]
 terms = ["earned_value_management_system", "cognizant_federal_agency", "defense_far_supplement"]
 questions = ["Q-034"]
-links = ["prg-earned-value-management-system", "prg-far-evms-notice-provisions", "prg-evms-compliance-determination", "cmp-contractor-business-systems"]
+links = ["prg-earned-value-management-system", "prg-evms-requirement", "prg-far-evms-notice-provisions", "prg-evms-compliance-determination", "cmp-contractor-business-systems"]
 +++
 
 ## Purpose
@@ -24,14 +24,16 @@ Shows what an offeror must submit about its earned value management system (EVMS
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-3834] |
 | Codified citation | DFARS 252.234-7001 [@CL-CMP-3834] |
-| RFO citation | Not established. |
-| Edition date | Not established. |
+| RFO citation | Class Deviation 2026-O0011 Rev 1, DFARS 252.234-7998(a)(1) and (b)(1) [@CL-CMP-9957; @CL-CMP-9958] |
+| Edition date | APR 2008 for the codified provision [@CL-CMP-3834]. AUG 2026 for the class deviation provision 252.234-7998 [@CL-CMP-9957; @CL-CMP-9958] |
 | Text status | Final [@CL-CMP-3834] |
 | Applies to | Solicitations where the DFARS prescribes the provision [@CL-CMP-3834] |
 
 The provision is titled Notice of Earned Value Management System, carries the date April 2008, and is prescribed at DFARS 234.203(1) [@CL-CMP-3834]. If the offeror submits a proposal in the amount of $50,000,000 or more, the offeror shall provide documentation that the Cognizant Federal Agency has determined that the proposed Earned Value Management System complies with the EVMS guidelines in the American National Standards Institute/Electronic Industries Alliance Standard 748, Earned Value Management Systems (ANSI/EIA-748) (current version at time of solicitation) [@CL-CMP-3835; @CL-CMP-0176]. If the offeror proposes to use a system that has not been determined to be in compliance with the requirements of paragraph (a)(1) of the provision, the offeror shall submit a comprehensive plan for compliance with the guidelines in ANSI/EIA-748 [@CL-CMP-3836], and the offeror's EVMS plan must provide milestones that indicate when the offeror anticipates that the EVMS will be compliant with the guidelines in ANSI/EIA-748 [@CL-CMP-3837].
 
 If the offeror submits a proposal in an amount less than $50,000,000, the offeror shall submit a written description of the management procedures it will use and maintain in the performance of any resultant contract to comply with the requirements of the Earned Value Management System clause [@CL-CMP-3838].
+
+Under the DoD class deviation, the counterpart provision 252.234-7998 splits at $100 million instead of $50,000,000: under paragraph (a)(1) an offeror whose proposal is $100 million or more provides documentation of the Cognizant Federal Agency determination [@CL-CMP-9957; @CL-CMP-3835], or under paragraph (a)(2) submits a comprehensive plan for compliance with the guidelines in EIA-748 if its system has not been determined to be in compliance [@CL-CMP-10031; @CL-CMP-3836]; under paragraph (b)(1) an offeror whose proposal is below $100 million submits a written description of its management procedures [@CL-CMP-9958; @CL-CMP-3838], or under paragraph (b)(2) may submit a copy of the documentation of a Cognizant Federal Agency determination instead if its system has been so determined [@CL-CMP-10032; @CL-CMP-3840]. Under paragraph (d) the provision does not apply to nontraditional defense contractors, as defined in DFARS 202.101 [@CL-CMP-10033]. See [Earned value management system requirement (DoD)](../../program-finance/evms/prg-evms-requirement.md).
 
 ## How it works
 
@@ -54,6 +56,7 @@ Which solicitations carry this provision, and whether the company's system has a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart provision 252.234-7998 and its proposal-value split, tied each duty to its paragraph with the compliance plan and determination copy alternatives and the exclusion of nontraditional defense contractors, and filled the RFO citation and edition date rows.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the ANSI/EIA-748 standard title and version in paragraph (a)(1) and the subcontracted effort agreement clause in paragraph (c), and removed unquoted contrast phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: Subcontractor selection is agreed by the offeror and the Government.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DFARS notice of earned value management system provision.

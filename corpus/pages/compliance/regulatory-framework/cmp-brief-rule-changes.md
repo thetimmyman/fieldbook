@@ -19,21 +19,20 @@ Which public rule changes this year alter how a DoD contractor's finance team wo
 
 ## Recommendation
 
-Treat the DoD class deviation text as current for DoD work, and re-baseline every process keyed to a threshold or rate against it. Ask early which contracts and business units each change touches. Label secondary material from before the changes as possibly stale. Inference, not established: processes still keyed to the old values may now apply requirements that no longer bind.
+Treat the DoD class deviation text as current for DoD work, and re-baseline every DoD threshold or rate against it, with the codified value beside it. CAS figures are in the Board's regulation, 48 CFR 9903 [@CL-CMP-0001]; whether a DoD deviation changes how they apply is not established. Ask early which contracts and units each change touches. Label secondary material from before the changes as possibly stale. Inference, not established: processes keyed to old values may apply requirements that no longer bind.
 
 ## Evidence
 
-- Negotiated contracts and subcontracts of $35 million or less are now exempt from all CAS requirements, tested at award [@CL-CMP-0001].
-- Full CAS coverage starts at $100 million [@CL-CMP-0002], and so does the Disclosure Statement before award [@CL-CMP-0003].
-- For DoD prime contracts awarded after June 30, 2026, certified cost or pricing data start above $10 million [@CL-EST-0002].
-- DoD earned value requirements start at $50 million and $100 million [@CL-PRG-0001; @CL-PRG-0002], with exemptions for software and nontraditional defense contractors [@CL-PRG-0003].
-- The DoD customary progress payment rate for small business is 90 percent [@CL-CTF-0002].
-- The simplified acquisition threshold is $350,000 and the micro-purchase threshold is $15,000 [@CL-FND-0001; @CL-FND-0002].
-- DoD publishes the list of overhaul class deviations and their supplement parts [@S-0021-v1].
+- CAS Board rule, 48 CFR 9903, effective 2026-10-01: negotiated contracts and subcontracts not in excess of $35 million are exempt from all CAS requirements [@CL-CMP-0001]. Full coverage and the Disclosure Statement start at $100 million [@CL-CMP-0002; @CL-CMP-0003].
+- DoD Class Deviation 2026-O0048 Rev 1, effective 2026-07-22: for prime contracts awarded after June 30, 2026, certified cost or pricing data start above $10 million [@CL-EST-0002]. Codified FAR 15.403-4 says $2.5 million [@CL-EST-0001].
+- DoD Class Deviation 2026-O0011 Rev 1, DFARS 234.201-70, effective 2026-08-05 (supersedes the 2025-12-18 version [@CL-PRG-9161]): earned value requirements start at $50 million and $100 million [@CL-PRG-0001; @CL-PRG-0002], with exemptions for software and nontraditional defense contractors [@CL-PRG-0003]. Codified DFARS 234.201 says $20 million and $50 million [@CL-PRG-9144; @CL-PRG-9145].
+- DoD Class Deviation 2026-O0022, effective 2026-02-01: the customary progress payment rate for small business is 90 percent [@CL-CTF-0002]. Codified FAR 32.501-1 says 85 percent [@CL-CTF-0951].
+- Codified FAR 2.101 (no deviation value stored): the simplified acquisition threshold is $350,000 and the micro-purchase threshold is $15,000 [@CL-FND-0001; @CL-FND-0002].
+- DoD announced 31 overhaul class deviations, effective 2026-02-01; later and revised ones carry their own dates [@CL-CMP-0696; @CL-CMP-0697].
 
 ## Options
 
-Waiting for codification was rejected: DoD contracts already use the deviations. Tracking only codified text was rejected for the same reason. Re-baselining against the deviation text, as recommended, keeps both texts visible.
+Waiting for codification, or tracking only codified text, was rejected: DoD contracts already use the deviations. Re-baselining with the codified value beside it keeps both texts visible.
 
 ## Unknowns
 

@@ -23,10 +23,10 @@ Admit no report text. Rebuild each consequential finding as a claim quoted from 
 
 ## Evidence
 
-- The reports' central finding holds: DoD contracts run on the overhaul's class deviation text, which DoD lists with its supplement parts [@S-0021-v1].
-- Their threshold findings were rebuilt from originals: certified cost or pricing data [@CL-EST-0263; @CL-EST-0002; @CL-EST-9456; @CL-EST-9457], earned value [@CL-PRG-9140; @CL-PRG-0001; @CL-PRG-9141; @CL-PRG-0002; @CL-PRG-9142], CAS exemption [@CL-CMP-0625; @CL-CMP-0001], and the small-business progress payment rate [@CL-CTF-9601; @CL-CTF-0002].
-- Secondary material that gives a CAS exemption figure other than the original's, under which negotiated contracts and subcontracts not in excess of $35 million are exempt from all CAS requirements, was not reused [@CL-CMP-0625; @CL-CMP-0001].
-- One training-site lead named the wrong deviation for the negotiation part; the DoD list contradicts it [@S-0021-v1].
+- The reports' central finding holds as far as the originals show: DoD issued the overhaul's class deviation text. DoD announced the initial release of 31 class deviations to the FAR and DFARS codified text, with a stated effective date of 2026-02-01 for that release [@CL-CMP-0696; @CL-CMP-0697], and its part 52 deviation directs use of the revised FAR part 52 from that date [@CL-CMP-9762].
+- Their threshold findings were rebuilt from originals, each under its own instrument. Certified cost or pricing data: DoD Class Deviation 2026-O0048 Rev 1, effective 2026-07-22 [@CL-EST-0263; @CL-EST-0002; @CL-EST-9456; @CL-EST-9457]. Earned value: DoD Class Deviation 2026-O0011 Rev 1, effective 2026-08-05 [@CL-PRG-9140; @CL-PRG-0001; @CL-PRG-9141; @CL-PRG-0002; @CL-PRG-9142]. CAS exemption: CAS Board rule 48 CFR 9903, effective 2026-10-01 [@CL-CMP-0625; @CL-CMP-0001]. Small-business progress payment rate: DoD Class Deviation 2026-O0022, effective 2026-02-01 [@CL-CTF-9601; @CL-CTF-0002]. The two Rev 1 texts supersede versions of 2026-03-05 and 2025-12-18 that are not stored [@CL-EST-3177; @CL-PRG-9161]. The certified data deviation exempts nontraditional defense contractors from submitting certified cost and pricing data unless waived [@CL-EST-9760].
+- Secondary material that gave a CAS exemption figure other than the original's was not reused. The original exempts negotiated contracts and subcontracts not in excess of $35 million from all CAS requirements [@CL-CMP-0625; @CL-CMP-0001].
+- The stored original for the negotiation part is Class Deviation 2026-O0048 Rev 1 [@CL-EST-0263]. One training-site lead named another deviation for that part; it was not reused.
 
 ## Options
 
@@ -35,7 +35,6 @@ Summarising the reports was rejected: report text never enters the product. Rank
 ## Unknowns
 
 - Whether the negotiation deviation makes the pilot known as "TINA Lite" permanent. Not established.
-- Whether that deviation exempts nontraditional defense contractors from certified data unless waived. Not established.
 - Whether the reissued DoD earned value guide has fewer guidelines than its earlier edition. Not established.
 - Which public market observations are relevant, and what comparability adjustments are allowed [@Q-020].
 

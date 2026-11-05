@@ -24,11 +24,13 @@ Shows when a DoD contract needs an earned value management system, when that sys
 | Instrument | DoD class deviation [@CL-PRG-0001] |
 | Codified citation | DFARS 234.201(1)(i) and (ii) [@CL-PRG-9144; @CL-PRG-9145] |
 | RFO citation | Class Deviation 2026-O0011 Rev 1, DFARS 234.201-70(a)(1) and (2) [@CL-PRG-0001; @CL-PRG-0002] |
-| Edition date | Not established. |
+| Edition date | AUG 2026 for the clause at 252.234-7999 [@CL-PRG-9153] |
 | Text status | Deviation text [@CL-PRG-0001] |
-| Applies to | DoD cost or incentive contracts and subcontracts, from 2026-08-05 [@CL-PRG-0001] |
+| Applies to | DoD cost or incentive contracts and subcontracts, under the Rev 1 text issued 2026-08-05; the start under the earlier version is not established [@CL-PRG-0001; @CL-PRG-9161] |
 
 Except for the exemption at paragraph (j) of the deviation section, DoD applies the earned value management system requirement as follows [@CL-PRG-9140]. For cost or incentive contracts and subcontracts valued at $50 million or more, the clause at 252.234-7999, Earned Value Management System, requires the contractor's earned value management system to comply with the guidelines in Electronic Industries Alliance Standard 748, Earned Value Management Systems (EIA-748) [@CL-PRG-0001; @CL-PRG-9141]. For cost or incentive contracts and subcontracts valued at $100 million or more, the clause at 252.234-7999, Earned Value Management System, requires the contractor to have an earned value management system that the cognizant Federal agency has determined to comply with the guidelines in EIA-748 [@CL-PRG-0002; @CL-PRG-9142]. The subpart does not apply to contracts primarily for software, including those using a software acquisition pathway in accordance with DoD Instruction 5000.87, Operation of the Software Acquisition Pathway, or awarded to nontraditional defense contractors [@CL-PRG-0003]. The head of the contracting activity may waive the exemption relating to nontraditional defense contractors by written determination that applying the requirement for an earned value management system to a nontraditional defense contractor is in the best interest of DoD, and may delegate this authority to no lower than the chief of the contracting office [@CL-PRG-0004; @CL-PRG-9143].
+
+Rev 1 revises and supersedes Class Deviation 2026-O0011 issued on 2025-12-18 [@CL-PRG-9161]; that earlier version is not stored in the Corpus, so whether these values started then is not established [@CL-PRG-0001]. For cost or incentive contracts and subcontracts valued at less than $50 million, applying earned value management is optional and is a risk-based decision [@CL-PRG-9158]. For firm-fixed-price contracts and subcontracts of any dollar value, applying earned value management is discouraged, and the procedures at PGI 234.201(a)(4) for obtaining a waiver are followed before applying it [@CL-PRG-9159]. The deviation memo states that section 1826(a)(2) of the NDAA for FY 2026 exempts nontraditional defense contractors from the requirements of the clause at DFARS 252.234-7002, Earned Value Management System [@CL-PRG-9160]. The memo does not say whether that exemption is subject to the waiver at 234.201-70(j)(2) [@CL-PRG-0004]; that is not established.
 
 ## How it works
 
@@ -52,6 +54,7 @@ Which contracts carry an earned value requirement, and the validation status of 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-05: Narrowed the Applies to row, which had read from 2026-08-05, to the Rev 1 text with the earlier start not established. Added the clause edition, the supersession of the earlier deviation version, the optional and discouraged cases at 234.201-70(a)(3) and (a)(4), the statutory exemption stated in the memo, and that the memo does not link it to the waiver.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added software acquisition pathway reference and removed uncited statements in How it works and Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the lead-in, full requirement wording, waiver reasons and codified values.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

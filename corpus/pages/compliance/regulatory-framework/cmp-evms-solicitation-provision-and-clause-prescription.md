@@ -7,7 +7,7 @@ type = "clause-card"
 stage = 3
 readiness = "PUBLIC-NOW"
 status = "draft"
-as_of = 2026-10-27
+as_of = 2026-08-05
 handling = ["public"]
 terms = ["earned_value_management_system", "defense_far_supplement"]
 questions = ["Q-004"]
@@ -24,12 +24,12 @@ Shows which solicitations and contracts use the DoD earned value management syst
 |---|---|
 | Instrument | Codified DFARS [@CL-CMP-7864] |
 | Codified citation | DFARS 234.203 [@CL-CMP-7864] |
-| RFO citation | Not established. |
-| Edition date | Not established. |
+| RFO citation | Class Deviation 2026-O0011 Rev 1, DFARS 234.203-70 [@CL-CMP-9955; @CL-CMP-9956] |
+| Edition date | APR 2008 for the codified provision 252.234-7001 [@CL-CMP-3834] and Jan 2025 for the codified clause 252.234-7002 [@CL-PRG-9163]. AUG 2026 for the class deviation provision 252.234-7998 and clause 252.234-7999 [@CL-CMP-9957; @CL-PRG-9153] |
 | Text status | Final [@CL-CMP-7864] |
 | Applies to | Cost or incentive contracts valued at $20,000,000 or more, and other contracts for which the earned value management system will be applied under 234.201(1)(iii) and (iv) [@CL-CMP-7864] |
 
-The section applies to cost or incentive contracts valued at $20,000,000 or more, and to other contracts for which the earned value management system will be applied in accordance with 234.201(1)(iii) and (iv) [@CL-CMP-7864]. For those contracts the solicitation is to use the provision at 252.234-7001, Notice of Earned Value Management System, instead of the FAR pre-award and post-award notice provisions at FAR 52.234-2 and FAR 52.234-3 [@CL-CMP-7865]. The clause at 252.234-7002, Earned Value Management System, is to be used in the solicitation and the contract instead of the clause at FAR 52.234-4 [@CL-CMP-7866]. The provision direction and the clause direction cover the same contracts [@CL-CMP-7864; @CL-CMP-7865; @CL-CMP-7866].
+The section applies to cost or incentive contracts valued at $20,000,000 or more, and to other contracts for which the earned value management system will be applied in accordance with 234.201(1)(iii) and (iv) [@CL-CMP-7864]. For those contracts the solicitation is to use the provision at 252.234-7001, Notice of Earned Value Management System, instead of the FAR pre-award and post-award notice provisions at FAR 52.234-2 and FAR 52.234-3 [@CL-CMP-7865]. The clause at 252.234-7002, Earned Value Management System, is to be used in the solicitation and the contract instead of the clause at FAR 52.234-4 [@CL-CMP-7866]. The provision direction and the clause direction cover the same contracts [@CL-CMP-7864; @CL-CMP-7865; @CL-CMP-7866]. Under the DoD class deviation, the counterpart prescription at 234.203-70 applies to cost or incentive contracts valued at $50 million or more, and to other contracts for which earned value management will be applied under 234.201-70(a)(3) and (4), except contracts subject to the exemptions at 234.201-70(j) [@CL-CMP-9955; @CL-CMP-7864]. For those contracts the solicitation uses the provision at 252.234-7998 and the solicitation and contract use the clause at 252.234-7999 instead of the clause at FAR 52.234-4 [@CL-CMP-9956]. See [Earned value management system requirement](../../program-finance/evms/prg-evms-requirement.md).
 
 ## How it works
 
@@ -57,5 +57,6 @@ Which contracts sit at or above the value threshold or otherwise bring earned va
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-05: Named the class deviation counterpart prescription at 234.203-70, its threshold, and the provision and clause it prescribes, and filled the RFO citation and edition date rows.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported absence statements and contrast wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the earned value management system provision and clause prescription.
