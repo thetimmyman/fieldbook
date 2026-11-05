@@ -377,7 +377,7 @@ pub fn check(
                 });
             }
         }
-        let bound = match validate_delivery_binding(dest, labels, delivery, &req_ids) {
+        let bound = match validate_delivery_binding(policy, dest, labels, delivery, now, &req_ids) {
             Ok(b) => b,
             Err(denial) => return Decision::Denied(denial),
         };
@@ -446,7 +446,7 @@ pub fn check(
     }
 
     // Step 5: Outbound markings subset check and delivery binding validation (FB0902).
-    let bound = match validate_delivery_binding(dest, labels, delivery, &req_ids) {
+    let bound = match validate_delivery_binding(policy, dest, labels, delivery, now, &req_ids) {
         Ok(b) => b,
         Err(denial) => return Decision::Denied(denial),
     };
@@ -600,9 +600,11 @@ fn check_row_and_narrow(
 }
 
 fn validate_delivery_binding(
+    policy: &EffectivePolicy,
     dest: &Dest,
     labels: Option<&LabelSet>,
     delivery: Option<&Delivery>,
+    now: Now,
     req_ids: &[LabelId],
 ) -> Result<Option<Vec<Transfer>>, Denial> {
     let Some(deliv) = delivery else {
@@ -634,21 +636,26 @@ fn validate_delivery_binding(
         });
     }
 
-    // Verify each transfer target matches the destination kind/target.
+    // Verify each transfer target matches the destination kind/target and applicable policy rows.
     for entry in &deliv.entries {
         let target_ok = match (dest, &entry.target, &entry.operation) {
             (Dest::Model { base_url, .. }, Target::Endpoint(ep), Operation::Post) => {
-                ep == base_url || ep.starts_with(base_url)
+                endpoint_matches_base_url(ep, base_url)
             }
             (
                 Dest::Export { .. } | Dest::Backup { .. } | Dest::Audit,
-                Target::Path(_),
-                Operation::Write
-                | Operation::CreateDir
-                | Operation::RemoveTree
-                | Operation::RenameTree { .. },
-            )
-            | (
+                Target::Path(p),
+                Operation::Write | Operation::CreateDir | Operation::RemoveTree,
+            ) => transfer_path_matches_dest_and_policy(policy, dest, set, now, p),
+            (
+                Dest::Export { .. } | Dest::Backup { .. } | Dest::Audit,
+                Target::Path(p),
+                Operation::RenameTree { to },
+            ) => {
+                transfer_path_matches_dest_and_policy(policy, dest, set, now, p)
+                    && transfer_path_matches_dest_and_policy(policy, dest, set, now, to)
+            }
+            (
                 Dest::Handoff
                 | Dest::Mcp { .. }
                 | Dest::Bridge
@@ -670,4 +677,95 @@ fn validate_delivery_binding(
     }
 
     Ok(Some(deliv.entries.clone()))
+}
+
+fn endpoint_matches_base_url(endpoint: &str, base_url: &str) -> bool {
+    let Some((base_scheme, base_rest)) = base_url.split_once("://") else {
+        return false;
+    };
+    let Some((ep_scheme, ep_rest)) = endpoint.split_once("://") else {
+        return false;
+    };
+    if ep_scheme != base_scheme || base_rest.is_empty() || ep_rest.is_empty() {
+        return false;
+    }
+    let (base_auth, base_path) = match base_rest.find('/') {
+        Some(idx) => (&base_rest[..idx], &base_rest[idx..]),
+        None => (base_rest, ""),
+    };
+    let (ep_auth, ep_path) = match ep_rest.find('/') {
+        Some(idx) => (&ep_rest[..idx], &ep_rest[idx..]),
+        None => (ep_rest, ""),
+    };
+    if base_auth.is_empty()
+        || ep_auth != base_auth
+        || base_auth.contains(['?', '#', '@'])
+        || ep_auth.contains(['?', '#', '@'])
+        || ep_path.split('/').any(|seg| seg == "..")
+    {
+        return false;
+    }
+    let trimmed_base_path = base_path.trim_end_matches('/');
+    if trimmed_base_path.is_empty() {
+        ep_path.is_empty() || ep_path.starts_with('/')
+    } else {
+        ep_path == trimmed_base_path
+            || ep_path
+                .strip_prefix(trimmed_base_path)
+                .is_some_and(|rest| rest.starts_with('/'))
+    }
+}
+
+fn transfer_path_matches_dest_and_policy(
+    policy: &EffectivePolicy,
+    dest: &Dest,
+    set: &LabelSet,
+    now: Now,
+    target_path: &std::path::Path,
+) -> bool {
+    let Some(target_str) = target_path.to_str() else {
+        return false;
+    };
+    if target_str.is_empty()
+        || target_path.components().any(|c| {
+            matches!(
+                c,
+                std::path::Component::CurDir | std::path::Component::ParentDir
+            )
+        })
+    {
+        return false;
+    }
+    match dest {
+        Dest::Export { path: dest_path } => {
+            if !crate::policy::path_matches_prefix(target_str, dest_path) {
+                return false;
+            }
+            let target_dest = Dest::Export {
+                path: target_str.to_owned(),
+            };
+            check_row_and_narrow(policy, &target_dest, now, &[])
+                .is_ok_and(|allow| allow.permits(set))
+        }
+        Dest::Backup {
+            path: dest_path,
+            company_storage,
+        } => {
+            if !crate::policy::path_matches_prefix(target_str, dest_path) {
+                return false;
+            }
+            let target_dest = Dest::Backup {
+                path: target_str.to_owned(),
+                company_storage: *company_storage,
+            };
+            if set.contains(&UNLABELLED) {
+                matches!(policy.state(), PolicyState::Floor(FloorKind::B)) && *company_storage
+            } else {
+                check_row_and_narrow(policy, &target_dest, now, &[])
+                    .is_ok_and(|allow| allow.permits(set))
+            }
+        }
+        Dest::Audit => set.is_public(),
+        _ => false,
+    }
 }

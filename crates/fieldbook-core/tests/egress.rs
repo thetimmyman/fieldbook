@@ -324,6 +324,22 @@ mod egress {
             Decision::Allowed(_) => panic!("unrecorded backup target must deny unlabelled"),
         }
 
+        // 2b. Public backup with company_storage = false is also denied (FB0918 / Reason::NoRow) on Floor B.
+        match check(
+            &floor_b,
+            &unrecorded,
+            Some(&LabelSet::public()),
+            None,
+            now_2026_11_01(),
+            Shipped::Never,
+        ) {
+            Decision::Denied(d) => {
+                assert_eq!(d.code, Code::Fb0918);
+                assert_eq!(d.reason, Reason::NoRow);
+            }
+            Decision::Allowed(_) => panic!("unrecorded backup target must deny public on Floor B"),
+        }
+
         // 3. Denied (FB0901) for every other destination kind at Floor B.
         for other in [
             Dest::Handoff,
@@ -1070,6 +1086,127 @@ mod egress {
             &Operation::Post,
             b"prompt"
         ));
+
+        // Delivery binding to an endpoint that spoofs a host prefix or path prefix is refused at `check` (FB0902).
+        for bad_ep in [
+            "https://ai-gateway.example.attacker.invalid/v1",
+            "https://ai-gateway.example/v10",
+            "https://ai-gateway.example/v1/../admin",
+        ] {
+            let bad_deliv = Delivery {
+                entries: vec![Transfer::post_endpoint(bad_ep, b"prompt")],
+                markings: None,
+            };
+            let res = check(
+                &eff,
+                &dest,
+                Some(&LabelSet::public()),
+                Some(&bad_deliv),
+                now_2026_11_01(),
+                Shipped::Hours(1),
+            );
+            match res {
+                Decision::Denied(d) => {
+                    assert_eq!(d.code, Code::Fb0902);
+                    assert_eq!(d.reason, Reason::Mismatch);
+                }
+                Decision::Allowed(_) => panic!("endpoint `{bad_ep}` must be refused"),
+            }
+        }
+
+        // Delivery binding to a filesystem path outside `dest.path` or outside approved policy prefixes is refused (FB0902).
+        let export_dest = Dest::Export {
+            path: "/srv/company/exports/approved.txt".into(),
+        };
+        for bad_path in ["/srv/other/outside.txt", "/srv/company/exports/other.txt"] {
+            let bad_path_deliv = Delivery {
+                entries: vec![Transfer::write_path(bad_path, b"bytes")],
+                markings: None,
+            };
+            let res = check(
+                &eff,
+                &export_dest,
+                Some(&LabelSet::public()),
+                Some(&bad_path_deliv),
+                now_2026_11_01(),
+                Shipped::Hours(1),
+            );
+            match res {
+                Decision::Denied(d) => {
+                    assert_eq!(d.code, Code::Fb0902);
+                    assert_eq!(d.reason, Reason::Mismatch);
+                }
+                Decision::Allowed(_) => panic!("transfer path `{bad_path}` must be refused"),
+            }
+        }
+    }
+
+    #[test]
+    fn source_body_handling_and_extracted_text_follow_source_version_labels() {
+        let mut tree = Tree::new();
+        tree.insert_dir("corpus");
+        tree.insert_dir("corpus/pages");
+        tree.insert_dir("corpus/sources");
+        tree.insert_dir("corpus/sources/public");
+        tree.insert_dir("corpus/sources/text");
+        tree.insert_dir("corpus/sources/text/S-0043-v1");
+        tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
+        tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
+        insert_register_headers(&mut tree);
+
+        let sources_header = tree
+            .get_bytes("corpus/registers/sources.csv")
+            .map(|b| String::from_utf8(b.to_vec()).unwrap())
+            .unwrap();
+        let row_np = "S-0043,1,Vendor NDA,Supplier NDA Quote,Vendor,primary_law,primary_evidence,A,Proprietary,vendor_nda,reviewed,S-0043-v1.txt,abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789,2025-10,2025-10-15,2025-11-01,2025-11-02,active,,V1,np-0007,Restricted NDA note,Purpose,,,,,\n";
+        tree.insert_bytes(
+            "corpus/registers/sources.csv",
+            format!("{sources_header}{row_np}").into_bytes(),
+        );
+        // Source original contains a line that looks like inline `handling = "public"` metadata;
+        // it must NEVER override the source register's `np-0007` label.
+        tree.insert_bytes(
+            "corpus/sources/public/S-0043-v1.txt",
+            b"handling = \"public\"\nRESTRICTED_ORIGINAL_CANARY\n",
+        );
+        // Extracted text under `corpus/sources/text/S-0043-v1/p0001.txt` has no inline handling metadata;
+        // it must be excluded whenever `S-0043-v1` is excluded.
+        tree.insert_bytes(
+            "corpus/sources/text/S-0043-v1/p0001.txt",
+            b"RESTRICTED_EXTRACTED_PAGE_CANARY\n",
+        );
+
+        let model = load(
+            &Host::new(tree, CivilDate::parse("2026-03-01").unwrap()),
+            &Options::new(false),
+        )
+        .0;
+        let eff = loaded_effective();
+        let Decision::Allowed(tok) = check(
+            &eff,
+            &Dest::Bridge,
+            None,
+            None,
+            now_2026_11_01(),
+            Shipped::Hours(1),
+        ) else {
+            panic!("expected Allowed");
+        };
+        let view = LabelledView::new(&model, &tok, &ReadableStores::corpus());
+        assert!(view.sources().is_empty());
+        assert!(
+            view.tree()
+                .get("corpus/sources/public/S-0043-v1.txt")
+                .is_none()
+        );
+        assert!(
+            view.tree()
+                .get("corpus/sources/text/S-0043-v1/p0001.txt")
+                .is_none()
+        );
+        let summary = view.render_summary(&Dest::Bridge);
+        assert!(!summary.contains("RESTRICTED_ORIGINAL_CANARY"));
+        assert!(!summary.contains("RESTRICTED_EXTRACTED_PAGE_CANARY"));
     }
 
     // -------------------------------------------------------------------------

@@ -510,11 +510,18 @@ impl EffectivePolicy {
                     .collect(),
                 PolicyState::Closed(_) => Vec::new(),
             },
-            Dest::Backup { path, .. } => match &self.state {
+            Dest::Backup {
+                path,
+                company_storage,
+            } => match &self.state {
                 PolicyState::Floor(_) => policy
                     .destinations()
                     .iter()
-                    .filter(|d| d.kind == DestKind::Backup && !d.allow.is_empty())
+                    .filter(|d| {
+                        d.kind == DestKind::Backup
+                            && !d.allow.is_empty()
+                            && (!d.company_storage_only || *company_storage)
+                    })
                     .collect(),
                 PolicyState::Loaded(_) => policy
                     .destinations()

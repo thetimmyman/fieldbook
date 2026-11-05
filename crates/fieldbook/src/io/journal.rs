@@ -147,7 +147,7 @@ type InitPauseHook = Arc<dyn Fn(&Path) + Send + Sync>;
 struct TestHooks {
     init_pause: Option<InitPauseHook>,
     no_state_read_pause: Option<InitPauseHook>,
-    write_pause: Option<InitPauseHook>,
+    write_pause: Vec<(ThreadId, InitPauseHook)>,
     lock_timeout: Vec<(ThreadId, Duration)>,
     fail_before_begin_append: Option<ThreadId>,
     fail_after_end_append: Option<ThreadId>,
@@ -175,16 +175,26 @@ pub fn set_no_state_read_hook(hook: Option<InitPauseHook>) {
     }
 }
 
-/// Set or clear a pause hook called inside `io::atomic` right before writing a resolved target
-/// (used by `egress_doors` tests).
+/// Set or clear a pause hook for the current test thread, called inside `io::atomic` right
+/// before writing a resolved target (used by `egress_doors` tests).
 pub fn set_write_pause_hook(hook: Option<InitPauseHook>) {
+    let tid = std::thread::current().id();
     if let Ok(mut guard) = test_hooks().lock() {
-        guard.write_pause = hook;
+        guard.write_pause.retain(|(t, _)| *t != tid);
+        if let Some(h) = hook {
+            guard.write_pause.push((tid, h));
+        }
     }
 }
 
 pub(crate) fn run_write_pause_hook(path: &Path) {
-    let hook = test_hooks().lock().ok().and_then(|g| g.write_pause.clone());
+    let tid = std::thread::current().id();
+    let hook = test_hooks().lock().ok().and_then(|g| {
+        g.write_pause
+            .iter()
+            .find(|(t, _)| *t == tid)
+            .map(|(_, h)| h.clone())
+    });
     if let Some(h) = hook {
         h(path);
     }

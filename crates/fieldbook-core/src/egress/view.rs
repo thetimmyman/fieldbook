@@ -282,8 +282,11 @@ impl LabelledView {
                 .item_store(&vid_str)
                 .or_else(|| raw.item_store(loc.value.source_id.as_str()))
                 .unwrap_or(StoreId::Corpus);
-            let labels =
-                raw.resolve_labels(&vid_str, &parse_handling_vec(&loc.value.handling), store);
+            let labels = raw.resolve_explicit_labels(
+                &vid_str,
+                &parse_handling_vec(&loc.value.handling),
+                store,
+            );
             if readable.contains(store) && permitted.permits(&labels) {
                 kept_source_lines.insert(loc.line);
                 kept_source_ids.insert(loc.value.source_id.clone());
@@ -441,7 +444,7 @@ impl LabelledView {
                 .or_else(|| store_from_path(&page.path))
                 .unwrap_or(StoreId::Corpus);
             let own_labels = parse_handling_vec(&page.meta.handling);
-            let labels = raw.resolve_labels(pid_str, &own_labels, store);
+            let labels = raw.resolve_explicit_labels(pid_str, &own_labels, store);
             if !readable.contains(store) || !permitted.permits(&labels) {
                 left_out += 1;
                 continue;
@@ -515,6 +518,19 @@ impl LabelledView {
                 || path.starts_with("corpus/sources/public/")
                 || path.ends_with("/labels.csv")
             {
+                continue;
+            }
+            if let Some(after_text) = path.strip_prefix("corpus/sources/text/") {
+                let vid_ok = after_text
+                    .split('/')
+                    .next()
+                    .and_then(|seg| VersionId::parse(seg).ok())
+                    .is_some_and(|vid| kept_version_ids.contains(&vid));
+                if vid_ok {
+                    kept_extra_files.insert(path.to_owned());
+                } else {
+                    left_out += 1;
+                }
                 continue;
             }
             let store = raw
@@ -713,7 +729,15 @@ impl RawModelItems {
                     }
                 }
             }
-            if let Some(bytes) = entry.as_bytes()
+            let is_source_or_page_or_reg = path.contains("/sources/")
+                || path.contains("/pages/")
+                || path.contains("/registers/")
+                || path.ends_with("/labels.csv")
+                || path == "corpus/corpus.toml"
+                || path == "corpus/ASSISTANT.md"
+                || path == "corpus/changes.md";
+            if !is_source_or_page_or_reg
+                && let Some(bytes) = entry.as_bytes()
                 && let Ok(text) = std::str::from_utf8(bytes)
                 && let Some(labels) = extract_inline_handling(text)
             {
@@ -750,6 +774,14 @@ impl RawModelItems {
 
     fn item_store(&self, id_or_path: &str) -> Option<StoreId> {
         self.record_stores.get(id_or_path).copied()
+    }
+
+    fn resolve_explicit_labels(&self, id: &str, initial: &LabelSet, store: StoreId) -> LabelSet {
+        if let Some(ledger) = self.ledgers.get(&store) {
+            effective(initial, id, ledger)
+        } else {
+            initial.clone()
+        }
     }
 
     fn resolve_labels(&self, id: &str, initial: &LabelSet, store: StoreId) -> LabelSet {
