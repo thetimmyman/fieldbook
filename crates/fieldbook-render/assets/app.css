@@ -1701,11 +1701,7 @@ kbd {
 }
 
 .empty-state {
-  margin-bottom: var(--space-3);
-}
-
-.empty-state p {
-  margin: var(--space-1) 0 0;
+  margin: 0 0 var(--space-3);
 }
 
 .reg-table caption {
@@ -1731,6 +1727,14 @@ kbd {
 
 .th-sort:hover {
   color: var(--color-fg);
+}
+
+th[aria-sort="ascending"] .sort-arrow::after {
+  content: " \25B2";
+}
+
+th[aria-sort="descending"] .sort-arrow::after {
+  content: " \25BC";
 }
 
 .pos-list {

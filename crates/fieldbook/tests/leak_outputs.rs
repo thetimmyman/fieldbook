@@ -514,44 +514,7 @@ fn run_edition_surface() {
         b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
             .to_vec(),
     );
-    let sources_mixed = format!(
-        "{}S-0099,1,s-forbidden,\"Forbidden source canary, made up for tests\",Synthetic Standards Board,primary_law,primary_evidence,A,\"Synthetic, no restrictions\",,,metadata-only: made up for tests,9999999999999999999999999999999999999999999999999999999999999999,2026-01-05,2026-01-10,2026-02-01,2026-02-01,active,,V2,public|np-0007,Forbidden source note.,Secret,,,,,\n",
-        std::str::from_utf8(
-            mixed_tree
-                .get_bytes("corpus/registers/sources.csv")
-                .unwrap()
-        )
-        .unwrap()
-    );
-    mixed_tree.insert_bytes("corpus/registers/sources.csv", sources_mixed.into_bytes());
-    let claims_mixed = format!(
-        "{}CL-CMP-0099,cmp,fact,Forbidden claim canary statement.,2026-02-01,S-0099,1,text_section,sec. 9,Forbidden quote.,false,codex,unchecked,general_reference,proposed,observed,V2,,,,,,,,,,,,,,,,,Forbidden claim note.\n",
-        std::str::from_utf8(mixed_tree.get_bytes("corpus/registers/claims.csv").unwrap()).unwrap()
-    );
-    mixed_tree.insert_bytes("corpus/registers/claims.csv", claims_mixed.into_bytes());
-    let conflicts_mixed = format!(
-        "{}XC-99,cmp,Forbidden conflict canary topic,First secret position|Second secret position,,,,,unresolved,CL-CMP-0001|CL-CMP-0099,Q-001\n",
-        std::str::from_utf8(
-            mixed_tree
-                .get_bytes("corpus/registers/conflicts.csv")
-                .unwrap()
-        )
-        .unwrap()
-    );
-    mixed_tree.insert_bytes(
-        "corpus/registers/conflicts.csv",
-        conflicts_mixed.into_bytes(),
-    );
-    let glossary_mixed = format!(
-        "{}forbidden_term_canary,Forbidden term canary,Secret definition.,Secret boundary.,cmp,CL-CMP-0099,public_reference,secret_alias,\n",
-        std::str::from_utf8(
-            mixed_tree
-                .get_bytes("corpus/registers/glossary.csv")
-                .unwrap()
-        )
-        .unwrap()
-    );
-    mixed_tree.insert_bytes("corpus/registers/glossary.csv", glossary_mixed.into_bytes());
+    support::add_canary_register_rows(&mut mixed_tree);
     let (mixed_model, _) = load(&Host::new(mixed_tree, world.today()), &Options::new(false));
     let mixed_view = LabelledView::new(&mixed_model, &sel_token, &ReadableStores::corpus());
     let nav_mixed = fieldbook_render::nav::build(
@@ -618,7 +581,7 @@ fn run_edition_surface() {
     );
     assert!(
         conflicts_disk.contains("<tr id=\"XC-01\"")
-            && conflicts_disk.contains("<span class=\"chip mono\">1 rows</span>"),
+            && conflicts_disk.contains("<span class=\"chip mono\">1 row</span>"),
         "permitted conflict rows and count must reach conflicts.html"
     );
     assert!(

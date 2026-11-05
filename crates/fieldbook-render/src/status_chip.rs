@@ -1,11 +1,11 @@
 //! `StatusChip` renderer for the vocabularies mapped in `HANDOFF.md` §7 (`build-registers`).
 //!
 //! **Responsibility.** Render `StatusChip` HTML (`<span class="chip ...">`) strictly for the
-//! vocabularies mapped in `HANDOFF.md` §7 (`verification`, `applicability`, `adoption`,
-//! page `status`, and `handling`). Unmapped enum columns in register tables render their
+//! vocabularies mapped in `HANDOFF.md` §7 (`verification`, `applicability`, `adoption`
+//! and `handling`). Unmapped enum columns in register tables render their
 //! escaped canonical text directly and must never pass through a colour or icon guesser.
 
-use fieldbook_core::schema::{Adoption, Applicability, PageStatus, Verification};
+use fieldbook_core::schema::{Adoption, Applicability, Verification};
 
 use crate::links::escape_html;
 
@@ -97,25 +97,6 @@ pub fn render_adoption_chip(adopt: Adoption) -> String {
     let raw = escape_html(adopt.as_str());
     let label = escape_html(adoption_label(adopt));
     format!("<span class=\"chip\" title=\"{raw}\">{label}</span>")
-}
-
-/// Render a [`PageStatus`] `StatusChip` (`HANDOFF.md` §7).
-#[must_use]
-pub fn render_page_status_chip(status: PageStatus) -> String {
-    let raw = escape_html(status.as_str());
-    match status {
-        PageStatus::Draft => format!("<span class=\"chip\" title=\"{raw}\">Draft</span>"),
-        PageStatus::Reviewed => {
-            format!(
-                "<span class=\"chip accent\" title=\"{raw}\">{ICON_CHECK}<span>Reviewed</span></span>"
-            )
-        }
-        PageStatus::Stable => {
-            format!(
-                "<span class=\"chip ok\" title=\"{raw}\">{ICON_CHECK}<span>Stable</span></span>"
-            )
-        }
-    }
 }
 
 /// Render one neutral `<span class="chip">` per handling label id (`HANDOFF.md` §7).

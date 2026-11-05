@@ -3,10 +3,8 @@
     <div class="eyebrow">
       <span class="chip accent">Register</span>
       <span class="chip mono">{{ view.file_name }}</span>
-      {% if view.rows.is_empty() %}
-      <span class="chip mono">None recorded</span>
-      {% else %}
-      <span class="chip mono">{{ view.rows.len() }} rows</span>
+      {% if !view.rows.is_empty() %}
+      <span class="chip mono">{{ view.row_count_label }}</span>
       {% endif %}
     </div>
     <h1>{{ view.title }}</h1>
@@ -14,7 +12,7 @@
   </header>
 
   {% if view.show_claims_filter %}
-  <div class="reg-toolbar" role="region" aria-label="Claims filter">
+  <div class="reg-toolbar" id="claimsFilter" role="region" aria-label="Claims filter" hidden>
     <div class="seg" id="claimsFilterSeg" role="group" aria-label="Filter by verification">
       {% for opt in view.filter_options %}
       <button type="button" data-cf="{{ opt.key }}" aria-pressed="{% if opt.active %}true{% else %}false{% endif %}">{{ opt.label }}</button>
@@ -57,7 +55,6 @@
           <div>Resolved on <span class="mono">{{ on }}</span></div>
           {% endif %}
         {% else %}
-          <div>Unresolved: every position is kept. No winner or average is shown.</div>
           {% if let Some(q_html) = cbox.question_chip_html %}
           <div>Settled by {{ q_html|safe }}</div>
           {% endif %}
@@ -69,15 +66,9 @@
   {% endif %}
 
   {% if view.rows.is_empty() %}
-  <div class="panel empty-state" data-empty-register>
-    <div class="panel-title">None recorded</div>
-    <p class="muted">An empty filter means none are recorded, not that none exist.</p>
-  </div>
-  {% elif view.show_claims_filter %}
-  <div class="panel empty-state" id="registerEmptyFilter" hidden>
-    <div class="panel-title">None recorded</div>
-    <p class="muted">An empty filter means none are recorded, not that none exist.</p>
-  </div>
+  <p class="empty-state muted" data-empty-register>None recorded</p>
+  {% else if view.show_claims_filter %}
+  <p class="empty-state muted" id="registerEmptyFilter" hidden>An empty filter means none are recorded, not that none exist.</p>
   {% endif %}
 
   <div class="table-wrap">
@@ -85,21 +76,19 @@
       <caption>{{ view.caption }}</caption>
       <thead>
         <tr>
-          {% for col in view.columns %}
-          <th scope="col" data-col="{{ col }}"{% if loop.first %} aria-sort="ascending"{% endif %}>
-            <button type="button" class="th-sort" data-sort-col="{{ col }}">{{ col }}</button>
-          </th>
-          {% endfor %}
+          {%- for col in view.columns %}
+          <th scope="col" data-col="{{ col }}"{% if loop.first %} aria-sort="ascending"{% endif %}>{{ col }}</th>
+          {%- endfor %}
         </tr>
       </thead>
       <tbody>
-        {% for row in view.rows %}
+        {%- for row in view.rows %}
         <tr id="{{ row.id }}"{% if let Some(ver) = row.verification_filter %} data-verification="{{ ver }}"{% endif %}>
-          {% for cell in row.cells %}
-          <td data-col="{{ cell.col_name }}" data-sort-val="{{ cell.sort_key }}">{{ cell.html|safe }}</td>
-          {% endfor %}
+          {%- for cell in row.cells -%}
+          <td{% if !cell.sort_key.is_empty() %} data-sort-val="{{ cell.sort_key }}"{% endif %}>{{ cell.html|safe }}</td>
+          {%- endfor -%}
         </tr>
-        {% endfor %}
+        {%- endfor %}
       </tbody>
     </table>
   </div>

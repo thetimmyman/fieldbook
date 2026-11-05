@@ -11,12 +11,10 @@ mod registers {
     use fieldbook_core::check::{Host, Model, Options, Tree, load};
     use fieldbook_core::date::CivilDate;
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
-    use fieldbook_core::ids::{
-        AreaCode, ClaimId, ConflictId, QuestionId, RefId, SourceId, VersionId,
-    };
+    use fieldbook_core::ids::{AreaCode, ClaimId, ConflictId, QuestionId, SourceId, VersionId};
     use fieldbook_core::policy::EffectivePolicy;
     use fieldbook_core::schema::{
-        Adoption, Applicability, ConflictRow, ConflictStatus, PageStatus, Register, Verification,
+        Adoption, Applicability, ConflictRow, ConflictStatus, RefId, Register, Verification,
     };
     use fieldbook_render::ids;
     use fieldbook_render::links::{
@@ -34,10 +32,11 @@ mod registers {
     use fieldbook_render::site::{self, PlannedPaths};
     use fieldbook_render::status_chip::{
         render_adoption_chip, render_applicability_chip, render_handling_chips,
-        render_page_status_chip, render_verification_chip,
+        render_verification_chip,
     };
 
     const APP_CSS: &str = include_str!("../assets/app.css");
+    const APP_JS: &str = include_str!("../assets/app.js");
     const CORPUS_TOML: &str =
         include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
     const ASSISTANT_MD: &str =
@@ -445,9 +444,10 @@ mod registers {
                 "empty `{}` must show `None recorded`",
                 output_path(reg)
             );
-            assert!(
-                html.contains("An empty filter means none are recorded, not that none exist."),
-                "empty `{}` must explain what an empty register means",
+            assert_eq!(
+                html.matches("None recorded").count(),
+                1,
+                "empty `{}` shows exactly one `None recorded` line",
                 output_path(reg)
             );
             assert!(
@@ -644,19 +644,25 @@ mod registers {
         }
         for a in Applicability::ALL {
             let chip = render_applicability_chip(a);
-            assert!(chip.contains("<svg") && chip.contains("<span>"));
+            assert!(
+                chip.starts_with("<span class=\"chip\" title=\"") && !chip.contains("<svg"),
+                "applicability chip for `{a}` is neutral words only: `{chip}`"
+            );
+            assert!(
+                chip.contains(&format!("title=\"{a}\"")),
+                "raw value in title: `{chip}`"
+            );
         }
         for ad in Adoption::ALL {
             let chip = render_adoption_chip(ad);
-            assert!(chip.contains("<svg") && chip.contains("<span>"));
-        }
-        for ps in PageStatus::ALL {
-            let chip = render_page_status_chip(ps);
-            assert!(chip.contains("<svg") && chip.contains("<span>"));
+            assert!(
+                chip.starts_with("<span class=\"chip\" title=\"") && !chip.contains("<svg"),
+                "adoption chip for `{ad}` is neutral words only: `{chip}`"
+            );
         }
         let h_chip = render_handling_chips(&["public".to_owned(), "np-0007".to_owned()]);
-        assert!(h_chip.contains("<svg") && h_chip.contains("<span>public</span>"));
-        assert!(h_chip.contains("<span>np-0007</span>"));
+        assert!(h_chip.contains("<span class=\"chip\">public</span>"));
+        assert!(h_chip.contains("<span class=\"chip\">np-0007</span>"));
     }
 
     #[test]
@@ -696,28 +702,48 @@ mod registers {
 
         // Ensure `pdf_page_box` is also exercised in claims.csv alongside `primary_law` and `primary_evidence` in sources.csv.
         let mut tree_pdf = fixture_tree();
-        let claims_with_pdf = format!(
-            "{CLAIMS_CSV}CL-CMP-0003,cmp,fact,Synthetic PDF box locator claim.,2026-02-01,S-0002,2,pdf_page_box,p.1 box 2,Synthetic quote.,false,codex,unchecked,general_reference,proposed,observed,V2,,,,,,,,,,,,,,,,,Synthetic pdf_page_box test row.\n"
-        );
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let pdf_row = claims_header
+            .split(',')
+            .map(|col| match col {
+                "claim_id" => "CL-CMP-0003",
+                "area" => "cmp",
+                "kind" => "fact",
+                "statement" => "Synthetic PDF box locator claim.",
+                "as_of" => "2026-02-01",
+                "source_id" => "S-0002",
+                "version" => "2",
+                "locator_kind" => "pdf_page_box",
+                "locator" => "p. 1",
+                "consequential" => "false",
+                "drafted_by" => "codex",
+                "verification" => "unchecked",
+                "applicability" => "general_reference",
+                "adoption" => "proposed",
+                "data_origin" => "observed",
+                "volatility" => "V2",
+                "note" => "Synthetic pdf_page_box test row.",
+                _ => "",
+            })
+            .collect::<Vec<_>>()
+            .join(",");
+        let claims_with_pdf =
+            CLAIMS_CSV.replacen("CL-EST-0001", &format!("{pdf_row}\nCL-EST-0001"), 1);
         tree_pdf.insert_bytes("corpus/registers/claims.csv", claims_with_pdf.into_bytes());
         let (_m_pdf, view_pdf) = load_view(tree_pdf);
 
         let sources_html = render_main(Register::Sources, &view_pdf, &planned);
         let claims_html = render_main(Register::Claims, &view_pdf, &planned);
         assert!(
-            sources_html.contains(
-                "<td data-col=\"source_kind\" data-sort-val=\"primary_law\">primary_law</td>"
-            ),
+            sources_html.contains("<td>primary_law</td>"),
             "unmapped enum `primary_law` must render as plain canonical text"
         );
         assert!(
-            sources_html.contains("<td data-col=\"source_role\" data-sort-val=\"primary_evidence\">primary_evidence</td>"),
+            sources_html.contains("<td>primary_evidence</td>"),
             "unmapped enum `primary_evidence` must render as plain canonical text"
         );
         assert!(
-            claims_html.contains(
-                "<td data-col=\"locator_kind\" data-sort-val=\"pdf_page_box\">pdf_page_box</td>"
-            ),
+            claims_html.contains("<td>pdf_page_box</td>"),
             "unmapped enum `pdf_page_box` must render as plain canonical text"
         );
 
@@ -800,8 +826,9 @@ mod registers {
                 for &col_name in cols {
                     let cell = row.cells.iter().find(|c| c.col_name == col_name).unwrap();
                     assert!(
-                        cell.html.contains("class=\"chip") && cell.html.contains("<svg"),
-                        "mapped column `{col_name}` in `{page_name}` row `{}` must render a StatusChip with icon and word: `{}`",
+                        cell.html.contains("class=\"chip")
+                            && (col_name != "verification" || cell.html.contains("<svg")),
+                        "mapped column `{col_name}` in `{page_name}` row `{}` must render its HANDOFF section 7 chip (verification adds an icon): `{}`",
                         row.id,
                         cell.html
                     );
@@ -960,6 +987,41 @@ mod registers {
     }
 
     #[test]
+    fn sort_buttons_are_added_by_script_and_set_aria_sort() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        for reg in Register::ALL {
+            let html = render_main(reg, &view, &planned);
+            assert!(
+                !html.contains("th-sort")
+                    && !html.contains("<button type=\"button\" data-sort-col"),
+                "`{}` ships no sort buttons: the script adds them",
+                output_path(reg)
+            );
+            assert_eq!(
+                html.matches("aria-sort=").count(),
+                1,
+                "`{}` marks only the id column, which the page is sorted by",
+                output_path(reg)
+            );
+        }
+        let claims = render_main(Register::Claims, &view, &planned);
+        assert!(
+            claims.contains("id=\"claimsFilter\"") && claims.contains(" hidden>"),
+            "the claims filter stays hidden until the script reveals it"
+        );
+        for needle in [
+            "className = 'th-sort'",
+            "setAttribute('aria-sort', nextDir)",
+            "removeAttribute('aria-sort')",
+            "setAttribute('aria-hidden', 'true')",
+            "filterBar.hidden = false",
+        ] {
+            assert!(APP_JS.contains(needle), "app.js must contain `{needle}`");
+        }
+    }
+
+    #[test]
     fn headers_have_scope_col_and_never_sticky() {
         let (_model, view) = load_view(fixture_tree());
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
@@ -1044,7 +1106,7 @@ mod registers {
                         cell.col_name
                     );
                     assert!(
-                        !trimmed.ends_with("></span>"),
+                        !trimmed.contains("<span></span>"),
                         "register `{}` row `{}` column `{}` has empty `<span>` in `{trimmed}`",
                         output_path(reg),
                         row.id,
@@ -1056,21 +1118,20 @@ mod registers {
 
         let claims_html = render_main(Register::Claims, &view, &planned);
         for expected_meaning in [
-            "<span class=\"muted\">No source yet (assumption)</span>",
-            "<span class=\"muted\">No source</span>",
-            "<span class=\"muted\">Whole source or assumption</span>",
-            "<span class=\"muted\">Not quoted</span>",
-            "<span class=\"muted\">Still in force</span>",
-            "<span class=\"muted\">Not a clause claim</span>",
-            "<span class=\"muted\">No deviation or RFO text</span>",
+            "<span class=\"muted\">An assumption has no source</span>",
+            "<span class=\"muted\">No fine locator</span>",
+            "<span class=\"muted\">No quote</span>",
+            "<span class=\"muted\">Still in force at as_of</span>",
+            "<span class=\"muted\">Not a regulatory claim</span>",
+            "<span class=\"muted\">Not required for this instrument</span>",
             "<span class=\"muted\">Not scoped</span>",
-            "<span class=\"muted\">Not a calculation input</span>",
+            "<span class=\"muted\">The claim is not an input to a calculation</span>",
             "<span class=\"muted unver\">Never verified</span>",
-            "<span class=\"muted\">Never verified</span>",
-            "<span class=\"muted\">First claim</span>",
-            "<span class=\"muted\">Current</span>",
-            "<span class=\"muted\">No conflict</span>",
-            "<span class=\"muted\">Does not wait on a question</span>",
+            "<span class=\"muted\">Not checked</span>",
+            "<span class=\"muted\">Replaces nothing</span>",
+            "<span class=\"muted\">Not replaced</span>",
+            "<span class=\"muted\">In no conflict</span>",
+            "<span class=\"muted\">No question</span>",
         ] {
             assert!(
                 claims_html.contains(expected_meaning),
@@ -1080,9 +1141,9 @@ mod registers {
 
         let sources_html = render_main(Register::Sources, &view, &planned);
         for expected_meaning in [
-            "<span class=\"muted\">First version</span>",
-            "<span class=\"muted\">Added by hand</span>",
-            "<span class=\"muted\">Single document</span>",
+            "<span class=\"muted\">Replaces nothing</span>",
+            "<span class=\"muted\">Added by hand, or not from a company system</span>",
+            "<span class=\"muted\">Not part of a series</span>",
         ] {
             assert!(
                 sources_html.contains(expected_meaning),
@@ -1098,8 +1159,8 @@ mod registers {
 
         let glossary_html = render_main(Register::Glossary, &view, &planned);
         assert!(
-            glossary_html.contains("<span class=\"muted\">Current</span>"),
-            "glossary.html must render empty-cell meaning `Current` for `superseded_by`"
+            glossary_html.contains("<span class=\"muted\">Not replaced</span>"),
+            "glossary.html must render empty-cell meaning `Not replaced` for `superseded_by`"
         );
     }
 

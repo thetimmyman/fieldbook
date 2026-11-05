@@ -24,12 +24,9 @@
       <p class="muted">None recorded</p>
       {% else %}
       <ul class="id-list">
-        {% for item in group.items %}
-        <li class="id-row" data-id="{{ item.id }}">
-          <span class="id-chip">{{ item.chip_html|safe }}</span>
-          <span class="id-label">{{ item.label }}</span>
-        </li>
-        {% endfor %}
+        {%- for item in group.items %}
+        <li class="id-row" data-id="{{ item.id }}"><span class="id-chip">{{ item.chip_html|safe }}</span> <span class="id-label">{{ item.label }}</span></li>
+        {%- endfor %}
       </ul>
       {% endif %}
     </section>

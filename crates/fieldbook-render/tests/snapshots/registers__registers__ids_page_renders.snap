@@ -1,0 +1,500 @@
+---
+source: crates/fieldbook-render/tests/registers.rs
+expression: html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>All IDs</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/strings.js" defer></script>
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app" data-route="ids.html" data-section="library" data-item="browse">
+<aside class="sidebar" id="sidebar" aria-label="Navigation">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">F</div>
+    <div class="brand-text">
+      <div class="brand-title">Fieldbook</div>
+      <div class="brand-sub">Finance role workbench</div>
+    </div>
+    <button class="btn ghost icon-btn sidebar-close" id="sidebarCloseBtn" type="button" aria-label="Close navigation">&times;</button>
+  </div>
+  <div class="sec-switch" id="secSwitch" role="group" aria-label="Sections">
+    
+    <button type="button" data-secpick="today" aria-pressed="false">
+      <span>Today</span>
+    </button>
+    
+    <button type="button" data-secpick="assistant" aria-pressed="false">
+      <span>Assistant</span>
+    </button>
+    
+    <button type="button" data-secpick="work" aria-pressed="false">
+      <span>Work</span>
+    </button>
+    
+    <button type="button" data-secpick="plan" aria-pressed="false">
+      <span>Plan</span>
+    </button>
+    
+    <button type="button" data-secpick="areas" aria-pressed="false">
+      <span>Areas</span>
+    </button>
+    
+    <button type="button" data-secpick="library" aria-pressed="true">
+      <span>Library</span>
+    </button>
+    
+  </div>
+  
+  <div class="nav-group" data-sec="today" hidden>
+    <div class="nav-head">Today</div>
+    <nav class="nav" aria-label="Today">
+      
+      
+      
+      <span class="not-available" data-item="today">
+        <span>Today is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="map">
+        <span>The app map is not available until Day 30.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="assistant" hidden>
+    <div class="nav-head">Assistant</div>
+    <nav class="nav" aria-label="Assistant">
+      
+      
+      
+      <span class="not-available" data-item="assistant">
+        <span>The assistant is not available until Day 30.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="handoff">
+        <span>Handoff packs is not available until Day 30.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="work" hidden>
+    <div class="nav-head">Work</div>
+    <nav class="nav" aria-label="Work">
+      
+      
+      
+      <span class="not-available" data-item="bids">
+        <span>Bids is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="programs">
+        <span>Programs is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="close">
+        <span>Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="rates">
+        <span>Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="suppliers">
+        <span>Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="compliance">
+        <span>Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="mna">
+        <span>M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="actions">
+        <span>Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="plan" hidden>
+    <div class="nav-head">90-day plan</div>
+    <nav class="nav" aria-label="90-day plan">
+      
+      
+      
+      <span class="not-available" data-item="plan-90">
+        <span>The 90-day plan is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="curriculum">
+        <span>The curriculum is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="stakeholders">
+        <span>Stakeholders is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="systems">
+        <span>Systems is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="artifacts">
+        <span>The artifact log is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="areas" hidden>
+    <div class="nav-head">Areas</div>
+    <nav class="nav" aria-label="Areas">
+      
+      
+      
+      <span class="not-available" data-item="areas">
+        <span>Areas is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="area-cmp">
+        <span><span class="code">CMP</span>Compliance is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="area-est">
+        <span><span class="code">EST</span>Estimating is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      <div class="nav-sub">Views over EST</div>
+      
+      
+      <span class="not-available" data-item="view-prc">
+        <span><span class="code">PRC</span>Pricing is not available until Day 30.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="library">
+    <div class="nav-head">Library</div>
+    <nav class="nav" aria-label="Library">
+      
+      
+      
+      <span class="not-available" data-item="browse" aria-current="page">
+        <span>The library is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="templates">
+        <span>The day-one binder is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <a href="claims.html" data-item="claims">
+        <span>Claims</span>
+        <span class="count">5</span>
+      </a>
+      
+      
+      
+      
+      <a href="questions.html" data-item="questions">
+        <span>Questions</span>
+        <span class="count">2</span>
+      </a>
+      
+      
+      
+      
+      <a href="conflicts.html" data-item="conflicts">
+        <span>Conflicts</span>
+        <span class="count">1</span>
+      </a>
+      
+      
+      
+      
+      <a href="glossary.html" data-item="glossary">
+        <span>Glossary</span>
+        <span class="count">4</span>
+      </a>
+      
+      
+      
+      
+      <a href="sources.html" data-item="sources">
+        <span>Sources</span>
+        <span class="count">4</span>
+      </a>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="side-foot">
+    <div class="build-note" id="sideFootNote">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span><b>Public data only.</b> Company data is not connected.</span>
+    </div>
+    <div class="byline">
+      <span>A personal working tool. Not an official company product.</span>
+    </div>
+  </div>
+</aside>
+<div class="shell">
+<header class="topbar">
+  <button class="btn ghost icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+    <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <nav aria-label="Sections">
+    
+    
+    <span class="not-available" data-sec="today" title="Today is not available until Day 1.">Today <span class="sr-only">Today is not available until Day 1.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="assistant" title="The assistant is not available until Day 30.">Assistant <span class="sr-only">The assistant is not available until Day 30.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="work" title="Bids is not available until the ORG overlay, Release 2 or later.">Work <span class="sr-only">Bids is not available until the ORG overlay, Release 2 or later.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="plan" title="The 90-day plan is not available until Day 1.">Plan <span class="sr-only">The 90-day plan is not available until Day 1.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="areas" title="Areas is not available until Day 1.">Areas <span class="sr-only">Areas is not available until Day 1.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="library" aria-current="true" title="The library is not available until Day 1.">Library <span class="sr-only">The library is not available until Day 1.</span></span>
+    
+    
+  </nav>
+  <div class="topbar-end">
+    <span class="chip">unreleased build</span>
+    <span class="build-chip" id="frameChip" title="This build reads the public library only. Company data is not connected.">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span>Public data only</span>
+    </span>
+    <button class="btn ghost icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme" aria-pressed="false" title="Switch theme">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2v1.6M8 12.2v1.6M2.2 8h1.6M12.2 8h1.6M3.9 3.9l1.1 1.1M11 11l1.1 1.1M12.1 3.9L11 5M5 11l-1.1 1.1"/><circle cx="8" cy="8" r="2.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="crumbs" id="crumbs" aria-label="Breadcrumb">
+  
+  
+  
+  <span aria-current="page">Library</span>
+  
+  
+  <span class="sep" aria-hidden="true">/</span>
+  
+  <span aria-current="page">All IDs</span>
+  
+  
+</nav>
+
+<div class="banners" id="banners">
+
+</div>
+<main id="main" tabindex="-1"><div class="ids-view">
+  <header class="page-head">
+    <div class="eyebrow">
+      <span class="chip accent">Library</span>
+      <span class="chip mono">ids.html</span>
+      
+      <span class="chip mono">28 IDs</span>
+      
+    </div>
+    <h1>All IDs</h1>
+    <p class="muted">Every permitted page, source, version, claim, question, conflict, and glossary term identifier in this edition.</p>
+  </header>
+
+  <div class="id-groups">
+    
+    <section class="panel id-group" id="ids-pages" data-id-kind="pages">
+      <div class="panel-head">
+        <h2 class="panel-title">Pages</h2>
+        <span class="panel-sub mono">9</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="cmp-clause-9900-101"><span class="id-chip"><a class="cite neutral" href="p/cmp-clause-9900-101.html">cmp-clause-9900-101</a></span> <span class="id-label">Synthetic clause card for 48 CFR 9900.101 compliance review</span></li>
+        <li class="id-row" data-id="cmp-onboarding-checklist"><span class="id-chip"><a class="cite neutral" href="p/cmp-onboarding-checklist.html">cmp-onboarding-checklist</a></span> <span class="id-label">Synthetic compliance onboarding checklist across two windows</span></li>
+        <li class="id-row" data-id="cmp-review-steps"><span class="id-chip"><a class="cite neutral" href="p/cmp-review-steps.html">cmp-review-steps</a></span> <span class="id-label">Synthetic procedure for running a business-system review</span></li>
+        <li class="id-row" data-id="cmp-system-review"><span class="id-chip"><a class="cite neutral" href="p/cmp-system-review.html">cmp-system-review</a></span> <span class="id-label">Synthetic business-system review and withholding overview</span></li>
+        <li class="id-row" data-id="cmp-withhold-case"><span class="id-chip"><a class="cite neutral" href="p/cmp-withhold-case.html">cmp-withhold-case</a></span> <span class="id-label">Synthetic case study on business-system review and billing withhold</span></li>
+        <li class="id-row" data-id="est-baseline-template"><span class="id-chip"><a class="cite neutral" href="p/est-baseline-template.html">est-baseline-template</a></span> <span class="id-label">Synthetic fill-in template for a cost baseline update note</span></li>
+        <li class="id-row" data-id="est-calc-01"><span class="id-chip"><a class="cite neutral" href="p/est-calc-01.html">est-calc-01</a></span> <span class="id-label">Synthetic landed cost and overhead build-up calculation</span></li>
+        <li class="id-row" data-id="est-rate-reference"><span class="id-chip"><a class="cite neutral" href="p/est-rate-reference.html">est-rate-reference</a></span> <span class="id-label">Synthetic reference table of pricing rate windows and placeholders</span></li>
+        <li class="id-row" data-id="est-rate-window-brief"><span class="id-chip"><a class="cite neutral" href="p/est-rate-window-brief.html">est-rate-window-brief</a></span> <span class="id-label">Synthetic decision brief on forward pricing rate review window</span></li>
+      </ul>
+      
+    </section>
+    
+    <section class="panel id-group" id="ids-sources" data-id-kind="sources">
+      <div class="panel-head">
+        <h2 class="panel-title">Sources</h2>
+        <span class="panel-sub mono">3</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="S-0001"><span class="id-chip"><a class="cite neutral" href="sources.html#S-0001-v1">S-0001</a></span> <span class="id-label">Synthetic Cost Rule, made up for tests</span></li>
+        <li class="id-row" data-id="S-0002"><span class="id-chip"><a class="cite neutral" href="sources.html#S-0002-v1">S-0002</a></span> <span class="id-label">Synthetic Pricing Guide v1, made up for tests</span></li>
+        <li class="id-row" data-id="S-0003"><span class="id-chip"><a class="cite neutral" href="sources.html#S-0003-v1">S-0003</a></span> <span class="id-label">Synthetic Trade Press Bulletin, invented fixture text for tests</span></li>
+      </ul>
+      
+    </section>
+    
+    <section class="panel id-group" id="ids-versions" data-id-kind="versions">
+      <div class="panel-head">
+        <h2 class="panel-title">Source versions</h2>
+        <span class="panel-sub mono">4</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="S-0001-v1"><span class="id-chip"><a class="cite meta-only" href="sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="meta-only-tag">Metadata only</span></a></span> <span class="id-label">Synthetic Cost Rule, made up for tests</span></li>
+        <li class="id-row" data-id="S-0002-v1"><span class="id-chip"><a class="cite meta-only" href="sources.html#S-0002-v1" data-pv="src:S-0002-v1" data-pv-title="Synthetic Pricing Guide v1, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v1</span> <span class="meta-only-tag">Metadata only</span></a></span> <span class="id-label">Synthetic Pricing Guide v1, made up for tests</span></li>
+        <li class="id-row" data-id="S-0002-v2"><span class="id-chip"><a class="cite" href="sources.html#S-0002-v2" data-pv="src:S-0002-v2" data-pv-title="Synthetic Pricing Guide v2, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v2</span></a></span> <span class="id-label">Synthetic Pricing Guide v2, made up for tests</span></li>
+        <li class="id-row" data-id="S-0003-v1"><span class="id-chip"><a class="cite meta-only" href="sources.html#S-0003-v1" data-pv="src:S-0003-v1" data-pv-title="Synthetic Trade Press Bulletin, invented fixture text for tests" data-pv-body="Synthetic Trade Press"><span>S-0003-v1</span> <span class="meta-only-tag">Metadata only</span></a></span> <span class="id-label">Synthetic Trade Press Bulletin, invented fixture text for tests</span></li>
+      </ul>
+      
+    </section>
+    
+    <section class="panel id-group" id="ids-claims" data-id-kind="claims">
+      <div class="panel-head">
+        <h2 class="panel-title">Claims</h2>
+        <span class="panel-sub mono">5</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="CL-CMP-0001"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-CMP-0001" data-claim="CL-CMP-0001">CL-CMP-0001</a></span> <span class="id-label">Synthetic compliance reviews occur every 30 days under the synthetic rule.</span></li>
+        <li class="id-row" data-id="CL-CMP-0002"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-CMP-0002" data-claim="CL-CMP-0002">CL-CMP-0002</a></span> <span class="id-label">Synthetic withholding threshold is 5 percent of billed amounts.</span></li>
+        <li class="id-row" data-id="CL-EST-0001"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-EST-0001" data-claim="CL-EST-0001">CL-EST-0001</a></span> <span class="id-label">Synthetic escalation placeholder is 3 percent per year for fixture examples.</span></li>
+        <li class="id-row" data-id="CL-EST-0002"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-EST-0002" data-claim="CL-EST-0002">CL-EST-0002</a></span> <span class="id-label">Synthetic rate review window was 15 days under prior guidance.</span></li>
+        <li class="id-row" data-id="CL-EST-0003"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-EST-0003" data-claim="CL-EST-0003">CL-EST-0003</a></span> <span class="id-label">Synthetic rate review window is 10 days under current guidance.</span></li>
+      </ul>
+      
+    </section>
+    
+    <section class="panel id-group" id="ids-questions" data-id-kind="questions">
+      <div class="panel-head">
+        <h2 class="panel-title">Questions</h2>
+        <span class="panel-sub mono">2</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="Q-001"><span class="id-chip"><a class="cite neutral" href="questions.html#Q-001" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</a></span> <span class="id-label">Which synthetic business-system control owner approves the monthly compliance review?</span></li>
+        <li class="id-row" data-id="Q-002"><span class="id-chip"><a class="cite neutral" href="questions.html#Q-002" data-pv="q:Q-002" data-pv-title="Q-002" data-pv-body="Which synthetic escalation index applies to multi-year pricing workbooks?">Q-002</a></span> <span class="id-label">Which synthetic escalation index applies to multi-year pricing workbooks?</span></li>
+      </ul>
+      
+    </section>
+    
+    <section class="panel id-group" id="ids-conflicts" data-id-kind="conflicts">
+      <div class="panel-head">
+        <h2 class="panel-title">Conflicts</h2>
+        <span class="panel-sub mono">1</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="XC-01"><span class="id-chip"><a class="cite neutral" href="conflicts.html#XC-01" data-pv="xc:XC-01" data-pv-title="XC-01" data-pv-body="Synthetic review interval versus withholding check timing">XC-01</a></span> <span class="id-label">Synthetic review interval versus withholding check timing</span></li>
+      </ul>
+      
+    </section>
+    
+    <section class="panel id-group" id="ids-terms" data-id-kind="terms">
+      <div class="panel-head">
+        <h2 class="panel-title">Glossary terms</h2>
+        <span class="panel-sub mono">4</span>
+      </div>
+      
+      <ul class="id-list">
+        <li class="id-row" data-id="billing_withhold"><span class="id-chip"><a class="cite neutral" href="glossary.html#billing_withhold">billing_withhold</a></span> <span class="id-label">billing withhold</span></li>
+        <li class="id-row" data-id="cost_baseline"><span class="id-chip"><a class="cite neutral" href="glossary.html#cost_baseline">cost_baseline</a></span> <span class="id-label">cost baseline</span></li>
+        <li class="id-row" data-id="rate_window"><span class="id-chip"><a class="cite neutral" href="glossary.html#rate_window">rate_window</a></span> <span class="id-label">rate window</span></li>
+        <li class="id-row" data-id="system_review"><span class="id-chip"><a class="cite neutral" href="glossary.html#system_review">system_review</a></span> <span class="id-label">system review</span></li>
+      </ul>
+      
+    </section>
+    
+  </div>
+</div></main>
+</div>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="sr" aria-live="polite"></div>
+</body>
+</html>

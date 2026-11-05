@@ -6,9 +6,9 @@
 
 use askama::Template;
 use fieldbook_core::egress::LabelledView;
-use fieldbook_core::ids::{AreaCode, ClaimId, RefId, VersionId};
+use fieldbook_core::ids::{AreaCode, ClaimId, VersionId};
 use fieldbook_core::schema::{
-    ClaimRow, ClaimUnit, ConflictRow, ConflictStatus, GlossaryRow, QuestionRow, Register,
+    ClaimRow, ClaimUnit, ConflictRow, ConflictStatus, GlossaryRow, QuestionRow, RefId, Register,
     SourceRow, Verification,
 };
 use fieldbook_core::strings;
@@ -35,7 +35,8 @@ pub const QUESTIONS_CORPUS_COLS: usize = 10;
 pub struct RegisterCellView {
     /// Canonical column name (`claim_id`, `verification`, etc.).
     pub col_name: &'static str,
-    /// Plain sort key used by client-side table sorting in `app.js`.
+    /// Sort key for client-side sorting in `app.js`; empty when the cell's own text sorts it,
+    /// which keeps the delivered page small.
     pub sort_key: String,
     /// Pre-escaped / pre-rendered cell inner HTML.
     pub html: String,
@@ -119,6 +120,8 @@ pub struct RegisterView {
     pub filter_options: Vec<FilterOptionView>,
     /// Register-variant `ConflictBox` cards for `conflicts.html`.
     pub conflict_boxes: Vec<RegisterConflictBoxView>,
+    /// Row count shown in the page header (`"1 row"`, `"12 rows"`); unused when `rows` is empty.
+    pub row_count_label: String,
     /// Sorted table rows.
     pub rows: Vec<RegisterRowView>,
 }
@@ -177,7 +180,7 @@ const fn register_subtitle(reg: Register) -> &'static str {
             "Open and answered company questions, who owns them, and which pages or claims wait on them."
         }
         Register::Conflicts => {
-            "Where sources or reports disagree. Unresolved conflicts keep every position and name the settling question without showing a winner or average."
+            "Where sources or reports disagree. Unresolved conflicts keep every position and name the settling question."
         }
         Register::Glossary => {
             "Canonical domain terms, definitions, external source references, aliases, and supersession."
@@ -220,7 +223,7 @@ fn empty_cell(col_name: &'static str, empty_means: &str) -> RegisterCellView {
 fn text_cell(col_name: &'static str, text: &str) -> RegisterCellView {
     RegisterCellView {
         col_name,
-        sort_key: text.to_owned(),
+        sort_key: String::new(),
         html: escape_html(text),
     }
 }
@@ -228,7 +231,7 @@ fn text_cell(col_name: &'static str, text: &str) -> RegisterCellView {
 fn mono_cell(col_name: &'static str, text: &str) -> RegisterCellView {
     RegisterCellView {
         col_name,
-        sort_key: text.to_owned(),
+        sort_key: String::new(),
         html: format!("<span class=\"mono\">{}</span>", escape_html(text)),
     }
 }
@@ -289,7 +292,7 @@ fn build_source_row_view(
         .unwrap_or_else(|e| unreachable!("valid SourceRow produces valid VersionId: {e}"));
 
     let supersedes_cell = if row.supersedes.is_empty() {
-        empty_cell(cols[18].name, "First version")
+        empty_cell(cols[18].name, "Replaces nothing")
     } else {
         let sort_key = row
             .supersedes
@@ -331,7 +334,7 @@ fn build_source_row_view(
             html: render_version_chip(from_path, &vid, Some(row), planned),
         },
         // 2: tag
-        opt_text_cell(cols[2].name, row.tag.as_deref(), "No short name"),
+        opt_text_cell(cols[2].name, row.tag.as_deref(), "No label"),
         // 3: title
         text_cell(cols[3].name, &row.title),
         // 4: publisher
@@ -344,12 +347,16 @@ fn build_source_row_view(
         opt_text_cell(
             cols[7].name,
             row.authority_tier.map(|v| v.as_str()),
-            "Fixture or company record",
+            "A synthetic fixture or a company kind has no tier",
         ),
         // 8: licence
         text_cell(cols[8].name, &row.licence),
         // 9: source_family
-        opt_text_cell(cols[9].name, row.source_family.as_deref(), "Not grouped"),
+        opt_text_cell(
+            cols[9].name,
+            row.source_family.as_deref(),
+            "Unknown. A blank family never means independent",
+        ),
         // 10: family_basis (unmapped enum -> canonical text)
         opt_text_cell(
             cols[10].name,
@@ -364,13 +371,13 @@ fn build_source_row_view(
         opt_mono_cell(
             cols[13].name,
             row.published.as_ref().map(ToString::to_string),
-            "Not stated on the document",
+            "The document prints no date",
         ),
         // 14: effective_from
         opt_mono_cell(
             cols[14].name,
             row.effective_from.as_ref().map(ToString::to_string),
-            "Same as published, or not dated",
+            "Not stated, or not applicable",
         ),
         // 15: as_of
         mono_cell(cols[15].name, &row.as_of.to_string()),
@@ -391,17 +398,29 @@ fn build_source_row_view(
         // 21: note
         opt_text_cell(cols[21].name, row.note.as_deref(), "None"),
         // 22: purpose
-        opt_text_cell(cols[22].name, row.purpose.as_deref(), "Not stated"),
+        opt_text_cell(cols[22].name, row.purpose.as_deref(), "Unassigned"),
         // 23: origin_system
-        opt_text_cell(cols[23].name, row.origin_system.as_deref(), "Added by hand"),
+        opt_text_cell(
+            cols[23].name,
+            row.origin_system.as_deref(),
+            "Added by hand, or not from a company system",
+        ),
         // 24: origin_stream
-        opt_text_cell(cols[24].name, row.origin_stream.as_deref(), "Added by hand"),
+        opt_text_cell(
+            cols[24].name,
+            row.origin_stream.as_deref(),
+            "Added by hand, or not from a company system",
+        ),
         // 25: origin_key
-        opt_text_cell(cols[25].name, row.origin_key.as_deref(), "Added by hand"),
+        opt_text_cell(
+            cols[25].name,
+            row.origin_key.as_deref(),
+            "Added by hand, or not from a company system",
+        ),
         // 26: doc_kind
-        opt_text_cell(cols[26].name, row.doc_kind.as_deref(), "Public source"),
+        opt_text_cell(cols[26].name, row.doc_kind.as_deref(), "Not yet classified"),
         // 27: series
-        opt_text_cell(cols[27].name, row.series.as_deref(), "Single document"),
+        opt_text_cell(cols[27].name, row.series.as_deref(), "Not part of a series"),
     ];
 
     RegisterRowView {
@@ -435,7 +454,7 @@ fn build_claim_row_view(
             }
         }
         (None, Some(ver_num)) => mono_cell(cols[6].name, &ver_num.to_string()),
-        (_, None) => empty_cell(cols[6].name, "No source"),
+        (_, None) => empty_cell(cols[6].name, "An assumption has no source"),
     };
 
     let verified_on_cell = match row.verified_on {
@@ -448,7 +467,7 @@ fn build_claim_row_view(
     };
 
     let supersedes_cell = if row.supersedes.is_empty() {
-        empty_cell(cols[30].name, "First claim")
+        empty_cell(cols[30].name, "Replaces nothing")
     } else {
         let sort_key = row
             .supersedes
@@ -470,7 +489,7 @@ fn build_claim_row_view(
     };
 
     let superseded_by_cell = if row.superseded_by.is_empty() {
-        empty_cell(cols[31].name, "Current")
+        empty_cell(cols[31].name, "Not replaced")
     } else {
         let sort_key = row
             .superseded_by
@@ -512,7 +531,7 @@ fn build_claim_row_view(
         opt_mono_cell(
             cols[4].name,
             row.as_of.as_ref().map(ToString::to_string),
-            "Placeholder assumption",
+            "Unknown only when stale with the date unknown",
         ),
         // 5: source_id
         match &row.source_id {
@@ -521,24 +540,23 @@ fn build_claim_row_view(
                 sort_key: sid.as_str().to_owned(),
                 html: render_source_id_chip(from_path, sid, view, planned),
             },
-            None => empty_cell(cols[5].name, "No source yet (assumption)"),
+            None => empty_cell(cols[5].name, "An assumption has no source"),
         },
         // 6: version
         version_cell,
         // 7: locator_kind (unmapped enum -> canonical text)
         opt_text_cell(
             cols[7].name,
-            row.locator_kind.map(|v| v.as_str()),
-            "No source",
+            row.locator_kind
+                .as_ref()
+                .map(ToString::to_string)
+                .as_deref(),
+            "An assumption has no source",
         ),
         // 8: locator
-        opt_text_cell(
-            cols[8].name,
-            row.locator.as_deref(),
-            "Whole source or assumption",
-        ),
+        opt_text_cell(cols[8].name, row.locator.as_deref(), "No fine locator"),
         // 9: quote
-        opt_text_cell(cols[9].name, row.quote.as_deref(), "Not quoted"),
+        opt_text_cell(cols[9].name, row.quote.as_deref(), "No quote"),
         // 10: consequential
         text_cell(
             cols[10].name,
@@ -569,7 +587,11 @@ fn build_claim_row_view(
         // 16: volatility (unmapped enum -> canonical text)
         text_cell(cols[16].name, row.volatility.as_str()),
         // 17: value
-        opt_mono_cell(cols[17].name, row.value.clone(), "Prose claim"),
+        opt_mono_cell(
+            cols[17].name,
+            row.value.clone(),
+            "The claim states no number",
+        ),
         // 18: unit (unmapped enum -> canonical text)
         opt_text_cell(
             cols[18].name,
@@ -580,43 +602,43 @@ fn build_claim_row_view(
         opt_mono_cell(
             cols[19].name,
             row.effective_from.as_ref().map(ToString::to_string),
-            "Not dated",
+            "Not stated",
         ),
         // 20: effective_to
         opt_mono_cell(
             cols[20].name,
             row.effective_to.as_ref().map(ToString::to_string),
-            "Still in force",
+            "Still in force at as_of",
         ),
         // 21: instrument (unmapped enum -> canonical text)
         opt_text_cell(
             cols[21].name,
             row.instrument.map(|v| v.as_str()),
-            "Not a clause claim",
+            "Not a regulatory claim",
         ),
         // 22: citation_codified
         opt_text_cell(
             cols[22].name,
             row.citation_codified.as_deref(),
-            "No codified text",
+            "Not required for this instrument",
         ),
         // 23: citation_rfo
         opt_text_cell(
             cols[23].name,
             row.citation_rfo.as_deref(),
-            "No deviation or RFO text",
+            "Not required for this instrument",
         ),
         // 24: edition_date
         opt_mono_cell(
             cols[24].name,
             row.edition_date.as_ref().map(ToString::to_string),
-            "Not a clause claim",
+            "None printed",
         ),
         // 25: text_status (unmapped enum -> canonical text)
         opt_text_cell(
             cols[25].name,
             row.text_status.map(|v| v.as_str()),
-            "Not a clause claim",
+            "Not regulatory",
         ),
         // 26: applies_to
         opt_text_cell(cols[26].name, row.applies_to.as_deref(), "Not scoped"),
@@ -624,7 +646,7 @@ fn build_claim_row_view(
         opt_text_cell(
             cols[27].name,
             row.evidence_grade.map(|v| v.as_str()),
-            "Not a calculation input",
+            "The claim is not an input to a calculation",
         ),
         // 28: verified_on
         verified_on_cell,
@@ -632,7 +654,7 @@ fn build_claim_row_view(
         opt_text_cell(
             cols[29].name,
             row.verified_by_role.map(|v| v.as_str()),
-            "Never verified",
+            "Not checked",
         ),
         // 30: supersedes
         supersedes_cell,
@@ -650,7 +672,7 @@ fn build_claim_row_view(
                     planned,
                 ),
             },
-            None => empty_cell(cols[32].name, "No conflict"),
+            None => empty_cell(cols[32].name, "In no conflict"),
         },
         // 33: question_id
         match &row.question_id {
@@ -664,7 +686,7 @@ fn build_claim_row_view(
                     planned,
                 ),
             },
-            None => empty_cell(cols[33].name, "Does not wait on a question"),
+            None => empty_cell(cols[33].name, "No question"),
         },
         // 34: note
         opt_text_cell(cols[34].name, row.note.as_deref(), "None"),
@@ -701,9 +723,9 @@ fn build_question_row_view(
         // 2: question
         text_cell(cols[2].name, &row.question),
         // 3: owner_role
-        opt_text_cell(cols[3].name, row.owner_role.as_deref(), "Not yet assigned"),
+        opt_text_cell(cols[3].name, row.owner_role.as_deref(), "Not yet named"),
         // 4: blocks
-        opt_text_cell(cols[4].name, row.blocks.as_deref(), "Not yet scoped"),
+        opt_text_cell(cols[4].name, row.blocks.as_deref(), "Not yet written"),
         // 5: why_it_matters
         opt_text_cell(
             cols[5].name,
@@ -714,13 +736,13 @@ fn build_question_row_view(
         opt_text_cell(
             cols[6].name,
             row.default_assumption.as_deref(),
-            "None: work waits",
+            "Not yet written",
         ),
         // 7: work_can_continue (unmapped enum -> canonical text)
         opt_text_cell(
             cols[7].name,
             row.work_can_continue.map(|v| v.as_str()),
-            "Not yet triaged",
+            "Not yet decided",
         ),
         // 8: day_one
         text_cell(cols[8].name, if row.day_one { "true" } else { "false" }),
@@ -913,7 +935,7 @@ fn build_conflict_row_view(
                     planned,
                 ),
             },
-            None => empty_cell(cols[10].name, "Resolved, or not yet tied"),
+            None => empty_cell(cols[10].name, "Resolved"),
         },
     ];
 
@@ -933,7 +955,7 @@ fn build_glossary_row_view(
     let cols = Register::Glossary.columns();
 
     let source_ref_cell = if row.source_ref.is_empty() {
-        empty_cell(cols[5].name, "No external source")
+        empty_cell(cols[5].name, "No source row")
     } else {
         let sort_key = row
             .source_ref
@@ -949,7 +971,7 @@ fn build_glossary_row_view(
     };
 
     let aliases_cell = if row.aliases.is_empty() {
-        empty_cell(cols[7].name, "No aliases")
+        empty_cell(cols[7].name, "None")
     } else {
         text_cell(cols[7].name, &row.aliases.join("; "))
     };
@@ -991,7 +1013,7 @@ fn build_glossary_row_view(
                 sort_key: tid.as_str().to_owned(),
                 html: render_term_chip(from_path, tid, planned),
             },
-            None => empty_cell(cols[8].name, "Current"),
+            None => empty_cell(cols[8].name, "Not replaced"),
         },
     ];
 
@@ -1054,7 +1076,7 @@ pub fn build_register_view(
     };
 
     let mut conflict_boxes = Vec::new();
-    let rows = match reg {
+    let rows: Vec<RegisterRowView> = match reg {
         Register::Sources => {
             let mut sorted: Vec<&SourceRow> = view.sources().iter().map(|l| &l.value).collect();
             sorted.sort_by(|a, b| {
@@ -1124,6 +1146,10 @@ pub fn build_register_view(
         show_claims_filter,
         filter_options,
         conflict_boxes,
+        row_count_label: match rows.len() {
+            1 => "1 row".to_owned(),
+            n => format!("{n} rows"),
+        },
         rows,
     }
 }

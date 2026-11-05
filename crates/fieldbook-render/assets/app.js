@@ -462,54 +462,90 @@
 
   function initRegister() {
     const regTable = document.getElementById('registerTable');
-    if (regTable) {
-      const thead = regTable.querySelector('thead');
-      const tbody = regTable.querySelector('tbody');
-      if (thead && tbody) {
-        thead.addEventListener('click', function (ev) {
-          const btn =
-            ev.target && typeof ev.target.closest === 'function'
-              ? ev.target.closest('[data-sort-col]')
-              : null;
-          if (!btn) {
-            return;
-          }
-          const colName = btn.getAttribute('data-sort-col');
-          const th = btn.closest('th');
-          if (!colName || !th) {
-            return;
-          }
-          const currentSort = th.getAttribute('aria-sort');
-          const nextDir = currentSort === 'ascending' ? 'descending' : 'ascending';
-          const headers = thead.querySelectorAll('th[scope="col"]');
-          for (let i = 0; i < headers.length; i += 1) {
-            headers[i].removeAttribute('aria-sort');
-          }
-          th.setAttribute('aria-sort', nextDir);
-
-          const rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
-          const sign = nextDir === 'ascending' ? 1 : -1;
-          rows.sort(function (a, b) {
-            const cellA = a.querySelector('td[data-col="' + colName + '"]');
-            const cellB = b.querySelector('td[data-col="' + colName + '"]');
-            const valA = cellA ? cellA.getAttribute('data-sort-val') || '' : '';
-            const valB = cellB ? cellB.getAttribute('data-sort-val') || '' : '';
-            if (valA !== valB) {
-              return (valA < valB ? -1 : 1) * sign;
-            }
-            const idA = a.id || '';
-            const idB = b.id || '';
-            return (idA < idB ? -1 : idA > idB ? 1 : 0) * sign;
-          });
-          for (let i = 0; i < rows.length; i += 1) {
-            tbody.appendChild(rows[i]);
-          }
-        });
+    const thead = regTable ? regTable.querySelector('thead') : null;
+    const tbody = regTable ? regTable.querySelector('tbody') : null;
+    if (regTable && thead && tbody) {
+      const headers = thead.querySelectorAll('th[scope="col"]');
+      for (let i = 0; i < headers.length; i += 1) {
+        const th = headers[i];
+        const colName = th.getAttribute('data-col');
+        if (!colName || th.querySelector('[data-sort-col]')) {
+          continue;
+        }
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'th-sort';
+        btn.setAttribute('data-sort-col', colName);
+        btn.appendChild(document.createTextNode(colName));
+        const arrow = document.createElement('span');
+        arrow.className = 'sort-arrow';
+        arrow.setAttribute('aria-hidden', 'true');
+        btn.appendChild(arrow);
+        th.textContent = '';
+        th.appendChild(btn);
       }
+      thead.addEventListener('click', function (ev) {
+        const btn =
+          ev.target && typeof ev.target.closest === 'function'
+            ? ev.target.closest('[data-sort-col]')
+            : null;
+        if (!btn) {
+          return;
+        }
+        const colName = btn.getAttribute('data-sort-col');
+        const th = btn.closest('th');
+        if (!colName || !th) {
+          return;
+        }
+        const nextDir = th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
+        const all = thead.querySelectorAll('th[scope="col"]');
+        for (let i = 0; i < all.length; i += 1) {
+          all[i].removeAttribute('aria-sort');
+        }
+        th.setAttribute('aria-sort', nextDir);
+
+        const rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+        const sign = nextDir === 'ascending' ? 1 : -1;
+        const collator = new Intl.Collator('en', { numeric: true });
+        const collate = function (x, y) {
+          return collator.compare(x, y);
+        };
+        let colIndex = 0;
+        for (let i = 0; i < all.length; i += 1) {
+          if (all[i] === th) {
+            colIndex = i;
+          }
+        }
+        const keyOf = function (row) {
+          const cell = row.cells[colIndex];
+          if (!cell) {
+            return '';
+          }
+          return cell.hasAttribute('data-sort-val')
+            ? cell.getAttribute('data-sort-val')
+            : cell.textContent.trim();
+        };
+        const keys = new Map();
+        for (let i = 0; i < rows.length; i += 1) {
+          keys.set(rows[i], keyOf(rows[i]));
+        }
+        rows.sort(function (a, b) {
+          const byVal = collate(keys.get(a), keys.get(b));
+          if (byVal !== 0) {
+            return byVal * sign;
+          }
+          return collate(a.id || '', b.id || '') * sign;
+        });
+        for (let i = 0; i < rows.length; i += 1) {
+          tbody.appendChild(rows[i]);
+        }
+      });
     }
 
+    const filterBar = document.getElementById('claimsFilter');
     const filterSeg = document.getElementById('claimsFilterSeg');
-    if (filterSeg && regTable) {
+    if (filterBar && filterSeg && regTable) {
+      filterBar.hidden = false;
       filterSeg.addEventListener('click', function (ev) {
         const btn =
           ev.target && typeof ev.target.closest === 'function'
@@ -531,16 +567,20 @@
         let shown = 0;
         for (let i = 0; i < rows.length; i += 1) {
           const row = rows[i];
-          const ver = row.getAttribute('data-verification') || '';
-          const match = filterVal === 'all' || ver === filterVal;
+          const match = filterVal === 'all' || row.getAttribute('data-verification') === filterVal;
           row.hidden = !match;
           if (match) {
             shown += 1;
           }
         }
-        const emptyPanel = document.getElementById('registerEmptyFilter');
-        if (emptyPanel) {
-          emptyPanel.hidden = shown > 0;
+        const emptyLine = document.getElementById('registerEmptyFilter');
+        if (emptyLine) {
+          emptyLine.hidden = shown > 0;
+        }
+        const sr = document.getElementById('sr');
+        if (sr) {
+          sr.textContent =
+            shown > 0 ? shown + ' shown' : 'An empty filter means none are recorded, not that none exist.';
         }
       });
     }
