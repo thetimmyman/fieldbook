@@ -522,6 +522,37 @@ mod page_types {
             !html3.contains("row-superseded"),
             "an ambiguous row citing both a superseded and an active claim must not infer supersession"
         );
+
+        // 4. Reference table inside a `> Precise:` blockquote keeps `.precise` container balanced
+        //    so following ordinary prose does not remain inside `.precise`.
+        let mut tree4 = fixture_tree();
+        let precise_table_md = EST_RATE_REFERENCE_MD.replace(
+            "| Parameter | Value | Basis |\n|---|---|---|\n| Rate review window | 10 days [@CL-EST-0003] | Current synthetic pricing guidance [@CL-EST-0003] |\n| Escalation placeholder | 3 percent [@CL-EST-0001] | Synthetic multi-year assumption [@CL-EST-0001] |",
+            "> Precise: Synthetic verbatim schedule [@CL-EST-0003].\n>\n> | Parameter | Value | Basis |\n> |---|---|---|\n> | Rate review window | 10 days [@CL-EST-0003] | Current synthetic pricing guidance [@CL-EST-0003] |\n\nPlain prose after the precise table [@CL-EST-0001].",
+        );
+        tree4.insert_bytes(
+            "corpus/pages/estimating/pricing/est-rate-reference.md",
+            precise_table_md.into_bytes(),
+        );
+        let (_m4, view4) = load_view(tree4);
+        let page4 = view4
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "est-rate-reference")
+            .unwrap();
+        let html4 = render_main(page4, &view4, &planned);
+        assert!(
+            html4.contains("<div class=\"precise\"><span class=\"eyebrow\">Precise</span>"),
+            "precise container must open before quoted reference table"
+        );
+        let close_precise = html4
+            .find("</table></div>\n</div>\n<p>Plain prose after")
+            .unwrap_or_else(|| {
+                panic!(
+                    "precise container must close with </div> before following plain prose:\n{html4}"
+                )
+            });
+        assert!(close_precise > 0);
     }
 
     #[test]
@@ -569,6 +600,35 @@ mod page_types {
         assert!(
             inf_slice.contains("Early pre-review checks reduce"),
             "Inference prose must stay inside the Inference block"
+        );
+
+        // Introductory prose between `## How it works` and `### Public record` is preserved
+        // alongside its citation markers.
+        let mut tree_intro = fixture_tree();
+        let with_intro = CMP_WITHHOLD_CASE_MD.replace(
+            "## How it works\n\n### Public record",
+            "## How it works\n\nIntroductory case context before subsections [@CL-CMP-0001].\n\n### Public record",
+        );
+        tree_intro.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-withhold-case.md",
+            with_intro.into_bytes(),
+        );
+        let (_m_intro, view_intro) = load_view(tree_intro);
+        let page_intro = view_intro
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-withhold-case")
+            .unwrap();
+        let html_intro = render_main(page_intro, &view_intro, &planned);
+        let intro_pos = html_intro
+            .find("Introductory case context before subsections")
+            .expect("introductory prose in How it works must be preserved");
+        let split_pos = html_intro
+            .find("<div class=\"case-split\">")
+            .expect("case-split container present");
+        assert!(
+            intro_pos < split_pos,
+            "introductory prose must render before .case-split"
         );
     }
 

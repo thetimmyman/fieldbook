@@ -57,7 +57,7 @@
     <section class="part" aria-labelledby="{{ how_it_works.anchor }}">
       <h2 id="{{ how_it_works.anchor }}">{{ how_it_works.heading }}</h2>
       {% if case_split.has_sections %}
-      <div class="case-split">
+      {% if !case_split.prefix_html.is_empty() %}{{ case_split.prefix_html|safe }}{% endif %}<div class="case-split">
         <div class="box case-block case-record" data-case-section="public-record">
           <div class="case-head">
             <span class="ev-label" title="Public record">PF · Public record</span>

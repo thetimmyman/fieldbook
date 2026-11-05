@@ -43,6 +43,8 @@ use crate::sources_block::NumberedSourceRow;
 pub struct CaseSplitView {
     /// `true` when both `### Public record` and `### Inference` subsections were found.
     pub has_sections: bool,
+    /// Rendered HTML of any introductory prose before the first `###` subsection heading.
+    pub prefix_html: String,
     /// Anchor `id` of the `### Public record` heading.
     pub public_record_anchor: String,
     /// Rendered HTML of the `### Public record` subsection body.
@@ -281,6 +283,7 @@ pub fn build_case_split(page: &PageEntry, inline: &mut InlineRenderer<'_>) -> Ca
     let start_ev = part_span.event_range.start.min(events.len());
     let end_ev = part_span.event_range.end.min(events.len());
     let mut h3_sections: Vec<(String, String, usize, usize)> = Vec::new();
+    let mut first_h3_start: Option<usize> = None;
 
     let mut idx = start_ev;
     while idx < end_ev {
@@ -290,6 +293,9 @@ pub fn build_case_split(page: &PageEntry, inline: &mut InlineRenderer<'_>) -> Ca
         }) = events[idx].1
         {
             let h3_start = idx;
+            if first_h3_start.is_none() {
+                first_h3_start = Some(h3_start);
+            }
             let anchor = page
                 .parts()
                 .heading_anchor(h3_start)
@@ -327,11 +333,18 @@ pub fn build_case_split(page: &PageEntry, inline: &mut InlineRenderer<'_>) -> Ca
         return CaseSplitView::default();
     };
 
+    let prefix_end = first_h3_start.unwrap_or(start_ev);
+    let prefix_html = if start_ev < prefix_end {
+        inline.render_part(start_ev..prefix_end)
+    } else {
+        String::new()
+    };
     let public_record_html = inline.render_part(pr_start..pr_end);
     let inference_html = inline.render_part(inf_start..inf_end);
 
     CaseSplitView {
         has_sections: true,
+        prefix_html,
         public_record_anchor: pr_anchor,
         public_record_html,
         inference_anchor: inf_anchor,
@@ -398,32 +411,74 @@ pub fn render_reference_the_rule(
     let mut out = String::new();
     let mut cursor = start_ev;
     let mut idx = start_ev;
+    let mut open_bq_starts: Vec<usize> = Vec::new();
+    let mut split_bq_precise: Vec<(usize, bool)> = Vec::new();
 
     while idx < end_ev {
-        if matches!(events[idx].1, Event::Start(Tag::Table(_))) {
-            if cursor < idx {
-                out.push_str(&inline.render_part(cursor..idx));
+        match events[idx].1 {
+            Event::Start(Tag::BlockQuote(_)) => {
+                open_bq_starts.push(idx);
+                idx += 1;
+                continue;
             }
-            let table_start = idx;
-            let mut table_end = idx + 1;
-            while table_end < end_ev {
-                if matches!(events[table_end].1, Event::End(TagEnd::Table)) {
-                    table_end += 1;
-                    break;
+            Event::End(TagEnd::BlockQuote(_)) => {
+                let bq_start = open_bq_starts.pop();
+                if let Some(bs) = bq_start
+                    && bs < cursor
+                {
+                    if cursor < idx {
+                        out.push_str(&inline.render_part(cursor..idx));
+                    }
+                    let is_precise = split_bq_precise
+                        .iter()
+                        .position(|(s, _)| *s == bs)
+                        .is_some_and(|pos| split_bq_precise.remove(pos).1);
+                    if is_precise {
+                        out.push_str("</div>\n");
+                    } else {
+                        out.push_str("</blockquote>\n");
+                    }
+                    idx += 1;
+                    cursor = idx;
+                    continue;
                 }
-                table_end += 1;
+                idx += 1;
+                continue;
             }
-            out.push_str(&render_single_reference_table(
-                page,
-                view,
-                inline,
-                &events[table_start..table_end],
-            ));
-            idx = table_end;
-            cursor = table_end;
-            continue;
+            Event::Start(Tag::Table(_)) => {
+                for &bs in &open_bq_starts {
+                    if bs >= cursor && !split_bq_precise.iter().any(|(s, _)| *s == bs) {
+                        let is_precise =
+                            blockquote_starts_with_precise(&page.body, &events[bs + 1..idx]);
+                        split_bq_precise.push((bs, is_precise));
+                    }
+                }
+                if cursor < idx {
+                    out.push_str(&inline.render_part(cursor..idx));
+                }
+                let table_start = idx;
+                let mut table_end = idx + 1;
+                while table_end < end_ev {
+                    if matches!(events[table_end].1, Event::End(TagEnd::Table)) {
+                        table_end += 1;
+                        break;
+                    }
+                    table_end += 1;
+                }
+                out.push_str(&render_single_reference_table(
+                    page,
+                    view,
+                    inline,
+                    &events[table_start..table_end],
+                ));
+                idx = table_end;
+                cursor = table_end;
+                continue;
+            }
+            _ => {
+                idx += 1;
+            }
         }
-        idx += 1;
     }
 
     if cursor < end_ev {
@@ -439,6 +494,29 @@ pub fn render_reference_the_rule(
         is_empty,
         body_html: out,
     }
+}
+
+fn blockquote_starts_with_precise(
+    body: &str,
+    following: &[(usize, Event<'_>, Range<usize>)],
+) -> bool {
+    let mut depth = 1usize;
+    for (_, ev, r) in following {
+        match ev {
+            Event::Start(Tag::BlockQuote(_)) => depth += 1,
+            Event::End(TagEnd::BlockQuote(_)) => {
+                depth = depth.saturating_sub(1);
+                if depth == 0 {
+                    return false;
+                }
+            }
+            Event::Text(_) => {
+                return body[r.clone()].trim_start().starts_with("Precise:");
+            }
+            _ => {}
+        }
+    }
+    false
 }
 
 fn render_single_reference_table(
