@@ -356,6 +356,10 @@ fn parse_hex_color(hex: &str) -> (u8, u8, u8) {
     (r, g, b)
 }
 
+#[expect(
+    clippy::disallowed_methods,
+    reason = "WCAG 2.1 sRGB relative luminance in test helper uses 2.4 gamma"
+)]
 fn channel_luminance(c: u8) -> f64 {
     let s = f64::from(c) / 255.0;
     if s <= 0.04045 {

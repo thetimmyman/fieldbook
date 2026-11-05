@@ -11,4 +11,8 @@ disallowed-methods = [
   "std::env::var", "std::env::vars", "std::env::args", "std::env::current_dir",
   "std::time::SystemTime::now", "std::time::Instant::now", "std::process::exit",
   "rust_decimal::Decimal::round", "rust_decimal::Decimal::round_dp",
+  { path = "f64::ln", reason = "search.md Ranking: libm results can differ across platforms; use the hand-written ln" },
+  { path = "f64::powf", reason = "search.md Ranking: libm results can differ across platforms" },
+  { path = "f64::powi", reason = "search.md Ranking: libm results can differ across platforms" },
+  { path = "f64::exp", reason = "search.md Ranking: libm results can differ across platforms" },
 ]

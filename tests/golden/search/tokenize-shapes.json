@@ -1,0 +1,321 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-061",
+      "side": "query",
+      "input": "S-0001-v1 S-0042-v2 S-9999-v123",
+      "tokens": ["s-0001-v1", "s-0042-v2", "s-9999-v123"],
+      "note": "Shape 1 (source version) matches four digits and any non-empty digit run after -v on the query side"
+    },
+    {
+      "id": "tok-062",
+      "side": "index",
+      "input": "S-0042-v S-0042-v2a S-004-v2 S-00042-v2",
+      "tokens": ["s-0042", "v", "s-0042", "v2a", "s", "004", "v2", "s", "00042", "v2"],
+      "note": "Near misses for shape 1: missing version digits or trailing letter falls back to shape 2 (s-0042); three or five digits fail both source shapes"
+    },
+    {
+      "id": "tok-063",
+      "side": "query",
+      "input": "S-0001 S-0042 S-9999",
+      "tokens": ["s-0001", "s-0042", "s-9999"],
+      "note": "Shape 2 (source id) matches s- followed by exactly four ASCII digits"
+    },
+    {
+      "id": "tok-064",
+      "side": "index",
+      "input": "S-00420 S-042 S-0042a",
+      "tokens": ["s", "00420", "s", "042", "s", "0042a"],
+      "note": "Near misses for shape 2: five digits, three digits or a trailing letter fail the boundary and split into s and the rest"
+    },
+    {
+      "id": "tok-065",
+      "side": "query",
+      "input": "CL-CMP-0011 CL-FAR-0001 CL-CAS-9999",
+      "tokens": ["cl-cmp-0011", "cl-far-0001", "cl-cas-9999"],
+      "note": "Shape 3 (claim id) matches cl- followed by three letters, a hyphen and four digits"
+    },
+    {
+      "id": "tok-066",
+      "side": "index",
+      "input": "CL-CM-0011 CL-CMP-011 CL-CMP-00110 CL-C2P-0011",
+      "tokens": ["cl", "cm", "0011", "cl", "cmp", "011", "cl", "cmp", "00110", "cl", "c2p", "0011"],
+      "note": "Near misses for shape 3: two area letters, three digits, five digits or a digit in the area code all split into words and numbers"
+    },
+    {
+      "id": "tok-067",
+      "side": "query",
+      "input": "Q-001 Q-027 Q-999",
+      "tokens": ["q-001", "q-027", "q-999"],
+      "note": "Shape 4 (question id) matches q- followed by exactly three ASCII digits"
+    },
+    {
+      "id": "tok-068",
+      "side": "index",
+      "input": "Q-01 Q-1234 Q-027a aQ-027",
+      "tokens": ["q", "01", "q", "1234", "q", "027a", "aq", "027"],
+      "note": "Near misses for shape 4: two digits, four digits, trailing letter or leading letter fail the question id shape"
+    },
+    {
+      "id": "tok-069",
+      "side": "query",
+      "input": "XC-1 XC-14 XC-999 XC-000042",
+      "tokens": ["xc-1", "xc-14", "xc-999", "xc-000042"],
+      "note": "Shape 5 (conflict id) matches xc- followed by one or more ASCII digits of any length"
+    },
+    {
+      "id": "tok-070",
+      "side": "index",
+      "input": "XC- XC-14a aXC-14",
+      "tokens": ["xc", "xc", "14a", "axc", "14"],
+      "note": "Near misses for shape 5: no digits, a trailing letter or a leading letter split into word and number tokens"
+    },
+    {
+      "id": "tok-071",
+      "side": "query",
+      "input": "CL-XES-000012",
+      "tokens": ["cl-xes-000012"],
+      "note": "Shape 6 table example cl-xes-000012 on the query side matches as one company claim id token"
+    },
+    {
+      "id": "tok-072",
+      "side": "index",
+      "input": "CL-XES-000012",
+      "tokens": ["cl-xes-000012"],
+      "note": "Shape 6 table example cl-xes-000012 on the index side matches as one company claim id token with no extras"
+    },
+    {
+      "id": "tok-073",
+      "side": "query",
+      "input": "See CL-XES-000012 and CL-XES-1234567890 in the annex",
+      "tokens": ["see", "cl-xes-000012", "and", "cl-xes-1234567890", "in", "the", "annex"],
+      "note": "Shape 6 on the query side accepts both 6-digit and 10-digit company claim numbers alongside cl-xes-000012"
+    },
+    {
+      "id": "tok-074",
+      "side": "index",
+      "input": "See CL-XES-000012 and CL-XES-1234567890 in the annex",
+      "tokens": ["see", "cl-xes-000012", "and", "cl-xes-1234567890", "in", "the", "annex"],
+      "note": "Shape 6 on the index side accepts both 6-digit and 10-digit company claim numbers alongside cl-xes-000012"
+    },
+    {
+      "id": "tok-075",
+      "side": "query",
+      "input": "[@CL-XES-000012] vs CL-XES-00012 vs CL-XES-12345678901",
+      "tokens": ["cl-xes-000012", "vs", "cl", "xes", "00012", "12345678901"],
+      "note": "Shape 6 on the query side keeps cl-xes-000012 whole while 5-digit and 11-digit near misses split and deduplicate"
+    },
+    {
+      "id": "tok-076",
+      "side": "index",
+      "input": "[@CL-XES-000012] vs CL-XES-00012 vs CL-XES-12345678901",
+      "tokens": ["cl-xes-000012", "vs", "cl", "xes", "00012", "vs", "cl", "xes", "12345678901"],
+      "note": "Shape 6 on the index side keeps cl-xes-000012 whole while 5-digit and 11-digit near misses split into words and numbers"
+    },
+    {
+      "id": "tok-077",
+      "side": "query",
+      "input": "SO-000042-v2 CM-000012-v2",
+      "tokens": ["so-000042-v2", "cm-000012-v2"],
+      "note": "Shape 7 table examples so-000042-v2 and cm-000012-v2 on the query side stay whole and emit no unversioned extra"
+    },
+    {
+      "id": "tok-078",
+      "side": "index",
+      "input": "SO-000042-v2 CM-000012-v2",
+      "tokens": ["so-000042-v2", "so-000042", "cm-000012-v2", "cm-000012"],
+      "note": "Shape 7 table examples so-000042-v2 and cm-000012-v2 on the index side emit each versioned token followed by its unversioned id"
+    },
+    {
+      "id": "tok-079",
+      "side": "query",
+      "input": "[@SO-000042-v2, p. 5] and [@CM-000012-v2, sec. 3]",
+      "tokens": ["so-000042-v2", "p", "5", "and", "cm-000012-v2", "sec", "3"],
+      "note": "Shape 7 table examples inside citations on the query side extract the versioned keys and locator tokens"
+    },
+    {
+      "id": "tok-080",
+      "side": "index",
+      "input": "[@SO-000042-v2, p. 5] and [@CM-000012-v2, sec. 3]",
+      "tokens": ["so-000042-v2", "so-000042", "p", "5", "and", "cm-000012-v2", "cm-000012", "sec", "3"],
+      "note": "Shape 7 table examples inside citations on the index side emit the unversioned company ids right after the versioned keys"
+    },
+    {
+      "id": "tok-081",
+      "side": "query",
+      "input": "so-000042-v2 cm-000012-v2 so-1234567890-v99",
+      "tokens": ["so-000042-v2", "cm-000012-v2", "so-1234567890-v99"],
+      "note": "Shape 7 on the query side matches 6-digit and 10-digit company versioned ids"
+    },
+    {
+      "id": "tok-082",
+      "side": "index",
+      "input": "so-000042-v2 cm-000012-v2 so-1234567890-v99",
+      "tokens": ["so-000042-v2", "so-000042", "cm-000012-v2", "cm-000012", "so-1234567890-v99", "so-1234567890"],
+      "note": "Shape 7 on the index side emits unversioned company ids for both 6-digit and 10-digit stems"
+    },
+    {
+      "id": "tok-083",
+      "side": "query",
+      "input": "SO-000042 QO-000003 XO-000002",
+      "tokens": ["so-000042", "qo-000003", "xo-000002"],
+      "note": "Shape 8 table examples so-000042, qo-000003 and xo-000002 on the query side match as single tokens"
+    },
+    {
+      "id": "tok-084",
+      "side": "index",
+      "input": "SO-000042 QO-000003 XO-000002",
+      "tokens": ["so-000042", "qo-000003", "xo-000002"],
+      "note": "Shape 8 table examples so-000042, qo-000003 and xo-000002 on the index side match as single tokens with no extras"
+    },
+    {
+      "id": "tok-085",
+      "side": "query",
+      "input": "Compare so-000042 with qo-000003 and xo-000002",
+      "tokens": ["compare", "so-000042", "with", "qo-000003", "and", "xo-000002"],
+      "note": "Shape 8 table examples embedded in a query sentence stay whole alongside ordinary words"
+    },
+    {
+      "id": "tok-086",
+      "side": "index",
+      "input": "Compare so-000042 with qo-000003 and xo-000002",
+      "tokens": ["compare", "so-000042", "with", "qo-000003", "and", "xo-000002"],
+      "note": "Shape 8 table examples embedded in indexed prose stay whole alongside ordinary words"
+    },
+    {
+      "id": "tok-087",
+      "side": "query",
+      "input": "[@so-000042]; [@qo-000003]; [@xo-000002]",
+      "tokens": ["so-000042", "qo-000003", "xo-000002"],
+      "note": "Shape 8 table examples in bracketed citation list on the query side strip punctuation and keep each id"
+    },
+    {
+      "id": "tok-088",
+      "side": "index",
+      "input": "[@so-000042]; [@qo-000003]; [@xo-000002]",
+      "tokens": ["so-000042", "qo-000003", "xo-000002"],
+      "note": "Shape 8 table examples in bracketed citation list on the index side strip punctuation and keep each id"
+    },
+    {
+      "id": "tok-089",
+      "side": "query",
+      "input": "so-000042-v cm-000012-v2a qo-000003x xo-00000299999",
+      "tokens": ["so-000042", "v", "cm-000012", "v2a", "qo", "000003x", "xo", "00000299999"],
+      "note": "Boundary checks on shapes 7 and 8: failed -v suffix falls back from shape 7 to shape 8; trailing letter or 11th digit on shape 8 splits into word and number"
+    },
+    {
+      "id": "tok-090",
+      "side": "query",
+      "input": "52.215-2 252.204-7012 9904.401-40 15.404-1(a)(4)",
+      "tokens": ["52.215-2", "252.204-7012", "9904.401-40", "15.404-1(a)(4)"],
+      "note": "Shape 9 (clause number) matches FAR, DFARS and CAS numbers with or without paragraph groups"
+    },
+    {
+      "id": "tok-091",
+      "side": "query",
+      "input": "31.205-6(a)(1)(i)(A)",
+      "tokens": ["31.205-6(a)(1)(i)(a)"],
+      "note": "Shape 9 accepts four chained paragraph groups and lowercases uppercase paragraph letters"
+    },
+    {
+      "id": "tok-092",
+      "side": "query",
+      "input": "15.404-1(a)(1234)(xyz)",
+      "tokens": ["15.404-1(a)(1234)(xyz)"],
+      "note": "Paragraph groups of length 1, 4 and 3 ASCII alphanumerics all stay attached to the clause number"
+    },
+    {
+      "id": "tok-093",
+      "side": "query",
+      "input": "15.404-1() 15.404-2(a-b) 15.404-3(a b)",
+      "tokens": ["15.404-1", "15.404-2", "a", "b", "15.404-3"],
+      "note": "Empty parentheses or parentheses containing a hyphen or space do not form a paragraph group and end the clause match before ("
+    },
+    {
+      "id": "tok-094",
+      "side": "query",
+      "input": "15.404-1(a)(12345)(b)",
+      "tokens": ["15.404-1(a)", "12345", "b"],
+      "note": "A five-character group stops paragraph group matching after (a); the remaining groups become separate tokens"
+    },
+    {
+      "id": "tok-095",
+      "side": "query",
+      "input": "15.404-1(a)b",
+      "tokens": ["15.404", "1", "a", "b"],
+      "note": "A word character immediately after the last paragraph group fails the boundary of shape 9 without backtracking, so shape 10 takes 15.404"
+    },
+    {
+      "id": "tok-096",
+      "side": "index",
+      "input": "15.404- 15.404--1",
+      "tokens": ["15.404", "15.404", "1"],
+      "note": "A trailing hyphen with no suffix or a double hyphen leaves the clause match at 15.404"
+    },
+    {
+      "id": "tok-097",
+      "side": "query",
+      "input": "15.404-1A 52.212-4AltI",
+      "tokens": ["15.404", "1a", "52.212", "4alti"],
+      "note": "Because a clause suffix only matches ASCII digits, a letter attached to the suffix fails the boundary of shape 9 and shape 10 takes part.section"
+    },
+    {
+      "id": "tok-098",
+      "side": "query",
+      "input": "1,234.56 123.45",
+      "tokens": ["1234.56", "123.45"],
+      "note": "1,234.56 has a comma before the dot so shape 9 skips it and shape 10 takes it; 123.45 has no comma so shape 9 takes it with the same token text"
+    },
+    {
+      "id": "tok-099",
+      "side": "index",
+      "input": "1,234.56-7012",
+      "tokens": ["1234.56", "7012"],
+      "note": "A comma in the leading digits prevents shape 9 from matching a clause number; shape 10 takes 1234.56 and then 7012"
+    },
+    {
+      "id": "tok-100",
+      "side": "query",
+      "input": "15.404(\u00e9)",
+      "tokens": ["15.404", "\u00e9"],
+      "note": "Paragraph groups only accept ASCII letters and digits, so a non-ASCII letter inside parentheses is not part of the clause"
+    },
+    {
+      "id": "tok-101",
+      "side": "query",
+      "input": "15.404-\u00e9",
+      "tokens": ["15.404", "\u00e9"],
+      "note": "Clause suffixes only accept ASCII letters and digits, so a non-ASCII letter after the hyphen is not part of the clause"
+    },
+    {
+      "id": "tok-102",
+      "side": "query",
+      "input": "cl-\u00e9mp-0011 so\u00e9-000042",
+      "tokens": ["cl", "\u00e9mp", "0011", "so\u00e9", "000042"],
+      "note": "Identifier shapes 1 to 8 only accept ASCII letters in their prefixes and area codes; non-ASCII letters fall through to shape 11"
+    },
+    {
+      "id": "tok-103",
+      "side": "query",
+      "input": "cl-cl-000012",
+      "tokens": ["cl", "cl-000012"],
+      "note": "At the first cl, shapes 3, 6, 7 and 8 all fail; shape 11 takes cl, and after the hyphen shape 8 takes cl-000012"
+    },
+    {
+      "id": "tok-104",
+      "side": "index",
+      "input": "s-s-0042-v2",
+      "tokens": ["s", "s-0042-v2", "s-0042"],
+      "note": "At the first s, shapes 1 and 2 fail so shape 11 takes s; after the hyphen shape 1 takes s-0042-v2 and emits s-0042"
+    },
+    {
+      "id": "tok-105",
+      "side": "query",
+      "input": "S-0042-v2 S-0042 CL-CMP-0011 Q-027 XC-14 CL-XES-000012 SO-000042-v2 SO-000042 252.204-7012 1,000.50 word",
+      "tokens": ["s-0042-v2", "s-0042", "cl-cmp-0011", "q-027", "xc-14", "cl-xes-000012", "so-000042-v2", "so-000042", "252.204-7012", "1000.50", "word"],
+      "note": "All 11 lexer shapes in table order in a single query input (11 unique tokens, under the 12-token cap)"
+    }
+  ]
+}

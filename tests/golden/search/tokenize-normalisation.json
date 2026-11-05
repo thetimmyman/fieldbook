@@ -1,0 +1,216 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-001",
+      "side": "index",
+      "input": "\ufb00ect \ufb02ow \ufb03ce \ufb04ag",
+      "tokens": ["ffect", "flow", "ffice", "fflag"],
+      "note": "NFKC expands the ff, fl, ffi and ffl ligatures into ASCII letters"
+    },
+    {
+      "id": "tok-002",
+      "side": "query",
+      "input": "\uff26\uff21\uff32 \uff11\uff15.\uff14\uff10\uff14\uff0d\uff11",
+      "tokens": ["far", "15.404-1"],
+      "note": "NFKC folds fullwidth uppercase letters, digits, dot and hyphen-minus into a clause citation"
+    },
+    {
+      "id": "tok-003",
+      "side": "index",
+      "input": "m\u00b9 m\u00b2 m\u00b3 m\u2074",
+      "tokens": ["m1", "m2", "m3", "m4"],
+      "note": "NFKC folds superscript digits 1, 2, 3 and 4 into ordinary digits attached to the letter"
+    },
+    {
+      "id": "tok-004",
+      "side": "index",
+      "input": "h\u2082o co\u2082",
+      "tokens": ["h2o", "co2"],
+      "note": "NFKC folds subscript digits into ordinary digits inside a single word token"
+    },
+    {
+      "id": "tok-005",
+      "side": "query",
+      "input": "part\u00a015\u2003section\u3000404",
+      "tokens": ["part", "15", "section", "404"],
+      "note": "NFKC folds no-break space, em space and ideographic space to ASCII spaces that separate tokens"
+    },
+    {
+      "id": "tok-006",
+      "side": "index",
+      "input": "\u00bd \u00bc \u00be",
+      "tokens": ["1", "2", "1", "4", "3", "4"],
+      "note": "NFKC decomposes vulgar fractions with fraction slash U+2044, which is non-word and splits numerator and denominator"
+    },
+    {
+      "id": "tok-007",
+      "side": "query",
+      "input": "\u2160 \u2161 \u2163 \u2169",
+      "tokens": ["i", "ii", "iv", "x"],
+      "note": "NFKC decomposes Roman numeral compatibility characters into ASCII letters, which then lowercase"
+    },
+    {
+      "id": "tok-008",
+      "side": "index",
+      "input": "ALL CAPS MixedCase camelCase",
+      "tokens": ["all", "caps", "mixedcase", "camelcase"],
+      "note": "ASCII uppercase letters fold to lowercase without splitting camelCase words"
+    },
+    {
+      "id": "tok-009",
+      "side": "index",
+      "input": "\u00c0\u00c8\u00cc\u00d2\u00d9 \u00e0\u00e8\u00ec\u00f2\u00f9",
+      "tokens": ["\u00e0\u00e8\u00ec\u00f2\u00f9", "\u00e0\u00e8\u00ec\u00f2\u00f9"],
+      "note": "Precomposed uppercase accented Latin letters lowercase to match their lowercase counterparts"
+    },
+    {
+      "id": "tok-010",
+      "side": "query",
+      "input": "A\u0300 E\u0301 I\u0302 O\u0303 U\u0308",
+      "tokens": ["\u00e0", "\u00e9", "\u00ee", "\u00f5", "\u00fc"],
+      "note": "NFKC composes uppercase ASCII letters with combining diacritics before lowercase folding"
+    },
+    {
+      "id": "tok-011",
+      "side": "index",
+      "input": "\u0394\u03a9 \u03b4\u03c9",
+      "tokens": ["\u03b4\u03c9", "\u03b4\u03c9"],
+      "note": "Greek uppercase letters fold to Greek lowercase letters and stay word characters"
+    },
+    {
+      "id": "tok-012",
+      "side": "index",
+      "input": "CL\u2010CMP\u20110011",
+      "tokens": ["cl-cmp-0011"],
+      "note": "U+2010 hyphen and U+2011 non-breaking hyphen fold to ASCII hyphen before lexing a claim id"
+    },
+    {
+      "id": "tok-013",
+      "side": "index",
+      "input": "S\u20120042\u2013v2",
+      "tokens": ["s-0042-v2", "s-0042"],
+      "note": "U+2012 figure dash and U+2013 en dash fold to ASCII hyphen so the source version and its extra are emitted"
+    },
+    {
+      "id": "tok-014",
+      "side": "query",
+      "input": "Q\u2014027 XC\u201514 S\u22120042",
+      "tokens": ["q-027", "xc-14", "s-0042"],
+      "note": "U+2014 em dash, U+2015 horizontal bar and U+2212 minus sign fold to ASCII hyphen in identifiers"
+    },
+    {
+      "id": "tok-015",
+      "side": "index",
+      "input": "SO\u2212000042\u2013v2 CL\u2010XES\u2014000012",
+      "tokens": ["so-000042-v2", "so-000042", "cl-xes-000012"],
+      "note": "Unicode dashes fold to ASCII hyphen in company versioned and company claim identifiers"
+    },
+    {
+      "id": "tok-016",
+      "side": "index",
+      "input": "252.204\u20137012(b)(2)",
+      "tokens": ["252.204-7012(b)(2)", "252.204-7012(b)", "252.204-7012", "252.204", "7012"],
+      "note": "An en dash in a clause number folds to ASCII hyphen so all ancestors and the four-digit alias are emitted"
+    },
+    {
+      "id": "tok-017",
+      "side": "index",
+      "input": "S\u22110042 S\u22130042",
+      "tokens": ["s", "0042", "s", "0042"],
+      "note": "U+2211 n-ary summation and U+2213 minus-or-plus sign flank U+2212 and do not fold to hyphen"
+    },
+    {
+      "id": "tok-018",
+      "side": "index",
+      "input": "Q\u2016027 Q\u2017027",
+      "tokens": ["q", "027", "q", "027"],
+      "note": "U+2016 double vertical line and U+2017 double low line are above U+2015 and separate tokens"
+    },
+    {
+      "id": "tok-019",
+      "side": "index",
+      "input": "sub\u00adcon\u00adtract\u00ading",
+      "tokens": ["subcontracting"],
+      "note": "Multiple soft hyphens U+00AD inside a word are deleted without splitting the word"
+    },
+    {
+      "id": "tok-020",
+      "side": "query",
+      "input": "\u00ad\u00ad\u00ad",
+      "tokens": [],
+      "note": "An input consisting only of soft hyphens normalises to empty and yields no tokens"
+    },
+    {
+      "id": "tok-021",
+      "side": "index",
+      "input": "CL-\u00adCMP-\u00ad0011",
+      "tokens": ["cl-cmp-0011"],
+      "note": "Soft hyphens inside a claim identifier are deleted before lexing so the claim shape still matches"
+    },
+    {
+      "id": "tok-022",
+      "side": "index",
+      "input": "S-00\u00ad42-v\u00ad2",
+      "tokens": ["s-0042-v2", "s-0042"],
+      "note": "Soft hyphens inside a source version identifier are deleted before lexing"
+    },
+    {
+      "id": "tok-023",
+      "side": "index",
+      "input": "252.\u00ad204-\u00ad7012",
+      "tokens": ["252.204-7012", "252.204", "7012"],
+      "note": "Soft hyphens inside a clause number are deleted before lexing so clause extras are still produced"
+    },
+    {
+      "id": "tok-024",
+      "side": "query",
+      "input": "1,\u00ad000,\u00ad000.50",
+      "tokens": ["1000000.50"],
+      "note": "Soft hyphens inside a comma-formatted decimal number are deleted before lexing"
+    },
+    {
+      "id": "tok-025",
+      "side": "index",
+      "input": "\uff33\u2013\uff10\uff10\uff14\uff12\u00ad\u2212\uff56\uff12",
+      "tokens": ["s-0042-v2", "s-0042"],
+      "note": "Fullwidth characters, en dash, soft hyphen and minus sign all normalise together into a source version"
+    },
+    {
+      "id": "tok-026",
+      "side": "query",
+      "input": "cost\u2010reimbursement fixed\u2014price time\u2212and\u2013materials",
+      "tokens": ["cost", "reimbursement", "fixed", "price", "time", "and", "materials"],
+      "note": "Unicode dashes between ordinary words fold to hyphens and still separate the words because hyphens are not in the word shape"
+    },
+    {
+      "id": "tok-027",
+      "side": "index",
+      "input": "\u2116 42 and \u2122 mark",
+      "tokens": ["no", "42", "and", "tm", "mark"],
+      "note": "NFKC expands numero sign U+2116 to No. and trade mark sign U+2122 to TM, which then lowercase into words"
+    },
+    {
+      "id": "tok-028",
+      "side": "query",
+      "input": "\uff0815.404\uff0d1\uff08a\uff09\uff09",
+      "tokens": ["15.404-1(a)"],
+      "note": "NFKC folds fullwidth parentheses and hyphen-minus to ASCII so a parenthesised clause with a paragraph group is recognised"
+    },
+    {
+      "id": "tok-029",
+      "side": "index",
+      "input": "SO-\u00ad000042\u2011v3",
+      "tokens": ["so-000042-v3", "so-000042"],
+      "note": "Soft hyphen deletion and non-breaking hyphen folding work together on a company versioned identifier"
+    },
+    {
+      "id": "tok-030",
+      "side": "query",
+      "input": "\r\n\t\u000b\u000c\u00ad  ",
+      "tokens": [],
+      "note": "ASCII control whitespace and a soft hyphen produce no tokens"
+    }
+  ]
+}
