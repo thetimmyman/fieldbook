@@ -27,7 +27,7 @@ sha256 = "32f130db8c0e9fedad0b5a769048cdbf193cb8a170b80494f0310d28b03f2b1a"
 [[binding.files]]
 role = "implementation"
 path = "crates/fieldbook-calc/src/versions/build_up_v1.rs"
-sha256 = "25baed8d3744d021cbde128f170bc2b25b3824babd15ab30fff90c31d1785a98"
+sha256 = "ec49080296fc20d09465b1c65853fe029952cb722df20404d02f7a823f9b6b25"
 
 [[binding.files]]
 role = "input"

@@ -791,15 +791,6 @@ fn read_compiled_calc_epoch(root: &Path) -> u32 {
     CALC_EPOCH
 }
 
-fn synthetic_fns_contains(root: &Path, fn_id: &str) -> bool {
-    let fns_path = root.join("crates/fieldbook-calc/src/fns.rs");
-    if let Ok(text) = std::fs::read_to_string(fns_path) {
-        let needle = format!("id: \"{fn_id}\"");
-        return text.contains(&needle);
-    }
-    false
-}
-
 fn execute_vector(
     root: &Path,
     binding: &Binding,
@@ -830,7 +821,7 @@ fn execute_vector(
 
     let actual_output = match binding.runner {
         RunnerKind::Calculation => {
-            let mut replay: ReplayCase = toml::from_str(input_str).map_err(|e| {
+            let replay: ReplayCase = toml::from_str(input_str).map_err(|e| {
                 format!(
                     "binding `{}` case `{case_id}` invalid ReplayCase: {e}",
                     binding.id
@@ -842,9 +833,7 @@ fn execute_vector(
                     binding.id, replay.case.func, binding.id.id
                 ));
             }
-            let is_built = fieldbook_calc::lookup(&binding.id.id).is_some();
-            let is_synthetic_ext = !is_built && synthetic_fns_contains(root, &binding.id.id);
-            if !is_built && !is_synthetic_ext {
+            if fieldbook_calc::lookup(&binding.id.id).is_none() {
                 return Err(format!(
                     "unknown calculation function `{}` in runner dispatch",
                     binding.id.id
@@ -864,26 +853,7 @@ fn execute_vector(
                     binding.id, impl_file.path
                 ));
             }
-            let eval_res = if is_synthetic_ext {
-                let base_fn = if binding.id.id.starts_with("build_up@") {
-                    "build_up@1"
-                } else if binding.id.id.starts_with("children_sum@") {
-                    "children_sum@1"
-                } else {
-                    return Err(format!(
-                        "unsupported synthetic calculation family `{}`",
-                        binding.id.id
-                    ));
-                };
-                replay.case.func = base_fn.to_owned();
-                let mut res = fieldbook_calc::evaluate_replay(&replay);
-                if let Ok(ref mut out) = res {
-                    out.run.func.clone_from(&binding.id.id);
-                }
-                res
-            } else {
-                fieldbook_calc::evaluate_replay(&replay)
-            };
+            let eval_res = fieldbook_calc::evaluate_replay(&replay);
 
             match eval_res {
                 Ok(outcome) => {

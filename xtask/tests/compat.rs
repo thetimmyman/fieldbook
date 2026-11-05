@@ -441,17 +441,90 @@ sha256 = "{}"
 fn new_version_keeps_old_vectors() {
     let repo = TempRepo::new("new-version");
     repo.copy_from_workspace();
+
+    // Baseline v0.1.0 starts with build_up@1 and canonical-run@1.
+    let full_pub = repo.read("compat/published.toml");
+    let without_children: String = full_pub
+        .split("[[binding]]")
+        .filter(|chunk| !chunk.contains("id = \"children_sum@1\""))
+        .collect::<Vec<_>>()
+        .join("[[binding]]");
+    repo.write("compat/published.toml", &without_children);
     repo.init_git();
     repo.commit_all("v0.1.0");
     let commit = repo.tag("v0.1.0");
-    let files = repo.compatibility_files_from_published();
+    let files_v1 = repo.compatibility_files_from_published();
+
+    // Now add the compiled version children_sum@1 and a versioned template ask-answer@2
+    // alongside the existing bindings without changing build_up@1 or canonical-run@1.
+    repo.write(
+        "compat/template/ask-answer@2/contract.toml",
+        "kind = \"template\"\nid = \"ask-answer@2\"\n",
+    );
+    repo.write(
+        "crates/fieldbook-core/src/ports/templates/ask-answer@2.txt",
+        "Prompt v2: {{question}}\n",
+    );
+    repo.write(
+        "compat/template/ask-answer@2/q-01.in.toml",
+        "question = \"What is a rate pool?\"\n",
+    );
+    repo.write(
+        "compat/template/ask-answer@2/q-01.out.txt",
+        "Prompt v2: What is a rate pool?\n",
+    );
+    let template_binding = format!(
+        r#"
+[[binding]]
+kind = "template"
+id = "ask-answer@2"
+runner = "template"
+
+[[binding.files]]
+role = "contract"
+path = "compat/template/ask-answer@2/contract.toml"
+sha256 = "{}"
+
+[[binding.files]]
+role = "expected"
+case = "q-01"
+path = "compat/template/ask-answer@2/q-01.out.txt"
+sha256 = "{}"
+
+[[binding.files]]
+role = "implementation"
+path = "crates/fieldbook-core/src/ports/templates/ask-answer@2.txt"
+sha256 = "{}"
+
+[[binding.files]]
+role = "input"
+case = "q-01"
+path = "compat/template/ask-answer@2/q-01.in.toml"
+sha256 = "{}"
+"#,
+        repo.sha256("compat/template/ask-answer@2/contract.toml"),
+        repo.sha256("compat/template/ask-answer@2/q-01.out.txt"),
+        repo.sha256("crates/fieldbook-core/src/ports/templates/ask-answer@2.txt"),
+        repo.sha256("compat/template/ask-answer@2/q-01.in.toml"),
+    );
+    repo.write(
+        "compat/published.toml",
+        &format!("{full_pub}{template_binding}"),
+    );
     repo.write_release_baseline(
-        Some(("v0.1.0", &commit, &files)),
+        Some(("v0.1.0", &commit, &files_v1)),
         Some(("v0.1.0", &commit)),
         None,
     );
 
-    // Add build_up@2 alongside build_up@1 without changing build_up@1.
+    let out = repo.run_compat("release-baseline.toml");
+    assert!(
+        out.status.success(),
+        "adding new bindings while keeping archived bindings unchanged should pass: {}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+
+    // Adding a calculation binding that is absent from compiled dispatch (`build_up@2`) must refuse.
     let v1_impl = repo.read("crates/fieldbook-calc/src/versions/build_up_v1.rs");
     repo.write(
         "crates/fieldbook-calc/src/versions/build_up_v2.rs",
@@ -475,16 +548,7 @@ fn new_version_keeps_old_vectors() {
     repo.write("compat/calculation/build_up@2/calc-01.out.txt", &out_01);
     repo.write("compat/calculation/build_up@2/calc-90.in.toml", &in_90);
     repo.write("compat/calculation/build_up@2/calc-90.out.txt", &out_90);
-
-    let fns_rs = repo.read("crates/fieldbook-calc/src/fns.rs");
-    repo.write(
-        "crates/fieldbook-calc/src/fns.rs",
-        &format!("{fns_rs}\n// synthetic row: id: \"build_up@2\"\n"),
-    );
-
-    // Insert build_up@2 between build_up@1 and children_sum@1 in compat/published.toml.
-    let pub_toml = repo.read("compat/published.toml");
-    let new_binding = format!(
+    let uncompiled_calc = format!(
         r#"[[binding]]
 kind = "calculation"
 id = "build_up@2"
@@ -534,18 +598,17 @@ id = "children_sum@1""#,
         repo.sha256("compat/calculation/build_up@2/calc-01.in.toml"),
         repo.sha256("compat/calculation/build_up@2/calc-90.in.toml"),
     );
-    let updated_pub = pub_toml.replacen(
-        "[[binding]]\nkind = \"calculation\"\nid = \"children_sum@1\"",
-        &new_binding,
-        1,
+    repo.write(
+        "compat/published.toml",
+        &full_pub.replacen(
+            "[[binding]]\nkind = \"calculation\"\nid = \"children_sum@1\"",
+            &uncompiled_calc,
+            1,
+        ),
     );
-    repo.write("compat/published.toml", &updated_pub);
-
-    let out = repo.run_compat("release-baseline.toml");
     assert!(
-        out.status.success(),
-        "adding build_up@2 while keeping build_up@1 unchanged should pass: {}",
-        String::from_utf8_lossy(&out.stderr)
+        !repo.run_compat("release-baseline.toml").status.success(),
+        "calculation binding absent from compiled CALC_FNS dispatch must refuse"
     );
 }
 
@@ -832,6 +895,7 @@ fn baseline_streams_remain_independent() {
     // Sequence 1: raw edition-001 first, then first tool v0.1.0.
     let repo_a = TempRepo::new("streams-a");
     repo_a.copy_from_workspace();
+    let full_pub = repo_a.read("compat/published.toml");
     repo_a.init_git();
     repo_a.commit_all("edition-001 release");
     let ed_commit = repo_a.tag("edition-001");
@@ -845,93 +909,60 @@ fn baseline_streams_remain_independent() {
     );
     assert!(repo_a.run_compat("release-baseline.toml").status.success());
 
-    // Now v0.1.0 tool release adds build_up@2 and advances compatibility & tool while preserving edition-001.
-    let v1_impl = repo_a.read("crates/fieldbook-calc/src/versions/build_up_v1.rs");
+    // Now v0.1.0 tool release adds template ask-answer@1 and advances compatibility & tool while preserving edition-001.
     repo_a.write(
-        "crates/fieldbook-calc/src/versions/build_up_v2.rs",
-        &v1_impl,
+        "compat/template/ask-answer@1/contract.toml",
+        "kind = \"template\"\nid = \"ask-answer@1\"\n",
     );
     repo_a.write(
-        "compat/calculation/build_up@2/contract.toml",
-        "kind = \"calculation\"\nid = \"build_up@2\"\n",
+        "crates/fieldbook-core/src/ports/templates/ask-answer@1.txt",
+        "Prompt v1: {{question}}\n",
     );
-    let in_01 = repo_a
-        .read("compat/calculation/build_up@1/calc-01.in.toml")
-        .replace("build_up@1", "build_up@2");
-    let out_01 = repo_a
-        .read("compat/calculation/build_up@1/calc-01.out.txt")
-        .replace("fn 10:build_up@1", "fn 10:build_up@2");
-    let in_90 = repo_a
-        .read("compat/calculation/build_up@1/calc-90.in.toml")
-        .replace("build_up@1", "build_up@2");
-    let out_90 = repo_a.read("compat/calculation/build_up@1/calc-90.out.txt");
-    repo_a.write("compat/calculation/build_up@2/calc-01.in.toml", &in_01);
-    repo_a.write("compat/calculation/build_up@2/calc-01.out.txt", &out_01);
-    repo_a.write("compat/calculation/build_up@2/calc-90.in.toml", &in_90);
-    repo_a.write("compat/calculation/build_up@2/calc-90.out.txt", &out_90);
-    let fns_rs = repo_a.read("crates/fieldbook-calc/src/fns.rs");
     repo_a.write(
-        "crates/fieldbook-calc/src/fns.rs",
-        &format!("{fns_rs}\n// id: \"build_up@2\"\n"),
+        "compat/template/ask-answer@1/q-01.in.toml",
+        "question = \"What is a rate pool?\"\n",
     );
-    let pub_toml = repo_a.read("compat/published.toml");
-    let new_binding = format!(
-        r#"[[binding]]
-kind = "calculation"
-id = "build_up@2"
-runner = "calculation"
+    repo_a.write(
+        "compat/template/ask-answer@1/q-01.out.txt",
+        "Prompt v1: What is a rate pool?\n",
+    );
+    let template_binding = format!(
+        r#"
+[[binding]]
+kind = "template"
+id = "ask-answer@1"
+runner = "template"
 
 [[binding.files]]
 role = "contract"
-path = "compat/calculation/build_up@2/contract.toml"
+path = "compat/template/ask-answer@1/contract.toml"
 sha256 = "{}"
 
 [[binding.files]]
 role = "expected"
-case = "calc-01"
-path = "compat/calculation/build_up@2/calc-01.out.txt"
-sha256 = "{}"
-
-[[binding.files]]
-role = "expected"
-case = "calc-90"
-path = "compat/calculation/build_up@2/calc-90.out.txt"
+case = "q-01"
+path = "compat/template/ask-answer@1/q-01.out.txt"
 sha256 = "{}"
 
 [[binding.files]]
 role = "implementation"
-path = "crates/fieldbook-calc/src/versions/build_up_v2.rs"
+path = "crates/fieldbook-core/src/ports/templates/ask-answer@1.txt"
 sha256 = "{}"
 
 [[binding.files]]
 role = "input"
-case = "calc-01"
-path = "compat/calculation/build_up@2/calc-01.in.toml"
+case = "q-01"
+path = "compat/template/ask-answer@1/q-01.in.toml"
 sha256 = "{}"
-
-[[binding.files]]
-role = "input"
-case = "calc-90"
-path = "compat/calculation/build_up@2/calc-90.in.toml"
-sha256 = "{}"
-
-[[binding]]
-kind = "calculation"
-id = "children_sum@1""#,
-        repo_a.sha256("compat/calculation/build_up@2/contract.toml"),
-        repo_a.sha256("compat/calculation/build_up@2/calc-01.out.txt"),
-        repo_a.sha256("compat/calculation/build_up@2/calc-90.out.txt"),
-        repo_a.sha256("crates/fieldbook-calc/src/versions/build_up_v2.rs"),
-        repo_a.sha256("compat/calculation/build_up@2/calc-01.in.toml"),
-        repo_a.sha256("compat/calculation/build_up@2/calc-90.in.toml"),
+"#,
+        repo_a.sha256("compat/template/ask-answer@1/contract.toml"),
+        repo_a.sha256("compat/template/ask-answer@1/q-01.out.txt"),
+        repo_a.sha256("crates/fieldbook-core/src/ports/templates/ask-answer@1.txt"),
+        repo_a.sha256("compat/template/ask-answer@1/q-01.in.toml"),
     );
     repo_a.write(
         "compat/published.toml",
-        &pub_toml.replacen(
-            "[[binding]]\nkind = \"calculation\"\nid = \"children_sum@1\"",
-            &new_binding,
-            1,
-        ),
+        &format!("{full_pub}{template_binding}"),
     );
     repo_a.commit_all("v0.1.0 release");
     let v1_commit = repo_a.tag("v0.1.0");

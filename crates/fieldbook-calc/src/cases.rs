@@ -69,7 +69,7 @@ pub struct CaseInputs {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct CaseOutputs {
-    /// Unit price per each.
+    /// Unit price in the `quantity_unit` basis.
     #[serde(default)]
     pub unit: Option<String>,
     /// Extended material price.

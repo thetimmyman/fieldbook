@@ -101,6 +101,31 @@ mod cases {
         assert_eq!(output_dec(&outcome.outputs, "cost").to_string(), "2590.00");
         assert_eq!(output_dec(&outcome.outputs, "profit").to_string(), "259.00");
         assert_eq!(output_dec(&outcome.outputs, "price").to_string(), "2849.00");
+
+        // When quantity_unit is a price basis other than `each` (e.g. `2 per_100`),
+        // `unit` retains the `quantity_unit` basis (`900.00 per_100`) and `extension` is `1800.00`.
+        let mut per_100_qty = case;
+        let Some(ref mut inputs) = per_100_qty.inputs else {
+            panic!("CALC-01 inputs");
+        };
+        inputs.quantity = "2".to_string();
+        inputs.quantity_unit = Some("per_100".to_string());
+        let out_per_100 =
+            evaluate(&per_100_qty).unwrap_or_else(|e| panic!("CALC-01 per_100 qty: {e:?}"));
+        assert_eq!(
+            output_dec(&out_per_100.outputs, "unit").to_string(),
+            "900.00"
+        );
+        let unit_out = out_per_100
+            .outputs
+            .iter()
+            .find(|o| o.name == "unit")
+            .unwrap_or_else(|| panic!("unit output"));
+        assert_eq!(unit_out.unit, "per_100");
+        assert_eq!(
+            output_dec(&out_per_100.outputs, "extension").to_string(),
+            "1800.00"
+        );
     }
 
     #[test]

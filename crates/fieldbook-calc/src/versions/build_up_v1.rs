@@ -188,7 +188,7 @@ pub fn evaluate_build_up(case: &Case, calculation_epoch: u32) -> Result<Outcome,
         RunOutput {
             name: "unit".to_string(),
             value: unit_money.map(|m| m.amount),
-            unit: each_word.to_string(),
+            unit: quantity_unit.word().to_string(),
             currency: Some(currency),
         },
         RunOutput {
