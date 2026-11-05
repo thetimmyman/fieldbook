@@ -1,0 +1,121 @@
+<div class="reader" id="reader">
+  <article class="prose">
+    <div class="banner warn" id="overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ meta_row.review_by }}" hidden>
+      <div class="body"><b>Review overdue.</b> Review date <time datetime="{{ meta_row.review_by }}">{{ meta_row.review_by }}</time> has passed; re-check cited sources before relying on this page.</div>
+    </div>
+    {% if is_synthetic_now %}
+    <div class="banner" role="region" aria-label="Readiness notice">
+      <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>
+    </div>
+    {% endif %}
+    {% if !superseded_by_html.is_empty() %}
+    <div class="banner warn" role="region" aria-label="Supersession notice">
+      <div class="body"><b>Superseded.</b> Replaced by {{ superseded_by_html|safe }}.</div>
+    </div>
+    {% endif %}
+
+    <header class="page-head">
+      <div class="eyebrow">
+        {{ area_chip_html|safe }}
+        <span class="chip">{{ subarea }}</span>
+        <span class="chip">{{ page_type }}</span>
+        <span class="chip">Stage {{ stage }}</span>
+        {{ status_chip_html|safe }}
+        {% for h in &handling_chips %}
+        <span class="chip">{{ h }}</span>
+        {% endfor %}
+      </div>
+      <h1>{{ title }}</h1>
+      {% include "parts/meta_row.html" %}
+      <div class="page-actions">
+        <button type="button" class="btn sm" id="copyLinkBtn" data-copy-link="{{ meta_row.page_id }}">Copy link</button>
+        <div class="seg" id="wordingSeg" role="group" aria-label="Wording">
+          <button type="button" data-wording="both" aria-pressed="true">Both</button>
+          <button type="button" data-wording="plain" aria-pressed="false">Plain</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="sheet">
+      <section class="part" aria-labelledby="{{ question.anchor }}">
+        <h2 id="{{ question.anchor }}">{{ question.heading }}</h2>
+        {% if question.is_empty %}
+        <p class="empty-part warn">{{ empty_part_text }}</p>
+        {% else %}
+        {{ question.body_html|safe }}
+        {% endif %}
+      </section>
+
+      <section class="part" aria-labelledby="{{ recommendation.anchor }}">
+        <h2 id="{{ recommendation.anchor }}">{{ recommendation.heading }}</h2>
+        {% if recommendation.is_empty %}
+        <p class="empty-part warn">{{ empty_part_text }}</p>
+        {% else %}
+        {{ recommendation.body_html|safe }}
+        {% endif %}
+      </section>
+
+      <section class="part" aria-labelledby="{{ evidence.anchor }}">
+        <h2 id="{{ evidence.anchor }}">{{ evidence.heading }}</h2>
+        {% if evidence.is_empty %}
+        <p class="empty-part warn">{{ empty_part_text }}</p>
+        {% else %}
+        {{ evidence.body_html|safe }}
+        {% endif %}
+      </section>
+
+      <section class="part" aria-labelledby="{{ options.anchor }}">
+        <h2 id="{{ options.anchor }}">{{ options.heading }}</h2>
+        {% if options.is_empty %}
+        <p class="empty-part warn">{{ empty_part_text }}</p>
+        {% else %}
+        {{ options.body_html|safe }}
+        {% endif %}
+      </section>
+
+      <section class="part" aria-labelledby="{{ unknowns.anchor }}">
+        <h2 id="{{ unknowns.anchor }}">{{ unknowns.heading }}</h2>
+        {% if unknowns.is_empty %}
+        <p class="empty-part warn">{{ empty_part_text }}</p>
+        {% else %}
+        {{ unknowns.body_html|safe }}
+        {% endif %}
+      </section>
+
+      <section class="part" aria-labelledby="{{ next_action.anchor }}">
+        <h2 id="{{ next_action.anchor }}">{{ next_action.heading }}</h2>
+        {% if next_action.is_empty %}
+        <p class="empty-part warn">{{ empty_part_text }}</p>
+        {% else %}
+        {{ next_action.body_html|safe }}
+        {% endif %}
+      </section>
+
+      <section class="part fn" aria-labelledby="{{ sources_part.anchor }}">
+        <h2 id="{{ sources_part.anchor }}">{{ sources_part.heading }}</h2>
+        {% include "parts/sources_block.html" %}
+      </section>
+    </div>
+  </article>
+
+  <aside class="rail" aria-label="Evidence and connections">
+    <nav class="rail-sec" aria-label="On this page">
+      <div class="rail-head">On this page</div>
+      <ul class="toc">
+        {% for item in &toc_items %}
+        <li class="toc-item"><a href="#{{ item.anchor }}">{{ item.heading }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <section class="rail-sec" aria-label="Cited claims">
+      <div class="rail-head">Cited claims ({{ evidence_cards.len() }})</div>
+      {% if evidence_cards.is_empty() %}
+      <p class="rail-empty">No claims cited on this page.</p>
+      {% else %}
+      {% include "parts/evidence_card.html" %}
+      {% endif %}
+    </section>
+  </aside>
+  <div class="popover" id="popover" role="tooltip" hidden></div>
+</div>

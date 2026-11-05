@@ -252,13 +252,21 @@ fn build_part_by_name(
         .and_then(|ps| page.parts().heading_anchor(ps.heading_event))
         .unwrap_or(fallback_anchor)
         .to_owned();
-    let is_empty = part_span.is_none_or(|ps| ps.event_range.is_empty());
     let body_html = match (render_prose, part_span) {
         (true, Some(ps)) if !ps.event_range.is_empty() => {
             inline.render_part(ps.event_range.clone())
         }
         _ => String::new(),
     };
+    let empty_para = format!("<p>{}</p>", escape_html(strings::empty_part()));
+    let empty_li = format!(
+        "<ul>\n<li>{}</li>\n</ul>",
+        escape_html(strings::empty_part())
+    );
+    let trimmed_body = body_html.trim();
+    let is_empty = part_span.is_none_or(|ps| ps.event_range.is_empty())
+        || trimmed_body == empty_para
+        || trimmed_body == empty_li;
     RenderedPart {
         heading: heading.to_owned(),
         anchor,
@@ -433,6 +441,7 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
     let is_brief = page.meta.r#type == PageType::Brief;
 
     let mut brief_parts = Vec::new();
+    let mut case_split = crate::types::CaseSplitView::default();
     let (
         purpose,
         the_rule,
@@ -471,8 +480,21 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         )
     } else {
         let p0 = build_part_by_name(part_names[0], "purpose", true, page, &mut inline);
-        let p1 = build_part_by_name(part_names[1], "the-rule", true, page, &mut inline);
-        let p2 = build_part_by_name(part_names[2], "how-it-works", true, page, &mut inline);
+        let p1 = if page.meta.r#type == PageType::Reference {
+            crate::types::render_reference_the_rule(page, view, &mut inline)
+        } else {
+            build_part_by_name(part_names[1], "the-rule", true, page, &mut inline)
+        };
+        let p2 = if page.meta.r#type == PageType::Case {
+            case_split = crate::types::build_case_split(page, &mut inline);
+            if case_split.has_sections {
+                build_part_by_name(part_names[2], "how-it-works", false, page, &mut inline)
+            } else {
+                build_part_by_name(part_names[2], "how-it-works", true, page, &mut inline)
+            }
+        } else {
+            build_part_by_name(part_names[2], "how-it-works", true, page, &mut inline)
+        };
         let p3 = build_part_by_name(part_names[3], "worked-example", true, page, &mut inline);
         let p4 = build_part_by_name(part_names[4], "never-confuse", true, page, &mut inline);
         let p5 = build_part_by_name(
@@ -596,7 +618,7 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         ]
     };
 
-    let tpl = PageTemplate {
+    let common = crate::types::TypedPageCommon {
         area_chip_html,
         subarea: page.meta.subarea.clone(),
         page_type: page.meta.r#type.as_str().to_owned(),
@@ -607,8 +629,6 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         meta_row,
         is_synthetic_now: page.meta.readiness == Readiness::SyntheticNow,
         superseded_by_html,
-        is_brief,
-        brief_parts,
         purpose,
         the_rule,
         how_it_works,
@@ -623,6 +643,49 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         change_entries,
         toc_items,
         evidence_cards,
+    };
+
+    if is_brief {
+        return crate::types::render_brief(common, brief_parts);
+    }
+    let common = match crate::types::render_typed_eight_part(
+        page,
+        view,
+        planned,
+        Box::new(common),
+        case_split,
+    ) {
+        Ok(typed_html) => return typed_html,
+        Err(c) => *c,
+    };
+
+    let tpl = PageTemplate {
+        area_chip_html: common.area_chip_html,
+        subarea: common.subarea,
+        page_type: common.page_type,
+        stage: common.stage,
+        status_chip_html: common.status_chip_html,
+        handling_chips: common.handling_chips,
+        title: common.title,
+        meta_row: common.meta_row,
+        is_synthetic_now: common.is_synthetic_now,
+        superseded_by_html: common.superseded_by_html,
+        is_brief,
+        brief_parts,
+        purpose: common.purpose,
+        the_rule: common.the_rule,
+        how_it_works: common.how_it_works,
+        worked_example: common.worked_example,
+        never_confuse: common.never_confuse,
+        company_calibration: common.company_calibration,
+        sources_part: common.sources_part,
+        change_note_part: common.change_note_part,
+        empty_part_text: common.empty_part_text,
+        sources_rows: common.sources_rows,
+        conflict_boxes: common.conflict_boxes,
+        change_entries: common.change_entries,
+        toc_items: common.toc_items,
+        evidence_cards: common.evidence_cards,
     };
 
     tpl.render()

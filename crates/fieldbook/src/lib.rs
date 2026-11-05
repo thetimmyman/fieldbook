@@ -14,6 +14,7 @@ pub mod audit;
 pub mod build;
 pub mod cli;
 pub mod io;
+pub mod report;
 
 pub use cli::Cli;
 pub use io::{Audited, Error, StoreLease, WorldError};

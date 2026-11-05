@@ -6,7 +6,7 @@
 
 #![expect(
     clippy::disallowed_methods,
-    reason = "io reads SOURCE_DATE_EPOCH at the process boundary for build metadata"
+    reason = "io reads SOURCE_DATE_EPOCH and traverses input folders at the process boundary"
 )]
 
 pub mod atomic;
@@ -24,7 +24,7 @@ pub use store_lease::{GenerationStatus, LeaseMode, StoreLease};
 pub use tree::{Disk, Error, WorldError, find_root, read_file, read_tree};
 
 use std::io::Write;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
 use fieldbook_core::CivilDate;
@@ -33,6 +33,102 @@ use fieldbook_core::egress::Allowed;
 use fieldbook_render::meta::{BuildInfo, BuildProfile};
 
 use crate::cli::EXIT_IO;
+
+/// A candidate file discovered during `fieldbook add <folder>` traversal (`add-folder-mode`).
+#[derive(Debug, Clone)]
+pub struct FolderCandidate {
+    /// Forward-slash relative path under the target folder.
+    pub rel_name: String,
+    /// Full disk path to the file.
+    pub disk_path: PathBuf,
+}
+
+/// Resolve an `add` input path against `cwd` (with `state_dir` fallback for relative missing
+/// paths) and inspect whether it is a directory (`add-folder-mode`).
+///
+/// # Errors
+///
+/// Returns [`WorldError`] if the path does not exist or cannot be inspected.
+pub fn inspect_add_input(
+    file_arg: &Path,
+    cwd: &Path,
+    state_dir: &Path,
+) -> Result<(PathBuf, bool), WorldError> {
+    let primary_path = if file_arg.is_absolute() {
+        file_arg.to_path_buf()
+    } else {
+        cwd.join(file_arg)
+    };
+    let (input_path, meta) = match std::fs::symlink_metadata(&primary_path) {
+        Ok(m) => (primary_path, m),
+        Err(primary_err) => {
+            if !file_arg.is_absolute() && primary_err.kind() == std::io::ErrorKind::NotFound {
+                let state_fallback = state_dir.join(file_arg);
+                if let Ok(m) = std::fs::symlink_metadata(&state_fallback) {
+                    (state_fallback, m)
+                } else {
+                    return Err(WorldError::new(&primary_path, primary_err.to_string()));
+                }
+            } else {
+                return Err(WorldError::new(&primary_path, primary_err.to_string()));
+            }
+        }
+    };
+    Ok((input_path, meta.is_dir()))
+}
+
+/// Enumerate candidate files inside `folder_path` in deterministic byte order of their
+/// forward-slash relative path, skipping symbolic links (`add-folder-mode`).
+///
+/// # Errors
+///
+/// Returns [`WorldError`] if a directory entry cannot be read or inspected.
+pub fn enumerate_folder_candidates(
+    folder_path: &Path,
+    recursive: bool,
+) -> Result<Vec<FolderCandidate>, WorldError> {
+    let mut out = Vec::new();
+    enumerate_folder_inner(folder_path, "", recursive, &mut out)?;
+    out.sort_by(|a, b| a.rel_name.as_bytes().cmp(b.rel_name.as_bytes()));
+    Ok(out)
+}
+
+fn enumerate_folder_inner(
+    dir_path: &Path,
+    prefix: &str,
+    recursive: bool,
+    out: &mut Vec<FolderCandidate>,
+) -> Result<(), WorldError> {
+    let read_dir =
+        std::fs::read_dir(dir_path).map_err(|err| WorldError::new(dir_path, err.to_string()))?;
+    for entry_res in read_dir {
+        let entry = entry_res.map_err(|err| WorldError::new(dir_path, err.to_string()))?;
+        let entry_path = entry.path();
+        let meta = std::fs::symlink_metadata(&entry_path)
+            .map_err(|err| WorldError::new(&entry_path, err.to_string()))?;
+        let ft = meta.file_type();
+        if ft.is_symlink() {
+            continue;
+        }
+        let name = entry.file_name().to_string_lossy().into_owned();
+        let rel_name = if prefix.is_empty() {
+            name
+        } else {
+            format!("{prefix}/{name}")
+        };
+        if ft.is_dir() {
+            if recursive {
+                enumerate_folder_inner(&entry_path, &rel_name, recursive, out)?;
+            }
+        } else if ft.is_file() {
+            out.push(FolderCandidate {
+                rel_name,
+                disk_path: entry_path,
+            });
+        }
+    }
+    Ok(())
+}
 
 /// Read `SOURCE_DATE_EPOCH` and compile-time `FIELDBOOK_GIT_SHA` at the process boundary
 /// and construct [`BuildInfo`] (`build-v0` step 2).

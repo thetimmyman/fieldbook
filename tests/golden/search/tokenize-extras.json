@@ -1,0 +1,272 @@
+{
+  "kind": "tokenize",
+  "version": 1,
+  "cases": [
+    {
+      "id": "tok-106",
+      "side": "index",
+      "input": "252.204-7012",
+      "tokens": ["252.204-7012", "252.204", "7012"],
+      "note": "A DFARS clause with a four-digit suffix and no paragraph groups emits the part.section ancestor and the four-digit alias"
+    },
+    {
+      "id": "tok-107",
+      "side": "index",
+      "input": "252.215-7002(a)(1)(i)(A)",
+      "tokens": [
+        "252.215-7002(a)(1)(i)(a)",
+        "252.215-7002(a)(1)(i)",
+        "252.215-7002(a)(1)",
+        "252.215-7002(a)",
+        "252.215-7002",
+        "252.215",
+        "7002"
+      ],
+      "note": "Four paragraph groups drop one at a time from the right, followed by part.section and the four-digit alias 7002"
+    },
+    {
+      "id": "tok-108",
+      "side": "index",
+      "input": "31.205-6(p)(4)(ii)",
+      "tokens": [
+        "31.205-6(p)(4)(ii)",
+        "31.205-6(p)(4)",
+        "31.205-6(p)",
+        "31.205-6",
+        "31.205"
+      ],
+      "note": "Three paragraph groups with a one-digit suffix emit four ancestors down to 31.205 and no alias"
+    },
+    {
+      "id": "tok-109",
+      "side": "index",
+      "input": "9904.401-40 9904.418-50(a)(2)",
+      "tokens": [
+        "9904.401-40",
+        "9904.401",
+        "9904.418-50(a)(2)",
+        "9904.418-50(a)",
+        "9904.418-50",
+        "9904.418"
+      ],
+      "note": "CAS clauses with two-digit suffixes emit their ancestors down to part.section and no alias"
+    },
+    {
+      "id": "tok-110",
+      "side": "index",
+      "input": "15.404(b)(2)(ii)",
+      "tokens": [
+        "15.404(b)(2)(ii)",
+        "15.404(b)(2)",
+        "15.404(b)",
+        "15.404"
+      ],
+      "note": "A clause with three paragraph groups and no hyphen suffix drops one group at a time down to part.section"
+    },
+    {
+      "id": "tok-111",
+      "side": "index",
+      "input": "52.215-1 52.215-12 52.215-123 52.215-1234 52.215-12345",
+      "tokens": [
+        "52.215-1",
+        "52.215",
+        "52.215-12",
+        "52.215",
+        "52.215-123",
+        "52.215",
+        "52.215-1234",
+        "52.215",
+        "1234",
+        "52.215-12345",
+        "52.215"
+      ],
+      "note": "Among suffixes of 1, 2, 3, 4 and 5 digits, only the 4-digit suffix 1234 emits an alias"
+    },
+    {
+      "id": "tok-112",
+      "side": "index",
+      "input": "252.204-701a 252.204-a012 252.204-0000",
+      "tokens": [
+        "252.204",
+        "701a",
+        "252.204",
+        "a012",
+        "252.204-0000",
+        "252.204",
+        "0000"
+      ],
+      "note": "A suffix containing a letter does not match (-digits) in shape 9 and splits after 252.204, whereas 252.204-0000 emits 252.204 and 0000"
+    },
+    {
+      "id": "tok-113",
+      "side": "index",
+      "input": "252.204-7012(1a)(2b)",
+      "tokens": [
+        "252.204-7012(1a)(2b)",
+        "252.204-7012(1a)",
+        "252.204-7012",
+        "252.204",
+        "7012"
+      ],
+      "note": "Alphanumeric paragraph groups (1a) and (2b) are dropped right-to-left before emitting part.section and the four-digit alias"
+    },
+    {
+      "id": "tok-114",
+      "side": "index",
+      "input": "52.204 252.204 9904.401",
+      "tokens": ["52.204", "252.204", "9904.401"],
+      "note": "Bare part.section numbers with neither hyphen suffix nor paragraph group emit no extras"
+    },
+    {
+      "id": "tok-115",
+      "side": "index",
+      "input": "S-0001-v1 S-0042-v2 S-9999-v100",
+      "tokens": [
+        "s-0001-v1",
+        "s-0001",
+        "s-0042-v2",
+        "s-0042",
+        "s-9999-v100",
+        "s-9999"
+      ],
+      "note": "Every source version token on the index side is immediately followed by its unversioned source id"
+    },
+    {
+      "id": "tok-116",
+      "side": "index",
+      "input": "S-0042-v2 and S-0042",
+      "tokens": ["s-0042-v2", "s-0042", "and", "s-0042"],
+      "note": "An unversioned source id after a source version stays in the stream; the index side keeps both s-0042 occurrences"
+    },
+    {
+      "id": "tok-117",
+      "side": "index",
+      "input": "SO-000042-v1 CM-000012-v2 QO-000003-v15 XO-000002-v9",
+      "tokens": [
+        "so-000042-v1",
+        "so-000042",
+        "cm-000012-v2",
+        "cm-000012",
+        "qo-000003-v15",
+        "qo-000003",
+        "xo-000002-v9",
+        "xo-000002"
+      ],
+      "note": "Company versioned ids across multiple two-letter prefixes each emit their unversioned company id on the index side"
+    },
+    {
+      "id": "tok-118",
+      "side": "index",
+      "input": "SO-1234567890-v42",
+      "tokens": ["so-1234567890-v42", "so-1234567890"],
+      "note": "A ten-digit company versioned id emits its ten-digit unversioned company id"
+    },
+    {
+      "id": "tok-119",
+      "side": "index",
+      "input": "SO-000042 CM-000012 QO-000003 XO-000002 CL-XES-000012",
+      "tokens": ["so-000042", "cm-000012", "qo-000003", "xo-000002", "cl-xes-000012"],
+      "note": "Unversioned company ids and company claim ids emit no extras on the index side"
+    },
+    {
+      "id": "tok-120",
+      "side": "index",
+      "input": "S-0042 CL-CMP-0011 Q-027 XC-14",
+      "tokens": ["s-0042", "cl-cmp-0011", "q-027", "xc-14"],
+      "note": "Unversioned Corpus source, claim, question and conflict ids emit no extras on the index side"
+    },
+    {
+      "id": "tok-121",
+      "side": "index",
+      "input": "[@S-0042-v2, pp. 14-15; @SO-000042-v2, sec. 252.204-7012(a)]",
+      "tokens": [
+        "s-0042-v2",
+        "s-0042",
+        "pp",
+        "14",
+        "15",
+        "so-000042-v2",
+        "so-000042",
+        "sec",
+        "252.204-7012(a)",
+        "252.204-7012",
+        "252.204",
+        "7012"
+      ],
+      "note": "A multi-cite bracket containing a Corpus source version, a company versioned id and a clause locator emits extras for all three in order"
+    },
+    {
+      "id": "tok-122",
+      "side": "index",
+      "input": "15.404-1(a)(4)(i) and 15.404-1(a)",
+      "tokens": [
+        "15.404-1(a)(4)(i)",
+        "15.404-1(a)(4)",
+        "15.404-1(a)",
+        "15.404-1",
+        "15.404",
+        "and",
+        "15.404-1(a)",
+        "15.404-1",
+        "15.404"
+      ],
+      "note": "When both a deep clause citation and an ancestor appear in the same indexed field, each emits its full ancestor chain without deduplication"
+    },
+    {
+      "id": "tok-123",
+      "side": "index",
+      "input": "15.404-1(a)(12345)",
+      "tokens": ["15.404-1(a)", "15.404-1", "15.404", "12345"],
+      "note": "Extras for 15.404-1(a) are emitted immediately before the lexer moves on to the overlong group 12345"
+    },
+    {
+      "id": "tok-124",
+      "side": "index",
+      "input": "252.204-7012(a)(",
+      "tokens": ["252.204-7012(a)", "252.204-7012", "252.204", "7012"],
+      "note": "An trailing unclosed parenthesis after (a) stops the match at 252.204-7012(a), which still emits its ancestors and 7012 alias"
+    },
+    {
+      "id": "tok-125",
+      "side": "index",
+      "input": "252.204-7012x",
+      "tokens": ["252.204", "7012x"],
+      "note": "When a trailing letter causes shape 9 to fail the boundary check, shape 10 matches 252.204 and no clause extras are emitted"
+    },
+    {
+      "id": "tok-126",
+      "side": "index",
+      "input": "S-0042-v2x SO-000042-v2x",
+      "tokens": ["s-0042", "v2x", "so-000042", "v2x"],
+      "note": "When a trailing letter causes shapes 1 and 7 to fail their boundary check, shapes 2 and 8 match the unversioned stem and v2x becomes a word"
+    },
+    {
+      "id": "tok-127",
+      "side": "index",
+      "input": "0.7012 3.141-7012",
+      "tokens": ["0.7012", "3.141-7012", "3.141", "7012"],
+      "note": "0.7012 has a four-digit fraction so shape 10 takes it with no extras; 3.141-7012 has a three-digit section and four-digit suffix so shape 9 emits 3.141 and 7012"
+    },
+    {
+      "id": "tok-128",
+      "side": "index",
+      "input": "15.404(1000)",
+      "tokens": ["15.404(1000)", "15.404"],
+      "note": "A four-digit paragraph group without a hyphen suffix drops the group to emit 15.404 and does not emit 1000 as a suffix alias"
+    },
+    {
+      "id": "tok-129",
+      "side": "index",
+      "input": "252.204-7012(7012)",
+      "tokens": ["252.204-7012(7012)", "252.204-7012", "252.204", "7012"],
+      "note": "A paragraph group happens to hold four digits on a four-digit suffix clause: the group is dropped first, then the suffix, then the suffix alias is emitted"
+    },
+    {
+      "id": "tok-130",
+      "side": "index",
+      "input": "SO-000042-v2 SO-000042-v2",
+      "tokens": ["so-000042-v2", "so-000042", "so-000042-v2", "so-000042"],
+      "note": "Repeated company versioned ids on the index side repeat both the versioned token and the unversioned extra"
+    }
+  ]
+}

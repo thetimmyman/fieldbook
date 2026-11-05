@@ -76,7 +76,7 @@ pub struct BuildArgs {
 /// Arguments for `fieldbook add`.
 #[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
 pub struct AddArgs {
-    /// Path to the source file to add.
+    /// Path to the source file or folder to add.
     #[arg(value_name = "FILE")]
     pub file: PathBuf,
 
@@ -91,6 +91,14 @@ pub struct AddArgs {
     /// Confirm that the unlabelled file is public and may enter the repository Corpus.
     #[arg(long)]
     pub confirm_public: bool,
+
+    /// Descend into subfolders when adding a folder.
+    #[arg(long)]
+    pub recursive: bool,
+
+    /// Print the report as a JSON object.
+    #[arg(long)]
+    pub json: bool,
 }
 
 /// Arguments for `fieldbook check`.

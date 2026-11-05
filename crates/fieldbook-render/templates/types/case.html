@@ -1,0 +1,146 @@
+<div class="reader" id="reader">
+  <article class="prose">
+    <div class="banner warn" id="overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ meta_row.review_by }}" hidden>
+      <div class="body"><b>Review overdue.</b> Review date <time datetime="{{ meta_row.review_by }}">{{ meta_row.review_by }}</time> has passed; re-check cited sources before relying on this page.</div>
+    </div>
+    {% if is_synthetic_now %}
+    <div class="banner" role="region" aria-label="Readiness notice">
+      <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>
+    </div>
+    {% endif %}
+    {% if !superseded_by_html.is_empty() %}
+    <div class="banner warn" role="region" aria-label="Supersession notice">
+      <div class="body"><b>Superseded.</b> Replaced by {{ superseded_by_html|safe }}.</div>
+    </div>
+    {% endif %}
+
+    <header class="page-head">
+      <div class="eyebrow">
+        {{ area_chip_html|safe }}
+        <span class="chip">{{ subarea }}</span>
+        <span class="chip">{{ page_type }}</span>
+        <span class="chip">Stage {{ stage }}</span>
+        {{ status_chip_html|safe }}
+        {% for h in &handling_chips %}
+        <span class="chip">{{ h }}</span>
+        {% endfor %}
+      </div>
+      <h1>{{ title }}</h1>
+      {% include "parts/meta_row.html" %}
+      <div class="page-actions">
+        <button type="button" class="btn sm" id="copyLinkBtn" data-copy-link="{{ meta_row.page_id }}">Copy link</button>
+        <div class="seg" id="wordingSeg" role="group" aria-label="Wording">
+          <button type="button" data-wording="both" aria-pressed="true">Both</button>
+          <button type="button" data-wording="plain" aria-pressed="false">Plain</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="part" aria-labelledby="{{ purpose.anchor }}">
+      <h2 id="{{ purpose.anchor }}">{{ purpose.heading }}</h2>
+      {% if purpose.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ purpose.body_html|safe }}
+      {% endif %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ the_rule.anchor }}">
+      <h2 id="{{ the_rule.anchor }}">{{ the_rule.heading }}</h2>
+      {% if the_rule.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ the_rule.body_html|safe }}
+      {% endif %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ how_it_works.anchor }}">
+      <h2 id="{{ how_it_works.anchor }}">{{ how_it_works.heading }}</h2>
+      {% if case_split.has_sections %}
+      {% if !case_split.prefix_html.is_empty() %}{{ case_split.prefix_html|safe }}{% endif %}<div class="case-split">
+        <div class="box case-block case-record" data-case-section="public-record">
+          <div class="case-head">
+            <span class="ev-label" title="Public record">PF · Public record</span>
+            <h3 id="{{ case_split.public_record_anchor }}">Public record</h3>
+          </div>
+          <div class="case-body">
+            {{ case_split.public_record_html|safe }}
+          </div>
+        </div>
+        <div class="box case-block case-inference" data-case-section="inference">
+          <div class="case-head">
+            <span class="ev-label" title="Inference">INF · Inference</span>
+            <h3 id="{{ case_split.inference_anchor }}">Inference</h3>
+          </div>
+          <div class="case-body">
+            {{ case_split.inference_html|safe }}
+          </div>
+        </div>
+      </div>
+      {% else if how_it_works.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ how_it_works.body_html|safe }}
+      {% endif %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ worked_example.anchor }}">
+      <h2 id="{{ worked_example.anchor }}">{{ worked_example.heading }}</h2>
+      {% if worked_example.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ worked_example.body_html|safe }}
+      {% endif %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ never_confuse.anchor }}">
+      <h2 id="{{ never_confuse.anchor }}">{{ never_confuse.heading }}</h2>
+      {% if never_confuse.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ never_confuse.body_html|safe }}
+      {% endif %}
+      {% include "parts/conflict_box.html" %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ company_calibration.anchor }}">
+      <h2 id="{{ company_calibration.anchor }}">{{ company_calibration.heading }}</h2>
+      {% if company_calibration.is_empty %}
+      <p class="empty-part">{{ empty_part_text }}</p>
+      {% else %}
+      {{ company_calibration.body_html|safe }}
+      {% endif %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ sources_part.anchor }}">
+      <h2 id="{{ sources_part.anchor }}">{{ sources_part.heading }}</h2>
+      {% include "parts/sources_block.html" %}
+    </section>
+
+    <section class="part" aria-labelledby="{{ change_note_part.anchor }}">
+      <h2 id="{{ change_note_part.anchor }}">{{ change_note_part.heading }}</h2>
+      {% include "parts/change_note.html" %}
+    </section>
+  </article>
+
+  <aside class="rail" aria-label="Evidence and connections">
+    <nav class="rail-sec" aria-label="On this page">
+      <div class="rail-head">On this page</div>
+      <ul class="toc">
+        {% for item in &toc_items %}
+        <li class="toc-item"><a href="#{{ item.anchor }}">{{ item.heading }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <section class="rail-sec" aria-label="Cited claims">
+      <div class="rail-head">Cited claims ({{ evidence_cards.len() }})</div>
+      {% if evidence_cards.is_empty() %}
+      <p class="rail-empty">No claims cited on this page.</p>
+      {% else %}
+      {% include "parts/evidence_card.html" %}
+      {% endif %}
+    </section>
+  </aside>
+  <div class="popover" id="popover" role="tooltip" hidden></div>
+</div>
