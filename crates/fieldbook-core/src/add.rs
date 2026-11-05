@@ -10,9 +10,9 @@
 use std::collections::BTreeMap;
 use std::fmt;
 
-use crate::audit::{Sha256, WriteFile};
-use crate::check::Model;
+use crate::audit::{Sha256, StoreId, WriteFile};
 use crate::check::register_cells::source_kind_allows_tier;
+use crate::check::{Code, Model};
 use crate::date::{CivilDate, PartialDate, Volatility};
 use crate::ids::{
     FAMILIES, IdError, IdErrorKind, MAX_SOURCE_NUMBER, SourceId, VersionId, next_source_id,
@@ -21,6 +21,91 @@ use crate::schema::Register;
 use crate::schema::rows::{MAX_TAG_CHARS, MAX_TEXT_CHARS};
 use crate::schema::table::{Row, Table, write as write_csv};
 use crate::schema::vocab::{AuthorityTier, Lifecycle, SourceKind};
+
+/// Executable, script, and link extensions refused by [`check_type`] in every store (`FB0821`,
+/// `docs/reference/corpus-format.md` §"Allowed and disallowed file types").
+pub const DISALLOWED: &[&str] = &[
+    "exe", "dll", "msi", "com", "scr", "jar", "bat", "cmd", "ps1", "psm1", "vbs", "vbe", "js",
+    "jse", "wsf", "sh", "lnk", "url", "reg", "hta",
+];
+
+/// Macro-enabled Office extensions refused in `StoreId::Corpus` (`FB0821`).
+pub const MACRO_OFFICE_TYPES: &[&str] = &["docm", "xlsm", "pptm"];
+
+/// Extensions whose original is already UTF-8 text and therefore need no text extraction.
+pub const TEXT_TYPES: &[&str] = &["txt", "md", "markdown", "html", "htm", "xhtml", "svg"];
+
+/// File-type refusal returned by [`check_type`] (`FB0821`).
+///
+/// Carries [`Code::Fb0821`] and `file_name` only (no labels, because [`check_type`] runs before
+/// label classification).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Refusal {
+    /// Catalogue code (`FB0821`).
+    pub code: Code,
+    /// File name that triggered the refusal.
+    pub file_name: String,
+}
+
+impl fmt::Display for Refusal {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "{}:1:1: error[{}]: executable or disallowed file type",
+            self.file_name,
+            self.code.id()
+        )
+    }
+}
+
+impl std::error::Error for Refusal {}
+
+/// Checks whether `file_name` and `first_bytes` are permitted in `store`.
+///
+/// # Errors
+///
+/// Returns [`Refusal`] with [`Code::Fb0821`] when:
+/// - `first_bytes` starts with `b"MZ"` (PE executable) or `b"\x7fELF"` (ELF binary), regardless
+///   of extension, or
+/// - the lowercased extension (characters after the last `.` of the basename) is in
+///   [`DISALLOWED`], or
+/// - `store == StoreId::Corpus` and the lowercased extension is in [`MACRO_OFFICE_TYPES`].
+pub fn check_type(file_name: &str, first_bytes: &[u8], store: StoreId) -> Result<(), Refusal> {
+    let refuse = || Refusal {
+        code: Code::Fb0821,
+        file_name: file_name.to_owned(),
+    };
+    if first_bytes.starts_with(b"MZ") || first_bytes.starts_with(b"\x7fELF") {
+        return Err(refuse());
+    }
+    let base = file_name.rsplit(['/', '\\']).next().unwrap_or(file_name);
+    if let Some((_, ext)) = base.rsplit_once('.') {
+        let lower = ext.to_ascii_lowercase();
+        let lower_str = lower.as_str();
+        if DISALLOWED.contains(&lower_str) {
+            return Err(refuse());
+        }
+        if store == StoreId::Corpus && MACRO_OFFICE_TYPES.contains(&lower_str) {
+            return Err(refuse());
+        }
+    }
+    Ok(())
+}
+
+/// Returns `true` when `file_name` is an allowed type whose lowercased extension is not in
+/// [`TEXT_TYPES`].
+#[must_use]
+pub fn needs_extraction(file_name: &str) -> bool {
+    let base = file_name.rsplit(['/', '\\']).next().unwrap_or(file_name);
+    match base.rsplit_once('.') {
+        Some((_, ext)) if !ext.is_empty() => {
+            let lower = ext.to_ascii_lowercase();
+            let lower_str = lower.as_str();
+            !DISALLOWED.contains(&lower_str) && !TEXT_TYPES.contains(&lower_str)
+        }
+        _ => true,
+    }
+}
 
 /// The ten `sources.csv` columns that may be populated through [`CompletedSourceCells`].
 pub const SUGGESTIBLE_FIELDS: [&str; 10] = [

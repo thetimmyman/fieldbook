@@ -296,15 +296,20 @@ fn add_chip_cases_refuse_unconfirmed_and_add_when_confirmed() {
 
     for case in add_cases {
         let fixture_path = repo_root.join(case.fixture);
+        let is_folder_chip = case.chip.contains("<folder>");
 
         // 1. Literal base chip without --confirm-public exits 1 with FB0410 and unchanged Corpus.
         let unconfirmed_tmp = temp_copy(&fixture_path);
         for &rel in case.setup {
-            std::fs::write(
-                unconfirmed_tmp.path().join(rel),
-                b"Synthetic plain text for chip case.\n",
-            )
-            .expect("write chip setup file");
+            let p = unconfirmed_tmp.path().join(rel);
+            if is_folder_chip {
+                std::fs::create_dir_all(&p).expect("create chip setup folder");
+                std::fs::write(p.join("note.txt"), b"Synthetic plain text for chip case.\n")
+                    .expect("write chip setup folder file");
+            } else {
+                std::fs::write(p, b"Synthetic plain text for chip case.\n")
+                    .expect("write chip setup file");
+            }
         }
         let world_before = TestWorld::new(unconfirmed_tmp.path());
         let tree_before = world_before.read_tree().expect("read tree before");
@@ -319,6 +324,14 @@ fn add_chip_cases_refuse_unconfirmed_and_add_when_confirmed() {
             case.chip,
             out.stderr
         );
+        if is_folder_chip {
+            assert!(
+                out.stdout.contains("done: 1 refused\n"),
+                "unconfirmed folder chip `{}` must print folder summary: {}",
+                case.chip,
+                out.stdout
+            );
+        }
         let tree_after = world_before.read_tree().expect("read tree after");
         assert_eq!(
             tree_before, tree_after,
@@ -329,11 +342,15 @@ fn add_chip_cases_refuse_unconfirmed_and_add_when_confirmed() {
         // 2. Confirmed variant on another fresh copy adds successfully.
         let confirmed_tmp = temp_copy(&fixture_path);
         for &rel in case.setup {
-            std::fs::write(
-                confirmed_tmp.path().join(rel),
-                b"Synthetic plain text for chip case.\n",
-            )
-            .expect("write chip setup file");
+            let p = confirmed_tmp.path().join(rel);
+            if is_folder_chip {
+                std::fs::create_dir_all(&p).expect("create chip setup folder");
+                std::fs::write(p.join("note.txt"), b"Synthetic plain text for chip case.\n")
+                    .expect("write chip setup folder file");
+            } else {
+                std::fs::write(p, b"Synthetic plain text for chip case.\n")
+                    .expect("write chip setup file");
+            }
         }
         let world_confirmed = TestWorld::new(confirmed_tmp.path());
         let mut confirmed_args = args;
@@ -350,5 +367,13 @@ fn add_chip_cases_refuse_unconfirmed_and_add_when_confirmed() {
             case.chip,
             out_ok.stdout
         );
+        if is_folder_chip {
+            assert!(
+                out_ok.stdout.contains("done: 1 added\n"),
+                "confirmed folder chip `{}` must print folder summary: {}",
+                case.chip,
+                out_ok.stdout
+            );
+        }
     }
 }
