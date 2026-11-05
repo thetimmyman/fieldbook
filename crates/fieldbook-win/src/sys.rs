@@ -6,9 +6,9 @@ use std::path::{Component, Path, PathBuf, Prefix};
 use std::ptr;
 
 use windows_sys::Win32::Foundation::{
-    CloseHandle, ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT, ERROR_INSUFFICIENT_BUFFER,
-    ERROR_INVALID_FUNCTION, ERROR_NOT_A_CLOUD_FILE, ERROR_NOT_FOUND, GENERIC_ALL, GENERIC_WRITE,
-    GetLastError, HANDLE, LocalFree,
+    CloseHandle, ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT, ERROR_FILE_NOT_FOUND,
+    ERROR_INSUFFICIENT_BUFFER, ERROR_INVALID_FUNCTION, ERROR_NOT_A_CLOUD_FILE, ERROR_NOT_FOUND,
+    ERROR_PATH_NOT_FOUND, GENERIC_ALL, GENERIC_WRITE, GetLastError, HANDLE, LocalFree,
 };
 use windows_sys::Win32::Security::Authorization::{
     ConvertStringSidToSidW, GetNamedSecurityInfoW, SE_FILE_OBJECT,
@@ -311,16 +311,24 @@ pub(crate) fn interactive_logons() -> Result<u32, WinError> {
                     &raw mut bytes_returned,
                 )
             };
-            if queried != 0 && !buffer.is_null() {
-                // SAFETY: When `WTSQuerySessionInformationW` succeeds for `WTSUserName`, `buffer`
-                // points to a NUL-terminated UTF-16 string of at least 1 `u16`.
-                let has_user = bytes_returned >= 2 && unsafe { *buffer } != 0;
-                if has_user {
-                    interactive = interactive.saturating_add(1);
+            if queried == 0 || buffer.is_null() {
+                let err = last_error("WTSQuerySessionInformationW");
+                if !buffer.is_null() {
+                    // SAFETY: `buffer` was allocated by `WTSQuerySessionInformationW`.
+                    unsafe { WTSFreeMemory(buffer.cast::<c_void>()) };
                 }
-                // SAFETY: `buffer` was allocated by `WTSQuerySessionInformationW`.
-                unsafe { WTSFreeMemory(buffer.cast::<c_void>()) };
+                // SAFETY: `sessions_ptr` was allocated by `WTSEnumerateSessionsW`.
+                unsafe { WTSFreeMemory(sessions_ptr.cast::<c_void>()) };
+                return Err(err);
             }
+            // SAFETY: When `WTSQuerySessionInformationW` succeeds for `WTSUserName`, `buffer`
+            // points to a NUL-terminated UTF-16 string of at least 1 `u16`.
+            let has_user = bytes_returned >= 2 && unsafe { *buffer } != 0;
+            if has_user {
+                interactive = interactive.saturating_add(1);
+            }
+            // SAFETY: `buffer` was allocated by `WTSQuerySessionInformationW`.
+            unsafe { WTSFreeMemory(buffer.cast::<c_void>()) };
         }
     }
     if !sessions_ptr.is_null() {
@@ -332,6 +340,10 @@ pub(crate) fn interactive_logons() -> Result<u32, WinError> {
 
 fn nearest_existing_ancestor(path: &Path) -> Result<PathBuf, WinError> {
     let mut cur = Some(path);
+    let mut last_missing = WinError {
+        call: "GetFileAttributesW",
+        code: ERROR_PATH_NOT_FOUND,
+    };
     while let Some(candidate) = cur {
         let wide = to_wide_null(candidate.as_os_str());
         // SAFETY: `wide` is a valid NUL-terminated UTF-16 path string.
@@ -339,9 +351,14 @@ fn nearest_existing_ancestor(path: &Path) -> Result<PathBuf, WinError> {
         if attrs != INVALID_FILE_ATTRIBUTES {
             return Ok(candidate.to_path_buf());
         }
+        let err = last_error("GetFileAttributesW");
+        if err.code != ERROR_FILE_NOT_FOUND && err.code != ERROR_PATH_NOT_FOUND {
+            return Err(err);
+        }
+        last_missing = err;
         cur = candidate.parent().filter(|p| !p.as_os_str().is_empty());
     }
-    Err(last_error("GetFileAttributesW"))
+    Err(last_missing)
 }
 
 fn check_reparse_chain(existing: &Path) -> Result<bool, WinError> {
