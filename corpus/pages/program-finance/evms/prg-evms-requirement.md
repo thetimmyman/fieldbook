@@ -24,7 +24,7 @@ Shows when a DoD contract needs an earned value management system, when that sys
 | Instrument | DoD class deviation [@CL-PRG-0001] |
 | Codified citation | DFARS 234.201(1)(i) and (ii) [@CL-PRG-9144; @CL-PRG-9145] |
 | RFO citation | Class Deviation 2026-O0011 Rev 1, DFARS 234.201-70(a)(1) and (2) [@CL-PRG-0001; @CL-PRG-0002] |
-| Edition date | AUG 2026 for the clause at 252.234-7999 [@CL-PRG-9153] |
+| Edition date | AUG 2026 for the clause at 252.234-7999 [@CL-PRG-9164] |
 | Text status | Deviation text [@CL-PRG-0001] |
 | Applies to | DoD cost or incentive contracts and subcontracts, under the Rev 1 text issued 2026-08-05; the start under the earlier version is not established [@CL-PRG-0001; @CL-PRG-9161] |
 

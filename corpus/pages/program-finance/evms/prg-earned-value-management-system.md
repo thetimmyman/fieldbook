@@ -25,9 +25,9 @@ Shows the system, reporting, and acceptability requirements when the Earned Valu
 | Instrument | Codified DFARS [@CL-PRG-0101] |
 | Codified citation | DFARS 252.234-7002 [@CL-PRG-0101] |
 | RFO citation | Class Deviation 2026-O0011 Rev 1, DFARS 252.234-7999(c) [@CL-PRG-9153] |
-| Edition date | Jan 2025 for the codified clause [@CL-PRG-9163]. AUG 2026 for the class deviation clause 252.234-7999 [@CL-PRG-9153] |
+| Edition date | Jan 2025 for the codified clause [@CL-PRG-9163]. AUG 2026 for the class deviation clause 252.234-7999 [@CL-PRG-9164] |
 | Text status | Final [@CL-PRG-0101] |
-| Applies to | Contracts containing this clause, with an acceptability determination at the stated threshold [@CL-PRG-0101; @CL-PRG-0103] |
+| Applies to | Contracts containing the codified clause, with an acceptability determination at the stated threshold [@CL-PRG-0101; @CL-PRG-0103] |
 
 In the performance of the contract, the contractor must use an earned value management system that complies with the EVMS guidelines in the American National Standards Institute/Electronic Industries Alliance Standard 748, Earned Value Management Systems (ANSI/EIA-748), and management procedures that provide for generation of timely, reliable, and verifiable information for the Contract Performance Report (CPR) and the Integrated Master Schedule (IMS) required by the CPR and IMS data items of the contract [@CL-PRG-9138; @CL-PRG-0101; @CL-PRG-0102; @CL-PRG-9139]. If the contract has a value of $50 million or more, the contractor must use an EVMS that has been determined to be acceptable by the Cognizant Federal Agency [@CL-PRG-0103]. Under the DoD class deviation, the counterpart clause 252.234-7999(c) states the same acceptability requirement at $100 million or more instead of $50 million [@CL-PRG-9153; @CL-PRG-0103]; see [Earned value management system requirement (DoD)](prg-evms-requirement.md). The deviation memo states that section 1826(a)(2) of the NDAA for FY 2026 exempts nontraditional defense contractors from the requirements of this clause at DFARS 252.234-7002 [@CL-PRG-9160]. The memo's statement of the statutory exemption mentions no waiver [@CL-PRG-9160], and the deviation's own waiver of its nontraditional defense contractor exemption is at 234.201-70(j)(2) [@CL-PRG-0004; @CL-PRG-9143]; whether the waiver reaches the statutory exemption is not established.
 
@@ -39,7 +39,9 @@ In the performance of the contract, the contractor must use an EVMS that complie
 
 Synthetic example. The numbers are made up.
 
-A contract containing the clause is valued at 60,000,000. The Cognizant Federal Agency has not determined the contractor's system acceptable. Under the clause, a contractor whose system has not been determined compliant at award applies its current system to the contract and takes the necessary actions to meet the milestones in its EVMS plan.
+A contract containing the codified clause, whose acceptability line is $50 million, is valued at 60,000,000. The Cognizant Federal Agency has not determined the contractor's system acceptable. Under the codified clause, a contractor whose system has not been determined compliant at award applies its current system to the contract and takes the necessary actions to meet the milestones in its EVMS plan.
+
+Under the class deviation clause, whose acceptability line is $100 million, the same 60,000,000 contract is below the line, so paragraph (c) of that clause does not require the Cognizant Federal Agency's acceptability determination.
 
 ## Never confuse
 

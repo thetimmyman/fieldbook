@@ -25,7 +25,7 @@ Shows which solicitations and contracts use the DoD earned value management syst
 | Instrument | Codified DFARS [@CL-CMP-7864] |
 | Codified citation | DFARS 234.203 [@CL-CMP-7864] |
 | RFO citation | Class Deviation 2026-O0011 Rev 1, DFARS 234.203-70 [@CL-CMP-10040; @CL-CMP-10041] |
-| Edition date | APR 2008 for the codified provision 252.234-7001 [@CL-CMP-3834] and Jan 2025 for the codified clause 252.234-7002 [@CL-PRG-9163]. AUG 2026 for the class deviation provision 252.234-7998 and clause 252.234-7999 [@CL-CMP-10042; @CL-PRG-9153] |
+| Edition date | APR 2008 for the codified provision 252.234-7001 [@CL-CMP-3834] and Jan 2025 for the codified clause 252.234-7002 [@CL-PRG-9163]. AUG 2026 for the class deviation provision 252.234-7998 and clause 252.234-7999 [@CL-CMP-10044; @CL-PRG-9164] |
 | Text status | Final [@CL-CMP-7864] |
 | Applies to | Cost or incentive contracts valued at $20,000,000 or more, and other contracts for which the earned value management system will be applied under 234.201(1)(iii) and (iv) [@CL-CMP-7864] |
 
@@ -38,6 +38,8 @@ The trigger is either a cost or incentive contract valued at or above the thresh
 ## Worked example
 
 Synthetic example. The numbers are made up.
+
+The first two examples apply the codified text, whose threshold is 20,000,000 dollars; under the class deviation prescription, which sets $50 million, both contracts would be below the threshold [@CL-CMP-10040].
 
 A cost contract is valued at 30,000,000 dollars. It is above the threshold, so the solicitation uses the provision at 252.234-7001 and the clause at 252.234-7002, and the contract carries that clause [@CL-CMP-7864; @CL-CMP-7865; @CL-CMP-7866].
 
