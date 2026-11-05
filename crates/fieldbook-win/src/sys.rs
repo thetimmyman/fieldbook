@@ -8,7 +8,7 @@ use std::ptr;
 use windows_sys::Win32::Foundation::{
     CloseHandle, ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT, ERROR_INSUFFICIENT_BUFFER,
     ERROR_NOT_A_CLOUD_FILE, ERROR_NOT_FOUND, GENERIC_ALL, GENERIC_WRITE, GetLastError, HANDLE,
-    HLOCAL, LocalFree,
+    LocalFree,
 };
 use windows_sys::Win32::Security::Authorization::{
     ConvertStringSidToSidW, GetNamedSecurityInfoW, SE_FILE_OBJECT,
@@ -68,13 +68,14 @@ fn last_error(call: &'static str) -> WinError {
 
 pub(crate) fn known_folder(folder: Folder) -> Result<PathBuf, WinError> {
     let rfid = match folder {
-        Folder::ProgramData => &raw const FOLDERID_ProgramData,
-        Folder::LocalAppData => &raw const FOLDERID_LocalAppData,
+        Folder::ProgramData => FOLDERID_ProgramData,
+        Folder::LocalAppData => FOLDERID_LocalAppData,
     };
     let mut raw_path: *mut u16 = ptr::null_mut();
-    // SAFETY: `rfid` points to a static `GUID`, `hToken` is null (current user), and `raw_path`
+    // SAFETY: `rfid` is a valid `GUID`, `hToken` is null (current user), and `raw_path`
     // receives the CoTaskMem-allocated NUL-terminated wide string on `S_OK`.
-    let hr = unsafe { SHGetKnownFolderPath(rfid, 0, ptr::null_mut(), &raw mut raw_path) };
+    let hr =
+        unsafe { SHGetKnownFolderPath(&raw const rfid, 0, ptr::null_mut(), &raw mut raw_path) };
     if hr < 0 || raw_path.is_null() {
         if !raw_path.is_null() {
             // SAFETY: `raw_path` was allocated by `SHGetKnownFolderPath` using the COM task allocator.
