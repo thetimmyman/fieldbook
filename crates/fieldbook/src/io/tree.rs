@@ -11,10 +11,12 @@ use std::io::Read;
 use std::path::{Path, PathBuf};
 
 use fieldbook_core::CivilDate;
+use fieldbook_core::audit::{Now, Principal};
 use fieldbook_core::check::Tree;
 use fieldbook_core::hash::Sha256Stream;
 
 use crate::World;
+use crate::io::store_lease::StoreLease;
 
 /// An I/O error raised while reading the working directory or Corpus tree from disk.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -142,36 +144,86 @@ fn hash_original_file(path: &Path) -> Result<(String, u64), WorldError> {
 pub struct Disk {
     cwd: PathBuf,
     tree_root: PathBuf,
+    state_dir: PathBuf,
 }
 
 impl Disk {
-    /// Create a [`Disk`] rooted at `cwd`, discovering `tree_root` once via [`find_root`].
+    /// Create a [`Disk`] rooted at `cwd`, discovering `tree_root` once via [`find_root`] and
+    /// defaulting `state_dir` to `<tree_root>/.fieldbook`.
     #[must_use]
     pub fn new(cwd: impl Into<PathBuf>) -> Self {
         let cwd = cwd.into();
         let tree_root = find_root(&cwd);
-        Self { cwd, tree_root }
+        let state_dir = tree_root.join(".fieldbook");
+        Self {
+            cwd,
+            tree_root,
+            state_dir,
+        }
     }
 
-    /// Capture the process working directory once and construct a [`Disk`].
+    /// Create a [`Disk`] rooted at `cwd` with an explicit `state_dir`.
+    #[must_use]
+    pub fn with_state(cwd: impl Into<PathBuf>, state_dir: impl Into<PathBuf>) -> Self {
+        let cwd = cwd.into();
+        let tree_root = find_root(&cwd);
+        let state_dir = state_dir.into();
+        Self {
+            cwd,
+            tree_root,
+            state_dir,
+        }
+    }
+
+    /// Capture the process working directory (and `FIELDBOOK_STATE` if set) once and construct a [`Disk`].
     pub fn current() -> Result<Self, WorldError> {
         let cwd = std::env::current_dir()
             .map_err(|err| WorldError::new(PathBuf::from("."), err.to_string()))?;
-        Ok(Self::new(cwd))
+        let mut disk = Self::new(&cwd);
+        if let Some(env_state) = std::env::var_os("FIELDBOOK_STATE")
+            && !env_state.is_empty()
+        {
+            disk.state_dir =
+                crate::io::state::resolve(&disk.tree_root, &disk.cwd, Some(Path::new(&env_state)));
+        }
+        Ok(disk)
+    }
+
+    /// Return the state directory bound to this [`Disk`].
+    #[must_use]
+    pub fn state_dir(&self) -> &Path {
+        &self.state_dir
     }
 }
 
 impl World for Disk {
     fn read_tree(&self) -> Result<Tree, WorldError> {
-        read_tree(&self.tree_root)
+        crate::io::journal::read_tree_coherent(&self.tree_root, &self.state_dir)
+    }
+
+    fn write_lease(&self) -> Result<StoreLease, WorldError> {
+        crate::io::journal::acquire_write_lease(&self.tree_root, &self.state_dir)
+    }
+
+    fn read_tree_under(&self, lease: &StoreLease) -> Result<Tree, WorldError> {
+        crate::io::journal::read_tree_under_lease(&self.tree_root, &self.state_dir, lease)
     }
 
     fn today(&self) -> CivilDate {
+        self.now().date
+    }
+
+    fn now(&self) -> Now {
         let secs = match std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH) {
-            Ok(dur) => i64::try_from(dur.as_secs()).unwrap_or(0),
-            Err(err) => -i64::try_from(err.duration().as_secs()).unwrap_or(0),
+            Ok(dur) => dur.as_secs(),
+            Err(_) => 0,
         };
-        CivilDate::from_epoch_seconds(secs).unwrap_or(CivilDate::MIN)
+        Now::from_unix_secs(secs)
+            .unwrap_or_else(|_| Now::new(CivilDate::MIN, 0).unwrap_or_else(|_| unreachable!()))
+    }
+
+    fn principal(&self) -> Principal {
+        crate::io::state::os_principal()
     }
 
     fn cwd(&self) -> &Path {
@@ -180,5 +232,9 @@ impl World for Disk {
 
     fn tree_root(&self) -> &Path {
         &self.tree_root
+    }
+
+    fn state_dir(&self) -> &Path {
+        &self.state_dir
     }
 }

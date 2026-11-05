@@ -39,8 +39,6 @@ fieldbook status
 fieldbook status --page
 fieldbook verify <claim-id> --on YYYY-MM-DD
 fieldbook add <folder>
-fieldbook audit verify
-fieldbook audit show
 fieldbook backup
 fieldbook backup verify
 fieldbook backup list

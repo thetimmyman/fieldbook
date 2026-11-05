@@ -43,14 +43,32 @@ pub const DEFAULT_SAMPLES: &[(&str, &str)] = &[
     ("<word>", "duplicate"),
 ];
 
-pub const CASES: &[ChipCase] = &[ChipCase {
-    chip: "fieldbook check",
-    context: ChipContext::Home,
-    samples: &[],
-    fixture: "tests/fixtures/corpus-mini",
-    setup: &[],
-    outcome: ChipOutcome::Exit0,
-}];
+pub const CASES: &[ChipCase] = &[
+    ChipCase {
+        chip: "fieldbook check",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/corpus-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
+    ChipCase {
+        chip: "fieldbook audit verify",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/state-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
+    ChipCase {
+        chip: "fieldbook audit show",
+        context: ChipContext::Home,
+        samples: &[],
+        fixture: "tests/fixtures/state-mini",
+        setup: &[],
+        outcome: ChipOutcome::Exit0,
+    },
+];
 
 pub fn substitute_chip(chip: &str, samples: &[(&str, &str)]) -> Vec<String> {
     let mut text = chip.to_owned();

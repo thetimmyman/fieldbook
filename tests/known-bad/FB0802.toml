@@ -1,0 +1,7 @@
+verb = "audit verify"
+args = ["--expect-seq", "99"]
+state = "state-mini"
+
+[expect]
+code = "FB0802"
+status = 1

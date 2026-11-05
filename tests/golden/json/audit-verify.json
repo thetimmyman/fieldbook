@@ -1,0 +1,13 @@
+{
+  "report_version": 1,
+  "verb": "audit verify",
+  "state": "ok",
+  "events": 12,
+  "head": {
+    "seq": 12,
+    "hash": "333c06e7324ba0462583de262a461c8935ccabd7bbf915ed76d9d7c3989b59bf"
+  },
+  "findings": [],
+  "unfinished": [],
+  "exit": 0
+}

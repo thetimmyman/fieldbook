@@ -1,0 +1,6 @@
+verb = "audit verify"
+state = "state-known-bad/FB0804"
+
+[expect]
+code = "FB0804"
+status = 0
