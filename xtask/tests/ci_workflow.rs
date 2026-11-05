@@ -132,8 +132,8 @@ fn ci_ok_needs_every_job() {
 
     // Verify multiline needs list fails with the exact required message:
     let multiline = yaml.replace(
-        "needs: [rust, corpus, changes]",
-        "needs:\n      - rust\n      - corpus\n      - changes",
+        "needs: [rust, corpus, changes, windows]",
+        "needs:\n      - rust\n      - corpus\n      - changes\n      - windows",
     );
     let err = check_ci_ok_needs_every_job(&multiline).unwrap_err();
     assert_eq!(err, "needs of ci-ok must be a one-line list");

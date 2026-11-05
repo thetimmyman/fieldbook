@@ -5,6 +5,7 @@
 //! `#![expect(..., reason = "...")]` at the top of this module.
 
 pub mod tree;
+pub mod win;
 
 pub use tree::{Disk, WorldError, find_root, read_tree};
 

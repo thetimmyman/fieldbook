@@ -375,6 +375,7 @@ Card `day1-dependencies-3` records actual pre-adoption baseline row 0 without ch
 |---|---|---|---|---|---|
 | 0 | silent | default | 0 | 5 | Actual pre-adoption main `327d4e0`; all-target count 11 (uncapped). Its graph inputs are unchanged by the documentation-only work-order amendment. |
 | 1 | silent | default | 11 | 80 | Initial adoption; all-target count 90 (uncapped). The transitive cap is 80, leaving zero headroom. AI is inapplicable while `net` is absent. |
+| 2 | silent | default | 12 | 82 | Card `windows-facts`; adds `fieldbook-win` and `windows-sys` `0.61.2` (`windows-link` `0.2.1` on Windows); all-target count 92 (uncapped), `cargo tree --workspace -e normal` union 64 (62 Linux, 64 Windows, 65 `--target all`). AI is inapplicable while `net` is absent. |
 
 ### Initial resolution evidence
 

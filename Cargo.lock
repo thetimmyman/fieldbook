@@ -257,6 +257,7 @@ dependencies = [
  "fieldbook-calc",
  "fieldbook-core",
  "fieldbook-render",
+ "fieldbook-win",
  "insta",
  "serde",
  "serde_json",
@@ -302,6 +303,14 @@ dependencies = [
  "serde",
  "serde_json",
  "zip",
+]
+
+[[package]]
+name = "fieldbook-win"
+version = "0.0.0"
+dependencies = [
+ "tempfile",
+ "windows-sys",
 ]
 
 [[package]]

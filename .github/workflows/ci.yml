@@ -100,8 +100,34 @@ jobs:
       - name: Check generated documentation
         run: cargo xtask docs --check
 
+  windows:
+    needs: [changes]
+    runs-on: windows-2025
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the pinned Rust toolchain
+        if: needs.changes.outputs.code == 'true'
+        run: rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        if: needs.changes.outputs.code == 'true'
+        with:
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+      - uses: taiki-e/install-action@ab6895351a88b908e96a4697860d4ffea5e57dbe # v2.87.27
+        if: needs.changes.outputs.code == 'true'
+        with:
+          tool: cargo-nextest@0.9.148
+      - name: Run shipped crate tests on Windows
+        if: needs.changes.outputs.code == 'true'
+        run: cargo nextest run --workspace --exclude xtask --locked
+
   ci-ok:
-    needs: [rust, corpus, changes]
+    needs: [rust, corpus, changes, windows]
     if: ${{ always() }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10

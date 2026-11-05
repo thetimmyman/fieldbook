@@ -5,7 +5,7 @@
 //! below it. Command logic lives in this library as functions over values (`run`), so tests need
 //! no process. Process input and output live in the [`io`] module, which `main` calls.
 //!
-//! **Allowed dependencies.** `fieldbook-render`, `fieldbook-core` and `fieldbook-calc`.
+//! **Allowed dependencies.** `fieldbook-render`, `fieldbook-core`, `fieldbook-calc` and `fieldbook-win`.
 //! External crates join through their cards, each at its pin in
 //! `docs/reference/dependencies.md`.
 

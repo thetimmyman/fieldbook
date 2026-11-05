@@ -11,6 +11,7 @@ publish.workspace = true
 fieldbook-calc = { path = "../fieldbook-calc" }
 fieldbook-core = { path = "../fieldbook-core" }
 fieldbook-render = { path = "../fieldbook-render" }
+fieldbook-win = { path = "../fieldbook-win" }
 
 serde = { workspace = true }
 serde_json = { workspace = true }
