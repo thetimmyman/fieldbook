@@ -19,7 +19,7 @@ Which threshold for certified cost or pricing data applies to a DoD prime contra
 
 ## Recommendation
 
-Check the exceptions first, then test the expected value against the deviation threshold for the prime award date: $10 million after June 30, 2026 [@CL-EST-0002], $2.5 million on or before it unless the contract says otherwise [@CL-EST-9457]. The codified FAR threshold [@CL-EST-0001] is the comparison point. Confirm in the contract which text governs, and read any older prime's flowdown before testing subcontracts.
+Check the exceptions first, then test the expected value against the deviation threshold for the prime award date: $10 million after June 30, 2026 [@CL-EST-0002], $2.5 million on or before it unless the contract says otherwise [@CL-EST-9457]. The codified FAR threshold, for comparison, is $2.5 million [@CL-EST-0001]. Confirm in the contract which text governs, and read any older prime's flowdown before testing subcontracts.
 
 ## Evidence
 
