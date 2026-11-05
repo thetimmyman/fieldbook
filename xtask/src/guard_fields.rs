@@ -178,18 +178,15 @@ pub(super) fn judge(
         };
         let parents: Vec<_> = parents.into_iter().map(Option::unwrap_or_default).collect();
         for (id, row) in &after {
-            if parents
-                .iter()
-                .any(|rows| row_problems(rows.get(id), row).is_empty())
-            {
+            if parents.iter().any(|rows| rows.get(id) == Some(row)) {
                 continue;
             }
-            for rows in &parents {
-                for (field, reason) in row_problems(rows.get(id), row) {
-                    let line = format!("{sha} {id} {field}: {reason}");
-                    if !verdict.problems.contains(&line) {
-                        verdict.problems.push(line);
-                    }
+            let before_rows: Vec<Option<&ClaimRow>> =
+                parents.iter().map(|rows| rows.get(id)).collect();
+            for (field, reason) in claim_problems(&before_rows, row) {
+                let line = format!("{sha} {id} {field}: {reason}");
+                if !verdict.problems.contains(&line) {
+                    verdict.problems.push(line);
                 }
             }
         }
@@ -275,76 +272,129 @@ fn regression_cases(text: &str) -> Result<Vec<(String, toml::Table)>, &'static s
     Ok(parsed)
 }
 
+fn only_certify_field(row: &ClaimRow, keep: &str) -> ClaimRow {
+    let mut copy = row.clone();
+    if keep != "verification" {
+        copy.verification = Verification::Unchecked;
+    }
+    if keep != "applicability" {
+        copy.applicability = Applicability::PendingCompanyConfirmation;
+    }
+    if keep != "adoption" {
+        copy.adoption = Adoption::Proposed;
+    }
+    if keep != "verified_on" {
+        copy.verified_on = None;
+    }
+    if keep != "verified_by_role" {
+        copy.verified_by_role = None;
+    }
+    copy
+}
+
+fn field_raised_against_all(before: &[Option<&ClaimRow>], after: &ClaimRow, field: &str) -> bool {
+    let after_one = only_certify_field(after, field);
+    !before.is_empty()
+        && before.iter().all(|&prev| {
+            let prev_one = prev.map(|r| only_certify_field(r, field));
+            is_raise(prev_one.as_ref(), &after_one)
+        })
+}
+
+fn first_edited_evidence_field(prev: &ClaimRow, after: &ClaimRow) -> Option<&'static str> {
+    [
+        ("statement", prev.statement != after.statement),
+        ("value", prev.value != after.value),
+        ("unit", prev.unit != after.unit),
+        ("source_id", prev.source_id != after.source_id),
+        ("version", prev.version != after.version),
+        ("locator_kind", prev.locator_kind != after.locator_kind),
+        ("locator", prev.locator != after.locator),
+        ("quote", prev.quote != after.quote),
+    ]
+    .into_iter()
+    .find_map(|(field, changed)| changed.then_some(field))
+}
+
 /// What an agent's change to one claim certifies against `before`, as `(field, reason)` pairs.
-fn row_problems(before: Option<&ClaimRow>, after: &ClaimRow) -> Vec<(&'static str, String)> {
+fn claim_problems(before: &[Option<&ClaimRow>], after: &ClaimRow) -> Vec<(&'static str, String)> {
     let mut found = Vec::new();
-    if is_raise(before, after) {
-        if after.verification != Verification::Unchecked
-            && before.map(|row| row.verification) != Some(after.verification)
-        {
-            found.push((
-                "verification",
-                format!(
-                    "raised to `{}`; only the owner certifies",
-                    after.verification
-                ),
-            ));
-        }
-        if after.applicability != Applicability::PendingCompanyConfirmation
-            && before.map(|row| row.applicability) != Some(after.applicability)
-        {
-            found.push((
-                "applicability",
-                format!(
-                    "raised to `{}`; only the owner certifies",
-                    after.applicability
-                ),
-            ));
-        }
-        if after.adoption != Adoption::Proposed
-            && before.map(|row| row.adoption) != Some(after.adoption)
-        {
-            found.push((
-                "adoption",
-                format!("raised to `{}`; only the owner certifies", after.adoption),
-            ));
-        }
-        if after.verified_on.is_some()
-            && before.and_then(|row| row.verified_on) != after.verified_on
-        {
-            found.push(("verified_on", "set; only the owner certifies".to_owned()));
-        }
-        if after.verified_by_role.is_some()
-            && before.and_then(|row| row.verified_by_role) != after.verified_by_role
-        {
-            found.push((
-                "verified_by_role",
-                "set; only the owner certifies".to_owned(),
-            ));
+    for (field, reason) in [
+        (
+            "verification",
+            format!(
+                "raised to `{}`; only the owner certifies",
+                after.verification
+            ),
+        ),
+        (
+            "applicability",
+            format!(
+                "raised to `{}`; only the owner certifies",
+                after.applicability
+            ),
+        ),
+        (
+            "adoption",
+            format!("raised to `{}`; only the owner certifies", after.adoption),
+        ),
+        ("verified_on", "set; only the owner certifies".to_owned()),
+        (
+            "verified_by_role",
+            "set; only the owner certifies".to_owned(),
+        ),
+    ] {
+        if field_raised_against_all(before, after, field) {
+            found.push((field, reason));
         }
     }
+    let parents: Vec<&ClaimRow> = before.iter().flatten().copied().collect();
     let reset = after.verification == Verification::Unchecked
         && after.verified_on.is_none()
         && after.verified_by_role.is_none();
-    if !reset
-        && let Some(prev) = before
-        && let Some(field) = [
-            ("statement", prev.statement != after.statement),
-            ("value", prev.value != after.value),
-            ("unit", prev.unit != after.unit),
-            ("source_id", prev.source_id != after.source_id),
-            ("version", prev.version != after.version),
-            ("locator_kind", prev.locator_kind != after.locator_kind),
-            ("locator", prev.locator != after.locator),
-            ("quote", prev.quote != after.quote),
-        ]
-        .into_iter()
-        .find_map(|(field, changed)| changed.then_some(field))
-    {
-        found.push((
-            field,
-            "edited on a checked claim; reset verification to `unchecked` and clear the verified fields in the same commit".to_owned(),
-        ));
+    let inherited_check = parents.iter().any(|&prev| {
+        prev.verification == after.verification
+            && prev.verified_on == after.verified_on
+            && prev.verified_by_role == after.verified_by_role
+            && first_edited_evidence_field(prev, after).is_none()
+    });
+    if !reset && !inherited_check {
+        for &prev in &parents {
+            if let Some(field) = first_edited_evidence_field(prev, after) {
+                let problem = (
+                    field,
+                    "edited on a checked claim; reset verification to `unchecked` and clear the verified fields in the same commit".to_owned(),
+                );
+                if !found.contains(&problem) {
+                    found.push(problem);
+                }
+            } else {
+                for (field, reason) in [
+                    (
+                        "verification",
+                        format!(
+                            "raised to `{}`; only the owner certifies",
+                            after.verification
+                        ),
+                    ),
+                    ("verified_on", "set; only the owner certifies".to_owned()),
+                    (
+                        "verified_by_role",
+                        "set; only the owner certifies".to_owned(),
+                    ),
+                ] {
+                    let after_one = only_certify_field(after, field);
+                    let prev_one = only_certify_field(prev, field);
+                    if is_raise(Some(&prev_one), &after_one) {
+                        let problem = (field, reason);
+                        if !found.contains(&problem) {
+                            found.push(problem);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
     }
     found
 }
