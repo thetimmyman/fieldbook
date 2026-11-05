@@ -1,0 +1,704 @@
+---
+source: crates/fieldbook-render/tests/page_types.rs
+expression: html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Synthetic case study on business-system review and billing withhold</title>
+<link rel="stylesheet" href="../assets/app.css">
+<script src="../assets/strings.js" defer></script>
+<script src="../assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app" data-route="p/cmp-withhold-case.html" data-section="areas" data-item="area-cmp">
+<aside class="sidebar" id="sidebar" aria-label="Navigation">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">F</div>
+    <div class="brand-text">
+      <div class="brand-title">Fieldbook</div>
+      <div class="brand-sub">Finance role workbench</div>
+    </div>
+    <button class="btn ghost icon-btn sidebar-close" id="sidebarCloseBtn" type="button" aria-label="Close navigation">&times;</button>
+  </div>
+  <div class="sec-switch" id="secSwitch" role="group" aria-label="Sections">
+    
+    <button type="button" data-secpick="today" aria-pressed="false">
+      <span>Today</span>
+    </button>
+    
+    <button type="button" data-secpick="assistant" aria-pressed="false">
+      <span>Assistant</span>
+    </button>
+    
+    <button type="button" data-secpick="work" aria-pressed="false">
+      <span>Work</span>
+    </button>
+    
+    <button type="button" data-secpick="plan" aria-pressed="false">
+      <span>Plan</span>
+    </button>
+    
+    <button type="button" data-secpick="areas" aria-pressed="true">
+      <span>Areas</span>
+    </button>
+    
+    <button type="button" data-secpick="library" aria-pressed="false">
+      <span>Library</span>
+    </button>
+    
+  </div>
+  
+  <div class="nav-group" data-sec="today" hidden>
+    <div class="nav-head">Today</div>
+    <nav class="nav" aria-label="Today">
+      
+      
+      
+      <span class="not-available" data-item="today">
+        <span>Today is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="map">
+        <span>The app map is not available until Day 30.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="assistant" hidden>
+    <div class="nav-head">Assistant</div>
+    <nav class="nav" aria-label="Assistant">
+      
+      
+      
+      <span class="not-available" data-item="assistant">
+        <span>The assistant is not available until Day 30.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="handoff">
+        <span>Handoff packs is not available until Day 30.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="work" hidden>
+    <div class="nav-head">Work</div>
+    <nav class="nav" aria-label="Work">
+      
+      
+      
+      <span class="not-available" data-item="bids">
+        <span>Bids is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="programs">
+        <span>Programs is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="close">
+        <span>Close &#38; forecast is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="rates">
+        <span>Rates &#38; pools is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="suppliers">
+        <span>Suppliers &#38; make/buy is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="compliance">
+        <span>Systems &#38; compliance is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="mna">
+        <span>M&#38;A &#38; cases is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="actions">
+        <span>Actions &#38; calendar is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="plan" hidden>
+    <div class="nav-head">90-day plan</div>
+    <nav class="nav" aria-label="90-day plan">
+      
+      
+      
+      <span class="not-available" data-item="plan-90">
+        <span>The 90-day plan is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="curriculum">
+        <span>The curriculum is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="stakeholders">
+        <span>Stakeholders is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="systems">
+        <span>Systems is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="artifacts">
+        <span>The artifact log is not available until the ORG overlay, Release 2 or later.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="areas">
+    <div class="nav-head">Areas</div>
+    <nav class="nav" aria-label="Areas">
+      
+      
+      
+      <span class="not-available" data-item="areas">
+        <span>Areas is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="area-cmp" aria-current="page">
+        <span><span class="code">CMP</span>Compliance is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="area-est">
+        <span><span class="code">EST</span>Estimating is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      <div class="nav-sub">Views over EST</div>
+      
+      
+      <span class="not-available" data-item="view-prc">
+        <span><span class="code">PRC</span>Pricing is not available until Day 30.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="nav-group" data-sec="library" hidden>
+    <div class="nav-head">Library</div>
+    <nav class="nav" aria-label="Library">
+      
+      
+      
+      <span class="not-available" data-item="browse">
+        <span>The library is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="templates">
+        <span>The day-one binder is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="claims">
+        <span>The claims register is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="questions">
+        <span>The questions register is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="conflicts">
+        <span>The conflicts register is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="glossary">
+        <span>The glossary is not available until Day 1.</span>
+      </span>
+      
+      
+      
+      
+      <span class="not-available" data-item="sources">
+        <span>The sources register is not available until Day 1.</span>
+      </span>
+      
+      
+    </nav>
+  </div>
+  
+  <div class="side-foot">
+    <div class="build-note" id="sideFootNote">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span><b>Public data only.</b> Company data is not connected.</span>
+    </div>
+    <div class="byline">
+      <span>A personal working tool. Not an official company product.</span>
+    </div>
+  </div>
+</aside>
+<div class="shell">
+<header class="topbar">
+  <button class="btn ghost icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+    <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <nav aria-label="Sections">
+    
+    
+    <span class="not-available" data-sec="today" title="Today is not available until Day 1.">Today <span class="sr-only">Today is not available until Day 1.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="assistant" title="The assistant is not available until Day 30.">Assistant <span class="sr-only">The assistant is not available until Day 30.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="work" title="Bids is not available until the ORG overlay, Release 2 or later.">Work <span class="sr-only">Bids is not available until the ORG overlay, Release 2 or later.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="plan" title="The 90-day plan is not available until Day 1.">Plan <span class="sr-only">The 90-day plan is not available until Day 1.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="areas" aria-current="true" title="Areas is not available until Day 1.">Areas <span class="sr-only">Areas is not available until Day 1.</span></span>
+    
+    
+    
+    <span class="not-available" data-sec="library" title="The library is not available until Day 1.">Library <span class="sr-only">The library is not available until Day 1.</span></span>
+    
+    
+  </nav>
+  <div class="topbar-end">
+    <span class="chip">unreleased build</span>
+    <span class="build-chip" id="frameChip" title="This build reads the public library only. Company data is not connected.">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+      <span>Public data only</span>
+    </span>
+    <button class="btn ghost icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme" aria-pressed="false" title="Switch theme">
+      <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2v1.6M8 12.2v1.6M2.2 8h1.6M12.2 8h1.6M3.9 3.9l1.1 1.1M11 11l1.1 1.1M12.1 3.9L11 5M5 11l-1.1 1.1"/><circle cx="8" cy="8" r="2.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="crumbs" id="crumbs" aria-label="Breadcrumb">
+  
+  
+  
+  <span aria-current="page">Areas</span>
+  
+  
+  <span class="sep" aria-hidden="true">/</span>
+  
+  <span aria-current="page">CMP · Compliance</span>
+  
+  
+  <span class="sep" aria-hidden="true">/</span>
+  
+  <span aria-current="page">Synthetic case study on business-system review and billing withhold</span>
+  
+  
+</nav>
+
+<div class="banners" id="banners">
+
+</div>
+<main id="main" tabindex="-1"><div class="reader" id="reader">
+  <article class="prose">
+    <div class="banner warn" id="overdueBanner" role="region" aria-label="Review notice" data-review-by="2026-07-31" hidden>
+      <div class="body"><b>Review overdue.</b> Review date <time datetime="2026-07-31">2026-07-31</time> has passed; re-check cited sources before relying on this page.</div>
+    </div>
+    
+    <div class="banner" role="region" aria-label="Readiness notice">
+      <div class="body"><b>SYNTHETIC-NOW.</b> Uses synthetic example figures; replace with company records before operational use.</div>
+    </div>
+    
+    
+
+    <header class="page-head">
+      <div class="eyebrow">
+        <span class="chip accent">CMP · Compliance</span>
+        <span class="chip">business-systems</span>
+        <span class="chip">case</span>
+        <span class="chip">Stage 4</span>
+        <span class="chip"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Draft</span></span>
+        
+        <span class="chip">public</span>
+        
+      </div>
+      <h1>Synthetic case study on business-system review and billing withhold</h1>
+      <div class="meta-row">
+  <span>As of <time datetime="2026-02-01">2026-02-01</time></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span>Review by <time datetime="2026-07-31">2026-07-31</time></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span><b>1 of 2</b> claims supported</span>
+  <span class="sep" aria-hidden="true">·</span>
+  
+  <span>Last verified <time datetime="2026-02-10">2026-02-10</time></span>
+  
+  <span class="sep" aria-hidden="true">·</span>
+  <span>Readiness <b>SYNTHETIC-NOW</b></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <span class="mono">cmp-withhold-case</span>
+</div>
+      <div class="page-actions">
+        <button type="button" class="btn sm" id="copyLinkBtn" data-copy-link="cmp-withhold-case">Copy link</button>
+        <div class="seg" id="wordingSeg" role="group" aria-label="Wording">
+          <button type="button" data-wording="both" aria-pressed="true">Both</button>
+          <button type="button" data-wording="plain" aria-pressed="false">Plain</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="part" aria-labelledby="purpose">
+      <h2 id="purpose">Purpose</h2>
+      
+      <p>Examine a synthetic case separating public-record findings from analyst inference.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="the-rule">
+      <h2 id="the-rule">The rule</h2>
+      
+      <p>Synthetic compliance reviews occur every 30 days <a class="cite-n" href="#cite-1" data-pv="cite:1" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 1">1</a>, and unresolved deficiencies trigger a 5 percent <span class="term" data-pv="term:billing_withhold" data-pv-title="billing withhold" data-pv-body="Synthetic retention of a percentage of interim payments pending system correction.">billing withhold</span> <a class="cite-n" href="#cite-2" data-pv="cite:2" data-pv-title="CL-CMP-0002" data-pv-body="Synthetic withholding threshold is 5 percent of billed amounts." aria-label="Source 2">2</a>.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="how-it-works">
+      <h2 id="how-it-works">How it works</h2>
+      
+      <div class="case-split">
+        <div class="box case-block case-record" data-case-section="public-record">
+          <div class="case-head">
+            <span class="ev-label" title="Public record">PF · Public record</span>
+            <h3 id="public-record">Public record</h3>
+          </div>
+          <div class="case-body">
+            <p>The synthetic review board recorded a 30 days cycle <a class="cite-n" href="#cite-3" data-pv="cite:3" data-pv-title="CL-CMP-0001" data-pv-body="Synthetic compliance reviews occur every 30 days under the synthetic rule." aria-label="Source 3">3</a> and a 5 percent billing withhold threshold <a class="cite-n" href="#cite-4" data-pv="cite:4" data-pv-title="CL-CMP-0002" data-pv-body="Synthetic withholding threshold is 5 percent of billed amounts." aria-label="Source 4">4</a>.</p>
+
+          </div>
+        </div>
+        <div class="box case-block case-inference" data-case-section="inference">
+          <div class="case-head">
+            <span class="ev-label" title="Inference">INF · Inference</span>
+            <h3 id="inference">Inference</h3>
+          </div>
+          <div class="case-body">
+            <p>Early pre-review checks reduce the likelihood of triggering the synthetic billing withhold.</p>
+
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="part" aria-labelledby="worked-example">
+      <h2 id="worked-example">Worked example</h2>
+      
+      <p>Synthetic example. The numbers are made up.</p>
+<p>Clearing the synthetic finding 5 days before billing avoids a 2,500 USD hold on a 50,000 USD voucher.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="never-confuse">
+      <h2 id="never-confuse">Never confuse</h2>
+      
+      <p>Do not confuse analyst inference with a primary-source fact.</p>
+
+      
+      
+    </section>
+
+    <section class="part" aria-labelledby="company-calibration">
+      <h2 id="company-calibration">Company calibration</h2>
+      
+      <p>Confirm who tracks synthetic pre-review findings <span class="cite neutral" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</span>.</p>
+
+      
+    </section>
+
+    <section class="part" aria-labelledby="sources">
+      <h2 id="sources">Sources</h2>
+      
+<ol class="sources-list">
+
+  <li id="cite-1" class="source-row">
+    <span class="source-num">1.</span>
+    <div class="source-body">
+    
+      <div class="source-chips">
+        <span class="claim-mark ok" data-claim="CL-CMP-0001" aria-label="Claim CL-CMP-0001: Primary-source supported" title="CL-CMP-0001 · Primary-source supported"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>CL-CMP-0001</span></span>
+        <span class="chip ok"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>Primary-source supported</span></span>
+        <span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 1</span> <span class="meta-only-tag">Metadata only</span></span>
+      </div>
+      
+      <p class="source-stmt">Synthetic compliance reviews occur every 30 days under the synthetic rule.</p>
+      
+      
+      <blockquote class="source-quote">“Synthetic compliance reviews occur every 30 days.”</blockquote>
+      
+      <div class="source-meta">
+        
+        <span>Verified <time datetime="2026-02-10">2026-02-10</time> (owner)</span>
+        
+      </div>
+    
+    </div>
+  </li>
+
+  <li id="cite-2" class="source-row">
+    <span class="source-num">2.</span>
+    <div class="source-body">
+    
+      <div class="source-chips">
+        <span class="claim-mark warn" data-claim="CL-CMP-0002" aria-label="Claim CL-CMP-0002: Unchecked" title="CL-CMP-0002 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-CMP-0002</span></span>
+        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span>
+        <span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 2</span> <span class="meta-only-tag">Metadata only</span></span>
+      </div>
+      
+      <p class="source-stmt">Synthetic withholding threshold is 5 percent of billed amounts.</p>
+      
+      
+      <blockquote class="source-quote">“Synthetic withholding threshold is 5 percent.”</blockquote>
+      
+      <div class="source-meta">
+        
+        <span class="unver">Never verified</span>
+        
+      </div>
+    
+    </div>
+  </li>
+
+  <li id="cite-3" class="source-row">
+    <span class="source-num">3.</span>
+    <div class="source-body">
+    
+      <div class="source-chips">
+        <span class="claim-mark ok" data-claim="CL-CMP-0001" aria-label="Claim CL-CMP-0001: Primary-source supported" title="CL-CMP-0001 · Primary-source supported"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>CL-CMP-0001</span></span>
+        <span class="chip ok"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>Primary-source supported</span></span>
+        <span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 1</span> <span class="meta-only-tag">Metadata only</span></span>
+      </div>
+      
+      <p class="source-stmt">Synthetic compliance reviews occur every 30 days under the synthetic rule.</p>
+      
+      
+      <blockquote class="source-quote">“Synthetic compliance reviews occur every 30 days.”</blockquote>
+      
+      <div class="source-meta">
+        
+        <span>Verified <time datetime="2026-02-10">2026-02-10</time> (owner)</span>
+        
+      </div>
+    
+    </div>
+  </li>
+
+  <li id="cite-4" class="source-row">
+    <span class="source-num">4.</span>
+    <div class="source-body">
+    
+      <div class="source-chips">
+        <span class="claim-mark warn" data-claim="CL-CMP-0002" aria-label="Claim CL-CMP-0002: Unchecked" title="CL-CMP-0002 · Unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>CL-CMP-0002</span></span>
+        <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span>
+        <span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 2</span> <span class="meta-only-tag">Metadata only</span></span>
+      </div>
+      
+      <p class="source-stmt">Synthetic withholding threshold is 5 percent of billed amounts.</p>
+      
+      
+      <blockquote class="source-quote">“Synthetic withholding threshold is 5 percent.”</blockquote>
+      
+      <div class="source-meta">
+        
+        <span class="unver">Never verified</span>
+        
+      </div>
+    
+    </div>
+  </li>
+
+</ol>
+
+    </section>
+
+    <section class="part" aria-labelledby="change-note">
+      <h2 id="change-note">Change note</h2>
+      
+<div class="change-list">
+
+
+<p class="change"><span class="chip">NEW_KNOWLEDGE</span> <time datetime="2026-02-01">2026-02-01</time> Added the synthetic business-system withhold case page.</p>
+
+
+</div>
+
+    </section>
+  </article>
+
+  <aside class="rail" aria-label="Evidence and connections">
+    <nav class="rail-sec" aria-label="On this page">
+      <div class="rail-head">On this page</div>
+      <ul class="toc">
+        
+        <li class="toc-item"><a href="#purpose">Purpose</a></li>
+        
+        <li class="toc-item"><a href="#the-rule">The rule</a></li>
+        
+        <li class="toc-item"><a href="#how-it-works">How it works</a></li>
+        
+        <li class="toc-item"><a href="#worked-example">Worked example</a></li>
+        
+        <li class="toc-item"><a href="#never-confuse">Never confuse</a></li>
+        
+        <li class="toc-item"><a href="#company-calibration">Company calibration</a></li>
+        
+        <li class="toc-item"><a href="#sources">Sources</a></li>
+        
+        <li class="toc-item"><a href="#change-note">Change note</a></li>
+        
+      </ul>
+    </nav>
+
+    <section class="rail-sec" aria-label="Cited claims">
+      <div class="rail-head">Cited claims (2)</div>
+      
+      
+<div class="ev-card" id="ev-CL-CMP-0001" data-claim-card="CL-CMP-0001">
+  <div class="ev-head">
+    <span class="cite neutral" data-claim="CL-CMP-0001">CL-CMP-0001</span>
+    <span class="chip ok"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>Primary-source supported</span></span>
+    <span class="chip">fact</span>
+  </div>
+  <p class="ev-stmt">Synthetic compliance reviews occur every 30 days under the synthetic rule.</p>
+  
+  <blockquote class="ev-quote">“Synthetic compliance reviews occur every 30 days.”</blockquote>
+  
+  <div class="ev-meta">
+    <div class="ev-source"><span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 1</span> <span class="meta-only-tag">Metadata only</span></span></div>
+    <div class="ev-row">
+      <span>Applicability: <b>general_reference</b></span>
+      <span>Adoption: <b>prototype_reviewed</b></span>
+      <span>Volatility: <b>V2</b></span>
+    </div>
+    <div class="ev-row">
+      
+      <span>Verified <time datetime="2026-02-10">2026-02-10</time> (owner)</span>
+      
+      
+      
+    </div>
+  </div>
+</div>
+
+<div class="ev-card" id="ev-CL-CMP-0002" data-claim-card="CL-CMP-0002">
+  <div class="ev-head">
+    <span class="cite neutral" data-claim="CL-CMP-0002">CL-CMP-0002</span>
+    <span class="chip warn"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.5l2.5 1.5"/></svg><span>Unchecked</span></span>
+    <span class="chip">fact</span>
+  </div>
+  <p class="ev-stmt">Synthetic withholding threshold is 5 percent of billed amounts.</p>
+  
+  <blockquote class="ev-quote">“Synthetic withholding threshold is 5 percent.”</blockquote>
+  
+  <div class="ev-meta">
+    <div class="ev-source"><span class="cite meta-only" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="loc">sec. 2</span> <span class="meta-only-tag">Metadata only</span></span></div>
+    <div class="ev-row">
+      <span>Applicability: <b>pending_company_confirmation</b></span>
+      <span>Adoption: <b>proposed</b></span>
+      <span>Volatility: <b>V2</b></span>
+    </div>
+    <div class="ev-row">
+      
+      <span class="unver">Never verified</span>
+      
+      
+      <span>Waits on <span class="cite neutral" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</span></span>
+      
+      
+    </div>
+  </div>
+</div>
+
+      
+    </section>
+  </aside>
+  <div class="popover" id="popover" role="tooltip" hidden></div>
+</div></main>
+</div>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="sr" aria-live="polite"></div>
+</body>
+</html>
