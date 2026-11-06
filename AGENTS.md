@@ -40,7 +40,7 @@ Stop and ask the owner before: a Corpus format change after the freeze; a CI per
 - Bootstrap: `cargo install --locked just@1.58.0`, then `just setup`. Run `just doctor` first; it names a missing or shadowed tool.
 - `just check`: everything a pull request must pass (step 7 runs `fieldbook check --strict`). CI runs the same.
 - `just lock`: the existing pinned-nightly resolution recipe applies the 14-day cooldown. Adoption follows the committed-lock Cargo/cargo-deny and reviewed-evidence recipe in [dependencies.md](docs/reference/dependencies.md#review-evidence). No `deps --check` or `lock-verify` command exists yet; their complete controls are deferred to AD-24.
-- `cargo xtask guard-statuses BASE HEAD` and `cargo xtask denylist FILE`: the two guards. `fieldbook --version`, `fieldbook check --strict`, `fieldbook add` and `fieldbook build`: the program today; `just site` builds `out/edition`.
+- `cargo xtask guard-statuses BASE HEAD` and `cargo xtask denylist FILE`: the two guards. `fieldbook --version`, `fieldbook check --strict`, `fieldbook add`, `fieldbook new page|claim|question|conflict|term` and `fieldbook build`: the program today; `just site` builds `out/edition`.
 - `cargo xtask docs`: fills a reference file once its card adds the generator: `errors.md` (`check-v0`), `cli.md` (`check-ci-and-docs`), `audit.md` (`audit-journal`) and `ports.md` (`ai-kernel`); until then the file is a title and two empty markers. From `edition-zips`: `just edition`. From `audit-journal`: `fieldbook audit verify`. The rest of the verbs are in [corpus-format.md](docs/reference/corpus-format.md).
 
 ## Layout

@@ -45,6 +45,13 @@ Add a source or source version to the Corpus
 | `--recursive` | - | - | Descend into subfolders when adding a folder |
 | `--json` | - | - | Print the report as a JSON object |
 
+### `fieldbook new`
+
+Create a new page or register row in its entry state
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+
 ### `fieldbook audit`
 
 Inspect or verify the audit journal

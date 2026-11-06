@@ -61,8 +61,122 @@ pub enum Commands {
     Build(BuildArgs),
     /// Add a source or source version to the Corpus.
     Add(AddArgs),
+    /// Create a new page or register row in its entry state.
+    New(NewArgs),
     /// Inspect or verify the audit journal.
     Audit(AuditArgs),
+}
+
+/// Arguments for `fieldbook new`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct NewArgs {
+    /// Target object kind (`page`, `claim`, `question`, `conflict`, or `term`).
+    #[command(subcommand)]
+    pub command: NewSubcommand,
+}
+
+/// Subcommands under `fieldbook new`.
+#[derive(Debug, Clone, PartialEq, Eq, Subcommand)]
+pub enum NewSubcommand {
+    /// Create a new Corpus page from a page-type template.
+    Page(NewPageArgs),
+    /// Append a new claim row in entry state to `claims.csv`.
+    Claim(NewClaimArgs),
+    /// Append a new open question row to `questions.csv`.
+    Question(NewQuestionArgs),
+    /// Append a new unresolved conflict row to `conflicts.csv`.
+    Conflict(NewConflictArgs),
+    /// Append a new glossary term row to `glossary.csv`.
+    Term(NewTermArgs),
+}
+
+/// Arguments for `fieldbook new page`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct NewPageArgs {
+    /// Confirm that the new page is public and may enter the repository Corpus.
+    #[arg(long)]
+    pub confirm_public: bool,
+
+    /// Page identifier (`<area>-<slug>`).
+    #[arg(value_name = "AREA-SLUG")]
+    pub id: Option<String>,
+
+    /// Page type: concept, procedure, reference, case, clause-card, calc, checklist, template
+    /// or brief.
+    #[arg(long = "type", value_name = "TYPE")]
+    pub ty: Option<String>,
+
+    /// Subarea of the page's area, which names the folder the page is written in.
+    #[arg(long, value_name = "SUBAREA")]
+    pub subarea: Option<String>,
+}
+
+/// Arguments for `fieldbook new claim`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct NewClaimArgs {
+    /// Confirm that the new claim is public and may enter the repository Corpus.
+    #[arg(long)]
+    pub confirm_public: bool,
+
+    /// Area code (`cmp`, `est`, ...).
+    #[arg(long, value_name = "AREA")]
+    pub area: Option<String>,
+
+    /// Source version identifier (`S-nnnn-vN`) in `sources.csv`.
+    #[arg(long, value_name = "VERSION-ID")]
+    pub source: Option<String>,
+
+    /// Locator within the source version (for example `p. 12` or `sec. 1.1`).
+    #[arg(long, value_name = "LOCATOR")]
+    pub at: Option<String>,
+
+    /// Verbatim quote from the source version.
+    #[arg(long, value_name = "TEXT")]
+    pub quote: Option<String>,
+}
+
+/// Arguments for `fieldbook new question`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct NewQuestionArgs {
+    /// Confirm that the new question is public and may enter the repository Corpus.
+    #[arg(long)]
+    pub confirm_public: bool,
+
+    /// Area code (`cmp`, `est`, ...).
+    #[arg(long, value_name = "AREA")]
+    pub area: Option<String>,
+
+    /// Question text.
+    #[arg(value_name = "TEXT")]
+    pub text: Option<String>,
+}
+
+/// Arguments for `fieldbook new conflict`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct NewConflictArgs {
+    /// Confirm that the new conflict is public and may enter the repository Corpus.
+    #[arg(long)]
+    pub confirm_public: bool,
+
+    /// Area code (`cmp`, `est`, ...).
+    #[arg(long, value_name = "AREA")]
+    pub area: Option<String>,
+}
+
+/// Arguments for `fieldbook new term`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct NewTermArgs {
+    /// Confirm that the new glossary term is public and may enter the repository Corpus.
+    #[arg(long)]
+    pub confirm_public: bool,
+
+    /// Owner area code (`cmp`, `est`, ...).
+    #[arg(long, value_name = "AREA")]
+    pub area: Option<String>,
+
+    /// The term id (lowercase snake_case); without it the next `<area>_term_<n>` is used.
+    #[arg(long, value_name = "TERM-ID")]
+    pub id: Option<String>,
 }
 
 /// Arguments for `fieldbook build`.
