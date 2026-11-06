@@ -1209,6 +1209,102 @@ mod egress {
         assert!(!summary.contains("RESTRICTED_EXTRACTED_PAGE_CANARY"));
     }
 
+    /// A Corpus whose locations are the addresses the originals came from, as real rows are.
+    fn view_over_address_rows() -> LabelledView {
+        let row = |id: &str, location: &str, lifecycle: &str, handling: &str| {
+            format!(
+                "{id},1,tag-{id},Synthetic {id},Board,primary_law,primary_evidence,A,Public domain,,reviewed,{location},abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789,2025-10,2025-10-15,2025-11-01,2025-11-02,{lifecycle},,V1,{handling},Held for a test.,Purpose,,,,,\n"
+            )
+        };
+        let url = "https://example.invalid/doc.pdf";
+        let mut tree = Tree::new();
+        tree.insert_dir("corpus/pages");
+        tree.insert_dir("corpus/sources/public");
+        tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
+        tree.insert_bytes("corpus/ASSISTANT.md", b"rules_version = 1\n");
+        insert_register_headers(&mut tree);
+        let mut sources = String::from_utf8(
+            tree.get_bytes("corpus/registers/sources.csv")
+                .unwrap()
+                .to_vec(),
+        )
+        .unwrap();
+        sources.push_str(&row("S-0042", url, "active", "public"));
+        sources.push_str(&row("S-0043", url, "active", "bid-0003"));
+        sources.push_str(&row("S-0044", url, "active", "ctl-0002"));
+        sources.push_str(&row("S-0045", url, "quarantined", "public"));
+        sources.push_str(&row("S-0046", "metadata-only: too big", "active", "public"));
+        // A kept row whose location names the file of a version the view leaves out.
+        sources.push_str(&row("S-0047", "S-0044-v1.pdf", "active", "public"));
+        tree.insert_bytes("corpus/registers/sources.csv", sources.into_bytes());
+        for name in [
+            "S-0042-v1.pdf",
+            "S-0043-v1.pdf",
+            "S-0044-v1.pdf",
+            "S-0044-v1.foo.html",
+            "S-0045-v1.pdf",
+            "S-0046-v1.pdf",
+            "S-0047-v1.pdf",
+            "S-0042-v10.pdf",
+            "S-0042-v1x.pdf",
+            "sub/S-0042-v1.pdf",
+        ] {
+            tree.insert_bytes(format!("corpus/sources/public/{name}"), b"bytes".to_vec());
+        }
+        let model = load(
+            &Host::new(tree, CivilDate::parse("2026-03-01").unwrap()),
+            &Options::new(false),
+        )
+        .0;
+        let Decision::Allowed(tok) = check(
+            &loaded_effective(),
+            &Dest::Bridge,
+            None,
+            None,
+            now_2026_11_01(),
+            Shipped::Hours(1),
+        ) else {
+            panic!("expected Allowed");
+        };
+        LabelledView::new(&model, &tok, &ReadableStores::corpus())
+    }
+
+    fn retained_originals(view: &LabelledView) -> Vec<&str> {
+        view.tree()
+            .iter()
+            .filter_map(|(path, _)| path.strip_prefix("corpus/sources/public/"))
+            .collect()
+    }
+
+    #[test]
+    fn a_kept_version_keeps_its_original_when_location_is_an_address() {
+        // Not the held S-0045, the metadata-only S-0046, the row-less S-0042-v10 or S-0042-v1x,
+        // or the nested copy.
+        assert_eq!(
+            retained_originals(&view_over_address_rows()),
+            ["S-0042-v1.pdf", "S-0043-v1.pdf", "S-0047-v1.pdf"]
+        );
+    }
+
+    #[test]
+    fn narrowing_the_view_drops_the_original_of_a_version_it_leaves_out() {
+        let narrow = view_over_address_rows().restrict(&LabelAllow::from_ids([PUBLIC]));
+        assert_eq!(
+            retained_originals(&narrow),
+            ["S-0042-v1.pdf", "S-0047-v1.pdf"]
+        );
+    }
+
+    #[test]
+    fn no_row_can_retain_the_original_of_a_version_left_out() {
+        // S-0047's location names S-0044's file, and S-0044 is left out by label.
+        let view = view_over_address_rows();
+        let kept = retained_originals(&view);
+        for dropped in ["S-0044-v1.pdf", "S-0044-v1.foo.html"] {
+            assert!(!kept.contains(&dropped), "{dropped} retained: {kept:?}");
+        }
+    }
+
     // -------------------------------------------------------------------------
     // Step 8 & Step 18: LabelledView tests
     // -------------------------------------------------------------------------
