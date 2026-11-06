@@ -27,6 +27,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("audit-show", generate_audit_show_report),
     ("audit-verify", generate_audit_verify_report),
     ("add", generate_add_report),
+    ("search", generate_search_report),
 ];
 
 fn repo_root() -> PathBuf {
@@ -107,6 +108,19 @@ fn generate_add_report() -> String {
         "add inbox --json expected exit 1: {}",
         outcome.stderr
     );
+    outcome.stdout
+}
+
+fn generate_search_report() -> String {
+    let root = repo_root();
+    let world = TestWorld::new(&root.join("tests/fixtures/corpus-mini"));
+    let args = vec![
+        "search".to_owned(),
+        "--json".to_owned(),
+        "S-0002".to_owned(),
+    ];
+    let outcome = fieldbook::run(&args, &world);
+    assert_eq!(outcome.code, 0, "search --json failed: {}", outcome.stderr);
     outcome.stdout
 }
 

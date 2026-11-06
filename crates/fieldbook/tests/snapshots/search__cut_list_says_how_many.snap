@@ -1,0 +1,25 @@
+---
+source: crates/fieldbook/tests/search.rs
+expression: out.stdout
+---
+1. CL-CMP-0100 (claim) CL-CMP-0100
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+2. CL-CMP-0101 (claim) CL-CMP-0101
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+3. CL-CMP-0102 (claim) CL-CMP-0102
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+4. CL-CMP-0103 (claim) CL-CMP-0103
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+5. CL-CMP-0104 (claim) CL-CMP-0104
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+6. CL-CMP-0105 (claim) CL-CMP-0105
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+7. CL-CMP-0106 (claim) CL-CMP-0106
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+8. CL-CMP-0107 (claim) CL-CMP-0107
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+9. CL-CMP-0108 (claim) CL-CMP-0108
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+10. CL-CMP-0109 (claim) CL-CMP-0109
+   primary_source_supported · as of 2026-02-01 · effective 2026-01-15 · verified 2026-02-10 · Zephyrquartz reviews occur every 30 days under the synthetic rule.
+Showing 10 of 14. fieldbook search <source id> lists every version.

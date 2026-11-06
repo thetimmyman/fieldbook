@@ -13,6 +13,7 @@ pub mod index;
 pub mod lexer;
 pub mod normalise;
 pub mod query;
+pub mod record;
 pub mod synonyms;
 pub mod units;
 
