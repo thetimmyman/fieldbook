@@ -1,8 +1,17 @@
 # Raw edition floor delivery (docs/runbooks/release.md#raw-edition-floor).
 # The delivery job runs only for an edition-* tag whose committed edition-release.toml selects raw.
 # Pull requests and manual runs run the trial job: the same packaging and lifecycle code against
-# temporary synthetic tagged repositories. This workflow never calls a Site handler, a renderer, a
-# browser or an executable, and the owner alone creates tags and retrieves the artifacts.
+# temporary synthetic tagged repositories. This workflow never calls a Site handler, a renderer or a
+# browser. It builds the fieldbook program, and the packaging step runs only that program's
+# strict check verb. The owner alone creates tags and retrieves the artifacts, and sends the
+# four files the raw README names; the loose corpus-support.toml is a retention copy.
+#
+# OWNER ITEM, deliberately not done here: the packaging step needs the security contact text in
+# the environment variable FIELDBOOK_SECURITY_CONTACT (control IN-01). A repository secret or
+# variable is an owner-only decision, so this file binds none. Until the owner adds an `env:`
+# entry to the "Package the raw edition" step, `edition-raw` refuses with IN-01 and the delivery
+# job fails closed, which is the safe failure. The workflow test in xtask/src/raw_release.rs pins
+# the absence of any secret reference and is edited by the owner together with that binding.
 name: raw-edition
 
 on:
@@ -92,8 +101,6 @@ jobs:
       - name: Check the tag, the baseline and compatibility, and collect the public evidence
         run: cargo xtask raw-edition-check "$EDITION_TAG" --base release-baseline.toml --evidence-out out/raw-evidence
       - name: Package the raw edition
-        env:
-          FIELDBOOK_SECURITY_CONTACT: ${{ secrets.FIELDBOOK_SECURITY_CONTACT }}
         run: cargo xtask edition-raw --out out/dist --fieldbook target/release/fieldbook
       - name: Name the artifacts
         id: names

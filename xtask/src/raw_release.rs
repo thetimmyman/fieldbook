@@ -77,14 +77,14 @@ pub fn verify_reports(
     let regression: serde_json::Value = serde_json::from_slice(regression_json)
         .map_err(|e| format!("archived evidence/regression.json is not valid JSON: {e}"))?;
     let field = |k: &str| regression.get(k).and_then(serde_json::Value::as_str);
+    let count = |k: &str| regression.get(k).and_then(serde_json::Value::as_u64);
     if regression
         .get("passed")
         .and_then(serde_json::Value::as_bool)
         != Some(true)
-        || regression
-            .get("critical_misses")
-            .and_then(serde_json::Value::as_u64)
-            != Some(0)
+        || count("critical_misses") != Some(0)
+        || count("cases").is_none()
+        || count("critical_cases").is_none_or(|c| Some(c) > count("cases"))
     {
         return Err(
             "archived evidence/regression.json does not record a passed regression".to_owned(),
@@ -430,6 +430,10 @@ pub fn compare_delivered_sets(local: &Path, downloaded: &Path) -> Result<(), Str
     }
     Ok(())
 }
+
+#[cfg(test)]
+#[path = "../../tests/support/rng.rs"]
+mod rng;
 
 #[cfg(test)]
 mod tests {
@@ -832,6 +836,10 @@ mod tests {
 
         // Tag selection, clean packaging and the published artifact file set.
         let (out1, ev1) = deliver(root, work.path(), "edition-001");
+        // A second, independent packaging run of the same tagged commit, kept for the
+        // retained-pair comparison at the end of this test.
+        let out1_again = work.path().join("out-edition-001-again");
+        package(root, &out1_again, &mut Scripted::clean()).expect("second packaging");
         let mut expected = vec![
             "SHA256SUMS".to_owned(),
             "corpus-support.sha256".to_owned(),
@@ -935,7 +943,7 @@ mod tests {
         );
         verify_archive(&arch1, &restore("rollback", work.path()), None)
             .expect("rollback pair verifies alone");
-        compare_delivered_sets(&out1, &out1).expect("retained pair");
+        compare_delivered_sets(&out1, &out1_again).expect("two independent runs give one set");
 
         assert!(
             !SITE_CALLED.load(Ordering::SeqCst),
@@ -1143,6 +1151,24 @@ mod tests {
             );
         }
 
+        // A same-size edit of an archived evidence file that no other check reads: one hex digit
+        // of the compatibility case-set digest. Only the per-file comparison against the
+        // archive manifest can see it.
+        let probe = "evidence/compat/published.toml";
+        let probe_copy = work.path().join("copy-probe");
+        copy_tree(&arch, &probe_copy);
+        let text = fs::read_to_string(probe_copy.join(probe)).expect("published copy");
+        let key = "case_set_sha256 = \"";
+        let at = text.find(key).expect("the case-set digest") + key.len();
+        let mut edited = text.clone().into_bytes();
+        edited[at] = if edited[at] == b'0' { b'1' } else { b'0' };
+        assert_eq!(edited.len(), text.len());
+        fs::write(probe_copy.join(probe), edited).expect("edit");
+        assert!(
+            verify_archive(&probe_copy, &restore("probe", work.path()), None).is_err(),
+            "a same-size edit of an archived evidence file must be refused"
+        );
+
         // An extra file, and a missing file.
         let extra = work.path().join("copy-extra");
         copy_tree(&arch, &extra);
@@ -1235,7 +1261,7 @@ mod tests {
         let commit = "a".repeat(40);
         let check = b"{\"report_version\":1,\"strict\":true,\"errors\":0,\"diagnostics\":[{\"code\":\"FB0127\"}]}";
         let regression = format!(
-            "{{\"passed\":true,\"critical_misses\":0,\"edition\":\"edition-001\",\"commit\":\"{commit}\"}}"
+            "{{\"passed\":true,\"cases\":27,\"critical_cases\":0,\"critical_misses\":0,\"edition\":\"edition-001\",\"commit\":\"{commit}\"}}"
         );
         verify_reports(check, regression.as_bytes(), "edition-001", &commit).expect("clean");
         assert!(verify_reports(check, regression.as_bytes(), "edition-002", &commit).is_err());
@@ -1249,6 +1275,82 @@ mod tests {
         assert!(verify_reports(b"x", regression.as_bytes(), "edition-001", &commit).is_err());
         assert!(verify_reports(check, b"x", "edition-001", &commit).is_err());
         let _ = CONTACT;
+    }
+
+    /// Seeded random bytes and single-byte mutations of valid examples never panic a parser.
+    fn never_panics<T>(name: &str, valid: &[&str], reader: impl Fn(&[u8]) -> Result<T, String>) {
+        use std::panic::{AssertUnwindSafe, catch_unwind};
+        for sample in valid {
+            assert!(
+                catch_unwind(AssertUnwindSafe(|| reader(sample.as_bytes())))
+                    .unwrap_or_else(|_| panic!("`{name}` panicked on its own valid example"))
+                    .is_ok(),
+                "`{name}` rejected its own valid example"
+            );
+        }
+        let mut gen_ = super::rng::Rng::new(0xFB05_2026_0001_0007);
+        for _ in 0..200 {
+            let bytes = gen_.bytes(256);
+            assert!(
+                catch_unwind(AssertUnwindSafe(|| reader(&bytes))).is_ok(),
+                "`{name}` panicked on seeded random bytes"
+            );
+        }
+        for sample in valid {
+            let base = sample.as_bytes();
+            for idx in 0..base.len() {
+                let mut flipped = base.to_vec();
+                flipped[idx] ^= 0x5A;
+                assert!(
+                    catch_unwind(AssertUnwindSafe(|| reader(&flipped))).is_ok(),
+                    "`{name}` panicked on a single-byte flip at {idx}"
+                );
+                let mut deleted = base.to_vec();
+                deleted.remove(idx);
+                assert!(
+                    catch_unwind(AssertUnwindSafe(|| reader(&deleted))).is_ok(),
+                    "`{name}` panicked on a single-byte deletion at {idx}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn report_and_command_line_parsers_never_panic_on_seeded_input() {
+        let commit = "a".repeat(40);
+        let check = "{\"report_version\":1,\"strict\":true,\"errors\":0,\"diagnostics\":[{\"code\":\"FB0127\"}]}";
+        let regression = format!(
+            "{{\"passed\":true,\"cases\":27,\"critical_cases\":0,\"critical_misses\":0,\"edition\":\"edition-001\",\"commit\":\"{commit}\"}}"
+        );
+        // The check report is mutated against a fixed regression result, and the reverse.
+        never_panics("verify_reports(check)", &[check], |bytes| {
+            verify_reports(bytes, regression.as_bytes(), "edition-001", &commit)
+        });
+        never_panics(
+            "verify_reports(regression)",
+            &[regression.as_str()],
+            |bytes| verify_reports(check.as_bytes(), bytes, "edition-001", &commit),
+        );
+        // A mutation that still verifies must keep every field the verifier reads.
+        let base = regression.as_bytes();
+        for idx in 0..base.len() {
+            let mut flipped = base.to_vec();
+            flipped[idx] ^= 0x5A;
+            if verify_reports(check.as_bytes(), &flipped, "edition-001", &commit).is_ok() {
+                let value: serde_json::Value =
+                    serde_json::from_slice(&flipped).expect("an accepted report is JSON");
+                assert_eq!(value["passed"], true);
+                assert_eq!(value["critical_misses"], 0);
+                assert_eq!(value["edition"], "edition-001");
+                assert_eq!(value["commit"], commit.as_str());
+            }
+        }
+        let line = "edition-001 --base release-baseline.toml --evidence-out out/raw-evidence";
+        never_panics("parse_raw_edition_check_cli", &[line], |bytes| {
+            let text = String::from_utf8_lossy(bytes).into_owned();
+            let words: Vec<&str> = text.split_whitespace().collect();
+            parse_raw_edition_check_cli(&words).map(|_| ())
+        });
     }
 
     #[test]
@@ -1375,18 +1477,14 @@ mod tests {
     }
 
     #[test]
-    fn workflow_binds_only_the_security_contact_secret_and_calls_no_site_or_browser() {
+    fn workflow_uses_no_secret_and_calls_no_site_or_browser() {
         let code = workflow_code();
-        let binding = "FIELDBOOK_SECURITY_CONTACT: ${{ secrets.FIELDBOOK_SECURITY_CONTACT }}";
-        assert_eq!(code.matches("secrets.").count(), 1);
-        assert_eq!(code.matches(binding).count(), 1);
-        let bind = position(&code, binding);
-        let package = position(&code, "cargo xtask edition-raw --out out/dist");
-        let step_start = code[..package].rfind("      - name:").expect("a step");
-        assert!(
-            step_start < bind && bind < package,
-            "bound in the packaging step"
-        );
+        // The security contact binding is an owner item; no secret is referenced in this file.
+        assert!(!code.contains("secrets."), "no secret reference");
+        assert!(!code.contains("${{ vars."), "no variable reference");
+        assert!(code.contains("permissions:\n  contents: read"));
+        assert_eq!(code.matches("permissions:").count(), 1);
+        position(&code, "cargo xtask edition-raw --out out/dist");
 
         for banned in [
             concat!("field", "book build"),

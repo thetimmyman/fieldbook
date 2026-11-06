@@ -4,7 +4,8 @@
 //! intake pack and the clean strict-check evidence, with no generated site, no script, no
 //! browser evidence and no executable (`docs/runbooks/release.md#raw-edition-floor`). Nothing in
 //! this module starts a renderer, a site build or a browser. The only programs it runs, through
-//! the [`Runner`], are `git` and the built `fieldbook` command-line program's `check` verb.
+//! the [`Runner`], are `git`, the built `fieldbook` command-line program's `check` verb, and
+//! `cargo run` for that same verb when no prebuilt program is given with `--fieldbook`.
 //!
 //! Everything is built in memory from one clean commit, verified against the Raw allowlist
 //! profile and written to a private staging folder before any file reaches `--out`.
@@ -26,7 +27,7 @@ use fieldbook_core::manifest::{
 use fieldbook_core::policy::EffectivePolicy;
 use fieldbook_core::schema::vocab::Lifecycle;
 
-use crate::allowlist::{AllowlistProfile, verify_staged_maps};
+use crate::allowlist::{AllowlistProfile, RAW_ORIGINAL_EXTENSIONS, verify_staged_maps};
 use crate::proc;
 use crate::zipdet::{read_and_verify_deterministic_zip, write_deterministic_zip_bytes};
 
@@ -172,6 +173,39 @@ pub struct CheckEvidence {
     pub check_json: Vec<u8>,
     /// The deterministic regression result.
     pub regression_json: Vec<u8>,
+    /// Regression cases in the set (counted from `regression.toml`).
+    pub cases: usize,
+    /// Cases marked `critical` in the set.
+    pub critical_cases: usize,
+    /// `FB0127` miss diagnostics in the report.
+    pub misses: usize,
+}
+
+/// The size of the regression set, counted from `corpus/eval/regression.toml`.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RegressionSet {
+    /// Number of `[[case]]` entries.
+    pub cases: usize,
+    /// Number of entries marked `critical`.
+    pub critical_cases: usize,
+}
+
+impl RegressionSet {
+    /// Count the cases of a `regression.toml`; a malformed file is refused.
+    pub fn from_toml(bytes: &[u8]) -> Result<Self, String> {
+        let text = std::str::from_utf8(bytes)
+            .map_err(|_| format!("{REGRESSION_PATH} is not valid UTF-8"))?;
+        let cases = fieldbook_core::eval::parse(text).map_err(|errs| {
+            format!(
+                "{REGRESSION_PATH} is malformed: {}",
+                errs.first().map(|e| e.message.as_str()).unwrap_or_default()
+            )
+        })?;
+        Ok(Self {
+            cases: cases.len(),
+            critical_cases: cases.iter().filter(|c| c.critical).count(),
+        })
+    }
 }
 
 /// Judge one `fieldbook check --strict --json` run. Refuses a failed run, a report that is
@@ -184,6 +218,7 @@ pub fn judge_check(
     today: &str,
     tag: &str,
     commit: &str,
+    set: RegressionSet,
 ) -> Result<CheckEvidence, String> {
     if out.stdout.iter().all(u8::is_ascii_whitespace) {
         return Err(format!(
@@ -229,6 +264,7 @@ pub fn judge_check(
 
     let mut misses: Vec<serde_json::Value> = Vec::new();
     let mut hard: Vec<String> = Vec::new();
+    let mut critical_misses = 0_usize;
     for diag in diagnostics {
         let code = diag
             .get("code")
@@ -243,7 +279,12 @@ pub fn judge_check(
             .and_then(serde_json::Value::as_u64)
             .unwrap_or(0);
         match code {
-            "FB0126" | "FB0128" => hard.push(format!("{code}: {message}")),
+            "FB0126" | "FB0128" => {
+                if code == "FB0128" {
+                    critical_misses += 1;
+                }
+                hard.push(format!("{code}: {message}"));
+            }
             "FB0127" => misses.push(serde_json::json!({
                 "code": code,
                 "line": line,
@@ -265,15 +306,21 @@ pub fn judge_check(
     if check_json.last() != Some(&b'\n') {
         check_json.push(b'\n');
     }
+    // `passed` means: no error in the report and no critical case missed. A set with no critical
+    // case passes that test vacuously, so the counts are written beside it.
+    let n_misses = misses.len();
+    let passed = errors == 0 && hard.is_empty() && critical_misses == 0;
     let regression = serde_json::json!({
         "report_version": 1,
         "edition": tag,
         "commit": commit,
         "today": today,
-        "passed": true,
-        "errors": 0,
-        "critical_misses": 0,
-        "misses": misses.len(),
+        "passed": passed,
+        "errors": errors,
+        "cases": set.cases,
+        "critical_cases": set.critical_cases,
+        "critical_misses": critical_misses,
+        "misses": n_misses,
         "miss_diagnostics": misses,
     });
     let mut regression_json = serde_json::to_string_pretty(&regression)
@@ -283,6 +330,9 @@ pub fn judge_check(
     Ok(CheckEvidence {
         check_json,
         regression_json,
+        cases: set.cases,
+        critical_cases: set.critical_cases,
+        misses: n_misses,
     })
 }
 
@@ -349,38 +399,74 @@ fn extension_class(path: &str) -> &'static str {
 
 const README_TEMPLATE: &str = r#"FIELDBOOK RAW EDITION {edition}
 
-This is the raw edition: plain public files only. It has no generated web
-site, no JavaScript, no style sheet, no workbook and no program, and no
-browser test was run for it. Nothing in it runs.
+This is the raw edition: plain public files only. The packaging step
+admits only Markdown, TOML, CSV, JSON, text and PDF files, so this
+edition has no generated web site, no JavaScript, no style sheet, no
+workbook and no program. No browser test was run for it. The PDF files
+are third-party public documents, shipped unchanged; they were not
+inspected for embedded content.
 
 Edition {edition}. Tool version {tool_version}. Source commit {commit}.
 Source date (UTC): {source_date}.
 
 WHAT YOU RECEIVED
 
+Through the approved transfer channel:
   fieldbook-edition-{edition_number}.zip    {n_files_edition} files
   fieldbook-originals-{edition_number}.zip  {n_files_originals} files
-  SHA256SUMS            the SHA-256 of each zip, one line per zip
-  corpus-support.toml   the support-file catalogue (a copy of evidence\corpus-support.toml)
-  corpus-support.sha256 its SHA-256, one line
+By the separate hash route that your IT department settled:
+  SHA256SUMS             the SHA-256 of each zip, one line per zip
+  corpus-support.sha256  the SHA-256 of the support-file catalogue,
+                         edition\evidence\corpus-support.toml, one line
 
 CHECK, THEN EXTRACT
 
 1. Open PowerShell in the folder that holds the files.
-2. Run Get-FileHash -Algorithm SHA256 on each zip and on corpus-support.toml.
-   Compare each value with the matching line in SHA256SUMS and
-   corpus-support.sha256. Ignore letter case. Every character must match.
-   If one differs, do not extract. Delete the files and ask the sender.
-3. Extract both zips into %LOCALAPPDATA%\Fieldbook\ . Each zip holds one top
-   folder, so you get edition\ and originals\ side by side.
-4. Do not remove the Mark-of-the-Web from the zips or from the files.
+2. Run Get-FileHash -Algorithm SHA256 on each zip. Compare each value
+   with the matching line in SHA256SUMS. Ignore letter case. Every
+   character must match. If one differs, do not extract. Delete the
+   files and ask the sender.
+3. Extract both zips into %LOCALAPPDATA%\Fieldbook\ . Each zip holds one
+   top folder, so you get edition\ and originals\ side by side.
+4. Run Get-FileHash -Algorithm SHA256 on
+   %LOCALAPPDATA%\Fieldbook\edition\evidence\corpus-support.toml and
+   compare the value with corpus-support.sha256. If it differs, do not
+   use the edition. Ask the sender.
+
+MARK-OF-THE-WEB
+Files that arrive through the approved channel, and files taken
+out of the zips, may carry a Windows marker, the Mark-of-the-Web.
+It is normal and it is IT's control. Leave it in place: do not
+run Unblock-File, do not use the Unblock box in a file's
+Properties, and do not delete the stream. If a prompt or policy
+stops you from opening a file, tell IT; do not work around it. The
+transfer runbook explains it under "Mark-of-the-Web".
+
+BACK UP YOUR WORK
+Your working copies live in Fieldbook\working\. It is the only folder
+that cannot be rebuilt: Fieldbook\edition\ and Fieldbook\originals\
+come from the two zips. This edition creates no working\ folder and
+makes no backup of its own. If you keep files in working\, mark the
+folder not content-indexed once:
+  New-Item -ItemType Directory -Force "$env:LOCALAPPDATA\Fieldbook\working"
+  attrib +I "$env:LOCALAPPDATA\Fieldbook\working" /S /D
+Then copy working\ to the place your IT policy covers after each piece
+of work and before each new edition. The commands, with a hash
+comparison that uses Get-FileHash, are in the transfer runbook under
+"Back up working".
+
+SUPPORT EVIDENCE
+The edition holds evidence\corpus-support.toml, a catalogue of the
+public support files used to build it. Its digest, in
+corpus-support.sha256, travels with SHA256SUMS by the separate route.
+Keep both with the pair. The catalogue is evidence of bytes, not proof
+that your copy is public or admitted.
 
 WHERE TO START
 
   edition\corpus\pages\      the reference pages, one Markdown file each
   edition\corpus\registers\  the registers, as CSV files
-  edition\corpus\sources\text\  the text extracted from each source
-  edition\ASSISTANT.md       the assistant rules
+{sources_text_line}  edition\ASSISTANT.md       the assistant rules
   edition\evidence\          the strict check and regression results, and the
                              support-file catalogue
   edition\intake\            the statements for IT
@@ -401,10 +487,11 @@ figures below from the files being packed, so they are counted, not typed.
 
 Fieldbook is a library of public finance and government-contracting reference
 material for one reader. This delivery is the raw edition: plain files only.
-It has no generated web site, no JavaScript, no style sheet and no program or
-executable. No browser test was run for it. You read the Markdown, CSV, text
-and PDF files with the reader your IT department has approved for those file
-types. Nothing in this delivery runs.
+The packaging step admits only the file types listed in section 2, so it has
+no generated web site, no JavaScript, no style sheet, no workbook and no
+program or executable. No browser test was run for it. You read the Markdown,
+CSV, text and PDF files with the reader your IT department has approved for
+those file types.
 A later, separate request may bring a signed program that runs on the company
 laptop as part of the company's own systems. If IT approves it, that program
 keeps the company's records in a store under the data folder, never in an
@@ -425,11 +512,15 @@ Count by file type, both zips together:
   JSON                  {n_json}
   Other                 {n_other}
 
-The edition build refuses to pack an executable, library, script, shortcut,
-macro-enabled workbook or markup (HTML, SVG) file into the raw edition. HTML
-and SVG originals are shipped as .txt files, with the same bytes. PDF originals
-are third-party public documents shipped byte for byte; they are not inspected
-for embedded content.
+The edition build packs into the edition zip only files at fixed Corpus,
+evidence and intake paths with the extensions .md, .toml, .csv, .json and
+.txt, plus its SHA256SUMS list, and into the originals zip only files with the
+extensions {raw_original_extensions}, plus its SHA256SUMS list. It refuses any
+other file, including any executable, library, script, shortcut, workbook or
+markup (HTML, SVG) file, and any original that begins like a Windows or Linux
+executable. HTML and SVG originals are shipped as .txt files, with the same
+bytes. PDF originals are third-party public documents
+shipped byte for byte; they are not inspected for embedded content.
 
 3. WHAT THESE FILES NEVER DO
 
@@ -452,10 +543,11 @@ The content counts are: {n_pages} pages, {n_sources} source versions,
 
 5. HOW TO CHECK WHAT YOU RECEIVED
 
-The two zip files are not signed. Their SHA-256 hashes are not inside them. They
-reach you separately, by the route your IT department settled, so a change to a
-zip in transit shows up as a different hash. Steps are in intake\integrity-guide.md.
-Inside each zip, a file named SHA256SUMS lists every file and its hash.
+The two zip files are not signed. Their SHA-256 hashes are not inside them. The
+hash list, SHA256SUMS, reaches you separately, by the route your IT department
+settled, so a change to a zip in transit shows up as a different hash. Steps are
+in intake\integrity-guide.md. Inside each zip, a file named SHA256SUMS lists
+every file and its hash.
 
 Extract both zips into %LOCALAPPDATA%\Fieldbook\ (README.txt shows how). Do not
 remove the Mark-of-the-Web from the zips or from the files. Leave Windows to
@@ -464,17 +556,26 @@ treat the files as downloaded files.
 Support-file evidence. evidence\corpus-support.toml lists the SHA-256 of each
 support file of the source Corpus at this commit (rules, templates, evaluation
 and pipeline files). Most of those files are not part of this delivery; the
-catalogue records their digests so that a later edition can be compared. A copy
-of the catalogue, corpus-support.toml, and a one-line digest, corpus-support.sha256,
-arrive beside the two zips. That digest is the SHA-256 of corpus-support.toml
-and equals the SHA-256 of evidence\corpus-support.toml in the edition zip.
+catalogue records their digests so that a later edition can be compared. A
+one-line digest, corpus-support.sha256, arrives with SHA256SUMS by the same
+separate route. It is the SHA-256 of evidence\corpus-support.toml: after you
+extract the edition, hash that file and compare. The digest is evidence of
+bytes, not proof that any file is public or admitted.
 
 Check evidence. evidence\check.json is the report of the strict Corpus check run
 on the source commit just before packing, and evidence\regression.json is its
-regression result. They were produced by the sender's own tool at packing time.
-They are not signed and not independently reproduced.
+regression result. The regression set has {n_regression_cases} cases,
+{n_critical_cases} of them marked critical. {n_regression_misses} regression-miss
+warnings are listed in evidence\regression.json: each is a case whose expected
+page was not found where the case expects it. A miss of a critical case would
+have stopped the packaging. The check and regression files were produced by the
+sender's own tool at packing time. They are not signed and not independently
+reproduced.
 
 6. AI
+
+This delivery contains no program and no page, so none of the steps in this
+section can be done with it alone.
 
 Tool versions before 0.2.0 contain no artificial-intelligence model and contact
 none. An optional step builds a block of public text that you copy into an
@@ -497,7 +598,7 @@ any application storage separately through IT's procedure. Folder deletion does
 not clear other data; neither step promises secure erasure.
 "#;
 
-const RAW_NOTE: &str = "> Raw edition note. This delivery is the raw edition: it has no generated site,\n> no JavaScript and no browser pages, and no browser test was run for it. Where the\n> text below describes a site, pages in a browser or browser storage, it describes\n> the full edition and does not apply to this delivery.\n\n";
+const RAW_NOTE: &str = "> Raw edition note. This delivery is the raw edition: it has no generated site,\n> no JavaScript and no browser pages, and no browser or network test was run for it.\n> Where the text below describes a site, pages in a browser or browser storage, it\n> describes the full edition and does not apply to this delivery. Any sentence below\n> that says an interaction was tested, or that points to network-silence.md for a test\n> result, does not apply to this delivery either.\n\n";
 
 const INTEGRITY_TEMPLATE: &str = r#"# Fieldbook integrity guide (raw edition)
 
@@ -512,26 +613,25 @@ This guide shows how to check that the files you received are the ones the sende
 | Edition zip | `fieldbook-edition-{edition_number}.zip` | The transfer channel IT approved |
 | Originals zip | `fieldbook-originals-{edition_number}.zip` | The same channel |
 | Hash list | `SHA256SUMS`, two lines, one per zip | A different route from the zips, settled with IT |
-| Support catalogue | `corpus-support.toml` and `corpus-support.sha256` | With the zips; the digest is checked against the hash route IT settled |
+| Support digest | `corpus-support.sha256`, one line: the SHA-256 of `edition\evidence\corpus-support.toml` | The same separate route as the hash list |
 
-The hash list is not inside the zips and the zips do not contain their own hashes. A zip cannot vouch for itself.
+The hash list and the support digest are not inside the zips and the zips do not contain their own hashes. A zip cannot vouch for itself.
 
-## 2. Check each file
+## 2. Check each zip
 
-Open PowerShell in the folder that holds the files. Run these commands.
+Open PowerShell in the folder that holds the zips. Run these commands.
 
 ```powershell
 Get-FileHash -Algorithm SHA256 .\fieldbook-edition-{edition_number}.zip
 Get-FileHash -Algorithm SHA256 .\fieldbook-originals-{edition_number}.zip
-Get-FileHash -Algorithm SHA256 .\corpus-support.toml
 ```
 
-Compare the `Hash` values with the lines in `SHA256SUMS` and `corpus-support.sha256`. Windows prints capital letters and the lists use small letters. Ignore the case. Every character must match.
+Compare the `Hash` values with the lines in `SHA256SUMS`. Windows prints capital letters and the lists use small letters. Ignore the case. Every character must match.
 
 | Result | What to do |
 |---|---|
-| All match | Go to section 3 |
-| Any differs | Do not extract. Delete the files. Tell the contact in `TRANSFER-STATEMENT.txt`, or whoever sent them, and ask for them to be sent again |
+| Both match | Go to section 3 |
+| Either differs | Do not extract. Delete the files. Tell the contact in `TRANSFER-STATEMENT.txt`, or whoever sent them, and ask for them to be sent again |
 | `Get-FileHash` is blocked | Do not look for another way. Ask IT which hash tool it approves and check with that |
 
 ## 3. Extract
@@ -546,19 +646,29 @@ Both zips go to the same place, `%LOCALAPPDATA%\Fieldbook\`. Each zip already ho
 
 If Extract All shows a long-path error, the destination is too deep. Use the path above and nothing longer.
 
-## 4. Mark-of-the-Web
+## 4. Check the support catalogue
+
+After extracting, hash the catalogue that came inside the edition zip and compare it with `corpus-support.sha256`, which arrived by the separate route.
+
+```powershell
+Get-FileHash -Algorithm SHA256 "$env:LOCALAPPDATA\Fieldbook\edition\evidence\corpus-support.toml"
+```
+
+Ignore the case. Every character must match. If it differs, do not use the edition: delete `edition\` and `originals\` and ask the sender. A match shows byte equality only. It does not show that any file is public or admitted.
+
+## 5. Mark-of-the-Web
 
 Files that come from outside carry a Windows marker, the Mark-of-the-Web. Leave it in place. Do not use **Unblock** in file Properties, `Unblock-File`, or any tool that strips the marker.
 
-## 5. Check one file later
+## 6. Check one file later
 
 Each zip has a `SHA256SUMS` file inside it, in the sha256sum text format: one line per file, with the hash, two spaces and the path relative to the folder that holds `SHA256SUMS`. It lists every file in that zip except itself. To check one file, run `Get-FileHash -Algorithm SHA256` on it and find its line.
 
-## 6. Update and roll back
+## 7. Update and roll back
 
 Keep the current `edition\` and `originals\` together as one verified pair. To update, check and extract the new pair into a fresh staging folder, check the edition identifier in `edition\edition.toml`, then replace both folders together. Keep the previous pair so that you can put both back. Never replace only one of the two.
 
-## 7. What the hashes show
+## 8. What the hashes show
 
 The check shows that the files you hold are byte-for-byte the files the sender hashed. It does not show who built them. The zips are unsigned.
 "#;
@@ -569,7 +679,7 @@ Edition {edition}. Tool version {tool_version}.
 
 The raw edition has no generated pages, no JavaScript and no browser summary, so no network-silence test was run for it and there is no `network-silence-summary.txt`. This delivery makes no claim about network behaviour.
 
-What the build does check is the file list: it refuses to pack any executable, library, script, shortcut, macro-enabled workbook or markup (HTML, SVG) file into the raw edition, so the edition holds no file that this build knows how to run. PDF originals are third-party public documents shipped byte for byte and are not inspected for embedded content.
+What the build does check is the file list: the edition zip holds only files with the extensions .md, .toml, .csv, .json and .txt at fixed paths, and the originals zip holds only {raw_original_extensions} files (each zip also holds its `SHA256SUMS` list). The build refuses any other file, including any executable, library, script, shortcut, workbook or markup (HTML, SVG) file, and any original that begins like a Windows or Linux executable. PDF originals are third-party public documents shipped byte for byte and are not inspected for embedded content.
 
 The full edition's network-silence check is a separate delivery with its own report.
 "#;
@@ -662,7 +772,10 @@ fn build(
             runner.run(root, "cargo", &full)?
         }
     };
-    let evidence = judge_check(&out, &today, &tag, &commit)?;
+    let set = RegressionSet::from_toml(&read_regular_file(root, REGRESSION_PATH)?)?;
+    let evidence = judge_check(&out, &today, &tag, &commit, set)?;
+    let (n_cases, n_critical, n_misses) =
+        (evidence.cases, evidence.critical_cases, evidence.misses);
 
     // 3. One validated public Corpus generation.
     let tree =
@@ -852,6 +965,25 @@ fn build(
     values.insert("n_claims", info.counts.claims.to_string());
     values.insert("n_questions", info.counts.questions.to_string());
     values.insert("security_contact", contact.to_owned());
+    values.insert(
+        "raw_original_extensions",
+        dotted_list(RAW_ORIGINAL_EXTENSIONS),
+    );
+    values.insert("n_regression_cases", n_cases.to_string());
+    values.insert("n_critical_cases", n_critical.to_string());
+    values.insert("n_regression_misses", n_misses.to_string());
+    // The extracted-text folder is named only when the staged edition holds it.
+    values.insert(
+        "sources_text_line",
+        if edition
+            .keys()
+            .any(|p| p.starts_with("corpus/sources/text/"))
+        {
+            "  edition\\corpus\\sources\\text\\  the text extracted from each source\n".to_owned()
+        } else {
+            String::new()
+        },
+    );
 
     let readme = fill_placeholders("README.txt", README_TEMPLATE, &values)?;
     let transfer = fill_placeholders("TRANSFER-STATEMENT.txt", TRANSFER_TEMPLATE, &values)?;
@@ -940,6 +1072,16 @@ fn build(
         support_toml: staged_support,
         support_sha,
     })
+}
+
+/// `.a, .b and .c` from `["a", "b", "c"]`, for the statements.
+fn dotted_list(exts: &[&str]) -> String {
+    let dotted: Vec<String> = exts.iter().map(|e| format!(".{e}")).collect();
+    match dotted.split_last() {
+        Some((last, [])) => last.clone(),
+        Some((last, rest)) => format!("{} and {last}", rest.join(", ")),
+        None => String::new(),
+    }
 }
 
 fn raw_note_after_title(text: &str) -> String {
@@ -1053,6 +1195,10 @@ pub fn edition_raw(
         files,
     })
 }
+
+#[cfg(test)]
+#[path = "../../tests/support/rng.rs"]
+mod rng;
 
 #[cfg(test)]
 pub(crate) mod tests {
@@ -1571,7 +1717,9 @@ pub(crate) mod tests {
     }
 
     #[test]
-    fn no_renderer_or_browser_is_an_ancestor_of_this_card() {
+    fn the_raw_path_declares_no_renderer_dependency_and_calls_no_renderer() {
+        // `xtask` itself reaches the renderer only through `fieldbook`, which it needs for the
+        // Corpus reader; this checks the declared dependencies and the raw path's own source.
         let manifest = include_str!("../Cargo.toml");
         for banned in ["fieldbook-render", "chart", "headless", "playwright"] {
             assert!(!manifest.contains(banned), "xtask depends on {banned}");
@@ -1590,6 +1738,347 @@ pub(crate) mod tests {
             ] {
                 assert!(!production.contains(banned), "{name} mentions {banned}");
             }
+        }
+    }
+
+    fn edition_files(out: &Path) -> BTreeMap<String, Vec<u8>> {
+        zip_map(&out.join("fieldbook-edition-001.zip"), "edition")
+    }
+
+    fn text_of(files: &BTreeMap<String, Vec<u8>>, name: &str) -> String {
+        String::from_utf8(files[name].clone()).expect("utf8")
+    }
+
+    /// The lines of the README section whose heading line is `first`, up to the next heading
+    /// (an unindented line of capitals) or the end.
+    fn paragraph<'a>(readme: &'a str, first: &str) -> Vec<&'a str> {
+        let mut lines = readme.lines().skip_while(|l| *l != first);
+        assert_eq!(
+            lines.next(),
+            Some(first),
+            "no paragraph opens with `{first}`"
+        );
+        lines
+            .take_while(|l| {
+                l.is_empty()
+                    || l.starts_with(' ')
+                    || l.chars().any(|c| c.is_ascii_lowercase())
+                    || !l.chars().any(|c| c.is_ascii_uppercase())
+            })
+            .collect()
+    }
+
+    // control: MW-01
+    #[test]
+    fn readme_keeps_the_mark_of_the_web_paragraph_and_never_tells_the_reader_to_remove_it() {
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let readme = text_of(&edition_files(out.path()), "README.txt");
+        let body = paragraph(&readme, "MARK-OF-THE-WEB").join("\n");
+        assert!(body.contains("Leave it in place"), "{body}");
+        assert!(body.contains("do not\nrun Unblock-File"), "{body}");
+    }
+
+    // control: DR-01
+    #[test]
+    fn readme_gives_the_working_folder_backup_and_attrib_instruction() {
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let readme = text_of(&edition_files(out.path()), "README.txt");
+        let body = paragraph(&readme, "BACK UP YOUR WORK").join("\n");
+        assert!(body.contains("attrib +I"), "{body}");
+        assert!(body.contains("Get-FileHash"), "{body}");
+        assert!(body.contains("makes no backup of its own"), "{body}");
+        let support = paragraph(&readme, "SUPPORT EVIDENCE")
+            .join(" ")
+            .split_whitespace()
+            .collect::<Vec<_>>()
+            .join(" ");
+        assert!(
+            support.contains("evidence of bytes, not proof that your copy is public"),
+            "{support}"
+        );
+    }
+
+    #[test]
+    fn the_files_the_texts_say_you_receive_are_the_delivery_contract_of_the_runbook() {
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        let readme = text_of(&ed, "README.txt");
+
+        // The received list: two zips by the channel, the hash list and digest by the other route.
+        let received: Vec<&str> = paragraph(&readme, "WHAT YOU RECEIVED")
+            .into_iter()
+            .filter(|l| l.starts_with("  ") && !l.starts_with("   "))
+            .map(|l| l.trim().split_whitespace().next().expect("name"))
+            .collect();
+        assert_eq!(
+            received,
+            vec![
+                "fieldbook-edition-001.zip",
+                "fieldbook-originals-001.zip",
+                "SHA256SUMS",
+                "corpus-support.sha256",
+            ]
+        );
+        // The loose catalogue copy is a retention copy: it is never listed as received or hashed
+        // from beside the zips, and no text says the digest arrives with the zips.
+        for (name, text) in [
+            ("README.txt", readme.clone()),
+            (
+                "TRANSFER-STATEMENT.txt",
+                text_of(&ed, "TRANSFER-STATEMENT.txt"),
+            ),
+            (
+                "intake/integrity-guide.md",
+                text_of(&ed, "intake/integrity-guide.md"),
+            ),
+        ] {
+            assert!(!text.contains("beside the two zips"), "{name}");
+            assert!(!text.contains("With the zips"), "{name}");
+            assert!(!text.contains(".\\corpus-support.toml"), "{name}");
+            assert!(text.contains("evidence\\corpus-support.toml"), "{name}");
+        }
+        // The runbook says the same: the digest travels by the separate route and the loose
+        // catalogue is not sent.
+        let runbook = include_str!("../../docs/runbooks/transfer.md");
+        assert!(runbook.contains("`corpus-support.sha256` comes by that same separate route"));
+        assert!(runbook.contains("it is not sent"));
+        // The workflow still uploads the whole delivered set for the owner, who sends the
+        // four named files; the fifth is the retention copy.
+        let delivered = dir_listing(out.path());
+        assert!(delivered.contains(&"corpus-support.toml".to_owned()));
+        assert!(!received.contains(&"corpus-support.toml"));
+    }
+
+    #[test]
+    fn where_to_start_names_only_folders_the_edition_holds() {
+        // With extraction text staged the line is present and true.
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        let readme = text_of(&ed, "README.txt");
+        assert!(readme.contains("edition\\corpus\\sources\\text\\"));
+        for folder in start_folders(&readme) {
+            assert!(
+                ed.keys().any(|p| p.starts_with(&folder)) || folder == "originals/",
+                "README names {folder}, which the edition zip does not hold"
+            );
+        }
+
+        // Without extraction text the line is not written (the real Corpus has none yet).
+        let bare = clean_repo();
+        git(bare.path(), &["rm", "-r", "-q", "corpus/sources/text"]);
+        commit_all(bare.path());
+        let out = tempfile::tempdir().expect("out");
+        package(bare.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        assert!(!ed.keys().any(|p| p.starts_with("corpus/sources/")));
+        let readme = text_of(&ed, "README.txt");
+        assert!(!readme.contains("sources\\text"), "{readme}");
+        for folder in start_folders(&readme) {
+            assert!(
+                ed.keys().any(|p| p.starts_with(&folder)) || folder == "originals/",
+                "README names {folder}, which the edition zip does not hold"
+            );
+        }
+    }
+
+    /// The folders (with `/`) that the WHERE TO START paragraph names.
+    fn start_folders(readme: &str) -> Vec<String> {
+        paragraph(readme, "WHERE TO START")
+            .into_iter()
+            .skip(1)
+            .filter_map(|l| {
+                let first = l.trim().split_whitespace().next()?;
+                first
+                    .ends_with('\\')
+                    .then(|| first.trim_start_matches("edition\\").replace('\\', "/"))
+            })
+            .collect()
+    }
+
+    #[test]
+    fn the_statements_name_only_what_the_packaging_step_enforces() {
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        let orig = zip_map(&out.path().join("fieldbook-originals-001.zip"), "originals");
+
+        // The extensions the statements list are the ones the zips hold, and nothing absolute
+        // like "nothing in it runs" is claimed.
+        let allowed_edition = ["md", "toml", "csv", "json", "txt"];
+        for path in ed.keys().filter(|p| p.as_str() != "SHA256SUMS") {
+            let ext = path.rsplit('.').next().unwrap_or_default();
+            assert!(allowed_edition.contains(&ext), "{path}");
+        }
+        for path in orig.keys().filter(|p| p.as_str() != "SHA256SUMS") {
+            let ext = path.rsplit('.').next().unwrap_or_default();
+            assert!(RAW_ORIGINAL_EXTENSIONS.contains(&ext), "{path}");
+        }
+        let transfer = text_of(&ed, "TRANSFER-STATEMENT.txt");
+        assert!(
+            transfer.contains("only files with the\nextensions .pdf, .txt and .csv"),
+            "{transfer}"
+        );
+        assert!(text_of(&ed, "intake/network-silence.md").contains(".pdf, .txt and .csv files"));
+        for (name, text) in [
+            ("README.txt", text_of(&ed, "README.txt")),
+            ("TRANSFER-STATEMENT.txt", transfer.clone()),
+            (
+                "intake/network-silence.md",
+                text_of(&ed, "intake/network-silence.md"),
+            ),
+        ] {
+            for banned in [
+                "Nothing in it runs",
+                "Nothing in this delivery runs",
+                "knows how to run",
+            ] {
+                assert!(!text.contains(banned), "{name} says `{banned}`");
+            }
+        }
+        // The AI section says what this delivery cannot do.
+        assert!(transfer.contains("contains no program and no page"));
+        // The inherited data-handling sentence about tested interactions is withdrawn first.
+        let data = text_of(&ed, "intake/data-handling.md");
+        let note = data
+            .find("does not apply to this delivery either")
+            .expect("the override");
+        let tested = data
+            .find("in the interactions tested")
+            .expect("the inherited sentence");
+        assert!(note < tested);
+    }
+
+    #[test]
+    fn a_registered_original_outside_the_raw_extension_list_is_refused() {
+        for ext in ["url", "xls", "css"] {
+            let repo = clean_repo();
+            git(
+                repo.path(),
+                &[
+                    "mv",
+                    "corpus/sources/public/S-0001-v1.html",
+                    &format!("corpus/sources/public/S-0001-v1.{ext}"),
+                ],
+            );
+            commit_all(repo.path());
+            let (err, out) = refused_with(repo.path(), &mut Scripted::clean());
+            assert!(
+                err.contains("S-0001-v1") && err.contains(ext),
+                "{ext}: {err}"
+            );
+            assert!(dir_listing(out.path()).is_empty());
+        }
+    }
+
+    #[test]
+    fn regression_evidence_counts_the_set_instead_of_asserting_success() {
+        let repo = clean_repo();
+        write(
+            repo.path(),
+            "corpus/eval/regression.toml",
+            b"[[case]]\nid = \"rg-001\"\nquery = \"synthetic\"\nexpect = [\"cmp-sample\"]\n\n[[case]]\nid = \"rg-002\"\nquery = \"synthetic title\"\nexpect = [\"cmp-sample\"]\ncritical = true\n\n[[case]]\nid = \"rg-003\"\nquery = \"synthetic example\"\nexpect = [\"cmp-sample\"]\n",
+        );
+        commit_all(repo.path());
+        let mut runner = Scripted::clean();
+        runner.check_stdout = report_with(
+            "2026-03-02",
+            "{\"code\":\"FB0127\",\"severity\":\"warning\",\"message\":\"case miss\",\"line\":4}",
+            0,
+        );
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut runner).expect("packaging");
+        let ed = edition_files(out.path());
+        let json: serde_json::Value =
+            serde_json::from_slice(&ed["evidence/regression.json"]).expect("json");
+        assert_eq!(json["cases"], 3);
+        assert_eq!(json["critical_cases"], 1);
+        assert_eq!(json["critical_misses"], 0);
+        assert_eq!(json["misses"], 1);
+        assert_eq!(json["passed"], true);
+        let transfer = text_of(&ed, "TRANSFER-STATEMENT.txt");
+        assert!(
+            transfer.contains("regression set has 3 cases,"),
+            "{transfer}"
+        );
+        assert!(
+            transfer.contains("1 of them marked critical. 1 regression-miss"),
+            "{transfer}"
+        );
+
+        // A malformed set is refused before anything is written.
+        write(
+            repo.path(),
+            "corpus/eval/regression.toml",
+            b"[[case]]\nid = \"\"\n",
+        );
+        commit_all(repo.path());
+        let (err, _out) = refused_with(repo.path(), &mut Scripted::clean());
+        assert!(err.contains("regression.toml"), "{err}");
+    }
+
+    #[test]
+    fn untrusted_report_and_command_line_inputs_never_panic_on_seeded_input() {
+        use std::panic::{AssertUnwindSafe, catch_unwind};
+        let valid_report = String::from_utf8(clean_report("2026-03-02")).expect("utf8");
+        let set = RegressionSet {
+            cases: 3,
+            critical_cases: 1,
+        };
+        let judge = |bytes: &[u8]| {
+            judge_check(
+                &RunOutput {
+                    code: 0,
+                    stdout: bytes.to_vec(),
+                    stderr: Vec::new(),
+                },
+                "2026-03-02",
+                "edition-001",
+                &"a".repeat(40),
+                set,
+            )
+        };
+        assert!(judge(valid_report.as_bytes()).is_ok());
+        let mut gen_ = super::rng::Rng::new(0xFB05_2026_0001_0008);
+        for _ in 0..200 {
+            let bytes = gen_.bytes(256);
+            assert!(catch_unwind(AssertUnwindSafe(|| judge(&bytes))).is_ok());
+        }
+        for idx in 0..valid_report.len() {
+            let mut flipped = valid_report.clone().into_bytes();
+            flipped[idx] ^= 0x5A;
+            let got = catch_unwind(AssertUnwindSafe(|| judge(&flipped)))
+                .unwrap_or_else(|_| panic!("judge_check panicked on a flip at {idx}"));
+            // A mutation is accepted only when it left the clean meaning intact.
+            if let Ok(evidence) = got {
+                assert_eq!(evidence.cases, 3);
+                assert_eq!(evidence.misses, 0);
+            }
+            let mut deleted = valid_report.clone().into_bytes();
+            deleted.remove(idx);
+            assert!(catch_unwind(AssertUnwindSafe(|| judge(&deleted))).is_ok());
+        }
+        let line = "--out out/dist --fieldbook target/release/fieldbook";
+        for idx in 0..line.len() {
+            let mut bytes = line.as_bytes().to_vec();
+            bytes[idx] ^= 0x5A;
+            let text = String::from_utf8_lossy(&bytes).into_owned();
+            let words: Vec<&str> = text.split_whitespace().collect();
+            assert!(catch_unwind(AssertUnwindSafe(|| parse_edition_raw_cli(&words))).is_ok());
+        }
+        for _ in 0..200 {
+            let bytes = gen_.bytes(64);
+            let text = String::from_utf8_lossy(&bytes).into_owned();
+            let words: Vec<&str> = text.split_whitespace().collect();
+            assert!(catch_unwind(AssertUnwindSafe(|| parse_edition_raw_cli(&words))).is_ok());
         }
     }
 
