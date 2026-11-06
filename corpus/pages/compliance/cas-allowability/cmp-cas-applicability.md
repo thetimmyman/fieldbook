@@ -7,7 +7,7 @@ type = "clause-card"
 stage = 3
 readiness = "PUBLIC-NOW"
 status = "draft"
-as_of = 2026-10-27
+as_of = 2026-09-01
 handling = ["public"]
 terms = ["cost_accounting_standards", "cas_coverage", "disclosure_statement", "segment"]
 questions = ["Q-033"]
@@ -27,9 +27,13 @@ Shows when a negotiated contract is exempt from the Cost Accounting Standards, w
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-0001] |
-| Applies to | Awards from 2026-10-01 [@CL-CMP-0001] |
+| Applies to | The Board's regulation, effective 2026-10-01 [@CL-CMP-0001]. A business unit under the earlier full-coverage line may transition to modified coverage if it has no unresolved CAS noncompliances and does not meet the criteria for full coverage at $100 million [@CL-CMP-10037; @CL-CMP-10038]. How the new values otherwise apply to an award made before that date is not established |
 
-Negotiated contracts and subcontracts not in excess of $35 million are exempt from all CAS requirements [@CL-CMP-8116; @CL-CMP-0001]. Full CAS coverage applies to a contractor business unit that receives a single CAS-covered contract award of $100 million or more, or that received $100 million or more in net CAS-covered awards during its preceding cost accounting period [@CL-CMP-8117; @CL-CMP-0002; @CL-CMP-7069]. A business unit selected for a CAS-covered contract or subcontract of $100 million or more must submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment that received net awards of negotiated prime contracts and subcontracts subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit a Disclosure Statement before award of its first CAS-covered contract in the immediately following cost accounting period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071]. These values took effect on 2026-10-01 [@CL-CMP-0001].
+Negotiated contracts and subcontracts not in excess of $35 million are exempt from all CAS requirements [@CL-CMP-8116; @CL-CMP-0001]. Full CAS coverage applies to a contractor business unit that receives a single CAS-covered contract award of $100 million or more, or that received $100 million or more in net CAS-covered awards during its preceding cost accounting period [@CL-CMP-8117; @CL-CMP-0002; @CL-CMP-7069]. A business unit selected for a CAS-covered contract or subcontract of $100 million or more must submit a Disclosure Statement before award [@CL-CMP-0003]. A business unit or segment that received net awards of negotiated prime contracts and subcontracts subject to CAS totaling $100 million or more in its most recent cost accounting period must also submit a Disclosure Statement before award of its first CAS-covered contract in the immediately following cost accounting period [@CL-CMP-7070]. However, if that first CAS-covered contract is received within 90 days of the start of the cost accounting period, the contractor is not required to file until the end of 90 days [@CL-CMP-7071]. These values are stated in the Cost Accounting Standards Board's regulation in 48 CFR 9903 and took effect on 2026-10-01 [@CL-CMP-0001; @CL-CMP-0002; @CL-CMP-0003; @CL-CMP-7070].
+
+Before 2026-10-01 the exemption line was $2.5 million, and the same rule ended the $7.5 million trigger contract [@CL-CMP-10034; @CL-CMP-0001]. The full-coverage and Disclosure Statement lines were $50 million [@CL-CMP-10035]. A contractor or subcontractor subject to full coverage based on that $50 million line may transition the affected contracts or subcontracts to modified coverage at the start of the business unit's next full cost accounting period [@CL-CMP-10037], the period beginning on or after October 1, 2026, if the business unit has no unresolved CAS noncompliances and does not meet the criteria for full coverage at $100 million [@CL-CMP-10038]. How the new values otherwise apply to an award made before that date is not established here.
+
+The codified FAR text and provisions in the Corpus still print earlier figures: FAR 30.201-4(b)(1) prints $2.5 million and $50 million [@CL-RTE-0842], and the FAR 52.230-1 certificates print $50 million [@CL-CMP-5923; @CL-CMP-5926]. That is a different instrument from the Board's regulation, whose figures above took effect on 2026-10-01 [@CL-CMP-0002; @CL-CMP-0003]. Which of the two sets of figures applies where the FAR text still prints the earlier one is not established here.
 
 ## How it works
 
@@ -54,6 +58,8 @@ Which business units are CAS-covered, at what level, and whether a Disclosure St
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-05: Corrected the Applies to row, which had read awards from 2026-10-01 and went beyond the cited text, to the Board's regulation with application to earlier awards not established.
+- COMPATIBLE_EXTENSION, 2026-11-05: Named the Board's regulation as the place that states the values, added the values before 2026-10-01 with a citation to the rule's own statement of them, added the rule's transition for business units under the earlier full-coverage line, stated that the FAR text still prints earlier figures, and marked which figure applies as not established.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited exemption, coverage and Disclosure Statement lead-ins; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.
 - COMPATIBLE_EXTENSION, 2026-10-31: added second full-coverage test and second Disclosure Statement test.
