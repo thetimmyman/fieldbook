@@ -298,6 +298,18 @@ impl World for Disk {
         Disk::has_company_store(self)
     }
 
+    fn stdin_is_terminal(&self) -> bool {
+        Disk::stdin_is_terminal(self)
+    }
+
+    fn read_line(&self) -> String {
+        Disk::read_line(self)
+    }
+
+    fn prompt(&self, flag: &str) -> Result<(), WorldError> {
+        Disk::prompt(self, flag)
+    }
+
     fn today(&self) -> CivilDate {
         self.now().date
     }

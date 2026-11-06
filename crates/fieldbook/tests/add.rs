@@ -683,6 +683,15 @@ fn held_open_target_is_in_use() {
         fn has_company_store(&self) -> bool {
             self.inner.has_company_store()
         }
+        fn stdin_is_terminal(&self) -> bool {
+            self.inner.stdin_is_terminal()
+        }
+        fn read_line(&self) -> String {
+            self.inner.read_line()
+        }
+        fn prompt(&self, flag: &str) -> Result<(), fieldbook::WorldError> {
+            self.inner.prompt(flag)
+        }
         fn today(&self) -> fieldbook_core::CivilDate {
             self.inner.today()
         }

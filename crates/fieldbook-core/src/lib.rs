@@ -25,6 +25,7 @@ pub mod hex;
 pub mod ids;
 pub mod labels;
 pub mod manifest;
+pub mod new;
 pub mod policy;
 pub mod report;
 pub mod review;
