@@ -497,6 +497,9 @@
       if (page >= pages) {
         page = pages - 1;
       }
+      if (page < 0) {
+        page = 0;
+      }
       const first = page * PAGE_SIZE;
       const visible = new Set(matching.slice(first, first + PAGE_SIZE));
       for (let i = 0; i < ordered.length; i += 1) {
@@ -548,7 +551,8 @@
     // Plain numbers compare exactly, as decimal strings: a double cannot tell
     // 0.1234567890123456789 from 0.1234567890123456788. The sign decides first; then the integer
     // part by length and then digit by digit; then the fraction padded to one length.
-    // The cases below are checked by a test against a reference of this same algorithm.
+    // The cases below are checked by a test against a Rust port of this same algorithm, and the
+    // whole block is pinned verbatim there: change one, re-check the other.
     //   COMPARE-CASES
     //   0 | 0 | 0
     //   -0 | 0 | 0
@@ -752,7 +756,11 @@
         filterVal = 'all';
         applyFilter();
       }
-      page = Math.floor(matching.indexOf(row) / PAGE_SIZE);
+      const at = matching.indexOf(row);
+      if (at < 0) {
+        return;
+      }
+      page = Math.floor(at / PAGE_SIZE);
       render();
       if (typeof row.scrollIntoView === 'function') {
         row.scrollIntoView({ block: 'center' });

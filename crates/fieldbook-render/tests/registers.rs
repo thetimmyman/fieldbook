@@ -1582,6 +1582,54 @@ mod registers {
         );
     }
 
+    /// The shipped comparator, pinned verbatim (whitespace aside). `compare_decimal` above is its
+    /// port; when this changes, re-check the port and the case table against it.
+    const PINNED_COMPARATOR: &str = r#"const parseDecimal = function (text) {
+  let negative = text.charAt(0) === '-';
+  const body = negative ? text.slice(1) : text;
+  const dot = body.indexOf('.');
+  const whole = (dot < 0 ? body : body.slice(0, dot)).replace(/^0+/, '');
+  const fraction = dot < 0 ? '' : body.slice(dot + 1).replace(/0+$/, '');
+  if (whole === '' && fraction === '') {
+    negative = false;
+  }
+  return { negative: negative, whole: whole, fraction: fraction };
+};
+const compareMagnitude = function (a, b) {
+  if (a.whole.length !== b.whole.length) {
+    return a.whole.length < b.whole.length ? -1 : 1;
+  }
+  if (a.whole !== b.whole) {
+    return a.whole < b.whole ? -1 : 1;
+  }
+  const width = Math.max(a.fraction.length, b.fraction.length);
+  const fa = a.fraction.padEnd(width, '0');
+  const fb = b.fraction.padEnd(width, '0');
+  return fa === fb ? 0 : fa < fb ? -1 : 1;
+};
+const compareDecimal = function (x, y) {
+  const a = parseDecimal(x);
+  const b = parseDecimal(y);
+  if (a.negative !== b.negative) {
+    return a.negative ? -1 : 1;
+  }
+  const magnitude = compareMagnitude(a, b);
+  return a.negative && magnitude !== 0 ? -magnitude : magnitude;
+};"#;
+
+    #[test]
+    fn numeric_comparator_is_pinned() {
+        let squash = |t: &str| t.split_whitespace().collect::<Vec<_>>().join(" ");
+        let start = APP_JS.find("const parseDecimal = function").unwrap();
+        let end = APP_JS.find("// Other cells compare as text").unwrap();
+        assert_eq!(
+            squash(&APP_JS[start..end]),
+            squash(PINNED_COMPARATOR),
+            "app.js comparator changed: update the Rust port `compare_decimal`, the case table \
+             and this pin together"
+        );
+    }
+
     #[test]
     fn script_never_looks_up_a_bare_frame_id() {
         // Every id the script reads is in the frame namespace or is a content anchor prefix.
@@ -1599,6 +1647,53 @@ mod registers {
         assert!(
             APP_JS.contains("rowById"),
             "revealHash finds the row among the table's own rows"
+        );
+    }
+
+    /// The text of `name`'s `const name = function` body in app.js, up to its closing `    };`.
+    fn script_function(name: &str) -> &'static str {
+        let head = format!("const {name} = function");
+        let start = APP_JS
+            .find(&head)
+            .unwrap_or_else(|| panic!("app.js defines {name}"));
+        let rest = &APP_JS[start..];
+        let end = rest
+            .find("\n    };\n")
+            .unwrap_or_else(|| panic!("{name} ends"));
+        &rest[..end]
+    }
+
+    #[test]
+    fn reveal_hash_resolves_only_register_rows() {
+        let body = script_function("revealHash");
+        assert!(
+            body.contains("rowById(id)"),
+            "revealHash finds the row among the table's rows"
+        );
+        for lookup in [
+            "querySelector",
+            "getElementById",
+            "document.all",
+            "closest(",
+            "getElementsBy",
+            "elementFromPoint",
+        ] {
+            assert!(
+                !body.contains(lookup),
+                "revealHash must not look an id up outside the rows: `{lookup}`"
+            );
+        }
+        // A second line of defence: a row that is not among the matching rows never sets a page.
+        assert!(
+            body.contains("const at = matching.indexOf(row);")
+                && body.contains("if (at < 0) {")
+                && body.contains("page = Math.floor(at / PAGE_SIZE);"),
+            "revealHash returns when the row is not in the matching rows after the filter reset"
+        );
+        let render = script_function("render");
+        assert!(
+            render.contains("if (page < 0) {"),
+            "render clamps the page from below as well as above"
         );
     }
 
