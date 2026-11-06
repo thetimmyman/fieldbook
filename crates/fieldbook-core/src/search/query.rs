@@ -78,9 +78,12 @@ pub fn is_exact_class(doc: &DocEntry, s: &str) -> bool {
 /// match count.
 #[must_use]
 pub fn query(index: &Index, raw_query: &str, limit: usize) -> Results {
+    // Normalisation runs once. `normalise` is not idempotent (deleting U+00AD can leave a base
+    // letter and a combining mark adjacent, which a second NFKC would compose), and the index
+    // side normalises once, so the tokens come from the raw query and only `s` is derived here.
     let norm_q = normalise(raw_query);
     let s = norm_q.trim();
-    let tokens = query_tokens(s);
+    let tokens = query_tokens(raw_query);
     if tokens.is_empty() || index.docs.is_empty() {
         return Results::default();
     }
@@ -167,4 +170,121 @@ pub fn query(index: &Index, raw_query: &str, limit: usize) -> Results {
     let total = hits.len();
     hits.truncate(limit);
     Results { hits, total }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::search::lexer::index_tokens;
+    use crate::search::synonyms::Glossary;
+    use crate::search::units::{Unit, UnitFields};
+
+    fn text_unit(id: &str, body: &str) -> Unit {
+        Unit::new(
+            id,
+            "text",
+            UnitFields {
+                id: Vec::new(),
+                title: Vec::new(),
+                headings: Vec::new(),
+                claim: Vec::new(),
+                body: index_tokens(body),
+            },
+        )
+    }
+
+    fn doc(id: &str) -> DocEntry {
+        DocEntry {
+            id: id.to_owned(),
+            kind: "text".to_owned(),
+            ..DocEntry::default()
+        }
+    }
+
+    fn ids(results: &Results) -> Vec<&str> {
+        results.hits.iter().map(|h| h.id.as_str()).collect()
+    }
+
+    #[test]
+    fn the_query_is_normalised_once_because_normalise_is_not_idempotent() {
+        // Deleting the soft hyphen leaves `e` beside a combining acute. A second NFKC would
+        // compose them, so a query that normalised twice would look for the composed word.
+        let raw = "cafe\u{ad}\u{301}";
+        assert_ne!(normalise(&normalise(raw)), normalise(raw));
+
+        let index = Index::build(
+            vec![
+                text_unit("plain", "cafe"),
+                text_unit("composed", "caf\u{e9}"),
+            ],
+            &Glossary::default(),
+        );
+        assert_eq!(ids(&query(&index, raw, 10)), ["plain"]);
+        assert_eq!(ids(&query(&index, "caf\u{e9}", 10)), ["composed"]);
+    }
+
+    #[test]
+    fn total_counts_every_match_while_limit_cuts_the_list() {
+        let units = (1..=12)
+            .map(|n| text_unit(&format!("n{n:02}"), "ledger"))
+            .collect();
+        let index = Index::build(units, &Glossary::default());
+
+        let ten = query(&index, "ledger", 10);
+        assert_eq!(ten.hits.len(), 10);
+        assert_eq!(ten.total, 12);
+        assert_eq!(ten.hits[0].id, "n01");
+        assert_eq!(ten.hits[9].id, "n10");
+
+        let three = query(&index, "ledger", 3);
+        assert_eq!((three.hits.len(), three.total), (3, 12));
+
+        for limit in [12, 13, 50] {
+            let all = query(&index, "ledger", limit);
+            assert_eq!((all.hits.len(), all.total), (12, 12), "limit {limit}");
+        }
+
+        let none = query(&index, "absent", 10);
+        assert_eq!((none.hits.len(), none.total), (0, 0));
+    }
+
+    #[test]
+    fn total_counts_an_exact_class_unit_that_has_no_score() {
+        // A section unit has an empty `id` field, so its exact id scores nothing yet is a result.
+        let index = Index::build(
+            vec![
+                text_unit("page#rule", "withholding"),
+                text_unit("other", "ledger"),
+            ],
+            &Glossary::default(),
+        );
+        let found = query(&index, "page#rule", 10);
+        assert_eq!(ids(&found), ["page#rule"]);
+        assert_eq!(found.total, 1);
+        assert_eq!(found.hits[0].score, 0);
+        assert_eq!(found.hits[0].matched, 0);
+        assert!(found.hits[0].exact);
+    }
+
+    #[test]
+    fn a_prefix_only_hit_whose_halved_impact_is_zero_is_dropped() {
+        // `docs/reference/search.md#query-procedure` says a prefix term scores half its impact by
+        // integer division and is silent on an impact of 1, which halves to 0. This pins the
+        // current behaviour (such a unit does not score for the token and is not a result);
+        // it is not a decision. The exact term with impact 1 still counts, and 2 halves to 1.
+        let index = Index {
+            docs: vec![doc("u0"), doc("u1"), doc("u2")],
+            terms: vec!["abcd".to_owned(), "abce".to_owned(), "other".to_owned()],
+            post: vec![vec![0, 1], vec![1, 2], vec![2, 9]],
+        };
+
+        let prefix = query(&index, "abc", 10);
+        assert_eq!(ids(&prefix), ["u1"]);
+        assert_eq!(prefix.total, 1);
+        assert_eq!((prefix.hits[0].matched, prefix.hits[0].score), (1, 1));
+
+        let exact = query(&index, "abcd", 10);
+        assert_eq!(ids(&exact), ["u0"]);
+        assert_eq!((exact.hits[0].matched, exact.hits[0].score), (1, 1));
+    }
 }

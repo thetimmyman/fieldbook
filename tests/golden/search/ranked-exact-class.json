@@ -1,0 +1,201 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "CM-000030-v1",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000030-v1 quote a",
+        "title": "Vendor quote",
+        "headings": "",
+        "claim": "",
+        "body": "machined housing"
+      },
+      "display": {
+        "title": "CM-000030-v1",
+        "parent": "",
+        "snippet": "machined housing",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": "quote a"
+    },
+    {
+      "id": "CM-000031-v1",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000031-v1 quote-a",
+        "title": "Vendor quote",
+        "headings": "",
+        "claim": "",
+        "body": "machined housing"
+      },
+      "display": {
+        "title": "CM-000031-v1",
+        "parent": "",
+        "snippet": "machined housing",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": "quote-a"
+    },
+    {
+      "id": "CM-000032-v1",
+      "kind": "record",
+      "fields": {
+        "id": "CM-000032-v1 quote a",
+        "title": "Vendor quote",
+        "headings": "",
+        "claim": "",
+        "body": "machined housing"
+      },
+      "display": {
+        "title": "CM-000032-v1",
+        "parent": "",
+        "snippet": "machined housing",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": "quote a"
+    },
+    {
+      "id": "RC-000050-v1",
+      "kind": "record",
+      "fields": {
+        "id": "RC-000050-v1 alpha beta gamma delta epsilon",
+        "title": "Ledger entry",
+        "headings": "",
+        "claim": "",
+        "body": "closing balance"
+      },
+      "display": {
+        "title": "RC-000050-v1",
+        "parent": "",
+        "snippet": "closing balance",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "RC-000050-v2",
+      "kind": "record",
+      "fields": {
+        "id": "RC-000050-v2 alpha",
+        "title": "Ledger entry",
+        "headings": "",
+        "claim": "",
+        "body": "closing balance"
+      },
+      "display": {
+        "title": "RC-000050-v2",
+        "parent": "",
+        "snippet": "closing balance",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "RC-000050-v10",
+      "kind": "record",
+      "fields": {
+        "id": "RC-000050-v10",
+        "title": "Ledger entry",
+        "headings": "",
+        "claim": "",
+        "body": "closing balance"
+      },
+      "display": {
+        "title": "RC-000050-v10",
+        "parent": "",
+        "snippet": "closing balance",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "ver-page-v1",
+      "kind": "page",
+      "fields": {
+        "id": "ver-page-v1 alpha beta gamma delta",
+        "title": "Ledger entry",
+        "headings": "",
+        "claim": "",
+        "body": "closing balance"
+      },
+      "display": {
+        "title": "ver-page-v1",
+        "parent": "",
+        "snippet": "closing balance",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "ver-page-v2",
+      "kind": "page",
+      "fields": {
+        "id": "ver-page-v2",
+        "title": "Ledger entry",
+        "headings": "",
+        "claim": "",
+        "body": "closing balance"
+      },
+      "display": {
+        "title": "ver-page-v2",
+        "parent": "",
+        "snippet": "closing balance",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [],
+  "cases": [
+    {
+      "id": "rk-37",
+      "query": "quote-a",
+      "expect": ["CM-000031-v1", "CM-000030-v1", "CM-000032-v1"],
+      "note": "Only the middle unit has the key quote-a: it comes first by its exact_key although the two quote a units sort before it; losing that key puts it second"
+    },
+    {
+      "id": "rk-38",
+      "query": "quote a",
+      "expect": ["CM-000030-v1", "CM-000032-v1", "CM-000031-v1"],
+      "note": "The two units with the key quote a are the exact class and keep natural order; quote-a, which shares their tokens, follows; losing the key of either unit changes the list"
+    },
+    {
+      "id": "rk-39",
+      "query": "RC-000050",
+      "expect": ["RC-000050-v1", "RC-000050-v2", "RC-000050-v10"],
+      "note": "A record version with no exact_key is in the exact class of its unversioned id and the class orders by natural id alone; by score the shortest id field, v10, would be first"
+    },
+    {
+      "id": "rk-40",
+      "query": "ver-page",
+      "expect": ["ver-page-v2", "ver-page-v1"],
+      "note": "The unversioned id is an exact class only for a source or record version: two page units named like versions rank by score, shortest id field first"
+    }
+  ]
+}

@@ -283,3 +283,68 @@ impl Index {
         None
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::search::query::query;
+
+    fn text_unit(id: &str, body: &[&str]) -> Unit {
+        Unit::new(
+            id,
+            "text",
+            UnitFields {
+                body: body.iter().map(|t| (*t).to_owned()).collect(),
+                ..UnitFields::default()
+            },
+        )
+    }
+
+    #[test]
+    fn a_term_in_nearly_every_unit_of_a_large_index_still_has_an_impact_of_one() {
+        // idf = ln(1 + 0.5 / (N + 0.5)) is about 0.0004 for N = 1200, so 1000 * score rounds to
+        // 0 and only the minimum of 1 keeps the postings.
+        let units: Vec<Unit> = (0..1200)
+            .map(|i| text_unit(&format!("U-{i:04}"), &["common"]))
+            .collect();
+        let index = Index::build(units, &Glossary::default());
+        assert_eq!(index.posting_impact("U-0000", "common"), Some(1));
+        assert_eq!(index.posting_impact("U-1199", "common"), Some(1));
+        let results = query(&index, "common", 5);
+        assert_eq!(results.total, 1200);
+        assert_eq!(results.hits.len(), 5);
+        assert!(results.hits.iter().all(|h| h.score == 1 && h.matched == 1));
+    }
+
+    #[test]
+    fn units_are_numbered_in_natural_id_order_and_terms_in_utf16_order() {
+        let units = vec![
+            text_unit("S-0042-v10", &["zeta"]),
+            text_unit("Q-027", &["alpha"]),
+            text_unit("S-0042-v2", &["\u{10000}"]),
+            text_unit("q-3", &["\u{fa0e}"]),
+            text_unit("Q-4", &["beta"]),
+        ];
+        let index = Index::build(units, &Glossary::default());
+        let ids: Vec<&str> = index.docs.iter().map(|d| d.id.as_str()).collect();
+        assert_eq!(ids, ["q-3", "Q-4", "Q-027", "S-0042-v2", "S-0042-v10"]);
+        // U+10000 is two UTF-16 units starting 0xD800, so it sorts before U+FA0E, although it is
+        // after it by code point.
+        assert_eq!(
+            index.terms,
+            ["alpha", "beta", "zeta", "\u{10000}", "\u{fa0e}"]
+        );
+        // Posting lists are parallel to the terms and name unit numbers in the order above.
+        assert_eq!(index.unit_index("S-0042-v2"), Some(3));
+        for (term, unit) in [
+            ("alpha", "Q-027"),
+            ("zeta", "S-0042-v10"),
+            ("\u{fa0e}", "q-3"),
+        ] {
+            let t = index.term_index(term).expect("term");
+            let u = index.unit_index(unit).expect("unit");
+            assert_eq!(index.post[t].len(), 2, "{term}");
+            assert_eq!(index.post[t][0] as usize, u, "{term}");
+        }
+    }
+}
