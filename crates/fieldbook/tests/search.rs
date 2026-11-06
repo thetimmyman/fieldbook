@@ -479,6 +479,10 @@ fn shared_version_ranks_hold_through_the_cli() {
 }
 
 #[test]
+#[expect(
+    clippy::print_stdout,
+    reason = "the timing of the regression queries goes to the test log"
+)]
 fn regression_queries_run_within_the_budget() {
     let cases = fieldbook_core::eval::parse(FIXTURE_REGRESSION).expect("fixture set parses");
     for case in &cases {
