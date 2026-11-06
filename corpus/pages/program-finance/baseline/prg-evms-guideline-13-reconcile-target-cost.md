@@ -34,7 +34,7 @@ The contract target cost plus authorized unpriced work must reconcile with the c
 
 ## How it works
 
-The program target cost goal is reconciled with the sum of all internal program budgets and management reserve [@CL-PRG-0281]. Control account budgets, summary level planning packages and undistributed budget are summed to determine the budget at completion of the performance measurement baseline, and that total plus management reserve establishes the contract budget base [@CL-PRG-0284]. The contract target cost plus authorized unpriced work must reconcile with the contract budget base and the total allocated budget [@CL-PRG-0283]. The contract budget base and the total allocated budget are the same value unless there is a recognized over-target baseline, in which case the total allocated budget equals the contract budget base plus the above target budget [@CL-PRG-0285].
+Guideline 13 requires that the program target cost goal be reconciled with the sum of all internal program budgets and management reserve [@CL-PRG-0281]. Control account budgets, summary level planning packages and undistributed budget are summed to determine the budget at completion of the performance measurement baseline, and that total plus management reserve establishes the contract budget base [@CL-PRG-0284]. The contract target cost plus authorized unpriced work must reconcile with the contract budget base and the total allocated budget [@CL-PRG-0283]. The contract budget base and the total allocated budget are the same value unless there is a recognized over-target baseline, in which case the total allocated budget equals the contract budget base plus the above target budget [@CL-PRG-0285].
 
 ## Worked example
 
@@ -54,6 +54,7 @@ Which figure the company treats as the contract budget base, and how unpriced ch
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the applies-to field, rule statement, reconciliation mechanics, and target-cost versus contract-budget-base comparison directly with the Guideline 13 claims.
 - COMPATIBLE_EXTENSION, 2026-10-29: Quote check: removed an unsupported description of the reconciliation direction.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for EVMS Guideline 13 reconciliation to target costs.

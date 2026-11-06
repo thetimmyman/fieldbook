@@ -30,7 +30,7 @@ Shows what an offeror represents under the FASCSA representation provision, how 
 
 Contractors are prohibited from providing or using as part of the performance of the contract any covered article, or any products or services produced or provided by a source, if the prohibition is set out in an applicable FASCSA order [@CL-CMP-3595]. By submission of its offer, the offeror represents that it has conducted a reasonable inquiry [@CL-CMP-3570], and that it does not propose to provide or use in response to the solicitation any covered article, or any products or services produced or provided by a source [@CL-CMP-1296]. The representation covers a covered article, or products or services produced or provided by a source, if the covered article or the source is prohibited by an applicable FASCSA order in effect on the date the solicitation was issued, except as waived by the solicitation or as disclosed in the disclosure paragraph [@CL-CMP-3571]. FASCSA orders issued after the date of solicitation do not apply unless added by an amendment to the solicitation [@CL-CMP-3596].
 
-The offeror shall search for the phrase FASCSA order in SAM for any covered article, or any products or services produced or provided by a source, if there is an applicable FASCSA order described in the prohibition paragraph of the prohibition clause [@CL-CMP-3572]. During contract performance, the contractor shall review SAM at least once every three months, or as advised by the Contracting Officer, to check for covered articles or sources subject to FASCSA orders not currently identified under paragraph (b) of the clause [@CL-CMP-3573; @CL-CMP-7771]. Under the prohibition clause, a FASCSA order issued after the date of solicitation applies to the contract only if added by an amendment to the solicitation or by a modification to the contract [@CL-CMP-3600].
+The offeror shall search for the phrase FASCSA order in SAM for any covered article, or any products or services produced or provided by a source, if there is an applicable FASCSA order described in the prohibition paragraph of the prohibition clause [@CL-CMP-3572]. During contract performance, the contractor shall review SAM at least once every three months, or as advised by the Contracting Officer, to check for covered articles subject to FASCSA orders, or for products or services produced by a source subject to FASCSA orders, not currently identified under paragraph (b) of the clause [@CL-CMP-3573; @CL-CMP-7771]. Under the prohibition clause, a FASCSA order issued after the date of solicitation applies to the contract only if added by an amendment to the solicitation or by a modification to the contract [@CL-CMP-3600].
 
 ## How it works
 
@@ -58,6 +58,7 @@ Which FASCSA orders apply to each company contract, who runs the periodic review
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the representation continuation, the review and report qualifiers and the order-level scope of the third clause, and removed unsupported wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the FASCSA order representation, search and reporting duties.

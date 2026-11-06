@@ -50,7 +50,7 @@ By contrast, the ceiling does not apply to an ordinary private civil suit betwee
 
 ## Never confuse
 
-Costs not covered elsewhere in the subsection are unallowable under paragraph (f) if incurred in connection with the listed items, which include defense against Federal Government claims or appeals [@CL-CMP-0504]. Costs that may be unallowable under the legal proceedings cost principle, including directly associated costs, must be segregated and accounted for separately [@CL-CMP-0506]. The codified paragraph (g) says the contracting officer shall generally withhold payment [@CL-CMP-9470], while RFO paragraph (g)(2)(i) says the contracting officer must withhold payment [@CL-CMP-9455]. The codified paragraph (c)(1) allows costs to the extent the agreement specifically provides [@CL-CMP-0912], while RFO paragraph (c)(1) allows them if specifically provided in the agreement [@CL-CMP-9444]. The codified paragraph (e)(3) caps the percentage at 80 percent [@CL-CMP-0505], while RFO paragraph (e)(3)(i) caps it at 80 percent of the legal costs incurred [@CL-CMP-9449].
+Costs not covered elsewhere in the subsection are unallowable under paragraph (f) if incurred in connection with the listed items, which include defense against Federal Government claims or appeals [@CL-CMP-0504]. Costs that may be unallowable under the legal proceedings cost principle, including directly associated costs, must be segregated and accounted for separately [@CL-CMP-0506]. The codified paragraph (g) says the contracting officer shall generally withhold payment [@CL-CMP-9470], while RFO paragraph (g)(2)(i) says the contracting officer must withhold payment or, as an alternative in (g)(2)(ii), may provide conditional payment [@CL-CMP-9455; @CL-CMP-9456]. The codified paragraph (c)(1) allows costs to the extent the agreement specifically provides [@CL-CMP-0912], while RFO paragraph (c)(1) allows them if specifically provided in the agreement [@CL-CMP-9444]. The codified paragraph (e)(3) caps the percentage at 80 percent [@CL-CMP-0505], while RFO paragraph (e)(3)(i) caps it at 80 percent of the legal costs incurred [@CL-CMP-9449].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ How legal and consultant expenses connected to government proceedings are segreg
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an uncited figure.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched codified wording; cut uncited comparisons of codified wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored proceeding conditions and the alternative assurance for conditional payment.

@@ -39,7 +39,7 @@ The line item numbering procedures apply to all solicitations, solicitation line
 
 The procedures are mandatory for all contracts where separate contract line item numbers are assigned [@CL-CMP-7253]. There are two exceptions. One is an indefinite-delivery contract for petroleum products against which posts, camps and stations issue delivery orders for products to be consumed by them [@CL-CMP-7253]. The other is a communications service authorization issued by the Defense Information Systems Agency's Defense Information Technology Contracting Organization [@CL-CMP-7431].
 
-Service contractor reporting in SAM is required when a contract or order has a total estimated value, including options, that exceeds $3 million and is for services in the listed service acquisition portfolio groups [@CL-CMP-7254]. The groups are logistics management services, equipment-related services, knowledge-based services, and electronics and communications services, and PGI 204.1703 lists the applicable product and service codes [@CL-CMP-7435].
+Service contractor reporting in SAM is required when a contract or order has a total estimated value, including options, that exceeds $3 million and is for services in the listed service acquisition portfolio groups [@CL-CMP-7254]. To count, the services must also fall in one of these groups: logistics management services, equipment-related services, knowledge-based services, or electronics and communications services, and PGI 204.1703 lists the applicable product and service codes [@CL-CMP-7435].
 
 The basic and the alternate of the clause at DFARS 252.204-7023 require contractors to report annually, by October 31, on the services performed under the contract or order, including any first-tier subcontracts, during the preceding Government fiscal year [@CL-CMP-7255]. If the agency believes that revisions to the contractor-reported information are warranted, it must notify the contractor [@CL-CMP-7436].
 
@@ -69,5 +69,6 @@ Which contracts carry attachments held outside EDA, which orders meet the report
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: contrast wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract attachment distribution, line item numbering and service contractor reporting.

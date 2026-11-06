@@ -49,7 +49,7 @@ There is a reporting exception in FAR 52.204-10(g) for contractors and subcontra
 
 Synthetic example. The numbers are made up.
 
-A contractor under a contract with the executive compensation clause files a subcontract report whose award amount differs from the contract information the agency holds. In its quarterly review the agency informs the contractor of the inconsistency, and the contractor corrects the report or gives a reasonable explanation [@CL-SUP-3322; @CL-SUP-9712; @CL-SUP-3385]. The agency need not address the compensation data [@CL-SUP-3384]. A second contractor fails to submit a required executive compensation report, so the contracting officer exercises appropriate contractual remedies and records the failure in its performance information [@CL-SUP-3323; @CL-SUP-3390].
+A contractor under a contract with the executive compensation clause files a subcontract report whose award amount differs from the contract information the agency holds. In its quarterly review the agency must inform the contractor of the inconsistency, and the contractor corrects the report or gives a reasonable explanation [@CL-SUP-3322; @CL-SUP-9712; @CL-SUP-3385]. The agency need not address the compensation data [@CL-SUP-3384]. A second contractor fails to submit a required executive compensation report, so the contracting officer exercises appropriate contractual remedies and records the failure in its performance information [@CL-SUP-3323; @CL-SUP-3390].
 
 An indefinite-delivery contract for services is being awarded, and the service reporting clause is prescribed for it at FAR 4.1705. The contracting officer who awards it must ensure that FAR 52.204-15 is included in the solicitation and contract as prescribed [@CL-SUP-3392], and the contracting officer at the order level later verifies the clause's inclusion in the contract [@CL-SUP-3325]. A contractor with gross income from all sources of 250,000 in the previous tax year is under the 300,000 gross-income exception [@CL-SUP-3324], so under the executive compensation clause it is exempt from the requirement to report subcontractor awards [@CL-CMP-3545].
 
@@ -64,6 +64,7 @@ Confirm who files each report, on what cadence, and how a late or missing report
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned modality, threshold details, and Never confuse statements with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the however lead-in, previous tax year wording and order-level verification wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the applicability of the executive compensation reporting subpart.

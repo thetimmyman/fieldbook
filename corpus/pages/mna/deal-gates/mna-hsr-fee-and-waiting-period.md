@@ -36,7 +36,7 @@ Subject to paragraph (b)(3) of § 803.10, for purposes of Section 7A(b)(1)(B), t
 
 ## How it works
 
-The acquiring person pays the fee to the Federal Trade Commission [@CL-MNA-0606]. The clock starts on receipt of the notification from the listed persons [@CL-MNA-0607; @CL-MNA-0608]. Subject to paragraph (b)(3) of § 803.10, for purposes of Section 7A(b)(1)(B) [@CL-MNA-0093], it runs to 11:59 p.m. Eastern Time on the thirtieth calendar day, or the fifteenth in the cash tender offer and 11 USC 363(b) cases (or another day where § 802.23 applies) [@CL-MNA-0609], and moves to 11:59 p.m. Eastern Time of the next regular business day if it would end on a weekend or legal public holiday [@CL-MNA-0651]. The agencies can end it early on request or, notwithstanding the termination conditions in paragraph (a), on their own initiative [@CL-MNA-0611; @CL-MNA-1543]. An extension under Section 7A(e) and § 803.20, or Section 7A(g)(2), or termination under Section 7A(b)(2) and § 803.11 can change it [@CL-MNA-0610].
+The acquiring person pays the fee to the Federal Trade Commission [@CL-MNA-0606]. The clock starts on receipt of the notification, made in the manner the rules provide (or, if it is not completed, of the notification as far as completed with a statement of reasons for noncompliance under section 803.3), from the listed persons [@CL-MNA-0607; @CL-MNA-0608]. Subject to paragraph (b)(3) of § 803.10, for purposes of Section 7A(b)(1)(B) [@CL-MNA-0093], it runs to 11:59 p.m. Eastern Time on the thirtieth calendar day, or the fifteenth in the cash tender offer and 11 USC 363(b) cases (or another day where § 802.23 applies) [@CL-MNA-0609], and moves to 11:59 p.m. Eastern Time of the next regular business day if it would end on a weekend or legal public holiday [@CL-MNA-0651]. The agencies can end it early on request or, notwithstanding the termination conditions in paragraph (a), on their own initiative [@CL-MNA-0611; @CL-MNA-1543]. An extension under Section 7A(e) and § 803.20, or Section 7A(g)(2), or termination under Section 7A(b)(2) and § 803.11 can change it [@CL-MNA-0610].
 
 ## Worked example
 
@@ -46,7 +46,7 @@ Buyer B and Seller S each file, and the agencies have received both notification
 
 ## Never confuse
 
-The filing fee and the waiting period are separate rules: the acquiring person pays the fee [@CL-MNA-0606], and the clock starts on receipt of the notification [@CL-MNA-0607]. Expiry of the waiting period is not the end of the notification's life, which has its own later expiry on the [expiry and withdrawal card](mna-hsr-expiry-withdrawal-and-second-request.md). Who files and who certifies is on the [filing card](mna-hsr-filing-and-who-files.md).
+The filing fee and the waiting period are separate rules: the acquiring person pays the fee [@CL-MNA-0606], and the clock starts on receipt of the notification made in the manner the rules provide [@CL-MNA-0607]. Expiry of the waiting period is not the end of the notification's life, which has its own later expiry on the [expiry and withdrawal card](mna-hsr-expiry-withdrawal-and-second-request.md). Who files and who certifies is on the [filing card](mna-hsr-filing-and-who-files.md).
 
 ## Company calibration
 
@@ -55,6 +55,7 @@ How the value of a planned acquisition is measured and who tracks the waiting pe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added paragraph (b)(3) and statutory references for waiting-period expiry.
 - COMPATIBLE_EXTENSION, 2026-10-31: citation placed after the holiday condition.
 - COMPATIBLE_EXTENSION, 2026-10-31: Waiting-period expiry time, extension date and termination conditions restated in full.

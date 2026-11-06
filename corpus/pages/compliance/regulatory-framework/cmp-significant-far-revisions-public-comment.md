@@ -29,7 +29,7 @@ Explains when a FAR revision is significant, what the Federal Register notice mu
 | Text status | Final [@CL-CMP-8363] |
 | Applies to | Proposed significant revisions to coverage in the FAR System [@CL-CMP-8363; @CL-CMP-8366] |
 
-As used in the subpart on agency and public participation, significant revisions are revisions that alter the substantive meaning of any coverage in the FAR System and which have a significant cost or administrative impact on contractors or offerors, or a significant effect beyond the internal operating procedures of the issuing agency [@CL-CMP-8676; @CL-CMP-8363]. The expression does not include editorial, stylistic, or other revisions that have no impact on the basic meaning of the coverage being revised [@CL-CMP-8364].
+As used in the subpart on agency and public participation, significant revisions are revisions that alter the substantive meaning of any coverage in the FAR System and which have a significant cost or administrative impact on contractors or offerors, or a significant effect beyond the internal operating procedures of the issuing agency [@CL-CMP-8676; @CL-CMP-8363]. The expression does not include, for example, editorial, stylistic, or other revisions that have no impact on the basic meaning of the coverage being revised [@CL-CMP-8364].
 
 Views of agencies and nongovernmental parties or organizations will be considered in formulating acquisition policies and procedures [@CL-CMP-8365]. The opportunity to submit written comments on proposed significant revisions shall be provided by placing a notice in the Federal Register [@CL-CMP-8366].
 
@@ -61,6 +61,7 @@ Which pending FAR revisions touching the company's remit are significant for it,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: significant revisions: comment-period sentence tied to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added unsolicited proposed revisions and public meetings.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for publication of significant FAR revisions for public comment.

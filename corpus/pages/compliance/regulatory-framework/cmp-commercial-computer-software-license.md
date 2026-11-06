@@ -28,7 +28,7 @@ Shows what the Government may do with commercial computer software delivered und
 | Text status | Final [@CL-CMP-3711] |
 | Applies to | Commercial computer software delivered under the contract [@CL-CMP-3712] |
 
-Notwithstanding contrary provisions in the Contractor's standard commercial license or lease agreement, the Contractor agrees that the Government will have the rights set out in the clause's rights paragraph to use, duplicate or disclose any commercial computer software [@CL-CMP-3711]. Commercial computer software delivered under the contract may not be used, reproduced, or disclosed by the Government except as provided in the listed uses or as expressly stated otherwise in the contract [@CL-CMP-3712]. The listed uses include use or copying for use with the computer or computers for which it was acquired, including use at any Government installation to which those computers may be transferred [@CL-CMP-3713].
+Notwithstanding contrary provisions in the Contractor's standard commercial license or lease agreement, the Contractor agrees that the Government will have the rights set out in the clause's rights paragraph to use, duplicate or disclose any commercial computer software delivered under the contract [@CL-CMP-3711]. Commercial computer software delivered under the contract may not be used, reproduced, or disclosed by the Government except as provided in the listed uses or as expressly stated otherwise in the contract [@CL-CMP-3712]. The listed uses include use or copying for use with the computer or computers for which it was acquired, including use at any Government installation to which those computers may be transferred [@CL-CMP-3713].
 
 The Contractor shall affix a notice substantially as the clause sets out to any commercial computer software delivered under the contract [@CL-CMP-3714]. The notice states that, notwithstanding any other lease or license agreement that may pertain to or accompany delivery of the software, the rights of the Government regarding its use, reproduction and disclosure are as set forth in a stated Government contract number [@CL-CMP-3715].
 
@@ -56,6 +56,7 @@ Which executed contracts carry this clause, and who confirms what software was d
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited inferences and contrasts replaced with cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the commercial computer software license clause.

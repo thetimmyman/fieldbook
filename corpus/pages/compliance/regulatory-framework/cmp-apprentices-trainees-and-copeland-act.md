@@ -28,7 +28,7 @@ Shows when an apprentice or trainee may be paid below the determined rate, the r
 | Text status | Final [@CL-CMP-5832] |
 | Applies to | Contracts that carry the apprentices clause as prescribed at FAR 22.407(a) [@CL-CMP-5832] |
 
-An apprentice is permitted to work at less than the predetermined rate for the work performed when employed pursuant to and individually registered in a bona fide apprenticeship program registered with the United States Department of Labor [@CL-CMP-5833]. The registration may instead be with a State Apprenticeship Agency recognized by the Office of Apprenticeship Training, Employer, and Labor Services (OATELS) [@CL-CMP-5834]. An apprentice in the first 90 days of probationary employment in such a program may also work below the predetermined rate without individual registration, if OATELS or a State Apprenticeship Agency certifies the apprentice as eligible for probationary employment [@CL-CMP-5835].
+An apprentice is permitted to work at less than the predetermined rate for the work performed when employed pursuant to and individually registered in a bona fide apprenticeship program registered with the United States Department of Labor [@CL-CMP-5833]. The registration may instead be with a State Apprenticeship Agency recognized by the Office of Apprenticeship Training, Employer, and Labor Services (OATELS) [@CL-CMP-5834]. An apprentice in the first 90 days of probationary employment in such a program may also work below the predetermined rate without individual registration, if OATELS or a State Apprenticeship Agency (where appropriate) certifies the apprentice as eligible for probationary employment [@CL-CMP-5835].
 
 Trainees are not permitted to work at less than the predetermined rate for the work performed unless they are employed pursuant to and individually registered in a program that has received prior approval, evidenced by formal certification by the Department of Labor's Office of Apprenticeship Training, Employer, and Labor Services (OATELS), except as provided in 29 CFR 5.16 [@CL-CMP-5837; @CL-CMP-6468].
 
@@ -74,6 +74,7 @@ Which covered contracts use apprentices or trainees, and who confirms program re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Included the subcontractor's registered program in the locality rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the contracting officer's review of apprentice and trainee records.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

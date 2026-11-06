@@ -41,7 +41,7 @@ Alternate I is prescribed under FAR 14.201-7(a)(2) and substitutes its paragraph
 
 Three questions fix the right in the basic clause. Was the Contractor required to submit certified cost or pricing data for a modification, which is the condition on the Contracting Officer's right [@CL-CTF-2950]? Is the record related to the proposal, the discussions, the pricing or the performance of that modification [@CL-CTF-2952]? Is the examiner the Contracting Officer or an authorized representative, who may examine and audit [@CL-CTF-2951], or the Comptroller General or an authorized representative, who in the case of pricing any modification holds the same rights and may also interview current employees [@CL-CTF-2953]?
 
-Under Alternate I the examiners in paragraph (c) are the Comptroller General, an appropriate Inspector General or an authorized representative of either [@CL-CTF-2975]. The records they may examine are described by the transactions relating to the contract or a subcontract under it, and the interview right covers any officer or employee [@CL-CTF-2976; @CL-CTF-2977]. The basic clause is prescribed under FAR 14.201-7(a)(1) [@CL-CTF-2948], and Alternate I under FAR 14.201-7(a)(2) [@CL-CTF-2974].
+Under Alternate I the examiners in paragraph (c) are the Comptroller General, an appropriate Inspector General appointed under section 3 or 8G of the Inspector General Act of 1978, or an authorized representative of either of those officials [@CL-CTF-2975]. The records they may examine are described by the transactions relating to the contract or a subcontract under it, and the interview right covers any officer or employee [@CL-CTF-2976; @CL-CTF-2977]. The basic clause is prescribed under FAR 14.201-7(a)(1) [@CL-CTF-2948], and Alternate I under FAR 14.201-7(a)(2) [@CL-CTF-2974].
 
 How long the records must stay available, and the subcontract flowdown, are on the [availability and flowdown](../billing-payment/ctf-audit-and-records-sealed-bidding-availability-and-flowdown.md) page.
 
@@ -68,6 +68,7 @@ Which modifications required certified data, where those files sit, who can prod
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded right, alternatives and interview condition; replaced uncited contract-specific remark with prescriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the Inspector General Act appointment in Alternate I.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

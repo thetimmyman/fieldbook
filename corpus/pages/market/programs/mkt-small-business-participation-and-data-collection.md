@@ -35,7 +35,7 @@ Agencies shall measure the extent of small business participation in their acqui
 
 ## How it works
 
-The fifth step has follow-on steps. For acquisitions described in the first three listed conditions, the contracting officer also provides a statement explaining why, among other matters, the proposed acquisition cannot be divided into reasonably small lots [@CL-MKT-0308]. If the contracting officer rejects the recommendation that the representative makes on reviewing the package, the contracting officer documents the basis for the rejection and notifies the representative [@CL-MKT-0309]. The reporting side is on the [Federal Procurement Data System reporting](../feeds/mkt-fpds-reporting-responsibilities-and-deadlines.md) card.
+The fifth step has follow-on steps. For acquisitions described in the first three listed conditions, the contracting officer also provides a statement explaining why, among other matters, the proposed acquisition cannot be divided into reasonably small lots (not less than economic production runs) [@CL-MKT-0308]. If the contracting officer rejects the recommendation that the representative makes on reviewing the package, the contracting officer documents the basis for the rejection and notifies the representative [@CL-MKT-0309]. The reporting side is on the [Federal Procurement Data System reporting](../feeds/mkt-fpds-reporting-responsibilities-and-deadlines.md) card.
 
 ## Worked example
 
@@ -54,5 +54,6 @@ Which customer groups and contract vehicles are subject to these packaging steps
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the list of categories in FAR 19.202-5(a) and removed meta-commentary.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for encouraging small business participation and data collection.

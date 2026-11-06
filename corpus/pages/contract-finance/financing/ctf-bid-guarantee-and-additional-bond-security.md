@@ -30,7 +30,7 @@ Shows the form and amount of a bid guarantee, when it is returned or used, when 
 
 Failure to furnish a bid guarantee in the proper form and amount, by the time set for opening of bids, may be cause for rejection of the bid [@CL-CTF-2506]. The bidder shall furnish a bid guarantee in the form of a firm commitment, for example a bid bond supported by good and sufficient surety or sureties acceptable to the Government, a postal money order, a certified check, a cashier's check, an irrevocable letter of credit, or, under Treasury Department regulations, certain bonds or notes of the United States [@CL-CTF-2914; @CL-CTF-2471]. The amount of the bid guarantee shall be the stated percent of the bid price or the stated dollar amount, whichever is less [@CL-CTF-2473].
 
-The Contracting Officer will return guarantees other than bid bonds to unsuccessful bidders as soon as practicable after bids are opened, and to the successful bidder upon execution of contractual documents and bonds, including any necessary coinsurance or reinsurance agreements [@CL-CTF-2472]. The return of bid guarantees to the successful bidder upon execution of contractual documents and bonds is as required by the bid as accepted [@CL-CTF-2507].
+The Contracting Officer will return guarantees other than bid bonds to unsuccessful bidders as soon as practicable after bids are opened, and to the successful bidder upon execution of contractual documents and bonds, including any necessary coinsurance or reinsurance agreements [@CL-CTF-2472]. The successful bidder's guarantee, other than a bid bond, is returned upon execution of contractual documents and bonds, including any necessary coinsurance or reinsurance agreements, as required by the bid as accepted [@CL-CTF-2507].
 
 If the successful bidder, upon acceptance of its bid by the Government within the period specified for acceptance, fails to execute all contractual documents or furnish executed bonds within 10 days after receipt of the forms by the bidder, the Contracting Officer may terminate the contract for default [@CL-CTF-2474]. In the event the contract is terminated for default, the bidder is liable for any cost of acquiring the work that exceeds the amount of its bid, and the bid guarantee is available to offset the difference [@CL-CTF-2475].
 
@@ -67,6 +67,7 @@ Which solicitations and contracts carry these clauses, with the guarantee percen
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the bid guarantee and additional bond security wording with the cited paragraphs.
 - COMPATIBLE_EXTENSION, 2026-10-31: Bid guarantee forms are examples; additional-security events are alternatives, any one of which applies.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected three sentences so the payment bond copy duty applies only to a contract for which a payment bond has been furnished to the Government under chapter 31, subchapter III, of title 40.

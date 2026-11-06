@@ -40,7 +40,7 @@ Systems engineering includes a combination of substantially all of these activit
 
 A contractor performing these activities occupies a highly influential and responsible position in determining a system's basic concepts and supervising their execution by other contractors, so it should not be in a position to make decisions favoring its own products or capabilities [@CL-CMP-7204].
 
-The contracting officer must include the clause in the contract, first negotiating its final terms with the successful offeror if it is appropriate to do so [@CL-CMP-7306]. The restraint must be limited to a fixed term of reasonable duration, sufficient to avoid the circumstance of unfair competitive advantage or potential bias [@CL-CMP-7208]. The period varies. It might end when the first production contract using the contractor's specifications or work statement is awarded, or it might extend through the entire life of a system for which the contractor has performed systems engineering and technical direction [@CL-CMP-7307]. In every case the restriction must specify termination by a specific date or upon the occurrence of an identifiable event [@CL-CMP-7308].
+The contracting officer must include the clause in the contract, first negotiating its final terms with the successful offeror if it is appropriate to do so [@CL-CMP-7306]. The restraint must be limited to a fixed term of reasonable duration, sufficient to avoid the circumstance of unfair competitive advantage or potential bias [@CL-CMP-7208]. The period varies. It might end, for example, when the first production contract using the contractor's specifications or work statement is awarded, or it might extend through the entire life of a system for which the contractor has performed systems engineering and technical direction [@CL-CMP-7307]. In every case the restriction must specify termination by a specific date or upon the occurrence of an identifiable event [@CL-CMP-7308].
 
 ## Worked example
 
@@ -64,6 +64,7 @@ Whether any segment would hold a systems engineering and technical direction rol
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted delegation inference; restated bar and clause as cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example so the solicitation provision keeps the negotiation statement that depends on the nature of the acquisition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for organizational conflicts of interest in systems engineering and technical direction.

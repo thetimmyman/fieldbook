@@ -37,7 +37,7 @@ A covered Government support contractor receiving technical data or computer sof
 
 ## How it works
 
-Information marked with a limited rights or restricted rights legend, and SBIR/STTR information marked with an SBIR/STTR data rights legend during the SBIR/STTR data protection period, is to be used only in the performance of the contract [@CL-CMP-8633; @CL-CMP-3942]. Information marked with a government purpose rights legend is to be used for government purposes only [@CL-CMP-3944]. For information with a government purpose rights legend, the Contractor shall require the persons to whom disclosure will be made to complete and sign the nondisclosure agreement before disclosure [@CL-CMP-3945]. A covered Government support contractor receiving marked technical data or computer software further agrees and acknowledges the obligations that follow [@CL-CMP-3946]. For contracts in which the Government will furnish technical data, the term covered Government support contractor is defined in DFARS 252.227-7013 [@CL-CMP-8634].
+Information marked with a limited rights or restricted rights legend, and SBIR/STTR information marked with an SBIR/STTR data rights legend during the SBIR/STTR data protection period, may be used, modified, reproduced, performed, or displayed only in the performance of the contract [@CL-CMP-8633; @CL-CMP-3942]. Information marked with a government purpose rights legend is to be used for government purposes only [@CL-CMP-3944]. For information with a government purpose rights legend, the Contractor shall require the persons to whom disclosure will be made to complete and sign the nondisclosure agreement before disclosure [@CL-CMP-3945]. A covered Government support contractor receiving marked technical data or computer software further agrees and acknowledges the obligations that follow [@CL-CMP-3946]. For contracts in which the Government will furnish technical data, the term covered Government support contractor is defined in DFARS 252.227-7013 [@CL-CMP-8634].
 
 ## Worked example
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, who receives Government-furnished in
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: restrictive legends: restored the SBIR/STTR data protection period limit in the summary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated limited rights verbs and or list, NDA and support contractor wording; cut uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Compete bar belongs to the same obligation as the sole-purpose limit; added duties apply on receipt of marked data.

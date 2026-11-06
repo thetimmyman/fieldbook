@@ -31,7 +31,7 @@ Shows the data the contractor submits, how the total final price is computed, th
 
 The clause makes the Schedule items it identifies subject to price revision, provided that in no event may their total final price exceed the stated ceiling price [@CL-EST-1660].
 
-The contractor submits its data within a number of days set by the contracting officer after the end of the month in which it delivered the last unit of supplies and completed the services for the items [@CL-EST-1661]. Two listed data items are a detailed statement of all costs incurred up to the end of that month and an estimate of costs of further performance, if any, that may be necessary to complete all work under the items [@CL-EST-1662]. The data are submitted in the format of Table 15-2, FAR 15.408, or in any other form on which the parties agree [@CL-EST-9512]. The listed data items also include a list of all residual inventory and an estimate of its value, and any other relevant data that the contracting officer may reasonably require [@CL-EST-1703].
+The contractor submits its data within a number of days set by the contracting officer after the end of the month in which it delivered the last unit of supplies and completed the services for the items [@CL-EST-1661]. Two listed data items are a detailed statement of all costs incurred up to the end of that month in performing all work under the items and an estimate of costs of further performance, if any, that may be necessary to complete all work under the items [@CL-EST-1662]. The data are submitted in the format of Table 15-2, FAR 15.408, or in any other form on which the parties agree [@CL-EST-9512]. The listed data items also include a list of all residual inventory and an estimate of its value, and any other relevant data that the contracting officer may reasonably require [@CL-EST-1703].
 
 ## How it works
 
@@ -61,6 +61,7 @@ Who prepares the final cost statement and the cost-to-complete estimate, and how
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the receipt-of-data trigger and the actors for setting the total final price; replaced uncited contrasts with pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the data format under the codified clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

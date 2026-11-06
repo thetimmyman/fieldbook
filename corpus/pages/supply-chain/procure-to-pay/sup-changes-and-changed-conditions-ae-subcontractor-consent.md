@@ -31,7 +31,7 @@ Shows how a contracting officer orders changes to drawings and specifications, h
 
 Under the Changes and Changed Conditions clause, the contracting officer may order changes in the drawings and specifications, in writing and within the general scope of the contract [@CL-SUP-3091]. The contractor must promptly notify the contracting officer, in writing, of subsurface or latent physical conditions that differ materially from those the contract indicates, or of unknown unusual physical conditions at the site, before proceeding with the work [@CL-SUP-3092].
 
-If changes or conditions increase or decrease the cost of, or the time required for, the work, the contracting officer makes an equitable adjustment upon the contractor's proposal [@CL-SUP-3093]. The contractor must submit the proposal for adjustment before final payment under the contract [@CL-SUP-3094]. For a condition, the contracting officer makes no equitable adjustment unless the contractor has submitted, and the contracting officer has received, the required written notice, or the contracting officer waives the written notice [@CL-SUP-3095]. Failure to agree to any adjustment is a dispute under the Disputes clause [@CL-SUP-3096].
+If changes or conditions increase or decrease the cost of, or the time required for, the work, the contracting officer makes an equitable adjustment (see paragraph (d) below) upon the contractor's proposal [@CL-SUP-3093]. The contractor must submit the proposal for adjustment before final payment under the contract [@CL-SUP-3094]. For a condition, the contracting officer makes no equitable adjustment unless the contractor has submitted, and the contracting officer has received, the required written notice, or the contracting officer waives the written notice [@CL-SUP-3095]. Failure to agree to any adjustment is a dispute under the Disputes clause [@CL-SUP-3096].
 
 Under the Subcontractors and Outside Associates and Consultants clause for architect-engineer services, the subcontractors, associates and consultants that the contractor requires for the covered services are limited to the individuals or firms specifically identified and agreed to during negotiations [@CL-SUP-3097]. The contractor must obtain the contracting officer's written consent before substituting any of them [@CL-SUP-3098].
 
@@ -62,6 +62,7 @@ Which clause text sits in each construction and architect-engineer contract, whe
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned notice, prescription and architect-engineer wording with the cited quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the worked example to show the contracting officer received the written notice.

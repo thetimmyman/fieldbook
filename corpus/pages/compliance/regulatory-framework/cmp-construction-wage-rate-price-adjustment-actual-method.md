@@ -35,7 +35,7 @@ The Contracting Officer adjusts the contract price or the contract unit price la
 
 ## How it works
 
-The contractor states that, if the contract prices contain an allowance for wage or benefit increases, that allowance will not be included in any request for adjustment [@CL-CMP-4945]. Each request carries a statement that the prices do not include any allowance for the increased cost being claimed [@CL-CMP-4946]. The adjustment covers the wage and fringe benefit change plus the accompanying social security and unemployment tax and workers' compensation insurance changes [@CL-CMP-4948]. Beyond those items, it includes no amount for general and administrative costs, overhead or profit [@CL-CMP-4949].
+The contractor states that, if the contract prices contain an allowance for wage or benefit increases, that allowance will not be included in any request for adjustment [@CL-CMP-4945]. Each request carries a statement that the prices do not include any allowance for the increased cost being claimed [@CL-CMP-4946]. The adjustment covers the wage and fringe benefit change as described in paragraph (c), plus the accompanying social security and unemployment tax and workers' compensation insurance changes [@CL-CMP-4948]. Beyond those items, it includes no amount for general and administrative costs, overhead or profit [@CL-CMP-4949].
 
 The contractor notifies the Contracting Officer of a claimed increase within 30 days after receiving a revised wage determination, unless the Contracting Officer extends that period in writing [@CL-CMP-4950]. It notifies the Contracting Officer promptly of any decrease, and nothing in the clause precludes the Government from asserting a claim within the period permitted by law [@CL-CMP-5141]. The notice states the amount claimed and any relevant supporting data, including payroll records the Contracting Officer may reasonably require [@CL-CMP-4951]. On agreement of the parties, the Contracting Officer modifies the price in writing [@CL-CMP-5142]. The contractor continues performance pending agreement on or determination of the adjustment and its effective date [@CL-CMP-5143].
 
@@ -67,6 +67,7 @@ Who owns the response when the Contracting Officer calls for payroll records sup
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the construction wage rate requirements price adjustment under the actual method.

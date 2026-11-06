@@ -33,7 +33,7 @@ The Buy American statute provides a preference for domestic end products for sup
 
 The domestic content test of the Buy American statute is waived for an end product that is a COTS item, except that for an end product that consists wholly or predominantly of iron or steel or a combination of both, the test is applied only to the iron and steel content of the end product, excluding COTS fasteners [@CL-SUP-1234].
 
-A COTS item is an item of supply, including construction material, that meets all three listed conditions. The first is that it is a commercial product as defined in FAR 2.101 [@CL-SUP-1227]. The other two are that it is sold in substantial quantities in the commercial marketplace and that it is offered to the Government, at any tier, without modification and in the same form in which it is sold in the commercial marketplace [@CL-SUP-1228]. A COTS item does not include bulk cargo, such as agricultural products and petroleum products [@CL-SUP-1276].
+A COTS item is an item of supply, including construction material, that meets all three listed conditions. The first is that it is a commercial product as defined in paragraph (1) of the definition of "commercial product" at FAR 2.101 [@CL-SUP-1227]. The other two are that it is sold in substantial quantities in the commercial marketplace and that it is offered to the Government, at any tier, without modification and in the same form in which it is sold in the commercial marketplace [@CL-SUP-1228]. A COTS item does not include bulk cargo, such as agricultural products and petroleum products [@CL-SUP-1276].
 
 FAR 2.101 defines end product as supplies delivered under a line item of a Government contract, except for use in part 25 and the associated clauses at 52.225-1, 52.225-3, and 52.225-5, and the text points to the definitions in 25.003, 52.225-1(a), 52.225-3(a), and 52.225-5(a) for those uses [@CL-SUP-9558]. The RFO model text of FAR 2.101 defines end product in the same words [@CL-SUP-9629; @CL-SUP-9558].
 
@@ -64,6 +64,7 @@ Which executed contracts and modifications carry the clause, and who confirms th
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Free Trade Agreements clause wording with its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the use-in-the-United-States scope and the all-conditions rule for COTS items; aligned the component-origin, example and never-confuse wording with their quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of end product.

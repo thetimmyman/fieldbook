@@ -55,7 +55,7 @@ The Government acknowledges that the contractor has no obligation to perform fur
 
 The text goes in Block 14 of SF 30 for settlement of reservations [@CL-CLS-0427]. It follows an earlier supplemental agreement that settled the termination and excepted certain items [@CL-CLS-0426]. The new supplemental agreement settles the items listed in its paragraph (b) [@CL-CLS-0271].
 
-The Government agrees to pay the contractor the amount stated for those items [@CL-CLS-0272]. The contractor releases and forever discharges the Government from all liability and from all existing and future claims and demands that it may have under the contract, insofar as it pertains to the contract, for those items [@CL-CLS-0273].
+The Government agrees to pay the contractor the amount stated for those items, with the words Government and Contractor reversed when payment is due the Government [@CL-CLS-0272; @CL-CLS-0274]. The contractor releases and forever discharges the Government from all liability and from all existing and future claims and demands that it may have under the contract, insofar as it pertains to the contract, for those items [@CL-CLS-0273].
 
 When payment is due the Government rather than the contractor, the words Government and Contractor are reversed in subparagraphs (b)(1) and (b)(2) [@CL-CLS-0274].
 
@@ -101,6 +101,7 @@ How reserved items, unbilled amounts and inventory balances are tracked after a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Partial-termination reserved rights are now described as of the parties.
 - COMPATIBLE_EXTENSION, 2026-10-31: 49.402-4 course stated as quoted, release exception and partial-termination scope tightened.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of partial termination.
