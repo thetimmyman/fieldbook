@@ -61,6 +61,8 @@ pub enum JournalError {
     Settings(String),
     /// A vocabulary or write-set invariant failed.
     Vocab(String),
+    /// A planned file changed on disk after the plan read it; nothing was written.
+    Stale(String),
     /// Underlying filesystem I/O failure.
     Io {
         /// Path that failed.
@@ -96,6 +98,10 @@ impl fmt::Display for JournalError {
             Self::InvalidLease(msg) => write!(f, "invalid store lease: {msg}"),
             Self::InvalidPending(msg) => write!(f, "pending write error: {msg}"),
             Self::Settings(msg) | Self::Vocab(msg) => f.write_str(msg),
+            Self::Stale(path) => write!(
+                f,
+                "{path} changed while the command was running; nothing was written, run it again"
+            ),
             Self::Io { path, message } => write!(f, "{}: {}", path.display(), message),
         }
     }
@@ -1111,6 +1117,24 @@ impl<'a> Journal<'a> {
         intent: &OperationIntent,
         writes: &WriteSet,
     ) -> Result<Audited, JournalError> {
+        self.begin_expecting(lease, intent, writes, &[])
+    }
+
+    /// [`Journal::begin`] for a plan made from a read of the files: each `(path, digest)` in
+    /// `expected` is the digest the plan saw (`None` for a file that was absent). If the live
+    /// file no longer matches, nothing is recorded or written and the error is
+    /// [`JournalError::Stale`], so a save that landed after the plan is never overwritten.
+    ///
+    /// # Errors
+    ///
+    /// As [`Journal::begin`], and [`JournalError::Stale`] when a planned file changed.
+    pub fn begin_expecting(
+        &mut self,
+        lease: &StoreLease,
+        intent: &OperationIntent,
+        writes: &WriteSet,
+        expected: &[(&str, Option<Sha256>)],
+    ) -> Result<Audited, JournalError> {
         if !lease.is_exclusive() || !lease.matches_roots(self.world.tree_root(), &self.state_dir) {
             return Err(JournalError::InvalidLease(
                 "Journal::begin requires an exclusive StoreLease for the same roots".to_owned(),
@@ -1161,6 +1185,11 @@ impl<'a> Journal<'a> {
                     Err(err) => return Err(JournalError::io(&disk_path, err.to_string())),
                 }
             };
+            if let Some((_, seen)) = expected.iter().find(|(p, _)| *p == wf.path)
+                && *seen != before_sha256
+            {
+                return Err(JournalError::Stale(wf.path.clone()));
+            }
             pending_files.push(PendingFile {
                 path: canon_path,
                 before_sha256,

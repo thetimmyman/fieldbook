@@ -34,11 +34,6 @@ const NO_CHIP: &[&str] = &[
 ];
 
 const PENDING: &str = r#"
-fieldbook new page --confirm-public <area>-<slug> --type <type> --subarea <subarea>
-fieldbook new question --confirm-public --area <a> "<text>"
-fieldbook new claim --confirm-public --area <a> --source <version-id> --at "<locator>" --quote "<text>"
-fieldbook new conflict --confirm-public --area <a>
-fieldbook new term --confirm-public --area <a>
 fieldbook fmt
 fieldbook search <query>
 fieldbook status
@@ -376,4 +371,62 @@ fn add_chip_cases_refuse_unconfirmed_and_add_when_confirmed() {
             );
         }
     }
+}
+
+/// Every `new` chip runs on a fresh Home copy: exit 0 and one object on standard output.
+#[test]
+fn new_chip_cases_write_one_object_on_a_fresh_home_copy() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let new_cases: Vec<&ChipCase> = CASES
+        .iter()
+        .filter(|c| c.chip.starts_with("fieldbook new "))
+        .collect();
+    assert_eq!(new_cases.len(), 5);
+
+    for case in new_cases {
+        let tmp = temp_copy(&repo_root.join(case.fixture));
+        let world = TestWorld::new(tmp.path());
+        let args: Vec<String> = substitute_chip(case.chip, case.samples)
+            .into_iter()
+            .skip(1)
+            .collect();
+        let out = fieldbook::run(&args, &world);
+        assert_eq!(out.code, 0, "chip `{}`: {}", case.chip, out.stderr);
+        assert_eq!(
+            out.stdout.lines().count(),
+            1,
+            "chip `{}` must print one object: {:?}",
+            case.chip,
+            out.stdout
+        );
+        assert!(
+            out.stderr.is_empty(),
+            "chip `{}`: {}",
+            case.chip,
+            out.stderr
+        );
+    }
+}
+
+/// `new page` into an occupied id exits 2 and leaves the Corpus as it was.
+#[test]
+fn new_page_chip_into_an_occupied_id_exits_2_and_changes_nothing() {
+    let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let case = CASES
+        .iter()
+        .find(|c| c.chip.starts_with("fieldbook new page "))
+        .expect("a new page chip case");
+    let tmp = temp_copy(&repo_root.join(case.fixture));
+    let world = TestWorld::new(tmp.path());
+    let args: Vec<String> = substitute_chip(case.chip, case.samples)
+        .into_iter()
+        .skip(1)
+        .collect();
+    assert_eq!(fieldbook::run(&args, &world).code, 0);
+    let before = world.read_tree().expect("read tree before");
+
+    let again = fieldbook::run(&args, &world);
+    assert_eq!(again.code, 2, "{}", again.stderr);
+    assert!(again.stderr.contains("already exists"), "{}", again.stderr);
+    assert_eq!(world.read_tree().expect("read tree after"), before);
 }

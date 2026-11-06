@@ -417,6 +417,18 @@ mod tests {
             self.company_store
         }
 
+        fn stdin_is_terminal(&self) -> bool {
+            false
+        }
+
+        fn read_line(&self) -> String {
+            String::new()
+        }
+
+        fn prompt(&self, _flag: &str) -> Result<(), Error> {
+            Ok(())
+        }
+
         fn today(&self) -> CivilDate {
             CivilDate::from_ymd(2026, 3, 1).unwrap_or_else(|e| panic!("{e}"))
         }

@@ -24,6 +24,8 @@ GetCurrentThreadId
 GetEnvironmentVariableW
 GetFileInformationByHandle
 GetFileInformationByHandleEx
+# from the new-verbs terminal prompt (std::io::IsTerminal and console stdin reads)
+GetFileType
 GetFinalPathNameByHandleW
 GetFullPathNameW
 GetLastError
@@ -54,6 +56,8 @@ OpenProcessToken
 ProcessPrng
 QueryPerformanceCounter
 QueryPerformanceFrequency
+# from the new-verbs terminal prompt (std::io::IsTerminal and console stdin reads)
+ReadConsoleW
 ReleaseMutex
 RemoveDirectoryW
 RtlCaptureContext
@@ -147,6 +151,8 @@ getenv
 getpid
 getrandom
 gettid
+# from the new-verbs terminal prompt (std::io::IsTerminal and console stdin reads)
+isatty
 lseek64
 lstat64
 lstrlenW
