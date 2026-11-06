@@ -1,0 +1,225 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "CL-CMP-0011",
+      "kind": "claim",
+      "fields": {"id": "CL-CMP-0011", "title": "", "headings": "", "claim": "The contracting officer may withhold 5 percent of payments", "body": ""},
+      "display": {"title": "CL-CMP-0011", "parent": "", "snippet": "The contracting officer may withhold 5 percent of payments", "status": "unchecked", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-cdi",
+      "kind": "clause",
+      "fields": {"id": "cmp-cdi", "title": "DFARS 252.204-7012 Safeguarding Covered Defense Information", "headings": "", "claim": "", "body": "Contractors must protect covered defense information and report cyber incidents."},
+      "display": {"title": "DFARS 252.204-7012 Safeguarding Covered Defense Information", "parent": "", "snippet": "Include 252.204-7012 in each subcontract that involves covered defense information.", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-cdi#qa",
+      "kind": "clause",
+      "fields": {"id": "", "title": "", "headings": "Q&A", "claim": "", "body": "Answers to common questions from subcontractors, including how to mark documents and when to report a cyber incident."},
+      "display": {"title": "Q&A", "parent": "DFARS 252.204-7012 Safeguarding Covered Defense Information", "snippet": "Answers to common questions from subcontractors, including how to mark documents and when to report a cyber incident.", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-cdi#subcontractors",
+      "kind": "clause",
+      "fields": {"id": "", "title": "", "headings": "Subcontractors", "claim": "", "body": "Include 252.204-7012 in each subcontract that involves covered defense information."},
+      "display": {"title": "Subcontractors", "parent": "DFARS 252.204-7012 Safeguarding Covered Defense Information", "snippet": "Include 252.204-7012 in each subcontract that involves covered defense information.", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-withholding",
+      "kind": "page",
+      "fields": {"id": "cmp-withholding", "title": "Payment withholding", "headings": "", "claim": "", "body": "Withholding applies to business system deficiencies"},
+      "display": {"title": "Payment withholding", "parent": "", "snippet": "Withholding is permitted when a significant deficiency exists", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-withholding#evidence",
+      "kind": "page",
+      "fields": {"id": "", "title": "", "headings": "Evidence", "claim": "", "body": "The rate rests on [@CL-CMP-0011] and the clause text [@S-0042-v2, p. 14]."},
+      "display": {"title": "Evidence", "parent": "Payment withholding", "snippet": "The rate rests on [@CL-CMP-0011] and the clause text [@S-0042-v2, p. 14].", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "cmp-withholding#the-rule",
+      "kind": "page",
+      "fields": {"id": "", "title": "", "headings": "The rule", "claim": "", "body": "Withholding is permitted when a significant deficiency exists"},
+      "display": {"title": "The rule", "parent": "Payment withholding", "snippet": "Withholding is permitted when a significant deficiency exists", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "est-ice-review",
+      "kind": "page",
+      "fields": {"id": "est-ice-review", "title": "ICE review", "headings": "", "claim": "", "body": "How a buyer checks an offer against the government's own figures."},
+      "display": {"title": "ICE review", "parent": "", "snippet": "Compare each offer line with the independent cost estimate.", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "est-ice-review#method",
+      "kind": "page",
+      "fields": {"id": "", "title": "", "headings": "Method", "claim": "", "body": "Compare each offer line with the independent cost estimate."},
+      "display": {"title": "Method", "parent": "ICE review", "snippet": "Compare each offer line with the independent cost estimate.", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "S-0042-v1",
+      "kind": "source",
+      "fields": {"id": "S-0042-v1", "title": "Defense Federal Acquisition Regulation Supplement", "headings": "", "claim": "", "body": "Department of Defense regulation. Original issue."},
+      "display": {"title": "Defense Federal Acquisition Regulation Supplement", "parent": "", "snippet": "Original issue.", "status": "active", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "S-0042-v2",
+      "kind": "source",
+      "fields": {"id": "S-0042-v2", "title": "Defense Federal Acquisition Regulation Supplement", "headings": "", "claim": "", "body": "Department of Defense regulation. Revised edition of S-0042."},
+      "display": {"title": "Defense Federal Acquisition Regulation Supplement", "parent": "", "snippet": "Revised edition of S-0042.", "status": "active", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "S-0042-v10",
+      "kind": "source",
+      "fields": {"id": "S-0042-v10", "title": "Defense Federal Acquisition Regulation Supplement", "headings": "", "claim": "", "body": "Department of Defense regulation. Current edition of S-0042 as amended."},
+      "display": {"title": "Defense Federal Acquisition Regulation Supplement", "parent": "", "snippet": "Current edition of S-0042 as amended.", "status": "active", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    },
+    {
+      "id": "sup-marking",
+      "kind": "page",
+      "fields": {"id": "sup-marking", "title": "Marking for subcontractors", "headings": "", "claim": "", "body": "Mark each document that holds covered defense information. See 252.204-7019 for the assessments."},
+      "display": {"title": "Marking for subcontractors", "parent": "", "snippet": "", "status": "draft", "as_of": "2025-11-01", "effective_from": "", "verified_on": ""},
+      "exact_key": ""
+    }
+  ],
+  "glossary": [{"label": "independent cost estimate", "aliases": ["ice"]}],
+  "cases": [
+    {
+      "id": "rk-s-01",
+      "query": "CL-CMP-0011",
+      "expect": ["CL-CMP-0011", "cmp-withholding#evidence"],
+      "scores": [3234, 1540],
+      "impacts": [
+        {"unit": "CL-CMP-0011", "token": "cl-cmp-0011", "impact": 3234},
+        {"unit": "cmp-withholding#evidence", "token": "cl-cmp-0011", "impact": 1540}
+      ],
+      "note": "An exact claim id puts that claim first, ahead of the section that only cites it."
+    },
+    {
+      "id": "rk-s-02",
+      "query": "S-0042",
+      "expect": ["S-0042-v1", "S-0042-v2", "S-0042-v10", "cmp-withholding#evidence"],
+      "scores": [1930, 2034, 2021, 1015],
+      "impacts": [
+        {"unit": "S-0042-v1", "token": "s-0042", "impact": 1930},
+        {"unit": "S-0042-v2", "token": "s-0042", "impact": 2034},
+        {"unit": "S-0042-v10", "token": "s-0042", "impact": 2021},
+        {"unit": "cmp-withholding#evidence", "token": "s-0042", "impact": 1015},
+        {"unit": "S-0042-v1", "token": "s-0042-v1", "impact": 3798},
+        {"unit": "S-0042-v2", "token": "s-0042-v2", "impact": 2930},
+        {"unit": "S-0042-v10", "token": "s-0042-v10", "impact": 3798},
+        {"unit": "cmp-withholding#evidence", "token": "s-0042-v2", "impact": 1540}
+      ],
+      "note": "A source id lists every version in natural order, v1 then v2 then v10, ahead of the section that cites it, whatever each version scores."
+    },
+    {
+      "id": "rk-s-03",
+      "query": "7012",
+      "expect": ["cmp-cdi", "cmp-cdi#subcontractors"],
+      "scores": [2043, 1598],
+      "impacts": [
+        {"unit": "cmp-cdi", "token": "7012", "impact": 2043},
+        {"unit": "cmp-cdi#subcontractors", "token": "7012", "impact": 1598}
+      ],
+      "note": "A bare 7012 reaches the clause card through the alias added when 252.204-7012 is indexed, and its title hit outranks the body hit of the flow-down section."
+    },
+    {
+      "id": "rk-s-04",
+      "query": "252.204",
+      "expect": ["cmp-cdi", "cmp-cdi#subcontractors", "sup-marking"],
+      "scores": [1644, 1286, 1155],
+      "impacts": [
+        {"unit": "cmp-cdi", "token": "252.204", "impact": 1644},
+        {"unit": "cmp-cdi#subcontractors", "token": "252.204", "impact": 1286},
+        {"unit": "sup-marking", "token": "252.204", "impact": 1155},
+        {"unit": "cmp-cdi", "token": "252.204-7012", "impact": 2043},
+        {"unit": "cmp-cdi#subcontractors", "token": "252.204-7012", "impact": 1598},
+        {"unit": "sup-marking", "token": "252.204-7019", "impact": 1862}
+      ],
+      "note": "252.204 reaches every unit that holds a longer 252.204 clause number through the ancestor token, and the exact ancestor impact beats half the impact of the longer number."
+    },
+    {
+      "id": "rk-s-05",
+      "query": "payment withhold",
+      "expect": ["cmp-withholding", "cmp-withholding#the-rule", "CL-CMP-0011"],
+      "scores": [5560, 940, 702],
+      "impacts": [
+        {"unit": "cmp-withholding", "token": "payment", "impact": 3869},
+        {"unit": "CL-CMP-0011", "token": "withhold", "impact": 702},
+        {"unit": "cmp-withholding", "token": "withholding", "impact": 3383},
+        {"unit": "cmp-withholding#the-rule", "token": "withholding", "impact": 1881},
+        {"unit": "cmp-withholding", "token": "cmp", "impact": 2930},
+        {"unit": "CL-CMP-0011", "token": "the", "impact": 241},
+        {"unit": "cmp-withholding#the-rule", "token": "the", "impact": 598},
+        {"unit": "cmp-withholding#the-rule", "token": "rule", "impact": 1742}
+      ],
+      "note": "Only the last token is a prefix: withhold also reaches withholding at half its impact by integer division, while payment, which is not last, does not reach payments."
+    },
+    {
+      "id": "rk-s-06",
+      "query": "s-0042 cl-cmp-0011",
+      "expect": ["cmp-withholding#evidence", "CL-CMP-0011", "S-0042-v2", "S-0042-v10", "S-0042-v1"],
+      "scores": [2555, 3234, 2034, 2021, 1930],
+      "impacts": [
+        {"unit": "cmp-withholding#evidence", "token": "s-0042", "impact": 1015},
+        {"unit": "cmp-withholding#evidence", "token": "cl-cmp-0011", "impact": 1540}
+      ],
+      "note": "A unit that matches both tokens ranks above units that match one token, even when its summed impact is lower."
+    },
+    {
+      "id": "rk-s-07",
+      "query": "subcontractors",
+      "expect": ["sup-marking", "cmp-cdi#subcontractors", "cmp-cdi#qa"],
+      "scores": [2230, 1536, 1049],
+      "impacts": [
+        {"unit": "sup-marking", "token": "subcontractors", "impact": 2230},
+        {"unit": "cmp-cdi#subcontractors", "token": "subcontractors", "impact": 1536},
+        {"unit": "cmp-cdi#qa", "token": "subcontractors", "impact": 1049}
+      ],
+      "note": "The same token in a title, in a heading and in a body ranks the title hit first and the body hit last."
+    },
+    {
+      "id": "rk-s-08",
+      "query": "ice",
+      "expect": ["est-ice-review", "est-ice-review#method"],
+      "scores": [3257, 1728],
+      "impacts": [
+        {"unit": "est-ice-review", "token": "ice", "impact": 3257},
+        {"unit": "est-ice-review#method", "token": "ice", "impact": 1728},
+        {"unit": "est-ice-review", "token": "independent", "impact": 1436}
+      ],
+      "note": "A glossary alias lets ice find a section that only says independent cost estimate, ranked below the page that has ice literally in its id and title."
+    },
+    {
+      "id": "rk-s-09",
+      "query": "cmp-cdi#qa",
+      "expect": ["cmp-cdi#qa", "cmp-cdi", "cmp-withholding"],
+      "scores": [0, 6728, 2930],
+      "impacts": [
+        {"unit": "cmp-cdi", "token": "cmp", "impact": 2930},
+        {"unit": "cmp-cdi", "token": "cdi", "impact": 3798},
+        {"unit": "cmp-withholding", "token": "cmp", "impact": 2930},
+        {"unit": "cmp-cdi#qa", "token": "q", "impact": 1742}
+      ],
+      "note": "A section id is in the exact class, so it ranks first with matched 0 and sum 0, ahead of units that score on the tokens cmp and cdi."
+    },
+    {
+      "id": "rk-s-10",
+      "query": "?! & \u00a7 \u2014 ...",
+      "expect": [],
+      "note": "A query made only of punctuation and symbols, including a dash that folds to a hyphen, has no tokens and returns an empty list."
+    }
+  ]
+}
