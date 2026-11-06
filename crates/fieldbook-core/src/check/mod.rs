@@ -22,6 +22,7 @@ pub mod promotion;
 pub mod register_cells;
 pub mod register_links;
 pub mod registers;
+pub mod regression;
 pub mod scans;
 pub mod tree;
 
@@ -84,6 +85,7 @@ const PASSES: &[Pass] = &[
     citations::check,
     citation_rules::check,
     scans::check,
+    regression::check,
 ];
 
 fn load_with_passes(host: &Host, options: &Options, passes: &[Pass]) -> (Model, Report) {
