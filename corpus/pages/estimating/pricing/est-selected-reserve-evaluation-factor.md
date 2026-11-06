@@ -27,7 +27,7 @@ Explains the DoD evaluation factor for offerors that intend to use employees or 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-EST-2796; @CL-EST-2798] |
-| Applies to | The definition applies as used in "this section" of 215.370-1 [@CL-EST-2796]; the clause is used in solicitations and resulting contracts that include the Selected Reserve evaluation factor [@CL-EST-2798; @CL-EST-2799] |
+| Applies to | The definition at 215.370-1 applies to the term as used in "this section" [@CL-EST-2796]; the clause is used in solicitations and resulting contracts that include the Selected Reserve evaluation factor [@CL-EST-2798; @CL-EST-2799] |
 
 The definition at 215.370-1 says that, as used in this section, Selected Reserve has the meaning given that term in section 10143 of title 10 of the United States Code [@CL-EST-2796]. Selected Reserve members normally attend regular drills throughout the year and are the group of Reserves most readily available to the President [@CL-EST-2797].
 
@@ -37,7 +37,7 @@ The section directs use of the clause at 252.215-7006, Use of Employees or Indiv
 
 | Term | Meaning |
 |---|---|
-| Selected Reserve | Has the meaning given that term in section 10143 of title 10 of the United States Code, as used in this section of 215.370-1 [@CL-EST-2796] |
+| Selected Reserve | Has the meaning given that term in section 10143 of title 10 of the United States Code, per the definition at 215.370-1 [@CL-EST-2796] |
 | Selected Reserve members | Normally attend regular drills throughout the year and are the group of Reserves most readily available to the President [@CL-EST-2797] |
 | Evaluation factor that calls for the clause | A factor considering whether an offeror intends to perform the contract using employees or individual subcontractors who are members of the Selected Reserve [@CL-EST-2799] |
 | Contract clause | 252.215-7006, Use of Employees or Individual Subcontractors Who Are Members of the Selected Reserve [@CL-EST-2798] |

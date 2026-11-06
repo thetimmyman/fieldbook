@@ -40,7 +40,7 @@ The payroll flow is submit, examine, keep. The contractor submits weekly payroll
 
 Synthetic example. The numbers are made up.
 
-A prime contractor pays its weekly payroll on a Friday. Copies of the payroll and the statement of compliance are due within 7 calendar days after the regular payment date of the payroll week covered, which for the prime is that Friday, for the prime and for each subcontractor [@CL-CMP-3037]. The agency keeps them for 3 years after the contract is complete [@CL-CMP-3039]. A compliance check indicates that violations have not been corrected, so the agency conducts an investigation [@CL-CMP-3040], which finds that a subcontractor underpaid 1,500. The contractor receives preliminary findings and has 60 days to rebut them [@CL-CMP-3041]. A detailed enforcement report goes to the Administrator within 60 days after the investigation is complete, because the underpayment is above 1,000 [@CL-CMP-3042].
+A prime contractor pays its weekly payroll on a Friday. Copies of the payroll and the statement of compliance, for the prime and for each subcontractor, are due within 7 calendar days after the regular payment date of the payroll week covered, which for the prime is that Friday [@CL-CMP-3037]. The agency keeps them for 3 years after the contract is complete [@CL-CMP-3039]. A compliance check indicates that violations have not been corrected, so the agency conducts an investigation [@CL-CMP-3040], which finds that a subcontractor underpaid 1,500. The contractor receives preliminary findings and has 60 days to rebut them [@CL-CMP-3041]. A detailed enforcement report goes to the Administrator within 60 days after the investigation is complete, because the underpayment is above 1,000 [@CL-CMP-3042].
 
 ## Never confuse
 

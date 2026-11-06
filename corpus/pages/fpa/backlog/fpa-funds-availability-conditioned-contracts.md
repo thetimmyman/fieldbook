@@ -16,7 +16,7 @@ links = ["ctf-incremental-funding-policy", "fpa-funded-versus-unfunded-policy", 
 
 ## Purpose
 
-Shows when the contracting officer may initiate a contract action before funds of the new fiscal year are available when a one-year indefinite-quantity or requirements contract for services funded by annual appropriations may extend beyond the fiscal year in which it begins, when the Government may accept supplies or services under a contract conditioned upon the availability of funds, and which clauses apply [@CL-FPA-0052; @CL-FPA-0055; @CL-FPA-0102; @CL-FPA-0056; @CL-FPA-0057; @CL-FPA-0353; @CL-FPA-0354; @CL-FPA-0058].
+Shows when the contracting officer may initiate a contract action before funds of the new fiscal year are available, when a one-year indefinite-quantity or requirements contract for services funded by annual appropriations may extend beyond the fiscal year in which it begins, when the Government may accept supplies or services under a contract conditioned upon the availability of funds, and which clauses apply [@CL-FPA-0052; @CL-FPA-0055; @CL-FPA-0102; @CL-FPA-0056; @CL-FPA-0057; @CL-FPA-0353; @CL-FPA-0354; @CL-FPA-0058].
 
 ## The rule
 

@@ -45,7 +45,7 @@ A contractor submits a proposal of 5,000,000 for communications hardware. After 
 
 ## Never confuse
 
-Both duties apply after the Contracting Officer's notification [@CL-EST-0352; @CL-EST-0353], and the duty to certify also depends on the offeror not being the Canadian Commercial Corporation, the acquisition exceeding the certified cost or pricing data threshold, and no listed exception applying [@CL-EST-0352; @CL-EST-0353]. Receiving only one offer therefore does not by itself trigger the duty to certify; the threshold and exception conditions also apply. For the general rules, see [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) and [Certified data exceptions](est-certified-data-exceptions.md).
+Both the duty to submit additional data and the duty to certify apply after the Contracting Officer's notification [@CL-EST-0352; @CL-EST-0353], and the duty to certify also depends on the offeror not being the Canadian Commercial Corporation, the acquisition exceeding the certified cost or pricing data threshold, and no listed exception applying [@CL-EST-0352; @CL-EST-0353]. Receiving only one offer therefore does not by itself trigger the duty to certify; the threshold and exception conditions also apply. For the general rules, see [Certified cost or pricing data](est-certified-cost-or-pricing-data.md) and [Certified data exceptions](est-certified-data-exceptions.md).
 
 ## Company calibration
 
