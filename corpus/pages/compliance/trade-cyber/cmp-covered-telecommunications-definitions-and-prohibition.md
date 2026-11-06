@@ -26,7 +26,7 @@ Shows what the Government-wide rule treats as covered telecommunications equipme
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-2957] |
-| Applies to | Agency procurements and contracts with entities that use covered telecommunications equipment or services, unless an exception or a waiver applies [@CL-CMP-2957; @CL-CMP-2958; @CL-CMP-2959] |
+| Applies to | Agency procurements of equipment, systems or services that use covered telecommunications equipment or services as a substantial or essential component of any system or as critical technology as part of any system, and contracts with entities that use such equipment, systems or services, unless an exception or a waiver applies [@CL-CMP-2957; @CL-CMP-2958; @CL-CMP-2959] |
 
 The subpart implements paragraphs (a)(1)(A) and (a)(1)(B) of section 889 of the National Defense Authorization Act for Fiscal Year 2019 (Public Law 115-232) [@CL-SUP-9440].
 
@@ -48,7 +48,7 @@ An agency plans to renew a service contract with a provider after the 2020 date 
 
 ## Never confuse
 
-This card sets out the FAR definitions and the two agency prohibitions. It does not restate the defense supplement's offeror representation, contractor prohibition and reporting duties, which are on [Prohibition on covered defense telecommunications equipment or services](cmp-covered-defense-telecommunications-equipment-prohibition.md). The first prohibition covers procuring or obtaining, or extending or renewing a contract to procure or obtain, any equipment, system, or service that uses covered telecommunications equipment or services as a substantial or essential component of any system, unless an exception or a waiver applies [@CL-CMP-2957; @CL-CMP-2959]. The second covers entering into a contract, or extending or renewing a contract, with an entity that uses any equipment, system, or service that uses covered telecommunications equipment or services as a substantial or essential component of any system, unless an exception or a waiver applies [@CL-CMP-2958; @CL-CMP-2959].
+This card sets out the FAR definitions and the two agency prohibitions. It does not restate the defense supplement's offeror representation, contractor prohibition and reporting duties, which are on [Prohibition on covered defense telecommunications equipment or services](cmp-covered-defense-telecommunications-equipment-prohibition.md). The first prohibition covers procuring or obtaining, or extending or renewing a contract to procure or obtain, any equipment, system, or service that uses covered telecommunications equipment or services as a substantial or essential component of any system or as critical technology as part of any system, unless an exception or a waiver applies [@CL-CMP-2957; @CL-CMP-2959]. The second covers entering into a contract, or extending or renewing a contract, with an entity that uses any equipment, system, or service that uses covered telecommunications equipment or services as a substantial or essential component of any system or as critical technology as part of any system, unless an exception or a waiver applies [@CL-CMP-2958; @CL-CMP-2959].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which equipment, systems and services the company sells or uses could contain co
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: added definition item four and Contracting Officer prohibitions; removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the video surveillance item to the wording of the definition.

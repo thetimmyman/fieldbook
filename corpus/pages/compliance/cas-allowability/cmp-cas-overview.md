@@ -24,7 +24,7 @@ Certain contractors and subcontractors are required to comply with Cost Accounti
 
 ## How it works
 
-Full coverage requires the business unit to comply with all of the CAS specified in part 9904 that are in effect on the date of the contract award and with any CAS that become applicable because of later award of a CAS-covered contract [@CL-CMP-8117]. Modified coverage may be applied to a covered contract of less than $100 million awarded to a business unit that received less than $100 million in net CAS-covered awards in the immediately preceding cost accounting period [@CL-CMP-8118]. All contractors, whether subject to full or modified CAS coverage, are subject to CAS 401 and CAS 402 and will continue to be required to consistently follow their disclosed or actual cost accounting practices [@CL-CMP-1515]. The codified FAR text and provisions in the Corpus still print earlier figures, such as $50 million in the FAR 52.230-1 certificates [@CL-CMP-5923] and $2.5 million and $50 million in FAR 30.201-4(b)(1) [@CL-RTE-0842]; the Board's regulation in 48 CFR 9903 states coverage from 2026-10-01 [@CL-CMP-0002]. The clause cards for single standards give the detail. See [CAS applicability](cmp-cas-applicability.md) for the thresholds.
+Full coverage requires the business unit to comply with all of the CAS specified in part 9904 that are in effect on the date of the contract award and with any CAS that become applicable because of later award of a CAS-covered contract [@CL-CMP-8117]. Modified coverage may be applied to a covered contract of less than $100 million awarded to a business unit that received less than $100 million in net CAS-covered awards in the immediately preceding cost accounting period [@CL-CMP-8118]. All contractors, whether subject to full or modified CAS coverage, are subject to CAS 401 and CAS 402 and will continue to be required to consistently follow their disclosed or actual cost accounting practices [@CL-CMP-1515]. The codified FAR text and provisions in the Corpus still print earlier figures, such as $50 million in the FAR 52.230-1 certificate [@CL-CMP-5923] and $2.5 million and $50 million in FAR 30.201-4(b)(1) [@CL-RTE-0842]; the Board's regulation in 48 CFR 9903 states coverage from 2026-10-01 [@CL-CMP-0002]. The clause cards for single standards give the detail. See [CAS applicability](cmp-cas-applicability.md) for the thresholds.
 
 ## Worked example
 
@@ -43,6 +43,7 @@ Which business units have full coverage, modified coverage or neither, and wheth
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-05: Dated the coverage figures to 2026-10-01 as the Board's regulation, named the exemption figure, and stated that the FAR text still prints earlier figures.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited coverage and allowability sentences; removed uncited process claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the 90-day filing exception for the first CAS-covered contract.

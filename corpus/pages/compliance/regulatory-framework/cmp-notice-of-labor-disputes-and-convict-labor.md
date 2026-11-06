@@ -47,7 +47,7 @@ A subcontractor's machinists vote to strike on a Monday. On Tuesday the prime le
 
 ## Never confuse
 
-The Contractor shall immediately give notice, including all relevant information, to the Contracting Officer if it has knowledge that any actual or potential labor dispute is delaying or threatens to delay the timely performance of the contract [@CL-CMP-5214]. The Contractor shall not employ in the performance of the contract any person undergoing a sentence of imprisonment imposed by any court of a listed jurisdiction [@CL-CMP-5215]. The Contractor is not prohibited from employing persons on parole or probation to work at paid employment during the term of their sentence, or persons who have been pardoned or who have served their terms [@CL-CMP-5216].
+The Contractor shall immediately give notice, including all relevant information, to the Contracting Officer if it has knowledge that any actual or potential labor dispute is delaying or threatens to delay the timely performance of the contract [@CL-CMP-5214]. Except as paragraph (b) provides, the Contractor shall not employ in the performance of the contract any person undergoing a sentence of imprisonment imposed by any court of a listed jurisdiction [@CL-CMP-5215]. The Contractor is not prohibited from employing persons on parole or probation to work at paid employment during the term of their sentence, or persons who have been pardoned or who have served their terms [@CL-CMP-5216]. The bar also does not apply to a person confined for violation of the laws of a listed jurisdiction who is authorized to work at paid employment in the community under that jurisdiction's laws, if the listed conditions are met [@CL-CMP-5334].
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Which contracts carry these clauses, and who confirms that each new hire clears 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts; restated notice trigger and exceptions; fixed RFO wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for notice of labor disputes and convict labor.

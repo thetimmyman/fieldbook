@@ -22,7 +22,7 @@ Shows when a contract funded by annual appropriations may cross fiscal years and
 
 | Field | Value |
 |---|---|
-| Instrument | Codified FAR and codified DFARS [@CL-FPA-0063] |
+| Instrument | Codified FAR and codified DFARS [@CL-FPA-0063; @CL-FPA-0068] |
 | Codified citation | FAR 32.703-3; DFARS 232.703-3 [@CL-FPA-0063; @CL-FPA-0066; @CL-FPA-0068] |
 | RFO citation | RFO FAR 32.703-3 [@CL-FPA-0283; @CL-FPA-0284; @CL-FPA-0285; @CL-FPA-0286; @CL-FPA-0287] |
 | Edition date | Not established. |
@@ -56,6 +56,7 @@ Which contracts are funded by annual appropriations, which route lets each cross
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added statutory citations in FAR 32.703-3(a)-(b) and DFARS 232.703-3(b), separated RFO and codified citations, and removed meta-wording and uncited commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched the duty wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.

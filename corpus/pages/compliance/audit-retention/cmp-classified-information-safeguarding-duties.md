@@ -34,7 +34,7 @@ In the solicitation phase, contracting officers shall ensure that the classified
 
 ## How it works
 
-In the presolicitation phase, contracting officers shall review all proposed solicitations to determine whether access to classified information may be required by offerors, or by a contractor during contract performance [@CL-CMP-2412]. In the award phase, contracting officers shall inform contractors and subcontractors of the security classifications and requirements assigned to the various documents, materials, tasks, subcontracts, and components of the classified contract as follows [@CL-CMP-2415]: nondefense agencies that have industrial security services agreements with DoD, and DoD components, shall use the Contract Security Classification Specification, DD Form 254, to provide classification guidance to contractors and subcontractors as identified in the requirement documentation [@CL-CMP-2524], where the contracting officer, or authorized agency representative, is the approving official for the DD Form 254 associated with the prime contract [@CL-CMP-2416] and shall ensure the DD Form 254 is properly prepared, distributed by, and coordinated with requirements and security personnel in accordance with agency procedures (see FAR 4.402(d)(1)) [@CL-CMP-0191]; and contracting officers in agencies not covered by the NISP shall follow agency procedures [@CL-CMP-0192].
+In the presolicitation phase, contracting officers shall review all proposed solicitations to determine whether access to classified information may be required by offerors, or by a contractor during contract performance [@CL-CMP-2412]. In the award phase, contracting officers shall inform contractors and subcontractors of the security classifications and requirements assigned to the various documents, materials, tasks, subcontracts, and components of the classified contract as follows [@CL-CMP-2415]: nondefense agencies that have industrial security services agreements with DoD, and DoD components, shall use the Contract Security Classification Specification, DD Form 254 [@CL-CMP-2524], where the contracting officer, or authorized agency representative, is the approving official for the DD Form 254 associated with the prime contract [@CL-CMP-2416] and shall ensure the DD Form 254 is properly prepared, distributed by, and coordinated with requirements and security personnel in accordance with agency procedures (see FAR 4.402(d)(1)) [@CL-CMP-0191]; and contracting officers in agencies not covered by the NISP shall follow agency procedures [@CL-CMP-0192].
 
 ## Worked example
 
@@ -53,6 +53,7 @@ Which company contracts carry a Security Requirements clause or a classification
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated the condition for additional security safeguards in Never confuse.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for DD Form 254 preparation and coordination and non-NISP agency procedures, restored shall and as appropriate wording, and removed meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the DD Form 254 sentences to keep shall use and the as identified in the requirement documentation limit.

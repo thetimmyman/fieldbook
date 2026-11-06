@@ -45,7 +45,7 @@ A vehicle that is unavailable or unusable because the contractor failed to rende
 
 Where the contract states rent monthly, each day of Government possession earns 1/30th of the monthly rate, unless a mileage provision makes the Schedule govern the payment [@CL-SUP-2976; @CL-SUP-2977].
 
-Under the condition clause, the Government accepts or rejects the vehicles promptly after receipt; if the Contracting Officer determines that any vehicle furnished is not in compliance with the contract, the Contracting Officer promptly informs the contractor in writing; and if the contractor fails to replace the vehicle or correct the defects as required by the Contracting Officer, the Government may choose one of the two alternatives in paragraph (c): either by contract or otherwise correct the defect or arrange for the lease of a similar vehicle and charge or set off against the contractor any excess costs occasioned thereby, or terminate the contract under the Default clause of the contract [@CL-SUP-2980; @CL-SUP-2981; @CL-SUP-2935; @CL-SUP-3006; @CL-SUP-2982].
+Under the condition clause, the Government accepts or rejects the vehicles promptly after receipt; if the Contracting Officer determines that any vehicle furnished is not in compliance with the contract, the Contracting Officer promptly informs the contractor in writing; and if the contractor fails to replace the vehicle or correct the defects as required by the Contracting Officer, the Government may choose one of the two alternatives the clause labels (a) and (b): either by contract or otherwise correct the defect or arrange for the lease of a similar vehicle and charge or set off against the contractor any excess costs occasioned thereby, or terminate the contract under the Default clause of the contract [@CL-SUP-2980; @CL-SUP-2981; @CL-SUP-2935; @CL-SUP-3006; @CL-SUP-2982].
 
 The Government may place nonpermanent markings or decals, identifying the using agency, on each side and on the front and rear bumpers of any motor vehicle leased under the contract, using markings or decals that are removable without damage to the vehicle, and the contractor may use placards for temporary identification of vehicles except that the placards may not contain any references to the contractor that may be construed as advertising or endorsement by the Government of the contractor [@CL-SUP-2936; @CL-SUP-2983].
 
@@ -71,6 +71,7 @@ Whether any vehicle lease runs on a Government contract, who tracks delivery, co
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned lease payment, condition and marking summaries with the cited quotes and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the cure-or-terminate choice as two alternatives.

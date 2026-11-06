@@ -45,7 +45,7 @@ A contracting officer reviewing a new supplier requests balance sheets and incom
 
 ## Never confuse
 
-While the contracting officer should not request information that is not necessary for protection of the Government's interests, the contracting officer must insist upon obtaining the information that is necessary, and obtains the listed information to the extent required to protect the Government's interest [@CL-CTF-0755; @CL-CTF-0850]. What triggers a financial review is covered on [DoD required financial reviews](ctf-dod-required-financial-reviews.md), and for financing generally see [Contract financing overview](../financing/ctf-financing-overview.md).
+While the contracting officer should not request information that is not necessary for protection of the Government's interests, the contracting officer must insist upon obtaining the information that is necessary, and must obtain the listed information to the extent required to protect the Government's interest [@CL-CTF-0755; @CL-CTF-0850]. What triggers a financial review is covered on [DoD required financial reviews](ctf-dod-required-financial-reviews.md), and for financing generally see [Contract financing overview](../financing/ctf-financing-overview.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Confirm that balance sheets, financing agreements, and business base forecasts a
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the summary history details in DFARS 232.072-2(b)(2) and the financing arrangement disclosures in DFARS 232.072-2(b)(7)(iii) through (v).
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the forecast item of the balance sheet entry and dropped an added only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the certification, business base and material-fact wording from the source text.

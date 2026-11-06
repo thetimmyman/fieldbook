@@ -57,7 +57,7 @@ Offer A is priced at 1,000,000 and includes foreign manufactured construction ma
 
 The 25 percent is applied to the offered price of the contract, while the 20 percent is applied to the cost of the foreign unmanufactured material [@CL-CMP-5511; @CL-CMP-5414]. This provision does not itself list the excepted materials, which the Government lists in paragraph (b)(3) of FAR clause 52.225-23 [@CL-CMP-5416].
 
-The codified FAR 52.225-24 carries the notice provision and its evaluation rules, while the RFO text prints that section number as reserved [@CL-CMP-5412; @CL-CMP-0373].
+The codified FAR 52.225-24 carries the notice provision and its evaluation rules, while the RFO text prints that section number as reserved [@CL-CMP-5412; @CL-CMP-5413; @CL-CMP-5511; @CL-CMP-0373].
 
 The companion clause on required use is covered in [Required use of American iron, steel and manufactured goods in construction under trade agreements](cmp-american-iron-steel-construction-trade-agreements.md), and the related clause and provision on American iron, steel and manufactured goods in construction are covered in [Required use of American iron, steel and manufactured goods, and its notice provision](../../supply-chain/supplier-identity/sup-american-iron-steel-manufactured-goods.md).
 
@@ -69,6 +69,7 @@ Whether each solicitation includes this provision and what supporting data goes 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the basis of the alternate offer.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the companion required-use clause.

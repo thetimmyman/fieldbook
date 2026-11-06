@@ -59,7 +59,7 @@ Synthetic example. The numbers are made up.
 
 A company's power function exists for only 5 months of its fiscal year. Its 900,000 cost is material, is accumulated in its own pool, and is allocated on metered usage during those 5 months, so the three conditions for part-period allocation are met [@CL-EST-2880]. Had the cost been mixed into a general pool, the separate pool condition would fail [@CL-EST-2880]. A contract terminated in August is closed on estimated indirect rates. Those rates need not be the rates finally negotiated for the year [@CL-EST-2883], but they shall represent a full cost accounting period, except as provided for part-period allocation [@CL-EST-2884].
 
-A second company has a calendar fiscal year but manages the business on a year ending 30 September. It may use that year as its cost accounting period on mutual agreement with the Government, if the use is an established practice, is consistently used for managing and controlling the business, and carries appropriate accruals and deferrals [@CL-EST-2885; @CL-EST-2886].
+A second company has a calendar fiscal year but manages the business on a year ending 30 September. It may use that year as its cost accounting period on mutual agreement with the Government, if the use is an established practice, is consistently used for managing and controlling the business, and appropriate accruals, deferrals or other adjustments are made with respect to such annual periods [@CL-EST-2885; @CL-EST-2886].
 
 A third company changes its fiscal year from the calendar year to a year ending 30 June, and a transitional period is required. The gap from the end of its previous period to the start of its next regular period is 6 months, and using the gap alone is one permitted choice [@CL-EST-2971]. Combining the gap with the previous 12-month period gives 18 months, which is longer than 15 months, so the second option is not available [@CL-EST-2890]. Combining it with the next 12-month period also gives 18 months, so the third option is not available either [@CL-EST-2972]. The change is a change in accounting practices, so a contract price adjustment may be required [@CL-EST-2891].
 
@@ -74,6 +74,7 @@ Confirm each business unit's CAS coverage and whether its Disclosure Statement r
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-11-03: Stated the conditions in the proviso without an unquoted count.
 - COMPATIBLE_EXTENSION, 2026-10-31: Techniques summary and never-confuse wording tied to the cited conditions.

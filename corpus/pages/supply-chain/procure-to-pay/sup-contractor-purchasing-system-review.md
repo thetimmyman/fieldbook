@@ -49,7 +49,7 @@ Answer: under the defense supplement, which applies in lieu of the FAR threshold
 
 ## Never confuse
 
-The review level is a trigger for deciding whether a CPSR is needed, not a finding about the purchasing system [@CL-SUP-0659]. The FAR level and the defense level are different numbers, and the defense number applies in lieu of the FAR threshold [@CL-SUP-0518; @CL-SUP-0521].
+The review level is a trigger for deciding whether a CPSR is needed [@CL-SUP-0659]. The FAR level and the defense level are different numbers, and the defense number applies in lieu of the FAR threshold [@CL-SUP-0518; @CL-SUP-0521].
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Confirm whether expected sales to the Government cross the FAR or the defense re
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the example so the defense level applies in lieu of the FAR level.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the defense supplement sections on who initiates a review and on the extent of review.

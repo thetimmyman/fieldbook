@@ -36,7 +36,7 @@ The section on errors found by the Department of Labor applies where the Departm
 
 ## How it works
 
-Where the contracting officer can identify all the possible places of performance, the officer obtains a determination for each locality where services may be performed, and the officer obtains more if, before the closing date for submission of offers, the officer learns of a potential offeror in a previously unidentified place [@CL-CMP-6748; @CL-CMP-6749]. Where a determination or an incumbent agreement looks wrong, the contracting officer contacts the agency labor advisor [@CL-CMP-6750; @CL-CMP-6751; @CL-CMP-6753]. Where the Department of Labor finds the error, its notification starts the contracting officer's deadline for including the clause and the determination [@CL-CMP-6754]. For a contract subject to the cited provision, the Administrator may require retroactive application [@CL-CMP-6755]. The contracting officer must equitably adjust the price for the changed cost of performance [@CL-CMP-6916].
+Where the contracting officer can identify all the possible places of performance, the officer obtains a determination for each locality where services may be performed, and the officer obtains more if, before the closing date for submission of offers, the officer learns of a potential offeror in a previously unidentified place [@CL-CMP-6748; @CL-CMP-6749]. Where an incumbent agreement varies substantially from prevailing rates or looks not to have been bargained at arm's length, or a determination not predicated on a collective bargaining agreement evidently does not conform with prevailing wages or has significant errors or omissions, the contracting officer contacts the agency labor advisor [@CL-CMP-6750; @CL-CMP-6751; @CL-CMP-6753]. Where the Department of Labor finds the error, its notification starts the contracting officer's deadline for including the clause and the determination [@CL-CMP-6754]. For a contract subject to the cited provision, the Administrator may require retroactive application [@CL-CMP-6755]. The contracting officer must equitably adjust the price for the changed cost of performance [@CL-CMP-6916].
 
 ## Worked example
 
@@ -50,7 +50,7 @@ On a third contract the Department of Labor determines after award that the cont
 
 ## Never confuse
 
-A determination that looks wrong is not the same as one that the Department of Labor finds missing or wrongly treated as inapplicable. For the first, the contracting officer contacts the agency labor advisor [@CL-CMP-6753]. For the second, the contracting officer must include the clause and the determination within 30 days of the Department's notification [@CL-CMP-6754]. A place of performance that is still unknown is handled on another card, see [SCLS place of performance unknown](../regulatory-framework/cmp-scls-place-of-performance-unknown.md), and the procedures that the labor advisor may consider are described in [SCLS remanufacturing, unidentified places and hearings](../regulatory-framework/cmp-scls-remanufacturing-unidentified-places-and-hearings.md).
+A determination not predicated on a collective bargaining agreement that is evidently nonconforming or has significant errors or omissions is not the same as one that the Department of Labor finds missing or wrongly treated as inapplicable. For the first, the contracting officer contacts the agency labor advisor [@CL-CMP-6753]. For the second, the contracting officer must include the clause and the determination within 30 days of the Department's notification [@CL-CMP-6754]. A place of performance that is still unknown is handled on another card, see [SCLS place of performance unknown](../regulatory-framework/cmp-scls-place-of-performance-unknown.md), and the procedures that the labor advisor may consider are described in [SCLS remanufacturing, unidentified places and hearings](../regulatory-framework/cmp-scls-remanufacturing-unidentified-places-and-hearings.md).
 
 ## Company calibration
 
@@ -60,5 +60,6 @@ Confirm which solicitations identify every possible place of performance and who
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Tied the closing-date condition to added places only and restated the all-places condition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for service contract wage determinations where places of performance are identified.

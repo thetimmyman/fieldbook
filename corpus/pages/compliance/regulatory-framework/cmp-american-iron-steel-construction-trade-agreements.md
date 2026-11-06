@@ -73,7 +73,7 @@ A contractor wants to buy gravel, an unmanufactured construction material, from 
 
 The restrictions of section 1605 of the Recovery Act do not apply to Recovery Act designated country manufactured construction material, and the restrictions of the Buy American statute do not apply to designated country unmanufactured construction material [@CL-CMP-5407; @CL-CMP-5408]; the Contracting Officer may add other construction material to the paragraph (b)(3) list if the Government makes one of the determinations in paragraph (b)(4) [@CL-CMP-5507; @CL-CMP-6098; @CL-CMP-6116]. The cost of domestic unmanufactured construction material is unreasonable when it exceeds the cost of comparable foreign unmanufactured construction material, other than designated country construction material, by more than 20 percent [@CL-CMP-5406].
 
-The codified FAR 52.225-23 carries the required-use clause and its exception tests, while the RFO text prints that section number as reserved [@CL-CMP-5404; @CL-CMP-0374].
+The codified FAR 52.225-23 carries the required-use clause and its exceptions, while the RFO text prints that section number as reserved [@CL-CMP-5404; @CL-CMP-0374].
 
 The companion notice provision is covered in [Notice of required use of American iron, steel and manufactured goods in construction under trade agreements](cmp-american-iron-steel-construction-trade-agreements-notice.md), and the related clause and provision on American iron, steel and manufactured goods in construction are covered in [Required use of American iron, steel and manufactured goods, and its notice provision](../../supply-chain/supplier-identity/sup-american-iron-steel-manufactured-goods.md).
 
@@ -85,6 +85,7 @@ Which contracts carry the clause and which excepted materials each contract list
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: tightened definitions and Alternate I exception; removed uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on the companion notice provision.

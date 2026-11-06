@@ -35,7 +35,7 @@ The superseding contract clause provides that the contract supersedes an earlier
 
 ## How it works
 
-The pricing clause names which cost rules apply to a price adjustment, those in effect on the date of the contract [@CL-CLS-1165]. The superseding contract clause moves credits and liability from the earlier contract to this one, in the schedules the clause provides for [@CL-CLS-1167; @CL-CLS-1216; @CL-CLS-1217]. The access clause ties access to reasonable notice or an emergency [@CL-CLS-1168].
+The pricing clause names which cost rules apply to a price adjustment, those in effect on the date of the contract [@CL-CLS-1165]. The superseding contract clause moves credits and liability from the earlier contract to this one, in the lists the clause provides for [@CL-CLS-1167; @CL-CLS-1216; @CL-CLS-1217]. The access clause ties access to reasonable notice or an emergency [@CL-CLS-1168].
 
 ## Worked example
 
@@ -54,6 +54,7 @@ Which executed contracts and modifications carry these clauses, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: modification pricing, superseding contract and access: uncited absence and contrast statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing of contract modifications, the superseding contract clause and Government access.

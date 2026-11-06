@@ -51,7 +51,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A revised wage determination raises a crew's wages by 40,000 and fringe benefits by 6,000 for the option year, with 3,000 of added payroll taxes and insurance [@CL-CMP-4947; @CL-CMP-5139; @CL-CMP-4948]. The contractor gives notice within the 30-day period [@CL-CMP-4950], states the amount, and sends the payroll records [@CL-CMP-4951]. The claim is 40,000 plus 6,000 plus 3,000, which is 49,000 [@CL-CMP-4948], with nothing for overhead, general and administrative cost or profit [@CL-CMP-4949].
+A revised wage determination raises a crew's wages by 40,000 and fringe benefits by 6,000 for the option year, with 3,000 of added social security and unemployment taxes and workers' compensation insurance [@CL-CMP-4947; @CL-CMP-5139; @CL-CMP-4948]. The contractor gives notice within the 30-day period [@CL-CMP-4950], states the amount, and sends the payroll records [@CL-CMP-4951]. The claim is 40,000 plus 6,000 plus 3,000, which is 49,000 [@CL-CMP-4948], with nothing for overhead, general and administrative cost or profit [@CL-CMP-4949].
 
 For an indefinite-quantity item priced at 5.00 per unit, the new wage determination requires 20.00 per hour for one craft that was paid 19.00, and 15.50 for another that was paid 15.00 [@CL-CMP-5148]. The crafts worked 400 and 300 hours [@CL-CMP-5149], and 2,500 units were ordered in the preceding period [@CL-CMP-5150]. The first craft adds 1.00 times 400 divided by 2,500, which is 0.16, and the second adds 0.50 times 300 divided by 2,500, which is 0.06 [@CL-CMP-5149; @CL-CMP-5150]. The new unit price is 5.00 plus 0.22, which is 5.22 [@CL-CMP-5150], and 3,000 estimated units extend to 15,660 [@CL-CMP-5151].
 
@@ -67,6 +67,7 @@ Who owns the response when the Contracting Officer calls for payroll records sup
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: worked example and contrast wording tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

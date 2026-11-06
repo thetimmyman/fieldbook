@@ -45,7 +45,7 @@ A new Cost Accounting Standard becomes applicable to a business unit, and the co
 
 ## Never confuse
 
-A required change is one that is required to comply with a CAS, or a modification or interpretation thereof, that subsequently became applicable to one or more contracts or subcontracts [@CL-RTE-0604], or one where the former cost accounting practice was in compliance with applicable CAS and the change is necessary to remain in compliance [@CL-RTE-0705]. The contractor may unilaterally change its disclosed or established cost accounting practices, but the Government shall not pay any increased cost, in the aggregate, as a result of the unilateral change [@CL-RTE-0608]. A required change made to comply with a new or modified standard that the contractor elects to implement before the applicability date of the standard is administered by the CFAO as a unilateral change [@CL-RTE-0607]. See [Unilateral and desirable changes](rte-unilateral-and-desirable-changes.md) and [Disclosure and Consistency of Cost Accounting Practices clause](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md).
+Before an equitable adjustment for a required change, the CFAO determines either that the change is required to comply with a CAS, or a modification or interpretation thereof, that subsequently became applicable to one or more contracts or subcontracts [@CL-RTE-0604], or that the former cost accounting practice was in compliance with applicable CAS and the change is necessary to remain in compliance [@CL-RTE-0705]. The contractor may unilaterally change its disclosed or established cost accounting practices, but the Government shall not pay any increased cost, in the aggregate, as a result of the unilateral change [@CL-RTE-0608]. A required change made to comply with a new or modified standard that the contractor elects to implement before the applicability date of the standard is administered by the CFAO as a unilateral change [@CL-RTE-0607]. See [Unilateral and desirable changes](rte-unilateral-and-desirable-changes.md) and [Disclosure and Consistency of Cost Accounting Practices clause](../../compliance/cas-allowability/cmp-disclosure-consistency-modified-cas.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ How planned practice changes are checked against new or modified standards and s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the second contractor step under the Administration clause, and replaced meta wording and an uncited driver and contrast with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Listed the clause alternatives and restored shall wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the clause list as the quote does.

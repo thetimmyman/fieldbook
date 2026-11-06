@@ -16,7 +16,7 @@ links = ["ctf-limitation-of-funds", "ctf-incremental-funding-policy", "fpa-dod-i
 
 ## Purpose
 
-Shows how the clause at DFARS 252.232-7007, Limitation of Government's Obligation, caps the contractor's performance obligation and the Government's reimbursement obligation at the amount allotted for incrementally funded contract line items, and sets the contractor's written notice requirement and the Contracting Officer's termination duty when additional funds are not allotted [@CL-FPA-0080; @CL-FPA-1241; @CL-FPA-0081; @CL-FPA-0082; @CL-FPA-0083; @CL-FPA-1242; @CL-FPA-0085; @CL-FPA-0086; @CL-FPA-0341; @CL-FPA-0088; @CL-FPA-1243].
+Shows how the clause at DFARS 252.232-7007, Limitation of Government's Obligation, caps the contractor's performance obligation and the Government's reimbursement obligation at the amount allotted for incrementally funded contract line items, and sets the contractor's written notice requirement and the Contracting Officer's termination duty when additional funds are not allotted by the date in the Contractor's notification or an agreed substitute date [@CL-FPA-0080; @CL-FPA-1241; @CL-FPA-0081; @CL-FPA-0082; @CL-FPA-0083; @CL-FPA-1242; @CL-FPA-0085; @CL-FPA-0086; @CL-FPA-0341; @CL-FPA-0088; @CL-FPA-1243].
 
 ## The rule
 
@@ -54,6 +54,7 @@ Which contract line items are incrementally funded, where the allotment schedule
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 252.232-7007(c) subsequent-period notification companions, restored full quote scope, and removed meta wording and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Termination notice timing, equitable-adjustment scope and stop-work wording match the clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the paragraph (a) scope, the schedule-dates lead-in and the termination clause reference.

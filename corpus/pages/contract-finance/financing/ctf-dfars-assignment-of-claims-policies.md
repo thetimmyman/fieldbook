@@ -43,7 +43,7 @@ The no-setoff commitment may be excluded if departments and agencies decide it i
 
 Under FAR 32.803(d), in the event an offeror is significantly indebted to the United States, the contracting officer should consider whether the inclusion of the no-setoff commitment in a particular contract is in the best interests of the United States [@CL-CTF-3890]. In such an event, the contracting officer should consult with the Government officer(s) responsible for collecting the debt(s) [@CL-CTF-3891].
 
-If an assigned contract does not include the commitment, the Government may apply against payments to the assignee any liability of the contractor arising independently of the assigned contract, if the liability existed at the time notice of the assignment was received, even though that liability had not yet matured so as to be due and payable [@CL-CTF-3495; @CL-CTF-3001]. The assignment procedure is on [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md).
+If an assigned contract does not include the commitment, the Government may apply against payments to the assignee any liability of the contractor to the Government arising independently of the assigned contract, if the liability existed at the time notice of the assignment was received, even though that liability had not yet matured so as to be due and payable [@CL-CTF-3495; @CL-CTF-3001]. The assignment procedure is on [Assignment of claims conditions and policies](../cash/ctf-assignment-of-claims.md).
 
 ## Worked example
 
@@ -64,5 +64,6 @@ Whether any contract in the portfolio is a personal services contract, whether e
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: aligned prohibition, exclusion and setoff wording to quotes.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD policies on assignment of claims.

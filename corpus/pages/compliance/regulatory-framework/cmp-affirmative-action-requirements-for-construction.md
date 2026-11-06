@@ -24,7 +24,7 @@ Shows how the construction affirmative action clause turns solicitation goals in
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5229] |
 | Codified citation | FAR 52.222-27 [@CL-CMP-5229] |
-| RFO citation | No RFO equivalent: the RFO text lists RFO FAR 52.222-27 as reserved [@CL-CMP-0372] |
+| RFO citation | Reserved in the RFO text: the RFO text lists RFO FAR 52.222-27 as reserved [@CL-CMP-0372] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5229] |
 | Applies to | Construction contracts that carry the clause, and construction-trade subcontracts over $10,000 at any tier [@CL-CMP-5229] |
@@ -92,6 +92,7 @@ Which construction contracts and subcontracts carry this clause, and who owns th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on segregated facilities and construction goals.

@@ -29,7 +29,7 @@ Details the example audit objectives and internal control criteria the manual gi
 | Text status | Not established. |
 | Applies to | Incurred cost audits encompassing major cost areas and cost elements charged to Government contracts [@CL-CMP-1717] |
 
-Incurred cost audits encompass several major cost areas and cost elements, and include assessing and evaluating whether costs charged to Government contracts are necessary, comply with contract terms, and are allowable, allocable, and reasonable and consistent with FAR 31 Contract Cost Principles and Procedures, GAAP, and CAS [@CL-CMP-1717; @CL-CMP-1853]. Additional audit objectives, for example, may include verification of the criteria for labor costs, materials, indirect costs, other direct costs, and subcontract costs [@CL-CMP-1854; @CL-CMP-1718; @CL-CMP-1719; @CL-CMP-1720; @CL-CMP-1721; @CL-CMP-1722; @CL-CMP-1850].
+Incurred cost audits encompass several major cost areas and cost elements, and include assessing and evaluating whether costs charged to Government contracts are necessary, comply with contract terms, and are allowable, allocable, and reasonable and consistent with FAR 31 Contract Cost Principles and Procedures, GAAP, and CAS [@CL-CMP-1717; @CL-CMP-1853]. Additional audit objectives, for example, may include verification concerning labor costs, materials, indirect costs, other direct costs, and subcontract costs [@CL-CMP-1854; @CL-CMP-1718; @CL-CMP-1719; @CL-CMP-1720; @CL-CMP-1721; @CL-CMP-1722; @CL-CMP-1850].
 
 ## How it works
 
@@ -52,5 +52,6 @@ Which control findings, corrective actions and external requests are open, and w
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added assessing and evaluating wording, cited the additional-objectives lead-in on each cost element, and included the FAR citations on excessive pass-through costs.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for audit objectives for major cost elements.

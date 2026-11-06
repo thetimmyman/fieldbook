@@ -47,7 +47,7 @@ Synthetic example. The numbers are made up.
 
 An offeror bids on a DoD contract assigned code 541611 [@CL-CMP-4093]. Its affiliate holds a consulting subcontract with a listed foreign entity [@CL-CMP-4094]. The offeror also maintains a mitigation plan [@CL-CMP-4094].
 
-Answer: the offeror cannot certify that none of its affiliates holds such a contract, but it does maintain a plan, so the listed conditions are not both met [@CL-CMP-4094]. It answers in the affirmative that its affiliates hold such a contract and that it maintains a plan [@CL-CMP-4130], so it submits the plan to the Contracting Officer for approval [@CL-CMP-4096]. Had it kept no plan, both conditions would be met and DoD could not award the contract [@CL-CMP-4093; @CL-CMP-4094].
+Answer: the offeror cannot certify that none of its affiliates holds such a contract, but it does maintain a plan, so the listed conditions are not both met [@CL-CMP-4094]. It answers in the affirmative that its affiliates hold such a contract and that it maintains a plan [@CL-CMP-4130], so, once it has answered in the affirmative in paragraphs (c)(1) and (2), it submits the plan to the Contracting Officer for approval [@CL-CMP-4096]. Had it kept no plan, both conditions would be met and DoD could not award the contract [@CL-CMP-4093; @CL-CMP-4094].
 
 ## Never confuse
 
@@ -61,6 +61,7 @@ Which subsidiaries and affiliates hold consulting contracts with covered foreign
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: conditions, worked example and contrast wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for conflicts of interest in consulting services.

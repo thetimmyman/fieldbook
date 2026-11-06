@@ -26,7 +26,7 @@ Shows what payroll records the contractor submits, what the contracting officer 
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-3037] |
-| Applies to | Contractors and subcontractors that submit weekly payrolls for a contract, and the contracting agency that examines them and conducts investigations [@CL-CMP-3037; @CL-CMP-3038; @CL-CMP-3040] |
+| Applies to | Contractors that submit, or cause to be submitted, weekly payrolls for a contract for themselves and each subcontractor, the contracting officer who examines them, and the contracting agency that conducts investigations [@CL-CMP-3037; @CL-CMP-3038; @CL-CMP-3040] |
 
 The contractor must submit or cause to be submitted, within 7 calendar days after the regular payment date of the payroll week covered, for itself and each subcontractor, copies of weekly payrolls applicable to the contract and weekly payroll statements of compliance [@CL-CMP-3037]. The contracting officer shall examine the payrolls and payroll statements to ensure compliance with the contract and any statutory or regulatory requirements, and particular attention should be given to the correctness of classifications and rates [@CL-CMP-3038]. The remaining listed items of particular attention are fringe benefits payments, hours worked, deductions, and disproportionate employment ratios of laborers, apprentices, or trainees to journeymen [@CL-CMP-3021; @CL-CMP-3038]. The contracting agency shall retain payrolls and statements of compliance for 3 years after completion of the contract and make them available when requested by the Department of Labor during that period [@CL-CMP-3039].
 
@@ -34,13 +34,13 @@ The contracting agency is to conduct an investigation when a compliance check in
 
 ## How it works
 
-The payroll flow is submit, examine, keep. The contractor submits weekly payrolls and statements on a fixed schedule [@CL-CMP-3037]. The contracting officer examines them against the listed points [@CL-CMP-3038; @CL-CMP-3021], and the agency retains them for the stated period [@CL-CMP-3039]. An investigation follows a compliance check that points to substantial or willful violations or to violations not corrected [@CL-CMP-3040]. The contractor receives a copy of the preliminary findings and may rebut them in writing within the stated time [@CL-CMP-3041; @CL-CMP-3121], and a detailed enforcement report goes to the Administrator when a listed condition such as the underpayment trigger is met [@CL-CMP-3042].
+The payroll flow is submit, examine, keep. The contractor submits weekly payrolls and statements on a fixed schedule [@CL-CMP-3037]. The contracting officer examines them for compliance, with particular attention to the listed points [@CL-CMP-3038; @CL-CMP-3021], and the agency retains them for the stated period [@CL-CMP-3039]. An investigation follows a compliance check that points to substantial or willful violations or to violations not corrected [@CL-CMP-3040]. The contractor receives a copy of the preliminary findings and may rebut them in writing within the stated time [@CL-CMP-3041; @CL-CMP-3121], and a detailed enforcement report goes to the Administrator when a listed condition such as the underpayment trigger is met [@CL-CMP-3042].
 
 ## Worked example
 
 Synthetic example. The numbers are made up.
 
-A prime contractor pays its weekly payroll on a Friday. Copies of the payroll and the statement of compliance are due within 7 calendar days of that payment date, for the prime and for each subcontractor [@CL-CMP-3037]. The agency keeps them for 3 years after the contract is complete [@CL-CMP-3039]. A compliance check indicates that violations have not been corrected, so the agency conducts an investigation [@CL-CMP-3040], which finds that a subcontractor underpaid 1,500. The contractor receives preliminary findings and has 60 days to rebut them [@CL-CMP-3041]. A detailed enforcement report goes to the Administrator within 60 days after the investigation is complete, because the underpayment is above 1,000 [@CL-CMP-3042].
+A prime contractor pays its weekly payroll on a Friday. Copies of the payroll and the statement of compliance are due within 7 calendar days after the regular payment date of the payroll week covered, which for the prime is that Friday, for the prime and for each subcontractor [@CL-CMP-3037]. The agency keeps them for 3 years after the contract is complete [@CL-CMP-3039]. A compliance check indicates that violations have not been corrected, so the agency conducts an investigation [@CL-CMP-3040], which finds that a subcontractor underpaid 1,500. The contractor receives preliminary findings and has 60 days to rebut them [@CL-CMP-3041]. A detailed enforcement report goes to the Administrator within 60 days after the investigation is complete, because the underpayment is above 1,000 [@CL-CMP-3042].
 
 ## Never confuse
 
@@ -56,6 +56,7 @@ Who receives investigation findings and rebuttal deadlines, and who owns the res
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: example and contrast wording tied to cited text; absence note removed.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on payrolls, basic records and withholding clauses.

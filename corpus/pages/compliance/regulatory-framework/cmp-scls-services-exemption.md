@@ -27,7 +27,7 @@ Shows the conditions an offeror certifies to exempt certain services from Servic
 | RFO citation | RFO FAR 52.222-52 [@CL-CMP-5316; @CL-CMP-5317; @CL-CMP-9802; @CL-CMP-9803; @CL-CMP-9804; @CL-CMP-5318; @CL-CMP-5319; @CL-CMP-5320; @CL-CMP-5321; @CL-CMP-5322; @CL-CMP-9805; @CL-CMP-9806; @CL-CMP-9807; @CL-CMP-5323]; RFO FAR 52.222-53 [@CL-CMP-5324; @CL-CMP-5325; @CL-CMP-5326; @CL-CMP-5327; @CL-CMP-5328; @CL-CMP-5329; @CL-CMP-5330; @CL-CMP-5331] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4840] |
-| Applies to | Solicitations and contracts for services that meet the certified exemption conditions [@CL-CMP-4840; @CL-CMP-4988] |
+| Applies to | Offerors, who check a certification that they do or do not certify to the listed exemption conditions [@CL-CMP-4840; @CL-CMP-4988] |
 
 The offeror checks a certification that it does or does not certify to the listed conditions [@CL-CMP-4988]. The first condition is that the services are offered and sold regularly to non-Governmental customers and are provided by the offeror, or by the subcontractor in the case of an exempt subcontract, to the general public in substantial quantities in the course of normal business operations [@CL-CMP-4840]. The second is that the services are furnished at prices that are, or are based on, established catalog or market prices [@CL-CMP-4841]. The third is that each service employee who will perform the services spends only a small portion of his or her time, measured as a monthly average of less than 20 percent of the available hours on an annualized basis [@CL-CMP-4842]. If the contract period is less than a month, the limit is less than 20 percent of the available hours during the contract period [@CL-CMP-4989]. The fourth is that the offeror uses the same compensation plan for all service employees performing work under the contract as it uses for these employees and for equivalent employees servicing commercial customers [@CL-CMP-4843].
 
@@ -65,6 +65,7 @@ How the government share of each service employee's hours is measured and who ce
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the services exemption certification and requirements clause.

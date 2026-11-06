@@ -47,7 +47,7 @@ The evaluation duty also falls on the contracting officer and arises in awarding
 
 Synthetic example. The numbers are made up.
 
-A solicitation asks for a base quantity of 1,000 units and an option for 400 more. Before issuing it, the agency determines that it is likely to exercise the option. In awarding the basic contract, the contracting officer evaluates the offers for the 400-unit option as well as for the base quantity [@CL-MKT-1769; @CL-MKT-1718].
+A solicitation asks for a base quantity of 1,000 units and an option for 400 more. Before issuing it, the agency determines that it is likely to exercise the option. In awarding the basic contract, the contracting officer evaluates the offers for the 400-unit option quantity [@CL-MKT-1769; @CL-MKT-1718].
 
 The contracting officer writes a justification covering the 400-unit option quantity, the 30-day notice period for exercise and any limit on option price, and places it in the contract file [@CL-MKT-1716]. If a part 6 justification and approval is needed, it states both the 1,000-unit requirement and the 400-unit increase [@CL-MKT-1717].
 
@@ -64,6 +64,7 @@ Which solicitation files hold the written option justification and the evaluatio
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for multiyear contracting objectives, option documentation and option evaluation.

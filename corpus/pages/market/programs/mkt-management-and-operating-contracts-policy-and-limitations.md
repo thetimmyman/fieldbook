@@ -56,7 +56,7 @@ Synthetic example. The numbers are made up.
 
 An agency wants a contractor to operate a Government-owned test range for a long-term mission, because private firms will not use their own facilities for the work. The work calls for a close relationship with the contractor in safety and security, is wholly separate from the contractor's other business, and is closely related to the agency's mission. The agency head, who has the requisite statutory authority, determines in writing to authorize the contracting officer to enter into the contract. The authorization is not delegated to a deputy, and the contract shows it on its face [@CL-MKT-1735; @CL-MKT-1736].
 
-The arrangement fits the identification criteria: Government-owned facilities are needed, the work calls for a close relationship in safety and security, it is separate from the contractor's other business, and it is long-term work closely related to the agency's mission [@CL-MKT-1745; @CL-MKT-1746; @CL-MKT-1783; @CL-MKT-1784].
+The arrangement fits the first three criteria and the mission and long-term parts of the fourth, but the example shows no need for continuity or transition protection: Government-owned facilities are needed, the work calls for a close relationship in safety and security, it is separate from the contractor's other business, and it is long-term work closely related to the agency's mission [@CL-MKT-1745; @CL-MKT-1746; @CL-MKT-1783; @CL-MKT-1784].
 
 The contract cannot give the contractor direction, supervision or control of Government personnel, other than supervision incidental to training, and cannot make the contractor the one who determines basic Government policies [@CL-MKT-1740; @CL-MKT-1741].
 
@@ -71,6 +71,7 @@ Which contracts in the finance remit are authorized management and operating con
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted meta-commentary and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the DFARS statement that FAR subpart 17.6 does not apply to DoD.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for management and operating contract policy, limitations and identification.

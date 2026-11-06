@@ -45,7 +45,7 @@ The offeror's answer matters later. Under the separate cloud computing services 
 
 Synthetic example. The numbers are made up.
 
-An offeror expects to run part of the work on a hosted platform service and keep data in pooled storage, and 3 subcontractors will also use cloud services. The offeror checks the blank saying that it does anticipate cloud computing services [@CL-CMP-9076]. The definition covers platform-as-a-service and a shared pool of configurable resources [@CL-CMP-9073; @CL-CMP-9074]. The blank reaches subcontracts as well as the prime contract [@CL-CMP-9076].
+An offeror expects to run part of the work on a hosted platform service and keep data in pooled storage, and 3 subcontractors will also use cloud services. The offeror checks the blank saying that it does anticipate cloud computing services [@CL-CMP-9076]. The definition covers platform-as-a-service and a model for on-demand network access to a shared pool of configurable resources [@CL-CMP-9073; @CL-CMP-9074]. The blank reaches subcontracts as well as the prime contract [@CL-CMP-9076].
 
 A second offeror expects to do all the work on its own premises and checks the blank saying that it does not anticipate cloud computing services [@CL-CMP-9274]. If it later proposes after award to use cloud computing services in performance of the contract, the separate clause requires it to obtain approval from the Contracting Officer before using them, where that clause's offer condition is met [@CL-CMP-3990; @CL-CMP-3991].
 
@@ -64,6 +64,7 @@ Which solicitations this company bids, and whether its technical solution or its
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed absence and inference wording; replaced contrasts with cited statements.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated both conditions of the cloud approval step.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD representation of use of cloud computing.

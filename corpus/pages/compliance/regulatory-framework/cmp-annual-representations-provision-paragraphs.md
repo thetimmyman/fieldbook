@@ -46,7 +46,7 @@ An offeror answers a solicitation that includes the registration provision. Its 
 
 ## Never confuse
 
-Where the registration provision is included, the SAM paragraph applies [@CL-CMP-3532], and where it is not included an offeror with an active registration in SAM may choose that paragraph instead of the individual representations and certifications in the solicitation [@CL-CMP-3533; @CL-CMP-8538]. For what an offeror must have registered, see [SAM registration and maintenance clauses: keeping the record current](cmp-sam-registration-and-maintenance-clauses.md) and [SAM registration and the unique entity identifier in awards](../../market/feeds/mkt-sam-registration-and-awards.md). For where the provision is inserted and how long representations stay effective, see [Annual representations and certifications in SAM](../trade-cyber/cmp-annual-representations-and-certifications-in-sam.md).
+Where the registration provision is included, the SAM paragraph applies [@CL-CMP-3532], and where it is not included an offeror with an active registration in SAM may choose that paragraph instead of the corresponding individual representations and certifications in the solicitation [@CL-CMP-3533; @CL-CMP-8538]. For what an offeror must have registered, see [SAM registration and maintenance clauses: keeping the record current](cmp-sam-registration-and-maintenance-clauses.md) and [SAM registration and the unique entity identifier in awards](../../market/feeds/mkt-sam-registration-and-awards.md). For where the provision is inserted and how long representations stay effective, see [Annual representations and certifications in SAM](../trade-cyber/cmp-annual-representations-and-certifications-in-sam.md).
 
 The codified FAR 52.204-8 carries the annual provision and its SAM paragraph, while the RFO text prints that section number as reserved [@CL-CMP-3532; @CL-CMP-0375].
 
@@ -58,6 +58,7 @@ Which representations and certifications in SAM the company relies on for each s
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: added the review step and applicability to the offer verification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the SAM paragraph option sentences so the option keeps its alternative to the individual representations and certifications.

@@ -59,7 +59,7 @@ In the basic clause the Contracting Officer's examination right follows certifie
 
 The right to examine and audit reaches the Contractor's records related to one of four alternatives: the proposal for the modification, the discussions conducted on the proposal, the pricing of the modification, or the performance of the modification [@CL-CTF-2952].
 
-The interview right differs by version. In the basic clause, in the case of pricing any modification, it belongs to the Comptroller General or an authorized representative and runs to any current employee [@CL-CTF-2953]. Under Alternate I it belongs to the Comptroller General, an appropriate Inspector General or an authorized representative of either and runs to any officer or employee [@CL-CTF-2975; @CL-CTF-2977]. In the codified text the interview right differs by version [@CL-CTF-2953; @CL-CTF-2977], but the RFO section prints only the Comptroller General interview right for current employees and no Alternate I [@CL-CTF-0010; @CL-CTF-0016].
+The interview right differs by version. In the basic clause, in the case of pricing any modification, it belongs to the Comptroller General or an authorized representative and runs to any current employee [@CL-CTF-2953]. Under Alternate I it belongs to the Comptroller General, an appropriate Inspector General or an authorized representative of either and runs to any officer or employee regarding such transactions [@CL-CTF-2975; @CL-CTF-2977]. In the codified text the interview right differs by version [@CL-CTF-2953; @CL-CTF-2977], but the RFO section prints only the Comptroller General interview right for current employees and no Alternate I [@CL-CTF-0010; @CL-CTF-0016].
 
 ## Company calibration
 
@@ -68,6 +68,7 @@ Which modifications required certified data, where those files sit, who can prod
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded right, alternatives and interview condition; replaced uncited contract-specific remark with prescriptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the Inspector General Act appointment in Alternate I.

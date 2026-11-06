@@ -57,8 +57,9 @@ What acquisition mandate, decision criteria and diligence scope the company has 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
-- COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0119 on fiscal-year audit exceptions under § 210.3-05(a)(1) and combined the Form 8-K omission sentence.
+- COMPATIBLE_EXTENSION, 2026-10-31: Added companion CL-MNA-0119 on fiscal-year audit exceptions under § 210.3-05(b)(1) and combined the Form 8-K omission sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: independence alternative, offering-case, 8-K omission and band wording restated.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the substitution claims before the Article 8 scope clause.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated that the Article 8 substitutions apply to smaller reporting companies.
