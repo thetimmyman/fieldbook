@@ -274,18 +274,17 @@ mod source {
         let site = render_site(&view);
         let excerpt = format_not_available("Excerpt", "this version is extracted");
         let locator = format_not_available("Locator view", "this version is extracted");
-        for vid in ["S-0002-v2"] {
-            let html = page_text(&site, vid);
-            assert!(html.contains("<section class=\"unavailable\""), "{vid}");
-            assert!(
-                html.contains(&excerpt),
-                "{vid} must say the excerpt is not available"
-            );
-            assert!(
-                html.contains(&locator),
-                "{vid} must say the locator view is not available"
-            );
-        }
+        let vid = "S-0002-v2";
+        let html = page_text(&site, vid);
+        assert!(html.contains("<section class=\"unavailable\""), "{vid}");
+        assert!(
+            html.contains(&excerpt),
+            "{vid} must say the excerpt is not available"
+        );
+        assert!(
+            html.contains(&locator),
+            "{vid} must say the locator view is not available"
+        );
         // A metadata-only version stores no bytes, so nothing can be extracted: its banner
         // stands in for the excerpt and the locator view (HANDOFF sections 5 and 11).
         for vid in ["S-0001-v1", "S-0002-v1", "S-0003-v1"] {
