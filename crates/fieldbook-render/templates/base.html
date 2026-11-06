@@ -10,24 +10,24 @@
 <script src="{{ root_prefix }}assets/app.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#fb:main">Skip to content</a>
 <div class="app" data-route="{{ output_path }}" data-section="{{ current_section_key }}" data-item="{{ current_item_id }}">
 {% include "frame/sidebar.html" %}
 <div class="shell">
 {% include "frame/topbar.html" %}
 {% include "frame/crumbs.html" %}
-<div class="banners" id="banners">
+<div class="banners" id="fb:banners">
 {% if let Some(banner) = &store_banner %}
 <div class="banner warn" role="region" aria-label="Handling notice">
   <div class="body"><b>{{ banner.lead }}</b> {{ banner.body }}</div>
 </div>
 {% endif %}
 </div>
-<main id="main" tabindex="-1">{{ main_html|safe }}</main>
+<main id="fb:main" tabindex="-1">{{ main_html|safe }}</main>
 </div>
 </div>
-<div class="scrim" id="scrim" hidden></div>
-<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-<div class="sr-only" id="sr" aria-live="polite"></div>
+<div class="scrim" id="fb:scrim" hidden></div>
+<div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
+<div class="sr-only" id="fb:sr" aria-live="polite"></div>
 </body>
 </html>

@@ -6,6 +6,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 - Added: the raw edition, two paired archives with no site, produced by `cargo xtask edition-raw` and checked by `raw-edition-check`, with its own tag workflow.
 - Added: the search command.
+- Added: the five register pages and the id list.
 - Added: the new command for pages, claims, questions, conflicts and terms.
 - Added: add accepts a folder and prints a per-file report.
 - Added: briefs, checklists with their timeline, and the other page types.

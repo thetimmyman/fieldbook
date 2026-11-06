@@ -437,7 +437,7 @@ mod frame {
             nav: &navigation,
         });
         assert!(
-            two_html.contains("<nav class=\"crumbs\" id=\"crumbs\" aria-label=\"Breadcrumb\">"),
+            two_html.contains("<nav class=\"crumbs\" id=\"fb:crumbs\" aria-label=\"Breadcrumb\">"),
             "2 crumbs must render CrumbsRow"
         );
         assert!(two_html.contains("<a href=\"../index.html\">Today</a>"));

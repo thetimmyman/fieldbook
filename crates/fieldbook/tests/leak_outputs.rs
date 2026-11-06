@@ -514,6 +514,7 @@ fn run_edition_surface() {
         b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
             .to_vec(),
     );
+    support::add_canary_register_rows(&mut mixed_tree);
     let (mixed_model, _) = load(&Host::new(mixed_tree, world.today()), &Options::new(false));
     let mixed_view = LabelledView::new(&mixed_model, &sel_token, &ReadableStores::corpus());
     let nav_mixed = fieldbook_render::nav::build(
@@ -549,6 +550,56 @@ fn run_edition_surface() {
         "permitted inter-page PageLink must reach edition output"
     );
 
+    // Verify all 5 register pages and ids.html are delivered with permitted rows, IDs, and counts.
+    let claims_disk = std::fs::read_to_string(plan.edition_dir.join("claims.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let sources_disk = std::fs::read_to_string(plan.edition_dir.join("sources.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let questions_disk = std::fs::read_to_string(plan.edition_dir.join("questions.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let conflicts_disk = std::fs::read_to_string(plan.edition_dir.join("conflicts.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let glossary_disk = std::fs::read_to_string(plan.edition_dir.join("glossary.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let ids_disk = std::fs::read_to_string(plan.edition_dir.join("ids.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
+
+    assert!(
+        claims_disk.contains("<tr id=\"CL-CMP-0001\"")
+            && claims_disk.contains("<span class=\"chip mono\">5 rows</span>"),
+        "permitted claim rows and count must reach claims.html"
+    );
+    assert!(
+        sources_disk.contains("<tr id=\"S-0002-v2\"")
+            && sources_disk.contains("<span class=\"chip mono\">4 rows</span>"),
+        "permitted source rows and count must reach sources.html"
+    );
+    assert!(
+        questions_disk.contains("<tr id=\"Q-001\"")
+            && questions_disk.contains("<span class=\"chip mono\">2 rows</span>"),
+        "permitted question rows and count must reach questions.html"
+    );
+    assert!(
+        conflicts_disk.contains("<tr id=\"XC-01\"")
+            && conflicts_disk.contains("<span class=\"chip mono\">1 row</span>"),
+        "permitted conflict rows and count must reach conflicts.html"
+    );
+    assert!(
+        glossary_disk.contains("<tr id=\"system_review\"")
+            && glossary_disk.contains("<span class=\"chip mono\">4 rows</span>"),
+        "permitted glossary rows and count must reach glossary.html"
+    );
+    assert!(
+        ids_disk.contains("data-id=\"cmp-system-review\"")
+            && ids_disk.contains("data-id=\"S-0002\"")
+            && ids_disk.contains("data-id=\"S-0002-v2\"")
+            && ids_disk.contains("data-id=\"CL-CMP-0001\"")
+            && ids_disk.contains("data-id=\"Q-001\"")
+            && ids_disk.contains("data-id=\"XC-01\"")
+            && ids_disk.contains("data-id=\"system_review\""),
+        "permitted IDs across all 7 groups must reach ids.html"
+    );
+
     let mixed_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
     let mixed_plan = plan_edition(
         &mixed_view,
@@ -568,16 +619,30 @@ fn run_edition_surface() {
             .contains_key("p/est-forbidden-canary.html"),
         "forbidden page must be absent from mixed edition plan"
     );
+    assert_eq!(
+        mixed_plan.site.files(),
+        plan.site.files(),
+        "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs"
+    );
     for (rel, bytes) in mixed_plan.site.files() {
         let s = String::from_utf8_lossy(bytes);
-        assert!(
-            !s.contains("Forbidden pricing canary"),
-            "forbidden page title must not appear in {rel}"
-        );
-        assert!(
-            !s.contains("est-forbidden-canary.html"),
-            "forbidden page link must not appear in {rel}"
-        );
+        for forbidden_needle in [
+            "Forbidden pricing canary",
+            "est-forbidden-canary.html",
+            "S-0099",
+            "Forbidden source canary",
+            "CL-CMP-0099",
+            "Forbidden claim canary statement.",
+            "XC-99",
+            "Forbidden conflict canary topic",
+            "forbidden_term_canary",
+            "Forbidden term canary",
+        ] {
+            assert!(
+                !s.contains(forbidden_needle),
+                "forbidden canary `{forbidden_needle}` must not appear in {rel}"
+            );
+        }
     }
 
     for (rel, expected_bytes) in plan.site.files() {
