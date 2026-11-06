@@ -157,7 +157,7 @@
       "query": "stem",
       "expect": ["pf-a-exact", "pf-c-64", "pf-b-wide"],
       "scores": [2652, 1326, 267],
-      "note": "The index holds stem and stem01 to stem65. The term equal to the token is not a prefix term and uses no slot, so the first 64 prefix terms are stem01 to stem64: pf-c-64 is reached through its 64th term at half impact and pf-d-65 through its 65th is not reached"
+      "note": "The index holds stem and stem01 to stem65; the term equal to the token is not a prefix term and uses no slot, so the first 64 prefix terms are stem01 to stem64: pf-c-64 is reached through its 64th term at half impact and pf-d-65 through its 65th is not reached"
     },
     {
       "id": "rk-33",

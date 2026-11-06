@@ -273,6 +273,8 @@ mod tests {
         assert_eq!(impact(0.0016, 1.0), 2);
         assert_eq!(impact(0.0024, 1.0), 2);
         assert_eq!(impact(0.0026, 1.0), 3);
+        // 2.49 rounds down, 2.5 rounds up.
+        assert_eq!(impact(0.00249, 1.0), 2);
         assert_eq!(impact(1.0, 1.0), 1000);
     }
 }

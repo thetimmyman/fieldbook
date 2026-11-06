@@ -1589,6 +1589,10 @@ mod tests {
         assert_eq!(utf16_cmp("\u{e000}", "\u{10000}"), Greater);
         assert_eq!(natural_id_cmp("\u{e000}", "\u{10000}"), Greater);
         assert_eq!(natural_id_cmp("id1", "id1"), Equal);
+        // Both sides are folded: a compatibility hyphen equals `-` on either side.
+        assert_eq!(natural_id_cmp("a-14", "a\u{2011}2"), Greater);
+        assert_eq!(natural_id_cmp("a\u{2011}2", "a-14"), Less);
+        assert_eq!(natural_id_cmp("a\u{2011}14", "a-2"), Greater);
 
         let mut ids = [
             "S-0042-v10",
@@ -1796,7 +1800,15 @@ mod tests {
                 "Synthetic withholding exposure depends on timely review sign-off. Synthetic reviews follow the 30-day cycle until confirmed."
             )
         );
+        assert_eq!(q1.fields.id, words("Q-001"));
         assert!(q1.fields.claim.is_empty() && q1.fields.headings.is_empty());
+
+        // The answer is part of the body.
+        let mut answered = questions[0].clone();
+        answered.answer = Some("Finance approves it.".to_owned());
+        let answered = Unit::from_question_row(&answered, &[]);
+        assert!(answered.fields.body.contains(&"finance".to_owned()));
+        assert!(answered.fields.body.contains(&"approves".to_owned()));
 
         // No `why_it_matters` gives an empty snippet.
         assert_eq!(
@@ -1845,7 +1857,9 @@ mod tests {
         let resolved = Unit::from_conflict_row(xc, &[]);
         assert_eq!(resolved.display.snippet, "Use the 30-day cycle.");
         assert!(resolved.fields.body.contains(&"controls".to_owned()));
-        assert!(resolved.fields.body.contains(&"cycle".to_owned()));
+        // Only the resolution holds `use`.
+        assert!(resolved.fields.body.contains(&"use".to_owned()));
+        assert_eq!(resolved.fields.id, words("XC-01"));
     }
 
     #[test]
@@ -1876,6 +1890,13 @@ mod tests {
         assert_eq!(unit.fields.title, words("billing withhold"));
         // Aliases are the headings field; the definition and boundary rule are the body.
         assert_eq!(unit.fields.headings, words("withholding holdback"));
+        // Several aliases are joined with a space.
+        let mut multi = term.clone();
+        multi.aliases = vec!["withholding holdback".to_owned(), "retainage".to_owned()];
+        assert_eq!(
+            Unit::from_glossary_row(&multi, &[]).fields.headings,
+            words("withholding holdback retainage")
+        );
         assert_eq!(
             unit.fields.body,
             words(

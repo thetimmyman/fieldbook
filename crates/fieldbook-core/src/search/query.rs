@@ -267,6 +267,27 @@ mod tests {
     }
 
     #[test]
+    fn the_exact_class_uses_the_trimmed_query_and_the_folded_key() {
+        // The key holds U+2011, which folds to `-`. Without the exact class nothing scores.
+        let index = Index {
+            docs: vec![
+                DocEntry {
+                    exact_key: "QUOTE\u{2011}A".to_owned(),
+                    ..doc("a-keyed")
+                },
+                doc("plain"),
+            ],
+            terms: vec![],
+            post: vec![],
+        };
+        for raw in ["quote-a", "QUOTE-A", "  quote-a \t", "quote\u{2013}a"] {
+            let found = query(&index, raw, 10);
+            assert_eq!(ids(&found), ["a-keyed"], "{raw:?}");
+            assert!(found.hits[0].exact, "{raw:?}");
+        }
+    }
+
+    #[test]
     fn a_prefix_only_hit_whose_halved_impact_is_zero_is_dropped() {
         // `docs/reference/search.md#query-procedure` says a prefix term scores half its impact by
         // integer division and is silent on an impact of 1, which halves to 0. This pins the
