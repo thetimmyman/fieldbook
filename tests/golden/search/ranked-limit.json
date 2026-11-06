@@ -1,0 +1,295 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "lim-00",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger filler1 filler2 filler3 filler4 filler5 filler6 filler7 filler8 filler9 filler10 filler11 filler12 filler13 filler14 filler15 filler16 filler17 filler18 filler19 filler20 filler21 filler22 filler23 filler24 filler25 filler26 filler27 filler28 filler29 filler30"
+      },
+      "display": {
+        "title": "lim-00",
+        "parent": "",
+        "snippet": "ledger filler1 filler2 filler3 filler4 filler5 filler6 filler7 filler8 filler9 filler10 filler11 filler12 filler13 filler14 filler15 filler16 filler17 filler18 filler19 filler20 filler21 filler22 filler23 filler24 filler25 filler26 filler27 filler28 filler29 filler30",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-01",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-01",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-02",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-02",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-03",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-03",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-04",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-04",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-05",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-05",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-06",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-06",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-07",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-07",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-08",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-08",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-09",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-09",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-10",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-10",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-11",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "ledger"
+      },
+      "display": {
+        "title": "lim-11",
+        "parent": "",
+        "snippet": "ledger",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "lim-12",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "unrelated schedule"
+      },
+      "display": {
+        "title": "lim-12",
+        "parent": "",
+        "snippet": "unrelated schedule",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [],
+  "cases": [
+    {
+      "id": "rk-30",
+      "query": "ledger",
+      "expect": ["lim-01", "lim-02", "lim-03", "lim-04", "lim-05", "lim-06", "lim-07", "lim-08", "lim-09", "lim-10"],
+      "scores": [159, 159, 159, 159, 159, 159, 159, 159, 159, 159],
+      "note": "Twelve units match and ten are listed: the cut keeps the ten best, so lim-00, first in unit order but lowest in score, and lim-11 are left out; the count of 12 is pinned by the query unit test"
+    },
+    {
+      "id": "rk-31",
+      "query": "filler30",
+      "expect": ["lim-00"],
+      "note": "A result list shorter than the limit lists every match and nothing more"
+    }
+  ]
+}

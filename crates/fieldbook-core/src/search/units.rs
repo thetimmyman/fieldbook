@@ -1100,6 +1100,7 @@ mod tests {
     use std::collections::BTreeMap;
 
     use super::*;
+    use crate::ids::PageId;
 
     const SEARCH_MD: &str = include_str!("../../../../docs/reference/search.md");
 
@@ -1468,5 +1469,1025 @@ mod tests {
             sec.fields.body,
             vec!["rule", "paragraph", "more", "code", "var", "text"]
         );
+    }
+
+    // ---- Snippet rule, natural id order, display values and the label ceiling ----
+
+    const FIX_SOURCES: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/registers/sources.csv");
+    const FIX_GLOSSARY: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/registers/glossary.csv");
+    const FIX_CLAIMS: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/registers/claims.csv");
+    const FIX_QUESTIONS: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/registers/questions.csv");
+    const FIX_CONFLICTS: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/registers/conflicts.csv");
+    const FIX_SOURCE_TEXT: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/sources/public/S-0002-v2.txt");
+    const FIX_CORPUS_TOML: &str =
+        include_str!("../../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+    const FIX_PAGE_REVIEW: &str = include_str!(
+        "../../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-system-review.md"
+    );
+    const FIX_PAGE_CLAUSE: &str = include_str!(
+        "../../../../tests/fixtures/corpus-mini/corpus/pages/compliance/business-systems/cmp-clause-9900-101.md"
+    );
+    const PAGE_DIR: &str = "corpus/pages/compliance/business-systems";
+
+    fn rows() -> FixtureRows {
+        fixture_rows(FIX_SOURCES, FIX_GLOSSARY)
+    }
+
+    fn words(s: &str) -> Vec<String> {
+        index_tokens(s)
+    }
+
+    #[test]
+    fn snippet_collapses_whitespace_and_keeps_at_most_160_code_points_whole() {
+        assert_eq!(make_snippet(""), "");
+        assert_eq!(make_snippet(" \t\n "), "");
+        assert_eq!(
+            make_snippet("  one\ttwo \n\n three\u{a0}four  "),
+            "one two three four"
+        );
+
+        let exactly_160 = "a".repeat(160);
+        assert_eq!(make_snippet(&exactly_160), exactly_160);
+        // Code points, not bytes: 160 two-byte letters stay whole, and so do 160 four-byte ones.
+        let two_byte = "\u{e9}".repeat(160);
+        assert_eq!(make_snippet(&two_byte), two_byte);
+        let four_byte = "\u{10000}".repeat(160);
+        assert_eq!(make_snippet(&four_byte), four_byte);
+    }
+
+    #[test]
+    fn snippet_cuts_161_code_points_back_to_the_last_space_and_appends_an_ellipsis() {
+        let word = "w".repeat(10);
+        // 15 words of 10 letters and 14 spaces are 164 code points. The first 159 end inside the
+        // 15th word, and the last space before that is the one after the 14th word.
+        let text = vec![word.as_str(); 15].join(" ");
+        assert_eq!(text.chars().count(), 164);
+        let expected = format!("{}\u{2026}", vec![word.as_str(); 14].join(" "));
+        assert_eq!(make_snippet(&text), expected);
+        assert_eq!(expected.chars().count(), 14 * 10 + 13 + 1);
+
+        // The cut goes back to the last space even when the first 159 code points end exactly at
+        // the end of a word: 14 words, a space and a 5-letter word make 159, then a space follows.
+        let text = format!(
+            "{} {} tail words",
+            vec![word.as_str(); 14].join(" "),
+            "v".repeat(5)
+        );
+        assert_eq!(text.chars().nth(159), Some(' '));
+        assert!(text.chars().count() > 160);
+        assert_eq!(
+            make_snippet(&text),
+            format!("{}\u{2026}", vec![word.as_str(); 14].join(" "))
+        );
+    }
+
+    #[test]
+    fn snippet_with_no_space_in_the_first_159_takes_all_159_and_stays_within_160() {
+        let long = "x".repeat(300);
+        let snippet = make_snippet(&long);
+        assert_eq!(snippet, format!("{}\u{2026}", "x".repeat(159)));
+        assert_eq!(snippet.chars().count(), 160);
+
+        // Supplementary letters count as one code point each.
+        let long = "\u{10000}".repeat(200);
+        let snippet = make_snippet(&long);
+        assert_eq!(snippet, format!("{}\u{2026}", "\u{10000}".repeat(159)));
+        assert_eq!(snippet.chars().count(), 160);
+    }
+
+    #[test]
+    fn natural_id_order_compares_folded_runs_of_digits_and_non_digits() {
+        use std::cmp::Ordering::{Equal, Greater, Less};
+
+        // Numeric value, not text: v2 before v10, 3 before 027.
+        assert_eq!(natural_id_cmp("S-0042-v2", "S-0042-v10"), Less);
+        assert_eq!(natural_id_cmp("Q-3", "Q-027"), Less);
+        // Folded: case does not decide.
+        assert_eq!(natural_id_cmp("s-0042-v2", "S-0042-V10"), Less);
+        assert_eq!(natural_id_cmp("XC-2", "xc-14"), Less);
+        // Equal value, shorter first.
+        assert_eq!(natural_id_cmp("a7", "a007"), Less);
+        assert_eq!(natural_id_cmp("a007", "a8"), Less);
+        // A digit run sorts before a non-digit run.
+        assert_eq!(natural_id_cmp("1a", "aa"), Less);
+        assert_eq!(natural_id_cmp("aa", "1a"), Greater);
+        // A shorter sequence that starts the same way sorts first.
+        assert_eq!(natural_id_cmp("a", "a1"), Less);
+        assert_eq!(
+            natural_id_cmp("cmp-withholding", "cmp-withholding#the-rule"),
+            Less
+        );
+        assert_eq!(natural_id_cmp("S-0042", "S-0042-v1"), Less);
+        // Non-digit runs compare in UTF-16 order: U+E000 is after the surrogate pair of U+10000,
+        // although it is before U+10000 by code point.
+        assert_eq!(utf16_cmp("\u{e000}", "\u{10000}"), Greater);
+        assert_eq!(natural_id_cmp("\u{e000}", "\u{10000}"), Greater);
+        assert_eq!(natural_id_cmp("id1", "id1"), Equal);
+        // Both sides are folded: a compatibility hyphen equals `-` on either side.
+        assert_eq!(natural_id_cmp("a-14", "a\u{2011}2"), Greater);
+        assert_eq!(natural_id_cmp("a\u{2011}2", "a-14"), Less);
+        assert_eq!(natural_id_cmp("a\u{2011}14", "a-2"), Greater);
+
+        let mut ids = [
+            "S-0042-v10",
+            "XC-2",
+            "cmp-withholding#the-rule",
+            "S-0042-v2",
+            "Q-027",
+            "xc-14",
+            "CL-CMP-0011",
+            "S-0042-v1",
+            "cmp-withholding",
+            "Q-3",
+        ];
+        ids.sort_by(|a, b| natural_id_cmp(a, b));
+        assert_eq!(
+            ids,
+            [
+                "CL-CMP-0011",
+                "cmp-withholding",
+                "cmp-withholding#the-rule",
+                "Q-3",
+                "Q-027",
+                "S-0042-v1",
+                "S-0042-v2",
+                "S-0042-v10",
+                "XC-2",
+                "xc-14",
+            ]
+        );
+    }
+
+    fn display(
+        title: &str,
+        parent: &str,
+        snippet: &str,
+        status: &str,
+        as_of: &str,
+        effective_from: &str,
+        verified_on: &str,
+    ) -> UnitDisplay {
+        UnitDisplay {
+            title: title.to_owned(),
+            parent: parent.to_owned(),
+            snippet: snippet.to_owned(),
+            status: status.to_owned(),
+            as_of: as_of.to_owned(),
+            effective_from: effective_from.to_owned(),
+            verified_on: verified_on.to_owned(),
+        }
+    }
+
+    #[test]
+    fn source_version_unit_follows_the_display_table() {
+        let FixtureRows { mut sources, .. } = rows();
+        let v2 = sources
+            .iter_mut()
+            .find(|s| s.source_id.as_str() == "S-0002" && s.version == 2)
+            .expect("S-0002 v2");
+
+        let unit = Unit::from_source_row(v2, &[]).expect("active version has a unit");
+        assert_eq!(
+            (unit.id.as_str(), unit.kind.as_str()),
+            ("S-0002-v2", "source")
+        );
+        assert_eq!(
+            unit.display,
+            display(
+                "Synthetic Pricing Guide v2, made up for tests",
+                "",
+                "Synthetic fixture second version superseding S-0002-v1.",
+                "active",
+                "2026-02-01",
+                "2026-01-20",
+                "",
+            )
+        );
+        // Fields: the version id, the title, and publisher, tag and note in the body.
+        assert_eq!(unit.fields.id, words("S-0002-v2"));
+        assert_eq!(
+            unit.fields.title,
+            words("Synthetic Pricing Guide v2, made up for tests")
+        );
+        assert!(unit.fields.headings.is_empty() && unit.fields.claim.is_empty());
+        assert_eq!(
+            unit.fields.body,
+            words(
+                "Synthetic Pricing Institute synthetic-pricing-guide Synthetic fixture second version superseding S-0002-v1."
+            )
+        );
+
+        // The snippet is the note, else the publisher.
+        v2.note = None;
+        let no_note = Unit::from_source_row(v2, &[]).expect("unit");
+        assert_eq!(no_note.display.snippet, "Synthetic Pricing Institute");
+
+        // A withdrawn version is still a unit and shows its lifecycle.
+        v2.lifecycle = Lifecycle::Withdrawn;
+        let withdrawn = Unit::from_source_row(v2, &[]).expect("withdrawn version is a unit");
+        assert_eq!(withdrawn.display.status, "withdrawn");
+        v2.lifecycle = Lifecycle::Quarantined;
+        assert!(Unit::from_source_row(v2, &[]).is_none());
+    }
+
+    #[test]
+    fn partial_dates_are_stored_as_written() {
+        let line = FIX_SOURCES
+            .lines()
+            .find(|l| l.starts_with("S-0003,1,"))
+            .expect("S-0003 row");
+        let partial = line.replacen(",2026-01-25,,2026-02-01,", ",2026-01-25,2025-11,2025,", 1);
+        assert_ne!(partial, line, "fixture columns moved");
+        let sources_csv = FIX_SOURCES.replace(line, &partial);
+        let FixtureRows { sources, .. } = fixture_rows(&sources_csv, FIX_GLOSSARY);
+        let row = sources
+            .iter()
+            .find(|s| s.source_id.as_str() == "S-0003")
+            .expect("S-0003");
+        let unit = Unit::from_source_row(row, &[]).expect("unit");
+        assert_eq!(unit.display.as_of, "2025");
+        assert_eq!(unit.display.effective_from, "2025-11");
+    }
+
+    #[test]
+    fn claim_unit_follows_the_display_table() {
+        let FixtureRows { claims, .. } = rows();
+        let claim = |id: &str| {
+            claims
+                .iter()
+                .find(|c| c.claim_id.as_str() == id)
+                .unwrap_or_else(|| panic!("{id}"))
+        };
+
+        let unit = Unit::from_claim_row(claim("CL-CMP-0001"), &[]);
+        assert_eq!(
+            (unit.id.as_str(), unit.kind.as_str()),
+            ("CL-CMP-0001", "claim")
+        );
+        assert_eq!(
+            unit.display,
+            display(
+                "CL-CMP-0001",
+                "",
+                "Synthetic compliance reviews occur every 30 days under the synthetic rule.",
+                "primary_source_supported",
+                "2026-02-01",
+                "2026-01-15",
+                "2026-02-10",
+            )
+        );
+        assert_eq!(unit.fields.id, words("CL-CMP-0001"));
+        assert!(unit.fields.title.is_empty() && unit.fields.headings.is_empty());
+        assert_eq!(
+            unit.fields.claim,
+            words("Synthetic compliance reviews occur every 30 days under the synthetic rule.")
+        );
+        assert_eq!(
+            unit.fields.body,
+            words(
+                "Synthetic compliance reviews occur every 30 days. Synthetic owner-verified fact for fixture tests."
+            )
+        );
+
+        // A claim with no effective date and no verification shows empty strings.
+        let bare = Unit::from_claim_row(claim("CL-EST-0001"), &[]);
+        assert_eq!(
+            bare.display,
+            display(
+                "CL-EST-0001",
+                "",
+                "Synthetic escalation placeholder is 3 percent per year for fixture examples.",
+                "unchecked",
+                "2026-02-01",
+                "",
+                "",
+            )
+        );
+    }
+
+    #[test]
+    fn question_unit_follows_the_display_table() {
+        let FixtureRows { questions, .. } = rows();
+        let q1 = Unit::from_question_row(&questions[0], &[]);
+        assert_eq!((q1.id.as_str(), q1.kind.as_str()), ("Q-001", "question"));
+        assert_eq!(
+            q1.display,
+            display(
+                "Which synthetic business-system control owner approves the monthly compliance review?",
+                "",
+                "Synthetic withholding exposure depends on timely review sign-off.",
+                "open",
+                "",
+                "",
+                "",
+            )
+        );
+        assert_eq!(
+            q1.fields.title,
+            words(
+                "Which synthetic business-system control owner approves the monthly compliance review?"
+            )
+        );
+        assert_eq!(
+            q1.fields.body,
+            words(
+                "Synthetic withholding exposure depends on timely review sign-off. Synthetic reviews follow the 30-day cycle until confirmed."
+            )
+        );
+        assert_eq!(q1.fields.id, words("Q-001"));
+        assert!(q1.fields.claim.is_empty() && q1.fields.headings.is_empty());
+
+        // The answer is part of the body.
+        let mut answered = questions[0].clone();
+        answered.answer = Some("Finance approves it.".to_owned());
+        let answered = Unit::from_question_row(&answered, &[]);
+        assert!(answered.fields.body.contains(&"finance".to_owned()));
+        assert!(answered.fields.body.contains(&"approves".to_owned()));
+
+        // No `why_it_matters` gives an empty snippet.
+        assert_eq!(
+            Unit::from_question_row(&questions[1], &[]).display.snippet,
+            ""
+        );
+    }
+
+    #[test]
+    fn conflict_unit_follows_the_display_table() {
+        let FixtureRows { mut conflicts, .. } = rows();
+        let xc = &mut conflicts[0];
+
+        let unit = Unit::from_conflict_row(xc, &[]);
+        assert_eq!(
+            (unit.id.as_str(), unit.kind.as_str()),
+            ("XC-01", "conflict")
+        );
+        // No resolution: the snippet is the positions joined with a space.
+        assert_eq!(
+            unit.display,
+            display(
+                "Synthetic review interval versus withholding check timing",
+                "",
+                "Synthetic review runs every 30 days Synthetic withholding check runs at each billing cycle",
+                "unresolved",
+                "",
+                "",
+                "",
+            )
+        );
+        assert_eq!(
+            unit.fields.title,
+            words("Synthetic review interval versus withholding check timing")
+        );
+        assert_eq!(
+            unit.fields.body,
+            words(
+                "Synthetic review runs every 30 days Synthetic withholding check runs at each billing cycle"
+            )
+        );
+
+        // With a resolution the snippet is the resolution, and the rationale joins the body.
+        xc.resolution = Some("Use the 30-day cycle.".to_owned());
+        xc.rationale = Some("Rule text controls.".to_owned());
+        let resolved = Unit::from_conflict_row(xc, &[]);
+        assert_eq!(resolved.display.snippet, "Use the 30-day cycle.");
+        assert!(resolved.fields.body.contains(&"controls".to_owned()));
+        // Only the resolution holds `use`.
+        assert!(resolved.fields.body.contains(&"use".to_owned()));
+        assert_eq!(resolved.fields.id, words("XC-01"));
+    }
+
+    #[test]
+    fn term_unit_follows_the_display_table() {
+        let FixtureRows { terms, .. } = rows();
+        let term = terms
+            .iter()
+            .find(|t| t.term_id.as_str() == "billing_withhold")
+            .expect("billing_withhold");
+        let unit = Unit::from_glossary_row(term, &[]);
+        assert_eq!(
+            (unit.id.as_str(), unit.kind.as_str()),
+            ("billing_withhold", "term")
+        );
+        assert_eq!(
+            unit.display,
+            display(
+                "billing withhold",
+                "",
+                "Synthetic retention of a percentage of interim payments pending system correction.",
+                "public_reference",
+                "",
+                "",
+                "",
+            )
+        );
+        assert_eq!(unit.fields.id, words("billing_withhold"));
+        assert_eq!(unit.fields.title, words("billing withhold"));
+        // Aliases are the headings field; the definition and boundary rule are the body.
+        assert_eq!(unit.fields.headings, words("withholding holdback"));
+        // Several aliases are joined with a space.
+        let mut multi = term.clone();
+        multi.aliases = vec!["withholding holdback".to_owned(), "retainage".to_owned()];
+        assert_eq!(
+            Unit::from_glossary_row(&multi, &[]).fields.headings,
+            words("withholding holdback retainage")
+        );
+        assert_eq!(
+            unit.fields.body,
+            words(
+                "Synthetic retention of a percentage of interim payments pending system correction. Do not confuse with synthetic liquidated damages or final price adjustments."
+            )
+        );
+        assert!(unit.fields.claim.is_empty());
+    }
+
+    fn page_model(pages: &[(&str, &str)]) -> Vec<PageEntry> {
+        use crate::check::{Host, Options, Tree, load};
+        use crate::date::CivilDate;
+
+        let mut tree = Tree::new();
+        for dir in [
+            "corpus",
+            "corpus/registers",
+            "corpus/pages",
+            "corpus/pages/compliance",
+            PAGE_DIR,
+        ] {
+            tree.insert_dir(dir);
+        }
+        tree.insert_bytes("corpus/corpus.toml", FIX_CORPUS_TOML.as_bytes());
+        for (stem, text) in pages {
+            tree.insert_bytes(format!("{PAGE_DIR}/{stem}.md"), text.as_bytes());
+        }
+        let today = CivilDate::from_ymd(2026, 3, 1).expect("valid date");
+        let (model, _report) = load(&Host::new(tree, today), &Options::new(false));
+        model.pages().to_vec()
+    }
+
+    #[test]
+    fn page_units_follow_the_display_table() {
+        let pages = page_model(&[
+            ("cmp-system-review", FIX_PAGE_REVIEW),
+            ("cmp-clause-9900-101", FIX_PAGE_CLAUSE),
+        ]);
+        assert_eq!(pages.len(), 2);
+        let page_title = "Synthetic business-system review and withholding overview";
+
+        let review = pages
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .expect("page");
+        let units = Unit::from_page_entry(review, &[]);
+        let lead = &units[0];
+        assert_eq!(
+            (lead.id.as_str(), lead.kind.as_str()),
+            ("cmp-system-review", "page")
+        );
+        // Lead: the page title, no parent, the page status and as_of, and the first paragraph of
+        // the first section as the snippet; no effective or verified date.
+        assert_eq!(
+            lead.display,
+            display(
+                page_title,
+                "",
+                "Explain how a synthetic system review interacts with a synthetic billing withhold.",
+                "draft",
+                "2026-02-01",
+                "",
+                "",
+            )
+        );
+
+        // Section: the heading as title, the page title as parent, the page's status and as_of,
+        // and the first paragraph of the section as the snippet (cut at 160 code points).
+        let rule = units
+            .iter()
+            .find(|u| u.id == "cmp-system-review#the-rule")
+            .expect("section");
+        assert_eq!(rule.kind, "page");
+        assert_eq!(
+            rule.display,
+            display(
+                crate::strings::parts()[1],
+                page_title,
+                "A synthetic system review runs on a recurring cycle of 30 days [@CL-CMP-0001]. When a synthetic deficiency remains open, the synthetic billing withhold rate\u{2026}",
+                "draft",
+                "2026-02-01",
+                "",
+                "",
+            )
+        );
+        assert!(units.iter().skip(1).all(|u| u.display.parent == page_title));
+        assert!(units.iter().skip(1).all(|u| u.fields.id.is_empty()));
+
+        // A clause-card page has the kind `clause` on its lead and its sections.
+        let clause = pages
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-clause-9900-101")
+            .expect("clause page");
+        let clause_units = Unit::from_page_entry(clause, &[]);
+        assert!(clause_units.iter().all(|u| u.kind == "clause"));
+        assert_eq!(
+            clause_units[0].display.snippet,
+            "Summarize the synthetic clause governing recurring business-system reviews."
+        );
+    }
+
+    #[test]
+    fn handling_cells_fail_closed_to_unlabelled() {
+        let cell = |items: &[&str]| {
+            parse_handling_slice(&items.iter().map(|s| (*s).to_owned()).collect::<Vec<_>>())
+        };
+        assert!(cell(&["public"]).is_public());
+        assert!(cell(&["public", "public"]).is_public());
+        // An empty cell and an unparsable label are not public: the unit is `unlabelled`.
+        assert_eq!(cell(&[]), LabelSet::unlabelled());
+        assert_eq!(cell(&["Not A Label"]), LabelSet::unlabelled());
+        assert_eq!(cell(&["public", "Not A Label"]), LabelSet::unlabelled());
+        assert_eq!(cell(&["xx-0001", "bad_id"]), LabelSet::unlabelled());
+        // `public` beside another label is that label alone; the built-in unresolved labels stay.
+        assert!(!cell(&["public", "xx-0001"]).is_public());
+        assert!(!cell(&["xx-0001"]).is_public());
+        assert!(!cell(&["marked"]).is_public());
+        assert!(!cell(&["unlabelled"]).is_public());
+        assert!(!cell(&["owner-supplied"]).is_public());
+    }
+
+    /// The ids of the units of `rows` and `pages` that `keep` accepts, with the glossary the same
+    /// predicate keeps.
+    fn kept_ids(
+        rows: &FixtureRows,
+        pages: &[PageEntry],
+        keep: fn(&LabelSet) -> bool,
+    ) -> BTreeSet<String> {
+        let glossary = kept_glossary(&rows.terms, &rows.sources, &rows.claims, keep);
+        build_corpus_units_with(
+            pages,
+            &rows.sources,
+            &rows.claims,
+            &rows.questions,
+            &rows.conflicts,
+            &rows.terms,
+            &BTreeSet::new(),
+            &glossary,
+            keep,
+        )
+        .into_iter()
+        .map(|u| u.id)
+        .collect()
+    }
+
+    fn parsed<T, E: std::fmt::Debug>(r: Result<T, E>) -> T {
+        r.expect("test id parses")
+    }
+
+    /// `rows()` plus synthetic sources, claims, conflicts and terms that cover each way a label
+    /// is resolved and each way it fails closed.
+    fn labelled_rows() -> FixtureRows {
+        use crate::ids::{ClaimId, ConflictId, SourceId, TermId};
+
+        let mut r = rows();
+        let base_source = r.sources[0].clone();
+        let base_claim = r.claims[0].clone();
+        let base_conflict = r.conflicts[0].clone();
+        let base_term = r
+            .terms
+            .iter()
+            .find(|t| t.term_id.as_str() == "cost_baseline")
+            .expect("cost_baseline")
+            .clone();
+
+        // Sources. S-0004: one restricted version. S-0005: an empty handling cell. S-0006: an
+        // unparsable label beside `public`. S-0007: `marked`. S-0008: `public` twice (public).
+        // S-0009: version 1 public and version 2 restricted.
+        let src = |id: &str, version: u32, handling: &[&str]| {
+            let mut s = base_source.clone();
+            s.source_id = parsed(SourceId::parse(id));
+            s.version = version;
+            s.handling = handling.iter().map(|h| (*h).to_owned()).collect();
+            s.supersedes = Vec::new();
+            s
+        };
+        r.sources.extend([
+            src("S-0004", 1, &["xx-0001"]),
+            src("S-0005", 1, &[]),
+            src("S-0006", 1, &["public", "Not A Label"]),
+            src("S-0007", 1, &["marked"]),
+            src("S-0008", 1, &["public", "public"]),
+            src("S-0009", 1, &["public"]),
+            src("S-0009", 2, &["public", "xx-0001"]),
+            src("S-0010", 1, &["xx-0001"]),
+            src("S-0010", 2, &["public"]),
+        ]);
+
+        // Claims. `(source, version)` is the reference that resolves the claim's labels.
+        let claim = |id: &str, source: Option<(&str, Option<u32>)>| {
+            let mut c = base_claim.clone();
+            c.claim_id = parsed(ClaimId::parse(id));
+            c.source_id = source.map(|(s, _)| parsed(SourceId::parse(s)));
+            c.version = source.and_then(|(_, v)| v);
+            c
+        };
+        r.claims.extend([
+            claim("CL-LBL-0001", Some(("S-0001", Some(1)))),
+            claim("CL-LBL-0002", Some(("S-0004", Some(1)))),
+            claim("CL-LBL-0003", Some(("S-0009", None))),
+            claim("CL-LBL-0004", Some(("S-0003", None))),
+            claim("CL-LBL-0005", None),
+            claim("CL-LBL-0006", Some(("S-0099", Some(1)))),
+            claim("CL-LBL-0007", Some(("S-0099", None))),
+            claim("CL-LBL-0008", Some(("S-0005", Some(1)))),
+            claim("CL-LBL-0009", Some(("S-0006", Some(1)))),
+            claim("CL-LBL-0010", Some(("S-0007", Some(1)))),
+            claim("CL-LBL-0011", Some(("S-0008", Some(1)))),
+            claim("CL-LBL-0012", Some(("S-0009", Some(1)))),
+            claim("CL-LBL-0013", Some(("S-0009", Some(2)))),
+            claim("CL-LBL-0014", Some(("S-0010", None))),
+        ]);
+
+        // Conflicts.
+        let claim_ref = |id: &str| RefId::Claim(parsed(ClaimId::parse(id)));
+        let version_ref = |id: &str| RefId::SourceVersion(parsed(VersionId::parse(id)));
+        let conflict = |id: &str, claim_ids: &[&str], evidence: Vec<RefId>| {
+            let mut c = base_conflict.clone();
+            c.conflict_id = parsed(ConflictId::parse(id));
+            c.claim_ids = claim_ids
+                .iter()
+                .map(|c| parsed(ClaimId::parse(c)))
+                .collect();
+            c.evidence = evidence;
+            c
+        };
+        r.conflicts.extend([
+            conflict("XC-90", &["CL-CMP-0001"], vec![version_ref("S-0001-v1")]),
+            conflict("XC-91", &["CL-LBL-0002"], vec![]),
+            conflict("XC-92", &["CL-CMP-0001"], vec![claim_ref("CL-LBL-0002")]),
+            conflict("XC-93", &["CL-CMP-0001"], vec![version_ref("S-0004-v1")]),
+            conflict("XC-94", &["CL-CMP-0001"], vec![claim_ref("CL-LBL-0099")]),
+            conflict("XC-95", &["CL-CMP-0001"], vec![version_ref("S-0099-v1")]),
+            conflict("XC-96", &["CL-LBL-0098"], vec![]),
+            conflict("XC-97", &["CL-CMP-0001", "CL-LBL-0002"], vec![]),
+            conflict(
+                "XC-98",
+                &["CL-CMP-0001"],
+                vec![claim_ref("CL-CMP-0002"), version_ref("S-0003-v1")],
+            ),
+            conflict("XC-99", &["CL-LBL-0002", "CL-CMP-0001"], vec![]),
+            conflict(
+                "XC-89",
+                &["CL-CMP-0001"],
+                vec![claim_ref("CL-LBL-0002"), claim_ref("CL-CMP-0001")],
+            ),
+        ]);
+
+        // Terms.
+        let term = |id: &str, refs: Vec<RefId>, alias: &str| {
+            let mut t = base_term.clone();
+            t.term_id = parsed(TermId::parse(id));
+            t.label = id.replace('_', " ");
+            t.source_ref = refs;
+            t.aliases = vec![alias.to_owned()];
+            t
+        };
+        r.terms.extend([
+            term("t_public", vec![claim_ref("CL-CMP-0001")], "aliaspublic"),
+            term(
+                "t_restricted_claim",
+                vec![claim_ref("CL-LBL-0002")],
+                "aliasrestrictedclaim",
+            ),
+            term(
+                "t_dangling_claim",
+                vec![claim_ref("CL-LBL-0099")],
+                "aliasdanglingclaim",
+            ),
+            term(
+                "t_restricted_version",
+                vec![version_ref("S-0004-v1")],
+                "aliasrestrictedversion",
+            ),
+            term(
+                "t_dangling_version",
+                vec![version_ref("S-0099-v1")],
+                "aliasdanglingversion",
+            ),
+            term(
+                "t_mixed",
+                vec![claim_ref("CL-CMP-0001"), claim_ref("CL-LBL-0002")],
+                "aliasmixed",
+            ),
+            term(
+                "t_mixed_reversed",
+                vec![claim_ref("CL-LBL-0002"), claim_ref("CL-CMP-0001")],
+                "aliasmixedreversed",
+            ),
+        ]);
+        r
+    }
+
+    #[test]
+    fn the_public_ceiling_drops_every_restricted_or_unresolved_unit_and_keeps_the_rest() {
+        let r = labelled_rows();
+        let public = kept_ids(&r, &[], LabelSet::is_public);
+        let open = kept_ids(&r, &[], |_| true);
+
+        let held_back = [
+            // A source whose handling is restricted, empty, unparsable beside `public`, or marked.
+            "S-0004-v1",
+            "S-0005-v1",
+            "S-0006-v1",
+            "S-0007-v1",
+            "S-0009-v2",
+            "S-0010-v1",
+            // A claim whose source version is restricted, dangling, empty, unparsable or marked.
+            "CL-LBL-0002",
+            "CL-LBL-0006",
+            "CL-LBL-0008",
+            "CL-LBL-0009",
+            "CL-LBL-0010",
+            "CL-LBL-0013",
+            // A claim that names a source with no version takes the union over its versions
+            // (one restricted version is enough) and a source the register does not hold fails
+            // closed.
+            "CL-LBL-0003",
+            "CL-LBL-0007",
+            "CL-LBL-0014",
+            // A conflict with a restricted or dangling claim or evidence reference, or any one
+            // restricted reference among several.
+            "XC-91",
+            "XC-92",
+            "XC-93",
+            "XC-94",
+            "XC-95",
+            "XC-96",
+            "XC-97",
+            "XC-99",
+            "XC-89",
+            // A term whose source reference is restricted, dangling or mixed.
+            "t_restricted_claim",
+            "t_dangling_claim",
+            "t_restricted_version",
+            "t_dangling_version",
+            "t_mixed",
+            "t_mixed_reversed",
+        ];
+        let kept = [
+            "S-0001-v1",
+            "S-0008-v1",
+            "S-0009-v1",
+            "S-0010-v2",
+            "CL-CMP-0001",
+            "CL-LBL-0001",
+            // Names a source with no version and every version is public.
+            "CL-LBL-0004",
+            // Names no source: nothing to restrict it.
+            "CL-LBL-0005",
+            "CL-LBL-0011",
+            "CL-LBL-0012",
+            "XC-90",
+            "XC-98",
+            "t_public",
+            "cost_baseline",
+            // A question has no source reference and no label inputs.
+            "Q-001",
+        ];
+        for id in held_back {
+            assert!(!public.contains(id), "{id} must not be in a public index");
+            assert!(
+                open.contains(id),
+                "{id} must exist when every label is kept"
+            );
+        }
+        for id in kept {
+            assert!(public.contains(id), "{id} must stay public: {public:?}");
+        }
+        // No predicate that accepts everything loses a unit, and the ceiling adds none.
+        assert!(public.is_subset(&open));
+        // A predicate that rejects everything leaves nothing, whatever the kind.
+        assert!(kept_ids(&r, &[], |_| false).is_empty());
+    }
+
+    #[test]
+    fn a_restricted_or_dangling_glossary_row_adds_no_synonyms_to_a_public_index() {
+        let r = labelled_rows();
+        let public = kept_glossary(&r.terms, &r.sources, &r.claims, LabelSet::is_public);
+        let aliases = |g: &Glossary| -> BTreeSet<String> {
+            g.entries()
+                .iter()
+                .flat_map(|e| e.aliases.iter().cloned())
+                .collect()
+        };
+        let public_aliases = aliases(&public);
+        assert!(public_aliases.contains("aliaspublic"), "{public_aliases:?}");
+        for held in [
+            "aliasrestrictedclaim",
+            "aliasdanglingclaim",
+            "aliasrestrictedversion",
+            "aliasdanglingversion",
+            "aliasmixed",
+            "aliasmixedreversed",
+        ] {
+            assert!(
+                !public_aliases.contains(held),
+                "{held} must not reach the public glossary"
+            );
+        }
+        let open = kept_glossary(&r.terms, &r.sources, &r.claims, |_| true);
+        assert!(aliases(&open).contains("aliasrestrictedclaim"));
+        assert!(aliases(&open).contains("aliasdanglingversion"));
+    }
+
+    #[test]
+    fn page_units_carry_the_page_handling_into_the_ceiling() {
+        let loaded = page_model(&[("cmp-system-review", FIX_PAGE_REVIEW)]);
+        let public_page = loaded[0].clone();
+        let with_handling = |id: &str, handling: &[&str]| {
+            let mut p = public_page.clone();
+            p.id = parsed(PageId::parse(id));
+            p.meta.handling = handling.iter().map(|h| (*h).to_owned()).collect();
+            p
+        };
+        let pages = vec![
+            public_page.clone(),
+            with_handling("cmp-restricted-page", &["xx-0001"]),
+            with_handling("cmp-mixed-page", &["public", "xx-0001"]),
+            with_handling("cmp-empty-page", &[]),
+            with_handling("cmp-bad-page", &["Not A Label"]),
+        ];
+
+        let r = rows();
+        let public = kept_ids(&r, &pages, LabelSet::is_public);
+        let open = kept_ids(&r, &pages, |_| true);
+        for id in ["cmp-system-review", "cmp-system-review#the-rule"] {
+            assert!(public.contains(id), "{id} is a public page unit");
+        }
+        // Every unit of a restricted page is left out, its sections as well as its lead.
+        for prefix in [
+            "cmp-restricted-page",
+            "cmp-mixed-page",
+            "cmp-empty-page",
+            "cmp-bad-page",
+        ] {
+            assert!(
+                !public.iter().any(|id| id.starts_with(prefix)),
+                "{prefix} units must not be public: {public:?}"
+            );
+            assert!(open.contains(prefix));
+            assert!(open.contains(&format!("{prefix}#the-rule")));
+        }
+        // A section unit carries the labels of its page.
+        for unit in Unit::from_page_entry(&pages[1], &[]) {
+            assert_eq!(labels_of(&unit).to_cell(), "xx-0001");
+        }
+        for unit in Unit::from_page_entry(&pages[3], &[]) {
+            assert_eq!(*labels_of(&unit), LabelSet::unlabelled());
+        }
+    }
+
+    #[test]
+    fn corpus_units_come_out_in_natural_id_order_and_skip_quarantined_versions() {
+        let mut r = labelled_rows();
+        let glossary = Glossary::default();
+        let build = |r: &FixtureRows, quarantined: &BTreeSet<VersionId>| -> Vec<String> {
+            build_corpus_units_with(
+                &[],
+                &r.sources,
+                &r.claims,
+                &r.questions,
+                &r.conflicts,
+                &r.terms,
+                quarantined,
+                &glossary,
+                |_| true,
+            )
+            .into_iter()
+            .map(|u| u.id)
+            .collect()
+        };
+
+        let all = build(&r, &BTreeSet::new());
+        let mut sorted = all.clone();
+        sorted.sort_by(|a, b| natural_id_cmp(a, b));
+        assert_eq!(all, sorted, "units are numbered in natural id order");
+        assert!(all.iter().any(|id| id == "S-0002-v2") && all.iter().any(|id| id == "S-0004-v1"));
+
+        // A version named in the quarantined set gives no unit, whatever its row says.
+        let named: BTreeSet<VersionId> = ["S-0002-v2", "S-0004-v1"]
+            .iter()
+            .map(|v| parsed(VersionId::parse(v)))
+            .collect();
+        let held = build(&r, &named);
+        assert!(!held.iter().any(|id| id == "S-0002-v2" || id == "S-0004-v1"));
+        assert!(held.iter().any(|id| id == "S-0002-v1"));
+        assert_eq!(held.len(), all.len() - 2);
+
+        // A row whose own lifecycle is `quarantined` gives no unit either.
+        let row = r
+            .sources
+            .iter_mut()
+            .find(|s| s.source_id.as_str() == "S-0001")
+            .expect("S-0001");
+        row.lifecycle = Lifecycle::Quarantined;
+        let by_row = build(&r, &BTreeSet::new());
+        assert!(!by_row.iter().any(|id| id == "S-0001-v1"));
+        assert_eq!(by_row.len(), all.len() - 1);
+    }
+
+    #[test]
+    fn the_shipped_corpus_builder_applies_the_label_predicate_to_pages_and_registers() {
+        use crate::check::Tree;
+
+        let mut tree = Tree::new();
+        for dir in [
+            "corpus",
+            "corpus/registers",
+            "corpus/sources",
+            "corpus/sources/public",
+            "corpus/pages",
+            "corpus/pages/compliance",
+            PAGE_DIR,
+        ] {
+            tree.insert_dir(dir);
+        }
+        tree.insert_bytes("corpus/corpus.toml", FIX_CORPUS_TOML.as_bytes());
+        for (name, text) in [
+            ("sources", FIX_SOURCES),
+            ("claims", FIX_CLAIMS),
+            ("questions", FIX_QUESTIONS),
+            ("conflicts", FIX_CONFLICTS),
+            ("glossary", FIX_GLOSSARY),
+        ] {
+            tree.insert_bytes(format!("corpus/registers/{name}.csv"), text.as_bytes());
+        }
+        tree.insert_bytes(
+            "corpus/sources/public/S-0002-v2.txt",
+            FIX_SOURCE_TEXT.as_bytes(),
+        );
+        tree.insert_bytes(
+            format!("{PAGE_DIR}/cmp-system-review.md"),
+            FIX_PAGE_REVIEW.as_bytes(),
+        );
+        let none = BTreeSet::new();
+
+        let (public, glossary) = build_shipped_corpus_units(&tree, &none, LabelSet::is_public)
+            .expect("shipped units build");
+        let public_ids: Vec<&str> = public.iter().map(|u| u.id.as_str()).collect();
+        assert!(public_ids.contains(&"cmp-system-review"), "{public_ids:?}");
+        assert!(public_ids.contains(&"cmp-system-review#the-rule"));
+        assert!(public_ids.contains(&"CL-CMP-0001") && public_ids.contains(&"billing_withhold"));
+        assert!(public.iter().all(|u| u.labels.is_public()));
+        assert!(!glossary.entries().is_empty());
+        // The result is in natural id order, pages among the register units.
+        let mut sorted = public_ids.clone();
+        sorted.sort_by(|a, b| natural_id_cmp(a, b));
+        assert_eq!(public_ids, sorted);
+        // It is what the slice builder makes of the same rows and page.
+        let r = rows();
+        let pages = page_model(&[("cmp-system-review", FIX_PAGE_REVIEW)]);
+        let expected = kept_ids(&r, &pages, LabelSet::is_public);
+        assert_eq!(
+            public_ids
+                .iter()
+                .map(|s| (*s).to_owned())
+                .collect::<BTreeSet<_>>(),
+            expected
+        );
+
+        // The predicate is applied to every page unit and every register unit, and to the rows
+        // whose aliases become synonyms: one that accepts nothing leaves nothing.
+        let (nothing, glossary) =
+            build_shipped_corpus_units(&tree, &none, |_| false).expect("shipped units build");
+        assert!(nothing.is_empty(), "{nothing:?}");
+        assert!(glossary.entries().is_empty());
+
+        // The named quarantined version gives no unit.
+        let named: BTreeSet<VersionId> = [parsed(VersionId::parse("S-0002-v2"))].into();
+        let (held, _) = build_shipped_corpus_units(&tree, &named, LabelSet::is_public)
+            .expect("shipped units build");
+        assert!(!held.iter().any(|u| u.id == "S-0002-v2"));
+        assert!(held.iter().any(|u| u.id == "S-0002-v1"));
+
+        // The shipped manifest refuses a page whose handling is not exactly `public` before any
+        // unit exists, so a restricted page cannot reach this builder at all.
+        let restricted = FIX_PAGE_REVIEW
+            .replace("id = \"cmp-system-review\"", "id = \"cmp-restricted-page\"")
+            .replace("handling = [\"public\"]", "handling = [\"xx-0001\"]");
+        assert_ne!(
+            restricted, FIX_PAGE_REVIEW,
+            "fixture page front matter moved"
+        );
+        tree.insert_bytes(
+            format!("{PAGE_DIR}/cmp-restricted-page.md"),
+            restricted.as_bytes(),
+        );
+        assert!(matches!(
+            build_shipped_corpus_units(&tree, &none, |_| true),
+            Err(ManifestError::NonPublicFile { .. })
+        ));
     }
 }

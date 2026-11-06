@@ -260,4 +260,21 @@ mod tests {
             1598
         );
     }
+
+    #[test]
+    fn impact_is_never_below_one_however_small_the_score() {
+        // With tf' = 1 the score equals the idf. These rounds are to 0 before the minimum, and a
+        // posting of 0 would make the unit vanish from every query that holds the term.
+        assert_eq!(impact(0.0001, 1.0), 1);
+        assert_eq!(impact(0.0004, 1.0), 1);
+        assert_eq!(impact(0.0, 1.0), 1);
+        assert_eq!(impact(0.5, 0.0), 1);
+        // Above the minimum the value is the rounded 1000 * score, not 1.
+        assert_eq!(impact(0.0016, 1.0), 2);
+        assert_eq!(impact(0.0024, 1.0), 2);
+        assert_eq!(impact(0.0026, 1.0), 3);
+        // 2.49 rounds down, 2.5 rounds up.
+        assert_eq!(impact(0.00249, 1.0), 2);
+        assert_eq!(impact(1.0, 1.0), 1000);
+    }
 }
