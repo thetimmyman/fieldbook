@@ -1,0 +1,105 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "norm-a",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "cafe"
+      },
+      "display": {
+        "title": "norm-a",
+        "parent": "",
+        "snippet": "cafe",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "norm-b",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "caf\u00e9"
+      },
+      "display": {
+        "title": "norm-b",
+        "parent": "",
+        "snippet": "caf\u00e9",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "norm-c",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "cafe\u00ad\u0301"
+      },
+      "display": {
+        "title": "norm-c",
+        "parent": "",
+        "snippet": "cafe\u00ad\u0301",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "norm-d",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "unrelated depreciation schedule"
+      },
+      "display": {
+        "title": "norm-d",
+        "parent": "",
+        "snippet": "unrelated depreciation schedule",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [],
+  "cases": [
+    {
+      "id": "rk-28",
+      "query": "cafe\u00ad\u0301",
+      "expect": ["norm-a", "norm-c"],
+      "note": "The query is normalised once: the soft hyphen is deleted and the loose acute accent is not a word character, as in the index text of norm-c, so the token is cafe and not the composed cafe-acute"
+    },
+    {
+      "id": "rk-29",
+      "query": "caf\u00e9",
+      "expect": ["norm-b"],
+      "note": "A precomposed query keeps its accent and matches only the unit that holds it"
+    }
+  ]
+}

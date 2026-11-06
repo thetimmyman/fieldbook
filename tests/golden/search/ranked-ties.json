@@ -1,0 +1,107 @@
+{
+  "kind": "ranked",
+  "version": 1,
+  "units": [
+    {
+      "id": "tie-10",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "Ledger reconciliation notes"
+      },
+      "display": {
+        "title": "tie-10",
+        "parent": "",
+        "snippet": "Ledger reconciliation notes",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "tie-1",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "Ledger reconciliation notes"
+      },
+      "display": {
+        "title": "tie-1",
+        "parent": "",
+        "snippet": "Ledger reconciliation notes",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "tie-2",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "Ledger reconciliation notes"
+      },
+      "display": {
+        "title": "tie-2",
+        "parent": "",
+        "snippet": "Ledger reconciliation notes",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "other-1",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "Unrelated depreciation schedule"
+      },
+      "display": {
+        "title": "other-1",
+        "parent": "",
+        "snippet": "Unrelated depreciation schedule",
+        "status": "active",
+        "as_of": "2026-01-15",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "glossary": [],
+  "cases": [
+    {
+      "id": "rk-26",
+      "query": "ledger",
+      "expect": ["tie-1", "tie-2", "tie-10"],
+      "scores": [357, 357, 357],
+      "note": "Non-exact results with equal matched count and equal summed impact order by natural unit order, not file order or lexical order"
+    },
+    {
+      "id": "rk-27",
+      "query": "ledger reconciliation",
+      "expect": ["tie-1", "tie-2", "tie-10"],
+      "scores": [714, 714, 714],
+      "note": "Two matched tokens tie across three identical units and fall back to natural unit order"
+    }
+  ]
+}
