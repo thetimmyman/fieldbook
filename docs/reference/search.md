@@ -372,7 +372,7 @@ Worked-example fragment (the unit numbers are those of the table above):
 
 ## The command line
 
-`fieldbook search <query>` builds the index in memory from the Corpus and, on a machine with a company store, from that store as well ([The company index](#the-company-index)), and runs `query` with the CLI limit. Words after `search` are joined with single spaces, so quoting is optional. It reads the stores' files and writes nothing.
+`fieldbook search <query>` builds the index in memory from the Corpus and, on a machine with a company store, from that store as well ([The company index](#the-company-index)), and runs `query` with the CLI limit. Words after `search` are joined with single spaces, so quoting is optional; put `--` before a word that starts with `-` (`fieldbook search -- -5% margin`), because the command line reads it as an option otherwise. It reads the stores' files and writes nothing.
 
 ```text
 fieldbook search [--json] [--store NAME]... <query>...

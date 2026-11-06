@@ -65,6 +65,20 @@ pub enum Commands {
     New(NewArgs),
     /// Inspect or verify the audit journal.
     Audit(AuditArgs),
+    /// Find an id or a word in the Corpus; list the versions of a source.
+    Search(SearchArgs),
+}
+
+/// Arguments for `fieldbook search`.
+#[derive(Debug, Clone, PartialEq, Eq, clap::Args)]
+pub struct SearchArgs {
+    /// Print the results as a JSON object.
+    #[arg(long)]
+    pub json: bool,
+
+    /// The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-`.
+    #[arg(value_name = "QUERY", required = true, num_args = 1..)]
+    pub words: Vec<String>,
 }
 
 /// Arguments for `fieldbook new`.

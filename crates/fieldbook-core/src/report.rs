@@ -6,6 +6,7 @@ use crate::audit::chain::RawEventObject;
 use crate::check::{Diagnostic, Report};
 use crate::date::CivilDate;
 use crate::labels::{LabelId, LabelSet, StoreId};
+use crate::search::{Index, Results, query_tokens};
 
 /// Schema version of every `--json` report (`AD-17`).
 pub const REPORT_VERSION: u32 = 1;
@@ -78,6 +79,93 @@ impl CheckReport {
                 .iter()
                 .map(CheckDiagnostic::from)
                 .collect(),
+        }
+    }
+}
+
+/// One ranked result in [`SearchReport`] (`docs/reference/search.md#the-command-line`).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct SearchResult {
+    /// 1-based rank in the result list.
+    pub rank: usize,
+    /// Unit identifier as written.
+    pub id: String,
+    /// Unit kind (`page`, `claim`, `source`, ...).
+    pub kind: String,
+    /// Display title.
+    pub title: String,
+    /// Display parent (the page title of a section; empty otherwise).
+    pub parent: String,
+    /// Display status.
+    pub status: String,
+    /// `as_of` date as written (possibly partial; empty when none).
+    pub as_of: String,
+    /// `effective_from` date as written (empty when none).
+    pub effective_from: String,
+    /// `verified_on` date as written (empty when none).
+    pub verified_on: String,
+    /// Label ids of the unit (`["public"]` for a Corpus unit).
+    pub labels: Vec<String>,
+    /// Store the unit came from (`corpus` or `overlay`).
+    pub store: &'static str,
+    /// Number of query tokens the unit matched.
+    pub matched: usize,
+    /// Summed integer impact across the matched query tokens.
+    pub score: u32,
+    /// Display snippet.
+    pub snippet: String,
+}
+
+/// The `--json` report produced by `fieldbook search`.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct SearchReport {
+    /// Report schema version (`1`).
+    pub report_version: u32,
+    /// The query text as typed (words joined with single spaces).
+    pub query: String,
+    /// The query tokens the index was asked for.
+    pub tokens: Vec<String>,
+    /// Total number of matching units before truncation.
+    pub total: usize,
+    /// The displayed results in rank order.
+    pub results: Vec<SearchResult>,
+}
+
+impl SearchReport {
+    /// Build a [`SearchReport`] for `raw_query` from the `results` that `query` returned over
+    /// `index`. Every unit of a Corpus index is public and comes from the `corpus` store.
+    #[must_use]
+    pub fn from_results(index: &Index, raw_query: &str, results: &Results) -> Self {
+        let rows = results
+            .hits
+            .iter()
+            .enumerate()
+            .filter_map(|(pos, hit)| {
+                let doc = index.docs.get(hit.unit)?;
+                Some(SearchResult {
+                    rank: pos + 1,
+                    id: doc.id.clone(),
+                    kind: doc.kind.clone(),
+                    title: doc.title.clone(),
+                    parent: doc.parent.clone(),
+                    status: doc.status.clone(),
+                    as_of: doc.as_of.clone(),
+                    effective_from: doc.effective_from.clone(),
+                    verified_on: doc.verified_on.clone(),
+                    labels: vec!["public".to_owned()],
+                    store: "corpus",
+                    matched: hit.matched,
+                    score: hit.score,
+                    snippet: doc.snippet.clone(),
+                })
+            })
+            .collect();
+        Self {
+            report_version: REPORT_VERSION,
+            query: raw_query.to_owned(),
+            tokens: query_tokens(raw_query),
+            total: results.total,
+            results: rows,
         }
     }
 }

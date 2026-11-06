@@ -177,6 +177,28 @@ edits = [
 ]
 
 [[case]]
+code = "FB0126"
+at = "corpus/eval/regression.toml:3"
+edits = [
+  { path = "corpus/eval/regression.toml", find = "expect = [\"cmp-withhold-case\"]", replace = "expect = [\"cmp-nope\"]" },
+]
+
+[[case]]
+code = "FB0127"
+at = "corpus/eval/regression.toml:14"
+edits = [
+  { path = "corpus/eval/regression.toml", find = "query = \"rate review window\"", replace = "query = \"xylophone marmalade\"" },
+]
+
+[[case]]
+code = "FB0128"
+at = "corpus/eval/regression.toml:3"
+edits = [
+  { path = "corpus/eval/regression.toml", find = "# No committed case is critical; the known-bad FB0128 row adds the key in a copy.", replace = "critical = true" },
+  { path = "corpus/eval/regression.toml", find = "query = \"withhold\"", replace = "query = \"xylophone marmalade\"" },
+]
+
+[[case]]
 code = "FB0130"
 at = "corpus/pages/compliance/business-systems/cmp-review-steps.md:22"
 edits = [

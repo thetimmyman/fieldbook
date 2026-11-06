@@ -59,6 +59,15 @@ Inspect or verify the audit journal
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
 
+### `fieldbook search`
+
+Find an id or a word in the Corpus; list the versions of a source
+
+| Argument / flag | Value | Default | Help |
+|---|---|---|---|
+| `--json` | - | - | Print the results as a JSON object |
+| `<QUERY>` | `QUERY` | - | The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-` |
+
 ## Exit codes
 
 | Code | Meaning |
@@ -269,6 +278,57 @@ Inspect or verify the audit journal
       "col": 1,
       "message": "missing corpus/corpus.toml",
       "help": "Fix corpus/corpus.toml (or store.toml in a company store) so it is valid TOML at a supported schema_version with well-formed areas and views."
+    }
+  ]
+}
+```
+
+### `search`
+
+```json
+{
+  "report_version": 1,
+  "query": "S-0002",
+  "tokens": [
+    "s-0002"
+  ],
+  "total": 2,
+  "results": [
+    {
+      "rank": 1,
+      "id": "S-0002-v1",
+      "kind": "source",
+      "title": "Synthetic Pricing Guide v1, made up for tests",
+      "parent": "",
+      "status": "active",
+      "as_of": "2026-01-15",
+      "effective_from": "2025-11-01",
+      "verified_on": "",
+      "labels": [
+        "public"
+      ],
+      "store": "corpus",
+      "matched": 1,
+      "score": 5055,
+      "snippet": "Synthetic fixture first version for automated tests."
+    },
+    {
+      "rank": 2,
+      "id": "S-0002-v2",
+      "kind": "source",
+      "title": "Synthetic Pricing Guide v2, made up for tests",
+      "parent": "",
+      "status": "active",
+      "as_of": "2026-02-01",
+      "effective_from": "2026-01-20",
+      "verified_on": "",
+      "labels": [
+        "public"
+      ],
+      "store": "corpus",
+      "matched": 1,
+      "score": 5751,
+      "snippet": "Synthetic fixture second version superseding S-0002-v1."
     }
   ]
 }

@@ -1,0 +1,46 @@
+{
+  "report_version": 1,
+  "query": "S-0002",
+  "tokens": [
+    "s-0002"
+  ],
+  "total": 2,
+  "results": [
+    {
+      "rank": 1,
+      "id": "S-0002-v1",
+      "kind": "source",
+      "title": "Synthetic Pricing Guide v1, made up for tests",
+      "parent": "",
+      "status": "active",
+      "as_of": "2026-01-15",
+      "effective_from": "2025-11-01",
+      "verified_on": "",
+      "labels": [
+        "public"
+      ],
+      "store": "corpus",
+      "matched": 1,
+      "score": 5055,
+      "snippet": "Synthetic fixture first version for automated tests."
+    },
+    {
+      "rank": 2,
+      "id": "S-0002-v2",
+      "kind": "source",
+      "title": "Synthetic Pricing Guide v2, made up for tests",
+      "parent": "",
+      "status": "active",
+      "as_of": "2026-02-01",
+      "effective_from": "2026-01-20",
+      "verified_on": "",
+      "labels": [
+        "public"
+      ],
+      "store": "corpus",
+      "matched": 1,
+      "score": 5751,
+      "snippet": "Synthetic fixture second version superseding S-0002-v1."
+    }
+  ]
+}

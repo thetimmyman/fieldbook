@@ -18,19 +18,6 @@ card = "quote-match-and-anchors"
 code = "FB0308"
 card = "quote-match-and-anchors"
 
-# search-cli-and-regression
-[[pending]]
-code = "FB0126"
-card = "search-cli-and-regression"
-
-[[pending]]
-code = "FB0127"
-card = "search-cli-and-regression"
-
-[[pending]]
-code = "FB0128"
-card = "search-cli-and-regression"
-
 # Ranges 08 and 09 pending codes
 [[pending]]
 code = "FB0806"

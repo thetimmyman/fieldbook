@@ -35,7 +35,6 @@ const NO_CHIP: &[&str] = &[
 
 const PENDING: &str = r#"
 fieldbook fmt
-fieldbook search <query>
 fieldbook status
 fieldbook status --page
 fieldbook verify <claim-id> --on YYYY-MM-DD
