@@ -1,0 +1,104 @@
+<div class="register-view" data-register="{{ view.slug }}">
+  <header class="page-head">
+    <div class="eyebrow">
+      <span class="chip accent">Register</span>
+      <span class="chip mono">{{ view.file_name }}</span>
+      {% if !view.rows.is_empty() %}
+      <span class="chip mono">{{ view.row_count_label }}</span>
+      {% endif %}
+    </div>
+    <h1>{{ view.title }}</h1>
+    <p class="muted">{{ view.subtitle }}</p>
+  </header>
+
+  {% if view.show_claims_filter && !view.rows.is_empty() %}
+  <div class="reg-toolbar" id="fb:claimsFilter" role="region" aria-label="Claims filter" hidden>
+    <div class="seg" id="fb:claimsFilterSeg" role="group" aria-label="Filter by verification">
+      {% for opt in view.filter_options %}
+      <button type="button" data-cf="{{ opt.key }}" aria-pressed="{% if opt.active %}true{% else %}false{% endif %}">{{ opt.label }}</button>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if !view.conflict_boxes.is_empty() %}
+  <section class="register-conflicts" aria-label="Conflict cards">
+    {% for cbox in view.conflict_boxes %}
+    <div class="conflict-box register{% if cbox.is_resolved %} resolved{% endif %}" data-conflict="{{ cbox.conflict_id }}">
+      <div class="conflict-head">
+        {{ cbox.conflict_chip_html|safe }}
+        {{ cbox.area_chip_html|safe }}
+        {{ cbox.status_chip_html|safe }}
+        <strong>{{ cbox.topic }}</strong>
+      </div>
+      <div class="conflict-sides">
+        {% for pos in cbox.positions %}
+        <div class="conflict-side">
+          <div class="conflict-side-label">Position {{ loop.index }}</div>
+          <div>{{ pos }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="conflict-foot">
+        <div>Disputed claims: {{ cbox.claims_html|safe }}</div>
+        {% if cbox.is_resolved %}
+          {% if let Some(res) = cbox.resolution %}
+          <div><strong>Library adopts:</strong> {{ res }}</div>
+          {% endif %}
+          {% if let Some(rat) = cbox.rationale %}
+          <div>Rationale: {{ rat }}</div>
+          {% endif %}
+          {% if let Some(ev) = cbox.evidence_html %}
+          <div>Evidence: {{ ev|safe }}</div>
+          {% endif %}
+          {% if let Some(on) = cbox.resolved_on %}
+          <div>Resolved on <span class="mono">{{ on }}</span></div>
+          {% endif %}
+        {% else %}
+          {% if let Some(q_html) = cbox.question_chip_html %}
+          <div>Settled by {{ q_html|safe }}</div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if view.rows.is_empty() %}
+  <p class="empty-state muted" data-empty-register>None recorded</p>
+  {% else if view.show_claims_filter %}
+  <p class="empty-state muted" id="fb:registerEmptyFilter" hidden>An empty filter means none are recorded, not that none exist.</p>
+  {% endif %}
+
+  {% if !view.rows.is_empty() %}
+  <div class="table-wrap">
+    <table class="reg-table" id="fb:registerTable">
+      <caption>{{ view.caption }}</caption>
+      <thead>
+        <tr>
+          {%- for col in view.columns %}
+          <th scope="col" data-col="{{ col }}"{% if loop.first %} aria-sort="ascending"{% endif %}>{{ col }}</th>
+          {%- endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {%- for row in view.rows %}
+        <tr id="{{ row.id }}"{% if let Some(ver) = row.verification_filter %} data-verification="{{ ver }}"{% endif %}>
+          {%- for cell in row.cells %}
+          <td{% if !cell.sort_key.is_empty() %} data-sort-val="{{ cell.sort_key }}"{% endif %}>{{ cell.html|safe }}</td>
+          {%- endfor %}
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+  <nav class="pager" id="fb:registerPager" aria-label="Register pages" hidden>
+    <div class="seg" role="group" aria-label="Page">
+      <button type="button" data-pg="prev">Previous</button>
+      <button type="button" data-pg="next">Next</button>
+    </div>
+    <span id="fb:registerPageInfo" aria-live="polite"></span>
+  </nav>
+  {% endif %}
+</div>

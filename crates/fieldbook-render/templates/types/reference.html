@@ -1,6 +1,6 @@
-<div class="reader" id="reader">
+<div class="reader" id="fb:reader">
   <article class="prose">
-    <div class="banner warn" id="overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ meta_row.review_by }}" hidden>
+    <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ meta_row.review_by }}" hidden>
       <div class="body"><b>Review overdue.</b> Review date <time datetime="{{ meta_row.review_by }}">{{ meta_row.review_by }}</time> has passed; re-check cited sources before relying on this page.</div>
     </div>
     {% if is_synthetic_now %}
@@ -28,8 +28,8 @@
       <h1>{{ title }}</h1>
       {% include "parts/meta_row.html" %}
       <div class="page-actions">
-        <button type="button" class="btn sm" id="copyLinkBtn" data-copy-link="{{ meta_row.page_id }}">Copy link</button>
-        <div class="seg" id="wordingSeg" role="group" aria-label="Wording">
+        <button type="button" class="btn sm" id="fb:copyLinkBtn" data-copy-link="{{ meta_row.page_id }}">Copy link</button>
+        <div class="seg" id="fb:wordingSeg" role="group" aria-label="Wording">
           <button type="button" data-wording="both" aria-pressed="true">Both</button>
           <button type="button" data-wording="plain" aria-pressed="false">Plain</button>
         </div>
@@ -123,5 +123,5 @@
       {% endif %}
     </section>
   </aside>
-  <div class="popover" id="popover" role="tooltip" hidden></div>
+  <div class="popover" id="fb:popover" role="tooltip" hidden></div>
 </div>
