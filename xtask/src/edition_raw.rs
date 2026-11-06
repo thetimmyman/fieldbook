@@ -1197,10 +1197,6 @@ pub fn edition_raw(
 }
 
 #[cfg(test)]
-#[path = "../../tests/support/rng.rs"]
-mod rng;
-
-#[cfg(test)]
 pub(crate) mod tests {
     use super::*;
     use fieldbook_core::schema::Register;
@@ -1814,7 +1810,7 @@ pub(crate) mod tests {
         let received: Vec<&str> = paragraph(&readme, "WHAT YOU RECEIVED")
             .into_iter()
             .filter(|l| l.starts_with("  ") && !l.starts_with("   "))
-            .map(|l| l.trim().split_whitespace().next().expect("name"))
+            .map(|l| l.split_whitespace().next().expect("name"))
             .collect();
         assert_eq!(
             received,
@@ -1895,7 +1891,7 @@ pub(crate) mod tests {
             .into_iter()
             .skip(1)
             .filter_map(|l| {
-                let first = l.trim().split_whitespace().next()?;
+                let first = l.split_whitespace().next()?;
                 first
                     .ends_with('\\')
                     .then(|| first.trim_start_matches("edition\\").replace('\\', "/"))
@@ -2047,7 +2043,7 @@ pub(crate) mod tests {
             )
         };
         assert!(judge(valid_report.as_bytes()).is_ok());
-        let mut gen_ = super::rng::Rng::new(0xFB05_2026_0001_0008);
+        let mut gen_ = crate::compat::rng::Rng::new(0xFB05_2026_0001_0008);
         for _ in 0..200 {
             let bytes = gen_.bytes(256);
             assert!(catch_unwind(AssertUnwindSafe(|| judge(&bytes))).is_ok());

@@ -1246,7 +1246,7 @@ fn verify_all(root: &Path, published: &Published, baselines: &Baselines) -> Resu
 
 #[cfg(test)]
 #[path = "../../tests/support/rng.rs"]
-mod rng;
+pub(crate) mod rng;
 
 #[cfg(test)]
 mod tests {

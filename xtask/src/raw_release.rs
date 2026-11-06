@@ -432,10 +432,6 @@ pub fn compare_delivered_sets(local: &Path, downloaded: &Path) -> Result<(), Str
 }
 
 #[cfg(test)]
-#[path = "../../tests/support/rng.rs"]
-mod rng;
-
-#[cfg(test)]
 mod tests {
     use std::collections::BTreeMap;
     use std::fs;
@@ -1288,7 +1284,7 @@ mod tests {
                 "`{name}` rejected its own valid example"
             );
         }
-        let mut gen_ = super::rng::Rng::new(0xFB05_2026_0001_0007);
+        let mut gen_ = crate::compat::rng::Rng::new(0xFB05_2026_0001_0007);
         for _ in 0..200 {
             let bytes = gen_.bytes(256);
             assert!(
