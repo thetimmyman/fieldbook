@@ -12,7 +12,7 @@ use crate::labels::{LabelAllow, LabelId, LabelSet, Ledger, StoreId, effective};
 use crate::schema::rows::RefId;
 use crate::schema::table::{Row, Table};
 use crate::schema::{
-    ClaimRow, ConflictRow, CorpusToml, GlossaryRow, QuestionRow, Register, SourceRow,
+    ClaimRow, ConflictRow, CorpusToml, GlossaryRow, Lifecycle, QuestionRow, Register, SourceRow,
 };
 
 use super::decision::Allowed;
@@ -274,7 +274,7 @@ impl LabelledView {
         let mut kept_source_lines = BTreeSet::new();
         let mut kept_source_ids = BTreeSet::new();
         let mut kept_version_ids = BTreeSet::new();
-        let mut kept_original_locations = BTreeSet::new();
+        let mut kept_original_versions = BTreeSet::new();
 
         for loc in &raw.sources {
             let vid_str = format!("{}-v{}", loc.value.source_id, loc.value.version);
@@ -291,9 +291,14 @@ impl LabelledView {
                 kept_source_lines.insert(loc.line);
                 kept_source_ids.insert(loc.value.source_id.clone());
                 if let Ok(vid) = VersionId::parse(&vid_str) {
+                    // A held version ships its row only, and a metadata-only one has no file.
+                    if loc.value.lifecycle != Lifecycle::Quarantined
+                        && !loc.value.location.starts_with("metadata-only: ")
+                    {
+                        kept_original_versions.insert(vid.clone());
+                    }
                     kept_version_ids.insert(vid);
                 }
-                kept_original_locations.insert(loc.value.location.clone());
                 kept_sources.push(loc.clone());
             } else {
                 left_out += 1;
@@ -627,10 +632,17 @@ impl LabelledView {
             }
         }
 
-        for loc_name in &kept_original_locations {
-            let orig_path = format!("corpus/sources/public/{loc_name}");
-            if let Some(entry) = raw.input_tree.get(&orig_path) {
-                insert_entry_with_ancestors(&mut filtered_tree, &orig_path, entry.clone());
+        // An original is `corpus/sources/public/<version-id>.<ext>` and goes with its version.
+        // `location` says where it came from and never selects a file.
+        for (path, entry) in raw.input_tree.iter() {
+            let is_kept = path
+                .strip_prefix("corpus/sources/public/")
+                .filter(|name| !name.contains('/'))
+                .and_then(|name| name.split_once('.'))
+                .and_then(|(stem, _)| VersionId::parse(stem).ok())
+                .is_some_and(|vid| kept_original_versions.contains(&vid));
+            if is_kept {
+                insert_entry_with_ancestors(&mut filtered_tree, path, entry.clone());
             }
         }
 

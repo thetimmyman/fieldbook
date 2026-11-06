@@ -1396,10 +1396,8 @@ mod build {
 
     /// The repository Corpus records the address an original came from in `location` (the
     /// source-adding steps of corpus-format.md), while the stored file is named for the version.
-    /// The labelled view keeps an original only at `sources/public/<location>`, so such a row
-    /// ships no original. Fix the view (owner module), then drop the `ignore`.
+    /// The labelled view keeps an original by its version id, so such a row still ships one.
     #[test]
-    #[ignore = "blocked: the egress view keeps an original by location, not by version id"]
     fn an_original_ships_when_location_is_the_address_it_came_from() {
         let tmp = temp_copy(&fixture_root());
         add_version(
