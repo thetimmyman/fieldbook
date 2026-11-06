@@ -66,6 +66,11 @@ const PROHIBITED_EXTENSIONS: &[&str] = &[
 
 const RENDERABLE_MARKUP_EXTENSIONS: &[&str] = &["html", "htm", "svg", "xhtml"];
 
+/// The only extensions the Raw profile admits for a shipped original. Markup originals arrive
+/// here already renamed to `.txt`. Every other extension is refused, so a new original type is
+/// an owner decision that adds a word to this list.
+pub(crate) const RAW_ORIGINAL_EXTENSIONS: &[&str] = &["pdf", "txt", "csv"];
+
 const WINDOWS_RESERVED_BASENAMES: &[&str] = &[
     "con", "prn", "aux", "nul", "com1", "com2", "com3", "com4", "com5", "com6", "com7", "com8",
     "com9", "lpt1", "lpt2", "lpt3", "lpt4", "lpt5", "lpt6", "lpt7", "lpt8", "lpt9",
@@ -512,7 +517,7 @@ pub fn verify_staged_maps(
         if path == "SHA256SUMS" {
             continue;
         }
-        check_originals_file_allowed(path, &quarantined_versions)?;
+        check_originals_file_allowed(profile, path, bytes, &quarantined_versions)?;
         let Some((_vid, expected_sha)) = expected_originals.get(path) else {
             return Err(AllowlistViolation {
                 code: Code::Fb0601,
@@ -736,7 +741,9 @@ pub fn shipped_original_filename(
 }
 
 fn check_originals_file_allowed(
+    profile: AllowlistProfile,
     path: &str,
+    bytes: &[u8],
     quarantined: &BTreeSet<VersionId>,
 ) -> Result<(), AllowlistViolation> {
     if path.contains('/') {
@@ -765,6 +772,29 @@ fn check_originals_file_allowed(
                 "renderable markup original `{path}` must ship as `{path}.txt` in `originals/`"
             ),
         });
+    }
+    if profile == AllowlistProfile::Raw {
+        if !RAW_ORIGINAL_EXTENSIONS.contains(&ext.as_str()) {
+            return Err(AllowlistViolation {
+                code: Code::Fb0601,
+                path: path.to_owned(),
+                message: format!(
+                    "original `{path}` has extension `.{ext}`; the raw edition admits only {} originals",
+                    RAW_ORIGINAL_EXTENSIONS
+                        .iter()
+                        .map(|e| format!(".{e}"))
+                        .collect::<Vec<_>>()
+                        .join(", ")
+                ),
+            });
+        }
+        if bytes.starts_with(b"MZ") || bytes.starts_with(b"\x7fELF") {
+            return Err(AllowlistViolation {
+                code: Code::Fb0601,
+                path: path.to_owned(),
+                message: format!("original `{path}` begins like a Windows or Linux executable"),
+            });
+        }
     }
     for q_vid in quarantined {
         let prefix = format!("{q_vid}.");
@@ -1189,8 +1219,8 @@ mod tests {
     use fieldbook_core::schema::Register;
 
     use super::{
-        AllowlistProfile, RAW_REQUIRED_PATHS, SITE_REQUIRED_PATHS, shipped_original_filename,
-        verify_staged_maps,
+        AllowlistProfile, RAW_REQUIRED_PATHS, SITE_REQUIRED_PATHS, resolve_shipped_original,
+        shipped_original_filename, verify_staged_maps,
     };
 
     const MINI_CORPUS_TOML: &str =
@@ -1447,6 +1477,82 @@ mod tests {
             .expect_err("missing corpus-support.toml must fail");
         assert_eq!(err.code, Code::Fb0601);
         assert_eq!(err.path, "evidence/corpus-support.toml");
+    }
+
+    #[test]
+    fn raw_originals_are_an_extension_allowlist_and_the_site_profile_is_unchanged() {
+        let (raw_ed, raw_orig) = build_synthetic_staged_pair(AllowlistProfile::Raw);
+        let payload = raw_orig["S-0001-v1.html.txt"].clone();
+        // Types the old denylist let through, plus ordinary office and archive types.
+        for ext in [
+            "url", "reg", "docm", "xlsb", "xlam", "vbe", "psm1", "chm", "pif", "cpl", "xml", "mht",
+            "zip", "xls", "doc", "docx", "xlsx", "css", "pptm", "xll",
+        ] {
+            let mut orig = BTreeMap::new();
+            orig.insert(format!("S-0001-v1.{ext}"), payload.clone());
+            refresh_sums(&mut orig);
+            let err = verify_staged_maps(AllowlistProfile::Raw, &raw_ed, &orig, &[])
+                .expect_err(&format!(".{ext} must be refused in a raw edition"));
+            assert_eq!(err.code, Code::Fb0601, "{ext}: {err}");
+            assert!(err.path.contains(&format!(".{ext}")), "{ext}: {err}");
+        }
+        // The three admitted types, and a markup original renamed to .txt, pass.
+        for ext in ["pdf", "txt", "csv"] {
+            let mut orig = BTreeMap::new();
+            orig.insert(format!("S-0001-v1.{ext}"), payload.clone());
+            refresh_sums(&mut orig);
+            verify_staged_maps(AllowlistProfile::Raw, &raw_ed, &orig, &[])
+                .unwrap_or_else(|e| panic!(".{ext} must pass: {e}"));
+        }
+        // Executable magic is refused even under an admitted extension.
+        for magic in [&b"MZ\x90\x00rest"[..], &b"\x7fELF\x02rest"[..]] {
+            let mut orig = BTreeMap::new();
+            orig.insert("S-0001-v1.pdf".to_owned(), magic.to_vec());
+            refresh_sums(&mut orig);
+            let err = verify_staged_maps(AllowlistProfile::Raw, &raw_ed, &orig, &[])
+                .expect_err("executable magic must be refused");
+            assert_eq!(err.code, Code::Fb0601);
+        }
+        // The Site profile keeps its own rules: an unlisted extension is not a raw-only refusal.
+        let (site_ed, _) = build_synthetic_staged_pair(AllowlistProfile::Site);
+        let mut orig = BTreeMap::new();
+        orig.insert("S-0001-v1.xml".to_owned(), payload);
+        refresh_sums(&mut orig);
+        verify_staged_maps(AllowlistProfile::Site, &site_ed, &orig, &[])
+            .expect("the Site profile is not narrowed by the raw allowlist");
+    }
+
+    #[test]
+    fn a_registered_original_is_found_by_name_or_by_its_single_version_file() {
+        let vid = VersionId::parse("S-0001-v1").expect("vid");
+        let mut files: BTreeMap<String, Vec<u8>> = BTreeMap::new();
+        // A file-name location whose derived name is in the tree wins.
+        files.insert("S-0001-v1.html.txt".to_owned(), vec![1]);
+        files.insert("S-0001-v1.pdf".to_owned(), vec![2]);
+        assert_eq!(
+            resolve_shipped_original(&vid, "S-0001-v1.html", &files).as_deref(),
+            Ok("S-0001-v1.html.txt")
+        );
+        // A web address is not a file name; the single `<version id>.*` file is the original.
+        let mut one: BTreeMap<String, Vec<u8>> = BTreeMap::new();
+        one.insert("S-0001-v1.pdf".to_owned(), vec![2]);
+        one.insert("S-0002-v1.pdf".to_owned(), vec![3]);
+        assert_eq!(
+            resolve_shipped_original(&vid, "https://example.invalid/path/doc", &one).as_deref(),
+            Ok("S-0001-v1.pdf")
+        );
+        // Two candidates are ambiguous: nothing is guessed, and the derived result stands.
+        let derived = shipped_original_filename(&vid, "https://example.invalid/path/doc");
+        assert_eq!(
+            resolve_shipped_original(&vid, "https://example.invalid/path/doc", &files),
+            derived
+        );
+        // No candidate at all falls back to the derived result as well.
+        let none: BTreeMap<String, Vec<u8>> = BTreeMap::new();
+        assert_eq!(
+            resolve_shipped_original(&vid, "S-0001-v1.pdf", &none).as_deref(),
+            Ok("S-0001-v1.pdf")
+        );
     }
 
     #[test]
