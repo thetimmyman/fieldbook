@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: source pages and the originals folder.
 - Added: the search command.
 - Added: the five register pages and the id list.
 - Added: the new command for pages, claims, questions, conflicts and terms.

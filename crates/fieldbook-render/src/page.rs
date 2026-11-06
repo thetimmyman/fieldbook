@@ -21,20 +21,21 @@ use fieldbook_core::schema::{
 };
 use fieldbook_core::strings;
 
+use crate::cite::OriginalAvailability;
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::inline::{
     CitationTarget, InlineRenderer, find_claim, find_conflict, find_page, find_question,
-    find_source, first_sentence_of_purpose,
+    first_sentence_of_purpose,
 };
 use crate::links::{
-    escape_html, render_area_chip, render_citation_chip, render_claim_chip, render_conflict_chip,
-    render_page_link, render_question_chip,
+    escape_html, render_area_chip, render_claim_chip, render_conflict_chip, render_page_link,
+    render_question_chip,
 };
 use crate::meta::RenderContext;
 use crate::nav::{Navigation, SectionId};
 use crate::site::PlannedPaths;
 use crate::sources_block::{
-    ICON_ALERT, ICON_CHECK, ICON_CLOCK, NumberedSourceRow, build_sources_rows,
+    ICON_ALERT, ICON_CHECK, ICON_CLOCK, NumberedSourceRow, build_sources_rows, claim_citation_chip,
     render_verification_chips,
 };
 
@@ -369,6 +370,7 @@ fn build_evidence_cards(
     claim_ids: &[ClaimId],
     view: &LabelledView,
     planned: &PlannedPaths,
+    availability: &OriginalAvailability,
 ) -> Vec<EvidenceCardView> {
     let mut out = Vec::new();
     for cid in claim_ids {
@@ -377,20 +379,7 @@ fn build_evidence_cards(
         let kind = claim.map_or(ClaimKind::Fact, |c| c.kind);
         let claim_chip_html = render_claim_chip(from_path, cid, planned);
         let status_chip_html = render_verification_chips(ver, kind);
-        let citation_chip_html = match claim.and_then(|c| c.source_id.as_ref().zip(c.version)) {
-            Some((sid, ver_num)) => {
-                let vid = format!("{sid}-v{ver_num}");
-                let source_row = find_source(view, sid, ver_num);
-                render_citation_chip(
-                    from_path,
-                    &vid,
-                    claim.and_then(|c| c.locator.as_deref()),
-                    source_row,
-                    planned,
-                )
-            }
-            None => "<span class=\"cite neutral\">No source yet</span>".to_owned(),
-        };
+        let citation_chip_html = claim_citation_chip(from_path, claim, view, planned, availability);
         out.push(EvidenceCardView {
             claim_id: cid.to_string(),
             claim_chip_html,
@@ -511,11 +500,13 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
 
     let distinct_claims = collect_distinct_cited_claims(page, view, &inline);
     let markers = inline.into_markers();
-    let sources_rows = build_sources_rows(&from_path, &markers, view, planned);
+    let availability = OriginalAvailability::from_view(view);
+    let sources_rows = build_sources_rows(&from_path, &markers, view, planned, &availability);
     let conflict_ids = collect_distinct_conflicts(page, view);
     let conflict_boxes = build_conflict_boxes(&from_path, &conflict_ids, view, planned);
     let change_entries = parse_change_note(&page.body, page);
-    let evidence_cards = build_evidence_cards(&from_path, &distinct_claims, view, planned);
+    let evidence_cards =
+        build_evidence_cards(&from_path, &distinct_claims, view, planned, &availability);
 
     let cited_claim_rows: Vec<&ClaimRow> = distinct_claims
         .iter()

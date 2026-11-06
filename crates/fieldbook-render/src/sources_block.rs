@@ -9,8 +9,9 @@ use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::ClaimId;
 use fieldbook_core::schema::{ClaimKind, Verification};
 
+use crate::cite::OriginalAvailability;
 use crate::inline::{CitationMarker, CitationTarget, find_claim, find_source};
-use crate::links::{escape_html, render_citation_chip, render_claim_mark};
+use crate::links::{escape_html, render_citation_chip_with, render_claim_mark};
 use crate::site::PlannedPaths;
 
 /// 12×12 stroke check icon (`HANDOFF.md` §7).
@@ -117,30 +118,39 @@ pub struct NumberedSourceRow {
 }
 
 /// Build the ordered list of [`NumberedSourceRow`]s for Part 7 (`Sources`) from `markers`.
+///
+/// `availability` says which source versions have a shipped original, so a `p.` or `pp.`
+/// citation of a PDF links to the original at its first page.
 #[must_use]
 pub fn build_sources_rows(
     from_path: &str,
     markers: &[CitationMarker],
     view: &LabelledView,
     planned: &PlannedPaths,
+    availability: &OriginalAvailability,
 ) -> Vec<NumberedSourceRow> {
     let mut rows = Vec::with_capacity(markers.len());
     for marker in markers {
         let kind = match &marker.target {
-            CitationTarget::Claim(claim_id) => {
-                SourceRowKind::Claim(build_claim_row(from_path, claim_id, view, planned))
-            }
+            CitationTarget::Claim(claim_id) => SourceRowKind::Claim(build_claim_row(
+                from_path,
+                claim_id,
+                view,
+                planned,
+                availability,
+            )),
             CitationTarget::Version {
                 version_id,
                 locator,
             } => {
                 let source_row = find_source(view, &version_id.source(), version_id.version());
-                let citation_chip_html = render_citation_chip(
+                let citation_chip_html = render_citation_chip_with(
                     from_path,
                     version_id.as_str(),
                     locator.as_deref(),
                     source_row,
                     planned,
+                    availability,
                 );
                 SourceRowKind::Version(DirectVersionSourceRow {
                     citation_chip_html,
@@ -160,11 +170,37 @@ pub fn build_sources_rows(
     rows
 }
 
+/// Builds the citation chip of a claim row from the claim's own source version and locator.
+pub(crate) fn claim_citation_chip(
+    from_path: &str,
+    claim: Option<&fieldbook_core::schema::ClaimRow>,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+    availability: &OriginalAvailability,
+) -> String {
+    match claim.and_then(|c| c.source_id.as_ref().zip(c.version)) {
+        Some((sid, ver_num)) => {
+            let vid = format!("{sid}-v{ver_num}");
+            let source_row = find_source(view, sid, ver_num);
+            render_citation_chip_with(
+                from_path,
+                &vid,
+                claim.and_then(|c| c.locator.as_deref()),
+                source_row,
+                planned,
+                availability,
+            )
+        }
+        None => "<span class=\"cite neutral\">No source yet</span>".to_owned(),
+    }
+}
+
 fn build_claim_row(
     from_path: &str,
     claim_id: &ClaimId,
     view: &LabelledView,
     planned: &PlannedPaths,
+    availability: &OriginalAvailability,
 ) -> ClaimSourceRow {
     let claim = find_claim(view, claim_id);
 
@@ -175,20 +211,7 @@ fn build_claim_row(
         render_claim_mark(from_path, claim_id, variant, ver_label, icon_svg, planned);
     let status_chip_html = render_verification_chips(ver, claim_kind);
 
-    let citation_chip_html = match claim.and_then(|c| c.source_id.as_ref().zip(c.version)) {
-        Some((sid, ver_num)) => {
-            let vid = format!("{sid}-v{ver_num}");
-            let source_row = find_source(view, sid, ver_num);
-            render_citation_chip(
-                from_path,
-                &vid,
-                claim.and_then(|c| c.locator.as_deref()),
-                source_row,
-                planned,
-            )
-        }
-        None => "<span class=\"cite neutral\">No source yet</span>".to_owned(),
-    };
+    let citation_chip_html = claim_citation_chip(from_path, claim, view, planned, availability);
 
     ClaimSourceRow {
         claim_id: claim_id.to_string(),
