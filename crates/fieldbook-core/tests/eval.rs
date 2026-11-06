@@ -38,7 +38,11 @@ fn the_fixture_set_parses_with_its_three_shapes() {
             .collect::<Vec<_>>(),
         vec![("rg-001", 3), ("rg-002", 9), ("rg-003", 14)]
     );
-    assert!(cases[0].critical && !cases[0].expect_none);
+    assert!(
+        cases.iter().all(|c| !c.critical),
+        "no committed case is critical"
+    );
+    assert!(!cases[0].expect_none);
     assert!(cases[1].expect_none && cases[1].expect.is_empty());
     assert_eq!(cases[2].top, 3);
 }

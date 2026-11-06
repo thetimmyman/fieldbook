@@ -14,6 +14,7 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::fmt;
 
 use serde::Deserialize;
+use toml::Spanned;
 
 use crate::check::Tree;
 use crate::labels::LabelSet;
@@ -31,7 +32,7 @@ pub const DEFAULT_TOP: usize = 5;
 #[serde(deny_unknown_fields)]
 struct RawFile {
     #[serde(default)]
-    case: Vec<RawCase>,
+    case: Vec<Spanned<RawCase>>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -63,7 +64,7 @@ pub struct Case {
     pub expect_none: bool,
     /// `true` when a miss is an error rather than a warning.
     pub critical: bool,
-    /// 1-based line of the case's `[[case]]` header (1 when the header cannot be located).
+    /// 1-based line the case starts on, from the parser's span (its `[[case]]` header, or the inline table).
     pub line: usize,
 }
 
@@ -85,17 +86,6 @@ impl fmt::Display for EvalError {
 }
 
 impl std::error::Error for EvalError {}
-
-fn case_header_lines(text: &str) -> Vec<usize> {
-    text.lines()
-        .enumerate()
-        .filter_map(|(idx, line)| {
-            let rest = line.trim_start().strip_prefix("[[case]]")?;
-            let rest = rest.trim();
-            (rest.is_empty() || rest.starts_with('#')).then_some(idx + 1)
-        })
-        .collect()
-}
 
 fn to_usize(value: u32) -> usize {
     usize::try_from(value).unwrap_or(1)
@@ -122,13 +112,14 @@ pub fn parse(text: &str) -> Result<Vec<Case>, Vec<EvalError>> {
         }
     };
 
-    let headers = case_header_lines(text);
     let mut errors = Vec::new();
     let mut first_line_of: BTreeMap<String, usize> = BTreeMap::new();
     let mut cases = Vec::with_capacity(raw.case.len());
 
-    for (idx, item) in raw.case.into_iter().enumerate() {
-        let line = headers.get(idx).copied().unwrap_or(1);
+    for spanned in raw.case {
+        let (line, _) = byte_offset_to_line_col(text, spanned.span().start);
+        let line = to_usize(line);
+        let item = spanned.into_inner();
         let mut fault = |message: String| {
             errors.push(EvalError {
                 line,
@@ -256,7 +247,8 @@ pub fn miss(index: &Index, case: &Case) -> Option<String> {
 
 #[cfg(test)]
 mod tests {
-    use super::{DEFAULT_TOP, parse};
+    use super::{Case, DEFAULT_TOP, miss, parse};
+    use crate::search::{Glossary, GoldenFields, GoldenUnit, Index};
 
     #[test]
     fn a_case_takes_its_defaults_and_its_header_line() {
@@ -293,5 +285,151 @@ mod tests {
         assert!(errs[0].message.contains("repeats"), "{}", errs[0].message);
         assert_eq!(errs[1].line, 11);
         assert!(errs[1].message.contains("neither"), "{}", errs[1].message);
+    }
+
+    #[test]
+    fn the_default_top_is_five() {
+        assert_eq!(DEFAULT_TOP, 5);
+        let cases = parse("[[case]]\nid = \"rg-001\"\nquery = \"q\"\nexpect = [\"x\"]\n")
+            .expect("valid file");
+        assert_eq!(cases[0].top, 5);
+    }
+
+    #[test]
+    fn lines_come_from_the_parser_not_from_the_spelling() {
+        let spaced = "[[case]]\nid = \"rg-001\"\nquery = \"q\"\nexpect = [\"x\"]\n\n[[ case ]]\nid = \"rg-002\"\nquery = \"q\"\nexpect = [\"x\"]\n\n[[case]]\nid = \"rg-003\"\nquery = \"q\"\nexpect = [\"x\"]\n";
+        let lines: Vec<usize> = parse(spaced)
+            .expect("valid")
+            .iter()
+            .map(|c| c.line)
+            .collect();
+        assert_eq!(lines, vec![1, 6, 11]);
+
+        let quoted = "[[case]]\nid = \"rg-001\"\nquery = \"q\"\nexpect = [\"x\"]\n\n[[\"case\"]]\nid = \"rg-002\"\nquery = \"q\"\nexpect = [\"x\"]\n";
+        let lines: Vec<usize> = parse(quoted)
+            .expect("valid")
+            .iter()
+            .map(|c| c.line)
+            .collect();
+        assert_eq!(lines, vec![1, 6]);
+
+        let inline = "case = [\n  { id = \"rg-001\", query = \"q\", expect = [\"x\"] },\n  { id = \"rg-001\", query = \"q\", expect = [\"x\"] },\n]\n";
+        let errs = parse(inline).expect_err("repeated id");
+        assert_eq!(errs.len(), 1);
+        assert_eq!(errs[0].line, 3, "{errs:?}");
+    }
+
+    #[test]
+    fn a_byte_order_mark_never_shifts_a_pointer() {
+        let text = "\u{feff}[[case]]\nid = \"rg-001\"\nquery = \"q\"\n\n[[case]]\nid = \"rg-002\"\nquery = \"q\"\nexpect = [\"x\"]\n";
+        match parse(text) {
+            Ok(cases) => {
+                assert_eq!(cases.iter().map(|c| c.line).collect::<Vec<_>>(), vec![1, 5]);
+            }
+            Err(errs) => {
+                for err in errs {
+                    assert!(matches!(err.line, 1 | 5), "{err:?}");
+                }
+            }
+        }
+    }
+
+    fn unit(id: &str, fields: GoldenFields) -> GoldenUnit {
+        GoldenUnit {
+            id: id.to_owned(),
+            kind: "claim".to_owned(),
+            fields,
+            ..GoldenUnit::default()
+        }
+    }
+
+    /// `u-one` ranks 1 for "alpha" (title), `u-two` 2 (heading), `u-three` 3 (body).
+    fn ranked_index() -> Index {
+        let blank = || GoldenFields::default();
+        Index::from_golden(
+            &[
+                unit(
+                    "u-one",
+                    GoldenFields {
+                        title: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "u-two",
+                    GoldenFields {
+                        headings: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "u-three",
+                    GoldenFields {
+                        body: "alpha".to_owned(),
+                        ..blank()
+                    },
+                ),
+                unit(
+                    "u-other",
+                    GoldenFields {
+                        body: "zzz".to_owned(),
+                        ..blank()
+                    },
+                ),
+            ],
+            &Glossary::default(),
+        )
+    }
+
+    fn case(query: &str, expect: &[&str], top: usize) -> Case {
+        Case {
+            id: "rg-001".to_owned(),
+            query: query.to_owned(),
+            expect: expect.iter().map(|id| (*id).to_owned()).collect(),
+            top,
+            expect_none: false,
+            critical: false,
+            line: 1,
+        }
+    }
+
+    #[test]
+    fn an_answer_within_top_holds_and_one_past_it_misses() {
+        let index = ranked_index();
+        assert_eq!(miss(&index, &case("alpha", &["u-one"], 1)), None);
+        let late = miss(&index, &case("alpha", &["u-two"], 1)).expect("rank 2 misses top 1");
+        assert!(late.contains("`u-two` ranks 2"), "{late}");
+        assert!(late.contains("first 1 results"), "{late}");
+        assert_eq!(miss(&index, &case("alpha", &["u-two"], 2)), None);
+        assert_eq!(miss(&index, &case("alpha", &["u-three"], 3)), None);
+        assert!(miss(&index, &case("alpha", &["u-three"], 2)).is_some());
+    }
+
+    #[test]
+    fn every_expected_id_must_be_within_top() {
+        let index = ranked_index();
+        let message = miss(&index, &case("alpha", &["u-one", "u-three"], 2)).expect("one late");
+        assert!(message.contains("`u-three` ranks 3"), "{message}");
+        assert!(!message.contains("`u-one`"), "{message}");
+        assert_eq!(miss(&index, &case("alpha", &["u-one", "u-three"], 3)), None);
+    }
+
+    #[test]
+    fn an_answer_that_is_not_found_misses() {
+        let index = ranked_index();
+        let message = miss(&index, &case("alpha", &["u-other"], 5)).expect("not a hit");
+        assert!(message.contains("is not in the results"), "{message}");
+    }
+
+    #[test]
+    fn expect_none_misses_exactly_when_the_query_returns_something() {
+        let index = ranked_index();
+        let mut none = case("alpha", &[], 5);
+        none.expect_none = true;
+        let message = miss(&index, &none).expect("alpha returns results");
+        assert!(message.contains("should return nothing"), "{message}");
+        assert!(message.contains("`u-one`"), "{message}");
+        none.query = "qqq".to_owned();
+        assert_eq!(miss(&index, &none), None);
     }
 }

@@ -76,7 +76,7 @@ pub struct SearchArgs {
     #[arg(long)]
     pub json: bool,
 
-    /// The words to search for; they are joined with single spaces, so quoting is optional.
+    /// The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-`.
     #[arg(value_name = "QUERY", required = true, num_args = 1..)]
     pub words: Vec<String>,
 }

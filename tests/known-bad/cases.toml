@@ -194,6 +194,7 @@ edits = [
 code = "FB0128"
 at = "corpus/eval/regression.toml:3"
 edits = [
+  { path = "corpus/eval/regression.toml", find = "# No committed case is critical; the known-bad FB0128 row adds the key in a copy.", replace = "critical = true" },
   { path = "corpus/eval/regression.toml", find = "query = \"withhold\"", replace = "query = \"xylophone marmalade\"" },
 ]
 

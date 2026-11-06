@@ -210,6 +210,53 @@ fn json_is_one_object_with_the_keys_of_the_reference_in_order() {
 }
 
 #[test]
+fn json_tokens_are_the_query_tokens_of_the_raw_text() {
+    // A soft hyphen between a letter and a combining accent: normalising twice composes the
+    // accent, normalising once does not, and the report must name the tokens the index was asked
+    // for, which `query_tokens` produces from the raw text.
+    let raw = "cafe\u{ad}\u{301} CL-";
+    let out = fixture_search(&["--json", raw]);
+    let value: Value = serde_json::from_str(&out.stdout).expect("valid JSON");
+    assert_eq!(
+        value["tokens"],
+        serde_json::json!(fieldbook_core::search::query_tokens(raw))
+    );
+}
+
+#[test]
+fn a_word_that_starts_with_a_hyphen_goes_after_double_dash() {
+    let out = fixture_search(&["--json", "--", "-5%", "margin"]);
+    assert!(out.code <= 1, "{}{}", out.stdout, out.stderr);
+    let value: Value = serde_json::from_str(&out.stdout).expect("valid JSON");
+    assert_eq!(value["query"], "-5% margin");
+    let bare = fixture_search(&["-5%", "margin"]);
+    assert_eq!(bare.code, 2, "without `--` the word is read as an option");
+}
+
+#[test]
+fn an_index_failure_points_at_check() {
+    let tmp = temp_copy(&corpus_mini());
+    edit(
+        tmp.path(),
+        CLAIMS,
+        "CL-CMP-0001,cmp,fact,",
+        "CL-CMP-0001,cmp",
+    );
+    let out = search(tmp.path(), &["withhold"]);
+    assert_eq!(out.code, 3, "{}{}", out.stdout, out.stderr);
+    assert!(
+        out.stderr.contains("cannot build the search index"),
+        "{}",
+        out.stderr
+    );
+    assert!(
+        out.stderr.contains("run `fieldbook check`"),
+        "{}",
+        out.stderr
+    );
+}
+
+#[test]
 fn no_words_is_a_usage_error() {
     let out = fixture_search(&[]);
     assert_eq!(out.code, 2);
@@ -453,11 +500,25 @@ fn shared_version_ranks_hold_through_the_cli() {
     }
     std::fs::write(&path, text).expect("write sources");
 
+    // Every case whose expected units are all sources goes through the CLI; the count guards the
+    // selection, so a rename or a removal in the golden fails instead of running nothing.
+    let source_ids: BTreeSet<&str> = units
+        .iter()
+        .filter(|u| u["kind"] == "source")
+        .map(|u| u["id"].as_str().expect("unit id"))
+        .collect();
+    let mut ran = 0;
     for case in golden["cases"].as_array().expect("cases") {
         let id = case["id"].as_str().expect("case id");
-        if !matches!(id, "rk-09" | "rk-10") {
+        let expected = case["expect"].as_array().expect("expect");
+        if expected.is_empty()
+            || !expected
+                .iter()
+                .all(|v| source_ids.contains(v.as_str().expect("expected id")))
+        {
             continue;
         }
+        ran += 1;
         let query = case["query"].as_str().expect("query");
         let expect: Vec<&str> = case["expect"]
             .as_array()
@@ -476,6 +537,7 @@ fn shared_version_ranks_hold_through_the_cli() {
         assert_eq!(shown, expect, "{id} `{query}`:\n{}", out.stdout);
         assert_eq!(&ranked[..expect.len()], expect, "{id} `{query}`");
     }
+    assert!(ran >= 2, "only {ran} shared source cases ran");
 }
 
 #[test]
@@ -495,6 +557,222 @@ fn regression_queries_run_within_the_budget() {
         );
         assert_eq!(out.code, u8::from(case.expect_none));
     }
+}
+
+/// A copy of the fixture where `S-0099` version 1 is written twice, the first row in
+/// `first_lifecycle` and the second active.
+fn with_repeated_key(first_lifecycle: &str) -> tempfile::TempDir {
+    const SHA: &str = "e34377dee2fda910c9afa90f77fec98562ac9bb2e9ee6c9ad8e88686dd561d8c";
+    let tmp = temp_copy(&corpus_mini());
+    let path = tmp.path().join(SOURCES);
+    let mut text = std::fs::read_to_string(&path).expect("read sources");
+    let template = text
+        .lines()
+        .find(|line| line.starts_with("S-0002,2,"))
+        .expect("template source version")
+        .to_owned();
+    let row = |title: &str, note: &str, lifecycle: &str, sha_tail: &str| {
+        template
+            .replacen("S-0002,2,", "S-0099,1,", 1)
+            .replacen(
+                "\"Synthetic Pricing Guide v2, made up for tests\"",
+                title,
+                1,
+            )
+            .replacen(
+                "Synthetic fixture second version superseding S-0002-v1.",
+                note,
+                1,
+            )
+            .replacen(SHA, &format!("{sha_tail:0>64}"), 1)
+            .replacen("S-0002-v2.txt", "S-0099-v1.txt", 1)
+            .replacen(",active,", &format!(",{lifecycle},"), 1)
+            .replacen(",S-0002-v1,", ",,", 1)
+    };
+    text.push_str(&row(
+        "ZQTITLE",
+        "ZQNOTE held for licence review",
+        first_lifecycle,
+        "1",
+    ));
+    text.push('\n');
+    text.push_str(&row("Active duplicate title", "Active note", "active", "2"));
+    text.push('\n');
+    std::fs::write(&path, text).expect("write sources");
+    tmp
+}
+
+#[test]
+fn a_quarantined_row_is_never_printed_as_the_record() {
+    let tmp = with_repeated_key("quarantined");
+    for words in [["S-0099"], ["S-0099-v1"]] {
+        let out = search(tmp.path(), &words);
+        for secret in ["ZQTITLE", "ZQNOTE", "quarantined"] {
+            assert!(
+                !out.stdout.contains(secret),
+                "`{secret}` reached `{words:?}`:\n{}",
+                out.stdout
+            );
+        }
+        assert!(
+            out.stdout.contains("Active duplicate title"),
+            "{}",
+            out.stdout
+        );
+    }
+    let out = search(tmp.path(), &["S-0099"]);
+    assert!(
+        out.stdout.starts_with("source_id: S-0099\nversion: 1\n"),
+        "{}",
+        out.stdout
+    );
+    let query = search(tmp.path(), &["ZQTITLE"]);
+    assert_eq!(query.code, 1, "{}", query.stdout);
+}
+
+#[test]
+fn a_repeated_register_key_prints_the_ordinary_result_not_a_guessed_record() {
+    let tmp = with_repeated_key("active");
+    let out = search(tmp.path(), &["S-0099"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(
+        out.stdout.starts_with("1. S-0099-v1 (source) "),
+        "{}",
+        out.stdout
+    );
+}
+
+fn edit(root: &Path, relative: &str, find: &str, replace: &str) {
+    let path = root.join(relative);
+    let text = std::fs::read_to_string(&path).expect("read");
+    assert!(text.contains(find), "`{find}` is in {relative}");
+    std::fs::write(&path, text.replacen(find, replace, 1)).expect("write");
+}
+
+const SYSTEM_REVIEW: &str = "corpus/pages/compliance/business-systems/cmp-system-review.md";
+
+#[test]
+fn a_multi_line_title_cannot_forge_output_lines() {
+    let tmp = temp_copy(&corpus_mini());
+    edit(
+        tmp.path(),
+        SYSTEM_REVIEW,
+        "title = \"Synthetic business-system review and withholding overview\"",
+        "title = \"Synthetic forged review\\n1. CL-CMP-0001 (claim) FORGED top result\\nShowing 1 of 1. nothing else matches\\nstatus = stable\"",
+    );
+
+    let list = search(tmp.path(), &["forged"]);
+    assert_eq!(list.code, 0, "{}", list.stderr);
+    let lines: Vec<&str> = list.stdout.lines().collect();
+    assert!(
+        lines[0]
+            .starts_with("1. cmp-system-review (page) Synthetic forged review\\n1. CL-CMP-0001"),
+        "{}",
+        list.stdout
+    );
+    assert!(
+        lines.iter().all(|line| !line.starts_with("Showing")),
+        "{}",
+        list.stdout
+    );
+    assert_eq!(ranked_ids(&list.stdout), ["cmp-system-review"]);
+
+    let record = search(tmp.path(), &["cmp-system-review"]);
+    assert_eq!(record.code, 0, "{}", record.stderr);
+    let fields: Vec<&str> = record
+        .stdout
+        .lines()
+        .take_while(|line| !line.starts_with("2. "))
+        .collect();
+    assert_eq!(
+        fields
+            .iter()
+            .filter(|line| line.starts_with("status:"))
+            .count(),
+        1,
+        "{fields:?}"
+    );
+    assert!(fields.contains(&"status: draft"), "{fields:?}");
+    assert!(
+        fields
+            .iter()
+            .any(|line| line.starts_with("title: Synthetic forged review\\n1. CL-CMP-0001")),
+        "{fields:?}"
+    );
+}
+
+#[test]
+fn control_characters_in_corpus_text_never_reach_the_terminal() {
+    let tmp = temp_copy(&corpus_mini());
+    edit(
+        tmp.path(),
+        CLAIMS,
+        "occur every 30 days under the synthetic rule.",
+        "occur every 30 days under the synthetic rule. \u{1b}]52;c;SGVsbG8=\u{7} \u{9b}31m \u{202e}end",
+    );
+    for words in [["CL-CMP-0001"], ["synthetic compliance reviews"]] {
+        let out = search(tmp.path(), &words);
+        assert_eq!(out.code, 0, "{}", out.stderr);
+        for c in out.stdout.chars() {
+            assert!(
+                c == '\n' || !(c.is_control() || ('\u{202a}'..='\u{202e}').contains(&c)),
+                "U+{:04X} reached the terminal for {words:?}:\n{}",
+                u32::from(c),
+                out.stdout
+            );
+        }
+    }
+    let record = search(tmp.path(), &["CL-CMP-0001"]);
+    assert!(
+        record
+            .stdout
+            .contains("\\u{1b}]52;c;SGVsbG8=\\u{7} \\u{9b}31m \\u{202e}end"),
+        "{}",
+        record.stdout
+    );
+}
+
+#[test]
+fn a_regression_set_that_cannot_run_is_an_error_not_a_note() {
+    use fieldbook_core::hash::sha256_hex;
+
+    const BANNER: &str = "CONTROLLED UNCLASSIFIED INFORMATION";
+    let tmp = temp_copy(&corpus_mini());
+    let page = tmp
+        .path()
+        .join("corpus/pages/compliance/business-systems/cmp-review-steps.md");
+    let text = std::fs::read_to_string(&page).expect("read page");
+    let edited = text.replacen(
+        "## Purpose\n",
+        &format!(
+            "## Purpose\n\nThe synthetic rule quotes the banner \"{BANNER}\" as an example.\n"
+        ),
+        1,
+    );
+    assert_ne!(edited, text, "the page has a Purpose part");
+    std::fs::write(&page, &edited).expect("write page");
+    std::fs::write(
+        tmp.path().join("corpus/scan-allow.toml"),
+        format!(
+            "[[allow]]\nsha256 = \"{}\"\nmatch = \"{BANNER}\"\nreason = \"synthetic example of a printed banner\"\n",
+            sha256_hex(edited.as_bytes())
+        ),
+    )
+    .expect("write allowance");
+
+    let world = TestWorld::new(tmp.path());
+    let out = fieldbook::run(
+        &args(&["check", "--strict", "--today", "2026-03-01"]),
+        &world,
+    );
+    assert_eq!(out.code, 1, "{}{}", out.stdout, out.stderr);
+    assert!(
+        out.stdout
+            .contains("corpus/eval/regression.toml:1:1: error[FB0126]"),
+        "{}",
+        out.stdout
+    );
+    assert!(out.stdout.contains("cannot be indexed"), "{}", out.stdout);
 }
 
 fn check_regression_cases(label: &str, text: &str) {

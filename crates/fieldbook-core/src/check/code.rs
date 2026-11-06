@@ -306,13 +306,13 @@ define_codes! {
         Fb0127,
         "FB0127",
         "warning",
-        "Tune the query, content or search weights so the regression case meets its ranking expectation."
+        "Check the regression case and the Corpus content; a person decides whether to change the case. Do not tune the ranking to pass it."
     ),
     (
         Fb0128,
         "FB0128",
         "error",
-        "Restore search ranking so the critical regression case meets its expectation."
+        "Check the critical regression case and the Corpus content; a person decides whether to change the case. Do not tune the ranking to pass it."
     ),
     (
         Fb0130,

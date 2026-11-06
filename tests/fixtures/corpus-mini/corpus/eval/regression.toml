@@ -4,7 +4,7 @@
 id = "rg-001"
 query = "withhold"
 expect = ["cmp-withhold-case"]
-critical = true
+# No committed case is critical; the known-bad FB0128 row adds the key in a copy.
 
 [[case]]
 id = "rg-002"

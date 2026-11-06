@@ -66,7 +66,7 @@ Find an id or a word in the Corpus; list the versions of a source
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
 | `--json` | - | - | Print the results as a JSON object |
-| `<QUERY>` | `QUERY` | - | The words to search for; they are joined with single spaces, so quoting is optional |
+| `<QUERY>` | `QUERY` | - | The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-` |
 
 ## Exit codes
 

@@ -2,8 +2,9 @@
 //! `docs/reference/corpus-format.md#check-catalogue`).
 //!
 //! **Responsibility.**
-//! - `FB0126` (error): `corpus/eval/regression.toml` is malformed, repeats a case `id`, or names an
-//!   expected unit id that is not a unit of the Corpus.
+//! - `FB0126` (error): `corpus/eval/regression.toml` is malformed, repeats a case `id`, names an
+//!   expected unit id that is not a unit of the Corpus, or has cases that cannot run because the
+//!   Corpus cannot be indexed and no other error says so.
 //! - `FB0127` (warning): a case misses: an expected id is not within `top`, or an `expect_none`
 //!   query returns results.
 //! - `FB0128` (error): a case marked `critical` misses.
@@ -51,9 +52,24 @@ pub fn check(model: &Model, options: &Options, report: &mut Report) {
     let index = match eval::corpus_index(model.tree()) {
         Ok(index) => index,
         Err(err) => {
-            report.push_note(format!(
-                "regression set skipped: the Corpus cannot be indexed ({err})"
-            ));
+            // A refused Corpus is usually reported by its own pass. When no pass has said so, the
+            // set must not silently not run: its critical cases are the release gate.
+            if report.errors() == 0 {
+                report.push(Diagnostic::new(
+                    Code::Fb0126,
+                    strict,
+                    REGRESSION_PATH,
+                    1,
+                    1,
+                    format!(
+                        "the regression set cannot run because the Corpus cannot be indexed ({err})"
+                    ),
+                ));
+            } else {
+                report.push_note(format!(
+                    "regression set skipped: the Corpus cannot be indexed ({err})"
+                ));
+            }
             return;
         }
     };

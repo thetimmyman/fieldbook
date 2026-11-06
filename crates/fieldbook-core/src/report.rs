@@ -6,7 +6,7 @@ use crate::audit::chain::RawEventObject;
 use crate::check::{Diagnostic, Report};
 use crate::date::CivilDate;
 use crate::labels::{LabelId, LabelSet, StoreId};
-use crate::search::{Index, Results, normalise, query_tokens};
+use crate::search::{Index, Results, query_tokens};
 
 /// Schema version of every `--json` report (`AD-17`).
 pub const REPORT_VERSION: u32 = 1;
@@ -136,7 +136,6 @@ impl SearchReport {
     /// `index`. Every unit of a Corpus index is public and comes from the `corpus` store.
     #[must_use]
     pub fn from_results(index: &Index, raw_query: &str, results: &Results) -> Self {
-        let folded = normalise(raw_query);
         let rows = results
             .hits
             .iter()
@@ -164,7 +163,7 @@ impl SearchReport {
         Self {
             report_version: REPORT_VERSION,
             query: raw_query.to_owned(),
-            tokens: query_tokens(folded.trim()),
+            tokens: query_tokens(raw_query),
             total: results.total,
             results: rows,
         }
