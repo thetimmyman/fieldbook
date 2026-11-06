@@ -185,6 +185,16 @@ fn build_plan_from_site(
 
     let rules = MarkingRules::default();
     let mut markings: Option<LabelSet> = None;
+    let mut note_markings = |bytes: &[u8]| {
+        if let Ok(text) = std::str::from_utf8(bytes)
+            && let Some(mset) = labels::markings_in(text, &rules)
+        {
+            markings = Some(match markings.take() {
+                Some(prev) => prev.union(&mset),
+                None => mset,
+            });
+        }
+    };
     for (rel, bytes) in site.files() {
         let target_path = edition_dir.join(rel);
         entries.push(Transfer::write_path(target_path, bytes));
@@ -192,21 +202,17 @@ fn build_plan_from_site(
             format!("{}/{rel}", BuildRoot::Edition.as_str()),
             Sha256::digest(bytes).as_str().to_owned(),
         ));
-        if let Ok(text) = std::str::from_utf8(bytes)
-            && let Some(mset) = labels::markings_in(text, &rules)
-        {
-            markings = Some(match markings {
-                Some(prev) => prev.union(&mset),
-                None => mset,
-            });
-        }
+        note_markings(bytes);
     }
+    // A text original is scanned like a site file, so a marking banner in it reaches the
+    // egress check. A PDF is not text here; extraction scans it.
     for (name, bytes) in &originals {
         entries.push(Transfer::write_path(originals_dir.join(name), bytes));
         write_files.push(WriteFile::new(
             format!("{}/{name}", BuildRoot::Originals.as_str()),
             Sha256::digest(bytes).as_str().to_owned(),
         ));
+        note_markings(bytes);
     }
     let delivery = Delivery { entries, markings };
     let (input_items, affected) = collect_view_inputs(view);

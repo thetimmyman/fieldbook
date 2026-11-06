@@ -1908,6 +1908,21 @@ th[aria-sort="descending"] .sort-arrow::after {
   font-size: var(--text-sm);
 }
 
+/* Answer metadata (`AnswerMeta`): citation, effective date and the verified line. */
+.ans-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2-5);
+  margin-top: var(--space-1-5);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.ans-meta time {
+  color: var(--color-fg);
+}
+
 /* The Unavailable panel (`parts/unavailable.html`). */
 .unavailable {
   display: flex;

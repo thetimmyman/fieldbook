@@ -23,7 +23,10 @@ use crate::cite::{OriginalAvailability, located_original_href};
 use crate::frame::render_page as render_frame_page;
 use crate::frame::{Crumb, FrameInput, StoreContext, root_prefix_for_path};
 use crate::inline::find_claim;
-use crate::links::{escape_html, render_claim_chip, render_page_chip, render_version_chip};
+use crate::links::{
+    escape_html, render_citation_chip_with, render_claim_chip, render_page_chip,
+    render_version_chip,
+};
 use crate::lint::OriginalNames;
 use crate::meta::RenderContext;
 use crate::nav::{Navigation, SectionId, format_not_available};
@@ -44,13 +47,15 @@ const RENDERABLE_EXTENSIONS: [&str; 4] = ["html", "htm", "svg", "xhtml"];
 pub const ICON_LOCK: &str = "<svg class=\"ic\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"10.5\" width=\"14\" height=\"10\" rx=\"1.5\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5\"/></svg>";
 
 /// Returns the name an original ships under: `<version-id>.<ext>`, with `.txt` appended exactly
-/// for the extensions in Renderable originals (`html`, `htm`, `svg`, `xhtml`, any case). Every
-/// other extension keeps its name. `ext` has no leading dot.
+/// when the last dot segment of `ext` is one of the extensions in Renderable originals (`html`,
+/// `htm`, `svg`, `xhtml`, any case), so `x.html` ships as text like `html` does. Every other
+/// extension keeps its name. `ext` has no leading dot.
 #[must_use]
 pub fn shipped_name(version_id: &str, ext: &str) -> String {
+    let last = ext.rsplit('.').next().unwrap_or(ext);
     if RENDERABLE_EXTENSIONS
         .iter()
-        .any(|renderable| ext.eq_ignore_ascii_case(renderable))
+        .any(|renderable| last.eq_ignore_ascii_case(renderable))
     {
         format!("{version_id}.{ext}.txt")
     } else {
@@ -245,15 +250,21 @@ pub fn render_unavailable(thing: &str, until: &str) -> String {
 struct CitingClaimView {
     claim_chip_html: String,
     status_chips_html: String,
-    locator_html: String,
+    /// The `CitationChip` of the claim's own version and locator.
+    citation_chip_html: String,
+    /// `Effective <date>`, `No effective date` or `vN superseded`.
+    effective: String,
     statement: String,
-    verified: Option<String>,
+    verified_on: Option<String>,
+    verified_role: Option<String>,
 }
 
 /// One page that cites the version.
 struct CitingPageView {
     chip_html: String,
     title: String,
+    /// The `CitationChip` of each direct citation of the version on that page that has a locator.
+    locator_chips_html: Vec<String>,
 }
 
 /// One sibling version of the same source.
@@ -279,6 +290,8 @@ struct SourcePageView {
     is_superseded: bool,
     superseded_by_html: Vec<String>,
     original_html: Option<String>,
+    /// The distinct locators that cite the version, shown beside the link to the original.
+    original_locators_html: Vec<String>,
     cells: Vec<RowCellView>,
     siblings: Vec<SiblingView>,
     claims: Vec<CitingClaimView>,
@@ -405,6 +418,9 @@ fn build_view(
         }
     };
 
+    let source_row = Some(row);
+    let is_superseded = !superseders.is_empty();
+    let mut cited_locators: BTreeSet<String> = BTreeSet::new();
     let claims = view
         .claims()
         .iter()
@@ -418,26 +434,35 @@ fn build_view(
         .map(|c| {
             let claim = &c.value;
             let locator_text = claim.locator.as_deref().filter(|l| !l.is_empty());
-            let locator_html = locator_text.map_or_else(String::new, |loc| {
-                let loc_esc = escape_html(loc);
-                match located_original_href(&from_path, &vid_str, Some(loc), avail) {
-                    Some(href) => format!(
-                        "<a class=\"loc\" href=\"{}\">{loc_esc}</a>",
-                        escape_html(&href)
-                    ),
-                    None => format!("<span class=\"loc\">{loc_esc}</span>"),
-                }
-            });
+            if let Some(loc) = locator_text {
+                cited_locators.insert(loc.to_owned());
+            }
+            let effective = if is_superseded {
+                format!("v{} superseded", row.version)
+            } else {
+                claim.effective_from.map_or_else(
+                    || "No effective date".to_owned(),
+                    |d| format!("Effective {d}"),
+                )
+            };
             CitingClaimView {
                 claim_chip_html: render_claim_chip(&from_path, &claim.claim_id, planned),
                 status_chips_html: render_verification_chips(claim.verification, claim.kind),
-                locator_html,
+                citation_chip_html: render_citation_chip_with(
+                    &from_path,
+                    &vid_str,
+                    locator_text,
+                    source_row,
+                    planned,
+                    avail,
+                ),
+                effective,
                 statement: claim.statement.clone(),
-                verified: claim.verified_on.map(|d| {
-                    claim
-                        .verified_by_role
-                        .map_or_else(|| d.to_string(), |role| format!("{d} ({})", role.as_str()))
-                }),
+                verified_on: claim.verified_on.map(|d| d.to_string()),
+                verified_role: claim
+                    .verified_on
+                    .and(claim.verified_by_role)
+                    .map(|role| role.as_str().to_owned()),
             }
         })
         .collect::<Vec<_>>();
@@ -457,18 +482,63 @@ fn build_view(
     let pages = cited_pages
         .iter()
         .filter_map(|pid| {
-            view.pages()
-                .iter()
-                .find(|p| p.id == *pid)
-                .map(|p| CitingPageView {
+            view.pages().iter().find(|p| p.id == *pid).map(|p| {
+                let mut seen = BTreeSet::new();
+                let locator_chips_html = view
+                    .citations(&p.id)
+                    .iter()
+                    .filter(|c| c.key_kind == KeyKind::Version && c.key == vid_str)
+                    .filter_map(|c| c.locator.as_ref().map(|l| l.text.as_str()))
+                    .filter(|loc| seen.insert((*loc).to_owned()))
+                    .map(|loc| {
+                        cited_locators.insert(loc.to_owned());
+                        render_citation_chip_with(
+                            &from_path,
+                            &vid_str,
+                            Some(loc),
+                            source_row,
+                            planned,
+                            avail,
+                        )
+                    })
+                    .collect();
+                CitingPageView {
                     chip_html: render_page_chip(&from_path, &p.id, planned),
                     title: p.meta.title.clone(),
-                })
+                    locator_chips_html,
+                }
+            })
         })
         .collect();
 
-    let excerpt_html = render_unavailable("Excerpt", "this version is extracted");
-    let locator_view_html = render_unavailable("Locator view", "this version is extracted");
+    let original_locators_html = if original_html.is_some() {
+        cited_locators
+            .iter()
+            .map(|loc| {
+                let loc_esc = escape_html(loc);
+                match located_original_href(&from_path, &vid_str, Some(loc), avail) {
+                    Some(href) => format!(
+                        "<a class=\"loc\" href=\"{}\">{loc_esc}</a>",
+                        escape_html(&href)
+                    ),
+                    None => format!("<span class=\"loc\">{loc_esc}</span>"),
+                }
+            })
+            .collect()
+    } else {
+        Vec::new()
+    };
+
+    // A metadata-only version has no stored bytes to extract, so its banner stands in for the
+    // excerpt and the locator view (HANDOFF section 5 `Excerpt`, section 11).
+    let (excerpt_html, locator_view_html) = if metadata_only {
+        (String::new(), String::new())
+    } else {
+        (
+            render_unavailable("Excerpt", "this version is extracted"),
+            render_unavailable("Locator view", "this version is extracted"),
+        )
+    };
     let answer_meta_html = if claims.is_empty() {
         render_unavailable("Answer metadata", "a claim cites this version")
     } else {
@@ -484,6 +554,7 @@ fn build_view(
         is_superseded: !superseders.is_empty(),
         superseded_by_html,
         original_html,
+        original_locators_html,
         cells,
         siblings,
         claims,
@@ -506,7 +577,7 @@ fn row_cell(
     match name {
         "supersedes" => {
             let html = text
-                .split(';')
+                .split('|')
                 .map(str::trim)
                 .filter_map(|id| VersionId::parse(id).ok())
                 .filter_map(|v| {

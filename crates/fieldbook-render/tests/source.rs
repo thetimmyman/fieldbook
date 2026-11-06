@@ -69,6 +69,16 @@ mod source {
     /// The fixture tree with `extra_rows` appended to the sources register and `extra_files`
     /// stored under `corpus/sources/public/`.
     fn tree_with(extra_rows: &str, extra_files: &[(&str, &[u8])]) -> Tree {
+        tree_full(extra_rows, extra_files, CLAIMS_CSV, CMP_SYSTEM_REVIEW_MD)
+    }
+
+    /// Like [`tree_with`], with the claims register and the one reader page replaced.
+    fn tree_full(
+        extra_rows: &str,
+        extra_files: &[(&str, &[u8])],
+        claims_csv: &str,
+        page_md: &str,
+    ) -> Tree {
         let mut tree = Tree::new();
         for dir in [
             "corpus",
@@ -89,14 +99,14 @@ mod source {
             "corpus/registers/sources.csv",
             format!("{SOURCES_CSV}{extra_rows}").as_bytes(),
         );
-        tree.insert_bytes("corpus/registers/claims.csv", CLAIMS_CSV.as_bytes());
+        tree.insert_bytes("corpus/registers/claims.csv", claims_csv.as_bytes());
         tree.insert_bytes("corpus/registers/questions.csv", QUESTIONS_CSV.as_bytes());
         tree.insert_bytes("corpus/registers/conflicts.csv", CONFLICTS_CSV.as_bytes());
         tree.insert_bytes("corpus/registers/glossary.csv", GLOSSARY_CSV.as_bytes());
         tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
         tree.insert_bytes(
             "corpus/pages/compliance/business-systems/cmp-system-review.md",
-            CMP_SYSTEM_REVIEW_MD.as_bytes(),
+            page_md.as_bytes(),
         );
         for (name, bytes) in extra_files {
             tree.insert_bytes(format!("corpus/sources/public/{name}"), *bytes);
@@ -163,14 +173,24 @@ mod source {
 
     #[test]
     fn renderable_original_ships_as_txt() {
-        for ext in ["html", "htm", "svg", "xhtml", "HTML", "Svg"] {
+        for ext in [
+            "html",
+            "htm",
+            "svg",
+            "xhtml",
+            "HTML",
+            "Svg",
+            "x.html",
+            "foo.bar.svg",
+            "tar.XHTML",
+        ] {
             assert_eq!(
                 shipped_name("S-0042-v2", ext),
                 format!("S-0042-v2.{ext}.txt"),
                 "the .{ext} case must gain .txt"
             );
         }
-        for ext in ["pdf", "txt", "csv", "xlsx", "tar.gz"] {
+        for ext in ["pdf", "txt", "csv", "xlsx", "tar.gz", "html.bak", "x.pdf"] {
             assert_eq!(
                 shipped_name("S-0042-v2", ext),
                 format!("S-0042-v2.{ext}"),
@@ -254,7 +274,7 @@ mod source {
         let site = render_site(&view);
         let excerpt = format_not_available("Excerpt", "this version is extracted");
         let locator = format_not_available("Locator view", "this version is extracted");
-        for vid in ["S-0001-v1", "S-0002-v1", "S-0002-v2", "S-0003-v1"] {
+        for vid in ["S-0002-v2"] {
             let html = page_text(&site, vid);
             assert!(html.contains("<section class=\"unavailable\""), "{vid}");
             assert!(
@@ -265,6 +285,15 @@ mod source {
                 html.contains(&locator),
                 "{vid} must say the locator view is not available"
             );
+        }
+        // A metadata-only version stores no bytes, so nothing can be extracted: its banner
+        // stands in for the excerpt and the locator view (HANDOFF sections 5 and 11).
+        for vid in ["S-0001-v1", "S-0002-v1", "S-0003-v1"] {
+            let html = page_text(&site, vid);
+            assert!(html.contains("Metadata only."), "{vid}");
+            assert!(!html.contains(&excerpt), "{vid} must show no excerpt line");
+            assert!(!html.contains(&locator), "{vid} must show no locator line");
+            assert!(!html.contains("until this version is extracted"), "{vid}");
         }
         let answer = format_not_available("Answer metadata", "a claim cites this version");
         assert!(
@@ -502,5 +531,148 @@ mod source {
         );
         assert!(!avail.is_empty());
         assert!(OriginalAvailability::empty().is_empty());
+    }
+
+    #[test]
+    fn a_double_extension_original_still_ships_as_text() {
+        let bytes: &[u8] = b"<!doctype html><script>alert(1)</script> synthetic\n";
+        let rows = row(
+            "0004",
+            1,
+            "S-0004-v1.foo.html",
+            &sha(bytes),
+            "active",
+            "",
+            "",
+        );
+        let (_model, view) = load_view(tree_with(&rows, &[("S-0004-v1.foo.html", bytes)]));
+        let names = original_names(&view);
+        assert!(
+            names.0.contains("S-0004-v1.foo.html.txt"),
+            "the last extension decides: {names:?}"
+        );
+        assert!(!names.0.contains("S-0004-v1.foo.html"));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        assert!(html.contains("../../originals/S-0004-v1.foo.html.txt"));
+        assert!(!html.contains("originals/S-0004-v1.foo.html\""));
+        assert!(lint(&site, &names).is_empty());
+    }
+
+    #[test]
+    fn a_list_in_supersedes_uses_the_register_separator() {
+        let rows = row(
+            "0004",
+            1,
+            "metadata-only: made up for tests",
+            &sha(b"a"),
+            "active",
+            "S-0001-v1|S-0003-v1",
+            "",
+        );
+        let (_model, view) = load_view(tree_with(&rows, &[]));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0004-v1");
+        assert!(html.contains("<dt>supersedes</dt>"), "{html}");
+        assert!(html.contains("href=\"S-0001-v1.html\""));
+        assert!(html.contains("href=\"S-0003-v1.html\""));
+    }
+
+    #[test]
+    fn the_original_panel_names_the_locators_that_cite_it() {
+        let rows = row(
+            "0005",
+            1,
+            "S-0005-v1.pdf",
+            &sha(PDF_BYTES),
+            "active",
+            "",
+            "",
+        );
+        let page = CMP_SYSTEM_REVIEW_MD.replace(
+            "[@CL-CMP-0001]",
+            "[@CL-CMP-0001] [@S-0005-v1, p. 14] [@S-0005-v1, sec. 2]",
+        );
+        let (_model, view) = load_view(tree_full(
+            &rows,
+            &[("S-0005-v1.pdf", PDF_BYTES)],
+            CLAIMS_CSV,
+            &page,
+        ));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0005-v1");
+        let panel_start = html.find("src-original-line").unwrap();
+        let panel = &html[panel_start..panel_start + 600];
+        assert!(
+            panel.contains("href=\"../../originals/S-0005-v1.pdf\""),
+            "{panel}"
+        );
+        assert!(
+            panel.contains(
+                "<a class=\"loc\" href=\"../../originals/S-0005-v1.pdf#page=14\">p. 14</a>"
+            ),
+            "{panel}"
+        );
+        assert!(
+            panel.contains("<span class=\"loc\">sec. 2</span>"),
+            "{panel}"
+        );
+
+        // The citing page row repeats the locator beside its page chip.
+        let pages = &html[html.find("src-pages").unwrap()..];
+        assert!(pages.contains("p. 14"), "{pages}");
+        assert!(pages.contains("sec. 2"), "{pages}");
+
+        // The source of S-0002-v2 shows the locators of the claims that cite it.
+        let v2 = page_text(&site, "S-0002-v2");
+        let v2_panel = &v2[v2.find("src-original-line").unwrap()..];
+        assert!(v2_panel.contains("sec. 3") && v2_panel.contains("sec. 4"));
+    }
+
+    #[test]
+    fn a_cited_claim_row_carries_the_answer_metadata() {
+        let claims: String = CLAIMS_CSV
+            .lines()
+            .map(|line| {
+                if line.starts_with("CL-EST-0003,") {
+                    let mut cells: Vec<&str> = line.split(',').collect();
+                    cells[12] = "primary_source_supported";
+                    cells[19] = "2026-01-15";
+                    cells[28] = "2026-02-02";
+                    cells[29] = "owner";
+                    cells.join(",")
+                } else {
+                    line.to_owned()
+                }
+            })
+            .collect::<Vec<_>>()
+            .join("\n")
+            + "\n";
+        let (_model, view) = load_view(tree_full("", &[], &claims, CMP_SYSTEM_REVIEW_MD));
+        let site = render_site(&view);
+        let html = page_text(&site, "S-0002-v2");
+        let meta = |claim: &str| -> String {
+            let at = html
+                .find(&format!("#{claim}"))
+                .unwrap_or_else(|| panic!("{claim}"));
+            let rest = &html[at..];
+            let start = rest.find("class=\"ans-meta\"").unwrap();
+            let end = rest[start..].find("</div>").unwrap();
+            rest[start..start + end].to_owned()
+        };
+        let verified = meta("CL-EST-0003");
+        assert!(verified.contains("S-0002-v2"), "citation chip: {verified}");
+        assert!(verified.contains("sec. 4"), "{verified}");
+        assert!(verified.contains("Effective 2026-01-15"), "{verified}");
+        assert!(
+            verified.contains("Verified <time datetime=\"2026-02-02\">2026-02-02</time> · owner"),
+            "the date alone is the datetime, the role stays outside it: {verified}"
+        );
+        let unverified = meta("CL-EST-0002");
+        assert!(unverified.contains("No effective date"), "{unverified}");
+        assert!(unverified.contains("Never verified"), "{unverified}");
+
+        let css = include_str!("../assets/app.css");
+        assert!(css.contains(".ans-meta {"), "the row class needs a rule");
     }
 }

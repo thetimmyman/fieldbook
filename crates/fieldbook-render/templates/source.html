@@ -31,7 +31,7 @@
     {% if let Some(original) = &v.original_html %}
     <section class="panel src-original">
       <div class="panel-head"><h2 class="panel-title">Original</h2></div>
-      <p>{{ original|safe }}</p>
+      <p class="src-original-line">{{ original|safe }}{% for loc in &v.original_locators_html %} {{ loc|safe }}{% endfor %}</p>
     </section>
     {% endif %}
 
@@ -70,14 +70,18 @@
       <div class="panel-head"><h2 class="panel-title">Cited by</h2><span class="panel-sub mono">{{ v.claims.len() }}</span></div>
       <ul class="src-list">
         {% for c in &v.claims %}
-        <li class="ans-meta">
-          <div class="source-chips">{{ c.claim_chip_html|safe }} {{ c.status_chips_html|safe }}{% if !c.locator_html.is_empty() %} {{ c.locator_html|safe }}{% endif %}</div>
+        <li>
+          <div class="source-chips">{{ c.claim_chip_html|safe }} {{ c.status_chips_html|safe }}</div>
           <p>{{ c.statement }}</p>
-          {% if let Some(date) = &c.verified %}
-          <span>Verified <time datetime="{{ date }}">{{ date }}</time></span>
-          {% else %}
-          <span class="unver">Never verified</span>
-          {% endif %}
+          <div class="ans-meta">
+            {{ c.citation_chip_html|safe }}
+            <span>{{ c.effective }}</span>
+            {% if let Some(date) = &c.verified_on %}
+            <span>Verified <time datetime="{{ date }}">{{ date }}</time>{% if let Some(role) = &c.verified_role %} · {{ role }}{% endif %}</span>
+            {% else %}
+            <span class="unver">Never verified</span>
+            {% endif %}
+          </div>
         </li>
         {% endfor %}
       </ul>
@@ -89,7 +93,7 @@
       <div class="panel-head"><h2 class="panel-title">Cited on pages</h2><span class="panel-sub mono">{{ v.pages.len() }}</span></div>
       <ul class="src-list">
         {% for p in &v.pages %}
-        <li>{{ p.chip_html|safe }} {{ p.title }}</li>
+        <li>{{ p.chip_html|safe }} {{ p.title }}{% for chip in &p.locator_chips_html %} {{ chip|safe }}{% endfor %}</li>
         {% endfor %}
       </ul>
     </section>

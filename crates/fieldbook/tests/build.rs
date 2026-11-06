@@ -1368,6 +1368,74 @@ mod build {
     }
 
     #[test]
+    fn a_marked_text_original_does_not_ship() {
+        let marked: &[u8] =
+            b"<html><body>CONTROLLED UNCLASSIFIED INFORMATION\nSECRET//NOFORN\nsynthetic body</body></html>\n";
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.html", marked)),
+            "active",
+            "",
+        );
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_ne!(
+            output.status.code(),
+            Some(0),
+            "a marking banner in an original must stop the edition:\n{}",
+            stderr_of(&output)
+        );
+        assert!(
+            !tmp.path().join("out/originals/S-0004-v1.html.txt").exists(),
+            "the marked original must not be written"
+        );
+        assert!(!tmp.path().join("out/edition").exists());
+    }
+
+    /// The repository Corpus records the address an original came from in `location` (the
+    /// source-adding steps of corpus-format.md), while the stored file is named for the version.
+    /// The labelled view keeps an original only at `sources/public/<location>`, so such a row
+    /// ships no original. Fix the view (owner module), then drop the `ignore`.
+    #[test]
+    #[ignore = "blocked: the egress view keeps an original by location, not by version id"]
+    fn an_original_ships_when_location_is_the_address_it_came_from() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            Some(("S-0005-v1.pdf", PDF_BYTES)),
+            "active",
+            "",
+        );
+        let sources = tmp.path().join("corpus/registers/sources.csv");
+        let csv = std::fs::read_to_string(&sources).unwrap_or_else(|e| panic!("{e}"));
+        std::fs::write(
+            &sources,
+            csv.replace(",S-0005-v1.pdf,", ",https://example.invalid/guide.pdf,"),
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+        let delivered = collect_tree_bytes(&tmp.path().join("out/originals"));
+        assert_eq!(
+            delivered.get("S-0005-v1.pdf").map(Vec::as_slice),
+            Some(PDF_BYTES),
+            "the stored original ships whatever the location cell says"
+        );
+        let page = std::fs::read_to_string(tmp.path().join("out/edition/s/S-0005-v1.html"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert!(page.contains("href=\"../../originals/S-0005-v1.pdf\""));
+    }
+
+    #[test]
     fn originals_are_in_the_write_set() {
         let tmp = temp_copy(&fixture_root());
         add_version(
