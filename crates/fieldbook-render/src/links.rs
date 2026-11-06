@@ -6,7 +6,10 @@
 //! [`PlannedPaths`], and render plain text (`<span>`) otherwise so no emitted page can
 //! fail `FB0603` while sibling cards are not yet built.
 
-use fieldbook_core::ids::{AreaCode, ClaimId, ConflictId, QuestionId, TermId};
+use fieldbook_core::egress::LabelledView;
+use fieldbook_core::ids::{
+    AreaCode, ClaimId, ConflictId, PageId, QuestionId, SourceId, TermId, VersionId,
+};
 use fieldbook_core::schema::{GlossaryRow, Lifecycle, SourceRow};
 
 use crate::frame::root_prefix_for_path;
@@ -122,6 +125,39 @@ pub fn term_href(from_path: &str, term_id: &TermId, planned: &PlannedPaths) -> O
     href_if_planned(from_path, &format!("glossary.html#{term_id}"), planned)
 }
 
+/// Returns `true` when `source` is present and its lifecycle is not [`Lifecycle::Quarantined`].
+#[must_use]
+pub fn is_version_eligible(source: Option<&SourceRow>) -> bool {
+    source.is_some_and(|s| s.lifecycle != Lifecycle::Quarantined)
+}
+
+/// Find the first non-quarantined [`VersionId`] for `source_id` in `view` ordered by
+/// numeric version (`u32`, so `v2` precedes `v10`).
+#[must_use]
+pub fn first_eligible_version(view: &LabelledView, source_id: &SourceId) -> Option<VersionId> {
+    let min_ver = view
+        .sources()
+        .iter()
+        .filter(|s| s.value.source_id == *source_id && s.value.lifecycle != Lifecycle::Quarantined)
+        .map(|s| s.value.version)
+        .min()?;
+    VersionId::parse(&format!("{source_id}-v{min_ver}")).ok()
+}
+
+/// Resolve a [`SourceId`] (`S-nnnn`) to the `sources.html#<version-id>` anchor of its first
+/// non-quarantined version in numeric version order, if one exists and `sources.html` is
+/// in `planned`.
+#[must_use]
+pub fn source_id_href(
+    from_path: &str,
+    source_id: &SourceId,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+) -> Option<String> {
+    let vid = first_eligible_version(view, source_id)?;
+    href_if_planned(from_path, &format!("sources.html#{vid}"), planned)
+}
+
 /// Resolve a source version target: returns `None` when `is_quarantined` is `true`;
 /// otherwise prefers `s/<version_id>.html` when planned and falls back to
 /// `sources.html#<version_id>` when planned.
@@ -137,6 +173,22 @@ pub fn version_href(
     }
     href_if_planned(from_path, &format!("s/{version_id}.html"), planned)
         .or_else(|| href_if_planned(from_path, &format!("sources.html#{version_id}"), planned))
+}
+
+/// Resolve a [`VersionId`] target after checking lifecycle eligibility on `source` first:
+/// returns `None` if `source` is missing or [`Lifecycle::Quarantined`]; otherwise prefers
+/// `s/<version_id>.html` when planned and falls back to `sources.html#<version_id>` when planned.
+#[must_use]
+pub fn source_version_href(
+    from_path: &str,
+    version_id: &VersionId,
+    source: Option<&SourceRow>,
+    planned: &PlannedPaths,
+) -> Option<String> {
+    if !is_version_eligible(source) {
+        return None;
+    }
+    version_href(from_path, version_id.as_str(), false, planned)
 }
 
 fn push_pv_attrs(out: &mut String, pv_key: &str, pv_title: Option<&str>, pv_body: Option<&str>) {
@@ -413,5 +465,73 @@ pub fn render_citation_chip(
             ));
             out
         }
+    }
+}
+
+/// Render a mono version id chip (`S-nnnn-v<k>`) for register cells and `ids.html`.
+///
+/// A missing version is plain text. Otherwise [`render_citation_chip`] decides: a held
+/// (`Quarantined`) version is plain text with its reason and never a link, and any other
+/// version links to `s/<version-id>.html` or `sources.html#<version-id>`.
+#[must_use]
+pub fn render_version_chip(
+    from_path: &str,
+    version_id: &VersionId,
+    source: Option<&SourceRow>,
+    planned: &PlannedPaths,
+) -> String {
+    if source.is_none() {
+        return format!(
+            "<span class=\"cite neutral\">{}</span>",
+            escape_html(version_id.as_str())
+        );
+    }
+    // A held version is rendered as plain text with its reason by the citation chip itself.
+    render_citation_chip(from_path, version_id.as_str(), None, source, planned)
+}
+
+/// Render a mono source id chip (`S-nnnn`), linked to the first eligible version's
+/// `sources.html#<version-id>` anchor in numeric version order when one exists and
+/// `sources.html` is planned, or plain text `<span class="cite neutral">` otherwise.
+#[must_use]
+pub fn render_source_id_chip(
+    from_path: &str,
+    source_id: &SourceId,
+    view: &LabelledView,
+    planned: &PlannedPaths,
+) -> String {
+    let sid = escape_html(source_id.as_str());
+    match source_id_href(from_path, source_id, view, planned) {
+        Some(href) => format!(
+            "<a class=\"cite neutral\" href=\"{}\">{sid}</a>",
+            escape_html(&href)
+        ),
+        None => format!("<span class=\"cite neutral\">{sid}</span>"),
+    }
+}
+
+/// Render a mono page id chip (`<area>-<slug>`), linked to `p/<page-id>.html` if planned.
+#[must_use]
+pub fn render_page_chip(from_path: &str, page_id: &PageId, planned: &PlannedPaths) -> String {
+    let pid = escape_html(page_id.as_str());
+    match page_href(from_path, page_id.as_str(), None, planned) {
+        Some(href) => format!(
+            "<a class=\"cite neutral\" href=\"{}\">{pid}</a>",
+            escape_html(&href)
+        ),
+        None => format!("<span class=\"cite neutral\">{pid}</span>"),
+    }
+}
+
+/// Render a mono glossary term id chip (`<term_id>`), linked to `glossary.html#<term_id>` if planned.
+#[must_use]
+pub fn render_term_chip(from_path: &str, term_id: &TermId, planned: &PlannedPaths) -> String {
+    let tid = escape_html(term_id.as_str());
+    match term_href(from_path, term_id, planned) {
+        Some(href) => format!(
+            "<a class=\"cite neutral\" href=\"{}\">{tid}</a>",
+            escape_html(&href)
+        ),
+        None => format!("<span class=\"cite neutral\">{tid}</span>"),
     }
 }

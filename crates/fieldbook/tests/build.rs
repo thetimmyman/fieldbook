@@ -163,7 +163,7 @@ mod build {
         let index_html = std::fs::read_to_string(edition.join("index.html"))
             .unwrap_or_else(|e| panic!("read index.html: {e}"));
         assert!(index_html.contains(CSP_STATIC));
-        assert!(index_html.contains("<main id=\"main\" tabindex=\"-1\"></main>"));
+        assert!(index_html.contains("<main id=\"fb:main\" tabindex=\"-1\"></main>"));
         assert!(index_html.contains("<nav aria-label=\"Sections\">"));
         assert!(index_html.contains("class=\"not-available\""));
     }
@@ -1055,5 +1055,188 @@ mod build {
                 "forbidden page link must not appear in `{rel}`"
             );
         }
+    }
+
+    #[test]
+    fn build_registers_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let tree_base = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model_base, report_base) = load(
+            &Host::new(tree_base.clone(), world.today()),
+            &Options::new(false),
+        );
+        assert!(report_base.is_ok());
+
+        let eff = EffectivePolicy::floor(false);
+        let now = world.now();
+        let shipped = Shipped::Hours(1);
+        let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+            panic!("expected selection Allowed");
+        };
+        let view_base = LabelledView::new(&model_base, &sel, &ReadableStores::corpus());
+
+        // Add forbidden (`np-0007`) register rows (source S-0099 and its dependent claim, conflict
+        // and glossary term) and a page to a mixed tree.
+        let mut tree_mixed = tree_base;
+        support::add_canary_register_rows(&mut tree_mixed);
+        tree_mixed.insert_bytes(
+            "corpus/pages/estimating/pricing/est-forbidden-canary.md",
+            b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-02-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-02-01: Secret.\n"
+                .to_vec(),
+        );
+
+        // The loader reports the repository-Corpus handling errors of the canary rows (FB0410) but
+        // still builds the model, which is what the permitted view must filter.
+        let (model_mixed, _report_mixed) =
+            load(&Host::new(tree_mixed, world.today()), &Options::new(false));
+        let view_mixed = LabelledView::new(&model_mixed, &sel, &ReadableStores::corpus());
+        assert!(view_mixed.left_out() >= 5);
+
+        let out_base = tmp.path().join("out-reg-base");
+        let plan_base = plan_edition(
+            &view_base,
+            &BuildInfo::default(),
+            &out_base,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        let out_mixed = tmp.path().join("out-reg-mixed");
+        let plan_mixed = plan_edition(
+            &view_mixed,
+            &BuildInfo::default(),
+            &out_mixed,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        // All 5 register pages and ids.html are built, and sidebar/header counts and row contents
+        // are identical between base and mixed because both read strictly from LabelledView.
+        for req_page in [
+            "claims.html",
+            "sources.html",
+            "questions.html",
+            "conflicts.html",
+            "glossary.html",
+            "ids.html",
+        ] {
+            assert!(
+                plan_base.site.files().contains_key(req_page),
+                "`{req_page}` must be built in edition site"
+            );
+        }
+        for (page, permitted_rows) in [
+            ("claims.html", "5 rows"),
+            ("sources.html", "4 rows"),
+            ("questions.html", "2 rows"),
+            ("conflicts.html", "1 row"),
+            ("glossary.html", "4 rows"),
+        ] {
+            let html = String::from_utf8_lossy(&plan_mixed.site.files()[page]).into_owned();
+            assert!(
+                html.contains(&format!(
+                    "<span class=\"chip mono\">{permitted_rows}</span>"
+                )),
+                "`{page}` must show its permitted count `{permitted_rows}`, never the unrestricted model count"
+            );
+        }
+        for (rel, bytes) in plan_mixed.site.files() {
+            let s = String::from_utf8_lossy(bytes);
+            for canary in [
+                "S-0099",
+                "CL-CMP-0099",
+                "XC-99",
+                "forbidden_term_canary",
+                "Forbidden source canary",
+                "Forbidden claim canary statement.",
+                "Forbidden conflict canary topic",
+                "Forbidden term canary",
+            ] {
+                assert!(
+                    !s.contains(canary),
+                    "forbidden canary `{canary}` must not appear in {rel}"
+                );
+            }
+        }
+        assert_eq!(
+            plan_mixed.site.files(),
+            plan_base.site.files(),
+            "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
+        );
+
+        // The real build handler selects and views the records itself. Its delivered register
+        // pages carry the permitted counts and equal the planned bytes, so a view bypass inside
+        // the handler (counting the unrestricted model) changes them and fails here. The canary
+        // tree stays at plan level because the loader refuses it (FB0410) before the handler runs.
+        let handler_out = tmp.path().join("out-reg-handler");
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: handler_out.clone(),
+            },
+            &world,
+            &BuildInfo::default(),
+        );
+        assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+        for (page, permitted_rows) in [
+            ("claims.html", "5 rows"),
+            ("sources.html", "4 rows"),
+            ("questions.html", "2 rows"),
+            ("conflicts.html", "1 row"),
+            ("glossary.html", "4 rows"),
+        ] {
+            let delivered = std::fs::read(handler_out.join("edition").join(page))
+                .unwrap_or_else(|e| panic!("handler must deliver `{page}`: {e}"));
+            assert!(
+                String::from_utf8_lossy(&delivered).contains(&format!(
+                    "<span class=\"chip mono\">{permitted_rows}</span>"
+                )),
+                "the delivered `{page}` must show `{permitted_rows}`"
+            );
+            assert_eq!(
+                &delivered,
+                &plan_base.site.files()[page],
+                "the delivered `{page}` equals the planned page"
+            );
+        }
+        let delivered_ids = std::fs::read(handler_out.join("edition/ids.html"))
+            .unwrap_or_else(|e| panic!("handler must deliver ids.html: {e}"));
+        assert_eq!(
+            &delivered_ids,
+            &plan_base.site.files()["ids.html"],
+            "the delivered ids.html equals the planned page"
+        );
+
+        // Verify FB0603 checks every row anchor linked from pages (e.g. claims.html#CL-CMP-0001).
+        let diags = lint::lint(&plan_base.site, &OriginalNames::default());
+        assert!(diags.is_empty(), "edition site must pass FB0603: {diags:?}");
+        let mut broken_site = plan_base.site.clone();
+        let broken_claims =
+            String::from_utf8_lossy(broken_site.files().get("claims.html").unwrap())
+                .replace("id=\"CL-CMP-0001\"", "id=\"CL-CMP-MISSING\"");
+        let mut rebuilt = Site::new();
+        for (k, v) in broken_site.files() {
+            if k == "claims.html" {
+                rebuilt.insert(k, broken_claims.as_bytes().to_vec());
+            } else {
+                rebuilt.insert(k, v.clone());
+            }
+        }
+        broken_site = rebuilt;
+        let broken_diags = lint::lint(&broken_site, &OriginalNames::default());
+        assert!(
+            broken_diags
+                .iter()
+                .any(|d| d.code == Code::Fb0603 && d.message.contains("CL-CMP-0001")),
+            "removing row anchor id=\"CL-CMP-0001\" from claims.html must trigger FB0603 from pages linking to it, got: {broken_diags:?}"
+        );
     }
 }
