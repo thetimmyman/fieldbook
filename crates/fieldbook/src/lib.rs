@@ -14,6 +14,7 @@ pub mod audit;
 pub mod build;
 pub mod cli;
 pub mod io;
+pub mod new;
 pub mod report;
 
 pub use cli::Cli;
@@ -79,6 +80,19 @@ pub trait World {
 
     /// Return the resolved default state directory (`.fieldbook/` beside the Corpus unless overridden).
     fn state_dir(&self) -> &Path;
+
+    /// Return whether standard input is connected to an interactive terminal.
+    fn stdin_is_terminal(&self) -> bool;
+
+    /// Read one line from standard input, without its line ending; empty at end of input.
+    fn read_line(&self) -> String;
+
+    /// Write `<flag>: ` to standard error and flush it before the caller reads a line.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`WorldError`] when the prompt cannot be written or flushed.
+    fn prompt(&self, flag: &str) -> Result<(), WorldError>;
 }
 
 /// What a command produced: text for each stream and a process exit code.
@@ -196,6 +210,18 @@ pub fn run(args: &[String], world: &dyn World) -> Outcome {
                 build::run(&build_args, world)
             }
         }
+        Commands::New(new_args) => {
+            if let Some(flag) = parsed.state.as_deref() {
+                let state_dir = io::state::resolve(world.tree_root(), world.cwd(), Some(flag));
+                let overridden = StateOverrideWorld {
+                    inner: world,
+                    state_dir,
+                };
+                new::run(&new_args, &overridden)
+            } else {
+                new::run(&new_args, world)
+            }
+        }
         Commands::Audit(audit_args) => audit::run(&audit_args, parsed.state.as_deref(), world),
     }
 }
@@ -263,6 +289,18 @@ impl World for StateOverrideWorld<'_> {
 
     fn state_dir(&self) -> &Path {
         &self.state_dir
+    }
+
+    fn stdin_is_terminal(&self) -> bool {
+        self.inner.stdin_is_terminal()
+    }
+
+    fn read_line(&self) -> String {
+        self.inner.read_line()
+    }
+
+    fn prompt(&self, flag: &str) -> Result<(), WorldError> {
+        self.inner.prompt(flag)
     }
 }
 
@@ -418,6 +456,18 @@ mod tests {
 
         fn has_company_store(&self) -> bool {
             false
+        }
+
+        fn stdin_is_terminal(&self) -> bool {
+            false
+        }
+
+        fn read_line(&self) -> String {
+            String::new()
+        }
+
+        fn prompt(&self, _flag: &str) -> Result<(), WorldError> {
+            Ok(())
         }
 
         fn today(&self) -> CivilDate {

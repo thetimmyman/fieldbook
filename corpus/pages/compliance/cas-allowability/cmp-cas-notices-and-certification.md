@@ -33,6 +33,8 @@ The notice is in three parts, and the offeror must examine each part and provide
 
 In Part I, a contract resulting from the solicitation that is in excess of the lower CAS threshold in the FAR will be subject to the Cost Accounting Standards Board requirements [@CL-CMP-6486], except for those contracts which are exempt as specified in 48 CFR 9903.201-1 [@CL-CMP-6487]. An offeror whose proposal, if accepted, would result in a contract subject to those requirements must, as a condition of contracting, submit a Disclosure Statement as required by 48 CFR 9903.202 [@CL-CMP-5919].
 
+The dollar figures below are the ones printed in the codified FAR provision, and the RFO model text prints the same $50 million [@CL-CMP-5923; @CL-CMP-0266]. They are not the Cost Accounting Standards Board's current lines. The Board's regulation in 48 CFR 9903 states full coverage and the Disclosure Statement at $100 million from 2026-10-01 [@CL-CMP-0002; @CL-CMP-0003]. The [CAS applicability card](cmp-cas-applicability.md) sets out those figures. How an offeror completes a certificate whose printed figure differs from the Board's is not established here.
+
 ## How it works
 
 ### Part I: when the Disclosure Statement is submitted
@@ -73,7 +75,7 @@ Under the RFO text, contracting officers shall use the RFO FAR part 52 text in l
 
 Synthetic example. The numbers are made up.
 
-An offeror's most recent cost accounting period ended 30 days ago. In that period the offeror, with its affiliates under common control, received net CAS-covered awards of 60 million, the first time it passed the 50 million monetary exemption for disclosure. It has received no single award of 50 million or more in the current period. It submits a proposal now, 30 days into the 90-day window. It checks the interim exemption certificate, not the monetary exemption certificate, because the monetary exemption would be untrue at 60 million, and it sends no Disclosure Statement with the proposal. No award has been made when the 90 days after the end of that period run out, so at that point the offeror immediately submits a revised certificate to the contracting officer, in the form of the concurrent submission or previously submitted certificate, to verify that a completed Disclosure Statement has been submitted. It does not wait for the award, which comes 110 days after that period ended. A proposal submitted 100 days after the period ended could not have used the interim exemption.
+An offeror's most recent cost accounting period ended 30 days ago. In that period the offeror, with its affiliates under common control, received net CAS-covered awards of 60 million, the first time it passed the 50 million monetary exemption for disclosure. It has received no single award of 50 million or more in the current period. It submits a proposal now, 30 days into the 90-day window. It checks the interim exemption certificate, not the monetary exemption certificate, because the monetary exemption would be untrue at 60 million, and it sends no Disclosure Statement with the proposal. No award has been made when the 90 days after the end of that period run out, so at that point the offeror immediately submits a revised certificate to the contracting officer, in the form of the concurrent submission or previously submitted certificate, to verify that a completed Disclosure Statement has been submitted. It does not wait for the award, which comes 110 days after that period ended. A proposal submitted 100 days after the period ended could not have used the interim exemption. The example uses the figures printed in the provision; the Board's current lines are on the CAS applicability card.
 
 A second offeror received 20 million in CAS-covered awards in its preceding period and has received no single award of 50 million or more in its current period. Its proposal is expected to result in a 40 million award, below the 50 million printed in the provision, so it may check the Part II box, and the resulting contract takes the Disclosure and Consistency of Cost Accounting Practices clause. If the proposal were expected to result in a 55 million award, it could not check the box.
 
@@ -92,6 +94,7 @@ Which business units are inside the certification decision for this solicitation
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-05: Stated that the printed $50 million figures are FAR and RFO text, and that the Board's regulation states coverage at $100 million from 2026-10-01; added a closing sentence to the worked example saying so.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed the ungrounded 35 million cross-card figure from the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: CAS notices: cited the RFO Part III question text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut meta wording and uncited contrasts; restated references and exceptions as the quotes read.
