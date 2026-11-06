@@ -7,7 +7,7 @@ type = "clause-card"
 stage = 3
 readiness = "PUBLIC-NOW"
 status = "draft"
-as_of = 2026-10-27
+as_of = 2026-09-01
 handling = ["public"]
 terms = ["cas_coverage", "cost_accounting_standards", "disclosure_statement"]
 questions = ["Q-033"]
@@ -29,7 +29,7 @@ Shows the routes to a waiver of the applicability of the Cost Accounting Standar
 | Text status | Final [@CL-CMP-1758] |
 | Applies to | A contract or subcontract of an executive agency; the commercial-item route is limited to a value below 100 million dollars [@CL-CMP-1758; @CL-CMP-1760] |
 
-The head of an executive agency may waive the applicability of the Cost Accounting Standards for a contract or subcontract with a value of less than $100 million if the official determines, in writing, certain facts about the business unit that will perform the work [@CL-CMP-1758].
+The head of an executive agency may waive the applicability of the Cost Accounting Standards for a contract or subcontract with a value of less than $100 million if the official determines, in writing, certain facts about the business unit that will perform the work [@CL-CMP-1758]. The $100 million figure is in the Cost Accounting Standards Board's regulation at 48 CFR 9903.201-5 and took effect on 2026-10-01 [@CL-CMP-1758]. The Board's regulation had $15 million before that date [@CL-CMP-10036]; the rule says the increase implements changes made to the statute by section 820 of the 2017 NDAA [@CL-CMP-10039].
 
 The determination must be that the unit is primarily engaged in the sale of commercial items and would not otherwise be subject to the standards under that chapter [@CL-CMP-1759].
 
@@ -66,5 +66,6 @@ Whether each business unit's coverage type and Disclosure Statement position are
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-05: Dated the $100 million waiver value to the Board's regulation and 2026-10-01, and added the earlier value and the rule's statement that the increase implements a statutory change, each with a citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited Board waiver scope and request contents; removed uncited contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for waiver of the Cost Accounting Standards for an individual contract or subcontract.
