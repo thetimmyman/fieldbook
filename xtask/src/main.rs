@@ -8,6 +8,8 @@
 //! - `docs [--check]`: regenerate generated documentation blocks or check for drift.
 //! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
+//! - `edition-raw --out DIR`: package the raw edition floor from a clean commit.
+//! - `raw-edition-check TAG --base FILE --evidence-out DIR`: check a raw edition tag and collect its evidence.
 //!
 //! Exit codes follow `fieldbook`: 0 clean, 1 findings, 2 usage, 3 an operation failed.
 
@@ -70,13 +72,7 @@ mod deps_metadata;
 )]
 mod deps_references;
 mod docs;
-#[cfg_attr(
-    not(test),
-    expect(
-        dead_code,
-        reason = "raw-edition and release-workflow register their archive providers next"
-    )
-)]
+mod edition_raw;
 mod edition_release;
 mod errors;
 #[cfg(test)]
@@ -86,6 +82,7 @@ mod guard_fields;
 #[cfg(test)]
 mod literals;
 mod proc;
+mod raw_release;
 mod tools;
 #[cfg_attr(
     not(test),
@@ -109,11 +106,18 @@ const USAGE: &str = "usage: cargo xtask <command>
   binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans
   archive-release [FLAGS]           copy a verified release set and compatibility evidence into a durable archive
   verify-archive DIR [FLAGS]        reopen and verify a durable archive and its stream predecessor
+  edition-raw --out DIR [FLAGS]     package the raw edition floor (paired archives) from a clean commit
+  raw-edition-check TAG --base FILE --evidence-out DIR
+                                    check an owner-created raw edition tag and collect its evidence
   edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version";
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let root = proc::repo_root();
+    if let Err(message) = raw_release::register_raw_provider() {
+        eprintln!("error: {message}");
+        return ExitCode::from(3);
+    }
     let result = match args
         .iter()
         .map(String::as_str)
@@ -133,6 +137,8 @@ fn main() -> ExitCode {
         ["binscan", exe, "--build", build] => binscan::command(&root, &PathBuf::from(exe), build),
         ["archive-release", rest @ ..] => edition_release::command_archive_release(rest),
         ["verify-archive", rest @ ..] => edition_release::command_verify_archive(rest),
+        ["edition-raw", rest @ ..] => edition_raw::command_edition_raw(&root, rest),
+        ["raw-edition-check", rest @ ..] => raw_release::command_raw_edition_check(&root, rest),
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {

@@ -273,10 +273,6 @@ pub fn parse_sha256sums(
     Ok(map)
 }
 
-#[expect(
-    dead_code,
-    reason = "staged directory entry point reserved for build-v0"
-)]
 fn collect_staged_tree_files(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, AllowlistViolation> {
     let meta = fs::symlink_metadata(root).map_err(|e| AllowlistViolation {
         code: Code::Fb0601,
@@ -302,10 +298,6 @@ fn collect_staged_tree_files(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, A
     Ok(files)
 }
 
-#[expect(
-    dead_code,
-    reason = "staged directory entry point reserved for build-v0"
-)]
 fn walk_staged_dir(
     cur_dir: &Path,
     rel_prefix: &str,
@@ -388,10 +380,6 @@ fn walk_staged_dir(
 /// Validate staged `edition` and `originals` directories on disk against `profile` and
 /// `required_paths`, checking path rules (`FB0602`), allowlist rules (`FB0601`), and
 /// `SHA256SUMS` / `edition.toml` / `extraction.toml` / `corpus-support.toml` integrity (`FB0608`).
-#[expect(
-    dead_code,
-    reason = "staged directory entry point reserved for build-v0"
-)]
 pub fn verify_staged_trees(
     profile: AllowlistProfile,
     edition_dir: &Path,
@@ -509,7 +497,7 @@ pub fn verify_staged_maps(
             }
             quarantined_versions.insert(vid);
         } else if !sr.location.starts_with("metadata-only:") {
-            let shipped_orig_name = shipped_original_filename(&vid, &sr.location)?;
+            let shipped_orig_name = resolve_shipped_original(&vid, &sr.location, originals_files)?;
             expected_originals.insert(shipped_orig_name, (vid, sr.sha256.clone()));
         }
     }
@@ -688,6 +676,29 @@ pub fn verify_staged_maps(
     }
 
     Ok(())
+}
+
+/// The shipped name of a registered original. The name derived from `location` is used when the
+/// originals tree holds it. Otherwise, when `location` is not a file name (a web address, say) and
+/// the tree holds exactly one file named `<version id>.<extension>`, that file is the original.
+/// Every shipped original still passes the extension, name and digest checks afterwards.
+fn resolve_shipped_original(
+    vid: &VersionId,
+    location: &str,
+    originals_files: &BTreeMap<String, Vec<u8>>,
+) -> Result<String, AllowlistViolation> {
+    let derived = shipped_original_filename(vid, location);
+    if let Ok(name) = &derived
+        && originals_files.contains_key(name)
+    {
+        return derived;
+    }
+    let prefix = format!("{vid}.");
+    let mut candidates = originals_files.keys().filter(|k| k.starts_with(&prefix));
+    if let (Some(only), None) = (candidates.next(), candidates.next()) {
+        return Ok(only.clone());
+    }
+    derived
 }
 
 /// Compute the shipped filename inside `originals/` for a registered source version (`ED-01`:

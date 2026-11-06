@@ -252,13 +252,6 @@ fn provider_registry() -> &'static Mutex<ProviderRegistry> {
 }
 
 /// Register the payload verifier/restore hook for `(stream, kind)`.
-#[cfg_attr(
-    not(test),
-    expect(
-        dead_code,
-        reason = "provider registration hook for build-v0 and windows-exe"
-    )
-)]
 pub fn register_archive_provider(
     stream: ReleaseStream,
     kind: DeliveryKind,
@@ -592,7 +585,7 @@ impl ArchiveManifest {
     }
 }
 
-fn read_non_symlink_file(root: &Path, rel_path: &str) -> Result<Vec<u8>, String> {
+pub(crate) fn read_non_symlink_file(root: &Path, rel_path: &str) -> Result<Vec<u8>, String> {
     validate_archive_rel_path(rel_path)?;
     let mut cur = root.to_path_buf();
     for seg in rel_path.split('/') {
@@ -712,17 +705,17 @@ pub fn collect_release_evidence(
     Ok(result)
 }
 
-struct VerifiedEditionArtifacts {
-    ed_tag: String,
-    ed_info: EditionInfo,
-    ed_zip_name: String,
-    orig_zip_name: String,
-    support_bytes: Vec<u8>,
-    support_sha_bytes: Vec<u8>,
+pub(crate) struct VerifiedEditionArtifacts {
+    pub(crate) ed_tag: String,
+    pub(crate) ed_info: EditionInfo,
+    pub(crate) ed_zip_name: String,
+    pub(crate) orig_zip_name: String,
+    pub(crate) support_bytes: Vec<u8>,
+    pub(crate) support_sha_bytes: Vec<u8>,
 }
 
 /// Inspect and verify a downloaded or local edition artifact directory (`--edition DIR`).
-fn verify_edition_artifact_set(
+pub(crate) fn verify_edition_artifact_set(
     edition_dir: &Path,
     expected_kind: DeliveryKind,
 ) -> Result<VerifiedEditionArtifacts, String> {
@@ -851,7 +844,7 @@ fn verify_edition_artifact_set(
     })
 }
 
-fn collect_all_rel_files(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, String> {
+pub(crate) fn collect_all_rel_files(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, String> {
     let mut out = BTreeMap::new();
     collect_all_rel_files_inner(root, "", &mut out)?;
     Ok(out)
@@ -1363,6 +1356,13 @@ pub fn verify_archive(
 ///   and the exact `compat/published.toml` + bound vector hashes retained in `archive_dir/evidence/`.
 /// - Advances `[tool]` when `manifest.stream == ReleaseStream::Tool`, preserving `[edition]`.
 /// - Advances `[edition]` when `manifest.stream == ReleaseStream::Edition`, preserving `[tool]`.
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the release workflow card advances baselines from a verified archive"
+    )
+)]
 pub fn advance_baselines_from_archive(
     prior: &Baselines,
     archive_dir: &Path,
@@ -1403,6 +1403,13 @@ pub fn advance_baselines_from_archive(
 
 /// Serialize [`Baselines`] into canonical `release-baseline.toml` text.
 #[must_use]
+#[cfg_attr(
+    not(test),
+    expect(
+        dead_code,
+        reason = "the release workflow card advances baselines from a verified archive"
+    )
+)]
 pub fn serialize_baselines(baselines: &Baselines) -> String {
     let mut out = String::from("baseline_schema = 1\n\n[compatibility]\n");
     if let Some(compat) = &baselines.compatibility {

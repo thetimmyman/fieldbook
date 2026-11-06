@@ -45,6 +45,8 @@ If a line fails, do not send. Fetch the files again. If it still fails, open a c
 
 Send the two zips through the channel. Send `SHA256SUMS` by the out-of-band route, as a separate delivery, and send `corpus-support.sha256` with it. The catalogue itself travels inside the edition zip at `edition/evidence/corpus-support.toml`; the separate digest is what anchors those bytes. Neither file is proof of public provenance by itself.
 
+A raw edition (built with `cargo xtask edition-raw`, see the [release runbook](release.md#raw-edition-floor)) is sent the same way: the two zips through the channel, `SHA256SUMS` and `corpus-support.sha256` by the separate route. It has no `index.html`, no site and no program, so no Edge or browser step in this runbook applies to it. Read its files in `edition\` and `originals\` with the approved reader and follow the `README.txt` in the edition zip. The `corpus-support.toml` that `edition-raw` also writes beside the pair is a retention copy for the independent archive; it is not sent, and the catalogue that is checked on the laptop is still the one inside the edition zip.
+
 If the edition zip is above the channel's size limit, stop and open a card. If the originals zip is above half the limit, stop and open a card for `later-split-originals`; do not split an archive by hand. The limit is question IT-25 in the [intake questions](../intake/it-questions.md); 500 MB per zip is assumed until IT answers, so half is 250 MB. `just edition` prints each zip's size in whole megabytes, one line for each zip (`ls -l` shows bytes), so compare those numbers with the limit. The card names both sizes and the limit.
 
 If the originals zip has the same hash on its `SHA256SUMS` line as the one you last extracted, the originals have not changed and you may send the edition zip alone; before Step 4 on the laptop, copy the retained matching archive as described below.
@@ -126,7 +128,7 @@ Then run the laptop checks in [restore-drill.md](restore-drill.md#drill-3-the-ow
 
 ### Step 11. Keep the rollback pair
 
-Keep the previous verified edition and originals together, including their matching zips, published hash list, separately delivered `corpus-support.sha256` and transfer evidence, after the new pair passes step 10. Follow step 6 of the [Edition update recipe](#edition-update-recipe). A successful update does not delete its rollback pair. On the first transfer there is no prior pair.
+Keep the previous verified edition and originals together, including their matching zips, published hash list, separately delivered `corpus-support.sha256` (and, for a raw edition, the archived `corpus-support.toml` copy) and transfer evidence, after the new pair passes step 10. Follow step 6 of the [Edition update recipe](#edition-update-recipe). A successful update does not delete its rollback pair. On the first transfer there is no prior pair.
 
 Exception: a held source version. When you quarantine a source version at home, delete every edition zip and originals zip in the delivery folder that contains it, and any retained pair if it holds that version. Replace the extracted `originals\` with the one from the replacement originals zip (step 7), so that no extracted original of the version stays. A quarantined version ships only its register row, its hash and the reason, so the replacement edition carries no text of it. Work from the replacement edition and do not roll back to a copy that holds the version. [release.md](release.md#put-a-source-version-on-hold-after-issue) says how to issue the replacement.
 
