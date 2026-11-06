@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Fixed: the permitted view keeps a source original by its version id, whatever its location says.
 - Added: the search command.
 - Added: the five register pages and the id list.
 - Added: the new command for pages, claims, questions, conflicts and terms.
