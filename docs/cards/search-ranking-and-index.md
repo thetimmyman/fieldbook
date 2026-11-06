@@ -58,7 +58,7 @@ Expected: every test passes, with 10 seed ranked cases and at least 30 in all, a
 
 ## Negative control
 
-Reverse the last tie-break in `query`, so a larger unit number sorts first. `golden_ranked` must fail and name at least one `rk-s-` case. Restore it. Then replace the hand-written `ln` with `f64::ln` in one call: clippy must fail with `disallowed_methods`. Restore it. Bypass the quarantined-row exclusion during unit construction: `search::quarantined_source_rows_have_no_units` must fail. Restore it. Drop `exact_key` from the `quote-a`/`quote a` vector: its case must fail. Restore it.
+Reverse either tie-break on unit number in `query`, the exact-class order or the last non-exact key, so a larger unit number sorts first: `golden_ranked` must fail each time, and the exact-class reversal must name at least one `rk-s-` case. Restore it. Then replace the hand-written `ln` with `f64::ln` in one call: clippy must fail with `disallowed_methods`. Restore it. Bypass the quarantined-row exclusion during unit construction: `search::quarantined_source_rows_have_no_units` must fail. Restore it. Drop `exact_key` from the `quote-a`/`quote a` vector: its case must fail. Restore it.
 
 ## Rollback
 
