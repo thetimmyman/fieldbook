@@ -1,0 +1,1 @@
+<span class="cmd" role="group" aria-label="{% if let Some(tag) = tag %}{{ label }} · {{ tag }}{% else %}{{ label }}{% endif %}">{% if let Some(tag) = tag %}<span class="cmd-tag">{{ tag }}</span>{% endif %}<code>{{ text }}</code><button type="button" class="btn ghost sm" data-copy-chip="{{ copy_kind }}" aria-label="{{ copy_label }}">{{ icon|safe }}Copy</button></span>

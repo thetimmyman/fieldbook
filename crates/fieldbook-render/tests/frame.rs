@@ -12,6 +12,7 @@ mod frame {
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::policy::EffectivePolicy;
     use fieldbook_core::schema::Register;
+    use fieldbook_render::edition::{EditionCounts, EditionIds, EditionInfo};
     use fieldbook_render::frame::{Crumb, FrameInput, PRODUCT_TITLE, StoreContext, render_page};
     use fieldbook_render::meta::{BuildInfo, BuildProfile};
     use fieldbook_render::nav::{self, NavTarget, SectionId};
@@ -20,6 +21,21 @@ mod frame {
     const APP_JS: &str = include_str!("../assets/app.js");
     const MINI_CORPUS_TOML: &str =
         include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+
+    fn edition_info(built: &str, number: u32) -> EditionInfo {
+        EditionInfo {
+            edition: "unreleased".to_owned(),
+            number,
+            built: built.to_owned(),
+            tool_version: "0.1.0".to_owned(),
+            min_tool_version: "0.1.0".to_owned(),
+            schema_version: 1,
+            commit: String::new(),
+            fingerprint: String::new(),
+            counts: EditionCounts::default(),
+            ids: EditionIds::default(),
+        }
+    }
 
     fn insert_register_headers(tree: &mut Tree) {
         tree.insert_dir("corpus/registers");
@@ -211,7 +227,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[
                 Crumb::linked("Today", "index.html", &planned),
@@ -243,7 +259,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[],
             main_html: "",
@@ -344,7 +360,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[],
             main_html: "",
@@ -392,7 +408,7 @@ mod frame {
             output_path: "a/cmp.html",
             title: "Compliance",
             page_area: None,
-            built_date: Some("2026-03-01"),
+            edition: &edition_info("2026-03-01", 1),
             store: &company_store,
             crumbs: &[],
             main_html: "",
@@ -429,7 +445,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[],
             main_html: "",
@@ -444,7 +460,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[Crumb::current("Today")],
             main_html: "",
@@ -459,7 +475,7 @@ mod frame {
             output_path: "a/cmp.html",
             title: "Compliance",
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[
                 Crumb::linked("Today", "index.html", &planned),
@@ -491,7 +507,7 @@ mod frame {
                 output_path: path,
                 title: PRODUCT_TITLE,
                 page_area: Some("cmp"),
-                built_date: None,
+                edition: &edition_info("", 0),
                 store: &StoreContext::Public,
                 crumbs: &[
                     Crumb::linked("Today", "index.html", &planned),

@@ -261,6 +261,8 @@
       }
     }
 
+    initBuildAge();
+    initCommandChips();
     initPageReader();
     initRegister();
   }
@@ -331,6 +333,93 @@
     }
   }
 
+  function editionAge(iso, now) {
+    const parts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    if (!parts) {
+      throw new Error('no build date');
+    }
+    const built = Date.UTC(Number(parts[1]), Number(parts[2]) - 1, Number(parts[3]));
+    const days = Math.floor((now.getTime() - built) / 86400000);
+    if (!Number.isFinite(days)) {
+      throw new Error('no build date');
+    }
+    if (days <= 0) {
+      return 'today';
+    }
+    if (days === 1) {
+      return '1 day ago';
+    }
+    if (days < 60) {
+      return days + ' days ago';
+    }
+    return days < 730
+      ? Math.round(days / 30.4) + ' months ago'
+      : Math.round(days / 365) + ' years ago';
+  }
+
+  function initBuildAge() {
+    const stamp = document.querySelector('.build-date time[datetime]');
+    if (!stamp) {
+      return;
+    }
+    try {
+      const iso = stamp.getAttribute('datetime') || '';
+      stamp.textContent = editionAge(iso, new Date());
+      stamp.title = iso;
+    } catch (_err) {
+      // The date the build wrote stays as the text.
+    }
+  }
+
+  function selectChipText(code) {
+    const selection = window.getSelection ? window.getSelection() : null;
+    if (!selection || !document.createRange) {
+      return;
+    }
+    const range = document.createRange();
+    range.selectNodeContents(code);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  // Copy only writes, on the reader's click. A refusal leaves the text selected to copy by hand.
+  function copyChip(btn) {
+    const chip = btn.closest('.cmd');
+    const code = chip ? chip.querySelector('code') : null;
+    if (!code) {
+      return;
+    }
+    const refused = function () {
+      btn.focus();
+      selectChipText(code);
+      showToast('Copy blocked here. The text is selected; copy it by hand.');
+    };
+    const clip = navigator.clipboard;
+    if (!clip || typeof clip.writeText !== 'function') {
+      refused();
+      return;
+    }
+    clip.writeText(code.textContent).then(function () {
+      showToast(
+        btn.getAttribute('data-copy-chip') === 'address'
+          ? 'Address copied.'
+          : 'Command copied. Run it in a terminal.'
+      );
+    }, refused);
+  }
+
+  function initCommandChips() {
+    document.addEventListener('click', function (ev) {
+      const btn =
+        ev.target && typeof ev.target.closest === 'function'
+          ? ev.target.closest('[data-copy-chip]')
+          : null;
+      if (btn) {
+        copyChip(btn);
+      }
+    });
+  }
+
   function initPageReader() {
     const reviewBanners = document.querySelectorAll('[data-review-by]');
     if (reviewBanners.length > 0) {
@@ -338,7 +427,30 @@
       for (let i = 0; i < reviewBanners.length; i += 1) {
         const banner = reviewBanners[i];
         const reviewBy = banner.getAttribute('data-review-by') || '';
-        if (reviewBy && today > reviewBy) {
+        const pageDue = Boolean(reviewBy && today > reviewBy);
+        const rows = banner.querySelectorAll('[data-claim-review-by]');
+        let dueRows = 0;
+        for (let j = 0; j < rows.length; j += 1) {
+          const claimBy = rows[j].getAttribute('data-claim-review-by') || '';
+          if (claimBy && today > claimBy) {
+            rows[j].hidden = false;
+            dueRows += 1;
+          }
+        }
+        const claimDue = dueRows > 0;
+        const dueBlock = banner.querySelector('.due-claims');
+        if (dueBlock) {
+          dueBlock.hidden = !claimDue;
+        }
+        const dueCount = banner.querySelector('.due-count');
+        if (dueCount) {
+          dueCount.textContent = String(dueRows);
+        }
+        const pageLine = banner.querySelector('.body');
+        if (pageLine) {
+          pageLine.hidden = !pageDue;
+        }
+        if (pageDue || claimDue) {
           banner.hidden = false;
         }
       }

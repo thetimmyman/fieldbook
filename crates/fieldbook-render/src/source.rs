@@ -641,11 +641,7 @@ pub fn render_page(
     }
     let main_html = render_main(located, view, planned, avail)?;
     let path = page_path(vid.as_str());
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
+    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
@@ -659,7 +655,7 @@ pub fn render_page(
         output_path: &path,
         title: vid.as_str(),
         page_area: None,
-        built_date,
+        edition,
         store: &store,
         crumbs: &crumbs,
         main_html: &main_html,

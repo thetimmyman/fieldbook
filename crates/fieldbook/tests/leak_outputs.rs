@@ -20,7 +20,7 @@ use fieldbook_core::audit::{
     Word, WriteFile, WriteSet, sample_payload,
 };
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Host, Model, Options, Tree, load};
+use fieldbook_core::check::{Host, Model, Options, Severity, Tree, load};
 use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
 use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
@@ -389,6 +389,25 @@ fn build_home_and_areas_counts_use_the_permitted_view(edition: &Path) {
     ));
 }
 
+/// The delivered About page and manifest count only the permitted view. `run_edition_surface`
+/// then requires the plan with forbidden pages and rows added to equal these bytes exactly.
+fn build_about_counts_use_the_permitted_view(edition: &Path) {
+    let about = std::fs::read_to_string(edition.join("about.html"))
+        .unwrap_or_else(|e| panic!("about.html: {e}"));
+    for shown in [
+        "<dt>Pages</dt><dd class=\"mono\">9</dd>",
+        "<dt>Claims</dt><dd class=\"mono\">5</dd>",
+        "<dt>Originals</dt><dd class=\"mono\">1</dd>",
+        "This edition holds public only.",
+    ] {
+        assert!(about.contains(shown), "about.html must show `{shown}`");
+    }
+    let toml = std::fs::read_to_string(edition.join("edition.toml"))
+        .unwrap_or_else(|e| panic!("edition.toml: {e}"));
+    assert!(toml.contains("\n[counts]\npages = 9\n"), "{toml}");
+    assert!(toml.contains("\nclaims = 5\n"), "{toml}");
+}
+
 fn run_edition_surface() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
@@ -402,8 +421,16 @@ fn run_edition_surface() {
         std::fs::read(tmp.path().join("corpus/sources/public/S-0002-v2.txt"))
             .unwrap_or_else(|e| panic!("{e}")),
     );
+    // The same tree with the kept-row cells that name the canaries added below: the permitted
+    // view keeps those cells verbatim, so this tree is what the mixed tree must equal. Its
+    // references dangle (FB0207), and nothing else may be reported.
+    let mut cells_tree = tree.clone();
+    support::name_canaries_from_kept_rows(&mut cells_tree);
     let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
     assert!(report.is_ok(), "corpus-mini must load cleanly");
+    let (cells_model, cells_report) =
+        load(&Host::new(cells_tree, world.today()), &Options::new(false));
+    support::assert_only_dangling_references(&cells_report);
 
     let eff = EffectivePolicy::floor(false);
     let now = default_now();
@@ -573,7 +600,7 @@ fn run_edition_surface() {
     let mut mixed_tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
     mixed_tree.insert_bytes(
         "corpus/pages/estimating/pricing/est-forbidden-canary.md",
-        b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
+        b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
             .to_vec(),
     );
     support::add_canary_register_rows(&mut mixed_tree);
@@ -590,11 +617,31 @@ fn run_edition_surface() {
         "location",
         "S-0099-v1.txt",
     );
+    let canary_original = b"Forbidden original canary, made up for tests.\n";
+    support::set_register_cell(
+        &mut mixed_tree,
+        "sources",
+        "S-0099",
+        "sha256",
+        &fieldbook_core::hash::sha256_hex(canary_original),
+    );
     mixed_tree.insert_bytes(
         "corpus/sources/public/S-0099-v1.txt",
-        b"Forbidden original canary, made up for tests.\n".to_vec(),
+        canary_original.to_vec(),
     );
-    let (mixed_model, _) = load(&Host::new(mixed_tree, world.today()), &Options::new(false));
+    // The canaries are well formed: the loader reports only the repository-Corpus handling of
+    // the `np-0007` source and page (FB0410) and the canary claim left on the version that the
+    // kept `S-0001` supersedes (FB0222), and still builds the model the view must filter.
+    let (mixed_model, mixed_report) =
+        load(&Host::new(mixed_tree, world.today()), &Options::new(false));
+    support::assert_report_codes(
+        &mixed_report,
+        &[
+            ("FB0410", Severity::Error),
+            ("FB0410", Severity::Error),
+            ("FB0222", Severity::Warning),
+        ],
+    );
     let mixed_view = LabelledView::new(&mixed_model, &sel_token, &ReadableStores::corpus());
     let nav_mixed = fieldbook_render::nav::build(
         &mixed_view,
@@ -610,6 +657,7 @@ fn run_edition_surface() {
     assert!(index_disk.contains("<nav aria-label=\"Sections\">"));
     assert!(index_disk.contains("class=\"not-available\""));
     build_home_and_areas_counts_use_the_permitted_view(&plan.edition_dir);
+    build_about_counts_use_the_permitted_view(&plan.edition_dir);
 
     let concept_disk = std::fs::read_to_string(plan.edition_dir.join("p/cmp-system-review.html"))
         .unwrap_or_else(|e| panic!("{e}"));
@@ -699,10 +747,31 @@ fn run_edition_surface() {
             .contains_key("p/est-forbidden-canary.html"),
         "forbidden page must be absent from mixed edition plan"
     );
+    let cells_view = LabelledView::new(&cells_model, &sel_token, &ReadableStores::corpus());
+    assert_eq!(cells_view.left_out(), 0);
+    let cells_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let cells_plan = plan_edition(
+        &cells_view,
+        &BuildInfo::default(),
+        cells_out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition cells failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition cells denied: {d:?}"));
     assert_eq!(
         mixed_plan.site.files(),
-        plan.site.files(),
-        "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs"
+        cells_plan.site.files(),
+        "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs, edition.toml and its fingerprint included"
+    );
+    // The cells base differs from the plain base only by the kept-row cells that name left-out
+    // records; every page but the manifest must match the plain base, as on main.
+    support::assert_plain_site_equals_cells_site(plan.site.files(), cells_plan.site.files());
+    assert_eq!(
+        mixed_plan.originals, cells_plan.originals,
+        "forbidden rows must not change the shipped originals"
     );
     for (name, bytes) in &mixed_plan.originals {
         assert!(

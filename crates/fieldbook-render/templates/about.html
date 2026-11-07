@@ -1,0 +1,51 @@
+<div class="about-view page-w">
+  <header class="page-head">
+    <h1>{{ title }}</h1>
+  </header>
+  <div class="split">
+    <div class="home-side">
+      <section class="panel" aria-labelledby="about-build">
+        <div class="panel-head"><h2 class="panel-title" id="about-build">Build</h2></div>
+        <dl class="about-facts">
+          {% for f in &build %}<dt>{{ f.label }}</dt><dd class="mono">{{ f.value }}</dd>
+          {% endfor %}
+        </dl>
+      </section>
+      <section class="panel" aria-labelledby="about-handling">
+        <div class="panel-head"><h2 class="panel-title" id="about-handling">Handling</h2></div>
+        <p>{{ handling }}</p>
+      </section>
+      <section class="panel" aria-labelledby="about-profile">
+        <div class="panel-head">
+          <h2 class="panel-title" id="about-profile">Build profile</h2>
+          <span class="panel-sub mono">{{ profile_name }}</span>
+        </div>
+        <p>{{ posture_html|safe }}</p>
+        {% if let Some(line) = only_build %}<p>{{ line }}</p>{% endif %}
+      </section>
+      <section class="panel" aria-labelledby="about-ai">
+        <div class="panel-head"><h2 class="panel-title" id="about-ai">AI position</h2></div>
+        <p>{{ ai_position }}</p>
+      </section>
+    </div>
+    <div class="home-side">
+      <section class="panel" aria-labelledby="about-counts">
+        <div class="panel-head"><h2 class="panel-title" id="about-counts">Status counts</h2></div>
+        <div class="about-counts">
+          <dl class="about-facts">
+            {% for f in &records %}<dt>{{ f.label }}</dt><dd class="mono">{{ f.value }}</dd>
+            {% endfor %}
+          </dl>
+          <dl class="about-facts">
+            {% for f in &pages_by_status %}<dt>Pages {{ f.label }}</dt><dd class="mono">{{ f.value }}</dd>
+            {% endfor %}
+            {% for f in &claims_by_verification %}<dt>Claims {{ f.label }}</dt><dd class="mono">{{ f.value }}</dd>
+            {% endfor %}
+          </dl>
+        </div>
+      </section>
+      {{ stale_html|safe }}
+      {{ unreviewed_html|safe }}
+    </div>
+  </div>
+</div>

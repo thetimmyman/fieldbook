@@ -1211,11 +1211,7 @@ pub fn render_page(
     let path = output_path(reg);
     let title = register_title(reg);
     let main_html = render_main(reg, view, planned);
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
+    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
@@ -1228,7 +1224,7 @@ pub fn render_page(
         output_path: path,
         title,
         page_area: None,
-        built_date,
+        edition,
         store: &store,
         crumbs: &crumbs,
         main_html: &main_html,

@@ -13,8 +13,8 @@ use fieldbook_core::strings;
 use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
 use crate::cite::OriginalAvailability;
-use crate::meta::{BuildInfo, MetadataError, RenderContext};
-use crate::{area, home, ids, nav, register, source};
+use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
+use crate::{about, area, edition, home, ids, nav, register, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -134,6 +134,8 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         "assets/strings.js".to_owned(),
         ids::OUTPUT_PATH.to_owned(),
         home::OUTPUT_PATH.to_owned(),
+        about::OUTPUT_PATH.to_owned(),
+        edition::OUTPUT_PATH.to_owned(),
     ];
     paths.extend(area::page_paths(view));
     for reg in Register::ALL {
@@ -148,9 +150,13 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     PlannedPaths::from_owned(paths)
 }
 
-/// Renders a [`Site`] from `view` and a validated [`RenderContext`].
+/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and the compiled `profile`.
 #[must_use]
-pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
+pub fn render_with_context(
+    view: &LabelledView,
+    ctx: &RenderContext,
+    profile: BuildProfile,
+) -> Site {
     let planned = planned_paths(view);
     let navigation = nav::build(view, &planned);
     let mut site = Site::new();
@@ -169,6 +175,9 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
     }
     let ids_html = ids::render_page(view, ctx, &navigation, &planned);
     site.insert(ids::OUTPUT_PATH, ids_html.into_bytes());
+    let about_html = about::render_page(view, ctx, profile, &navigation, &planned);
+    site.insert(about::OUTPUT_PATH, about_html.into_bytes());
+    site.insert(edition::OUTPUT_PATH, edition::toml_bytes(ctx));
     for page in view.pages() {
         let page_path = format!("p/{}.html", page.id);
         let html = crate::page::render_page(page, view, ctx, &navigation, &planned);
@@ -201,5 +210,5 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
 /// Returns [`MetadataError`] if `view` is non-public or if `changes.md` fails edition metadata checks.
 pub fn render(view: &LabelledView, info: &BuildInfo) -> Result<Site, MetadataError> {
     let ctx = render_context(view, info)?;
-    Ok(render_with_context(view, &ctx))
+    Ok(render_with_context(view, &ctx, info.profile))
 }
