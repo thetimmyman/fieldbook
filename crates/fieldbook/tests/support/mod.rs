@@ -136,11 +136,19 @@ fn split_csv_line(line: &str) -> Vec<String> {
     out
 }
 
+/// Add the canary rows and the kept-row cells that name them: [`add_left_out_canary_rows`] then
+/// [`name_canaries_from_kept_rows`].
+pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
+    add_left_out_canary_rows(tree);
+    name_canaries_from_kept_rows(tree);
+}
+
 /// Add well-formed canary rows, one per register, whose source carries the label `np-0007`
 /// that the edition selection leaves out: the source `S-0099`, a claim on it, a conflict over that
 /// claim and a term citing it. Every canary text starts with `Forbidden` or is an id the canary
-/// owns, so a test can search every delivered file for it.
-pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
+/// owns, so a test can search every delivered file for it. The claim canary is superseded by the
+/// kept claim `CL-EST-0002`, the reciprocal of [`name_canaries_from_kept_rows`].
+pub fn add_left_out_canary_rows(tree: &mut fieldbook_core::check::Tree) {
     let read = |tree: &fieldbook_core::check::Tree, name: &str| {
         let bytes = tree
             .get_bytes(&format!("corpus/registers/{name}.csv"))
@@ -228,10 +236,6 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         ],
         Some("rate_window"),
     );
-    // Kept rows that name an omitted record. The permitted view keeps these rows, so the pages
-    // must not print or link the omitted ids. Each reference has its reciprocal where the format
-    // requires one, so the loader keeps the rows.
-    set_register_cell(tree, "claims", "CL-EST-0002", "supersedes", "CL-CMP-0099");
     set_register_cell(
         tree,
         "claims",
@@ -253,6 +257,15 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         "adoption",
         fieldbook_core::schema::Adoption::Superseded.as_str(),
     );
+}
+
+/// Write the three cells of kept rows that name a canary of [`add_left_out_canary_rows`]:
+/// `CL-EST-0002.supersedes`, `S-0001.supersedes` and `rate_window.superseded_by`. The permitted
+/// view keeps these rows verbatim, so the pages must not print or link the omitted ids. On a tree
+/// without the canary rows the references dangle (FB0207), and the view and every output must
+/// equal those of the tree with them.
+pub fn name_canaries_from_kept_rows(tree: &mut fieldbook_core::check::Tree) {
+    set_register_cell(tree, "claims", "CL-EST-0002", "supersedes", "CL-CMP-0099");
     set_register_cell(tree, "sources", "S-0001", "supersedes", "S-0099-v1");
     set_register_cell(
         tree,
@@ -261,4 +274,26 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         "superseded_by",
         "forbidden_term_canary",
     );
+}
+
+/// Assert that `report` holds at least one error and that every error is a dangling reference
+/// (FB0207), as on a tree written by [`name_canaries_from_kept_rows`] alone.
+pub fn assert_only_dangling_references(report: &fieldbook_core::check::Report) {
+    let errors: Vec<_> = report
+        .diagnostics
+        .iter()
+        .filter(|d| d.severity == fieldbook_core::check::Severity::Error)
+        .collect();
+    assert!(
+        !errors.is_empty(),
+        "the kept-row cells must dangle without the canary rows"
+    );
+    for d in errors {
+        assert_eq!(
+            d.code.to_string(),
+            "FB0207",
+            "only a dangling reference may be reported: {}",
+            d.render_text()
+        );
+    }
 }

@@ -24,7 +24,7 @@ use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Via, Word};
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Code, Host, Options, Tree, load};
+use fieldbook_core::check::{Code, Host, Options, load};
 use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
 use fieldbook_core::labels::PUBLIC;
 use fieldbook_core::policy::EffectivePolicy;
@@ -37,31 +37,6 @@ use fieldbook_render::source;
 
 use support::temp_copy;
 use support::world::TestWorld;
-
-/// The site files with only the `fingerprint` value of `edition.toml` blanked. That value hashes
-/// the view's filtered registers, and a permitted row keeps its cells that name a left-out id, so
-/// it still moves when a forbidden id is added to such a cell. Every other byte must stay equal.
-fn site_without_manifest_fingerprint(
-    files: &BTreeMap<String, Vec<u8>>,
-) -> BTreeMap<String, Vec<u8>> {
-    let mut files = files.clone();
-    let toml = files.get("edition.toml").map_or_else(
-        || panic!("the site must hold edition.toml"),
-        |bytes| String::from_utf8_lossy(bytes).into_owned(),
-    );
-    let blanked: Vec<&str> = toml
-        .split('\n')
-        .map(|line| {
-            if line.starts_with("fingerprint = ") {
-                "fingerprint = "
-            } else {
-                line
-            }
-        })
-        .collect();
-    files.insert("edition.toml".to_owned(), blanked.join("\n").into_bytes());
-    files
-}
 
 fn fixture_root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/corpus-mini")
@@ -1087,86 +1062,6 @@ mod build {
         }
     }
 
-    /// The mixed-plan comparison above blanks the manifest fingerprint, because a kept row may
-    /// name a left-out id. A disallowed row that no kept cell names must not move it, so a
-    /// fingerprint that hashed unfiltered register content fails here.
-    #[test]
-    fn fingerprint_ignores_a_disallowed_row_no_permitted_cell_names() {
-        let fingerprint_of = |tree: Tree, out: &Path, world: &TestWorld| {
-            let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
-            let eff = EffectivePolicy::floor(false);
-            let now = world.now();
-            let shipped = Shipped::Hours(1);
-            let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped)
-            else {
-                panic!("expected selection Allowed");
-            };
-            let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
-            let plan = plan_edition(
-                &view,
-                &BuildInfo::default(),
-                out,
-                &eff,
-                &LabelSet::public(),
-                now,
-                shipped,
-            )
-            .unwrap_or_else(|e| panic!("{e:?}"))
-            .unwrap_or_else(|d| panic!("{d:?}"));
-            let toml = String::from_utf8_lossy(&plan.site.files()["edition.toml"]).into_owned();
-            toml.lines()
-                .find(|line| line.starts_with("fingerprint = "))
-                .unwrap_or_else(|| panic!("edition.toml names its fingerprint"))
-                .to_owned()
-        };
-        let tmp = temp_copy(&fixture_root());
-        let world = TestWorld::new(tmp.path());
-        let base = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
-        let mut mixed = base.clone();
-        let sources = std::str::from_utf8(
-            mixed
-                .get_bytes("corpus/registers/sources.csv")
-                .unwrap_or_else(|| panic!("fixture register")),
-        )
-        .unwrap_or_else(|e| panic!("{e}"))
-        .to_owned();
-        let header = sources
-            .lines()
-            .next()
-            .unwrap_or_else(|| panic!("register header"));
-        let row = support::register_row(
-            header,
-            &[
-                ("source_id", "S-0098"),
-                ("version", "1"),
-                ("tag", "s-forbidden-alone"),
-                ("title", "Forbidden source canary, made up for tests"),
-                ("publisher", "Synthetic Standards Board"),
-                ("source_kind", "primary_law"),
-                ("source_role", "primary_evidence"),
-                ("authority_tier", "A"),
-                ("licence", "Synthetic, no restrictions"),
-                ("location", "metadata-only: made up for tests"),
-                ("sha256", &"8".repeat(64)),
-                ("as_of", "2026-02-01"),
-                ("retrieved", "2026-02-01"),
-                ("lifecycle", "active"),
-                ("volatility", "V2"),
-                ("handling", "public|np-0007"),
-                ("note", "Forbidden source note."),
-            ],
-        );
-        mixed.insert_bytes(
-            "corpus/registers/sources.csv",
-            support::splice_register_row(&sources, &row, None).into_bytes(),
-        );
-        assert_eq!(
-            fingerprint_of(mixed, &tmp.path().join("out-mixed"), &world),
-            fingerprint_of(base, &tmp.path().join("out-base"), &world),
-            "a disallowed row no kept cell names must not move the fingerprint"
-        );
-    }
-
     #[test]
     fn build_registers_counts_use_the_permitted_view() {
         let tmp = temp_copy(&fixture_root());
@@ -1186,8 +1081,19 @@ mod build {
         };
         let view_base = LabelledView::new(&model_base, &sel, &ReadableStores::corpus());
 
+        // The base with the kept-row cells that name the canaries: the permitted view keeps those
+        // cells verbatim, so this tree, not the plain base, is what the mixed tree must equal.
+        // Its references dangle (FB0207), and nothing else may be reported.
+        let mut tree_cells = tree_base.clone();
+        support::name_canaries_from_kept_rows(&mut tree_cells);
+        let (model_cells, report_cells) =
+            load(&Host::new(tree_cells, world.today()), &Options::new(false));
+        support::assert_only_dangling_references(&report_cells);
+        let view_cells = LabelledView::new(&model_cells, &sel, &ReadableStores::corpus());
+        assert_eq!(view_cells.left_out(), 0);
+
         // Add forbidden (`np-0007`) register rows (source S-0099 and its dependent claim, conflict
-        // and glossary term) and a page to a mixed tree.
+        // and glossary term), the kept-row cells that name them, and a page to a mixed tree.
         let mut tree_mixed = tree_base;
         support::add_canary_register_rows(&mut tree_mixed);
         tree_mixed.insert_bytes(
@@ -1208,6 +1114,18 @@ mod build {
             &view_base,
             &BuildInfo::default(),
             &out_base,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        let plan_cells = plan_edition(
+            &view_cells,
+            &BuildInfo::default(),
+            &tmp.path().join("out-reg-cells"),
             &eff,
             &LabelSet::public(),
             now,
@@ -1278,9 +1196,13 @@ mod build {
             }
         }
         assert_eq!(
-            site_without_manifest_fingerprint(plan_mixed.site.files()),
-            site_without_manifest_fingerprint(plan_base.site.files()),
-            "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
+            plan_mixed.site.files(),
+            plan_cells.site.files(),
+            "forbidden register rows and pages must not change any site byte, edition.toml and its fingerprint included"
+        );
+        assert_eq!(
+            plan_mixed.originals, plan_cells.originals,
+            "forbidden register rows must not change the originals"
         );
 
         // The real build handler selects and views the records itself. Its delivered register
@@ -2164,16 +2086,65 @@ mod build {
             "the model holds the records the view must leave out"
         );
 
-        let out_dir = root.join("out-home-areas");
+        deliver(&world, &root.join("out-home-areas")).join("edition")
+    }
+
+    /// Runs the real build handler of `world` into `out_dir` and returns `out_dir`.
+    fn deliver(world: &LedgerWorld, out_dir: &Path) -> PathBuf {
         let outcome = run_with_info(
             &BuildArgs {
-                out: out_dir.clone(),
+                out: out_dir.to_path_buf(),
             },
-            &world,
+            world,
             &BuildInfo::default(),
         );
         assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
-        out_dir.join("edition")
+        out_dir.to_path_buf()
+    }
+
+    /// Records the overlay ledger leaves out, a brief whose own handling is public among them,
+    /// change no delivered byte: every edition file, `edition.toml` and its fingerprint included,
+    /// and every original equal those of the same Corpus without the records.
+    #[test]
+    fn build_ledger_left_out_records_change_no_delivered_byte() {
+        let tmp_base = temp_copy(&fixture_root());
+        // The regression set refuses to index a tree that holds a ledger (FB0126).
+        std::fs::remove_file(tmp_base.path().join("corpus/eval/regression.toml"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let base_world = LedgerWorld {
+            inner: TestWorld::new(tmp_base.path()),
+            ledger: "seq,item_id,kind,labels,origin\n",
+        };
+        let tree = base_world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (_model, report) = load(&Host::new(tree, base_world.today()), &Options::new(false));
+        assert!(report.is_ok(), "the base preflight must pass: {report:?}");
+        let base_out = deliver(&base_world, &tmp_base.path().join("out-ledger"));
+
+        let tmp_mixed = temp_copy(&fixture_root());
+        let mixed_edition = deliver_with_disallowed_records(tmp_mixed.path());
+        assert!(
+            tmp_mixed
+                .path()
+                .join("corpus/pages/estimating/pricing/est-forbidden-brief.md")
+                .is_file(),
+            "the left-out brief is in the Corpus the build reads"
+        );
+        let mixed_out = mixed_edition
+            .parent()
+            .unwrap_or_else(|| panic!("the edition folder has a parent"));
+
+        let base_edition = collect_tree_bytes(&base_out.join("edition"));
+        assert!(base_edition.contains_key("edition.toml"));
+        assert_eq!(
+            collect_tree_bytes(&mixed_edition),
+            base_edition,
+            "left-out records must change no edition byte, edition.toml and its fingerprint included"
+        );
+        assert_eq!(
+            collect_tree_bytes(&mixed_out.join("originals")),
+            collect_tree_bytes(&base_out.join("originals")),
+            "left-out records must change no shipped original"
+        );
     }
 
     #[test]

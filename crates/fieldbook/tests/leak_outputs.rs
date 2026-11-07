@@ -389,31 +389,6 @@ fn build_home_and_areas_counts_use_the_permitted_view(edition: &Path) {
     ));
 }
 
-/// The site files with only the `fingerprint` value of `edition.toml` blanked. That value hashes
-/// the view's filtered registers, and a permitted row keeps its cells that name a left-out id, so
-/// it still moves when a forbidden id is added to such a cell. Every other byte must stay equal.
-fn site_without_manifest_fingerprint(
-    files: &BTreeMap<String, Vec<u8>>,
-) -> BTreeMap<String, Vec<u8>> {
-    let mut files = files.clone();
-    let toml = files.get("edition.toml").map_or_else(
-        || panic!("the site must hold edition.toml"),
-        |bytes| String::from_utf8_lossy(bytes).into_owned(),
-    );
-    let blanked: Vec<&str> = toml
-        .split('\n')
-        .map(|line| {
-            if line.starts_with("fingerprint = ") {
-                "fingerprint = "
-            } else {
-                line
-            }
-        })
-        .collect();
-    files.insert("edition.toml".to_owned(), blanked.join("\n").into_bytes());
-    files
-}
-
 /// The delivered About page and manifest count only the permitted view. `run_edition_surface`
 /// then requires the plan with forbidden pages and rows added to equal these bytes exactly.
 fn build_about_counts_use_the_permitted_view(edition: &Path) {
@@ -446,8 +421,16 @@ fn run_edition_surface() {
         std::fs::read(tmp.path().join("corpus/sources/public/S-0002-v2.txt"))
             .unwrap_or_else(|e| panic!("{e}")),
     );
+    // The same tree with the kept-row cells that name the canaries added below: the permitted
+    // view keeps those cells verbatim, so this tree is what the mixed tree must equal. Its
+    // references dangle (FB0207), and nothing else may be reported.
+    let mut cells_tree = tree.clone();
+    support::name_canaries_from_kept_rows(&mut cells_tree);
     let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
     assert!(report.is_ok(), "corpus-mini must load cleanly");
+    let (cells_model, cells_report) =
+        load(&Host::new(cells_tree, world.today()), &Options::new(false));
+    support::assert_only_dangling_references(&cells_report);
 
     let eff = EffectivePolicy::floor(false);
     let now = default_now();
@@ -744,10 +727,28 @@ fn run_edition_surface() {
             .contains_key("p/est-forbidden-canary.html"),
         "forbidden page must be absent from mixed edition plan"
     );
+    let cells_view = LabelledView::new(&cells_model, &sel_token, &ReadableStores::corpus());
+    assert_eq!(cells_view.left_out(), 0);
+    let cells_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
+    let cells_plan = plan_edition(
+        &cells_view,
+        &BuildInfo::default(),
+        cells_out_tmp.path(),
+        &eff,
+        &LabelSet::public(),
+        now,
+        shipped,
+    )
+    .unwrap_or_else(|e| panic!("plan_edition cells failed: {e:?}"))
+    .unwrap_or_else(|d| panic!("plan_edition cells denied: {d:?}"));
     assert_eq!(
-        site_without_manifest_fingerprint(mixed_plan.site.files()),
-        site_without_manifest_fingerprint(plan.site.files()),
-        "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs"
+        mixed_plan.site.files(),
+        cells_plan.site.files(),
+        "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs, edition.toml and its fingerprint included"
+    );
+    assert_eq!(
+        mixed_plan.originals, cells_plan.originals,
+        "forbidden rows must not change the shipped originals"
     );
     for (name, bytes) in &mixed_plan.originals {
         assert!(
