@@ -13,9 +13,8 @@ use fieldbook_core::strings;
 use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
 use crate::cite::OriginalAvailability;
-use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page};
 use crate::meta::{BuildInfo, MetadataError, RenderContext};
-use crate::{ids, nav, register, source};
+use crate::{area, home, ids, nav, register, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -134,8 +133,9 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         "assets/app.js".to_owned(),
         "assets/strings.js".to_owned(),
         ids::OUTPUT_PATH.to_owned(),
-        "index.html".to_owned(),
+        home::OUTPUT_PATH.to_owned(),
     ];
+    paths.extend(area::page_paths(view));
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
@@ -151,30 +151,17 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
 /// Renders a [`Site`] from `view` and a validated [`RenderContext`].
 #[must_use]
 pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
     let planned = planned_paths(view);
     let navigation = nav::build(view, &planned);
-    let store = match ctx {
-        RenderContext::Public(_) => StoreContext::Public,
-    };
-
-    let index_html = render_page(&FrameInput {
-        output_path: "index.html",
-        title: PRODUCT_TITLE,
-        page_area: None,
-        built_date,
-        store: &store,
-        crumbs: &[],
-        main_html: "",
-        nav: &navigation,
-    });
-
     let mut site = Site::new();
-    site.insert("index.html", index_html.into_bytes());
+    let index_html = home::render_page(view, ctx, &navigation, &planned);
+    site.insert(home::OUTPUT_PATH, index_html.into_bytes());
+    if let Some(corpus) = view.corpus() {
+        for def in &corpus.area {
+            let html = area::render_page(def, view, ctx, &navigation, &planned);
+            site.insert(&area::page_path(&def.code), html.into_bytes());
+        }
+    }
     for reg in Register::ALL {
         let reg_path = register::output_path(reg);
         let html = register::render_page(reg, view, ctx, &navigation, &planned);

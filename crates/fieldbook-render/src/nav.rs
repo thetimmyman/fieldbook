@@ -5,8 +5,8 @@ use fieldbook_core::strings;
 
 use crate::site::PlannedPaths;
 
-/// Whether `index.html#areas` has been built (`build-home-and-areas` activates it).
-pub const AREAS_ANCHOR_BUILT: bool = false;
+/// `index.html#areas` is built (`build-home-and-areas`): All areas and Browse are aliases to it.
+pub const AREAS_ANCHOR_BUILT: bool = true;
 
 /// The six top-level sections of the global frame (`HANDOFF.md` §2).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -126,6 +126,11 @@ pub fn route_sections() -> Vec<RouteMapping> {
     vec![
         RouteMapping {
             route: "index.html",
+            section: SectionId::Today,
+            item: "today",
+        },
+        RouteMapping {
+            route: "index.html#areas",
             section: SectionId::Today,
             item: "today",
         },
