@@ -2325,3 +2325,97 @@ svg.cover .s-stale {
     forced-color-adjust: none;
   }
 }
+
+/* CommandChip (`parts/chip.html`) and the per-claim rows of the overdue banner. */
+.cmd {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  max-width: 100%;
+  min-height: 28px;
+  padding: var(--space-0-5) var(--space-0-5) var(--space-0-5) var(--space-2);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+}
+
+.cmd code {
+  font: var(--weight-medium) var(--text-xs) / var(--leading-snug) var(--font-mono);
+  color: var(--color-fg);
+  overflow-wrap: anywhere;
+}
+
+.cmd .btn {
+  flex: none;
+}
+
+.cmd-tag {
+  flex: none;
+  font: var(--weight-semibold) var(--text-2xs) / var(--leading-tight) var(--font-ui);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-right: var(--space-1-5);
+  border-right: var(--border-w) solid var(--color-border);
+  white-space: nowrap;
+}
+
+.banner:has(> .due-claims) {
+  flex-direction: column;
+}
+
+.due-claims ul {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+}
+
+.due-claim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1-5);
+  margin-top: var(--space-1-5);
+}
+
+/* About page facts: label and value in two aligned columns. */
+.about-facts {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+}
+
+.about-facts dt {
+  color: var(--color-muted);
+}
+
+.about-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.about-counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+@media (max-width: 767px) {
+  .cmd {
+    flex-wrap: wrap;
+    row-gap: var(--space-0-5);
+    padding-top: var(--space-1);
+  }
+
+  .cmd-tag {
+    flex-basis: 100%;
+    border-right: 0;
+    padding: 0;
+  }
+
+  .cmd code {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}

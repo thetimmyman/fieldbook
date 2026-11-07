@@ -477,6 +477,106 @@ mod page {
         );
     }
 
+    /// Every cited claim with a computed review date gets a hidden row with the verify chip;
+    /// a claim with no known date gets none, and only the viewer's script can reveal a row.
+    #[test]
+    fn overdue_claim_uses_verify_command_chip() {
+        const APP_JS: &str = include_str!("../assets/app.js");
+        let row = "data-claim-review-by=";
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let claim = view
+            .claims()
+            .iter()
+            .find(|c| c.value.claim_id.as_str() == "CL-CMP-0001")
+            .unwrap();
+        let base = claim
+            .value
+            .as_of
+            .map(|d| d.first_day())
+            .max(claim.value.verified_on)
+            .unwrap();
+        let date = fieldbook_core::date::review_by(base, claim.value.volatility);
+        assert!(
+            html.contains(&format!("{row}\"{date}\" hidden")),
+            "the row must carry the computed date and start hidden:\n{html}"
+        );
+        assert!(
+            html.contains("<code>fieldbook verify CL-CMP-0001 --on YYYY-MM-DD</code>"),
+            "the chip keeps the literal date placeholder:\n{html}"
+        );
+        assert!(html.contains("role=\"group\""));
+        assert!(html.contains(&format!(
+            "<span class=\"cmd-tag\">{}</span>",
+            strings::tag_at_home()
+        )));
+        assert!(html.contains("<div class=\"due-claims\" hidden>"));
+        let banner_end = html.find("<header class=\"page-head\">").unwrap();
+        assert!(
+            html.find(row).unwrap() < banner_end,
+            "the rows sit in the overdue banner"
+        );
+
+        // A claim with neither `as_of` nor `verified_on` has an unknown date: no row, no chip.
+        let mut tree = fixture_tree();
+        let claims = tree.get_bytes("corpus/registers/claims.csv").unwrap();
+        let claims = std::str::from_utf8(claims).unwrap();
+        let mut rows = csv_rows(claims);
+        let header = rows[0].clone();
+        let at = |name: &str| header.iter().position(|c| c == name).unwrap();
+        for record in rows.iter_mut().skip(1) {
+            if record[at("kind")] != "fact" {
+                continue;
+            }
+            record[at("as_of")].clear();
+            record[at("verified_on")].clear();
+            record[at("verified_by_role")].clear();
+            record[at("verification")] = "stale".to_owned();
+            record[at("note")] = "as_of unknown".to_owned();
+        }
+        tree.insert_bytes("corpus/registers/claims.csv", csv_text(&rows).into_bytes());
+        let (_model, view) = load_view(tree);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let unknown = render_main(page, &view, &planned);
+        assert!(
+            !unknown.contains(row) && !unknown.contains("due-claims"),
+            "an unknown review date is never overdue:\n{unknown}"
+        );
+
+        // The viewer's own date decides, in the page script; the build reads no clock.
+        assert!(APP_JS.contains("rows[j].getAttribute('data-claim-review-by')"));
+        assert!(APP_JS.contains("claimBy && today > claimBy"));
+        assert!(APP_JS.contains("rows[j].hidden = false"));
+    }
+
+    fn csv_rows(text: &str) -> Vec<Vec<String>> {
+        let mut reader = csv::ReaderBuilder::new()
+            .has_headers(false)
+            .from_reader(text.as_bytes());
+        reader
+            .records()
+            .map(|r| r.unwrap().iter().map(str::to_owned).collect())
+            .collect()
+    }
+
+    fn csv_text(rows: &[Vec<String>]) -> String {
+        let mut writer = csv::Writer::from_writer(Vec::new());
+        for row in rows {
+            writer.write_record(row).unwrap();
+        }
+        String::from_utf8(writer.into_inner().unwrap()).unwrap()
+    }
+
     #[test]
     fn never_verified_in_warn() {
         let (_model, view) = load_view(fixture_tree());

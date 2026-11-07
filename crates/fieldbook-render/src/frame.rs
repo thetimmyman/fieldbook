@@ -5,6 +5,7 @@ use fieldbook_core::audit::LabelSet;
 use fieldbook_core::strings;
 
 use crate::csp::CSP_STATIC;
+use crate::edition::{self, EditionInfo};
 use crate::nav::{NavTarget, Navigation, SectionId, resolve_route};
 use crate::site::PlannedPaths;
 
@@ -135,8 +136,8 @@ pub struct FrameInput<'a> {
     pub title: &'a str,
     /// Optional explicit area code for `p/<page-id>.html` routes.
     pub page_area: Option<&'a str>,
-    /// Release build date (`YYYY-MM-DD`) when `BuildInfo::is_released` holds, or `None`.
-    pub built_date: Option<&'a str>,
+    /// Edition metadata; its number and build date fill the build-date element of the header.
+    pub edition: &'a EditionInfo,
     /// Public vs. company store context.
     pub store: &'a StoreContext,
     /// Breadcrumb trail; rendered only when `crumbs.len() >= 2`.
@@ -185,6 +186,7 @@ struct BaseTemplate<'a> {
     current_section_key: &'a str,
     current_item_id: &'a str,
     built_date: Option<&'a str>,
+    edition_label: String,
     unreleased_build: &'a str,
     store_chip_label: &'a str,
     store_chip_title: &'a str,
@@ -267,7 +269,8 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         root_prefix: &root_prefix,
         current_section_key: current_section.key(),
         current_item_id: &current_item,
-        built_date: input.built_date,
+        built_date: edition::built_date(input.edition),
+        edition_label: edition::header_label(input.edition),
         unreleased_build: strings::unreleased_build(),
         store_chip_label: &store_pres.chip_label,
         store_chip_title: &store_pres.chip_title,

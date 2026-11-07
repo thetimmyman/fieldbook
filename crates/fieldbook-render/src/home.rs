@@ -225,7 +225,7 @@ fn change_items(
     items
 }
 
-fn panel(
+pub(crate) fn panel(
     heading: &str,
     title: &str,
     count: Option<String>,
@@ -420,11 +420,7 @@ pub fn render_page(
     planned: &PlannedPaths,
 ) -> String {
     let main_html = render_main(view, planned);
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
+    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
@@ -432,7 +428,7 @@ pub fn render_page(
         output_path: OUTPUT_PATH,
         title: PRODUCT_TITLE,
         page_area: None,
-        built_date,
+        edition,
         store: &store,
         crumbs: &[],
         main_html: &main_html,

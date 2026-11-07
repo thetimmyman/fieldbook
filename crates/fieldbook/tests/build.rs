@@ -38,6 +38,31 @@ use fieldbook_render::source;
 use support::temp_copy;
 use support::world::TestWorld;
 
+/// The site files with only the `fingerprint` value of `edition.toml` blanked. That value hashes
+/// the view's filtered registers, and a permitted row keeps its cells that name a left-out id, so
+/// it still moves when a forbidden id is added to such a cell. Every other byte must stay equal.
+fn site_without_manifest_fingerprint(
+    files: &BTreeMap<String, Vec<u8>>,
+) -> BTreeMap<String, Vec<u8>> {
+    let mut files = files.clone();
+    let toml = files.get("edition.toml").map_or_else(
+        || panic!("the site must hold edition.toml"),
+        |bytes| String::from_utf8_lossy(bytes).into_owned(),
+    );
+    let blanked: Vec<&str> = toml
+        .split('\n')
+        .map(|line| {
+            if line.starts_with("fingerprint = ") {
+                "fingerprint = "
+            } else {
+                line
+            }
+        })
+        .collect();
+    files.insert("edition.toml".to_owned(), blanked.join("\n").into_bytes());
+    files
+}
+
 fn fixture_root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/corpus-mini")
 }
@@ -867,7 +892,7 @@ mod build {
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let ctx =
             site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let mut site = site::render_with_context(&view, &ctx);
+        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent);
         site.insert(
             "bad.html",
             format!(
@@ -1173,8 +1198,8 @@ mod build {
             }
         }
         assert_eq!(
-            plan_mixed.site.files(),
-            plan_base.site.files(),
+            site_without_manifest_fingerprint(plan_mixed.site.files()),
+            site_without_manifest_fingerprint(plan_base.site.files()),
             "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
         );
 
@@ -1974,10 +1999,9 @@ mod build {
         );
     }
 
-    #[test]
-    fn build_home_and_areas_counts_use_the_permitted_view() {
-        let tmp = temp_copy(&fixture_root());
-        let root = tmp.path();
+    /// Plants a disallowed claim, question, conflict and brief in `root`, runs the real build
+    /// handler, and returns the delivered edition folder.
+    fn deliver_with_disallowed_records(root: &Path) -> PathBuf {
         let read = |rel: &str| {
             std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
         };
@@ -2069,7 +2093,56 @@ mod build {
             &BuildInfo::default(),
         );
         assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
-        let edition = out_dir.join("edition");
+        out_dir.join("edition")
+    }
+
+    #[test]
+    fn build_about_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let edition = deliver_with_disallowed_records(tmp.path());
+        let about = std::fs::read_to_string(edition.join("about.html"))
+            .unwrap_or_else(|e| panic!("the handler must deliver about.html: {e}"));
+        for shown in [
+            "<dt>Pages</dt><dd class=\"mono\">9</dd>",
+            "<dt>Claims</dt><dd class=\"mono\">5</dd>",
+            "<dt>Pages draft</dt>",
+            "<dt>Claims unchecked</dt><dd class=\"mono\">4</dd>",
+            "This edition holds public only.",
+            "silent build",
+            "CL-CMP-0002",
+        ] {
+            assert!(about.contains(shown), "about.html must show `{shown}`");
+        }
+        let toml = std::fs::read_to_string(edition.join("edition.toml"))
+            .unwrap_or_else(|e| panic!("the handler must deliver edition.toml: {e}"));
+        let parsed = fieldbook_core::edition::EditionInfo::parse(&toml)
+            .unwrap_or_else(|e| panic!("edition.toml must parse: {e}"));
+        assert_eq!(parsed.counts.pages, 9);
+        assert_eq!(parsed.counts.claims, 5);
+        assert!(!parsed.ids.claims.iter().any(|id| id == "CL-CMP-0098"));
+        assert!(
+            !parsed
+                .ids
+                .pages
+                .iter()
+                .any(|id| id == "est-forbidden-brief")
+        );
+        for needle in [
+            "CL-CMP-0098",
+            "Forbidden claim canary statement.",
+            "Q-098",
+            "XC-98",
+            "est-forbidden-brief",
+        ] {
+            assert!(!about.contains(needle), "about.html holds `{needle}`");
+            assert!(!toml.contains(needle), "edition.toml holds `{needle}`");
+        }
+    }
+
+    #[test]
+    fn build_home_and_areas_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let edition = deliver_with_disallowed_records(tmp.path());
         assert_permitted_home_and_areas(&edition);
         for (rel, bytes) in collect_tree_bytes(&edition) {
             let text = String::from_utf8_lossy(&bytes);

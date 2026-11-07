@@ -271,7 +271,7 @@ pub fn plan_edition(
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context);
+    let site = site::render_with_context(view, &context, info.profile);
     build_plan_from_site(
         view,
         context,
@@ -308,7 +308,7 @@ pub fn plan_edition_with_originals(
     originals: BTreeMap<String, Vec<u8>>,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context);
+    let site = site::render_with_context(view, &context, info.profile);
     let names = OriginalNames(originals.keys().cloned().collect());
     build_plan_from_site(
         view, context, site, originals, &names, out_dir, eff, labels, now, shipped,

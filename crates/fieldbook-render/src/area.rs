@@ -236,11 +236,7 @@ pub fn render_page(
 ) -> String {
     let main_html = render_main(area, view, planned);
     let path = page_path(&area.code);
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
+    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
@@ -253,7 +249,7 @@ pub fn render_page(
         output_path: &path,
         title: &area.name,
         page_area: Some(&area.code),
-        built_date,
+        edition,
         store: &store,
         crumbs: &crumbs,
         main_html: &main_html,

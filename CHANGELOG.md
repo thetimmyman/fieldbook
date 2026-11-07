@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the about page, edition.toml and copyable command chips.
 - Added: the home page and the area pages.
 - Added: source pages and the originals folder.
 - Fixed: the permitted view keeps a source original by its version id, whatever its location says.

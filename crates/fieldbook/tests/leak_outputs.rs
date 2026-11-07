@@ -389,6 +389,49 @@ fn build_home_and_areas_counts_use_the_permitted_view(edition: &Path) {
     ));
 }
 
+/// The site files with only the `fingerprint` value of `edition.toml` blanked. That value hashes
+/// the view's filtered registers, and a permitted row keeps its cells that name a left-out id, so
+/// it still moves when a forbidden id is added to such a cell. Every other byte must stay equal.
+fn site_without_manifest_fingerprint(
+    files: &BTreeMap<String, Vec<u8>>,
+) -> BTreeMap<String, Vec<u8>> {
+    let mut files = files.clone();
+    let toml = files.get("edition.toml").map_or_else(
+        || panic!("the site must hold edition.toml"),
+        |bytes| String::from_utf8_lossy(bytes).into_owned(),
+    );
+    let blanked: Vec<&str> = toml
+        .split('\n')
+        .map(|line| {
+            if line.starts_with("fingerprint = ") {
+                "fingerprint = "
+            } else {
+                line
+            }
+        })
+        .collect();
+    files.insert("edition.toml".to_owned(), blanked.join("\n").into_bytes());
+    files
+}
+
+/// The delivered About page and manifest count only the permitted view. `run_edition_surface`
+/// then requires the plan with forbidden pages and rows added to equal these bytes exactly.
+fn build_about_counts_use_the_permitted_view(edition: &Path) {
+    let about = std::fs::read_to_string(edition.join("about.html"))
+        .unwrap_or_else(|e| panic!("about.html: {e}"));
+    for shown in [
+        "<dt>Pages</dt><dd class=\"mono\">9</dd>",
+        "<dt>Claims</dt><dd class=\"mono\">5</dd>",
+        "This edition holds public only.",
+    ] {
+        assert!(about.contains(shown), "about.html must show `{shown}`");
+    }
+    let toml = std::fs::read_to_string(edition.join("edition.toml"))
+        .unwrap_or_else(|e| panic!("edition.toml: {e}"));
+    assert!(toml.contains("\n[counts]\npages = 9\n"), "{toml}");
+    assert!(toml.contains("\nclaims = 5\n"), "{toml}");
+}
+
 fn run_edition_surface() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
@@ -610,6 +653,7 @@ fn run_edition_surface() {
     assert!(index_disk.contains("<nav aria-label=\"Sections\">"));
     assert!(index_disk.contains("class=\"not-available\""));
     build_home_and_areas_counts_use_the_permitted_view(&plan.edition_dir);
+    build_about_counts_use_the_permitted_view(&plan.edition_dir);
 
     let concept_disk = std::fs::read_to_string(plan.edition_dir.join("p/cmp-system-review.html"))
         .unwrap_or_else(|e| panic!("{e}"));
@@ -700,8 +744,8 @@ fn run_edition_surface() {
         "forbidden page must be absent from mixed edition plan"
     );
     assert_eq!(
-        mixed_plan.site.files(),
-        plan.site.files(),
+        site_without_manifest_fingerprint(mixed_plan.site.files()),
+        site_without_manifest_fingerprint(plan.site.files()),
         "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs"
     );
     for (name, bytes) in &mixed_plan.originals {
