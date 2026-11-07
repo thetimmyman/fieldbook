@@ -1,0 +1,21 @@
+---
+source: crates/fieldbook/tests/search.rs
+expression: out.stdout
+---
+1. cmp-withhold-case (page) Synthetic case study on business-system review and billing withhold
+   draft · as of 2026-02-01 · Examine a synthetic case separating public-record findings from analyst inference.
+2. cmp-system-review (page) Synthetic business-system review and withholding overview
+   draft · as of 2026-02-01 · section cmp-system-review#purpose (Purpose) · Explain how a synthetic system review interacts with a synthetic billing withhold.
+3. cmp-onboarding-checklist (page) Synthetic compliance onboarding checklist across two windows
+   draft · as of 2026-02-01 · section cmp-onboarding-checklist#how-it-works (How it works)
+4. cmp-clause-9900-101 (clause) Synthetic clause card for 48 CFR 9900.101 compliance review
+   draft · as of 2026-02-01 · section cmp-clause-9900-101#the-rule (The rule) · The synthetic clause requires a system review every 30 days [@CL-CMP-0001] and sets a 5 percent billing withhold [@CL-CMP-0002].
+Also matched:
+5. billing_withhold (term) billing withhold
+   public_reference · Synthetic retention of a percentage of interim payments pending system correction.
+6. XC-01 (conflict) Synthetic review interval versus withholding check timing
+   unresolved · Synthetic review runs every 30 days Synthetic withholding check runs at each billing cycle
+7. CL-CMP-0002 (claim) CL-CMP-0002
+   unchecked · as of 2026-02-01 · effective 2026-01-15 · Synthetic withholding threshold is 5 percent of billed amounts.
+8. Q-001 (question) Which synthetic business-system control owner approves the monthly compliance review?
+   open · Synthetic withholding exposure depends on timely review sign-off.

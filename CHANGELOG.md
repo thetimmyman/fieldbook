@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: the home page and the area pages.
+- Changed: search lists pages first, one row per page, and `--units` keeps the flat list.
 - Added: source pages and the originals folder.
 - Fixed: the permitted view keeps a source original by its version id, whatever its location says.
 - Added: the search command.

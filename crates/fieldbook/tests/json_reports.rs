@@ -28,6 +28,7 @@ const REPORTS: &[(&str, ReportGenerator)] = &[
     ("audit-verify", generate_audit_verify_report),
     ("add", generate_add_report),
     ("search", generate_search_report),
+    ("search-pages", generate_search_pages_report),
 ];
 
 fn repo_root() -> PathBuf {
@@ -108,6 +109,20 @@ fn generate_add_report() -> String {
         "add inbox --json expected exit 1: {}",
         outcome.stderr
     );
+    outcome.stdout
+}
+
+/// A word whose hits show a page row that a section leads, and an other row after it.
+fn generate_search_pages_report() -> String {
+    let root = repo_root();
+    let world = TestWorld::new(&root.join("tests/fixtures/corpus-mini"));
+    let args = vec![
+        "search".to_owned(),
+        "--json".to_owned(),
+        "threshold".to_owned(),
+    ];
+    let outcome = fieldbook::run(&args, &world);
+    assert_eq!(outcome.code, 0, "search --json failed: {}", outcome.stderr);
     outcome.stdout
 }
 
