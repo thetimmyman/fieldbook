@@ -385,9 +385,11 @@ pub fn first_sentence_of_purpose(page: &PageEntry) -> String {
         }
     }
 
-    let has_cite = text_ranges
-        .iter()
-        .any(|r| page.body[r.clone()].contains("[@"));
+    // The parser splits `[` and `@CL-...` into separate text events, so look across the whole span.
+    let has_cite = match (text_ranges.first(), text_ranges.last()) {
+        (Some(first), Some(last)) => page.body[first.start..last.end].contains("[@"),
+        _ => false,
+    };
     let groups = if has_cite {
         let max_end = text_ranges.last().map_or(0, |r| r.end);
         let slice_end = page.body[max_end..]

@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Fixed: page popovers and stage lists no longer show raw citation markers.
 - Added: source pages and the originals folder.
 - Fixed: the permitted view keeps a source original by its version id, whatever its location says.
 - Added: the search command.
