@@ -4,7 +4,8 @@
 //! **Responsibility.** Normalise search text, lex identifier shapes and words on both the index
 //! side and the query side, expand glossary synonyms into unit body fields, construct the
 //! five token fields and display metadata of each document unit kind, compute deterministic BM25F
-//! integer impacts, build the in-memory [`Index`], and answer queries with integer math only.
+//! integer impacts, build the in-memory [`Index`], answer queries with integer math only, and group
+//! the ranked list into the page view.
 //!
 //! **Rules.** Pure: no I/O, no clock, no environment, no `f64::ln`/`powf`/`powi`/`exp`.
 
@@ -12,6 +13,7 @@ pub mod bm25f;
 pub mod index;
 pub mod lexer;
 pub mod normalise;
+pub mod pages;
 pub mod query;
 pub mod synonyms;
 pub mod units;
@@ -23,6 +25,7 @@ pub use lexer::{
     lex_normalised, query_tokens,
 };
 pub use normalise::normalise;
+pub use pages::{PageRow, PageView, ShownRows, ViewLimits, page_view};
 pub use query::{Hit, MAX_PREFIX_TERMS, MIN_PREFIX_UTF16_LEN, Results, is_exact_class, query};
 pub use synonyms::{Glossary, GlossaryEntry, SynonymSet, apply_synonym_sets};
 pub use units::{
