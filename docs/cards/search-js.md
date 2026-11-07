@@ -13,6 +13,7 @@
 - The engine, the loader, the search page and the no-script rule are in [The site index](../reference/search.md#the-site-index) and [Query procedure](../reference/search.md#query-procedure). The drift traps are in [Where Rust and JavaScript can drift](../reference/search.md#where-rust-and-javascript-can-drift); the budgets in [Budgets](../reference/search.md#budgets) and FB0605.
 - Script rules are in [AD-15](../decisions/0001-foundation.md#ad-15-ui-technology-and-design-system) and WB-03 in [controls.md](../controls.md). This card owns the golden wrappers and what each kind asserts ([How the vectors are loaded](../../tests/golden/README.md#how-the-vectors-are-loaded)); `edge-harness` owns the harness that opens them.
 - Design: the [MAP.md](../design/MAP.md) row Search (CommandPalette, SearchTrigger), the `search.html#q=` half; the palette is `search-palette`. [HANDOFF.md](../design/HANDOFF.md) §10 Search (result row), §6 States and interactions (no results) and §11 Edge cases (scripts blocked) and Index loading, and the §5 Skeleton row (the MAP row Skeleton). Token groups: colour (`--color-mark` for hits), type, space, shape and line (`--radius-sm`), motion (`--dur-pulse`).
+- The search page shows [the page view](../reference/search.md#the-page-view), not the flat unit list; `tests/golden/search/page-view.json` holds `search.js` to the Rust view.
 
 ## Scope
 

@@ -13,6 +13,7 @@ Every page has the SearchTrigger and the CommandPalette, which `/` and Ctrl K op
 - The palette rules (id rows, "Search for", Enter) are in [The site index](../reference/search.md#the-site-index) (Palette, Without scripts). The engine is `search.js` from `search-js`.
 - Script and storage rules are in [AD-15](../decisions/0001-foundation.md#ad-15-ui-technology-and-design-system). WB-03 (budgets) and WB-04 (storage) are in [controls.md](../controls.md); FB0605 holds the budgets.
 - Design: the [MAP.md](../design/MAP.md) rows Search (CommandPalette, SearchTrigger) and ShortcutsDialog. [HANDOFF.md](../design/HANDOFF.md) §10 Search, §5 Components (SearchTrigger, CommandPalette, ShortcutsDialog, Switch) and §6 States and interactions (search trigger, palette no results, `?`, single-key shortcuts). Token groups: colour (`--color-scrim`, `--color-accent-soft`), layout, motion (`--dur-med`, `--ease-out`, `--shadow-pop`).
+- Ranked fallback rows show [the page view](../reference/search.md#the-page-view), held to `tests/golden/search/page-view.json` through `search.js`.
 
 ## Scope
 

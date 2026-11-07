@@ -2,7 +2,7 @@
 
 This is the specification of Fieldbook search: the tokenizer, the document units, the ranking, the site index, the command-line search, the golden vectors and the budgets. It extends AD-11 in [ADR 0001](../decisions/0001-foundation.md). Rust is the only specification of the tokenizer and the ranking; the JavaScript on the site only normalises the query, looks terms up and adds integers.
 
-Cards that build it: `search-core-and-cli` (the tokenizer and the seed tokenize goldens), `search-ranking-and-index` (BM25F, the in-memory index, query function and ranked goldens), `search-site-index` (site serialization and `search-index.js`), `search-cli-and-regression` (`fieldbook search` and the regression runner), `search-js` (`search.js`, `search.html`), `search-palette` (the palette) and `edge-harness` (the Edge harness that holds `search.js` to the Rust results). The seed goldens are written before the card that passes them starts. Notes on later releases are marked.
+Cards that build it: `search-core-and-cli` (the tokenizer and the seed tokenize goldens), `search-ranking-and-index` (BM25F, the in-memory index, query function and ranked goldens), `search-site-index` (site serialization and `search-index.js`), `search-cli-and-regression` (`fieldbook search` and the regression runner), `search-page-view` (the page view and `--units`), `search-js` (`search.js`, `search.html`), `search-palette` (the palette) and `edge-harness` (the Edge harness that holds `search.js` to the Rust results). The seed goldens are written before the card that passes them starts. Notes on later releases are marked.
 
 ## What AD-11 fixes and what this document decides
 
@@ -31,6 +31,7 @@ AD-11 fixes the outline. This document fixes the details that a golden vector ha
 | BM25F, index builder, query function | `fieldbook-core`, module `search` | Card `search-ranking-and-index` |
 | Serialisation of the edition's page and section units to `assets/search-index.js`, under the 15 MB cap | `fieldbook-render` | Card `search-site-index`; the cap by card `search-index-budget` |
 | `fieldbook search` | `fieldbook` | Card `search-cli-and-regression` |
+| The page view above `query` | `fieldbook-core`, module `search::pages`, and `fieldbook` | Card `search-page-view` |
 | Lexer shapes 6 to 8 and the test `lexer_covers_every_family` | `fieldbook-core`, module `search` | Card `search-core-and-cli`, which needs the `FAMILIES` table of `core-ids-and-dates` |
 | The company index: the stores, labels in results, text windows, the overlay site index | `fieldbook-core`, module `search`, and `fieldbook` | Card `r2-company-ids`; record versions by card `r2-records` |
 | `assets/search.js` (the engine), `search.html` | `fieldbook-render` assets and templates | Card `search-js` |
@@ -281,11 +282,25 @@ A `quarantined` source version has no search unit, so its title, `note` and text
 3. For each unit: `matched` is the number of tokens it scored for, and `sum` is the total of its token scores.
 4. A unit is in the **exact class** if `s` equals its folded id, or equals its unversioned id when the unit is a source version or a record version, or, in the company store, equals the folded `origin_key` of a source version or a record version. The exact class is included even when it has no scores (a section id has an empty `id` field).
 5. Sort exact-class units first, ordered by natural ID alone. Sort other units by `matched`, larger first, then `sum`, larger first, then the unit number, smaller first. Unit numbers are assigned in natural id order, below.
-6. Return the first 50 units (site) or 10 (CLI), and the total count. A surface that cuts the list says so (see the search page and the CLI below).
+6. Return the first units up to the limit a surface asks for, and the total count: 50 on the site, 10 with `--units` on the CLI, every unit for [the page view](#the-page-view). A surface that cuts the list says so (see the search page and the CLI below).
 
 **Natural id order.** Compare folded ids as sequences of runs, a run being a maximal group of digits or a maximal group of non-digits. A digit run sorts before a non-digit run. Digit runs compare by numeric value, then by length (shorter first); non-digit runs compare in UTF-16 order. A shorter sequence sorts before a longer one that starts the same way. So `s-0042-v2` sorts before `s-0042-v10`.
 
 Because the exact class is the first sort key, an exact id always ranks above an alias hit, a prefix hit and any text hit.
+
+### The page view
+
+Two thirds of the units are claim rows, and a long page has many sections, so the flat list buries the page a reader wants. The page view is a pure step above `query`: it takes the index and the full ranked list (a limit of every unit) and groups it for a reader. It changes no score, no order and no token. Rust (`search::pages`) is the specification for the JavaScript mirror, and [`page-view.json`](../../tests/golden/search/page-view.json) holds both to it.
+
+The view has three lists, in this order:
+
+1. **Exact rows.** Every exact-class hit, in query order, ungrouped and unchanged. A page whose lead or section is exact is marked seen, so it does not repeat: its other matching units are absorbed by the exact row.
+2. **Page rows.** Every remaining hit of kind `page` or `clause`, collapsed to its page id (the part of the id before any `#`). A page takes the place of its first hit in rank order. A row carries the page id, the display values of the page's lead, the id and the snippet of its best-ranked unit, and how many of its units matched. If the index holds no lead for the page, the row uses the display values of the best unit.
+3. **Other rows.** Every remaining hit of any other kind, a later kind included, flat and in rank order. There is no closed list of kinds, and nothing is dropped: exact rows, the units of the page rows, the absorbed units and the other rows add up to the total.
+
+The command line shows every exact row, at most 10 page rows, then at most 5 other rows; when there is no page row, other rows fill to 10.
+
+The [regression set](#regression-set) still judges the unit list, not this view: its verdicts and FB0127 counts do not depend on grouping.
 
 ### Worked example
 
@@ -376,24 +391,33 @@ Worked-example fragment (the unit numbers are those of the table above):
 
 ## The command line
 
-`fieldbook search <query>` builds the index in memory from the Corpus and, on a machine with a company store, from that store as well ([The company index](#the-company-index)), and runs `query` with the CLI limit. Words after `search` are joined with single spaces, so quoting is optional; put `--` before a word that starts with `-` (`fieldbook search -- -5% margin`), because the command line reads it as an option otherwise. It reads the stores' files and writes nothing.
+`fieldbook search <query>` builds the index in memory from the Corpus and, on a machine with a company store, from that store as well ([The company index](#the-company-index)), and runs `query`, then lists the results as [the page view](#the-page-view). Words after `search` are joined with single spaces, so quoting is optional; put `--` before a word that starts with `-` (`fieldbook search -- -5% margin`), because the command line reads it as an option otherwise. It reads the stores' files and writes nothing.
 
 ```text
-fieldbook search [--json] [--store NAME]... <query>...
+fieldbook search [--json] [--units] [--store NAME]... <query>...
 ```
 
-Plain output is two lines per result in rank order. Ordinary queries show at most 10. An exact unversioned source ID, record ID or natural key uses `max(10, eligible exact-class count)` before truncation, so every eligible version appears in natural order. Plain and JSON use the same limit. When truncated, the last line is `Showing D of N. fieldbook search <source id> lists every version.`, with the actual displayed count D. A snapshot test pins it:
+Plain output is two lines per row: the exact rows, then the page rows, then the other rows after the one-line heading `Also matched:`, which is left out when no row comes before them. Ranks run on across the lists. A limit never cuts an exact row, so an exact unversioned source ID, record ID or natural key lists every version in natural order. At most 10 page rows and then at most 5 other rows follow; with no page row, other rows fill to 10. Plain and JSON list the same rows. A snapshot test pins the format:
 
 ```text
 1. cmp-withholding (page) Payment withholding for business-system deficiencies
    draft · as of 2025-11-01 · Withholding applies to business system deficiencies…
 ```
 
-The first line is rank, id, kind and display title. The second is the non-empty values among `status`, `as_of`, `effective_from`, `verified_on` (the last two prefixed "effective" and "verified"), then the snippet, joined with ` · `. Output before the list is never printed, and the "Showing" line comes after it.
+The first line is rank, id, kind and display title. The second is the non-empty values among `status`, `as_of`, `effective_from`, `verified_on` (the last two prefixed "effective" and "verified"), then the snippet, joined with ` · `. On a page row these are the page lead's values and the best unit's snippet; when the best unit is a section, `section <id> (<heading>)` comes before the snippet:
+
+```text
+2. cmp-withholding (page) Payment withholding for business-system deficiencies
+   draft · as of 2025-11-01 · section cmp-withholding#purpose (Purpose) · Withholding applies to business system deficiencies…
+```
+
+Output before the list is never printed, and the "Showing" line comes after it. When a limit cuts the view, the last line gives the rows shown out of each list that has rows: `Showing 10 of 12 pages and 5 of 7 other results.`, or `Showing 10 of 12 pages.`, or `Showing 10 of 14 results.` when only other rows match. When a source or record version is among the other rows, the line ends with ` fieldbook search <source id> lists every version.`.
+
+- **`--units`.** Prints the flat unit list instead: two lines per unit in rank order, at most 10. An exact unversioned source ID, record ID or natural key uses `max(10, eligible exact-class count)`, so every eligible version appears in natural order. When truncated, the last line is `Showing D of N. fieldbook search <source id> lists every version.`, with the actual displayed count D.
 
 - **Exact id.** When exactly one unit is in the exact class, it is printed in full instead of its two lines: the register row as `column: value` lines in column order, skipping empty values; for a page, `path:` then the front-matter fields in schema order. The other results follow as usual. A source id such as `S-0042`, a company id such as `SO-000042` or `CM-000012`, or a natural key (`origin_key`) puts every version in the exact class, so the versions are listed in version order. A record version prints its envelope and its type's columns the same way, one `column: value` line each.
 - **No results.** Prints the abstention phrase and exits 1.
-- **`--json`.** One object with `report_version` 1, `query`, `tokens` (the query tokens), `total`, and `results`: an array of objects with `rank`, `id`, `kind`, `title`, `parent`, `status`, `as_of`, `effective_from`, `verified_on`, `labels` (an array of label ids; `["public"]` for a Corpus unit), `store` (`corpus` or `overlay`), `matched`, `score` (the summed impact) and `snippet`.
+- **`--json`.** One object with `report_version` 1, `query`, `tokens` (the query tokens), `view` (`pages`, or `units` with `--units`), `total` (the matching units before any grouping or cut), and `results`: an array of objects with `rank`, `id`, `kind`, `title`, `parent`, `status`, `as_of`, `effective_from`, `verified_on`, `labels` (an array of label ids; `["public"]` for a Corpus unit), `store` (`corpus` or `overlay`), `matched`, `score` (the summed impact) and `snippet`. A page row's `id` is the page id, its `matched`, `score` and `snippet` are those of its best unit, and it adds `best_unit` (that unit's id) and `matched_units` (how many of the page's units matched). No other row has those two keys.
 - **Exit codes.** 0 when there is at least one result, 1 when there is none, 2 for usage errors, 3 for I/O errors, as for the other commands.
 - **Labels.** When any result carries a label other than `public`, the second line of every result starts with its labels in square brackets (`[vendor-quote]`), and a result that carries only `public` shows none. A list of public units only prints exactly as before, so the Corpus snapshot test stays valid. What the command prints is not egress.
 - The Corpus is found as for the other commands. The CLI never reads or writes the clipboard.
@@ -409,6 +433,7 @@ Goldens hold Rust and JavaScript to one specification. They live in `tests/golde
 | tokenize | `tests/golden/search/` | `seed-tokenize.json` | 40 | At least 200 | Rust, both sides; the Edge harness, the query side |
 | ranked | `tests/golden/search/` | `seed-ranked.json` | 10 | At least 30 | Rust; the Edge harness, over an index built by Rust |
 | tokenize and ranked, company | `tests/golden/search/` | `seed-tokenize-company.json`, `seed-ranked-company.json` | 12 and 4 | Counted in the totals above | Rust; the Edge harness, the query side of the tokenize cases |
+| page-view | `tests/golden/search/` | none: `page-view.json` is an ordinary file | | At least 8 | Rust; the Edge harness, from `search-js` |
 | citation | `tests/golden/citations/` | `seed-*.json` | 30 | | Rust; the Edge harness (Day 30) |
 | cite-check | `tests/golden/handoff/` | `seed-*.json` | 20, one of them an answer with a good citation and a broken one, which exits 1 and prints "1 of 2 citations do not resolve" | | Rust; the Edge harness (Day 30) |
 
@@ -538,7 +563,7 @@ The gate "zero critical failures" at Day 1 counts the errors from this set. Reco
 | Snippet | At most 160 code points | The index builder |
 | Query tokens | At most 12 | `query_tokens` |
 | Prefix | At least 2 UTF-16 code units; at most 64 terms | `query` |
-| Results | 50 on the site, 10 on the command line; either surface prints "Showing 10 of N" or "Showing 50 of N" when it cuts | `query` |
+| Results | 50 on the site; on the command line 10 page rows and 5 other rows, or 10 other rows with no page row, and 10 units with `--units`; a surface says so when it cuts | `query`, and the page view above it |
 | Agreement | Rust and JavaScript give identical lists and scores on every ranked case and identical tokens on every query-side tokenize case | The harness (Day 1) |
 
 The index, `check` and `build` budgets that are not about search are in AD-17.
