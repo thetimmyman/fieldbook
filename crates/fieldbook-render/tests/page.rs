@@ -13,6 +13,7 @@ mod page {
     use fieldbook_core::review::page_review_by;
     use fieldbook_core::schema::ClaimRow;
     use fieldbook_core::strings;
+    use fieldbook_render::chip;
     use fieldbook_render::inline::first_sentence_of_purpose;
     use fieldbook_render::links::{
         render_area_chip, render_citation_chip, render_claim_chip, render_conflict_chip,
@@ -20,7 +21,7 @@ mod page {
     };
     use fieldbook_render::meta::BuildInfo;
     use fieldbook_render::nav;
-    use fieldbook_render::page::{render_main, render_page};
+    use fieldbook_render::page::{render_due_claims, render_main, render_page};
     use fieldbook_render::site::{self, PlannedPaths};
 
     const APP_CSS: &str = include_str!("../assets/app.css");
@@ -507,15 +508,61 @@ mod page {
             html.contains(&format!("{row}\"{date}\" hidden")),
             "the row must carry the computed date and start hidden:\n{html}"
         );
+
+        // Neither branch changes the rows: the due ids, their dates and the hidden start.
+        let from_path = "p/cmp-system-review.html";
+        let ids = [
+            ClaimId::parse("CL-CMP-0001").unwrap(),
+            ClaimId::parse("CL-CMP-0002").unwrap(),
+        ];
+        let landing = "The verify command is not available until Day 30.";
+        let not_landed = render_due_claims(from_path, &ids, &view, &planned, false);
+        let landed = render_due_claims(from_path, &ids, &view, &planned, true);
+        for fold in [&not_landed, &landed] {
+            assert_eq!(fold.matches(row).count(), 2, "{fold}");
+            assert!(fold.contains("data-claim=\"CL-CMP-0001\""), "{fold}");
+            assert!(fold.contains("data-claim=\"CL-CMP-0002\""), "{fold}");
+            assert!(fold.contains(&format!("{row}\"{date}\" hidden")), "{fold}");
+        }
+
+        // Not landed: one landing line for the fold, and nothing to copy or to run.
+        assert_eq!(not_landed.matches(landing).count(), 1, "{not_landed}");
+        for absent in [
+            "role=\"group\"",
+            "class=\"cmd",
+            "<button",
+            "data-copy-chip",
+            "Copy",
+            "fieldbook verify",
+            "YYYY-MM-DD",
+        ] {
+            assert!(!not_landed.contains(absent), "{absent}: {not_landed}");
+        }
+
+        // Landed: the chip on each row, with its literal placeholder and tag, and no landing line.
+        assert!(!landed.contains(landing), "{landed}");
         assert!(
-            html.contains("<code>fieldbook verify CL-CMP-0001 --on YYYY-MM-DD</code>"),
-            "the chip keeps the literal date placeholder:\n{html}"
+            landed.contains("<code>fieldbook verify CL-CMP-0001 --on YYYY-MM-DD</code>"),
+            "the chip keeps the literal date placeholder:\n{landed}"
         );
-        assert!(html.contains("role=\"group\""));
-        assert!(html.contains(&format!(
-            "<span class=\"cmd-tag\">{}</span>",
-            strings::tag_at_home()
-        )));
+        assert!(landed.contains("<code>fieldbook verify CL-CMP-0002 --on YYYY-MM-DD</code>"));
+        assert_eq!(landed.matches("role=\"group\"").count(), 2, "{landed}");
+        assert_eq!(landed.matches("data-copy-chip=").count(), 2, "{landed}");
+        assert_eq!(
+            landed
+                .matches(&format!(
+                    "<span class=\"cmd-tag\">{}</span>",
+                    strings::tag_at_home()
+                ))
+                .count(),
+            2,
+            "{landed}"
+        );
+
+        // The page takes its branch from the one value.
+        assert_eq!(html.contains("fieldbook verify"), chip::VERIFY_LANDED);
+        assert_eq!(html.contains(landing), !chip::VERIFY_LANDED);
+
         assert!(html.contains("<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary>"));
         assert!(
             html.find("<details class=\"fold\"><summary><b>Claims due")
@@ -556,7 +603,7 @@ mod page {
             .unwrap();
         let unknown = render_main(page, &view, &planned);
         assert!(
-            !unknown.contains(row) && !unknown.contains("due-claims"),
+            !unknown.contains(row) && !unknown.contains("due-claims") && !unknown.contains(landing),
             "an unknown review date is never overdue:\n{unknown}"
         );
 

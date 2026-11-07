@@ -13,6 +13,7 @@ use std::path::Path;
 use clap::{Command, CommandFactory, Parser};
 use fieldbook::{Cli, World};
 use fieldbook_core::strings;
+use fieldbook_render::chip::VERIFY_LANDED;
 
 use chip_cases::{CASES, ChipCase, ChipContext, ChipOutcome, substitute_chip, terminal_only};
 use support::temp_copy;
@@ -194,6 +195,42 @@ fn validate_chip_cases(cases: &[ChipCase], pending: &BTreeSet<&str>) -> Result<(
     }
 
     Ok(())
+}
+
+/// Pages offer the `verify` chip only when the command exists; they show its landing line until then.
+fn check_verify_landed(cmd: &Command, landed: bool) -> Result<(), String> {
+    let exists = cmd.get_subcommands().any(|sub| sub.get_name() == "verify");
+    match (exists, landed) {
+        (true, false) => {
+            Err("`verify` is in the command line: set VERIFY_LANDED to true".to_owned())
+        }
+        (false, true) => {
+            Err("VERIFY_LANDED is true and `verify` is not in the command line".to_owned())
+        }
+        _ => Ok(()),
+    }
+}
+
+#[test]
+fn verify_landed_matches_the_command_line() {
+    if let Err(msg) = check_verify_landed(&Cli::command(), VERIFY_LANDED) {
+        panic!("{msg}");
+    }
+}
+
+#[test]
+fn verify_landed_guard_refuses_both_disagreements() {
+    let without = || Command::new("fieldbook").subcommand(Command::new("check"));
+    let with = without().subcommand(Command::new("verify"));
+    // `backup verify` and `audit verify` are other commands.
+    let nested = without().subcommand(Command::new("backup").subcommand(Command::new("verify")));
+
+    assert_eq!(check_verify_landed(&with, true), Ok(()));
+    assert_eq!(check_verify_landed(&without(), false), Ok(()));
+    assert_eq!(check_verify_landed(&nested, false), Ok(()));
+    assert!(check_verify_landed(&with, false).is_err());
+    assert!(check_verify_landed(&without(), true).is_err());
+    assert!(check_verify_landed(&nested, true).is_err());
 }
 
 #[test]

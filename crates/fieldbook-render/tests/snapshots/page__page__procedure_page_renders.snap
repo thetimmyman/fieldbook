@@ -373,7 +373,10 @@ expression: html
   <article class="prose">
     <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="2026-07-31" hidden>
       <div class="body"><b>Review overdue.</b> Review date <time datetime="2026-07-31">2026-07-31</time> has passed; re-check cited sources before relying on this page.</div>
-      <div class="due-claims" hidden><details class="fold"><summary><b>Claims due for a check</b> <span class="due-count mono"></span></summary><p>Read the cited original, then run the command with the date you checked it in place of YYYY-MM-DD.</p><ul><li class="due-claim" data-claim-review-by="2026-08-09" hidden><span class="cite neutral" data-claim="CL-CMP-0001">CL-CMP-0001</span> <span class="meta">Review date <time datetime="2026-08-09">2026-08-09</time></span><span class="cmd" role="group" aria-label="Record that the owner verified a claim · At home"><span class="cmd-tag">At home</span><code>fieldbook verify CL-CMP-0001 --on YYYY-MM-DD</code><button type="button" class="btn ghost sm" data-copy-chip="command" aria-label="Copy command: fieldbook verify CL-CMP-0001 --on YYYY-MM-DD"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>Copy</button></span></li></ul></details></div>
+      <div class="due-claims" hidden><details class="fold"><summary><b>Claims due for a check</b> <span class="due-count mono"></span></summary><section class="unavailable" role="note">
+  <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
+  <p><b>The verify command is not available until Day 30.</b></p>
+</section><ul><li class="due-claim" data-claim-review-by="2026-08-09" hidden><span class="cite neutral" data-claim="CL-CMP-0001">CL-CMP-0001</span> <span class="meta">Review date <time datetime="2026-08-09">2026-08-09</time></span></li></ul></details></div>
     </div>
     
     <div class="banner" role="region" aria-label="Readiness notice">

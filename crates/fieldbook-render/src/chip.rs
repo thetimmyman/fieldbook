@@ -16,6 +16,17 @@ use crate::source::render_unavailable;
 /// The chip key (the verb map's intent) of the command that records a claim's check.
 pub const KEY_VERIFY: &str = "Record that the owner verified a claim";
 
+/// Whether the `verify` command exists. Until it does, a page shows its landing line, not a chip a
+/// reader could copy and fail to run. `verify-status-fmt` flips this one value, and a test in
+/// `crates/fieldbook/tests/chips.rs` fails while it disagrees with the command line.
+pub const VERIFY_LANDED: bool = false;
+
+/// The thing the `verify` landing line names.
+pub const VERIFY_THING: &str = "The verify command";
+
+/// The release the `verify` landing line names.
+pub const VERIFY_UNTIL: &str = "Day 30";
+
 const ICON_COPY: &str = r#"<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>"#;
 
 /// A command built from the verb map, with its label and tag.

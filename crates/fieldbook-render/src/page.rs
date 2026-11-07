@@ -58,7 +58,8 @@ pub struct MetaRowView {
     pub last_verified: Option<String>,
     /// Canonical `readiness` string (`PUBLIC-NOW`, `SYNTHETIC-NOW`, ...).
     pub readiness: String,
-    /// Hidden per-claim rows of the overdue banner, one `verify` chip per computed review date.
+    /// Hidden per-claim rows of the overdue banner, one per computed review date, with the `verify`
+    /// chip or, until that command lands, one landing line for the fold.
     pub due_claims_html: String,
 }
 
@@ -321,11 +322,16 @@ fn claim_review_by(claim: &ClaimRow) -> Option<CivilDate> {
 /// The per-claim part of the overdue banner, a fold so that the rows never push the page down.
 /// Every row is written hidden with its computed date; `app.js` reveals a row by the viewer's own
 /// date and writes how many are due in the summary, so the build reads no clock.
-fn render_due_claims(
+///
+/// `verify_landed` is [`chip::VERIFY_LANDED`] on every page; it is a parameter so that both
+/// branches stay tested.
+#[must_use]
+pub fn render_due_claims(
     from_path: &str,
     claim_ids: &[ClaimId],
     view: &LabelledView,
     planned: &PlannedPaths,
+    verify_landed: bool,
 ) -> String {
     let mut rows = String::new();
     for cid in claim_ids {
@@ -335,20 +341,31 @@ fn render_due_claims(
         let Some(date) = claim_review_by(claim) else {
             continue;
         };
-        let Ok(command) = chip::quote(chip::KEY_VERIFY, &[("claim-id", cid.as_str())]) else {
-            continue;
+        let action = if verify_landed {
+            let Ok(command) = chip::quote(chip::KEY_VERIFY, &[("claim-id", cid.as_str())]) else {
+                continue;
+            };
+            chip::render(&command)
+        } else {
+            String::new()
         };
         rows.push_str(&format!(
             "<li class=\"due-claim\" data-claim-review-by=\"{date}\" hidden>{} <span class=\"meta\">Review date <time datetime=\"{date}\">{date}</time></span>{}</li>",
             render_claim_chip(from_path, cid, planned),
-            chip::render(&command),
+            action,
         ));
     }
     if rows.is_empty() {
         return String::new();
     }
+    let how = if verify_landed {
+        "<p>Read the cited original, then run the command with the date you checked it in place of YYYY-MM-DD.</p>"
+            .to_owned()
+    } else {
+        chip::render_or_landing(None, chip::VERIFY_THING, chip::VERIFY_UNTIL)
+    };
     format!(
-        "<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary><p>Read the cited original, then run the command with the date you checked it in place of YYYY-MM-DD.</p><ul>{rows}</ul></details></div>"
+        "<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary>{how}<ul>{rows}</ul></details></div>"
     )
 }
 
@@ -587,7 +604,13 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         total_claims: distinct_claims.len(),
         last_verified: latest_verified.map(|d| d.to_string()),
         readiness: page.meta.readiness.as_str().to_owned(),
-        due_claims_html: render_due_claims(&from_path, &distinct_claims, view, planned),
+        due_claims_html: render_due_claims(
+            &from_path,
+            &distinct_claims,
+            view,
+            planned,
+            chip::VERIFY_LANDED,
+        ),
     };
 
     let superseded_by_html = page
