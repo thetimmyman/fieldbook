@@ -39,7 +39,7 @@ Agency compliance with the FAR (see FAR 1.304) is the responsibility of the Secr
 
 Members of the two councils shall represent their agencies on a full-time basis, be selected for their superior qualifications in acquisition experience and demonstrated professional expertise, and be funded by their respective agencies [@CL-CMP-8409].
 
-The chairperson of the CAA Council shall be the representative of the Administrator of General Services [@CL-CMP-8410]. The other members shall be one representative each from the Departments of Agriculture, Commerce, Education, Energy, Health and Human Services, Homeland Security, Housing and Urban Development, Interior, Justice, Labor, State, Transportation, Treasury, and Veterans Affairs [@CL-CMP-8758]. The other members shall also be one representative each from the Environmental Protection Agency, the National Aeronautics and Space Administration, the Social Security Administration, the Small Business Administration and the U.S. Agency for International Development [@CL-CMP-8759].
+The chairperson of the CAA Council shall be the representative of the Administrator of General Services [@CL-CMP-8410]. The other members shall be one representative each from (1) the Departments of Agriculture, Commerce, Education, Energy, Health and Human Services, Homeland Security, Housing and Urban Development, Interior, Justice, Labor, State, Transportation, Treasury, and Veterans Affairs [@CL-CMP-8758]. The other members shall also be one representative each from (2) the Environmental Protection Agency, the National Aeronautics and Space Administration, the Social Security Administration, the Small Business Administration and the U.S. Agency for International Development [@CL-CMP-8759].
 
 The Director of the DAR Council shall be the representative of the Secretary of Defense, and the operation of the DAR Council will be as prescribed by the Secretary of Defense [@CL-CMP-8411]. Its membership shall include representatives of the military departments, the Defense Logistics Agency and the Defense Contract Management Agency [@CL-CMP-8412].
 
@@ -69,6 +69,7 @@ Which council case file the company treats as the record of a rule change it rel
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated the councils' duties with their conditions; cut uncited inferences, negatives and contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added who is responsible for agency compliance with the FAR.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the two FAR councils and the FAR Secretariat.

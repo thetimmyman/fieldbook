@@ -31,7 +31,7 @@ Explains when the contracting officer responsible for closeout shall negotiate t
 
 The contracting officer responsible for closeout shall negotiate the settlement of the direct and indirect costs of the specific contract, task order or delivery order in advance of the determination of final direct costs and indirect rates set forth in 42.705, if the four conditions below are met [@CL-RTE-0151; @CL-RTE-9122].
 
-The procedure needs a physically complete contract, unsettled amounts that are relatively insignificant, a risk assessment by the contracting officer who determines that use of the procedure is appropriate, and a condition that agreement can be reached on a reasonable estimate of allocable dollars; all four conditions apply [@CL-RTE-0152; @CL-RTE-0153; @CL-RTE-9121; @CL-RTE-0157; @CL-RTE-0154]. Cost amounts will be considered relatively insignificant when the total unsettled direct costs and indirect costs to be allocated to any one contract, task order, or delivery order does not exceed the lesser of $1,000,000 or 10 percent of the total contract, task order, or delivery order amount, and the risk assessment shall include consideration of the contractor's accounting, estimating and purchasing systems and other concerns of the cognizant contract auditors [@CL-RTE-0153; @CL-RTE-0154; @CL-RTE-0155].
+The procedure needs a physically complete contract, task order or delivery order, unsettled amounts that are relatively insignificant, a risk assessment by the contracting officer who determines that use of the procedure is appropriate, and a condition that agreement can be reached on a reasonable estimate of allocable dollars; all four conditions apply [@CL-RTE-0152; @CL-RTE-0153; @CL-RTE-9121; @CL-RTE-0157; @CL-RTE-0154]. Cost amounts will be considered relatively insignificant when the total unsettled direct costs and indirect costs to be allocated to any one contract, task order, or delivery order does not exceed the lesser of $1,000,000 or 10 percent of the total contract, task order, or delivery order amount, and the risk assessment shall include consideration of the contractor's accounting, estimating and purchasing systems and other concerns of the cognizant contract auditors [@CL-RTE-0153; @CL-RTE-0154; @CL-RTE-0155].
 
 ## How it works
 
@@ -53,7 +53,7 @@ A closed delivery order has a total amount of 2,000,000 and 150,000 of unsettled
 
 ## Never confuse
 
-The determination is final for the contract it covers and no adjustment shall be made to other contracts for over- or under-recoveries [@CL-RTE-9235; @CL-RTE-0158], and the rates used in a quick closeout shall not be considered a binding precedent when establishing the final indirect cost rates for other contracts [@CL-RTE-0159]. For the final indirect cost rate proposal, see [Final indirect cost rate proposal](rte-final-indirect-rate-proposal.md).
+The determination is final for the contract it covers and no adjustment shall be made to other contracts for over- or under-recoveries of costs allocated or allocable to the contract covered by the agreement [@CL-RTE-9235; @CL-RTE-0158], and the rates used in a quick closeout shall not be considered a binding precedent when establishing the final indirect cost rates for other contracts [@CL-RTE-0159]. For the final indirect cost rate proposal, see [Final indirect cost rate proposal](rte-final-indirect-rate-proposal.md).
 
 FAR 42.708(a) says the contracting officer responsible for contract closeout shall negotiate the settlement if the conditions that follow are met [@CL-RTE-0151], while RFO FAR 42.507(a) says that officer may negotiate it if the conditions that follow are met [@CL-RTE-0975].
 
@@ -64,6 +64,7 @@ Whether each closing contract's unsettled direct and indirect costs fall under t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-03: Replaced may settle with shall negotiate the settlement under the codified text in the worked example.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the conditions and the relatively-insignificant test as the paragraph has them, added the clause scope of the final determination, and replaced uncited contrasts with cited rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the dropped list item, shall wording and the agreement condition.

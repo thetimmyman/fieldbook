@@ -38,7 +38,7 @@ It also states that the Government agrees to pay the contractor or its assignee,
 Regardless of any other provision of the agreement, the listed rights and liabilities of the parties under the contract are reserved [@CL-CTF-3277]. The suggested language of the excepted items may be varied at the discretion of the contracting officer [@CL-CTF-3278]. If accuracy or completeness can be achieved by referencing the number of a contract clause or provision covering the matter, that method of enumerating reserved rights and liabilities is to be followed [@CL-CTF-3279]. Items that are not applicable are omitted, and any additional exceptions or reservations required are added [@CL-CTF-3280]. The complete-termination format lists these reserved items:
 
 - Matters covered by any renegotiation authority: all rights and liabilities, if any, of the parties [@CL-CTF-3132].
-- Clauses inserted in the contract because of the requirements of Acts of Congress and Executive Orders: all rights and liabilities, if any, of the parties [@CL-CTF-3281], including, without limitation, any applicable clauses relating to labor law, contingent fees, domestic articles and employment of aliens [@CL-CTF-3282]. If the contract contains clauses of that character inserted for other reasons, the suggested language is to be appropriately modified [@CL-CTF-3283].
+- Clauses inserted in the contract because of the requirements of Acts of Congress and Executive Orders: all rights and liabilities, if any, of the parties [@CL-CTF-3281], including, without limitation, any applicable clauses relating to labor law, contingent fees, domestic articles and employment of aliens [@CL-CTF-3282]. If the contract contains clauses of that character inserted for other reasons, the suggested language should be appropriately modified [@CL-CTF-3283].
 - Reproduction rights, patent infringements, inventions or applications for patents: all rights and liabilities of the parties arising under the contract [@CL-CTF-3133], including rights to assignments, invention reports, licenses, covenants of indemnity against patent risks, and bonds for patent indemnity obligations, together with all rights and liabilities under the bonds [@CL-CTF-3284].
 - Defects, guarantees or warranties: all rights and liabilities of the parties, arising under the contract or otherwise, relating to any articles or component parts furnished to the Government by the contractor under the contract or the agreement [@CL-CTF-3134].
 - Agreements on the future care and disposition by the contractor of Government-owned property remaining in its custody: all rights and liabilities of the parties [@CL-CTF-3135].
@@ -73,6 +73,7 @@ Which agreement language and which reserved-items list the company uses when fee
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts; restated the costs subparagraph condition and the partial termination voucher rule.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of supplemental agreement.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the FAR 2.101 definition of supplemental agreement.

@@ -34,7 +34,7 @@ When the Contracting Officer authorizes it, f.o.b. origin freight shipments with
 
 ## How it works
 
-Under the evidence clause the contractor shall not submit an invoice for payment until the supplies covered by the invoice have been shipped to the destination [@CL-SUP-1986], and shall retain the evidence of shipment documentation for a period of 3 years after final payment and make it available to the Government for review as necessary [@CL-SUP-1987].
+Under the evidence clause, if the contract is awarded on an f.o.b. destination basis, the contractor shall not submit an invoice for payment until the supplies covered by the invoice have been shipped to the destination [@CL-SUP-1986], and shall retain the evidence of shipment documentation for a period of 3 years after final payment and make it available to the Government for review as necessary [@CL-SUP-1987].
 
 For small package shipments the contractor annotates the commercial bill of lading as the contract's commercial bill of lading notations clause requires [@CL-SUP-2080] and consolidates prepaid shipments under procedures set by the cognizant transportation office [@CL-SUP-2081]. It may combine Government prepaid shipments with its own commercial shipments for delivery to one or more consignees, and the Government reimburses its pro rata share of the total freight costs [@CL-SUP-2082]. It provides a copy of the commercial bill of lading promptly to each consignee, and may not divide quantities into mailable lots to avoid movement by other modes of transportation [@CL-SUP-2083]. The Government processes loss and damage claims [@CL-SUP-2084].
 
@@ -57,6 +57,7 @@ Confirm who holds the shipment documents for each f.o.b. destination contract an
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned RFO and evidence-retention wording with the quotes.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for f.o.b. destination evidence of shipment and prepaid small package freight.

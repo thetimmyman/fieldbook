@@ -37,7 +37,7 @@ Under the paragraph on withholding of payment, which does not apply to subcontra
 
 ## How it works
 
-If the Contractor retains ownership of any subject invention, the Government shall have the paid-up license [@CL-CMP-3935]. The Contractor shall assign title to the agency, upon written request, in the listed cases [@CL-CMP-3936; @CL-CMP-3937]. With respect to any subject invention in which the Contractor has retained ownership, the agency has the right to require licensing [@CL-CMP-3938]. The Contractor furnishes the Contracting Officer interim reports every 12 months or any longer period the Contracting Officer specifies [@CL-CMP-3939; @CL-CMP-8647], and promptly notifies the Contracting Officer in writing on the award of any subcontract at any tier containing a patent rights clause [@CL-CMP-3941]. Any time before final payment, the Contracting Officer may withhold payment until a reserve is set aside if the Contractor fails to meet any of the listed requirements [@CL-CMP-8648; @CL-CMP-3985].
+If the Contractor retains ownership of any subject invention, the Government shall have the paid-up license [@CL-CMP-3935]. The Contractor shall assign title to the agency, upon written request, in the listed cases [@CL-CMP-3936; @CL-CMP-3937]. With respect to any subject invention in which the Contractor has retained ownership, the agency has the right to require licensing [@CL-CMP-3938]. The Contractor furnishes the Contracting Officer interim reports every 12 months, or any longer period the Contracting Officer specifies, from the date of the contract [@CL-CMP-3939; @CL-CMP-8647], and promptly notifies the Contracting Officer in writing on the award of any subcontract at any tier containing a patent rights clause [@CL-CMP-3941]. Any time before final payment, the Contracting Officer may withhold payment until a reserve is set aside if the Contractor fails to meet any of the listed requirements [@CL-CMP-8648; @CL-CMP-3985].
 
 ## Worked example
 
@@ -57,6 +57,7 @@ Which executed contracts carry this clause, who prepares the interim and utiliza
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added interim report statement, withholding timing and scope, full licensing authority; cut uncited characterizations and meta sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the utilization report sentence so the reporting rule keeps the limit to efforts made by the Contractor or its licensees or assignees.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD patent rights for large businesses, covering the Government license, march-in rights, reporting and subcontract notices.

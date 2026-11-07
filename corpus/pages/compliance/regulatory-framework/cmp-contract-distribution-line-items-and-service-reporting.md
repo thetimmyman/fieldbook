@@ -39,7 +39,7 @@ The line item numbering procedures apply to all solicitations, solicitation line
 
 The procedures are mandatory for all contracts where separate contract line item numbers are assigned [@CL-CMP-7253]. There are two exceptions. One is an indefinite-delivery contract for petroleum products against which posts, camps and stations issue delivery orders for products to be consumed by them [@CL-CMP-7253]. The other is a communications service authorization issued by the Defense Information Systems Agency's Defense Information Technology Contracting Organization [@CL-CMP-7431].
 
-Service contractor reporting in SAM is required when a contract or order has a total estimated value, including options, that exceeds $3 million and is for services in the listed service acquisition portfolio groups [@CL-CMP-7254]. The groups are logistics management services, equipment-related services, knowledge-based services, and electronics and communications services, and PGI 204.1703 lists the applicable product and service codes [@CL-CMP-7435].
+Service contractor reporting in SAM is required when a contract or order has a total estimated value, including options, that exceeds $3 million and is for services in the listed service acquisition portfolio groups [@CL-CMP-7254]. The listed groups are logistics management services, equipment-related services, knowledge-based services, and electronics and communications services, and PGI 204.1703 lists the applicable product and service codes [@CL-CMP-7435].
 
 The basic and the alternate of the clause at DFARS 252.204-7023 require contractors to report annually, by October 31, on the services performed under the contract or order, including any first-tier subcontracts, during the preceding Government fiscal year [@CL-CMP-7255]. If the agency believes that revisions to the contractor-reported information are warranted, it must notify the contractor [@CL-CMP-7436].
 
@@ -51,7 +51,7 @@ Synthetic example. The numbers are made up.
 
 A contract for knowledge-based services has a base value of 2 million dollars and options worth 1.5 million dollars, so its total estimated value including options is 3.5 million dollars, above the $3 million threshold, and service contractor reporting in SAM is required [@CL-CMP-7254; @CL-CMP-7435]. The contractor reports by October 31 on the services performed in the preceding Government fiscal year, including those of its first-tier subcontractors [@CL-CMP-7255].
 
-An indefinite-delivery contract for the same services has one order worth 4 million dollars and one worth 1 million dollars. The 4 million dollar order meets the threshold and is reported, the 1 million dollar order does not meet it, and the basic contract is not reported [@CL-CMP-7256; @CL-CMP-7254; @CL-CMP-7438].
+An indefinite-delivery contract for the same services has one order worth 4 million dollars and one worth 1 million dollars. The 4 million dollar order meets the threshold and is reported, the 1 million dollar order does not meet it, and reporting is not required for the basic contract [@CL-CMP-7256; @CL-CMP-7254; @CL-CMP-7438].
 
 Among the attachments to the first contract are a spreadsheet of personally identifiable information that is too sensitive for widespread distribution and a set of physical samples that cannot practicably be converted to electronic format. Neither is uploaded to EDA, and Section J carries the annotation "provided under separate cover" for each [@CL-CMP-7251; @CL-CMP-7430; @CL-CMP-7252].
 
@@ -69,5 +69,7 @@ Which contracts carry attachments held outside EDA, which orders meet the report
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: contrast wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for contract attachment distribution, line item numbering and service contractor reporting.

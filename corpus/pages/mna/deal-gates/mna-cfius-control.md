@@ -34,7 +34,7 @@ Minority shareholder protections that the paragraph lists shall not in themselve
 
 ## How it works
 
-Control is the power to determine, direct, or decide important matters affecting an entity, whether or not the power is exercised [@CL-MNA-0720; @CL-MNA-0012; @CL-MNA-0721]. That power can be held through votes, board representation, proxy voting, a special share, contractual arrangements, formal or informal arrangements to act in concert, or other means [@CL-MNA-0720; @CL-MNA-0012]. A listed minority protection is not control by itself, and other protections are judged case by case [@CL-MNA-0724; @CL-MNA-0726]. In one listed example, Corporation A acquires seven percent of Corporation B's voting shares and the right to terminate significant contracts of Corporation B, and Corporation A controls Corporation B [@CL-MNA-0727].
+Control is the power to determine, direct, or decide important matters affecting an entity, whether or not the power is exercised [@CL-MNA-0720; @CL-MNA-0012; @CL-MNA-0721]. That power can be held through ownership of a majority or a dominant minority of the total outstanding voting interest, board representation, proxy voting, a special share, contractual arrangements, formal or informal arrangements to act in concert, or other means [@CL-MNA-0720; @CL-MNA-0012]. A listed minority protection is not control by itself, and other protections are judged case by case [@CL-MNA-0724; @CL-MNA-0726]. In one listed example, Corporation A acquires seven percent of Corporation B's voting shares and the right to terminate significant contracts of Corporation B, and Corporation A controls Corporation B [@CL-MNA-0727].
 
 ## Worked example
 
@@ -53,5 +53,6 @@ Whether any foreign person holds or could gain power over the company's budget, 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added concert-arrangement and foreign-state control factors.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for what control means under the foreign investment review regulations.

@@ -39,7 +39,7 @@ The interagency rule applies when the contracting office and the surveying activ
 
 ## How it works
 
-Special standards are written for the acquisition or class of acquisitions, developed by the contracting officer with specialists, identified in the solicitation and applied to every offeror [@CL-CMP-7585; @CL-CMP-7586]. The survey request is the contracting officer's instruction to the surveying activity. It says what to examine, supplies the solicitation, states whether the contracting office will take part, sets the report date and, where appropriate, limits the scope [@CL-CMP-7588; @CL-CMP-7589; @CL-CMP-7590; @CL-CMP-7591; @CL-CMP-7724]. Where the two offices sit in different agencies, the surveying activity's agency regulations apply together with the survey procedures, and the contracting office's reasonable special requests must be accommodated [@CL-CMP-7725; @CL-CMP-7592]. Subsistence awards carry an extra gate through agency sanitation approval in addition to the general standards [@CL-CMP-7587]. The section does not say who decides that a survey is needed, and the linked cards cover that.
+Special standards are written for the acquisition or class of acquisitions, developed by the contracting officer with specialists, identified in the solicitation and applied to every offeror [@CL-CMP-7585; @CL-CMP-7586]. The survey request is the contracting officer's instruction to the surveying activity. It says what to examine, supplies the solicitation, states whether the contracting office will take part, sets the report date and, where appropriate, limits the scope [@CL-CMP-7588; @CL-CMP-7589; @CL-CMP-7590; @CL-CMP-7591; @CL-CMP-7724]. Where the two offices sit in different agencies, the survey procedures and subpart 42.1 are followed along with the surveying activity's agency regulations, except that the contracting office's reasonable special requests must be accommodated [@CL-CMP-7725; @CL-CMP-7592]. Subsistence awards carry an extra gate through agency sanitation approval in addition to the general standards [@CL-CMP-7587]. The section does not say who decides that a survey is needed, and the linked cards cover that.
 
 ## Worked example
 
@@ -47,7 +47,7 @@ Synthetic example. The numbers are made up.
 
 An office buying an unusual laboratory service decides that special standards are necessary, develops them with specialists, and puts them in the solicitation, marked as special standards, so they apply to all offerors [@CL-CMP-7585; @CL-CMP-7586].
 
-The office then asks a surveying activity in another agency for a preaward survey. The request names the additional factors to be examined and attaches the solicitation package, which has not been furnished before. It includes an earlier late-delivery record for the prospective contractor and states that the contracting office will take part. It limits the scope to the contractor's laboratory facilities and sets a report date twelve working days out [@CL-CMP-7588; @CL-CMP-7589; @CL-CMP-7590; @CL-CMP-7724]. Twelve working days is more than the normal minimum of seven working days [@CL-CMP-7591]. Because the two offices are in different agencies, the surveying activity's agency regulations are followed together with the survey procedures, and the office's reasonable special requests are accommodated [@CL-CMP-7725; @CL-CMP-7592].
+The office then asks a surveying activity in another agency for a preaward survey. The request names the additional factors to be examined and attaches the solicitation package, which has not been furnished before. It includes an earlier late-delivery record for the prospective contractor and states that the contracting office will take part. It limits the scope to the contractor's laboratory facilities and sets a report date twelve working days out [@CL-CMP-7588; @CL-CMP-7589; @CL-CMP-7590; @CL-CMP-7724]. Twelve working days is more than the normal minimum of seven working days [@CL-CMP-7591]. Because the two offices are in different agencies, the survey procedures and subpart 42.1 are followed along with the surveying activity's agency regulations, except that the office's reasonable special requests are accommodated [@CL-CMP-7725; @CL-CMP-7592].
 
 ## Never confuse
 
@@ -61,4 +61,5 @@ Who prepares the survey request package, and whether the company can show it met
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for special standards of responsibility and requests for preaward surveys.

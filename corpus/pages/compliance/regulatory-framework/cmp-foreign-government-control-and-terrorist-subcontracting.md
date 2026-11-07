@@ -37,7 +37,7 @@ A corporate officer or a designee of the Contractor shall notify the Contracting
 
 ## How it works
 
-The Offeror discloses a foreign government interest when it constitutes control as the provision defines it, and a subsidiary also looks up the chain to its parents [@CL-CMP-4085; @CL-CMP-4086]. The award prohibition reaches an entity controlled by a foreign government that requires access to proscribed information to perform the contract, and a waiver by the Secretary of Defense or a designee lifts it [@CL-CMP-4084]. The subcontracting clause bars listed subcontracts above a threshold unless the Government determines there is a compelling reason, and it requires written notice to the Contracting Officer, with the proposed subcontractor's name and the compelling reasons, before the Contractor enters the subcontract [@CL-CMP-4088; @CL-CMP-4090; @CL-CMP-4138].
+The Offeror discloses a foreign government interest when it constitutes control as the provision defines it, and a subsidiary also looks up the chain to its parents [@CL-CMP-4085; @CL-CMP-4086]. The award prohibition reaches an entity controlled by a foreign government that requires access to proscribed information to perform the contract, and a waiver by the Secretary of Defense or a designee lifts it [@CL-CMP-4084]. The subcontracting clause bars listed subcontracts above a threshold unless the Government determines there is a compelling reason, and it requires written notice to the Contracting Officer, with the proposed subcontractor's name and the compelling reasons, before the Contractor enters a subcontract with a party identified in SAM Exclusions as ineligible because it is owned or controlled by the government of a country that is a state sponsor of terrorism, and that notice sentence states no dollar threshold [@CL-CMP-4088; @CL-CMP-4090; @CL-CMP-4138].
 
 ## Worked example
 
@@ -59,5 +59,6 @@ Which legal entities and parents have to be screened for foreign government inte
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unsupported timing, absence and contrast wording and carried the list lead-in of the consulting services pointer.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for disclosure of foreign government ownership or control and subcontracting with terrorist-state firms.

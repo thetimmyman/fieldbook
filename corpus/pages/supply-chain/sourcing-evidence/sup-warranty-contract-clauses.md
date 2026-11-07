@@ -29,7 +29,7 @@ Names each prescribed warranty clause by number and the trigger that lets the co
 | Text status | Final [@CL-SUP-0880] |
 | Applies to | Solicitations and contracts in which inclusion of a warranty is appropriate [@CL-SUP-0961] |
 
-The clauses and alternates prescribed in FAR 46.710 may be used in solicitations and contracts in which inclusion of a warranty is appropriate (see FAR 46.709 for warranties for commercial products and commercial services) [@CL-SUP-0961]. In each of the five paragraphs, the contracting officer may insert a clause substantially the same as the prescribed clause in solicitations and contracts when the specified fixed-price contract is contemplated and the use of a warranty clause has been approved under agency procedures [@CL-SUP-0880; @CL-SUP-0971; @CL-SUP-0881; @CL-SUP-0882; @CL-SUP-0883; @CL-SUP-0884; @CL-SUP-0885; @CL-SUP-0887].
+The clauses and alternates prescribed in FAR 46.710 may be used in solicitations and contracts in which inclusion of a warranty is appropriate (see FAR 46.709 for warranties for commercial products and commercial services) [@CL-SUP-0961]. In each of the five paragraphs, subject to the further conditions and the exception stated below, the contracting officer may insert a clause substantially the same as the prescribed clause in solicitations and contracts when the specified fixed-price contract is contemplated and the use of a warranty clause has been approved under agency procedures [@CL-SUP-0880; @CL-SUP-0971; @CL-SUP-0881; @CL-SUP-0882; @CL-SUP-0883; @CL-SUP-0884; @CL-SUP-0885; @CL-SUP-0886; @CL-SUP-0887].
 
 However, because of the many situations that may influence the warranty terms and conditions appropriate to a particular acquisition, the contracting officer may vary the terms and conditions of the clauses and alternates to the extent necessary [@CL-SUP-0962]. The alternates prescribed in FAR 46.710 address the clauses, however, the conditions pertaining to each alternate must be considered if the terms and conditions are varied to meet a particular need [@CL-SUP-9789].
 
@@ -57,6 +57,7 @@ Which warranty clause, if any, each fixed-price contract carries and whether the
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned clause prescription wording and cross-references with quotes and removed meta commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: Alternate-conditions qualification and permissive wording.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for warranty contract clauses.

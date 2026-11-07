@@ -38,7 +38,7 @@ Targets or tailors means customizing products or services for use by a person or
 
 ## How it works
 
-Each term is a test used elsewhere in the rules: what information is held, what decisions are made, or how a business markets itself [@CL-MNA-0087; @CL-MNA-0836; @CL-MNA-0839; @CL-MNA-0841]. Material nonpublic technical information covers information not available in the public domain of either listed kind, including vulnerability information for covered investment critical infrastructure, and excludes financial information regarding the performance of an entity [@CL-MNA-0087; @CL-MNA-0836; @CL-MNA-0837; @CL-MNA-0838]. Substantive decisionmaking covers decisions regarding significant matters affecting an entity, including the listed matters, and does not include strictly administrative decisions [@CL-MNA-0839; @CL-MNA-0088; @CL-MNA-0922; @CL-MNA-0923; @CL-MNA-0924; @CL-MNA-0840]. Targets or tailors means customizing products or services for use by a person or group of persons or actively marketing to or soliciting a person or group of persons [@CL-MNA-0841]. The [covered investments card](mna-cfius-covered-investments.md) explains where these terms matter, and this card does not restate it.
+These are three defined terms, one about technical information, one about decisions and one about how a business markets itself [@CL-MNA-0087; @CL-MNA-0836; @CL-MNA-0839; @CL-MNA-0841]. Material nonpublic technical information covers information not available in the public domain of either listed kind, including vulnerability information for covered investment critical infrastructure, and excludes financial information regarding the performance of an entity [@CL-MNA-0087; @CL-MNA-0836; @CL-MNA-0837; @CL-MNA-0838]. Substantive decisionmaking covers decisions regarding significant matters affecting an entity, including the listed matters, and does not include strictly administrative decisions [@CL-MNA-0839; @CL-MNA-0088; @CL-MNA-0922; @CL-MNA-0923; @CL-MNA-0924; @CL-MNA-0840]. Targets or tailors means customizing products or services for use by a person or group of persons or actively marketing to or soliciting a person or group of persons [@CL-MNA-0841]. The [covered investments card](mna-cfius-covered-investments.md) explains where these terms matter, and this card does not restate it.
 
 ## Worked example
 
@@ -59,5 +59,6 @@ What technical information and decision rights any foreign investor, lender or j
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added vulnerability-information and agreement examples and removed unsupported contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for material nonpublic technical information, substantive decisionmaking and targets or tailors.

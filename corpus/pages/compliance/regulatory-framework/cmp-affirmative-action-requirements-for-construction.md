@@ -24,7 +24,7 @@ Shows how the construction affirmative action clause turns solicitation goals in
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5229] |
 | Codified citation | FAR 52.222-27 [@CL-CMP-5229] |
-| RFO citation | No RFO equivalent: the RFO text lists RFO FAR 52.222-27 as reserved [@CL-CMP-0372] |
+| RFO citation | Reserved in the RFO text: the RFO text lists RFO FAR 52.222-27 as reserved [@CL-CMP-0372] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5229] |
 | Applies to | Construction contracts that carry the clause, and construction-trade subcontracts over $10,000 at any tier [@CL-CMP-5229] |
@@ -60,7 +60,7 @@ The listed steps are these.
 
 The contractor must designate a responsible official to monitor all employment-related activity so that its equal employment policy is carried out and to submit reports the Government may require [@CL-CMP-5234]. That official must keep records that include, for each employee, at least the name, address, telephone number, construction trade, union affiliation if any, employee identification number, social security number, race and sex [@CL-CMP-5234; @CL-CMP-5373], and also status, dates of changes in status, hours worked per week in the indicated trade, rate of pay and the locations at which the work was performed [@CL-CMP-5374]. The records must be maintained in an easily understandable and retrievable form, but separate records are not required to the degree that existing records satisfy the requirement [@CL-CMP-5375].
 
-The contractor must carry out the sanctions and penalties for violation of the clause and the Equal Opportunity clause, including suspension, termination and cancellation of existing subcontracts [@CL-CMP-5235]. Those sanctions are imposed or ordered under the Executive Order and its implementing regulations by the OFCCP, and a failure to carry them out as ordered is a violation of the clause and the Executive Order [@CL-CMP-5372]. The contractor, in fulfilling its obligations under the clause, must implement affirmative action procedures at least as extensive as those prescribed in paragraph (g), so as to achieve maximum results from its efforts to ensure equal employment opportunity [@CL-CMP-5789]. If the contractor fails to comply with Executive Order 11246, its implementing regulations or the clause, the Deputy Assistant Secretary must take the action that 41 CFR 60-4.8 prescribes [@CL-CMP-5236].
+The contractor must carry out such sanctions and penalties for violation of the clause and the Equal Opportunity clause, including suspension, termination and cancellation of existing subcontracts [@CL-CMP-5235]. Those sanctions are imposed or ordered under the Executive Order and its implementing regulations by the OFCCP, and a failure to carry them out as ordered is a violation of the clause and the Executive Order [@CL-CMP-5372]. The contractor, in fulfilling its obligations under the clause, must implement affirmative action procedures at least as extensive as those prescribed in paragraph (g), so as to achieve maximum results from its efforts to ensure equal employment opportunity [@CL-CMP-5789]. If the contractor fails to comply with Executive Order 11246, its implementing regulations or the clause, the Deputy Assistant Secretary must take the action that 41 CFR 60-4.8 prescribes [@CL-CMP-5236].
 
 A contractor participating, individually or through an association, in a Hometown Plan (41 CFR 60-4) approved by the Department of Labor in a covered area must make its affirmative action obligations on all work in the plan area, including goals, comply with the plan, but that duty applies to those trades that have unions participating in the plan [@CL-CMP-5781; @CL-CMP-5782]. Contractors must be able to demonstrate participation in, and compliance with, the provisions of the plan [@CL-CMP-5782]. Each contractor or subcontractor participating in an approved plan must also comply with its obligations under the Equal Opportunity clause and make a good faith effort to achieve each goal under the plan in each trade in which it has employees [@CL-CMP-5783]. The overall good-faith performance by other contractors or subcontractors toward a goal in an approved plan does not excuse any contractor's or subcontractor's failure to make good-faith efforts to achieve the plan's goals [@CL-CMP-5784].
 
@@ -92,6 +92,8 @@ Which construction contracts and subcontracts carry this clause, and who owns th
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed an uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on segregated facilities and construction goals.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

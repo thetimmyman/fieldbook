@@ -44,7 +44,7 @@ Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in pla
 
 Synthetic example. The numbers are made up.
 
-A cost-reimbursement construction contract is underway and the contractor wants to substitute a lighter wall assembly over 40 percent of the perimeter. The extent and character of the work is subject to the general supervision, direction, control and approval of the Contracting Officer [@CL-CMP-4924]. The contractor asks for direction and records the answer before installing anything. The substitution waits for that direction, and, because the contract includes the registration clause, a registered architect or engineer prepares or reviews and approves the changed structural design [@CL-CMP-4928; @CL-CMP-5122].
+A cost-reimbursement construction contract is underway and the contractor wants to substitute a lighter wall assembly over 40 percent of the perimeter. The extent and character of the work is subject to the general supervision, direction, control and approval of the Contracting Officer [@CL-CMP-4924]. The contractor asks for direction and records the answer before installing anything. The substitution waits for that direction, and, because the contract includes the registration clause, a registered architect or engineer prepares or reviews and approves the design of the structural features of the work [@CL-CMP-4928; @CL-CMP-5122].
 
 Separately, the Contracting Officer decides to hold a preconstruction conference [@CL-CMP-4929]. The notice gives the date, time and location, asks the framing subcontractor to attend, and lists the items to discuss [@CL-CMP-4930], and the successful offeror attends [@CL-CMP-4929]. That is the codified Preconstruction Conference clause, and the RFO text prints section 52.236-26 as reserved [@CL-CMP-5123; @CL-CMP-0995].
 
@@ -64,6 +64,7 @@ Which cost-reimbursement construction contracts and design contracts sit in the 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: RFO prescription comparison, worked example and contrasts tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on design funding limitations and the preconstruction conference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

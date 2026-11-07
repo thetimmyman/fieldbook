@@ -15,7 +15,7 @@ links = ["cmp-inverted-domestic-corporation-and-tax-matters", "sup-inverted-corp
 
 ## Purpose
 
-Shows the two Governmentwide funding bars that attach to particular contractors, and the clock that governs how long a suspension can last.
+Shows the two funding bars that attach to particular contractors, and the clock that governs how long a suspension can last.
 
 ## The rule
 
@@ -52,7 +52,7 @@ In a second case, legal proceedings are initiated in month 9. The suspension is 
 
 ## Never confuse
 
-The funding bars apply to contracts with an inverted domestic corporation or a subsidiary of one [@CL-CMP-7191] and to an institution for which the Secretary of Defense has created an active exclusion record [@CL-CMP-7194]. A suspension may not extend beyond 18 months, unless legal proceedings have been initiated within that period [@CL-CMP-7198].
+The funding bars apply to contracts with an inverted domestic corporation or a subsidiary of one [@CL-CMP-7191] and, for a covered agency, to an institution of higher education that the Secretary of Defense determines is ineligible to receive funds from a covered agency because of a policy or practice described in FAR 9.110-3, for which the Secretary will create an active exclusion record, with exceptions for acquisitions at or below the simplified acquisition threshold and for commercial products and commercial services [@CL-CMP-7194; @CL-CMP-7304; @CL-CMP-7195]. A suspension may not extend beyond 18 months, unless legal proceedings have been initiated within that period [@CL-CMP-7198].
 
 ## Company calibration
 
@@ -62,5 +62,6 @@ Whether any entity in the group has become an inverted domestic corporation, and
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Limited the simplified acquisition and commercial exemption to the covered agency prohibition and removed unsupported contrast.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Governmentwide funding bars and the period of a suspension.

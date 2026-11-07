@@ -33,7 +33,7 @@ To promote critical infrastructure assistance to foreign nations, 15 CFR 700.58 
 
 Any person in a foreign nation or representing an international organization may request assistance in obtaining items under the part to be purchased in the United States for use in critical infrastructure protection and restoration by submitting a request for priority rating authority on Form BIS-999 to the Department of Commerce (see § 700.50 in the part) [@CL-IND-0302; @CL-IND-0303].
 
-Any person in a foreign nation or representing an international organization requesting priority rating authority or requiring assistance in obtaining rated items under the part in support of critical infrastructure protection and restoration related activities should submit a request for a determination in writing that the request supports a program that is necessary or appropriate to promote the national defense to the Office of Policy and Program Analysis, Federal Emergency Management Agency, Department of Homeland Security, 500 C Street SW, Washington, DC 20472, at the telephone and fax numbers that the paragraph gives [@CL-IND-0304; @CL-IND-0305; @CL-IND-0324].
+Any person in a foreign nation or representing an international organization requesting priority rating authority or requiring assistance in obtaining rated items under the part in support of critical infrastructure protection and restoration related activities should submit a request for a determination in writing that the request supports a program that is necessary or appropriate to promote the national defense to the Office of Policy and Program Analysis, Federal Emergency Management Agency, Department of Homeland Security, 500 C Street SW, Washington, DC 20472 [@CL-IND-0304; @CL-IND-0305; @CL-IND-0324].
 
 ## How it works
 
@@ -47,7 +47,7 @@ A foreign nation needs 200 replacement transformers for a grid restoration progr
 
 ## Never confuse
 
-Under 15 CFR 700.58, a request for priority rating authority on Form BIS-999 goes to the Department of Commerce, and a request for a written determination that the request supports a program that is necessary or appropriate to promote the national defense goes to the Office of Policy and Program Analysis, Federal Emergency Management Agency, Department of Homeland Security [@CL-IND-0302; @CL-IND-0303; @CL-IND-0304; @CL-IND-0305]. Under 15 CFR 700.57, a person in a foreign nation other than Canada, or in an international organization, requiring assistance in obtaining items in the United States or priority rating authority for items to be purchased in the United States submits a request to the Department of Defense DPA Title I Lead, Office of the Assistant Secretary of Defense for Industrial Base Policy [@CL-IND-0293; @CL-IND-0294]. The domestic determination request is on [Requests for a determination that a program is necessary or appropriate to promote the national defense](ind-dpas-approved-program-determination.md).
+Under 15 CFR 700.58, a request for priority rating authority on Form BIS-999 goes to the Department of Commerce, and a request for a written determination that the request supports a program that is necessary or appropriate to promote the national defense goes to the Office of Policy and Program Analysis, Federal Emergency Management Agency, Department of Homeland Security [@CL-IND-0302; @CL-IND-0303; @CL-IND-0304; @CL-IND-0305]. Under 15 CFR 700.57, a person in a foreign nation other than Canada, or in an international organization, requiring assistance in obtaining items in the United States or priority rating authority for items to be purchased in the United States should submit a request to the Department of Defense DPA Title I Lead, Office of the Assistant Secretary of Defense for Industrial Base Policy [@CL-IND-0293; @CL-IND-0294]. The domestic determination request is on [Requests for a determination that a program is necessary or appropriate to promote the national defense](ind-dpas-approved-program-determination.md).
 
 ## Company calibration
 
@@ -57,6 +57,7 @@ Confirm that the program a foreign customer cites for a rated order is a critica
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced literal telephone and fax numbers with a reference to the telephone and fax numbers listed in 15 CFR 700.58.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the scope lead-in and international organization examples and stated the exact address, telephone and fax in 15 CFR 700.58.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DPAS critical infrastructure assistance programs to foreign nations and international organizations.

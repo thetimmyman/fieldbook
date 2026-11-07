@@ -23,7 +23,7 @@ Sets out what the aerosols clause and the foams clause require of a contractor t
 |---|---|
 | Instrument | Codified FAR [@CL-CMP-5207] |
 | Codified citation | FAR 52.223-20 and FAR 52.223-21 [@CL-CMP-5207; @CL-CMP-5211] |
-| RFO citation | No RFO equivalent: the RFO text lists RFO FAR 52.223-20 and RFO FAR 52.223-21 as reserved [@CL-CMP-0349; @CL-CMP-0350] |
+| RFO citation | Reserved in the RFO text: the RFO text lists RFO FAR 52.223-20 and RFO FAR 52.223-21 as reserved [@CL-CMP-0349; @CL-CMP-0350] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5207] |
 | Applies to | Contractors whose contracts carry the aerosols clause or the foams clause [@CL-CMP-5207; @CL-CMP-5211] |
@@ -44,7 +44,7 @@ Both clauses direct the contractor to refer to EPA's Significant New Alternative
 
 Each duty is a duty to reduce, when feasible, unless the contract specifies otherwise [@CL-CMP-5207; @CL-CMP-5211].
 
-Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.223-20, the aerosols clause number, as reserved [@CL-CMP-0349]. It also lists FAR 52.223-21, the foams clause number, as reserved [@CL-CMP-0350].
+Under the RFO text, DoD contracting officers use the RFO FAR part 52 text in place of the codified text under Class Deviation 2026-O0038, effective February 1, 2026 [@CL-CMP-9760] [@CL-CMP-9762]. The RFO text lists FAR 52.223-20 as reserved [@CL-CMP-0349]. It also lists FAR 52.223-21 as reserved [@CL-CMP-0350].
 
 ## Worked example
 
@@ -72,6 +72,8 @@ Whether product and process records show which aerosols and foams use high globa
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited contrast wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on ozone-depleting substances and refrigerant handling.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

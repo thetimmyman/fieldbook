@@ -29,7 +29,7 @@ Explains the cost efficiency special factor, the ceiling on the profit it can ad
 | Text status | Final [@CL-EST-0793] |
 | Applies to | A special factor used where demonstrated cost reduction efforts benefit the pending contract [@CL-EST-0794] |
 
-The factor gives contractors an incentive to reduce costs [@CL-EST-0793]. To the extent that the contractor can demonstrate cost reduction efforts that benefit the pending contract, the contracting officer may increase the prenegotiation profit objective by an amount not exceeding 4 percent of total objective cost [@CL-EST-0794]. Total objective cost is Block 20 of DD Form 1547, and the increase recognizes these efforts at Block 29 [@CL-EST-0872].
+The factor gives contractors an incentive to reduce costs [@CL-EST-0793]. To the extent that the contractor can demonstrate cost reduction efforts that benefit the pending contract, the contracting officer may increase the prenegotiation profit objective by an amount not exceeding 4 percent of total objective cost [@CL-EST-0794]. Total objective cost, the base for that 4 percent limit, is Block 20 of DD Form 1547, and the increase recognizes these efforts at Block 29 [@CL-EST-0872].
 
 The cost efficiency special factor has no normal value, and the contracting officer shall exercise sound business judgment in selecting a value when this special factor is used [@CL-EST-0795].
 
@@ -55,6 +55,7 @@ Whether the company can evidence cost reduction efforts that benefit a specific 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the shall wording, the lead-in to the criteria and the flexibility wording; cut unquoted contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the purpose of the criteria and named the procedures at PGI 215.404-70 as the source says.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the cost efficiency factor and the record of the method.

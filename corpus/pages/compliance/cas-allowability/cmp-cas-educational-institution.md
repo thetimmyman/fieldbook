@@ -35,7 +35,7 @@ Unless the contract is exempt under 48 CFR 9903.201-1 and 9903.201-2, the provis
 
 ### Disclosure
 
-The disclosure duty applies to CAS-covered contracts only [@CL-CMP-6509]. It applies if a business unit of an educational institution, defined as an institution of higher education in the OMB Uniform Guidance and the statute it cites, is required to submit a Disclosure Statement [@CL-CMP-6509]. The business unit must disclose in writing its cost accounting practices as the cited regulations require, including methods of distinguishing direct costs from indirect costs and the basis used for accumulating and allocating indirect costs [@CL-CMP-6510]. If the contractor has notified the contracting officer that the Disclosure Statement contains trade secrets and privileged and confidential commercial or financial information, the Disclosure Statement is protected and is not released outside the Government [@CL-CMP-6511].
+The disclosure duty applies to CAS-covered contracts only [@CL-CMP-6509]. It applies if a business unit of an educational institution, defined as an institution of higher education in the OMB Uniform Guidance and the statute it cites, is required to submit a Disclosure Statement [@CL-CMP-6509]. The contractor must disclose in writing its cost accounting practices as the cited regulations require, including methods of distinguishing direct costs from indirect costs and the basis used for accumulating and allocating indirect costs [@CL-CMP-6510]. If the contractor has notified the contracting officer that the Disclosure Statement contains trade secrets and privileged and confidential commercial or financial information, the Disclosure Statement is protected and is not released outside the Government [@CL-CMP-6511].
 
 ### Consistency and practice changes
 
@@ -88,6 +88,7 @@ Which business units are educational institutions for this clause, who owns the 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Replaced paragraph glosses with the clause's paragraph references and restated an exception as unless.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the educational institution business unit in the rule paragraph and the contractor's agreement to the noncompliance adjustment.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the RFO practice-change sentence so the prospective-application rule keeps the duty to amend the Disclosure Statement, if required, and the adjustment of any effect on the contract price or cost allowance.

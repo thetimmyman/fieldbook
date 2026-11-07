@@ -35,7 +35,7 @@ A covered foreign entity is any of a listed set of entities. The first category 
 
 The provision defines consulting services as advisory and assistance services, except that the term does not include the provision of products or services related to compliance with legal, audit, accounting, tax, reporting, or other requirements of the laws and standards of countries, or to participation in a judicial, legal, or equitable dispute resolution proceeding [@CL-CMP-4128; @CL-CMP-4129].
 
-In the certification, the Offeror states whether it does or does not hold a contract or subcontract that involves consulting services with one or more covered foreign entities [@CL-CMP-4095]. The Offeror also states whether its subsidiaries or affiliates do or do not hold such a contract or subcontract, and whether it does or does not maintain a conflict-of-interest mitigation plan [@CL-CMP-4130]. If the Offeror answered in the affirmative in paragraphs (c)(1) and (2) of the provision, the Offeror shall submit its conflict-of-interest mitigation plan to the Contracting Officer for approval [@CL-CMP-4096]. The plan shall be auditable by a contract oversight entity and shall include the listed elements [@CL-CMP-4097]. One listed element is a description of the procedures for submitting to the contract oversight entities a notice of an unmitigated conflict of interest with respect to a covered contract within 15 days of determining that such a conflict has arisen [@CL-CMP-4098].
+In the certification, the Offeror states whether it does or does not hold a contract or subcontract that involves consulting services with one or more covered foreign entities [@CL-CMP-4095]. The Offeror also states whether its subsidiaries or affiliates do or do not hold such a contract or subcontract, and whether it does or does not maintain a conflict-of-interest mitigation plan described in paragraph (d) of the provision [@CL-CMP-4130]. If the Offeror answered in the affirmative in paragraphs (c)(1) and (2) of the provision, the Offeror shall submit its conflict-of-interest mitigation plan to the Contracting Officer for approval [@CL-CMP-4096]. The plan shall be auditable by a contract oversight entity and shall include the listed elements [@CL-CMP-4097]. One listed element is a description of the procedures for submitting to the contract oversight entities a notice of an unmitigated conflict of interest with respect to a covered contract within 15 days of determining that such a conflict has arisen [@CL-CMP-4098].
 
 ## How it works
 
@@ -47,7 +47,7 @@ Synthetic example. The numbers are made up.
 
 An offeror bids on a DoD contract assigned code 541611 [@CL-CMP-4093]. Its affiliate holds a consulting subcontract with a listed foreign entity [@CL-CMP-4094]. The offeror also maintains a mitigation plan [@CL-CMP-4094].
 
-Answer: the offeror cannot certify that none of its affiliates holds such a contract, but it does maintain a plan, so the listed conditions are not both met [@CL-CMP-4094]. It answers in the affirmative that its affiliates hold such a contract and that it maintains a plan [@CL-CMP-4130], so it submits the plan to the Contracting Officer for approval [@CL-CMP-4096]. Had it kept no plan, both conditions would be met and DoD could not award the contract [@CL-CMP-4093; @CL-CMP-4094].
+Answer: the offeror cannot certify that none of its affiliates holds such a contract, but it does maintain a plan, so the listed conditions are not both met [@CL-CMP-4094]. It answers in the affirmative that its affiliates hold such a contract and that it maintains a plan [@CL-CMP-4130], so, once it has answered in the affirmative in paragraphs (c)(1) and (2), it submits the plan to the Contracting Officer for approval [@CL-CMP-4096]. Had it kept no plan, both conditions would be met and DoD could not award the contract [@CL-CMP-4093; @CL-CMP-4094].
 
 ## Never confuse
 
@@ -61,5 +61,7 @@ Which subsidiaries and affiliates hold consulting contracts with covered foreign
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: conditions, worked example and contrast wording tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for conflicts of interest in consulting services.

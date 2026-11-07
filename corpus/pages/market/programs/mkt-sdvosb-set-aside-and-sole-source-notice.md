@@ -30,7 +30,7 @@ Gives the clause text for a service-disabled veteran-owned small business (SDVOS
 
 Under the first of the two alternatives in the definition, a small business concern must be not less than 51 percent owned and controlled by one or more service-disabled veterans or, for a publicly owned business, not less than 51 percent of its stock must be owned by them [@CL-MKT-1005]. Its management and daily business operations must also be controlled by one or more service-disabled veterans or, where a service-disabled veteran has a permanent and severe disability, by the spouse or permanent caregiver of the veteran [@CL-MKT-1057]. The alternative to that first alternative is a small business concern eligible under the SDVOSB Program in accordance with 13 CFR part 128 [@CL-MKT-9343; @CL-MKT-1058]. A service-disabled veteran is a veteran as defined in title 38 of the United States Code, section 101(2), with a service-connected disability as defined in section 101(16) of that title [@CL-MKT-1059]. The veteran must also be registered as a service-disabled veteran in the Beneficiary Identification and Records Locator Subsystem or its successor system maintained by the Veterans Benefits Administration of the Department of Veterans Affairs [@CL-MKT-1060].
 
-An SDVOSB concern eligible under the SDVOSB Program is an SDVOSB concern that, effective January 1, 2024, is designated in the System for Award Management (SAM) as certified by the Small Business Administration (SBA) [@CL-MKT-1061]. The certification is in accordance with 13 CFR 128.300, and a concern is alternatively eligible if it has represented that it is an SDVOSB concern in SAM and submitted a complete application for certification to SBA on or before December 31, 2023 [@CL-MKT-1062]. The SDVOSB Program authorizes contracting officers to limit competition, including award on a sole-source basis, to SDVOSB concerns eligible under it [@CL-MKT-1063].
+An SDVOSB concern eligible under the SDVOSB Program is an SDVOSB concern that meets either of two alternatives, the first being that, effective January 1, 2024, it is designated in the System for Award Management (SAM) as certified by the Small Business Administration (SBA) [@CL-MKT-1061]. The certification is in accordance with 13 CFR 128.300, and a concern is alternatively eligible if it has represented that it is an SDVOSB concern in SAM and submitted a complete application for certification to SBA on or before December 31, 2023 [@CL-MKT-1062]. The SDVOSB Program authorizes contracting officers to limit competition, including award on a sole-source basis, to SDVOSB concerns eligible under it [@CL-MKT-1063].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Which service-disabled veteran-owned entities in the finance remit hold a curren
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta-commentary on RFO text omissions and negative contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: definition alternatives and award wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

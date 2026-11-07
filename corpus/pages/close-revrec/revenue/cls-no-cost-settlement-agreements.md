@@ -55,7 +55,7 @@ The Government acknowledges that the contractor has no obligation to perform fur
 
 The text goes in Block 14 of SF 30 for settlement of reservations [@CL-CLS-0427]. It follows an earlier supplemental agreement that settled the termination and excepted certain items [@CL-CLS-0426]. The new supplemental agreement settles the items listed in its paragraph (b) [@CL-CLS-0271].
 
-The Government agrees to pay the contractor the amount stated for those items [@CL-CLS-0272]. The contractor releases and forever discharges the Government from all liability and from all existing and future claims and demands that it may have under the contract, insofar as it pertains to the contract, for those items [@CL-CLS-0273].
+The Government agrees to pay the contractor the amount stated for those items, with the words Government and Contractor reversed when payment is due the Government [@CL-CLS-0272; @CL-CLS-0274]. The contractor releases and forever discharges the Government from all liability and from all existing and future claims and demands that it may have under the contract, insofar as it pertains to the contract, for those items [@CL-CLS-0273].
 
 When payment is due the Government rather than the contractor, the words Government and Contractor are reversed in subparagraphs (b)(1) and (b)(2) [@CL-CLS-0274].
 
@@ -69,7 +69,7 @@ When payment is due the Government rather than the contractor, the words Governm
 
 What the contractor keeps is what the release does not reach. Under a complete termination, that is whatever the agreement lists as excepted from the release [@CL-CLS-0263; @CL-CLS-0264]. Under a partial termination, it is the listed reserved rights and liabilities, and the paragraph does not affect any other covenants, terms, or conditions of the contract [@CL-CLS-0270; @CL-CLS-0425]. Under a settlement of reservations, it is every claim that is not for an item in subparagraph (1) [@CL-CLS-0273]. The lists keep rights and liabilities in place. The partial-termination text calls them rights and liabilities of the parties [@CL-CLS-0270], and the complete-termination text does not say whose they are [@CL-CLS-0264]. The text does not say who decides what goes on the list. It refers to 49.109-2 and 49.603-1(b)(7) for the listing [@CL-CLS-0264; @CL-CLS-0270]. This card does not restate those sections.
 
-In a settlement of reservations, the Government pays the amount stated and the contractor gives the release [@CL-CLS-0272; @CL-CLS-0273]. Reversing the words in the two subparagraphs swaps the paying party and the releasing party [@CL-CLS-0272; @CL-CLS-0273; @CL-CLS-0274].
+In a settlement of reservations, the Government agrees to pay the amount stated and the contractor gives the release [@CL-CLS-0272; @CL-CLS-0273]. Reversing the words in the two subparagraphs swaps the paying party and the releasing party [@CL-CLS-0272; @CL-CLS-0273; @CL-CLS-0274].
 
 ## Worked example
 
@@ -101,6 +101,8 @@ How reserved items, unbilled amounts and inventory balances are tracked after a 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Partial-termination reserved rights are now described as of the parties.
 - COMPATIBLE_EXTENSION, 2026-10-31: 49.402-4 course stated as quoted, release exception and partial-termination scope tightened.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of partial termination.
