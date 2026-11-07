@@ -12,6 +12,7 @@ use fieldbook_core::ids::{
 };
 use fieldbook_core::schema::{GlossaryRow, Lifecycle, SourceRow};
 
+use crate::cite::{OriginalAvailability, located_original_href};
 use crate::frame::root_prefix_for_path;
 use crate::site::PlannedPaths;
 
@@ -400,13 +401,8 @@ pub fn render_conflict_chip(
     }
 }
 
-/// Render a `CitationChip` for a source version and optional locator.
-///
-/// - A held (`Lifecycle::Quarantined`) source version is never linked; it renders as plain text
-///   alongside its escaped hold reason (`note`).
-/// - A `metadata-only:` source version carries the `meta-only` class and note.
-/// - Otherwise links via [`version_href`] when `s/<version_id>.html` or `sources.html` is in
-///   `planned`, or renders as `<span class="cite">` when neither is built yet.
+/// Render a `CitationChip` for a source version and optional locator, with no shipped
+/// originals (the input of the earlier page renderer). See [`render_citation_chip_with`].
 #[must_use]
 pub fn render_citation_chip(
     from_path: &str,
@@ -414,6 +410,37 @@ pub fn render_citation_chip(
     locator: Option<&str>,
     source: Option<&SourceRow>,
     planned: &PlannedPaths,
+) -> String {
+    render_citation_chip_with(
+        from_path,
+        version_id,
+        locator,
+        source,
+        planned,
+        &OriginalAvailability::empty(),
+    )
+}
+
+/// Render a `CitationChip` for a source version and optional locator, given which shipped
+/// originals exist (`availability`).
+///
+/// - A held (`Lifecycle::Quarantined`) source version is never linked; it renders as plain text
+///   alongside its escaped hold reason (`note`).
+/// - A `p.` or `pp.` locator of a version whose shipped original is a PDF links to that original
+///   at `#page=<first page>`, with the locator text beside the version id. The link does not
+///   depend on `planned`: the `originals/` folder is not a site path.
+/// - A `metadata-only:` source version carries the `meta-only` class and note and keeps its
+///   `s/` link.
+/// - Otherwise links via [`version_href`] when `s/<version_id>.html` or `sources.html` is in
+///   `planned`, or renders as `<span class="cite">` when neither is built yet.
+#[must_use]
+pub fn render_citation_chip_with(
+    from_path: &str,
+    version_id: &str,
+    locator: Option<&str>,
+    source: Option<&SourceRow>,
+    planned: &PlannedPaths,
+    availability: &OriginalAvailability,
 ) -> String {
     let is_quarantined = source.is_some_and(|s| s.lifecycle == Lifecycle::Quarantined);
     let is_meta_only = source.is_some_and(|s| s.location.starts_with("metadata-only:"));
@@ -448,7 +475,9 @@ pub fn render_citation_chip(
     let pv_title = source.map(|s| s.title.as_str());
     let pv_body = source.map(|s| s.publisher.as_str());
 
-    match version_href(from_path, version_id, false, planned) {
+    let href = located_original_href(from_path, version_id, locator, availability)
+        .or_else(|| version_href(from_path, version_id, false, planned));
+    match href {
         Some(href) => {
             let mut out = format!("<a class=\"{class_name}\" href=\"{}\"", escape_html(&href));
             push_pv_attrs(&mut out, &pv_key, pv_title, pv_body);

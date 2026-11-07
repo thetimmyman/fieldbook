@@ -1,0 +1,102 @@
+<div class="src-view" data-version="{{ v.version_id }}">
+  <header class="page-head">
+    <div class="eyebrow">
+      <span class="chip accent">Source</span>
+      <span class="chip mono">{{ v.version_id }}</span>
+      {% if v.is_metadata_only %}
+      <span class="chip warn">{{ v.lock_icon|safe }}<span>Metadata only</span></span>
+      {% endif %}
+      {% if v.is_superseded %}
+      <span class="chip warn">{{ v.clock_icon|safe }}<span>v{{ v.version }} superseded</span></span>
+      {% endif %}
+    </div>
+    <h1>{{ v.title }}</h1>
+    <p class="muted">{{ v.publisher }}</p>
+  </header>
+
+  {% if v.is_superseded %}
+  <div class="banner warn">
+    {{ v.clock_icon|safe }}
+    <div class="body"><b>v{{ v.version }} superseded by</b>{% for chip in &v.superseded_by_html %} {{ chip|safe }}{% endfor %}</div>
+  </div>
+  {% endif %}
+  {% if v.is_metadata_only %}
+  <div class="banner">
+    {{ v.lock_icon|safe }}
+    <div class="body"><b>Metadata only.</b> Open your licensed copy at the cited locator.</div>
+  </div>
+  {% endif %}
+
+  <div class="src-sections">
+    {% if let Some(original) = &v.original_html %}
+    <section class="panel src-original">
+      <div class="panel-head"><h2 class="panel-title">Original</h2></div>
+      <p class="src-original-line">{{ original|safe }}{% for loc in &v.original_locators_html %} {{ loc|safe }}{% endfor %}</p>
+    </section>
+    {% endif %}
+
+    {% if !v.excerpt_html.is_empty() %}
+    {{ v.excerpt_html|safe }}
+    {% endif %}
+    {% if !v.locator_view_html.is_empty() %}
+    {{ v.locator_view_html|safe }}
+    {% endif %}
+
+    <section class="panel src-row">
+      <div class="panel-head"><h2 class="panel-title">Register row</h2></div>
+      <dl class="src-kv">
+        {% for cell in &v.cells %}
+        <dt>{{ cell.name }}</dt>
+        <dd{% if cell.is_mono %} class="mono"{% endif %}>{{ cell.html|safe }}</dd>
+        {% endfor %}
+      </dl>
+    </section>
+
+    {% if !v.siblings.is_empty() %}
+    <section class="panel src-versions">
+      <div class="panel-head"><h2 class="panel-title">Versions</h2></div>
+      <ul class="src-list">
+        {% for s in &v.siblings %}
+        <li>{{ s.chip_html|safe }}{% if s.is_current %} <span class="muted">this version</span>{% endif %}{% if s.is_superseded %} <span class="muted">superseded</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if v.claims.is_empty() %}
+    {{ v.answer_meta_html|safe }}
+    {% else %}
+    <section class="panel src-claims">
+      <div class="panel-head"><h2 class="panel-title">Cited by</h2><span class="panel-sub mono">{{ v.claims.len() }}</span></div>
+      <ul class="src-list">
+        {% for c in &v.claims %}
+        <li>
+          <div class="source-chips">{{ c.claim_chip_html|safe }} {{ c.status_chips_html|safe }}</div>
+          <p>{{ c.statement }}</p>
+          <div class="ans-meta">
+            {{ c.citation_chip_html|safe }}
+            <span>{{ c.effective }}</span>
+            {% if let Some(date) = &c.verified_on %}
+            <span>Verified <time datetime="{{ date }}">{{ date }}</time>{% if let Some(role) = &c.verified_role %} · {{ role }}{% endif %}</span>
+            {% else %}
+            <span class="unver">Never verified</span>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if !v.pages.is_empty() %}
+    <section class="panel src-pages">
+      <div class="panel-head"><h2 class="panel-title">Cited on pages</h2><span class="panel-sub mono">{{ v.pages.len() }}</span></div>
+      <ul class="src-list">
+        {% for p in &v.pages %}
+        <li>{{ p.chip_html|safe }} {{ p.title }}{% for chip in &p.locator_chips_html %} {{ chip|safe }}{% endfor %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  </div>
+</div>

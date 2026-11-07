@@ -1866,3 +1866,80 @@ th[aria-sort="descending"] .sort-arrow::after {
     display: none;
   }
 }
+
+/* Source page (`s/<version-id>.html`): the source drawer laid out as a page. */
+.src-view {
+  width: 100%;
+  max-width: var(--drawer-w);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.src-sections {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.src-kv {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: var(--space-3);
+  row-gap: var(--space-1-5);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.src-kv dt {
+  color: var(--color-muted);
+}
+
+.src-kv dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.src-list {
+  display: grid;
+  gap: var(--space-1-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+/* Answer metadata (`AnswerMeta`): citation, effective date and the verified line. */
+.ans-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2-5);
+  margin-top: var(--space-1-5);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.ans-meta time {
+  color: var(--color-fg);
+}
+
+/* The Unavailable panel (`parts/unavailable.html`). */
+.unavailable {
+  display: flex;
+  gap: var(--space-2-5);
+  align-items: flex-start;
+  padding: var(--space-4);
+  border: var(--border-w) dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.unavailable p {
+  margin: 0;
+}
+
+.unavailable b {
+  color: var(--color-fg);
+  font-weight: var(--weight-semibold);
+}

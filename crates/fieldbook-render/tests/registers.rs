@@ -21,7 +21,7 @@ mod registers {
         first_eligible_version, render_citation_chip, render_source_id_chip, render_version_chip,
         source_id_href, source_version_href,
     };
-    use fieldbook_render::lint::{OriginalNames, lint};
+    use fieldbook_render::lint::lint;
     use fieldbook_render::meta::BuildInfo;
     use fieldbook_render::nav;
     use fieldbook_render::page;
@@ -30,6 +30,7 @@ mod registers {
         render_main, render_page,
     };
     use fieldbook_render::site::{self, PlannedPaths};
+    use fieldbook_render::source;
     use fieldbook_render::status_chip::{
         render_adoption_chip, render_applicability_chip, render_handling_chips,
         render_verification_chip,
@@ -329,7 +330,7 @@ mod registers {
 
         // Also verify full site build passes FB0603 anchor resolution lint.
         let rendered = site::render(&view, &BuildInfo::default()).unwrap();
-        let diags = lint(&rendered, &OriginalNames::default());
+        let diags = lint(&rendered, &source::original_names(&view));
         assert!(
             diags.is_empty(),
             "rendered site must have 0 FB0603/FB0604/FB0605 lint errors, got: {diags:?}"
@@ -932,7 +933,7 @@ mod registers {
             "quarantined version chip must stay plain text: `{held_chip}`"
         );
 
-        // 2. Active version S-0002-v2 DOES link to sources.html#S-0002-v2 alongside it.
+        // 2. Active version S-0002-v2 DOES link, to its source page now that the build plans one.
         let active_vid = VersionId::parse("S-0002-v2").unwrap();
         let active_row = view
             .sources()
@@ -941,7 +942,7 @@ mod registers {
             .map(|s| &s.value);
         assert_eq!(
             source_version_href("claims.html", &active_vid, active_row, &planned),
-            Some("sources.html#S-0002-v2".to_owned())
+            Some("s/S-0002-v2.html".to_owned())
         );
 
         // 3. In sources.html and ids.html, S-0004-v1 register metadata row exists (<tr id="S-0004-v1">),
@@ -958,7 +959,7 @@ mod registers {
             "sources.html must never link to quarantined version S-0004-v1:\n{sources_html}"
         );
         assert!(
-            sources_html.contains("href=\"sources.html#S-0002-v2\""),
+            sources_html.contains("href=\"s/S-0002-v2.html\""),
             "sources.html must link active version S-0002-v2"
         );
 
@@ -973,13 +974,13 @@ mod registers {
             "ids.html must never link to quarantined version S-0004-v1:\n{ids_html}"
         );
         assert!(
-            ids_html.contains("href=\"sources.html#S-0002-v2\""),
+            ids_html.contains("href=\"s/S-0002-v2.html\""),
             "ids.html must link active version S-0002-v2"
         );
 
         // 4. Every emitted link across the rendered site passes FB0603.
         let rendered = site::render(&view, &BuildInfo::default()).unwrap();
-        let diags = lint(&rendered, &OriginalNames::default());
+        let diags = lint(&rendered, &source::original_names(&view));
         assert!(
             diags.is_empty(),
             "rendered site must pass FB0603, got: {diags:?}"

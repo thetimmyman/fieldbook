@@ -634,4 +634,47 @@ mod page {
             "checked task list item must render checked disabled checkbox: {html}"
         );
     }
+
+    #[test]
+    fn held_citation_shows_reason_without_link() {
+        let mut tree = fixture_tree();
+        let held_row = "S-0004,1,held-source,\"Synthetic Held Source, made up for tests\",Synthetic Board,primary_law,primary_evidence,A,\"Synthetic, no restrictions\",,,metadata-only: made up for tests,5555555555555555555555555555555555555555555555555555555555555555,2026-01-01,,2026-02-01,2026-02-01,quarantined,,V2,public,Held <for> review & test.,Synthetic test,,,,,\n";
+        tree.insert_bytes(
+            "corpus/registers/sources.csv",
+            format!("{SOURCES_CSV}{held_row}").into_bytes(),
+        );
+        let updated = CMP_REVIEW_STEPS_MD.replace(
+            "## How it works\n",
+            "## How it works\n\nThe held source says so [@S-0004-v1, sec. 1] and the active source says so [@S-0002-v2, sec. 1].\n\n",
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-review-steps.md",
+            updated.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = site::planned_paths(&view);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-review-steps")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+
+        assert!(
+            html.contains("Held: Held &lt;for&gt; review &amp; test."),
+            "the escaped hold reason must show beside the held citation: {html}"
+        );
+        assert!(
+            !html.contains("Held <for>"),
+            "the hold reason must be escaped: {html}"
+        );
+        assert!(
+            !html.contains("S-0004-v1.html") && !html.contains("sources.html#S-0004-v1"),
+            "a held version has neither a source page link nor a register fallback: {html}"
+        );
+        assert!(
+            html.contains("href=\"../s/S-0002-v2.html\""),
+            "the active comparison version keeps its link: {html}"
+        );
+    }
 }

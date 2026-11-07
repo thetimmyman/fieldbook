@@ -12,9 +12,10 @@ use fieldbook_core::schema::vocab::Lifecycle;
 use fieldbook_core::strings;
 use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
+use crate::cite::OriginalAvailability;
 use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page};
 use crate::meta::{BuildInfo, MetadataError, RenderContext};
-use crate::{ids, nav, register};
+use crate::{ids, nav, register, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -141,6 +142,9 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
     }
+    for vid in source::page_versions(view) {
+        paths.push(source::page_path(vid.as_str()));
+    }
     PlannedPaths::from_owned(paths)
 }
 
@@ -182,6 +186,14 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
         let page_path = format!("p/{}.html", page.id);
         let html = crate::page::render_page(page, view, ctx, &navigation, &planned);
         site.insert(&page_path, html.into_bytes());
+    }
+    let availability = OriginalAvailability::from_view(view);
+    for vid in source::page_versions(view) {
+        if let Some(html) =
+            source::render_page(&vid, view, ctx, &navigation, &planned, &availability)
+        {
+            site.insert(&source::page_path(vid.as_str()), html.into_bytes());
+        }
     }
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
