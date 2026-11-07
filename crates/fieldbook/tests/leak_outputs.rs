@@ -766,6 +766,9 @@ fn run_edition_surface() {
         cells_plan.site.files(),
         "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs, edition.toml and its fingerprint included"
     );
+    // The cells base differs from the plain base only by the kept-row cells that name left-out
+    // records; every page but the manifest must match the plain base, as on main.
+    support::assert_plain_site_equals_cells_site(plan.site.files(), cells_plan.site.files());
     assert_eq!(
         mixed_plan.originals, cells_plan.originals,
         "forbidden rows must not change the shipped originals"

@@ -278,6 +278,33 @@ pub fn name_canaries_from_kept_rows(tree: &mut fieldbook_core::check::Tree) {
     );
 }
 
+/// Assert that the site built from the plain tree equals the site built from the same tree with
+/// the cells of [`name_canaries_from_kept_rows`], file for file, except `edition.toml`, whose
+/// fingerprint covers the changed register bytes. A kept row's dangling reference to a record the
+/// edition leaves out must render exactly as no reference, so no page shows that something was
+/// left out.
+pub fn assert_plain_site_equals_cells_site(
+    plain: &std::collections::BTreeMap<String, Vec<u8>>,
+    cells: &std::collections::BTreeMap<String, Vec<u8>>,
+) {
+    let plain_names: Vec<&String> = plain.keys().collect();
+    let cells_names: Vec<&String> = cells.keys().collect();
+    assert_eq!(
+        plain_names, cells_names,
+        "the kept-row cells that name left-out records must not add or drop a site file"
+    );
+    for (rel, bytes) in plain {
+        if rel == "edition.toml" {
+            continue;
+        }
+        assert!(
+            cells.get(rel) == Some(bytes),
+            "a kept row's reference to a left-out record must change no byte of {rel}: the plain \
+             base and the base with those cells must render it identically"
+        );
+    }
+}
+
 /// Assert that `report` holds exactly the three dangling references (FB0207) that the cells of
 /// [`name_canaries_from_kept_rows`] make on a tree without the canary rows, and nothing else, of
 /// any severity.

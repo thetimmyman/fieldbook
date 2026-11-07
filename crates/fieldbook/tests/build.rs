@@ -1222,6 +1222,12 @@ mod build {
             plan_cells.site.files(),
             "forbidden register rows and pages must not change any site byte, edition.toml and its fingerprint included"
         );
+        // The cells base differs from the plain base only by the kept-row cells that name
+        // left-out records; every page but the manifest must match the plain base, as on main.
+        support::assert_plain_site_equals_cells_site(
+            plan_base.site.files(),
+            plan_cells.site.files(),
+        );
         assert_eq!(
             plan_mixed.originals, plan_cells.originals,
             "forbidden register rows must not change the originals"
@@ -2026,9 +2032,11 @@ mod build {
     /// Records whose own handling is public but which name a record the ledger leaves out, so the
     /// view must leave them out through the dependency alone: one brief per page reference (a
     /// term, a question, a conflict, a cited claim and a linked page), a claim whose `conflict_id`
-    /// is the left-out conflict, a claim superseded by the left-out claim, and a term labelled
-    /// `np-0007` by the ledger that cites only kept records. Every id starts `est-dep-`,
-    /// `CL-CMP-009` or `forbidden_`, and every text starts `Forbidden` or `Dependent`.
+    /// is the left-out conflict, a claim superseded by the left-out claim, a term labelled
+    /// `np-0007` by the ledger that cites only kept records, and three conflicts whose `evidence`
+    /// names the left-out claim or the left-out source version `S-0098-v1`, or whose
+    /// `question_id` is the left-out question. Every id starts `est-dep-`, `CL-CMP-009`,
+    /// `XC-9`, `S-0098` or `forbidden_`, and every text starts `Forbidden` or `Dependent`.
     fn plant_public_records_that_name_left_out_ones(root: &Path) {
         let read = |rel: &str| {
             std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
@@ -2115,6 +2123,62 @@ mod build {
                     ",CL-CMP-0001|CL-CMP-0002|CL-CMP-0097,",
                 ),
             ),
+        );
+        // A source version the ledger leaves out (`S-0098-v1`), so a conflict can name it as
+        // evidence. It is metadata-only, so it ships no original.
+        let sources = read("corpus/registers/sources.csv");
+        let sources_header = sources
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("sources header"));
+        let left_out_version = support::register_row(
+            sources_header,
+            &[
+                ("source_id", "S-0098"),
+                ("version", "1"),
+                ("tag", "forbidden-dep-source"),
+                (
+                    "title",
+                    "Forbidden dependent source canary, made up for tests",
+                ),
+                ("publisher", "Synthetic Standards Board"),
+                ("source_kind", "trade_press"),
+                ("source_role", "accepted_interpretation"),
+                ("authority_tier", "D"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", "metadata-only: made up for tests"),
+                ("sha256", &"8".repeat(64)),
+                ("published", "2026-01-25"),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", "active"),
+                ("volatility", "V2"),
+                ("handling", "public"),
+                ("note", "Forbidden dependent source note."),
+                ("purpose", "Forbidden dependent source purpose"),
+            ],
+        );
+        write(
+            "corpus/registers/sources.csv",
+            support::splice_register_row(&sources, &left_out_version, None),
+        );
+        // Public conflicts that name a left-out record outside `claim_ids`: one resolved on the
+        // left-out claim, one resolved on the left-out source version, and one whose open question
+        // is the left-out question. Each sorts before the left-out conflict `XC-98`.
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let dependent_conflicts = [
+            "XC-95,est,Dependent evidence claim conflict canary,Dependent first claim position|Dependent second claim position,Dependent claim resolution.,Dependent claim rationale.,CL-CMP-0098,2026-02-01,resolved,CL-CMP-0001|CL-CMP-0002,",
+            "XC-96,est,Dependent evidence version conflict canary,Dependent first version position|Dependent second version position,Dependent version resolution.,Dependent version rationale.,S-0098-v1,2026-02-01,resolved,CL-CMP-0001|CL-CMP-0002,",
+            "XC-97,est,Dependent question conflict canary,Dependent first question position|Dependent second question position,,,,,unresolved,CL-CMP-0001|CL-CMP-0002,Q-098",
+        ]
+        .join("\n");
+        assert!(
+            conflicts.contains("\nXC-98,"),
+            "the left-out conflict is planted first"
+        );
+        write(
+            "corpus/registers/conflicts.csv",
+            support::splice_register_row(&conflicts, &dependent_conflicts, Some("XC-98,")),
         );
         let glossary = read("corpus/registers/glossary.csv");
         write(
@@ -2237,7 +2301,7 @@ mod build {
             .unwrap_or_else(|e| panic!("{e}"));
         let world = LedgerWorld {
             inner: TestWorld::new(root),
-            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n5,forbidden_window,add,np-0007,person\n",
+            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n5,forbidden_window,add,np-0007,person\n6,S-0098-v1,add,np-0007,person\n",
         };
 
         let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
@@ -2275,6 +2339,22 @@ mod build {
                 "the model holds the dependent claim `{claim}`"
             );
         }
+        for conflict in ["XC-95", "XC-96", "XC-97"] {
+            assert!(
+                model
+                    .conflicts()
+                    .iter()
+                    .any(|x| x.value.conflict_id.as_str() == conflict),
+                "the model holds the dependent conflict `{conflict}`"
+            );
+        }
+        assert!(
+            model
+                .sources()
+                .iter()
+                .any(|s| s.value.source_id.as_str() == "S-0098"),
+            "the model holds the left-out source version"
+        );
         assert!(
             model
                 .glossary()
@@ -2412,6 +2492,11 @@ mod build {
                 "CL-CMP-0097",
                 "forbidden_window",
                 "Forbidden glossary canary",
+                "XC-95",
+                "XC-96",
+                "XC-97",
+                "S-0098",
+                "Forbidden dependent source",
             ] {
                 assert!(
                     !text.contains(needle),
