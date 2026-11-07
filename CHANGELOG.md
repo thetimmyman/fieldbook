@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: the home page and the area pages.
+- Changed: the edition's search index holds page and section units only, with a 15 MB cap; the search command still searches every unit.
 - Changed: search lists pages first, one row per page, and `--units` keeps the flat list.
 - Added: source pages and the originals folder.
 - Fixed: the permitted view keeps a source original by its version id, whatever its location says.

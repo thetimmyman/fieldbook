@@ -24,6 +24,7 @@ Every page has the SearchTrigger and the CommandPalette, which `/` and Ctrl K op
 
 - `.` for Ask (Day 30, `assistant-page`) and "Ask" on no results, beside "Not established in the library."
 - `p` for precise wording, unless `build-page` already binds it; the dialog lists only shortcuts that exist.
+- Claim, source, question, conflict and term rows: the edition index holds page and section units only ([The site index](../reference/search.md#the-site-index)), so no palette row, test or empty-state text promises one. An ID prefix matches page ids; the other ids are in `ids.html`.
 - Recent searches in the palette, and filters by kind.
 
 ## Preconditions
