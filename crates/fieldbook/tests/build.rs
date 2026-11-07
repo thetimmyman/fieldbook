@@ -164,7 +164,11 @@ mod build {
         let index_html = std::fs::read_to_string(edition.join("index.html"))
             .unwrap_or_else(|e| panic!("read index.html: {e}"));
         assert!(index_html.contains(CSP_STATIC));
-        assert!(index_html.contains("<main id=\"fb:main\" tabindex=\"-1\"></main>"));
+        assert!(index_html.contains("<main id=\"fb:main\" tabindex=\"-1\">"));
+        assert!(
+            index_html.contains("id=\"areas\""),
+            "the home page has its area index"
+        );
         assert!(index_html.contains("<nav aria-label=\"Sections\">"));
         assert!(index_html.contains("class=\"not-available\""));
     }
@@ -1926,6 +1930,163 @@ mod build {
                         "forbidden `{needle}` must not appear in {folder}/{rel}"
                     );
                 }
+            }
+        }
+    }
+
+    /// The home and area counts a delivered edition must show for `corpus-mini`.
+    fn assert_permitted_home_and_areas(edition: &Path) {
+        let read = |rel: &str| {
+            std::fs::read_to_string(edition.join(rel))
+                .unwrap_or_else(|e| panic!("the handler must deliver {rel}: {e}"))
+        };
+        let index = read("index.html");
+        for shown in [
+            "5 pages",
+            "4 pages",
+            "1 of 2 supported",
+            "0 of 3 supported",
+            "Q-001",
+            "XC-01",
+            "href=\"a/cmp.html\"",
+            "href=\"a/est.html\"",
+            "p/est-rate-window-brief.html",
+            "id=\"areas\"",
+        ] {
+            assert!(index.contains(shown), "index.html must show `{shown}`");
+        }
+        let cmp = read("a/cmp.html");
+        assert!(cmp.contains(
+            "aria-label=\"1 of 2 supported: 1 supported, 1 unchecked, 0 contradicted, 0 stale, 0 unresolved\""
+        ));
+        assert!(cmp.contains("<span class=\"count\">5</span>"), "cmp pages");
+        assert!(cmp.contains("<tr id=\"cmp-system-review\""));
+        assert!(cmp.contains("Q-001"));
+        let est = read("a/est.html");
+        assert!(est.contains(
+            "aria-label=\"0 of 3 supported: 0 supported, 3 unchecked, 0 contradicted, 0 stale, 0 unresolved\""
+        ));
+        assert!(est.contains("<span class=\"count\">4</span>"), "est pages");
+        assert!(est.contains("<tr id=\"est-rate-window-brief\""));
+        assert!(
+            est.contains("Nothing upstream has moved."),
+            "no canary change"
+        );
+    }
+
+    #[test]
+    fn build_home_and_areas_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let root = tmp.path();
+        let read = |rel: &str| {
+            std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
+        };
+        let write = |rel: &str, text: String| {
+            std::fs::write(root.join(rel), text).unwrap_or_else(|e| panic!("{rel}: {e}"));
+        };
+        // A disallowed record of each kind the home and area pages count: a claim, an
+        // open conflict, a day-one question and a brief, in an area with permitted records.
+        let claims = read("corpus/registers/claims.csv");
+        let claim = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0002,"))
+            .unwrap_or_else(|| panic!("fixture claim"))
+            .replace("CL-CMP-0002", "CL-CMP-0098")
+            .replace(
+                "Synthetic withholding threshold is 5 percent of billed amounts.",
+                "Forbidden claim canary statement.",
+            );
+        // The register stays in normal form: rows in id order.
+        let next_row = claims
+            .find("CL-EST-0001,")
+            .unwrap_or_else(|| panic!("fixture claim"));
+        let (before, after) = claims.split_at(next_row);
+        write(
+            "corpus/registers/claims.csv",
+            format!("{before}{claim}\n{after}"),
+        );
+        let questions = read("corpus/registers/questions.csv");
+        write(
+            "corpus/registers/questions.csv",
+            format!("{questions}Q-098,est,Forbidden day-one canary question?,,,,,,true,open,,,\n"),
+        );
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let conflict = conflicts
+            .lines()
+            .nth(1)
+            .unwrap_or_else(|| panic!("fixture conflict"))
+            .replace("XC-01,cmp,", "XC-98,est,")
+            .replace(
+                "Synthetic review interval versus withholding check timing",
+                "Forbidden conflict canary topic",
+            );
+        write(
+            "corpus/registers/conflicts.csv",
+            format!("{conflicts}{conflict}\n"),
+        );
+        let brief_path = "corpus/pages/estimating/pricing/est-rate-window-brief.md";
+        write(
+            "corpus/pages/estimating/pricing/est-forbidden-brief.md",
+            read(brief_path)
+                .replace(
+                    "id = \"est-rate-window-brief\"",
+                    "id = \"est-forbidden-brief\"",
+                )
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    "title = \"Forbidden brief canary\"",
+                ),
+        );
+        // The regression set refuses to index a tree that holds a ledger (FB0126).
+        std::fs::remove_file(root.join("corpus/eval/regression.toml"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let world = LedgerWorld {
+            inner: TestWorld::new(root),
+            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n",
+        };
+
+        let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        assert!(report.is_ok(), "the preflight must pass: {report:?}");
+        assert!(
+            model
+                .claims()
+                .iter()
+                .any(|c| c.value.claim_id.as_str() == "CL-CMP-0098")
+                && model
+                    .pages()
+                    .iter()
+                    .any(|p| p.id.as_str() == "est-forbidden-brief"),
+            "the model holds the records the view must leave out"
+        );
+
+        let out_dir = root.join("out-home-areas");
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: out_dir.clone(),
+            },
+            &world,
+            &BuildInfo::default(),
+        );
+        assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+        let edition = out_dir.join("edition");
+        assert_permitted_home_and_areas(&edition);
+        for (rel, bytes) in collect_tree_bytes(&edition) {
+            let text = String::from_utf8_lossy(&bytes);
+            for needle in [
+                "CL-CMP-0098",
+                "Forbidden claim canary statement.",
+                "Q-098",
+                "Forbidden day-one canary question?",
+                "XC-98",
+                "Forbidden conflict canary topic",
+                "est-forbidden-brief",
+                "Forbidden brief canary",
+            ] {
+                assert!(
+                    !text.contains(needle),
+                    "forbidden `{needle}` must not appear in edition/{rel}"
+                );
             }
         }
     }

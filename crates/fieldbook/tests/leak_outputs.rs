@@ -9,7 +9,7 @@
 mod support;
 
 use std::collections::{BTreeMap, BTreeSet};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use fieldbook::build::{plan_edition, write_edition_outputs};
 use fieldbook::io::state;
@@ -362,6 +362,33 @@ impl LabelGraph for TestProvenanceGraph {
     }
 }
 
+/// The delivered home and area pages show the permitted records and counts. `run_edition_surface`
+/// then requires the plan with forbidden pages and rows added to equal these bytes exactly.
+fn build_home_and_areas_counts_use_the_permitted_view(edition: &Path) {
+    let read = |rel: &str| {
+        std::fs::read_to_string(edition.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
+    };
+    let index = read("index.html");
+    for shown in [
+        "5 pages",
+        "4 pages",
+        "1 of 2 supported",
+        "0 of 3 supported",
+        "Q-001",
+        "href=\"a/cmp.html\"",
+        "href=\"a/est.html\"",
+        "id=\"areas\"",
+    ] {
+        assert!(index.contains(shown), "index.html must show `{shown}`");
+    }
+    assert!(read("a/cmp.html").contains(
+        "aria-label=\"1 of 2 supported: 1 supported, 1 unchecked, 0 contradicted, 0 stale, 0 unresolved\""
+    ));
+    assert!(read("a/est.html").contains(
+        "aria-label=\"0 of 3 supported: 0 supported, 3 unchecked, 0 contradicted, 0 stale, 0 unresolved\""
+    ));
+}
+
 fn run_edition_surface() {
     let fixture = load_fixture();
     let tmp = temp_copy(&corpus_mini());
@@ -582,6 +609,7 @@ fn run_edition_surface() {
         .unwrap_or_else(|e| panic!("{e}"));
     assert!(index_disk.contains("<nav aria-label=\"Sections\">"));
     assert!(index_disk.contains("class=\"not-available\""));
+    build_home_and_areas_counts_use_the_permitted_view(&plan.edition_dir);
 
     let concept_disk = std::fs::read_to_string(plan.edition_dir.join("p/cmp-system-review.html"))
         .unwrap_or_else(|e| panic!("{e}"));

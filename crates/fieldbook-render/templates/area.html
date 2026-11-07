@@ -1,0 +1,119 @@
+<div class="area-view page-w" data-area="{{ code }}">
+  <header class="ws-head">
+    <div class="eyebrow">{{ code }} · workspace</div>
+    <h1>{{ name }}</h1>
+    <p>{{ summary }}</p>
+  </header>
+
+  <nav class="tabs" aria-label="On this page">
+    {% for j in &jump %}
+    <a href="#{{ j.id }}">{{ j.label }}{% if let Some(n) = j.count %} <span class="count">{{ n }}</span>{% endif %}</a>
+    {% endfor %}
+  </nav>
+
+  <section class="ws-section" id="overview">
+    <h2>Overview</h2>
+    {{ three_up_html|safe }}
+    <section class="panel cover-panel">
+      <div class="panel-head">
+        <h3 class="panel-title">Claim coverage</h3>
+        <span class="panel-sub">{{ coverage }}</span>
+      </div>
+      {{ bar_html|safe }}
+      {% if !legend_html.is_empty() %}<div class="cover-legend">{{ legend_html|safe }}</div>{% endif %}
+    </section>
+  </section>
+
+  <section class="ws-section" id="processes">
+    <h2>Processes</h2>
+    {{ processes_html|safe }}
+  </section>
+
+  <section class="ws-section" id="procedures">
+    <h2>Procedures</h2>
+    {{ procedures_html|safe }}
+  </section>
+
+  <section class="ws-section" id="templates">
+    <h2>Templates</h2>
+    {% if templates.is_empty() %}
+    {{ templates_html|safe }}
+    {% else %}
+    <ul class="tu-list panel">
+      {% for t in &templates %}
+      <li class="tu-item">{{ t.link_html|safe }}<span class="meta">{{ t.why }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  <section class="ws-section" id="module">
+    <h2>Module</h2>
+    {{ module_html|safe }}
+  </section>
+
+  <section class="ws-section" id="library-pages">
+    <h2>Library pages</h2>
+    {% if pages.is_empty() %}
+    <p>No pages in {{ name }} yet.</p>
+    <p class="muted">
+      {% if let Some(href) = &sources_href %}<a href="{{ href }}">Sources register</a>{% endif %}
+      {% if let Some(href) = &learn_href %}<a href="{{ href }}">Learn path</a>{% endif %}
+    </p>
+    {% else %}
+    <div class="table-wrap">
+      <table class="reg-table area-table" id="fb:registerTable">
+        <caption>Pages in {{ name }} by subarea and stage</caption>
+        <thead>
+          <tr>
+            <th scope="col" data-col="Page">Page</th>
+            <th scope="col" data-col="Subarea">Subarea</th>
+            <th scope="col" data-col="Type">Type</th>
+            <th scope="col" data-col="Stage">Stage</th>
+            <th scope="col" data-col="As of">As of</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for p in &pages %}
+          <tr id="{{ p.id }}">
+            <td>{{ p.link_html|safe }}<span class="meta">{{ p.why }}</span></td>
+            <td>{{ p.subarea }}</td>
+            <td>{{ p.page_type }}</td>
+            <td>{{ p.stage }}</td>
+            <td class="mono">{{ p.as_of }}</td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <nav class="pager" id="fb:registerPager" aria-label="Library pages" hidden>
+      <div class="seg" role="group" aria-label="Page">
+        <button type="button" data-pg="prev">Previous</button>
+        <button type="button" data-pg="next">Next</button>
+      </div>
+      <span id="fb:registerPageInfo" aria-live="polite"></span>
+    </nav>
+    {% endif %}
+  </section>
+
+  <section class="ws-section" id="history">
+    <h2>History</h2>
+    {{ history_html|safe }}
+  </section>
+
+  <section class="ws-section" id="questions">
+    <h2>Questions</h2>
+    {% if questions.is_empty() %}
+    <p>No questions for {{ name }} yet. That means none recorded here, not that none exist.</p>
+    {% else %}
+    <ul class="tu-list panel">
+      {% for q in &questions %}
+      <li class="tu-item">
+        <span>{{ q.chip_html|safe }} {{ q.question }}</span>
+        {% if let Some(role) = &q.owner_role %}<span class="meta">Ask {{ role }}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+</div>

@@ -6,6 +6,7 @@
 
   const ROUTE_SECTIONS = {
     'index.html': { section: 'today', item: 'today' },
+    'index.html#areas': { section: 'today', item: 'today' },
     'map.html': { section: 'today', item: 'map' },
     'about.html': { section: 'today', item: 'today' },
     'changes.html': { section: 'today', item: 'today' },
