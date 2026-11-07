@@ -66,6 +66,7 @@ Find an id or a word in the Corpus; list the versions of a source
 | Argument / flag | Value | Default | Help |
 |---|---|---|---|
 | `--json` | - | - | Print the results as a JSON object |
+| `--units` | - | - | List every matching unit in rank order instead of grouping sections into their page |
 | `<QUERY>` | `QUERY` | - | The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-` |
 
 ## Exit codes
@@ -283,6 +284,60 @@ Find an id or a word in the Corpus; list the versions of a source
 }
 ```
 
+### `search-pages`
+
+```json
+{
+  "report_version": 1,
+  "query": "threshold",
+  "tokens": [
+    "threshold"
+  ],
+  "view": "pages",
+  "total": 2,
+  "results": [
+    {
+      "rank": 1,
+      "id": "cmp-withhold-case",
+      "kind": "page",
+      "title": "Synthetic case study on business-system review and billing withhold",
+      "parent": "",
+      "status": "draft",
+      "as_of": "2026-02-01",
+      "effective_from": "",
+      "verified_on": "",
+      "labels": [
+        "public"
+      ],
+      "store": "corpus",
+      "matched": 1,
+      "score": 2223,
+      "snippet": "The synthetic review board recorded a 30 days cycle [@CL-CMP-0001] and a 5 percent billing withhold threshold [@CL-CMP-0002].",
+      "best_unit": "cmp-withhold-case#how-it-works",
+      "matched_units": 1
+    },
+    {
+      "rank": 2,
+      "id": "CL-CMP-0002",
+      "kind": "claim",
+      "title": "CL-CMP-0002",
+      "parent": "",
+      "status": "unchecked",
+      "as_of": "2026-02-01",
+      "effective_from": "2026-01-15",
+      "verified_on": "",
+      "labels": [
+        "public"
+      ],
+      "store": "corpus",
+      "matched": 1,
+      "score": 3923,
+      "snippet": "Synthetic withholding threshold is 5 percent of billed amounts."
+    }
+  ]
+}
+```
+
 ### `search`
 
 ```json
@@ -292,6 +347,7 @@ Find an id or a word in the Corpus; list the versions of a source
   "tokens": [
     "s-0002"
   ],
+  "view": "pages",
   "total": 2,
   "results": [
     {
