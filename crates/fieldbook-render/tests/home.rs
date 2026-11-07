@@ -375,6 +375,94 @@ mod home {
         );
     }
 
+    /// The `ChangeItem` rows of kind "Source update" in a built page.
+    fn source_updates(html: &str) -> Vec<&str> {
+        html.split("<li class=\"tu-item chg\">")
+            .skip(1)
+            .map(|chunk| chunk.split("</li>").next().unwrap())
+            .filter(|row| row.contains("<span class=\"k\">Source update</span>"))
+            .collect()
+    }
+
+    /// `fixture_tree` with the lifecycle of one version in `sources.csv` set to quarantined.
+    fn with_quarantined(marker: &str) -> Tree {
+        let mut tree = fixture_tree();
+        let path = "corpus/registers/sources.csv";
+        let sources = String::from_utf8(tree.get_bytes(path).unwrap().to_vec()).unwrap();
+        let edited: Vec<String> = sources
+            .lines()
+            .map(|line| {
+                if line.starts_with(marker) {
+                    line.replace(",active,", ",quarantined,")
+                } else {
+                    line.to_owned()
+                }
+            })
+            .collect();
+        assert_ne!(edited.join("\n") + "\n", sources, "{marker} must be edited");
+        tree.insert_bytes(path, edited.join("\n") + "\n");
+        tree
+    }
+
+    #[test]
+    fn superseded_source_version_is_a_change_on_the_home_page() {
+        let site = built(fixture_tree());
+        let html = page(&site, "index.html");
+        // S-0002-v2 supersedes S-0002-v1 in the fixture; only the older version is listed.
+        let rows = source_updates(main_of(&html));
+        assert_eq!(rows.len(), 1, "{rows:?}");
+        let row = rows[0];
+        assert!(row.contains("Synthetic Pricing Guide v1"), "{row}");
+        assert!(row.contains("v1 superseded"), "{row}");
+        assert!(
+            row.contains("Re-check<span class=\"sr-only\"> S-0002-v1</span>"),
+            "the button is named with its item: {row}"
+        );
+        assert!(row.contains("href=\"s/S-0002-v1.html\""), "{row}");
+        assert!(!row.contains("S-0002-v2"), "{row}");
+    }
+
+    #[test]
+    fn source_update_stays_with_the_area_that_cites_it() {
+        // No claim in the fixture cites S-0002-v1, so no area page lists it.
+        let site = built(fixture_tree());
+        for path in ["a/cmp.html", "a/est.html", "a/mna.html"] {
+            let html = page(&site, path);
+            assert_eq!(source_updates(main_of(&html)), Vec::<&str>::new(), "{path}");
+        }
+        // One est claim citing the older version brings it to est, and only to est.
+        let site = built(tree_with(|toml, claims| {
+            let cited = claims.replace(
+                "S-0002,2,text_section,sec. 4",
+                "S-0002,1,text_section,sec. 4",
+            );
+            assert_ne!(cited, claims, "the est claim must be edited");
+            (format!("{toml}{NEW_AREA}"), cited)
+        }));
+        let est = page(&site, "a/est.html");
+        let rows = source_updates(main_of(&est));
+        assert_eq!(rows.len(), 1, "{rows:?}");
+        assert!(rows[0].contains("S-0002-v1"), "{}", rows[0]);
+        for path in ["a/cmp.html", "a/mna.html"] {
+            let html = page(&site, path);
+            assert_eq!(source_updates(main_of(&html)), Vec::<&str>::new(), "{path}");
+        }
+    }
+
+    #[test]
+    fn held_source_versions_make_no_source_update() {
+        // A held older version is not listed, and a held newer version supersedes nothing.
+        for marker in ["S-0002,1,", "S-0002,2,"] {
+            let site = built(with_quarantined(marker));
+            let html = page(&site, "index.html");
+            assert_eq!(
+                source_updates(main_of(&html)),
+                Vec::<&str>::new(),
+                "{marker}"
+            );
+        }
+    }
+
     #[test]
     fn purpose_lines_drop_citation_markers() {
         let mut tree = fixture_tree();
