@@ -20,7 +20,7 @@ use fieldbook_core::audit::{
     Word, WriteFile, WriteSet, sample_payload,
 };
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Host, Model, Options, Tree, load};
+use fieldbook_core::check::{Host, Model, Options, Severity, Tree, load};
 use fieldbook_core::egress::{Decision, Delivery, Dest, LabelledView, Shipped, Transfer, check};
 use fieldbook_core::labels::{ItemRef, LabelGraph, LabelNode, Ledger, PUBLIC, effective_item};
 use fieldbook_core::policy::{EffectivePolicy, OwnerSettings, Policy, PolicyState};
@@ -600,7 +600,7 @@ fn run_edition_surface() {
     let mut mixed_tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
     mixed_tree.insert_bytes(
         "corpus/pages/estimating/pricing/est-forbidden-canary.md",
-        b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
+        b"+++\nid = \"est-forbidden-canary\"\ntitle = \"Forbidden pricing canary\"\narea = \"est\"\nsubarea = \"pricing\"\ntype = \"concept\"\nstage = 1\nreadiness = \"SYNTHETIC-NOW\"\nstatus = \"draft\"\nas_of = 2026-03-01\nhandling = [\"public\", \"np-0007\"]\nterms = []\nquestions = []\nconflicts = []\nvolatility = \"V2\"\n+++\n\n## Purpose\n\nSecret.\n\n## The rule\n\nSecret.\n\n## How it works\n\nSecret.\n\n## Worked example\n\nSynthetic example. The numbers are made up.\n\nSecret.\n\n## Never confuse\n\nSecret.\n\n## Company calibration\n\nSecret.\n\n## Sources\n\n## Change note\n\n- NEW_KNOWLEDGE, 2026-03-01: Secret.\n"
             .to_vec(),
     );
     support::add_canary_register_rows(&mut mixed_tree);
@@ -617,11 +617,31 @@ fn run_edition_surface() {
         "location",
         "S-0099-v1.txt",
     );
+    let canary_original = b"Forbidden original canary, made up for tests.\n";
+    support::set_register_cell(
+        &mut mixed_tree,
+        "sources",
+        "S-0099",
+        "sha256",
+        &fieldbook_core::hash::sha256_hex(canary_original),
+    );
     mixed_tree.insert_bytes(
         "corpus/sources/public/S-0099-v1.txt",
-        b"Forbidden original canary, made up for tests.\n".to_vec(),
+        canary_original.to_vec(),
     );
-    let (mixed_model, _) = load(&Host::new(mixed_tree, world.today()), &Options::new(false));
+    // The canaries are well formed: the loader reports only the repository-Corpus handling of
+    // the `np-0007` source and page (FB0410) and the canary claim left on the version that the
+    // kept `S-0001` supersedes (FB0222), and still builds the model the view must filter.
+    let (mixed_model, mixed_report) =
+        load(&Host::new(mixed_tree, world.today()), &Options::new(false));
+    support::assert_report_codes(
+        &mixed_report,
+        &[
+            ("FB0410", Severity::Error),
+            ("FB0410", Severity::Error),
+            ("FB0222", Severity::Warning),
+        ],
+    );
     let mixed_view = LabelledView::new(&mixed_model, &sel_token, &ReadableStores::corpus());
     let nav_mixed = fieldbook_render::nav::build(
         &mixed_view,

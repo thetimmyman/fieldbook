@@ -14,6 +14,8 @@ pub mod faulty;
 pub mod state;
 pub mod world;
 
+use fieldbook_core::check::Severity;
+
 /// Recursively copy `fixture` into a new [`tempfile::TempDir`].
 #[must_use]
 pub fn temp_copy(fixture: &Path) -> tempfile::TempDir {
@@ -276,24 +278,34 @@ pub fn name_canaries_from_kept_rows(tree: &mut fieldbook_core::check::Tree) {
     );
 }
 
-/// Assert that `report` holds at least one error and that every error is a dangling reference
-/// (FB0207), as on a tree written by [`name_canaries_from_kept_rows`] alone.
+/// Assert that `report` holds exactly the three dangling references (FB0207) that the cells of
+/// [`name_canaries_from_kept_rows`] make on a tree without the canary rows, and nothing else, of
+/// any severity.
 pub fn assert_only_dangling_references(report: &fieldbook_core::check::Report) {
-    let errors: Vec<_> = report
+    assert_report_codes(
+        report,
+        &[
+            ("FB0207", Severity::Error),
+            ("FB0207", Severity::Error),
+            ("FB0207", Severity::Error),
+        ],
+    );
+}
+
+/// Assert that `report` holds exactly the findings `expected`, as (code, severity) pairs in any
+/// order, so no other finding of any severity is tolerated.
+pub fn assert_report_codes(report: &fieldbook_core::check::Report, expected: &[(&str, Severity)]) {
+    let mut found: Vec<(String, bool)> = report
         .diagnostics
         .iter()
-        .filter(|d| d.severity == fieldbook_core::check::Severity::Error)
+        .map(|d| (d.code.to_string(), d.severity == Severity::Error))
         .collect();
-    assert!(
-        !errors.is_empty(),
-        "the kept-row cells must dangle without the canary rows"
-    );
-    for d in errors {
-        assert_eq!(
-            d.code.to_string(),
-            "FB0207",
-            "only a dangling reference may be reported: {}",
-            d.render_text()
-        );
-    }
+    let mut want: Vec<(String, bool)> = expected
+        .iter()
+        .map(|(code, severity)| ((*code).to_owned(), *severity == Severity::Error))
+        .collect();
+    found.sort();
+    want.sort();
+    let rendered: Vec<String> = report.diagnostics.iter().map(|d| d.render_text()).collect();
+    assert_eq!(found, want, "unexpected findings:\n{}", rendered.join("\n"));
 }

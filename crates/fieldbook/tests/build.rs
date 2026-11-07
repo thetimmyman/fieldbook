@@ -24,7 +24,7 @@ use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Via, Word};
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Code, Host, Options, load};
+use fieldbook_core::check::{Code, Host, Options, Severity, load};
 use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
 use fieldbook_core::labels::PUBLIC;
 use fieldbook_core::policy::EffectivePolicy;
@@ -1102,10 +1102,32 @@ mod build {
                 .to_vec(),
         );
 
-        // The loader reports the repository-Corpus handling errors of the canary rows (FB0410) but
-        // still builds the model, which is what the permitted view must filter.
-        let (model_mixed, _report_mixed) =
+        // The left-out source version's extracted text: the view must leave its folder out.
+        tree_mixed.insert_bytes(
+            "corpus/sources/text/S-0099-v1/p0001.txt",
+            b"Forbidden extracted text canary.\n".to_vec(),
+        );
+
+        // The loader reports the repository-Corpus handling errors of the canary source and page
+        // (FB0410) and the canary claim left on the version that the kept `S-0001` supersedes
+        // (FB0222), and nothing else, but still builds the model the permitted view must filter.
+        let (model_mixed, report_mixed) =
             load(&Host::new(tree_mixed, world.today()), &Options::new(false));
+        support::assert_report_codes(
+            &report_mixed,
+            &[
+                ("FB0410", Severity::Error),
+                ("FB0410", Severity::Error),
+                ("FB0222", Severity::Warning),
+            ],
+        );
+        assert!(
+            model_mixed
+                .tree()
+                .get_bytes("corpus/sources/text/S-0099-v1/p0001.txt")
+                .is_some(),
+            "the model holds the text folder the view must leave out"
+        );
         let view_mixed = LabelledView::new(&model_mixed, &sel, &ReadableStores::corpus());
         assert!(view_mixed.left_out() >= 5);
 
@@ -2001,8 +2023,154 @@ mod build {
         );
     }
 
-    /// Plants a disallowed claim, question, conflict and brief in `root`, runs the real build
-    /// handler, and returns the delivered edition folder.
+    /// Records whose own handling is public but which name a record the ledger leaves out, so the
+    /// view must leave them out through the dependency alone: one brief per page reference (a
+    /// term, a question, a conflict, a cited claim and a linked page), a claim whose `conflict_id`
+    /// is the left-out conflict, a claim superseded by the left-out claim, and a term labelled
+    /// `np-0007` by the ledger that cites only kept records. Every id starts `est-dep-`,
+    /// `CL-CMP-009` or `forbidden_`, and every text starts `Forbidden` or `Dependent`.
+    fn plant_public_records_that_name_left_out_ones(root: &Path) {
+        let read = |rel: &str| {
+            std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
+        };
+        let write = |rel: &str, text: String| {
+            std::fs::write(root.join(rel), text).unwrap_or_else(|e| panic!("{rel}: {e}"));
+        };
+        let claims = read("corpus/registers/claims.csv");
+        let header: Vec<&str> = claims
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("claims header"))
+            .split(',')
+            .collect();
+        // CL-CMP-0002 has no quoted cell, so a plain split keeps its columns.
+        let template: Vec<&str> = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0002,"))
+            .unwrap_or_else(|| panic!("fixture claim"))
+            .split(',')
+            .collect();
+        assert_eq!(template.len(), header.len());
+        let claim_row = |cells: &[(&str, &str)]| {
+            header
+                .iter()
+                .zip(&template)
+                .map(|(col, cell)| {
+                    cells
+                        .iter()
+                        .find(|(name, _)| name == col)
+                        .map_or(*cell, |(_, v)| *v)
+                })
+                .collect::<Vec<_>>()
+                .join(",")
+        };
+        let superseded = claim_row(&[
+            ("claim_id", "CL-CMP-0096"),
+            ("statement", "Dependent superseded claim canary statement."),
+            ("applicability", "not_applicable"),
+            (
+                "adoption",
+                fieldbook_core::schema::Adoption::Superseded.as_str(),
+            ),
+            ("superseded_by", "CL-CMP-0098"),
+            ("question_id", ""),
+        ]);
+        let in_conflict = claim_row(&[
+            ("claim_id", "CL-CMP-0097"),
+            ("statement", "Dependent conflict claim canary statement."),
+            ("conflict_id", "XC-98"),
+            ("question_id", ""),
+        ]);
+        let left_out_claim = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0098,"))
+            .unwrap_or_else(|| panic!("the left-out claim is planted first"));
+        let supersedes = header
+            .iter()
+            .position(|c| *c == "supersedes")
+            .unwrap_or_else(|| panic!("supersedes column"));
+        let mut cells: Vec<&str> = left_out_claim.split(',').collect();
+        cells[supersedes] = "CL-CMP-0096";
+        let claims = claims.replace(
+            &format!("\n{left_out_claim}\n"),
+            &format!("\n{superseded}\n{in_conflict}\n{}\n", cells.join(",")),
+        );
+        assert!(
+            claims.contains("\nCL-CMP-0096,"),
+            "the dependent claims are planted"
+        );
+        write("corpus/registers/claims.csv", claims);
+        // The conflict lists the claim that names it, as the format requires.
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let left_out_conflict = conflicts
+            .lines()
+            .find(|l| l.starts_with("XC-98,"))
+            .unwrap_or_else(|| panic!("the left-out conflict is planted first"));
+        write(
+            "corpus/registers/conflicts.csv",
+            conflicts.replace(
+                left_out_conflict,
+                &left_out_conflict.replace(
+                    ",CL-CMP-0001|CL-CMP-0002,",
+                    ",CL-CMP-0001|CL-CMP-0002|CL-CMP-0097,",
+                ),
+            ),
+        );
+        let glossary = read("corpus/registers/glossary.csv");
+        write(
+            "corpus/registers/glossary.csv",
+            glossary.replace(
+                "\nrate_window,",
+                "\nforbidden_window,forbidden window,Forbidden glossary canary definition.,Forbidden glossary canary boundary.,est,CL-EST-0003,public_reference,,\nrate_window,",
+            ),
+        );
+        let brief = read("corpus/pages/estimating/pricing/est-rate-window-brief.md");
+        let page = |slug: &str, from: &str, to: &str| {
+            let text = brief
+                .replace(
+                    "id = \"est-rate-window-brief\"",
+                    &format!("id = \"est-dep-{slug}\""),
+                )
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    &format!("title = \"Dependent {slug} canary\""),
+                );
+            assert!(text.contains(from), "the brief holds `{from}`");
+            write(
+                &format!("corpus/pages/estimating/pricing/est-dep-{slug}.md"),
+                text.replace(from, to),
+            );
+        };
+        page(
+            "term",
+            "terms = [\"rate_window\", \"cost_baseline\"]",
+            "terms = [\"rate_window\", \"cost_baseline\", \"forbidden_window\"]",
+        );
+        page(
+            "question",
+            "questions = [\"Q-002\"]",
+            "questions = [\"Q-002\", \"Q-098\"]",
+        );
+        page(
+            "conflict",
+            "questions = [\"Q-002\"]",
+            "questions = [\"Q-002\"]\nconflicts = [\"XC-98\"]",
+        );
+        page(
+            "cite",
+            "3 percent per year [@CL-EST-0001].",
+            "3 percent per year [@CL-EST-0001] [@CL-CMP-0098].",
+        );
+        page(
+            "link",
+            "links = [\"cmp-system-review\"]",
+            "links = [\"cmp-system-review\", \"est-forbidden-brief\"]",
+        );
+    }
+
+    /// Plants a disallowed claim, question, conflict, brief and term in `root`, and the public
+    /// records that name them, runs the real build handler, and returns the delivered edition
+    /// folder.
     fn deliver_with_disallowed_records(root: &Path) -> PathBuf {
         let read = |rel: &str| {
             std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
@@ -2063,12 +2231,13 @@ mod build {
                     "title = \"Forbidden brief canary\"",
                 ),
         );
+        plant_public_records_that_name_left_out_ones(root);
         // The regression set refuses to index a tree that holds a ledger (FB0126).
         std::fs::remove_file(root.join("corpus/eval/regression.toml"))
             .unwrap_or_else(|e| panic!("{e}"));
         let world = LedgerWorld {
             inner: TestWorld::new(root),
-            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n",
+            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n5,forbidden_window,add,np-0007,person\n",
         };
 
         let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
@@ -2084,6 +2253,34 @@ mod build {
                     .iter()
                     .any(|p| p.id.as_str() == "est-forbidden-brief"),
             "the model holds the records the view must leave out"
+        );
+        for page in [
+            "est-dep-term",
+            "est-dep-question",
+            "est-dep-conflict",
+            "est-dep-cite",
+            "est-dep-link",
+        ] {
+            assert!(
+                model.pages().iter().any(|p| p.id.as_str() == page),
+                "the model holds the dependent page `{page}`"
+            );
+        }
+        for claim in ["CL-CMP-0096", "CL-CMP-0097"] {
+            assert!(
+                model
+                    .claims()
+                    .iter()
+                    .any(|c| c.value.claim_id.as_str() == claim),
+                "the model holds the dependent claim `{claim}`"
+            );
+        }
+        assert!(
+            model
+                .glossary()
+                .iter()
+                .any(|t| t.value.term_id.as_str() == "forbidden_window"),
+            "the model holds the left-out term"
         );
 
         deliver(&world, &root.join("out-home-areas")).join("edition")
@@ -2209,6 +2406,12 @@ mod build {
                 "Forbidden conflict canary topic",
                 "est-forbidden-brief",
                 "Forbidden brief canary",
+                "est-dep-",
+                "Dependent ",
+                "CL-CMP-0096",
+                "CL-CMP-0097",
+                "forbidden_window",
+                "Forbidden glossary canary",
             ] {
                 assert!(
                     !text.contains(needle),
