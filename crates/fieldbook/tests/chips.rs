@@ -220,7 +220,7 @@ fn verify_landed_matches_the_command_line() {
 
 #[test]
 fn verify_landed_guard_refuses_both_disagreements() {
-    let without = || Command::new("fieldbook").subcommand(Command::new("check"));
+    let without = || Command::new(strings::binary()).subcommand(Command::new("check"));
     let with = without().subcommand(Command::new("verify"));
     // `backup verify` and `audit verify` are other commands.
     let nested = without().subcommand(Command::new("backup").subcommand(Command::new("verify")));
