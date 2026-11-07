@@ -6,7 +6,7 @@ use crate::audit::chain::RawEventObject;
 use crate::check::{Diagnostic, Report};
 use crate::date::CivilDate;
 use crate::labels::{LabelId, LabelSet, StoreId};
-use crate::search::{Index, Results, query_tokens};
+use crate::search::{DocEntry, Hit, Index, PageRow, Results, ShownRows, query_tokens};
 
 /// Schema version of every `--json` report (`AD-17`).
 pub const REPORT_VERSION: u32 = 1;
@@ -112,8 +112,51 @@ pub struct SearchResult {
     pub matched: usize,
     /// Summed integer impact across the matched query tokens.
     pub score: u32,
-    /// Display snippet.
+    /// Display snippet (of the best unit, on a page row).
     pub snippet: String,
+    /// On a page row, the id of the page's best-ranked unit; absent on every other row.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub best_unit: Option<String>,
+    /// On a page row, how many of the page's units matched; absent on every other row.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub matched_units: Option<usize>,
+}
+
+impl SearchResult {
+    /// The row of one unit, as the unit list and the exact and other rows of the page view show it.
+    fn of_unit(rank: usize, doc: &DocEntry, hit: &Hit) -> Self {
+        Self {
+            rank,
+            id: doc.id.clone(),
+            kind: doc.kind.clone(),
+            title: doc.title.clone(),
+            parent: doc.parent.clone(),
+            status: doc.status.clone(),
+            as_of: doc.as_of.clone(),
+            effective_from: doc.effective_from.clone(),
+            verified_on: doc.verified_on.clone(),
+            labels: vec!["public".to_owned()],
+            store: "corpus",
+            matched: hit.matched,
+            score: hit.score,
+            snippet: doc.snippet.clone(),
+            best_unit: None,
+            matched_units: None,
+        }
+    }
+
+    /// The row of one page: the lead's display values, the best unit's ranking and snippet.
+    fn of_page(rank: usize, row: &PageRow<'_>) -> Self {
+        Self {
+            id: row.page.to_owned(),
+            snippet: row.best_doc.snippet.clone(),
+            matched: row.best.matched,
+            score: row.best.score,
+            best_unit: Some(row.best.id.clone()),
+            matched_units: Some(row.matched_units),
+            ..Self::of_unit(rank, row.display, row.best)
+        }
+    }
 }
 
 /// The `--json` report produced by `fieldbook search`.
@@ -125,6 +168,8 @@ pub struct SearchReport {
     pub query: String,
     /// The query tokens the index was asked for.
     pub tokens: Vec<String>,
+    /// The list these results are: `pages` (the page view) or `units` (the flat unit list).
+    pub view: &'static str,
     /// Total number of matching units before truncation.
     pub total: usize,
     /// The displayed results in rank order.
@@ -142,29 +187,55 @@ impl SearchReport {
             .enumerate()
             .filter_map(|(pos, hit)| {
                 let doc = index.docs.get(hit.unit)?;
-                Some(SearchResult {
-                    rank: pos + 1,
-                    id: doc.id.clone(),
-                    kind: doc.kind.clone(),
-                    title: doc.title.clone(),
-                    parent: doc.parent.clone(),
-                    status: doc.status.clone(),
-                    as_of: doc.as_of.clone(),
-                    effective_from: doc.effective_from.clone(),
-                    verified_on: doc.verified_on.clone(),
-                    labels: vec!["public".to_owned()],
-                    store: "corpus",
-                    matched: hit.matched,
-                    score: hit.score,
-                    snippet: doc.snippet.clone(),
-                })
+                Some(SearchResult::of_unit(pos + 1, doc, hit))
             })
             .collect();
         Self {
             report_version: REPORT_VERSION,
             query: raw_query.to_owned(),
             tokens: query_tokens(raw_query),
+            view: "units",
             total: results.total,
+            results: rows,
+        }
+    }
+
+    /// Build a [`SearchReport`] for `raw_query` from the rows of the page view that a surface
+    /// shows, so that the report and the plain output list the same rows. Ranks run across the
+    /// exact, page and other rows.
+    #[must_use]
+    pub fn from_page_view(
+        index: &Index,
+        raw_query: &str,
+        total: usize,
+        shown: &ShownRows<'_, '_>,
+    ) -> Self {
+        let of_units = |hits: &[&Hit], first: usize| -> Vec<SearchResult> {
+            hits.iter()
+                .enumerate()
+                .filter_map(|(pos, hit)| {
+                    let doc = index.docs.get(hit.unit)?;
+                    Some(SearchResult::of_unit(first + pos, doc, hit))
+                })
+                .collect()
+        };
+        let mut rows = of_units(shown.exact, 1);
+        let first_page = rows.len() + 1;
+        rows.extend(
+            shown
+                .pages
+                .iter()
+                .enumerate()
+                .map(|(pos, row)| SearchResult::of_page(first_page + pos, row)),
+        );
+        let first_other = rows.len() + 1;
+        rows.extend(of_units(shown.other, first_other));
+        Self {
+            report_version: REPORT_VERSION,
+            query: raw_query.to_owned(),
+            tokens: query_tokens(raw_query),
+            view: "pages",
+            total,
             results: rows,
         }
     }

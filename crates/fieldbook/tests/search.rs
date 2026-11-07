@@ -122,7 +122,7 @@ fn a_source_id_lists_every_version_in_version_order() {
 
 #[test]
 fn a_word_lists_two_lines_per_result() {
-    let out = fixture_search(&["withhold"]);
+    let out = fixture_search(&["--units", "withhold"]);
     assert_eq!(out.code, 0, "{}", out.stderr);
     let lines: Vec<&str> = out.stdout.lines().collect();
     assert!(
@@ -163,7 +163,7 @@ fn a_query_with_no_results_says_so_and_exits_one() {
 
 #[test]
 fn json_is_one_object_with_the_keys_of_the_reference_in_order() {
-    let out = fixture_search(&["--json", "CL-"]);
+    let out = fixture_search(&["--json", "--units", "CL-"]);
     assert_eq!(out.code, 0, "{}", out.stderr);
     let value: Value = serde_json::from_str(&out.stdout).expect("valid JSON");
     assert_eq!(value["report_version"], 1);
@@ -323,7 +323,7 @@ fn with_synthetic_claims(count: usize, word: &str) -> tempfile::TempDir {
 #[test]
 fn cut_list_says_how_many() {
     let tmp = with_synthetic_claims(14, "Zephyrquartz");
-    let out = search(tmp.path(), &["zephyrquartz"]);
+    let out = search(tmp.path(), &["--units", "zephyrquartz"]);
     assert_eq!(out.code, 0, "{}", out.stderr);
     assert_eq!(ranked_ids(&out.stdout).len(), 10);
     assert!(
@@ -409,7 +409,7 @@ fn source_id_lists_more_than_ten_versions() {
     // A single version id is still one exact record, and an ordinary word keeps the ten cap.
     let one = search(tmp.path(), &["S-0099-v11"]);
     assert!(one.stdout.starts_with("source_id: S-0099\nversion: 11\n"));
-    let word = search(tmp.path(), &["pillar"]);
+    let word = search(tmp.path(), &["--units", "pillar"]);
     assert_eq!(ranked_ids(&word.stdout).len(), 10, "{}", word.stdout);
     assert!(
         word.stdout
@@ -526,7 +526,7 @@ fn shared_version_ranks_hold_through_the_cli() {
             .iter()
             .map(|v| v.as_str().expect("expected id"))
             .collect();
-        let out = search(tmp.path(), &[query]);
+        let out = search(tmp.path(), &["--units", query]);
         assert_eq!(out.code, 0, "{id}: {}", out.stderr);
         let ranked = ranked_ids(&out.stdout);
         let shown: Vec<&str> = ranked
@@ -538,6 +538,512 @@ fn shared_version_ranks_hold_through_the_cli() {
         assert_eq!(&ranked[..expect.len()], expect, "{id} `{query}`");
     }
     assert!(ran >= 2, "only {ran} shared source cases ran");
+}
+
+// --- The page view ----------------------------------------------------------------------------
+
+const PAGES_DIR: &str = "corpus/pages/compliance/business-systems";
+
+/// Adds `count` pages to `root`, each with `word` in its title and nowhere else.
+fn add_synthetic_pages(root: &Path, count: usize, word: &str) {
+    let template =
+        std::fs::read_to_string(root.join(PAGES_DIR).join("cmp-review-steps.md")).expect("page");
+    let title = template
+        .lines()
+        .find(|line| line.starts_with("title = "))
+        .expect("title line")
+        .to_owned();
+    for n in 1..=count {
+        let id = format!("cmp-zz-page-{n:02}");
+        let page = template
+            .replacen("id = \"cmp-review-steps\"", &format!("id = \"{id}\""), 1)
+            .replacen(&title, &format!("title = \"{word} page {n}\""), 1);
+        assert_ne!(page, template);
+        std::fs::write(root.join(PAGES_DIR).join(format!("{id}.md")), page).expect("write page");
+    }
+}
+
+fn after_heading(stdout: &str) -> Option<&str> {
+    stdout.split_once("Also matched:\n").map(|(_, rest)| rest)
+}
+
+fn json_of(out: &Outcome) -> Value {
+    serde_json::from_str(&out.stdout).expect("valid JSON")
+}
+
+fn json_ids(value: &Value) -> Vec<String> {
+    value["results"]
+        .as_array()
+        .expect("results")
+        .iter()
+        .map(|r| r["id"].as_str().expect("id").to_owned())
+        .collect()
+}
+
+#[test]
+fn a_word_lists_each_page_once_and_names_the_section_that_matched_best() {
+    let out = fixture_search(&["withhold"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    let lines: Vec<&str> = out.stdout.lines().collect();
+    assert!(
+        lines[0].starts_with("1. cmp-withhold-case (page) Synthetic case study"),
+        "{}",
+        out.stdout
+    );
+    assert_eq!(
+        lines[1],
+        "   draft · as of 2026-02-01 · Examine a synthetic case separating public-record findings from analyst inference.",
+    );
+    assert!(
+        lines[2].starts_with("2. cmp-system-review (page) Synthetic business-system review"),
+        "{}",
+        out.stdout
+    );
+    assert_eq!(
+        lines[3],
+        "   draft · as of 2026-02-01 · section cmp-system-review#purpose (Purpose) · Explain how a synthetic system review interacts with a synthetic billing withhold.",
+    );
+
+    let ids = ranked_ids(&out.stdout);
+    let distinct: BTreeSet<&String> = ids.iter().collect();
+    assert_eq!(distinct.len(), ids.len(), "{}", out.stdout);
+    assert!(
+        ids.iter().all(|id| !id.contains('#')),
+        "no section is a row of its own:\n{}",
+        out.stdout
+    );
+    insta::assert_snapshot!("page_view_of_a_word", out.stdout);
+}
+
+#[test]
+fn other_rows_are_listed_after_the_heading() {
+    let out = fixture_search(&["withhold"]);
+    let others = after_heading(&out.stdout).expect("a heading");
+    let pages = ranked_ids(out.stdout.split("Also matched:").next().expect("pages"));
+    assert!(pages.iter().all(|id| !id.contains("billing_withhold")));
+
+    // A row that outranks every page in the flat list keeps its place among the others, and the
+    // rank numbers go on from the pages.
+    let first = format!(
+        "{}. billing_withhold (term) billing withhold",
+        pages.len() + 1
+    );
+    assert!(others.starts_with(&first), "{}", out.stdout);
+    let ids = ranked_ids(others);
+    assert!(ids.contains(&"XC-01".to_owned()), "{}", out.stdout);
+
+    let numbers: Vec<usize> = out
+        .stdout
+        .lines()
+        .filter_map(|line| line.split_once(". ")?.0.parse().ok())
+        .collect();
+    assert_eq!(numbers, (1..=numbers.len()).collect::<Vec<_>>());
+}
+
+#[test]
+fn units_prints_the_flat_list() {
+    let out = fixture_search(&["--units", "withhold"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    let ids = ranked_ids(&out.stdout);
+    assert_eq!(ids.len(), 10);
+    assert_eq!(ids[0], "billing_withhold");
+    assert!(ids.contains(&"cmp-withhold-case#the-rule".to_owned()));
+    assert!(!out.stdout.contains("Also matched:"), "{}", out.stdout);
+    assert!(
+        out.stdout
+            .ends_with("Showing 10 of 15. fieldbook search <source id> lists every version.\n"),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn a_sole_exact_id_prints_its_record_and_the_pages_follow() {
+    let out = fixture_search(&["CL-CMP-0001"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(out.stdout.starts_with("claim_id: CL-CMP-0001\n"));
+    let ids = ranked_ids(&out.stdout);
+    assert!(!ids.is_empty(), "{}", out.stdout);
+    assert!(!ids.contains(&"CL-CMP-0001".to_owned()), "{}", out.stdout);
+    assert!(ids.iter().all(|id| !id.contains('#')), "{}", out.stdout);
+    assert!(out.stdout.contains("\n2. "), "the record holds rank 1");
+}
+
+#[test]
+fn an_exact_section_stays_a_unit_row_and_its_page_does_not_repeat() {
+    let out = fixture_search(&["cmp-withhold-case#the-rule"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(
+        out.stdout
+            .starts_with("1. cmp-withhold-case#the-rule (page) The rule\n"),
+        "{}",
+        out.stdout
+    );
+    let ids = ranked_ids(&out.stdout);
+    assert_eq!(
+        ids.iter()
+            .filter(|id| id.starts_with("cmp-withhold-case"))
+            .count(),
+        1,
+        "{}",
+        out.stdout
+    );
+    assert!(
+        ids.contains(&"cmp-system-review".to_owned()),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn an_exact_page_does_not_repeat_as_a_page_row() {
+    let out = fixture_search(&["cmp-withhold-case"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(out.stdout.starts_with("path: "), "{}", out.stdout);
+    let ids = ranked_ids(&out.stdout);
+    assert!(
+        ids.iter().all(|id| !id.starts_with("cmp-withhold-case")),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn only_other_rows_have_no_heading_and_fill_to_ten() {
+    let tmp = with_synthetic_claims(14, "Zephyrquartz");
+    let out = search(tmp.path(), &["zephyrquartz"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(
+        out.stdout.starts_with("1. CL-CMP-0100 (claim)"),
+        "{}",
+        out.stdout
+    );
+    assert!(!out.stdout.contains("Also matched:"), "{}", out.stdout);
+    assert_eq!(ranked_ids(&out.stdout).len(), 10);
+    assert!(
+        out.stdout.ends_with("\nShowing 10 of 14 results.\n"),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn a_cut_says_how_many_pages_and_other_rows_it_shows() {
+    let tmp = with_synthetic_claims(7, "Zephyrquartz");
+    add_synthetic_pages(tmp.path(), 12, "Zephyrquartz");
+    let out = search(tmp.path(), &["zephyrquartz"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    let ids = ranked_ids(&out.stdout);
+    assert_eq!(ids.len(), 15, "{}", out.stdout);
+    assert_eq!(ids[0], "cmp-zz-page-01");
+    assert_eq!(ids[9], "cmp-zz-page-10");
+    assert_eq!(ids[10], "CL-CMP-0100");
+    assert!(
+        out.stdout
+            .contains("\nAlso matched:\n11. CL-CMP-0100 (claim)"),
+        "{}",
+        out.stdout
+    );
+    assert!(
+        out.stdout
+            .ends_with("\nShowing 10 of 12 pages and 5 of 7 other results.\n"),
+        "{}",
+        out.stdout
+    );
+
+    let json = json_of(&search(tmp.path(), &["--json", "zephyrquartz"]));
+    assert_eq!(json["total"], 19);
+    assert_eq!(json_ids(&json), ids);
+}
+
+#[test]
+fn a_cut_of_one_list_counts_both_lists_and_only_what_exists() {
+    let pages_only = temp_copy(&corpus_mini());
+    add_synthetic_pages(pages_only.path(), 12, "Zephyrquartz");
+    let out = search(pages_only.path(), &["zephyrquartz"]);
+    assert!(
+        out.stdout.ends_with("\nShowing 10 of 12 pages.\n"),
+        "{}",
+        out.stdout
+    );
+
+    let some_pages = with_synthetic_claims(7, "Zephyrquartz");
+    add_synthetic_pages(some_pages.path(), 3, "Zephyrquartz");
+    let out = search(some_pages.path(), &["zephyrquartz"]);
+    assert!(
+        out.stdout
+            .ends_with("\nShowing 3 of 3 pages and 5 of 7 other results.\n"),
+        "{}",
+        out.stdout
+    );
+
+    let one_page = with_synthetic_claims(6, "Zephyrquartz");
+    add_synthetic_pages(one_page.path(), 1, "Zephyrquartz");
+    let out = search(one_page.path(), &["zephyrquartz"]);
+    assert!(
+        out.stdout
+            .ends_with("\nShowing 1 of 1 page and 5 of 6 other results.\n"),
+        "{}",
+        out.stdout
+    );
+
+    let nothing_cut = with_synthetic_claims(5, "Zephyrquartz");
+    add_synthetic_pages(nothing_cut.path(), 10, "Zephyrquartz");
+    let out = search(nothing_cut.path(), &["zephyrquartz"]);
+    assert_eq!(ranked_ids(&out.stdout).len(), 15, "{}", out.stdout);
+    assert!(!out.stdout.contains("Showing"), "{}", out.stdout);
+}
+
+#[test]
+fn the_source_id_guidance_stays_where_a_source_is_among_the_rows() {
+    let only_sources = with_many_versions(12);
+    let out = search(only_sources.path(), &["pillar"]);
+    assert_eq!(ranked_ids(&out.stdout).len(), 10, "{}", out.stdout);
+    assert!(
+        out.stdout.ends_with(
+            "\nShowing 10 of 12 results. fieldbook search <source id> lists every version.\n"
+        ),
+        "{}",
+        out.stdout
+    );
+
+    let with_pages = with_many_versions(7);
+    add_synthetic_pages(with_pages.path(), 12, "Pillar");
+    let out = search(with_pages.path(), &["pillar"]);
+    assert!(
+        out.stdout.ends_with(
+            "\nShowing 10 of 12 pages and 5 of 7 other results. fieldbook search <source id> lists every version.\n"
+        ),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn an_exact_row_with_other_rows_keeps_the_heading_and_the_count_of_the_others() {
+    let tmp = with_synthetic_claims(14, "CL-CMP-0100");
+    let out = search(tmp.path(), &["CL-CMP-0100"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    assert!(
+        out.stdout.starts_with("claim_id: CL-CMP-0100\n"),
+        "{}",
+        out.stdout
+    );
+    assert!(
+        after_heading(&out.stdout)
+            .expect("a heading")
+            .starts_with("2. CL-CMP-0101 (claim)"),
+        "{}",
+        out.stdout
+    );
+    assert!(
+        out.stdout.ends_with("\nShowing 10 of 13 other results.\n"),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn every_version_of_a_source_is_listed_before_the_limits_apply() {
+    let tmp = with_many_versions(12);
+    add_synthetic_pages(tmp.path(), 12, "S-0099");
+    let out = search(tmp.path(), &["S-0099"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    let ids = ranked_ids(&out.stdout);
+    assert_eq!(ids.len(), 22, "{}", out.stdout);
+    assert_eq!(ids[0], "S-0099-v1");
+    assert_eq!(ids[11], "S-0099-v12");
+    assert_eq!(ids[12], "cmp-zz-page-01");
+    assert!(
+        out.stdout.ends_with("\nShowing 10 of 12 pages.\n"),
+        "{}",
+        out.stdout
+    );
+}
+
+#[test]
+fn json_names_the_view_and_the_best_unit_of_a_page_row() {
+    let value = json_of(&fixture_search(&["--json", "withhold"]));
+    assert_eq!(value["report_version"], 1);
+    assert_eq!(value["view"], "pages");
+    assert_eq!(value["total"], 15);
+
+    let results = value["results"].as_array().expect("results");
+    assert_eq!(results[0]["id"], "cmp-withhold-case");
+    assert_eq!(results[0]["kind"], "page");
+    assert_eq!(results[0]["best_unit"], "cmp-withhold-case");
+    assert!(results[0]["matched_units"].as_u64().expect("count") > 1);
+
+    assert_eq!(results[1]["id"], "cmp-system-review");
+    assert_eq!(results[1]["best_unit"], "cmp-system-review#purpose");
+    assert!(
+        results[1]["title"]
+            .as_str()
+            .expect("title")
+            .starts_with("Synthetic business-system review"),
+        "the lead's title, not the section's"
+    );
+    assert_eq!(results[1]["parent"], "");
+    assert!(
+        results[1]["snippet"]
+            .as_str()
+            .expect("snippet")
+            .starts_with("Explain how a synthetic"),
+        "the best unit's snippet"
+    );
+
+    let matched: u64 = results
+        .iter()
+        .filter(|row| row.get("best_unit").is_some())
+        .map(|row| row["matched_units"].as_u64().expect("count"))
+        .sum();
+    let others = results
+        .iter()
+        .filter(|row| row.get("best_unit").is_none())
+        .count();
+    assert!(others > 0);
+    assert_eq!(matched + others as u64, 15, "nothing is lost: {results:?}");
+    for (pos, row) in results.iter().enumerate() {
+        assert_eq!(row["rank"], pos + 1);
+    }
+    for row in results.iter().filter(|row| row.get("best_unit").is_none()) {
+        assert!(row.get("matched_units").is_none(), "{row:?}");
+    }
+}
+
+#[test]
+fn json_keys_keep_their_order_and_the_new_ones_come_last() {
+    let out = fixture_search(&["--json", "withhold"]);
+    let order = |text: &str, keys: &[&str]| {
+        let positions: Vec<usize> = keys
+            .iter()
+            .map(|key| text.find(&format!("\"{key}\"")).expect("key present"))
+            .collect();
+        assert!(positions.windows(2).all(|w| w[0] < w[1]), "{keys:?}");
+    };
+    order(
+        &out.stdout,
+        &[
+            "report_version",
+            "query",
+            "tokens",
+            "view",
+            "total",
+            "results",
+        ],
+    );
+    let first = out.stdout.split("\"results\"").nth(1).expect("results");
+    order(
+        first,
+        &["rank", "id", "snippet", "best_unit", "matched_units"],
+    );
+}
+
+#[test]
+fn json_of_the_unit_list_names_its_view_and_keeps_its_rows() {
+    let value = json_of(&fixture_search(&["--json", "--units", "withhold"]));
+    assert_eq!(value["view"], "units");
+    assert_eq!(value["total"], 15);
+    let results = value["results"].as_array().expect("results");
+    assert_eq!(results.len(), 10);
+    assert_eq!(results[0]["id"], "billing_withhold");
+    for row in results {
+        assert!(row.get("best_unit").is_none(), "{row:?}");
+        assert!(row.get("matched_units").is_none(), "{row:?}");
+    }
+}
+
+#[test]
+fn plain_and_json_list_the_same_rows() {
+    for words in [
+        ["withhold"].as_slice(),
+        ["rate review window"].as_slice(),
+        ["S-0002"].as_slice(),
+        ["CL-"].as_slice(),
+        ["cmp-withhold-case#the-rule"].as_slice(),
+        ["xylophone marmalade"].as_slice(),
+    ] {
+        let plain = fixture_search(words);
+        let mut with_json = vec!["--json"];
+        with_json.extend_from_slice(words);
+        let json = fixture_search(&with_json);
+        assert_eq!(plain.code, json.code, "{words:?}");
+        assert_eq!(
+            ranked_ids(&plain.stdout),
+            json_ids(&json_of(&json)),
+            "{words:?}"
+        );
+
+        let mut flat = vec!["--units"];
+        flat.extend_from_slice(words);
+        let mut flat_json = vec!["--json", "--units"];
+        flat_json.extend_from_slice(words);
+        assert_eq!(
+            ranked_ids(&fixture_search(&flat).stdout),
+            json_ids(&json_of(&fixture_search(&flat_json))),
+            "{words:?}"
+        );
+    }
+}
+
+#[test]
+fn abstention_and_exit_codes_do_not_depend_on_the_view() {
+    let none = fixture_search(&["--units", "xylophone", "marmalade"]);
+    assert_eq!(none.code, 1);
+    assert_eq!(none.stdout, "Not established in the library.\n");
+    let json = json_of(&fixture_search(&["--json", "xylophone marmalade"]));
+    assert_eq!(json["view"], "pages");
+    assert_eq!(json["results"], Value::Array(Vec::new()));
+    assert_eq!(fixture_search(&["--units", "withhold"]).code, 0);
+}
+
+#[test]
+fn the_same_query_gives_the_same_bytes() {
+    for words in [
+        ["withhold"].as_slice(),
+        ["--json", "withhold"].as_slice(),
+        ["rate review window"].as_slice(),
+        ["--json", "rate review window"].as_slice(),
+        ["--units", "rate review window"].as_slice(),
+    ] {
+        let first = fixture_search(words);
+        for _ in 0..3 {
+            assert_eq!(fixture_search(words).stdout, first.stdout, "{words:?}");
+        }
+    }
+}
+
+#[test]
+fn a_section_heading_cannot_forge_a_line_or_drive_the_terminal() {
+    let tmp = temp_copy(&corpus_mini());
+    edit(
+        tmp.path(),
+        SYSTEM_REVIEW,
+        "## Purpose\n",
+        "## Zephyrquartz \u{1b}]52;c;SGVsbG8=\u{7} \u{202e}heading\n",
+    );
+    let out = search(tmp.path(), &["zephyrquartz"]);
+    assert_eq!(out.code, 0, "{}", out.stderr);
+    for c in out.stdout.chars() {
+        assert!(
+            c == '\n' || !(c.is_control() || ('\u{202a}'..='\u{202e}').contains(&c)),
+            "U+{:04X} reached the terminal:\n{}",
+            u32::from(c),
+            out.stdout
+        );
+    }
+    assert!(
+        out.stdout
+            .contains("\\u{1b}]52;c;SGVsbG8=\\u{7} \\u{202e}heading"),
+        "{}",
+        out.stdout
+    );
+    assert_eq!(
+        ranked_ids(&out.stdout),
+        ["cmp-system-review"],
+        "{}",
+        out.stdout
+    );
 }
 
 #[test]
