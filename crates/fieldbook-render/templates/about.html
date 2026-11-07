@@ -20,7 +20,7 @@
           <h2 class="panel-title" id="about-profile">Build profile</h2>
           <span class="panel-sub mono">{{ profile_name }}</span>
         </div>
-        <p>{{ posture }}</p>
+        <p>{{ posture_html|safe }}</p>
         {% if let Some(line) = only_build %}<p>{{ line }}</p>{% endif %}
       </section>
       <section class="panel" aria-labelledby="about-ai">

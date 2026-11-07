@@ -516,7 +516,14 @@ mod page {
             "<span class=\"cmd-tag\">{}</span>",
             strings::tag_at_home()
         )));
-        assert!(html.contains("<div class=\"due-claims\" hidden>"));
+        assert!(html.contains("<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary>"));
+        assert!(
+            html.find("<details class=\"fold\"><summary><b>Claims due")
+                .unwrap()
+                < html.find(row).unwrap()
+                && html.find(row).unwrap() < html.find("</details></div>").unwrap(),
+            "the fold holds the rows, closed by default"
+        );
         let banner_end = html.find("<header class=\"page-head\">").unwrap();
         assert!(
             html.find(row).unwrap() < banner_end,
@@ -557,6 +564,7 @@ mod page {
         assert!(APP_JS.contains("rows[j].getAttribute('data-claim-review-by')"));
         assert!(APP_JS.contains("claimBy && today > claimBy"));
         assert!(APP_JS.contains("rows[j].hidden = false"));
+        assert!(APP_JS.contains("dueCount.textContent = String(dueRows)"));
     }
 
     fn csv_rows(text: &str) -> Vec<Vec<String>> {

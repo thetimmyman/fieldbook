@@ -4,6 +4,7 @@ use askama::Template;
 use fieldbook_core::audit::LabelSet;
 use fieldbook_core::strings;
 
+use crate::about;
 use crate::csp::CSP_STATIC;
 use crate::edition::{self, EditionInfo};
 use crate::nav::{NavTarget, Navigation, SectionId, resolve_route};
@@ -188,6 +189,8 @@ struct BaseTemplate<'a> {
     built_date: Option<&'a str>,
     edition_label: String,
     unreleased_build: &'a str,
+    about_path: &'a str,
+    about_title: &'a str,
     store_chip_label: &'a str,
     store_chip_title: &'a str,
     store_foot_lead: &'a str,
@@ -272,6 +275,8 @@ pub fn render_page(input: &FrameInput<'_>) -> String {
         built_date: edition::built_date(input.edition),
         edition_label: edition::header_label(input.edition),
         unreleased_build: strings::unreleased_build(),
+        about_path: about::OUTPUT_PATH,
+        about_title: about::PAGE_TITLE,
         store_chip_label: &store_pres.chip_label,
         store_chip_title: &store_pres.chip_title,
         store_foot_lead: &store_pres.foot_lead,

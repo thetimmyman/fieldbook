@@ -115,14 +115,18 @@ pub fn render_context(
     let schema_version = view
         .corpus()
         .map_or(SCHEMA_VERSION_MAX, |c| c.schema_version);
-    RenderContext::public(
+    let RenderContext::Public(mut edition) = RenderContext::public(
         view,
         &files,
         heading,
         info,
         env!("CARGO_PKG_VERSION"),
         schema_version,
-    )
+    )?;
+    // The one selection that links and copies originals also counts them: a version's stored file
+    // is named for its version id, and its `location` is usually a web address.
+    edition.counts.originals = source::shipped_originals(view).len();
+    Ok(RenderContext::Public(edition))
 }
 
 /// Returns the deterministic set of relative output paths planned for `view`.

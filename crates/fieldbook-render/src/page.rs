@@ -318,8 +318,9 @@ fn claim_review_by(claim: &ClaimRow) -> Option<CivilDate> {
     Some(review_by(base, claim.volatility))
 }
 
-/// The per-claim part of the overdue banner. Every row is written hidden with its computed date;
-/// `app.js` reveals a row by the viewer's own date, so the build reads no clock.
+/// The per-claim part of the overdue banner, a fold so that the rows never push the page down.
+/// Every row is written hidden with its computed date; `app.js` reveals a row by the viewer's own
+/// date and writes how many are due in the summary, so the build reads no clock.
 fn render_due_claims(
     from_path: &str,
     claim_ids: &[ClaimId],
@@ -347,7 +348,7 @@ fn render_due_claims(
         return String::new();
     }
     format!(
-        "<div class=\"due-claims\" hidden><p><b>Claims due for a check.</b> Read the cited original, then record the date you checked it.</p><ul>{rows}</ul></div>"
+        "<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary><p>Read the cited original, then run the command with the date you checked it in place of YYYY-MM-DD.</p><ul>{rows}</ul></details></div>"
     )
 }
 

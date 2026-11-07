@@ -429,17 +429,22 @@
         const reviewBy = banner.getAttribute('data-review-by') || '';
         const pageDue = Boolean(reviewBy && today > reviewBy);
         const rows = banner.querySelectorAll('[data-claim-review-by]');
-        let claimDue = false;
+        let dueRows = 0;
         for (let j = 0; j < rows.length; j += 1) {
           const claimBy = rows[j].getAttribute('data-claim-review-by') || '';
           if (claimBy && today > claimBy) {
             rows[j].hidden = false;
-            claimDue = true;
+            dueRows += 1;
           }
         }
+        const claimDue = dueRows > 0;
         const dueBlock = banner.querySelector('.due-claims');
         if (dueBlock) {
           dueBlock.hidden = !claimDue;
+        }
+        const dueCount = banner.querySelector('.due-count');
+        if (dueCount) {
+          dueCount.textContent = String(dueRows);
         }
         const pageLine = banner.querySelector('.body');
         if (pageLine) {

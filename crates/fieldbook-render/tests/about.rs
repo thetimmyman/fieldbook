@@ -15,12 +15,15 @@ mod about {
     use fieldbook_core::date::CivilDate;
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::policy::EffectivePolicy;
+    use fieldbook_core::schema::{PageStatus, Verification};
     use fieldbook_core::strings;
-    use fieldbook_render::about::{self, NETWORK_POSTURE_SHORT};
+    use fieldbook_render::about::{self, CLAIM_LIST_SHOWN, NETWORK_POSTURE_SHORT};
     use fieldbook_render::chip::{self, ChipError};
     use fieldbook_render::csp::CSP_STATIC;
+    use fieldbook_render::frame::root_prefix_for_path;
     use fieldbook_render::meta::{BuildInfo, BuildProfile};
     use fieldbook_render::site::{self, Site};
+    use fieldbook_render::source;
 
     const CARDS_README: &str = include_str!("../../../docs/cards/README.md");
     const APP_JS: &str = include_str!("../assets/app.js");
@@ -111,6 +114,78 @@ mod about {
             .find_map(|line| line.strip_prefix("> **Short.** "))
             .unwrap_or_else(|| panic!("the README block has a Short paragraph"));
         line.trim_end()
+    }
+
+    /// The fixture with `edit` applied to the text of one register.
+    fn tree_with_register(name: &str, edit: impl Fn(&str) -> String) -> Tree {
+        let mut tree = fixture_tree();
+        let path = format!("corpus/registers/{name}.csv");
+        let csv = std::str::from_utf8(tree.get_bytes(&path).unwrap())
+            .unwrap()
+            .to_owned();
+        let edited = edit(&csv);
+        assert_ne!(edited, csv, "the plant must change {name}.csv");
+        tree.insert_bytes(path, edited.into_bytes());
+        tree
+    }
+
+    /// One claim of the fixture, moved from `unchecked` to `stale`.
+    fn tree_with_stale_claim() -> Tree {
+        tree_with_register("claims", |csv| {
+            csv.lines()
+                .map(|line| {
+                    if line.starts_with("CL-CMP-0002,") {
+                        line.replace(",unchecked,", ",stale,")
+                    } else {
+                        line.to_owned()
+                    }
+                })
+                .collect::<Vec<_>>()
+                .join("\n")
+                + "\n"
+        })
+    }
+
+    /// The fixture with `extra` more consequential, unchecked claims in the register.
+    fn tree_with_unreviewed_claims(extra: usize) -> Tree {
+        tree_with_register("claims", |csv| {
+            let model = csv
+                .lines()
+                .find(|line| line.starts_with("CL-CMP-0002,"))
+                .unwrap();
+            let mut lines: Vec<String> = Vec::new();
+            for line in csv.lines() {
+                lines.push(line.to_owned());
+                if line == model {
+                    for n in 0..extra {
+                        lines
+                            .push(model.replace("CL-CMP-0002", &format!("CL-CMP-{:04}", 1000 + n)));
+                    }
+                }
+            }
+            lines.join("\n") + "\n"
+        })
+    }
+
+    /// The rows of one panel of the About page.
+    fn panel<'a>(main: &'a str, id: &str) -> &'a str {
+        let body = main.split(&format!("id=\"{id}\"")).nth(1).unwrap();
+        body.split("</section>").next().unwrap()
+    }
+
+    /// The Short form as the page writes it: its code spans in `<code>`, no backticks.
+    fn short_form_on_the_page() -> String {
+        readme_short()
+            .split('`')
+            .enumerate()
+            .map(|(index, part)| {
+                if index % 2 == 1 {
+                    format!("<code>{part}</code>")
+                } else {
+                    part.to_owned()
+                }
+            })
+            .collect()
     }
 
     #[test]
@@ -317,8 +392,12 @@ mod about {
         assert!(NETWORK_POSTURE_SHORT.contains("silent build"));
         assert!(main.contains("<span class=\"panel-sub mono\">silent build</span>"));
         assert!(
-            main.contains(readme_short()),
+            main.contains(&short_form_on_the_page()),
             "the page quotes the Short form:\n{main}"
+        );
+        assert!(
+            !panel(main, "about-profile").contains('`'),
+            "a code span shows as code, not as backticks"
         );
         assert!(main.contains("The silent build is the only build in this edition."));
         assert!(main.contains("The AI build is not in this edition."));
@@ -329,6 +408,11 @@ mod about {
         let ai = about::render_main(&view, &ctx, BuildProfile::Ai, &site::planned_paths(&view));
         assert!(ai.contains("<span class=\"panel-sub mono\">AI build</span>"));
         assert!(!ai.contains("only build in this edition"));
+        assert!(
+            !ai.contains("The AI build is not in this edition."),
+            "an AI build's page must not deny the AI build:\n{ai}"
+        );
+        assert!(panel(&ai, "about-ai").contains("This is the AI build."));
     }
 
     #[test]
@@ -394,6 +478,174 @@ mod about {
             stale.contains("<p class=\"muted\">None recorded</p>"),
             "an empty list shows its empty line: {stale}"
         );
+    }
+
+    #[test]
+    fn about_status_counts_match_the_view() {
+        let (_model, view) = load_view(fixture_tree());
+        let site = built(fixture_tree(), &BuildInfo::default());
+        let html = text(&site, about::OUTPUT_PATH);
+        let main = about_main(&html);
+        for status in PageStatus::ALL {
+            let n = view
+                .pages()
+                .iter()
+                .filter(|page| page.meta.status == status)
+                .count();
+            let row = format!(
+                "<dt>Pages {}</dt><dd class=\"mono\">{n}</dd>",
+                status.as_str()
+            );
+            assert!(main.contains(&row), "{row}\n{main}");
+        }
+        for (verification, word) in [
+            (Verification::PrimarySourceSupported, "supported"),
+            (Verification::Contradicted, "contradicted"),
+            (Verification::Stale, "stale"),
+            (Verification::Unresolved, "unresolved"),
+            (Verification::Unchecked, "unchecked"),
+        ] {
+            let n = view
+                .claims()
+                .iter()
+                .filter(|claim| claim.value.verification == verification)
+                .count();
+            let row = format!("<dt>Claims {word}</dt><dd class=\"mono\">{n}</dd>");
+            assert!(main.contains(&row), "{row}\n{main}");
+        }
+        assert!(
+            !main.contains("primary_source_supported"),
+            "a status count reads as a word, not a raw vocabulary value"
+        );
+    }
+
+    #[test]
+    fn about_lists_a_stale_claim() {
+        let site = built(tree_with_stale_claim(), &BuildInfo::default());
+        let html = text(&site, about::OUTPUT_PATH);
+        let main = about_main(&html);
+        let stale = panel(main, "tu-stale-items");
+        assert!(stale.contains("CL-CMP-0002"), "{stale}");
+        assert!(
+            stale.contains("<span class=\"panel-sub mono\">1</span>"),
+            "{stale}"
+        );
+        assert!(!stale.contains("None recorded"));
+        assert!(!stale.contains("CL-CMP-0001"));
+        let unreviewed = panel(main, "tu-unreviewed-consequential-claims");
+        assert!(
+            !unreviewed.contains("CL-CMP-0002"),
+            "a stale claim is not an unchecked one: {unreviewed}"
+        );
+        assert!(main.contains("<dt>Claims stale</dt><dd class=\"mono\">1</dd>"));
+    }
+
+    /// The panels write a bounded list and the true count, so the page does not grow with the
+    /// Corpus; the claims register holds the rest.
+    #[test]
+    fn about_claim_lists_are_bounded_and_count_every_claim() {
+        let small = text(
+            &built(tree_with_unreviewed_claims(100), &BuildInfo::default()),
+            about::OUTPUT_PATH,
+        );
+        let large = text(
+            &built(tree_with_unreviewed_claims(900), &BuildInfo::default()),
+            about::OUTPUT_PATH,
+        );
+        let (_model, view) = load_view(tree_with_unreviewed_claims(900));
+        let total = view
+            .claims()
+            .iter()
+            .filter(|c| c.value.consequential && c.value.verification == Verification::Unchecked)
+            .count();
+        assert!(total > 900);
+        let main = about_main(&large);
+        let unreviewed = panel(main, "tu-unreviewed-consequential-claims");
+        assert_eq!(
+            unreviewed.matches("class=\"tu-item\"").count(),
+            CLAIM_LIST_SHOWN
+        );
+        assert!(unreviewed.contains(&format!("<span class=\"panel-sub mono\">{total}</span>")));
+        assert!(
+            unreviewed.contains(&format!(
+                "<a href=\"claims.html\">{} more in the claims register</a>",
+                total - CLAIM_LIST_SHOWN
+            )),
+            "{unreviewed}"
+        );
+        // Only the digits of the counts and the register's own sidebar count differ.
+        assert!(
+            large.len().abs_diff(small.len()) < 64,
+            "the page grew with the Corpus: {} and {} bytes",
+            small.len(),
+            large.len()
+        );
+    }
+
+    /// An original is counted by its version id, as the build copies it; `location` is usually a
+    /// web address. A held version ships no original.
+    #[test]
+    fn originals_count_is_the_shipped_selection() {
+        let web_address = |csv: &str| {
+            csv.replace(
+                ",S-0002-v2.txt,",
+                ",https://example.invalid/synthetic-pricing-guide,",
+            )
+        };
+        let (_model, view) = load_view(tree_with_register("sources", web_address));
+        assert_eq!(source::shipped_originals(&view).len(), 1);
+        let site = built(
+            tree_with_register("sources", web_address),
+            &BuildInfo::default(),
+        );
+        let html = text(&site, about::OUTPUT_PATH);
+        assert!(
+            about_main(&html).contains("<dt>Originals</dt><dd class=\"mono\">1</dd>"),
+            "{html}"
+        );
+        assert!(text(&site, "edition.toml").contains("\noriginals = 1\n"));
+
+        let held = tree_with_register("sources", |csv| {
+            csv.lines()
+                .map(|line| {
+                    if line.starts_with("S-0002,2,") {
+                        line.replace(",active,", ",quarantined,")
+                    } else {
+                        line.to_owned()
+                    }
+                })
+                .collect::<Vec<_>>()
+                .join("\n")
+                + "\n"
+        });
+        let site = built(held, &BuildInfo::default());
+        assert!(text(&site, "edition.toml").contains("\noriginals = 0\n"));
+    }
+
+    /// The build-date element is the way to About from every page, in both of its forms.
+    #[test]
+    fn every_page_links_to_about() {
+        for (tree, info) in [
+            (fixture_tree(), BuildInfo::default()),
+            (released_tree(), released_info()),
+        ] {
+            let site = built(tree, &info);
+            let mut pages = 0;
+            for (path, bytes) in site.files() {
+                if !path.ends_with(".html") {
+                    continue;
+                }
+                pages += 1;
+                let html = std::str::from_utf8(bytes).unwrap();
+                let link = format!(
+                    "<a class=\"build-date-link\" href=\"{}{}\">",
+                    root_prefix_for_path(path),
+                    about::OUTPUT_PATH
+                );
+                assert!(html.contains(&link), "{path} has no link to About");
+            }
+            assert!(pages > 1);
+        }
     }
 
     #[test]

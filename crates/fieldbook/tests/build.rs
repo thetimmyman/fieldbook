@@ -24,7 +24,7 @@ use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Via, Word};
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Code, Host, Options, load};
+use fieldbook_core::check::{Code, Host, Options, Tree, load};
 use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
 use fieldbook_core::labels::PUBLIC;
 use fieldbook_core::policy::EffectivePolicy;
@@ -1087,6 +1087,86 @@ mod build {
         }
     }
 
+    /// The mixed-plan comparison above blanks the manifest fingerprint, because a kept row may
+    /// name a left-out id. A disallowed row that no kept cell names must not move it, so a
+    /// fingerprint that hashed unfiltered register content fails here.
+    #[test]
+    fn fingerprint_ignores_a_disallowed_row_no_permitted_cell_names() {
+        let fingerprint_of = |tree: Tree, out: &Path, world: &TestWorld| {
+            let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
+            let eff = EffectivePolicy::floor(false);
+            let now = world.now();
+            let shipped = Shipped::Hours(1);
+            let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped)
+            else {
+                panic!("expected selection Allowed");
+            };
+            let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
+            let plan = plan_edition(
+                &view,
+                &BuildInfo::default(),
+                out,
+                &eff,
+                &LabelSet::public(),
+                now,
+                shipped,
+            )
+            .unwrap_or_else(|e| panic!("{e:?}"))
+            .unwrap_or_else(|d| panic!("{d:?}"));
+            let toml = String::from_utf8_lossy(&plan.site.files()["edition.toml"]).into_owned();
+            toml.lines()
+                .find(|line| line.starts_with("fingerprint = "))
+                .unwrap_or_else(|| panic!("edition.toml names its fingerprint"))
+                .to_owned()
+        };
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let base = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let mut mixed = base.clone();
+        let sources = std::str::from_utf8(
+            mixed
+                .get_bytes("corpus/registers/sources.csv")
+                .unwrap_or_else(|| panic!("fixture register")),
+        )
+        .unwrap_or_else(|e| panic!("{e}"))
+        .to_owned();
+        let header = sources
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("register header"));
+        let row = support::register_row(
+            header,
+            &[
+                ("source_id", "S-0098"),
+                ("version", "1"),
+                ("tag", "s-forbidden-alone"),
+                ("title", "Forbidden source canary, made up for tests"),
+                ("publisher", "Synthetic Standards Board"),
+                ("source_kind", "primary_law"),
+                ("source_role", "primary_evidence"),
+                ("authority_tier", "A"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", "metadata-only: made up for tests"),
+                ("sha256", &"8".repeat(64)),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", "active"),
+                ("volatility", "V2"),
+                ("handling", "public|np-0007"),
+                ("note", "Forbidden source note."),
+            ],
+        );
+        mixed.insert_bytes(
+            "corpus/registers/sources.csv",
+            support::splice_register_row(&sources, &row, None).into_bytes(),
+        );
+        assert_eq!(
+            fingerprint_of(mixed, &tmp.path().join("out-mixed"), &world),
+            fingerprint_of(base, &tmp.path().join("out-base"), &world),
+            "a disallowed row no kept cell names must not move the fingerprint"
+        );
+    }
+
     #[test]
     fn build_registers_counts_use_the_permitted_view() {
         let tmp = temp_copy(&fixture_root());
@@ -2105,7 +2185,9 @@ mod build {
         for shown in [
             "<dt>Pages</dt><dd class=\"mono\">9</dd>",
             "<dt>Claims</dt><dd class=\"mono\">5</dd>",
-            "<dt>Pages draft</dt>",
+            "<dt>Pages draft</dt><dd class=\"mono\">9</dd>",
+            "<dt>Pages stable</dt><dd class=\"mono\">0</dd>",
+            "<dt>Originals</dt><dd class=\"mono\">1</dd>",
             "<dt>Claims unchecked</dt><dd class=\"mono\">4</dd>",
             "This edition holds public only.",
             "silent build",
@@ -2119,6 +2201,7 @@ mod build {
             .unwrap_or_else(|e| panic!("edition.toml must parse: {e}"));
         assert_eq!(parsed.counts.pages, 9);
         assert_eq!(parsed.counts.claims, 5);
+        assert_eq!(parsed.counts.originals, 1);
         assert!(!parsed.ids.claims.iter().any(|id| id == "CL-CMP-0098"));
         assert!(
             !parsed

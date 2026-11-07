@@ -2360,8 +2360,22 @@ svg.cover .s-stale {
   white-space: nowrap;
 }
 
+.build-date-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.build-date-link:hover {
+  text-decoration: underline;
+}
+
 .banner:has(> .due-claims) {
   flex-direction: column;
+}
+
+.due-claims .fold {
+  margin-top: 0;
+  border-top: 0;
 }
 
 .due-claims ul {
