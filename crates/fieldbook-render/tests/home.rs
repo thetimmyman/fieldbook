@@ -1,6 +1,10 @@
 //! Integration tests for `fieldbook_render::{home, area, svg}` (`build-home-and-areas`).
 
 #![expect(clippy::unwrap_used, reason = "integration test helpers")]
+#![expect(
+    clippy::disallowed_methods,
+    reason = "tests read the corpus-mini fixture"
+)]
 
 mod home {
     use std::path::Path;
@@ -93,8 +97,8 @@ mod home {
     }
 
     fn main_of(html: &str) -> &str {
-        let start = html.find("<main").expect("frame has a main");
-        let end = html.rfind("</main>").expect("frame closes main");
+        let start = html.find("<main").unwrap();
+        let end = html.rfind("</main>").unwrap();
         &html[start..end]
     }
 
