@@ -11,7 +11,7 @@ use askama::Template;
 use fieldbook_core::check::PageEntry;
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
-use fieldbook_core::schema::vocab::PageType;
+use fieldbook_core::schema::vocab::{PageType, QuestionStatus};
 use fieldbook_core::schema::{ConflictStatus, SourceRow, Verification};
 
 use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page as render_frame_page};
@@ -250,8 +250,9 @@ fn panel(
         };
         format!("<ul class=\"tu-list\">{}</ul>{fold}", shown.concat())
     };
+    let id = format!("tu-{}", title.to_ascii_lowercase().replace(' ', "-"));
     format!(
-        "<section class=\"panel\"><div class=\"panel-head\"><{heading} class=\"panel-title\">{title}</{heading}>{sub}</div>{body}</section>"
+        "<section class=\"panel\" aria-labelledby=\"{id}\"><div class=\"panel-head\"><{heading} class=\"panel-title\" id=\"{id}\">{title}</{heading}>{sub}</div>{body}</section>"
     )
 }
 
@@ -331,7 +332,7 @@ fn day_one_rows(view: &LabelledView, planned: &PlannedPaths) -> Vec<DayOneRow> {
     view.questions()
         .iter()
         .map(|q| &q.value)
-        .filter(|q| q.day_one)
+        .filter(|q| q.day_one && q.status == QuestionStatus::Open)
         .map(|q| DayOneRow {
             chip_html: render_question_chip(
                 OUTPUT_PATH,

@@ -9,6 +9,10 @@ use fieldbook_core::schema::Verification;
 /// Hundredths of a viewBox unit across the 100-unit track, so widths sum exactly.
 const TRACK_HUNDREDTHS: usize = 10_000;
 
+/// The least width of a state that has any claim, so a lone contradicted claim among thousands
+/// still shows past the segment's edge stroke. The label and the legend carry the exact counts.
+const MIN_SEGMENT_HUNDREDTHS: usize = 200;
+
 /// How many claims hold each of the five verification states.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct CoverageCounts {
@@ -95,15 +99,19 @@ pub fn coverage_bar(counts: &CoverageCounts) -> String {
     );
     let total = counts.total();
     if total > 0 {
+        let drawn = counts.segments().iter().filter(|s| s.0 > 0).count();
+        let share = TRACK_HUNDREDTHS - drawn * MIN_SEGMENT_HUNDREDTHS;
         let mut running = 0;
+        let mut floors = 0;
         let mut at = 0;
         for (count, class, _) in counts.segments() {
             if count == 0 {
                 continue;
             }
             running += count;
+            floors += MIN_SEGMENT_HUNDREDTHS;
             // Each edge rounds from the running count, so the widths always meet the track's end.
-            let edge = (2 * running * TRACK_HUNDREDTHS + total) / (2 * total);
+            let edge = floors + (2 * running * share + total) / (2 * total);
             out.push_str(&format!(
                 "<rect class=\"seg {class}\" x=\"{}\" y=\"1\" width=\"{}\" height=\"8\"/>",
                 units(at),

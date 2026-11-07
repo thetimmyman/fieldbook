@@ -9,7 +9,7 @@ use askama::Template;
 use fieldbook_core::check::PageEntry;
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::schema::corpus_toml::AreaDef;
-use fieldbook_core::schema::vocab::PageType;
+use fieldbook_core::schema::vocab::{PageType, QuestionStatus};
 
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::home::{coverage_of, purpose_line, render_three_up};
@@ -146,7 +146,9 @@ fn render_main(area: &AreaDef, view: &LabelledView, planned: &PlannedPaths) -> S
         .questions()
         .iter()
         .map(|q| &q.value)
-        .filter(|q| q.area.as_str().eq_ignore_ascii_case(&area.code))
+        .filter(|q| {
+            q.status == QuestionStatus::Open && q.area.as_str().eq_ignore_ascii_case(&area.code)
+        })
         .map(|q| QuestionView {
             chip_html: render_question_chip(&from_path, &q.question_id, Some(&q.question), planned),
             question: q.question.clone(),

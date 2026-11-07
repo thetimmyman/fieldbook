@@ -464,6 +464,106 @@ mod home {
     }
 
     #[test]
+    fn a_rare_state_stays_visible_in_the_bar() {
+        // One contradicted claim among thousands: the size of the real areas.
+        let segs = segments(&coverage_bar(&counts(0, 9_484, 1, 0, 0)));
+        let bad = segs.iter().find(|s| s.0 == "s-bad").unwrap();
+        assert!(bad.2 >= 200, "a lone state is drawn too thin: {}", bad.2);
+        assert_eq!(segs.iter().map(|s| s.2).sum::<u32>(), 10_000);
+        // A larger state keeps a larger share.
+        let segs = segments(&coverage_bar(&counts(1, 3, 0, 0, 0)));
+        assert!(segs[0].2 < segs[1].2, "{segs:?}");
+    }
+
+    #[test]
+    fn three_up_sections_are_named_by_their_headings() {
+        let site = built(fixture_tree());
+        for (path, heading) in [("index.html", "h2"), ("a/cmp.html", "h3")] {
+            let html = page(&site, path);
+            for (id, title) in [
+                ("tu-continue-working", "Continue working"),
+                ("tu-ready-to-reuse", "Ready to reuse"),
+                ("tu-changes-to-review", "Changes to review"),
+            ] {
+                assert!(
+                    html.contains(&format!(
+                        "<section class=\"panel\" aria-labelledby=\"{id}\"><div class=\"panel-head\"><{heading} class=\"panel-title\" id=\"{id}\">{title}</{heading}>"
+                    )),
+                    "{path}: the {title} section must be named by its heading"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn withdrawn_questions_are_not_asked() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/corpus-mini");
+        let csv = std::fs::read_to_string(root.join("corpus/registers/questions.csv")).unwrap();
+        let withdrawn: String = csv
+            .lines()
+            .map(|l| {
+                if l.starts_with("Q-001,") {
+                    l.replace(",open,", ",withdrawn,")
+                } else {
+                    l.to_owned()
+                }
+            })
+            .collect::<Vec<_>>()
+            .join("\n");
+        assert_ne!(csv.trim_end(), withdrawn.trim_end(), "the row must change");
+        let mut tree = fixture_tree();
+        tree.insert_bytes(
+            "corpus/registers/questions.csv",
+            format!("{withdrawn}\n").into_bytes(),
+        );
+        let site = built(tree);
+        assert!(
+            !main_of(&page(&site, "index.html")).contains("Q-001"),
+            "a withdrawn question is no longer asked on the home page"
+        );
+        assert!(
+            !section(&page(&site, "a/cmp.html"), "questions").contains("Q-001"),
+            "a withdrawn question is no longer asked on its area page"
+        );
+    }
+
+    #[test]
+    fn changes_list_contradicted_then_stale_and_consequential_first() {
+        let site = built(tree_with(|toml, claims| {
+            let row = claims
+                .lines()
+                .find(|l| l.starts_with("CL-CMP-0002,"))
+                .unwrap();
+            assert!(
+                row.contains(",true,codex,"),
+                "the row must be consequential"
+            );
+            let mut out = claims.to_owned();
+            for (id, state, consequential) in [
+                ("0091", "stale", "true"),
+                ("0092", "contradicted", "false"),
+                ("0093", "contradicted", "true"),
+            ] {
+                let copy = row
+                    .replace("CL-CMP-0002", &format!("CL-CMP-{id}"))
+                    .replace(",unchecked,", &format!(",{state},"))
+                    .replace(",true,codex,", &format!(",{consequential},codex,"));
+                out.push_str(&copy);
+                out.push('\n');
+            }
+            (format!("{toml}{NEW_AREA}"), out)
+        }));
+        let index = page(&site, "index.html");
+        let at = |id: &str| {
+            index
+                .find(id)
+                .unwrap_or_else(|| panic!("{id} must be listed"))
+        };
+        assert!(at("CL-CMP-0093") < at("CL-CMP-0092"), "consequential first");
+        assert!(at("CL-CMP-0092") < at("CL-CMP-0091"), "contradicted first");
+    }
+
+    #[test]
     fn purpose_lines_drop_citation_markers() {
         let mut tree = fixture_tree();
         let path = "corpus/pages/compliance/business-systems/cmp-system-review.md";
