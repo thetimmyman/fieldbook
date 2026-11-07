@@ -31,7 +31,7 @@ Shows the special paragraph that DoD requires in a novation agreement when the b
 
 When a novation agreement is required and the transferee intends to incur restructuring costs as defined at 213.205-70, the cognizant contracting officer shall include the provision at DFARS 242.1204(i) as paragraph (b)(7) of the novation agreement instead of the paragraph (b)(7) provided in the sample format at FAR 42.1204(i) [@CL-MNA-0381; @CL-MNA-0456].
 
-Under that provision, restructuring costs allowable under FAR part 31 or DFARS part 231 may be reimbursed under flexibly-priced novated contracts [@CL-MNA-0457]. The proviso is that the transferee demonstrates that the restructuring will reduce overall costs to DoD (and to NASA where there is a mix of DoD and NASA contracts) and that the requirements included in DFARS 231.205-70 are met [@CL-MNA-0382]. The costs are not allowed on novated contracts unless there is an audit of the restructuring proposal, a determination by the contracting officer of overall reduced costs to DoD or NASA, and an advance agreement that sets a cumulative cost ceiling for restructuring projects and the period to which the costs are assigned [@CL-MNA-0383; @CL-MNA-0384].
+Under that provision, restructuring costs allowable under FAR part 31 or DFARS part 231 may be reimbursed under flexibly-priced novated contracts [@CL-MNA-0457]. The proviso is that the transferee demonstrates that the restructuring will reduce overall costs to DoD (and to NASA where there is a mix of DoD and NASA contracts) and that the requirements included in DFARS 231.205-70 are met [@CL-MNA-0382]. The costs are not allowed on novated contracts unless there is an audit of the restructuring proposal, a determination by the contracting officer of overall reduced costs to DoD/NASA, and an advance agreement that sets a cumulative cost ceiling for restructuring projects and the period to which the costs are assigned [@CL-MNA-0383; @CL-MNA-0384].
 
 ## How it works
 
@@ -54,6 +54,7 @@ Whether the transfer agreement for each acquisition case is drafted with the DoD
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added cross-referenced section numbers for restructuring costs and sample format.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restructuring-cost conditions stated as a single all-required list.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the DoD restructuring paragraph in the novation agreement.

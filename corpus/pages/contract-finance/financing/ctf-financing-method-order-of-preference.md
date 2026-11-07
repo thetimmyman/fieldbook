@@ -29,7 +29,7 @@ Shows the order in which a contracting officer considers financing methods when 
 | Text status | Final [@CL-CTF-3522] |
 | Applies to | A contractor's request for contract financing, and an offeror's or contractor's need for contract financing in an award decision [@CL-CTF-3522; @CL-CTF-3525] |
 
-When a contractor requests contract financing, the contracting officer must consider an order of preference, unless an exception would be in the Government's best interest in a specific case [@CL-CTF-3522]. The first preference is private financing without Government guarantee [@CL-CTF-3523]. After it, the order is customary contract financing other than loan guarantees and certain advance payments, then loan guarantees, then unusual contract financing, then advance payments [@CL-CTF-3524].
+When a contractor requests contract financing, the contracting officer must consider an order of preference, unless an exception would be in the Government's best interest in a specific case [@CL-CTF-3522]. The first preference is private financing without Government guarantee [@CL-CTF-3523]. After it, the order is customary contract financing other than loan guarantees and certain advance payments, then loan guarantees, then unusual contract financing, then advance payments, for which the section points to exceptions [@CL-CTF-3524].
 
 It is not intended that the contracting officer require the contractor to obtain private financing at unreasonable terms or from other agencies [@CL-CTF-3523].
 
@@ -68,6 +68,7 @@ When the company raised its financing request in the acquisition, and who fields
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts and paraphrases the cited paragraphs do not state.
 - COMPATIBLE_EXTENSION, 2026-10-30: Added the RFO FAR part 32 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the order of preference among financing methods.

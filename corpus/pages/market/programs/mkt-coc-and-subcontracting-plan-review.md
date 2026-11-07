@@ -40,7 +40,7 @@ If the SBA has not issued a certificate within 15 business days, or a longer per
 
 ### The SBA's role in the subcontracting program
 
-Under the program, the SBA may assist both Government agencies and contractors in carrying out their responsibilities with regard to subcontracting plans [@CL-MKT-1412]. It may review, within 5 working days, any solicitation that meets the dollar threshold in 19.702(a)(1)(i) or (ii) before the solicitation is issued [@CL-MKT-1414]. It may also review, within 5 working days before execution, any negotiated contractual document requiring a subcontracting plan, including the plan itself, and submit recommendations to the contracting officer, which are advisory in nature [@CL-MKT-1313]. It may evaluate compliance with subcontracting plans, either contract by contract or, for contractors having multiple contracts, on an aggregate basis [@CL-MKT-1413].
+Under the program, the SBA may assist both Government agencies and contractors in carrying out their responsibilities with regard to subcontracting plans [@CL-MKT-1412]. It may review, within 5 working days, any solicitation that meets the dollar threshold in 19.702(a)(1)(i) or (ii) before the solicitation is issued [@CL-MKT-1414]. It may also review any negotiated contractual document requiring a subcontracting plan, including the plan itself, before execution, with the review done within 5 working days, and submit recommendations to the contracting officer, which are advisory in nature [@CL-MKT-1313]. It may evaluate compliance with subcontracting plans, either contract by contract or, for contractors having multiple contracts, on an aggregate basis [@CL-MKT-1413].
 
 The SBA is not authorized to prescribe the extent to which any contractor or subcontractor shall subcontract, to specify the concerns to which subcontracts will be awarded, or to exercise any authority regarding the administration of individual prime contracts or subcontracts [@CL-MKT-1314].
 
@@ -61,5 +61,6 @@ Whether the purchasing system has been reviewed recently enough to bid, and when
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated only and contrast clauses in the confusion section.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for certificate of competency outcomes and subcontracting plan review.

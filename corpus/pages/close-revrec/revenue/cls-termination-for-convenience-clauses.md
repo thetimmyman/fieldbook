@@ -41,7 +41,7 @@ The FAR definitions section describes termination for convenience as the exercis
 
 ## How it works
 
-For a fixed-price contract, the simplified acquisition threshold is the dividing line between the prescription for the short-form clause and the prescription for the long-form clause, within the exceptions stated for each [@CL-CLS-1014; @CL-CLS-1015]. The long-form prescription also bars use where the services short-form clause is appropriate [@CL-CLS-1054]. The nonprofit-institution clause is limited to research and development work with an educational or nonprofit institution on a no-profit or no-fee basis [@CL-CLS-1056]. The cost-reimbursement clause is not prescribed for research and development with an educational or nonprofit institution on a no-fee basis [@CL-CLS-1022]. The sections also prescribe other alternates, including alternates for partial payments, and give guidance on use of some of these clauses in subcontracts.
+For a fixed-price contract, the simplified acquisition threshold is the dividing line between the prescription for the short-form clause and the prescription for the long-form clause, within the exceptions stated for each [@CL-CLS-1014; @CL-CLS-1015]. The long-form prescription also bars use where the services short-form clause is appropriate [@CL-CLS-1054]. The nonprofit-institution clause is prescribed when a fixed-price or cost-reimbursement contract is contemplated for research and development work with an educational or nonprofit institution on a no-profit or no-fee basis [@CL-CLS-1056]. The cost-reimbursement clause is not prescribed for research and development with an educational or nonprofit institution on a no-fee basis [@CL-CLS-1022]. The sections also prescribe other alternates, including alternates for partial payments, and give guidance on use of some of these clauses in subcontracts.
 
 ## Worked example
 
@@ -61,6 +61,7 @@ Which termination clause each open contract carries, checked against its contrac
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Narrowed the not-for-default contrast to the fixed-price clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: exception lists stated as alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR 2.101 definition of termination for convenience.

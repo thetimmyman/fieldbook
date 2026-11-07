@@ -27,7 +27,7 @@ Shows what an offeror must have before award under the CMMC level notice, and wh
 | RFO citation | Not established. |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-4008; @CL-CMP-4012] |
-| Applies to | Offerors, for each contractor information system that will process, store, or transmit Federal contract information or controlled unclassified information during performance of the contract [@CL-CMP-4008]; contractors providing or using information technology as specified by the Government [@CL-CMP-4012] |
+| Applies to | Offerors, for each contractor information system that will process, store, or transmit Federal contract information or controlled unclassified information during performance of the contract [@CL-CMP-4008]; contractors, who shall provide or use only information technology, as specified by the Government, that has been accredited as the emanations clause describes [@CL-CMP-4012] |
 
 The solicitation states the required CMMC level as one of CMMC Level 1 (Self), CMMC Level 2 (Self), CMMC Level 2 (C3PAO), or CMMC Level 3 (DIBCAC), which the Contracting Officer inserts [@CL-CMP-4049]. That level, or higher, is required before award for each contractor information system that will process, store, or transmit Federal contract information or controlled unclassified information during performance of the contract [@CL-CMP-4008]. The offeror will not be eligible for award if it does not have, for each of those systems that will be used in performance of a contract, the items listed in the provision [@CL-CMP-4009]. The two listed items are the current CMMC status entered in the Supplier Performance Risk System at the required CMMC level, and a current affirmation of continuous compliance with the security requirements in the CMMC rule entered in that system [@CL-CMP-4009; @CL-CMP-4010]. If the offeror has a CMMC Status of Conditional, it shall successfully close out a valid plan of action and milestones to achieve a CMMC Status of Final [@CL-CMP-4050]. The offeror shall also provide in its proposal the CMMC unique identifiers issued by that system for each contractor information system that will process, store, or transmit Federal contract information or controlled unclassified information during performance of a resulting contract, task order, or delivery order [@CL-CMP-4011]. It also shall update the list of identifiers when new identifiers are generated in that system [@CL-CMP-4051].
 
@@ -45,7 +45,7 @@ A solicitation states a required CMMC level. An offeror has two systems that wil
 
 ## Never confuse
 
-For the contractor compliance clause, see [Contractor compliance with CMMC level requirements](cmp-cmmc-level-compliance-clause.md). Plan of action and milestones and scoring are on [CMMC POA&M conditions and scoring](cmp-cmmc-poam-and-scoring.md), and affirmation and flowdown are on [CMMC affirmation and subcontractor flowdown](cmp-cmmc-affirmation-and-flowdown.md). The emanations clause applies to information technology that the contractor provides or uses as specified by the Government [@CL-CMP-4012]. For cloud services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
+For the contractor compliance clause, see [Contractor compliance with CMMC level requirements](cmp-cmmc-level-compliance-clause.md). Plan of action and milestones and scoring are on [CMMC POA&M conditions and scoring](cmp-cmmc-poam-and-scoring.md), and affirmation and flowdown are on [CMMC affirmation and subcontractor flowdown](cmp-cmmc-affirmation-and-flowdown.md). The emanations clause requires the contractor to provide or use only information technology, as specified by the Government, that has been accredited as the clause describes [@CL-CMP-4012]. For cloud services, see [Cloud computing services clause](cmp-cloud-computing-services-clause.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Which information systems will handle Federal contract information or controlled
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: removed uncited characterisations; cited alternatives and scope.
 - COMPATIBLE_EXTENSION, 2026-10-31: Stated the accreditation standards as alternatives.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the CMMC level notice and protection against compromising emanations.

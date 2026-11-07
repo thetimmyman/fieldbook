@@ -37,7 +37,7 @@ In addition to the requirements at FAR 17.207(c), an option is to be exercised o
 - The supplement refers to its procedures, guidance and information for the requirement to perform cost or price analysis of spare parts before exercising any option for firm-fixed-price contracts containing spare parts [@CL-MKT-1803; @CL-MKT-1804; @CL-MKT-1451].
 - Exercise also requires working with the program office or requiring activity to verify in the Supplier Performance Risk System that both of the matters listed in the next two items are met [@CL-MKT-1803; @CL-MKT-1451; @CL-MKT-1805; @CL-MKT-1452].
 - First, the verification covers whether the summary level score of a current NIST SP 800-171 DoD Assessment, not more than 3 years old unless the solicitation specifies a lesser time, is posted for each covered contractor information system that is relevant to an offer, contract, task order or delivery order [@CL-MKT-1803; @CL-MKT-1805; @CL-MKT-1760; @CL-MKT-1452].
-- Second, if the contractor is required to have a Cybersecurity Maturity Model Certification status at a specific level, the verification covers whether the contractor has a current status at the level required by the contract, or higher, for each unique identifier applicable to each contractor information system that processes, stores or transmits Federal contract information or controlled unclassified information and that is used in performance of the contract [@CL-MKT-1803; @CL-MKT-1805; @CL-MKT-1452; @CL-MKT-1806; @CL-MKT-1807].
+- Second, if the contractor is required to have a Cybersecurity Maturity Model Certification status at a specific level, the verification covers whether the contractor has a current status at the level required by the contract, or higher, for each unique identifier applicable to each contractor information system that processes, stores or transmits Federal contract information or controlled unclassified information [@CL-MKT-1803; @CL-MKT-1805; @CL-MKT-1452; @CL-MKT-1806; @CL-MKT-1807].
 
 ## How it works
 
@@ -64,6 +64,7 @@ Which foreign military sales and surge options sit in the order book, which clau
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed combined-procurement scope and conjunctive SPRS verification rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Broad agency announcement options pointer joined by or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD use and exercise of options and the additional option clauses.

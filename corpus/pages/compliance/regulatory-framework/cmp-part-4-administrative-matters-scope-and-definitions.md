@@ -33,7 +33,7 @@ FAR part 4 prescribes policies and procedures relating to the administrative asp
 
 The definitions in the definitions section apply as used in part 4 [@CL-CMP-8590]. A procurement instrument identifier is the Government-unique identifier for each solicitation, contract, agreement, or order [@CL-CMP-8283]. A supplementary procurement instrument identifier is non-unique and is used in conjunction with the Government-unique identifier [@CL-CMP-8284].
 
-Two examples in the definitions show how an agency may form the identifier. For procurement actions such as delivery and task orders or basic ordering agreements, an agency may use the order or agreement number in conjunction with the contract number, and the definition refers the reader to 4.1602 [@CL-CMP-8285]. For an amended solicitation, an agency may use the Government-unique solicitation number in conjunction with a non-unique amendment number [@CL-CMP-8591]. In that example the amendment number is the supplementary identifier [@CL-CMP-8592].
+Two examples in the definitions show how an agency may form the identifier. For procurement actions such as delivery and task orders or basic ordering agreements, an agency may use as its PIID the order or agreement number in conjunction with the contract number, and the definition refers the reader to 4.1602 [@CL-CMP-8285]. For an amended solicitation, an agency may use the Government-unique solicitation number in conjunction with a non-unique amendment number [@CL-CMP-8591]. In that example the amendment number is the supplementary identifier [@CL-CMP-8592].
 
 ## How it works
 
@@ -57,5 +57,6 @@ Which legal entities, business units and contracts sit inside the finance remit,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored scope list wording; restated identifier text; removed absence statements and contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the scope of FAR part 4 and its definitions.

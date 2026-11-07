@@ -38,7 +38,7 @@ Pay ratio information for the last completed fiscal year is not required to be d
 
 ## How it works
 
-The registrant chooses a date within the last three months of its last completed fiscal year to determine its employee population across the registrant and its consolidated subsidiaries (excluding independent contractors or leased workers employed and paid by an unaffiliated third party, and applying the 5% non-United States de minimis exemption on an all-or-nothing basis if elected) and discloses that date [@CL-FPA-1116; @CL-FPA-1117; @CL-FPA-1118; @CL-FPA-1119; @CL-FPA-1120; @CL-FPA-1123]. It identifies its median employee (required only once every three years if no change occurred in the last completed fiscal year that it reasonably believes would significantly change the pay ratio disclosure), using reasonable estimates where elected and briefly describing the methodology [@CL-FPA-1121; @CL-FPA-1122; @CL-FPA-1125; @CL-FPA-1126], determines annual total compensation for the median employee and the PEO in accordance with paragraph (c)(2)(x) (annualizing permanent employees employed less than the full year if elected, without annualizing temporary or seasonal positions or making full-time equivalent adjustments) [@CL-FPA-1115; @CL-FPA-1127; @CL-FPA-1128], and discloses the two amounts and their ratio within the timing rules of Instruction 6 [@CL-FPA-1113; @CL-FPA-1114; @CL-FPA-1245; @CL-FPA-1246; @CL-FPA-1124].
+The registrant chooses a date within the last three months of its last completed fiscal year to determine its employee population across the registrant and its consolidated subsidiaries (excluding independent contractors or leased workers employed and paid by an unaffiliated third party, and applying the 5% non-United States de minimis exemption on an all-or-nothing basis if elected) and discloses that date [@CL-FPA-1116; @CL-FPA-1117; @CL-FPA-1118; @CL-FPA-1119; @CL-FPA-1120; @CL-FPA-1123]. It identifies its median employee (required only once every three years if no change occurred in the last completed fiscal year that it reasonably believes would significantly change the pay ratio disclosure), using reasonable estimates where elected and briefly describing the methodology [@CL-FPA-1121; @CL-FPA-1122; @CL-FPA-1125; @CL-FPA-1126], determines annual total compensation for the median employee and the PEO in accordance with paragraph (c)(2)(x) (annualizing permanent employees employed less than the full year if elected, without annualizing temporary or seasonal positions or making full-time equivalent adjustments) [@CL-FPA-1115; @CL-FPA-1127; @CL-FPA-1128], and discloses the two amounts and their ratio within the timing rules of Instruction 3 to Item 402(u) [@CL-FPA-1113; @CL-FPA-1114; @CL-FPA-1245; @CL-FPA-1246; @CL-FPA-1124].
 
 ## Worked example
 
@@ -57,6 +57,7 @@ How the company would identify its employee population and payroll data across s
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added unpaid-leave qualifier in Item 402(u)(3) and definition citations in Applies to, and removed meta-wording and uncited contrast.
 - COMPATIBLE_EXTENSION, 2026-10-31: Pay ratio timing lead-in added.
 - NEW_KNOWLEDGE, 2026-10-31: Drafted the clause card for pay ratio disclosure.

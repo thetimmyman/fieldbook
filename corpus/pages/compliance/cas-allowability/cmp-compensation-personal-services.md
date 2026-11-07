@@ -15,7 +15,7 @@ questions = ["Q-043"]
 
 ## Purpose
 
-Compensation for personal services is allowable subject to the cost principle's general criteria and additional requirements [@CL-CMP-8258], including current-year work, reasonableness, and conformity to an established compensation plan or practice [@CL-CMP-0451; @CL-CMP-0452; @CL-CMP-8261].
+Compensation for personal services is allowable subject to the cost principle's general criteria and additional requirements [@CL-CMP-8258], including current-year work, reasonableness, and conformity to the terms and conditions of the contractor's established compensation plan or practice followed so consistently as to imply, in effect, an agreement to make the payment [@CL-CMP-0451; @CL-CMP-0452; @CL-CMP-8261].
 
 ## The rule
 
@@ -53,6 +53,7 @@ Whether each compensation plan is established and consistent, and whether major 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added regulations under the Internal Revenue Code to the RFO closely held owner compensation sentence.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited the established-plan requirement with a companion claim.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the general-criteria lead-in and special-individuals list with companion claims; restated exceptions and comparisons as the quotes read.

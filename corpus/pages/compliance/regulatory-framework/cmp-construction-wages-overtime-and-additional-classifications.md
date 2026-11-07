@@ -35,7 +35,7 @@ If any laborer or mechanic is to be employed in a classification not listed in t
 
 ## How it works
 
-The contracting officer reviews the request to determine whether it meets the listed criteria [@CL-CMP-3033; @CL-CMP-3034]. A route to approval applies where the criteria are met, the contractor and the laborers or mechanics to be employed in the additional classification (if known) or their representatives agree to the proposed classification, and the contracting officer approves [@CL-CMP-3035]. In that listed case, the contracting officer submits a report, including a copy of Standard Form 1444, of that action to the Administrator, Wage and Hour Division, for approval, modification, or disapproval of the additional classification and wage rate [@CL-CMP-3047; @CL-CMP-3035]. Within 30 days of receiving the report, the Administrator will complete action and advise the contracting officer, or will notify the contracting officer that additional time is necessary [@CL-CMP-3036; @CL-CMP-3047]. If the criteria are not met, the contracting officer shall submit a report giving the views of all interested parties and the contracting officer's recommendation to the Administrator, Wage and Hour Division, for determination of appropriate classification and wage rate [@CL-CMP-3120; @CL-CMP-3033]. The part of that paragraph on a failure of the parties to agree is not restated on this card.
+The contracting officer reviews the request to determine whether it meets the listed criteria [@CL-CMP-3033; @CL-CMP-3034]. One listed route applies where the criteria are met, the contractor and the laborers or mechanics to be employed in the additional classification (if known) or their representatives agree to the proposed classification, and the contracting officer approves [@CL-CMP-3035]. In that listed case, the contracting officer shall submit a report, including a copy of Standard Form 1444, of that action to the Administrator, Wage and Hour Division, for approval, modification, or disapproval of the additional classification and wage rate [@CL-CMP-3047; @CL-CMP-3035]. Within 30 days of receiving the report, the Administrator will complete action and advise the contracting officer, or will notify the contracting officer that additional time is necessary [@CL-CMP-3036; @CL-CMP-3047]. If the criteria are not met, the contracting officer shall submit a report giving the views of all interested parties and the contracting officer's recommendation to the Administrator, Wage and Hour Division, for determination of appropriate classification and wage rate [@CL-CMP-3120; @CL-CMP-3033]. The part of that paragraph on a failure of the parties to agree is not restated on this card.
 
 ## Worked example
 
@@ -55,5 +55,6 @@ Who submits and tracks requests for additional classifications to the Department
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: classification lead-in, worked example and pointers tied to cited text.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for construction wages, overtime and additional classifications.

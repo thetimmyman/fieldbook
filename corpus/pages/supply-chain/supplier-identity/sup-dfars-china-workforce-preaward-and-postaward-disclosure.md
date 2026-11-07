@@ -35,7 +35,7 @@ Before award, DoD may not award a contract to an offeror that is a covered entit
 
 ## How it works
 
-At the time of submission of an offer for a covered contract, an offeror that is a covered entity shall provide disclosures that include the total number of individuals who will perform work in the People's Republic of China and a description of the physical presence there, with street addresses [@CL-SUP-1720; @CL-SUP-1721]. After award, a Contractor that is a covered entity shall disclose, for the Government's fiscal years 2023 and 2024, its employment of individuals who perform work in the People's Republic of China on any covered contract [@CL-SUP-1722]. The postaward items are the total number of such individuals who perform work there on the covered contracts funded by DoD, and a description of the physical presence, including street addresses, where the work is performed [@CL-SUP-1756]. The Contractor shall insert the clause, including paragraph (c), in all subcontracts that meet the definition of a covered contract, without alteration other than to identify the appropriate parties [@CL-SUP-1723].
+At the time of submission of an offer for a covered contract, an offeror that is a covered entity shall provide disclosures that include the total number of individuals who will perform work in the People's Republic of China and a description of the physical presence there, with street addresses [@CL-SUP-1720; @CL-SUP-1721]. After award, a Contractor that is a covered entity shall disclose, for the Government's fiscal years 2023 and 2024, its employment of individuals who perform work in the People's Republic of China on any covered contract [@CL-SUP-1722]. The postaward disclosures include the total number of such individuals who perform work there on the covered contracts funded by DoD, and a description of the physical presence, including street addresses in the People's Republic of China, where the work is performed [@CL-SUP-1756]. The Contractor shall insert the clause, including paragraph (c), in all subcontracts that meet the definition of a covered contract, without alteration other than to identify the appropriate parties [@CL-SUP-1723].
 
 ## Worked example
 
@@ -54,5 +54,7 @@ Which executed contracts and subcontracts exceed the covered contract value and 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned obligation wording with the quotes; replaced uncited contrasts with pointers.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the preaward and postaward disclosure of employment of individuals who work in the People's Republic of China.

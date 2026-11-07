@@ -41,7 +41,7 @@ Under FAR 22.803 the Secretary of Labor administers and enforces the prescribed 
 
 Under FAR 22.1604 the Secretary may conduct compliance evaluations or investigate complaints on the clause at FAR 52.222-40, and agencies must supply the information and assistance the Secretary requires [@CL-CMP-6807; @CL-CMP-6808]. FAR 22.1605(a) says to insert the clause at FAR 52.222-40 in all solicitations and contracts, including acquisitions for commercial products, commercial services and commercially available off-the-shelf items, except acquisitions in the cases that follow [@CL-CMP-6987]. One exception is acquisitions under the simplified acquisition threshold; for indefinite-quantity contracts, the clause is included only if the value of orders in any calendar year of the contract is expected to exceed the simplified acquisition threshold [@CL-CMP-6988]. The other exceptions are acquisitions for work performed exclusively outside the United States and acquisitions covered in their entirety by an exemption granted by the Secretary [@CL-CMP-7002].
 
-The Secretary may not terminate or suspend a contract or suspend or debar a contractor if the agency head has provided written objections and continues to object to the imposition of such sanctions and penalties [@CL-CMP-6810; @CL-CMP-6990]. If the Secretary determines that there has been a violation, the Secretary may take such actions as set forth in 29 CFR 471.14 [@CL-CMP-6809].
+The Secretary may not terminate or suspend a contract or suspend or debar a contractor if the agency head has provided written objections, which must include a statement of reasons for the objection and a finding that the contractor's performance is essential to the agency's mission, and continues to object to the imposition of such sanctions and penalties [@CL-CMP-6810; @CL-CMP-6990]. If the Secretary determines that there has been a violation, the Secretary may take such actions as set forth in 29 CFR 471.14 [@CL-CMP-6809].
 
 ## Worked example
 
@@ -55,7 +55,7 @@ The Secretary proposes to terminate the contract. The agency head gives written 
 
 ## Never confuse
 
-The Secretary may conduct compliance evaluations or investigate complaints to determine if any of the requirements of the clause at FAR 52.222-40 have been violated [@CL-CMP-6807]. The Secretary's bar on termination, suspension and debarment applies where the agency head has provided written objections and continues to object [@CL-CMP-6810; @CL-CMP-6990].
+The Secretary may conduct compliance evaluations or investigate complaints to determine if any of the requirements of the clause at FAR 52.222-40 have been violated [@CL-CMP-6807]. The Secretary's bar on termination, suspension and debarment applies where the agency head has provided written objections that include a statement of reasons and a finding that the contractor's performance is essential to the agency's mission, and continues to object [@CL-CMP-6810; @CL-CMP-6990].
 
 FAR 22.1600 prescribes policies and procedures to implement Executive Order 13496 [@CL-CMP-6985]. FAR 22.803 makes the Secretary of Labor responsible for administration and enforcement of prescribed parts of Executive Order 11246 [@CL-CMP-6804].
 
@@ -69,5 +69,6 @@ Who owns a response to a Department of Labor or OFCCP inquiry, and which open fi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restated applicability routing, insertion rule and agency head objection with cited text; cut contrasts.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the Department of Labor enforcement roles and sanctions.
