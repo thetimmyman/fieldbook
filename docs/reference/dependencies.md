@@ -356,7 +356,7 @@ Each of these is small, has a test, and removes a review line for IT.
 | `schemars` | Generated docs | The serde types are the schema until a second implementation reads the Corpus |
 | `scraper` | Tests at the source | No HTML parser dependency; axe-core joins at Day 90 |
 | `comrak` | `pulldown-cmark` | Smaller tree, source offsets, fewer dependencies |
-| `rusqlite`, `tantivy` | The in-memory index | Reopen on the AD-24 trigger `later-sqlite-tantivy`: search p95 above 100 ms on the laptop, an edition index above 3 MB, a company browser working set above 24 MB, building the in-memory company index in more than 5 s, or a full `check` above 60 s. The persistent adapter would sit behind `IndexPort` |
+| `rusqlite`, `tantivy` | The in-memory index | Reopen on the AD-24 trigger `later-sqlite-tantivy`: search p95 above 100 ms on the laptop, an edition index above 15 MB, a company browser working set above 24 MB, building the in-memory company index in more than 5 s, or a full `check` above 60 s. The persistent adapter would sit behind `IndexPort` |
 | `tracing`; `rayon` | None | Diagnostics are the output; no measured need |
 | `indexmap` as a direct dependency | `BTreeMap` | Ordered output; `indexmap` still arrives through `zip` |
 | `tokio` | A blocking client | A blocking client and a hand-written loopback listener are enough |
