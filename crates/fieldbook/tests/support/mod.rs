@@ -295,6 +295,20 @@ pub fn assert_plain_site_equals_cells_site(
     );
     for (rel, bytes) in plain {
         if rel == "edition.toml" {
+            // The fingerprint covers the registers, so only that line may differ.
+            let lines = |b: &[u8]| -> Vec<String> {
+                String::from_utf8_lossy(b)
+                    .lines()
+                    .filter(|l| !l.starts_with("fingerprint"))
+                    .map(str::to_owned)
+                    .collect()
+            };
+            assert_eq!(
+                lines(bytes),
+                cells.get(rel).map(|b| lines(b)).unwrap_or_default(),
+                "a kept row's reference to a left-out record must change no line of edition.toml \
+                 but its fingerprint"
+            );
             continue;
         }
         assert!(
