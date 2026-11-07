@@ -368,7 +368,13 @@ fn run_edition_surface() {
     let world = TestWorld::new(tmp.path());
     let out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
 
-    let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+    // An in-memory tree keeps the bytes of the stored original, so the plan ships it.
+    tree.insert_bytes(
+        "corpus/sources/public/S-0002-v2.txt",
+        std::fs::read(tmp.path().join("corpus/sources/public/S-0002-v2.txt"))
+            .unwrap_or_else(|e| panic!("{e}")),
+    );
     let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
     assert!(report.is_ok(), "corpus-mini must load cleanly");
 
@@ -499,6 +505,35 @@ fn run_edition_surface() {
         "refused target-mutated write must not create rogue directory"
     );
 
+    // 2b. Changing the bytes of a shipped original after approval must be refused, and must
+    //     leave neither folder on disk.
+    assert!(
+        plan.originals.contains_key("S-0002-v2.txt"),
+        "the edition plan must carry the stored original"
+    );
+    let orig_originals = plan.originals.clone();
+    for rec in &fixture.record {
+        if rec.label != "public" {
+            let mut mutated = orig_originals.clone();
+            mutated
+                .get_mut("S-0002-v2.txt")
+                .unwrap_or_else(|| panic!("S-0002-v2.txt"))
+                .extend_from_slice(rec.canary.as_bytes());
+            plan.originals = mutated;
+            let res = write_edition_outputs(&plan, &audited);
+            assert!(
+                matches!(res, Err(Error::OutOfScope(_))),
+                "mutated original with canary for `{}` must be refused at write_edition_outputs",
+                rec.label
+            );
+        }
+    }
+    plan.originals = orig_originals;
+    assert!(
+        !plan.originals_dir.exists() && !plan.edition_dir.exists(),
+        "a refused original must leave neither folder on disk"
+    );
+
     // 3. Deliver the approved public shell through the real sink and verify disk outputs.
     write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
     journal
@@ -515,6 +550,23 @@ fn run_edition_surface() {
             .to_vec(),
     );
     support::add_canary_register_rows(&mut mixed_tree);
+    // The left-out source also has a stored original; the permitted view must not ship it.
+    mixed_tree.insert_bytes(
+        "corpus/sources/public/S-0002-v2.txt",
+        std::fs::read(tmp.path().join("corpus/sources/public/S-0002-v2.txt"))
+            .unwrap_or_else(|e| panic!("{e}")),
+    );
+    support::set_register_cell(
+        &mut mixed_tree,
+        "sources",
+        "S-0099",
+        "location",
+        "S-0099-v1.txt",
+    );
+    mixed_tree.insert_bytes(
+        "corpus/sources/public/S-0099-v1.txt",
+        b"Forbidden original canary, made up for tests.\n".to_vec(),
+    );
     let (mixed_model, _) = load(&Host::new(mixed_tree, world.today()), &Options::new(false));
     let mixed_view = LabelledView::new(&mixed_model, &sel_token, &ReadableStores::corpus());
     let nav_mixed = fieldbook_render::nav::build(
@@ -624,6 +676,12 @@ fn run_edition_surface() {
         plan.site.files(),
         "forbidden rows, IDs, and counts must be completely absent from mixed edition outputs"
     );
+    for (name, bytes) in &mixed_plan.originals {
+        assert!(
+            !String::from_utf8_lossy(bytes).contains("Forbidden original canary"),
+            "a left-out original must not be shipped as originals/{name}"
+        );
+    }
     for (rel, bytes) in mixed_plan.site.files() {
         let s = String::from_utf8_lossy(bytes);
         for forbidden_needle in [
@@ -642,6 +700,42 @@ fn run_edition_surface() {
                 !s.contains(forbidden_needle),
                 "forbidden canary `{forbidden_needle}` must not appear in {rel}"
             );
+        }
+    }
+
+    // The source pages and the originals reach disk from the permitted view only.
+    for vid in ["S-0001-v1", "S-0002-v1", "S-0002-v2", "S-0003-v1"] {
+        assert!(
+            plan.edition_dir.join(format!("s/{vid}.html")).is_file(),
+            "permitted source page s/{vid}.html must reach edition output"
+        );
+    }
+    assert!(!plan.edition_dir.join("s/S-0099-v1.html").exists());
+    assert!(
+        mixed_plan
+            .site
+            .files()
+            .keys()
+            .all(|k| !k.starts_with("s/S-0099")),
+        "a left-out source must have no page"
+    );
+    assert_eq!(
+        mixed_plan.originals, plan.originals,
+        "a left-out source must ship no original"
+    );
+    for (name, expected_bytes) in &plan.originals {
+        let disk_bytes =
+            std::fs::read(plan.originals_dir.join(name)).unwrap_or_else(|e| panic!("{e}"));
+        assert_eq!(&disk_bytes, expected_bytes, "mismatch on originals/{name}");
+        let disk_str = String::from_utf8_lossy(&disk_bytes);
+        for rec in &fixture.record {
+            if rec.label != "public" {
+                assert!(
+                    !disk_str.contains(&rec.canary),
+                    "forbidden canary `{}` must not appear in originals/{name}",
+                    rec.canary
+                );
+            }
         }
     }
 
