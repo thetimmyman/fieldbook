@@ -410,6 +410,42 @@ mod page {
     }
 
     #[test]
+    fn purpose_summary_drops_citation_markers() {
+        let plain =
+            "Explain how a synthetic system review interacts with a synthetic billing withhold";
+        for (purpose, want) in [
+            (format!("{plain} [@CL-CMP-0001]."), format!("{plain}.")),
+            (
+                format!("{plain} [@CL-CMP-0001; @CL-CMP-0002]."),
+                format!("{plain}."),
+            ),
+            (
+                format!("{plain} [@CL-CMP-0001] [@CL-CMP-0002]."),
+                format!("{plain}."),
+            ),
+            (
+                format!("{plain} [@S-0001-v1, sec. 1]. Second [@CL-CMP-0002]."),
+                format!("{plain}."),
+            ),
+        ] {
+            let mut tree = fixture_tree();
+            tree.insert_bytes(
+                "corpus/pages/compliance/business-systems/cmp-system-review.md",
+                CMP_SYSTEM_REVIEW_MD
+                    .replace(&format!("{plain}."), &purpose)
+                    .into_bytes(),
+            );
+            let (_model, view) = load_view(tree);
+            let concept = view
+                .pages()
+                .iter()
+                .find(|p| p.id.as_str() == "cmp-system-review")
+                .unwrap();
+            assert_eq!(first_sentence_of_purpose(concept), want, "from: {purpose}");
+        }
+    }
+
+    #[test]
     fn md_links_become_html() {
         let mut tree = fixture_tree();
         let two_sentence_concept = CMP_SYSTEM_REVIEW_MD.replace(

@@ -1,0 +1,2156 @@
+{
+  "kind": "page-view",
+  "version": 1,
+  "units": [
+    {
+      "id": "pa-beta",
+      "kind": "page",
+      "fields": {
+        "id": "pa-beta",
+        "title": "Ledger accrual",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Ledger accrual guide",
+        "parent": "",
+        "snippet": "Snippet of pa-beta.",
+        "status": "draft",
+        "as_of": "2026-01-10",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pa-alpha",
+      "kind": "page",
+      "fields": {
+        "id": "pa-alpha",
+        "title": "Alpha ledger",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Alpha ledger",
+        "parent": "",
+        "snippet": "Snippet of pa-alpha.",
+        "status": "draft",
+        "as_of": "2026-01-11",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pa-alpha#close",
+      "kind": "page",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "Close",
+        "claim": "",
+        "body": "ledger accrual close alpha note"
+      },
+      "display": {
+        "title": "Close",
+        "parent": "Alpha ledger",
+        "snippet": "Snippet of pa-alpha#close.",
+        "status": "draft",
+        "as_of": "2026-01-11",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pa-delta",
+      "kind": "page",
+      "fields": {
+        "id": "pa-delta",
+        "title": "Delta",
+        "headings": "",
+        "claim": "",
+        "body": "accrual"
+      },
+      "display": {
+        "title": "Delta",
+        "parent": "",
+        "snippet": "Snippet of pa-delta.",
+        "status": "review",
+        "as_of": "2026-01-12",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pb-keep",
+      "kind": "page",
+      "fields": {
+        "id": "pb-keep",
+        "title": "Retention",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Retention rules",
+        "parent": "",
+        "snippet": "Snippet of pb-keep.",
+        "status": "draft",
+        "as_of": "2026-02-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pb-keep#schedule",
+      "kind": "page",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "Retention schedule",
+        "claim": "",
+        "body": "retention schedule applies"
+      },
+      "display": {
+        "title": "Retention schedule",
+        "parent": "Retention rules",
+        "snippet": "Snippet of pb-keep#schedule.",
+        "status": "stale-copy",
+        "as_of": "2020-01-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pb-other",
+      "kind": "page",
+      "fields": {
+        "id": "pb-other",
+        "title": "Other",
+        "headings": "",
+        "claim": "",
+        "body": "schedule note"
+      },
+      "display": {
+        "title": "Other page",
+        "parent": "",
+        "snippet": "Snippet of pb-other.",
+        "status": "draft",
+        "as_of": "2026-02-02",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pd-wombat",
+      "kind": "page",
+      "fields": {
+        "id": "pd-wombat",
+        "title": "Wombat",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Wombat page",
+        "parent": "",
+        "snippet": "Snippet of pd-wombat.",
+        "status": "draft",
+        "as_of": "2026-02-03",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-ZZZ-0001",
+      "kind": "claim",
+      "fields": {
+        "id": "CL-ZZZ-0001",
+        "title": "",
+        "headings": "",
+        "claim": "wombat tariff",
+        "body": ""
+      },
+      "display": {
+        "title": "CL-ZZZ-0001",
+        "parent": "",
+        "snippet": "Snippet of CL-ZZZ-0001.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pe-orphan#stray",
+      "kind": "page",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "Stray heading",
+        "claim": "",
+        "body": "orphan stray"
+      },
+      "display": {
+        "title": "Stray heading",
+        "parent": "Orphan page",
+        "snippet": "Snippet of pe-orphan#stray.",
+        "status": "draft",
+        "as_of": "2026-03-01",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-ZZZ-0002",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "CL-ZZZ-0002",
+        "parent": "",
+        "snippet": "Snippet of CL-ZZZ-0002.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CM-000012-v2",
+      "kind": "record",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "CM-000012-v2",
+        "parent": "",
+        "snippet": "Snippet of CM-000012-v2.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "Q-900",
+      "kind": "question",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "Q-900",
+        "parent": "",
+        "snippet": "Snippet of Q-900.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "quokka_term",
+      "kind": "term",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "quokka_term",
+        "parent": "",
+        "snippet": "Snippet of quokka_term.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0900-v1",
+      "kind": "source",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "S-0900-v1",
+        "parent": "",
+        "snippet": "Snippet of S-0900-v1.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "SO-000042-v2#p0001",
+      "kind": "text",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "SO-000042-v2#p0001",
+        "parent": "",
+        "snippet": "Snippet of SO-000042-v2#p0001.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "XC-900",
+      "kind": "conflict",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "quokka"
+      },
+      "display": {
+        "title": "XC-900",
+        "parent": "",
+        "snippet": "Snippet of XC-900.",
+        "status": "",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pf-clause",
+      "kind": "clause",
+      "fields": {
+        "id": "pf-clause",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "platypus"
+      },
+      "display": {
+        "title": "Clause card",
+        "parent": "",
+        "snippet": "Snippet of pf-clause.",
+        "status": "draft",
+        "as_of": "2026-03-02",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pf-one",
+      "kind": "page",
+      "fields": {
+        "id": "pf-one",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "platypus"
+      },
+      "display": {
+        "title": "Page one",
+        "parent": "",
+        "snippet": "Snippet of pf-one.",
+        "status": "draft",
+        "as_of": "2026-03-03",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pf-one#sec",
+      "kind": "page",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "platypus"
+      },
+      "display": {
+        "title": "Section of one",
+        "parent": "Page one",
+        "snippet": "Snippet of pf-one#sec.",
+        "status": "draft",
+        "as_of": "2026-03-03",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pf-two",
+      "kind": "page",
+      "fields": {
+        "id": "pf-two",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "platypus"
+      },
+      "display": {
+        "title": "Page two",
+        "parent": "",
+        "snippet": "Snippet of pf-two.",
+        "status": "draft",
+        "as_of": "2026-03-04",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-01",
+      "kind": "page",
+      "fields": {
+        "id": "pg-01",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 1",
+        "parent": "",
+        "snippet": "Snippet of pg-01.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-02",
+      "kind": "page",
+      "fields": {
+        "id": "pg-02",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 2",
+        "parent": "",
+        "snippet": "Snippet of pg-02.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-03",
+      "kind": "page",
+      "fields": {
+        "id": "pg-03",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 3",
+        "parent": "",
+        "snippet": "Snippet of pg-03.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-04",
+      "kind": "page",
+      "fields": {
+        "id": "pg-04",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 4",
+        "parent": "",
+        "snippet": "Snippet of pg-04.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-05",
+      "kind": "page",
+      "fields": {
+        "id": "pg-05",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 5",
+        "parent": "",
+        "snippet": "Snippet of pg-05.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-06",
+      "kind": "page",
+      "fields": {
+        "id": "pg-06",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 6",
+        "parent": "",
+        "snippet": "Snippet of pg-06.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-07",
+      "kind": "page",
+      "fields": {
+        "id": "pg-07",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 7",
+        "parent": "",
+        "snippet": "Snippet of pg-07.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-08",
+      "kind": "page",
+      "fields": {
+        "id": "pg-08",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 8",
+        "parent": "",
+        "snippet": "Snippet of pg-08.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-09",
+      "kind": "page",
+      "fields": {
+        "id": "pg-09",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 9",
+        "parent": "",
+        "snippet": "Snippet of pg-09.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-10",
+      "kind": "page",
+      "fields": {
+        "id": "pg-10",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 10",
+        "parent": "",
+        "snippet": "Snippet of pg-10.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-11",
+      "kind": "page",
+      "fields": {
+        "id": "pg-11",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 11",
+        "parent": "",
+        "snippet": "Snippet of pg-11.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pg-12",
+      "kind": "page",
+      "fields": {
+        "id": "pg-12",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "Dingo page 12",
+        "parent": "",
+        "snippet": "Snippet of pg-12.",
+        "status": "draft",
+        "as_of": "2026-03-05",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0001",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0001",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0001.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0002",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0002",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0002.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0003",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0003",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0003.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0004",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0004",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0004.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0005",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0005",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0005.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0006",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0006",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0006.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-DNG-0007",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "dingo"
+      },
+      "display": {
+        "title": "CL-DNG-0007",
+        "parent": "",
+        "snippet": "Snippet of CL-DNG-0007.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0001",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0001",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0001.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0002",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0002",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0002.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0003",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0003",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0003.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0004",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0004",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0004.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0005",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0005",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0005.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0006",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0006",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0006.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0007",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0007",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0007.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0008",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0008",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0008.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0009",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0009",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0009.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0010",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0010",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0010.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0011",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0011",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0011.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-NUM-0012",
+      "kind": "claim",
+      "fields": {
+        "id": "",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "numbat"
+      },
+      "display": {
+        "title": "CL-NUM-0012",
+        "parent": "",
+        "snippet": "Snippet of CL-NUM-0012.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v1",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v1",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v1",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v1.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v2",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v2",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v2",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v2.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v3",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v3",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v3",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v3.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v4",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v4",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v4",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v4.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v5",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v5",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v5",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v5.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v6",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v6",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v6",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v6.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v7",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v7",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v7",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v7.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v8",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v8",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v8",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v8.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v9",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v9",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v9",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v9.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v10",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v10",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v10",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v10.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v11",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v11",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v11",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v11.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "S-0950-v12",
+      "kind": "source",
+      "fields": {
+        "id": "S-0950-v12",
+        "title": "Versioned guide",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Versioned guide v12",
+        "parent": "",
+        "snippet": "Snippet of S-0950-v12.",
+        "status": "active",
+        "as_of": "2026-03-06",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "ph-cites",
+      "kind": "page",
+      "fields": {
+        "id": "ph-cites",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "see S-0950 for detail"
+      },
+      "display": {
+        "title": "Citing page",
+        "parent": "",
+        "snippet": "Snippet of ph-cites.",
+        "status": "draft",
+        "as_of": "2026-03-07",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "CL-ZZZ-0009",
+      "kind": "claim",
+      "fields": {
+        "id": "CL-ZZZ-0009",
+        "title": "",
+        "headings": "",
+        "claim": "An exact claim",
+        "body": ""
+      },
+      "display": {
+        "title": "CL-ZZZ-0009",
+        "parent": "",
+        "snippet": "Snippet of CL-ZZZ-0009.",
+        "status": "unchecked",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "pi-cites",
+      "kind": "page",
+      "fields": {
+        "id": "pi-cites",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "see CL-ZZZ-0009 here"
+      },
+      "display": {
+        "title": "Page citing a claim",
+        "parent": "",
+        "snippet": "Snippet of pi-cites.",
+        "status": "draft",
+        "as_of": "2026-03-08",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "Q-950",
+      "kind": "question",
+      "fields": {
+        "id": "Q-950",
+        "title": "An exact question",
+        "headings": "",
+        "claim": "",
+        "body": ""
+      },
+      "display": {
+        "title": "Q-950",
+        "parent": "",
+        "snippet": "Snippet of Q-950.",
+        "status": "open",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    },
+    {
+      "id": "XC-950",
+      "kind": "conflict",
+      "fields": {
+        "id": "XC-950",
+        "title": "",
+        "headings": "",
+        "claim": "",
+        "body": "raised by Q-950"
+      },
+      "display": {
+        "title": "A conflict",
+        "parent": "",
+        "snippet": "Snippet of XC-950.",
+        "status": "open",
+        "as_of": "",
+        "effective_from": "",
+        "verified_on": ""
+      },
+      "exact_key": ""
+    }
+  ],
+  "cases": [
+    {
+      "id": "pv-01",
+      "query": "ledger accrual",
+      "note": "Pages keep the order of their first hit; a section collapses into its page.",
+      "hits": [
+        "pa-beta",
+        "pa-alpha#close",
+        "pa-alpha",
+        "pa-delta"
+      ],
+      "exact": [],
+      "pages": [
+        {
+          "page": "pa-beta",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Ledger accrual guide",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-01-10",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pa-beta",
+          "snippet": "Snippet of pa-beta.",
+          "matched_units": 1
+        },
+        {
+          "page": "pa-alpha",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Alpha ledger",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-01-11",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pa-alpha#close",
+          "snippet": "Snippet of pa-alpha#close.",
+          "matched_units": 2
+        },
+        {
+          "page": "pa-delta",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Delta",
+          "parent": "",
+          "status": "review",
+          "as_of": "2026-01-12",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pa-delta",
+          "snippet": "Snippet of pa-delta.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 3,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-02",
+      "query": "retention schedule",
+      "note": "A section outranks its lead: one row, display values of the lead, best unit and snippet of the section.",
+      "hits": [
+        "pb-keep#schedule",
+        "pb-keep",
+        "pb-other"
+      ],
+      "exact": [],
+      "pages": [
+        {
+          "page": "pb-keep",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Retention rules",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-02-01",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pb-keep#schedule",
+          "snippet": "Snippet of pb-keep#schedule.",
+          "matched_units": 2
+        },
+        {
+          "page": "pb-other",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Other page",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-02-02",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pb-other",
+          "snippet": "Snippet of pb-other.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 2,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-03",
+      "query": "pb-keep#schedule",
+      "note": "An exact section stays a unit row, and its page does not repeat as a page row.",
+      "hits": [
+        "pb-keep#schedule",
+        "pb-keep",
+        "pb-other"
+      ],
+      "exact": [
+        "pb-keep#schedule"
+      ],
+      "pages": [
+        {
+          "page": "pb-other",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Other page",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-02-02",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pb-other",
+          "snippet": "Snippet of pb-other.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 1,
+      "shown_pages": 1,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-04",
+      "query": "pa-alpha",
+      "note": "An exact lead stays a unit row, its section folds into it and other pages follow.",
+      "hits": [
+        "pa-alpha",
+        "pa-beta",
+        "pa-delta",
+        "pa-alpha#close"
+      ],
+      "exact": [
+        "pa-alpha"
+      ],
+      "pages": [
+        {
+          "page": "pa-beta",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Ledger accrual guide",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-01-10",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pa-beta",
+          "snippet": "Snippet of pa-beta.",
+          "matched_units": 1
+        },
+        {
+          "page": "pa-delta",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Delta",
+          "parent": "",
+          "status": "review",
+          "as_of": "2026-01-12",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pa-delta",
+          "snippet": "Snippet of pa-delta.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 1,
+      "shown_pages": 2,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-05",
+      "query": "wombat tariff",
+      "note": "A claim that outranks every page is an other row, after the pages.",
+      "hits": [
+        "CL-ZZZ-0001",
+        "pd-wombat"
+      ],
+      "exact": [],
+      "pages": [
+        {
+          "page": "pd-wombat",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Wombat page",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-02-03",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pd-wombat",
+          "snippet": "Snippet of pd-wombat.",
+          "matched_units": 1
+        }
+      ],
+      "other": [
+        "CL-ZZZ-0001"
+      ],
+      "absorbed": 0,
+      "shown_pages": 1,
+      "shown_other": 1
+    },
+    {
+      "id": "pv-06",
+      "query": "orphan",
+      "note": "A section whose page has no lead unit takes its own display values.",
+      "hits": [
+        "pe-orphan#stray"
+      ],
+      "exact": [],
+      "pages": [
+        {
+          "page": "pe-orphan",
+          "has_lead": false,
+          "kind": "page",
+          "title": "Stray heading",
+          "parent": "Orphan page",
+          "status": "draft",
+          "as_of": "2026-03-01",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pe-orphan#stray",
+          "snippet": "Snippet of pe-orphan#stray.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 1,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-07",
+      "query": "quokka",
+      "note": "Only other rows, of every kind that is not a page or clause, in rank order.",
+      "hits": [
+        "CL-ZZZ-0002",
+        "CM-000012-v2",
+        "Q-900",
+        "quokka_term",
+        "S-0900-v1",
+        "SO-000042-v2#p0001",
+        "XC-900"
+      ],
+      "exact": [],
+      "pages": [],
+      "other": [
+        "CL-ZZZ-0002",
+        "CM-000012-v2",
+        "Q-900",
+        "quokka_term",
+        "S-0900-v1",
+        "SO-000042-v2#p0001",
+        "XC-900"
+      ],
+      "absorbed": 0,
+      "shown_pages": 0,
+      "shown_other": 7
+    },
+    {
+      "id": "pv-08",
+      "query": "platypus",
+      "note": "Only pages; a clause card groups as a page does and keeps its kind.",
+      "hits": [
+        "pf-clause",
+        "pf-one",
+        "pf-one#sec",
+        "pf-two"
+      ],
+      "exact": [],
+      "pages": [
+        {
+          "page": "pf-clause",
+          "has_lead": true,
+          "kind": "clause",
+          "title": "Clause card",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-02",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pf-clause",
+          "snippet": "Snippet of pf-clause.",
+          "matched_units": 1
+        },
+        {
+          "page": "pf-one",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Page one",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-03",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pf-one",
+          "snippet": "Snippet of pf-one.",
+          "matched_units": 2
+        },
+        {
+          "page": "pf-two",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Page two",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-04",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pf-two",
+          "snippet": "Snippet of pf-two.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 3,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-09",
+      "query": "dingo",
+      "note": "Ten pages and five others are shown; the view holds all of them.",
+      "hits": [
+        "CL-DNG-0001",
+        "CL-DNG-0002",
+        "CL-DNG-0003",
+        "CL-DNG-0004",
+        "CL-DNG-0005",
+        "CL-DNG-0006",
+        "CL-DNG-0007",
+        "pg-01",
+        "pg-02",
+        "pg-03",
+        "pg-04",
+        "pg-05",
+        "pg-06",
+        "pg-07",
+        "pg-08",
+        "pg-09",
+        "pg-10",
+        "pg-11",
+        "pg-12"
+      ],
+      "exact": [],
+      "pages": [
+        {
+          "page": "pg-01",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 1",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-01",
+          "snippet": "Snippet of pg-01.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-02",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 2",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-02",
+          "snippet": "Snippet of pg-02.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-03",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 3",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-03",
+          "snippet": "Snippet of pg-03.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-04",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 4",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-04",
+          "snippet": "Snippet of pg-04.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-05",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 5",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-05",
+          "snippet": "Snippet of pg-05.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-06",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 6",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-06",
+          "snippet": "Snippet of pg-06.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-07",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 7",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-07",
+          "snippet": "Snippet of pg-07.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-08",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 8",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-08",
+          "snippet": "Snippet of pg-08.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-09",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 9",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-09",
+          "snippet": "Snippet of pg-09.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-10",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 10",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-10",
+          "snippet": "Snippet of pg-10.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-11",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 11",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-11",
+          "snippet": "Snippet of pg-11.",
+          "matched_units": 1
+        },
+        {
+          "page": "pg-12",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Dingo page 12",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-05",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pg-12",
+          "snippet": "Snippet of pg-12.",
+          "matched_units": 1
+        }
+      ],
+      "other": [
+        "CL-DNG-0001",
+        "CL-DNG-0002",
+        "CL-DNG-0003",
+        "CL-DNG-0004",
+        "CL-DNG-0005",
+        "CL-DNG-0006",
+        "CL-DNG-0007"
+      ],
+      "absorbed": 0,
+      "shown_pages": 10,
+      "shown_other": 5
+    },
+    {
+      "id": "pv-10",
+      "query": "numbat",
+      "note": "With no page row, other rows fill up to ten.",
+      "hits": [
+        "CL-NUM-0001",
+        "CL-NUM-0002",
+        "CL-NUM-0003",
+        "CL-NUM-0004",
+        "CL-NUM-0005",
+        "CL-NUM-0006",
+        "CL-NUM-0007",
+        "CL-NUM-0008",
+        "CL-NUM-0009",
+        "CL-NUM-0010",
+        "CL-NUM-0011",
+        "CL-NUM-0012"
+      ],
+      "exact": [],
+      "pages": [],
+      "other": [
+        "CL-NUM-0001",
+        "CL-NUM-0002",
+        "CL-NUM-0003",
+        "CL-NUM-0004",
+        "CL-NUM-0005",
+        "CL-NUM-0006",
+        "CL-NUM-0007",
+        "CL-NUM-0008",
+        "CL-NUM-0009",
+        "CL-NUM-0010",
+        "CL-NUM-0011",
+        "CL-NUM-0012"
+      ],
+      "absorbed": 0,
+      "shown_pages": 0,
+      "shown_other": 10
+    },
+    {
+      "id": "pv-11",
+      "query": "S-0950",
+      "note": "Every version of a source is listed, past any limit, and a citing page follows.",
+      "hits": [
+        "S-0950-v1",
+        "S-0950-v2",
+        "S-0950-v3",
+        "S-0950-v4",
+        "S-0950-v5",
+        "S-0950-v6",
+        "S-0950-v7",
+        "S-0950-v8",
+        "S-0950-v9",
+        "S-0950-v10",
+        "S-0950-v11",
+        "S-0950-v12",
+        "ph-cites"
+      ],
+      "exact": [
+        "S-0950-v1",
+        "S-0950-v2",
+        "S-0950-v3",
+        "S-0950-v4",
+        "S-0950-v5",
+        "S-0950-v6",
+        "S-0950-v7",
+        "S-0950-v8",
+        "S-0950-v9",
+        "S-0950-v10",
+        "S-0950-v11",
+        "S-0950-v12"
+      ],
+      "pages": [
+        {
+          "page": "ph-cites",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Citing page",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-07",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "ph-cites",
+          "snippet": "Snippet of ph-cites.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 1,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-12",
+      "query": "CL-ZZZ-0009",
+      "note": "An exact claim is one exact row and is not repeated as an other row.",
+      "hits": [
+        "CL-ZZZ-0009",
+        "pi-cites"
+      ],
+      "exact": [
+        "CL-ZZZ-0009"
+      ],
+      "pages": [
+        {
+          "page": "pi-cites",
+          "has_lead": true,
+          "kind": "page",
+          "title": "Page citing a claim",
+          "parent": "",
+          "status": "draft",
+          "as_of": "2026-03-08",
+          "effective_from": "",
+          "verified_on": "",
+          "best_unit": "pi-cites",
+          "snippet": "Snippet of pi-cites.",
+          "matched_units": 1
+        }
+      ],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 1,
+      "shown_other": 0
+    },
+    {
+      "id": "pv-13",
+      "query": "Q-950",
+      "note": "An exact row and other rows, with no page row.",
+      "hits": [
+        "Q-950",
+        "XC-950"
+      ],
+      "exact": [
+        "Q-950"
+      ],
+      "pages": [],
+      "other": [
+        "XC-950"
+      ],
+      "absorbed": 0,
+      "shown_pages": 0,
+      "shown_other": 1
+    },
+    {
+      "id": "pv-14",
+      "query": "zzzabsent",
+      "note": "Nothing matches: every list is empty.",
+      "hits": [],
+      "exact": [],
+      "pages": [],
+      "other": [],
+      "absorbed": 0,
+      "shown_pages": 0,
+      "shown_other": 0
+    }
+  ]
+}

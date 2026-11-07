@@ -8,7 +8,6 @@
 use std::collections::BTreeSet;
 
 use askama::Template;
-use fieldbook_core::check::PageEntry;
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::VersionId;
 use fieldbook_core::schema::vocab::{PageType, QuestionStatus};
@@ -55,23 +54,6 @@ fn version_of(row: &SourceRow) -> Option<VersionId> {
     VersionId::parse(&format!("{}-v{}", row.source_id, row.version)).ok()
 }
 
-/// The first sentence of a page's purpose as a plain line: its citation markers are for the page
-/// itself, where they resolve to chips.
-pub(crate) fn purpose_line(page: &PageEntry) -> String {
-    let text = first_sentence_of_purpose(page);
-    let mut out = String::with_capacity(text.len());
-    let mut rest = text.as_str();
-    while let Some(start) = rest.find("[@") {
-        let Some(len) = rest[start..].find(']') else {
-            break;
-        };
-        out.push_str(rest[..start].trim_end());
-        rest = &rest[start + len + 1..];
-    }
-    out.push_str(rest);
-    out
-}
-
 /// One `ReuseItem`: a link, why it can be reused, and its state chip.
 fn reuse_items(
     from_path: &str,
@@ -83,7 +65,7 @@ fn reuse_items(
         .iter()
         .filter(|p| p.meta.r#type == PageType::Template && in_scope(p.meta.area.as_str(), area))
         .map(|page| {
-            let why = purpose_line(page);
+            let why = first_sentence_of_purpose(page);
             let link = render_page_link(
                 from_path,
                 page.id.as_str(),
@@ -351,7 +333,7 @@ fn brief_rows(view: &LabelledView, planned: &PlannedPaths) -> Vec<BriefRow> {
         .iter()
         .filter(|p| p.meta.r#type == PageType::Brief)
         .map(|page| {
-            let why = purpose_line(page);
+            let why = first_sentence_of_purpose(page);
             BriefRow {
                 link_html: render_page_link(
                     OUTPUT_PATH,

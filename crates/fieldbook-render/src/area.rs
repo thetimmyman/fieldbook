@@ -12,7 +12,8 @@ use fieldbook_core::schema::corpus_toml::AreaDef;
 use fieldbook_core::schema::vocab::{PageType, QuestionStatus};
 
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
-use crate::home::{coverage_of, purpose_line, render_three_up};
+use crate::home::{coverage_of, render_three_up};
+use crate::inline::first_sentence_of_purpose;
 use crate::links::{escape_html, href_if_planned, render_page_link, render_question_chip};
 use crate::meta::RenderContext;
 use crate::nav::{Navigation, SectionId};
@@ -80,7 +81,7 @@ struct AreaTemplate {
 }
 
 fn page_row(page: &PageEntry, from_path: &str, planned: &PlannedPaths) -> PageRow {
-    let why = purpose_line(page);
+    let why = first_sentence_of_purpose(page);
     PageRow {
         id: page.id.as_str().to_owned(),
         link_html: render_page_link(
