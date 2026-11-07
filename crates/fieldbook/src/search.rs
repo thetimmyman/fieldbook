@@ -1,12 +1,13 @@
 //! Implementation of `fieldbook search` (`docs/reference/search.md#the-command-line`).
 //!
 //! **Responsibility.** Read the Corpus through [`World::read_tree`] (one coherent generation under
-//! the store lease), build the search index in memory, run the query with the CLI limit and print
-//! the results: two lines per result, the full record of a single exact id, the abstention phrase
-//! when nothing matches, or the `--json` report.
+//! the store lease), build the search index in memory, run the query and print the results as the
+//! page view, or as the flat unit list with `--units`: two lines per result, the full record of a
+//! single exact id, the abstention phrase when nothing matches, or the `--json` report.
 //!
 //! **Rules.** Reads only: it writes no file and opens no socket. The ranking is `fieldbook-core`'s
-//! `query`; this module only chooses the limit and formats the output. Every Corpus string it
+//! `query` and the grouping its `page_view`; this module only chooses the limits and formats the
+//! output. Every Corpus string it
 //! prints goes through `single_line`, so Corpus text cannot forge a line or drive a terminal.
 
 use std::fmt;
@@ -15,17 +16,20 @@ use fieldbook_core::check::Tree;
 use fieldbook_core::eval::corpus_index;
 use fieldbook_core::report::SearchReport;
 use fieldbook_core::schema::{Register, page, table};
-use fieldbook_core::search::{DocEntry, Index, Results, is_exact_class, normalise, query};
+use fieldbook_core::search::{
+    DocEntry, Hit, Index, PageRow, PageView, Results, ShownRows, ViewLimits, is_exact_class,
+    normalise, page_view, query,
+};
 use serde::de::{Deserialize, Deserializer, MapAccess, Visitor};
 use serde_json::Value;
 
 use crate::cli::{EXIT_FINDINGS, EXIT_IO, EXIT_OK, SearchArgs};
 use crate::{Outcome, World};
 
-/// How many results an ordinary query shows.
+/// How many results an ordinary query shows in the unit list.
 pub const DEFAULT_LIMIT: usize = 10;
 
-/// The limit for `text`: [`DEFAULT_LIMIT`], or the number of units in the exact class when that is
+/// The unit-list limit for `text`: [`DEFAULT_LIMIT`], or the number of units in the exact class when that is
 /// larger, so that every version of a source id (or record id, or natural key) is listed.
 #[must_use]
 pub fn cli_limit(index: &Index, text: &str) -> usize {
@@ -63,17 +67,29 @@ pub fn run(args: &SearchArgs, world: &dyn World) -> Outcome {
             ));
         }
     };
-    let results = query(&index, &text, cli_limit(&index, &text));
+    let limit = if args.units {
+        cli_limit(&index, &text)
+    } else {
+        index.docs.len()
+    };
+    let results = query(&index, &text, limit);
     let code = if results.total == 0 {
         EXIT_FINDINGS
     } else {
         EXIT_OK
     };
 
-    let stdout = if args.json {
-        render_json(&index, &text, &results)
-    } else {
-        render_plain(&tree, &index, &results)
+    let stdout = match (args.units, args.json) {
+        (true, true) => render_json(&index, &text, &results),
+        (true, false) => render_plain(&tree, &index, &results),
+        (false, json) => {
+            let view = page_view(&index, &results);
+            if json {
+                render_view_json(&index, &text, &view)
+            } else {
+                render_view_plain(&tree, &index, &view)
+            }
+        }
     };
     Outcome {
         stdout,
@@ -82,16 +98,153 @@ pub fn run(args: &SearchArgs, world: &dyn World) -> Outcome {
     }
 }
 
-/// The `--json` payload: pretty JSON with a trailing newline.
+/// The `--json` payload of the unit list: pretty JSON with a trailing newline.
 #[must_use]
 pub fn render_json(index: &Index, text: &str, results: &Results) -> String {
-    let report = SearchReport::from_results(index, text, results);
-    let mut json = serde_json::to_string_pretty(&report).unwrap_or_default();
+    report_json(&SearchReport::from_results(index, text, results))
+}
+
+/// The `--json` payload of the page view: the rows the plain output lists.
+#[must_use]
+pub fn render_view_json(index: &Index, text: &str, view: &PageView<'_>) -> String {
+    let shown = view.shown(ViewLimits::CLI);
+    report_json(&SearchReport::from_page_view(
+        index, text, view.total, &shown,
+    ))
+}
+
+fn report_json(report: &SearchReport) -> String {
+    let mut json = serde_json::to_string_pretty(report).unwrap_or_default();
     json.push('\n');
     json
 }
 
-/// The plain output: the list, or the abstention phrase when there is nothing to list.
+/// The plain output of the page view: exact rows, page rows, then other rows after a heading, or
+/// the abstention phrase when there is nothing to list. Ranks run across all three lists.
+#[must_use]
+pub fn render_view_plain(tree: &Tree, index: &Index, view: &PageView<'_>) -> String {
+    if view.total == 0 {
+        return format!("{}\n", fieldbook_core::strings::abstention());
+    }
+    let shown = view.shown(ViewLimits::CLI);
+    let record = match shown.exact {
+        [only] => index
+            .docs
+            .get(only.unit)
+            .and_then(|doc| record_lines(tree, doc)),
+        _ => None,
+    };
+
+    let mut out = String::new();
+    let mut rank = 0;
+    if let Some(lines) = &record {
+        rank += 1;
+        push_lines(&mut out, lines);
+    } else {
+        for hit in shown.exact {
+            rank += 1;
+            push_unit(&mut out, rank, index, hit);
+        }
+    }
+    for row in shown.pages {
+        rank += 1;
+        push_page(&mut out, rank, row);
+    }
+    if !shown.other.is_empty() && rank > 0 {
+        out.push_str("Also matched:\n");
+    }
+    for hit in shown.other {
+        rank += 1;
+        push_unit(&mut out, rank, index, hit);
+    }
+
+    if view.is_cut_by(&shown) {
+        out.push_str(&cut_line(view, &shown));
+        out.push('\n');
+    }
+    out
+}
+
+/// `shown of total noun`, with the noun in the singular when the total is one.
+fn counted(shown: usize, total: usize, noun: &str) -> String {
+    let plural = if total == 1 { "" } else { "s" };
+    format!("{shown} of {total} {noun}{plural}")
+}
+
+/// What a cut left: the shown count out of each list that has rows, then the guidance on source ids
+/// when a source or record version is among the other rows.
+fn cut_line(view: &PageView<'_>, shown: &ShownRows<'_, '_>) -> String {
+    let other_noun = if view.exact.is_empty() && view.pages.is_empty() {
+        "result"
+    } else {
+        "other result"
+    };
+    let mut counts = Vec::new();
+    if !view.pages.is_empty() {
+        counts.push(counted(shown.pages.len(), view.pages.len(), "page"));
+    }
+    if !view.other.is_empty() {
+        counts.push(counted(shown.other.len(), view.other.len(), other_noun));
+    }
+    let mut line = format!("Showing {}.", counts.join(" and "));
+    if view
+        .other
+        .iter()
+        .any(|hit| matches!(hit.kind.as_str(), "source" | "record"))
+    {
+        line.push_str(" fieldbook search <source id> lists every version.");
+    }
+    line
+}
+
+fn push_lines(out: &mut String, lines: &[String]) {
+    for line in lines {
+        out.push_str(line);
+        out.push('\n');
+    }
+}
+
+fn push_row(out: &mut String, rank: usize, id: &str, doc: &DocEntry, second: &str) {
+    out.push_str(&format!(
+        "{rank}. {} ({}) {}\n",
+        single_line(id),
+        single_line(&doc.kind),
+        single_line(&doc.title)
+    ));
+    if !second.is_empty() {
+        out.push_str("   ");
+        out.push_str(second);
+        out.push('\n');
+    }
+}
+
+fn push_unit(out: &mut String, rank: usize, index: &Index, hit: &Hit) {
+    if let Some(doc) = index.docs.get(hit.unit) {
+        push_row(out, rank, &doc.id, doc, &second_line(doc));
+    }
+}
+
+fn push_page(out: &mut String, rank: usize, row: &PageRow<'_>) {
+    let mut parts = status_parts(row.display);
+    if row.best_is_section() {
+        let heading = &row.best_doc.title;
+        parts.push(if heading.is_empty() {
+            format!("section {}", single_line(&row.best_doc.id))
+        } else {
+            format!(
+                "section {} ({})",
+                single_line(&row.best_doc.id),
+                single_line(heading)
+            )
+        });
+    }
+    if !row.best_doc.snippet.is_empty() {
+        parts.push(single_line(&row.best_doc.snippet));
+    }
+    push_row(out, rank, row.page, row.display, &parts.join(" · "));
+}
+
+/// The plain output of the unit list, or the abstention phrase when there is nothing to list.
 #[must_use]
 pub fn render_plain(tree: &Tree, index: &Index, results: &Results) -> String {
     if results.hits.is_empty() {
@@ -115,25 +268,10 @@ pub fn render_plain(tree: &Tree, index: &Index, results: &Results) -> String {
         if let Some((unit, lines)) = &record
             && *unit == hit.unit
         {
-            for line in lines {
-                out.push_str(line);
-                out.push('\n');
-            }
+            push_lines(&mut out, lines);
             continue;
         }
-        out.push_str(&format!(
-            "{}. {} ({}) {}\n",
-            pos + 1,
-            single_line(&doc.id),
-            single_line(&doc.kind),
-            single_line(&doc.title)
-        ));
-        let second = second_line(doc);
-        if !second.is_empty() {
-            out.push_str("   ");
-            out.push_str(&second);
-            out.push('\n');
-        }
+        push_row(&mut out, pos + 1, &doc.id, doc, &second_line(doc));
     }
 
     if results.total > results.hits.len() {
@@ -146,20 +284,28 @@ pub fn render_plain(tree: &Tree, index: &Index, results: &Results) -> String {
     out
 }
 
-/// The second line of a result: the non-empty status and dates, then the snippet, joined with
-/// ` · `.
-fn second_line(doc: &DocEntry) -> String {
+/// The non-empty status and dates of `doc`, each with its label.
+fn status_parts(doc: &DocEntry) -> Vec<String> {
     let mut parts: Vec<String> = Vec::new();
     for (label, value) in [
         ("", &doc.status),
         ("as of ", &doc.as_of),
         ("effective ", &doc.effective_from),
         ("verified ", &doc.verified_on),
-        ("", &doc.snippet),
     ] {
         if !value.is_empty() {
             parts.push(format!("{label}{}", single_line(value)));
         }
+    }
+    parts
+}
+
+/// The second line of a result: the non-empty status and dates, then the snippet, joined with
+/// ` · `.
+fn second_line(doc: &DocEntry) -> String {
+    let mut parts = status_parts(doc);
+    if !doc.snippet.is_empty() {
+        parts.push(single_line(&doc.snippet));
     }
     parts.join(" · ")
 }

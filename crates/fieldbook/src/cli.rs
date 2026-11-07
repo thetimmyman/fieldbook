@@ -76,6 +76,10 @@ pub struct SearchArgs {
     #[arg(long)]
     pub json: bool,
 
+    /// List every matching unit in rank order instead of grouping sections into their page.
+    #[arg(long)]
+    pub units: bool,
+
     /// The words to search for; they are joined with single spaces, so quoting is optional. Put `--` before a word that starts with `-`.
     #[arg(value_name = "QUERY", required = true, num_args = 1..)]
     pub words: Vec<String>,
