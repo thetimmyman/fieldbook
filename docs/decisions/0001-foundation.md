@@ -1139,7 +1139,7 @@ Every requirement id used in this repository is defined here, in one testable li
 
 ## Reopen triggers
 
-Every item the product deliberately does not build has a measured trigger in the table under AD-24, including the Later AI adapters. A decision in this ADR changes only through a new ADR that supersedes it and names the trigger that fired. ADR 0004 amends invariants 1, 2, 6, 7 and 8, AD-18 and AD-24 in place because this record and ADR 0004 are both Proposed; after the owner accepts them, the same rule applies to both. Codex stops and asks the owner instead of reopening a decision (AD-21).
+Every item the product deliberately does not build has a measured trigger in the table under AD-24, including the Later AI adapters. A decision in this ADR changes only through a new ADR that supersedes it and names the trigger that fired. ADR 0004 amends invariants 1, 2, 6, 7 and 8, AD-18 and AD-24 in place because this record and ADR 0004 are both Proposed; after the owner accepts them, the same rule applies to both. The one exception is the amendment at the end of this record: the owner directed it in place, in this accepted record, for a budget number and the unit set behind it, with no new ADR, and it does not license another in-place change. Codex stops and asks the owner instead of reopening a decision (AD-21).
 
 The denylist checks tracked content plus paths, blobs, commit metadata and annotated-tag metadata newly reachable through the actual pushed refs. A manual run without --updates conservatively checks all local branches and tags. Reports identify objects, never matched text or paths.
 

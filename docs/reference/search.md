@@ -238,7 +238,7 @@ Partial dates (`2025`, `2025-11`) are stored as written. An empty value is the e
 | `record` | `CM-000012-v2` | No link until `later-record-views` ships; then `r/<type>.html#CM-000012-v2` |
 | `text` | `SO-000042-v2#p0001` | `s/SO-000042-v2.html` |
 
-The register anchors are the ids as written. The result filters (Pages, Claims, Terms and the rest) are the UI lane's and filter on `kind` after ranking; they do not change ranking. On the edition site the index holds the kinds `page` and `clause` only, so a filter for any other kind has nothing to filter there; those filters apply to the command line's `--json` output and to a company site.
+The register anchors are the ids as written. Any result filter by kind is the UI lane's and filters on `kind` after ranking; it does not change ranking. The command line has no such filter: its `--json` output only carries `kind` on each hit. The edition site's index holds the kinds `page` and `clause` only, so the edition offers no filter for a claim, source, question, conflict or term, and no result list there promises a hit of those kinds; whether it filters pages from sections is left to the design pull request. The filters for the other kinds can apply only where the index holds them, which is a company site.
 
 ## Ranking
 
