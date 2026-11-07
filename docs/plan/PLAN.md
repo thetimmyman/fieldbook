@@ -179,6 +179,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - search-cli-and-regression: `fieldbook search` and the regression runner, FB0126 to FB0128
 - search-page-view: `fieldbook search` lists pages first, above an unchanged ranking; `--units` keeps the flat list
 - raw-edition: owner-reviewed raw paired archives and floor drill, independent of renderer and browser work
+- search-index-budget: the edition search index holds page and section units only under a 15 MB cap; the budget and the text, not the index
 - search-site-index: site serialization of the pure index, after renderer prerequisites
 - scale-fixture: `cargo xtask scale`, a synthetic Corpus at 1, 5 and 20 times Day 1 size, and an advisory table
 - scheduled-workflow: the weekly `scheduled.yml` with the `lint-controls` and `scale` jobs

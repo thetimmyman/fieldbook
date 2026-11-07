@@ -6,12 +6,13 @@
 
 ## Outcome
 
-The site receives a deterministic public search index from the pure ranking provider.
+The site receives a deterministic public search index of page and section units (the kinds `page` and `clause`) from the pure ranking provider, held to a 15 MB cap.
 
 ## Why
 
 - CLI search and regression must remain available when site delivery is deferred.
 - Owner review is retained for the public-only delivered index and its label-withholding boundary; acceptance must inspect the actual delivered data and its leak controls.
+- Owner decision (`search-index-budget`): the edition index holds page and section units only and its cap is 15 MB, because the index of every unit measured about 34.7 MB and that of pages and sections about 14.7 MB. `fieldbook search` still searches every unit. Claims, sources, questions, conflicts and terms are reachable on the site through the register pages and `ids.html`, not through search. See [The site index](../reference/search.md#the-site-index).
 - Design: use the existing Search row of [MAP.md](../design/MAP.md) and the site-index contract in [search.md](../reference/search.md#the-site-index); this card changes data serialization only, with no token groups.
 
 ## Scope
@@ -23,6 +24,7 @@ The site receives a deterministic public search index from the pure ranking prov
 ## Out of scope
 
 - Ranking, CLI search, browser search controls and palette.
+- Units of any kind but `page` and `clause` in the edition index, and the overlay site index, which is unchanged.
 
 ## Preconditions
 
@@ -30,9 +32,9 @@ The site receives a deterministic public search index from the pure ranking prov
 
 ## Steps
 
-1. Implement `search_index::write(&Index) -> String` from the reference: compact JSON with fixed key order between `window.FB_INDEX = ` and `;`. Render from the public view, insert in Site and register its planned path. The existing delivery pipeline writes it; the size lint still rejects more than 3 MB.
+1. Implement `search_index::write(&Index) -> String` from the reference: compact JSON with fixed key order between `window.FB_INDEX = ` and `;`. Render from the public view, insert in Site and register its planned path. Build the `Index` from the public page and section units alone (kinds `page` and `clause`): N, document frequencies, average field lengths and impacts are those of that unit set, so never serialize a full index filtered afterwards. The existing delivery pipeline writes it; the size lint rejects more than 15,000,000 bytes for this file (`SEARCH_INDEX` in `lint.rs`) and keeps 3 MB for every other data file.
 
-2. Name `edition_index_holds_public_units_only` and `held_version_not_in_index` in `crates/fieldbook-render/tests/search_index.rs`; the former proves public-only selection and absence of label IDs, and the latter proves quarantined units and their canaries are absent. Tests also cover prefix/version, 160-code-point snippets, UTF-16 term order, equal bytes across builds, absence of nonpublic units and label IDs, and no quarantined unit or canary text. Run planned-path equality. The pure ranker and the general index shape remain unchanged.
+2. Name `edition_index_holds_public_units_only` and `held_version_not_in_index` in `crates/fieldbook-render/tests/search_index.rs`; the former proves public-only selection and absence of label IDs, and the latter proves quarantined units and their canaries are absent, both from the unit list the builder returns before the kind filter (a quarantined version has no unit) and from the delivered index. Add `edition_index_holds_page_and_clause_units_only`: every `kind` in the delivered `docs` is `page` or `clause`, and a claim, a source version, a question, a conflict and a term of the fixture are absent while their register pages and `ids.html` entries are present. Tests also cover prefix/version, 160-code-point snippets, UTF-16 term order, equal bytes across builds, absence of nonpublic units and label IDs, and no quarantined unit or canary text. Run planned-path equality. The pure ranker and the general index shape remain unchanged.
 
 3. Add `build_search_index_uses_the_permitted_view` through build-page’s real render/delivery harness. Require successful delivery, reopen assets/search-index.js and assert permitted IDs, snippets and postings are present while forbidden and quarantined IDs, text and unique terms are absent. Resolve postings through the delivered unit table; do not search for numeric unit IDs as text. Extend the existing edition SURFACES assertion.
 
@@ -52,7 +54,7 @@ Expected: tests pass, the site includes the index and its size checks pass.
 
 ## Negative control
 
-Let the edition keep every unit: `edition_index_holds_public_units_only` must fail. Include a quarantined source: `held_version_not_in_index` must fail. Restore each.
+Let the edition keep a nonpublic unit: `edition_index_holds_public_units_only` must fail. Let it keep the claim units: `edition_index_holds_page_and_clause_units_only` must fail. Drop the quarantine exclusion from the unit builder (a quarantined version then yields a `source` unit): `held_version_not_in_index` must fail on its check of the unfiltered unit list, because the kind filter alone would hide that unit from the delivered index. Also drop the kind filter in the same run: the delivered-index check of the same test must then fail on the quarantined id and its canary text. Restore each.
 
 Bypass filtering before inserting the search index into Site: `build_search_index_uses_the_permitted_view` must fail while permitted presence stays required. Restore it.
 
@@ -64,4 +66,4 @@ Revert the site serialization; CLI search continues working.
 
 ## BLOCKED
 
-The public index contract conflicts with interface-owned guidance: report the exact conflict and stop that portion.
+The public index contract conflicts with interface-owned guidance: report the exact conflict and stop that portion. The real Corpus's index is over 15,000,000 bytes (it measured about 14.7 MB, so about 2 percent of room remains): write the size and stop; the owner decides whether to cut units, raise the cap or reopen the design.

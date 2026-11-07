@@ -8,7 +8,8 @@ use std::collections::BTreeSet;
 use fieldbook_core::check::Code;
 use fieldbook_render::csp::CSP_STATIC;
 use fieldbook_render::lint::{
-    APP_JS, ASSIST_JS, DATA_FILE, OriginalNames, SCRIPTS_TOTAL, SEARCH_JS, lint, scan_html,
+    APP_JS, ASSIST_JS, DATA_FILE, OriginalNames, SCRIPTS_TOTAL, SEARCH_INDEX, SEARCH_JS, lint,
+    scan_html,
 };
 use fieldbook_render::site::Site;
 
@@ -223,8 +224,13 @@ mod site_lints {
             "SCRIPTS_TOTAL must match 64 KB (64,000 bytes)"
         );
         assert!(
-            fb0605_line.contains("3 MB for any data file of the edition") && DATA_FILE == 3_000_000,
+            fb0605_line.contains("3 MB for any other data file of the edition")
+                && DATA_FILE == 3_000_000,
             "DATA_FILE must match 3 MB (3,000,000 bytes)"
+        );
+        assert!(
+            fb0605_line.contains("15 MB for `search-index.js`") && SEARCH_INDEX == 15_000_000,
+            "SEARCH_INDEX must match 15 MB (15,000,000 bytes)"
         );
         assert!(
             fb0605_line.contains("A KB is 1,000 bytes"),
@@ -249,10 +255,10 @@ mod site_lints {
             "70 KB search-index.js and assist-data.js must be classified as data and pass"
         );
 
-        // 2. A data file exceeding DATA_FILE raises FB0605.
+        // 2. A data file other than the search index exceeding DATA_FILE raises FB0605.
         let mut site_data_over = clean_site();
         let over_data = usize::try_from(DATA_FILE).unwrap_or(3_000_000) + 1;
-        site_data_over.insert("assets/search-index.js", vec![b'x'; over_data]);
+        site_data_over.insert("assets/assist-data.js", vec![b'x'; over_data]);
         let over_diags = lint(&site_data_over, &OriginalNames::default());
         assert_eq!(over_diags.len(), 1);
         assert_eq!(over_diags[0].code, Code::Fb0605);
@@ -276,6 +282,61 @@ mod site_lints {
         let other_diags = lint(&site_other_js, &OriginalNames::default());
         assert_eq!(other_diags.len(), 1);
         assert_eq!(other_diags[0].code, Code::Fb0605);
+    }
+
+    #[test]
+    fn search_index_passes_at_its_cap_and_fails_one_byte_over() {
+        let cap = usize::try_from(SEARCH_INDEX).unwrap_or(15_000_000);
+
+        let mut at_cap = clean_site();
+        at_cap.insert("assets/search-index.js", vec![b'x'; cap]);
+        let diags = lint(&at_cap, &OriginalNames::default());
+        assert!(
+            diags.is_empty(),
+            "search-index.js of exactly {SEARCH_INDEX} bytes must pass, got {diags:?}"
+        );
+
+        let mut over = clean_site();
+        over.insert("assets/search-index.js", vec![b'x'; cap + 1]);
+        let diags = lint(&over, &OriginalNames::default());
+        assert_eq!(diags.len(), 1, "expected 1 diagnostic, got {diags:?}");
+        assert_eq!(diags[0].code, Code::Fb0605);
+        assert_eq!(diags[0].path, "assets/search-index.js");
+        assert!(
+            diags[0].message.contains("15000000"),
+            "the message must name the 15 MB cap: {}",
+            diags[0].message
+        );
+    }
+
+    #[test]
+    fn other_data_files_keep_the_3_mb_cap() {
+        let cap = usize::try_from(DATA_FILE).unwrap_or(3_000_000);
+        assert_eq!(cap, 3_000_000);
+
+        for path in ["assets/assist-data.js", "data/units.json", "data/units.js"] {
+            let mut at_cap = clean_site();
+            at_cap.insert(path, vec![b'x'; cap]);
+            let diags = lint(&at_cap, &OriginalNames::default());
+            // A `.js` file under `data/` is not exempt from the script total, so judge
+            // only the data-file finding.
+            assert!(
+                !diags.iter().any(|d| d.message.contains("data file")),
+                "{path} of exactly {DATA_FILE} bytes must not be over the data-file cap, got {diags:?}"
+            );
+
+            let mut over = clean_site();
+            over.insert(path, vec![b'x'; cap + 1]);
+            let diags = lint(&over, &OriginalNames::default());
+            assert!(
+                diags.iter().any(|d| d.code == Code::Fb0605
+                    && d.path == path
+                    && d.message.contains("data file")
+                    && d.message.contains("3000000")),
+                "{path} of {} bytes must fail the 3 MB cap, got {diags:?}",
+                cap + 1
+            );
+        }
     }
 
     #[test]
