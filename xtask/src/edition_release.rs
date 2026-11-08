@@ -979,22 +979,31 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
         .evidence
         .as_deref()
         .ok_or_else(|| "archive-release requires `--evidence <dir>`".to_owned())?;
-    // The downloaded evidence copy is the committed baseline and the source of truth; `--base`,
-    // when given, may only repeat it byte for byte.
-    let base_bytes = read_non_symlink_file(evidence_dir, "release-baseline.toml").map_err(|e| {
-        format!("the evidence folder needs the committed release-baseline.toml: {e}")
-    })?;
-    if let Some(base_path) = &args.base {
-        let given = fs::read(base_path)
-            .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?;
-        if given != base_bytes {
-            return Err(format!(
-                "`--base {}` differs from the committed `release-baseline.toml` in `--evidence {}`; archive with the committed baseline",
-                base_path.display(),
-                evidence_dir.display()
-            ));
+    let base_bytes = if kind == DeliveryKind::Raw {
+        // For a raw archive the downloaded evidence copy is the committed baseline and the source
+        // of truth; `--base`, when given, may only repeat it byte for byte.
+        let committed =
+            read_non_symlink_file(evidence_dir, "release-baseline.toml").map_err(|e| {
+                format!("the evidence folder needs the committed release-baseline.toml: {e}")
+            })?;
+        if let Some(base_path) = &args.base {
+            let given = fs::read(base_path)
+                .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?;
+            if given != committed {
+                return Err(format!(
+                    "`--base {}` differs from the committed `release-baseline.toml` in `--evidence {}`; archive with the committed baseline",
+                    base_path.display(),
+                    evidence_dir.display()
+                ));
+            }
         }
-    }
+        committed
+    } else if let Some(base_path) = &args.base {
+        fs::read(base_path)
+            .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?
+    } else {
+        read_non_symlink_file(evidence_dir, "release-baseline.toml")?
+    };
     let base_str = std::str::from_utf8(&base_bytes)
         .map_err(|e| format!("release-baseline.toml is not UTF-8: {e}"))?;
     let _ = parse_baselines(base_str)?;
@@ -1111,7 +1120,13 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
                 target_dir.display()
             ));
         }
-        run_raw_provider_before_acceptance(kind, &target_dir, &args.to, &folder_name, &manifest)?;
+        run_raw_provider_before_acceptance(kind, &target_dir, &args.to, &folder_name, &manifest)
+            .map_err(|e| {
+                format!(
+                    "the existing raw archive `{}` is refused, and it was left unchanged: {e}",
+                    target_dir.display()
+                )
+            })?;
     } else {
         fs::create_dir_all(&args.to)
             .map_err(|e| format!("cannot create archive root `{}`: {e}", args.to.display()))?;
@@ -1137,7 +1152,9 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
             &manifest,
         ) {
             let _ = fs::remove_dir_all(&staging_dir);
-            return Err(e);
+            return Err(format!(
+                "the raw archive is refused, and nothing was published: {e}"
+            ));
         }
         fs::rename(&staging_dir, &target_dir).map_err(|e| {
             format!(
@@ -1156,7 +1173,8 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
 /// A raw archive is published only when the Raw provider accepts it: the exact provider file
 /// set, the clean reports for this edition and commit, and the restored trees. The provider
 /// restores into a throwaway folder beside the archive root, removed afterwards. Site and tool
-/// archives are unchanged: their providers run at `verify-archive`.
+/// archives are unchanged: their providers run at `verify-archive`. The caller says what a
+/// refusal left behind: nothing published, or an existing folder left unchanged.
 fn run_raw_provider_before_acceptance(
     kind: DeliveryKind,
     archive_dir: &Path,
@@ -1176,7 +1194,7 @@ fn run_raw_provider_before_acceptance(
         .map_err(|e| format!("cannot create `{}`: {e}", restore.display()))
         .and_then(|()| hook(archive_dir, &restore, manifest));
     let _ = fs::remove_dir_all(&restore);
-    result.map_err(|e| format!("the raw archive is refused, and nothing was published: {e}"))
+    result
 }
 
 fn verify_archive_directory_bytes(
@@ -2572,6 +2590,53 @@ mod tests {
             "tampered archived byte must fail verify_archive"
         );
         fs::write(&readme_in_ev, orig_contract).expect("restore contract");
+    }
+
+    /// The raw-only rule that `--base` repeat the committed baseline must not reach a Site
+    /// archive: a Site `--base` that differs from the evidence copy is still the baseline used.
+    #[test]
+    fn site_archive_uses_a_base_that_differs_from_the_evidence_copy() {
+        install_synthetic_providers();
+        let tmp = TempDir::new().expect("tempdir");
+        let empty = "baseline_schema = 1\n\n[compatibility]\nkind = \"empty\"\n\n[tool]\nkind = \"empty\"\n\n[edition]\nkind = \"empty\"\n";
+        let baselines = parse_baselines(empty).expect("empty baselines");
+        let evidence = build_synthetic_evidence_dir(
+            &tmp.path().join("ev"),
+            &baselines,
+            Some("release_schema = 1\nedition = \"001\"\nkind = \"site\"\n"),
+            b"vector = 1\n",
+        );
+        let committed = fs::read(evidence.join("release-baseline.toml")).expect("committed base");
+        let other = format!("{empty}\n");
+        assert_ne!(committed, other.as_bytes(), "the given base must differ");
+        let base = tmp.path().join("other-baseline.toml");
+        fs::write(&base, &other).expect("write other base");
+        let edition = tmp.path().join("ed");
+        build_synthetic_edition_set(
+            &edition,
+            "001",
+            "1111111111111111111111111111111111111111",
+            DeliveryKind::Site,
+            &[SyntheticSourceSpec {
+                source_id: "S-0001",
+                version: 1,
+                lifecycle: "active",
+                supersedes: "",
+                note: "Active.",
+                ship_payload: true,
+            }],
+        );
+        let (_, manifest, _) = archive_release(&ArchiveArgs {
+            kind: Some(DeliveryKind::Site),
+            package: None,
+            edition,
+            intake: None,
+            evidence: Some(evidence),
+            base: Some(base),
+            to: tmp.path().join("archives"),
+        })
+        .expect("a Site archive takes a differing `--base` as before");
+        assert_eq!(manifest.baseline_sha256, sha256_hex(other.as_bytes()));
     }
 
     #[test]

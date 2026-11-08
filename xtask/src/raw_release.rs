@@ -469,7 +469,8 @@ mod tests {
 
     use super::{
         RawCheckArgs, command_raw_edition_compare, compare_delivered_sets,
-        parse_raw_edition_check_cli, raw_edition_check, register_raw_provider, verify_reports,
+        parse_raw_edition_check_cli, raw_archive_provider, raw_edition_check,
+        register_raw_provider, verify_reports,
     };
     use crate::compat::{Baselines, parse_baselines, parse_published};
     use crate::edition_raw::sums_of;
@@ -1471,6 +1472,18 @@ mod tests {
         let (_, _, again) = archive(&out, &evidence, &base_of(root), &archives).expect("identical");
         assert_eq!(sha, again);
 
+        // When the Raw provider refuses the identical existing folder (here its restore folder
+        // cannot be made), the message says the folder was left unchanged, not that nothing
+        // was published.
+        let folder = arch.file_name().expect("folder").to_string_lossy();
+        let blocker = archives.join(format!(".restore-{folder}-{}", std::process::id()));
+        fs::write(&blocker, b"not a folder\n").expect("blocker");
+        let err = archive(&out, &evidence, &base_of(root), &archives).expect_err("blocked");
+        assert!(err.contains("left unchanged"), "{err}");
+        assert!(!err.contains("nothing was published"), "{err}");
+        assert_eq!(collect_all_rel_files(&arch).expect("files"), before);
+        fs::remove_file(&blocker).expect("rm blocker");
+
         // Different bytes for the same tag and commit are refused: here another evidence
         // baseline, given consistently as `--base` too.
         let other_evidence = work.path().join("ev-other");
@@ -1807,10 +1820,13 @@ mod tests {
         assert!(code.contains("workflow_dispatch:"));
         assert!(code.contains("grep -qx 'kind = \"raw\"'"));
         assert!(code.contains("git show \"$GITHUB_SHA:edition-release.toml\""));
-        // A raw descriptor in another spelling fails the run instead of skipping delivery.
+        // Any other mention of raw, in any case, fails the run instead of skipping delivery.
         let select = job_section(&code, "select");
-        assert!(select.contains("elif grep -Eq \"^[[:space:]]*kind[[:space:]]*=[[:space:]]*[\\\"']raw[\\\"']\" <<<\"$mode\"; then"), "{select}");
-        assert!(position(select, "elif grep -Eq") < position(select, "exit 1"));
+        assert!(
+            select.contains("elif grep -qi 'raw' <<<\"$mode\"; then"),
+            "{select}"
+        );
+        assert!(position(select, "elif grep -qi 'raw'") < position(select, "exit 1"));
 
         // Each job's own condition, dependency and time limit, read from that job alone.
         for (job, condition, needs, minutes) in [
@@ -1914,6 +1930,172 @@ mod tests {
                 !code.contains(banned),
                 "workflow must not contain `{banned}`"
             );
+        }
+    }
+
+    /// One archived edition-001 and its manifest, for calling the Raw provider directly.
+    fn archived_manifest(work: &Path) -> (TempDir, PathBuf, ArchiveManifest) {
+        register_raw_provider().expect("raw provider");
+        let repo = lab();
+        let root = repo.path();
+        let (out, evidence) = deliver(root, work, "edition-001");
+        let (arch, manifest, _) =
+            archive(&out, &evidence, &base_of(root), &work.join("archives")).expect("archive");
+        (repo, arch, manifest)
+    }
+
+    #[test]
+    fn raw_provider_refuses_a_manifest_of_another_stream_or_kind() {
+        let work = TempDir::new().expect("work");
+        let (_repo, arch, manifest) = archived_manifest(work.path());
+        raw_archive_provider(&arch, &restore("ok", work.path()), &manifest)
+            .expect("the archived manifest is accepted");
+        for (name, stream, kind) in [
+            ("site", ReleaseStream::Edition, DeliveryKind::Site),
+            ("tool", ReleaseStream::Tool, DeliveryKind::Raw),
+        ] {
+            let mut other = manifest.clone();
+            other.stream = stream;
+            other.kind = kind;
+            let err =
+                raw_archive_provider(&arch, &restore(name, work.path()), &other).expect_err(name);
+            assert!(err.contains("verifies only"), "{name}: {err}");
+        }
+    }
+
+    #[test]
+    fn raw_provider_refuses_a_manifest_whose_tag_or_commit_is_not_the_pair() {
+        let work = TempDir::new().expect("work");
+        let (_repo, arch, manifest) = archived_manifest(work.path());
+        let mut other_tag = manifest.clone();
+        other_tag.tag = "edition-002".to_owned();
+        let mut other_commit = manifest.clone();
+        other_commit.commit = "0".repeat(40);
+        for (name, other) in [("tag", other_tag), ("commit", other_commit)] {
+            let err =
+                raw_archive_provider(&arch, &restore(name, work.path()), &other).expect_err(name);
+            assert!(
+                err.contains("does not carry the archive's tag and commit"),
+                "{name}: {err}"
+            );
+        }
+    }
+
+    #[test]
+    fn raw_provider_refuses_a_manifest_missing_a_fixed_file() {
+        let work = TempDir::new().expect("work");
+        let (_repo, arch, manifest) = archived_manifest(work.path());
+        for fixed in ["SHA256SUMS", "corpus-support.toml", "corpus-support.sha256"] {
+            let mut other = manifest.clone();
+            other.files.retain(|f| f.path != fixed);
+            assert_eq!(other.files.len() + 1, manifest.files.len(), "{fixed}");
+            let err =
+                raw_archive_provider(&arch, &restore(fixed, work.path()), &other).expect_err(fixed);
+            assert!(
+                err.contains(&format!("missing `{fixed}`")),
+                "{fixed}: {err}"
+            );
+        }
+    }
+
+    #[test]
+    fn raw_provider_refuses_restored_trees_that_fail_the_raw_allowlist() {
+        let work = TempDir::new().expect("work");
+        let (_repo, arch, manifest) = archived_manifest(work.path());
+        // A stray file already in the restore folder lands in the restored edition tree.
+        let target = restore("stray", work.path());
+        fs::create_dir_all(target.join("edition")).expect("mkdir");
+        fs::write(
+            target.join("edition/stray.exe"),
+            b"not part of a raw edition\n",
+        )
+        .expect("stray");
+        let err = raw_archive_provider(&arch, &target, &manifest).expect_err("stray file");
+        assert!(
+            err.contains("restored raw trees fail the allowlist"),
+            "{err}"
+        );
+    }
+
+    /// The select step's shell script, as the workflow runs it.
+    fn select_script() -> String {
+        let step = &WORKFLOW[position(
+            WORKFLOW,
+            "- name: Read the delivery kind committed at the tagged commit",
+        )..];
+        let body = &step[position(step, "run: |\n") + "run: |\n".len()..];
+        body.lines()
+            .take_while(|l| l.is_empty() || l.starts_with("          "))
+            .map(|l| l.get(10..).unwrap_or(""))
+            .collect::<Vec<_>>()
+            .join("\n")
+    }
+
+    /// Run the select step for `descriptor` (None: no file) at a pushed tag; returns the exit
+    /// success and the `raw=` output line.
+    fn run_select(repo: &Path, descriptor: Option<&str>, event: &str) -> (bool, String) {
+        let file = repo.join("edition-release.toml");
+        match descriptor {
+            Some(text) => fs::write(&file, text).expect("descriptor"),
+            None => {
+                if file.exists() {
+                    fs::remove_file(&file).expect("rm descriptor");
+                }
+            }
+        }
+        let n = fs::read_dir(repo).expect("ls").count();
+        fs::write(repo.join("step.txt"), format!("{n} {descriptor:?}\n")).expect("step");
+        commit_all(repo);
+        let sha = proc::git(repo, &["rev-parse", "HEAD"]).expect("sha");
+        let output = repo.join(".git/step-output");
+        let _ = fs::remove_file(&output);
+        let run = std::process::Command::new("bash")
+            .args(["-c", &select_script()])
+            .env("EVENT_NAME", event)
+            .env("REF_TYPE", "tag")
+            .env("GITHUB_SHA", sha.trim())
+            .env("GITHUB_OUTPUT", &output)
+            .current_dir(repo)
+            .output()
+            .expect("bash");
+        let raw = fs::read_to_string(&output).unwrap_or_default();
+        (run.status.success(), raw.trim().to_owned())
+    }
+
+    #[test]
+    fn select_step_delivers_the_exact_raw_line_and_fails_any_other_mention_of_raw() {
+        let repo = TempDir::new().expect("repo");
+        let root = repo.path();
+        git(root, &["init", "-q"]);
+        assert_eq!(
+            run_select(root, None, "push"),
+            (true, "raw=false".to_owned())
+        );
+        let exact = mode("001", "raw");
+        assert_eq!(
+            run_select(root, Some(&exact), "push"),
+            (true, "raw=true".to_owned())
+        );
+        assert_eq!(
+            run_select(root, Some(&mode("001", "site")), "push"),
+            (true, "raw=false".to_owned())
+        );
+        // A pull request or manual run never delivers.
+        assert_eq!(
+            run_select(root, Some(&exact), "pull_request"),
+            (true, "raw=false".to_owned())
+        );
+        for other in [
+            "release_schema = 1\nedition = \"001\"\nkind = 'raw'\n",
+            "release_schema = 1\nedition = \"001\"\nkind=\"raw\"\n",
+            "release_schema = 1\nedition = \"001\"\nkind = \"RAW\"\n",
+            "release_schema = 1\nedition = \"001\"\n  kind = \"Raw\" # raw floor\n",
+            "release_schema = 1\nedition = \"001\"\nkind = raw\n",
+            "release_schema = 1\nedition = \"001\"\nkind = \"site\" # was Raw\n",
+        ] {
+            let (ok, raw) = run_select(root, Some(other), "push");
+            assert!(!ok, "must fail, not skip: {other:?}");
+            assert!(raw.is_empty(), "no output on failure: {other:?} {raw}");
         }
     }
 }
