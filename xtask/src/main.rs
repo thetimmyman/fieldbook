@@ -8,6 +8,7 @@
 //! - `docs [--check]`: regenerate generated documentation blocks or check for drift.
 //! - `guard-statuses BASE HEAD`: fail when an agent's commits certify their own work.
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
+//! - `harness [--edition DIR]`: open every page of an edition in headless Edge (or Chromium) with a net-log.
 //!
 //! Exit codes follow `fieldbook`: 0 clean, 1 findings, 2 usage, 3 an operation failed.
 
@@ -19,7 +20,7 @@
 #![expect(
     clippy::disallowed_types,
     clippy::disallowed_methods,
-    reason = "xtask starts git, cargo and curl, and reads the environment and files"
+    reason = "xtask starts git, cargo, curl and the browser, and reads the environment and files"
 )]
 
 #[cfg_attr(
@@ -83,6 +84,7 @@ mod errors;
 mod graph;
 mod guard;
 mod guard_fields;
+mod harness;
 #[cfg(test)]
 mod literals;
 mod proc;
@@ -109,7 +111,8 @@ const USAGE: &str = "usage: cargo xtask <command>
   binscan EXE --build silent|ai     check imported OS symbols of EXE against its allowlist and group bans
   archive-release [FLAGS]           copy a verified release set and compatibility evidence into a durable archive
   verify-archive DIR [FLAGS]        reopen and verify a durable archive and its stream predecessor
-  edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version";
+  edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version
+  harness [--edition DIR]           open every page and renderable original in headless Edge (or Chromium) with a net-log";
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -134,6 +137,7 @@ fn main() -> ExitCode {
         ["archive-release", rest @ ..] => edition_release::command_archive_release(rest),
         ["verify-archive", rest @ ..] => edition_release::command_verify_archive(rest),
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
+        ["harness", rest @ ..] => harness::command(&root, rest),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {
             eprintln!("{USAGE}");

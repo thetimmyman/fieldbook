@@ -94,7 +94,7 @@ jobs:
     # The self-hosted runner persists between jobs: never run a fork's code on it.
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: [self-hosted, Linux, X64, fieldbook]
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -111,6 +111,8 @@ jobs:
         run: SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)" ./fieldbook build --out out
       - name: Install the pinned Rust toolchain
         run: rustup toolchain install
+      - name: Open every page in the browser harness
+        run: cargo xtask harness
       - name: Check generated documentation
         run: cargo xtask docs --check
 
