@@ -11,6 +11,7 @@ expression: html
 <title>Synthetic business-system review and withholding overview</title>
 <link rel="stylesheet" href="../assets/app.css">
 <script src="../assets/strings.js" defer></script>
+<script src="../assets/search.js" defer></script>
 <script src="../assets/app.js" defer></script>
 </head>
 <body>
@@ -298,6 +299,7 @@ expression: html
       <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
       <span><b>Public data only.</b> Company data is not connected.</span>
     </div>
+    <button class="btn ghost sm keys-link" id="fb:keysBtn" type="button" hidden>Keyboard shortcuts <kbd>?</kbd></button>
     <div class="byline">
       <span>A personal working tool. Not an official company product.</span>
     </div>
@@ -336,6 +338,7 @@ expression: html
     
   </nav>
   <div class="topbar-end">
+    <a class="searchbox" id="fb:searchBtn" href="../ids.html"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.4 10.4L14 14"/></svg><span>Search the library</span></a>
     <a class="build-date-link" href="../about.html"><span class="sr-only">About this edition: </span><span class="chip">unreleased build</span></a>
     <span class="build-chip" id="fb:frameChip" title="This build reads the public library only. Company data is not connected.">
       <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
@@ -664,6 +667,8 @@ expression: html
 </div>
 </div>
 <div class="scrim" id="fb:scrim" hidden></div>
+<dialog class="palette" id="fb:palette" aria-label="Search the library"></dialog>
+<dialog class="dlg" id="fb:keys" aria-label="Keyboard shortcuts"></dialog>
 <div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
 <div class="sr-only" id="fb:sr" aria-live="polite"></div>
 </body>

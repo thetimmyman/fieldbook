@@ -28,65 +28,56 @@ let sessionTheme = null;
 let toastTimer = null;
 let lastTrigger = null;
 
+// A string from window.FB_STRINGS, or ''.
+function str(name) {
+  return (window.FB_STRINGS || {})[name] || '';
+}
+
+// The element matching `sel` at or above the event's target, or null.
+function closest(ev, sel) {
+  return ev.target && ev.target.closest ? ev.target.closest(sel) : null;
+}
+
 function showToast(message) {
+  const toast = document.getElementById('fb:toast');
+  const sr = document.getElementById('fb:sr');
   if (!message) {
     return;
   }
-  const toast = document.getElementById('fb:toast');
-  const sr = document.getElementById('fb:sr');
   if (sr) {
     sr.textContent = message;
   }
-  if (!toast) {
-    return;
-  }
-  toast.textContent = message;
-  toast.hidden = false;
-  toast.classList.add('show');
-  if (toastTimer !== null) {
+  if (toast) {
+    toast.textContent = message;
+    toast.hidden = false;
+    toast.classList.add('show');
     window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () {
+      toast.classList.remove('show');
+      toast.hidden = true;
+    }, 3200);
   }
-  toastTimer = window.setTimeout(function () {
-    toast.classList.remove('show');
-    toast.hidden = true;
-  }, 3200);
-}
-
-function systemPrefersDark() {
-  return Boolean(
-    window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
 }
 
 function effectiveTheme() {
-  const attr = document.documentElement.getAttribute('data-theme');
-  if (attr === 'dark' || attr === 'light') {
-    return attr;
+  const theme = document.documentElement.getAttribute('data-theme') || sessionTheme;
+  if (theme === 'dark' || theme === 'light') {
+    return theme;
   }
-  if (sessionTheme === 'dark' || sessionTheme === 'light') {
-    return sessionTheme;
-  }
-  return systemPrefersDark() ? 'dark' : 'light';
-}
-
-function syncThemeButton() {
-  const btn = document.getElementById('fb:themeBtn');
-  if (!btn) {
-    return;
-  }
-  const isDark = effectiveTheme() === 'dark';
-  btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
 }
 
 function applyTheme(theme) {
+  const btn = document.getElementById('fb:themeBtn');
   sessionTheme = theme;
-  if (theme === 'dark' || theme === 'light') {
+  if (theme) {
     document.documentElement.setAttribute('data-theme', theme);
-  } else {
-    document.documentElement.removeAttribute('data-theme');
   }
-  syncThemeButton();
+  if (btn) {
+    btn.setAttribute('aria-pressed', String(effectiveTheme() === 'dark'));
+  }
 }
 
 function initTheme() {
@@ -96,11 +87,7 @@ function initTheme() {
   } catch (_err) {
     stored = null;
   }
-  if (stored === 'dark' || stored === 'light') {
-    applyTheme(stored);
-  } else {
-    syncThemeButton();
-  }
+  applyTheme(stored === 'dark' || stored === 'light' ? stored : null);
 }
 
 function toggleTheme() {
@@ -109,26 +96,17 @@ function toggleTheme() {
   try {
     window.localStorage.setItem(THEME_KEY, next);
   } catch (_err) {
-    const msg =
-      window.FB_STRINGS && window.FB_STRINGS.not_remembered
-        ? window.FB_STRINGS.not_remembered
-        : '';
-    showToast(msg);
+    showToast(str('not_remembered'));
   }
 }
 
 function selectSidebarSection(secKey) {
-  const groups = document.querySelectorAll('.sidebar .nav-group[data-sec]');
-  for (let i = 0; i < groups.length; i += 1) {
-    const group = groups[i];
+  document.querySelectorAll('.sidebar .nav-group[data-sec]').forEach(function (group) {
     group.hidden = group.getAttribute('data-sec') !== secKey;
-  }
-  const picks = (document.getElementById('fb:secSwitch') || document.createElement('div')).querySelectorAll('[data-secpick]');
-  for (let i = 0; i < picks.length; i += 1) {
-    const btn = picks[i];
-    const active = btn.getAttribute('data-secpick') === secKey;
-    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-  }
+  });
+  document.querySelectorAll('#fb\\:secSwitch [data-secpick]').forEach(function (btn) {
+    btn.setAttribute('aria-pressed', String(btn.getAttribute('data-secpick') === secKey));
+  });
 }
 
 function isOverlayOpen() {
@@ -136,50 +114,30 @@ function isOverlayOpen() {
   return Boolean(sidebar && sidebar.classList.contains('open'));
 }
 
-function openSidebar() {
+// Opens or closes the overlay sidebar (below 960px) with its scrim and the menu button's state.
+function setSidebar(open, restoreFocus) {
   const sidebar = document.getElementById('fb:sidebar');
   const scrim = document.getElementById('fb:scrim');
   const menuBtn = document.getElementById('fb:menuBtn');
-  if (!sidebar) {
+  if (!sidebar || open === isOverlayOpen()) {
     return;
   }
-  lastTrigger = document.activeElement;
-  sidebar.classList.add('open');
+  if (open) {
+    lastTrigger = document.activeElement;
+  }
+  sidebar.classList.toggle('open', open);
   if (scrim) {
-    scrim.hidden = false;
-    scrim.classList.add('open');
+    scrim.hidden = !open;
+    scrim.classList.toggle('open', open);
   }
   if (menuBtn) {
-    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.setAttribute('aria-expanded', String(open));
   }
-  const firstFocusable = sidebar.querySelector(
-    'button:not([hidden]), a[href]:not([hidden]), [tabindex]:not([tabindex="-1"])'
-  );
-  if (firstFocusable && typeof firstFocusable.focus === 'function') {
-    firstFocusable.focus();
-  }
-}
-
-function closeSidebar(restoreFocus) {
-  const sidebar = document.getElementById('fb:sidebar');
-  const scrim = document.getElementById('fb:scrim');
-  const menuBtn = document.getElementById('fb:menuBtn');
-  if (!sidebar || !sidebar.classList.contains('open')) {
-    return;
-  }
-  sidebar.classList.remove('open');
-  if (scrim) {
-    scrim.classList.remove('open');
-    scrim.hidden = true;
-  }
-  if (menuBtn) {
-    menuBtn.setAttribute('aria-expanded', 'false');
-  }
-  if (restoreFocus) {
-    const target = lastTrigger || menuBtn;
-    if (target && typeof target.focus === 'function') {
-      target.focus();
-    }
+  const target = open
+    ? sidebar.querySelector('button:not([hidden]), a[href]:not([hidden]), [tabindex]:not([tabindex="-1"])')
+    : restoreFocus && (lastTrigger || menuBtn);
+  if (target) {
+    target.focus();
   }
 }
 
@@ -194,62 +152,40 @@ function initFrame() {
   const menuBtn = document.getElementById('fb:menuBtn');
   if (menuBtn) {
     menuBtn.addEventListener('click', function () {
-      if (isOverlayOpen()) {
-        closeSidebar(true);
-      } else {
-        openSidebar();
-      }
+      setSidebar(!isOverlayOpen(), true);
     });
   }
-
-  const closeBtn = document.getElementById('fb:sidebarCloseBtn');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-      closeSidebar(true);
-    });
-  }
-
-  const scrim = document.getElementById('fb:scrim');
-  if (scrim) {
-    scrim.addEventListener('click', function () {
-      closeSidebar(true);
-    });
-  }
+  [document.getElementById('fb:sidebarCloseBtn'), document.getElementById('fb:scrim')].forEach(function (el) {
+    if (el) {
+      el.addEventListener('click', function () {
+        setSidebar(false, true);
+      });
+    }
+  });
 
   const secSwitch = document.getElementById('fb:secSwitch');
   if (secSwitch) {
     secSwitch.addEventListener('click', function (ev) {
-      const btn =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-secpick]')
-          : null;
-      if (!btn) {
-        return;
-      }
-      const sec = btn.getAttribute('data-secpick');
-      if (sec) {
-        selectSidebarSection(sec);
+      const btn = closest(ev, '[data-secpick]');
+      if (btn) {
+        selectSidebarSection(btn.getAttribute('data-secpick'));
       }
     });
   }
 
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape' && isOverlayOpen()) {
+    if (ev.key === 'Escape' && isOverlayOpen() && !document.querySelector('dialog[open]')) {
       ev.preventDefault();
-      closeSidebar(true);
+      setSidebar(false, true);
     }
   });
 
   if (window.matchMedia) {
-    const mq = window.matchMedia('(min-width: 960px)');
-    const onChange = function (e) {
-      if (e.matches && isOverlayOpen()) {
-        closeSidebar(false);
+    window.matchMedia('(min-width: 960px)').addEventListener('change', function (e) {
+      if (e.matches) {
+        setSidebar(false, false);
       }
-    };
-    if (typeof mq.addEventListener === 'function') {
-      mq.addEventListener('change', onChange);
-    }
+    });
   }
 
   const appRoot = document.querySelector('.app[data-route]');
@@ -265,28 +201,23 @@ function initFrame() {
   initCommandChips();
   initPageReader();
   initRegister();
+  initPalette();
 }
 
 function localIsoDate() {
   const now = new Date();
-  const y = String(now.getFullYear());
-  const m = String(now.getMonth() + 1).padStart(2, '0');
-  const d = String(now.getDate()).padStart(2, '0');
-  return y + '-' + m + '-' + d;
+  const pad = function (n) {
+    return String(n).padStart(2, '0');
+  };
+  return now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
 }
 
 function applyWording(mode) {
   const reader = document.getElementById('fb:reader') || document.body;
-  const isPlain = mode === 'plain';
-  if (reader) {
-    reader.classList.toggle('hide-precise', isPlain);
-  }
-  const buttons = (document.getElementById('fb:wordingSeg') || document.createElement('div')).querySelectorAll('[data-wording]');
-  for (let i = 0; i < buttons.length; i += 1) {
-    const btn = buttons[i];
-    const active = btn.getAttribute('data-wording') === (isPlain ? 'plain' : 'both');
-    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-  }
+  reader.classList.toggle('hide-precise', mode === 'plain');
+  document.querySelectorAll('#fb\\:wordingSeg [data-wording]').forEach(function (btn) {
+    btn.setAttribute('aria-pressed', String(btn.getAttribute('data-wording') === mode));
+  });
 }
 
 function showPopoverFor(el) {
@@ -294,36 +225,21 @@ function showPopoverFor(el) {
   if (!pop || !el) {
     return;
   }
-  let title = el.getAttribute('data-pv-title') || '';
+  const title = el.getAttribute('data-pv-title') || '';
   let body = el.getAttribute('data-pv-body') || '';
   const pv = el.getAttribute('data-pv') || '';
   if (!body && pv.indexOf('cite:') === 0) {
-    const num = pv.slice(5);
-    const row = document.getElementById('cite-' + num);
-    if (row) {
-      body = (row.textContent || '').trim();
-    }
+    const row = document.getElementById('cite-' + pv.slice(5));
+    body = row ? row.textContent.trim() : '';
   }
-  if (!title && !body) {
-    pop.hidden = true;
-    return;
-  }
-  while (pop.firstChild) {
-    pop.removeChild(pop.firstChild);
-  }
+  pop.textContent = '';
   if (title) {
-    const tDiv = document.createElement('div');
-    tDiv.className = 'popover-title';
-    tDiv.textContent = title;
-    pop.appendChild(tDiv);
+    pop.append(make('div', 'popover-title', title));
   }
   if (body) {
-    const bDiv = document.createElement('div');
-    bDiv.className = 'popover-body';
-    bDiv.textContent = body;
-    pop.appendChild(bDiv);
+    pop.append(make('div', 'popover-body', body));
   }
-  pop.hidden = false;
+  pop.hidden = !title && !body;
 }
 
 function hidePopover() {
@@ -410,10 +326,7 @@ function copyChip(btn) {
 
 function initCommandChips() {
   document.addEventListener('click', function (ev) {
-    const btn =
-      ev.target && typeof ev.target.closest === 'function'
-        ? ev.target.closest('[data-copy-chip]')
-        : null;
+    const btn = closest(ev, '[data-copy-chip]');
     if (btn) {
       copyChip(btn);
     }
@@ -421,40 +334,35 @@ function initCommandChips() {
 }
 
 function initPageReader() {
-  const reviewBanners = document.querySelectorAll('[data-review-by]');
-  if (reviewBanners.length > 0) {
-    const today = localIsoDate();
-    for (let i = 0; i < reviewBanners.length; i += 1) {
-      const banner = reviewBanners[i];
-      const reviewBy = banner.getAttribute('data-review-by') || '';
-      const pageDue = Boolean(reviewBy && today > reviewBy);
-      const rows = banner.querySelectorAll('[data-claim-review-by]');
-      let dueRows = 0;
-      for (let j = 0; j < rows.length; j += 1) {
-        const claimBy = rows[j].getAttribute('data-claim-review-by') || '';
-        if (claimBy && today > claimBy) {
-          rows[j].hidden = false;
-          dueRows += 1;
-        }
-      }
-      const claimDue = dueRows > 0;
-      const dueBlock = banner.querySelector('.due-claims');
-      if (dueBlock) {
-        dueBlock.hidden = !claimDue;
-      }
-      const dueCount = banner.querySelector('.due-count');
-      if (dueCount) {
-        dueCount.textContent = String(dueRows);
-      }
-      const pageLine = banner.querySelector('.body');
-      if (pageLine) {
-        pageLine.hidden = !pageDue;
-      }
-      if (pageDue || claimDue) {
-        banner.hidden = false;
+  const today = localIsoDate();
+  document.querySelectorAll('[data-review-by]').forEach(function (banner) {
+    const reviewBy = banner.getAttribute('data-review-by') || '';
+    const pageDue = Boolean(reviewBy && today > reviewBy);
+    const rows = banner.querySelectorAll('[data-claim-review-by]');
+    const dueBlock = banner.querySelector('.due-claims');
+    const dueCount = banner.querySelector('.due-count');
+    const pageLine = banner.querySelector('.body');
+    let dueRows = 0;
+    for (let j = 0; j < rows.length; j += 1) {
+      const claimBy = rows[j].getAttribute('data-claim-review-by') || '';
+      if (claimBy && today > claimBy) {
+        rows[j].hidden = false;
+        dueRows += 1;
       }
     }
-  }
+    if (dueBlock) {
+      dueBlock.hidden = dueRows === 0;
+    }
+    if (dueCount) {
+      dueCount.textContent = String(dueRows);
+    }
+    if (pageLine) {
+      pageLine.hidden = !pageDue;
+    }
+    if (pageDue || dueRows > 0) {
+      banner.hidden = false;
+    }
+  });
 
   const wordingSeg = document.getElementById('fb:wordingSeg');
   if (wordingSeg) {
@@ -468,10 +376,7 @@ function initPageReader() {
       applyWording(storedWording);
     }
     wordingSeg.addEventListener('click', function (ev) {
-      const btn =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-wording]')
-          : null;
+      const btn = closest(ev, '[data-wording]');
       if (!btn) {
         return;
       }
@@ -480,11 +385,7 @@ function initPageReader() {
       try {
         window.localStorage.setItem(WORDING_KEY, mode);
       } catch (_err) {
-        const msg =
-          window.FB_STRINGS && window.FB_STRINGS.not_remembered
-            ? window.FB_STRINGS.not_remembered
-            : '';
-        showToast(msg);
+        showToast(str('not_remembered'));
       }
     });
   }
@@ -492,18 +393,16 @@ function initPageReader() {
   const copyBtn = document.getElementById('fb:copyLinkBtn');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
-      const text = window.location ? window.location.href : '';
-      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-        navigator.clipboard.writeText(text).then(
-          function () {
-            showToast('Link copied');
-          },
-          function () {
-            showToast('Copy failed');
-          }
-        );
-      } else {
+      const clip = navigator.clipboard;
+      const failed = function () {
         showToast('Copy failed');
+      };
+      if (clip && clip.writeText) {
+        clip.writeText(window.location.href).then(function () {
+          showToast('Link copied');
+        }, failed);
+      } else {
+        failed();
       }
     });
   }
@@ -511,19 +410,14 @@ function initPageReader() {
   const reader = document.getElementById('fb:reader');
   if (reader) {
     reader.addEventListener('click', function (ev) {
-      const mark =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-claim]')
-          : null;
+      const mark = closest(ev, '[data-claim]');
       if (!mark) {
         return;
       }
       const claimId = mark.getAttribute('data-claim');
       const card = claimId ? document.getElementById('ev-' + claimId) : null;
       if (card) {
-        if (typeof card.scrollIntoView === 'function') {
-          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         card.classList.add('flash');
         window.setTimeout(function () {
           card.classList.remove('flash');
@@ -531,34 +425,16 @@ function initPageReader() {
       }
     });
 
-    reader.addEventListener('mouseover', function (ev) {
-      const pv =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-pv]')
-          : null;
-      if (pv) {
-        showPopoverFor(pv);
-      }
-    });
-
-    reader.addEventListener('mouseout', function (ev) {
-      const pv =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-pv]')
-          : null;
-      if (pv) {
-        hidePopover();
-      }
-    });
-
-    reader.addEventListener('focusin', function (ev) {
-      const pv =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-pv]')
-          : null;
-      if (pv) {
-        showPopoverFor(pv);
-      }
+    // Hover or focus on a [data-pv] mark previews it; leaving it hides the preview.
+    ['mouseover', 'focusin', 'mouseout'].forEach(function (type) {
+      reader.addEventListener(type, function (ev) {
+        const pv = closest(ev, '[data-pv]');
+        if (pv && type === 'mouseout') {
+          hidePopover();
+        } else if (pv) {
+          showPopoverFor(pv);
+        }
+      });
     });
 
     reader.addEventListener('focusout', function () {
@@ -615,22 +491,16 @@ function initRegister() {
     }
     const first = page * PAGE_SIZE;
     const visible = new Set(matching.slice(first, first + PAGE_SIZE));
-    for (let i = 0; i < ordered.length; i += 1) {
-      const hide = !visible.has(ordered[i]);
-      if (ordered[i].hidden !== hide) {
-        ordered[i].hidden = hide;
+    ordered.forEach(function (row) {
+      if (row.hidden === visible.has(row)) {
+        row.hidden = !row.hidden;
       }
-    }
+    });
     if (pager) {
       pager.hidden = matching.length <= PAGE_SIZE;
       if (pageInfo) {
-        pageInfo.textContent =
-          'Rows ' +
-          (first + 1) +
-          ' to ' +
-          Math.min(first + PAGE_SIZE, matching.length) +
-          ' of ' +
-          matching.length;
+        pageInfo.textContent = 'Rows ' + (first + 1) + ' to ' +
+          Math.min(first + PAGE_SIZE, matching.length) + ' of ' + matching.length;
       }
       if (prevBtn) {
         prevBtn.disabled = page === 0;
@@ -646,13 +516,9 @@ function initRegister() {
       return filterVal === 'all' || row.getAttribute('data-verification') === filterVal;
     });
     if (filterSeg) {
-      const buttons = filterSeg.querySelectorAll('[data-cf]');
-      for (let i = 0; i < buttons.length; i += 1) {
-        buttons[i].setAttribute(
-          'aria-pressed',
-          buttons[i].getAttribute('data-cf') === filterVal ? 'true' : 'false'
-        );
-      }
+      filterSeg.querySelectorAll('[data-cf]').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-cf') === filterVal));
+      });
     }
     if (emptyLine) {
       emptyLine.hidden = matching.length > 0;
@@ -728,31 +594,22 @@ function initRegister() {
     return collator.compare(x, y);
   };
 
-  const headers = thead.querySelectorAll('th[scope="col"]');
-  for (let i = 0; i < headers.length; i += 1) {
-    const th = headers[i];
+  thead.querySelectorAll('th[scope="col"]').forEach(function (th) {
     const colName = th.getAttribute('data-col');
     if (!colName || th.querySelector('[data-sort-col]')) {
-      continue;
+      return;
     }
-    const btn = document.createElement('button');
-    btn.type = 'button';
+    const btn = make('button', '', colName, { type: 'button', 'data-sort-col': colName });
+    const arrow = make('span', 'sort-arrow', null);
     btn.className = 'th-sort';
-    btn.setAttribute('data-sort-col', colName);
-    btn.appendChild(document.createTextNode(colName));
-    const arrow = document.createElement('span');
-    arrow.className = 'sort-arrow';
     arrow.setAttribute('aria-hidden', 'true');
-    btn.appendChild(arrow);
+    btn.append(arrow);
     th.textContent = '';
-    th.appendChild(btn);
-  }
+    th.append(btn);
+  });
 
   thead.addEventListener('click', function (ev) {
-    const btn =
-      ev.target && typeof ev.target.closest === 'function'
-        ? ev.target.closest('[data-sort-col]')
-        : null;
+    const btn = closest(ev, '[data-sort-col]');
     if (!btn) {
       return;
     }
@@ -763,30 +620,19 @@ function initRegister() {
     }
     const nextDir = th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
     const all = thead.querySelectorAll('th[scope="col"]');
-    for (let i = 0; i < all.length; i += 1) {
-      all[i].removeAttribute('aria-sort');
-    }
+    all.forEach(function (h) {
+      h.removeAttribute('aria-sort');
+    });
     th.setAttribute('aria-sort', nextDir);
 
     const sign = nextDir === 'ascending' ? 1 : -1;
-    let colIndex = 0;
-    for (let i = 0; i < all.length; i += 1) {
-      if (all[i] === th) {
-        colIndex = i;
-      }
-    }
+    const colIndex = Array.prototype.indexOf.call(all, th);
     const keys = new Map();
-    for (let i = 0; i < ordered.length; i += 1) {
-      const cell = ordered[i].cells[colIndex];
-      keys.set(
-        ordered[i],
-        !cell
-          ? ''
-          : cell.hasAttribute('data-sort-val')
-            ? cell.getAttribute('data-sort-val')
-            : cell.textContent.trim()
-      );
-    }
+    ordered.forEach(function (row) {
+      const cell = row.cells[colIndex];
+      keys.set(row, !cell ? '' : cell.hasAttribute('data-sort-val')
+        ? cell.getAttribute('data-sort-val') : cell.textContent.trim());
+    });
     ordered.sort(function (a, b) {
       const byVal = collate(keys.get(a), keys.get(b));
       if (byVal !== 0) {
@@ -794,9 +640,7 @@ function initRegister() {
       }
       return collate(a.id || '', b.id || '') * sign;
     });
-    for (let i = 0; i < ordered.length; i += 1) {
-      tbody.appendChild(ordered[i]);
-    }
+    tbody.append(...ordered);
     page = 0;
     applyFilter();
     render();
@@ -805,10 +649,7 @@ function initRegister() {
   if (filterBar && filterSeg) {
     filterBar.hidden = false;
     filterSeg.addEventListener('click', function (ev) {
-      const btn =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-cf]')
-          : null;
+      const btn = closest(ev, '[data-cf]');
       if (!btn) {
         return;
       }
@@ -826,30 +667,21 @@ function initRegister() {
 
   if (pager) {
     pager.addEventListener('click', function (ev) {
-      const btn =
-        ev.target && typeof ev.target.closest === 'function'
-          ? ev.target.closest('[data-pg]')
-          : null;
+      const btn = closest(ev, '[data-pg]');
       if (!btn || btn.disabled) {
         return;
       }
       page += btn.getAttribute('data-pg') === 'next' ? 1 : -1;
       render();
-      const wrap = regTable.parentNode;
-      if (wrap && typeof wrap.scrollIntoView === 'function') {
-        wrap.scrollIntoView({ block: 'start' });
-      }
+      regTable.parentNode.scrollIntoView({ block: 'start' });
       announce(pageInfo ? pageInfo.textContent : '');
     });
   }
 
   const rowById = function (id) {
-    for (let i = 0; i < ordered.length; i += 1) {
-      if (ordered[i].id === id) {
-        return ordered[i];
-      }
-    }
-    return null;
+    return ordered.find(function (row) {
+      return row.id === id;
+    }) || null;
   };
 
   // A link to a row (`claims.html#CL-...`) must land on that row, whatever page or filter hides it.
@@ -875,14 +707,239 @@ function initRegister() {
     }
     page = Math.floor(at / PAGE_SIZE);
     render();
-    if (typeof row.scrollIntoView === 'function') {
-      row.scrollIntoView({ block: 'center' });
-    }
+    row.scrollIntoView({ block: 'center' });
   };
   window.addEventListener('hashchange', revealHash);
 
   render();
   revealHash();
+}
+
+// SearchTrigger, CommandPalette and ShortcutsDialog: docs/reference/search.md, Palette.
+const KEYS_KEY = 'fieldbook.singleKeys';
+const FIELDS = 'id kind title parent snippet status as_of effective_from verified_on'.split(' ');
+const folds = new WeakMap();
+let singleKeys = true;
+let keysOpener = null;
+let selected = 0;
+let root = '';
+
+// Strings among `kids` become text nodes, never markup.
+function make(tag, cls, kids, attrs) {
+  const e = document.createElement(tag);
+  e.className = cls;
+  e.append(...[].concat(kids || []));
+  Object.keys(attrs || {}).forEach(function (k) {
+    e.setAttribute(k, attrs[k]);
+  });
+  return e;
+}
+
+function fold(text) {
+  return text.normalize('NFKC').toLowerCase().replace(/[\u2010-\u2015\u2212]/g, '-')
+    .replace(/\u00ad/g, '').trim();
+}
+
+function asHit(d, u) {
+  const h = { unit: u };
+  FIELDS.forEach(function (f, i) {
+    h[f] = d[i];
+  });
+  return h;
+}
+
+// Id-prefix matches (no section units) in unit order, then unlisted page-view rows; eight at most.
+function paletteRows(ix, text) {
+  const S = window.FB_SEARCH;
+  const q = fold(text);
+  const rows = [];
+  const add = function (h) {
+    if (rows.length < 8 && !rows.some(function (r) { return r.id === h.id; })) {
+      rows.push(h);
+    }
+  };
+  if (!/\s/.test(q)) {
+    if (!folds.has(ix)) {
+      folds.set(ix, ix.docs.map(function (d) { return fold(d[0]); }));
+    }
+    folds.get(ix).forEach(function (id, u) {
+      if (id.indexOf('#') < 0 && id.startsWith(q)) {
+        add(asHit(ix.docs[u], u));
+      }
+    });
+  }
+  const v = S.view(ix, S.rank(ix, text).hits);
+  v.exact.concat(v.pages, v.other).forEach(add);
+  return rows;
+}
+
+// The six page leads with the latest as_of, compared as written.
+function latestPages(ix) {
+  return ix.docs.map(asHit).filter(function (h) {
+    return /^(page|clause)$/.test(h.kind) && !h.parent && h.as_of;
+  }).sort(function (a, b) {
+    return a.as_of < b.as_of ? 1 : a.as_of > b.as_of ? -1 : a.unit - b.unit;
+  }).slice(0, 6);
+}
+
+function select(i) {
+  const input = document.getElementById('fb:palIn');
+  const opts = document.getElementById('fb:palList').children;
+  selected = Math.max(0, Math.min(i, opts.length - 1));
+  input.removeAttribute('aria-activedescendant');
+  for (let k = 0; k < opts.length; k += 1) {
+    opts[k].id = 'fb:pal-' + k;
+    opts[k].setAttribute('aria-selected', String(k === selected));
+    if (k === selected) {
+      input.setAttribute('aria-activedescendant', opts[k].id);
+      opts[k].scrollIntoView({ block: 'nearest' });
+    }
+  }
+}
+
+function paint() {
+  const S = window.FB_SEARCH;
+  const text = document.getElementById('fb:palIn').value;
+  const list = document.getElementById('fb:palList');
+  const note = document.getElementById('fb:palNote');
+  S.load().then(function (ix) {
+    const q = text.trim();
+    const rows = q && S.tokens(q).length ? paletteRows(ix, q) : null;
+    S.render(rows || latestPages(ix), q, list);
+    note.textContent = rows ? (rows.length ? '' : str('abstention')) : 'Latest pages';
+    if (rows) {
+      list.append(make('li', 'sr-row pal-search', make('a', 'sr-title', 'Search for ' + q, {
+        href: root + 'search.html#q=' + encodeURIComponent(q)
+      }), { role: 'option' }));
+    }
+    select(0);
+  }, function (why) {
+    list.textContent = '';
+    note.textContent = why === 'version'
+      ? 'Search is unavailable for this index version. '
+      : 'The search index did not load. ';
+    note.append(make('a', '', 'Use the ID list.', { href: root + 'ids.html' }));
+  });
+}
+
+function openPalette() {
+  const dlg = document.getElementById('fb:palette');
+  const input = document.getElementById('fb:palIn');
+  const keys = document.getElementById('fb:keys');
+  if (keys.open) {
+    keys.close();
+  }
+  if (!dlg.open) {
+    dlg.showModal();
+  }
+  input.focus();
+  input.select();
+  paint();
+}
+
+function openKeys() {
+  const dlg = document.getElementById('fb:keys');
+  if (!dlg.open) {
+    keysOpener = document.activeElement;
+    dlg.showModal();
+    dlg.querySelector('button').focus();
+  }
+}
+
+function initPalette() {
+  const link = document.getElementById('fb:searchBtn');
+  const pal = document.getElementById('fb:palette');
+  const keys = document.getElementById('fb:keys');
+  const keysBtn = document.getElementById('fb:keysBtn');
+  if (!link || !pal || !keys || !window.FB_SEARCH) {
+    return;
+  }
+  try {
+    singleKeys = window.localStorage.getItem(KEYS_KEY) !== 'off';
+  } catch (_err) {
+    singleKeys = true;
+  }
+  root = link.getAttribute('href').replace(/ids\.html$/, '');
+  const kbd = function (k) {
+    return make('kbd', '', k);
+  };
+  const trigger = make('button', link.className, [].slice.call(link.childNodes).concat(kbd('Ctrl K')),
+    { type: 'button', id: link.id, 'aria-label': 'Search the library (Control K)' });
+  link.replaceWith(trigger);
+  trigger.addEventListener('click', openPalette);
+  // Closes a dialog and returns focus at once: the close event is queued and may come late.
+  const shut = function (d) {
+    d.close();
+    (d === pal ? trigger : keysOpener || trigger).focus();
+  };
+
+  const input = make('input', '', null, {
+    id: 'fb:palIn', type: 'search', role: 'combobox', autocomplete: 'off', spellcheck: 'false',
+    placeholder: 'Page title, word or id', 'aria-label': 'Search the library',
+    'aria-expanded': 'true', 'aria-controls': 'fb:palList'
+  });
+  pal.append(
+    make('div', 'pal-in', [input, kbd('Esc')]),
+    make('p', 'pal-note', null, { id: 'fb:palNote', role: 'status' }),
+    make('ul', 'sr-list pal-list', null, { id: 'fb:palList', role: 'listbox', 'aria-label': 'Results' })
+  );
+  input.addEventListener('input', paint);
+  input.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      select(selected + (ev.key === 'ArrowDown' ? 1 : -1));
+    } else if (ev.key === 'Enter') {
+      const opt = document.getElementById('fb:palList').children[selected];
+      const a = opt && opt.querySelector('a[href]');
+      ev.preventDefault();
+      if (a) {
+        a.click();
+      }
+    }
+  });
+
+  const sw = make('button', 'switch', [make('i', '', null), 'Single-key shortcuts'],
+    { type: 'button', 'aria-pressed': String(singleKeys) });
+  const saved = make('p', 'note', null, { role: 'status' });
+  const close = make('button', 'btn ghost sm', 'Close', { type: 'button' });
+  keys.append(make('div', 'dlg-h', [make('h2', '', 'Keyboard shortcuts'), close]), make('dl', 'keys', [
+    make('dt', '', [kbd('/'), ' or ', kbd('Ctrl K')]), make('dd', '', 'Search the library'),
+    make('dt', '', kbd('?')), make('dd', '', 'This list'),
+    make('dt', '', kbd('Esc')), make('dd', '', 'Close search or this list')
+  ]), sw, make('p', 'note', 'Ctrl K and Esc always work.'), saved);
+  close.addEventListener('click', function () {
+    shut(keys);
+  });
+  sw.addEventListener('click', function () {
+    singleKeys = !singleKeys;
+    sw.setAttribute('aria-pressed', String(singleKeys));
+    try {
+      window.localStorage.setItem(KEYS_KEY, singleKeys ? 'on' : 'off');
+      saved.textContent = '';
+    } catch (_err) {
+      saved.textContent = str('not_remembered');
+    }
+  });
+  if (keysBtn) {
+    keysBtn.hidden = false;
+    keysBtn.addEventListener('click', openKeys);
+  }
+
+  document.addEventListener('keydown', function (ev) {
+    const t = ev.target;
+    const typing = t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName);
+    if ((ev.ctrlKey || ev.metaKey) && (ev.key === 'k' || ev.key === 'K')) {
+      ev.preventDefault();
+      openPalette();
+    } else if (ev.key === 'Escape' && (pal.open || keys.open)) {
+      ev.preventDefault();
+      shut(pal.open ? pal : keys);
+    } else if (singleKeys && !typing && !ev.ctrlKey && !ev.metaKey && !ev.altKey &&
+      !pal.open && !keys.open && (ev.key === '/' || ev.key === '?')) {
+      ev.preventDefault();
+      (ev.key === '/' ? openPalette : openKeys)();
+    }
+  });
 }
 
 if (document.readyState === 'loading') {

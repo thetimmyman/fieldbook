@@ -366,7 +366,7 @@ mod about {
         assert!(APP_JS.contains("clip.writeText(code.textContent)"));
         assert!(APP_JS.contains("selection.addRange(range)"));
         assert!(
-            APP_JS.contains("const refused = function () {\n      btn.focus();"),
+            APP_JS.contains("const refused = function () {\n    btn.focus();"),
             "a refused copy must return focus to the control that asked for it"
         );
         for forbidden in [
