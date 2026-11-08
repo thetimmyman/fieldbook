@@ -12,6 +12,12 @@
 //! `selftest.js` once to the root of that copy and injects one script element as the first child
 //! of `<head>` of each copied HTML page. Renderable `.txt` originals are opened unchanged from the
 //! `originals` folder beside the edition.
+//!
+//! Before the edition pages, the harness writes the golden wrappers (`golden_wrap`) and opens
+//! three generated search pages under `out/harness/search/` (`search-js`): every query-side
+//! tokenize case, every ranked and page-view case and the render cases through `search.js`, the
+//! case `skeleton_waits_300ms`, and an index whose `v` is 2. It prints each passing case, fails
+//! on any case that fails and names it, and prints the advisory p95 of 10 lookups.
 
 use std::ffi::{OsStr, OsString};
 use std::fmt::Write as _;
@@ -21,6 +27,8 @@ use std::process::{Command, Stdio};
 use std::time::{Duration, Instant};
 
 use serde::Deserialize;
+
+use crate::golden_wrap;
 
 /// The AD-08 browser options. The harness adds only `--dump-dom` and `--log-net-log=<file>`, and
 /// never `--allow-file-access-from-files`.
@@ -845,6 +853,324 @@ fn negative_policy(html: &str) -> Option<&str> {
     Some(&html[start..end])
 }
 
+/// The template of the search pages (`search-js`): `@MODE@` and `@GOLDEN_SCRIPTS@` are filled in.
+const SEARCH_TEMPLATE: &str = include_str!("../harness/search_goldens.html");
+/// The search cases the search pages run.
+const SEARCH_CASES_JS: &str = include_str!("../harness/search_goldens.js");
+/// `hold.js`: the empty script `search_goldens.js` keeps loading, so that the load event, and
+/// with it `--dump-dom`, waits until every case has reported.
+const SEARCH_HOLD_JS: &str = "// Empty: loading it delays the load event.\n";
+/// The search pages, each with the cases it must report beyond those the goldens name.
+const SEARCH_PAGES: [(&str, &[&str]); 3] = [
+    (
+        "goldens",
+        &[
+            "ordered_hits_render_without_reranking",
+            "index_text_goes_in_as_text",
+            "hash_query_is_decoded",
+            "a_non_query_hash_keeps_the_results",
+            "an_undecodable_hash_is_an_empty_query",
+            "enter_keeps_the_typed_results",
+        ],
+    ),
+    ("skeleton", &["skeleton_waits_300ms"]),
+    (
+        "version",
+        &["unsupported_index_version_keeps_the_id_list_line"],
+    ),
+];
+/// The ranked golden whose index, with `v` set to 2, the version page loads.
+const VERSION_GOLDEN: &str = "search/seed-ranked.json";
+
+/// One search page, ready to open.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct SearchPage {
+    /// `goldens`, `skeleton` or `version`.
+    pub(crate) mode: &'static str,
+    /// The generated page.
+    pub(crate) path: PathBuf,
+    /// Every case id the page must report as passing.
+    pub(crate) required: Vec<String>,
+}
+
+/// The ids of the golden cases the goldens page runs: every query-side tokenize case and every
+/// ranked and page-view case, from the golden files' raw text keyed by path.
+pub(crate) fn golden_case_ids(files: &[(String, String)]) -> Result<Vec<String>, String> {
+    let mut ids = Vec::new();
+    for (key, raw) in files {
+        let value: serde_json::Value =
+            serde_json::from_str(raw).map_err(|error| format!("{key}: not JSON: {error}"))?;
+        let kind = value.get("kind").and_then(serde_json::Value::as_str);
+        if !matches!(kind, Some("tokenize" | "ranked" | "page-view")) {
+            continue;
+        }
+        let cases = value
+            .get("cases")
+            .and_then(serde_json::Value::as_array)
+            .ok_or_else(|| format!("{key}: no cases"))?;
+        for case in cases {
+            if kind == Some("tokenize")
+                && case.get("side").and_then(serde_json::Value::as_str) != Some("query")
+            {
+                continue;
+            }
+            let id = case
+                .get("id")
+                .and_then(serde_json::Value::as_str)
+                .ok_or_else(|| format!("{key}: a case has no id"))?;
+            ids.push(id.to_owned());
+        }
+    }
+    Ok(ids)
+}
+
+/// The text of `search-index.js` for the golden `raw` with its `v` set to 2.
+fn version_two_index(raw: &str) -> Result<String, String> {
+    let script = golden_wrap::wrap_index(VERSION_GOLDEN, raw)?
+        .ok_or_else(|| format!("{VERSION_GOLDEN}: no units"))?;
+    let payload = script
+        .lines()
+        .nth(1)
+        .and_then(|line| line.split_once("] = "))
+        .and_then(|(_, rest)| rest.strip_suffix(';'))
+        .ok_or_else(|| format!("{VERSION_GOLDEN}: the index wrapper changed its form"))?;
+    let mut index: serde_json::Value = serde_json::from_str(payload)
+        .map_err(|error| format!("{VERSION_GOLDEN}: index is not JSON: {error}"))?;
+    let object = index
+        .as_object_mut()
+        .ok_or_else(|| format!("{VERSION_GOLDEN}: the index is not an object"))?;
+    object.insert("v".to_owned(), serde_json::Value::from(2));
+    Ok(format!("window.FB_INDEX = {index};"))
+}
+
+fn attribute_text(text: &str) -> String {
+    text.replace('&', "&amp;")
+        .replace('"', "&quot;")
+        .replace('<', "&lt;")
+}
+
+fn write_file(path: &Path, text: &[u8]) -> Result<(), String> {
+    if let Some(parent) = path.parent() {
+        fs::create_dir_all(parent)
+            .map_err(|error| format!("cannot create {}: {error}", parent.display()))?;
+    }
+    fs::write(path, text).map_err(|error| format!("cannot write {}: {error}", path.display()))
+}
+
+/// Writes the golden wrappers (`golden_wrap`) and the three search pages under
+/// `<harness>/search/`: `goldens` loads every wrapper and, when `site_index` is given, the
+/// edition's `search-index.js` for the timing; `skeleton` loads none; `version` has a
+/// `search-index.js` whose `v` is 2. Each page has `search.js`, `strings.js` and the self-test.
+pub(crate) fn prepare_search_pages(
+    root: &Path,
+    harness: &Path,
+    site_index: Option<&Path>,
+) -> Result<Vec<SearchPage>, String> {
+    let wrappers = golden_wrap::write(root)?;
+    let golden_root = root.join(golden_wrap::GOLDEN_DIR);
+    let mut files = Vec::new();
+    for wrapper in wrappers.iter().filter(|w| !w.path.ends_with(".index.js")) {
+        let path = golden_root.join(&wrapper.key);
+        let raw = fs::read_to_string(&path)
+            .map_err(|error| format!("cannot read {}: {error}", path.display()))?;
+        files.push((wrapper.key.clone(), raw));
+    }
+    let golden_ids = golden_case_ids(&files)?;
+    let seed = files
+        .iter()
+        .find(|(key, _)| key == VERSION_GOLDEN)
+        .map(|(_, raw)| raw.as_str())
+        .ok_or_else(|| format!("{VERSION_GOLDEN} is missing"))?;
+
+    let base = harness.join("search");
+    if base.exists() {
+        fs::remove_dir_all(&base)
+            .map_err(|error| format!("cannot clear {}: {error}", base.display()))?;
+    }
+    let golden_src = golden_wrap::OUT_DIR
+        .strip_prefix("out/harness/")
+        .ok_or("the golden wrappers are not under out/harness")?;
+    let mut pages = Vec::new();
+    for (mode, named) in SEARCH_PAGES {
+        let dir = base.join(mode);
+        write_file(
+            &dir.join(fieldbook_render::search_page::SCRIPT_PATH),
+            fieldbook_render::search_page::SCRIPT.as_bytes(),
+        )?;
+        write_file(
+            &dir.join("assets/strings.js"),
+            fieldbook_core::strings::js().as_bytes(),
+        )?;
+        write_file(&dir.join("search_goldens.js"), SEARCH_CASES_JS.as_bytes())?;
+        write_file(&dir.join(SELFTEST_NAME), SELFTEST_JS.as_bytes())?;
+        write_file(&dir.join("hold.js"), SEARCH_HOLD_JS.as_bytes())?;
+        let index_path = dir.join(fieldbook_render::search_index::OUTPUT_PATH);
+        let mut scripts = String::new();
+        let mut required: Vec<String> = named.iter().map(|id| (*id).to_owned()).collect();
+        match mode {
+            "goldens" => {
+                for wrapper in &wrappers {
+                    let _ = writeln!(
+                        scripts,
+                        "<script src=\"../../{golden_src}/{}\"></script>",
+                        attribute_text(&wrapper.path)
+                    );
+                }
+                if let Some(site) = site_index {
+                    fs::copy(site, &index_path)
+                        .map_err(|error| format!("cannot copy {}: {error}", site.display()))?;
+                    let _ = writeln!(
+                        scripts,
+                        "<script src=\"{}\"></script>",
+                        fieldbook_render::search_index::OUTPUT_PATH
+                    );
+                }
+                required.extend(golden_ids.iter().cloned());
+            }
+            "version" => write_file(&index_path, version_two_index(seed)?.as_bytes())?,
+            _ => {}
+        }
+        let html = SEARCH_TEMPLATE
+            .replace("@GOLDEN_SCRIPTS@", scripts.trim_end())
+            .replace("@MODE@", mode);
+        let path = dir.join(format!("{mode}.html"));
+        let html = inject_script(&html, &selftest_src(&path, &dir)?)?;
+        write_file(&path, html.as_bytes())?;
+        pages.push(SearchPage {
+            mode,
+            path,
+            required,
+        });
+    }
+    Ok(pages)
+}
+
+/// One case a search page reported.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct SearchCase {
+    pub(crate) id: String,
+    pub(crate) ok: bool,
+    pub(crate) text: String,
+}
+
+/// What a finished search page reported: its cases in order and its summary line.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub(crate) struct SearchRun {
+    pub(crate) cases: Vec<SearchCase>,
+    pub(crate) summary: String,
+}
+
+/// The value of attribute `name` in the start tag `tag`.
+fn tag_attribute<'a>(tag: &'a str, name: &str) -> Option<&'a str> {
+    let key = format!(" {name}=\"");
+    let start = tag.find(&key)? + key.len();
+    let end = tag[start..].find('"')? + start;
+    Some(&tag[start..end])
+}
+
+/// Reads a search page's dumped DOM: every `<li data-case data-ok>` and `#harness-summary`.
+/// Fails, naming `page` and each case, when the page did not finish, a case failed, the failed
+/// count disagrees, or a `required` case did not run.
+pub(crate) fn judge_search_page(
+    page: &str,
+    dom: &str,
+    required: &[String],
+) -> Result<SearchRun, Vec<String>> {
+    let mut failures = Vec::new();
+    let mut cases = Vec::new();
+    let mut from = 0;
+    while let Some(found) = dom[from..].find("<li data-case=\"") {
+        let start = from + found;
+        let Some(tag_end) = dom[start..].find('>').map(|i| start + i) else {
+            break;
+        };
+        let tag = &dom[start..tag_end];
+        let close = dom[tag_end..]
+            .find("</li>")
+            .map_or(dom.len(), |i| tag_end + i);
+        let id = unescape_html(tag_attribute(tag, "data-case").unwrap_or_default());
+        let ok = tag_attribute(tag, "data-ok") == Some("true");
+        let text = unescape_html(&dom[tag_end + 1..close]);
+        if !ok {
+            failures.push(format!("{page}: search case {id} failed: {text}"));
+        }
+        cases.push(SearchCase { id, ok, text });
+        from = close;
+    }
+    let summary = dom.find("id=\"harness-summary\"").and_then(|at| {
+        let start = dom[..at].rfind('<')?;
+        let tag_end = dom[at..].find('>')? + at;
+        let close = dom[tag_end..].find("</p>")? + tag_end;
+        Some((
+            &dom[start..tag_end],
+            unescape_html(&dom[tag_end + 1..close]),
+        ))
+    });
+    let Some((tag, summary)) = summary else {
+        failures.push(format!("{page}: no #harness-summary in the page"));
+        return Err(failures);
+    };
+    if tag_attribute(tag, "data-done") != Some("true") {
+        failures.push(format!(
+            "{page}: the search cases did not finish ({} reported)",
+            cases.len()
+        ));
+    }
+    let failed = cases.iter().filter(|c| !c.ok).count();
+    if tag_attribute(tag, "data-failed").and_then(|n| n.parse::<usize>().ok()) != Some(failed) {
+        failures.push(format!(
+            "{page}: the summary's failed count is not the {failed} failed cases"
+        ));
+    }
+    for id in required {
+        if !cases.iter().any(|c| &c.id == id) {
+            failures.push(format!("{page}: search case {id} did not run"));
+        }
+    }
+    if cases.is_empty() {
+        failures.push(format!("{page}: no search case ran"));
+    }
+    if failures.is_empty() {
+        Ok(SearchRun { cases, summary })
+    } else {
+        Err(failures)
+    }
+}
+
+/// Opens each search page and prints each case; returns the failures.
+fn run_search_pages(browser: &Path, work: &Path, pages: &[SearchPage]) -> Vec<String> {
+    let mut failures = Vec::new();
+    for page in pages {
+        let name = format!("search/{}.html", page.mode);
+        let loaded = match load(browser, &page.path, work, &name, PAGE_LIMIT) {
+            Ok(loaded) => loaded,
+            Err(error) => {
+                failures.push(error);
+                continue;
+            }
+        };
+        failures.extend(netlog_failures(&name, &loaded.net));
+        if let Err(found) = judge_html_page(&name, &loaded.dom) {
+            failures.extend(found);
+        }
+        match judge_search_page(&name, &loaded.dom, &page.required) {
+            Ok(run) => {
+                for case in &run.cases {
+                    println!("harness: search: {}: ok", case.id);
+                }
+                println!("harness: search: {name}: {}", run.summary);
+            }
+            Err(found) => {
+                for failure in &found {
+                    eprintln!("harness: FAIL {failure}");
+                }
+                failures.extend(found);
+            }
+        }
+    }
+    failures
+}
+
 /// `cargo xtask harness [--edition DIR]`.
 pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     let edition = match args {
@@ -936,6 +1262,13 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
             None
         }
     };
+
+    // The search pages (`search-js`): the goldens through search.js, the Skeleton and the
+    // index-version line. The edition's own index, when there is one, is timed.
+    let site_index = edition.join(fieldbook_render::search_index::OUTPUT_PATH);
+    let search_pages =
+        prepare_search_pages(root, &harness, site_index.is_file().then_some(&*site_index))?;
+    failures.extend(run_search_pages(&browser.path, &work, &search_pages));
 
     let pages = prepare_copy(&edition, &copy)?;
     let texts = renderable_originals(&originals, originals_count(&edition_toml)?)?;
@@ -1747,5 +2080,172 @@ mod tests {
         let id = parse_version(BrowserKind::Chromium, "Chromium 156.0.8078.79\n").unwrap();
         let text = summary_text(UNRELEASED_TOML, &id, &options_text(), &counts()).unwrap();
         assert!(matches_attestation(&text).is_err(), "{text}");
+    }
+
+    fn search_dom(cases: &[(&str, bool)], done: bool, failed: usize) -> String {
+        let mut dom = String::from("<html><body><ol id=\"harness-results\">");
+        for (id, ok) in cases {
+            let text = if *ok {
+                "ok".to_owned()
+            } else {
+                "list: expected [&quot;a&quot;]".to_owned()
+            };
+            dom.push_str(&format!(
+                "<li data-case=\"{id}\" data-ok=\"{ok}\">{id}: {text}</li>"
+            ));
+        }
+        dom.push_str(&format!(
+            "</ol><p id=\"harness-summary\" data-done=\"{done}\" data-p95-ms=\"1.000\" data-run=\"{}\" data-failed=\"{failed}\">{} cases, {failed} failed</p></body></html>",
+            cases.len(),
+            cases.len()
+        ));
+        dom
+    }
+
+    fn ids(list: &[&str]) -> Vec<String> {
+        list.iter().map(|id| (*id).to_owned()).collect()
+    }
+
+    #[test]
+    fn search_page_with_every_case_passing_passes() {
+        let dom = search_dom(&[("rk-01", true), ("skeleton_waits_300ms", true)], true, 0);
+        let run = judge_search_page("search/goldens.html", &dom, &ids(&["rk-01"])).unwrap();
+        assert_eq!(run.cases.len(), 2);
+        assert_eq!(run.summary, "2 cases, 0 failed");
+    }
+
+    #[test]
+    fn a_failed_search_case_fails_and_is_named() {
+        let dom = search_dom(&[("rk-01", true), ("rk-s-04", false)], true, 1);
+        let failures = judge_search_page("search/goldens.html", &dom, &[]).unwrap_err();
+        assert_eq!(failures.len(), 1, "{failures:?}");
+        assert!(
+            failures[0].contains("search case rk-s-04 failed"),
+            "{failures:?}"
+        );
+        assert!(failures[0].contains("[\"a\"]"), "{failures:?}");
+    }
+
+    #[test]
+    fn an_unfinished_search_page_fails() {
+        let dom = search_dom(&[("rk-01", true)], false, 0);
+        let failures = judge_search_page("search/skeleton.html", &dom, &[]).unwrap_err();
+        assert!(
+            failures.iter().any(|f| f.contains("did not finish")),
+            "{failures:?}"
+        );
+    }
+
+    #[test]
+    fn a_required_search_case_that_did_not_run_fails() {
+        let dom = search_dom(&[("rk-01", true)], true, 0);
+        let failures = judge_search_page(
+            "search/skeleton.html",
+            &dom,
+            &ids(&["skeleton_waits_300ms"]),
+        )
+        .unwrap_err();
+        assert_eq!(
+            failures,
+            vec!["search/skeleton.html: search case skeleton_waits_300ms did not run".to_owned()]
+        );
+        let failures = judge_search_page("search/x.html", "<html></html>", &[]).unwrap_err();
+        assert!(failures[0].contains("no #harness-summary"), "{failures:?}");
+    }
+
+    fn copy_dir(from: &Path, to: &Path) {
+        fs::create_dir_all(to).unwrap();
+        for entry in fs::read_dir(from).unwrap() {
+            let entry = entry.unwrap();
+            let target = to.join(entry.file_name());
+            if entry.file_type().unwrap().is_dir() {
+                copy_dir(&entry.path(), &target);
+            } else {
+                fs::copy(entry.path(), target).unwrap();
+            }
+        }
+    }
+
+    #[test]
+    fn search_pages_load_every_wrapper_and_require_every_golden_case() {
+        let dir = tempfile::tempdir().unwrap();
+        let root = dir.path();
+        copy_dir(
+            &crate::proc::repo_root().join(golden_wrap::GOLDEN_DIR),
+            &root.join(golden_wrap::GOLDEN_DIR),
+        );
+        let harness = root.join("out/harness");
+        let pages = prepare_search_pages(root, &harness, None).unwrap();
+        let modes: Vec<&str> = pages.iter().map(|p| p.mode).collect();
+        assert_eq!(modes, ["goldens", "skeleton", "version"]);
+
+        let goldens = &pages[0];
+        let html = fs::read_to_string(&goldens.path).unwrap();
+        assert!(html.contains("data-harness=\"goldens\""), "{html}");
+        assert!(
+            html.contains("<script src=\"selftest.js\"></script>"),
+            "{html}"
+        );
+        assert!(html.contains("src=\"../../golden/search/seed-ranked.json.js\""));
+        assert!(html.contains("src=\"../../golden/search/seed-ranked.json.index.js\""));
+        assert!(
+            !html.contains("golden/json/"),
+            "report goldens are not loaded"
+        );
+        assert!(
+            !html.contains("src=\"assets/search-index.js\""),
+            "no site index given"
+        );
+        // Every query-side tokenize case and every ranked and page-view case is required.
+        for id in ["rk-s-01", "pv-01", "ordered_hits_render_without_reranking"] {
+            assert!(
+                goldens.required.iter().any(|r| r == id),
+                "{id} not required"
+            );
+        }
+        assert!(
+            harness.join("golden/search/seed-ranked.json.js").is_file(),
+            "golden_wrap ran"
+        );
+        let search_js =
+            fs::read_to_string(goldens.path.with_file_name("assets").join("search.js")).unwrap();
+        assert_eq!(search_js, fieldbook_render::search_page::SCRIPT);
+
+        assert_eq!(pages[1].required, ids(&["skeleton_waits_300ms"]));
+        let version = &pages[2];
+        let index = fs::read_to_string(
+            version
+                .path
+                .with_file_name("assets")
+                .join("search-index.js"),
+        )
+        .unwrap();
+        let payload = index
+            .strip_prefix("window.FB_INDEX = ")
+            .and_then(|rest| rest.strip_suffix(';'))
+            .unwrap();
+        let value: serde_json::Value = serde_json::from_str(payload).unwrap();
+        assert_eq!(value["v"], 2);
+        assert!(value["docs"].as_array().is_some_and(|d| !d.is_empty()));
+    }
+
+    #[test]
+    fn golden_case_ids_skip_index_side_tokenize_cases_and_other_kinds() {
+        let files = vec![
+            (
+                "search/t.json".to_owned(),
+                r#"{"kind":"tokenize","cases":[{"id":"q","side":"query"},{"id":"i","side":"index"}]}"#
+                    .to_owned(),
+            ),
+            (
+                "search/r.json".to_owned(),
+                r#"{"kind":"ranked","units":[],"cases":[{"id":"r"}]}"#.to_owned(),
+            ),
+            (
+                "ids/x.json".to_owned(),
+                r#"{"kind":"ids","cases":[{"id":"x"}]}"#.to_owned(),
+            ),
+        ];
+        assert_eq!(golden_case_ids(&files).unwrap(), ids(&["q", "r"]));
     }
 }
