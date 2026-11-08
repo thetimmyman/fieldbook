@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'">
+<title>search-js harness</title>
+<!-- The page harness.rs generates from this template: it sets data-harness to goldens, skeleton
+     or version, puts one <script src> per golden wrapper and ranked index at the marker below,
+     and copies search.js (and, for version, a search-index.js whose v is 2) under assets/. -->
+@GOLDEN_SCRIPTS@
+<script src="assets/strings.js"></script>
+</head>
+<body data-harness="@MODE@">
+<p id="fb:search-blocked">Search needs scripts, which this browser blocks. <a href="ids.html">All IDs</a></p>
+<input type="search" id="fb:search-q" hidden>
+<div id="fb:search-out">
+<p id="fb:search-failed" hidden>The search index did not load. <a href="ids.html">All IDs</a></p>
+<p id="fb:search-version" hidden>Search is unavailable for this index version. Use the <a href="ids.html">ID list</a>.</p>
+<p id="fb:search-more" hidden>Showing 50 of <span id="fb:search-total"></span></p>
+<p id="fb:search-none" role="status" hidden></p>
+<section id="fb:search-latest" hidden></section>
+<ul id="fb:search-results" role="listbox"></ul>
+</div>
+<ol id="harness-results"></ol>
+<p id="harness-summary" data-done="false"></p>
+<script data-search src="assets/search.js"></script>
+<script src="search_goldens.js"></script>
+</body>
+</html>
