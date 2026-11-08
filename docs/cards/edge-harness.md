@@ -17,8 +17,9 @@
 
 ## Scope
 
-- Files: `xtask/src/{main.rs,harness.rs}`, `xtask/harness/{selftest.js,negative.html}`, `xtask/tests/fixtures/harness/{netlog-file-page-https.json,netlog-browser-own.json,dom-with-violation.html,dom-without-selftest.html,dom-nested-with-violation.html,dom-nested-without-selftest.html,edge-version.txt}` (new, synthetic), `xtask/Cargo.toml` (path edges to `fieldbook-core` and `fieldbook-render`), `Cargo.lock`, `.github/workflows/ci.yml`, `justfile`.
+- Files: `xtask/src/{main.rs,harness.rs}`, `xtask/harness/{selftest.js,negative.html}`, `xtask/tests/fixtures/harness/{netlog-file-page-https.json,netlog-browser-own.json,dom-with-violation.html,dom-without-selftest.html,dom-nested-with-violation.html,dom-nested-without-selftest.html,edge-version.txt,netlog-file-page-preconnect.json,netlog-file-page-navigation.json,netlog-file-page-isolation-key.json,netlog-file-page-site-for-cookies.json,dom-text-viewer.html,dom-text-sniffed-as-html.html}` (new, synthetic), `xtask/Cargo.toml` (path edges to `fieldbook-core` and `fieldbook-render`), `Cargo.lock`, `.github/workflows/ci.yml`, `justfile`.
 - Registration lines: the Commands line of `AGENTS.md` (`just browser` and `cargo xtask harness`).
+- Scope expansion (the owner's Chromium fallback): the AD-08 harness paragraph of `docs/decisions/0001-foundation.md` and the Developer tools row of `docs/reference/dependencies.md`.
 - Docs to update: `AGENTS.md` (Commands: `just browser` and `cargo xtask harness`), the `justfile` header comment (`browser` has arrived).
 
 ## Out of scope

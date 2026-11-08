@@ -3,14 +3,17 @@
 //! harness half of ED-02).
 //!
 //! Edge is the target. Where no Edge is installed (the Linux home machine and the self-hosted
-//! runner), the harness falls back to Chromium and names the browser that ran, in its first
-//! line, its summary line and `network-silence-summary.txt`.
+//! runner), the harness falls back to Chromium and names the browser that ran in its first line
+//! and its summary line. Only an Edge run over `out/edition` writes
+//! `network-silence-summary.txt`, whose `browser:` line section 4 of `network-silence.md` fixes
+//! as Microsoft Edge.
 //!
 //! The edition is never changed: the harness copies it to `out/harness/edition/`, copies
 //! `selftest.js` once to the root of that copy and injects one script element as the first child
 //! of `<head>` of each copied HTML page. Renderable `.txt` originals are opened unchanged from the
 //! `originals` folder beside the edition.
 
+use std::ffi::{OsStr, OsString};
 use std::fmt::Write as _;
 use std::fs;
 use std::path::{Component, Path, PathBuf};
@@ -313,10 +316,30 @@ fn is_renderable_original(name: &str) -> bool {
         })
 }
 
-/// The renderable `.txt` originals of `originals`, sorted. A missing folder holds none.
-fn renderable_originals(originals: &Path) -> Result<Vec<PathBuf>, String> {
+/// The `[counts] originals` field of an `edition.toml` (0 when absent).
+fn originals_count(edition_toml: &str) -> Result<i64, String> {
+    let table: toml::Table = edition_toml
+        .parse()
+        .map_err(|error| format!("unreadable edition.toml: {error}"))?;
+    Ok(table
+        .get("counts")
+        .and_then(|counts| counts.get("originals"))
+        .and_then(toml::Value::as_integer)
+        .unwrap_or(0))
+}
+
+/// The renderable `.txt` originals of `originals`, sorted. A missing folder fails when the
+/// edition counts any originals, so the text half of ED-02 is never skipped unnoticed.
+fn renderable_originals(originals: &Path, expected: i64) -> Result<Vec<PathBuf>, String> {
     if !originals.exists() {
-        return Ok(Vec::new());
+        return if expected > 0 {
+            Err(format!(
+                "edition.toml counts {expected} originals, but {} does not exist",
+                originals.display()
+            ))
+        } else {
+            Ok(Vec::new())
+        };
     }
     let entries = fs::read_dir(originals)
         .map_err(|error| format!("cannot read {}: {error}", originals.display()))?;
@@ -370,21 +393,39 @@ struct NetEvent {
 
 /// Reads a net-log: every request a `file:` page started. The browser's own traffic (initiator
 /// `not an origin`, a network isolation key that is not `file:`) is ignored.
+///
+/// A request is a `URL_REQUEST_START_JOB` from a `file:` page (by its initiator, its network
+/// isolation key or its site for cookies), or a `HOST_RESOLVER_MANAGER_REQUEST` whose network
+/// anonymization key is `file:`: a preconnect or DNS prefetch from a page resolves a host and
+/// may connect to it without ever starting a URL request.
 pub(crate) fn read_netlog(text: &str) -> Result<NetFindings, String> {
     let log: NetLog =
         serde_json::from_str(text).map_err(|error| format!("unreadable net-log: {error}"))?;
-    let start_job = log
-        .constants
-        .log_event_types
-        .get("URL_REQUEST_START_JOB")
-        .copied()
-        .ok_or("net-log has no URL_REQUEST_START_JOB event type")?;
+    let event_type = |name: &str| {
+        log.constants
+            .log_event_types
+            .get(name)
+            .copied()
+            .ok_or_else(|| format!("net-log has no {name} event type"))
+    };
+    let start_job = event_type("URL_REQUEST_START_JOB")?;
+    let resolve = event_type("HOST_RESOLVER_MANAGER_REQUEST")?;
     let mut findings = NetFindings::default();
-    for event in log.events.iter().filter(|event| event.kind == start_job) {
+    for event in &log.events {
         let Some(params) = &event.params else {
             continue;
         };
         let field = |name: &str| params.get(name).and_then(|v| v.as_str()).unwrap_or("");
+        if event.kind == resolve {
+            let host = field("host");
+            if !host.is_empty() && field("network_anonymization_key").starts_with("file:") {
+                findings.non_file.push(host.to_owned());
+            }
+            continue;
+        }
+        if event.kind != start_job {
+            continue;
+        }
         let url = field("url");
         if url.is_empty() {
             continue;
@@ -458,28 +499,62 @@ pub(crate) fn read_selftest(page: &str, dom: &str) -> Result<Selftest, String> {
         .map_err(|error| format!("{page}: unreadable selftest result: {error}"))
 }
 
-/// Judges one HTML page by its dumped DOM: a missing result or any violation fails.
+/// True for a resource entry that names a local load: a `file:` or `data:` URL.
+fn is_local_resource(name: &str) -> bool {
+    name.starts_with("file:") || name.starts_with("data:")
+}
+
+/// Judges one HTML page by its dumped DOM: a missing result, any violation, or any resource entry
+/// that is not local fails. The resource check is independent of the net-log: the browser lists a
+/// remote load there even when it was blocked.
 pub(crate) fn judge_html_page(page: &str, dom: &str) -> Result<Selftest, Vec<String>> {
     let selftest = read_selftest(page, dom).map_err(|error| vec![error])?;
-    if selftest.violations.is_empty() {
+    let mut failures: Vec<String> = selftest
+        .violations
+        .iter()
+        .map(|v| {
+            format!(
+                "{page}: CSP violation of {} by {}",
+                v.directive,
+                if v.blocked.is_empty() {
+                    "an inline resource"
+                } else {
+                    &v.blocked
+                }
+            )
+        })
+        .collect();
+    failures.extend(
+        selftest
+            .resources
+            .iter()
+            .filter(|r| !is_local_resource(&r.name))
+            .map(|r| format!("{page}: non-file resource {}", r.name)),
+    );
+    if failures.is_empty() {
         Ok(selftest)
     } else {
-        Err(selftest
-            .violations
-            .iter()
-            .map(|v| {
-                format!(
-                    "{page}: CSP violation of {} by {}",
-                    v.directive,
-                    if v.blocked.is_empty() {
-                        "an inline resource"
-                    } else {
-                        &v.blocked
-                    }
-                )
-            })
-            .collect())
+        Err(failures)
     }
+}
+
+/// Judges a renderable `.txt` original by its dumped DOM: it must have loaded in the text viewer,
+/// one `<pre>` in the body and no `<script>` or `<img>`, so the browser did not sniff it as HTML.
+pub(crate) fn judge_text_original(name: &str, dom: &str) -> Result<(), String> {
+    let lower = dom.to_ascii_lowercase();
+    let body = lower
+        .find("<body")
+        .map(|at| &lower[at..])
+        .ok_or_else(|| format!("{name}: did not load as text (no body)"))?;
+    let pres = body.matches("<pre").count();
+    if pres != 1 || lower.contains("<script") || lower.contains("<img") {
+        return Err(format!(
+            "{name}: did not load as text ({pres} <pre> elements, script {}, img {})",
+            lower.contains("<script"),
+            lower.contains("<img")
+        ));
+    }
+    Ok(())
 }
 
 /// What the negative page showed: requests blocked and requests reported.
@@ -489,8 +564,12 @@ pub(crate) struct Negative {
     pub(crate) reported: usize,
 }
 
-/// Judges the negative page: a remote load must be reported by the self-test and absent from
-/// the net-log. A negative page that reports nothing fails.
+/// The remote script of the negative page.
+pub(crate) const NEGATIVE_URL: &str = "https://example.invalid/x.js";
+
+/// Judges the negative page: its remote script must be reported by the self-test and absent from
+/// the net-log. A negative page that reports nothing fails; so does one whose only violations
+/// name something else (an inline script, a keyword).
 pub(crate) fn judge_negative(dom: &str, net: &NetFindings) -> Result<Negative, Vec<String>> {
     let mut failures: Vec<String> = net
         .non_file
@@ -501,7 +580,7 @@ pub(crate) fn judge_negative(dom: &str, net: &NetFindings) -> Result<Negative, V
         Ok(selftest) => selftest
             .violations
             .into_iter()
-            .filter(|v| !v.blocked.is_empty() && !v.blocked.starts_with("file:"))
+            .filter(|v| v.blocked == NEGATIVE_URL)
             .collect(),
         Err(error) => {
             failures.push(error);
@@ -548,11 +627,27 @@ fn edition_field(edition_toml: &str) -> Result<String, String> {
         .ok_or_else(|| "edition.toml has no `edition` string".to_owned())
 }
 
-/// Every command-line option of a page load, in order, with the net-log path as `<file>`.
+/// Every command-line option of a page load, in order, before the page's URL: the AD-08 flags,
+/// `--dump-dom` and the net-log. [`load`] passes exactly these, and [`options_text`] attests them.
+pub(crate) fn browser_args(netlog: &OsStr) -> Vec<OsString> {
+    let mut log = OsString::from("--log-net-log=");
+    log.push(netlog);
+    let mut args: Vec<OsString> = vec![
+        OsString::from(EDGE_FLAGS[0]),
+        OsString::from("--dump-dom"),
+        log,
+    ];
+    args.extend(EDGE_FLAGS[1..].iter().map(OsString::from));
+    args
+}
+
+/// The attested `options:` value: [`browser_args`] with the net-log path as `<file>`.
 pub(crate) fn options_text() -> String {
-    let mut options: Vec<&str> = vec![EDGE_FLAGS[0], "--dump-dom", "--log-net-log=<file>"];
-    options.extend_from_slice(&EDGE_FLAGS[1..]);
-    options.join(" ")
+    browser_args(OsStr::new("<file>"))
+        .iter()
+        .map(|arg| arg.to_string_lossy().into_owned())
+        .collect::<Vec<_>>()
+        .join(" ")
 }
 
 /// The text of `network-silence-summary.txt`: twelve `name: value` lines in the order of
@@ -626,35 +721,63 @@ struct Load {
     net: NetFindings,
 }
 
-/// Opens `target` in the browser with the AD-08 options, `--dump-dom` and a net-log, within
-/// [`PAGE_LIMIT`].
-fn load(browser: &Path, target: &Path, work: &Path, name: &str) -> Result<Load, String> {
+/// The last lines of the browser's standard error, for a failure message.
+fn stderr_tail(path: &Path) -> String {
+    let text = fs::read_to_string(path).unwrap_or_default();
+    let lines: Vec<&str> = text
+        .lines()
+        .filter(|line| !line.trim().is_empty())
+        .collect();
+    let tail = lines[lines.len().saturating_sub(5)..].join(" | ");
+    if tail.is_empty() {
+        "no standard error".to_owned()
+    } else {
+        format!("standard error: {tail}")
+    }
+}
+
+/// Opens `target` in the browser with [`browser_args`], within `limit`. A load that is not done
+/// in time, or whose browser exits with a failure, fails and names `name`.
+fn load(
+    browser: &Path,
+    target: &Path,
+    work: &Path,
+    name: &str,
+    limit: Duration,
+) -> Result<Load, String> {
     let netlog = work.join("netlog.json");
     let dom_path = work.join("dom.html");
+    let stderr_path = work.join("stderr.txt");
     let _ = fs::remove_file(&netlog);
     let dom_file = fs::File::create(&dom_path)
         .map_err(|error| format!("cannot create {}: {error}", dom_path.display()))?;
+    let stderr_file = fs::File::create(&stderr_path)
+        .map_err(|error| format!("cannot create {}: {error}", stderr_path.display()))?;
     let mut child = Command::new(browser)
-        .args(&EDGE_FLAGS[..1])
-        .arg("--dump-dom")
-        .arg(format!("--log-net-log={}", netlog.display()))
-        .args(&EDGE_FLAGS[1..])
+        .args(browser_args(netlog.as_os_str()))
         .arg(file_url(target))
         .stdin(Stdio::null())
         .stdout(dom_file)
-        .stderr(Stdio::null())
+        .stderr(stderr_file)
         .spawn()
         .map_err(|error| format!("cannot start {}: {error}", browser.display()))?;
-    let deadline = Instant::now() + PAGE_LIMIT;
+    let deadline = Instant::now() + limit;
     loop {
         match child.try_wait() {
-            Ok(Some(_)) => break,
+            Ok(Some(status)) if status.success() => break,
+            Ok(Some(status)) => {
+                return Err(format!(
+                    "{name}: the browser exited with {status} ({})",
+                    stderr_tail(&stderr_path)
+                ));
+            }
             Ok(None) if Instant::now() >= deadline => {
                 let _ = child.kill();
                 let _ = child.wait();
                 return Err(format!(
-                    "{name}: not done in {} seconds",
-                    PAGE_LIMIT.as_secs()
+                    "{name}: not done in {} seconds ({})",
+                    limit.as_secs(),
+                    stderr_tail(&stderr_path)
                 ));
             }
             Ok(None) => std::thread::sleep(Duration::from_millis(20)),
@@ -699,6 +822,15 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         }
         _ => return Err("usage: cargo xtask harness [--edition DIR]".to_owned()),
     };
+    let harness = root.join("out/harness");
+    // First, before anything can fail: an earlier pass must never outlive this run.
+    let summary_path = harness.join("network-silence-summary.txt");
+    if let Err(error) = fs::remove_file(&summary_path)
+        && error.kind() != std::io::ErrorKind::NotFound
+    {
+        return Err(format!("cannot remove {}: {error}", summary_path.display()));
+    }
+    let default_tree = same_dir(&edition, &root.join("out/edition"));
     let browser = find_browser()?;
     let version_output = Command::new(&browser.path)
         .arg("--version")
@@ -723,13 +855,10 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         |parent| parent.join("originals"),
     );
 
-    let harness = root.join("out/harness");
     let copy = harness.join("edition");
     let work = harness.join("work");
     fs::create_dir_all(&work)
         .map_err(|error| format!("cannot create {}: {error}", work.display()))?;
-    let summary_path = harness.join("network-silence-summary.txt");
-    let _ = fs::remove_file(&summary_path);
 
     let mut failures: Vec<String> = Vec::new();
 
@@ -751,7 +880,13 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         inject_script(NEGATIVE_HTML, &selftest_src(&negative_page, &negative_dir)?)?;
     fs::write(&negative_page, negative_html)
         .map_err(|error| format!("cannot write the negative page: {error}"))?;
-    let negative = match load(&browser.path, &negative_page, &work, "negative page") {
+    let negative = match load(
+        &browser.path,
+        &negative_page,
+        &work,
+        "negative page",
+        PAGE_LIMIT,
+    ) {
         Ok(loaded) => match judge_negative(&loaded.dom, &loaded.net) {
             Ok(negative) => Some(negative),
             Err(found) => {
@@ -766,14 +901,20 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     };
 
     let pages = prepare_copy(&edition, &copy)?;
-    let texts = renderable_originals(&originals)?;
+    let texts = renderable_originals(&originals, originals_count(&edition_toml)?)?;
+    eprintln!(
+        "harness: {} pages and {} renderable originals in {}",
+        pages.len(),
+        texts.len(),
+        originals.display()
+    );
     let total = pages.len() + texts.len();
     let mut file_requests = 0_usize;
     let mut other_requests = 0_usize;
     let mut selftest_pass = true;
     for (index, page) in pages.iter().enumerate() {
         let name = display_name(page, &copy);
-        match load(&browser.path, page, &work, &name) {
+        match load(&browser.path, page, &work, &name, PAGE_LIMIT) {
             Ok(loaded) => {
                 // The page's own navigation is a request to a file: URL.
                 file_requests += 1 + loaded.net.file;
@@ -802,11 +943,14 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     }
     for (index, text) in texts.iter().enumerate() {
         let name = format!("originals/{}", display_name(text, &originals));
-        match load(&browser.path, text, &work, &name) {
+        match load(&browser.path, text, &work, &name, PAGE_LIMIT) {
             Ok(loaded) => {
                 file_requests += 1 + loaded.net.file;
                 other_requests += loaded.net.non_file.len();
                 failures.extend(netlog_failures(&name, &loaded.net));
+                if let Err(error) = judge_text_original(&name, &loaded.dom) {
+                    failures.push(error);
+                }
             }
             Err(error) => failures.push(error),
         }
@@ -828,10 +972,49 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
         negative,
     };
     let summary = summary_text(&edition_toml, &id, &options_text(), &counts)?;
-    fs::write(&summary_path, summary)
-        .map_err(|error| format!("cannot write {}: {error}", summary_path.display()))?;
+    match attestation(browser.kind, default_tree) {
+        Attestation::Write => fs::write(&summary_path, summary)
+            .map_err(|error| format!("cannot write {}: {error}", summary_path.display()))?,
+        Attestation::NotEdge => eprintln!(
+            "harness: no network-silence-summary.txt: {} ran, and the attestation names Microsoft Edge",
+            browser.kind.product()
+        ),
+        Attestation::NotDefaultTree => eprintln!(
+            "harness: no network-silence-summary.txt: {} is not out/edition",
+            edition.display()
+        ),
+    }
     println!("{}", summary_line(&id, pages.len(), texts.len()));
     Ok(true)
+}
+
+/// Whether a passing run writes `network-silence-summary.txt`.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum Attestation {
+    /// Edge ran over `out/edition`: write it.
+    Write,
+    /// Another browser ran: section 4 of `network-silence.md` attests Microsoft Edge only.
+    NotEdge,
+    /// Another tree was tested: its result must not sit beside `out/edition`.
+    NotDefaultTree,
+}
+
+/// Decides whether a passing run writes the attestation.
+pub(crate) fn attestation(kind: BrowserKind, default_tree: bool) -> Attestation {
+    match (kind, default_tree) {
+        (_, false) => Attestation::NotDefaultTree,
+        (BrowserKind::Edge, true) => Attestation::Write,
+        (BrowserKind::Chromium, true) => Attestation::NotEdge,
+    }
+}
+
+/// True when `a` and `b` name the same folder (by canonical path, or literally when either is
+/// missing).
+fn same_dir(a: &Path, b: &Path) -> bool {
+    match (a.canonicalize(), b.canonicalize()) {
+        (Ok(a), Ok(b)) => a == b,
+        _ => a == b,
+    }
 }
 
 fn progress(done: usize, total: usize) {
@@ -865,6 +1048,17 @@ mod tests {
     const DOM_NESTED_WITHOUT_SELFTEST: &str =
         include_str!("../tests/fixtures/harness/dom-nested-without-selftest.html");
     const EDGE_VERSION: &str = include_str!("../tests/fixtures/harness/edge-version.txt");
+    const NETLOG_FILE_PAGE_PRECONNECT: &str =
+        include_str!("../tests/fixtures/harness/netlog-file-page-preconnect.json");
+    const NETLOG_FILE_PAGE_NAVIGATION: &str =
+        include_str!("../tests/fixtures/harness/netlog-file-page-navigation.json");
+    const NETLOG_FILE_PAGE_ISOLATION_KEY: &str =
+        include_str!("../tests/fixtures/harness/netlog-file-page-isolation-key.json");
+    const NETLOG_FILE_PAGE_SITE_FOR_COOKIES: &str =
+        include_str!("../tests/fixtures/harness/netlog-file-page-site-for-cookies.json");
+    const DOM_TEXT_VIEWER: &str = include_str!("../tests/fixtures/harness/dom-text-viewer.html");
+    const DOM_TEXT_SNIFFED_AS_HTML: &str =
+        include_str!("../tests/fixtures/harness/dom-text-sniffed-as-html.html");
     const NETWORK_SILENCE: &str = include_str!("../../docs/intake/network-silence.md");
 
     const UNRELEASED_TOML: &str = "edition = \"unreleased\"\nnumber = 0\nbuilt = \"\"\n";
@@ -987,9 +1181,14 @@ mod tests {
     #[test]
     fn selftest_violation_fails() {
         let failures = judge_html_page("index.html", DOM_WITH_VIOLATION).unwrap_err();
-        assert_eq!(failures.len(), 1, "{failures:?}");
-        assert!(failures[0].contains("index.html"));
-        assert!(failures[0].contains("https://example.invalid/i.png"));
+        // The blocked image is both a violation and a (remote) resource entry.
+        assert_eq!(
+            failures,
+            vec![
+                "index.html: CSP violation of img-src by https://example.invalid/i.png".to_owned(),
+                "index.html: non-file resource https://example.invalid/i.png".to_owned(),
+            ]
+        );
         let nested = judge_html_page("p/S-0001.html", DOM_NESTED_WITH_VIOLATION).unwrap_err();
         assert!(nested[0].contains("p/S-0001.html"), "{nested:?}");
     }
@@ -1209,5 +1408,229 @@ mod tests {
             file_url(Path::new("/a b/p/S-1.html")),
             "file:///a%20b/p/S-1.html"
         );
+    }
+
+    #[test]
+    fn preconnect_from_file_page_fails() {
+        let findings = read_netlog(NETLOG_FILE_PAGE_PRECONNECT).unwrap();
+        let failures = netlog_failures("p/S-0001.html", &findings);
+        assert_eq!(failures.len(), 1, "{failures:?}");
+        assert!(failures[0].contains("p/S-0001.html"), "{failures:?}");
+        assert!(
+            failures[0].contains("https://cdn.example.invalid"),
+            "{failures:?}"
+        );
+    }
+
+    #[test]
+    fn navigation_from_file_page_fails() {
+        let findings = read_netlog(NETLOG_FILE_PAGE_NAVIGATION).unwrap();
+        let failures = netlog_failures("index.html", &findings);
+        assert_eq!(failures.len(), 1, "{failures:?}");
+        assert!(failures[0].contains("index.html"), "{failures:?}");
+        assert!(
+            failures[0].contains("https://example.invalid/meta-refresh"),
+            "{failures:?}"
+        );
+    }
+
+    #[test]
+    fn each_file_page_clause_alone_finds_the_request() {
+        for (fixture, url) in [
+            (
+                NETLOG_FILE_PAGE_ISOLATION_KEY,
+                "https://example.invalid/key.png",
+            ),
+            (
+                NETLOG_FILE_PAGE_SITE_FOR_COOKIES,
+                "https://example.invalid/cookie.png",
+            ),
+            (
+                NETLOG_FILE_PAGE_NAVIGATION,
+                "https://example.invalid/meta-refresh",
+            ),
+        ] {
+            let findings = read_netlog(fixture).unwrap();
+            assert_eq!(findings.non_file, vec![url.to_owned()], "{url}");
+        }
+    }
+
+    #[test]
+    fn netlog_without_resolver_events_is_refused() {
+        let text =
+            r#"{"constants": {"logEventTypes": {"URL_REQUEST_START_JOB": 7}}, "events": []}"#;
+        let error = read_netlog(text).unwrap_err();
+        assert!(error.contains("HOST_RESOLVER_MANAGER_REQUEST"), "{error}");
+    }
+
+    #[test]
+    fn non_file_resource_entry_fails() {
+        let dom = "<pre id=\"fb-selftest\">{\"violations\":[],\"resources\":[{\"name\":\"https://example.invalid/f.woff2\",\"initiator\":\"css\"},{\"name\":\"file:///e/a.css\",\"initiator\":\"link\"}]}</pre>";
+        let failures = judge_html_page("p/S-0001.html", dom).unwrap_err();
+        assert_eq!(
+            failures,
+            vec!["p/S-0001.html: non-file resource https://example.invalid/f.woff2".to_owned()]
+        );
+    }
+
+    #[test]
+    fn negative_page_counts_only_its_own_script() {
+        let inline = "<pre id=\"fb-selftest\">{\"violations\":[{\"directive\":\"script-src-elem\",\"blocked\":\"inline\"}],\"resources\":[]}</pre>";
+        let error = judge_negative(inline, &NetFindings::default()).unwrap_err();
+        assert_eq!(error, vec!["negative page: nothing blocked".to_owned()]);
+        let blocked = format!(
+            "<pre id=\"fb-selftest\">{{\"violations\":[{{\"directive\":\"script-src-elem\",\"blocked\":\"{NEGATIVE_URL}\"}}],\"resources\":[]}}</pre>"
+        );
+        let started = NetFindings {
+            file: 0,
+            non_file: vec![NEGATIVE_URL.to_owned()],
+        };
+        let error = judge_negative(&blocked, &started).unwrap_err();
+        assert!(
+            error.contains(&format!("negative page: request to {NEGATIVE_URL} started")),
+            "{error:?}"
+        );
+        assert!(
+            error.contains(&"negative page: nothing blocked".to_owned()),
+            "{error:?}"
+        );
+        assert!(NEGATIVE_HTML.contains(&format!("<script src=\"{NEGATIVE_URL}\">")));
+    }
+
+    #[test]
+    fn text_original_must_load_as_text() {
+        judge_text_original("originals/S-0001-v1.html.txt", DOM_TEXT_VIEWER).unwrap();
+        let error = judge_text_original("originals/S-0001-v1.html.txt", DOM_TEXT_SNIFFED_AS_HTML)
+            .unwrap_err();
+        assert!(error.starts_with("originals/S-0001-v1.html.txt: did not load as text"));
+        assert!(judge_text_original("originals/x.svg.txt", "").is_err());
+    }
+
+    #[test]
+    fn browser_args_are_exactly_the_attested_options() {
+        let args = browser_args(OsStr::new("/w/netlog.json"));
+        let mut expected: Vec<String> = EDGE_FLAGS.iter().map(|f| (*f).to_owned()).collect();
+        expected.insert(1, "--dump-dom".to_owned());
+        expected.insert(2, "--log-net-log=/w/netlog.json".to_owned());
+        let got: Vec<String> = args
+            .iter()
+            .map(|a| a.to_string_lossy().into_owned())
+            .collect();
+        assert_eq!(got, expected);
+        for banned in [
+            "--allow-file-access-from-files",
+            "--no-sandbox",
+            "--user-data-dir",
+        ] {
+            assert!(!got.iter().any(|a| a.starts_with(banned)), "{banned}");
+        }
+        assert_eq!(
+            options_text(),
+            expected.join(" ").replace("/w/netlog.json", "<file>")
+        );
+    }
+
+    #[cfg(unix)]
+    fn fake_browser(dir: &Path, script: &str) -> PathBuf {
+        use std::os::unix::fs::PermissionsExt as _;
+        let path = dir.join("fake-browser");
+        fs::write(&path, script).unwrap();
+        fs::set_permissions(&path, fs::Permissions::from_mode(0o700)).unwrap();
+        path
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn load_passes_browser_args_and_reads_the_results() {
+        let dir = tempfile::tempdir().unwrap();
+        let fixture = dir.path().join("fixture.json");
+        fs::write(&fixture, NETLOG_FILE_PAGE_HTTPS).unwrap();
+        let script = format!(
+            "#!/bin/sh\nfor a in \"$@\"; do case \"$a\" in --log-net-log=*) cp '{}' \"${{a#--log-net-log=}}\";; esac; done\nprintf '%s\\n' \"$@\"\n",
+            fixture.display()
+        );
+        let browser = fake_browser(dir.path(), &script);
+        let target = dir.path().join("page.html");
+        let loaded = load(&browser, &target, dir.path(), "page.html", PAGE_LIMIT).unwrap();
+        let mut expected: Vec<String> = browser_args(dir.path().join("netlog.json").as_os_str())
+            .iter()
+            .map(|a| a.to_string_lossy().into_owned())
+            .collect();
+        expected.push(file_url(&target));
+        assert_eq!(loaded.dom.lines().collect::<Vec<_>>(), expected);
+        assert_eq!(
+            loaded.net.non_file,
+            vec!["https://example.invalid/font.woff2".to_owned()]
+        );
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn load_past_the_limit_fails_and_names_the_page() {
+        let dir = tempfile::tempdir().unwrap();
+        let browser = fake_browser(dir.path(), "#!/bin/sh\nexec sleep 30\n");
+        let error = load(
+            &browser,
+            &dir.path().join("claims.html"),
+            dir.path(),
+            "claims.html",
+            Duration::from_millis(300),
+        )
+        .err()
+        .unwrap();
+        assert!(
+            error.starts_with("claims.html: not done in 0 seconds"),
+            "{error}"
+        );
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn browser_failure_exit_fails_and_quotes_standard_error() {
+        let dir = tempfile::tempdir().unwrap();
+        let browser = fake_browser(dir.path(), "#!/bin/sh\necho renderer crashed >&2\nexit 3\n");
+        let error = load(
+            &browser,
+            &dir.path().join("index.html"),
+            dir.path(),
+            "index.html",
+            PAGE_LIMIT,
+        )
+        .err()
+        .unwrap();
+        assert!(
+            error.starts_with("index.html: the browser exited with"),
+            "{error}"
+        );
+        assert!(error.contains("renderer crashed"), "{error}");
+    }
+
+    #[test]
+    fn missing_originals_folder_fails_when_the_edition_counts_originals() {
+        let dir = tempfile::tempdir().unwrap();
+        let missing = dir.path().join("originals");
+        let toml = "edition = \"unreleased\"\n[counts]\noriginals = 70\n";
+        assert_eq!(originals_count(toml).unwrap(), 70);
+        let error = renderable_originals(&missing, 70).unwrap_err();
+        assert!(error.contains("counts 70 originals"), "{error}");
+        assert_eq!(originals_count(UNRELEASED_TOML).unwrap(), 0);
+        assert!(renderable_originals(&missing, 0).unwrap().is_empty());
+    }
+
+    #[test]
+    fn only_edge_over_the_default_tree_writes_the_attestation() {
+        assert_eq!(attestation(BrowserKind::Edge, true), Attestation::Write);
+        assert_eq!(
+            attestation(BrowserKind::Chromium, true),
+            Attestation::NotEdge
+        );
+        assert_eq!(
+            attestation(BrowserKind::Edge, false),
+            Attestation::NotDefaultTree
+        );
+        // Why Chromium writes none: its summary falls outside the section 4 contract.
+        let id = parse_version(BrowserKind::Chromium, "Chromium 156.0.8078.79\n").unwrap();
+        let text = summary_text(UNRELEASED_TOML, &id, &options_text(), &counts()).unwrap();
+        assert!(matches_attestation(&text).is_err(), "{text}");
     }
 }
