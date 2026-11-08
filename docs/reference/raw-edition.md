@@ -36,7 +36,7 @@ Both trees are checked against the Raw allowlist profile before anything is writ
 ## Evidence in the edition zip
 
 - `evidence/check.json`: the strict check report, exactly as the program printed it. Zero errors is required.
-- `evidence/regression.json`: `cases` and `critical_cases` (counted from `regression.toml`), `critical_misses`, `misses` (the non-critical `FB0127` warnings, each listed), `passed`, and the edition, commit and date. A miss of a critical case (`FB0128`) or a malformed set (`FB0126`) stops the packaging. A set with no critical case passes that test vacuously; the counts are written so that a reader sees it.
+- `evidence/regression.json`: `cases` and `critical_cases` (counted from `regression.toml`), `critical_misses`, `misses` (the non-critical `FB0127` warnings, each listed), `passed`, the edition, commit and date, and `check_sha256`, the SHA-256 of the exact `check.json` bytes, which binds the two reports together. A miss of a critical case (`FB0128`) or a malformed set (`FB0126`) stops the packaging. A set with no critical case passes that test vacuously; the counts are written so that a reader sees it.
 - `evidence/corpus-support.toml`: the support-file catalogue, and its digest is `corpus-support.sha256`. This is evidence of bytes, not proof that any file is public or admitted.
 
 ## The generated texts
@@ -45,7 +45,14 @@ Both trees are checked against the Raw allowlist profile before anything is writ
 
 ## Verification contract
 
-`cargo xtask archive-release --kind raw` and `cargo xtask verify-archive` (see the release runbook) reopen the archived pair and check: the exact provider file set; the zip hashes against the external `SHA256SUMS`; every file against the internal `SHA256SUMS`; the edition identity and commit; the clean `check.json` and `regression.json` for this edition and commit; the Raw allowlist; the catalogue bytes against the sidecar digest; and the predecessor binding for the next edition. No Site provider and no executable runs for a raw archive.
+`cargo xtask archive-release --kind raw` (release runbook, raw step 3) checks, before it publishes anything:
+
+- the zip hashes against the external `SHA256SUMS`, and every file against the internal `SHA256SUMS`;
+- the edition identity and commit, the Raw allowlist (which requires both reports to be present), and the catalogue bytes against the sidecar digest;
+- the committed mode descriptor and the compatibility evidence. The baseline it archives is the `release-baseline.toml` of the downloaded evidence; `--base`, when given, must be byte-identical to it, or nothing is archived;
+- then it runs the Raw provider on the staged folder (below). `--intake` is refused for a raw archive. Only when every check passes is the immutable `edition-NNN-<commit12>` folder published, with `archive.toml` last.
+
+The Raw provider runs again at `cargo xtask verify-archive` (raw step 4). It checks the exact provider file set (the pair, the three sidecars, `archive.toml` and exactly the retained evidence); that the archived mode descriptor selects `raw`; that `check.json` is a clean strict version 1 report (zero errors, no `FB0126` or `FB0128`) whose bytes `regression.json` names by `check_sha256`; that `regression.json` records a passed regression for this edition and commit; and it restores both trees and checks them against the Raw allowlist. With `--previous` it also verifies the predecessor pair that the archived baseline binds. No Site provider and no executable runs for a raw archive.
 
 ## Not covered
 

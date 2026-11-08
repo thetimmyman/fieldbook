@@ -370,6 +370,7 @@ pub fn judge_check(
         "edition": tag,
         "commit": commit,
         "today": today,
+        "check_sha256": sha256_hex(&check_json),
         "passed": passed,
         "errors": errors,
         "cases": set.cases,

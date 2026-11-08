@@ -925,6 +925,12 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
             return Err("edition archive-release requires `--kind raw|site`".to_owned());
         }
     };
+    if kind == DeliveryKind::Raw && args.intake.is_some() {
+        return Err(
+            "`--intake` is not part of a raw archive: the raw intake texts travel inside the edition zip"
+                .to_owned(),
+        );
+    }
 
     let VerifiedEditionArtifacts {
         ed_tag,
@@ -973,12 +979,22 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
         .evidence
         .as_deref()
         .ok_or_else(|| "archive-release requires `--evidence <dir>`".to_owned())?;
-    let base_bytes = if let Some(base_path) = &args.base {
-        fs::read(base_path)
-            .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?
-    } else {
-        read_non_symlink_file(evidence_dir, "release-baseline.toml")?
-    };
+    // The downloaded evidence copy is the committed baseline and the source of truth; `--base`,
+    // when given, may only repeat it byte for byte.
+    let base_bytes = read_non_symlink_file(evidence_dir, "release-baseline.toml").map_err(|e| {
+        format!("the evidence folder needs the committed release-baseline.toml: {e}")
+    })?;
+    if let Some(base_path) = &args.base {
+        let given = fs::read(base_path)
+            .map_err(|e| format!("cannot read `--base {}`: {e}", base_path.display()))?;
+        if given != base_bytes {
+            return Err(format!(
+                "`--base {}` differs from the committed `release-baseline.toml` in `--evidence {}`; archive with the committed baseline",
+                base_path.display(),
+                evidence_dir.display()
+            ));
+        }
+    }
     let base_str = std::str::from_utf8(&base_bytes)
         .map_err(|e| format!("release-baseline.toml is not UTF-8: {e}"))?;
     let _ = parse_baselines(base_str)?;
@@ -1095,6 +1111,7 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
                 target_dir.display()
             ));
         }
+        run_raw_provider_before_acceptance(kind, &target_dir, &args.to, &folder_name, &manifest)?;
     } else {
         fs::create_dir_all(&args.to)
             .map_err(|e| format!("cannot create archive root `{}`: {e}", args.to.display()))?;
@@ -1112,6 +1129,16 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
             write_file_creating_parents(&staging_dir, rel, bytes)?;
         }
         write_file_creating_parents(&staging_dir, "archive.toml", &manifest_toml_bytes)?;
+        if let Err(e) = run_raw_provider_before_acceptance(
+            kind,
+            &staging_dir,
+            &args.to,
+            &folder_name,
+            &manifest,
+        ) {
+            let _ = fs::remove_dir_all(&staging_dir);
+            return Err(e);
+        }
         fs::rename(&staging_dir, &target_dir).map_err(|e| {
             format!(
                 "cannot publish staging archive to `{}`: {e}",
@@ -1124,6 +1151,32 @@ pub fn archive_release(args: &ArchiveArgs) -> Result<(PathBuf, ArchiveManifest, 
     verify_archive_directory_bytes(&target_dir, &support_bytes, &support_sha_bytes)?;
 
     Ok((target_dir, manifest, manifest_sha256))
+}
+
+/// A raw archive is published only when the Raw provider accepts it: the exact provider file
+/// set, the clean reports for this edition and commit, and the restored trees. The provider
+/// restores into a throwaway folder beside the archive root, removed afterwards. Site and tool
+/// archives are unchanged: their providers run at `verify-archive`.
+fn run_raw_provider_before_acceptance(
+    kind: DeliveryKind,
+    archive_dir: &Path,
+    archive_root: &Path,
+    folder_name: &str,
+    manifest: &ArchiveManifest,
+) -> Result<(), String> {
+    if kind != DeliveryKind::Raw {
+        return Ok(());
+    }
+    let hook = get_archive_provider(ReleaseStream::Edition, DeliveryKind::Raw)?;
+    let restore = archive_root.join(format!(".restore-{folder_name}-{}", std::process::id()));
+    if restore.exists() {
+        let _ = fs::remove_dir_all(&restore);
+    }
+    let result = fs::create_dir_all(&restore)
+        .map_err(|e| format!("cannot create `{}`: {e}", restore.display()))
+        .and_then(|()| hook(archive_dir, &restore, manifest));
+    let _ = fs::remove_dir_all(&restore);
+    result.map_err(|e| format!("the raw archive is refused, and nothing was published: {e}"))
 }
 
 fn verify_archive_directory_bytes(

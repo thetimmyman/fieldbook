@@ -96,6 +96,20 @@ pub fn verify_reports(
             "archived evidence/regression.json names a different edition or commit".to_owned(),
         );
     }
+    // The check report is bound to this regression result by its exact bytes and its date, so a
+    // clean report from another commit or edition cannot stand in for it.
+    if field("check_sha256") != Some(sha256_hex(check_json).as_str())
+        || check
+            .get("today")
+            .and_then(serde_json::Value::as_str)
+            .is_none()
+        || check.get("today").and_then(serde_json::Value::as_str) != field("today")
+    {
+        return Err(
+            "archived evidence/check.json is not the report that evidence/regression.json names"
+                .to_owned(),
+        );
+    }
     Ok(())
 }
 
@@ -449,8 +463,9 @@ mod tests {
         CONTACT, Scripted, clean_repo, commit_all, dir_listing, git, package, write,
     };
     use crate::edition_release::{
-        ArchiveArgs, DeliveryKind, ReleaseStream, advance_baselines_from_archive, archive_release,
-        collect_all_rel_files, register_archive_provider, serialize_baselines, verify_archive,
+        ArchiveArgs, ArchiveFileEntry, ArchiveManifest, DeliveryKind, ReleaseStream,
+        advance_baselines_from_archive, archive_release, collect_all_rel_files,
+        register_archive_provider, serialize_baselines, verify_archive,
     };
     use crate::proc;
     use crate::zipdet::{read_and_verify_deterministic_zip, write_deterministic_zip_bytes};
@@ -1198,7 +1213,7 @@ mod tests {
         let (out, evidence) = deliver(root, work.path(), "edition-001");
 
         type Edit = fn(&mut BTreeMap<String, Vec<u8>>);
-        let cases: [(&str, Edit); 5] = [
+        let cases: [(&str, Edit); 6] = [
             ("missing-check", |f| {
                 f.remove("evidence/check.json");
             }),
@@ -1217,6 +1232,12 @@ mod tests {
                     "evidence/regression.json".to_owned(),
                     b"{\"passed\":false,\"critical_misses\":1}\n".to_vec(),
                 );
+            }),
+            ("foreign-clean-check", |f| {
+                // A clean strict report, but not the bytes this regression result names.
+                let mut other = f["evidence/check.json"].clone();
+                other.insert(0, b' ');
+                f.insert("evidence/check.json".to_owned(), other);
             }),
             ("other-commit", |f| {
                 let text = String::from_utf8(f["evidence/regression.json"].clone()).expect("utf8");
@@ -1237,23 +1258,20 @@ mod tests {
         for (name, edit) in cases {
             let pair = work.path().join(format!("pair-{name}"));
             repack(&out, &pair, edit);
-            let built = archive(&pair, &evidence, &base_of(root), &archives.join(name));
-            if name.starts_with("missing-") {
-                // The shared Raw allowlist already requires both reports.
-                let err = built.expect_err(&format!("{name} must be refused at archival"));
-                assert!(err.contains("evidence/"), "{name}: {err}");
-                continue;
+            let to = archives.join(name);
+            let err = archive(&pair, &evidence, &base_of(root), &to)
+                .expect_err(&format!("{name} must be refused at archival"));
+            assert!(err.contains("evidence/"), "{name}: {err}");
+            if !name.starts_with("missing-") {
+                // The shared Raw allowlist requires both reports; only the Raw provider, run
+                // before publication, reads what they say.
+                assert!(err.contains("nothing was published"), "{name}: {err}");
             }
-            let (dir, _, _) = built.unwrap_or_else(|e| {
-                panic!("{name}: the shared archive step accepts the pair: {e}")
-            });
-            let err = verify_archive(&dir, &restore(name, work.path()), None)
-                .expect_err(&format!("{name} must be refused"));
+            // No immutable folder (and no staging or restore folder) is left behind.
             assert!(
-                err.contains("evidence/check.json")
-                    || err.contains("evidence/regression.json")
-                    || err.contains("edition zip is missing"),
-                "{name}: {err}"
+                !to.exists() || dir_listing(&to).is_empty(),
+                "{name}: {:?}",
+                dir_listing(&to)
             );
         }
         // The repack helper itself is neutral: an unedited repack verifies.
@@ -1267,22 +1285,65 @@ mod tests {
     #[test]
     fn report_checks_accept_only_clean_reports_for_this_edition_and_commit() {
         let commit = "a".repeat(40);
-        let check = b"{\"report_version\":1,\"strict\":true,\"errors\":0,\"diagnostics\":[{\"code\":\"FB0127\"}]}";
-        let regression = format!(
-            "{{\"passed\":true,\"cases\":27,\"critical_cases\":0,\"critical_misses\":0,\"edition\":\"edition-001\",\"commit\":\"{commit}\"}}"
-        );
+        let check = CHECK_SAMPLE.as_bytes();
+        let regression = regression_sample(check, &commit);
         verify_reports(check, regression.as_bytes(), "edition-001", &commit).expect("clean");
         assert!(verify_reports(check, regression.as_bytes(), "edition-002", &commit).is_err());
         assert!(
             verify_reports(check, regression.as_bytes(), "edition-001", &"b".repeat(40)).is_err()
         );
-        let bad_diag = b"{\"report_version\":1,\"strict\":true,\"errors\":0,\"diagnostics\":[{\"code\":\"FB0128\"}]}";
-        assert!(verify_reports(bad_diag, regression.as_bytes(), "edition-001", &commit).is_err());
-        let not_strict = b"{\"report_version\":1,\"strict\":false,\"errors\":0,\"diagnostics\":[]}";
-        assert!(verify_reports(not_strict, regression.as_bytes(), "edition-001", &commit).is_err());
+        // A regression failure recorded only as a diagnostic: FB0128 and the FB0126 malformed set.
+        for code in ["FB0128", "FB0126"] {
+            let bad = CHECK_SAMPLE.replace("FB0127", code);
+            let reg = regression_sample(bad.as_bytes(), &commit);
+            let err = verify_reports(bad.as_bytes(), reg.as_bytes(), "edition-001", &commit)
+                .expect_err(code);
+            assert!(err.contains("regression failure"), "{code}: {err}");
+        }
+        let not_strict = CHECK_SAMPLE.replace("\"strict\":true", "\"strict\":false");
+        let reg = regression_sample(not_strict.as_bytes(), &commit);
+        assert!(
+            verify_reports(
+                not_strict.as_bytes(),
+                reg.as_bytes(),
+                "edition-001",
+                &commit
+            )
+            .is_err()
+        );
         assert!(verify_reports(b"x", regression.as_bytes(), "edition-001", &commit).is_err());
         assert!(verify_reports(check, b"x", "edition-001", &commit).is_err());
+
+        // The case counts must be present and consistent.
+        let no_critical = regression.replace("\"critical_cases\":0,", "");
+        assert_ne!(no_critical, regression);
+        assert!(verify_reports(check, no_critical.as_bytes(), "edition-001", &commit).is_err());
+        let too_many = regression.replace("\"critical_cases\":0", "\"critical_cases\":28");
+        assert!(verify_reports(check, too_many.as_bytes(), "edition-001", &commit).is_err());
+
+        // A clean report from another run is not the one this regression result names.
+        let foreign = CHECK_SAMPLE.replace("[{", "[ {");
+        let err = verify_reports(
+            foreign.as_bytes(),
+            regression.as_bytes(),
+            "edition-001",
+            &commit,
+        )
+        .expect_err("foreign check report");
+        assert!(err.contains("names"), "{err}");
+        let other_day = regression_sample(check, &commit).replace("2026-03-02", "2026-03-03");
+        assert!(verify_reports(check, other_day.as_bytes(), "edition-001", &commit).is_err());
         let _ = CONTACT;
+    }
+
+    const CHECK_SAMPLE: &str = "{\"report_version\":1,\"strict\":true,\"today\":\"2026-03-02\",\"errors\":0,\"diagnostics\":[{\"code\":\"FB0127\"}]}";
+
+    /// A passed regression result for `edition-001` that names `check` by its bytes.
+    fn regression_sample(check: &[u8], commit: &str) -> String {
+        format!(
+            "{{\"passed\":true,\"cases\":27,\"critical_cases\":0,\"critical_misses\":0,\"edition\":\"edition-001\",\"commit\":\"{commit}\",\"today\":\"2026-03-02\",\"check_sha256\":\"{}\"}}",
+            sha256_hex(check)
+        )
     }
 
     /// Seeded random bytes and single-byte mutations of valid examples never panic a parser.
@@ -1326,10 +1387,8 @@ mod tests {
     #[test]
     fn report_and_command_line_parsers_never_panic_on_seeded_input() {
         let commit = "a".repeat(40);
-        let check = "{\"report_version\":1,\"strict\":true,\"errors\":0,\"diagnostics\":[{\"code\":\"FB0127\"}]}";
-        let regression = format!(
-            "{{\"passed\":true,\"cases\":27,\"critical_cases\":0,\"critical_misses\":0,\"edition\":\"edition-001\",\"commit\":\"{commit}\"}}"
-        );
+        let check = CHECK_SAMPLE;
+        let regression = regression_sample(check.as_bytes(), &commit);
         // The check report is mutated against a fixed regression result, and the reverse.
         never_panics("verify_reports(check)", &[check], |bytes| {
             verify_reports(bytes, regression.as_bytes(), "edition-001", &commit)
@@ -1351,6 +1410,8 @@ mod tests {
                 assert_eq!(value["critical_misses"], 0);
                 assert_eq!(value["edition"], "edition-001");
                 assert_eq!(value["commit"], commit.as_str());
+                assert_eq!(value["cases"], 27);
+                assert_eq!(value["critical_cases"], 0);
             }
         }
         let line = "edition-001 --base release-baseline.toml --evidence-out out/raw-evidence";
@@ -1376,12 +1437,161 @@ mod tests {
         let (_, _, again) = archive(&out, &evidence, &base_of(root), &archives).expect("identical");
         assert_eq!(sha, again);
 
-        // Different bytes for the same tag and commit are refused.
-        let other_base = work.path().join("other-baseline.toml");
+        // Different bytes for the same tag and commit are refused: here another evidence
+        // baseline, given consistently as `--base` too.
+        let other_evidence = work.path().join("ev-other");
+        copy_tree(&evidence, &other_evidence);
+        let other_base = other_evidence.join("release-baseline.toml");
         fs::write(&other_base, format!("{EMPTY_BASE}# another descriptor\n")).expect("write");
-        let err = archive(&out, &evidence, &other_base, &archives).expect_err("collision");
-        assert!(err.contains("immutable") || err.contains("differ"), "{err}");
+        let err = archive(&out, &other_evidence, &other_base, &archives).expect_err("collision");
+        assert!(err.contains("immutable"), "{err}");
         assert_eq!(collect_all_rel_files(&arch).expect("files"), before);
+    }
+
+    #[test]
+    fn a_base_that_is_not_the_committed_evidence_baseline_is_refused_before_archival() {
+        register_raw_provider().expect("raw provider");
+        let repo = lab();
+        let root = repo.path();
+        let work = TempDir::new().expect("work");
+
+        // edition-002 commits a baseline that binds edition-001; a stale local `--base` that
+        // still says `empty` would turn the predecessor check off.
+        let archives = work.path().join("archives");
+        let (out1, ev1) = deliver(root, work.path(), "edition-001");
+        let (arch1, _, _) = archive(&out1, &ev1, &base_of(root), &archives).expect("archive 1");
+        let b1 = advance_baselines_from_archive(&read_baselines(&base_of(root)), &arch1)
+            .expect("advance");
+        write(
+            root,
+            "corpus/changes.md",
+            b"# Corpus changes\n\nSynthetic changes log.\n\n## edition-002\n\n- Added: synthetic.\n\n## edition-001\n\n- Added: synthetic.\n",
+        );
+        write(root, "edition-release.toml", mode("002", "raw").as_bytes());
+        write(
+            root,
+            "release-baseline.toml",
+            serialize_baselines(&b1).as_bytes(),
+        );
+        commit_all(root);
+        git(root, &["tag", "edition-002"]);
+        let (out2, ev2) = deliver(root, work.path(), "edition-002");
+
+        let stale = work.path().join("stale-baseline.toml");
+        fs::write(&stale, EMPTY_BASE).expect("stale");
+        let fresh = work.path().join("fresh-archives");
+        let err = archive(&out2, &ev2, &stale, &fresh).expect_err("stale --base");
+        assert!(err.contains("differs from the committed"), "{err}");
+        assert!(!fresh.exists() || dir_listing(&fresh).is_empty());
+
+        // The evidence copy is required even when `--base` is given.
+        let no_base = work.path().join("ev-no-base");
+        copy_tree(&ev2, &no_base);
+        fs::remove_file(no_base.join("release-baseline.toml")).expect("rm");
+        let err = archive(&out2, &no_base, &base_of(root), &fresh).expect_err("no evidence copy");
+        assert!(err.contains("release-baseline.toml"), "{err}");
+
+        // The committed copy archives, and its predecessor binding holds.
+        let (arch2, _, _) = archive(&out2, &ev2, &base_of(root), &fresh).expect("archive 2");
+        assert!(verify_archive(&arch2, &restore("2-none", work.path()), None).is_err());
+    }
+
+    #[test]
+    fn archive_release_refuses_an_intake_folder_for_a_raw_archive() {
+        register_raw_provider().expect("raw provider");
+        let repo = lab();
+        let root = repo.path();
+        let work = TempDir::new().expect("work");
+        let (out, evidence) = deliver(root, work.path(), "edition-001");
+        let intake = work.path().join("intake");
+        write(&intake, "x.html", b"<p>x</p>\n");
+        let to = work.path().join("archives");
+        let err = archive_release(&ArchiveArgs {
+            kind: Some(DeliveryKind::Raw),
+            package: None,
+            edition: out,
+            intake: Some(intake),
+            evidence: Some(evidence),
+            base: None,
+            to: to.clone(),
+        })
+        .expect_err("intake");
+        assert!(err.contains("not part of a raw archive"), "{err}");
+        assert!(!to.exists());
+    }
+
+    /// Copy an archive, apply `edit`, and rewrite `archive.toml` so that every row names the
+    /// true bytes. Only the Raw provider can then refuse the edited archive.
+    fn relisted(arch: &Path, to: &Path, edit: impl FnOnce(&Path)) {
+        copy_tree(arch, to);
+        edit(to);
+        let mut manifest =
+            ArchiveManifest::parse(&fs::read_to_string(to.join("archive.toml")).expect("toml"))
+                .expect("manifest");
+        manifest.files = collect_all_rel_files(to)
+            .expect("files")
+            .into_iter()
+            .filter(|(p, _)| p != "archive.toml")
+            .map(|(path, bytes)| ArchiveFileEntry {
+                path,
+                size: bytes.len() as u64,
+                sha256: sha256_hex(&bytes),
+            })
+            .collect();
+        fs::write(to.join("archive.toml"), manifest.to_toml()).expect("relist");
+    }
+
+    #[test]
+    fn the_raw_provider_refuses_extra_listed_files_an_inexact_evidence_set_and_another_kind() {
+        register_raw_provider().expect("raw provider");
+        let repo = lab();
+        let root = repo.path();
+        let work = TempDir::new().expect("work");
+        let archives = work.path().join("archives");
+        let (out, evidence) = deliver(root, work.path(), "edition-001");
+        let (arch, _, _) = archive(&out, &evidence, &base_of(root), &archives).expect("archive");
+
+        // The helper is neutral: an unedited, re-listed copy verifies.
+        let same = work.path().join("same");
+        relisted(&arch, &same, |_| {});
+        verify_archive(&same, &restore("same", work.path()), None).expect("neutral");
+
+        type Plant = fn(&Path);
+        let cases: [(&str, Plant, &str); 4] = [
+            (
+                "site",
+                |d| write(d, "site.html", b"<html></html>\n"),
+                "is not part of a raw archive",
+            ),
+            (
+                "intake",
+                |d| write(d, "intake/x.html", b"<p>x</p>\n"),
+                "is not part of a raw archive",
+            ),
+            (
+                "extra-evidence",
+                |d| write(d, "evidence/extra.toml", b"x = 1\n"),
+                "evidence set is not exact",
+            ),
+            (
+                "site-mode",
+                |d| {
+                    write(
+                        d,
+                        "evidence/edition-release.toml",
+                        mode("001", "site").as_bytes(),
+                    );
+                },
+                "does not select `raw`",
+            ),
+        ];
+        for (name, plant, expected) in cases {
+            let copy = work.path().join(format!("copy-{name}"));
+            relisted(&arch, &copy, plant);
+            let err = verify_archive(&copy, &restore(name, work.path()), None)
+                .expect_err(&format!("{name} must be refused"));
+            assert!(err.contains(expected), "{name}: {err}");
+        }
     }
 
     const WORKFLOW: &str = include_str!("../../.github/workflows/raw-edition.yml");
