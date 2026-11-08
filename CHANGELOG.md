@@ -5,6 +5,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 ## Unreleased
 
 - Added: `just browser`, which opens every page of the edition in headless Edge, or Chromium where Edge is not installed, and fails on any request a page makes outside `file:`.
+- Added: the edition's search index of pages and sections, assets/search-index.js; its display strings carry no `http://` or `https://`.
 - Added: the about page, edition.toml and copyable command chips.
 - Added: the home page and the area pages.
 - Fixed: page popovers and stage lists no longer show raw citation markers.
