@@ -1091,17 +1091,7 @@ fn build(
     }
 
     // 8. The sidecars, byte for byte from the staged catalogue.
-    let staged_support = re_edition
-        .get("evidence/corpus-support.toml")
-        .ok_or_else(|| "staged catalogue is missing".to_owned())?
-        .clone();
-    let sidecar_hex = sha256_hex(&staged_support);
-    let support_sha = write_sums(&[(SUPPORT_NAME.to_owned(), sidecar_hex.clone())]).into_bytes();
-    if sidecar_hex != support_hex
-        || support_sha != SupportCatalogue::sidecar_sha256_line(&staged_support).into_bytes()
-    {
-        return Err("the support digest does not name the staged catalogue bytes".to_owned());
-    }
+    let (staged_support, support_sha) = support_sidecars(&re_edition, &support_hex)?;
     let edition_zip_name = format!("fieldbook-edition-{edition_number}.zip");
     let originals_zip_name = format!("fieldbook-originals-{edition_number}.zip");
     let outer_sums = write_sums(&[
@@ -1121,6 +1111,27 @@ fn build(
         support_toml: staged_support,
         support_sha,
     })
+}
+
+/// The two support sidecars, written from the catalogue bytes reopened from the edition zip:
+/// the retention copy and its one-line digest. Refused when the staged catalogue is missing or is
+/// not the catalogue whose digest the build computed (`candidate_sha256`).
+fn support_sidecars(
+    staged: &BTreeMap<String, Vec<u8>>,
+    candidate_sha256: &str,
+) -> Result<(Vec<u8>, Vec<u8>), String> {
+    let staged_support = staged
+        .get("evidence/corpus-support.toml")
+        .ok_or_else(|| "staged catalogue is missing".to_owned())?
+        .clone();
+    let sidecar_hex = sha256_hex(&staged_support);
+    let support_sha = write_sums(&[(SUPPORT_NAME.to_owned(), sidecar_hex.clone())]).into_bytes();
+    if sidecar_hex != candidate_sha256
+        || support_sha != SupportCatalogue::sidecar_sha256_line(&staged_support).into_bytes()
+    {
+        return Err("the support digest does not name the staged catalogue bytes".to_owned());
+    }
+    Ok((staged_support, support_sha))
 }
 
 /// `.a, .b and .c` from `["a", "b", "c"]`, for the statements.
@@ -1280,7 +1291,11 @@ pub(crate) mod tests {
             if program == "git" {
                 return SystemRunner.run(cwd, program, args);
             }
-            if program == "fieldbook-test" && args.first() == Some(&"check") {
+            // Only the exact strict check is answered: `check --strict --json --today DATE`.
+            if program == "fieldbook-test"
+                && args.len() == 5
+                && args[..4] == ["check", "--strict", "--json", "--today"]
+            {
                 return Ok(RunOutput {
                     code: self.check_code,
                     stdout: self.check_stdout.clone(),
@@ -1720,6 +1735,23 @@ pub(crate) mod tests {
         let (err, _out) = refused_with(repo.path(), &mut runner);
         assert!(err.contains("not clean"), "{err}");
 
+        // Each half of the gate on its own: a failed exit with a clean-looking report (also a
+        // signal, -1), and an error count with a zero exit.
+        for code in [1, 3, -1] {
+            let mut runner = Scripted::clean();
+            runner.check_code = code;
+            let (err, _out) = refused_with(repo.path(), &mut runner);
+            assert!(err.contains("not clean"), "exit {code}: {err}");
+        }
+        let mut runner = Scripted::clean();
+        runner.check_stdout = report_with(
+            "2026-03-02",
+            "{\"code\":\"FB0201\",\"severity\":\"error\",\"message\":\"x\",\"line\":1}",
+            1,
+        );
+        let (err, _out) = refused_with(repo.path(), &mut runner);
+        assert!(err.contains("not clean"), "{err}");
+
         // A report that is not for the commit date is refused as well.
         let mut runner = Scripted::clean();
         runner.check_stdout = clean_report("2026-01-01");
@@ -1734,6 +1766,16 @@ pub(crate) mod tests {
         runner.check_stdout = report_with(
             "2026-03-02",
             "{\"code\":\"FB0128\",\"severity\":\"error\",\"message\":\"critical case misses\",\"line\":3}",
+            0,
+        );
+        let (err, _out) = refused_with(repo.path(), &mut runner);
+        assert!(err.contains("regression pass failed"), "{err}");
+
+        // A malformed regression set (FB0126), even in a report whose error count says zero.
+        let mut runner = Scripted::clean();
+        runner.check_stdout = report_with(
+            "2026-03-02",
+            "{\"code\":\"FB0126\",\"severity\":\"error\",\"message\":\"unknown expected id\",\"line\":2}",
             0,
         );
         let (err, _out) = refused_with(repo.path(), &mut runner);
@@ -1757,11 +1799,21 @@ pub(crate) mod tests {
     fn missing_or_blank_contact_fails_in_01_and_runs_nothing() {
         let repo = clean_repo();
         let out = tempfile::tempdir().expect("out");
-        for contact in [None, Some(""), Some("   ")] {
+        for contact in [
+            None,
+            Some(""),
+            Some("   "),
+            Some("line one\nline two"),
+            Some("tab\there"),
+            Some("carriage\rreturn"),
+        ] {
             let mut runner = Scripted::clean();
             let err = edition_raw(repo.path(), &args(out.path()), &mut runner, contact)
                 .expect_err("IN-01");
             assert!(err.contains("IN-01"), "{err}");
+            if contact.is_some_and(|c| !c.trim().is_empty()) {
+                assert!(err.contains("one line"), "{err}");
+            }
             assert!(runner.calls.is_empty());
         }
     }
@@ -1799,27 +1851,52 @@ pub(crate) mod tests {
     }
 
     #[test]
-    fn changed_catalogue_or_digest_is_caught_by_the_shared_verifier() {
-        // The catalogue bytes and the digest line in the archive must agree.
+    fn changed_catalogue_or_digest_is_refused_by_the_packaging_step() {
+        // The catalogue the build staged, and the digest it computed for it.
         let repo = clean_repo();
         let out = tempfile::tempdir().expect("out");
         package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
         let ed = zip_map(&out.path().join("fieldbook-edition-001.zip"), "edition");
-        let staged = ed["evidence/corpus-support.toml"].clone();
-        let mut changed = staged.clone();
-        changed.extend_from_slice(b"# changed\n");
-        let digest_of_staged = sha256_hex(&staged);
-        assert!(
-            verify_support_catalogue_bytes(&changed, &digest_of_staged).is_err(),
-            "a changed catalogue must not match the staged digest"
+        let catalogue = ed["evidence/corpus-support.toml"].clone();
+        let digest = sha256_hex(&catalogue);
+
+        let (copy, line) = support_sidecars(&ed, &digest).expect("matching sidecars");
+        assert_eq!(copy, catalogue);
+        assert_eq!(
+            line,
+            format!("{digest}  corpus-support.toml\n").into_bytes()
         );
-        assert!(verify_support_catalogue_bytes(&staged, &digest_of_staged).is_ok());
+        assert_eq!(
+            fs::read(out.path().join("corpus-support.toml")).expect("copy"),
+            copy
+        );
+        assert_eq!(
+            fs::read(out.path().join("corpus-support.sha256")).expect("line"),
+            line
+        );
+
+        // A staged catalogue that is not the candidate one.
+        let mut changed = ed.clone();
+        let mut bytes = catalogue.clone();
+        bytes.extend_from_slice(b"# changed\n");
+        changed.insert("evidence/corpus-support.toml".to_owned(), bytes);
+        let err = support_sidecars(&changed, &digest).expect_err("changed catalogue");
+        assert!(err.contains("does not name"), "{err}");
+        // A digest that names other bytes.
+        let err = support_sidecars(&ed, &"0".repeat(64)).expect_err("foreign digest");
+        assert!(err.contains("does not name"), "{err}");
+        // No staged catalogue at all.
+        let mut missing = ed;
+        missing.remove("evidence/corpus-support.toml");
+        assert!(support_sidecars(&missing, &digest).is_err());
     }
 
     #[test]
-    fn the_raw_path_declares_no_renderer_dependency_and_calls_no_renderer() {
-        // `xtask` itself reaches the renderer only through `fieldbook`, which it needs for the
-        // Corpus reader; this checks the declared dependencies and the raw path's own source.
+    fn the_raw_path_has_no_direct_renderer_dependency_and_names_no_render_entry() {
+        // `fieldbook-render` is compiled into `xtask` through `fieldbook`, which holds the Corpus
+        // reader, so this is not a build-graph proof. It checks what the raw path controls: the
+        // declared dependencies, and that its own production code names no render, site build or
+        // browser entry, in-process or as a command.
         let manifest = include_str!("../Cargo.toml");
         for banned in ["fieldbook-render", "chart", "headless", "playwright"] {
             assert!(!manifest.contains(banned), "xtask depends on {banned}");
@@ -1835,6 +1912,10 @@ pub(crate) mod tests {
                 "--headless",
                 "\"build\", \"--out\"",
                 "site::render",
+                "fieldbook::build",
+                "build::",
+                "plan_edition",
+                "render::",
             ] {
                 assert!(!production.contains(banned), "{name} mentions {banned}");
             }
@@ -2161,6 +2242,12 @@ pub(crate) mod tests {
             if let Ok(evidence) = got {
                 assert_eq!(evidence.cases, 3);
                 assert_eq!(evidence.misses, 0);
+                let kept: serde_json::Value =
+                    serde_json::from_slice(&evidence.check_json).expect("accepted report is JSON");
+                assert_eq!(kept["strict"], true, "flip at {idx}");
+                assert_eq!(kept["report_version"], 1, "flip at {idx}");
+                assert_eq!(kept["today"], "2026-03-02", "flip at {idx}");
+                assert_eq!(kept["errors"], 0, "flip at {idx}");
             }
             let mut deleted = valid_report.clone().into_bytes();
             deleted.remove(idx);
@@ -2179,6 +2266,50 @@ pub(crate) mod tests {
             let text = String::from_utf8_lossy(&bytes).into_owned();
             let words: Vec<&str> = text.split_whitespace().collect();
             assert!(catch_unwind(AssertUnwindSafe(|| parse_edition_raw_cli(&words))).is_ok());
+        }
+    }
+
+    #[test]
+    fn only_a_strict_version_1_report_is_accepted_as_evidence() {
+        let set = RegressionSet {
+            cases: 0,
+            critical_cases: 0,
+        };
+        let judge = |stdout: Vec<u8>| {
+            judge_check(
+                &RunOutput {
+                    code: 0,
+                    stdout,
+                    stderr: Vec::new(),
+                },
+                "2026-03-02",
+                "edition-001",
+                &"a".repeat(40),
+                set,
+            )
+        };
+        let clean = String::from_utf8(clean_report("2026-03-02")).expect("utf8");
+        judge(clean.clone().into_bytes()).expect("clean strict report");
+        for (name, report, expected) in [
+            (
+                "not strict",
+                clean.replace("\"strict\": true", "\"strict\": false"),
+                "--strict",
+            ),
+            (
+                "no strict key",
+                clean.replace("  \"strict\": true,\n", ""),
+                "--strict",
+            ),
+            (
+                "version 2",
+                clean.replace("\"report_version\": 1", "\"report_version\": 2"),
+                "report_version",
+            ),
+        ] {
+            assert_ne!(report, clean, "{name}: the edit must change the report");
+            let err = judge(report.into_bytes()).expect_err(name);
+            assert!(err.contains(expected), "{name}: {err}");
         }
     }
 
