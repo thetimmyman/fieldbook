@@ -1644,16 +1644,132 @@ mod tests {
             .unwrap_or_else(|| panic!("workflow lacks `{needle}`"))
     }
 
+    /// The text of one job, from its `  name:` line to the next job at the same indentation.
+    fn job_section<'a>(code: &'a str, job: &str) -> &'a str {
+        let start = position(code, &format!("\n  {job}:\n")) + 1;
+        let rest = &code[start..];
+        let end = rest
+            .match_indices('\n')
+            .map(|(i, _)| i + 1)
+            .find(|&i| {
+                let line = &rest[i..];
+                line.starts_with("  ")
+                    && !line.starts_with("   ")
+                    && line
+                        .split('\n')
+                        .next()
+                        .is_some_and(|l| l.trim_end().ends_with(':'))
+            })
+            .unwrap_or(rest.len());
+        &rest[..end]
+    }
+
+    /// A structural YAML check with no parser crate: no tab, two-space indentation, and every
+    /// single-line `key: value` either a block indicator, a quoted string, a flow collection, or
+    /// a plain value that YAML cannot read as a nested mapping (no `: ` inside, no trailing `:`).
+    /// Lines inside a block scalar (`|` or `>`) are skipped.
+    fn yaml_shape_errors(text: &str) -> Vec<String> {
+        let mut errors = Vec::new();
+        let mut block_indent: Option<usize> = None;
+        for (n, line) in text.lines().enumerate() {
+            let n = n + 1;
+            if line.contains('\t') {
+                errors.push(format!("line {n}: tab"));
+            }
+            let indent = line.len() - line.trim_start().len();
+            if let Some(b) = block_indent {
+                if line.trim().is_empty() || indent > b {
+                    continue;
+                }
+                block_indent = None;
+            }
+            let trimmed = line.trim_start();
+            if trimmed.is_empty() || trimmed.starts_with('#') {
+                continue;
+            }
+            if indent % 2 != 0 {
+                errors.push(format!("line {n}: odd indentation"));
+            }
+            let item = trimmed.strip_prefix("- ").unwrap_or(trimmed);
+            let Some((key, value)) = item.split_once(':') else {
+                continue;
+            };
+            if !key
+                .bytes()
+                .all(|b| b.is_ascii_alphanumeric() || b == b'-' || b == b'_')
+            {
+                continue;
+            }
+            if !value.is_empty() && !value.starts_with(' ') {
+                continue;
+            }
+            // Drop a trailing comment (` #`) that sits outside quotes.
+            let value = value.trim();
+            let value = match value.find(" #") {
+                Some(i) if !value.starts_with('"') && !value.starts_with('\'') => value[..i].trim(),
+                _ => value,
+            };
+            if value.is_empty() {
+                continue;
+            }
+            if value.starts_with('|') || value.starts_with('>') {
+                block_indent = Some(indent);
+                continue;
+            }
+            if let Some(q) = value.chars().next().filter(|c| *c == '"' || *c == '\'') {
+                if value.len() < 2 || !value.ends_with(q) {
+                    errors.push(format!("line {n}: unterminated quoted value"));
+                }
+                continue;
+            }
+            if value.starts_with('[') || value.starts_with('{') {
+                if !(value.ends_with(']') || value.ends_with('}')) {
+                    errors.push(format!("line {n}: unterminated flow value"));
+                }
+                continue;
+            }
+            if value.contains(": ") || value.ends_with(':') {
+                errors.push(format!(
+                    "line {n}: plain value `{value}` reads as a mapping; quote it or use `|`"
+                ));
+            }
+        }
+        errors
+    }
+
+    #[test]
+    fn workflow_is_well_formed_yaml_in_shape() {
+        assert_eq!(yaml_shape_errors(WORKFLOW), Vec::<String>::new());
+        // The check catches the error GitHub rejected: `::` then a space in a plain `run:` value.
+        let bad = "jobs:\n  trial:\n    steps:\n      - name: x\n        run: cargo nextest run --locked -p xtask edition_raw:: raw_release::\n";
+        assert_eq!(
+            yaml_shape_errors(bad).len(),
+            1,
+            "{:?}",
+            yaml_shape_errors(bad)
+        );
+        // The same command in a block scalar or a quoted string is fine.
+        let block = "      - run: |\n          cargo nextest run edition_raw:: raw_release::\n";
+        assert!(yaml_shape_errors(block).is_empty());
+        let quoted = "      - run: 'cargo nextest run edition_raw:: raw_release::'\n";
+        assert!(yaml_shape_errors(quoted).is_empty());
+        assert!(
+            yaml_shape_errors("a:\n\tb: c\n")
+                .iter()
+                .any(|e| e.contains("tab"))
+        );
+    }
+
     #[test]
     fn workflow_pins_actions_limits_permissions_and_orders_the_commands() {
         let code = workflow_code();
 
-        // Every action is pinned by a full commit SHA.
+        // Every action is pinned by a full commit SHA, wherever its `uses:` key sits.
         let mut uses = 0;
-        for line in code
-            .lines()
-            .filter(|l| l.trim_start().starts_with("- uses:"))
-        {
+        for line in code.lines().filter(|l| {
+            let t = l.trim_start();
+            t.strip_prefix("- ").unwrap_or(t).starts_with("uses:")
+        }) {
             uses += 1;
             let reference = line.split('@').nth(1).expect("an @ reference");
             let sha = reference.split_whitespace().next().expect("a ref");
@@ -1691,11 +1807,53 @@ mod tests {
         assert!(code.contains("workflow_dispatch:"));
         assert!(code.contains("grep -qx 'kind = \"raw\"'"));
         assert!(code.contains("git show \"$GITHUB_SHA:edition-release.toml\""));
-        assert!(code.contains("if: ${{ needs.select.outputs.raw == 'true' }}"));
-        assert!(code.contains("if: ${{ github.event_name != 'push' }}"));
+        // A raw descriptor in another spelling fails the run instead of skipping delivery.
+        let select = job_section(&code, "select");
+        assert!(select.contains("elif grep -Eq \"^[[:space:]]*kind[[:space:]]*=[[:space:]]*[\\\"']raw[\\\"']\" <<<\"$mode\"; then"), "{select}");
+        assert!(position(select, "elif grep -Eq") < position(select, "exit 1"));
+
+        // Each job's own condition, dependency and time limit, read from that job alone.
+        for (job, condition, needs, minutes) in [
+            ("select", None, None, 10),
+            (
+                "trial",
+                Some("if: ${{ github.event_name != 'push' }}"),
+                Some("needs: [select]"),
+                30,
+            ),
+            (
+                "deliver",
+                Some("if: ${{ needs.select.outputs.raw == 'true' }}"),
+                Some("needs: [select]"),
+                60,
+            ),
+        ] {
+            let section = job_section(&code, job);
+            let header: Vec<&str> = section
+                .lines()
+                .skip(1)
+                .take_while(|l| !l.starts_with("    steps:"))
+                .collect();
+            assert!(
+                header.contains(&"    runs-on: ubuntu-24.04"),
+                "{job}: {header:?}"
+            );
+            assert!(
+                header.contains(&format!("    timeout-minutes: {minutes}").as_str()),
+                "{job}: {header:?}"
+            );
+            match condition {
+                Some(c) => assert!(header.contains(&format!("    {c}").as_str()), "{job}"),
+                None => assert!(!header.iter().any(|l| l.starts_with("    if:")), "{job}"),
+            }
+            match needs {
+                Some(n) => assert!(header.contains(&format!("    {n}").as_str()), "{job}"),
+                None => assert!(!header.iter().any(|l| l.starts_with("    needs:")), "{job}"),
+            }
+        }
 
         // Command order inside the delivery job: tag check, then packaging, then the uploads.
-        let deliver = &code[position(&code, "\n  deliver:\n")..];
+        let deliver = job_section(&code, "deliver");
         let check = position(
             deliver,
             "cargo xtask raw-edition-check \"$EDITION_TAG\" --base release-baseline.toml --evidence-out out/raw-evidence",

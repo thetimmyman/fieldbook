@@ -48,9 +48,15 @@ jobs:
           set -euo pipefail
           raw=false
           if [ "$EVENT_NAME" = push ] && [ "$REF_TYPE" = tag ]; then
-            if git cat-file -e "$GITHUB_SHA:edition-release.toml" 2>/dev/null \
-              && git show "$GITHUB_SHA:edition-release.toml" | grep -qx 'kind = "raw"'; then
-              raw=true
+            if git cat-file -e "$GITHUB_SHA:edition-release.toml" 2>/dev/null; then
+              mode="$(git show "$GITHUB_SHA:edition-release.toml")"
+              if grep -qx 'kind = "raw"' <<<"$mode"; then
+                raw=true
+              elif grep -Eq "^[[:space:]]*kind[[:space:]]*=[[:space:]]*[\"']raw[\"']" <<<"$mode"; then
+                # A raw descriptor in another spelling must not skip delivery silently.
+                echo '::error::edition-release.toml must carry the line kind = "raw" exactly'
+                exit 1
+              fi
             fi
           fi
           echo "raw=$raw" >> "$GITHUB_OUTPUT"
@@ -76,7 +82,8 @@ jobs:
         with:
           tool: cargo-nextest@0.9.148
       - name: Run the raw packaging and lifecycle tests on synthetic tagged repositories
-        run: cargo nextest run --locked -p xtask edition_raw:: raw_release::
+        run: |
+          cargo nextest run --locked -p xtask edition_raw:: raw_release::
 
   deliver:
     needs: [select]
