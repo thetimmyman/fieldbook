@@ -944,6 +944,7 @@ dependencies = [
  "fieldbook",
  "fieldbook-calc",
  "fieldbook-core",
+ "fieldbook-render",
  "object",
  "serde",
  "serde_json",
