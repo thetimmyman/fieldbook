@@ -31,8 +31,8 @@ Each zip is deterministic: entries sorted by path, the commit time, fixed permis
 Both trees are checked against the Raw allowlist profile before anything is written (FB0601, FB0602, FB0608).
 
 - **Edition zip.** Only fixed paths: the shipped Corpus (`corpus/corpus.toml`, `corpus/eval/regression.toml`, the five registers, pages, `corpus/sources/text/` when extraction exists), the assistant rules, `edition.toml`, `README.txt`, `TRANSFER-STATEMENT.txt`, `evidence/check.json`, `evidence/regression.json`, `evidence/corpus-support.toml`, and four files under `intake/`. The extensions that result are `.md`, `.toml`, `.csv`, `.json` and `.txt`. No site file, script, markup, state folder or quarantined payload.
-- **Originals zip.** Only registered originals whose bytes match their `sources.csv` hash, and only with the extensions `.pdf`, `.txt` and `.csv` (the constant `RAW_ORIGINAL_EXTENSIONS`). HTML, HTM, XHTML and SVG originals ship with an added `.txt`. Any other extension, and any original that begins like a Windows or Linux executable, is refused. A quarantined version ships nothing.
-- PDF originals are third-party public documents shipped byte for byte. They are not inspected for embedded content.
+- **Originals zip.** Only registered originals whose bytes match their `sources.csv` hash, and only with the extensions `.pdf`, `.txt` and `.csv` (the constant `RAW_ORIGINAL_EXTENSIONS`). HTML, HTM, XHTML and SVG originals ship with an added `.txt` and their bytes unchanged, so a saved web page keeps its page scripts as text. Any other extension, and any original that begins like a Windows or Linux executable, is refused. A quarantined version ships nothing.
+- PDF originals are third-party public documents shipped byte for byte. The build looks in each one only for embedded files (attachments): it searches the raw bytes and every stream that inflates with zlib (FlateDecode) for `/EmbeddedFile`. Other encodings and encrypted streams are not decoded, so the count is a lower bound. Nothing else in a PDF is inspected.
 
 ## Evidence in the edition zip
 
@@ -42,7 +42,7 @@ Both trees are checked against the Raw allowlist profile before anything is writ
 
 ## The generated texts
 
-`README.txt`, `TRANSFER-STATEMENT.txt` and `intake/integrity-guide.md` and `intake/network-silence.md` are written by the build from templates in `edition_raw.rs`, with every figure counted from the packed files. The other two intake files are the repository's, with a raw-edition note first. A placeholder left unfilled stops the run (IN-01). The texts make no network claim, no browser-test claim and no claim about the content of a PDF. Tests pin that the texts agree with the delivered file set above and with the transfer runbook.
+`README.txt`, `TRANSFER-STATEMENT.txt` and `intake/integrity-guide.md` and `intake/network-silence.md` are written by the build from templates in `edition_raw.rs`, with every figure counted from the packed files. The other two intake files are the repository's, with a raw-edition note first. A placeholder left unfilled stops the run (IN-01). The texts make no network claim and no browser-test claim. They say that the build adds no site, JavaScript or style sheet of its own, and they state three counted figures: the saved web pages and drawings shipped as `.txt` (and how many hold a `<script>` tag), the PDF originals that hold an embedded file (named), and the support files of the catalogue by role. They tell the reader to open a register CSV in Excel through Data > From Text/CSV with File origin 65001 (UTF-8); the registers themselves ship unchanged. Section 6 of the transfer statement says that this tool version has no Handoff step and no AI build, and the note before each inherited intake file says the same. Tests pin that the texts agree with the delivered file set above and with the transfer runbook.
 
 ## Verification contract
 
@@ -57,4 +57,4 @@ The Raw provider runs again at `cargo xtask verify-archive` (raw step 4). It che
 
 ## Not covered
 
-No signing, no browser test, no network-silence test, no inspection of PDF content, and no check by a second party of the strict-check evidence. `fieldbook-render` is compiled into `xtask` through the `fieldbook` crate, which holds the Corpus reader, but the raw path never calls it; a test pins that the raw code names no render or build entry.
+No signing, no browser test, no network-silence test, no inspection of PDF content beyond the attachment count, and no check by a second party of the strict-check evidence. `fieldbook-render` is compiled into `xtask` through the `fieldbook` crate, which holds the Corpus reader, but the raw path never calls it; a test pins that the raw code names no render or build entry.

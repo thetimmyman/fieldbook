@@ -439,6 +439,9 @@ pub fn fill_placeholders(
 }
 
 fn extension_class(path: &str) -> &'static str {
+    if path.rsplit('/').next() == Some("SHA256SUMS") {
+        return "sums";
+    }
     let ext = path
         .rsplit_once('.')
         .map(|(_, e)| e.to_ascii_lowercase())
@@ -453,14 +456,107 @@ fn extension_class(path: &str) -> &'static str {
     }
 }
 
+/// The original's stored extensions that ship with `.txt` added: saved web pages and drawings.
+const MARKUP_EXTENSIONS: [&str; 4] = ["html", "htm", "xhtml", "svg"];
+
+/// Whether a shipped original name is a markup original renamed to `.txt`.
+fn is_renamed_markup(shipped: &str) -> bool {
+    shipped
+        .strip_suffix(".txt")
+        .and_then(|stem| stem.rsplit_once('.'))
+        .is_some_and(|(_, ext)| MARKUP_EXTENSIONS.contains(&ext.to_ascii_lowercase().as_str()))
+}
+
+/// Whether `haystack` contains `needle`, ignoring ASCII case.
+fn contains_ascii_ci(haystack: &[u8], needle: &[u8]) -> bool {
+    !needle.is_empty()
+        && haystack
+            .windows(needle.len())
+            .any(|w| w.eq_ignore_ascii_case(needle))
+}
+
+/// The most one PDF stream may inflate to while looking for an attachment entry.
+const PDF_STREAM_INFLATE_CAP: u64 = 64 * 1024 * 1024;
+
+/// Whether a PDF holds an embedded file entry (`/EmbeddedFile` or `/EmbeddedFiles`), in its raw
+/// bytes or in any stream that inflates with zlib (FlateDecode). Object streams usually hold these
+/// entries compressed, so a scan of the raw bytes alone finds none. Streams in any other encoding,
+/// and encrypted streams, are not decoded, so a `false` is a lower bound, not proof.
+pub(crate) fn pdf_has_embedded_file(bytes: &[u8]) -> bool {
+    use std::io::Read as _;
+    const NEEDLE: &[u8] = b"/EmbeddedFile";
+    if bytes.windows(NEEDLE.len()).any(|w| w == NEEDLE) {
+        return true;
+    }
+    let mut at = 0;
+    while let Some(off) = bytes[at..].windows(6).position(|w| w == b"stream") {
+        let kw = at + off;
+        at = kw + 6;
+        if kw >= 3 && &bytes[kw - 3..kw] == b"end" {
+            continue;
+        }
+        let start = match bytes.get(at..at + 2) {
+            Some([b'\r', b'\n']) => at + 2,
+            Some([b'\n', _]) | Some([b'\r', _]) => at + 1,
+            _ => continue,
+        };
+        let end = bytes[start..]
+            .windows(9)
+            .position(|w| w == b"endstream")
+            .map_or(bytes.len(), |p| start + p);
+        let mut out = Vec::new();
+        // A damaged or truncated stream still yields what inflated before the fault.
+        let _ = flate2::read::ZlibDecoder::new(&bytes[start..end])
+            .take(PDF_STREAM_INFLATE_CAP)
+            .read_to_end(&mut out);
+        if out.windows(NEEDLE.len()).any(|w| w == NEEDLE) {
+            return true;
+        }
+        at = end.max(at);
+    }
+    false
+}
+
+/// The sentence on PDF attachments, from the shipped originals: how many PDFs hold an embedded
+/// file, and which.
+fn pdf_attachment_sentence(originals: &BTreeMap<String, Vec<u8>>) -> (usize, usize, String) {
+    let pdfs: Vec<(&String, &Vec<u8>)> = originals
+        .iter()
+        .filter(|(name, _)| name.to_ascii_lowercase().ends_with(".pdf"))
+        .collect();
+    let with: Vec<&str> = pdfs
+        .iter()
+        .filter(|(_, bytes)| pdf_has_embedded_file(bytes))
+        .map(|(name, _)| name.as_str())
+        .collect();
+    let list = if with.is_empty() {
+        String::new()
+    } else {
+        format!(": {}", with.join(", "))
+    };
+    (pdfs.len(), with.len(), list)
+}
+
 const README_TEMPLATE: &str = r#"FIELDBOOK RAW EDITION {edition}
 
 This is the raw edition: plain public files only. The packaging step
-admits only Markdown, TOML, CSV, JSON, text and PDF files, so this
-edition has no generated web site, no JavaScript, no style sheet, no
-workbook and no program. No browser test was run for it. The PDF files
-are third-party public documents, shipped unchanged; they were not
-inspected for embedded content.
+admits only Markdown, TOML, CSV, JSON, text and PDF files. The build
+makes no web site and adds no JavaScript, style sheet, workbook or
+program file of its own. No browser test was run for it.
+
+Saved web pages. {n_markup_originals} of the files in originals\ are saved
+public web pages (HTML) or drawings (SVG). Each ships with .txt added
+to its name and its bytes unchanged. {n_markup_scripts} of them contain
+the publisher's page scripts (a <script> tag), kept as text. Read them
+with the approved text reader. Do not rename them or open them in a
+browser.
+
+PDF files. The {n_pdf_originals} PDF files are third-party public
+documents, shipped unchanged. The build looked in each one only for
+embedded files (attachments). {n_pdf_attachments} of them hold one{pdf_attachment_list}.
+The build reads the uncompressed bytes and the streams compressed with
+the usual Flate method. An attachment stored any other way is not
+counted. Nothing else in the PDFs was inspected.
 
 Edition {edition}. Tool version {tool_version}. Source commit {commit}.
 Source date (UTC): {source_date}.
@@ -521,13 +617,21 @@ that your copy is public or admitted.
 WHERE TO START
 
   edition\corpus\pages\      the reference pages, one Markdown file each
-  edition\corpus\registers\  the registers, as CSV files
+  edition\corpus\registers\  the registers, as CSV files (UTF-8)
 {sources_text_line}  edition\ASSISTANT.md       the assistant rules
   edition\evidence\          the strict check and regression results, and the
                              support-file catalogue
   edition\intake\            the statements for IT
   originals\                 the public source documents, byte for byte
                              (HTML and SVG ones carry an added .txt)
+
+OPENING A REGISTER IN EXCEL
+The register CSV files are UTF-8 text with no byte-order mark. Do not
+open one by double-clicking it: Excel may then read it in another
+encoding and show characters such as the section sign wrongly. In
+Excel, choose Data > From Text/CSV, pick the file, set File origin to
+65001: Unicode (UTF-8) and choose Load. Save any copy you make in
+Fieldbook\working\, never over the file in edition\.
 
 Read TRANSFER-STATEMENT.txt first. Its contact is in section 7.
 "#;
@@ -543,11 +647,14 @@ figures below from the files being packed, so they are counted, not typed.
 
 Fieldbook is a library of public finance and government-contracting reference
 material for one reader. This delivery is the raw edition: plain files only.
-The packaging step admits only the file types listed in section 2, so it has
-no generated web site, no JavaScript, no style sheet, no workbook and no
-program or executable. No browser test was run for it. You read the Markdown,
-CSV, text and PDF files with the reader your IT department has approved for
-those file types.
+The packaging step admits only the file types listed in section 2. The build
+makes no web site and adds no JavaScript, style sheet, workbook, program or
+executable file of its own. The originals include saved public web pages,
+shipped as text (section 2). No browser test was run for this delivery. You
+read the Markdown, CSV, text and PDF files with the reader your IT department
+has approved for those file types. The CSV files are UTF-8 with no byte-order
+mark: open one in Excel through Data > From Text/CSV with File origin
+65001: Unicode (UTF-8), not by double-clicking it. README.txt shows how.
 A later, separate request may bring a signed program that runs on the company
 laptop as part of the company's own systems. If IT approves it, that program
 keeps the company's records in a store under the data folder, never in an
@@ -564,19 +671,32 @@ Count by file type, both zips together:
   CSV                   {n_csv}
   Markdown and TOML     {n_md_toml}
   Text                  {n_txt}
+    of which saved web pages or drawings, as .txt   {n_markup_originals}
   PDF                   {n_pdf}
   JSON                  {n_json}
+  SHA256SUMS lists      {n_sums}
   Other                 {n_other}
 
 The edition build packs into the edition zip only files at fixed Corpus,
 evidence and intake paths with the extensions .md, .toml, .csv, .json and
 .txt, plus its SHA256SUMS list, and into the originals zip only files with the
 extensions {raw_original_extensions}, plus its SHA256SUMS list. It refuses any
-other file, including any executable, library, script, shortcut, workbook or
-markup (HTML, SVG) file, and any original that begins like a Windows or Linux
-executable. HTML and SVG originals are shipped as .txt files, with the same
-bytes. PDF originals are third-party public documents
-shipped byte for byte; they are not inspected for embedded content.
+other file, including any executable, library, script, shortcut or workbook
+file, any file named .html, .htm, .xhtml or .svg, and any original that begins
+like a Windows or Linux executable.
+
+Saved web pages. {n_markup_originals} of the originals are saved public web pages
+(HTML) or drawings (SVG). Each ships with .txt added to its name and its bytes
+unchanged. {n_markup_scripts} of them contain the publisher's page scripts (a
+<script> tag), kept as text. No browser test was run on them. Read them with
+the approved text reader. Do not rename them or open them in a browser.
+
+PDF originals. The {n_pdf_originals} PDF originals are third-party public
+documents shipped byte for byte. The build looked in each one only for embedded
+files (attachments). {n_pdf_attachments} of them hold one{pdf_attachment_list}.
+The build reads the uncompressed bytes and the streams compressed with the
+usual Flate method. An attachment stored any other way is not counted. Nothing
+else in the PDFs was inspected.
 
 3. WHAT THESE FILES NEVER DO
 
@@ -603,17 +723,17 @@ The two zip files are not signed. Their SHA-256 hashes are not inside them. The
 hash list, SHA256SUMS, reaches you separately, by the route your IT department
 settled, so a change to a zip in transit shows up as a different hash. Steps are
 in intake\integrity-guide.md. Inside each zip, a file named SHA256SUMS lists
-every file and its hash.
+every other file in that zip and its hash.
 
 Extract both zips into %LOCALAPPDATA%\Fieldbook\ (README.txt shows how). Do not
 remove the Mark-of-the-Web from the zips or from the files. Leave Windows to
 treat the files as downloaded files.
 
-Support-file evidence. evidence\corpus-support.toml lists the SHA-256 of each
-support file of the source Corpus at this commit (rules, templates, evaluation
-and pipeline files). Most of those files are not part of this delivery; the
-catalogue records their digests so that a later edition can be compared. A
-one-line digest, corpus-support.sha256, arrives with SHA256SUMS by the same
+Support-file evidence. evidence\corpus-support.toml lists the path and SHA-256
+of each of the {n_support_files} support files of the source Corpus at this
+commit: {support_roles}. Most of those files are not part of this delivery; the
+catalogue records their digests so that a later program can check the support
+files and the catalogue bytes. A one-line digest, corpus-support.sha256, arrives with SHA256SUMS by the same
 separate route. It is the SHA-256 of evidence\corpus-support.toml: after you
 extract the edition, hash that file and compare. The digest is evidence of
 bytes, not proof that any file is public or admitted.
@@ -630,18 +750,12 @@ reproduced.
 
 6. AI
 
-This delivery contains no program and no page, so none of the steps in this
-section can be done with it alone.
-
-Tool versions before 0.2.0 contain no artificial-intelligence model and contact
-none. An optional step builds a block of public text that you copy into an
-assistant your IT department has approved, and then checks the citations in the
-answer. You do the copying. From version 0.2.0 the AI build can also send that
-block to an endpoint your IT department has approved in its policy file, only when you run the
-command for it, after writing a line to its audit log. Which build is installed
-on this laptop is your IT department's decision. Nothing in the checks, the
-search, the calculations or the editions uses a model. See
-intake\ai-development-statement.md.
+This delivery contains no program, no page and no artificial-intelligence
+model, so it cannot build a context pack or check the citations in an answer.
+Tool version {tool_version} has no Handoff step and no AI build.
+intake\ai-development-statement.md describes them as designed, not as built.
+Nothing in the checks, the search, the calculations or the editions uses a
+model.
 
 7. CONTACT
 
@@ -654,7 +768,7 @@ any application storage separately through IT's procedure. Folder deletion does
 not clear other data; neither step promises secure erasure.
 "#;
 
-const RAW_NOTE: &str = "> Raw edition note. This delivery is the raw edition: it has no generated site,\n> no JavaScript and no browser pages, and no browser or network test was run for it.\n> Where the text below describes a site, pages in a browser or browser storage, it\n> describes the full edition and does not apply to this delivery. Any sentence below\n> that says an interaction was tested, or that points to network-silence.md for a test\n> result, does not apply to this delivery either.\n\n";
+const RAW_NOTE: &str = "> Raw edition note. This delivery is the raw edition: the build makes no site and\n> adds no JavaScript or style sheet file of its own. Saved public web pages in\n> originals\\ ship as .txt files (TRANSFER-STATEMENT.txt, section 2). No browser or\n> network test was run for it.\n> Where the text below describes Handoff, a context pack, a citation check, `ask`,\n> `chat`, the Assistant page or the AI build, it describes the Fieldbook program as\n> designed. Tool version {tool_version} has none of them, and this delivery contains\n> none of them.\n> Where the text below describes a site, pages in a browser or browser storage, it\n> describes the full edition and does not apply to this delivery. Any sentence below\n> that says an interaction was tested, or that points to network-silence.md for a test\n> result, does not apply to this delivery either.\n\n";
 
 const INTEGRITY_TEMPLATE: &str = r#"# Fieldbook integrity guide (raw edition)
 
@@ -733,9 +847,13 @@ const NETWORK_TEMPLATE: &str = r#"# Fieldbook network-silence report (raw editio
 
 Edition {edition}. Tool version {tool_version}.
 
-The raw edition has no generated pages, no JavaScript and no browser summary, so no network-silence test was run for it and there is no `network-silence-summary.txt`. This delivery makes no claim about network behaviour.
+The build makes no pages and adds no JavaScript file of its own, and there is no browser summary, so no network-silence test was run for this delivery and there is no `network-silence-summary.txt`. This delivery makes no claim about network behaviour.
 
-What the build does check is the file list: the edition zip holds only files with the extensions .md, .toml, .csv, .json and .txt at fixed paths, and the originals zip holds only {raw_original_extensions} files (each zip also holds its `SHA256SUMS` list). The build refuses any other file, including any executable, library, script, shortcut, workbook or markup (HTML, SVG) file, and any original that begins like a Windows or Linux executable. PDF originals are third-party public documents shipped byte for byte and are not inspected for embedded content.
+What the build does check is the file list: the edition zip holds only files with the extensions .md, .toml, .csv, .json and .txt at fixed paths, and the originals zip holds only {raw_original_extensions} files (each zip also holds its `SHA256SUMS` list). The build refuses any other file, including any executable, library, script, shortcut or workbook file, any file named .html, .htm, .xhtml or .svg, and any original that begins like a Windows or Linux executable.
+
+{n_markup_originals} of the originals are saved public web pages (HTML) or drawings (SVG). Each ships with .txt added to its name and its bytes unchanged. {n_markup_scripts} of them contain the publisher's page scripts (a `<script>` tag), kept as text. No browser or network test was run on them. Read them with the approved text reader. Do not rename them or open them in a browser.
+
+The {n_pdf_originals} PDF originals are third-party public documents shipped byte for byte. The build looked in each one only for embedded files (attachments). {n_pdf_attachments} of them hold one{pdf_attachment_list}. The build reads the uncompressed bytes and the streams compressed with the usual Flate method. An attachment stored any other way is not counted. Nothing else in the PDFs was inspected.
 
 The full edition's network-silence check is a separate delivery with its own report.
 "#;
@@ -953,9 +1071,11 @@ fn build(
     edition.insert(assistant_name.to_owned(), assistant.to_vec());
     edition.insert("edition.toml".to_owned(), info.to_toml().into_bytes());
 
-    let (support_toml, support_hex) = SupportCatalogue::from_public_source(&view, &commit)
-        .map_err(|e| format!("support catalogue: {e}"))?
-        .to_toml_bytes_and_sha256();
+    let catalogue = SupportCatalogue::from_public_source(&view, &commit)
+        .map_err(|e| format!("support catalogue: {e}"))?;
+    let n_support_files = catalogue.files.len();
+    let support_roles = support_role_summary(&catalogue);
+    let (support_toml, support_hex) = catalogue.to_toml_bytes_and_sha256();
     verify_support_catalogue_bytes(&support_toml, &support_hex)
         .map_err(|e| format!("support catalogue: {e}"))?;
     edition.insert(
@@ -996,7 +1116,7 @@ fn build(
     values.insert("source_date", today.clone());
     values.insert("n_files_edition", n_files_edition.to_string());
     values.insert("n_files_originals", n_files_originals.to_string());
-    for k in ["csv", "md_toml", "txt", "pdf", "json", "other"] {
+    for k in ["csv", "md_toml", "txt", "pdf", "json", "sums", "other"] {
         values.insert(
             match k {
                 "csv" => "n_csv",
@@ -1004,11 +1124,34 @@ fn build(
                 "txt" => "n_txt",
                 "pdf" => "n_pdf",
                 "json" => "n_json",
+                "sums" => "n_sums",
                 _ => "n_other",
             },
             count(k),
         );
     }
+    // The saved web pages and drawings shipped as text, and how many hold a page script.
+    let markup: Vec<&Vec<u8>> = originals
+        .iter()
+        .filter(|(name, _)| is_renamed_markup(name))
+        .map(|(_, bytes)| bytes)
+        .collect();
+    values.insert("n_markup_originals", markup.len().to_string());
+    values.insert(
+        "n_markup_scripts",
+        markup
+            .iter()
+            .filter(|b| contains_ascii_ci(b, b"<script"))
+            .count()
+            .to_string(),
+    );
+    let (n_pdf_originals, n_pdf_attachments, pdf_attachment_list) =
+        pdf_attachment_sentence(&originals);
+    values.insert("n_pdf_originals", n_pdf_originals.to_string());
+    values.insert("n_pdf_attachments", n_pdf_attachments.to_string());
+    values.insert("pdf_attachment_list", pdf_attachment_list);
+    values.insert("n_support_files", n_support_files.to_string());
+    values.insert("support_roles", support_roles);
     values.insert("n_pages", info.counts.pages.to_string());
     values.insert("n_sources", info.counts.source_versions.to_string());
     values.insert("n_claims", info.counts.claims.to_string());
@@ -1132,6 +1275,54 @@ fn support_sidecars(
         return Err("the support digest does not name the staged catalogue bytes".to_owned());
     }
     Ok((staged_support, support_sha))
+}
+
+/// The roles present in the catalogue, counted: `6 Corpus root files, 9 page templates and the
+/// regression set`. Only roles with at least one entry are named.
+fn support_role_summary(catalogue: &SupportCatalogue) -> String {
+    use fieldbook_core::manifest::SupportRole;
+    let (mut root, mut page, mut workbook, mut regression, mut pipeline) = (0, 0, 0, 0, 0);
+    for entry in &catalogue.files {
+        match entry.role {
+            SupportRole::RootFile => root += 1,
+            SupportRole::PageTemplate(_) => page += 1,
+            SupportRole::WorkbookCsvTemplate => workbook += 1,
+            SupportRole::Regression => regression += 1,
+            SupportRole::PipelineRules => pipeline += 1,
+        }
+    }
+    let plural = |n: usize, one: &str, many: &str| {
+        if n == 1 {
+            format!("1 {one}")
+        } else {
+            format!("{n} {many}")
+        }
+    };
+    let mut parts = Vec::new();
+    if root > 0 {
+        parts.push(plural(root, "Corpus root file", "Corpus root files"));
+    }
+    if page > 0 {
+        parts.push(plural(page, "page template", "page templates"));
+    }
+    if workbook > 0 {
+        parts.push(plural(workbook, "workbook template", "workbook templates"));
+    }
+    if regression > 0 {
+        parts.push(plural(regression, "regression set", "regression sets"));
+    }
+    if pipeline > 0 {
+        parts.push(plural(
+            pipeline,
+            "pipeline rules file",
+            "pipeline rules files",
+        ));
+    }
+    match parts.split_last() {
+        None => "none".to_owned(),
+        Some((last, [])) => last.clone(),
+        Some((last, rest)) => format!("{} and {last}", rest.join(", ")),
+    }
 }
 
 /// `.a, .b and .c` from `["a", "b", "c"]`, for the statements.
@@ -1537,7 +1728,7 @@ pub(crate) mod tests {
         let transfer = String::from_utf8(ed["TRANSFER-STATEMENT.txt"].clone()).expect("utf8");
         assert!(transfer.contains("raw edition"));
         assert!(transfer.contains(CONTACT));
-        assert!(transfer.contains("no generated web site"));
+        assert!(transfer.contains("The build\nmakes no web site"));
         assert!(transfer.contains("No browser test was run"));
         for (path, bytes) in ed
             .iter()
@@ -2125,8 +2316,32 @@ pub(crate) mod tests {
                 assert!(!text.contains(banned), "{name} says `{banned}`");
             }
         }
-        // The AI section says what this delivery cannot do.
-        assert!(transfer.contains("contains no program and no page"));
+        // The AI section says what this delivery cannot do, and describes no step as built.
+        assert!(transfer.contains("contains no program, no page and no artificial-intelligence"));
+        assert!(transfer.contains(&format!(
+            "Tool version {TOOL_VERSION} has no Handoff step and no AI build."
+        )));
+        for banned in ["An optional step builds", "can also send that"] {
+            assert!(!transfer.contains(banned), "transfer says `{banned}`");
+        }
+        // The shipped AI statement is preceded by the note that withdraws its Handoff steps.
+        let ai = text_of(&ed, "intake/ai-development-statement.md");
+        let note = ai
+            .find(&format!("Tool version {TOOL_VERSION} has none of them"))
+            .expect("the Handoff override");
+        let handoff = ai
+            .find("## 3. Handoff")
+            .expect("the inherited Handoff section");
+        assert!(note < handoff);
+        // SHA256SUMS lists every other file, not itself, and the two lists have their own row.
+        assert!(
+            transfer.contains("lists\nevery other file in that zip and its hash"),
+            "{transfer}"
+        );
+        assert!(transfer.contains("SHA256SUMS lists      2\n"), "{transfer}");
+        assert!(transfer.contains("Other                 0\n"), "{transfer}");
+        // The support catalogue is described by the roles it holds, not by a typed list.
+        assert!(!transfer.contains("pipeline"), "{transfer}");
         // The inherited data-handling sentence about tested interactions is withdrawn first.
         let data = text_of(&ed, "intake/data-handling.md");
         let note = data
@@ -2136,6 +2351,245 @@ pub(crate) mod tests {
             .find("in the interactions tested")
             .expect("the inherited sentence");
         assert!(note < tested);
+    }
+
+    /// A synthetic PDF whose object stream, compressed with Flate, holds the catalogue entry of an
+    /// embedded file when `attached`, and an empty catalogue otherwise.
+    pub(crate) fn synthetic_pdf(attached: bool) -> Vec<u8> {
+        use std::io::Write as _;
+        let objects: &[u8] = if attached {
+            b"2 0 << /Type /Catalog /Names << /EmbeddedFiles << /Names [(note.txt) 3 0 R] >> >> >>"
+        } else {
+            b"2 0 << /Type /Catalog >>"
+        };
+        let mut enc = flate2::write::ZlibEncoder::new(Vec::new(), flate2::Compression::default());
+        enc.write_all(objects).expect("deflate");
+        let packed = enc.finish().expect("deflate");
+        let mut pdf = format!(
+            "%PDF-1.7\n1 0 obj\n<< /Type /ObjStm /N 1 /First 4 /Filter /FlateDecode /Length {} >>\nstream\r\n",
+            packed.len()
+        )
+        .into_bytes();
+        pdf.extend_from_slice(&packed);
+        pdf.extend_from_slice(b"\r\nendstream\nendobj\n%%EOF\n");
+        pdf
+    }
+
+    #[test]
+    fn an_attachment_inside_a_compressed_object_stream_is_found() {
+        let with = synthetic_pdf(true);
+        let without = synthetic_pdf(false);
+        // The entry is not in the raw bytes: only inflating the stream finds it.
+        assert!(!with.windows(13).any(|w| w == b"/EmbeddedFile"));
+        assert!(pdf_has_embedded_file(&with));
+        assert!(!pdf_has_embedded_file(&without));
+        // An uncompressed entry is found too, and damaged or truncated streams do not panic.
+        assert!(pdf_has_embedded_file(
+            b"%PDF-1.4\n1 0 obj << /EmbeddedFiles 2 0 R >> endobj\n"
+        ));
+        for cut in [0, 10, with.len() / 2, with.len() - 12] {
+            let _ = pdf_has_embedded_file(&with[..cut]);
+        }
+        assert!(!pdf_has_embedded_file(b"stream\nnot zlib\nendstream\n"));
+    }
+
+    /// The fixture, changed so that the HTML original holds a page script, the held PDF is active
+    /// and holds an attachment, and a second active PDF holds none.
+    fn repo_with_script_page_and_attached_pdf() -> tempfile::TempDir {
+        let repo = clean_repo();
+        let html =
+            b"<html><head><script>synthetic()</script></head><body>synthetic</body></html>\n";
+        let attached = synthetic_pdf(true);
+        let plain = synthetic_pdf(false);
+        let sources_path = repo.path().join("corpus/registers/sources.csv");
+        let mut sources = fs::read_to_string(&sources_path).expect("sources");
+        sources = sources
+            .replace(&sha256_hex(ORIG_BYTES), &sha256_hex(html))
+            .replace(&sha256_hex(HELD_BYTES), &sha256_hex(&attached))
+            .replace(",quarantined,", ",active,")
+            .replace("Held for synthetic licence review.", "Active fixture.");
+        let third = sources
+            .lines()
+            .find(|l| l.starts_with("S-0002,"))
+            .expect("row")
+            .replace("S-0002", "S-0003")
+            .replace("syn-two", "syn-three")
+            .replace("syn_two", "syn_three")
+            .replace(&sha256_hex(&attached), &sha256_hex(&plain));
+        sources.push_str(&third);
+        sources.push('\n');
+        write(
+            repo.path(),
+            "corpus/registers/sources.csv",
+            sources.as_bytes(),
+        );
+        write(repo.path(), "corpus/sources/public/S-0001-v1.html", html);
+        write(
+            repo.path(),
+            "corpus/sources/public/S-0002-v1.pdf",
+            &attached,
+        );
+        write(repo.path(), "corpus/sources/public/S-0003-v1.pdf", &plain);
+        let extraction_path = "corpus/sources/text/S-0001-v1/extraction.toml";
+        let extraction = fs::read_to_string(repo.path().join(extraction_path))
+            .expect("extraction")
+            .replace(&sha256_hex(ORIG_BYTES), &sha256_hex(html));
+        write(repo.path(), extraction_path, extraction.as_bytes());
+        commit_all(repo.path());
+        repo
+    }
+
+    #[test]
+    fn the_statements_count_saved_web_pages_and_pdf_attachments() {
+        let repo = repo_with_script_page_and_attached_pdf();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        let orig = zip_map(&out.path().join("fieldbook-originals-001.zip"), "originals");
+        assert!(
+            String::from_utf8_lossy(&orig["S-0001-v1.html.txt"]).contains("<script>"),
+            "the script-bearing page ships as text"
+        );
+        let readme = text_of(&ed, "README.txt");
+        let transfer = text_of(&ed, "TRANSFER-STATEMENT.txt");
+        let network = text_of(&ed, "intake/network-silence.md");
+        let squash = |t: &str| t.split_whitespace().collect::<Vec<_>>().join(" ");
+        for (name, text) in [
+            ("README.txt", squash(&readme)),
+            ("TRANSFER-STATEMENT.txt", squash(&transfer)),
+            ("intake/network-silence.md", squash(&network)),
+        ] {
+            assert!(
+                text.contains("1 of the")
+                    && text.contains("are saved public web pages (HTML) or drawings (SVG)"),
+                "{name}: {text}"
+            );
+            assert!(
+                text.contains("1 of them contain the publisher's page scripts"),
+                "{name}: {text}"
+            );
+            assert!(
+                text.contains("Do not rename them or open them in a browser."),
+                "{name}"
+            );
+            assert!(text.contains("The 2 PDF"), "{name}: {text}");
+            assert!(
+                text.contains("1 of them hold one: S-0002-v1.pdf."),
+                "{name}: {text}"
+            );
+            assert!(!text.contains("S-0003-v1.pdf"), "{name}");
+            assert!(
+                !text.contains("not inspected for embedded content"),
+                "{name}"
+            );
+            // "No JavaScript" is never said without limiting it to the build's own files.
+            for banned in [
+                "no generated web site, no JavaScript",
+                "no JavaScript and no browser pages",
+                "no generated pages, no JavaScript",
+                "markup (HTML, SVG) file",
+                "runs nothing",
+            ] {
+                assert!(!text.contains(banned), "{name} says `{banned}`");
+            }
+        }
+        assert!(
+            transfer.contains("of which saved web pages or drawings, as .txt   1\n"),
+            "{transfer}"
+        );
+        for (name, text) in [
+            (
+                "intake/ai-development-statement.md",
+                text_of(&ed, "intake/ai-development-statement.md"),
+            ),
+            (
+                "intake/data-handling.md",
+                text_of(&ed, "intake/data-handling.md"),
+            ),
+        ] {
+            let note = squash(&text);
+            assert!(
+                note.contains("adds no JavaScript or style sheet file of its own"),
+                "{name}"
+            );
+            assert!(
+                !note.contains("no JavaScript and no browser pages"),
+                "{name}"
+            );
+        }
+    }
+
+    #[test]
+    fn the_readme_and_transfer_statement_say_how_to_open_a_register_in_excel() {
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        let readme = text_of(&ed, "README.txt");
+        let body = paragraph(&readme, "OPENING A REGISTER IN EXCEL").join(" ");
+        for needed in [
+            "UTF-8",
+            "Do not open one by double-clicking it",
+            "Data > From Text/CSV",
+            "65001: Unicode (UTF-8)",
+            "never over the file in edition",
+        ] {
+            assert!(body.contains(needed), "README lacks `{needed}`: {body}");
+        }
+        let transfer = text_of(&ed, "TRANSFER-STATEMENT.txt")
+            .split_whitespace()
+            .collect::<Vec<_>>()
+            .join(" ");
+        assert!(
+            transfer.contains("open one in Excel through Data > From Text/CSV with File origin 65001: Unicode (UTF-8), not by double-clicking it"),
+            "{transfer}"
+        );
+        // The registers ship as they are: the instruction changes no register byte.
+        for reg in Register::ALL {
+            let path = format!("corpus/registers/{}", reg.file_name());
+            assert_eq!(
+                ed[&path],
+                fs::read(repo.path().join(&path)).expect("register"),
+                "{path}"
+            );
+        }
+    }
+
+    #[test]
+    fn the_support_sentence_counts_the_roles_the_catalogue_holds() {
+        let repo = clean_repo();
+        let out = tempfile::tempdir().expect("out");
+        package(repo.path(), out.path(), &mut Scripted::clean()).expect("packaging");
+        let ed = edition_files(out.path());
+        let catalogue =
+            SupportCatalogue::parse_bytes(&ed["evidence/corpus-support.toml"]).expect("catalogue");
+        let transfer = text_of(&ed, "TRANSFER-STATEMENT.txt")
+            .split_whitespace()
+            .collect::<Vec<_>>()
+            .join(" ");
+        assert!(
+            transfer.contains(&format!(
+                "each of the {} support files of the source Corpus at this commit: {}.",
+                catalogue.files.len(),
+                support_role_summary(&catalogue)
+            )),
+            "{transfer}"
+        );
+        assert!(!transfer.contains("pipeline"), "{transfer}");
+    }
+
+    #[test]
+    fn the_raw_ai_text_is_reviewed_again_before_tool_version_0_2_0() {
+        // The raw texts say this tool version has no Handoff step and no AI build. Version 0.2.0
+        // is planned to bring both, so that release must review the raw AI sentences first.
+        let mut parts = TOOL_VERSION
+            .split('.')
+            .map(|p| p.parse::<u64>().expect("number"));
+        let (major, minor) = (parts.next().expect("major"), parts.next().expect("minor"));
+        assert!(
+            (major, minor) < (0, 2),
+            "tool version {TOOL_VERSION}: review the raw AI and Handoff sentences"
+        );
     }
 
     #[test]

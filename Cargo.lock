@@ -944,6 +944,7 @@ dependencies = [
  "fieldbook",
  "fieldbook-calc",
  "fieldbook-core",
+ "flate2",
  "object",
  "serde",
  "serde_json",

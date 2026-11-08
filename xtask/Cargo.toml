@@ -16,6 +16,7 @@ toml = { workspace = true }
 sha2 = { workspace = true }
 zip = { workspace = true }
 object = { workspace = true }
+flate2 = { workspace = true }
 fieldbook = { path = "../crates/fieldbook" }
 fieldbook-calc = { path = "../crates/fieldbook-calc" }
 fieldbook-core = { path = "../crates/fieldbook-core" }
