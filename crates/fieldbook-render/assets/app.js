@@ -28,6 +28,11 @@ let sessionTheme = null;
 let toastTimer = null;
 let lastTrigger = null;
 
+// The frame element with id `fb:<name>`, or null: every frame id is in the fb: namespace.
+function fb(name) {
+  return document.getElementById('fb:' + name);
+}
+
 // A string from window.FB_STRINGS, or ''.
 function str(name) {
   return (window.FB_STRINGS || {})[name] || '';
@@ -39,8 +44,8 @@ function closest(ev, sel) {
 }
 
 function showToast(message) {
-  const toast = document.getElementById('fb:toast');
-  const sr = document.getElementById('fb:sr');
+  const toast = fb('toast');
+  const sr = fb('sr');
   if (!message) {
     return;
   }
@@ -70,7 +75,7 @@ function effectiveTheme() {
 }
 
 function applyTheme(theme) {
-  const btn = document.getElementById('fb:themeBtn');
+  const btn = fb('themeBtn');
   sessionTheme = theme;
   if (theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -110,15 +115,15 @@ function selectSidebarSection(secKey) {
 }
 
 function isOverlayOpen() {
-  const sidebar = document.getElementById('fb:sidebar');
+  const sidebar = fb('sidebar');
   return Boolean(sidebar && sidebar.classList.contains('open'));
 }
 
 // Opens or closes the overlay sidebar (below 960px) with its scrim and the menu button's state.
 function setSidebar(open, restoreFocus) {
-  const sidebar = document.getElementById('fb:sidebar');
-  const scrim = document.getElementById('fb:scrim');
-  const menuBtn = document.getElementById('fb:menuBtn');
+  const sidebar = fb('sidebar');
+  const scrim = fb('scrim');
+  const menuBtn = fb('menuBtn');
   if (!sidebar || open === isOverlayOpen()) {
     return;
   }
@@ -144,18 +149,18 @@ function setSidebar(open, restoreFocus) {
 function initFrame() {
   initTheme();
 
-  const themeBtn = document.getElementById('fb:themeBtn');
+  const themeBtn = fb('themeBtn');
   if (themeBtn) {
     themeBtn.addEventListener('click', toggleTheme);
   }
 
-  const menuBtn = document.getElementById('fb:menuBtn');
+  const menuBtn = fb('menuBtn');
   if (menuBtn) {
     menuBtn.addEventListener('click', function () {
       setSidebar(!isOverlayOpen(), true);
     });
   }
-  [document.getElementById('fb:sidebarCloseBtn'), document.getElementById('fb:scrim')].forEach(function (el) {
+  [fb('sidebarCloseBtn'), fb('scrim')].forEach(function (el) {
     if (el) {
       el.addEventListener('click', function () {
         setSidebar(false, true);
@@ -163,7 +168,7 @@ function initFrame() {
     }
   });
 
-  const secSwitch = document.getElementById('fb:secSwitch');
+  const secSwitch = fb('secSwitch');
   if (secSwitch) {
     secSwitch.addEventListener('click', function (ev) {
       const btn = closest(ev, '[data-secpick]');
@@ -213,7 +218,7 @@ function localIsoDate() {
 }
 
 function applyWording(mode) {
-  const reader = document.getElementById('fb:reader') || document.body;
+  const reader = fb('reader') || document.body;
   reader.classList.toggle('hide-precise', mode === 'plain');
   document.querySelectorAll('#fb\\:wordingSeg [data-wording]').forEach(function (btn) {
     btn.setAttribute('aria-pressed', String(btn.getAttribute('data-wording') === mode));
@@ -221,7 +226,7 @@ function applyWording(mode) {
 }
 
 function showPopoverFor(el) {
-  const pop = document.getElementById('fb:popover');
+  const pop = fb('popover');
   if (!pop || !el) {
     return;
   }
@@ -243,7 +248,7 @@ function showPopoverFor(el) {
 }
 
 function hidePopover() {
-  const pop = document.getElementById('fb:popover');
+  const pop = fb('popover');
   if (pop) {
     pop.hidden = true;
   }
@@ -364,7 +369,7 @@ function initPageReader() {
     }
   });
 
-  const wordingSeg = document.getElementById('fb:wordingSeg');
+  const wordingSeg = fb('wordingSeg');
   if (wordingSeg) {
     let storedWording = null;
     try {
@@ -390,7 +395,7 @@ function initPageReader() {
     });
   }
 
-  const copyBtn = document.getElementById('fb:copyLinkBtn');
+  const copyBtn = fb('copyLinkBtn');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
       const clip = navigator.clipboard;
@@ -407,7 +412,7 @@ function initPageReader() {
     });
   }
 
-  const reader = document.getElementById('fb:reader');
+  const reader = fb('reader');
   if (reader) {
     reader.addEventListener('click', function (ev) {
       const mark = closest(ev, '[data-claim]');
@@ -452,7 +457,7 @@ function initPageReader() {
 function initRegister() {
   const PAGE_SIZE = 50;
   const NUMBER = /^-?\d+(\.\d+)?$/;
-  const regTable = document.getElementById('fb:registerTable');
+  const regTable = fb('registerTable');
   const thead = regTable ? regTable.querySelector('thead') : null;
   const tbody = regTable ? regTable.querySelector('tbody') : null;
   if (!regTable || !thead || !tbody) {
@@ -465,16 +470,16 @@ function initRegister() {
   let filterVal = 'all';
   let page = 0;
 
-  const filterBar = document.getElementById('fb:claimsFilter');
-  const filterSeg = document.getElementById('fb:claimsFilterSeg');
-  const emptyLine = document.getElementById('fb:registerEmptyFilter');
-  const pager = document.getElementById('fb:registerPager');
-  const pageInfo = document.getElementById('fb:registerPageInfo');
+  const filterBar = fb('claimsFilter');
+  const filterSeg = fb('claimsFilterSeg');
+  const emptyLine = fb('registerEmptyFilter');
+  const pager = fb('registerPager');
+  const pageInfo = fb('registerPageInfo');
   const prevBtn = pager ? pager.querySelector('[data-pg="prev"]') : null;
   const nextBtn = pager ? pager.querySelector('[data-pg="next"]') : null;
 
   const announce = function (text) {
-    const sr = document.getElementById('fb:sr');
+    const sr = fb('sr');
     if (sr) {
       sr.textContent = text;
     }
@@ -783,8 +788,8 @@ function latestPages(ix) {
 }
 
 function select(i) {
-  const input = document.getElementById('fb:palIn');
-  const opts = document.getElementById('fb:palList').children;
+  const input = fb('palIn');
+  const opts = fb('palList').children;
   selected = Math.max(0, Math.min(i, opts.length - 1));
   input.removeAttribute('aria-activedescendant');
   for (let k = 0; k < opts.length; k += 1) {
@@ -799,9 +804,9 @@ function select(i) {
 
 function paint() {
   const S = window.FB_SEARCH;
-  const text = document.getElementById('fb:palIn').value;
-  const list = document.getElementById('fb:palList');
-  const note = document.getElementById('fb:palNote');
+  const text = fb('palIn').value;
+  const list = fb('palList');
+  const note = fb('palNote');
   S.load().then(function (ix) {
     const q = text.trim();
     const rows = q && S.tokens(q).length ? paletteRows(ix, q) : null;
@@ -823,9 +828,9 @@ function paint() {
 }
 
 function openPalette() {
-  const dlg = document.getElementById('fb:palette');
-  const input = document.getElementById('fb:palIn');
-  const keys = document.getElementById('fb:keys');
+  const dlg = fb('palette');
+  const input = fb('palIn');
+  const keys = fb('keys');
   if (keys.open) {
     keys.close();
   }
@@ -838,7 +843,7 @@ function openPalette() {
 }
 
 function openKeys() {
-  const dlg = document.getElementById('fb:keys');
+  const dlg = fb('keys');
   if (!dlg.open) {
     keysOpener = document.activeElement;
     dlg.showModal();
@@ -847,10 +852,10 @@ function openKeys() {
 }
 
 function initPalette() {
-  const link = document.getElementById('fb:searchBtn');
-  const pal = document.getElementById('fb:palette');
-  const keys = document.getElementById('fb:keys');
-  const keysBtn = document.getElementById('fb:keysBtn');
+  const link = fb('searchBtn');
+  const pal = fb('palette');
+  const keys = fb('keys');
+  const keysBtn = fb('keysBtn');
   if (!link || !pal || !keys || !window.FB_SEARCH) {
     return;
   }
@@ -889,7 +894,7 @@ function initPalette() {
       ev.preventDefault();
       select(selected + (ev.key === 'ArrowDown' ? 1 : -1));
     } else if (ev.key === 'Enter') {
-      const opt = document.getElementById('fb:palList').children[selected];
+      const opt = fb('palList').children[selected];
       const a = opt && opt.querySelector('a[href]');
       ev.preventDefault();
       if (a) {
