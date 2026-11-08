@@ -4,6 +4,7 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: the browser harness (`just browser`), which opens every page and text-renamed original in headless Edge, or Chromium where Edge is missing, and fails on any request that is not to a local file.
 - Added: the about page, edition.toml and copyable command chips.
 - Added: the home page and the area pages.
 - Fixed: page popovers and stage lists no longer show raw citation markers.
