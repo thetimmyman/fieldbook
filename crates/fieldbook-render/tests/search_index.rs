@@ -254,6 +254,10 @@ mod search_index {
             "the view keeps the held row, so only the hold rule keeps it out"
         );
 
+        // Both checks run before either fails, so a failure names every stage that let the
+        // held version through.
+        let mut leaks: Vec<String> = Vec::new();
+
         // Before the kind filter: a held version has no unit and no canary.
         let (units, _glossary) = search_index::view_units(&view);
         assert!(
@@ -261,23 +265,35 @@ mod search_index {
             "an active version has a unit before the kind filter"
         );
         for u in &units {
-            assert_ne!(u.id, "S-0005-v1", "a held version must have no unit");
+            if u.id == "S-0005-v1" {
+                leaks.push("unit list: the held version S-0005-v1 has a unit".to_owned());
+            }
             for canary in HELD_CANARIES {
-                assert!(
-                    !unit_text(u).contains(canary),
-                    "held canary `{canary}` in unit {}",
-                    u.id
-                );
+                if unit_text(u).contains(canary) {
+                    leaks.push(format!(
+                        "unit list: held canary `{canary}` in unit {}",
+                        u.id
+                    ));
+                }
             }
         }
 
         // The delivered index holds neither the id nor the canaries.
         let text = delivered(&site);
         let index = parsed(&text);
-        assert!(!doc_ids(&index).iter().any(|id| id.starts_with("S-0005")));
-        for needle in ["S-0005", "s-0005"].into_iter().chain(HELD_CANARIES) {
-            assert!(!text.contains(needle), "the index holds `{needle}`");
+        if doc_ids(&index).iter().any(|id| id.starts_with("S-0005")) {
+            leaks.push("delivered index: a unit of the held version S-0005".to_owned());
         }
+        for needle in ["S-0005", "s-0005"].into_iter().chain(HELD_CANARIES) {
+            if text.contains(needle) {
+                leaks.push(format!("delivered index: holds `{needle}`"));
+            }
+        }
+        assert!(
+            leaks.is_empty(),
+            "the held version leaked:\n{}",
+            leaks.join("\n")
+        );
     }
 
     #[test]
