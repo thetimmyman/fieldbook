@@ -412,14 +412,8 @@ pub fn command_raw_edition_check(root: &Path, args: &[&str]) -> Result<bool, Str
 }
 
 /// Require two delivered sets (a local run and a downloaded workflow artifact) to hold the same
-/// files with the same bytes.
-#[cfg_attr(
-    not(test),
-    expect(
-        dead_code,
-        reason = "the owner-run delivery check compares a local pair with a downloaded one in tests"
-    )
-)]
+/// files with the same bytes, and the downloaded set to verify as a raw delivery on its own: the
+/// zip hashes against `SHA256SUMS`, each zip's internal sums, and the catalogue digest.
 pub fn compare_delivered_sets(local: &Path, downloaded: &Path) -> Result<(), String> {
     let a = collect_all_rel_files(local)?;
     let b = collect_all_rel_files(downloaded)?;
@@ -440,7 +434,27 @@ pub fn compare_delivered_sets(local: &Path, downloaded: &Path) -> Result<(), Str
     if names_a.is_empty() {
         return Err("both delivered sets are empty".to_owned());
     }
+    verify_edition_artifact_set(downloaded, DeliveryKind::Raw)
+        .map_err(|e| format!("the downloaded set does not verify: {e}"))?;
     Ok(())
+}
+
+const COMPARE_USAGE: &str = "usage: cargo xtask raw-edition-compare LOCAL DOWNLOADED";
+
+/// Command handler for `cargo xtask raw-edition-compare LOCAL DOWNLOADED` (release runbook, raw
+/// step 2): the pair built locally at the tagged commit against the downloaded workflow artifact.
+pub fn command_raw_edition_compare(args: &[&str]) -> Result<bool, String> {
+    let [local, downloaded] = args else {
+        return Err(format!(
+            "two folders are required, the local pair and the downloaded one\n{COMPARE_USAGE}"
+        ));
+    };
+    if local.starts_with("--") || downloaded.starts_with("--") {
+        return Err(format!("no flag is accepted\n{COMPARE_USAGE}"));
+    }
+    compare_delivered_sets(Path::new(local), Path::new(downloaded))?;
+    println!("the local and downloaded raw delivery sets are identical");
+    Ok(true)
 }
 
 #[cfg(test)]
@@ -454,8 +468,8 @@ mod tests {
     use tempfile::TempDir;
 
     use super::{
-        RawCheckArgs, compare_delivered_sets, parse_raw_edition_check_cli, raw_edition_check,
-        register_raw_provider, verify_reports,
+        RawCheckArgs, command_raw_edition_compare, compare_delivered_sets,
+        parse_raw_edition_check_cli, raw_edition_check, register_raw_provider, verify_reports,
     };
     use crate::compat::{Baselines, parse_baselines, parse_published};
     use crate::edition_raw::sums_of;
@@ -876,14 +890,34 @@ mod tests {
         // Downloaded-pair verification and local comparison.
         let downloaded = work.path().join("downloaded");
         copy_tree(&out1, &downloaded);
-        compare_delivered_sets(&out1, &downloaded).expect("identical");
+        let compare = |local: &Path, down: &Path| {
+            command_raw_edition_compare(&[
+                local.to_str().expect("utf8"),
+                down.to_str().expect("utf8"),
+            ])
+        };
+        assert_eq!(compare(&out1, &downloaded), Ok(true));
+        assert!(command_raw_edition_compare(&[out1.to_str().expect("utf8")]).is_err());
+        assert!(command_raw_edition_compare(&["--local", "a", "b"]).is_err());
         let victim = downloaded.join("fieldbook-originals-001.zip");
         let mut bytes = fs::read(&victim).expect("zip");
         bytes[10] ^= 1;
         fs::write(&victim, bytes).expect("flip");
-        assert!(compare_delivered_sets(&out1, &downloaded).is_err());
+        assert!(compare(&out1, &downloaded).is_err());
         fs::remove_file(downloaded.join("corpus-support.sha256")).expect("rm");
-        assert!(compare_delivered_sets(&out1, &downloaded).is_err());
+        assert!(compare(&out1, &downloaded).is_err());
+        // Two equal sets that are both damaged still fail: the downloaded set must verify.
+        let (bad_local, bad_down) = (work.path().join("bad-local"), work.path().join("bad-down"));
+        for dir in [&bad_local, &bad_down] {
+            copy_tree(&out1, dir);
+            fs::write(
+                dir.join("corpus-support.sha256"),
+                format!("{}  corpus-support.toml\n", "0".repeat(64)),
+            )
+            .expect("damage");
+        }
+        let err = compare(&bad_local, &bad_down).expect_err("unverified set");
+        assert!(err.contains("does not verify"), "{err}");
 
         // Durable archival and the first-delivery restore.
         let (arch1, manifest1, _) =

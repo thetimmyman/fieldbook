@@ -8,6 +8,7 @@ The delivered file set, the content rules and the verification contract of the r
 |---|---|
 | `cargo xtask edition-raw --out DIR [--fieldbook PROGRAM]` | Packages the clean commit into `DIR`. Refuses a dirty tree (including an ignored file under `corpus/`, a tracked file marked skip-worktree or assume-unchanged, and a sparse checkout) and a blank or missing `FIELDBOOK_SECURITY_CONTACT` (control IN-01). Writes nothing to `DIR` until every check has passed |
 | `cargo xtask raw-edition-check TAG --base FILE --evidence-out DIR` | Validates an owner-created `edition-NNN` tag whose committed `edition-release.toml` says `kind = "raw"`, a clean checkout at the tagged commit (the same clean-tree rule as `edition-raw`), and a `--base` identical to the committed baseline; collects the public compatibility evidence |
+| `cargo xtask raw-edition-compare LOCAL DOWNLOADED` | Requires the downloaded workflow artifact to hold the same file names with the same bytes as the pair built locally at the tagged commit, and to verify on its own: zip hashes against `SHA256SUMS`, each zip's internal sums, and the catalogue against its digest |
 
 The program run for the check is `fieldbook check --strict --json`; without `--fieldbook`, `edition-raw` starts it through `cargo run`. Nothing builds a site, starts a renderer or opens a browser.
 
@@ -56,4 +57,4 @@ The Raw provider runs again at `cargo xtask verify-archive` (raw step 4). It che
 
 ## Not covered
 
-No signing, no browser test, no network-silence test, no inspection of PDF content, and no check by a second party of the strict-check evidence. The comparison of a local pair with a downloaded workflow artifact is a manual step (`compare_delivered_sets` is exercised only by tests).
+No signing, no browser test, no network-silence test, no inspection of PDF content, and no check by a second party of the strict-check evidence. `fieldbook-render` is compiled into `xtask` through the `fieldbook` crate, which holds the Corpus reader, but the raw path never calls it; a test pins that the raw code names no render or build entry.

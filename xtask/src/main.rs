@@ -10,6 +10,7 @@
 //! - `denylist FILE`: fail when a term from FILE appears in tracked content or pushed history.
 //! - `edition-raw --out DIR`: package the raw edition floor from a clean commit.
 //! - `raw-edition-check TAG --base FILE --evidence-out DIR`: check a raw edition tag and collect its evidence.
+//! - `raw-edition-compare LOCAL DOWNLOADED`: require a downloaded raw delivery set to equal the local one.
 //!
 //! Exit codes follow `fieldbook`: 0 clean, 1 findings, 2 usage, 3 an operation failed.
 
@@ -109,6 +110,8 @@ const USAGE: &str = "usage: cargo xtask <command>
   edition-raw --out DIR [FLAGS]     package the raw edition floor (paired archives) from a clean commit
   raw-edition-check TAG --base FILE --evidence-out DIR
                                     check an owner-created raw edition tag and collect its evidence
+  raw-edition-compare LOCAL DOWNLOADED
+                                    require a downloaded raw delivery set to equal the local one
   edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version";
 
 fn main() -> ExitCode {
@@ -139,6 +142,7 @@ fn main() -> ExitCode {
         ["verify-archive", rest @ ..] => edition_release::command_verify_archive(rest),
         ["edition-raw", rest @ ..] => edition_raw::command_edition_raw(&root, rest),
         ["raw-edition-check", rest @ ..] => raw_release::command_raw_edition_check(&root, rest),
+        ["raw-edition-compare", rest @ ..] => raw_release::command_raw_edition_compare(rest),
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {
