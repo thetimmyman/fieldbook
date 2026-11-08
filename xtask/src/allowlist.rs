@@ -683,15 +683,42 @@ pub fn verify_staged_maps(
     Ok(())
 }
 
-/// The shipped name of a registered original. The name derived from `location` is used when the
-/// originals tree holds it. Otherwise, when `location` is not a file name (a web address, say) and
-/// the tree holds exactly one file named `<version id>.<extension>`, that file is the original.
-/// Every shipped original still passes the extension, name and digest checks afterwards.
+/// The shipped name of a registered original.
+///
+/// The version id selects the shipped original, and the location is provenance:
+/// - a location whose file name ends in a prohibited extension is refused, whatever the tree
+///   holds: a file name such as `setup.ps1`, or a web address whose last path segment is one
+///   (`https://example.invalid/setup.ps1?raw=1`; the host, query and fragment are not read);
+/// - when the name derived from `location` is in the originals tree, that is the original;
+/// - otherwise the single `<version id>.*` file in the tree is the original (a web address such
+///   as an eCFR renderer URL names no file).
+///
+/// The location does not bind the shipped type. That is bound by the checks that follow: the
+/// shipped-name rules, the markup rename, the Raw extension allowlist and executable check, and
+/// the registered digest.
 fn resolve_shipped_original(
     vid: &VersionId,
     location: &str,
     originals_files: &BTreeMap<String, Vec<u8>>,
 ) -> Result<String, AllowlistViolation> {
+    let path = match location.split_once("://") {
+        Some((_, rest)) => rest.split_once('/').map_or("", |(_, p)| p),
+        None => location,
+    };
+    let path = path.split(['?', '#']).next().unwrap_or_default();
+    let last = path.rsplit('/').next().unwrap_or_default();
+    if let Some((_, ext)) = last.rsplit_once('.') {
+        let ext = ext.to_ascii_lowercase();
+        if PROHIBITED_EXTENSIONS.contains(&ext.as_str()) {
+            return Err(AllowlistViolation {
+                code: Code::Fb0601,
+                path: location.to_owned(),
+                message: format!(
+                    "source version `{vid}` location `{location}` names a prohibited `.{ext}` file"
+                ),
+            });
+        }
+    }
     let derived = shipped_original_filename(vid, location);
     if let Ok(name) = &derived
         && originals_files.contains_key(name)
@@ -1480,7 +1507,7 @@ mod tests {
     }
 
     #[test]
-    fn raw_originals_are_an_extension_allowlist_and_the_site_profile_is_unchanged() {
+    fn raw_originals_are_an_extension_allowlist_and_the_site_profile_keeps_its_denylist() {
         let (raw_ed, raw_orig) = build_synthetic_staged_pair(AllowlistProfile::Raw);
         let payload = raw_orig["S-0001-v1.html.txt"].clone();
         // Types the old denylist let through, plus ordinary office and archive types.
@@ -1513,13 +1540,48 @@ mod tests {
                 .expect_err("executable magic must be refused");
             assert_eq!(err.code, Code::Fb0601);
         }
-        // The Site profile keeps its own rules: an unlisted extension is not a raw-only refusal.
+        // The Site profile keeps its denylist: an extension outside the raw list passes there.
+        // The original is found as the single `<version id>.*` file, because the location is a
+        // web address; the Site profile shares that resolution with the Raw profile.
         let (site_ed, _) = build_synthetic_staged_pair(AllowlistProfile::Site);
         let mut orig = BTreeMap::new();
         orig.insert("S-0001-v1.xml".to_owned(), payload);
         refresh_sums(&mut orig);
         verify_staged_maps(AllowlistProfile::Site, &site_ed, &orig, &[])
             .expect("the Site profile is not narrowed by the raw allowlist");
+    }
+
+    #[test]
+    fn a_location_naming_a_prohibited_file_is_never_rescued_by_the_version_file() {
+        let vid = VersionId::parse("S-0001-v1").expect("vid");
+        let mut one: BTreeMap<String, Vec<u8>> = BTreeMap::new();
+        one.insert("S-0001-v1.txt".to_owned(), vec![1]);
+        for location in [
+            "https://example.invalid/setup.ps1",
+            "https://example.invalid/dir/SETUP.PS1?raw=1",
+            "https://example.invalid/a.exe#frag",
+            "setup.ps1",
+            "S-0001-v1.exe",
+        ] {
+            let err = resolve_shipped_original(&vid, location, &one)
+                .expect_err(&format!("{location} must be refused"));
+            assert_eq!(err.code, Code::Fb0601, "{location}");
+        }
+        // The location is provenance, not the shipped type: a harmless file name, a web address
+        // with no file name, or a query that merely mentions a script, falls back to the single
+        // version file, whose type the later checks bind.
+        for location in [
+            "https://www.example.com",
+            "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-10-27/title-48?chapter=1&part=2",
+            "https://example.invalid/report.pdf?download=setup.ps1",
+            "S-0001-v1.pdf",
+        ] {
+            assert_eq!(
+                resolve_shipped_original(&vid, location, &one).as_deref(),
+                Ok("S-0001-v1.txt"),
+                "{location}"
+            );
+        }
     }
 
     #[test]
