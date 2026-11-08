@@ -553,7 +553,7 @@ browser.
 
 PDF files. The {n_pdf_originals} PDF files are third-party public
 documents, shipped unchanged. The build looked in each one only for
-embedded files (attachments). {n_pdf_attachments} of them hold one{pdf_attachment_list}.
+embedded files (attachments). {n_pdf_attachments} of them hold at least one{pdf_attachment_list}.
 The build reads the uncompressed bytes and the streams compressed with
 the usual Flate method. An attachment stored any other way is not
 counted. Nothing else in the PDFs was inspected.
@@ -652,8 +652,8 @@ makes no web site and adds no JavaScript, style sheet, workbook, program or
 executable file of its own. The originals include saved public web pages,
 shipped as text (section 2). No browser test was run for this delivery. You
 read the Markdown, CSV, text and PDF files with the reader your IT department
-has approved for those file types. The CSV files are UTF-8 with no byte-order
-mark: open one in Excel through Data > From Text/CSV with File origin
+has approved for those file types. The register CSV files are UTF-8 with no
+byte-order mark: open one in Excel through Data > From Text/CSV with File origin
 65001: Unicode (UTF-8), not by double-clicking it. README.txt shows how.
 A later, separate request may bring a signed program that runs on the company
 laptop as part of the company's own systems. If IT approves it, that program
@@ -693,7 +693,7 @@ the approved text reader. Do not rename them or open them in a browser.
 
 PDF originals. The {n_pdf_originals} PDF originals are third-party public
 documents shipped byte for byte. The build looked in each one only for embedded
-files (attachments). {n_pdf_attachments} of them hold one{pdf_attachment_list}.
+files (attachments). {n_pdf_attachments} of them hold at least one{pdf_attachment_list}.
 The build reads the uncompressed bytes and the streams compressed with the
 usual Flate method. An attachment stored any other way is not counted. Nothing
 else in the PDFs was inspected.
@@ -731,10 +731,11 @@ treat the files as downloaded files.
 
 Support-file evidence. evidence\corpus-support.toml lists the path and SHA-256
 of each of the {n_support_files} support files of the source Corpus at this
-commit: {support_roles}. Most of those files are not part of this delivery; the
-catalogue records their digests so that a later program can check the support
-files and the catalogue bytes. A one-line digest, corpus-support.sha256, arrives with SHA256SUMS by the same
-separate route. It is the SHA-256 of evidence\corpus-support.toml: after you
+commit: {support_roles}.
+Most of those files are not part of this delivery. The catalogue records their
+digests so that a later program can check the support files and the catalogue
+bytes. A one-line digest, corpus-support.sha256, arrives with SHA256SUMS by the
+same separate route. It is the SHA-256 of evidence\corpus-support.toml: after you
 extract the edition, hash that file and compare. The digest is evidence of
 bytes, not proof that any file is public or admitted.
 
@@ -853,7 +854,7 @@ What the build does check is the file list: the edition zip holds only files wit
 
 {n_markup_originals} of the originals are saved public web pages (HTML) or drawings (SVG). Each ships with .txt added to its name and its bytes unchanged. {n_markup_scripts} of them contain the publisher's page scripts (a `<script>` tag), kept as text. No browser or network test was run on them. Read them with the approved text reader. Do not rename them or open them in a browser.
 
-The {n_pdf_originals} PDF originals are third-party public documents shipped byte for byte. The build looked in each one only for embedded files (attachments). {n_pdf_attachments} of them hold one{pdf_attachment_list}. The build reads the uncompressed bytes and the streams compressed with the usual Flate method. An attachment stored any other way is not counted. Nothing else in the PDFs was inspected.
+The {n_pdf_originals} PDF originals are third-party public documents shipped byte for byte. The build looked in each one only for embedded files (attachments). {n_pdf_attachments} of them hold at least one{pdf_attachment_list}. The build reads the uncompressed bytes and the streams compressed with the usual Flate method. An attachment stored any other way is not counted. Nothing else in the PDFs was inspected.
 
 The full edition's network-silence check is a separate delivery with its own report.
 "#;
@@ -2474,7 +2475,7 @@ pub(crate) mod tests {
             );
             assert!(text.contains("The 2 PDF"), "{name}: {text}");
             assert!(
-                text.contains("1 of them hold one: S-0002-v1.pdf."),
+                text.contains("1 of them hold at least one: S-0002-v1.pdf."),
                 "{name}: {text}"
             );
             assert!(!text.contains("S-0003-v1.pdf"), "{name}");
