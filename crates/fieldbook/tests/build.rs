@@ -2659,4 +2659,259 @@ mod build {
             ],
         );
     }
+
+    /// The delivered `assets/search-index.js` of `edition`, parsed: the JSON between
+    /// `window.FB_INDEX = ` and `;`, and the raw text.
+    fn delivered_search_index(edition: &Path) -> (serde_json::Value, String) {
+        let text = std::fs::read_to_string(edition.join("assets/search-index.js"))
+            .unwrap_or_else(|e| panic!("the handler must deliver assets/search-index.js: {e}"));
+        let json = text
+            .strip_prefix("window.FB_INDEX = ")
+            .and_then(|s| s.strip_suffix(';'))
+            .unwrap_or_else(|| panic!("the index must be `window.FB_INDEX = <json>;`"));
+        let value = serde_json::from_str(json).unwrap_or_else(|e| panic!("index JSON: {e}"));
+        (value, text)
+    }
+
+    /// The unit ids of the delivered index, in unit-number order.
+    fn index_doc_ids(index: &serde_json::Value) -> Vec<String> {
+        index["docs"]
+            .as_array()
+            .unwrap_or_else(|| panic!("docs"))
+            .iter()
+            .map(|d| d[0].as_str().unwrap_or_else(|| panic!("doc id")).to_owned())
+            .collect()
+    }
+
+    /// The ids of the units that `term`'s postings name, resolved through the delivered unit
+    /// table, or `None` when the index has no such term.
+    fn posting_ids(index: &serde_json::Value, term: &str) -> Option<Vec<String>> {
+        let ids = index_doc_ids(index);
+        let terms = index["terms"].as_array().unwrap_or_else(|| panic!("terms"));
+        let at = terms.iter().position(|t| t == term)?;
+        let post = index["post"][at]
+            .as_array()
+            .unwrap_or_else(|| panic!("post"));
+        Some(
+            post.chunks(2)
+                .map(|pair| {
+                    let unit = pair[0].as_u64().unwrap_or_else(|| panic!("unit number"));
+                    ids[usize::try_from(unit).unwrap_or(usize::MAX)].clone()
+                })
+                .collect(),
+        )
+    }
+
+    /// The delivered index holds the permitted page and section units, their snippets and
+    /// postings, and no record the view leaves out, no held version and no unit of another kind.
+    #[test]
+    fn build_search_index_uses_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            Some(("S-0005-v1.pdf", PDF_BYTES)),
+            "quarantined",
+            "Held for test heldsearchcanary.",
+        );
+        let edition = deliver_with_disallowed_records(tmp.path());
+        let (index, text) = delivered_search_index(&edition);
+        let ids = index_doc_ids(&index);
+
+        // Permitted presence stays required: page leads, sections, a clause card, a snippet and
+        // the postings of a permitted word.
+        for id in [
+            "cmp-system-review",
+            "cmp-system-review#purpose",
+            "cmp-system-review#the-rule",
+            "est-rate-window-brief",
+            "est-rate-window-brief#recommendation",
+            "cmp-clause-9900-101",
+        ] {
+            assert!(
+                ids.iter().any(|d| d == id),
+                "permitted unit {id} must be indexed"
+            );
+        }
+        let docs = index["docs"].as_array().unwrap_or_else(|| panic!("docs"));
+        let lead = docs
+            .iter()
+            .find(|d| d[0] == "cmp-system-review")
+            .unwrap_or_else(|| panic!("lead"));
+        assert_eq!(
+            lead[4],
+            "Explain how a synthetic system review interacts with a synthetic billing withhold.",
+            "the permitted lead snippet"
+        );
+        let clause = docs
+            .iter()
+            .find(|d| d[0] == "cmp-clause-9900-101")
+            .unwrap_or_else(|| panic!("clause"));
+        assert_eq!(clause[1], "clause");
+        let reviewers =
+            posting_ids(&index, "reviewers").unwrap_or_else(|| panic!("a permitted term"));
+        assert!(
+            reviewers
+                .iter()
+                .any(|id| id == "cmp-system-review#how-it-works"),
+            "the postings of `reviewers` must name the permitted section: {reviewers:?}"
+        );
+
+        // Forbidden: no record the view leaves out, no held version, no unit of another kind.
+        for id in &ids {
+            for forbidden in [
+                "est-forbidden-brief",
+                "est-dep-",
+                "CL-CMP-009",
+                "Q-098",
+                "XC-9",
+                "S-0098",
+                "S-0005",
+                "forbidden_window",
+            ] {
+                assert!(!id.starts_with(forbidden), "unit {id} must not be indexed");
+            }
+            for other_kind in [
+                "CL-CMP-0001",
+                "S-0002-v2",
+                "Q-001",
+                "XC-01",
+                "system_review",
+            ] {
+                assert_ne!(id, other_kind, "a {other_kind} unit must not be indexed");
+            }
+        }
+        for doc in docs {
+            assert!(doc[1] == "page" || doc[1] == "clause", "{doc}");
+        }
+        for needle in [
+            "Forbidden",
+            "Dependent ",
+            "est-forbidden-brief",
+            "est-dep-",
+            "CL-CMP-0098",
+            "Q-098",
+            "XC-98",
+            "S-0098",
+            "S-0005",
+            "heldsearchcanary",
+            "np-0007",
+        ] {
+            assert!(!text.contains(needle), "the index holds `{needle}`");
+        }
+        // The unique words of the left-out and held records are not terms.
+        for term in [
+            "forbidden",
+            "dependent",
+            "canary",
+            "heldsearchcanary",
+            "s-0005-v1",
+        ] {
+            assert_eq!(
+                posting_ids(&index, term),
+                None,
+                "`{term}` must not be a term of the index"
+            );
+        }
+    }
+
+    /// The `id` attributes of the `<h2>` and `<h3>` headings of `html`.
+    fn heading_ids(html: &str) -> Vec<String> {
+        let mut out = Vec::new();
+        for tag in ["<h2 ", "<h3 "] {
+            for chunk in html.split(tag).skip(1) {
+                let head = chunk.split('>').next().unwrap_or_default();
+                if let Some(rest) = head.split("id=\"").nth(1) {
+                    out.push(rest.split('"').next().unwrap_or_default().to_owned());
+                }
+            }
+        }
+        out
+    }
+
+    /// Every section fragment of the delivered index equals a heading id of the delivered page,
+    /// with a repeated heading and a non-ASCII heading on the page; and a two-sentence Purpose
+    /// gives the lead its first paragraph while summaries use its first sentence.
+    #[test]
+    fn search_section_links_resolve_to_rendered_headings() {
+        let tmp = temp_copy(&fixture_root());
+        let path = tmp
+            .path()
+            .join("corpus/pages/compliance/business-systems/cmp-system-review.md");
+        let page = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("{e}"));
+        let page = page.replace(
+            "## Purpose\n\nExplain how a synthetic system review interacts with a synthetic billing withhold.\n",
+            "## Purpose\n\nExplain how a synthetic system review interacts with a synthetic billing withhold. A second synthetic sentence names the review cycle.\n\n### The rule\n\nA synthetic subheading that repeats a part heading.\n\n### Résumé übersicht\n\nA synthetic subheading with non-ASCII letters.\n",
+        );
+        assert!(
+            page.contains("### Résumé übersicht"),
+            "the fixture edit applies"
+        );
+        std::fs::write(&path, page).unwrap_or_else(|e| panic!("{e}"));
+
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+        let edition = tmp.path().join("out/edition");
+        let (index, _text) = delivered_search_index(&edition);
+        let ids = index_doc_ids(&index);
+
+        let mut sections = 0usize;
+        for id in &ids {
+            let Some((page_id, fragment)) = id.split_once('#') else {
+                continue;
+            };
+            sections += 1;
+            let html = std::fs::read_to_string(edition.join(format!("p/{page_id}.html")))
+                .unwrap_or_else(|e| panic!("p/{page_id}.html: {e}"));
+            let headings = heading_ids(&html);
+            assert!(
+                headings.iter().any(|h| h == fragment),
+                "section {id} must link to a rendered heading of p/{page_id}.html: {headings:?}"
+            );
+        }
+        assert!(sections > 0, "the index holds section units");
+
+        // The repeated heading moves the part's anchor on, in the index and on the page alike.
+        let review = std::fs::read_to_string(edition.join("p/cmp-system-review.html"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let review_headings = heading_ids(&review);
+        assert!(
+            ids.iter().any(|id| id == "cmp-system-review#the-rule-2"),
+            "{ids:?}"
+        );
+        assert!(
+            !ids.iter().any(|id| id == "cmp-system-review#the-rule"),
+            "{ids:?}"
+        );
+        for anchor in ["the-rule", "the-rule-2", "résumé-übersicht"] {
+            assert!(
+                review_headings.iter().any(|h| h == anchor),
+                "p/cmp-system-review.html must render the heading id `{anchor}`: {review_headings:?}"
+            );
+        }
+
+        // The lead snippet is Purpose's first paragraph, both sentences, under 160 code points.
+        let docs = index["docs"].as_array().unwrap_or_else(|| panic!("docs"));
+        let lead = docs
+            .iter()
+            .find(|d| d[0] == "cmp-system-review")
+            .unwrap_or_else(|| panic!("lead"));
+        assert_eq!(
+            lead[4],
+            "Explain how a synthetic system review interacts with a synthetic billing withhold. A second synthetic sentence names the review cycle."
+        );
+        // A summary uses the first sentence only.
+        let area =
+            std::fs::read_to_string(edition.join("a/cmp.html")).unwrap_or_else(|e| panic!("{e}"));
+        assert!(area.contains(
+            "Explain how a synthetic system review interacts with a synthetic billing withhold."
+        ));
+        assert!(!area.contains("A second synthetic sentence"));
+    }
 }
