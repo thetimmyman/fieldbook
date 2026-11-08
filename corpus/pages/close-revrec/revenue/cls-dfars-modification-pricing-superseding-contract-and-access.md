@@ -31,11 +31,11 @@ Shows which cost rules apply to price adjustments under the modification pricing
 
 Under the pricing clause, when costs are a factor in any price adjustment under the contract, the cost principles and procedures in FAR part 31 and DFARS part 231 in effect on the date of the contract apply [@CL-CLS-1165].
 
-The superseding contract clause provides that the contract supersedes an earlier contract, identified by number and date, which provided similar services [@CL-CLS-1166]. Any capital credits accrued to the Government, any remaining credits due to the Government under the connection charge, or any termination liability are transferred to the superseding contract [@CL-CLS-1167]. The clause provides for listing the accrued capital credits by year and delivery point, and the outstanding connection charge credits by month and year with the remaining amount due the Government [@CL-CLS-1216]. It also provides for listing termination liability charges by month and year, showing the monthly facility cost recovered and the remaining facility cost to be recovered [@CL-CLS-1217]. Under the Government access clause, authorized representatives of the Government may have access to the Contractor's on-base facilities upon reasonable notice or in case of emergency [@CL-CLS-1168].
+The superseding contract clause provides that the contract supersedes an earlier contract, identified by number and date, which provided similar services [@CL-CLS-1166]. Any capital credits accrued to the Government, any remaining credits due to the Government under the connection charge, or any termination liability are transferred to the superseding contract [@CL-CLS-1167]. The clause provides for listing the accrued capital credits by year and delivery point, and, for the outstanding connection charge credits, the amount credited by month and year with the remaining amount of outstanding credits due the Government [@CL-CLS-1216]. It also provides for listing termination liability charges by month and year, showing the monthly facility cost recovered and the remaining facility cost to be recovered [@CL-CLS-1217]. Under the Government access clause, authorized representatives of the Government may have access to the Contractor's on-base facilities upon reasonable notice or in case of emergency [@CL-CLS-1168].
 
 ## How it works
 
-The pricing clause names which cost rules apply to a price adjustment, those in effect on the date of the contract [@CL-CLS-1165]. The superseding contract clause moves credits and liability from the earlier contract to this one, in the schedules the clause provides for [@CL-CLS-1167; @CL-CLS-1216; @CL-CLS-1217]. The access clause ties access to reasonable notice or an emergency [@CL-CLS-1168].
+The pricing clause names which cost rules apply to a price adjustment, those in effect on the date of the contract [@CL-CLS-1165]. The superseding contract clause moves credits and liability from the earlier contract to this one, in the lists the clause provides for [@CL-CLS-1167; @CL-CLS-1216; @CL-CLS-1217]. The access clause ties access to reasonable notice or an emergency [@CL-CLS-1168].
 
 ## Worked example
 
@@ -54,5 +54,7 @@ Which executed contracts and modifications carry these clauses, and who confirms
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: modification pricing, superseding contract and access: uncited absence and contrast statements removed.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for pricing of contract modifications, the superseding contract clause and Government access.

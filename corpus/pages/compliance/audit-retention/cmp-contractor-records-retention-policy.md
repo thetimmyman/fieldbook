@@ -33,11 +33,11 @@ FAR subpart 4.7 applies to records generated under contracts that contain one of
 
 Except as stated in FAR 4.703(b), contractors must make available records, which include books, documents, accounting procedures and practices, and other data, regardless of type and regardless of whether such items are in written form, in the form of computer data, or in any other form, and other supporting evidence to satisfy contract negotiation, administration, and audit requirements of the contracting agencies and the Comptroller General for 3 years after final payment or, for certain records, the period specified in FAR 4.705 through 4.705-3, whichever of these periods expires first [@CL-CMP-2417; @CL-CMP-8206; @CL-CMP-2418].
 
-FAR 4.705-1, 4.705-2, and 4.705-3 apply to the records generated under contracts in each of those areas — financial and cost accounting records, pay administration records, and acquisition and supply records — and unless a shorter period is authorized under FAR 4.703(a) (3 years after final payment), the contractor must retain those records for the periods designated, provided retention is required under FAR 4.702 [@CL-CMP-2423; @CL-CMP-2418; @CL-CMP-2500]. Records are identified in FAR subpart 4.7 in terms of their purpose or use and not by specific name or form number [@CL-CMP-2502].
+FAR 4.705-1, 4.705-2, and 4.705-3 apply to the records generated under contracts in each of those areas — financial and cost accounting records, pay administration records, and acquisition and supply records — and the contractor must retain those records for the periods designated, provided retention is required under FAR 4.702; FAR 4.703(a) sets 3 years after final payment or, for certain records, the period specified in FAR 4.705 through 4.705-3, whichever of these periods expires first [@CL-CMP-2423; @CL-CMP-2418; @CL-CMP-2500]. Records are identified in FAR subpart 4.7 in terms of their purpose or use and not by specific name or form number [@CL-CMP-2502].
 
 ### Specific periods that matter to finance
 
-Each period below is one of the specific periods designated in FAR 4.705-1 through 4.705-3, which apply unless a shorter period is authorized under FAR 4.703(a), provided retention is required under FAR 4.702 [@CL-CMP-2423; @CL-CMP-2418; @CL-CMP-2500].
+Each period below is one of the specific periods designated in FAR 4.705-1 through 4.705-3, which apply, provided retention is required under FAR 4.702 [@CL-CMP-2423; @CL-CMP-2418; @CL-CMP-2500].
 
 - Accounts receivable invoices, adjustments to the accounts, invoice registers, carrier freight bills, shipping orders, and other documents which detail the material or services billed on the related invoices: retain 4 years [@CL-CMP-2423; @CL-CMP-2424].
 - Material, work order, or service order files, consisting of purchase requisitions or purchase orders for material or services, or orders for transfer of material or supplies: retain 4 years [@CL-CMP-2423; @CL-CMP-2503].
@@ -76,6 +76,7 @@ Which contract clauses set a longer retention period, which years are still open
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-11-03: Aligned the property records bullet to the FAR 45.101 and 52.245-1 cross-reference in the cited quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added companion claims for statutory applicability and imaging requirements, restored full record descriptions in the retention bullets, and removed uncited sentences.
 - COMPATIBLE_EXTENSION, 2026-10-31: Reworded the longer-period cases as alternatives with the clause and late-proposal wording, and added the receivable and material file descriptions.

@@ -12,6 +12,7 @@ The behaviour they pin is specified in [search.md](../../docs/reference/search.m
 | `search/` | tokenize | `seed-tokenize-company.json` | 12 (ids `tok-sc-001` onwards) | Counted in the 200 above | Card `search-core-and-cli` (Rust); card `search-js` (Edge, query side) |
 | `search/` | ranked | `seed-ranked.json` | 10 | At least 30 | Card `search-ranking-and-index` (Rust); card `search-js` (Edge) |
 | `search/` | ranked | `seed-ranked-company.json` | 4 | Counted in the 30 above | Card `r2-company-ids` (Rust) |
+| `search/` | page-view | `page-view.json` (not a seed) | 14 | At least 8 | Card `search-page-view` (Rust); card `search-js` (Edge) |
 | `citations/` | citation | `seed-citations.json` | 30 | No minimum | Card `check-citations` (Rust, the lexer); the Day-30 Handoff cards (Edge); card `r2-company-ids` for `citations-company.json` (Rust) |
 | `handoff/` | cite-check | `seed-*.json` | 20 | No minimum | The Day-30 Handoff cards (Rust and Edge) |
 | `context/` | context | `cases.json` | 0 (written with `handoff-context`) | At least 6 | Card `handoff-context` (Rust); card `assistant-page` (Edge) |
@@ -39,6 +40,7 @@ The behaviour they pin is specified in [search.md](../../docs/reference/search.m
 |---|---|---|
 | tokenize | `tokenize-<topic>.json` | Seed `tok-s-001` onwards; others `tok-001` onwards |
 | ranked | `ranked-<topic>.json` | Seed `rk-s-01` onwards; others `rk-01` onwards |
+| page-view | `page-view.json` | `pv-01` onwards |
 | citation | `citations-<topic>.json` | Seed `cit-s-001` onwards; others `cit-001` onwards |
 | cite-check | `cite-check-<topic>.json` | Fixed when its seed is written |
 
@@ -144,6 +146,20 @@ The index is built from the file's `units` and `glossary`, so a case does not de
 | `cases[].impacts` | array of objects, optional | Pins single postings: `unit` (id), `token` and `impact` (integer) |
 
 The example shows one unit; a file lists every unit its cases need. The ranking is in [Ranking](../../docs/reference/search.md#ranking), and its worked example gives numbers that can be checked by hand.
+
+### Page view
+
+`page-view.json` has the `units` and optional `glossary` of a ranked file, so the harness builds an index the same way. It holds the view above the ranked list ([The page view](../../docs/reference/search.md#the-page-view)).
+
+| Field | Type | Meaning |
+|---|---|---|
+| `cases[].query` | string | The text typed |
+| `cases[].hits` | array of strings | The ranked list the view starts from: every unit, unit ids in rank order |
+| `cases[].exact` | array of strings | The exact rows, unit ids in query order |
+| `cases[].pages` | array of objects | The page rows in order: `page`, `has_lead`, the lead's `kind`, `title`, `parent`, `status`, `as_of`, `effective_from` and `verified_on`, then `best_unit`, its `snippet`, and `matched_units` |
+| `cases[].other` | array of strings | The other rows, unit ids in rank order |
+| `cases[].absorbed` | integer | Page units an exact row stands for |
+| `cases[].shown_pages`, `cases[].shown_other` | integers | The rows left by the command-line limits |
 
 ### Citation
 

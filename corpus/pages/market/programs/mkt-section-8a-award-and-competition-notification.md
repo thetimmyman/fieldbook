@@ -28,7 +28,7 @@ Shows, from the clause text, who may offer when competition is limited to eligib
 | Text status | Final [@CL-MKT-0998] |
 | Applies to | Competitions limited to 8(a) participants and the award that follows [@CL-MKT-0998; @CL-MKT-1001] |
 
-Offers are solicited only from concerns in one of the listed alternative categories [@CL-MKT-0998; @CL-MKT-1048]. The first is small business concerns expressly certified by SBA for participation in its 8(a) program that meet the listed criteria at the time of submission of offer [@CL-MKT-0998]. The criteria are conformance with the 8(a) support limitation set forth in the offeror's approved business plan, and conformance with the Business Activity Targets set forth in that plan or in any remedial action directed by SBA [@CL-MKT-0999]. The clause refers to the support limitation set forth in the offeror's approved business plan [@CL-MKT-0999]. By submitting its offer, the offeror represents that it meets the applicable criteria in paragraph (a) of the clause [@CL-MKT-1000].
+Offers are solicited only from concerns in one of the listed alternative categories [@CL-MKT-0998; @CL-MKT-1048]. The first is small business concerns expressly certified by SBA for participation in its 8(a) program that meet the listed criteria at the time of submission of offer [@CL-MKT-0998]. The criteria are conformance with the 8(a) support limitation set forth in the offeror's approved business plan, and conformance with the Business Activity Targets set forth in that plan or any remedial action directed by SBA [@CL-MKT-0999]. The clause refers to the support limitation set forth in the offeror's approved business plan [@CL-MKT-0999]. By submitting its offer, the offeror represents that it meets the applicable criteria in paragraph (a) of the clause [@CL-MKT-1000].
 
 The second category is a joint venture in which at least one 8(a) participant that is a party complies with those criteria, and that complies with 13 CFR 124.513(c) [@CL-MKT-1048]. The third is a joint venture comprised of a mentor and an 8(a) protégé with an approved mentor-protégé agreement under the 8(a) program [@CL-MKT-1049]. In that joint venture at least one 8(a) participant that is a party complies with the same criteria, and the joint venture complies with 13 CFR 124.513(c) [@CL-MKT-1050].
 
@@ -59,6 +59,7 @@ Which certified participants in the finance remit carry a support limitation and
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed unquoted commentary and 'RFO text of' phrasing.
 - COMPATIBLE_EXTENSION, 2026-10-31: alternatives wording and plan reference.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

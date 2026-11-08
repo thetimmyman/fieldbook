@@ -8,7 +8,6 @@ use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
-use crate::check::Entry;
 use crate::date::CivilDate;
 use crate::egress::LabelledView;
 use crate::hash::sha256_hex;
@@ -16,6 +15,31 @@ use crate::ids::{EditionId, ToolRelease, VersionId};
 use crate::manifest::{CorpusSource, ManifestError, fingerprint, shipped_corpus};
 use crate::schema::vocab::Lifecycle;
 use crate::version::min_tool_version;
+
+/// Where a source version's stored original sits, as `<version-id>.<ext>`.
+const PUBLIC_ORIGINALS_PREFIX: &str = "corpus/sources/public/";
+
+/// The `location` of a version that has no stored file.
+const METADATA_ONLY_PREFIX: &str = "metadata-only:";
+
+/// The versions with a stored original in the view's tree. An original goes by its version id, as
+/// the permitted view keeps it and the build copies it; a row's `location` says where it came from.
+fn stored_original_versions(view: &LabelledView) -> BTreeSet<VersionId> {
+    view.tree()
+        .iter()
+        .filter_map(|(path, _)| {
+            let name = path.strip_prefix(PUBLIC_ORIGINALS_PREFIX)?;
+            if name.contains('/') {
+                return None;
+            }
+            let (stem, ext) = name.split_once('.')?;
+            if ext.is_empty() {
+                return None;
+            }
+            VersionId::parse(stem).ok()
+        })
+        .collect()
+}
 
 /// Fixed synthetic fallback epoch (`2000-01-01T00:00:00Z`) used for workbooks when
 /// `SOURCE_DATE_EPOCH` is absent (`edition-manifest` step 4).
@@ -402,19 +426,17 @@ impl EditionInfo {
         page_ids.sort();
 
         let mut source_version_ids: Vec<String> = Vec::with_capacity(view.sources().len());
-        let mut shipped_original_locations: BTreeSet<String> = BTreeSet::new();
+        let stored_originals = stored_original_versions(view);
+        let mut originals = 0;
         for s in view.sources() {
             let vid_str = format!("{}-v{}", s.value.source_id, s.value.version);
-            source_version_ids.push(vid_str);
-            if s.value.lifecycle != Lifecycle::Quarantined {
-                let orig_path = format!("corpus/sources/public/{}", s.value.location);
-                if matches!(
-                    view.tree().get(&orig_path),
-                    Some(Entry::Original { .. } | Entry::Bytes(_))
-                ) {
-                    shipped_original_locations.insert(s.value.location.clone());
-                }
+            if s.value.lifecycle != Lifecycle::Quarantined
+                && !s.value.location.starts_with(METADATA_ONLY_PREFIX)
+                && VersionId::parse(&vid_str).is_ok_and(|vid| stored_originals.contains(&vid))
+            {
+                originals += 1;
             }
+            source_version_ids.push(vid_str);
         }
         source_version_ids.sort();
 
@@ -453,7 +475,7 @@ impl EditionInfo {
             questions: question_ids.len(),
             conflicts: conflict_ids.len(),
             terms: term_ids.len(),
-            originals: shipped_original_locations.len(),
+            originals,
         };
 
         let ids = EditionIds {
@@ -659,6 +681,7 @@ mod tests {
     use crate::date::CivilDate;
     use crate::egress::{Decision, Dest, LabelledView, Shipped, check as egress_check};
     use crate::hash::sha256_hex;
+    use crate::ids::VersionId;
     use crate::manifest::{fingerprint, shipped_corpus};
     use crate::policy::EffectivePolicy;
     use crate::schema::Register;
@@ -671,7 +694,19 @@ mod tests {
     const MINI_CORPUS_TOML: &str =
         include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
 
+    const SOURCES_HEADER: &str = "source_id,version,tag,title,publisher,source_kind,source_role,authority_tier,licence,source_family,family_basis,location,sha256,published,effective_from,as_of,retrieved,lifecycle,supersedes,volatility,handling,note,purpose,origin_system,origin_stream,origin_key,doc_kind,series\n";
+    const EMPTY_SHA256: &str = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+
     fn build_public_view() -> LabelledView {
+        public_view_with_sources(
+            &format!(
+                "{SOURCES_HEADER}S-0001,1,syn-one,Synthetic Active Source,Synthetic Board,primary_law,primary_evidence,A,Synthetic,syn_one,reviewed,S-0001-v1.txt,{EMPTY_SHA256},2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,V2,public,Active fixture.,Baseline,,,,,\n"
+            ),
+            &["S-0001-v1.txt"],
+        )
+    }
+
+    fn public_view_with_sources(sources_csv: &str, originals: &[&str]) -> LabelledView {
         let mut tree = Tree::new();
         tree.insert_dir("corpus");
         tree.insert_bytes("corpus/corpus.toml", MINI_CORPUS_TOML.as_bytes());
@@ -698,16 +733,16 @@ mod tests {
                 header.into_bytes(),
             );
         }
-        let sources_csv = "source_id,version,tag,title,publisher,source_kind,source_role,authority_tier,licence,source_family,family_basis,location,sha256,published,effective_from,as_of,retrieved,lifecycle,supersedes,volatility,handling,note,purpose,origin_system,origin_stream,origin_key,doc_kind,series\nS-0001,1,syn-one,Synthetic Active Source,Synthetic Board,primary_law,primary_evidence,A,Synthetic,syn_one,reviewed,S-0001-v1.txt,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2026-01-10,2026-01-15,2026-02-01,2026-02-01,active,,V2,public,Active fixture.,Baseline,,,,,\n";
         tree.insert_bytes("corpus/registers/sources.csv", sources_csv.as_bytes());
-        tree.insert(
-            "corpus/sources/public/S-0001-v1.txt",
-            Entry::Original {
-                sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-                    .to_owned(),
-                len: 0,
-            },
-        );
+        for name in originals {
+            tree.insert(
+                format!("corpus/sources/public/{name}"),
+                Entry::Original {
+                    sha256: EMPTY_SHA256.to_owned(),
+                    len: 0,
+                },
+            );
+        }
         tree.insert_bytes(
             "corpus/sources/text/S-0001-v1/p0001.txt",
             b"synthetic text\n",
@@ -730,6 +765,52 @@ mod tests {
             panic!("edition allowed");
         };
         LabelledView::new(&model, &allowed, &ReadableStores::corpus())
+    }
+
+    /// An original goes by its version id, and `location` says where it came from: a real row holds
+    /// a web address. A held version and a metadata-only version count for nothing.
+    #[test]
+    fn originals_count_by_version_id_not_location() {
+        let row = |id: &str, tag: &str, location: &str, lifecycle: &str, note: &str| {
+            let family = tag.replace('-', "_");
+            format!(
+                "{id},1,{tag},Synthetic {tag},Synthetic Board,primary_law,primary_evidence,A,Synthetic,{family},reviewed,{location},{EMPTY_SHA256},2026-01-10,2026-01-15,2026-02-01,2026-02-01,{lifecycle},,V2,public,{note},Baseline,,,,,\n"
+            )
+        };
+        let sources = [
+            row(
+                "S-0001",
+                "syn-web",
+                "https://example.invalid/synthetic-one",
+                "active",
+                "Web address.",
+            ),
+            row(
+                "S-0002",
+                "syn-held",
+                "https://example.invalid/synthetic-two",
+                "quarantined",
+                "Held for a synthetic reason.",
+            ),
+            row(
+                "S-0003",
+                "syn-meta",
+                "metadata-only: https://example.invalid/synthetic-three",
+                "active",
+                "Metadata only.",
+            ),
+        ]
+        .concat();
+        let view = public_view_with_sources(
+            &format!("{SOURCES_HEADER}{sources}"),
+            &["S-0001-v1.txt", "S-0002-v1.txt"],
+        );
+        let held = BTreeSet::from([VersionId::parse("S-0002-v1").expect("valid id")]);
+        let files = shipped_corpus(&view, &held).expect("shipped_corpus");
+        let info = EditionInfo::from(&view, &files, None, &BuildInfo::default(), "0.1.0", 1)
+            .expect("unreleased EditionInfo");
+        assert_eq!(info.counts.source_versions, 3);
+        assert_eq!(info.counts.originals, 1);
     }
 
     #[test]

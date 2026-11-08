@@ -1,0 +1,70 @@
+<div class="home-view page-w">
+  <section class="hero">
+    <h1>What do you need to decide, check or learn today?</h1>
+  </section>
+
+  {{ three_up_html|safe }}
+
+  <div class="split">
+    <section class="panel" id="day-one">
+      <div class="panel-head">
+        <h2 class="panel-title">Day-one questions</h2>
+        <span class="panel-sub mono">{% if day_one.is_empty() %}None recorded{% else %}{{ day_one.len() }}{% endif %}</span>
+      </div>
+      {% if day_one.is_empty() %}
+      <p class="muted">None recorded</p>
+      {% else %}
+      <ul class="tu-list">
+        {% for q in &day_one %}
+        <li class="tu-item">
+          <span>{{ q.chip_html|safe }} {{ q.question }}</span>
+          {% if let Some(role) = &q.owner_role %}<span class="meta">Ask {{ role }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+
+    <div class="home-side">
+      <section class="panel" id="briefs">
+        <div class="panel-head">
+          <h2 class="panel-title">Briefs</h2>
+          <span class="panel-sub mono">{% if briefs.is_empty() %}None recorded{% else %}{{ briefs.len() }}{% endif %}</span>
+        </div>
+        {% if briefs.is_empty() %}
+        <p class="muted">None recorded</p>
+        {% else %}
+        <ul class="tu-list">
+          {% for b in &briefs %}
+          <li class="tu-item">{{ b.link_html|safe }}<span class="meta">{{ b.why }}</span></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </section>
+      <section class="panel" id="next-up">
+        <div class="panel-head"><h2 class="panel-title">Next up</h2></div>
+        {{ next_up_html|safe }}
+      </section>
+    </div>
+  </div>
+
+  <section class="areas" id="areas">
+    <div class="panel-h">
+      <h2 class="panel-title">Areas</h2>
+      <span class="meta">{{ legend_html|safe }}</span>
+    </div>
+    <div class="area-index">
+      {% for t in &tiles %}
+      {% if let Some(href) = &t.href %}<a class="area-tile" href="{{ href }}">{% else %}<div class="area-tile">{% endif %}
+        <span class="top"><span class="code">{{ t.code }}</span><b>{{ t.name }}</b></span>
+        <span class="desc">{{ t.summary }}</span>
+        {{ t.bar_html|safe }}
+        <span class="foot">
+          <span>{% if t.pages == 0 %}Pages: None recorded{% else if t.pages == 1 %}1 page{% else %}{{ t.pages }} pages{% endif %}</span>
+          <span>{{ t.coverage }}</span>
+        </span>
+      {% if t.href.is_some() %}</a>{% else %}</div>{% endif %}
+      {% endfor %}
+    </div>
+  </section>
+</div>

@@ -33,7 +33,7 @@ Upon a timely request, the Government will provide a written or oral postaward d
 
 A request is considered timely if it is received within 3 days of notification of task order or delivery order award [@CL-CMP-9061]. The clause is used as prescribed at DFARS 216.506-70(b) [@CL-CMP-9270].
 
-If a required postaward debriefing is provided, the rules on additional questions, the agency's written response and the conclusion of the debriefing apply [@CL-CMP-9271]. The debriefed contractor may submit additional written questions related to the debriefing within 2 business days after the date of the debriefing [@CL-CMP-9063]. The agency will respond in writing to timely submitted questions within 5 business days after receipt [@CL-CMP-9064]. The debriefing is not considered concluded until the later of two dates: the date it is delivered, orally or in writing, or, if additional written questions are timely received, the date the agency delivers its written response [@CL-CMP-9065].
+If a required postaward debriefing is provided, the rules on additional questions, the agency's written response and the conclusion of the debriefing apply [@CL-CMP-9271; @CL-CMP-9064; @CL-CMP-9065]. The debriefed contractor may submit additional written questions related to the debriefing within 2 business days after the date of the debriefing [@CL-CMP-9063]. The agency will respond in writing to timely submitted questions within 5 business days after receipt [@CL-CMP-9064]. The debriefing is not considered concluded until the later of two dates: the date it is delivered, orally or in writing, or, if additional written questions are timely received, the date the agency delivers its written response [@CL-CMP-9065].
 
 The Government may suspend performance of, or terminate, the awarded task order or delivery order upon notice from the Government Accountability Office of a protest filed within the time periods listed in the clause, whichever is later [@CL-CMP-9066]. The first period is 10 days after the date the order is issued, where the value exceeds $25 million [@CL-CMP-9067]. The second is 5 days after a debriefing date offered to the protestor under a timely debriefing request in accordance with FAR 15.506, unless an earlier debriefing date is negotiated as a result [@CL-CMP-9068]. The third is 5 days after a postaward debriefing under FAR 15.506 is concluded in accordance with DFARS 215.506-70(b) [@CL-CMP-9069].
 
@@ -71,6 +71,7 @@ Whether this company holds task orders or delivery orders at or above these thre
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut uncited contrasts between debriefing, protest and general rules.
 - COMPATIBLE_EXTENSION, 2026-10-31: Debriefing conclusion sentence now joins its two dates with the source's or.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for DoD postaward debriefings for task orders and delivery orders.

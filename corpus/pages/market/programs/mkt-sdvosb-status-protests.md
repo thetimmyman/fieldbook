@@ -31,7 +31,7 @@ Shows who may protest a firm's service-disabled veteran-owned small business (SD
 
 For sole source acquisitions, the contracting officer, the Department of Veterans Affairs, or SBA may protest the apparently successful offeror's SDVOSB status [@CL-MKT-0580]. For all other acquisitions, any interested party may protest it [@CL-MKT-0581]. An interested party that wants to protest both size and SDVOSB status shall file two separate protests [@CL-MKT-0582]. The size route is on the [Protesting a small business representation](../taxonomy/mkt-small-business-size-protests.md) card.
 
-For sealed bid acquisitions, an interested party's protest to the contracting officer is to be received by close of business on the fifth business day after bid opening, and contracting officers are referred to a separate paragraph [@CL-MKT-0583]. For negotiated acquisitions—including orders placed under multiple-award contracts where the contracting officer requested rerepresentation for the order, and orders set aside for SDVOSBs under multiple-award contracts that are not partially or totally set aside or reserved for SDVOSB concerns—an interested party's protest must be received by close of business on the fifth business day after receipt of the special notification from the contracting officer that identifies the apparently successful offeror [@CL-MKT-0584; @CL-MKT-1813; @CL-MKT-1833]. A protest received after the designated time limits is untimely except as the listed exceptions provide, and one listed exception is that the VA or SBA may file an SDVOSB status protest at any time [@CL-MKT-0585].
+For sealed bid acquisitions, an interested party's protest to the contracting officer is to be received by close of business on the fifth business day after bid opening, and contracting officers are referred to a separate paragraph [@CL-MKT-0583]. For negotiated acquisitions—including orders placed under multiple-award contracts where the contracting officer requested rerepresentation for the order, and orders set aside for SDVOSBs under multiple-award contracts that are not partially or totally set aside or reserved for SDVOSB concerns (except for orders and blanket purchase agreements placed under a Federal Supply Schedule contract)—an interested party's protest must be received by close of business on the fifth business day after receipt of the special notification from the contracting officer that identifies the apparently successful offeror [@CL-MKT-0584; @CL-MKT-1813; @CL-MKT-1833; @CL-MKT-9411]. A protest received after the designated time limits is untimely except as the listed exceptions provide, and one listed exception is that the VA or SBA may file an SDVOSB status protest at any time [@CL-MKT-0585].
 
 ## How it works
 
@@ -54,6 +54,8 @@ Which bids need immediate support when a status protest could be filed or answer
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-11-04: Replaced the literal OHA filing email address with a reference to the filing email address given in FAR 19.307(f)(1).
 - COMPATIBLE_EXTENSION, 2026-10-31: Completed the FAR 19.307(e)(1)(ii)-(v) protest deadlines and FAR 19.307(f)(1) OHA filing address.
 - COMPATIBLE_EXTENSION, 2026-10-31: protest notice and SBA timing wording.

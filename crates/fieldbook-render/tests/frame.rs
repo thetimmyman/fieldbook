@@ -12,6 +12,7 @@ mod frame {
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::policy::EffectivePolicy;
     use fieldbook_core::schema::Register;
+    use fieldbook_render::edition::{EditionCounts, EditionIds, EditionInfo};
     use fieldbook_render::frame::{Crumb, FrameInput, PRODUCT_TITLE, StoreContext, render_page};
     use fieldbook_render::meta::{BuildInfo, BuildProfile};
     use fieldbook_render::nav::{self, NavTarget, SectionId};
@@ -20,6 +21,21 @@ mod frame {
     const APP_JS: &str = include_str!("../assets/app.js");
     const MINI_CORPUS_TOML: &str =
         include_str!("../../../tests/fixtures/corpus-mini/corpus/corpus.toml");
+
+    fn edition_info(built: &str, number: u32) -> EditionInfo {
+        EditionInfo {
+            edition: "unreleased".to_owned(),
+            number,
+            built: built.to_owned(),
+            tool_version: "0.1.0".to_owned(),
+            min_tool_version: "0.1.0".to_owned(),
+            schema_version: 1,
+            commit: String::new(),
+            fingerprint: String::new(),
+            counts: EditionCounts::default(),
+            ids: EditionIds::default(),
+        }
+    }
 
     fn insert_register_headers(tree: &mut Tree) {
         tree.insert_dir("corpus/registers");
@@ -211,7 +227,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[
                 Crumb::linked("Today", "index.html", &planned),
@@ -243,7 +259,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[],
             main_html: "",
@@ -271,7 +287,10 @@ mod frame {
             for entry in &group.entries {
                 match &entry.target {
                     NavTarget::Built { href } => {
-                        assert_eq!(href, "index.html");
+                        assert!(
+                            href == "index.html" || href == "index.html#areas",
+                            "only the planned index.html and its areas alias are built, got `{href}`"
+                        );
                     }
                     NavTarget::Unbuilt { landing_line } => {
                         let amp = landing_line.replace('&', "&amp;");
@@ -300,27 +319,48 @@ mod frame {
             nav::resolve_route("index.html", None),
             Some((SectionId::Today, "today".to_owned()))
         );
-        // Before build-home-and-areas creates #areas, All areas and Browse fragment aliases are suppressed.
-        assert!(
-            matches!(
-                navigation.entry("areas").unwrap().target,
-                NavTarget::Unbuilt { .. }
-            ),
-            "All areas alias must stay unbuilt until build-home-and-areas creates #areas"
+        // All areas and Browse are aliases to the anchor build-home-and-areas creates; the alias
+        // destination keeps the canonical Today frame, in Rust and in the app.js map.
+        assert_eq!(
+            nav::resolve_route("index.html#areas", None),
+            Some((SectionId::Today, "today".to_owned()))
         );
+        let alias_rows: Vec<_> = nav::route_sections()
+            .into_iter()
+            .filter(|row| row.route == "index.html#areas")
+            .collect();
+        assert_eq!(alias_rows.len(), 1, "one canonical section for the alias");
+        assert_eq!(alias_rows[0].section, SectionId::Today);
+        assert_eq!(alias_rows[0].item, "today");
+        let js_map = parse_js_route_sections(APP_JS);
+        assert_eq!(
+            js_map.get("index.html#areas"),
+            Some(&("today".to_owned(), "today".to_owned())),
+            "app.js must map the alias to Today"
+        );
+        for id in ["areas", "browse"] {
+            let target = &navigation.entry(id).unwrap().target;
+            assert!(
+                matches!(target, NavTarget::Built { href } if href == "index.html#areas"),
+                "{id} must be an alias to index.html#areas, got {target:?}"
+            );
+        }
+        // Fragments never enter PlannedPaths: without index.html the alias is suppressed.
+        let without_index = PlannedPaths::of(&["a/cmp.html"]);
+        let suppressed = nav::build(&view, &without_index);
         assert!(
             matches!(
-                navigation.entry("browse").unwrap().target,
+                suppressed.entry("areas").unwrap().target,
                 NavTarget::Unbuilt { .. }
             ),
-            "Browse alias must stay unbuilt until build-home-and-areas creates #areas"
+            "the alias keeps the index.html PlannedPaths check"
         );
 
         let index_html = render_page(&FrameInput {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[],
             main_html: "",
@@ -343,8 +383,16 @@ mod frame {
             "Today sidebar item must have aria-current=\"page\" on index.html"
         );
         assert!(
-            !index_html.contains("index.html#areas"),
-            "unavailable #areas fragment links must be suppressed on index.html"
+            index_html.contains("href=\"index.html#areas\""),
+            "the aliases must link to the #areas anchor without scripts"
+        );
+        assert!(
+            !index_html.contains("data-item=\"areas\" aria-current"),
+            "All areas is an alias: Today stays the current item on index.html"
+        );
+        assert!(
+            !index_html.contains("data-item=\"browse\" aria-current"),
+            "Browse is an alias: Today stays the current item on index.html"
         );
         assert!(index_html.contains("Public data only"));
         assert!(index_html.contains("Company data is not connected."));
@@ -360,7 +408,7 @@ mod frame {
             output_path: "a/cmp.html",
             title: "Compliance",
             page_area: None,
-            built_date: Some("2026-03-01"),
+            edition: &edition_info("2026-03-01", 1),
             store: &company_store,
             crumbs: &[],
             main_html: "",
@@ -397,7 +445,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[],
             main_html: "",
@@ -412,7 +460,7 @@ mod frame {
             output_path: "index.html",
             title: PRODUCT_TITLE,
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[Crumb::current("Today")],
             main_html: "",
@@ -427,7 +475,7 @@ mod frame {
             output_path: "a/cmp.html",
             title: "Compliance",
             page_area: None,
-            built_date: None,
+            edition: &edition_info("", 0),
             store: &StoreContext::Public,
             crumbs: &[
                 Crumb::linked("Today", "index.html", &planned),
@@ -459,7 +507,7 @@ mod frame {
                 output_path: path,
                 title: PRODUCT_TITLE,
                 page_area: Some("cmp"),
-                built_date: None,
+                edition: &edition_info("", 0),
                 store: &StoreContext::Public,
                 crumbs: &[
                     Crumb::linked("Today", "index.html", &planned),

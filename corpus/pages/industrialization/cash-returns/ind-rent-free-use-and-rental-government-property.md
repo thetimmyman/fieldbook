@@ -45,7 +45,7 @@ A plant holds Government machine tools accountable under Contract A. In a year t
 
 ## Never confuse
 
-Government property shall normally be provided on a rent-free basis in performance of the contract under which it is accountable or otherwise authorized [@CL-IND-0018], and the cognizant contracting officer or officers may authorize rent-free use on a cost type Government contract other than the contract to which it is accountable [@CL-IND-0023] or, when all three conditions are met, for property in the possession of nonprofit organizations used for research, development, or educational work [@CL-IND-9004; @CL-IND-9005]. In exchange for consideration as determined by the cognizant contracting officer, the contractor may use Government property for commercial use [@CL-IND-0024]. The rental formula and payment terms sit in the [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md), and the title and control duties sit in the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
+Government property shall normally be provided on a rent-free basis in performance of the contract under which it is accountable or otherwise authorized [@CL-IND-0018], and the cognizant contracting officer or officers may authorize rent-free use on a cost type Government contract other than the contract to which it is accountable [@CL-IND-0023], and the cognizant contracting officer may authorize rent-free use, when all three conditions are met, for property in the possession of nonprofit organizations used for research, development, or educational work [@CL-IND-9004; @CL-IND-9005]. In exchange for consideration as determined by the cognizant contracting officer, the contractor may use Government property for commercial use [@CL-IND-0024]. The rental formula and payment terms sit in the [Use and Charges clause for Government property](../../close-revrec/fixed-assets/cls-use-and-charges-government-property.md), and the title and control duties sit in the [Government Property clause](../../close-revrec/fixed-assets/cls-government-property-clause.md).
 
 ## Company calibration
 
@@ -54,6 +54,7 @@ Who tracks Government property use by contract and by commercial share, and who 
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched FAR 45.301 normally rent-free scope, contracting officer actors and nonprofit benefit wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added nonprofit rent-free use; rent-free scope.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for rent-free use and rental of Government property.

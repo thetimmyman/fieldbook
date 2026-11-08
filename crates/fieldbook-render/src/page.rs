@@ -13,6 +13,7 @@ use askama::Template;
 use fieldbook_core::CivilDate;
 use fieldbook_core::check::PageEntry;
 use fieldbook_core::cite::KeyKind;
+use fieldbook_core::date::{PartialDate, review_by};
 use fieldbook_core::egress::LabelledView;
 use fieldbook_core::ids::{ClaimId, ConflictId};
 use fieldbook_core::review::page_review_by;
@@ -21,20 +22,22 @@ use fieldbook_core::schema::{
 };
 use fieldbook_core::strings;
 
+use crate::chip;
+use crate::cite::OriginalAvailability;
 use crate::frame::{Crumb, FrameInput, StoreContext, render_page as render_frame_page};
 use crate::inline::{
     CitationTarget, InlineRenderer, find_claim, find_conflict, find_page, find_question,
-    find_source, first_sentence_of_purpose,
+    first_sentence_of_purpose,
 };
 use crate::links::{
-    escape_html, render_area_chip, render_citation_chip, render_claim_chip, render_conflict_chip,
-    render_page_link, render_question_chip,
+    escape_html, render_area_chip, render_claim_chip, render_conflict_chip, render_page_link,
+    render_question_chip,
 };
 use crate::meta::RenderContext;
 use crate::nav::{Navigation, SectionId};
 use crate::site::PlannedPaths;
 use crate::sources_block::{
-    ICON_ALERT, ICON_CHECK, ICON_CLOCK, NumberedSourceRow, build_sources_rows,
+    ICON_ALERT, ICON_CHECK, ICON_CLOCK, NumberedSourceRow, build_sources_rows, claim_citation_chip,
     render_verification_chips,
 };
 
@@ -55,6 +58,9 @@ pub struct MetaRowView {
     pub last_verified: Option<String>,
     /// Canonical `readiness` string (`PUBLIC-NOW`, `SYNTHETIC-NOW`, ...).
     pub readiness: String,
+    /// Hidden per-claim rows of the overdue banner, one per computed review date, with the `verify`
+    /// chip or, until that command lands, one landing line for the fold.
+    pub due_claims_html: String,
 }
 
 /// One rendered part section (`<h2>` + body or empty-part line).
@@ -300,6 +306,69 @@ fn collect_distinct_cited_claims(
     ordered
 }
 
+/// A claim's `review_by`: the later known of `as_of` and `verified_on` plus its volatility
+/// interval (`corpus-format.md#dates`); unknown when both are absent, so it is never overdue.
+fn claim_review_by(claim: &ClaimRow) -> Option<CivilDate> {
+    let as_of = claim.as_of.map(PartialDate::first_day);
+    let base = match (as_of, claim.verified_on) {
+        (Some(a), Some(v)) => a.max(v),
+        (Some(a), None) => a,
+        (None, Some(v)) => v,
+        (None, None) => return None,
+    };
+    Some(review_by(base, claim.volatility))
+}
+
+/// The per-claim part of the overdue banner, a fold so that the rows never push the page down.
+/// Every row is written hidden with its computed date; `app.js` reveals a row by the viewer's own
+/// date and writes how many are due in the summary, so the build reads no clock.
+///
+/// `verify_landed` is [`chip::VERIFY_LANDED`] on every page; it is a parameter so that both
+/// branches stay tested.
+#[must_use]
+pub fn render_due_claims(
+    from_path: &str,
+    claim_ids: &[ClaimId],
+    view: &LabelledView,
+    planned: &PlannedPaths,
+    verify_landed: bool,
+) -> String {
+    let mut rows = String::new();
+    for cid in claim_ids {
+        let Some(claim) = find_claim(view, cid) else {
+            continue;
+        };
+        let Some(date) = claim_review_by(claim) else {
+            continue;
+        };
+        let action = if verify_landed {
+            let Ok(command) = chip::quote(chip::KEY_VERIFY, &[("claim-id", cid.as_str())]) else {
+                continue;
+            };
+            chip::render(&command)
+        } else {
+            String::new()
+        };
+        rows.push_str(&format!(
+            "<li class=\"due-claim\" data-claim-review-by=\"{date}\" hidden>{} <span class=\"meta\">Review date <time datetime=\"{date}\">{date}</time></span>{}</li>",
+            render_claim_chip(from_path, cid, planned),
+            action,
+        ));
+    }
+    if rows.is_empty() {
+        return String::new();
+    }
+    let how = if verify_landed {
+        "<p>Read the cited original, then run the command with the date you checked it in place of YYYY-MM-DD.</p>"
+            .to_owned()
+    } else {
+        chip::render_or_landing(None, chip::VERIFY_THING, chip::VERIFY_UNTIL)
+    };
+    format!(
+        "<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary>{how}<ul>{rows}</ul></details></div>"
+    )
+}
+
 fn collect_distinct_conflicts(page: &PageEntry, view: &LabelledView) -> Vec<ConflictId> {
     let mut seen = BTreeSet::new();
     let mut ordered = Vec::new();
@@ -369,6 +438,7 @@ fn build_evidence_cards(
     claim_ids: &[ClaimId],
     view: &LabelledView,
     planned: &PlannedPaths,
+    availability: &OriginalAvailability,
 ) -> Vec<EvidenceCardView> {
     let mut out = Vec::new();
     for cid in claim_ids {
@@ -377,20 +447,7 @@ fn build_evidence_cards(
         let kind = claim.map_or(ClaimKind::Fact, |c| c.kind);
         let claim_chip_html = render_claim_chip(from_path, cid, planned);
         let status_chip_html = render_verification_chips(ver, kind);
-        let citation_chip_html = match claim.and_then(|c| c.source_id.as_ref().zip(c.version)) {
-            Some((sid, ver_num)) => {
-                let vid = format!("{sid}-v{ver_num}");
-                let source_row = find_source(view, sid, ver_num);
-                render_citation_chip(
-                    from_path,
-                    &vid,
-                    claim.and_then(|c| c.locator.as_deref()),
-                    source_row,
-                    planned,
-                )
-            }
-            None => "<span class=\"cite neutral\">No source yet</span>".to_owned(),
-        };
+        let citation_chip_html = claim_citation_chip(from_path, claim, view, planned, availability);
         out.push(EvidenceCardView {
             claim_id: cid.to_string(),
             claim_chip_html,
@@ -511,11 +568,13 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
 
     let distinct_claims = collect_distinct_cited_claims(page, view, &inline);
     let markers = inline.into_markers();
-    let sources_rows = build_sources_rows(&from_path, &markers, view, planned);
+    let availability = OriginalAvailability::from_view(view);
+    let sources_rows = build_sources_rows(&from_path, &markers, view, planned, &availability);
     let conflict_ids = collect_distinct_conflicts(page, view);
     let conflict_boxes = build_conflict_boxes(&from_path, &conflict_ids, view, planned);
     let change_entries = parse_change_note(&page.body, page);
-    let evidence_cards = build_evidence_cards(&from_path, &distinct_claims, view, planned);
+    let evidence_cards =
+        build_evidence_cards(&from_path, &distinct_claims, view, planned, &availability);
 
     let cited_claim_rows: Vec<&ClaimRow> = distinct_claims
         .iter()
@@ -545,6 +604,13 @@ pub fn render_main(page: &PageEntry, view: &LabelledView, planned: &PlannedPaths
         total_claims: distinct_claims.len(),
         last_verified: latest_verified.map(|d| d.to_string()),
         readiness: page.meta.readiness.as_str().to_owned(),
+        due_claims_html: render_due_claims(
+            &from_path,
+            &distinct_claims,
+            view,
+            planned,
+            chip::VERIFY_LANDED,
+        ),
     };
 
     let superseded_by_html = page
@@ -703,11 +769,7 @@ pub fn render_page(
 ) -> String {
     let page_path = format!("p/{}.html", page.id);
     let main_html = render_main(page, view, planned);
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
+    let edition = ctx.edition_info();
     let store = match ctx {
         RenderContext::Public(_) => StoreContext::Public,
     };
@@ -740,7 +802,7 @@ pub fn render_page(
         output_path: &page_path,
         title: &page.meta.title,
         page_area: Some(area_code),
-        built_date,
+        edition,
         store: &store,
         crumbs: &crumbs,
         main_html: &main_html,

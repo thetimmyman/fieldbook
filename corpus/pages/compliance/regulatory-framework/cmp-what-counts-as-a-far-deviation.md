@@ -31,7 +31,7 @@ Shows what makes an action, a clause change or a local policy a deviation from t
 
 A deviation means any one of the six listed forms, or any combination of them [@CL-CMP-8330]. The first form is the issuance or use of a policy, procedure, solicitation provision, contract clause, method or practice of conducting acquisition actions of any kind, at any stage of the acquisition process, that is inconsistent with the FAR [@CL-CMP-8331]. The second is the omission of any solicitation provision or contract clause when its prescription requires its use [@CL-CMP-8332]. The third is the use of any solicitation provision or contract clause with modified or alternate language that the FAR does not authorize [@CL-CMP-8333].
 
-The fourth is the use of a provision or clause that the FAR prescribes on a substantially as follows or substantially the same as basis, if the use is inconsistent with the intent, principle or substance of the prescription, or with related FAR coverage on the subject matter [@CL-CMP-8334; @CL-CMP-8670]. The fifth is the authorization of lesser or greater limitations on the use of any solicitation provision, contract clause, policy or procedure that the FAR prescribes [@CL-CMP-8335]. The sixth is the issuance of policies or procedures that govern the contracting process, or otherwise control contracting relationships, and are not incorporated into agency acquisition regulations in accordance with the FAR policy on agency acquisition regulations [@CL-CMP-8336].
+The fourth is the use of a provision or clause that the FAR prescribes on a substantially as follows or substantially the same as basis, if the use is inconsistent with the intent, principle or substance of the prescription or related FAR coverage on the subject matter [@CL-CMP-8334; @CL-CMP-8670]. The fifth is the authorization of lesser or greater limitations on the use of any solicitation provision, contract clause, policy or procedure that the FAR prescribes [@CL-CMP-8335]. The sixth is the issuance of policies or procedures that govern the contracting process, or otherwise control contracting relationships, and are not incorporated into agency acquisition regulations in accordance with the FAR policy on agency acquisition regulations [@CL-CMP-8336].
 
 ## How it works
 
@@ -59,6 +59,7 @@ Which contracts and modifications in the company's remit sit under terms that de
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored principle and related coverage in the fourth-form check.
 - COMPATIBLE_EXTENSION, 2026-10-31: what counts as a deviation: authorization rule restated as quoted.
 - COMPATIBLE_EXTENSION, 2026-10-30: The comparison of the deviation forms now states the test for the first and fourth forms as FAR 1.401 does.

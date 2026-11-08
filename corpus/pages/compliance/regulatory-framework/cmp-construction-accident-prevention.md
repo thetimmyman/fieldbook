@@ -33,7 +33,7 @@ States the safety duties the accident prevention clause imposes, the standards i
 
 The contractor must provide and maintain work environments and procedures that safeguard the public and Government personnel, property, materials, supplies and equipment exposed to its operations and activities [@CL-CMP-4888]. Those work environments and procedures must also avoid interruptions of Government operations and delays in project completion dates, and control costs in the performance of the contract [@CL-CMP-4889].
 
-On contracts for construction or dismantling, demolition or removal of improvements, the contractor must provide appropriate safety barricades, signs and signal lights and must comply with the standards issued by the Secretary of Labor at 29 CFR part 1926 and 29 CFR part 1910 [@CL-CMP-4890]. Under the same paragraph, it must ensure that any additional measures the contracting officer determines to be reasonably necessary for those purposes are taken [@CL-CMP-4891].
+On contracts for construction or dismantling, demolition or removal of improvements, the contractor must provide appropriate safety barricades, signs and signal lights and must comply with the standards issued by the Secretary of Labor at 29 CFR part 1926 and 29 CFR part 1910 [@CL-CMP-4890]. Under the same paragraph, it must ensure that any additional measures the contracting officer determines to be reasonably necessary for the purposes stated in paragraph (a) of the clause are taken [@CL-CMP-4891].
 
 If a contract is for construction or dismantling, demolition or removal of improvements with any Department of Defense agency or component, the contractor must comply with all pertinent provisions of the latest version of the United States Army Corps of Engineers Safety and Health Requirements Manual [@CL-CMP-4892]. The manual is the latest version in effect on the date of the solicitation [@CL-CMP-5065].
 
@@ -81,6 +81,7 @@ Which safety findings and corrective actions are open on construction work, and 
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: uncited records contrast, inferences and example claims tied to cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Matched wording to the cited text.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

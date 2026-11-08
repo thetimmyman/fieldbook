@@ -44,7 +44,7 @@ The signing level for the determination and findings depends on the contract typ
 
 Synthetic example. The numbers are made up.
 
-A military construction project funded by a military construction appropriations act is estimated at 900,000 and will be performed in the United States outside Alaska. Under paragraph (c)(i), a cost-plus-fixed-fee contract is prohibited [@CL-MKT-1582] unless it is specifically approved in writing with reasons [@CL-MKT-1633]. Because the contract is in connection with a military construction project, the separate prohibition at DFARS 216.301-3 also has to be checked, and this example does not resolve it [@CL-MKT-1632; @CL-MKT-1700]. The work is construction, so it is not for environmental work only, and the Secretary of Defense or designee must approve [@CL-MKT-1584]. Had the work been environmental work only and not classified as construction, the Secretary of the military department could approve [@CL-MKT-1583]. A contract estimated at 20,000 would not exceed the 25,000 estimate condition, so the paragraph (c)(i) prohibition would not apply to it [@CL-MKT-1582].
+A cost-plus-fixed-fee contract for a military construction project is funded by a military construction appropriations act, is estimated at 900,000 and will be performed in the United States outside Alaska. Under paragraph (c)(i), the contract is prohibited [@CL-MKT-1582] unless it is specifically approved in writing with reasons [@CL-MKT-1633]. Because the contract is in connection with a military construction project, the separate prohibition at DFARS 216.301-3 also has to be checked, and this example does not resolve it [@CL-MKT-1632; @CL-MKT-1700]. The work is construction, so it is not for environmental work only, and the Secretary of Defense or designee must approve [@CL-MKT-1584]. Had the work been environmental work only and not classified as construction, the Secretary of the military department could approve [@CL-MKT-1583]. A contract estimated at 20,000 would not exceed the 25,000 estimate condition, so the paragraph (c)(i) prohibition would not apply to it [@CL-MKT-1582].
 
 For an incentive-fee contract the head of the contracting activity or a designee one level above the contracting officer may sign the determination and findings [@CL-MKT-1634; @CL-MKT-1585]. For an award-fee contract, a designee two levels below the head of the contracting activity may not sign, because the designee must be no lower than one level below [@CL-MKT-1585].
 
@@ -59,6 +59,7 @@ Which contracts within the finance remit carry a fee arrangement, and who confir
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Carried the exception lead-in, cited the statutory definition and removed contrast clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Weapon system fee or penalty condition stated as an if with two alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an exclusive "only" the cited text does not state.

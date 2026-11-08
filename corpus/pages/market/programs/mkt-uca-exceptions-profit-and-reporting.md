@@ -47,7 +47,7 @@ The exclusions take an action out of the subpart without taking it out of the po
 
 Synthetic example. The numbers are made up.
 
-A UCA has an estimated value of 8,000,000 and a substantial portion of the required performance has been completed when the final price is negotiated. The head of the contracting activity must ensure the profit allowed reflects the reduced cost risk on the costs already incurred and on the costs still to come [@CL-MKT-1555; @CL-MKT-1618; @CL-MKT-1557], and the price negotiation memorandum documents the risk assessment [@CL-MKT-1620]. The contractor submitted its qualifying proposal on Day 1, and the contracting officer definitizes on Day 260, after the end of the 180-day period beginning on Day 1, so the profit allowed shall reflect the contractor's cost risk as it existed on Day 1 [@CL-MKT-1619; @CL-MKT-1556]. Because the estimated value exceeds 5,000,000, the UCA is addressed in the semi-annual management report [@CL-MKT-1558]. A separate UCA that is a purchase below the simplified acquisition threshold is outside the subpart, yet the contracting officer still applies the subpart's policy to the maximum extent practicable [@CL-MKT-1553; @CL-MKT-1554]. If that is impracticable for the purchase, the contracting officer gives prior notice to the Principal Director [@CL-MKT-1616; @CL-MKT-1617].
+A UCA has an estimated value of 8,000,000 and a substantial portion of the required performance has been completed when the final price is negotiated. The head of the contracting activity must ensure the profit allowed reflects the reduced cost risk on the costs already incurred (subject to the 180-day rule below) and on the costs still to come [@CL-MKT-1555; @CL-MKT-1618; @CL-MKT-1557], and the price negotiation memorandum documents the risk assessment [@CL-MKT-1620]. The contractor submitted its qualifying proposal on Day 1, and the contracting officer definitizes on Day 260, after the end of the 180-day period beginning on Day 1, so the profit allowed shall reflect the contractor's cost risk as it existed on Day 1 [@CL-MKT-1619; @CL-MKT-1556]. Because the estimated value exceeds 5,000,000, the UCA is addressed in the semi-annual management report [@CL-MKT-1558]. A separate UCA that is a purchase below the simplified acquisition threshold is outside the subpart, yet the contracting officer still applies the subpart's policy to the maximum extent practicable [@CL-MKT-1553; @CL-MKT-1554]. If that is impracticable for the purchase, the contracting officer gives prior notice to the Principal Director [@CL-MKT-1616; @CL-MKT-1617].
 
 ## Never confuse
 
@@ -60,6 +60,7 @@ How the qualifying proposal date, the definitization date and the profit risk as
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added DFARS 217.7405(a) management and oversight purpose lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: exclusions list cites lead-in.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for undefinitized contract action exclusions, profit and reporting.

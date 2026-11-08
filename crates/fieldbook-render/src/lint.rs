@@ -15,8 +15,11 @@ pub const SEARCH_JS: u64 = 10_000;
 pub const ASSIST_JS: u64 = 20_000;
 /// Total budget across all script files in decimal bytes (`FB0605`).
 pub const SCRIPTS_TOTAL: u64 = 64_000;
-/// Budget for each data file (`assets/search-index.js`, `assets/assist-data.js`, `data/*`) in decimal bytes (`FB0605`).
+/// Budget for each data file other than the search index (`assets/assist-data.js`, `data/*`) in decimal bytes (`FB0605`).
 pub const DATA_FILE: u64 = 3_000_000;
+/// Budget for `assets/search-index.js` alone in decimal bytes (`FB0605`). The edition index holds
+/// page and section units only (`docs/reference/search.md#the-site-index`).
+pub const SEARCH_INDEX: u64 = 15_000_000;
 
 /// Shipped filenames that `originals/` will contain (an HTML or SVG original is `<version-id>.<ext>.txt`).
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
@@ -792,7 +795,12 @@ fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
     for (path, bytes) in site.files() {
         let size = bytes.len() as u64;
         if path == "assets/search-index.js" || path == "assets/assist-data.js" {
-            if size > DATA_FILE {
+            let limit = if path == "assets/search-index.js" {
+                SEARCH_INDEX
+            } else {
+                DATA_FILE
+            };
+            if size > limit {
                 diags.push(Diagnostic::new(
                     Code::Fb0605,
                     false,
@@ -800,7 +808,7 @@ fn check_budgets(site: &Site, diags: &mut Vec<Diagnostic>) {
                     1,
                     1,
                     format!(
-                        "data file `{path}` is {size} bytes, exceeding budget of {DATA_FILE} bytes"
+                        "data file `{path}` is {size} bytes, exceeding budget of {limit} bytes"
                     ),
                 ));
             }

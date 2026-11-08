@@ -16,7 +16,7 @@ links = ["ctf-incremental-funding-policy", "fpa-funded-versus-unfunded-policy", 
 
 ## Purpose
 
-Shows when the contracting officer may initiate a contract action before funds of the new fiscal year are available or extend a one-year indefinite-quantity or requirements contract for services beyond the fiscal year in which it begins, when the Government may accept supplies or services under a contract conditioned upon the availability of funds, and which clauses apply [@CL-FPA-0052; @CL-FPA-0055; @CL-FPA-0102; @CL-FPA-0056; @CL-FPA-0057; @CL-FPA-0353; @CL-FPA-0354; @CL-FPA-0058].
+Shows when the contracting officer may initiate a contract action before funds of the new fiscal year are available, when a one-year indefinite-quantity or requirements contract for services funded by annual appropriations may extend beyond the fiscal year in which it begins, when the Government may accept supplies or services under a contract conditioned upon the availability of funds, and which clauses apply [@CL-FPA-0052; @CL-FPA-0055; @CL-FPA-0102; @CL-FPA-0056; @CL-FPA-0057; @CL-FPA-0353; @CL-FPA-0354; @CL-FPA-0058].
 
 ## The rule
 
@@ -58,6 +58,7 @@ Which contracts carry either availability clause, and who confirms and records t
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added FAR 32.706-1(b) and 52.232-19 companions, separated RFO and codified citations, and removed meta wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Comparison sentences now carry the insertion conditions for both availability clauses.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO text of the Availability of Funds clauses at FAR 52.232-18 and 52.232-19.

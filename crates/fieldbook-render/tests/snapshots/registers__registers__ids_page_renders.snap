@@ -341,7 +341,7 @@ expression: html
     
   </nav>
   <div class="topbar-end">
-    <span class="chip">unreleased build</span>
+    <a class="build-date-link" href="about.html"><span class="sr-only">About this edition: </span><span class="chip">unreleased build</span></a>
     <span class="build-chip" id="fb:frameChip" title="This build reads the public library only. Company data is not connected.">
       <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
       <span>Public data only</span>

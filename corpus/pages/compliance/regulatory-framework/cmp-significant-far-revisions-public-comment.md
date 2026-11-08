@@ -29,7 +29,7 @@ Explains when a FAR revision is significant, what the Federal Register notice mu
 | Text status | Final [@CL-CMP-8363] |
 | Applies to | Proposed significant revisions to coverage in the FAR System [@CL-CMP-8363; @CL-CMP-8366] |
 
-As used in the subpart on agency and public participation, significant revisions are revisions that alter the substantive meaning of any coverage in the FAR System and which have a significant cost or administrative impact on contractors or offerors, or a significant effect beyond the internal operating procedures of the issuing agency [@CL-CMP-8676; @CL-CMP-8363]. The expression does not include editorial, stylistic, or other revisions that have no impact on the basic meaning of the coverage being revised [@CL-CMP-8364].
+As used in the subpart on agency and public participation, significant revisions are revisions that alter the substantive meaning of any coverage in the FAR System and which have a significant cost or administrative impact on contractors or offerors, or a significant effect beyond the internal operating procedures of the issuing agency [@CL-CMP-8676; @CL-CMP-8363]. The expression does not include, for example, editorial, stylistic, or other revisions that have no impact on the basic meaning of the coverage being revised [@CL-CMP-8364].
 
 Views of agencies and nongovernmental parties or organizations will be considered in formulating acquisition policies and procedures [@CL-CMP-8365]. The opportunity to submit written comments on proposed significant revisions shall be provided by placing a notice in the Federal Register [@CL-CMP-8366].
 
@@ -47,7 +47,7 @@ Consideration shall also be given to unsolicited recommendations for revisions t
 
 Synthetic example. The numbers are made up.
 
-An agency proposes a revision that adds a new consent requirement for subcontracts above 5,000,000, which has a significant cost impact on contractors. It is a significant revision, so the opportunity to comment is provided by a Federal Register notice with the proposal text and the contact address and telephone number, and the notice gives 60 days for comments [@CL-CMP-8363; @CL-CMP-8366; @CL-CMP-8367; @CL-CMP-8674; @CL-CMP-8368; @CL-CMP-8369]. A second change only corrects a cross-reference and has no impact on the basic meaning of the coverage, so it is editorial and comments need not be solicited [@CL-CMP-8364; @CL-CMP-8370]. A third change implements a new statute in a short time, and urgent and compelling circumstances make advance comment impracticable. It is issued on a temporary basis with at least 30 days for public comment, and its notice states that the revision is effective on a temporary basis pending completion of the comment period [@CL-CMP-8371; @CL-CMP-8372; @CL-CMP-8373].
+An agency proposes a revision that adds a new consent requirement for subcontracts above 5,000,000, which has a significant cost impact on contractors. It is a significant revision, so the opportunity to comment is provided by a Federal Register notice with the proposal text and the contact address and telephone number, and the notice gives 60 days for comments [@CL-CMP-8363; @CL-CMP-8366; @CL-CMP-8367; @CL-CMP-8674; @CL-CMP-8368; @CL-CMP-8369]. A second change only corrects a cross-reference and has no impact on the basic meaning of the coverage, so it is not a significant revision and comments need not be solicited [@CL-CMP-8364; @CL-CMP-8370]. A third change implements a new statute in a short time, and urgent and compelling circumstances make advance comment impracticable. It is issued on a temporary basis with at least 30 days for public comment, and its notice states that the revision is effective on a temporary basis pending completion of the comment period [@CL-CMP-8371; @CL-CMP-8372; @CL-CMP-8373].
 
 ## Never confuse
 
@@ -61,6 +61,8 @@ Which pending FAR revisions touching the company's remit are significant for it,
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: significant revisions: comment-period sentence tied to its quote.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added unsolicited proposed revisions and public meetings.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for publication of significant FAR revisions for public comment.

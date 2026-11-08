@@ -47,13 +47,13 @@ Synthetic example. The numbers are made up.
 
 A fixed-price supply contract worth 900,000 is terminated for default. The contract has a liquidated damages clause, so the contracting officer promptly assesses and demands the 12,000 of liquidated damages the Government is entitled to, and that amount is in addition to any excess repurchase costs [@CL-CTF-3144; @CL-CTF-3293]. The Government also shows 4,000 of other ascertainable damages in administrative costs, so the contracting officer, on the basis of legal advice, takes action under FAR subpart 32.6 to assert the demand [@CL-CTF-3294].
 
-In a separate case, the contractor establishes that the failure arose from causes beyond its control and without its fault or negligence, so the termination is considered a termination for convenience and the rights and obligations are governed accordingly [@CL-CTF-3142; @CL-CTF-3289]. In a third case, the contractor consents in writing and a written determination finds that the supplies are still required and reinstatement is advantageous to the Government, so the contracting officer may reinstate the contract by amending the notice [@CL-CTF-3143].
+In a separate case, the contractor establishes that the failure arose from causes beyond its control and without its fault or negligence, so, under the default clauses, the termination is considered a termination for convenience and the rights and obligations are governed accordingly [@CL-CTF-3142; @CL-CTF-3289]. In a third case, the contractor consents in writing and a written determination finds that the supplies are still required and reinstatement is advantageous to the Government, so the contracting officer may reinstate the contract by amending the notice [@CL-CTF-3143].
 
 A cost-reimbursement contract is instead terminated for default after the 10-day notice [@CL-CTF-3145]. The contractor's 15,000 of settlement proposal preparation costs are not allowable, the allowable costs are reimbursed, and the 100,000 fee is reduced appropriately [@CL-CTF-3146; @CL-CTF-3295]. The contract has no provision for recovering excess repurchase costs [@CL-CTF-3147].
 
 ## Never confuse
 
-If the contractor can establish, or it is otherwise determined, that the contractor was not in default or that the failure to perform is excusable, a termination for default will be considered to have been a termination for the convenience of the Government [@CL-CTF-3142; @CL-CTF-3289].
+If the contractor can establish, or it is otherwise determined, that the contractor was not in default or that the failure to perform is excusable, the default clauses provide that a termination for default will be considered to have been a termination for the convenience of the Government [@CL-CTF-3142; @CL-CTF-3289].
 
 The contracting officer may reinstate the terminated contract, with the written consent of the contractor, by amending the notice of termination, after a written determination is made that the supplies or services are still required and reinstatement is advantageous to the Government [@CL-CTF-3143].
 
@@ -68,6 +68,7 @@ Which contract types in the portfolio carry liquidated damages and default claus
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the if-condition for conversion; cut uncited contrasts; stated both settlement exceptions.
 - COMPATIBLE_EXTENSION, 2026-10-31: second settlement exception stated as an exception.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for default terminations, reinstatement and damages.

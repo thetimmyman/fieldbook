@@ -24,15 +24,16 @@ use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Via, Word};
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Code, Host, Options, load};
+use fieldbook_core::check::{Code, Host, Options, Severity, load};
 use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
 use fieldbook_core::labels::PUBLIC;
 use fieldbook_core::policy::EffectivePolicy;
 use fieldbook_core::strings;
 use fieldbook_render::csp::CSP_STATIC;
-use fieldbook_render::lint::{self, OriginalNames};
+use fieldbook_render::lint;
 use fieldbook_render::meta::{BuildInfo, BuildProfile};
 use fieldbook_render::site::{self, Site};
+use fieldbook_render::source;
 
 use support::temp_copy;
 use support::world::TestWorld;
@@ -163,7 +164,11 @@ mod build {
         let index_html = std::fs::read_to_string(edition.join("index.html"))
             .unwrap_or_else(|e| panic!("read index.html: {e}"));
         assert!(index_html.contains(CSP_STATIC));
-        assert!(index_html.contains("<main id=\"fb:main\" tabindex=\"-1\"></main>"));
+        assert!(index_html.contains("<main id=\"fb:main\" tabindex=\"-1\">"));
+        assert!(
+            index_html.contains("id=\"areas\""),
+            "the home page has its area index"
+        );
         assert!(index_html.contains("<nav aria-label=\"Sections\">"));
         assert!(index_html.contains("class=\"not-available\""));
     }
@@ -831,7 +836,7 @@ mod build {
         };
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let site = site::render(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let diags = lint::lint(&site, &OriginalNames::default());
+        let diags = lint::lint(&site, &source::original_names(&view));
         assert!(
             diags.is_empty(),
             "fixture site must be lint-clean, got:\n{}",
@@ -862,7 +867,7 @@ mod build {
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let ctx =
             site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let mut site = site::render_with_context(&view, &ctx);
+        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent);
         site.insert(
             "bad.html",
             format!(
@@ -1076,8 +1081,19 @@ mod build {
         };
         let view_base = LabelledView::new(&model_base, &sel, &ReadableStores::corpus());
 
+        // The base with the kept-row cells that name the canaries: the permitted view keeps those
+        // cells verbatim, so this tree, not the plain base, is what the mixed tree must equal.
+        // Its references dangle (FB0207), and nothing else may be reported.
+        let mut tree_cells = tree_base.clone();
+        support::name_canaries_from_kept_rows(&mut tree_cells);
+        let (model_cells, report_cells) =
+            load(&Host::new(tree_cells, world.today()), &Options::new(false));
+        support::assert_only_dangling_references(&report_cells);
+        let view_cells = LabelledView::new(&model_cells, &sel, &ReadableStores::corpus());
+        assert_eq!(view_cells.left_out(), 0);
+
         // Add forbidden (`np-0007`) register rows (source S-0099 and its dependent claim, conflict
-        // and glossary term) and a page to a mixed tree.
+        // and glossary term), the kept-row cells that name them, and a page to a mixed tree.
         let mut tree_mixed = tree_base;
         support::add_canary_register_rows(&mut tree_mixed);
         tree_mixed.insert_bytes(
@@ -1086,10 +1102,32 @@ mod build {
                 .to_vec(),
         );
 
-        // The loader reports the repository-Corpus handling errors of the canary rows (FB0410) but
-        // still builds the model, which is what the permitted view must filter.
-        let (model_mixed, _report_mixed) =
+        // The left-out source version's extracted text: the view must leave its folder out.
+        tree_mixed.insert_bytes(
+            "corpus/sources/text/S-0099-v1/p0001.txt",
+            b"Forbidden extracted text canary.\n".to_vec(),
+        );
+
+        // The loader reports the repository-Corpus handling errors of the canary source and page
+        // (FB0410) and the canary claim left on the version that the kept `S-0001` supersedes
+        // (FB0222), and nothing else, but still builds the model the permitted view must filter.
+        let (model_mixed, report_mixed) =
             load(&Host::new(tree_mixed, world.today()), &Options::new(false));
+        support::assert_report_codes(
+            &report_mixed,
+            &[
+                ("FB0410", Severity::Error),
+                ("FB0410", Severity::Error),
+                ("FB0222", Severity::Warning),
+            ],
+        );
+        assert!(
+            model_mixed
+                .tree()
+                .get_bytes("corpus/sources/text/S-0099-v1/p0001.txt")
+                .is_some(),
+            "the model holds the text folder the view must leave out"
+        );
         let view_mixed = LabelledView::new(&model_mixed, &sel, &ReadableStores::corpus());
         assert!(view_mixed.left_out() >= 5);
 
@@ -1098,6 +1136,18 @@ mod build {
             &view_base,
             &BuildInfo::default(),
             &out_base,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        let plan_cells = plan_edition(
+            &view_cells,
+            &BuildInfo::default(),
+            &tmp.path().join("out-reg-cells"),
             &eff,
             &LabelSet::public(),
             now,
@@ -1169,8 +1219,18 @@ mod build {
         }
         assert_eq!(
             plan_mixed.site.files(),
+            plan_cells.site.files(),
+            "forbidden register rows and pages must not change any site byte, edition.toml and its fingerprint included"
+        );
+        // The cells base differs from the plain base only by the kept-row cells that name
+        // left-out records; every page but the manifest must match the plain base, as on main.
+        support::assert_plain_site_equals_cells_site(
             plan_base.site.files(),
-            "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
+            plan_cells.site.files(),
+        );
+        assert_eq!(
+            plan_mixed.originals, plan_cells.originals,
+            "forbidden register rows must not change the originals"
         );
 
         // The real build handler selects and views the records itself. Its delivered register
@@ -1216,7 +1276,8 @@ mod build {
         );
 
         // Verify FB0603 checks every row anchor linked from pages (e.g. claims.html#CL-CMP-0001).
-        let diags = lint::lint(&plan_base.site, &OriginalNames::default());
+        let names = source::original_names(&view_base);
+        let diags = lint::lint(&plan_base.site, &names);
         assert!(diags.is_empty(), "edition site must pass FB0603: {diags:?}");
         let mut broken_site = plan_base.site.clone();
         let broken_claims =
@@ -1231,12 +1292,1371 @@ mod build {
             }
         }
         broken_site = rebuilt;
-        let broken_diags = lint::lint(&broken_site, &OriginalNames::default());
+        let broken_diags = lint::lint(&broken_site, &names);
         assert!(
             broken_diags
                 .iter()
                 .any(|d| d.code == Code::Fb0603 && d.message.contains("CL-CMP-0001")),
             "removing row anchor id=\"CL-CMP-0001\" from claims.html must trigger FB0603 from pages linking to it, got: {broken_diags:?}"
+        );
+    }
+
+    const PDF_BYTES: &[u8] = b"%PDF-1.4\nsynthetic original, made up for tests\n";
+    const HTML_BYTES: &[u8] =
+        b"<html><body>synthetic html original, made up for tests</body></html>\n";
+
+    /// Appends one source-version row to the copy's sources register and stores `file` (its
+    /// name and bytes) under `corpus/sources/public/`; with no file the row is metadata-only.
+    fn add_version(
+        root: &Path,
+        id: &str,
+        version: u32,
+        file: Option<(&str, &[u8])>,
+        lifecycle: &str,
+        note: &str,
+    ) {
+        let path = root.join("corpus/registers/sources.csv");
+        let csv = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("{e}"));
+        let header = csv
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("header"))
+            .to_owned();
+        let (location, sha256) = match file {
+            Some((name, bytes)) => {
+                std::fs::write(root.join("corpus/sources/public").join(name), bytes)
+                    .unwrap_or_else(|e| panic!("{e}"));
+                (
+                    name.to_owned(),
+                    fieldbook_core::audit::Sha256::digest(bytes)
+                        .as_str()
+                        .to_owned(),
+                )
+            }
+            None => (
+                "metadata-only: made up for tests".to_owned(),
+                "7".repeat(64),
+            ),
+        };
+        let title = format!("Synthetic Source {id} v{version}, made up for tests");
+        let source_id = format!("S-{id}");
+        let version = version.to_string();
+        let row = support::register_row(
+            &header,
+            &[
+                ("source_id", &source_id),
+                ("version", &version),
+                ("tag", &format!("synthetic-{id}")),
+                ("title", &title),
+                ("publisher", "Synthetic Board"),
+                ("source_kind", "primary_law"),
+                ("source_role", "primary_evidence"),
+                ("authority_tier", "A"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", &location),
+                ("sha256", &sha256),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", lifecycle),
+                ("volatility", "V2"),
+                ("handling", "public"),
+                ("note", note),
+                ("purpose", "Synthetic purpose for tests"),
+            ],
+        );
+        std::fs::write(&path, support::splice_register_row(&csv, &row, None))
+            .unwrap_or_else(|e| panic!("{e}"));
+    }
+
+    fn stdout_of(output: &Output) -> String {
+        String::from_utf8_lossy(&output.stdout).into_owned()
+    }
+
+    fn stderr_of(output: &Output) -> String {
+        String::from_utf8_lossy(&output.stderr).into_owned()
+    }
+
+    #[test]
+    fn originals_are_copied_byte_for_byte_under_shipped_names() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.html", HTML_BYTES)),
+            "active",
+            "",
+        );
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            Some(("S-0005-v1.pdf", PDF_BYTES)),
+            "active",
+            "",
+        );
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+
+        let delivered = collect_tree_bytes(&tmp.path().join("out/originals"));
+        let stored = collect_tree_bytes(&tmp.path().join("corpus/sources/public"));
+        let expected: BTreeMap<String, Vec<u8>> = [
+            ("S-0002-v2.txt", stored["S-0002-v2.txt"].clone()),
+            ("S-0004-v1.html.txt", HTML_BYTES.to_vec()),
+            ("S-0005-v1.pdf", PDF_BYTES.to_vec()),
+        ]
+        .into_iter()
+        .map(|(k, v)| (k.to_owned(), v))
+        .collect();
+        assert_eq!(
+            delivered, expected,
+            "every stored original ships once, byte for byte, a .html one as .html.txt"
+        );
+        assert!(
+            !tmp.path().join("out/originals/S-0004-v1.html").exists(),
+            "a renderable original never ships under its own name"
+        );
+        let page = std::fs::read_to_string(tmp.path().join("out/edition/s/S-0004-v1.html"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert!(page.contains("href=\"../../originals/S-0004-v1.html.txt\""));
+    }
+
+    #[test]
+    fn a_marked_text_original_does_not_ship() {
+        let marked: &[u8] =
+            b"<html><body>CONTROLLED UNCLASSIFIED INFORMATION\nSECRET//NOFORN\nsynthetic body</body></html>\n";
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.html", marked)),
+            "active",
+            "",
+        );
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_ne!(
+            output.status.code(),
+            Some(0),
+            "a marking banner in an original must stop the edition:\n{}",
+            stderr_of(&output)
+        );
+        assert!(
+            !tmp.path().join("out/originals/S-0004-v1.html.txt").exists(),
+            "the marked original must not be written"
+        );
+        assert!(!tmp.path().join("out/edition").exists());
+    }
+
+    /// The repository Corpus records the address an original came from in `location` (the
+    /// source-adding steps of corpus-format.md), while the stored file is named for the version.
+    /// The labelled view keeps an original by its version id, so such a row still ships one.
+    #[test]
+    fn an_original_ships_when_location_is_the_address_it_came_from() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            Some(("S-0005-v1.pdf", PDF_BYTES)),
+            "active",
+            "",
+        );
+        let sources = tmp.path().join("corpus/registers/sources.csv");
+        let csv = std::fs::read_to_string(&sources).unwrap_or_else(|e| panic!("{e}"));
+        std::fs::write(
+            &sources,
+            csv.replace(",S-0005-v1.pdf,", ",https://example.invalid/guide.pdf,"),
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+        let delivered = collect_tree_bytes(&tmp.path().join("out/originals"));
+        assert_eq!(
+            delivered.get("S-0005-v1.pdf").map(Vec::as_slice),
+            Some(PDF_BYTES),
+            "the stored original ships whatever the location cell says"
+        );
+        let page = std::fs::read_to_string(tmp.path().join("out/edition/s/S-0005-v1.html"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        assert!(page.contains("href=\"../../originals/S-0005-v1.pdf\""));
+    }
+
+    #[test]
+    fn originals_are_in_the_write_set() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.html", HTML_BYTES)),
+            "active",
+            "",
+        );
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+
+        let edition_files = collect_tree_bytes(&tmp.path().join("out/edition")).len() as u64;
+        let original_files = collect_tree_bytes(&tmp.path().join("out/originals")).len() as u64;
+        assert_eq!(original_files, 2);
+        let events = read_journal_events(&tmp.path().join(".fieldbook"));
+        let begins: Vec<&Event> = events
+            .iter()
+            .filter(|e| e.kind() == Kind::WriteBegin)
+            .collect();
+        assert_eq!(begins.len(), 1, "one write.begin: {events:?}");
+        match &begins[0].payload {
+            EventPayload::WriteBegin { files, .. } => assert_eq!(
+                files.value(),
+                edition_files + original_files + 1,
+                "write.begin counts the files of edition/ and originals/ together with the marker"
+            ),
+            other => panic!("expected WriteBegin, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn a_held_version_prints_held_and_ships_nothing() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.html", HTML_BYTES)),
+            "active",
+            "",
+        );
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            Some(("S-0005-v1.pdf", PDF_BYTES)),
+            "quarantined",
+            "Held for test.",
+        );
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+        assert_eq!(stdout_of(&output), "held S-0005-v1\n");
+
+        assert!(!tmp.path().join("out/edition/s/S-0005-v1.html").exists());
+        assert!(tmp.path().join("out/edition/s/S-0004-v1.html").is_file());
+        let originals = collect_tree_bytes(&tmp.path().join("out/originals"));
+        assert!(
+            originals.keys().all(|k| !k.starts_with("S-0005-v1")),
+            "a held original must not be copied: {:?}",
+            originals.keys().collect::<Vec<_>>()
+        );
+        assert!(originals.contains_key("S-0004-v1.html.txt"));
+        for (rel, bytes) in collect_tree_bytes(&tmp.path().join("out/edition")) {
+            assert!(
+                !String::from_utf8_lossy(&bytes).contains("S-0005-v1.html"),
+                "{rel} must not link the held version"
+            );
+        }
+    }
+
+    #[test]
+    fn a_foreign_originals_folder_is_not_deleted() {
+        let tmp = temp_copy(&fixture_root());
+        let foreign_out = tmp.path().join("foreign-out");
+        let keep_file = foreign_out.join("originals/keep.txt");
+        std::fs::create_dir_all(
+            keep_file
+                .parent()
+                .unwrap_or_else(|| panic!("keep.txt parent")),
+        )
+        .unwrap_or_else(|e| panic!("create foreign originals dir: {e}"));
+        std::fs::write(&keep_file, b"keep me\n").unwrap_or_else(|e| panic!("write keep.txt: {e}"));
+
+        let foreign_str = foreign_out.to_string_lossy().into_owned();
+        let output = run_bin(tmp.path(), &[], &["build", "--out", &foreign_str]);
+        assert_eq!(
+            output.status.code(),
+            Some(2),
+            "foreign root must exit 2, stderr:\n{}",
+            stderr_of(&output)
+        );
+        assert!(
+            stderr_of(&output).contains(
+                "it was not made by fieldbook build; remove it yourself or choose another --out"
+            ),
+            "unexpected stderr: {}",
+            stderr_of(&output)
+        );
+        assert_eq!(
+            std::fs::read(&keep_file).unwrap_or_else(|e| panic!("read keep.txt: {e}")),
+            b"keep me\n",
+            "keep.txt in the foreign originals folder must remain untouched"
+        );
+        assert!(
+            !foreign_out.join("edition").exists(),
+            "nothing may be written beside a foreign originals folder"
+        );
+        assert!(
+            read_journal_events(&tmp.path().join(".fieldbook")).is_empty(),
+            "foreign root refusal must append no journal event"
+        );
+    }
+
+    /// Adds the claim `CL-CMP-0050`, on the PDF source `S-0004-v1` at `pp. 20-21`, and a page
+    /// whose only citation is that claim.
+    fn add_claim_only_page(root: &Path) {
+        let claims_path = root.join("corpus/registers/claims.csv");
+        let csv = std::fs::read_to_string(&claims_path).unwrap_or_else(|e| panic!("{e}"));
+        let header = csv
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("header"))
+            .to_owned();
+        let row = support::register_row(
+            &header,
+            &[
+                ("claim_id", "CL-CMP-0050"),
+                ("area", "cmp"),
+                ("kind", "fact"),
+                (
+                    "statement",
+                    "Synthetic claim routing statement, made up for tests.",
+                ),
+                ("as_of", "2026-02-01"),
+                ("source_id", "S-0004"),
+                ("version", "1"),
+                ("locator_kind", "pdf_page_box"),
+                ("locator", "pp. 20-21"),
+                ("quote", "Synthetic quote."),
+                ("consequential", "false"),
+                ("drafted_by", "codex"),
+                ("verification", "unchecked"),
+                ("applicability", "general_reference"),
+                ("adoption", "proposed"),
+                ("data_origin", "observed"),
+                ("volatility", "V2"),
+                ("note", "Synthetic claim for the routing test."),
+            ],
+        );
+        std::fs::write(
+            &claims_path,
+            support::splice_register_row(&csv, &row, Some("CL-EST-0001")),
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+
+        let steps = root.join("corpus/pages/compliance/business-systems/cmp-review-steps.md");
+        let text = std::fs::read_to_string(&steps).unwrap_or_else(|e| panic!("{e}"));
+        let page = text
+            .replace("id = \"cmp-review-steps\"", "id = \"cmp-claim-routing\"")
+            .replace(
+                "title = \"Synthetic procedure for running a business-system review\"",
+                "title = \"Synthetic claim routing page\"",
+            )
+            .replace("[@CL-CMP-0001]", "[@CL-CMP-0050]");
+        std::fs::write(
+            root.join("corpus/pages/compliance/business-systems/cmp-claim-routing.md"),
+            page,
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+    }
+
+    #[test]
+    fn pdf_citation_links_to_shipped_original_page() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.pdf", PDF_BYTES)),
+            "active",
+            "",
+        );
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            None,
+            "quarantined",
+            "Held <for> review & test.",
+        );
+        let steps_path = tmp
+            .path()
+            .join("corpus/pages/compliance/business-systems/cmp-review-steps.md");
+        let steps = std::fs::read_to_string(&steps_path).unwrap_or_else(|e| panic!("{e}"));
+        std::fs::write(
+            &steps_path,
+            steps.replace(
+                "## How it works\n",
+                "## How it works\n\nThe PDF says so [@S-0004-v1, p. 14] and over a range [@S-0004-v1, pp. 30-31]. The metadata-only source says so [@S-0001-v1, sec. 1]. The held source says so [@S-0005-v1, sec. 1].\n\n",
+            ),
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+        add_claim_only_page(tmp.path());
+
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+
+        let delivered =
+            std::fs::read_to_string(tmp.path().join("out/edition/p/cmp-review-steps.html"))
+                .unwrap_or_else(|e| panic!("{e}"));
+        // A single page: the delivered relative href, with the locator text beside the link.
+        assert!(
+            delivered.contains("href=\"../../originals/S-0004-v1.pdf#page=14\""),
+            "single-page citation must link to the shipped PDF at its page:\n{delivered}"
+        );
+        assert!(delivered.contains("<span class=\"loc\">p. 14</span>"));
+        // A range: the first page, never the last.
+        assert!(
+            delivered.contains("href=\"../../originals/S-0004-v1.pdf#page=30\""),
+            "a pp. citation must link to the first page of the range:\n{delivered}"
+        );
+        assert!(delivered.contains("<span class=\"loc\">pp. 30-31</span>"));
+        assert!(!delivered.contains("#page=31"));
+        // A metadata-only version keeps its source page and its lock.
+        assert!(
+            delivered.contains("href=\"../s/S-0001-v1.html\""),
+            "a metadata-only citation keeps its s/ href:\n{delivered}"
+        );
+        assert!(!delivered.contains("originals/S-0001"));
+        // A held version is plain text with its escaped reason, and has no href of either kind.
+        assert!(
+            delivered.contains("Held: Held &lt;for&gt; review &amp; test."),
+            "a held citation shows its escaped reason:\n{delivered}"
+        );
+        assert!(!delivered.contains("S-0005-v1.html") && !delivered.contains("originals/S-0005"));
+        assert!(!delivered.contains("sources.html#S-0005"));
+
+        // A page whose only citation is a claim: the claim's own source version and locator
+        // route its Sources row.
+        let claim_only =
+            std::fs::read_to_string(tmp.path().join("out/edition/p/cmp-claim-routing.html"))
+                .unwrap_or_else(|e| panic!("{e}"));
+        assert!(
+            !claim_only.contains("[@S-"),
+            "the claim-only page cites no source directly"
+        );
+        assert!(
+            claim_only.contains("href=\"../../originals/S-0004-v1.pdf#page=20\""),
+            "the claim's own locator must route its Sources row:\n{claim_only}"
+        );
+        assert!(claim_only.contains("<span class=\"loc\">pp. 20-21</span>"));
+        assert!(!claim_only.contains("#page=21"));
+    }
+
+    /// A [`World`] whose Corpus tree also holds an overlay label ledger, as a tree with a company
+    /// store does. The ledger keeps an item out of the corpus-only edition view while the row
+    /// itself stays public, so `check` has nothing to refuse and the build runs its real path.
+    struct LedgerWorld {
+        inner: TestWorld,
+        ledger: &'static str,
+    }
+
+    impl LedgerWorld {
+        fn with_ledger(
+            &self,
+            mut tree: fieldbook_core::check::Tree,
+        ) -> fieldbook_core::check::Tree {
+            tree.insert_bytes("overlay/labels.csv", self.ledger.as_bytes());
+            tree
+        }
+    }
+
+    impl World for LedgerWorld {
+        fn read_tree(&self) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
+            self.inner.read_tree().map(|tree| self.with_ledger(tree))
+        }
+
+        fn write_lease(&self) -> Result<fieldbook::StoreLease, fieldbook::WorldError> {
+            self.inner.write_lease()
+        }
+
+        fn read_tree_under(
+            &self,
+            lease: &fieldbook::StoreLease,
+        ) -> Result<fieldbook_core::check::Tree, fieldbook::WorldError> {
+            self.inner
+                .read_tree_under(lease)
+                .map(|tree| self.with_ledger(tree))
+        }
+
+        fn write_file(
+            &self,
+            audited: &fieldbook::Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<fieldbook_core::audit::Sha256, fieldbook::WorldError> {
+            self.inner.write_file(audited, path, bytes)
+        }
+
+        fn write_outside(
+            &self,
+            allowed: &fieldbook_core::egress::Allowed,
+            audited: &fieldbook::Audited,
+            path: &Path,
+            bytes: &[u8],
+        ) -> Result<fieldbook_core::audit::Sha256, fieldbook::WorldError> {
+            self.inner.write_outside(allowed, audited, path, bytes)
+        }
+
+        fn has_company_store(&self) -> bool {
+            self.inner.has_company_store()
+        }
+
+        fn today(&self) -> CivilDate {
+            self.inner.today()
+        }
+
+        fn now(&self) -> fieldbook_core::audit::Now {
+            self.inner.now()
+        }
+
+        fn principal(&self) -> fieldbook_core::audit::Principal {
+            self.inner.principal()
+        }
+
+        fn cwd(&self) -> &Path {
+            self.inner.cwd()
+        }
+
+        fn tree_root(&self) -> &Path {
+            self.inner.tree_root()
+        }
+
+        fn state_dir(&self) -> &Path {
+            self.inner.state_dir()
+        }
+
+        fn stdin_is_terminal(&self) -> bool {
+            self.inner.stdin_is_terminal()
+        }
+
+        fn read_line(&self) -> String {
+            self.inner.read_line()
+        }
+
+        fn prompt(&self, flag: &str) -> Result<(), fieldbook::WorldError> {
+            self.inner.prompt(flag)
+        }
+    }
+
+    /// The real `build` path: a valid preflight (the row of `S-0098-v1` is public and active, and
+    /// its stored original matches its hash), and the version kept out of the edition view by the
+    /// overlay ledger, which labels it `np-0007` in a store the edition does not read. Nothing
+    /// but the permitted view stands between that version and the outputs, and it is not held, so
+    /// the hold rule cannot be what keeps it out.
+    fn assert_the_build_path_ships_only_the_permitted_view() {
+        let permitted_html: &[u8] = b"<p>Permitted original canary, made up for tests.</p>\n";
+        let forbidden_html: &[u8] = b"<p>Forbidden original canary, made up for tests.</p>\n";
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0004",
+            1,
+            Some(("S-0004-v1.html", permitted_html)),
+            "active",
+            "Permitted source page canary.",
+        );
+        add_version(
+            tmp.path(),
+            "0098",
+            1,
+            Some(("S-0098-v1.html", forbidden_html)),
+            "active",
+            "Forbidden source page canary.",
+        );
+        // A second stored file of a permitted version, with the same bytes: `check` accepts it, and
+        // the view keeps only the file the row's `location` names.
+        std::fs::write(
+            tmp.path().join("corpus/sources/public/S-0004-v1.bin"),
+            permitted_html,
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+        // The regression set refuses to index a tree that holds a ledger (FB0126), the guard in
+        // front of this view on a repository Corpus; a Corpus with no set has no such pass.
+        std::fs::remove_file(tmp.path().join("corpus/eval/regression.toml"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let world = LedgerWorld {
+            inner: TestWorld::new(tmp.path()),
+            ledger: "seq,item_id,kind,labels,origin\n1,S-0098-v1,add,np-0007,person\n",
+        };
+
+        // The preflight is valid, on the tree the build itself reads.
+        let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        assert!(report.is_ok(), "the preflight must pass: {report:?}");
+        assert!(
+            model
+                .sources()
+                .iter()
+                .any(|s| s.value.source_id.as_str() == "S-0098"),
+            "the model holds the row the view must leave out"
+        );
+
+        let out_dir = tmp.path().join("out-build-path");
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: out_dir.clone(),
+            },
+            &world,
+            &BuildInfo::default(),
+        );
+        assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+        assert!(
+            !outcome.stdout.contains("S-0098"),
+            "the version is not held, so no hold line names it: {}",
+            outcome.stdout
+        );
+
+        let edition = out_dir.join("edition");
+        let originals = out_dir.join("originals");
+
+        // Permitted presence stays required.
+        let permitted_page = std::fs::read_to_string(edition.join("s/S-0004-v1.html"))
+            .unwrap_or_else(|e| panic!("the permitted source page must be written: {e}"));
+        assert!(permitted_page.contains("Permitted source page canary"));
+        assert!(permitted_page.contains("href=\"../../originals/S-0004-v1.html.txt\""));
+        assert_eq!(
+            std::fs::read(originals.join("S-0004-v1.html.txt"))
+                .unwrap_or_else(|e| panic!("the permitted original must be written: {e}")),
+            permitted_html
+        );
+
+        // Forbidden: bypassing source-page filtering writes the page, and bypassing original
+        // selection copies the file.
+        assert!(
+            !edition.join("s/S-0098-v1.html").exists(),
+            "a version outside the permitted view must have no source page"
+        );
+        assert!(
+            !originals.join("S-0098-v1.html.txt").exists()
+                && !originals.join("S-0098-v1.html").exists(),
+            "a version outside the permitted view must have no shipped original"
+        );
+        assert_eq!(
+            collect_tree_bytes(&originals)
+                .into_keys()
+                .collect::<Vec<_>>(),
+            ["S-0002-v2.txt", "S-0004-v1.html.txt"],
+            "originals/ holds exactly the originals the permitted view selects"
+        );
+        assert_no_forbidden_text(
+            &edition,
+            &originals,
+            &[
+                "Forbidden source page canary",
+                "Forbidden original canary",
+                "S-0098",
+            ],
+        );
+    }
+
+    fn assert_no_forbidden_text(edition: &Path, originals: &Path, needles: &[&str]) {
+        for (folder, root) in [("edition", edition), ("originals", originals)] {
+            for (rel, bytes) in collect_tree_bytes(root) {
+                assert!(
+                    !rel.contains("S-0098"),
+                    "a forbidden file must not be shipped: {folder}/{rel}"
+                );
+                let text = String::from_utf8_lossy(&bytes);
+                for needle in needles {
+                    assert!(
+                        !text.contains(needle),
+                        "forbidden `{needle}` must not appear in {folder}/{rel}"
+                    );
+                }
+            }
+        }
+    }
+
+    /// The home and area counts a delivered edition must show for `corpus-mini`.
+    fn assert_permitted_home_and_areas(edition: &Path) {
+        let read = |rel: &str| {
+            std::fs::read_to_string(edition.join(rel))
+                .unwrap_or_else(|e| panic!("the handler must deliver {rel}: {e}"))
+        };
+        let index = read("index.html");
+        for shown in [
+            "5 pages",
+            "4 pages",
+            "1 of 2 supported",
+            "0 of 3 supported",
+            "Q-001",
+            "XC-01",
+            "href=\"a/cmp.html\"",
+            "href=\"a/est.html\"",
+            "p/est-rate-window-brief.html",
+            "id=\"areas\"",
+        ] {
+            assert!(index.contains(shown), "index.html must show `{shown}`");
+        }
+        let cmp = read("a/cmp.html");
+        assert!(cmp.contains(
+            "aria-label=\"1 of 2 supported: 1 supported, 1 unchecked, 0 contradicted, 0 stale, 0 unresolved\""
+        ));
+        assert!(cmp.contains("<span class=\"count\">5</span>"), "cmp pages");
+        assert!(cmp.contains("<tr id=\"cmp-system-review\""));
+        assert!(cmp.contains("Q-001"));
+        let est = read("a/est.html");
+        assert!(est.contains(
+            "aria-label=\"0 of 3 supported: 0 supported, 3 unchecked, 0 contradicted, 0 stale, 0 unresolved\""
+        ));
+        assert!(est.contains("<span class=\"count\">4</span>"), "est pages");
+        assert!(est.contains("<tr id=\"est-rate-window-brief\""));
+        assert!(
+            est.contains("Nothing upstream has moved."),
+            "no canary change"
+        );
+    }
+
+    /// Records whose own handling is public but which name a record the ledger leaves out, so the
+    /// view must leave them out through the dependency alone: one brief per page reference (a
+    /// term, a question, a conflict, a cited claim and a linked page), a claim whose `conflict_id`
+    /// is the left-out conflict, a claim superseded by the left-out claim, a term labelled
+    /// `np-0007` by the ledger that cites only kept records, and three conflicts whose `evidence`
+    /// names the left-out claim or the left-out source version `S-0098-v1`, or whose
+    /// `question_id` is the left-out question. Every id starts `est-dep-`, `CL-CMP-009`,
+    /// `XC-9`, `S-0098` or `forbidden_`, and every text starts `Forbidden` or `Dependent`.
+    fn plant_public_records_that_name_left_out_ones(root: &Path) {
+        let read = |rel: &str| {
+            std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
+        };
+        let write = |rel: &str, text: String| {
+            std::fs::write(root.join(rel), text).unwrap_or_else(|e| panic!("{rel}: {e}"));
+        };
+        let claims = read("corpus/registers/claims.csv");
+        let header: Vec<&str> = claims
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("claims header"))
+            .split(',')
+            .collect();
+        // CL-CMP-0002 has no quoted cell, so a plain split keeps its columns.
+        let template: Vec<&str> = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0002,"))
+            .unwrap_or_else(|| panic!("fixture claim"))
+            .split(',')
+            .collect();
+        assert_eq!(template.len(), header.len());
+        let claim_row = |cells: &[(&str, &str)]| {
+            header
+                .iter()
+                .zip(&template)
+                .map(|(col, cell)| {
+                    cells
+                        .iter()
+                        .find(|(name, _)| name == col)
+                        .map_or(*cell, |(_, v)| *v)
+                })
+                .collect::<Vec<_>>()
+                .join(",")
+        };
+        let superseded = claim_row(&[
+            ("claim_id", "CL-CMP-0096"),
+            ("statement", "Dependent superseded claim canary statement."),
+            ("applicability", "not_applicable"),
+            (
+                "adoption",
+                fieldbook_core::schema::Adoption::Superseded.as_str(),
+            ),
+            ("superseded_by", "CL-CMP-0098"),
+            ("question_id", ""),
+        ]);
+        let in_conflict = claim_row(&[
+            ("claim_id", "CL-CMP-0097"),
+            ("statement", "Dependent conflict claim canary statement."),
+            ("conflict_id", "XC-98"),
+            ("question_id", ""),
+        ]);
+        let left_out_claim = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0098,"))
+            .unwrap_or_else(|| panic!("the left-out claim is planted first"));
+        let supersedes = header
+            .iter()
+            .position(|c| *c == "supersedes")
+            .unwrap_or_else(|| panic!("supersedes column"));
+        let mut cells: Vec<&str> = left_out_claim.split(',').collect();
+        cells[supersedes] = "CL-CMP-0096";
+        let claims = claims.replace(
+            &format!("\n{left_out_claim}\n"),
+            &format!("\n{superseded}\n{in_conflict}\n{}\n", cells.join(",")),
+        );
+        assert!(
+            claims.contains("\nCL-CMP-0096,"),
+            "the dependent claims are planted"
+        );
+        write("corpus/registers/claims.csv", claims);
+        // The conflict lists the claim that names it, as the format requires.
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let left_out_conflict = conflicts
+            .lines()
+            .find(|l| l.starts_with("XC-98,"))
+            .unwrap_or_else(|| panic!("the left-out conflict is planted first"));
+        write(
+            "corpus/registers/conflicts.csv",
+            conflicts.replace(
+                left_out_conflict,
+                &left_out_conflict.replace(
+                    ",CL-CMP-0001|CL-CMP-0002,",
+                    ",CL-CMP-0001|CL-CMP-0002|CL-CMP-0097,",
+                ),
+            ),
+        );
+        // A source version the ledger leaves out (`S-0098-v1`), so a conflict can name it as
+        // evidence. It is metadata-only, so it ships no original.
+        let sources = read("corpus/registers/sources.csv");
+        let sources_header = sources
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("sources header"));
+        let left_out_version = support::register_row(
+            sources_header,
+            &[
+                ("source_id", "S-0098"),
+                ("version", "1"),
+                ("tag", "forbidden-dep-source"),
+                (
+                    "title",
+                    "Forbidden dependent source canary, made up for tests",
+                ),
+                ("publisher", "Synthetic Standards Board"),
+                ("source_kind", "trade_press"),
+                ("source_role", "accepted_interpretation"),
+                ("authority_tier", "D"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", "metadata-only: made up for tests"),
+                ("sha256", &"8".repeat(64)),
+                ("published", "2026-01-25"),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", "active"),
+                ("volatility", "V2"),
+                ("handling", "public"),
+                ("note", "Forbidden dependent source note."),
+                ("purpose", "Forbidden dependent source purpose"),
+            ],
+        );
+        write(
+            "corpus/registers/sources.csv",
+            support::splice_register_row(&sources, &left_out_version, None),
+        );
+        // Public conflicts that name a left-out record outside `claim_ids`: one resolved on the
+        // left-out claim, one resolved on the left-out source version, and one whose open question
+        // is the left-out question. Each sorts before the left-out conflict `XC-98`.
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let dependent_conflicts = [
+            "XC-95,est,Dependent evidence claim conflict canary,Dependent first claim position|Dependent second claim position,Dependent claim resolution.,Dependent claim rationale.,CL-CMP-0098,2026-02-01,resolved,CL-CMP-0001|CL-CMP-0002,",
+            "XC-96,est,Dependent evidence version conflict canary,Dependent first version position|Dependent second version position,Dependent version resolution.,Dependent version rationale.,S-0098-v1,2026-02-01,resolved,CL-CMP-0001|CL-CMP-0002,",
+            "XC-97,est,Dependent question conflict canary,Dependent first question position|Dependent second question position,,,,,unresolved,CL-CMP-0001|CL-CMP-0002,Q-098",
+        ]
+        .join("\n");
+        assert!(
+            conflicts.contains("\nXC-98,"),
+            "the left-out conflict is planted first"
+        );
+        write(
+            "corpus/registers/conflicts.csv",
+            support::splice_register_row(&conflicts, &dependent_conflicts, Some("XC-98,")),
+        );
+        let glossary = read("corpus/registers/glossary.csv");
+        write(
+            "corpus/registers/glossary.csv",
+            glossary.replace(
+                "\nrate_window,",
+                "\nforbidden_window,forbidden window,Forbidden glossary canary definition.,Forbidden glossary canary boundary.,est,CL-EST-0003,public_reference,,\nrate_window,",
+            ),
+        );
+        let brief = read("corpus/pages/estimating/pricing/est-rate-window-brief.md");
+        let page = |slug: &str, from: &str, to: &str| {
+            let text = brief
+                .replace(
+                    "id = \"est-rate-window-brief\"",
+                    &format!("id = \"est-dep-{slug}\""),
+                )
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    &format!("title = \"Dependent {slug} canary\""),
+                );
+            assert!(text.contains(from), "the brief holds `{from}`");
+            write(
+                &format!("corpus/pages/estimating/pricing/est-dep-{slug}.md"),
+                text.replace(from, to),
+            );
+        };
+        page(
+            "term",
+            "terms = [\"rate_window\", \"cost_baseline\"]",
+            "terms = [\"rate_window\", \"cost_baseline\", \"forbidden_window\"]",
+        );
+        page(
+            "question",
+            "questions = [\"Q-002\"]",
+            "questions = [\"Q-002\", \"Q-098\"]",
+        );
+        page(
+            "conflict",
+            "questions = [\"Q-002\"]",
+            "questions = [\"Q-002\"]\nconflicts = [\"XC-98\"]",
+        );
+        page(
+            "cite",
+            "3 percent per year [@CL-EST-0001].",
+            "3 percent per year [@CL-EST-0001] [@CL-CMP-0098].",
+        );
+        page(
+            "link",
+            "links = [\"cmp-system-review\"]",
+            "links = [\"cmp-system-review\", \"est-forbidden-brief\"]",
+        );
+    }
+
+    /// Plants a disallowed claim, question, conflict, brief and term in `root`, and the public
+    /// records that name them, runs the real build handler, and returns the delivered edition
+    /// folder.
+    fn deliver_with_disallowed_records(root: &Path) -> PathBuf {
+        let read = |rel: &str| {
+            std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
+        };
+        let write = |rel: &str, text: String| {
+            std::fs::write(root.join(rel), text).unwrap_or_else(|e| panic!("{rel}: {e}"));
+        };
+        // A disallowed record of each kind the home and area pages count: a claim, an
+        // open conflict, a day-one question and a brief, in an area with permitted records.
+        let claims = read("corpus/registers/claims.csv");
+        let claim = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0002,"))
+            .unwrap_or_else(|| panic!("fixture claim"))
+            .replace("CL-CMP-0002", "CL-CMP-0098")
+            .replace(
+                "Synthetic withholding threshold is 5 percent of billed amounts.",
+                "Forbidden claim canary statement.",
+            );
+        // The register stays in normal form: rows in id order.
+        let next_row = claims
+            .find("CL-EST-0001,")
+            .unwrap_or_else(|| panic!("fixture claim"));
+        let (before, after) = claims.split_at(next_row);
+        write(
+            "corpus/registers/claims.csv",
+            format!("{before}{claim}\n{after}"),
+        );
+        let questions = read("corpus/registers/questions.csv");
+        write(
+            "corpus/registers/questions.csv",
+            format!("{questions}Q-098,est,Forbidden day-one canary question?,,,,,,true,open,,,\n"),
+        );
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let conflict = conflicts
+            .lines()
+            .nth(1)
+            .unwrap_or_else(|| panic!("fixture conflict"))
+            .replace("XC-01,cmp,", "XC-98,est,")
+            .replace(
+                "Synthetic review interval versus withholding check timing",
+                "Forbidden conflict canary topic",
+            );
+        write(
+            "corpus/registers/conflicts.csv",
+            format!("{conflicts}{conflict}\n"),
+        );
+        let brief_path = "corpus/pages/estimating/pricing/est-rate-window-brief.md";
+        write(
+            "corpus/pages/estimating/pricing/est-forbidden-brief.md",
+            read(brief_path)
+                .replace(
+                    "id = \"est-rate-window-brief\"",
+                    "id = \"est-forbidden-brief\"",
+                )
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    "title = \"Forbidden brief canary\"",
+                ),
+        );
+        plant_public_records_that_name_left_out_ones(root);
+        // The regression set refuses to index a tree that holds a ledger (FB0126).
+        std::fs::remove_file(root.join("corpus/eval/regression.toml"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let world = LedgerWorld {
+            inner: TestWorld::new(root),
+            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n5,forbidden_window,add,np-0007,person\n6,S-0098-v1,add,np-0007,person\n",
+        };
+
+        let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (model, report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        assert!(report.is_ok(), "the preflight must pass: {report:?}");
+        assert!(
+            model
+                .claims()
+                .iter()
+                .any(|c| c.value.claim_id.as_str() == "CL-CMP-0098")
+                && model
+                    .pages()
+                    .iter()
+                    .any(|p| p.id.as_str() == "est-forbidden-brief"),
+            "the model holds the records the view must leave out"
+        );
+        for page in [
+            "est-dep-term",
+            "est-dep-question",
+            "est-dep-conflict",
+            "est-dep-cite",
+            "est-dep-link",
+        ] {
+            assert!(
+                model.pages().iter().any(|p| p.id.as_str() == page),
+                "the model holds the dependent page `{page}`"
+            );
+        }
+        for claim in ["CL-CMP-0096", "CL-CMP-0097"] {
+            assert!(
+                model
+                    .claims()
+                    .iter()
+                    .any(|c| c.value.claim_id.as_str() == claim),
+                "the model holds the dependent claim `{claim}`"
+            );
+        }
+        for conflict in ["XC-95", "XC-96", "XC-97"] {
+            assert!(
+                model
+                    .conflicts()
+                    .iter()
+                    .any(|x| x.value.conflict_id.as_str() == conflict),
+                "the model holds the dependent conflict `{conflict}`"
+            );
+        }
+        assert!(
+            model
+                .sources()
+                .iter()
+                .any(|s| s.value.source_id.as_str() == "S-0098"),
+            "the model holds the left-out source version"
+        );
+        assert!(
+            model
+                .glossary()
+                .iter()
+                .any(|t| t.value.term_id.as_str() == "forbidden_window"),
+            "the model holds the left-out term"
+        );
+
+        deliver(&world, &root.join("out-home-areas")).join("edition")
+    }
+
+    /// Runs the real build handler of `world` into `out_dir` and returns `out_dir`.
+    fn deliver(world: &LedgerWorld, out_dir: &Path) -> PathBuf {
+        let outcome = run_with_info(
+            &BuildArgs {
+                out: out_dir.to_path_buf(),
+            },
+            world,
+            &BuildInfo::default(),
+        );
+        assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
+        out_dir.to_path_buf()
+    }
+
+    /// Records the overlay ledger leaves out, a brief whose own handling is public among them,
+    /// change no delivered byte: every edition file, `edition.toml` and its fingerprint included,
+    /// and every original equal those of the same Corpus without the records.
+    #[test]
+    fn build_ledger_left_out_records_change_no_delivered_byte() {
+        let tmp_base = temp_copy(&fixture_root());
+        // The regression set refuses to index a tree that holds a ledger (FB0126).
+        std::fs::remove_file(tmp_base.path().join("corpus/eval/regression.toml"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let base_world = LedgerWorld {
+            inner: TestWorld::new(tmp_base.path()),
+            ledger: "seq,item_id,kind,labels,origin\n",
+        };
+        let tree = base_world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (_model, report) = load(&Host::new(tree, base_world.today()), &Options::new(false));
+        assert!(report.is_ok(), "the base preflight must pass: {report:?}");
+        let base_out = deliver(&base_world, &tmp_base.path().join("out-ledger"));
+
+        let tmp_mixed = temp_copy(&fixture_root());
+        let mixed_edition = deliver_with_disallowed_records(tmp_mixed.path());
+        assert!(
+            tmp_mixed
+                .path()
+                .join("corpus/pages/estimating/pricing/est-forbidden-brief.md")
+                .is_file(),
+            "the left-out brief is in the Corpus the build reads"
+        );
+        let mixed_out = mixed_edition
+            .parent()
+            .unwrap_or_else(|| panic!("the edition folder has a parent"));
+
+        let base_edition = collect_tree_bytes(&base_out.join("edition"));
+        assert!(base_edition.contains_key("edition.toml"));
+        assert_eq!(
+            collect_tree_bytes(&mixed_edition),
+            base_edition,
+            "left-out records must change no edition byte, edition.toml and its fingerprint included"
+        );
+        assert_eq!(
+            collect_tree_bytes(&mixed_out.join("originals")),
+            collect_tree_bytes(&base_out.join("originals")),
+            "left-out records must change no shipped original"
+        );
+    }
+
+    #[test]
+    fn build_about_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let edition = deliver_with_disallowed_records(tmp.path());
+        let about = std::fs::read_to_string(edition.join("about.html"))
+            .unwrap_or_else(|e| panic!("the handler must deliver about.html: {e}"));
+        for shown in [
+            "<dt>Pages</dt><dd class=\"mono\">9</dd>",
+            "<dt>Claims</dt><dd class=\"mono\">5</dd>",
+            "<dt>Pages draft</dt><dd class=\"mono\">9</dd>",
+            "<dt>Pages stable</dt><dd class=\"mono\">0</dd>",
+            "<dt>Originals</dt><dd class=\"mono\">1</dd>",
+            "<dt>Claims unchecked</dt><dd class=\"mono\">4</dd>",
+            "This edition holds public only.",
+            "silent build",
+            "CL-CMP-0002",
+        ] {
+            assert!(about.contains(shown), "about.html must show `{shown}`");
+        }
+        let toml = std::fs::read_to_string(edition.join("edition.toml"))
+            .unwrap_or_else(|e| panic!("the handler must deliver edition.toml: {e}"));
+        let parsed = fieldbook_core::edition::EditionInfo::parse(&toml)
+            .unwrap_or_else(|e| panic!("edition.toml must parse: {e}"));
+        assert_eq!(parsed.counts.pages, 9);
+        assert_eq!(parsed.counts.claims, 5);
+        assert_eq!(parsed.counts.originals, 1);
+        assert!(!parsed.ids.claims.iter().any(|id| id == "CL-CMP-0098"));
+        assert!(
+            !parsed
+                .ids
+                .pages
+                .iter()
+                .any(|id| id == "est-forbidden-brief")
+        );
+        for needle in [
+            "CL-CMP-0098",
+            "Forbidden claim canary statement.",
+            "Q-098",
+            "XC-98",
+            "est-forbidden-brief",
+        ] {
+            assert!(!about.contains(needle), "about.html holds `{needle}`");
+            assert!(!toml.contains(needle), "edition.toml holds `{needle}`");
+        }
+    }
+
+    #[test]
+    fn build_home_and_areas_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let edition = deliver_with_disallowed_records(tmp.path());
+        assert_permitted_home_and_areas(&edition);
+        for (rel, bytes) in collect_tree_bytes(&edition) {
+            let text = String::from_utf8_lossy(&bytes);
+            for needle in [
+                "CL-CMP-0098",
+                "Forbidden claim canary statement.",
+                "Q-098",
+                "Forbidden day-one canary question?",
+                "XC-98",
+                "Forbidden conflict canary topic",
+                "est-forbidden-brief",
+                "Forbidden brief canary",
+                "est-dep-",
+                "Dependent ",
+                "CL-CMP-0096",
+                "CL-CMP-0097",
+                "forbidden_window",
+                "Forbidden glossary canary",
+                "XC-95",
+                "XC-96",
+                "XC-97",
+                "S-0098",
+                "Forbidden dependent source",
+            ] {
+                assert!(
+                    !text.contains(needle),
+                    "forbidden `{needle}` must not appear in edition/{rel}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn build_source_pages_and_originals_use_the_permitted_view() {
+        assert_the_build_path_ships_only_the_permitted_view();
+
+        // The same outcome at plan level, where the forbidden label is on the row itself (the
+        // loader reports it, so the build never reaches this view) and the tree keeps the bytes.
+        let tmp = temp_copy(&fixture_root());
+        let world = TestWorld::new(tmp.path());
+        let mut tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+
+        // The tree keeps the bytes of every original, as an in-memory tree does.
+        let stored = std::fs::read(tmp.path().join("corpus/sources/public/S-0002-v2.txt"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        tree.insert_bytes("corpus/sources/public/S-0002-v2.txt", stored.clone());
+
+        // A permitted source with an original, and a source with an original and a source row
+        // whose handling carries the label `np-0007` that the edition selection leaves out.
+        let permitted_html: &[u8] = b"<p>Permitted original canary, made up for tests.</p>\n";
+        let forbidden_html: &[u8] = b"<p>Forbidden original canary, made up for tests.</p>\n";
+        let sources = String::from_utf8(
+            tree.get_bytes("corpus/registers/sources.csv")
+                .unwrap_or_else(|| panic!("sources register"))
+                .to_vec(),
+        )
+        .unwrap_or_else(|e| panic!("{e}"));
+        let header = sources
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("header"))
+            .to_owned();
+        let row = |id: &str, title: &str, bytes: &[u8], handling: &str| {
+            let location = format!("S-{id}-v1.html");
+            let sha256 = fieldbook_core::audit::Sha256::digest(bytes)
+                .as_str()
+                .to_owned();
+            support::register_row(
+                &header,
+                &[
+                    ("source_id", &format!("S-{id}")),
+                    ("version", "1"),
+                    ("tag", &format!("synthetic-{id}")),
+                    ("title", title),
+                    ("publisher", "Synthetic Board"),
+                    ("source_kind", "primary_law"),
+                    ("source_role", "primary_evidence"),
+                    ("authority_tier", "A"),
+                    ("licence", "Synthetic, no restrictions"),
+                    ("location", &location),
+                    ("sha256", &sha256),
+                    ("as_of", "2026-02-01"),
+                    ("retrieved", "2026-02-01"),
+                    ("lifecycle", "active"),
+                    ("volatility", "V2"),
+                    ("handling", handling),
+                    ("note", "Synthetic source."),
+                    ("purpose", "Synthetic purpose for tests"),
+                ],
+            )
+        };
+        let mixed_sources = format!(
+            "{}\n{}\n{}\n",
+            sources.trim_end_matches('\n'),
+            row(
+                "0004",
+                "Permitted source page canary",
+                permitted_html,
+                "public"
+            ),
+            row(
+                "0098",
+                "Forbidden source page canary",
+                forbidden_html,
+                "public|np-0007"
+            ),
+        );
+        tree.insert_bytes("corpus/registers/sources.csv", mixed_sources.into_bytes());
+        tree.insert_bytes("corpus/sources/public/S-0004-v1.html", permitted_html);
+        tree.insert_bytes("corpus/sources/public/S-0098-v1.html", forbidden_html);
+        // A stored file no source row names has no page and ships nothing.
+        let orphan_html: &[u8] = b"<p>Orphan original canary, made up for tests.</p>\n";
+        tree.insert_bytes("corpus/sources/public/S-0097-v1.html", orphan_html);
+
+        // The loader reports the handling error of the forbidden row (FB0410) but still builds
+        // the model, which is what the permitted view must filter.
+        let (model, _report) = load(&Host::new(tree, world.today()), &Options::new(false));
+        let eff = EffectivePolicy::floor(false);
+        let now = world.now();
+        let shipped = Shipped::Hours(1);
+        let Decision::Allowed(sel) = check(&eff, &Dest::Edition, None, None, now, shipped) else {
+            panic!("expected selection Allowed");
+        };
+        let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
+        assert!(view.left_out() >= 1);
+
+        let out_dir = tmp.path().join("out-permitted");
+        let plan = plan_edition(
+            &view,
+            &BuildInfo::default(),
+            &out_dir,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("plan_edition: {e:?}"))
+        .unwrap_or_else(|d| panic!("plan_edition denied: {d:?}"));
+
+        let mut journal =
+            state::open(&world, world.state_dir(), Via::Cli).unwrap_or_else(|e| panic!("{e}"));
+        let audited = journal
+            .begin_export("build", &plan.write_set, &plan.allowed, &plan.out_dir)
+            .unwrap_or_else(|e| panic!("{e}"));
+        write_edition_outputs(&plan, &audited).unwrap_or_else(|e| panic!("{e}"));
+        journal
+            .end(audited, Word::new_static("ok"))
+            .unwrap_or_else(|e| panic!("{e}"));
+
+        let edition = out_dir.join("edition");
+        let originals = out_dir.join("originals");
+
+        // Permitted: the source page and its text, and the original byte for byte.
+        let permitted_page = std::fs::read_to_string(edition.join("s/S-0004-v1.html"))
+            .unwrap_or_else(|e| panic!("the permitted source page must be written: {e}"));
+        assert!(permitted_page.contains("Permitted source page canary"));
+        assert!(permitted_page.contains("href=\"../../originals/S-0004-v1.html.txt\""));
+        assert_eq!(
+            std::fs::read(originals.join("S-0004-v1.html.txt"))
+                .unwrap_or_else(|e| panic!("the permitted original must be written: {e}")),
+            permitted_html
+        );
+        assert_eq!(
+            std::fs::read(originals.join("S-0002-v2.txt")).unwrap_or_else(|e| panic!("{e}")),
+            stored
+        );
+
+        // Forbidden: no page, no original, no id or text in either folder.
+        assert!(!edition.join("s/S-0098-v1.html").exists());
+        assert!(!originals.join("S-0098-v1.html.txt").exists());
+        assert!(!originals.join("S-0098-v1.html").exists());
+        assert!(!edition.join("s/S-0097-v1.html").exists());
+        assert!(!originals.join("S-0097-v1.html.txt").exists());
+        assert_no_forbidden_text(
+            &edition,
+            &originals,
+            &[
+                "Forbidden source page canary",
+                "Forbidden original canary",
+                "Orphan original canary",
+                "S-0098",
+                "S-0097",
+            ],
         );
     }
 }

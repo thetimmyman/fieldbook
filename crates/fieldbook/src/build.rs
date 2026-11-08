@@ -1,6 +1,6 @@
 //! `fieldbook build [--out DIR]`: static site and edition builder (`build-v0`).
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 
 use fieldbook_core::audit::{
@@ -17,10 +17,11 @@ use fieldbook_core::policy::EffectivePolicy;
 use fieldbook_render::lint::{self, OriginalNames};
 use fieldbook_render::meta::{BuildInfo, MetadataError, RenderContext};
 use fieldbook_render::site::{self, Site};
+use fieldbook_render::source;
 
 use crate::cli::{BuildArgs, EXIT_FINDINGS, EXIT_IO, EXIT_OK, EXIT_USAGE};
 use crate::io::dirs::{self, BuildRoot};
-use crate::io::{Audited, Error, out, state};
+use crate::io::{Audited, Error, out, state, tree};
 use crate::{Outcome, World};
 
 /// Planned and delivery-bound edition output ready for `Journal::begin_export` and [`write_edition_outputs`].
@@ -40,9 +41,15 @@ pub struct BuildPlan {
     pub site: Site,
     /// Provenance input [`ItemRef`]s contributing to this output (`labels::effective_item`).
     pub input_items: Vec<ItemRef>,
-    /// Journal [`WriteSet`] covering `.fieldbook-out` and every file under `edition/`.
+    /// Resolved `DIR/originals` directory.
+    pub originals_dir: PathBuf,
+    /// The shipped originals, by shipped name (`S-0042-v2.html.txt`), byte for byte.
+    pub originals: BTreeMap<String, Vec<u8>>,
+    /// Journal [`WriteSet`] covering `.fieldbook-out`, every file under `edition/` and every file
+    /// under `originals/`.
     pub write_set: WriteSet,
-    /// Outbound [`Delivery`] covering optional directory removal, `.fieldbook-out`, and all site files.
+    /// Outbound [`Delivery`] covering optional directory removal, `.fieldbook-out`, all site
+    /// files and all shipped originals.
     pub delivery: Delivery,
     /// Delivery-bound [`Allowed`] token issued by `egress::check`.
     pub allowed: Allowed,
@@ -90,30 +97,72 @@ pub fn collect_view_inputs(view: &LabelledView) -> (Vec<ItemRef>, Vec<RecordRef>
     )
 }
 
+/// The shipped originals the tree of `view` holds as bytes, by shipped name.
+///
+/// A tree read from disk keeps only the hash of an original (`Entry::Original`), so `build`
+/// reads those bytes itself; this covers the in-memory trees of tests.
+fn in_memory_originals(view: &LabelledView) -> BTreeMap<String, Vec<u8>> {
+    source::shipped_originals(view)
+        .iter()
+        .filter_map(|o| {
+            o.entry
+                .as_bytes()
+                .map(|bytes| (o.shipped_name(), bytes.to_vec()))
+        })
+        .collect()
+}
+
+/// The pure hash comparison of one original: its bytes must hash to the `sha256` of its row.
+///
+/// # Errors
+///
+/// Returns an [`Outcome`] with exit code 3 when the hashes differ.
+pub fn check_original_hash(
+    version_id: &str,
+    expected_sha256: &str,
+    bytes: &[u8],
+) -> Result<(), Outcome> {
+    let actual = Sha256::digest(bytes);
+    if actual.as_str().eq_ignore_ascii_case(expected_sha256) {
+        return Ok(());
+    }
+    Err(Outcome {
+        stdout: String::new(),
+        stderr: format!(
+            "error: the original of {version_id} does not match the hash in its row; nothing was written\n"
+        ),
+        code: EXIT_IO,
+    })
+}
+
 #[expect(
     clippy::too_many_arguments,
-    reason = "shares the 7 plan_edition arguments plus pre-rendered Site"
+    reason = "shares the 7 plan_edition arguments plus pre-rendered Site, the originals and their names"
 )]
 fn build_plan_from_site(
     view: &LabelledView,
     context: RenderContext,
     site: Site,
+    originals: BTreeMap<String, Vec<u8>>,
+    names: &OriginalNames,
     out_dir: &Path,
     eff: &EffectivePolicy,
     labels: &LabelSet,
     now: Now,
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
-    let lint_diags = lint::lint(&site, &OriginalNames::default());
+    let lint_diags = lint::lint(&site, names);
     if !lint_diags.is_empty() {
         return Err(BuildPlanError::Lint(lint_diags));
     }
 
-    dirs::check_build_roots(out_dir, &[BuildRoot::Edition]).map_err(BuildPlanError::Io)?;
+    dirs::check_build_roots(out_dir, &[BuildRoot::Edition, BuildRoot::Originals])
+        .map_err(BuildPlanError::Io)?;
 
     let resolved_out_dir =
         crate::io::root::resolve_outside_path(out_dir).map_err(BuildPlanError::Io)?;
     let edition_dir = resolved_out_dir.join(BuildRoot::Edition.as_str());
+    let originals_dir = resolved_out_dir.join(BuildRoot::Originals.as_str());
     let marker_path = resolved_out_dir.join(dirs::MARKER_FILE);
     let marker_bytes = dirs::marker_bytes();
 
@@ -121,9 +170,14 @@ fn build_plan_from_site(
     if let Some(remove_tx) = dirs::tree_remove_transfer(&edition_dir).map_err(BuildPlanError::Io)? {
         entries.push(remove_tx);
     }
+    if let Some(remove_tx) =
+        dirs::tree_remove_transfer(&originals_dir).map_err(BuildPlanError::Io)?
+    {
+        entries.push(remove_tx);
+    }
     entries.push(Transfer::write_path(marker_path.clone(), &marker_bytes));
 
-    let mut write_files = Vec::with_capacity(site.files().len() + 1);
+    let mut write_files = Vec::with_capacity(site.files().len() + originals.len() + 1);
     write_files.push(WriteFile::new(
         dirs::MARKER_FILE,
         Sha256::digest(&marker_bytes).as_str().to_owned(),
@@ -131,6 +185,16 @@ fn build_plan_from_site(
 
     let rules = MarkingRules::default();
     let mut markings: Option<LabelSet> = None;
+    let mut note_markings = |bytes: &[u8]| {
+        if let Ok(text) = std::str::from_utf8(bytes)
+            && let Some(mset) = labels::markings_in(text, &rules)
+        {
+            markings = Some(match markings.take() {
+                Some(prev) => prev.union(&mset),
+                None => mset,
+            });
+        }
+    };
     for (rel, bytes) in site.files() {
         let target_path = edition_dir.join(rel);
         entries.push(Transfer::write_path(target_path, bytes));
@@ -138,14 +202,17 @@ fn build_plan_from_site(
             format!("{}/{rel}", BuildRoot::Edition.as_str()),
             Sha256::digest(bytes).as_str().to_owned(),
         ));
-        if let Ok(text) = std::str::from_utf8(bytes)
-            && let Some(mset) = labels::markings_in(text, &rules)
-        {
-            markings = Some(match markings {
-                Some(prev) => prev.union(&mset),
-                None => mset,
-            });
-        }
+        note_markings(bytes);
+    }
+    // A text original is scanned like a site file, so a marking banner in it reaches the
+    // egress check. A PDF is not text here; extraction scans it.
+    for (name, bytes) in &originals {
+        entries.push(Transfer::write_path(originals_dir.join(name), bytes));
+        write_files.push(WriteFile::new(
+            format!("{}/{name}", BuildRoot::Originals.as_str()),
+            Sha256::digest(bytes).as_str().to_owned(),
+        ));
+        note_markings(bytes);
     }
     let delivery = Delivery { entries, markings };
     let (input_items, affected) = collect_view_inputs(view);
@@ -170,6 +237,8 @@ fn build_plan_from_site(
             marker_bytes,
             context,
             site,
+            originals_dir,
+            originals,
             input_items,
             write_set,
             delivery,
@@ -182,6 +251,10 @@ fn build_plan_from_site(
 /// Validate `RenderContext`, render [`Site`], lint the rendered site (`FB0603`..=`FB0605`),
 /// repeat the root check, construct the [`Delivery`] and [`WriteSet`], and obtain the final
 /// delivery-bound [`Allowed`] token.
+///
+/// The shipped originals are those the tree of `view` holds as bytes; a tree read from disk
+/// keeps only their hashes, and [`plan_edition_with_originals`] takes their bytes from the caller.
+/// `lint` is given the name of every shipped original either way.
 ///
 /// # Errors
 ///
@@ -198,8 +271,48 @@ pub fn plan_edition(
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
     let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
-    let site = site::render_with_context(view, &context);
-    build_plan_from_site(view, context, site, out_dir, eff, labels, now, shipped)
+    let site = site::render_with_context(view, &context, info.profile);
+    build_plan_from_site(
+        view,
+        context,
+        site,
+        in_memory_originals(view),
+        &source::original_names(view),
+        out_dir,
+        eff,
+        labels,
+        now,
+        shipped,
+    )
+}
+
+/// Like [`plan_edition`], with the bytes of every shipped original read by the caller, by
+/// shipped name (`S-0042-v2.html.txt`). Every original goes into the [`WriteSet`] and the
+/// [`Delivery`] with its hash, and the names are the [`OriginalNames`] given to `lint`.
+///
+/// # Errors
+///
+/// Returns [`BuildPlanError`] as [`plan_edition`] does.
+#[expect(
+    clippy::too_many_arguments,
+    reason = "shares the 7 plan_edition arguments plus the originals"
+)]
+pub fn plan_edition_with_originals(
+    view: &LabelledView,
+    info: &BuildInfo,
+    out_dir: &Path,
+    eff: &EffectivePolicy,
+    labels: &LabelSet,
+    now: Now,
+    shipped: Shipped,
+    originals: BTreeMap<String, Vec<u8>>,
+) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
+    let context = site::render_context(view, info).map_err(BuildPlanError::Metadata)?;
+    let site = site::render_with_context(view, &context, info.profile);
+    let names = OriginalNames(originals.keys().cloned().collect());
+    build_plan_from_site(
+        view, context, site, originals, &names, out_dir, eff, labels, now, shipped,
+    )
 }
 
 /// Like [`plan_edition`], using an already-rendered [`Site`] (e.g. for testing lint failures in the build pipeline).
@@ -221,18 +334,41 @@ pub fn plan_edition_with_site(
     now: Now,
     shipped: Shipped,
 ) -> Result<Result<BuildPlan, Denial>, BuildPlanError> {
-    build_plan_from_site(view, context, site, out_dir, eff, labels, now, shipped)
+    build_plan_from_site(
+        view,
+        context,
+        site,
+        in_memory_originals(view),
+        &source::original_names(view),
+        out_dir,
+        eff,
+        labels,
+        now,
+        shipped,
+    )
 }
 
-/// Execute the final outward writes for `plan` under `audited`: replace `DIR/edition` via
-/// [`out::replace`] and write `DIR/.fieldbook-out` via [`crate::io::atomic::write_outside`].
+/// Execute the final outward writes for `plan` under `audited`: replace `DIR/edition` and
+/// `DIR/originals` via [`out::replace`] and write `DIR/.fieldbook-out` via
+/// [`crate::io::atomic::write_outside`].
 ///
 /// # Errors
 ///
 /// Returns [`Error`] if any delivery-binding check, marker check, directory removal, or atomic
 /// file write fails.
 pub fn write_edition_outputs(plan: &BuildPlan, audited: &Audited) -> Result<(), Error> {
+    // Check every file against the delivery before any folder is touched, so a refused byte or
+    // path in either folder leaves both as they were.
+    for (rel, bytes) in plan.site.files() {
+        let target = plan.edition_dir.join(rel);
+        let _ = crate::io::atomic::check_outside_write_binding(&plan.allowed, &target, bytes)?;
+    }
+    for (rel, bytes) in &plan.originals {
+        let target = plan.originals_dir.join(rel);
+        let _ = crate::io::atomic::check_outside_write_binding(&plan.allowed, &target, bytes)?;
+    }
     out::replace(&plan.edition_dir, plan.site.files(), &plan.allowed, audited)?;
+    out::replace(&plan.originals_dir, &plan.originals, &plan.allowed, audited)?;
     let _ = crate::io::atomic::write_outside(
         &plan.allowed,
         &plan.marker_path,
@@ -327,7 +463,8 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
     };
 
     // 2. Check target build roots before opening the journal or taking the exclusive lease.
-    if let Err(err) = dirs::check_build_roots(&out_dir, &[BuildRoot::Edition]) {
+    if let Err(err) = dirs::check_build_roots(&out_dir, &[BuildRoot::Edition, BuildRoot::Originals])
+    {
         return map_root_error(err);
     }
 
@@ -407,8 +544,13 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
 
     let view = LabelledView::new(&model, &selection, &ReadableStores::corpus());
 
-    // 6. Plan and render edition, validating RenderContext and binding Delivery.
-    let plan = match plan_edition(
+    // 6. Read the shipped originals, hash each against its row, then plan and render the
+    //    edition, validating RenderContext and binding Delivery.
+    let originals = match read_shipped_originals(world, &view) {
+        Ok(o) => o,
+        Err(outcome) => return outcome,
+    };
+    let plan = match plan_edition_with_originals(
         &view,
         info,
         &out_dir,
@@ -416,6 +558,7 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
         &LabelSet::public(),
         now,
         shipped,
+        originals,
     ) {
         Ok(Ok(plan)) => plan,
         Ok(Err(denial)) => {
@@ -488,11 +631,44 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
     }
 
     drop(lease);
+    let mut stdout = String::new();
+    for vid in source::held_versions(&view) {
+        stdout.push_str("held ");
+        stdout.push_str(vid.as_str());
+        stdout.push('\n');
+    }
     Outcome {
-        stdout: String::new(),
+        stdout,
         stderr: String::new(),
         code: EXIT_OK,
     }
+}
+
+/// Reads the bytes of every shipped original of `view` (from the tree when it keeps them,
+/// otherwise from `corpus/sources/public/` under the tree root) and checks each against the
+/// `sha256` of its row. The edition's originals are the public originals of the Corpus; no
+/// other folder is read.
+fn read_shipped_originals(
+    world: &dyn World,
+    view: &LabelledView,
+) -> Result<BTreeMap<String, Vec<u8>>, Outcome> {
+    let mut originals = BTreeMap::new();
+    for original in source::shipped_originals(view) {
+        let bytes =
+            match original.entry.as_bytes() {
+                Some(bytes) => bytes.to_vec(),
+                None => tree::read_file(&world.tree_root().join(original.stored_path())).map_err(
+                    |err| Outcome {
+                        stdout: String::new(),
+                        stderr: format!("{err}\n"),
+                        code: EXIT_IO,
+                    },
+                )?,
+            };
+        check_original_hash(&original.version_id(), original.row_sha256(), &bytes)?;
+        originals.insert(original.shipped_name(), bytes);
+    }
+    Ok(originals)
 }
 
 /// Run `fieldbook build` reading `SOURCE_DATE_EPOCH` and compile-time `FIELDBOOK_GIT_SHA`
@@ -501,4 +677,27 @@ pub fn run_with_info(args: &BuildArgs, world: &dyn World, info: &BuildInfo) -> O
 pub fn run(args: &BuildArgs, world: &dyn World) -> Outcome {
     let info = crate::io::build_info_from_env();
     run_with_info(args, world, &info)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const BYTES: &[u8] = b"synthetic original bytes, made up for tests\n";
+
+    #[test]
+    fn original_hash_mismatch_is_an_error() {
+        let row_hash = Sha256::digest(BYTES).as_str().to_owned();
+        assert!(check_original_hash("S-0001-v1", &row_hash, BYTES).is_ok());
+
+        let other = "0".repeat(64);
+        let err = check_original_hash("S-0001-v1", &other, BYTES)
+            .err()
+            .unwrap_or_else(|| unreachable!("a different hash must be refused"));
+        assert_eq!(err.code, EXIT_IO);
+        assert!(err.stderr.contains("S-0001-v1"));
+        assert!(err.stdout.is_empty());
+
+        assert!(check_original_hash("S-0001-v1", &row_hash, b"changed bytes").is_err());
+    }
 }

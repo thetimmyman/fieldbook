@@ -71,7 +71,7 @@ Alternate I. For a prime modification that makes paragraphs (b) and (c) operativ
 
 This clause has the Contractor require certified cost or pricing data from the subcontractor and insert the substance of the clause in subcontracts that exceed the threshold [@CL-EST-2210; @CL-EST-2180]. For the price reduction clause, see [Price reduction for defective certified data on modifications under sealed bidding](est-price-reduction-defective-data-sealed-bidding-modifications.md).
 
-The certificate speaks as of the date of agreement on the negotiated price of the subcontract or subcontract modification [@CL-EST-2213].
+The certificate, given to the best of the subcontractor's knowledge and belief, speaks as of the date of agreement on the negotiated price of the subcontract or subcontract modification [@CL-EST-2213].
 
 Alternate I is substituted in place of paragraph (b) of the basic clause [@CL-EST-2214].
 
@@ -87,6 +87,7 @@ Confirm which subcontracts under modified sealed bidding contracts crossed the t
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cut absence statements, inferences and unquoted contrasts and removed next-sentence pointers.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned the Alternate I prescription sentence with its quote and removed an unsupported contract-specific gloss.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

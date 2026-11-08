@@ -13,6 +13,7 @@ mod page {
     use fieldbook_core::review::page_review_by;
     use fieldbook_core::schema::ClaimRow;
     use fieldbook_core::strings;
+    use fieldbook_render::chip;
     use fieldbook_render::inline::first_sentence_of_purpose;
     use fieldbook_render::links::{
         render_area_chip, render_citation_chip, render_claim_chip, render_conflict_chip,
@@ -20,7 +21,7 @@ mod page {
     };
     use fieldbook_render::meta::BuildInfo;
     use fieldbook_render::nav;
-    use fieldbook_render::page::{render_main, render_page};
+    use fieldbook_render::page::{render_due_claims, render_main, render_page};
     use fieldbook_render::site::{self, PlannedPaths};
 
     const APP_CSS: &str = include_str!("../assets/app.css");
@@ -409,6 +410,42 @@ mod page {
     }
 
     #[test]
+    fn purpose_summary_drops_citation_markers() {
+        let plain =
+            "Explain how a synthetic system review interacts with a synthetic billing withhold";
+        for (purpose, want) in [
+            (format!("{plain} [@CL-CMP-0001]."), format!("{plain}.")),
+            (
+                format!("{plain} [@CL-CMP-0001; @CL-CMP-0002]."),
+                format!("{plain}."),
+            ),
+            (
+                format!("{plain} [@CL-CMP-0001] [@CL-CMP-0002]."),
+                format!("{plain}."),
+            ),
+            (
+                format!("{plain} [@S-0001-v1, sec. 1]. Second [@CL-CMP-0002]."),
+                format!("{plain}."),
+            ),
+        ] {
+            let mut tree = fixture_tree();
+            tree.insert_bytes(
+                "corpus/pages/compliance/business-systems/cmp-system-review.md",
+                CMP_SYSTEM_REVIEW_MD
+                    .replace(&format!("{plain}."), &purpose)
+                    .into_bytes(),
+            );
+            let (_model, view) = load_view(tree);
+            let concept = view
+                .pages()
+                .iter()
+                .find(|p| p.id.as_str() == "cmp-system-review")
+                .unwrap();
+            assert_eq!(first_sentence_of_purpose(concept), want, "from: {purpose}");
+        }
+    }
+
+    #[test]
     fn md_links_become_html() {
         let mut tree = fixture_tree();
         let two_sentence_concept = CMP_SYSTEM_REVIEW_MD.replace(
@@ -475,6 +512,160 @@ mod page {
             html.contains(&format!("data-review-by=\"{expected_date}\" hidden")),
             "expected overdue review banner with data-review-by=\"{expected_date}\" and hidden"
         );
+    }
+
+    /// Every cited claim with a computed review date gets a hidden row with the verify chip;
+    /// a claim with no known date gets none, and only the viewer's script can reveal a row.
+    #[test]
+    fn overdue_claim_uses_verify_command_chip() {
+        const APP_JS: &str = include_str!("../assets/app.js");
+        let row = "data-claim-review-by=";
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(SNAPSHOT_PLANNED);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+        let claim = view
+            .claims()
+            .iter()
+            .find(|c| c.value.claim_id.as_str() == "CL-CMP-0001")
+            .unwrap();
+        let base = claim
+            .value
+            .as_of
+            .map(|d| d.first_day())
+            .max(claim.value.verified_on)
+            .unwrap();
+        let date = fieldbook_core::date::review_by(base, claim.value.volatility);
+        assert!(
+            html.contains(&format!("{row}\"{date}\" hidden")),
+            "the row must carry the computed date and start hidden:\n{html}"
+        );
+
+        // Neither branch changes the rows: the due ids, their dates and the hidden start.
+        let from_path = "p/cmp-system-review.html";
+        let ids = [
+            ClaimId::parse("CL-CMP-0001").unwrap(),
+            ClaimId::parse("CL-CMP-0002").unwrap(),
+        ];
+        let landing = "The verify command is not available until Day 30.";
+        let not_landed = render_due_claims(from_path, &ids, &view, &planned, false);
+        let landed = render_due_claims(from_path, &ids, &view, &planned, true);
+        for fold in [&not_landed, &landed] {
+            assert_eq!(fold.matches(row).count(), 2, "{fold}");
+            assert!(fold.contains("data-claim=\"CL-CMP-0001\""), "{fold}");
+            assert!(fold.contains("data-claim=\"CL-CMP-0002\""), "{fold}");
+            assert!(fold.contains(&format!("{row}\"{date}\" hidden")), "{fold}");
+        }
+
+        // Not landed: one landing line for the fold, and nothing to copy or to run.
+        assert_eq!(not_landed.matches(landing).count(), 1, "{not_landed}");
+        for absent in [
+            "role=\"group\"",
+            "class=\"cmd",
+            "<button",
+            "data-copy-chip",
+            "Copy",
+            "fieldbook verify",
+            "YYYY-MM-DD",
+        ] {
+            assert!(!not_landed.contains(absent), "{absent}: {not_landed}");
+        }
+
+        // Landed: the chip on each row, with its literal placeholder and tag, and no landing line.
+        assert!(!landed.contains(landing), "{landed}");
+        assert!(
+            landed.contains("<code>fieldbook verify CL-CMP-0001 --on YYYY-MM-DD</code>"),
+            "the chip keeps the literal date placeholder:\n{landed}"
+        );
+        assert!(landed.contains("<code>fieldbook verify CL-CMP-0002 --on YYYY-MM-DD</code>"));
+        assert_eq!(landed.matches("role=\"group\"").count(), 2, "{landed}");
+        assert_eq!(landed.matches("data-copy-chip=").count(), 2, "{landed}");
+        assert_eq!(
+            landed
+                .matches(&format!(
+                    "<span class=\"cmd-tag\">{}</span>",
+                    strings::tag_at_home()
+                ))
+                .count(),
+            2,
+            "{landed}"
+        );
+
+        // The page takes its branch from the one value.
+        assert_eq!(html.contains("fieldbook verify"), chip::VERIFY_LANDED);
+        assert_eq!(html.contains(landing), !chip::VERIFY_LANDED);
+
+        assert!(html.contains("<div class=\"due-claims\" hidden><details class=\"fold\"><summary><b>Claims due for a check</b> <span class=\"due-count mono\"></span></summary>"));
+        assert!(
+            html.find("<details class=\"fold\"><summary><b>Claims due")
+                .unwrap()
+                < html.find(row).unwrap()
+                && html.find(row).unwrap() < html.find("</details></div>").unwrap(),
+            "the fold holds the rows, closed by default"
+        );
+        let banner_end = html.find("<header class=\"page-head\">").unwrap();
+        assert!(
+            html.find(row).unwrap() < banner_end,
+            "the rows sit in the overdue banner"
+        );
+
+        // A claim with neither `as_of` nor `verified_on` has an unknown date: no row, no chip.
+        let mut tree = fixture_tree();
+        let claims = tree.get_bytes("corpus/registers/claims.csv").unwrap();
+        let claims = std::str::from_utf8(claims).unwrap();
+        let mut rows = csv_rows(claims);
+        let header = rows[0].clone();
+        let at = |name: &str| header.iter().position(|c| c == name).unwrap();
+        for record in rows.iter_mut().skip(1) {
+            if record[at("kind")] != "fact" {
+                continue;
+            }
+            record[at("as_of")].clear();
+            record[at("verified_on")].clear();
+            record[at("verified_by_role")].clear();
+            record[at("verification")] = "stale".to_owned();
+            record[at("note")] = "as_of unknown".to_owned();
+        }
+        tree.insert_bytes("corpus/registers/claims.csv", csv_text(&rows).into_bytes());
+        let (_model, view) = load_view(tree);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-system-review")
+            .unwrap();
+        let unknown = render_main(page, &view, &planned);
+        assert!(
+            !unknown.contains(row) && !unknown.contains("due-claims") && !unknown.contains(landing),
+            "an unknown review date is never overdue:\n{unknown}"
+        );
+
+        // The viewer's own date decides, in the page script; the build reads no clock.
+        assert!(APP_JS.contains("rows[j].getAttribute('data-claim-review-by')"));
+        assert!(APP_JS.contains("claimBy && today > claimBy"));
+        assert!(APP_JS.contains("rows[j].hidden = false"));
+        assert!(APP_JS.contains("dueCount.textContent = String(dueRows)"));
+    }
+
+    fn csv_rows(text: &str) -> Vec<Vec<String>> {
+        let mut reader = csv::ReaderBuilder::new()
+            .has_headers(false)
+            .from_reader(text.as_bytes());
+        reader
+            .records()
+            .map(|r| r.unwrap().iter().map(str::to_owned).collect())
+            .collect()
+    }
+
+    fn csv_text(rows: &[Vec<String>]) -> String {
+        let mut writer = csv::Writer::from_writer(Vec::new());
+        for row in rows {
+            writer.write_record(row).unwrap();
+        }
+        String::from_utf8(writer.into_inner().unwrap()).unwrap()
     }
 
     #[test]
@@ -632,6 +823,49 @@ mod page {
         assert!(
             html.contains("<input type=\"checkbox\" checked disabled> Verify Done"),
             "checked task list item must render checked disabled checkbox: {html}"
+        );
+    }
+
+    #[test]
+    fn held_citation_shows_reason_without_link() {
+        let mut tree = fixture_tree();
+        let held_row = "S-0004,1,held-source,\"Synthetic Held Source, made up for tests\",Synthetic Board,primary_law,primary_evidence,A,\"Synthetic, no restrictions\",,,metadata-only: made up for tests,5555555555555555555555555555555555555555555555555555555555555555,2026-01-01,,2026-02-01,2026-02-01,quarantined,,V2,public,Held <for> review & test.,Synthetic test,,,,,\n";
+        tree.insert_bytes(
+            "corpus/registers/sources.csv",
+            format!("{SOURCES_CSV}{held_row}").into_bytes(),
+        );
+        let updated = CMP_REVIEW_STEPS_MD.replace(
+            "## How it works\n",
+            "## How it works\n\nThe held source says so [@S-0004-v1, sec. 1] and the active source says so [@S-0002-v2, sec. 1].\n\n",
+        );
+        tree.insert_bytes(
+            "corpus/pages/compliance/business-systems/cmp-review-steps.md",
+            updated.into_bytes(),
+        );
+        let (_model, view) = load_view(tree);
+        let planned = site::planned_paths(&view);
+        let page = view
+            .pages()
+            .iter()
+            .find(|p| p.id.as_str() == "cmp-review-steps")
+            .unwrap();
+        let html = render_main(page, &view, &planned);
+
+        assert!(
+            html.contains("Held: Held &lt;for&gt; review &amp; test."),
+            "the escaped hold reason must show beside the held citation: {html}"
+        );
+        assert!(
+            !html.contains("Held <for>"),
+            "the hold reason must be escaped: {html}"
+        );
+        assert!(
+            !html.contains("S-0004-v1.html") && !html.contains("sources.html#S-0004-v1"),
+            "a held version has neither a source page link nor a register fallback: {html}"
+        );
+        assert!(
+            html.contains("href=\"../s/S-0002-v2.html\""),
+            "the active comparison version keeps its link: {html}"
         );
     }
 }

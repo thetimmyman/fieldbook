@@ -55,7 +55,7 @@ Synthetic example. The numbers are made up.
 
 A solicitation requires SAM registration and includes the entity code reporting provision, so the ownership and predecessor paragraphs apply [@CL-CMP-9018; @CL-CMP-9028]. The offeror is a joint venture of two members, so it responds to the immediate owner questions, and where a member's immediate owner is itself owned or controlled by another entity, to the highest-level owner questions, for each participant [@CL-CMP-9019]. One member is owned by a holding company that is owned by a parent, so that member enters the holding company as its immediate owner and the parent as its highest-level owner, each by CAGE code and legal name [@CL-CMP-9020; @CL-CMP-9021].
 
-The offeror marks that it is not a corporation with an assessed, unpaid Federal tax liability that is not being paid in a timely manner, and that it is not a corporation convicted of a Federal felony within the preceding 24 months [@CL-CMP-9026; @CL-CMP-9027]. It became a successor to one predecessor that held a Federal contract two years ago, which is within the look-back, so it marks that it is a successor and enters the predecessor's legal name and CAGE code, or Unknown if the code is not known [@CL-CMP-9029; @CL-CMP-9030; @CL-CMP-9195].
+The offeror marks that it is not a corporation with an assessed, unpaid Federal tax liability for which all judicial and administrative remedies have been exhausted or have lapsed, and that is not being paid in a timely manner pursuant to an agreement with the authority responsible for collecting the tax liability, and that it is not a corporation convicted of a Federal felony within the preceding 24 months [@CL-CMP-9026; @CL-CMP-9223; @CL-CMP-9027]. It became a successor to one predecessor that held a Federal contract two years ago, which is within the look-back, so it marks that it is a successor and enters the predecessor's legal name and CAGE code, or Unknown if the code is not known [@CL-CMP-9029; @CL-CMP-9030; @CL-CMP-9195].
 
 ## Never confuse
 
@@ -71,6 +71,8 @@ The company must confirm which of its offers carry these answers and who assembl
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed meta, absence statements and contrasts; restated owner, tax and predecessor steps with cited text; fixed RFO wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the ownership, tax liability, felony conviction and predecessor paragraphs of the commercial offeror provision.

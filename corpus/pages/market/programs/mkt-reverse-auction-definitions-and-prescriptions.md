@@ -35,7 +35,7 @@ The contracting officer shall insert the provision at 52.217-10, Reverse Auction
 
 ## How it works
 
-The 52.217-10 provision is prescribed for solicitations when using a reverse auction to award a contract or blanket purchase agreement, whereas the 52.217-11 and 52.217-12 clauses are prescribed for solicitations and contracts when a reverse auction may be used to place orders under a multiple-award contract or blanket purchase agreement and when purchasing reverse auction services [@CL-MKT-2124; @CL-MKT-2125; @CL-MKT-2126]. The definitions distinguish Government data created or obtained by the Government from Government-related data created or obtained by a contractor through the storage, processing, or communication of Government data, and exclude the contractor's business records (e.g., financial records, legal records, etc.) and data such as operating procedures, software coding, or algorithms that are not uniquely applied to the Government data [@CL-MKT-2120; @CL-MKT-2121; @CL-MKT-2122].
+The 52.217-10 provision is prescribed for solicitations when using a reverse auction to award a contract or blanket purchase agreement, whereas the 52.217-11 and 52.217-12 clauses are prescribed for solicitations and contracts when a reverse auction may be used to place orders under a multiple-award contract or blanket purchase agreement and when purchasing reverse auction services [@CL-MKT-2124; @CL-MKT-2125; @CL-MKT-2126]. The definitions distinguish Government data created or obtained by the Government from Government-related data created or obtained by a contractor through the storage, processing, or communication of Government data, and the definition of Government-related data excludes the contractor's business records (e.g., financial records, legal records, etc.) and data such as operating procedures, software coding, or algorithms that are not uniquely applied to the Government data [@CL-MKT-2120; @CL-MKT-2121; @CL-MKT-2122].
 
 ## Worked example
 
@@ -54,6 +54,7 @@ Which agreements use reverse auctions, and who confirms the provision and clause
 ## Sources
 
 ## Change note
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Restored the parenthetical business-records examples and removed unquoted commentary.
 - COMPATIBLE_EXTENSION, 2026-10-31: exclusions wording follows definition.
 - NEW_KNOWLEDGE, 2026-10-29: Drafted the clause card for the reverse auction definitions and the provision and clause prescriptions.

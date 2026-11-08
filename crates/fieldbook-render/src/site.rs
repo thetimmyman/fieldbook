@@ -12,9 +12,9 @@ use fieldbook_core::schema::vocab::Lifecycle;
 use fieldbook_core::strings;
 use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
-use crate::frame::{FrameInput, PRODUCT_TITLE, StoreContext, render_page};
-use crate::meta::{BuildInfo, MetadataError, RenderContext};
-use crate::{ids, nav, register};
+use crate::cite::OriginalAvailability;
+use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
+use crate::{about, area, edition, home, ids, nav, register, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -133,44 +133,41 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         "assets/app.js".to_owned(),
         "assets/strings.js".to_owned(),
         ids::OUTPUT_PATH.to_owned(),
-        "index.html".to_owned(),
+        home::OUTPUT_PATH.to_owned(),
+        about::OUTPUT_PATH.to_owned(),
+        edition::OUTPUT_PATH.to_owned(),
     ];
+    paths.extend(area::page_paths(view));
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
     }
+    for vid in source::page_versions(view) {
+        paths.push(source::page_path(vid.as_str()));
+    }
     PlannedPaths::from_owned(paths)
 }
 
-/// Renders a [`Site`] from `view` and a validated [`RenderContext`].
+/// Renders a [`Site`] from `view`, a validated [`RenderContext`] and the compiled `profile`.
 #[must_use]
-pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
-    let built_date = match ctx {
-        RenderContext::Public(edition) => {
-            (!edition.built.is_empty()).then_some(edition.built.as_str())
-        }
-    };
+pub fn render_with_context(
+    view: &LabelledView,
+    ctx: &RenderContext,
+    profile: BuildProfile,
+) -> Site {
     let planned = planned_paths(view);
     let navigation = nav::build(view, &planned);
-    let store = match ctx {
-        RenderContext::Public(_) => StoreContext::Public,
-    };
-
-    let index_html = render_page(&FrameInput {
-        output_path: "index.html",
-        title: PRODUCT_TITLE,
-        page_area: None,
-        built_date,
-        store: &store,
-        crumbs: &[],
-        main_html: "",
-        nav: &navigation,
-    });
-
     let mut site = Site::new();
-    site.insert("index.html", index_html.into_bytes());
+    let index_html = home::render_page(view, ctx, &navigation, &planned);
+    site.insert(home::OUTPUT_PATH, index_html.into_bytes());
+    if let Some(corpus) = view.corpus() {
+        for def in &corpus.area {
+            let html = area::render_page(def, view, ctx, &navigation, &planned);
+            site.insert(&area::page_path(&def.code), html.into_bytes());
+        }
+    }
     for reg in Register::ALL {
         let reg_path = register::output_path(reg);
         let html = register::render_page(reg, view, ctx, &navigation, &planned);
@@ -178,10 +175,21 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
     }
     let ids_html = ids::render_page(view, ctx, &navigation, &planned);
     site.insert(ids::OUTPUT_PATH, ids_html.into_bytes());
+    let about_html = about::render_page(view, ctx, profile, &navigation, &planned);
+    site.insert(about::OUTPUT_PATH, about_html.into_bytes());
+    site.insert(edition::OUTPUT_PATH, edition::toml_bytes(ctx));
     for page in view.pages() {
         let page_path = format!("p/{}.html", page.id);
         let html = crate::page::render_page(page, view, ctx, &navigation, &planned);
         site.insert(&page_path, html.into_bytes());
+    }
+    let availability = OriginalAvailability::from_view(view);
+    for vid in source::page_versions(view) {
+        if let Some(html) =
+            source::render_page(&vid, view, ctx, &navigation, &planned, &availability)
+        {
+            site.insert(&source::page_path(vid.as_str()), html.into_bytes());
+        }
     }
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
@@ -202,5 +210,5 @@ pub fn render_with_context(view: &LabelledView, ctx: &RenderContext) -> Site {
 /// Returns [`MetadataError`] if `view` is non-public or if `changes.md` fails edition metadata checks.
 pub fn render(view: &LabelledView, info: &BuildInfo) -> Result<Site, MetadataError> {
     let ctx = render_context(view, info)?;
-    Ok(render_with_context(view, &ctx))
+    Ok(render_with_context(view, &ctx, info.profile))
 }

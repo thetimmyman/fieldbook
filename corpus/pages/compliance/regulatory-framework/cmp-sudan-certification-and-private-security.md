@@ -25,7 +25,7 @@ Explains the certification an offeror gives about restricted business operations
 | RFO citation | RFO FAR 52.240-90(a) and (e) [@CL-CMP-6301; @CL-CMP-6300]; RFO FAR 52.225-26 [@CL-CMP-6308; @CL-CMP-6309]; the RFO text prints FAR 52.225-20 as reserved [@CL-CMP-6299] |
 | Edition date | Not established. |
 | Text status | Final [@CL-CMP-5427] |
-| Applies to | Offerors submitting offers with the Sudan certification, and contractors whose personnel perform private security functions as the clause defines them [@CL-CMP-5427; @CL-CMP-5489; @CL-CMP-5490] |
+| Applies to | Offerors submitting offers with the Sudan certification [@CL-CMP-5427]; the private security clause defines private security functions [@CL-CMP-5489; @CL-CMP-5490] and, for a contract performed both in a designated area and in an area that is not designated, applies only to performance in the designated areas [@CL-CMP-5491; @CL-CMP-5492] |
 
 Sudan certification. By submission of its offer, the offeror certifies that it does not conduct any restricted business operations in Sudan [@CL-CMP-5427]. Restricted business operations are business operations in Sudan that include power production activities, mineral extraction activities, oil-related activities, or the production of military equipment, as those terms are defined in the Sudan Accountability and Divestment Act of 2007 [@CL-CMP-5428].
 
@@ -84,6 +84,7 @@ Whether any entity in the group conducts Sudan business operations and who confi
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sudan and private security: removed explanatory wording about alternatives.
 - COMPATIBLE_EXTENSION, 2026-10-31: Sudan and private security: designated areas stated as alternatives, removed added only.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on personnel in a designated operational area.

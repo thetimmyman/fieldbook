@@ -29,7 +29,7 @@ Shows how instant contract savings and collateral savings are worked out and sha
 | Text status | Final [@CL-SUP-3131] |
 | Applies to | Contracts that include the construction value engineering clause, basic or with Alternate I [@CL-SUP-3131; @CL-SUP-3223] |
 
-Instant contract savings are the estimated reduction in Contractor cost of performance resulting from acceptance of the proposal, minus allowable Contractor development and implementation costs, including subcontractors' development and implementation costs [@CL-SUP-3133]. The contractor's development and implementation costs are those it incurs on a proposal specifically in developing, testing, preparing and submitting it, as well as those it incurs to make the contractual changes required by Government acceptance [@CL-SUP-3204]. Government costs are agency costs that result directly from developing and implementing the proposal, such as any net increases in the cost of testing, operations, maintenance and logistic support [@CL-SUP-3205]. They do not include the normal administrative costs of processing the proposal [@CL-SUP-3206].
+Instant contract savings are the estimated reduction in Contractor cost of performance resulting from acceptance of the proposal, minus allowable Contractor development and implementation costs, including subcontractors' development and implementation costs [@CL-SUP-3133]. The contractor's development and implementation costs are those it incurs on a value engineering change proposal specifically in developing, testing, preparing and submitting it, as well as those it incurs to make the contractual changes required by Government acceptance [@CL-SUP-3204]. Government costs are agency costs that result directly from developing and implementing the proposal, such as any net increases in the cost of testing, operations, maintenance and logistic support [@CL-SUP-3205]. They do not include the normal administrative costs of processing the proposal [@CL-SUP-3206].
 
 The contractor shares in any instant contract savings realized from accepted proposals [@CL-SUP-3122]. The Government's share of savings is found by subtracting Government costs from instant contract savings and multiplying the result by 45 percent for fixed-price contracts or 75 percent for cost-reimbursement contracts [@CL-SUP-3131]. Payment of any share due the contractor is authorized by a modification to the contract that accepts the proposal [@CL-SUP-3222]. The modification reduces the contract price or estimated cost by the amount of instant contract savings and provides the contractor's share of savings by adding the amount calculated to the contract price or fee [@CL-SUP-3132].
 
@@ -69,6 +69,7 @@ Who computes the instant and collateral savings figures, how the company works o
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: Aligned savings-sharing summaries with the cited quotes and removed meta commentary and uncited contrasts.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed an unstated "only" in the calibration prompt.
 - COMPATIBLE_EXTENSION, 2026-10-31: Added the RFO FAR part 52 citation and how DoD's class deviation applies it.

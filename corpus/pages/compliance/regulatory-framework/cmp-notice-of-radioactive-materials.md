@@ -30,7 +30,7 @@ Sets out the written notice a contractor gives before delivering or servicing it
 
 The contractor must notify the contracting officer or designee in writing, the number of days that the contract inserts before delivery of items, or before completion of any servicing the contract requires of items, that contain either of two kinds of radioactive material [@CL-CMP-5189]. The clause prints the number of days as a blank [@CL-CMP-5189]. The Contracting Officer shall insert the number of days required in advance of delivery of the item or completion of the servicing to assure that required licenses are obtained and appropriate personnel are notified to institute any necessary safety and health precautions [@CL-CMP-5292].
 
-The first kind is radioactive material requiring specific licensing under the regulations issued pursuant to the Atomic Energy Act of 1954, as set forth in title 10 of the Code of Federal Regulations in effect on the date of the contract [@CL-CMP-5190]. The second kind is other radioactive material not requiring specific licensing in which the specific activity is greater than 0.002 microcuries per gram or the activity per item equals or exceeds 0.01 microcuries [@CL-CMP-5191].
+The first kind is radioactive material requiring specific licensing under the regulations issued pursuant to the Atomic Energy Act of 1954, as amended, as set forth in title 10 of the Code of Federal Regulations in effect on the date of the contract [@CL-CMP-5190]. The second kind is other radioactive material not requiring specific licensing in which the specific activity is greater than 0.002 microcuries per gram or the activity per item equals or exceeds 0.01 microcuries [@CL-CMP-5191].
 
 ## How it works
 
@@ -68,6 +68,7 @@ Whether shipping records identify every item that meets the licensing or activit
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Page sentences aligned with the conditions in their cited claims.
 - COMPATIBLE_EXTENSION, 2026-10-31: Removed contrasts and inference; restated number of days, waiver, marking and notice text; fixed RFO wording.
 - COMPATIBLE_EXTENSION, 2026-10-31: Linked the related card on hazardous material identification.
 - COMPATIBLE_EXTENSION, 2026-10-31: Corrected the waiver sentence so the waiver request keeps the notice requirement in paragraph (a) that it applies to.

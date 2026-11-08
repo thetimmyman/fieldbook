@@ -49,7 +49,7 @@ Answer: the plan lets the company and its affiliate take part despite the prohib
 
 ## Never confuse
 
-The prohibition applies to participation as a prime contractor or major subcontractor in the development or production of a weapon system under the major defense acquisition program or pre-major defense acquisition program [@CL-CMP-4103]. For the general FAR rules on organizational conflicts of interest, see [the general rules card](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md). For the DFARS limit on contractors acting as lead system integrators, see [the lead system integrator card](cmp-lead-system-integrator-limits.md).
+Except as provided in paragraph (d) of the clause, the prohibition applies to participation as a prime contractor or major subcontractor in the development or production of a weapon system under the major defense acquisition program or pre-major defense acquisition program [@CL-CMP-4131; @CL-CMP-4103]. For the general FAR rules on organizational conflicts of interest, see [the general rules card](../../mna/diligence/mna-organizational-conflicts-of-interest-general-rules.md). For the DFARS limit on contractors acting as lead system integrators, see [the lead system integrator card](cmp-lead-system-integrator-limits.md).
 
 ## Company calibration
 
@@ -59,6 +59,7 @@ Which solicitations and contracts are systems engineering and technical assistan
 
 ## Change note
 
+- COMPATIBLE_EXTENSION, 2026-11-06: Stated the conditions and limits the cited text carries, after a full-source check.
 - COMPATIBLE_EXTENSION, 2026-10-31: MDAP conflicts: cited the major subcontractor definition lead-in.
 - COMPATIBLE_EXTENSION, 2026-10-31: Cited both major subcontractor alternatives; removed meta and absence statements; split scope citation.
 - COMPATIBLE_EXTENSION, 2026-10-31: Named the apparently successful offeror in the plan incorporation summary.
