@@ -72,11 +72,49 @@ pub fn edition_units(units: Vec<Unit>) -> Vec<Unit> {
         .collect()
 }
 
-/// Builds the edition's [`Index`] over the page and section units of `view` alone.
+/// Builds the edition's [`Index`] over the page and section units of `view` alone, with the URL
+/// schemes removed from its display strings ([`strip_url_schemes`]).
 #[must_use]
 pub fn build(view: &LabelledView) -> Index {
     let (units, glossary) = view_units(view);
-    Index::build(edition_units(units), &glossary)
+    let mut index = Index::build(edition_units(units), &glossary);
+    for doc in &mut index.docs {
+        for field in [
+            &mut doc.id,
+            &mut doc.kind,
+            &mut doc.title,
+            &mut doc.parent,
+            &mut doc.snippet,
+            &mut doc.status,
+            &mut doc.as_of,
+            &mut doc.effective_from,
+            &mut doc.verified_on,
+            &mut doc.exact_key,
+        ] {
+            *field = strip_url_schemes(field);
+        }
+    }
+    index
+}
+
+/// Removes every `http://` and `https://` (ASCII case-insensitive) from `s`, so
+/// `see https://sam.gov/x` reads `see sam.gov/x`. Repeats until none is left, so a removal cannot
+/// join two halves into a new scheme.
+#[must_use]
+pub fn strip_url_schemes(s: &str) -> String {
+    let mut out = s.to_owned();
+    loop {
+        let lower = out.to_ascii_lowercase();
+        let Some(at) = lower.find("http://").or_else(|| lower.find("https://")) else {
+            return out;
+        };
+        let len = if lower[at..].starts_with("https://") {
+            8
+        } else {
+            7
+        };
+        out.replace_range(at..at + len, "");
+    }
 }
 
 /// Renders the bytes of `assets/search-index.js` for `view`.
@@ -154,7 +192,18 @@ fn push_json_str(out: &mut String, s: &str) {
 mod tests {
     use fieldbook_core::search::{DocEntry, Index};
 
-    use super::write;
+    use super::{strip_url_schemes, write};
+
+    #[test]
+    fn strip_url_schemes_removes_every_scheme() {
+        assert_eq!(
+            strip_url_schemes("see https://sam.gov/x and HTTP://a.b"),
+            "see sam.gov/x and a.b"
+        );
+        assert_eq!(strip_url_schemes("hthttp://tp://x"), "x");
+        assert_eq!(strip_url_schemes("no scheme: a/b"), "no scheme: a/b");
+        assert_eq!(strip_url_schemes("caf\u{e9} https://x"), "caf\u{e9} x");
+    }
 
     #[test]
     fn write_is_compact_json_with_fixed_key_order() {

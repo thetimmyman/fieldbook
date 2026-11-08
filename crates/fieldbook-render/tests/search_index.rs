@@ -16,7 +16,7 @@ mod search_index {
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
     use fieldbook_core::labels::{LabelId, LabelSet, PUBLIC};
     use fieldbook_core::policy::EffectivePolicy;
-    use fieldbook_core::search::{Unit, UnitFields, labels_of, make_snippet, utf16_cmp};
+    use fieldbook_core::search::{Index, Unit, UnitFields, labels_of, make_snippet, utf16_cmp};
     use fieldbook_render::meta::BuildInfo;
     use fieldbook_render::search_index::{self, OUTPUT_PATH};
     use fieldbook_render::site::{Site, planned_paths, render};
@@ -31,6 +31,9 @@ mod search_index {
 
     /// A long two-sentence Purpose for `cmp-system-review`, longer than 160 code points.
     const LONG_PURPOSE: &str = "Explain how a synthetic system review interacts with a synthetic billing withhold across every synthetic billing cycle of the year. A second synthetic sentence follows so the paragraph runs past the snippet limit.";
+
+    /// A `Never confuse` first paragraph ending that quotes two remote URLs.
+    const URL_SENTENCE: &str = "with a final contract closeout audit, listed at https://example.org/closeout and HTTP://example.org/x.";
 
     fn insert_all(tree: &mut Tree, dir: &Path, rel: &str) {
         tree.insert_dir(rel);
@@ -120,6 +123,10 @@ mod search_index {
             .replace(
                 "Explain how a synthetic system review interacts with a synthetic billing withhold.",
                 LONG_PURPOSE,
+            )
+            .replace(
+                "with a final contract closeout audit.",
+                URL_SENTENCE,
             )
             .replace(
                 "Synthetic reviewers check control operation",
@@ -462,5 +469,99 @@ mod search_index {
         let (_model, view, site) = built();
         assert!(planned_paths(&view).contains(OUTPUT_PATH));
         assert!(site.files().contains_key(OUTPUT_PATH));
+    }
+
+    /// The impact of every (unit id, term) posting of a parsed delivered index.
+    fn delivered_impacts(
+        index: &serde_json::Value,
+    ) -> std::collections::BTreeMap<(String, String), u64> {
+        let ids = doc_ids(index);
+        let mut out = std::collections::BTreeMap::new();
+        let terms = index["terms"].as_array().unwrap();
+        for (term, list) in terms.iter().zip(index["post"].as_array().unwrap()) {
+            let list = list.as_array().unwrap();
+            assert!(!list.is_empty(), "term {term} has an empty posting list");
+            for pair in list.chunks(2) {
+                let unit = usize::try_from(pair[0].as_u64().unwrap()).unwrap();
+                out.insert(
+                    (ids[unit].clone(), term.as_str().unwrap().to_owned()),
+                    pair[1].as_u64().unwrap(),
+                );
+            }
+        }
+        out
+    }
+
+    fn index_impacts(index: &Index) -> std::collections::BTreeMap<(String, String), u64> {
+        let mut out = std::collections::BTreeMap::new();
+        for (term, list) in index.terms.iter().zip(&index.post) {
+            for pair in list.chunks(2) {
+                out.insert(
+                    (index.docs[pair[0] as usize].id.clone(), term.clone()),
+                    u64::from(pair[1]),
+                );
+            }
+        }
+        out
+    }
+
+    #[test]
+    fn statistics_come_from_the_page_and_section_units_alone() {
+        let (_model, view, site) = built();
+        let delivered = delivered_impacts(&parsed(&delivered(&site)));
+        let (units, glossary) = search_index::view_units(&view);
+        let edition = Index::build(search_index::edition_units(units.clone()), &glossary);
+        let full = Index::build(units, &glossary);
+
+        // Every delivered term and impact is that of the index over the page and section units.
+        assert_eq!(delivered, index_impacts(&edition));
+
+        // The full index gives other impacts for the same postings, so the check above tells
+        // the two apart: a full index filtered afterwards would fail it.
+        let full = index_impacts(&full);
+        let differ = delivered
+            .iter()
+            .filter(|(key, impact)| full.get(*key).is_some_and(|f| f != *impact))
+            .count();
+        assert!(differ > 0, "the full index must give other impacts");
+    }
+
+    #[test]
+    fn delivered_index_holds_no_remote_url() {
+        let (_model, view, site) = built();
+        let (units, _glossary) = search_index::view_units(&view);
+        let section = units
+            .iter()
+            .find(|u| u.id == "cmp-system-review#never-confuse")
+            .unwrap();
+        assert!(
+            section.display.snippet.contains("https://"),
+            "the fixture section quotes a URL: {}",
+            section.display.snippet
+        );
+
+        let text = delivered(&site);
+        assert!(!text.contains("http://"), "the index holds `http://`");
+        assert!(!text.contains("https://"), "the index holds `https://`");
+        let lower = text.to_ascii_lowercase();
+        assert!(!lower.contains("http://") && !lower.contains("https://"));
+
+        // The snippet still reads as the paragraph, with the address kept and its scheme removed.
+        let index = parsed(&text);
+        let doc = index["docs"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|d| d[0] == "cmp-system-review#never-confuse")
+            .unwrap();
+        let snippet = doc[4].as_str().unwrap();
+        assert_eq!(
+            snippet,
+            search_index::strip_url_schemes(&section.display.snippet)
+        );
+        assert!(
+            snippet.contains("closeout audit, listed at example.org/closeout and"),
+            "{snippet}"
+        );
     }
 }
