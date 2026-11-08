@@ -14,7 +14,7 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
-use crate::{about, area, edition, home, ids, nav, register, source};
+use crate::{about, area, edition, home, ids, nav, register, search_index, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -131,6 +131,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     let mut paths = vec![
         "assets/app.css".to_owned(),
         "assets/app.js".to_owned(),
+        search_index::OUTPUT_PATH.to_owned(),
         "assets/strings.js".to_owned(),
         ids::OUTPUT_PATH.to_owned(),
         home::OUTPUT_PATH.to_owned(),
@@ -191,6 +192,10 @@ pub fn render_with_context(
             site.insert(&source::page_path(vid.as_str()), html.into_bytes());
         }
     }
+    site.insert(
+        search_index::OUTPUT_PATH,
+        search_index::render(view).into_bytes(),
+    );
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());
     site.insert("assets/app.js", APP_JS.as_bytes().to_vec());

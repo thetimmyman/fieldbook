@@ -20,6 +20,7 @@ pub mod nav;
 pub mod page;
 pub mod plan;
 pub mod register;
+pub mod search_index;
 pub mod site;
 pub mod source;
 pub mod sources_block;
