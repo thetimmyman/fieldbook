@@ -15,6 +15,7 @@ use fieldbook_core::hash::sha256_hex;
 
 use crate::allowlist::{AllowlistProfile, verify_staged_trees};
 use crate::compat::{parse_baselines, parse_published};
+use crate::edition_raw::require_clean_tree;
 use crate::edition_release::{
     ArchiveManifest, DeliveryKind, ReleaseStream, ValidatedEditionTag, collect_all_rel_files,
     collect_release_evidence, parse_edition_release_mode, read_non_symlink_file,
@@ -324,10 +325,7 @@ pub fn raw_edition_check(
             validated.commit, args.tag
         ));
     }
-    let dirty = proc::git(root, &["status", "--porcelain", "--untracked-files=all"])?;
-    if !dirty.trim().is_empty() {
-        return Err("the working tree is not clean".to_owned());
-    }
+    require_clean_tree(&mut |a: &[&str]| proc::git(root, a))?;
 
     let base_path = if args.base.is_absolute() {
         args.base.clone()
@@ -743,6 +741,20 @@ mod tests {
         let err = run("d", "release-baseline.toml").expect_err("dirty");
         assert!(err.contains("clean"), "{err}");
         fs::remove_file(root.join("stray.txt")).expect("rm");
+
+        // A skip-worktree edit that `git status` does not report is still unclean.
+        write(root, "corpus/changes.md", b"# hidden edit\n");
+        git(
+            root,
+            &["update-index", "--skip-worktree", "corpus/changes.md"],
+        );
+        let err = run("d2", "release-baseline.toml").expect_err("skip-worktree");
+        assert!(err.contains("not clean"), "{err}");
+        git(
+            root,
+            &["update-index", "--no-skip-worktree", "corpus/changes.md"],
+        );
+        git(root, &["checkout", "--", "corpus/changes.md"]);
 
         // A checkout that is not at the tagged commit.
         write(root, "later.txt", b"x\n");

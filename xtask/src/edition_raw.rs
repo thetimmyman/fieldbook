@@ -160,6 +160,61 @@ fn git_text(runner: &mut dyn Runner, root: &Path, args: &[&str]) -> Result<Strin
     Ok(String::from_utf8_lossy(&out.stdout).trim_end().to_owned())
 }
 
+/// Refuse a working tree whose files are not exactly the bytes of `HEAD`.
+///
+/// The packer and the strict check read the working tree, while the edition names the commit,
+/// so the tree must hold that commit and nothing else. `git status` alone does not see:
+/// - an ignored file under `corpus/` (the Corpus reader picks it up);
+/// - a tracked file marked assume-unchanged or skip-worktree and then edited (or, under a sparse
+///   checkout, left out), reported by `git ls-files -v` with a tag other than `H`;
+/// - a sparse checkout, which can leave part of the Corpus out of the tree.
+///
+/// `git` runs one git command at the repository root and returns its standard output.
+pub(crate) fn require_clean_tree(
+    git: &mut dyn FnMut(&[&str]) -> Result<String, String>,
+) -> Result<(), String> {
+    let dirty = git(&["status", "--porcelain", "--untracked-files=all"])?;
+    if !dirty.trim().is_empty() {
+        return Err("the working tree is not clean; commit or remove changes first".to_owned());
+    }
+    let ignored = git(&[
+        "status",
+        "--porcelain",
+        "--untracked-files=all",
+        "--ignored=matching",
+        "--",
+        "corpus",
+    ])?;
+    if let Some(first) = ignored.lines().find(|l| !l.trim().is_empty()) {
+        return Err(format!(
+            "the working tree is not clean: an ignored file sits under corpus/ ({}); remove it first",
+            first.trim()
+        ));
+    }
+    let flagged = git(&["ls-files", "-v"])?;
+    if let Some(first) = flagged
+        .lines()
+        .find(|l| !l.is_empty() && !l.starts_with("H "))
+    {
+        return Err(format!(
+            "the working tree is not clean: a tracked file is marked assume-unchanged, skip-worktree or unmerged ({first}); clear the flag first"
+        ));
+    }
+    let sparse = git(&[
+        "config",
+        "--bool",
+        "--default",
+        "false",
+        "core.sparseCheckout",
+    ])?;
+    if sparse.trim() != "false" {
+        return Err(
+            "the working tree is not clean: the checkout is sparse; use a full checkout".to_owned(),
+        );
+    }
+    Ok(())
+}
+
 fn is_lower_hex(s: &str, len: usize) -> bool {
     s.len() == len
         && s.bytes()
@@ -725,14 +780,7 @@ fn build(
     }
 
     // 1. A clean tree, and the identity of the commit.
-    let dirty = git_text(
-        runner,
-        root,
-        &["status", "--porcelain", "--untracked-files=all"],
-    )?;
-    if !dirty.is_empty() {
-        return Err("the working tree is not clean; commit or remove changes first".to_owned());
-    }
+    require_clean_tree(&mut |a: &[&str]| git_text(runner, root, a))?;
     let commit = git_text(runner, root, &["rev-parse", "HEAD"])?;
     if !is_lower_hex(&commit, 40) {
         return Err(format!("`git rev-parse HEAD` returned `{commit}`"));
@@ -1511,6 +1559,61 @@ pub(crate) mod tests {
         let err = package(repo.path(), out.path(), &mut Scripted::clean()).expect_err("dirty");
         assert!(err.contains("not clean"), "{err}");
         assert!(dir_listing(out.path()).is_empty());
+    }
+
+    /// Changes `git status` does not report still make the tree unclean: the packer reads the
+    /// working tree, and the edition names the commit.
+    #[test]
+    fn hidden_changes_git_status_does_not_show_are_refused_before_publication() {
+        let page = "corpus/pages/compliance/business-systems/cmp-sample.md";
+        // A tracked page marked skip-worktree or assume-unchanged, then edited.
+        for flag in ["--skip-worktree", "--assume-unchanged"] {
+            let repo = clean_repo();
+            git(repo.path(), &["update-index", flag, page]);
+            let text = fs::read_to_string(repo.path().join(page)).expect("page");
+            fs::write(
+                repo.path().join(page),
+                text.replace("Synthetic Title", "Edited Title"),
+            )
+            .expect("edit");
+            assert!(
+                proc::git(repo.path(), &["status", "--porcelain"])
+                    .expect("status")
+                    .is_empty(),
+                "{flag}: git status must not see the edit for this test to mean anything"
+            );
+            let (err, _out) = refused_with(repo.path(), &mut Scripted::clean());
+            assert!(err.contains("not clean"), "{flag}: {err}");
+        }
+
+        // A well-formed page hidden by .git/info/exclude.
+        let repo = clean_repo();
+        let text = fs::read_to_string(repo.path().join(page)).expect("page");
+        write(
+            repo.path(),
+            "corpus/pages/compliance/business-systems/cmp-hidden.md",
+            text.replace("cmp-sample", "cmp-hidden").as_bytes(),
+        );
+        write(repo.path(), ".git/info/exclude", b"cmp-hidden.md\n");
+        assert!(
+            proc::git(
+                repo.path(),
+                &["status", "--porcelain", "--untracked-files=all"]
+            )
+            .expect("status")
+            .is_empty()
+        );
+        let (err, _out) = refused_with(repo.path(), &mut Scripted::clean());
+        assert!(
+            err.contains("not clean") && err.contains("ignored"),
+            "{err}"
+        );
+
+        // A sparse checkout.
+        let repo = clean_repo();
+        git(repo.path(), &["config", "core.sparseCheckout", "true"]);
+        let (err, _out) = refused_with(repo.path(), &mut Scripted::clean());
+        assert!(err.contains("not clean") && err.contains("sparse"), "{err}");
     }
 
     fn refused_with(repo: &Path, runner: &mut Scripted) -> (String, tempfile::TempDir) {

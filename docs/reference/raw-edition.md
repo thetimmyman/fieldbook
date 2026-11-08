@@ -6,8 +6,8 @@ The delivered file set, the content rules and the verification contract of the r
 
 | Command | What it does |
 |---|---|
-| `cargo xtask edition-raw --out DIR [--fieldbook PROGRAM]` | Packages the clean commit into `DIR`. Refuses a dirty tree and a blank or missing `FIELDBOOK_SECURITY_CONTACT` (control IN-01). Writes nothing to `DIR` until every check has passed |
-| `cargo xtask raw-edition-check TAG --base FILE --evidence-out DIR` | Validates an owner-created `edition-NNN` tag whose committed `edition-release.toml` says `kind = "raw"`, a clean checkout at the tagged commit, and a `--base` identical to the committed baseline; collects the public compatibility evidence |
+| `cargo xtask edition-raw --out DIR [--fieldbook PROGRAM]` | Packages the clean commit into `DIR`. Refuses a dirty tree (including an ignored file under `corpus/`, a tracked file marked skip-worktree or assume-unchanged, and a sparse checkout) and a blank or missing `FIELDBOOK_SECURITY_CONTACT` (control IN-01). Writes nothing to `DIR` until every check has passed |
+| `cargo xtask raw-edition-check TAG --base FILE --evidence-out DIR` | Validates an owner-created `edition-NNN` tag whose committed `edition-release.toml` says `kind = "raw"`, a clean checkout at the tagged commit (the same clean-tree rule as `edition-raw`), and a `--base` identical to the committed baseline; collects the public compatibility evidence |
 
 The program run for the check is `fieldbook check --strict --json`; without `--fieldbook`, `edition-raw` starts it through `cargo run`. Nothing builds a site, starts a renderer or opens a browser.
 
