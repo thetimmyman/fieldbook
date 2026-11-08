@@ -1,7 +1,10 @@
 // The shortcut and palette cases of the browser harness (card search-palette). shortcuts.html
 // loads this script first, then strings.js, search.js and app.js, all deferred; this script
 // installs a small synthetic index as window.FB_INDEX (and, for storage-throws, storage that
-// throws on every access) before app.js starts, and runs the cases once the page has loaded.
+// throws on every access) before app.js starts, and runs the cases at DOMContentLoaded, after
+// every deferred script. The harness opens the page with --dump-dom and no virtual time, which
+// writes the DOM once the load event has fired, so this script holds that event back (hold.js,
+// as in search_goldens.js) until every case has reported.
 // Every outcome is written into the DOM: one <li data-case="<id>" data-ok="true|false"> per
 // case in #harness-results, and the counts on #harness-summary. <body data-harness> picks the
 // cases:
@@ -16,6 +19,25 @@
   var out = document.getElementById('harness-results');
   var summary = document.getElementById('harness-summary');
   var counts = { run: 0, failed: 0 };
+
+  // --dump-dom writes the DOM once the load event has fired, and a script element added before
+  // then delays that event until it loads. So while cases are pending the page keeps one such
+  // script (hold.js, empty) in flight, and setting `finished` ends the chain. After 30 s it stops
+  // and the page is written unfinished, which fails it by name.
+  var finished = false;
+  var holdUntil = Date.now() + 30000;
+  function hold() {
+    if (finished || Date.now() > holdUntil) {
+      return;
+    }
+    var s = document.createElement('script');
+    s.onload = s.onerror = function () {
+      s.remove();
+      hold();
+    };
+    s.setAttribute('src', 'hold.js');
+    document.body.appendChild(s);
+  }
   // Links the palette followed; the capture below keeps the harness page in place.
   var followed = [];
 
@@ -372,7 +394,8 @@
     });
   }
 
-  window.addEventListener('load', async function () {
+  hold();
+  document.addEventListener('DOMContentLoaded', async function () {
     if (MODE === 'storage-throws') {
       await storageCases();
     } else {
@@ -380,6 +403,7 @@
       await paletteCases();
     }
     await closeAll();
+    finished = true;
     summary.setAttribute('data-run', String(counts.run));
     summary.setAttribute('data-failed', String(counts.failed));
     summary.setAttribute('data-done', 'true');
