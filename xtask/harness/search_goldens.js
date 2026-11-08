@@ -42,7 +42,28 @@
     report(id, problems);
   }
 
+  // --dump-dom writes the DOM once the load event has fired, and a script element added before
+  // then delays that event until it loads. So while cases are pending the page keeps one such
+  // script (hold.js, empty) in flight, and finish() ends the chain. It is added to <body>, since
+  // skeleton_waits_300ms records what goes into <head>. After 30 s the chain stops and the
+  // page is written unfinished, which fails it by name.
+  var finished = false;
+  var holdUntil = Date.now() + 30000;
+  function hold() {
+    if (finished || Date.now() > holdUntil) {
+      return;
+    }
+    var s = document.createElement('script');
+    s.onload = s.onerror = function () {
+      s.remove();
+      hold();
+    };
+    s.setAttribute('src', 'hold.js');
+    document.body.appendChild(s);
+  }
+
   function finish(extra) {
+    finished = true;
     summary.setAttribute('data-run', String(counts.run));
     summary.setAttribute('data-failed', String(counts.failed));
     summary.setAttribute('data-done', 'true');
@@ -540,6 +561,7 @@
     });
   }
 
+  hold();
   var mode = document.body.getAttribute('data-harness');
   if (mode === 'skeleton') {
     skeletonWaits300ms(function () { finish(); });

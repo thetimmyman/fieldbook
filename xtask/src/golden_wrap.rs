@@ -6,8 +6,8 @@
 //! assigns the file's JSON, unchanged, to `window.FB_GOLDEN["<path>"]`. A file with `units` (a
 //! ranked file or the page-view file) also gets `<path>.index.js`: the index that
 //! `fieldbook_core::search` builds from its `units` and `glossary`, in the form of
-//! `search-index.js`, assigned to `window.FB_GOLDEN_INDEX["<path>"]`. The wrappers are generated
-//! and never committed.
+//! `search-index.js`, assigned to `window.FB_GOLDEN_INDEX["<path>"]`. `cargo xtask harness`
+//! writes the wrappers before it opens the search pages; they are generated and never committed.
 
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -156,17 +156,6 @@ pub fn write(root: &Path) -> Result<Vec<Wrapper>, String> {
         fs::write(&path, &wrapper.text).map_err(|e| format!("{}: {e}", path.display()))?;
     }
     Ok(all)
-}
-
-/// `cargo xtask golden-wrap`: writes the wrappers and prints how many.
-///
-/// # Errors
-///
-/// Returns a message naming the file that cannot be read, built or written.
-pub fn command(root: &Path) -> Result<bool, String> {
-    let all = write(root)?;
-    println!("golden-wrap: {} scripts in {OUT_DIR}", all.len());
-    Ok(true)
 }
 
 #[cfg(test)]
