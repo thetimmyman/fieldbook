@@ -1,10 +1,10 @@
-// Search over window.FB_INDEX as docs/reference/search.md specifies. Integer scores.
+// Search over window.FB_INDEX per docs/reference/search.md. Integer scores.
 (function () {
 'use strict';
 var SKELETON_DELAY_MS = 300;
 var WORD = /[\p{Alphabetic}\p{N}]/uy;
 var WORDS = /[\p{Alphabetic}\p{N}]+/gu;
-// Lexer shapes 1 to 11 in table order; shape 10 drops commas.
+// Lexer shapes 1-11 in table order; shape 10 drops commas.
 var SHAPES = [/s-[0-9]{4}-v[0-9]+/y, /s-[0-9]{4}/y, /cl-[a-z]{3}-[0-9]{4}/y, /q-[0-9]{3}/y,
   /xc-[0-9]+/y, /cl-x[a-z]{2}-[0-9]{6,10}/y, /[a-z]{2}-[0-9]{6,10}-v[0-9]+/y,
   /[a-z]{2}-[0-9]{6,10}/y, /[0-9]{1,4}\.[0-9]{3}(?:-[0-9]+)?(?:\([a-z0-9]{1,4}\))*/y,
@@ -41,7 +41,7 @@ function lex(s) {
   return out;
 }
 
-// Query side: no extras, no duplicates, at most 12.
+// Query side: no extras or duplicates, at most 12.
 function tokens(text) {
   var out = [];
   lex(trim(norm(text))).forEach(function (t) {
@@ -111,7 +111,7 @@ function rank(ix, text, limit) {
 function groups(kind) { return kind === 'page' || kind === 'clause'; }
 function pageOf(id) { return id.split('#')[0]; }
 
-// The page view: exact rows, a row per page at its first hit, other rows.
+// Page view: exact rows, a row per page at its first hit, others.
 function view(ix, hits) {
   var leads = new Map(), seen = new Set(), at = new Map();
   var v = { exact: [], pages: [], other: [], absorbed: 0 };
@@ -187,7 +187,7 @@ function render(hits, text, list) {
   });
 }
 
-// Renders the page view's first rows; returns the row count.
+// Renders the page view's first rows; returns the count.
 function run(text, limit, list) {
   var ix = window.FB_INDEX, v = view(ix, rank(ix, text).hits);
   var all = v.exact.concat(v.pages, v.other);
@@ -199,7 +199,7 @@ function usable(ix) {
   return ix && ix.v === 1 ? Promise.resolve(ix) : Promise.reject(ix ? 'version' : 'failed');
 }
 
-// Adds the index script once; the Skeleton shows only after SKELETON_DELAY_MS.
+// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS.
 function load() {
   if (pending) return pending;
   if (window.FB_INDEX) return (pending = usable(window.FB_INDEX));
@@ -253,10 +253,11 @@ function paint() {
   });
 }
 
-// A hash that does not decode is an empty query.
+// A bad #q= escape is ''; any other hash (the skip link's) is null.
 function fromHash() {
-  var h = window.location.hash;
-  try { return h.slice(0, 3) === '#q=' ? decodeURIComponent(h.slice(3)) : ''; } catch (e) { return ''; }
+  var h = location.hash;
+  if (!/^(#q=|$)/.test(h)) return null;
+  try { return decodeURIComponent(h.slice(3)); } catch (e) { return ''; }
 }
 
 $('blocked').hidden = true;
@@ -265,9 +266,12 @@ input.hidden = false;
 input.addEventListener('focus', paint, { once: true });
 input.addEventListener('input', function () { if (pending) paint(); });
 input.addEventListener('keydown', function (ev) {
-  if (ev.key === 'Enter') window.location.hash = 'q=' + encodeURIComponent(input.value.trim());
+  if (ev.key === 'Enter') location.hash = 'q=' + encodeURIComponent(trim(input.value));
 });
-window.addEventListener('hashchange', function () { input.value = fromHash(); paint(); });
-input.value = fromHash();
+window.addEventListener('hashchange', function () {
+  var q = fromHash();
+  if (q !== null) { input.value = q; paint(); }
+});
+input.value = fromHash() || '';
 if (input.value) paint();
 }());

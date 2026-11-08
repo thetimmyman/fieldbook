@@ -225,6 +225,12 @@ mod search_page {
             "new Function",
             "XMLHttpRequest",
             "localStorage",
+            // Text goes in with textContent only.
+            "innerHTML",
+            "outerHTML",
+            "insertAdjacentHTML",
+            "document.write",
+            "DOMParser",
         ] {
             assert!(!script.contains(banned), "search.js uses {banned}");
         }
