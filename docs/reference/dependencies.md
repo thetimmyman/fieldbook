@@ -268,7 +268,7 @@ Pins and checksums live in `.config/tools.toml`. `cargo xtask setup` installs th
 | `typos-cli` | 1.51.1 (2026-10-06) | Now | |
 | `gitleaks` | 8.30.1 (2026-03-21) | Now | Release binary, SHA-256 checked; `install-action` has no manifest for it |
 | poppler (`pdftotext`, `pdfinfo`) | 26.10.0 (2026-10-04) | Card `extract-and-locators` | Home only, from the operating system's package manager, never in CI. `pdftotext` makes the page text and `pdfinfo` reads page counts in the home drill. Pinned in `.config/tools.toml` under `[poppler]`; `extract` records the version it ran in `extraction.toml`. On a different version it warns, naming both on standard error, extracts anyway and records the version it used; `check` still fails when a quote no longer matches its page text |
-| Headless Microsoft Edge | The version on the GitHub-hosted runner image | Card `edge-harness` | Runs the page harness. Preinstalled on the runners, so not installed by us and not pinned |
+| Headless Microsoft Edge | The version on the GitHub-hosted runner image; where Edge is not installed, Chromium from the operating system's package manager | Card `edge-harness` | Runs the page harness. Not installed by us and not pinned. Edge is the target and the harness looks for it first; the Linux home machine and the self-hosted runner of the `corpus` job carry only Chromium, so there the harness falls back to Chromium (`chromium`, `chromium-browser`) and names the browser that ran |
 | `proptest` | See above | Day 30 | |
 | `cargo-cyclonedx` | 0.5.9 (2026-03-19) | Day 60 to 75 | Emits CycloneDX 1.3 to 1.5, so pass `--spec-version 1.5` |
 | `cargo-about` | 0.9.2 (2026-08-18) | Day 60 to 75 | Licence notices |
