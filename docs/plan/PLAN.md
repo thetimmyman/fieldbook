@@ -208,6 +208,7 @@ Exit: see [Gates](../decisions/0001-foundation.md#gates), Day 1: the home gate h
 Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), ending Day 30: the E1 gate whenever IT-9 is answered, and the Day-30 gate; `v0.2.0`.
 
 - transfer-and-windows-drill: drill 2 added to the `windows` job
+- claims-register-split: the claims register as one page per area with an index, so every page loads within the harness's 60 seconds and the register-page exception ends (placement: lead)
 - Run spikes S2, S5 and S6 on the laptop at E1 (owner)
 - Run Windows restore drill 3 on the laptop after the first transfer, at E1 (owner)
 - Write the 20 cite-check seed cases in `tests/golden/handoff/` before `handoff-cite-check`, at least three of them with a `context` list (lead)

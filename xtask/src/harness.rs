@@ -43,6 +43,43 @@ const SELFTEST_NAME: &str = "selftest.js";
 const SELFTEST_MARKER: &str = "<pre id=\"fb-selftest\">";
 /// How long one page may take.
 const PAGE_LIMIT: Duration = Duration::from_secs(60);
+/// How long one register page may take: the owner's exception in AD-08, until the claims
+/// register is split into pages that each load within [`PAGE_LIMIT`].
+const REGISTER_LIMIT: Duration = Duration::from_secs(300);
+/// The register pages at the root of the edition that [`REGISTER_LIMIT`] covers: the five
+/// registers and the id list.
+pub(crate) const REGISTER_PAGES: [&str; 6] = [
+    "claims.html",
+    "sources.html",
+    "questions.html",
+    "conflicts.html",
+    "glossary.html",
+    "ids.html",
+];
+
+/// The time limits of one run: every page, and the register pages.
+#[derive(Debug, Clone, Copy)]
+struct Limits {
+    page: Duration,
+    register: Duration,
+}
+
+/// The limits of a real run.
+const LIMITS: Limits = Limits {
+    page: PAGE_LIMIT,
+    register: REGISTER_LIMIT,
+};
+
+impl Limits {
+    /// The limit of the page `name` (its path relative to the edition root, `/`-separated).
+    fn for_page(self, name: &str) -> Duration {
+        if REGISTER_PAGES.contains(&name) {
+            self.register
+        } else {
+            self.page
+        }
+    }
+}
 
 /// Which browser ran.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -775,7 +812,7 @@ fn load(
                 let _ = child.kill();
                 let _ = child.wait();
                 return Err(format!(
-                    "{name}: not done in {} seconds ({})",
+                    "{name}: not done within its limit of {} seconds ({})",
                     limit.as_secs(),
                     stderr_tail(&stderr_path)
                 ));
@@ -914,7 +951,7 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     let mut selftest_pass = true;
     for (index, page) in pages.iter().enumerate() {
         let name = display_name(page, &copy);
-        match load(&browser.path, page, &work, &name, PAGE_LIMIT) {
+        match load(&browser.path, page, &work, &name, LIMITS.for_page(&name)) {
             Ok(loaded) => {
                 // The page's own navigation is a request to a file: URL.
                 file_requests += 1 + loaded.net.file;
@@ -1579,7 +1616,85 @@ mod tests {
         .err()
         .unwrap();
         assert!(
-            error.starts_with("claims.html: not done in 0 seconds"),
+            error.starts_with("claims.html: not done within its limit of 0 seconds"),
+            "{error}"
+        );
+    }
+
+    #[test]
+    fn register_pages_get_300_seconds_and_every_other_page_60() {
+        assert_eq!(LIMITS.page, Duration::from_secs(60));
+        assert_eq!(LIMITS.register, Duration::from_secs(300));
+        for register in REGISTER_PAGES {
+            assert_eq!(
+                LIMITS.for_page(register),
+                Duration::from_secs(300),
+                "{register}"
+            );
+        }
+        for page in [
+            "index.html",
+            "about.html",
+            "p/claims.html",
+            "a/x/sources.html",
+        ] {
+            assert_eq!(LIMITS.for_page(page), Duration::from_secs(60), "{page}");
+        }
+    }
+
+    #[test]
+    fn register_pages_are_the_rendered_register_paths() {
+        use fieldbook_core::schema::Register;
+        use fieldbook_render::register::output_path;
+        for register in [
+            Register::Sources,
+            Register::Claims,
+            Register::Questions,
+            Register::Conflicts,
+            Register::Glossary,
+        ] {
+            assert!(
+                REGISTER_PAGES.contains(&output_path(register)),
+                "{register:?}"
+            );
+        }
+        assert!(REGISTER_PAGES.contains(&fieldbook_render::ids::OUTPUT_PATH));
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn a_slow_register_page_passes_where_a_slow_other_page_fails() {
+        let dir = tempfile::tempdir().unwrap();
+        let fixture = dir.path().join("fixture.json");
+        fs::write(&fixture, NETLOG_BROWSER_OWN).unwrap();
+        let script = format!(
+            "#!/bin/sh\nsleep 2\nfor a in \"$@\"; do case \"$a\" in --log-net-log=*) cp '{}' \"${{a#--log-net-log=}}\";; esac; done\n",
+            fixture.display()
+        );
+        let browser = fake_browser(dir.path(), &script);
+        let limits = Limits {
+            page: Duration::from_secs(1),
+            register: Duration::from_secs(5),
+        };
+        load(
+            &browser,
+            &dir.path().join("claims.html"),
+            dir.path(),
+            "claims.html",
+            limits.for_page("claims.html"),
+        )
+        .unwrap();
+        let error = load(
+            &browser,
+            &dir.path().join("index.html"),
+            dir.path(),
+            "index.html",
+            limits.for_page("index.html"),
+        )
+        .err()
+        .unwrap();
+        assert!(
+            error.starts_with("index.html: not done within its limit of 1 seconds"),
             "{error}"
         );
     }
