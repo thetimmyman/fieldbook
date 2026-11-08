@@ -2646,12 +2646,19 @@ dialog.dlg[open]::backdrop {
   display: none;
 }
 
-.pal-note a {
-  text-transform: none;
-  letter-spacing: normal;
+/* The abstention sentence and the index lines: running text, not a group label. */
+.pal-msg {
+  margin: var(--space-3) var(--space-4) 0;
+  font-size: var(--text-sm);
 }
 
+.pal-msg:empty {
+  display: none;
+}
+
+/* Fills the panel, so that below 768px a tap under the rows is not a tap on the backdrop. */
 .pal-list {
+  flex: 1 1 auto;
   overflow-y: auto;
   padding: var(--space-2) 0;
 }
@@ -2659,7 +2666,20 @@ dialog.dlg[open]::backdrop {
 .pal-list .sr-row {
   padding: var(--space-2) var(--space-4);
   border-bottom: 0;
+}
+
+/* A row with a link is one target: a click anywhere on it follows the link. */
+.pal-list .sr-row:has(a) {
   cursor: pointer;
+}
+
+dialog.palette .skeleton {
+  margin: var(--space-2) var(--space-4);
+}
+
+/* Close is for pointer and touch on the full-screen palette, below 768px. */
+.pal-in .btn {
+  display: none;
 }
 
 .pal-list .sr-row[aria-selected="true"] {
@@ -2813,6 +2833,14 @@ dialog.dlg .note:empty {
     height: 100%;
     max-height: 100%;
     border-radius: 0;
+  }
+
+  .pal-in kbd {
+    display: none;
+  }
+
+  .pal-in .btn {
+    display: inline-flex;
   }
 }
 

@@ -217,6 +217,13 @@
       check(pal().open, 'the palette is open');
       check(document.activeElement === $('fb:palIn'), 'focus is in the input');
       check(ev.defaultPrevented, 'the browser does not see Ctrl K');
+      await closeAll();
+      ['shiftKey', 'altKey'].forEach(function (mod) {
+        var opts = { ctrlKey: true };
+        opts[mod] = true;
+        var other = key('K', opts, document.body);
+        check(!pal().open && !other.defaultPrevented, 'Ctrl K with ' + mod + ' is left to the browser');
+      });
     });
 
     await guarded('slash_opens', async function (check) {
@@ -250,6 +257,11 @@
       key('?', { shiftKey: true }, document.body);
       check(keys().open, 'the dialog is open');
       check(inside(keys()), 'focus is inside the dialog');
+      var lines = Array.prototype.map.call(keys().querySelectorAll('dd'), function (dd) {
+        return dd.textContent;
+      });
+      var spec = ['Search', 'This list', 'Close a drawer, dialog or search'];
+      check(same(lines, spec), differ('listed keys', spec, lines));
       key('Escape');
       await tick();
       check(!keys().open, 'Esc closes it');
@@ -323,6 +335,8 @@
       check(r.ids.indexOf('ab-alpha#scope') < 0, 'no section unit by prefix');
       check(r.opts[0].getAttribute('aria-selected') === 'true', 'the first row is selected');
       check($('fb:palIn').getAttribute('aria-activedescendant') === r.opts[0].id, 'activedescendant');
+      check($('fb:palIn').getAttribute('aria-autocomplete') === 'list', 'aria-autocomplete is list');
+      check(!$('fb:palIn').hasAttribute('placeholder'), 'no placeholder the spec does not write');
     });
 
     await guarded('palette_duplicates_appear_once', async function (check) {
@@ -360,6 +374,41 @@
       key('ArrowUp', {}, $('fb:palIn'));
       key('Enter', {}, $('fb:palIn'));
       check(same(followed, ['p/cd-gamma.html']), differ('followed', ['p/cd-gamma.html'], followed));
+      check(!pal().open, 'following a row closes the palette');
+      check(document.activeElement === trigger(), 'focus is back on the trigger');
+    });
+
+    // A row is one target: a click anywhere on it follows its link and closes the palette.
+    await guarded('palette_row_click_follows_its_link', async function (check) {
+      var r = await search('gamma');
+      followed.length = 0;
+      r.opts[0].querySelector('.sr-meta').click();
+      check(same(followed, ['p/cd-gamma.html']), differ('followed', ['p/cd-gamma.html'], followed));
+      check(!pal().open, 'the palette closes');
+      r = await search('rogue');
+      followed.length = 0;
+      r.opts[0].click();
+      check(followed.length === 0, differ('followed', [], followed));
+      check(pal().open, 'a row without a link keeps the palette open');
+    });
+
+    // Pointer and touch close the palette too: the backdrop, and Close below 768px.
+    await guarded('palette_backdrop_and_close_button_close', async function (check) {
+      await search('gamma');
+      pal().dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      check(!pal().open, 'a click on the backdrop closes the palette');
+      check(document.activeElement === trigger(), 'focus is back on the trigger');
+      await search('gamma');
+      var close = pal().querySelector('.pal-in button');
+      check(close && close.textContent === 'Close', 'the palette has a Close button');
+      if (close) {
+        close.click();
+      }
+      check(!pal().open, 'Close closes the palette');
+      check(document.activeElement === trigger(), 'Close returns focus to the trigger');
+      await search('gamma');
+      $('fb:palIn').click();
+      check(pal().open, 'a click inside the palette keeps it open');
     });
 
     await guarded('palette_final_search_row', async function (check) {
@@ -371,6 +420,7 @@
       followed.length = 0;
       key('Enter', {}, $('fb:palIn'));
       check(same(followed, ['search.html#q=zzzq%20nothing']), differ('followed', ['search.html#q=zzzq%20nothing'], followed));
+      check(!pal().open, 'the Search row closes the palette');
     });
   }
 
@@ -380,10 +430,11 @@
       check(pal().open, '/ opens the palette');
       await closeAll();
       key('?', {}, document.body);
+      var phrase = (window.FB_STRINGS || {}).not_remembered;
+      check(phrase && keys().textContent.indexOf(phrase) >= 0, 'the dialog says ' + phrase + ' before any toggle');
       var sw = keys().querySelector('.switch');
       sw.click();
       check(sw.getAttribute('aria-pressed') === 'false', 'the switch still turns off');
-      var phrase = (window.FB_STRINGS || {}).not_remembered;
       check(phrase && keys().textContent.indexOf(phrase) >= 0, 'the dialog says ' + phrase);
       await closeAll();
       check(!key('/', {}, document.body).defaultPrevented && !pal().open, 'the choice lasts the session');

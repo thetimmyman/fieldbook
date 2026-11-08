@@ -807,10 +807,11 @@ function paint() {
   const text = fb('palIn').value;
   const list = fb('palList');
   const note = fb('palNote');
-  S.load().then(function (ix) {
+  S.load(fb('palette')).then(function (ix) {
     const q = text.trim();
     const rows = q && S.tokens(q).length ? paletteRows(ix, q) : null;
     S.render(rows || latestPages(ix), q, list);
+    note.className = rows ? 'pal-msg panel' : 'pal-note';
     note.textContent = rows ? (rows.length ? '' : str('abstention')) : 'Latest pages';
     if (rows) {
       list.append(make('li', 'sr-row pal-search', make('a', 'sr-title', 'Search for ' + q, {
@@ -819,11 +820,12 @@ function paint() {
     }
     select(0);
   }, function (why) {
+    const v = why === 'version';
     list.textContent = '';
-    note.textContent = why === 'version'
-      ? 'Search is unavailable for this index version. '
+    note.className = 'pal-msg';
+    note.textContent = v ? 'Search is unavailable for this index version. Use the '
       : 'The search index did not load. ';
-    note.append(make('a', '', 'Use the ID list.', { href: root + 'ids.html' }));
+    note.append(make('a', '', v ? 'ID list' : 'All IDs', { href: root + 'ids.html' }), v ? '.' : '');
   });
 }
 
@@ -859,10 +861,11 @@ function initPalette() {
   if (!link || !pal || !keys || !window.FB_SEARCH) {
     return;
   }
+  let failed = '';
   try {
     singleKeys = window.localStorage.getItem(KEYS_KEY) !== 'off';
   } catch (_err) {
-    singleKeys = true;
+    failed = str('not_remembered');
   }
   root = link.getAttribute('href').replace(/ids\.html$/, '');
   const kbd = function (k) {
@@ -880,38 +883,48 @@ function initPalette() {
 
   const input = make('input', '', null, {
     id: 'fb:palIn', type: 'search', role: 'combobox', autocomplete: 'off', spellcheck: 'false',
-    placeholder: 'Page title, word or id', 'aria-label': 'Search the library',
+    'aria-label': 'Search the library', 'aria-autocomplete': 'list',
     'aria-expanded': 'true', 'aria-controls': 'fb:palList'
   });
+  const palClose = make('button', 'btn ghost sm', 'Close', { type: 'button' });
+  const list = make('ul', 'sr-list pal-list', null, { id: 'fb:palList', role: 'listbox', 'aria-label': 'Results' });
   pal.append(
-    make('div', 'pal-in', [input, kbd('Esc')]),
+    make('div', 'pal-in', [input, kbd('Esc'), palClose]),
     make('p', 'pal-note', null, { id: 'fb:palNote', role: 'status' }),
-    make('ul', 'sr-list pal-list', null, { id: 'fb:palList', role: 'listbox', 'aria-label': 'Results' })
+    list
   );
+  // The backdrop, Close and a followed row shut the palette; a row is one target for its link.
+  pal.addEventListener('click', function (ev) {
+    const li = closest(ev, '.pal-list li');
+    const a = li && li.querySelector('a[href]');
+    if (ev.target === pal || ev.target === palClose || a && closest(ev, 'a')) {
+      shut(pal);
+    } else if (a) {
+      a.click();
+    }
+  });
   input.addEventListener('input', paint);
   input.addEventListener('keydown', function (ev) {
     if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
       ev.preventDefault();
       select(selected + (ev.key === 'ArrowDown' ? 1 : -1));
     } else if (ev.key === 'Enter') {
-      const opt = fb('palList').children[selected];
-      const a = opt && opt.querySelector('a[href]');
       ev.preventDefault();
-      if (a) {
-        a.click();
+      if (list.children[selected]) {
+        list.children[selected].click();
       }
     }
   });
 
   const sw = make('button', 'switch', [make('i', '', null), 'Single-key shortcuts'],
     { type: 'button', 'aria-pressed': String(singleKeys) });
-  const saved = make('p', 'note', null, { role: 'status' });
+  const saved = make('p', 'note', failed, { role: 'status' });
   const close = make('button', 'btn ghost sm', 'Close', { type: 'button' });
   keys.append(make('div', 'dlg-h', [make('h2', '', 'Keyboard shortcuts'), close]), make('dl', 'keys', [
-    make('dt', '', [kbd('/'), ' or ', kbd('Ctrl K')]), make('dd', '', 'Search the library'),
+    make('dt', '', [kbd('/'), ' or ', kbd('Ctrl K')]), make('dd', '', 'Search'),
     make('dt', '', kbd('?')), make('dd', '', 'This list'),
-    make('dt', '', kbd('Esc')), make('dd', '', 'Close search or this list')
-  ]), sw, make('p', 'note', 'Ctrl K and Esc always work.'), saved);
+    make('dt', '', kbd('Esc')), make('dd', '', 'Close a drawer, dialog or search')
+  ]), sw, make('p', 'note', 'Ctrl K, Esc and every visible control still work.'), saved);
   close.addEventListener('click', function () {
     shut(keys);
   });
@@ -933,7 +946,7 @@ function initPalette() {
   document.addEventListener('keydown', function (ev) {
     const t = ev.target;
     const typing = t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName);
-    if ((ev.ctrlKey || ev.metaKey) && (ev.key === 'k' || ev.key === 'K')) {
+    if ((ev.ctrlKey || ev.metaKey) && !ev.shiftKey && !ev.altKey && (ev.key === 'k' || ev.key === 'K')) {
       ev.preventDefault();
       openPalette();
     } else if (ev.key === 'Escape' && (pal.open || keys.open)) {

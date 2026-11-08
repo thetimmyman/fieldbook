@@ -905,6 +905,8 @@ const SHORTCUT_PAGES: [(&str, &[&str]); 2] = [
             "palette_caps_at_eight",
             "palette_absent_link_enter_does_not_navigate",
             "palette_linked_result_enter_navigates",
+            "palette_row_click_follows_its_link",
+            "palette_backdrop_and_close_button_close",
             "palette_final_search_row",
         ],
     ),
