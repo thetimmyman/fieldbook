@@ -184,6 +184,13 @@
     };
   }
 
+  // A pointer press: pointerdown on `down`, then a click on `up` (`down` by default) at (x, y).
+  function press(down, x, y, up) {
+    var at = { bubbles: true, cancelable: true, clientX: x, clientY: y };
+    down.dispatchEvent(new PointerEvent('pointerdown', at));
+    (up || down).dispatchEvent(new MouseEvent('click', at));
+  }
+
   function same(a, b) {
     return JSON.stringify(a) === JSON.stringify(b);
   }
@@ -395,7 +402,7 @@
     // Pointer and touch close the palette too: the backdrop, and Close below 768px.
     await guarded('palette_backdrop_and_close_button_close', async function (check) {
       await search('gamma');
-      pal().dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      press(pal(), 1, 1);
       check(!pal().open, 'a click on the backdrop closes the palette');
       check(document.activeElement === trigger(), 'focus is back on the trigger');
       await search('gamma');
@@ -409,6 +416,35 @@
       await search('gamma');
       $('fb:palIn').click();
       check(pal().open, 'a click inside the palette keeps it open');
+      var box = pal().getBoundingClientRect();
+      press(pal(), box.left + 2, box.bottom - 2);
+      check(pal().open, 'a click on the palette itself, inside its box, keeps it open');
+      press($('fb:palIn'), 1, 1, pal());
+      check(pal().open, 'a drag from the input that ends on the backdrop keeps it open');
+    });
+
+    // Opening while the index loads: the palette is busy, a Skeleton follows the delay, and
+    // both go when the index arrives, also when another caller started the load.
+    await guarded('palette_shows_loading_until_the_index_settles', async function (check) {
+      var real = window.FB_SEARCH.load;
+      var done = null;
+      var gate = new Promise(function (resolve) { done = resolve; });
+      window.FB_SEARCH.load = function () { return gate; };
+      try {
+        $('fb:palIn').value = '';
+        key('k', { ctrlKey: true }, document.body);
+        check(pal().getAttribute('aria-busy') === 'true', 'the palette is busy while the index loads');
+        await new Promise(function (resolve) { window.setTimeout(resolve, 450); });
+        check(pal().querySelector('.skeleton'), 'a Skeleton shows after the delay');
+        done(window.FB_INDEX);
+        await tick();
+        await tick();
+        check(!pal().hasAttribute('aria-busy'), 'the palette is not busy once the index arrives');
+        check(!pal().querySelector('.skeleton'), 'the Skeleton is gone');
+        check($('fb:palNote').textContent === 'Latest pages', differ('note', 'Latest pages', $('fb:palNote').textContent));
+      } finally {
+        window.FB_SEARCH.load = real;
+      }
     });
 
     await guarded('palette_final_search_row', async function (check) {

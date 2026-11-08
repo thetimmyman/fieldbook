@@ -28,7 +28,7 @@ let sessionTheme = null;
 let toastTimer = null;
 let lastTrigger = null;
 
-// The frame element with id `fb:<name>`, or null: every frame id is in the fb: namespace.
+// The frame element with id `fb:<name>`, or null.
 function fb(name) {
   return document.getElementById('fb:' + name);
 }
@@ -56,8 +56,8 @@ function showToast(message) {
     toast.textContent = message;
     toast.hidden = false;
     toast.classList.add('show');
-    window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(function () {
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
       toast.classList.remove('show');
       toast.hidden = true;
     }, 3200);
@@ -69,7 +69,7 @@ function effectiveTheme() {
   if (theme === 'dark' || theme === 'light') {
     return theme;
   }
-  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light';
 }
@@ -89,9 +89,7 @@ function initTheme() {
   let stored = null;
   try {
     stored = window.localStorage.getItem(THEME_KEY);
-  } catch (_err) {
-    stored = null;
-  }
+  } catch (_err) {}
   applyTheme(stored === 'dark' || stored === 'light' ? stored : null);
 }
 
@@ -116,10 +114,10 @@ function selectSidebarSection(secKey) {
 
 function isOverlayOpen() {
   const sidebar = fb('sidebar');
-  return Boolean(sidebar && sidebar.classList.contains('open'));
+  return !!sidebar && sidebar.classList.contains('open');
 }
 
-// Opens or closes the overlay sidebar (below 960px) with its scrim and the menu button's state.
+// Opens or closes the overlay sidebar (below 960px), its scrim and the menu button.
 function setSidebar(open, restoreFocus) {
   const sidebar = fb('sidebar');
   const scrim = fb('scrim');
@@ -186,7 +184,7 @@ function initFrame() {
   });
 
   if (window.matchMedia) {
-    window.matchMedia('(min-width: 960px)').addEventListener('change', function (e) {
+    matchMedia('(min-width: 960px)').addEventListener('change', function (e) {
       if (e.matches) {
         setSidebar(false, false);
       }
@@ -293,7 +291,7 @@ function initBuildAge() {
 }
 
 function selectChipText(code) {
-  const selection = window.getSelection ? window.getSelection() : null;
+  const selection = window.getSelection ? getSelection() : null;
   if (!selection || !document.createRange) {
     return;
   }
@@ -303,7 +301,7 @@ function selectChipText(code) {
   selection.addRange(range);
 }
 
-// Copy only writes, on the reader's click. A refusal leaves the text selected to copy by hand.
+// Copy writes only on the reader's click; a refusal selects the text to copy by hand.
 function copyChip(btn) {
   const chip = btn.closest('.cmd');
   const code = chip ? chip.querySelector('code') : null;
@@ -374,9 +372,7 @@ function initPageReader() {
     let storedWording = null;
     try {
       storedWording = window.localStorage.getItem(WORDING_KEY);
-    } catch (_err) {
-      storedWording = null;
-    }
+    } catch (_err) {}
     if (storedWording === 'plain' || storedWording === 'both') {
       applyWording(storedWording);
     }
@@ -403,7 +399,7 @@ function initPageReader() {
         showToast('Copy failed');
       };
       if (clip && clip.writeText) {
-        clip.writeText(window.location.href).then(function () {
+        clip.writeText(location.href).then(function () {
           showToast('Link copied');
         }, failed);
       } else {
@@ -424,13 +420,13 @@ function initPageReader() {
       if (card) {
         card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         card.classList.add('flash');
-        window.setTimeout(function () {
+        setTimeout(function () {
           card.classList.remove('flash');
         }, 1400);
       }
     });
 
-    // Hover or focus on a [data-pv] mark previews it; leaving it hides the preview.
+    // Hover or focus on a [data-pv] mark previews it.
     ['mouseover', 'focusin', 'mouseout'].forEach(function (type) {
       reader.addEventListener(type, function (ev) {
         const pv = closest(ev, '[data-pv]');
@@ -488,9 +484,7 @@ function initRegister() {
   // Without scripts the table is complete; with them a register shows 50 rows at a time.
   const render = function () {
     const pages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
-    if (page >= pages) {
-      page = pages - 1;
-    }
+    page = Math.min(page, pages - 1);
     if (page < 0) {
       page = 0;
     }
@@ -645,7 +639,9 @@ function initRegister() {
       }
       return collate(a.id || '', b.id || '') * sign;
     });
-    tbody.append(...ordered);
+    ordered.forEach(function (row) {
+      tbody.append(row);
+    });
     page = 0;
     applyFilter();
     render();
@@ -693,11 +689,9 @@ function initRegister() {
   const revealHash = function () {
     let id = '';
     try {
-      id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
-    } catch (err) {
-      id = '';
-    }
-    // Look the id up among the register's own rows: a frame element must never answer for a row.
+      id = decodeURIComponent(location.hash.replace(/^#/, ''));
+    } catch (_err) {}
+    // Only the register's own rows answer, never a frame element.
     const row = id ? rowById(id) : null;
     if (!row) {
       return;
@@ -807,7 +801,15 @@ function paint() {
   const text = fb('palIn').value;
   const list = fb('palList');
   const note = fb('palNote');
-  S.load(fb('palette')).then(function (ix) {
+  // Busy, and a Skeleton after 300ms, until the index settles.
+  const t = setTimeout(function () {
+    list.replaceChildren(make('li', 'skeleton', null, { 'aria-hidden': 'true' }));
+  }, 300);
+  fb('palette').setAttribute('aria-busy', 'true');
+  S.load().finally(function () {
+    clearTimeout(t);
+    fb('palette').removeAttribute('aria-busy');
+  }).then(function (ix) {
     const q = text.trim();
     const rows = q && S.tokens(q).length ? paletteRows(ix, q) : null;
     S.render(rows || latestPages(ix), q, list);
@@ -893,11 +895,20 @@ function initPalette() {
     make('p', 'pal-note', null, { id: 'fb:palNote', role: 'status' }),
     list
   );
-  // The backdrop, Close and a followed row shut the palette; a row is one target for its link.
+  // Shut by a backdrop press (down and up outside the box), Close or a followed row.
+  const away = function (ev) {
+    const r = pal.getBoundingClientRect();
+    return ev.target === pal && !(ev.clientX >= r.left && ev.clientX < r.right &&
+      ev.clientY >= r.top && ev.clientY < r.bottom);
+  };
+  let down = false;
+  pal.addEventListener('pointerdown', function (ev) {
+    down = away(ev);
+  });
   pal.addEventListener('click', function (ev) {
     const li = closest(ev, '.pal-list li');
     const a = li && li.querySelector('a[href]');
-    if (ev.target === pal || ev.target === palClose || a && closest(ev, 'a')) {
+    if (down && away(ev) || ev.target === palClose || a && closest(ev, 'a')) {
       shut(pal);
     } else if (a) {
       a.click();

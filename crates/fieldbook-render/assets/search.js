@@ -199,12 +199,12 @@ function usable(ix) {
   return ix && ix.v === 1 ? Promise.resolve(ix) : Promise.reject(ix ? 'version' : 'failed');
 }
 
-// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS, in the results or `into`.
-function load(into) {
+// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS, in the results.
+function load() {
   if (pending) return pending;
   if (window.FB_INDEX) return (pending = usable(window.FB_INDEX));
   pending = new Promise(function (resolve) {
-    var box = $('out') || into || el('div', '', ''), bar = null;
+    var box = $('out') || el('div', '', ''), bar = null;
     var script = document.createElement('script');
     var timer = window.setTimeout(function () {
       bar = el('div', 'skeleton', '');
