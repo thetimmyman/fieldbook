@@ -40,7 +40,7 @@ exempts it. Its line stays for the record, and nothing waits on it.
 
 The lead may move `build-charts` after P3; edition packaging, release, backup and restore do not depend on charts; the area pages then keep their empty-state lines. At each phase exit the lead measures cards merged per day against the plan and raises concurrency first, merges adjacent cards second, and applies the floor last.
 
-**Reserved ADR numbers.** 0001 and 0002 are taken. 0003: Corpus format v2 (schema 2, the `note` page type, Day 30). 0004: the company boundary (labels, the policy file, egress, stores, sync, ids, records, identity and audit), which holds the R2 shape. 0005: the accepted financial-work foundation. Its work scope, periods, evidence and versioned methods apply before `calc-day1` and `r2-records`; later pricing modules use them. A new number is reserved here before its ADR is written.
+**Reserved ADR numbers.** 0001 and 0002 are taken. 0003: Corpus format v2 (schema 2, the `note` page type, Day 30). 0004: the company boundary (labels, the policy file, egress, stores, sync, ids, records, identity and audit), which holds the R2 shape. 0005: the accepted financial-work foundation. Its work scope, periods, evidence and versioned methods apply before `calc-day1` and `r2-records`; later pricing modules use them. 0006: the edition search index. 0007: the hosted read-only edition (`hosted-edition-adr`). A new number is reserved here before its ADR is written.
 
 **Owner minutes.** The weekly budget is upkeep 30 to 60 minutes and review 60 to 120. Each week the owner adds one row to [docs/maintenance.csv](../maintenance.csv); this file holds no weekly line. The log is a measure: the owner reads it, and nothing stops when it runs over.
 
@@ -185,6 +185,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - scheduled-workflow: the weekly `scheduled.yml` with the `lint-controls` and `scale` jobs
 - search-js: `search.js` and `search.html`, held to Rust by the goldens
 - search-palette: the command palette, search trigger and shortcuts dialog
+- hosted-edition-adr: ADR 0007, the hosted read-only edition of the site behind sign-on; the owner accepts it
 - backup-snapshot: `backup`, `backup list` (with `--json`) and `backup verify`, the `[backup]` settings, retention, and the `backup_age` reminder
 - restore-and-drill: `restore`, `restore --drill` and Drill 4 in CI on the disposable build-checkout Corpus
 - verify-status-fmt: `fieldbook verify` (Could)
