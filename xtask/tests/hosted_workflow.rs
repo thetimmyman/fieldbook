@@ -11,25 +11,31 @@ fn repo_root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("..")
 }
 
-fn workflow_files() -> Vec<(String, String)> {
-    let dir = repo_root().join(".github/workflows");
-    let mut files: Vec<_> = std::fs::read_dir(&dir)
+fn workflow_files_in(dir: &Path, prefix: &str) -> Vec<(String, String)> {
+    let mut files: Vec<_> = std::fs::read_dir(dir)
         .unwrap_or_else(|e| panic!("read_dir {}: {e}", dir.display()))
         .filter_map(|e| {
             let entry = e.unwrap_or_else(|err| panic!("entry in {}: {err}", dir.display()));
             let p = entry.path();
-            (p.is_file() && p.extension().is_some_and(|s| s == "yml")).then(|| {
+            let is_workflow =
+                p.is_file() && p.extension().is_some_and(|s| s == "yml" || s == "yaml");
+            is_workflow.then(|| {
                 let Some(name) = p.file_name().and_then(|n| n.to_str()) else {
                     panic!("file name utf8")
                 };
                 let text = std::fs::read_to_string(&p)
                     .unwrap_or_else(|err| panic!("read {}: {err}", p.display()));
-                (format!(".github/workflows/{name}"), text)
+                let rel = format!("{prefix}{name}");
+                (rel, text)
             })
         })
         .collect();
     files.sort_by(|a, b| a.0.cmp(&b.0));
     files
+}
+
+fn workflow_files() -> Vec<(String, String)> {
+    workflow_files_in(&repo_root().join(".github/workflows"), ".github/workflows/")
 }
 
 fn collect_scanned_files(dir: &Path, prefix: &str, files: &mut Vec<(String, String)>) {
@@ -112,8 +118,8 @@ fn check_secret_use(files: &[(String, String)]) -> Result<(), String> {
             }
             for line in content.lines() {
                 let trimmed = line.trim();
-                if trimmed.starts_with("environment:") && trimmed.contains("hosted") {
-                    return Err(format!("{path}: names hosted environment: `{line}`"));
+                if trimmed.starts_with("environment:") {
+                    return Err(format!("{path}: names an environment: `{line}`"));
                 }
             }
         }
@@ -170,36 +176,48 @@ fn check_runner(yml: &str) -> Result<(), String> {
 }
 
 fn check_unreleased_gate(yml: &str) -> Result<(), String> {
-    let is_grep_line = |l: &str| {
-        l.contains("grep")
-            && l.contains(fieldbook_core::strings::unreleased_build())
-            && l.contains(" -i ")
-            && l.contains("out/hosted/index.html")
-    };
-    let Some(grep_line) = yml.lines().find(|l| is_grep_line(l)) else {
-        return Err("missing grep -i for `unreleased build` in out/hosted/index.html".to_string());
-    };
-    if !grep_line.contains("! grep") {
+    let unreleased_script = "bash deploy/check-unreleased.sh";
+    let unreleased_count = yml
+        .lines()
+        .filter(|l| l.trim() == unreleased_script)
+        .count();
+    if unreleased_count != 1 {
         return Err(format!(
-            "the grep for `unreleased build` must be negated (`! grep`): `{grep_line}`"
+            "expected `{unreleased_script}` exactly once, found {unreleased_count}"
         ));
     }
-    let Some(grep_offset) = yml.find(grep_line) else {
-        return Err("grep line not found".to_string());
-    };
 
-    let Some(sha_offset) = yml.find("FIELDBOOK_GIT_SHA+x") else {
-        return Err("missing check for `FIELDBOOK_GIT_SHA+x`".to_string());
-    };
+    let no_identifiers_script = "bash deploy/check-no-identifiers.sh";
+    let no_identifiers_count = yml
+        .lines()
+        .filter(|l| l.trim() == no_identifiers_script)
+        .count();
+    if no_identifiers_count != 1 {
+        return Err(format!(
+            "expected `{no_identifiers_script}` exactly once, found {no_identifiers_count}"
+        ));
+    }
 
     let Some(deploy_offset) = yml.find("wrangler deploy") else {
         return Err("missing `wrangler deploy` in workflow".to_string());
     };
-    if sha_offset >= deploy_offset {
-        return Err("`FIELDBOOK_GIT_SHA+x` check must appear before `wrangler deploy`".to_string());
+
+    let Some(unreleased_offset) = yml.find(unreleased_script) else {
+        return Err(format!("missing `{unreleased_script}` in workflow"));
+    };
+    if unreleased_offset >= deploy_offset {
+        return Err(format!(
+            "`{unreleased_script}` must appear before `wrangler deploy`"
+        ));
     }
-    if grep_offset >= deploy_offset {
-        return Err("the `unreleased build` grep must appear before `wrangler deploy`".to_string());
+
+    let Some(no_identifiers_offset) = yml.find(no_identifiers_script) else {
+        return Err(format!("missing `{no_identifiers_script}` in workflow"));
+    };
+    if no_identifiers_offset >= deploy_offset {
+        return Err(format!(
+            "`{no_identifiers_script}` must appear before `wrangler deploy`"
+        ));
     }
 
     for line in yml.lines() {
@@ -213,6 +231,47 @@ fn check_unreleased_gate(yml: &str) -> Result<(), String> {
         if line.contains("FIELDBOOK_GIT_SHA=") {
             return Err(format!("workflow assigns FIELDBOOK_GIT_SHA: `{line}`"));
         }
+    }
+
+    Ok(())
+}
+
+fn check_read_only_token(yml: &str) -> Result<(), String> {
+    for line in yml.lines() {
+        if line.contains(": write") || line.contains("write-all") {
+            return Err(format!("workflow contains write permission: `{line}`"));
+        }
+    }
+
+    let mut lines = yml.lines();
+    let mut found_permissions = false;
+    let mut block_lines: Vec<&str> = Vec::new();
+    while let Some(line) = lines.next() {
+        if line == "permissions:" {
+            found_permissions = true;
+            for next_line in lines.by_ref() {
+                if next_line.is_empty() || !next_line.starts_with(' ') {
+                    break;
+                }
+                let trimmed = next_line.trim();
+                if !trimmed.is_empty() && !trimmed.starts_with('#') {
+                    block_lines.push(trimmed);
+                }
+            }
+            break;
+        }
+    }
+
+    if !found_permissions {
+        return Err("missing `permissions:` line at column 0".to_string());
+    }
+    if block_lines.is_empty() {
+        return Err("missing permissions block".to_string());
+    }
+    if block_lines != ["contents: read"] {
+        return Err(format!(
+            "permissions block must contain only `contents: read`, found: {block_lines:?}"
+        ));
     }
 
     Ok(())
@@ -299,6 +358,49 @@ fn check_job_hardening(yml: &str) -> Result<(), String> {
     if npm_ci == 0 {
         return Err("no `npm ci --ignore-scripts` step".to_string());
     }
+
+    // Gating steps (HO-05)
+    for (_, t) in &code {
+        let stripped = t.strip_prefix("- ").unwrap_or(t).trim_start();
+        if stripped.starts_with("continue-on-error") {
+            return Err(format!("workflow contains continue-on-error: `{t}`"));
+        }
+        if stripped.starts_with("if:")
+            && stripped != "if: github.ref == 'refs/heads/main'"
+            && stripped != "if: inputs.rollback_to == ''"
+            && stripped != "if: inputs.rollback_to != ''"
+        {
+            return Err(format!("unexpected `if:` line: `{t}`"));
+        }
+    }
+
+    let mut deploy_count = 0;
+    let mut rollback_count = 0;
+    for (_, t) in &code {
+        if t.contains("wrangler deploy") {
+            deploy_count += 1;
+            if !t.contains("--env-file=/dev/null") {
+                return Err(format!(
+                    "`wrangler deploy` line lacks `--env-file=/dev/null`: `{t}`"
+                ));
+            }
+        }
+        if t.contains("wrangler rollback") {
+            rollback_count += 1;
+            if !t.contains("--env-file=/dev/null") {
+                return Err(format!(
+                    "`wrangler rollback` line lacks `--env-file=/dev/null`: `{t}`"
+                ));
+            }
+        }
+    }
+    if deploy_count == 0 {
+        return Err("missing `wrangler deploy` in workflow".to_string());
+    }
+    if rollback_count == 0 {
+        return Err("missing `wrangler rollback` in workflow".to_string());
+    }
+
     Ok(())
 }
 
@@ -312,6 +414,27 @@ fn has_workers_dev_label(content: &str) -> bool {
                 .chars()
                 .next_back()
                 .is_some_and(|c| c.is_ascii_alphanumeric() || c == '-')
+        {
+            return true;
+        }
+        search_from = abs + target.len();
+    }
+    false
+}
+
+fn has_access_team_domain(content: &str) -> bool {
+    let lower = content.to_ascii_lowercase();
+    let target = "cloudflareaccess";
+    let mut search_from = 0;
+    while let Some(pos) = lower[search_from..].find(target) {
+        let abs = search_from + pos;
+        let prefix = &lower[..abs];
+        let before_dot = prefix
+            .strip_suffix(r"\.")
+            .or_else(|| prefix.strip_suffix('.'));
+        if before_dot
+            .and_then(|b| b.chars().next_back())
+            .is_some_and(|c| c.is_ascii_alphanumeric() || c == '-')
         {
             return true;
         }
@@ -384,9 +507,8 @@ fn check_identifiers(files: &[(String, String)]) -> Result<(), String> {
         if has_workers_dev_label(content) {
             return Err(format!("{path}: contains workers.dev label"));
         }
-        let is_exempt = path == "deploy/check-login-gate.sh" || path.starts_with("xtask/tests/");
-        if !is_exempt && content.contains("cloudflareaccess.com") {
-            return Err(format!("{path}: contains cloudflareaccess.com"));
+        if has_access_team_domain(content) {
+            return Err(format!("{path}: contains an Access team domain"));
         }
         if has_32_hex_run(content) {
             return Err(format!("{path}: contains 32-hex identifier"));
@@ -399,12 +521,24 @@ fn check_identifiers(files: &[(String, String)]) -> Result<(), String> {
 }
 
 #[test]
+fn workflow_files_reads_yml_and_yaml() {
+    let dir = tempfile::tempdir().expect("tempdir");
+    std::fs::write(dir.path().join("a.yml"), "name: a\n").expect("write a.yml");
+    std::fs::write(dir.path().join("b.yaml"), "name: b\n").expect("write b.yaml");
+    std::fs::write(dir.path().join("c.txt"), "ignored\n").expect("write c.txt");
+
+    let files = workflow_files_in(dir.path(), "");
+    let names: Vec<_> = files.iter().map(|(p, _)| p.as_str()).collect();
+    assert_eq!(names, ["a.yml", "b.yaml"]);
+}
+
+#[test]
 fn workflow_is_pinned_read_only_and_serialised() {
     let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
         .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
         .replace("\r\n", "\n");
 
-    assert!(yml.contains("permissions:\n  contents: read"));
+    assert!(check_read_only_token(&yml).is_ok());
     assert_eq!(
         yml.lines().filter(|l| l.trim() == "permissions:").count(),
         1
@@ -434,6 +568,32 @@ fn workflow_is_pinned_read_only_and_serialised() {
     assert!(uses >= 4, "expected >= 4 uses lines, found {uses}");
 }
 
+// control: HO-05
+#[test]
+fn a_planted_extra_token_scope_is_refused() {
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
+
+    // Plant 1: id-token: write right after contents: read
+    let plant1 = real_yml.replace(
+        "  contents: read\n",
+        "  contents: read\n  id-token: write\n",
+    );
+    assert_ne!(plant1, real_yml, "plant1 must change the text");
+    assert!(check_read_only_token(&plant1).is_err());
+
+    // Plant 2: contents: write replacing contents: read
+    let plant2 = real_yml.replace("  contents: read", "  contents: write");
+    assert_ne!(plant2, real_yml, "plant2 must change the text");
+    assert!(check_read_only_token(&plant2).is_err());
+
+    // Plant 3: permissions: write-all appended on its own line
+    let mut plant3 = real_yml;
+    plant3.push_str("\npermissions: write-all\n");
+    assert!(check_read_only_token(&plant3).is_err());
+}
+
 // control: HO-04
 #[test]
 fn only_the_hosted_workflow_names_the_deploy_secrets_and_environment() {
@@ -457,7 +617,7 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
         .find(|(p, _)| p == ".github/workflows/ci.yml")
         .expect("ci.yml");
     ci1.1.push_str("\n      CLOUDFLARE_API_TOKEN: x\n");
-    let err1 = check_secret_use(&plant1).unwrap_err();
+    let err1 = check_secret_use(&plant1).expect_err("CLOUDFLARE_API_TOKEN");
     assert!(
         err1.contains(".github/workflows/ci.yml"),
         "expected ci.yml in {err1}"
@@ -472,7 +632,7 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
     ci2.1.push_str("\n    environment: hosted\n");
     assert!(
         check_secret_use(&plant2)
-            .unwrap_err()
+            .expect_err("environment: hosted")
             .contains(".github/workflows/ci.yml")
     );
 
@@ -500,7 +660,7 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
         .push_str("\n      FIELDBOOK_HOST: ${{ secrets.FIELDBOOK_HOST }}\n");
     assert!(
         check_secret_use(&plant4)
-            .unwrap_err()
+            .expect_err("FIELDBOOK_HOST")
             .contains(".github/workflows/ci.yml")
     );
 
@@ -514,9 +674,34 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
         target
             .1
             .push_str("\n      FIELDBOOK_HOST: ${{ vars.FIELDBOOK_HOST }}\n");
-        let err = check_secret_use(&plant5).unwrap_err();
+        let err = check_secret_use(&plant5).expect_err("vars.FIELDBOOK_HOST");
         assert!(err.contains(file), "expected {file} in {err}");
     }
+
+    // Plant (a): extra workflow declaring an environment
+    let mut plant_a = real_files.clone();
+    plant_a.push((
+        ".github/workflows/extra.yaml".to_string(),
+        "name: extra\njobs:\n  a:\n    environment: hosted\n".to_string(),
+    ));
+    let err_a = check_secret_use(&plant_a).expect_err("extra.yaml environment");
+    assert!(
+        err_a.contains(".github/workflows/extra.yaml"),
+        "expected .github/workflows/extra.yaml in {err_a}"
+    );
+
+    // Plant (b): block-form environment in ci.yml
+    let mut plant_b = real_files;
+    let ci_b = plant_b
+        .iter_mut()
+        .find(|(p, _)| p == ".github/workflows/ci.yml")
+        .expect("ci.yml");
+    ci_b.1.push_str("\n    environment:\n      name: hosted\n");
+    let err_b = check_secret_use(&plant_b).expect_err("ci.yml block environment");
+    assert!(
+        err_b.contains(".github/workflows/ci.yml"),
+        "expected ci.yml in {err_b}"
+    );
 }
 
 // control: HO-05
@@ -613,13 +798,31 @@ fn the_deploy_job_is_hardened_on_the_persistent_runner() {
 #[test]
 fn a_planted_job_hardening_violation_is_refused() {
     let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
-        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
     let planted = |from: &str, to: &str| {
         assert!(
             real_yml.contains(from),
             "the workflow no longer holds `{from}`"
         );
-        real_yml.replace(from, to)
+        let res = real_yml.replace(from, to);
+        assert_ne!(res, real_yml, "replacement of `{from}` must change text");
+        res
+    };
+    let insert_after = |needle: &str, new_line: &str| {
+        let mut found = false;
+        let mut out = Vec::new();
+        for line in real_yml.lines() {
+            out.push(line);
+            if !found && line.contains(needle) {
+                out.push(new_line);
+                found = true;
+            }
+        }
+        assert!(found, "needle `{needle}` not found in hosted.yml");
+        let res = out.join("\n");
+        assert_ne!(res, real_yml, "inserting after `{needle}` must change text");
+        res
     };
     let refused = |text: String, what: &str| {
         let err = check_job_hardening(&text).expect_err(what);
@@ -660,6 +863,35 @@ fn a_planted_job_hardening_violation_is_refused() {
             flag,
         );
     }
+    refused(
+        insert_after(
+            "- name: Check the build is unreleased",
+            "        continue-on-error: true",
+        ),
+        "continue-on-error",
+    );
+    refused(
+        planted(
+            "      - name: Deploy\n        if: inputs.rollback_to == ''",
+            "      - name: Deploy\n        if: always()",
+        ),
+        "if: always()",
+    );
+    refused(
+        insert_after(
+            "- name: Check the login gate before the upload",
+            "        if: false",
+        ),
+        "if: false",
+    );
+    refused(
+        planted("wrangler deploy --env-file=/dev/null", "wrangler deploy"),
+        "deploy without --env-file=/dev/null",
+    );
+    refused(
+        planted("\"$ROLLBACK_TO\" --env-file=/dev/null", "\"$ROLLBACK_TO\""),
+        "rollback without --env-file=/dev/null",
+    );
 }
 
 // control: HO-06
@@ -686,9 +918,58 @@ fn a_planted_identifier_shape_is_refused() {
     for (path, content) in plants {
         let mut files = real_files.clone();
         files.push((path.to_string(), content.to_string()));
-        let err = check_identifiers(&files).unwrap_err();
+        let err = check_identifiers(&files).expect_err(path);
         assert!(err.contains(path), "error must name {path}: {err}");
     }
+
+    // Plant (a): deploy/check-login-gate.sh with Access team domain appended
+    let mut plant_gate = real_files.clone();
+    let gate_tuple = plant_gate
+        .iter_mut()
+        .find(|(p, _)| p == "deploy/check-login-gate.sh");
+    assert!(gate_tuple.is_some(), "deploy/check-login-gate.sh found");
+    let gate_tuple = gate_tuple.expect("deploy/check-login-gate.sh");
+    gate_tuple
+        .1
+        .push_str("\n# https://team.cloudflareaccess.com\n");
+    let err_gate = check_identifiers(&plant_gate).expect_err("planted gate must fail");
+    assert!(
+        err_gate.contains("deploy/check-login-gate.sh"),
+        "error must name deploy/check-login-gate.sh: {err_gate}"
+    );
+
+    // Plant (b): deploy/extra5.txt with team\\.cloudflareaccess\\.com
+    let mut plant_extra5 = real_files.clone();
+    plant_extra5.push((
+        "deploy/extra5.txt".to_string(),
+        r"team\.cloudflareaccess\.com".to_string(),
+    ));
+    let err_extra5 = check_identifiers(&plant_extra5).expect_err("extra5 must fail");
+    assert!(
+        err_extra5.contains("deploy/extra5.txt"),
+        "error must name deploy/extra5.txt: {err_extra5}"
+    );
+
+    // Assert that check_identifiers on unmodified deploy/check-login-gate.sh is Ok
+    let real_gate = real_files
+        .iter()
+        .find(|(p, _)| p == "deploy/check-login-gate.sh")
+        .expect("deploy/check-login-gate.sh");
+    assert!(
+        check_identifiers(std::slice::from_ref(real_gate)).is_ok(),
+        "unmodified deploy/check-login-gate.sh must be Ok"
+    );
+
+    // Unit assertions for has_access_team_domain
+    assert!(has_access_team_domain("team.cloudflareaccess.com"));
+    assert!(has_access_team_domain(r"team\.cloudflareaccess\.com"));
+    assert!(!has_access_team_domain(
+        r"([A-Za-z0-9-]+\.)*cloudflareaccess\.com"
+    ));
+    assert!(!has_access_team_domain("cloudflareaccess.com"));
+    assert!(!has_access_team_domain("cloudflareaccess"));
+    assert!(!has_access_team_domain("\ncloudflareaccess.com"));
+    assert!(has_access_team_domain("TEAM.CLOUDFLAREACCESS.COM"));
 
     let mut near_miss = real_files;
     near_miss.push((
@@ -731,9 +1012,10 @@ fn the_hosted_build_is_checked_to_be_unreleased_before_the_upload() {
 #[test]
 fn a_planted_release_stamp_or_a_removed_check_is_refused() {
     let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
-        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"))
+        .replace("\r\n", "\n");
 
-    // Plant (i): a line `      FIELDBOOK_GIT_SHA: ${{ github.sha }}` after the line `      CI: "true"` -> Err
+    // Plant 1: FIELDBOOK_GIT_SHA key in env after CI: "true"
     let mut plant1 = Vec::new();
     for line in real_yml.lines() {
         plant1.push(line);
@@ -742,57 +1024,83 @@ fn a_planted_release_stamp_or_a_removed_check_is_refused() {
         }
     }
     let plant1_text = plant1.join("\n");
+    assert_ne!(plant1_text, real_yml, "plant1 must change text");
     assert!(
         check_unreleased_gate(&plant1_text).is_err(),
         "planted FIELDBOOK_GIT_SHA in env must fail"
     );
 
-    // Plant (ii): the grep line removed (filter out lines containing `unreleased build`) -> Err
-    let plant2_text = real_yml
+    // Plant 2: export FIELDBOOK_GIT_SHA=abc appended
+    let mut plant2 = real_yml.clone();
+    plant2.push_str("\nexport FIELDBOOK_GIT_SHA=abc\n");
+    assert!(
+        check_unreleased_gate(&plant2).is_err(),
+        "exporting FIELDBOOK_GIT_SHA must fail"
+    );
+
+    // Plant 3: bare FIELDBOOK_GIT_SHA=abc appended
+    let mut plant3 = real_yml.clone();
+    plant3.push_str("\nFIELDBOOK_GIT_SHA=abc\n");
+    assert!(
+        check_unreleased_gate(&plant3).is_err(),
+        "bare FIELDBOOK_GIT_SHA assignment must fail"
+    );
+
+    // Plant 4: bash deploy/check-unreleased.sh removed
+    let plant4 = real_yml
         .lines()
-        .filter(|l| !l.contains(fieldbook_core::strings::unreleased_build()))
+        .filter(|l| l.trim() != "bash deploy/check-unreleased.sh")
         .collect::<Vec<_>>()
         .join("\n");
+    assert_ne!(plant4, real_yml, "check-unreleased.sh must exist");
     assert!(
-        check_unreleased_gate(&plant2_text).is_err(),
-        "removing grep line for unreleased build must fail"
+        check_unreleased_gate(&plant4).is_err(),
+        "removing check-unreleased.sh must fail"
     );
 
-    // Plant (iii): the lines containing `FIELDBOOK_GIT_SHA+x` removed -> Err
-    let plant3_text = real_yml
+    // Plant 5: bash deploy/check-no-identifiers.sh removed
+    let plant5 = real_yml
         .lines()
-        .filter(|l| !l.contains("FIELDBOOK_GIT_SHA+x"))
+        .filter(|l| l.trim() != "bash deploy/check-no-identifiers.sh")
         .collect::<Vec<_>>()
         .join("\n");
+    assert_ne!(plant5, real_yml, "check-no-identifiers.sh must exist");
     assert!(
-        check_unreleased_gate(&plant3_text).is_err(),
-        "removing FIELDBOOK_GIT_SHA+x check must fail"
+        check_unreleased_gate(&plant5).is_err(),
+        "removing check-no-identifiers.sh must fail"
     );
 
-    // Plant (v): the grep moved after the deploy step -> Err
-    let mut plant5 = real_yml
+    // Plant 6: bash deploy/check-unreleased.sh moved after deploy
+    let mut plant6_lines: Vec<&str> = real_yml
         .lines()
-        .filter(|l| !l.contains(fieldbook_core::strings::unreleased_build()))
-        .collect::<Vec<_>>();
-    plant5.push("          ! grep -q -i -F 'unreleased build' out/hosted/index.html");
-    assert!(
-        check_unreleased_gate(&plant5.join("\n")).is_err(),
-        "a grep after the deploy step must fail"
+        .filter(|l| l.trim() != "bash deploy/check-unreleased.sh")
+        .collect();
+    assert_ne!(
+        plant6_lines.len(),
+        real_yml.lines().count(),
+        "check-unreleased.sh must be removed"
     );
-
-    // Plant (vi): the grep not negated, so a missing text never fails the step -> Err
-    let plant6 = real_yml.replace("! grep -q -i -F", "grep -q -i -F");
-    assert_ne!(plant6, real_yml, "the real grep line must be negated");
+    plant6_lines.push("          bash deploy/check-unreleased.sh");
+    let plant6 = plant6_lines.join("\n");
     assert!(
         check_unreleased_gate(&plant6).is_err(),
-        "a grep that is not negated must fail"
+        "moving check-unreleased.sh after deploy must fail"
     );
 
-    // Plant (iv): a line `          export FIELDBOOK_GIT_SHA=abc` appended inside the Deploy run script (append at the end of the text with proper indentation is fine) -> Err
-    let mut plant4_text = real_yml;
-    plant4_text.push_str("\n          export FIELDBOOK_GIT_SHA=abc\n");
+    // Plant 7: bash deploy/check-no-identifiers.sh moved after deploy
+    let mut plant7_lines: Vec<&str> = real_yml
+        .lines()
+        .filter(|l| l.trim() != "bash deploy/check-no-identifiers.sh")
+        .collect();
+    assert_ne!(
+        plant7_lines.len(),
+        real_yml.lines().count(),
+        "check-no-identifiers.sh must be removed"
+    );
+    plant7_lines.push("          bash deploy/check-no-identifiers.sh");
+    let plant7 = plant7_lines.join("\n");
     assert!(
-        check_unreleased_gate(&plant4_text).is_err(),
-        "exporting FIELDBOOK_GIT_SHA must fail"
+        check_unreleased_gate(&plant7).is_err(),
+        "moving check-no-identifiers.sh after deploy must fail"
     );
 }
