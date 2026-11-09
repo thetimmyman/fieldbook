@@ -212,6 +212,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - hosted-gate: `deploy/check-login-gate.sh`, the probe that fails when the hostname answers without the login, with its tests
 - hosted-workflow: `hosted.yml`, the deploy workflow in the `hosted` environment, and its workflow controls
 - hosted-runbook: the hosted-edition runbook (deploy, verify, roll back, add a reader, rotate the token), its `AGENTS.md` link and the changelog line
+- search-ranking-warnings: the regression set judges the page view, and the Corpus content fixes the cases that still miss, so `check` reports no `FB0127` (owner review)
 
 ## P4
 
