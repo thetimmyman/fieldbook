@@ -26,8 +26,9 @@ mod registers {
     use fieldbook_render::nav;
     use fieldbook_render::page;
     use fieldbook_render::register::{
-        QUESTIONS_CORPUS_COLS, build_register_conflict_box, build_register_view, output_path,
-        render_main, render_page,
+        QUESTIONS_CORPUS_COLS, RegisterRowView, build_claims_part_view,
+        build_register_conflict_box, build_register_view, claims_parts, output_path,
+        render_claims_part_main, render_claims_part_page, render_main, render_page,
     };
     use fieldbook_render::site::{self, PlannedPaths};
     use fieldbook_render::source;
@@ -86,6 +87,8 @@ mod registers {
 
     const FIXED_PLANNED_PATHS: &[&str] = &[
         "claims.html",
+        "claims/CMP-1.html",
+        "claims/EST-1.html",
         "sources.html",
         "questions.html",
         "conflicts.html",
@@ -217,6 +220,23 @@ mod registers {
         (model, view)
     }
 
+    fn claims_part_mains(
+        view: &LabelledView,
+        planned: &PlannedPaths,
+    ) -> Vec<(String /*route*/, String /*main html*/)> {
+        let parts = claims_parts(view);
+        parts
+            .iter()
+            .enumerate()
+            .map(|(idx, part)| {
+                (
+                    part.route.clone(),
+                    render_claims_part_main(&parts, idx, view, planned),
+                )
+            })
+            .collect()
+    }
+
     #[test]
     #[expect(
         clippy::disallowed_methods,
@@ -283,11 +303,22 @@ mod registers {
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
 
         let claims_html = render_main(Register::Claims, &view, &planned);
+        assert!(
+            claims_html.contains("class=\"register-view\""),
+            "register `claims.html` must render through `class=\"register-view\"`"
+        );
+        let part_mains = claims_part_mains(&view, &planned);
         for c in view.claims() {
             let needle = format!("<tr id=\"{}\"", c.value.claim_id);
+            let route = fieldbook_core::ids::claim_page_route(c.value.claim_id.as_str())
+                .expect("valid claim id has route");
+            let (_, part_html) = part_mains
+                .iter()
+                .find(|(r, _)| r == &route)
+                .unwrap_or_else(|| panic!("missing part main for `{route}`"));
             assert!(
-                claims_html.contains(&needle),
-                "register `claims.html` missing row anchor `{needle}`"
+                part_html.contains(&needle),
+                "claims part page `{route}` missing row anchor `{needle}`"
             );
         }
 
@@ -678,21 +709,21 @@ mod registers {
         let with_claims = PlannedPaths::of(FIXED_PLANNED_PATHS);
         let html_with = page::render_main(page_entry, &view, &with_claims);
         assert!(
-            html_with.contains("href=\"../claims.html#CL-CMP-0001\""),
-            "when `claims.html` is in PlannedPaths, page claim chips must link to `../claims.html#CL-CMP-0001`, got:\n{html_with}"
+            html_with.contains("href=\"../claims/CMP-1.html#CL-CMP-0001\""),
+            "when `claims/CMP-1.html` is in PlannedPaths, page claim chips must link to `../claims/CMP-1.html#CL-CMP-0001`, got:\n{html_with}"
         );
 
         let without_claims_vec: Vec<&str> = FIXED_PLANNED_PATHS
             .iter()
             .copied()
-            .filter(|&p| p != "claims.html")
+            .filter(|&p| p != "claims/CMP-1.html")
             .collect();
         let without_claims = PlannedPaths::of(&without_claims_vec);
         let html_without = page::render_main(page_entry, &view, &without_claims);
         assert!(
-            !html_without.contains("claims.html#CL-CMP-0001")
+            !html_without.contains("claims/CMP-1.html#CL-CMP-0001")
                 && html_without.contains("<span class=\"claim-mark"),
-            "when `claims.html` is omitted from PlannedPaths, page claim chips must stay plain text `<span>`, got:\n{html_without}"
+            "when `claims/CMP-1.html` is omitted from PlannedPaths, page claim chips must stay plain text `<span>`, got:\n{html_without}"
         );
     }
 
@@ -744,7 +775,14 @@ mod registers {
             "unmapped enum `primary_evidence` must render as plain canonical text"
         );
         assert!(
-            claims_html.contains("<td>pdf_page_box</td>"),
+            claims_html.contains("class=\"register-view\""),
+            "claims.html must render through class=\"register-view\""
+        );
+        let claims_parts_pdf = claims_part_mains(&view_pdf, &planned);
+        assert!(
+            claims_parts_pdf
+                .iter()
+                .any(|(_, html)| html.contains("<td>pdf_page_box</td>")),
             "unmapped enum `pdf_page_box` must render as plain canonical text"
         );
 
@@ -798,8 +836,16 @@ mod registers {
         ];
 
         for &(page_name, reg, cols) in unmapped_enum_cols {
-            let reg_view = build_register_view(reg, &view_pdf, &planned);
-            for row in &reg_view.rows {
+            let rows: Vec<_> = if reg == Register::Claims {
+                let parts = claims_parts(&view_pdf);
+                (0..parts.len())
+                    .flat_map(|idx| build_claims_part_view(&parts, idx, &view_pdf, &planned).rows)
+                    .collect()
+            } else {
+                build_register_view(reg, &view_pdf, &planned).rows
+            };
+            assert!(!rows.is_empty(), "must have rows to check in {page_name}");
+            for row in &rows {
                 for &col_name in cols {
                     let cell = row
                         .cells
@@ -822,8 +868,16 @@ mod registers {
                 .into_iter()
                 .find(|&r| output_path(r) == page_name)
                 .unwrap();
-            let reg_view = build_register_view(reg, &view, &planned);
-            for row in &reg_view.rows {
+            let rows: Vec<_> = if reg == Register::Claims {
+                let parts = claims_parts(&view);
+                (0..parts.len())
+                    .flat_map(|idx| build_claims_part_view(&parts, idx, &view, &planned).rows)
+                    .collect()
+            } else {
+                build_register_view(reg, &view, &planned).rows
+            };
+            assert!(!rows.is_empty(), "must have rows to check in {page_name}");
+            for row in &rows {
                 for &col_name in cols {
                     let cell = row.cells.iter().find(|c| c.col_name == col_name).unwrap();
                     assert!(
@@ -993,24 +1047,46 @@ mod registers {
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
+            if reg == Register::Claims {
+                assert!(
+                    html.contains("class=\"register-view\""),
+                    "claims.html must render through class=\"register-view\""
+                );
+                let part_mains = claims_part_mains(&view, &planned);
+                for (route, part_html) in &part_mains {
+                    assert!(
+                        !part_html.contains("th-sort")
+                            && !part_html.contains("<button type=\"button\" data-sort-col"),
+                        "`{route}` ships no sort buttons: the script adds them"
+                    );
+                    assert_eq!(
+                        part_html.matches("aria-sort=").count(),
+                        1,
+                        "`{route}` marks only the id column, which the page is sorted by"
+                    );
+                }
+            } else {
+                assert!(
+                    !html.contains("th-sort")
+                        && !html.contains("<button type=\"button\" data-sort-col"),
+                    "`{}` ships no sort buttons: the script adds them",
+                    output_path(reg)
+                );
+                assert_eq!(
+                    html.matches("aria-sort=").count(),
+                    1,
+                    "`{}` marks only the id column, which the page is sorted by",
+                    output_path(reg)
+                );
+            }
+        }
+        let part_mains = claims_part_mains(&view, &planned);
+        for (route, part_html) in &part_mains {
             assert!(
-                !html.contains("th-sort")
-                    && !html.contains("<button type=\"button\" data-sort-col"),
-                "`{}` ships no sort buttons: the script adds them",
-                output_path(reg)
-            );
-            assert_eq!(
-                html.matches("aria-sort=").count(),
-                1,
-                "`{}` marks only the id column, which the page is sorted by",
-                output_path(reg)
+                part_html.contains("id=\"fb:claimsFilter\"") && part_html.contains(" hidden>"),
+                "the `{route}` claims filter stays hidden until the script reveals it"
             );
         }
-        let claims = render_main(Register::Claims, &view, &planned);
-        assert!(
-            claims.contains("id=\"fb:claimsFilter\"") && claims.contains(" hidden>"),
-            "the claims filter stays hidden until the script reveals it"
-        );
         for needle in [
             "className = 'th-sort'",
             "setAttribute('aria-sort', nextDir)",
@@ -1029,28 +1105,57 @@ mod registers {
 
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
-            assert!(
-                html.contains("<div class=\"table-wrap\">"),
-                "`{}` must wrap its table in `.table-wrap`",
-                output_path(reg)
-            );
-            assert!(
-                html.contains("<caption>"),
-                "`{}` table must include a `<caption>`",
-                output_path(reg)
-            );
-            let th_count = html.matches("<th ").count() + html.matches("<th>").count();
-            let scope_col_count = html.matches("<th scope=\"col\"").count();
-            assert!(
-                th_count > 0 && th_count == scope_col_count,
-                "`{}` must put `scope=\"col\"` on every `<th>` (found {scope_col_count} of {th_count})",
-                output_path(reg)
-            );
-            assert!(
-                html.contains("aria-sort=\"ascending\""),
-                "`{}` must mark the initial sorted column header with `aria-sort=\"ascending\"`",
-                output_path(reg)
-            );
+            if reg == Register::Claims {
+                assert!(
+                    html.contains("class=\"register-view\""),
+                    "claims.html must render through class=\"register-view\""
+                );
+                let part_mains = claims_part_mains(&view, &planned);
+                for (route, part_html) in &part_mains {
+                    assert!(
+                        part_html.contains("<div class=\"table-wrap\">"),
+                        "`{route}` must wrap its table in `.table-wrap`"
+                    );
+                    assert!(
+                        part_html.contains("<caption>"),
+                        "`{route}` table must include a `<caption>`"
+                    );
+                    let th_count =
+                        part_html.matches("<th ").count() + part_html.matches("<th>").count();
+                    let scope_col_count = part_html.matches("<th scope=\"col\"").count();
+                    assert!(
+                        th_count > 0 && th_count == scope_col_count,
+                        "`{route}` must put `scope=\"col\"` on every `<th>` (found {scope_col_count} of {th_count})"
+                    );
+                    assert!(
+                        part_html.contains("aria-sort=\"ascending\""),
+                        "`{route}` must mark the initial sorted column header with `aria-sort=\"ascending\"`"
+                    );
+                }
+            } else {
+                assert!(
+                    html.contains("<div class=\"table-wrap\">"),
+                    "`{}` must wrap its table in `.table-wrap`",
+                    output_path(reg)
+                );
+                assert!(
+                    html.contains("<caption>"),
+                    "`{}` table must include a `<caption>`",
+                    output_path(reg)
+                );
+                let th_count = html.matches("<th ").count() + html.matches("<th>").count();
+                let scope_col_count = html.matches("<th scope=\"col\"").count();
+                assert!(
+                    th_count > 0 && th_count == scope_col_count,
+                    "`{}` must put `scope=\"col\"` on every `<th>` (found {scope_col_count} of {th_count})",
+                    output_path(reg)
+                );
+                assert!(
+                    html.contains("aria-sort=\"ascending\""),
+                    "`{}` must mark the initial sorted column header with `aria-sort=\"ascending\"`",
+                    output_path(reg)
+                );
+            }
         }
 
         // Verify app.css never puts position: sticky on th or thead.
@@ -1095,7 +1200,25 @@ mod registers {
             };
             assert_eq!(reg_view.columns.len(), expected_cols);
 
-            for row in &reg_view.rows {
+            let rows_to_check: Vec<(String, RegisterRowView)> = if reg == Register::Claims {
+                let parts = claims_parts(&view);
+                (0..parts.len())
+                    .flat_map(|idx| {
+                        let pv = build_claims_part_view(&parts, idx, &view, &planned);
+                        assert_eq!(pv.columns.len(), expected_cols);
+                        let route = parts[idx].route.clone();
+                        pv.rows.into_iter().map(move |r| (route.clone(), r))
+                    })
+                    .collect()
+            } else {
+                reg_view
+                    .rows
+                    .into_iter()
+                    .map(|r| (output_path(reg).to_owned(), r))
+                    .collect()
+            };
+
+            for (path, row) in &rows_to_check {
                 assert_eq!(row.cells.len(), expected_cols);
                 for cell in &row.cells {
                     let trimmed = cell.html.trim();
@@ -1111,15 +1234,13 @@ mod registers {
                     }
                     assert!(
                         !trimmed.is_empty(),
-                        "register `{}` row `{}` column `{}` must not be blank",
-                        output_path(reg),
+                        "register `{path}` row `{}` column `{}` must not be blank",
                         row.id,
                         cell.col_name
                     );
                     assert!(
                         !trimmed.contains("<span></span>"),
-                        "register `{}` row `{}` column `{}` has empty `<span>` in `{trimmed}`",
-                        output_path(reg),
+                        "register `{path}` row `{}` column `{}` has empty `<span>` in `{trimmed}`",
                         row.id,
                         cell.col_name
                     );
@@ -1127,7 +1248,10 @@ mod registers {
             }
         }
 
-        let claims_html = render_main(Register::Claims, &view, &planned);
+        let claims_parts_html: String = claims_part_mains(&view, &planned)
+            .into_iter()
+            .map(|(_, h)| h)
+            .collect();
         for expected_meaning in [
             "<span class=\"muted\">An assumption has no source</span>",
             "<span class=\"muted\">No fine locator</span>",
@@ -1144,8 +1268,8 @@ mod registers {
             "<span class=\"muted\">No question</span>",
         ] {
             assert!(
-                claims_html.contains(expected_meaning),
-                "claims.html must render empty-cell meaning `{expected_meaning}`"
+                claims_parts_html.contains(expected_meaning),
+                "claims part pages must render empty-cell meaning `{expected_meaning}`"
             );
         }
 
@@ -1184,11 +1308,23 @@ mod registers {
     }
 
     fn row_ids(reg: Register, view: &LabelledView, planned: &PlannedPaths) -> Vec<String> {
-        build_register_view(reg, view, planned)
-            .rows
-            .into_iter()
-            .map(|r| r.id)
-            .collect()
+        if reg == Register::Claims {
+            let parts = claims_parts(view);
+            (0..parts.len())
+                .flat_map(|idx| {
+                    build_claims_part_view(&parts, idx, view, planned)
+                        .rows
+                        .into_iter()
+                        .map(|r| r.id)
+                })
+                .collect()
+        } else {
+            build_register_view(reg, view, planned)
+                .rows
+                .into_iter()
+                .map(|r| r.id)
+                .collect()
+        }
     }
 
     #[test]
@@ -1303,16 +1439,35 @@ mod registers {
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
-            assert!(
-                html.contains("id=\"fb:registerPager\"") && html.contains("hidden>"),
-                "`{}` ships the pager hidden: the script shows it past 50 rows",
-                output_path(reg)
-            );
-            assert!(
-                html.matches("<tr id=").count() > 0,
-                "`{}` ships every row, so the table is complete without the script",
-                output_path(reg)
-            );
+            if reg == Register::Claims {
+                assert!(
+                    html.contains("class=\"register-view\""),
+                    "claims.html must render through class=\"register-view\""
+                );
+                let part_mains = claims_part_mains(&view, &planned);
+                for (route, part_html) in &part_mains {
+                    assert!(
+                        part_html.contains("id=\"fb:registerPager\"")
+                            && part_html.contains("hidden>"),
+                        "`{route}` ships the pager hidden: the script shows it past 50 rows"
+                    );
+                    assert!(
+                        part_html.matches("<tr id=").count() > 0,
+                        "`{route}` ships every row, so the table is complete without the script"
+                    );
+                }
+            } else {
+                assert!(
+                    html.contains("id=\"fb:registerPager\"") && html.contains("hidden>"),
+                    "`{}` ships the pager hidden: the script shows it past 50 rows",
+                    output_path(reg)
+                );
+                assert!(
+                    html.matches("<tr id=").count() > 0,
+                    "`{}` ships every row, so the table is complete without the script",
+                    output_path(reg)
+                );
+            }
         }
         for needle in [
             "PAGE_SIZE = 50",
@@ -1706,6 +1861,21 @@ const compareDecimal = function (x, y) {
         let navigation = nav::build(&view, &planned);
         let html = render_page(Register::Claims, &view, &ctx, &navigation, &planned);
         insta::assert_snapshot!("claims_page_renders", html);
+    }
+
+    #[test]
+    fn claims_part_page_renders() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let navigation = nav::build(&view, &planned);
+        let parts = claims_parts(&view);
+        let cmp_index = parts
+            .iter()
+            .position(|p| p.route == "claims/CMP-1.html")
+            .expect("claims/CMP-1.html part present");
+        let html = render_claims_part_page(&parts, cmp_index, &view, &ctx, &navigation, &planned);
+        insta::assert_snapshot!("claims_part_page_renders", html);
     }
 
     #[test]

@@ -323,7 +323,7 @@ mod search_index {
         let ids = doc_ids(&index);
         let ids_html = String::from_utf8(site.files()["ids.html"].clone()).unwrap();
         for (id, kind, register) in [
-            ("CL-CMP-0001", "claim", "claims.html"),
+            ("CL-CMP-0001", "claim", "claims/CMP-1.html"),
             ("S-0002-v2", "source", "sources.html"),
             ("Q-001", "question", "questions.html"),
             ("XC-01", "conflict", "conflicts.html"),

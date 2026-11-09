@@ -280,10 +280,7 @@ mod search_page {
             let area = &id[3..6];
             let number: u32 = id[7..].parse().expect("valid claim number");
             // The script's expression: Math.ceil(number / CLAIMS_PER_PART) || 1.
-            let per_part = f64::from(fieldbook_core::ids::CLAIMS_PER_PART);
-            let ceil = (f64::from(number) / per_part).ceil();
-            let part = if ceil == 0.0 { 1.0 } else { ceil };
-            let part = part as u32;
+            let part = number.div_ceil(fieldbook_core::ids::CLAIMS_PER_PART).max(1);
             let target = format!("claims/{area}-{part}.html#{id}");
             assert_eq!(
                 fieldbook_core::ids::claim_href_target(id),
