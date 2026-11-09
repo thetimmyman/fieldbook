@@ -44,7 +44,8 @@ for P; do
     continue
   fi
 
-  LOCATION=$(awk 'BEGIN{IGNORECASE=1} /^location:[[:space:]]*/ {sub(/^location:[[:space:]]*/, ""); sub(/\r$/, ""); print; exit}' "$HEADERFILE")
+  # grep -i and sed are POSIX, so this reads "Location:" and "location:" on any runner image.
+  LOCATION=$( (grep -i -m1 '^location:' "$HEADERFILE" || true) | sed -e 's/^[^:]*:[[:space:]]*//' -e 's/\r$//')
 
   if [ "$STATUS" = "302" ] && [ -z "$LOCATION" ]; then
     echo "FAIL ${P}: redirect without a Location"
