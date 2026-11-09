@@ -3,13 +3,40 @@
     <div class="eyebrow">
       <span class="chip accent">Register</span>
       <span class="chip mono">{{ view.file_name }}</span>
-      {% if !view.rows.is_empty() %}
+      {% if !view.rows.is_empty() || view.claims_index.is_some() %}
       <span class="chip mono">{{ view.row_count_label }}</span>
       {% endif %}
     </div>
     <h1>{{ view.title }}</h1>
     <p class="muted">{{ view.subtitle }}</p>
   </header>
+
+  {% if let Some(index) = &view.claims_index %}
+  <div class="id-groups">
+    {% for area in index.areas %}
+    <section class="panel id-group">
+      <div class="panel-head">
+        <h2 class="panel-title">{{ area.name }}</h2>
+        <span class="panel-sub mono">{{ area.count_label }}</span>
+      </div>
+      <ul class="id-list">
+        {%- for part in area.parts %}
+        <li class="id-row">
+          <span class="id-chip">
+            {%- if let Some(href) = &part.href -%}
+            <a class="cite neutral" href="{{ href }}">{{ part.label }}</a>
+            {%- else -%}
+            <span class="cite neutral">{{ part.label }}</span>
+            {%- endif -%}
+          </span>
+          <span class="id-label">{{ part.count_label }}</span>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  </div>
+  {% endif %}
 
   {% if view.show_claims_filter && !view.rows.is_empty() %}
   <div class="reg-toolbar" id="fb:claimsFilter" role="region" aria-label="Claims filter" hidden>
@@ -65,10 +92,26 @@
   </section>
   {% endif %}
 
-  {% if view.rows.is_empty() %}
+  {% if view.rows.is_empty() && view.claims_index.is_none() %}
   <p class="empty-state muted" data-empty-register>None recorded</p>
   {% else if view.show_claims_filter %}
   <p class="empty-state muted" id="fb:registerEmptyFilter" hidden>An empty filter means none are recorded, not that none exist.</p>
+  {% endif %}
+
+  {% if let Some(nav) = &view.part_nav %}
+  <nav aria-label="Claims parts">
+    {%- if let Some(href) = &nav.all_claims_href -%}
+      <a href="{{ href }}">All claims</a>
+    {%- endif -%}
+    {%- if let Some(prev) = &nav.prev -%}
+      {%- if nav.all_claims_href.is_some() %} · {% endif -%}
+      <a href="{{ prev.0 }}">{{ prev.1 }}</a>
+    {%- endif -%}
+    {%- if let Some(next) = &nav.next -%}
+      {%- if nav.all_claims_href.is_some() || nav.prev.is_some() %} · {% endif -%}
+      <a href="{{ next.0 }}">{{ next.1 }}</a>
+    {%- endif -%}
+  </nav>
   {% endif %}
 
   {% if !view.rows.is_empty() %}
