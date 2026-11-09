@@ -12,7 +12,7 @@
 
 - The procedures of [ADR 0007](../decisions/0007-hosted-edition.md): the owner reads the live headers once after the first deploy, repeats the hostname controls after an Access change, and rolls back or detaches the custom domain by hand when a gate fails. They belong in one runbook, not in the workflow.
 - Review is `auto`: the card changes documentation only and grants nothing. It describes the workflow of `hosted-workflow`, which is owner-reviewed.
-- The runbook names no host, account, zone, team, email or date; it refers to the repository variable `FIELDBOOK_HOST`, the two deploy secrets, "the owner's zone" and "the reader group".
+- The runbook names no host, account, zone, team, email or date; it refers to the environment secrets `FIELDBOOK_HOST`, `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, "the owner's zone" and "the reader group".
 
 ## Scope
 
@@ -31,7 +31,7 @@
 
 ## Steps
 
-1. Write the runbook: what the hosted edition is and where each part lives, deploy, verify (the gate step, a signed-in read, the three unauthenticated probes), roll back, add a reader, rotate the token, update `wrangler`, check the headers locally, and what never to do.
+1. Write the runbook: what the hosted edition is and where each part lives (the three secrets of the environment `hosted`, the self-hosted runner and its mitigations, the edge-rewriting rule as a provider setting the owner keeps), deploy, verify (the gate step, a signed-in read, the three unauthenticated probes, the edge-rewriting rule after any change of the zone's settings), roll back (with the note that a push to `main` can replace a queued rollback dispatch in the concurrency group), add a reader, rotate the token, update `wrangler` (lock regeneration with npm's `--before` set 14 days back), check the headers locally, and what never to do. Every `wrangler` command is `npm ci --ignore-scripts` first, then `WRANGLER_SEND_METRICS=false npx --no-install wrangler`, never a bare `npx`.
 2. Add the `AGENTS.md` link and the `CHANGELOG.md` line.
 3. Delete this card file in the last commit.
 

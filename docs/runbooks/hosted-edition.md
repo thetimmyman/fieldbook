@@ -17,31 +17,38 @@ The hosted edition serves the public edition (the same static pages `just site` 
 | Asset limits check | `cargo xtask hosted-limits` |
 | Custom domain in the owner's zone | Cloudflare account only |
 | Access application and reader group | Cloudflare account only |
+| Edge-rewriting rule (a hostname-scoped Configuration Rule that turns off Email Obfuscation, Automatic HTTPS Rewrites and Rocket Loader for the site's host) | Cloudflare account only |
 
-Environment secrets and repository variable:
+The three deploy values are secrets of the GitHub environment `hosted`. There are no repository-level secrets or variables.
 - `CLOUDFLARE_API_TOKEN`: account-owned token with permission to write Worker scripts and nothing else.
-- `CLOUDFLARE_ACCOUNT_ID`: account identifier secret.
-- `FIELDBOOK_HOST`: repository variable naming the custom host.
-- The two secrets are secrets of the GitHub environment `hosted`, never repository secrets; the environment's deployment-branch policy allows `main` alone; the workflow's job runs only on a GitHub-hosted runner; the owner reads the environment's secrets and branch policy whenever either changes.
+- `CLOUDFLARE_ACCOUNT_ID`: account identifier.
+- `FIELDBOOK_HOST`: the custom host. It is a secret, not a variable, so that GitHub masks it in logs.
+- The environment's deployment-branch policy allows `main` alone, so a branch or pull-request run never receives the secrets. The owner reads the environment's secrets and branch policy whenever either changes.
+- The deploy job runs on the owner's self-hosted runner, with the labels of `ci.yml` (the owner's decision while CI-01 in [controls.md](../controls.md) stands). That runner persists between jobs and also runs branch CI, so the job takes its mitigations from the workflow: secrets only through the environment, a clean checkout with no stored credentials, a fresh `out/`, `cargo --locked`, `npm ci --ignore-scripts` from the committed lock, and no data root, store, overlay, policy file or state folder flag.
 - The broader setup token (Access, DNS, routes) never goes to CI and stays in the owner's vault.
+- Provider-side setting the owner keeps: the edge-rewriting rule named in the components table. Cloudflare can rewrite HTML at the edge (email obfuscation, HTTPS link rewrites, Rocket Loader), which would change the pages as built and conflict with their content security policy; the rule turns that off for the site's host only. Confirm it after any change of the zone's settings (section 3, step 4).
 
 ## 2. Deploy
 
 A merge to `main` runs the deploy workflow ([`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)); or trigger it from the Actions page with `rollback_to` left empty.
 
 Workflow execution order:
-1. Validate configuration.
-2. Search the tree for the values of the host and account id (prints nothing).
-3. Build the edition static pages with `just site`.
-4. Stage `out/hosted` (edition pages, `originals/` at root, [`deploy/_headers`](../../deploy/_headers) and [`deploy/robots.txt`](../../deploy/robots.txt)).
-5. Check limits: `cargo xtask hosted-limits out/hosted` (fails on any file over 25 MiB or total count over 20,000 files, and prints the five largest files; wrangler also refuses files over 25 MiB).
-6. Install the pinned deploy tool: `npm ci --ignore-scripts`.
-7. Probe the login before the upload: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
-8. Deploy static assets: `wrangler deploy` using the commit SHA as the message.
-9. Probe again after: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
+1. Check out clean, without stored credentials, and remove any `out/` left on the runner.
+2. Validate configuration.
+3. Search the tree for the values of the host and account id (prints nothing).
+4. Build the edition static pages with `just site`.
+5. Stage `out/hosted` (edition pages, `originals/` at root, [`deploy/_headers`](../../deploy/_headers) and [`deploy/robots.txt`](../../deploy/robots.txt)).
+6. Check limits: `cargo xtask hosted-limits out/hosted` (fails on any file over 25 MiB or total count over 20,000 files, and prints the five largest files; wrangler also refuses files over 25 MiB).
+7. Check the build is unreleased: `FIELDBOOK_GIT_SHA` must be unset and `out/hosted/index.html` must say "unreleased build". The hosted edition is never a released build.
+8. Install the pinned deploy tool: `npm ci --ignore-scripts`.
+9. Probe the login before the upload: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
+10. Deploy static assets: `wrangler deploy` using the commit SHA as the message.
+11. Probe again after: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
 
 Runner notes:
-- The job runs on a GitHub-hosted runner; while hosted runners are unavailable to the repository (CI-01 in [controls.md](../controls.md)) the workflow waits and nothing deploys; the first deploy cannot pass the limits step until the claims register is split (card `claims-register-split`), because `claims.html` is over the 25 MiB limit.
+- The job runs on the self-hosted runner (section 1). Moving it to an ephemeral GitHub-hosted runner is the remedy for the residual risk that a persistent runner shared with branch CI could have its tool caches tampered with; do that when CI-01 ends ([ADR 0007](../decisions/0007-hosted-edition.md), risk table).
+- The first deploy cannot pass the limits step until the claims register is split (card `claims-register-split`), because `claims.html` is over the 25 MiB limit.
+- Only one deploy runs at a time, and a running deploy is never cancelled. GitHub keeps at most one run waiting in the concurrency group `deploy-hosted`: a newer waiting run replaces an older waiting one. A push to `main` that arrives while a deploy runs therefore replaces a queued rollback dispatch (see section 4).
 
 ## 3. Verify after a deploy
 
@@ -52,6 +59,7 @@ Run this checklist after a deploy:
    - Custom host (redirect to Access login): `curl -sI https://<custom-host>/`
    - The Worker's workers.dev name (expect 404, route is disabled): `curl -sI https://<workers-dev-name>/`
    - Preview URL (expect 404): `curl -sI https://<preview-url>/`
+4. **Edge rewriting stays off**: In the Cloudflare dashboard, confirm the hostname-scoped Configuration Rule for the site's host still turns off Email Obfuscation, Automatic HTTPS Rewrites and Rocket Loader; do this after any change of the zone's settings. In the page source of a signed-in read, no `/cdn-cgi/` script or rewritten link appears.
 
 A failed gate is an Access fault, not a fault of the files, so rolling the Worker back does not close it: the owner first detaches the custom domain from the Worker or fixes the Access application, then repeats the hostname probes, then re-runs the deploy.
 
@@ -60,13 +68,14 @@ A failed gate is an Access fault, not a fault of the files, so rolling the Worke
 To restore a previous deployment:
 1. Find a version id to target:
    ```sh
-   cd deploy && npx wrangler deployments list
-   npx wrangler versions list
+   cd deploy && npm ci --ignore-scripts --no-audit --no-fund
+   WRANGLER_SEND_METRICS=false npx --no-install wrangler deployments list
+   WRANGLER_SEND_METRICS=false npx --no-install wrangler versions list
    ```
    Read the deploy token from the owner's vault into the environment of the one command (`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`); never print it, never write it to a file.
 2. Apply rollback via either route:
-   - Workflow: run the deploy workflow ([`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) from the Actions page with `rollback_to` set to that version id (skips the build, runs `wrangler rollback`, and runs a probe before and after).
-   - Local: run `npx wrangler rollback <version-id> --message "<reason>"`.
+   - Workflow: run the deploy workflow ([`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) from the Actions page with `rollback_to` set to that version id (skips the build, runs `wrangler rollback`, and runs a probe before and after). The concurrency group `deploy-hosted` keeps one waiting run: if a deploy is running when you dispatch, a push to `main` that arrives afterwards replaces your waiting rollback, and the Actions page shows it cancelled. Open the run after dispatching, confirm it started and was not replaced, and dispatch again if it was. Merge nothing to `main` until the rollback has run.
+   - Local: with the same environment as above, run `WRANGLER_SEND_METRICS=false npx --no-install wrangler rollback <version-id> --message "<reason>"`.
 3. Revert git history: a rollback changes what is served, not the repository. Follow it with a revert on `main`, or the next merge deploys the new code again.
 
 ## 5. Add a reader
@@ -89,11 +98,12 @@ To restore a previous deployment:
 `wrangler` is a deploy-time tool only ([dependencies.md](../reference/dependencies.md), row under Deployment tools).
 1. Confirm the candidate release is at least 14 days old: `npm view wrangler@<version> time`.
 2. Set the exact version in [`deploy/package.json`](../../deploy/package.json).
-3. Regenerate [`deploy/package-lock.json`](../../deploy/package-lock.json) (`npm install --package-lock-only`).
+3. Regenerate [`deploy/package-lock.json`](../../deploy/package-lock.json) with npm's `--before` set to a date 14 days back, so that no dependency younger than the rule resolves: `npm install --package-lock-only --ignore-scripts --before <date 14 days ago>`.
 4. Check every locked package for the 14-day rule: `npm view <package>@<version> time`.
-5. Run dry-run deploy and the local header check:
+5. Install from the new lock and run the dry-run deploy:
    ```sh
-   (cd deploy && npx wrangler deploy --dry-run --outdir <scratch>)
+   cd deploy && npm ci --ignore-scripts --no-audit --no-fund
+   WRANGLER_SEND_METRICS=false npx --no-install wrangler deploy --dry-run --outdir <scratch>
    ```
 6. Update the version in the workflow's version check (the version check file is [`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) and the dependencies row in [`docs/reference/dependencies.md`](../reference/dependencies.md) in the same pull request.
 
@@ -103,7 +113,8 @@ Verify response headers locally without deploying and without credentials:
 1. Stage a small built site into a scratch directory with [`deploy/_headers`](../../deploy/_headers) and [`deploy/robots.txt`](../../deploy/robots.txt) at its root.
 2. Start the local server:
    ```sh
-   cd deploy && npx wrangler dev --local --assets <scratch-dir> --port 8792
+   cd deploy && npm ci --ignore-scripts --no-audit --no-fund
+   WRANGLER_SEND_METRICS=false npx --no-install wrangler dev --local --assets <scratch-dir> --port 8792
    ```
 3. Probe the local server:
    ```sh
@@ -120,7 +131,9 @@ Verify response headers locally without deploying and without credentials:
 - Never deploy company, customer, personal or controlled material, or anything that is not in the public edition.
 - Never store the deploy token anywhere but the `hosted` environment secret and the owner's vault.
 - Never put the deploy secrets at repository level or in any other workflow.
-- Never let the job run on a self-hosted runner.
+- Never move the deploy job to a runner other than the one `hosted.yml` names, and never let a branch or pull-request run reach the environment `hosted`: its deployment-branch policy allows `main` alone.
+- Never set `FIELDBOOK_GIT_SHA` in the hosted build: the hosted edition is an unreleased build.
+- Never run a bare `npx wrangler` (it can fetch a different version from the network); use `npm ci --ignore-scripts` first, then `WRANGLER_SEND_METRICS=false npx --no-install wrangler`.
 - Never run the setup token in CI.
 - Never cancel a running deploy.
 - Never use `wrangler` with a newer version than the one pinned without the update steps above.
