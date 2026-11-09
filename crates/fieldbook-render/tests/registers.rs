@@ -3,7 +3,7 @@
 #![expect(clippy::unwrap_used, reason = "integration test helpers")]
 
 mod registers {
-    use std::collections::BTreeSet;
+    use std::collections::{BTreeMap, BTreeSet};
     use std::path::Path;
 
     use fieldbook_core::audit::Now;
@@ -11,7 +11,10 @@ mod registers {
     use fieldbook_core::check::{Host, Model, Options, Tree, load};
     use fieldbook_core::date::CivilDate;
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
-    use fieldbook_core::ids::{AreaCode, ClaimId, ConflictId, QuestionId, SourceId, VersionId};
+    use fieldbook_core::ids::{
+        AreaCode, ClaimId, ConflictId, QuestionId, SourceId, VersionId, claim_page_route,
+        claim_part,
+    };
     use fieldbook_core::policy::EffectivePolicy;
     use fieldbook_core::schema::{
         Adoption, Applicability, ConflictRow, ConflictStatus, RefId, Register, Verification,
@@ -26,8 +29,9 @@ mod registers {
     use fieldbook_render::nav;
     use fieldbook_render::page;
     use fieldbook_render::register::{
-        QUESTIONS_CORPUS_COLS, build_register_conflict_box, build_register_view, output_path,
-        render_main, render_page,
+        QUESTIONS_CORPUS_COLS, RegisterRowView, build_claims_part_view,
+        build_register_conflict_box, build_register_view, claims_part_paths, claims_parts,
+        output_path, render_claims_part_main, render_claims_part_page, render_main, render_page,
     };
     use fieldbook_render::site::{self, PlannedPaths};
     use fieldbook_render::source;
@@ -86,6 +90,8 @@ mod registers {
 
     const FIXED_PLANNED_PATHS: &[&str] = &[
         "claims.html",
+        "claims/CMP-1.html",
+        "claims/EST-1.html",
         "sources.html",
         "questions.html",
         "conflicts.html",
@@ -217,6 +223,23 @@ mod registers {
         (model, view)
     }
 
+    fn claims_part_mains(
+        view: &LabelledView,
+        planned: &PlannedPaths,
+    ) -> Vec<(String /*route*/, String /*main html*/)> {
+        let parts = claims_parts(view);
+        parts
+            .iter()
+            .enumerate()
+            .map(|(idx, part)| {
+                (
+                    part.route.clone(),
+                    render_claims_part_main(&parts, idx, view, planned),
+                )
+            })
+            .collect()
+    }
+
     #[test]
     #[expect(
         clippy::disallowed_methods,
@@ -283,11 +306,22 @@ mod registers {
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
 
         let claims_html = render_main(Register::Claims, &view, &planned);
+        assert!(
+            claims_html.contains("class=\"register-view\""),
+            "register `claims.html` must render through `class=\"register-view\"`"
+        );
+        let part_mains = claims_part_mains(&view, &planned);
         for c in view.claims() {
             let needle = format!("<tr id=\"{}\"", c.value.claim_id);
+            let route = fieldbook_core::ids::claim_page_route(c.value.claim_id.as_str())
+                .expect("valid claim id has route");
+            let (_, part_html) = part_mains
+                .iter()
+                .find(|(r, _)| r == &route)
+                .unwrap_or_else(|| panic!("missing part main for `{route}`"));
             assert!(
-                claims_html.contains(&needle),
-                "register `claims.html` missing row anchor `{needle}`"
+                part_html.contains(&needle),
+                "claims part page `{route}` missing row anchor `{needle}`"
             );
         }
 
@@ -678,21 +712,21 @@ mod registers {
         let with_claims = PlannedPaths::of(FIXED_PLANNED_PATHS);
         let html_with = page::render_main(page_entry, &view, &with_claims);
         assert!(
-            html_with.contains("href=\"../claims.html#CL-CMP-0001\""),
-            "when `claims.html` is in PlannedPaths, page claim chips must link to `../claims.html#CL-CMP-0001`, got:\n{html_with}"
+            html_with.contains("href=\"../claims/CMP-1.html#CL-CMP-0001\""),
+            "when `claims/CMP-1.html` is in PlannedPaths, page claim chips must link to `../claims/CMP-1.html#CL-CMP-0001`, got:\n{html_with}"
         );
 
         let without_claims_vec: Vec<&str> = FIXED_PLANNED_PATHS
             .iter()
             .copied()
-            .filter(|&p| p != "claims.html")
+            .filter(|&p| p != "claims/CMP-1.html")
             .collect();
         let without_claims = PlannedPaths::of(&without_claims_vec);
         let html_without = page::render_main(page_entry, &view, &without_claims);
         assert!(
-            !html_without.contains("claims.html#CL-CMP-0001")
+            !html_without.contains("claims/CMP-1.html#CL-CMP-0001")
                 && html_without.contains("<span class=\"claim-mark"),
-            "when `claims.html` is omitted from PlannedPaths, page claim chips must stay plain text `<span>`, got:\n{html_without}"
+            "when `claims/CMP-1.html` is omitted from PlannedPaths, page claim chips must stay plain text `<span>`, got:\n{html_without}"
         );
     }
 
@@ -744,7 +778,14 @@ mod registers {
             "unmapped enum `primary_evidence` must render as plain canonical text"
         );
         assert!(
-            claims_html.contains("<td>pdf_page_box</td>"),
+            claims_html.contains("class=\"register-view\""),
+            "claims.html must render through class=\"register-view\""
+        );
+        let claims_parts_pdf = claims_part_mains(&view_pdf, &planned);
+        assert!(
+            claims_parts_pdf
+                .iter()
+                .any(|(_, html)| html.contains("<td>pdf_page_box</td>")),
             "unmapped enum `pdf_page_box` must render as plain canonical text"
         );
 
@@ -798,8 +839,16 @@ mod registers {
         ];
 
         for &(page_name, reg, cols) in unmapped_enum_cols {
-            let reg_view = build_register_view(reg, &view_pdf, &planned);
-            for row in &reg_view.rows {
+            let rows: Vec<_> = if reg == Register::Claims {
+                let parts = claims_parts(&view_pdf);
+                (0..parts.len())
+                    .flat_map(|idx| build_claims_part_view(&parts, idx, &view_pdf, &planned).rows)
+                    .collect()
+            } else {
+                build_register_view(reg, &view_pdf, &planned).rows
+            };
+            assert!(!rows.is_empty(), "must have rows to check in {page_name}");
+            for row in &rows {
                 for &col_name in cols {
                     let cell = row
                         .cells
@@ -822,8 +871,16 @@ mod registers {
                 .into_iter()
                 .find(|&r| output_path(r) == page_name)
                 .unwrap();
-            let reg_view = build_register_view(reg, &view, &planned);
-            for row in &reg_view.rows {
+            let rows: Vec<_> = if reg == Register::Claims {
+                let parts = claims_parts(&view);
+                (0..parts.len())
+                    .flat_map(|idx| build_claims_part_view(&parts, idx, &view, &planned).rows)
+                    .collect()
+            } else {
+                build_register_view(reg, &view, &planned).rows
+            };
+            assert!(!rows.is_empty(), "must have rows to check in {page_name}");
+            for row in &rows {
                 for &col_name in cols {
                     let cell = row.cells.iter().find(|c| c.col_name == col_name).unwrap();
                     assert!(
@@ -993,24 +1050,46 @@ mod registers {
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
+            if reg == Register::Claims {
+                assert!(
+                    html.contains("class=\"register-view\""),
+                    "claims.html must render through class=\"register-view\""
+                );
+                let part_mains = claims_part_mains(&view, &planned);
+                for (route, part_html) in &part_mains {
+                    assert!(
+                        !part_html.contains("th-sort")
+                            && !part_html.contains("<button type=\"button\" data-sort-col"),
+                        "`{route}` ships no sort buttons: the script adds them"
+                    );
+                    assert_eq!(
+                        part_html.matches("aria-sort=").count(),
+                        1,
+                        "`{route}` marks only the id column, which the page is sorted by"
+                    );
+                }
+            } else {
+                assert!(
+                    !html.contains("th-sort")
+                        && !html.contains("<button type=\"button\" data-sort-col"),
+                    "`{}` ships no sort buttons: the script adds them",
+                    output_path(reg)
+                );
+                assert_eq!(
+                    html.matches("aria-sort=").count(),
+                    1,
+                    "`{}` marks only the id column, which the page is sorted by",
+                    output_path(reg)
+                );
+            }
+        }
+        let part_mains = claims_part_mains(&view, &planned);
+        for (route, part_html) in &part_mains {
             assert!(
-                !html.contains("th-sort")
-                    && !html.contains("<button type=\"button\" data-sort-col"),
-                "`{}` ships no sort buttons: the script adds them",
-                output_path(reg)
-            );
-            assert_eq!(
-                html.matches("aria-sort=").count(),
-                1,
-                "`{}` marks only the id column, which the page is sorted by",
-                output_path(reg)
+                part_html.contains("id=\"fb:claimsFilter\"") && part_html.contains(" hidden>"),
+                "the `{route}` claims filter stays hidden until the script reveals it"
             );
         }
-        let claims = render_main(Register::Claims, &view, &planned);
-        assert!(
-            claims.contains("id=\"fb:claimsFilter\"") && claims.contains(" hidden>"),
-            "the claims filter stays hidden until the script reveals it"
-        );
         for needle in [
             "className = 'th-sort'",
             "setAttribute('aria-sort', nextDir)",
@@ -1029,28 +1108,57 @@ mod registers {
 
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
-            assert!(
-                html.contains("<div class=\"table-wrap\">"),
-                "`{}` must wrap its table in `.table-wrap`",
-                output_path(reg)
-            );
-            assert!(
-                html.contains("<caption>"),
-                "`{}` table must include a `<caption>`",
-                output_path(reg)
-            );
-            let th_count = html.matches("<th ").count() + html.matches("<th>").count();
-            let scope_col_count = html.matches("<th scope=\"col\"").count();
-            assert!(
-                th_count > 0 && th_count == scope_col_count,
-                "`{}` must put `scope=\"col\"` on every `<th>` (found {scope_col_count} of {th_count})",
-                output_path(reg)
-            );
-            assert!(
-                html.contains("aria-sort=\"ascending\""),
-                "`{}` must mark the initial sorted column header with `aria-sort=\"ascending\"`",
-                output_path(reg)
-            );
+            if reg == Register::Claims {
+                assert!(
+                    html.contains("class=\"register-view\""),
+                    "claims.html must render through class=\"register-view\""
+                );
+                let part_mains = claims_part_mains(&view, &planned);
+                for (route, part_html) in &part_mains {
+                    assert!(
+                        part_html.contains("<div class=\"table-wrap\">"),
+                        "`{route}` must wrap its table in `.table-wrap`"
+                    );
+                    assert!(
+                        part_html.contains("<caption>"),
+                        "`{route}` table must include a `<caption>`"
+                    );
+                    let th_count =
+                        part_html.matches("<th ").count() + part_html.matches("<th>").count();
+                    let scope_col_count = part_html.matches("<th scope=\"col\"").count();
+                    assert!(
+                        th_count > 0 && th_count == scope_col_count,
+                        "`{route}` must put `scope=\"col\"` on every `<th>` (found {scope_col_count} of {th_count})"
+                    );
+                    assert!(
+                        part_html.contains("aria-sort=\"ascending\""),
+                        "`{route}` must mark the initial sorted column header with `aria-sort=\"ascending\"`"
+                    );
+                }
+            } else {
+                assert!(
+                    html.contains("<div class=\"table-wrap\">"),
+                    "`{}` must wrap its table in `.table-wrap`",
+                    output_path(reg)
+                );
+                assert!(
+                    html.contains("<caption>"),
+                    "`{}` table must include a `<caption>`",
+                    output_path(reg)
+                );
+                let th_count = html.matches("<th ").count() + html.matches("<th>").count();
+                let scope_col_count = html.matches("<th scope=\"col\"").count();
+                assert!(
+                    th_count > 0 && th_count == scope_col_count,
+                    "`{}` must put `scope=\"col\"` on every `<th>` (found {scope_col_count} of {th_count})",
+                    output_path(reg)
+                );
+                assert!(
+                    html.contains("aria-sort=\"ascending\""),
+                    "`{}` must mark the initial sorted column header with `aria-sort=\"ascending\"`",
+                    output_path(reg)
+                );
+            }
         }
 
         // Verify app.css never puts position: sticky on th or thead.
@@ -1095,7 +1203,25 @@ mod registers {
             };
             assert_eq!(reg_view.columns.len(), expected_cols);
 
-            for row in &reg_view.rows {
+            let rows_to_check: Vec<(String, RegisterRowView)> = if reg == Register::Claims {
+                let parts = claims_parts(&view);
+                (0..parts.len())
+                    .flat_map(|idx| {
+                        let pv = build_claims_part_view(&parts, idx, &view, &planned);
+                        assert_eq!(pv.columns.len(), expected_cols);
+                        let route = parts[idx].route.clone();
+                        pv.rows.into_iter().map(move |r| (route.clone(), r))
+                    })
+                    .collect()
+            } else {
+                reg_view
+                    .rows
+                    .into_iter()
+                    .map(|r| (output_path(reg).to_owned(), r))
+                    .collect()
+            };
+
+            for (path, row) in &rows_to_check {
                 assert_eq!(row.cells.len(), expected_cols);
                 for cell in &row.cells {
                     let trimmed = cell.html.trim();
@@ -1111,15 +1237,13 @@ mod registers {
                     }
                     assert!(
                         !trimmed.is_empty(),
-                        "register `{}` row `{}` column `{}` must not be blank",
-                        output_path(reg),
+                        "register `{path}` row `{}` column `{}` must not be blank",
                         row.id,
                         cell.col_name
                     );
                     assert!(
                         !trimmed.contains("<span></span>"),
-                        "register `{}` row `{}` column `{}` has empty `<span>` in `{trimmed}`",
-                        output_path(reg),
+                        "register `{path}` row `{}` column `{}` has empty `<span>` in `{trimmed}`",
                         row.id,
                         cell.col_name
                     );
@@ -1127,7 +1251,10 @@ mod registers {
             }
         }
 
-        let claims_html = render_main(Register::Claims, &view, &planned);
+        let claims_parts_html: String = claims_part_mains(&view, &planned)
+            .into_iter()
+            .map(|(_, h)| h)
+            .collect();
         for expected_meaning in [
             "<span class=\"muted\">An assumption has no source</span>",
             "<span class=\"muted\">No fine locator</span>",
@@ -1144,8 +1271,8 @@ mod registers {
             "<span class=\"muted\">No question</span>",
         ] {
             assert!(
-                claims_html.contains(expected_meaning),
-                "claims.html must render empty-cell meaning `{expected_meaning}`"
+                claims_parts_html.contains(expected_meaning),
+                "claims part pages must render empty-cell meaning `{expected_meaning}`"
             );
         }
 
@@ -1184,11 +1311,23 @@ mod registers {
     }
 
     fn row_ids(reg: Register, view: &LabelledView, planned: &PlannedPaths) -> Vec<String> {
-        build_register_view(reg, view, planned)
-            .rows
-            .into_iter()
-            .map(|r| r.id)
-            .collect()
+        if reg == Register::Claims {
+            let parts = claims_parts(view);
+            (0..parts.len())
+                .flat_map(|idx| {
+                    build_claims_part_view(&parts, idx, view, planned)
+                        .rows
+                        .into_iter()
+                        .map(|r| r.id)
+                })
+                .collect()
+        } else {
+            build_register_view(reg, view, planned)
+                .rows
+                .into_iter()
+                .map(|r| r.id)
+                .collect()
+        }
     }
 
     #[test]
@@ -1303,16 +1442,35 @@ mod registers {
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
         for reg in Register::ALL {
             let html = render_main(reg, &view, &planned);
-            assert!(
-                html.contains("id=\"fb:registerPager\"") && html.contains("hidden>"),
-                "`{}` ships the pager hidden: the script shows it past 50 rows",
-                output_path(reg)
-            );
-            assert!(
-                html.matches("<tr id=").count() > 0,
-                "`{}` ships every row, so the table is complete without the script",
-                output_path(reg)
-            );
+            if reg == Register::Claims {
+                assert!(
+                    html.contains("class=\"register-view\""),
+                    "claims.html must render through class=\"register-view\""
+                );
+                let part_mains = claims_part_mains(&view, &planned);
+                for (route, part_html) in &part_mains {
+                    assert!(
+                        part_html.contains("id=\"fb:registerPager\"")
+                            && part_html.contains("hidden>"),
+                        "`{route}` ships the pager hidden: the script shows it past 50 rows"
+                    );
+                    assert!(
+                        part_html.matches("<tr id=").count() > 0,
+                        "`{route}` ships every row, so the table is complete without the script"
+                    );
+                }
+            } else {
+                assert!(
+                    html.contains("id=\"fb:registerPager\"") && html.contains("hidden>"),
+                    "`{}` ships the pager hidden: the script shows it past 50 rows",
+                    output_path(reg)
+                );
+                assert!(
+                    html.matches("<tr id=").count() > 0,
+                    "`{}` ships every row, so the table is complete without the script",
+                    output_path(reg)
+                );
+            }
         }
         for needle in [
             "PAGE_SIZE = 50",
@@ -1709,6 +1867,21 @@ const compareDecimal = function (x, y) {
     }
 
     #[test]
+    fn claims_part_page_renders() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let ctx = site::render_context(&view, &BuildInfo::default()).unwrap();
+        let navigation = nav::build(&view, &planned);
+        let parts = claims_parts(&view);
+        let cmp_index = parts
+            .iter()
+            .position(|p| p.route == "claims/CMP-1.html")
+            .expect("claims/CMP-1.html part present");
+        let html = render_claims_part_page(&parts, cmp_index, &view, &ctx, &navigation, &planned);
+        insta::assert_snapshot!("claims_part_page_renders", html);
+    }
+
+    #[test]
     fn ids_page_renders() {
         let (_model, view) = load_view(fixture_tree());
         let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
@@ -1716,5 +1889,537 @@ const compareDecimal = function (x, y) {
         let navigation = nav::build(&view, &planned);
         let html = ids::render_page(&view, &ctx, &navigation, &planned);
         insta::assert_snapshot!("ids_page_renders", html);
+    }
+
+    fn resolve_relative_site_path(base_file: &str, file_part: &str) -> String {
+        if file_part.is_empty() {
+            return base_file.to_owned();
+        }
+        let mut parts: Vec<&str> = Vec::new();
+        if let Some(parent) = Path::new(base_file).parent() {
+            for comp in parent.components() {
+                if let std::path::Component::Normal(c) = comp
+                    && let Some(s) = c.to_str()
+                {
+                    parts.push(s);
+                }
+            }
+        }
+        for comp in Path::new(file_part).components() {
+            match comp {
+                std::path::Component::ParentDir => {
+                    parts.pop();
+                }
+                std::path::Component::Normal(c) => {
+                    if let Some(s) = c.to_str() {
+                        parts.push(s);
+                    }
+                }
+                _ => {}
+            }
+        }
+        parts.join("/")
+    }
+
+    #[test]
+    fn every_claim_is_on_exactly_one_part_page() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let part_mains = claims_part_mains(&view, &planned);
+        let index_main = render_main(Register::Claims, &view, &planned);
+
+        assert!(!view.claims().is_empty(), "fixture view must have claims");
+        for c in view.claims() {
+            let id = c.value.claim_id.as_str();
+            let needle = format!("<tr id=\"{id}\"");
+
+            assert!(
+                !index_main.contains(&needle),
+                "claim {id} must not appear in the claims index main"
+            );
+
+            let matching_parts: Vec<&str> = part_mains
+                .iter()
+                .filter(|(_, html)| html.contains(&needle))
+                .map(|(route, _)| route.as_str())
+                .collect();
+
+            assert_eq!(
+                matching_parts.len(),
+                1,
+                "claim {id} must appear on exactly one part page, found on {matching_parts:?}"
+            );
+
+            for other_reg in [
+                Register::Sources,
+                Register::Questions,
+                Register::Conflicts,
+                Register::Glossary,
+            ] {
+                let other_main = render_main(other_reg, &view, &planned);
+                assert!(
+                    !other_main.contains(&needle),
+                    "claim {id} must not appear in {}",
+                    output_path(other_reg)
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn the_claims_index_links_every_part_page() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let index_main = render_main(Register::Claims, &view, &planned);
+
+        assert!(
+            index_main.contains("href=\"claims/CMP-1.html\""),
+            "index main must link claims/CMP-1.html"
+        );
+        assert!(
+            index_main.contains("href=\"claims/EST-1.html\""),
+            "index main must link claims/EST-1.html"
+        );
+
+        for route in claims_part_paths(&view) {
+            let expected_href = format!("href=\"{route}\"");
+            assert!(
+                index_main.contains(&expected_href),
+                "index main must link part route `{route}`"
+            );
+        }
+
+        assert!(
+            index_main.contains("2 claims"),
+            "index main must list CMP part count `2 claims`"
+        );
+        assert!(
+            index_main.contains("3 claims"),
+            "index main must list EST part count `3 claims`"
+        );
+
+        let empty_planned = PlannedPaths::default();
+        let unlinked_index_main = render_main(Register::Claims, &view, &empty_planned);
+        assert!(
+            !unlinked_index_main.contains("<a"),
+            "with empty planned set, labels must render as plain text without `<a`"
+        );
+        for part in claims_parts(&view) {
+            let expected_label = format!("{} to {}", part.first_id, part.last_id);
+            assert!(
+                unlinked_index_main.contains(&expected_label),
+                "unlinked index main must still contain part label `{expected_label}`"
+            );
+        }
+    }
+
+    fn assert_claim_links_land_on_their_part(site: &site::Site) -> usize {
+        let mut claim_links_found = 0usize;
+
+        for (from_path, bytes) in site.files() {
+            if !from_path.ends_with(".html") {
+                continue;
+            }
+            let html = std::str::from_utf8(bytes).unwrap();
+            for part in html.split("href=\"").skip(1) {
+                let Some(href) = part.split('"').next() else {
+                    continue;
+                };
+                if let Some((file_part, anchor)) = href.split_once('#')
+                    && anchor.starts_with("CL-")
+                {
+                    claim_links_found += 1;
+                    let target_path = resolve_relative_site_path(from_path, file_part);
+                    let target_bytes = site.files().get(&target_path).unwrap_or_else(|| {
+                        panic!(
+                            "claim link in `{from_path}` to `{href}` resolves to missing file `{target_path}`"
+                        )
+                    });
+                    let target_html = std::str::from_utf8(target_bytes).unwrap();
+                    let anchor_needle = format!("id=\"{anchor}\"");
+                    assert!(
+                        target_html.contains(&anchor_needle),
+                        "target file `{target_path}` missing anchor `{anchor_needle}` (linked from `{from_path}` via `{href}`)"
+                    );
+                    let expected_route = claim_page_route(anchor).unwrap_or_else(|| {
+                        panic!("claim id `{anchor}` must have a claim page route")
+                    });
+                    assert_eq!(
+                        target_path, expected_route,
+                        "claim link in `{from_path}` to `{href}` landed on `{target_path}`, expected `{expected_route}`"
+                    );
+                }
+            }
+        }
+
+        claim_links_found
+    }
+
+    #[test]
+    fn every_claim_link_resolves_to_an_existing_page_and_anchor() {
+        let (_model, view) = load_view(fixture_tree());
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+        let claim_links_found = assert_claim_links_land_on_their_part(&site);
+        assert!(
+            claim_links_found > 0,
+            "must find at least one claim link, found {claim_links_found}"
+        );
+    }
+
+    #[test]
+    fn the_part_of_a_claim_equals_claim_part() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let parts = claims_parts(&view);
+        assert!(!parts.is_empty(), "fixture must have claims parts");
+
+        for (idx, part) in parts.iter().enumerate() {
+            let main_html = render_claims_part_main(&parts, idx, &view, &planned);
+            let mut row_ids = Vec::new();
+            for piece in main_html.split("<tr id=\"").skip(1) {
+                if let Some(id) = piece.split('"').next() {
+                    row_ids.push(id);
+                }
+            }
+            assert!(
+                !row_ids.is_empty(),
+                "part page `{}` must have rendered claim rows",
+                part.route
+            );
+            for id in row_ids {
+                assert_eq!(
+                    claim_part(id),
+                    Some((part.area_code.clone(), part.part)),
+                    "claim_part({id}) must match ({}, {})",
+                    part.area_code,
+                    part.part
+                );
+                assert_eq!(
+                    Some(part.route.clone()),
+                    claim_page_route(id),
+                    "part.route must match claim_page_route({id})"
+                );
+            }
+        }
+    }
+
+    const CONTINUOUS_CLAIM_IDS: [&str; 6] = [
+        "CL-CMP-0001",
+        "CL-CMP-0500",
+        "CL-CMP-0501",
+        "CL-CMP-1000",
+        "CL-CMP-1001",
+        "CL-CMP-1501",
+    ];
+
+    fn make_claim_row(id: &str) -> String {
+        let first_row = CLAIMS_CSV.lines().nth(1).unwrap();
+        let mut cols: Vec<&str> = first_row.split(',').collect();
+        cols[0] = id;
+        cols.join(",")
+    }
+
+    fn continuous_view() -> (Model, LabelledView) {
+        let mut tree_continuous = empty_registers_tree();
+        tree_continuous.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree_continuous.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let mut continuous_csv = format!("{claims_header}\n");
+        for id in CONTINUOUS_CLAIM_IDS {
+            continuous_csv.push_str(&make_claim_row(id));
+            continuous_csv.push('\n');
+        }
+        tree_continuous.insert_bytes("corpus/registers/claims.csv", continuous_csv.into_bytes());
+        load_view(tree_continuous)
+    }
+
+    #[test]
+    fn many_claims_split_into_parts_by_number() {
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+
+        // Continuous variant: 0001, 0500, 0501, 1000, 1001, 1501 giving parts 1, 2, 3, 4
+        let (_model_c, view_c) = continuous_view();
+        let parts_c = claims_parts(&view_c);
+        let routes_c: Vec<&str> = parts_c.iter().map(|p| p.route.as_str()).collect();
+        assert_eq!(
+            routes_c,
+            vec![
+                "claims/CMP-1.html",
+                "claims/CMP-2.html",
+                "claims/CMP-3.html",
+                "claims/CMP-4.html",
+            ]
+        );
+        assert_eq!((parts_c[0].ordinal, parts_c[0].of), (1, 4));
+        assert_eq!((parts_c[1].ordinal, parts_c[1].of), (2, 4));
+        assert_eq!((parts_c[2].ordinal, parts_c[2].of), (3, 4));
+        assert_eq!((parts_c[3].ordinal, parts_c[3].of), (4, 4));
+
+        // Variant with a gap: 0001, 0501, 1501 giving parts 1, 2, 4 with part 3 missing
+        let mut tree_gap = empty_registers_tree();
+        tree_gap.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree_gap.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let gap_ids = ["CL-CMP-0001", "CL-CMP-0501", "CL-CMP-1501"];
+        let mut gap_csv = format!("{claims_header}\n");
+        for id in gap_ids {
+            gap_csv.push_str(&make_claim_row(id));
+            gap_csv.push('\n');
+        }
+        tree_gap.insert_bytes("corpus/registers/claims.csv", gap_csv.into_bytes());
+        let (_model_gap, view_gap) = load_view(tree_gap);
+        let parts_gap = claims_parts(&view_gap);
+        let routes_gap: Vec<&str> = parts_gap.iter().map(|p| p.route.as_str()).collect();
+        assert_eq!(
+            routes_gap,
+            vec![
+                "claims/CMP-1.html",
+                "claims/CMP-2.html",
+                "claims/CMP-4.html",
+            ]
+        );
+        assert_eq!((parts_gap[0].ordinal, parts_gap[0].of), (1, 3));
+        assert_eq!((parts_gap[1].ordinal, parts_gap[1].of), (2, 3));
+        assert_eq!((parts_gap[2].ordinal, parts_gap[2].of), (3, 3));
+
+        assert!(
+            parts_gap.iter().all(|p| p.route != "claims/CMP-3.html"),
+            "there must be no claims/CMP-3.html route in parts"
+        );
+        assert!(
+            !claims_part_paths(&view_gap).contains(&"claims/CMP-3.html".to_owned()),
+            "claims_part_paths must not contain claims/CMP-3.html"
+        );
+
+        let planned_gap = site::planned_paths(&view_gap);
+        let ctx_gap = site::render_context(&view_gap, &BuildInfo::default()).unwrap();
+        let nav_gap = nav::build(&view_gap, &planned_gap);
+
+        // part page titles read `Claims: <area name>, part 3 of 3` for route claims/CMP-4.html
+        let part4_view = build_claims_part_view(&parts_gap, 2, &view_gap, &planned_gap);
+        assert_eq!(part4_view.title, "Claims: Compliance, part 3 of 3");
+        let part4_page =
+            render_claims_part_page(&parts_gap, 2, &view_gap, &ctx_gap, &nav_gap, &planned_gap);
+        assert!(
+            part4_page.contains("<title>Claims: Compliance, part 3 of 3</title>"),
+            "part 4 page <title> must read `Claims: Compliance, part 3 of 3`"
+        );
+        assert!(
+            part4_page.contains("<h1>Claims: Compliance, part 3 of 3</h1>"),
+            "part 4 page <h1> must read `Claims: Compliance, part 3 of 3`"
+        );
+
+        // prev/next links on claims/CMP-2.html point to `CMP-1.html` and `CMP-4.html` (same folder relative)
+        let part2_view = build_claims_part_view(&parts_gap, 1, &view_gap, &planned_gap);
+        let part2_nav = part2_view.part_nav.as_ref().expect("part_nav present");
+        let prev = part2_nav.prev.as_ref().expect("prev link present");
+        assert_eq!(prev.0, "CMP-1.html");
+        let next = part2_nav.next.as_ref().expect("next link present");
+        assert_eq!(next.0, "CMP-4.html");
+
+        let part2_main = render_claims_part_main(&parts_gap, 1, &view_gap, &planned_gap);
+        assert!(
+            part2_main.contains("href=\"CMP-1.html\""),
+            "part 2 page must link prev to CMP-1.html"
+        );
+        assert!(
+            part2_main.contains("href=\"CMP-4.html\""),
+            "part 2 page must link next to CMP-4.html"
+        );
+
+        // the index lists the three id ranges (e.g. `CL-CMP-0001 to CL-CMP-0001`)
+        let index_main = render_main(Register::Claims, &view_gap, &planned_gap);
+        assert!(
+            index_main.contains("CL-CMP-0001 to CL-CMP-0001"),
+            "index must list first id range `CL-CMP-0001 to CL-CMP-0001`"
+        );
+        assert!(
+            index_main.contains("CL-CMP-0501 to CL-CMP-0501"),
+            "index must list second id range `CL-CMP-0501 to CL-CMP-0501`"
+        );
+        assert!(
+            index_main.contains("CL-CMP-1501 to CL-CMP-1501"),
+            "index must list third id range `CL-CMP-1501 to CL-CMP-1501`"
+        );
+
+        // and the part page's asset links start with `../assets/`
+        let mut asset_link_count = 0usize;
+        for attr in ["href=\"", "src=\""] {
+            for piece in part4_page.split(attr).skip(1) {
+                let val = piece.split('"').next().unwrap();
+                if val.contains("assets/") {
+                    asset_link_count += 1;
+                    assert!(
+                        val.starts_with("../assets/"),
+                        "asset link `{val}` in claims part page must start with `../assets/`"
+                    );
+                }
+            }
+        }
+        assert!(
+            asset_link_count > 0,
+            "part page must have at least one asset link"
+        );
+    }
+
+    #[test]
+    fn parts_hold_exactly_their_own_claim_rows() {
+        let (_model, view) = continuous_view();
+        let planned = site::planned_paths(&view);
+        let part_mains = claims_part_mains(&view, &planned);
+
+        let mut page_rows = BTreeMap::new();
+        for (route, html) in &part_mains {
+            let mut ids = BTreeSet::new();
+            for piece in html.split("<tr id=\"").skip(1) {
+                if let Some(id) = piece.split('"').next() {
+                    ids.insert(id.to_owned());
+                }
+            }
+            page_rows.insert(route.as_str(), ids);
+        }
+
+        assert_eq!(
+            page_rows.len(),
+            4,
+            "must render exactly 4 claims part pages"
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-1.html"),
+            Some(&BTreeSet::from([
+                "CL-CMP-0001".to_owned(),
+                "CL-CMP-0500".to_owned(),
+            ]))
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-2.html"),
+            Some(&BTreeSet::from([
+                "CL-CMP-0501".to_owned(),
+                "CL-CMP-1000".to_owned(),
+            ]))
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-3.html"),
+            Some(&BTreeSet::from(["CL-CMP-1001".to_owned()]))
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-4.html"),
+            Some(&BTreeSet::from(["CL-CMP-1501".to_owned()]))
+        );
+
+        let sum_of_sizes: usize = page_rows.values().map(BTreeSet::len).sum();
+        let union: BTreeSet<&String> = page_rows.values().flat_map(|s| s.iter()).collect();
+        assert_eq!(sum_of_sizes, 6, "sum of set sizes must equal 6");
+        assert_eq!(union.len(), 6, "union must have 6 elements");
+    }
+
+    #[test]
+    fn multi_part_site_places_every_claim_and_link_on_the_right_part() {
+        let (_model, view) = continuous_view();
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+
+        let part_pages: Vec<(&str, &str)> = site
+            .files()
+            .iter()
+            .filter(|(path, _)| path.starts_with("claims/") && path.ends_with(".html"))
+            .map(|(path, bytes)| (path.as_str(), std::str::from_utf8(bytes).unwrap()))
+            .collect();
+
+        for id in CONTINUOUS_CLAIM_IDS {
+            let needle = format!("<tr id=\"{id}\"");
+            let matching: Vec<&str> = part_pages
+                .iter()
+                .filter(|(_, html)| html.contains(&needle))
+                .map(|(path, _)| *path)
+                .collect();
+            assert_eq!(
+                matching.len(),
+                1,
+                "claim `{id}` must appear on exactly one claims part page, found on {matching:?}"
+            );
+            let found_path = matching[0];
+            let expected_route = claim_page_route(id).expect("claim has page route");
+            assert_eq!(
+                found_path, expected_route,
+                "claim `{id}` found on `{found_path}`, expected route `{expected_route}`"
+            );
+            let (expected_area, expected_part) = claim_part(id).expect("claim has part");
+            let expected_part_route = format!("claims/{expected_area}-{expected_part}.html");
+            assert_eq!(
+                found_path, expected_part_route,
+                "claim `{id}` found on `{found_path}`, expected part ({expected_area}, {expected_part})"
+            );
+        }
+
+        for (path, bytes) in site.files() {
+            if !path.ends_with(".html") || (path.starts_with("claims/") && path.ends_with(".html"))
+            {
+                continue;
+            }
+            let html = std::str::from_utf8(bytes).unwrap();
+            assert!(
+                !html.contains("<tr id=\"CL-"),
+                "file `{path}` must not contain `<tr id=\"CL-` row"
+            );
+        }
+
+        let ids_bytes = site.files().get("ids.html").expect("ids.html exists");
+        let ids_html = std::str::from_utf8(ids_bytes).unwrap();
+        assert!(
+            ids_html.contains("href=\"claims/CMP-1.html#CL-CMP-0001\""),
+            "ids.html must contain link to claims/CMP-1.html#CL-CMP-0001"
+        );
+        assert!(
+            ids_html.contains("href=\"claims/CMP-2.html#CL-CMP-0501\""),
+            "ids.html must contain link to claims/CMP-2.html#CL-CMP-0501"
+        );
+        assert!(
+            ids_html.contains("href=\"claims/CMP-3.html#CL-CMP-1001\""),
+            "ids.html must contain link to claims/CMP-3.html#CL-CMP-1001"
+        );
+        assert!(
+            ids_html.contains("href=\"claims/CMP-4.html#CL-CMP-1501\""),
+            "ids.html must contain link to claims/CMP-4.html#CL-CMP-1501"
+        );
+
+        let claim_links_found = assert_claim_links_land_on_their_part(&site);
+        assert!(
+            claim_links_found >= 6,
+            "must find at least 6 claim links, found {claim_links_found}"
+        );
+    }
+
+    #[test]
+    fn rendering_is_deterministic() {
+        let (_model, view) = load_view(fixture_tree());
+        let site1 = site::render(&view, &BuildInfo::default()).unwrap();
+        let site2 = site::render(&view, &BuildInfo::default()).unwrap();
+
+        assert_eq!(
+            site1.files().get("claims.html"),
+            site2.files().get("claims.html"),
+            "claims.html must render deterministically"
+        );
+
+        let mut claims_parts_found = 0usize;
+        for (path, bytes1) in site1.files() {
+            if path.starts_with("claims/") {
+                claims_parts_found += 1;
+                let bytes2 = site2.files().get(path).unwrap_or_else(|| {
+                    panic!("path `{path}` missing in second rendered site");
+                });
+                assert_eq!(bytes1, bytes2, "byte mismatch on part page `{path}`");
+            }
+        }
+        assert!(
+            claims_parts_found > 0,
+            "must have rendered at least one claims/ part page, found {claims_parts_found}"
+        );
+        assert_eq!(
+            site1.files(),
+            site2.files(),
+            "full site files must be identical"
+        );
     }
 }

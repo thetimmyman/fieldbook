@@ -386,270 +386,45 @@ expression: html
   </header>
 
   
-  <div class="reg-toolbar" id="fb:claimsFilter" role="region" aria-label="Claims filter" hidden>
-    <div class="seg" id="fb:claimsFilterSeg" role="group" aria-label="Filter by verification">
-      
-      <button type="button" data-cf="all" aria-pressed="true">All</button>
-      
-      <button type="button" data-cf="unchecked" aria-pressed="false">Unchecked</button>
-      
-      <button type="button" data-cf="primary_source_supported" aria-pressed="false">Supported</button>
-      
-      <button type="button" data-cf="contradicted" aria-pressed="false">Contradicted</button>
-      
-      <button type="button" data-cf="stale" aria-pressed="false">Stale</button>
-      
-      <button type="button" data-cf="unresolved" aria-pressed="false">Unresolved</button>
-      
-    </div>
+  <div class="id-groups">
+    
+    <section class="panel id-group">
+      <div class="panel-head">
+        <h2 class="panel-title">Compliance</h2>
+        <span class="panel-sub mono">2 claims</span>
+      </div>
+      <ul class="id-list">
+        <li class="id-row">
+          <span class="id-chip"><a class="cite neutral" href="claims/CMP-1.html">CL-CMP-0001 to CL-CMP-0002</a></span>
+          <span class="id-label">2 claims</span>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="panel id-group">
+      <div class="panel-head">
+        <h2 class="panel-title">Estimating</h2>
+        <span class="panel-sub mono">3 claims</span>
+      </div>
+      <ul class="id-list">
+        <li class="id-row">
+          <span class="id-chip"><a class="cite neutral" href="claims/EST-1.html">CL-EST-0001 to CL-EST-0003</a></span>
+          <span class="id-label">3 claims</span>
+        </li>
+      </ul>
+    </section>
+    
   </div>
   
 
   
 
   
-  <p class="empty-state muted" id="fb:registerEmptyFilter" hidden>An empty filter means none are recorded, not that none exist.</p>
+
   
 
   
-  <div class="table-wrap">
-    <table class="reg-table" id="fb:registerTable">
-      <caption>Claims register</caption>
-      <thead>
-        <tr>
-          <th scope="col" data-col="claim_id" aria-sort="ascending">claim_id</th>
-          <th scope="col" data-col="area">area</th>
-          <th scope="col" data-col="kind">kind</th>
-          <th scope="col" data-col="statement">statement</th>
-          <th scope="col" data-col="as_of">as_of</th>
-          <th scope="col" data-col="source_id">source_id</th>
-          <th scope="col" data-col="version">version</th>
-          <th scope="col" data-col="locator_kind">locator_kind</th>
-          <th scope="col" data-col="locator">locator</th>
-          <th scope="col" data-col="quote">quote</th>
-          <th scope="col" data-col="consequential">consequential</th>
-          <th scope="col" data-col="drafted_by">drafted_by</th>
-          <th scope="col" data-col="verification">verification</th>
-          <th scope="col" data-col="applicability">applicability</th>
-          <th scope="col" data-col="adoption">adoption</th>
-          <th scope="col" data-col="data_origin">data_origin</th>
-          <th scope="col" data-col="volatility">volatility</th>
-          <th scope="col" data-col="value">value</th>
-          <th scope="col" data-col="unit">unit</th>
-          <th scope="col" data-col="effective_from">effective_from</th>
-          <th scope="col" data-col="effective_to">effective_to</th>
-          <th scope="col" data-col="instrument">instrument</th>
-          <th scope="col" data-col="citation_codified">citation_codified</th>
-          <th scope="col" data-col="citation_rfo">citation_rfo</th>
-          <th scope="col" data-col="edition_date">edition_date</th>
-          <th scope="col" data-col="text_status">text_status</th>
-          <th scope="col" data-col="applies_to">applies_to</th>
-          <th scope="col" data-col="evidence_grade">evidence_grade</th>
-          <th scope="col" data-col="verified_on">verified_on</th>
-          <th scope="col" data-col="verified_by_role">verified_by_role</th>
-          <th scope="col" data-col="supersedes">supersedes</th>
-          <th scope="col" data-col="superseded_by">superseded_by</th>
-          <th scope="col" data-col="conflict_id">conflict_id</th>
-          <th scope="col" data-col="question_id">question_id</th>
-          <th scope="col" data-col="note">note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="CL-CMP-0001" data-verification="primary_source_supported">
-          <td data-sort-val="CL-CMP-0001"><a class="cite neutral" href="claims.html#CL-CMP-0001" data-claim="CL-CMP-0001">CL-CMP-0001</a></td>
-          <td data-sort-val="cmp"><span class="chip accent">CMP · Compliance</span></td>
-          <td>fact</td>
-          <td>Synthetic compliance reviews occur every 30 days under the synthetic rule.</td>
-          <td><span class="mono">2026-02-01</span></td>
-          <td data-sort-val="S-0001"><a class="cite neutral" href="sources.html#S-0001-v1">S-0001</a></td>
-          <td data-sort-val="0000000001"><a class="cite meta-only" href="sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="meta-only-tag">Metadata only</span></a></td>
-          <td>text_section</td>
-          <td>sec. 1</td>
-          <td>Synthetic compliance reviews occur every 30 days.</td>
-          <td>true</td>
-          <td>codex</td>
-          <td data-sort-val="primary_source_supported"><span class="chip ok" title="primary_source_supported"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>Supported</span></span></td>
-          <td data-sort-val="general_reference"><span class="chip" title="general_reference">General reference</span></td>
-          <td data-sort-val="prototype_reviewed"><span class="chip" title="prototype_reviewed">Prototype reviewed</span></td>
-          <td>observed</td>
-          <td>V2</td>
-          <td><span class="mono">30</span></td>
-          <td>days</td>
-          <td><span class="mono">2026-01-15</span></td>
-          <td><span class="muted">Still in force at as_of</span></td>
-          <td>far_codified</td>
-          <td>48 CFR 9900.101</td>
-          <td></td>
-          <td><span class="mono">2026-01</span></td>
-          <td>final</td>
-          <td>event=award_date; entered_from=2026-01-15; contract_type=fixed_price</td>
-          <td><span class="muted">The claim is not an input to a calculation</span></td>
-          <td><span class="mono">2026-02-10</span></td>
-          <td>owner</td>
-          <td><span class="muted">Replaces nothing</span></td>
-          <td><span class="muted">Not replaced</span></td>
-          <td><span class="muted">In no conflict</span></td>
-          <td><span class="muted">No question</span></td>
-          <td>Synthetic owner-verified fact for fixture tests.</td>
-        </tr>
-        <tr id="CL-CMP-0002" data-verification="unchecked">
-          <td data-sort-val="CL-CMP-0002"><a class="cite neutral" href="claims.html#CL-CMP-0002" data-claim="CL-CMP-0002">CL-CMP-0002</a></td>
-          <td data-sort-val="cmp"><span class="chip accent">CMP · Compliance</span></td>
-          <td>fact</td>
-          <td>Synthetic withholding threshold is 5 percent of billed amounts.</td>
-          <td><span class="mono">2026-02-01</span></td>
-          <td data-sort-val="S-0001"><a class="cite neutral" href="sources.html#S-0001-v1">S-0001</a></td>
-          <td data-sort-val="0000000001"><a class="cite meta-only" href="sources.html#S-0001-v1" data-pv="src:S-0001-v1" data-pv-title="Synthetic Cost Rule, made up for tests" data-pv-body="Synthetic Standards Board"><span>S-0001-v1</span> <span class="meta-only-tag">Metadata only</span></a></td>
-          <td>text_section</td>
-          <td>sec. 2</td>
-          <td>Synthetic withholding threshold is 5 percent.</td>
-          <td>true</td>
-          <td>codex</td>
-          <td data-sort-val="unchecked"><span class="chip" title="unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke-dasharray="2 2"/></svg><span>Unchecked</span></span></td>
-          <td data-sort-val="pending_company_confirmation"><span class="chip" title="pending_company_confirmation">Pending company</span></td>
-          <td data-sort-val="proposed"><span class="chip" title="proposed">Proposed</span></td>
-          <td>observed</td>
-          <td>V2</td>
-          <td><span class="mono">5</span></td>
-          <td>percent</td>
-          <td><span class="mono">2026-01-15</span></td>
-          <td><span class="muted">Still in force at as_of</span></td>
-          <td><span class="muted">Not a regulatory claim</span></td>
-          <td></td>
-          <td></td>
-          <td><span class="muted">None printed</span></td>
-          <td><span class="muted">Not regulatory</span></td>
-          <td><span class="muted">No such test</span></td>
-          <td><span class="muted">The claim is not an input to a calculation</span></td>
-          <td><span class="unver">Never verified</span></td>
-          <td><span class="muted">Not checked</span></td>
-          <td><span class="muted">Replaces nothing</span></td>
-          <td><span class="muted">Not replaced</span></td>
-          <td><span class="muted">In no conflict</span></td>
-          <td data-sort-val="Q-001"><a class="cite neutral" href="questions.html#Q-001" data-pv="q:Q-001" data-pv-title="Q-001" data-pv-body="Which synthetic business-system control owner approves the monthly compliance review?">Q-001</a></td>
-          <td>Synthetic unchecked consequential fact for fixture tests.</td>
-        </tr>
-        <tr id="CL-EST-0001" data-verification="unchecked">
-          <td data-sort-val="CL-EST-0001"><a class="cite neutral" href="claims.html#CL-EST-0001" data-claim="CL-EST-0001">CL-EST-0001</a></td>
-          <td data-sort-val="est"><span class="chip accent">EST · Estimating</span></td>
-          <td>assumption</td>
-          <td>Synthetic escalation placeholder is 3 percent per year for fixture examples.</td>
-          <td><span class="mono">2026-02-01</span></td>
-          <td><span class="muted">An assumption has no source</span></td>
-          <td><span class="muted">An assumption has no source</span></td>
-          <td><span class="muted">An assumption has no source</span></td>
-          <td><span class="muted">No fine locator</span></td>
-          <td><span class="muted">No quote</span></td>
-          <td>false</td>
-          <td>codex</td>
-          <td data-sort-val="unchecked"><span class="chip" title="unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke-dasharray="2 2"/></svg><span>Unchecked</span></span></td>
-          <td data-sort-val="prototype_assumption"><span class="chip" title="prototype_assumption">Prototype assumption</span></td>
-          <td data-sort-val="proposed"><span class="chip" title="proposed">Proposed</span></td>
-          <td>estimated</td>
-          <td>V3</td>
-          <td><span class="mono">3</span></td>
-          <td>percent</td>
-          <td><span class="muted">Not stated</span></td>
-          <td><span class="muted">Still in force at as_of</span></td>
-          <td><span class="muted">Not a regulatory claim</span></td>
-          <td></td>
-          <td></td>
-          <td><span class="muted">None printed</span></td>
-          <td><span class="muted">Not regulatory</span></td>
-          <td><span class="muted">No such test</span></td>
-          <td>F</td>
-          <td><span class="unver">Never verified</span></td>
-          <td><span class="muted">Not checked</span></td>
-          <td><span class="muted">Replaces nothing</span></td>
-          <td><span class="muted">Not replaced</span></td>
-          <td><span class="muted">In no conflict</span></td>
-          <td><span class="muted">No question</span></td>
-          <td>Synthetic assumption for fixture tests.</td>
-        </tr>
-        <tr id="CL-EST-0002" data-verification="unchecked">
-          <td data-sort-val="CL-EST-0002"><a class="cite neutral" href="claims.html#CL-EST-0002" data-claim="CL-EST-0002">CL-EST-0002</a></td>
-          <td data-sort-val="est"><span class="chip accent">EST · Estimating</span></td>
-          <td>fact</td>
-          <td>Synthetic rate review window was 15 days under prior guidance.</td>
-          <td><span class="mono">2026-01-15</span></td>
-          <td data-sort-val="S-0002"><a class="cite neutral" href="sources.html#S-0002-v1">S-0002</a></td>
-          <td data-sort-val="0000000002"><a class="cite" href="sources.html#S-0002-v2" data-pv="src:S-0002-v2" data-pv-title="Synthetic Pricing Guide v2, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v2</span></a></td>
-          <td>text_section</td>
-          <td>sec. 3</td>
-          <td>Synthetic rate review window was 15 days.</td>
-          <td>true</td>
-          <td>codex</td>
-          <td data-sort-val="unchecked"><span class="chip" title="unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke-dasharray="2 2"/></svg><span>Unchecked</span></span></td>
-          <td data-sort-val="not_applicable"><span class="chip" title="not_applicable">Not applicable</span></td>
-          <td data-sort-val="superseded"><span class="chip" title="superseded">Superseded</span></td>
-          <td>observed</td>
-          <td>V2</td>
-          <td><span class="mono">15</span></td>
-          <td>days</td>
-          <td><span class="muted">Not stated</span></td>
-          <td><span class="muted">Still in force at as_of</span></td>
-          <td><span class="muted">Not a regulatory claim</span></td>
-          <td></td>
-          <td></td>
-          <td><span class="muted">None printed</span></td>
-          <td><span class="muted">Not regulatory</span></td>
-          <td><span class="muted">No such test</span></td>
-          <td><span class="muted">The claim is not an input to a calculation</span></td>
-          <td><span class="unver">Never verified</span></td>
-          <td><span class="muted">Not checked</span></td>
-          <td><span class="muted">Replaces nothing</span></td>
-          <td data-sort-val="CL-EST-0003"><a class="cite neutral" href="claims.html#CL-EST-0003" data-claim="CL-EST-0003">CL-EST-0003</a></td>
-          <td><span class="muted">In no conflict</span></td>
-          <td><span class="muted">No question</span></td>
-          <td>Synthetic superseded claim replaced by CL-EST-0003.</td>
-        </tr>
-        <tr id="CL-EST-0003" data-verification="unchecked">
-          <td data-sort-val="CL-EST-0003"><a class="cite neutral" href="claims.html#CL-EST-0003" data-claim="CL-EST-0003">CL-EST-0003</a></td>
-          <td data-sort-val="est"><span class="chip accent">EST · Estimating</span></td>
-          <td>fact</td>
-          <td>Synthetic rate review window is 10 days under current guidance.</td>
-          <td><span class="mono">2026-02-01</span></td>
-          <td data-sort-val="S-0002"><a class="cite neutral" href="sources.html#S-0002-v1">S-0002</a></td>
-          <td data-sort-val="0000000002"><a class="cite" href="sources.html#S-0002-v2" data-pv="src:S-0002-v2" data-pv-title="Synthetic Pricing Guide v2, made up for tests" data-pv-body="Synthetic Pricing Institute"><span>S-0002-v2</span></a></td>
-          <td>text_section</td>
-          <td>sec. 4</td>
-          <td>Synthetic rate review window is 10 days.</td>
-          <td>true</td>
-          <td>codex</td>
-          <td data-sort-val="unchecked"><span class="chip" title="unchecked"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke-dasharray="2 2"/></svg><span>Unchecked</span></span></td>
-          <td data-sort-val="pending_company_confirmation"><span class="chip" title="pending_company_confirmation">Pending company</span></td>
-          <td data-sort-val="proposed"><span class="chip" title="proposed">Proposed</span></td>
-          <td>observed</td>
-          <td>V2</td>
-          <td><span class="mono">10</span></td>
-          <td>days</td>
-          <td><span class="muted">Not stated</span></td>
-          <td><span class="muted">Still in force at as_of</span></td>
-          <td><span class="muted">Not a regulatory claim</span></td>
-          <td></td>
-          <td></td>
-          <td><span class="muted">None printed</span></td>
-          <td><span class="muted">Not regulatory</span></td>
-          <td><span class="muted">No such test</span></td>
-          <td><span class="muted">The claim is not an input to a calculation</span></td>
-          <td><span class="unver">Never verified</span></td>
-          <td><span class="muted">Not checked</span></td>
-          <td data-sort-val="CL-EST-0002"><a class="cite neutral" href="claims.html#CL-EST-0002" data-claim="CL-EST-0002">CL-EST-0002</a></td>
-          <td><span class="muted">Not replaced</span></td>
-          <td><span class="muted">In no conflict</span></td>
-          <td><span class="muted">No question</span></td>
-          <td>Synthetic replacement claim for CL-EST-0002.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <nav class="pager" id="fb:registerPager" aria-label="Register pages" hidden>
-    <div class="seg" role="group" aria-label="Page">
-      <button type="button" data-pg="prev">Previous</button>
-      <button type="button" data-pg="next">Next</button>
-    </div>
-    <span id="fb:registerPageInfo" aria-live="polite"></span>
-  </nav>
+
   
 </div></main>
 </div>

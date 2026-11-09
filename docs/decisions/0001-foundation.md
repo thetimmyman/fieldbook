@@ -320,7 +320,7 @@ The plan is three vertical slices: P1 Read, P2 Print and P3 Find. Each ends in s
 | `ci-ok` | Needs every other job (the test `ci_workflow::ci_ok_needs_every_job` fails on a missing one). Only `success` passes, so a gated job finishes with success and skips its steps. Runs guard-statuses and the scope check `cargo xtask scope BASE HEAD` for a closing card. Declared-path coverage, Registration lines, the closing-card lookup and the limited changed-path exceptions follow [Writing a card](../cards/README.md#writing-a-card) and the `docs-checks` scope contract. `SHARED_PATHS` governs concurrent-card overlap only; it does not authorize an undeclared edit. The only required check |
 
 - **Gated jobs.** A job that a docs-only change need not run (`windows`, and later `net`, `ai-drill` and `bridge`) has `needs: [changes]` and an `if` on every step after checkout. It has no job-level `if` and no path list of its own, so it always finishes and `ci-ok` can read it. `rust` and `corpus` always run, because they check the docs. The steps for a new job are the recipe "Adding a CI job" in `docs/cards/README.md`.
-- **Edge harness** (`cargo xtask harness`). It runs `msedge --headless=new --dump-dom --log-net-log=<file>` on every page and every renderable file in the edition, with `--disable-background-networking --disable-component-update --disable-sync --no-default-browser-check --disable-features=OptimizationHints,MediaRouter`. It never passes `--allow-file-access-from-files`. Where Edge is not installed (the Linux self-hosted runner carries only Chromium), it runs Chromium with the same options and names the browser that ran; the Windows drill uses Edge. Each page has 60 seconds; the register pages (`claims.html`, `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` and `ids.html`, the `REGISTER_PAGES` list of `harness.rs`) have 300 seconds, an owner exception that ends when `claims-register-split` splits the claims register.
+- **Edge harness** (`cargo xtask harness`). It runs `msedge --headless=new --dump-dom --log-net-log=<file>` on every page and every renderable file in the edition, with `--disable-background-networking --disable-component-update --disable-sync --no-default-browser-check --disable-features=OptimizationHints,MediaRouter`. It never passes `--allow-file-access-from-files`. Where Edge is not installed (the Linux self-hosted runner carries only Chromium), it runs Chromium with the same options and names the browser that ran; the Windows drill uses Edge. Each page has 60 seconds, the register pages and `ids.html` included: the claims register is split into part pages (`claims/<AREA>-<part>.html`) so that no page is large enough to need more.
   - It asserts only on requests that `file:` pages start, and ignores the browser's own traffic.
   - A synchronous selftest script writes `securitypolicyviolation` events and resource entries into the DOM.
   - A negative page loads `https://example.invalid/x.js`, which must be blocked and reported.
@@ -353,7 +353,8 @@ One Rust tokenizer defines how text is split and folded. BM25F ranking with inte
 | `a/<area>.html` | Area by subarea and stage. The UI lane's tabs become sections; one without data shows its empty-state line | Day 1; views (D-23) Day 30 |
 | `p/<page-id>.html` | Page in the frozen part order, Sources built from citations; its page context pack in `<details><pre>` (Could) | Day 1 |
 | `s/<version-id>.html` | Source version: metadata, hash, the original at its locator, section anchors, citing claims, extraction status | Day 1 |
-| `claims.html`, `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
+| `claims.html`, `claims/<AREA>-<part>.html` | The claims index, one entry per area part with its id range and count; and one register page per area part of 500 claim numbers, with an anchor per row | Day 1 |
+| `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
 | `ids.html`, `search.html` | Every id with its link; results for `#q=` | Day 1 |
 | `about.html` | Tool version, edition, commit, handling statement, status counts, stale and unreviewed items; the build profile (silent or AI) and the AI position as text | Day 1 |
 | `day-one.html` | The day-one binder: briefs and day-one pages, ready to print | Day 1 |
@@ -940,6 +941,7 @@ fieldbook-edition-NNN.zip            -> %LOCALAPPDATA%\Fieldbook\edition\
     index.html search.html ids.html about.html day-one.html
     claims.html sources.html questions.html conflicts.html glossary.html
     changes.html (from edition-002)   assistant.html map.html (Day 30)
+    claims/<AREA>-<part>.html
     a/<area>.html  p/<page-id>.html  s/<version-id>.html
     assets/  app.css app.js search.js search-index.js strings.js
              (assist.js and assist-data.js from Day 30)

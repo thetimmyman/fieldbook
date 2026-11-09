@@ -65,7 +65,7 @@ pub fn render_verification_chips(ver: Verification, kind: ClaimKind) -> String {
 pub struct ClaimSourceRow {
     /// Claim identifier (`CL-...`).
     pub claim_id: String,
-    /// Rendered `ClaimMark` HTML (`<a>` if `claims.html` is planned, `<span>` otherwise).
+    /// Rendered `ClaimMark` HTML (`<a>` if the claim's part page `claims/<AREA>-<part>.html` is planned, `<span>` otherwise).
     pub claim_mark_html: String,
     /// Rendered verification `StatusChip` HTML.
     pub status_chip_html: String,

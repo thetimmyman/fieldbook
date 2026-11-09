@@ -250,6 +250,16 @@ pub fn resolve_route(path: &str, page_area: Option<&str>) -> Option<(SectionId, 
     {
         return Some((SectionId::Library, "sources".to_owned()));
     }
+    // A claims part page; `app.js` (at its size budget) keeps no map row for it, because the
+    // frame sets `data-section` and `data-item` from this function.
+    if let Some(part) = clean
+        .strip_prefix("claims/")
+        .and_then(|s| s.strip_suffix(".html"))
+        && !part.is_empty()
+        && !part.contains('/')
+    {
+        return Some((SectionId::Library, "claims".to_owned()));
+    }
     for row in route_sections() {
         if row.route == clean {
             return Some((row.section, row.item.to_owned()));

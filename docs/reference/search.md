@@ -232,14 +232,14 @@ Partial dates (`2025`, `2025-11`) are stored as written. An empty value is the e
 | `page`, `clause` | `<page-id>` | `p/<page-id>.html` |
 | `page`, `clause` | `<page-id>#<anchor>` | `p/<page-id>.html#<anchor>` |
 | `source` | `S-0042-v2` | `s/S-0042-v2.html` |
-| `claim` | `CL-CMP-0011` | `claims.html#CL-CMP-0011` |
+| `claim` | `CL-CMP-0011` | `claims/CMP-1.html#CL-CMP-0011` |
 | `question` | `Q-027` | `questions.html#Q-027` |
 | `conflict` | `XC-14` | `conflicts.html#XC-14` |
 | `term` | `material_weakness` | `glossary.html#material_weakness` |
 | `record` | `CM-000012-v2` | No link until `later-record-views` ships; then `r/<type>.html#CM-000012-v2` |
 | `text` | `SO-000042-v2#p0001` | `s/SO-000042-v2.html` |
 
-The register anchors are the ids as written. Any result filter by kind is the UI lane's and filters on `kind` after ranking; it does not change ranking. The command line has no such filter: its `--json` output only carries `kind` on each hit. The edition site's index holds the kinds `page` and `clause` only, so the edition offers no filter for a claim, source, question, conflict or term, and no result list there promises a hit of those kinds; whether it filters pages from sections is left to the design pull request. The filters for the other kinds can apply only where the index holds them, which is a company site.
+The register anchors are the ids as written. The part of a claim is (number - 1) / 500 + 1, derived from the id alone, so `CL-CMP-0501` links to `claims/CMP-2.html#CL-CMP-0501`. Any result filter by kind is the UI lane's and filters on `kind` after ranking; it does not change ranking. The command line has no such filter: its `--json` output only carries `kind` on each hit. The edition site's index holds the kinds `page` and `clause` only, so the edition offers no filter for a claim, source, question, conflict or term, and no result list there promises a hit of those kinds; whether it filters pages from sections is left to the design pull request. The filters for the other kinds can apply only where the index holds them, which is a company site.
 
 ## Ranking
 

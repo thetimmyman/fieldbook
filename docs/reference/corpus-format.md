@@ -514,7 +514,7 @@ The last two rows (before the company rows) are local to the state folder (`.fie
 - `new` and `add` choose the next free number: one more than the highest number ever used in that series, retired rows included. In a company store a series is per family and per writer: the allocator reads only the rows of that family whose number carries the store's writer digits, and `sync` takes numbers the same way, so two writers cannot hand out the same id. `check` reports a repeated id (FB0203). A claim series is per area (`CL-CMP-0012` follows `CL-CMP-0011`). A claim series that reaches 9999 continues with five digits: `CL-CMP-10000` follows `CL-CMP-9999`. A five-digit number never starts with 0, so each number has one spelling. Until the card `add-new-and-edition` lands them, the lead allocates by hand, with `sha256sum` and a row in `sources.csv` for a source.
 - Source numbering starts at `S-0001`. A source's first version is `v1`; each later version of the same source is one more.
 - An id has one spelling everywhere. The version id `S-0042-v2` is the file stem of its original (`S-0042-v2.pdf`), the name of its extraction folder, the name of its site page (`s/S-0042-v2.html`) and the key in a citation (`[@S-0042-v2, p. 14]`).
-- A register id is also the anchor of its row on the register page: `claims.html#CL-CMP-0011`, `sources.html#S-0042-v2`, `questions.html#Q-027`, `conflicts.html#XC-14`, `glossary.html#material_weakness`.
+- A register id is also the anchor of its row on the register page: `claims/CMP-1.html#CL-CMP-0011` (a claim is on the part page of its area and number: part = (number - 1) / 500 + 1), `sources.html#S-0042-v2`, `questions.html#Q-027`, `conflicts.html#XC-14`, `glossary.html#material_weakness`.
 
 **Never reused, never renamed.**
 - From the first edition that contains an id, the id keeps its meaning for ever. It is not reused for another object and not renamed. Before `edition-001` exists no reader holds an id, and the lead may correct one by hand.
@@ -1558,7 +1558,8 @@ One HTML file per page. A `#` is used only for anchors and for `search.html#q=`.
 | `a/<area>.html` | Area by subarea and stage. A section without data shows its empty-state line | Day 1; views at Day 30 |
 | `p/<page-id>.html` | Page in the frozen part order, with Sources built from the citations. The page context pack in `<details><pre>` is a Could item (card `page-context-packs`) | Day 1 |
 | `s/<version-id>.html` | Source version: row, hash, the original at its locator, section anchors, citing claims, extraction status | Day 1 |
-| `claims.html`, `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
+| `claims.html`, `claims/<AREA>-<part>.html` | The claims index, one entry per area part with its id range and count; and one register page per area part of 500 claim numbers, with an anchor per row | Day 1 |
+| `sources.html`, `questions.html`, `conflicts.html`, `glossary.html` | Registers, from one generic template, with an anchor per row | Day 1 |
 | `ids.html`, `search.html` | Every id with its link; results for `#q=` | Day 1 |
 | `about.html` | Tool version, edition, commit, the label statement (an edition holds `public` only), status counts, stale and unreviewed items; the build profile (silent or AI) and the AI position as text. A built page cannot know the store, the policy or the connected company data sources: `fieldbook policy show` and `fieldbook sync --dry-run` print them on the laptop | Day 1 |
 | `day-one.html` | The day-one binder: the `brief` pages and the pages of stages 1 and 2, ready to print | Day 1 |

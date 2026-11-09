@@ -145,6 +145,7 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
     for reg in Register::ALL {
         paths.push(register::output_path(reg).to_owned());
     }
+    paths.extend(register::claims_part_paths(view));
     for page in view.pages() {
         paths.push(format!("p/{}.html", page.id));
     }
@@ -176,6 +177,11 @@ pub fn render_with_context(
         let reg_path = register::output_path(reg);
         let html = register::render_page(reg, view, ctx, &navigation, &planned);
         site.insert(reg_path, html.into_bytes());
+    }
+    let parts = register::claims_parts(view);
+    for (i, part) in parts.iter().enumerate() {
+        let html = register::render_claims_part_page(&parts, i, view, ctx, &navigation, &planned);
+        site.insert(&part.route, html.into_bytes());
     }
     let ids_html = ids::render_page(view, ctx, &navigation, &planned);
     site.insert(ids::OUTPUT_PATH, ids_html.into_bytes());

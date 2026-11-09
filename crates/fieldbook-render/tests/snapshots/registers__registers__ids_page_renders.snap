@@ -443,11 +443,11 @@ expression: html
       </div>
       
       <ul class="id-list">
-        <li class="id-row" data-id="CL-CMP-0001"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-CMP-0001" data-claim="CL-CMP-0001">CL-CMP-0001</a></span> <span class="id-label">Synthetic compliance reviews occur every 30 days under the synthetic rule.</span></li>
-        <li class="id-row" data-id="CL-CMP-0002"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-CMP-0002" data-claim="CL-CMP-0002">CL-CMP-0002</a></span> <span class="id-label">Synthetic withholding threshold is 5 percent of billed amounts.</span></li>
-        <li class="id-row" data-id="CL-EST-0001"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-EST-0001" data-claim="CL-EST-0001">CL-EST-0001</a></span> <span class="id-label">Synthetic escalation placeholder is 3 percent per year for fixture examples.</span></li>
-        <li class="id-row" data-id="CL-EST-0002"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-EST-0002" data-claim="CL-EST-0002">CL-EST-0002</a></span> <span class="id-label">Synthetic rate review window was 15 days under prior guidance.</span></li>
-        <li class="id-row" data-id="CL-EST-0003"><span class="id-chip"><a class="cite neutral" href="claims.html#CL-EST-0003" data-claim="CL-EST-0003">CL-EST-0003</a></span> <span class="id-label">Synthetic rate review window is 10 days under current guidance.</span></li>
+        <li class="id-row" data-id="CL-CMP-0001"><span class="id-chip"><a class="cite neutral" href="claims/CMP-1.html#CL-CMP-0001" data-claim="CL-CMP-0001">CL-CMP-0001</a></span> <span class="id-label">Synthetic compliance reviews occur every 30 days under the synthetic rule.</span></li>
+        <li class="id-row" data-id="CL-CMP-0002"><span class="id-chip"><a class="cite neutral" href="claims/CMP-1.html#CL-CMP-0002" data-claim="CL-CMP-0002">CL-CMP-0002</a></span> <span class="id-label">Synthetic withholding threshold is 5 percent of billed amounts.</span></li>
+        <li class="id-row" data-id="CL-EST-0001"><span class="id-chip"><a class="cite neutral" href="claims/EST-1.html#CL-EST-0001" data-claim="CL-EST-0001">CL-EST-0001</a></span> <span class="id-label">Synthetic escalation placeholder is 3 percent per year for fixture examples.</span></li>
+        <li class="id-row" data-id="CL-EST-0002"><span class="id-chip"><a class="cite neutral" href="claims/EST-1.html#CL-EST-0002" data-claim="CL-EST-0002">CL-EST-0002</a></span> <span class="id-label">Synthetic rate review window was 15 days under prior guidance.</span></li>
+        <li class="id-row" data-id="CL-EST-0003"><span class="id-chip"><a class="cite neutral" href="claims/EST-1.html#CL-EST-0003" data-claim="CL-EST-0003">CL-EST-0003</a></span> <span class="id-label">Synthetic rate review window is 10 days under current guidance.</span></li>
       </ul>
       
     </section>

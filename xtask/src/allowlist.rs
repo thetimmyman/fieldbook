@@ -991,6 +991,9 @@ fn check_site_profile_path(path: &str) -> Result<(), AllowlistViolation> {
     {
         return Ok(());
     }
+    if is_claims_part_page(path) {
+        return Ok(());
+    }
     if let Some(rest) = path.strip_prefix("data/")
         && !rest.contains('/')
         && (rest == "registers.xlsx" || rest.ends_with(".csv"))
@@ -1035,6 +1038,29 @@ fn is_allowed_shipped_corpus_subpath(path: &str) -> bool {
         );
     }
     false
+}
+
+fn is_claims_part_page(path: &str) -> bool {
+    let Some(rest) = path.strip_prefix("claims/") else {
+        return false;
+    };
+    if rest.contains('/') {
+        return false;
+    }
+    let Some(stem) = rest.strip_suffix(".html") else {
+        return false;
+    };
+    let Some((area, part)) = stem.split_once('-') else {
+        return false;
+    };
+    if area.len() != 3 || !area.as_bytes().iter().all(u8::is_ascii_uppercase) {
+        return false;
+    }
+    let part_bytes = part.as_bytes();
+    if part_bytes.is_empty() || !matches!(part_bytes[0], b'1'..=b'9') {
+        return false;
+    }
+    part_bytes[1..].iter().all(u8::is_ascii_digit)
 }
 
 fn verify_tree_sha256sums(
@@ -1164,6 +1190,7 @@ fn verify_extraction_hashes(
 #[cfg(test)]
 mod tests {
     use std::collections::{BTreeMap, BTreeSet};
+    use std::path::Path;
 
     use fieldbook_core::audit::Now;
     use fieldbook_core::authz::ReadableStores;
@@ -1178,8 +1205,8 @@ mod tests {
     use fieldbook_core::schema::Register;
 
     use super::{
-        AllowlistProfile, RAW_REQUIRED_PATHS, SITE_REQUIRED_PATHS, shipped_original_filename,
-        verify_staged_maps,
+        AllowlistProfile, RAW_REQUIRED_PATHS, SITE_REQUIRED_PATHS, check_raw_profile_path,
+        check_site_profile_path, shipped_original_filename, verify_staged_maps,
     };
 
     const MINI_CORPUS_TOML: &str =
@@ -1481,5 +1508,77 @@ mod tests {
             .expect_err("stale edition.toml fingerprint must fail FB0608");
         assert_eq!(err.code, Code::Fb0608);
         assert_eq!(err.path, "edition.toml");
+    }
+
+    #[test]
+    fn site_profile_accepts_claims_part_pages() {
+        assert!(check_site_profile_path("claims/CMP-1.html").is_ok());
+        assert!(check_site_profile_path("claims/CMP-21.html").is_ok());
+    }
+
+    #[test]
+    fn site_profile_refuses_malformed_claims_part_pages() {
+        let malformed = [
+            "claims/CMP-0.html",
+            "claims/cmp-1.html",
+            "claims/CMP-1.txt",
+            "claims/x/CMP-1.html",
+            "claims/CMP-01.html",
+            "claims/CM-1.html",
+            "claims/CMPX-1.html",
+            "claims/CMP-.html",
+            "claims/CMP-1a.html",
+        ];
+        for path in malformed {
+            assert!(
+                check_site_profile_path(path).is_err(),
+                "path `{path}` must be refused by site profile"
+            );
+        }
+    }
+
+    #[test]
+    fn raw_profile_refuses_claims_part_pages() {
+        assert!(check_raw_profile_path("claims/CMP-1.html").is_err());
+    }
+
+    #[test]
+    fn every_path_of_a_rendered_site_passes_the_site_profile() {
+        let repo_root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
+        let fixture_dir = repo_root.join("tests/fixtures/corpus-mini");
+        let tree = fieldbook::io::tree::read_tree(&fixture_dir).unwrap();
+        let today = CivilDate::parse("2026-03-01").unwrap();
+        let (model, report) = load(&Host::new(tree, today), &Options::new(false));
+        assert!(
+            report.is_ok(),
+            "tree must load cleanly:\n{}",
+            report.render_text()
+        );
+        let eff = EffectivePolicy::floor(false);
+        let now = Now::new(today, 0).unwrap();
+        let Decision::Allowed(allowed) =
+            egress_check(&eff, &Dest::Edition, None, None, now, Shipped::Never)
+        else {
+            panic!("edition selection must succeed");
+        };
+        let view = LabelledView::new(&model, &allowed, &ReadableStores::corpus());
+        let site =
+            fieldbook_render::site::render(&view, &fieldbook_render::meta::BuildInfo::default())
+                .unwrap();
+
+        let mut found_claims_part = false;
+        for path in site.files().keys() {
+            if path == "claims/CMP-1.html" {
+                found_claims_part = true;
+            }
+            assert!(
+                check_site_profile_path(path).is_ok(),
+                "rendered site path `{path}` must pass check_site_profile_path"
+            );
+        }
+        assert!(
+            found_claims_part,
+            "site must contain `claims/CMP-1.html` to prove claims part pages are covered"
+        );
     }
 }
