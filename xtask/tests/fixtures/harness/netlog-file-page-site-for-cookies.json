@@ -1,0 +1,4 @@
+{"constants": {"logEventTypes": {"REQUEST_ALIVE": 2, "URL_REQUEST_START_JOB": 7, "HOST_RESOLVER_MANAGER_REQUEST": 9, "HTTP_STREAM_JOB_CONTROLLER": 11}, "logSourceType": {"URL_REQUEST": 1, "HOST_RESOLVER_IMPL_REQUEST": 3, "HTTP_STREAM_JOB_CONTROLLER": 4}, "logEventPhase": {"PHASE_BEGIN": 1, "PHASE_END": 2, "PHASE_NONE": 0}},
+ "events": [
+  {"phase": 1, "source": {"id": 13, "type": 1}, "time": "1000", "type": 7, "params": {"initiator": "null", "load_flags": 0, "method": "GET", "network_isolation_key": "null null", "request_type": "other", "site_for_cookies": "SiteForCookies: {site=file://; schemefully_same=true}", "url": "https://example.invalid/cookie.png"}}
+ ]}

@@ -20,6 +20,7 @@ flate2 = { workspace = true }
 fieldbook = { path = "../crates/fieldbook" }
 fieldbook-calc = { path = "../crates/fieldbook-calc" }
 fieldbook-core = { path = "../crates/fieldbook-core" }
+fieldbook-render = { path = "../crates/fieldbook-render" }
 
 [dev-dependencies]
 tempfile = { workspace = true }

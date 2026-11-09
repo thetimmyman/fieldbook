@@ -728,6 +728,32 @@ fn run_edition_surface() {
         "permitted IDs across all 7 groups must reach ids.html"
     );
 
+    // The delivered search index holds the permitted page and section units only.
+    let index_js = std::fs::read_to_string(plan.edition_dir.join("assets/search-index.js"))
+        .unwrap_or_else(|e| panic!("{e}"));
+    let index_json: serde_json::Value = serde_json::from_str(
+        index_js
+            .strip_prefix("window.FB_INDEX = ")
+            .and_then(|s| s.strip_suffix(';'))
+            .unwrap_or_else(|| panic!("the index must be `window.FB_INDEX = <json>;`")),
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
+    let index_docs = index_json["docs"]
+        .as_array()
+        .unwrap_or_else(|| panic!("docs"));
+    for permitted in ["cmp-system-review", "cmp-system-review#purpose"] {
+        assert!(
+            index_docs.iter().any(|d| d[0] == permitted),
+            "permitted unit `{permitted}` must reach assets/search-index.js"
+        );
+    }
+    assert!(
+        index_docs
+            .iter()
+            .all(|d| d[1] == "page" || d[1] == "clause"),
+        "assets/search-index.js holds page and section units only"
+    );
+
     let mixed_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));
     let mixed_plan = plan_edition(
         &mixed_view,
@@ -747,6 +773,24 @@ fn run_edition_surface() {
             .contains_key("p/est-forbidden-canary.html"),
         "forbidden page must be absent from mixed edition plan"
     );
+    let mixed_index = String::from_utf8_lossy(
+        mixed_plan
+            .site
+            .files()
+            .get("assets/search-index.js")
+            .unwrap_or_else(|| panic!("the mixed plan must hold assets/search-index.js")),
+    )
+    .into_owned();
+    for forbidden in [
+        "est-forbidden-canary",
+        "Forbidden pricing canary",
+        "np-0007",
+    ] {
+        assert!(
+            !mixed_index.contains(forbidden),
+            "forbidden `{forbidden}` must not reach assets/search-index.js"
+        );
+    }
     let cells_view = LabelledView::new(&cells_model, &sel_token, &ReadableStores::corpus());
     assert_eq!(cells_view.left_out(), 0);
     let cells_out_tmp = tempfile::tempdir().unwrap_or_else(|e| panic!("{e}"));

@@ -1,0 +1,6 @@
+{"constants": {"logEventTypes": {"REQUEST_ALIVE": 2, "URL_REQUEST_START_JOB": 7, "HOST_RESOLVER_MANAGER_REQUEST": 9, "HTTP_STREAM_JOB_CONTROLLER": 11}, "logSourceType": {"URL_REQUEST": 1, "HOST_RESOLVER_IMPL_REQUEST": 3, "HTTP_STREAM_JOB_CONTROLLER": 4}, "logEventPhase": {"PHASE_BEGIN": 1, "PHASE_END": 2, "PHASE_NONE": 0}},
+ "events": [
+  {"phase": 1, "source": {"id": 3, "type": 1}, "time": "900", "type": 7, "params": {"initiator": "not an origin", "load_flags": 82, "method": "GET", "network_isolation_key": "null null", "request_type": "other", "site_for_cookies": "SiteForCookies: {site=null; schemefully_same=false}", "url": "http://browser-update.example.invalid/time"}},
+  {"phase": 1, "source": {"id": 4, "type": 1}, "time": "901", "type": 7, "params": {"initiator": "not an origin", "load_flags": 0, "method": "POST", "network_isolation_key": "https://example.invalid https://example.invalid", "request_type": "other", "site_for_cookies": "SiteForCookies: {site=https://example.invalid; schemefully_same=true}", "url": "https://accounts.example.invalid/list"}},
+  {"phase": 2, "source": {"id": 4, "type": 1}, "time": "902", "type": 7}
+ ]}

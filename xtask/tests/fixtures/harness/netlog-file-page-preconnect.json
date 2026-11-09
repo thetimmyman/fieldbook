@@ -1,0 +1,7 @@
+{"constants": {"logEventTypes": {"REQUEST_ALIVE": 2, "URL_REQUEST_START_JOB": 7, "HOST_RESOLVER_MANAGER_REQUEST": 9, "HTTP_STREAM_JOB_CONTROLLER": 11}, "logSourceType": {"URL_REQUEST": 1, "HOST_RESOLVER_IMPL_REQUEST": 3, "HTTP_STREAM_JOB_CONTROLLER": 4}, "logEventPhase": {"PHASE_BEGIN": 1, "PHASE_END": 2, "PHASE_NONE": 0}},
+ "events": [
+  {"phase": 1, "source": {"id": 30, "type": 3}, "time": "950", "type": 9, "params": {"allow_cached_response": true, "dns_query_type": "UNSPECIFIED", "host": "https://update.example.invalid", "is_speculative": false, "network_anonymization_key": "null", "secure_dns_policy": 0}},
+  {"phase": 1, "source": {"id": 31, "type": 3}, "time": "951", "type": 9, "params": {"allow_cached_response": true, "dns_query_type": "UNSPECIFIED", "host": "https://www.example.invalid", "is_speculative": true, "network_anonymization_key": "https://example.invalid same_site", "secure_dns_policy": 0}},
+  {"phase": 1, "source": {"id": 81, "type": 3}, "time": "1000", "type": 9, "params": {"allow_cached_response": true, "dns_query_type": "UNSPECIFIED", "host": "https://cdn.example.invalid", "is_speculative": true, "network_anonymization_key": "file:// [internally: file://] same_site", "secure_dns_policy": 0}},
+  {"phase": 1, "source": {"id": 84, "type": 4}, "time": "1003", "type": 11, "params": {"allowed_bad_certs": [], "is_preconnect": true, "privacy_mode": "disabled", "url": "https://cdn.example.invalid/"}}
+ ]}

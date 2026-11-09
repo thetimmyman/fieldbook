@@ -11,6 +11,7 @@
 //! - `edition-raw --out DIR`: package the raw edition floor from a clean commit.
 //! - `raw-edition-check TAG --base FILE --evidence-out DIR`: check a raw edition tag and collect its evidence.
 //! - `raw-edition-compare LOCAL DOWNLOADED`: require a downloaded raw delivery set to equal the local one.
+//! - `harness [--edition DIR]`: open every page of an edition in headless Edge (or Chromium) with a net-log.
 //!
 //! Exit codes follow `fieldbook`: 0 clean, 1 findings, 2 usage, 3 an operation failed.
 
@@ -22,7 +23,7 @@
 #![expect(
     clippy::disallowed_types,
     clippy::disallowed_methods,
-    reason = "xtask starts git, cargo and curl, and reads the environment and files"
+    reason = "xtask starts git, cargo, curl and the browser, and reads the environment and files"
 )]
 
 #[cfg_attr(
@@ -76,10 +77,12 @@ mod docs;
 mod edition_raw;
 mod edition_release;
 mod errors;
+mod golden_wrap;
 #[cfg(test)]
 mod graph;
 mod guard;
 mod guard_fields;
+mod harness;
 #[cfg(test)]
 mod literals;
 mod proc;
@@ -112,7 +115,8 @@ const USAGE: &str = "usage: cargo xtask <command>
                                     check an owner-created raw edition tag and collect its evidence
   raw-edition-compare LOCAL DOWNLOADED
                                     require a downloaded raw delivery set to equal the local one
-  edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version";
+  edition-impact [FLAGS]            inspect tagged editions and verified archives for a source version
+  harness [--edition DIR]           open every page and renderable original in headless Edge (or Chromium) with a net-log";
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
@@ -144,6 +148,7 @@ fn main() -> ExitCode {
         ["raw-edition-check", rest @ ..] => raw_release::command_raw_edition_check(&root, rest),
         ["raw-edition-compare", rest @ ..] => raw_release::command_raw_edition_compare(rest),
         ["edition-impact", rest @ ..] => edition_release::command_edition_impact(&root, rest),
+        ["harness", rest @ ..] => harness::command(&root, rest),
         ["setup", rest @ ..] => tools::setup(&root, rest),
         _ => {
             eprintln!("{USAGE}");

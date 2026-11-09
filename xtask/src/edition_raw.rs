@@ -2084,13 +2084,13 @@ pub(crate) mod tests {
     }
 
     #[test]
-    fn the_raw_path_has_no_direct_renderer_dependency_and_names_no_render_entry() {
-        // `fieldbook-render` is compiled into `xtask` through `fieldbook`, which holds the Corpus
-        // reader, so this is not a build-graph proof. It checks what the raw path controls: the
-        // declared dependencies, and that its own production code names no render, site build or
-        // browser entry, in-process or as a command.
+    fn the_raw_path_names_no_render_entry() {
+        // `xtask` depends on `fieldbook-render` directly (the browser harness and the search
+        // goldens use it), so this is not a build-graph proof. It checks what the raw path
+        // controls: no browser-automation dependency in the manifest, and that its own production
+        // code names no render, site build or browser entry, in-process or as a command.
         let manifest = include_str!("../Cargo.toml");
-        for banned in ["fieldbook-render", "chart", "headless", "playwright"] {
+        for banned in ["chart", "headless", "playwright"] {
             assert!(!manifest.contains(banned), "xtask depends on {banned}");
         }
         for (name, source) in [
