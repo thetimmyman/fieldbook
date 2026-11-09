@@ -11,7 +11,10 @@ mod registers {
     use fieldbook_core::check::{Host, Model, Options, Tree, load};
     use fieldbook_core::date::CivilDate;
     use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
-    use fieldbook_core::ids::{AreaCode, ClaimId, ConflictId, QuestionId, SourceId, VersionId};
+    use fieldbook_core::ids::{
+        AreaCode, ClaimId, ConflictId, QuestionId, SourceId, VersionId, claim_page_route,
+        claim_part,
+    };
     use fieldbook_core::policy::EffectivePolicy;
     use fieldbook_core::schema::{
         Adoption, Applicability, ConflictRow, ConflictStatus, RefId, Register, Verification,
@@ -27,8 +30,8 @@ mod registers {
     use fieldbook_render::page;
     use fieldbook_render::register::{
         QUESTIONS_CORPUS_COLS, RegisterRowView, build_claims_part_view,
-        build_register_conflict_box, build_register_view, claims_parts, output_path,
-        render_claims_part_main, render_claims_part_page, render_main, render_page,
+        build_register_conflict_box, build_register_view, claims_part_paths, claims_parts,
+        output_path, render_claims_part_main, render_claims_part_page, render_main, render_page,
     };
     use fieldbook_render::site::{self, PlannedPaths};
     use fieldbook_render::source;
@@ -1886,5 +1889,392 @@ const compareDecimal = function (x, y) {
         let navigation = nav::build(&view, &planned);
         let html = ids::render_page(&view, &ctx, &navigation, &planned);
         insta::assert_snapshot!("ids_page_renders", html);
+    }
+
+    fn resolve_relative_site_path(base_file: &str, file_part: &str) -> String {
+        if file_part.is_empty() {
+            return base_file.to_owned();
+        }
+        let mut parts: Vec<&str> = Vec::new();
+        if let Some(parent) = Path::new(base_file).parent() {
+            for comp in parent.components() {
+                if let std::path::Component::Normal(c) = comp
+                    && let Some(s) = c.to_str()
+                {
+                    parts.push(s);
+                }
+            }
+        }
+        for comp in Path::new(file_part).components() {
+            match comp {
+                std::path::Component::ParentDir => {
+                    parts.pop();
+                }
+                std::path::Component::Normal(c) => {
+                    if let Some(s) = c.to_str() {
+                        parts.push(s);
+                    }
+                }
+                _ => {}
+            }
+        }
+        parts.join("/")
+    }
+
+    #[test]
+    fn every_claim_is_on_exactly_one_part_page() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let part_mains = claims_part_mains(&view, &planned);
+        let index_main = render_main(Register::Claims, &view, &planned);
+
+        assert!(!view.claims().is_empty(), "fixture view must have claims");
+        for c in view.claims() {
+            let id = c.value.claim_id.as_str();
+            let needle = format!("<tr id=\"{id}\"");
+
+            assert!(
+                !index_main.contains(&needle),
+                "claim {id} must not appear in the claims index main"
+            );
+
+            let matching_parts: Vec<&str> = part_mains
+                .iter()
+                .filter(|(_, html)| html.contains(&needle))
+                .map(|(route, _)| route.as_str())
+                .collect();
+
+            assert_eq!(
+                matching_parts.len(),
+                1,
+                "claim {id} must appear on exactly one part page, found on {matching_parts:?}"
+            );
+
+            for other_reg in [
+                Register::Sources,
+                Register::Questions,
+                Register::Conflicts,
+                Register::Glossary,
+            ] {
+                let other_main = render_main(other_reg, &view, &planned);
+                assert!(
+                    !other_main.contains(&needle),
+                    "claim {id} must not appear in {}",
+                    output_path(other_reg)
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn the_claims_index_links_every_part_page() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let index_main = render_main(Register::Claims, &view, &planned);
+
+        assert!(
+            index_main.contains("href=\"claims/CMP-1.html\""),
+            "index main must link claims/CMP-1.html"
+        );
+        assert!(
+            index_main.contains("href=\"claims/EST-1.html\""),
+            "index main must link claims/EST-1.html"
+        );
+
+        for route in claims_part_paths(&view) {
+            let expected_href = format!("href=\"{route}\"");
+            assert!(
+                index_main.contains(&expected_href),
+                "index main must link part route `{route}`"
+            );
+        }
+
+        assert!(
+            index_main.contains("2 claims"),
+            "index main must list CMP part count `2 claims`"
+        );
+        assert!(
+            index_main.contains("3 claims"),
+            "index main must list EST part count `3 claims`"
+        );
+
+        let empty_planned = PlannedPaths::default();
+        let unlinked_index_main = render_main(Register::Claims, &view, &empty_planned);
+        assert!(
+            !unlinked_index_main.contains("<a"),
+            "with empty planned set, labels must render as plain text without `<a`"
+        );
+        for part in claims_parts(&view) {
+            let expected_label = format!("{} to {}", part.first_id, part.last_id);
+            assert!(
+                unlinked_index_main.contains(&expected_label),
+                "unlinked index main must still contain part label `{expected_label}`"
+            );
+        }
+    }
+
+    #[test]
+    fn every_claim_link_resolves_to_an_existing_page_and_anchor() {
+        let (_model, view) = load_view(fixture_tree());
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+
+        let mut claim_links_found = 0usize;
+
+        for (from_path, bytes) in site.files() {
+            if !from_path.ends_with(".html") {
+                continue;
+            }
+            let html = std::str::from_utf8(bytes).unwrap();
+            for part in html.split("href=\"").skip(1) {
+                let Some(href) = part.split('"').next() else {
+                    continue;
+                };
+                if let Some((file_part, anchor)) = href.split_once('#')
+                    && anchor.starts_with("CL-")
+                {
+                    claim_links_found += 1;
+                    let target_path = resolve_relative_site_path(from_path, file_part);
+                    let target_bytes = site.files().get(&target_path).unwrap_or_else(|| {
+                        panic!(
+                            "claim link in `{from_path}` to `{href}` resolves to missing file `{target_path}`"
+                        )
+                    });
+                    let target_html = std::str::from_utf8(target_bytes).unwrap();
+                    let anchor_needle = format!("id=\"{anchor}\"");
+                    assert!(
+                        target_html.contains(&anchor_needle),
+                        "target file `{target_path}` missing anchor `{anchor_needle}` (linked from `{from_path}` via `{href}`)"
+                    );
+                }
+            }
+        }
+
+        assert!(
+            claim_links_found > 0,
+            "must find at least one claim link, found {claim_links_found}"
+        );
+    }
+
+    #[test]
+    fn the_part_of_a_claim_equals_claim_part() {
+        let (_model, view) = load_view(fixture_tree());
+        let planned = PlannedPaths::of(FIXED_PLANNED_PATHS);
+        let parts = claims_parts(&view);
+        assert!(!parts.is_empty(), "fixture must have claims parts");
+
+        for (idx, part) in parts.iter().enumerate() {
+            let main_html = render_claims_part_main(&parts, idx, &view, &planned);
+            let mut row_ids = Vec::new();
+            for piece in main_html.split("<tr id=\"").skip(1) {
+                if let Some(id) = piece.split('"').next() {
+                    row_ids.push(id);
+                }
+            }
+            assert!(
+                !row_ids.is_empty(),
+                "part page `{}` must have rendered claim rows",
+                part.route
+            );
+            for id in row_ids {
+                assert_eq!(
+                    claim_part(id),
+                    Some((part.area_code.clone(), part.part)),
+                    "claim_part({id}) must match ({}, {})",
+                    part.area_code,
+                    part.part
+                );
+                assert_eq!(
+                    Some(part.route.clone()),
+                    claim_page_route(id),
+                    "part.route must match claim_page_route({id})"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn many_claims_split_into_parts_by_number() {
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+        let first_row = CLAIMS_CSV.lines().nth(1).unwrap();
+        let make_claim_row = |id: &str| {
+            let mut cols: Vec<&str> = first_row.split(',').collect();
+            cols[0] = id;
+            cols.join(",")
+        };
+
+        // Continuous variant: 0001, 0500, 0501, 1000, 1001, 1501 giving parts 1, 2, 3, 4
+        let mut tree_continuous = empty_registers_tree();
+        tree_continuous.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree_continuous.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let continuous_ids = [
+            "CL-CMP-0001",
+            "CL-CMP-0500",
+            "CL-CMP-0501",
+            "CL-CMP-1000",
+            "CL-CMP-1001",
+            "CL-CMP-1501",
+        ];
+        let mut continuous_csv = format!("{claims_header}\n");
+        for id in continuous_ids {
+            continuous_csv.push_str(&make_claim_row(id));
+            continuous_csv.push('\n');
+        }
+        tree_continuous.insert_bytes("corpus/registers/claims.csv", continuous_csv.into_bytes());
+        let (_model_c, view_c) = load_view(tree_continuous);
+        let parts_c = claims_parts(&view_c);
+        let routes_c: Vec<&str> = parts_c.iter().map(|p| p.route.as_str()).collect();
+        assert_eq!(
+            routes_c,
+            vec![
+                "claims/CMP-1.html",
+                "claims/CMP-2.html",
+                "claims/CMP-3.html",
+                "claims/CMP-4.html",
+            ]
+        );
+        assert_eq!((parts_c[0].ordinal, parts_c[0].of), (1, 4));
+        assert_eq!((parts_c[1].ordinal, parts_c[1].of), (2, 4));
+        assert_eq!((parts_c[2].ordinal, parts_c[2].of), (3, 4));
+        assert_eq!((parts_c[3].ordinal, parts_c[3].of), (4, 4));
+
+        // Variant with a gap: 0001, 0501, 1501 giving parts 1, 2, 4 with part 3 missing
+        let mut tree_gap = empty_registers_tree();
+        tree_gap.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
+        tree_gap.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
+
+        let gap_ids = ["CL-CMP-0001", "CL-CMP-0501", "CL-CMP-1501"];
+        let mut gap_csv = format!("{claims_header}\n");
+        for id in gap_ids {
+            gap_csv.push_str(&make_claim_row(id));
+            gap_csv.push('\n');
+        }
+        tree_gap.insert_bytes("corpus/registers/claims.csv", gap_csv.into_bytes());
+        let (_model_gap, view_gap) = load_view(tree_gap);
+        let parts_gap = claims_parts(&view_gap);
+        let routes_gap: Vec<&str> = parts_gap.iter().map(|p| p.route.as_str()).collect();
+        assert_eq!(
+            routes_gap,
+            vec![
+                "claims/CMP-1.html",
+                "claims/CMP-2.html",
+                "claims/CMP-4.html",
+            ]
+        );
+        assert_eq!((parts_gap[0].ordinal, parts_gap[0].of), (1, 3));
+        assert_eq!((parts_gap[1].ordinal, parts_gap[1].of), (2, 3));
+        assert_eq!((parts_gap[2].ordinal, parts_gap[2].of), (3, 3));
+
+        assert!(
+            parts_gap.iter().all(|p| p.route != "claims/CMP-3.html"),
+            "there must be no claims/CMP-3.html route in parts"
+        );
+        assert!(
+            !claims_part_paths(&view_gap).contains(&"claims/CMP-3.html".to_owned()),
+            "claims_part_paths must not contain claims/CMP-3.html"
+        );
+
+        let planned_gap = site::planned_paths(&view_gap);
+        let ctx_gap = site::render_context(&view_gap, &BuildInfo::default()).unwrap();
+        let nav_gap = nav::build(&view_gap, &planned_gap);
+
+        // part page titles read `Claims: <area name>, part 3 of 3` for route claims/CMP-4.html
+        let part4_view = build_claims_part_view(&parts_gap, 2, &view_gap, &planned_gap);
+        assert_eq!(part4_view.title, "Claims: Compliance, part 3 of 3");
+        let part4_page =
+            render_claims_part_page(&parts_gap, 2, &view_gap, &ctx_gap, &nav_gap, &planned_gap);
+        assert!(
+            part4_page.contains("<title>Claims: Compliance, part 3 of 3</title>"),
+            "part 4 page <title> must read `Claims: Compliance, part 3 of 3`"
+        );
+        assert!(
+            part4_page.contains("<h1>Claims: Compliance, part 3 of 3</h1>"),
+            "part 4 page <h1> must read `Claims: Compliance, part 3 of 3`"
+        );
+
+        // prev/next links on claims/CMP-2.html point to `CMP-1.html` and `CMP-4.html` (same folder relative)
+        let part2_view = build_claims_part_view(&parts_gap, 1, &view_gap, &planned_gap);
+        let part2_nav = part2_view.part_nav.as_ref().expect("part_nav present");
+        let prev = part2_nav.prev.as_ref().expect("prev link present");
+        assert_eq!(prev.0, "CMP-1.html");
+        let next = part2_nav.next.as_ref().expect("next link present");
+        assert_eq!(next.0, "CMP-4.html");
+
+        let part2_main = render_claims_part_main(&parts_gap, 1, &view_gap, &planned_gap);
+        assert!(
+            part2_main.contains("href=\"CMP-1.html\""),
+            "part 2 page must link prev to CMP-1.html"
+        );
+        assert!(
+            part2_main.contains("href=\"CMP-4.html\""),
+            "part 2 page must link next to CMP-4.html"
+        );
+
+        // the index lists the three id ranges (e.g. `CL-CMP-0001 to CL-CMP-0001`)
+        let index_main = render_main(Register::Claims, &view_gap, &planned_gap);
+        assert!(
+            index_main.contains("CL-CMP-0001 to CL-CMP-0001"),
+            "index must list first id range `CL-CMP-0001 to CL-CMP-0001`"
+        );
+        assert!(
+            index_main.contains("CL-CMP-0501 to CL-CMP-0501"),
+            "index must list second id range `CL-CMP-0501 to CL-CMP-0501`"
+        );
+        assert!(
+            index_main.contains("CL-CMP-1501 to CL-CMP-1501"),
+            "index must list third id range `CL-CMP-1501 to CL-CMP-1501`"
+        );
+
+        // and the part page's asset links start with `../assets/`
+        let mut asset_link_count = 0usize;
+        for attr in ["href=\"", "src=\""] {
+            for piece in part4_page.split(attr).skip(1) {
+                let val = piece.split('"').next().unwrap();
+                if val.contains("assets/") {
+                    asset_link_count += 1;
+                    assert!(
+                        val.starts_with("../assets/"),
+                        "asset link `{val}` in claims part page must start with `../assets/`"
+                    );
+                }
+            }
+        }
+        assert!(
+            asset_link_count > 0,
+            "part page must have at least one asset link"
+        );
+    }
+
+    #[test]
+    fn rendering_is_deterministic() {
+        let (_model, view) = load_view(fixture_tree());
+        let site1 = site::render(&view, &BuildInfo::default()).unwrap();
+        let site2 = site::render(&view, &BuildInfo::default()).unwrap();
+
+        assert_eq!(
+            site1.files().get("claims.html"),
+            site2.files().get("claims.html"),
+            "claims.html must render deterministically"
+        );
+
+        let mut claims_parts_found = 0usize;
+        for (path, bytes1) in site1.files() {
+            if path.starts_with("claims/") {
+                claims_parts_found += 1;
+                let bytes2 = site2.files().get(path).unwrap_or_else(|| {
+                    panic!("path `{path}` missing in second rendered site");
+                });
+                assert_eq!(bytes1, bytes2, "byte mismatch on part page `{path}`");
+            }
+        }
+        assert!(
+            claims_parts_found > 0,
+            "must have rendered at least one claims/ part page, found {claims_parts_found}"
+        );
+        assert_eq!(
+            site1.files(),
+            site2.files(),
+            "full site files must be identical"
+        );
     }
 }
