@@ -16,9 +16,9 @@ The claims register is no longer one page. `fieldbook build` writes one claims p
 
 ## Scope
 
-- Files: `crates/fieldbook-render/src/register.rs`, `crates/fieldbook-render/templates/register.html`, `crates/fieldbook-render/tests/registers.rs`, `crates/fieldbook/src/build.rs` (the claims pages it writes), `xtask/src/harness.rs` (remove `REGISTER_LIMIT` and `REGISTER_PAGES`, or shrink the list to the pages that still need it, with their tests), `docs/decisions/0001-foundation.md` (the AD-08 sentence on the register exception), `CHANGELOG.md`.
+- Files: `crates/fieldbook-core/src/ids.rs` and `crates/fieldbook-core/src/lib.rs` (the one claim-part route function), `crates/fieldbook-core/src/search/units.rs` (the claim result link), `crates/fieldbook-render/src/register.rs`, `crates/fieldbook-render/src/links.rs`, `crates/fieldbook-render/src/nav.rs`, `crates/fieldbook-render/src/site.rs`, `crates/fieldbook-render/templates/register.html`, `crates/fieldbook-render/assets/app.js` and `crates/fieldbook-render/assets/search.js` (the same arithmetic), `crates/fieldbook-render/tests/` (registers, frame, search and the snapshots), `crates/fieldbook/tests/build.rs` (the FB0603 anchor test on a part page), `xtask/src/harness.rs` (remove `REGISTER_LIMIT` and `REGISTER_PAGES`, or shrink the list to the pages that still need it, with their tests), `docs/decisions/0001-foundation.md`, `docs/reference/search.md`, `docs/reference/corpus-format.md` (route text only), `CHANGELOG.md`.
 - Registration lines: none.
-- Docs to update: AD-08 (drop or narrow the exception), `CHANGELOG.md` (`- Changed: the claims register is one page per area, with an index.`).
+- Docs to update: AD-08 (drop or narrow the exception), `CHANGELOG.md` (`- Changed: the claims register is an index page with one page per area part (500 claim numbers each), and every claim link, search result and All IDs entry points at its part.`).
 
 ## Out of scope
 
@@ -32,7 +32,7 @@ The claims register is no longer one page. `fieldbook build` writes one claims p
 
 ## Steps
 
-1. In `register.rs`, render the claims register as one page per area (`claims/<area>.html`, or the route the interface lane names) holding that area's claims, and `claims.html` as an index of the areas with their claim counts and links. Links from claim chips, popovers and source pages to a claim point at its area page with the claim's anchor.
+1. In `register.rs`, render the claims register as one page per area part (`claims/<AREA>-<part>.html`, part = (number - 1) / 500 + 1, so one area never makes one huge page), and `claims.html` as an index of the areas with their claim counts and links to every part. Links from claim chips, popovers and source pages to a claim point at its area page with the claim's anchor.
 2. In `build.rs`, write the area pages and the index, deterministically (sorted by area code).
 3. Tests in `crates/fieldbook-render/tests/registers.rs`: every claim appears on exactly one area page; the index links every area page; a claim link resolves to an existing page and anchor.
 4. In `xtask/src/harness.rs`, remove `claims.html` from `REGISTER_PAGES`; if no register page then needs more than 60 seconds, remove `REGISTER_LIMIT`, `REGISTER_PAGES` and their tests, and the AD-08 sentence; otherwise narrow the list and the sentence to the pages that remain.
