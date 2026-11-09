@@ -3,7 +3,7 @@
 #![expect(clippy::unwrap_used, reason = "integration test helpers")]
 
 mod registers {
-    use std::collections::BTreeSet;
+    use std::collections::{BTreeMap, BTreeSet};
     use std::path::Path;
 
     use fieldbook_core::audit::Now;
@@ -2013,11 +2013,7 @@ const compareDecimal = function (x, y) {
         }
     }
 
-    #[test]
-    fn every_claim_link_resolves_to_an_existing_page_and_anchor() {
-        let (_model, view) = load_view(fixture_tree());
-        let site = site::render(&view, &BuildInfo::default()).unwrap();
-
+    fn assert_claim_links_land_on_their_part(site: &site::Site) -> usize {
         let mut claim_links_found = 0usize;
 
         for (from_path, bytes) in site.files() {
@@ -2045,10 +2041,25 @@ const compareDecimal = function (x, y) {
                         target_html.contains(&anchor_needle),
                         "target file `{target_path}` missing anchor `{anchor_needle}` (linked from `{from_path}` via `{href}`)"
                     );
+                    let expected_route = claim_page_route(anchor).unwrap_or_else(|| {
+                        panic!("claim id `{anchor}` must have a claim page route")
+                    });
+                    assert_eq!(
+                        target_path, expected_route,
+                        "claim link in `{from_path}` to `{href}` landed on `{target_path}`, expected `{expected_route}`"
+                    );
                 }
             }
         }
 
+        claim_links_found
+    }
+
+    #[test]
+    fn every_claim_link_resolves_to_an_existing_page_and_anchor() {
+        let (_model, view) = load_view(fixture_tree());
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+        let claim_links_found = assert_claim_links_land_on_their_part(&site);
         assert!(
             claim_links_found > 0,
             "must find at least one claim link, found {claim_links_found}"
@@ -2092,36 +2103,43 @@ const compareDecimal = function (x, y) {
         }
     }
 
-    #[test]
-    fn many_claims_split_into_parts_by_number() {
-        let claims_header = CLAIMS_CSV.lines().next().unwrap();
-        let first_row = CLAIMS_CSV.lines().nth(1).unwrap();
-        let make_claim_row = |id: &str| {
-            let mut cols: Vec<&str> = first_row.split(',').collect();
-            cols[0] = id;
-            cols.join(",")
-        };
+    const CONTINUOUS_CLAIM_IDS: [&str; 6] = [
+        "CL-CMP-0001",
+        "CL-CMP-0500",
+        "CL-CMP-0501",
+        "CL-CMP-1000",
+        "CL-CMP-1001",
+        "CL-CMP-1501",
+    ];
 
-        // Continuous variant: 0001, 0500, 0501, 1000, 1001, 1501 giving parts 1, 2, 3, 4
+    fn make_claim_row(id: &str) -> String {
+        let first_row = CLAIMS_CSV.lines().nth(1).unwrap();
+        let mut cols: Vec<&str> = first_row.split(',').collect();
+        cols[0] = id;
+        cols.join(",")
+    }
+
+    fn continuous_view() -> (Model, LabelledView) {
         let mut tree_continuous = empty_registers_tree();
         tree_continuous.insert_bytes("corpus/registers/sources.csv", SOURCES_CSV.as_bytes());
         tree_continuous.insert_bytes("corpus/sources/public/S-0002-v2.txt", S_0002_V2_TXT);
 
-        let continuous_ids = [
-            "CL-CMP-0001",
-            "CL-CMP-0500",
-            "CL-CMP-0501",
-            "CL-CMP-1000",
-            "CL-CMP-1001",
-            "CL-CMP-1501",
-        ];
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
         let mut continuous_csv = format!("{claims_header}\n");
-        for id in continuous_ids {
+        for id in CONTINUOUS_CLAIM_IDS {
             continuous_csv.push_str(&make_claim_row(id));
             continuous_csv.push('\n');
         }
         tree_continuous.insert_bytes("corpus/registers/claims.csv", continuous_csv.into_bytes());
-        let (_model_c, view_c) = load_view(tree_continuous);
+        load_view(tree_continuous)
+    }
+
+    #[test]
+    fn many_claims_split_into_parts_by_number() {
+        let claims_header = CLAIMS_CSV.lines().next().unwrap();
+
+        // Continuous variant: 0001, 0500, 0501, 1000, 1001, 1501 giving parts 1, 2, 3, 4
+        let (_model_c, view_c) = continuous_view();
         let parts_c = claims_parts(&view_c);
         let routes_c: Vec<&str> = parts_c.iter().map(|p| p.route.as_str()).collect();
         assert_eq!(
@@ -2242,6 +2260,133 @@ const compareDecimal = function (x, y) {
         assert!(
             asset_link_count > 0,
             "part page must have at least one asset link"
+        );
+    }
+
+    #[test]
+    fn parts_hold_exactly_their_own_claim_rows() {
+        let (_model, view) = continuous_view();
+        let planned = site::planned_paths(&view);
+        let part_mains = claims_part_mains(&view, &planned);
+
+        let mut page_rows = BTreeMap::new();
+        for (route, html) in &part_mains {
+            let mut ids = BTreeSet::new();
+            for piece in html.split("<tr id=\"").skip(1) {
+                if let Some(id) = piece.split('"').next() {
+                    ids.insert(id.to_owned());
+                }
+            }
+            page_rows.insert(route.as_str(), ids);
+        }
+
+        assert_eq!(
+            page_rows.len(),
+            4,
+            "must render exactly 4 claims part pages"
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-1.html"),
+            Some(&BTreeSet::from([
+                "CL-CMP-0001".to_owned(),
+                "CL-CMP-0500".to_owned(),
+            ]))
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-2.html"),
+            Some(&BTreeSet::from([
+                "CL-CMP-0501".to_owned(),
+                "CL-CMP-1000".to_owned(),
+            ]))
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-3.html"),
+            Some(&BTreeSet::from(["CL-CMP-1001".to_owned()]))
+        );
+        assert_eq!(
+            page_rows.get("claims/CMP-4.html"),
+            Some(&BTreeSet::from(["CL-CMP-1501".to_owned()]))
+        );
+
+        let sum_of_sizes: usize = page_rows.values().map(BTreeSet::len).sum();
+        let union: BTreeSet<&String> = page_rows.values().flat_map(|s| s.iter()).collect();
+        assert_eq!(sum_of_sizes, 6, "sum of set sizes must equal 6");
+        assert_eq!(union.len(), 6, "union must have 6 elements");
+    }
+
+    #[test]
+    fn multi_part_site_places_every_claim_and_link_on_the_right_part() {
+        let (_model, view) = continuous_view();
+        let site = site::render(&view, &BuildInfo::default()).unwrap();
+
+        let part_pages: Vec<(&str, &str)> = site
+            .files()
+            .iter()
+            .filter(|(path, _)| path.starts_with("claims/") && path.ends_with(".html"))
+            .map(|(path, bytes)| (path.as_str(), std::str::from_utf8(bytes).unwrap()))
+            .collect();
+
+        for id in CONTINUOUS_CLAIM_IDS {
+            let needle = format!("<tr id=\"{id}\"");
+            let matching: Vec<&str> = part_pages
+                .iter()
+                .filter(|(_, html)| html.contains(&needle))
+                .map(|(path, _)| *path)
+                .collect();
+            assert_eq!(
+                matching.len(),
+                1,
+                "claim `{id}` must appear on exactly one claims part page, found on {matching:?}"
+            );
+            let found_path = matching[0];
+            let expected_route = claim_page_route(id).expect("claim has page route");
+            assert_eq!(
+                found_path, expected_route,
+                "claim `{id}` found on `{found_path}`, expected route `{expected_route}`"
+            );
+            let (expected_area, expected_part) = claim_part(id).expect("claim has part");
+            let expected_part_route = format!("claims/{expected_area}-{expected_part}.html");
+            assert_eq!(
+                found_path, expected_part_route,
+                "claim `{id}` found on `{found_path}`, expected part ({expected_area}, {expected_part})"
+            );
+        }
+
+        for (path, bytes) in site.files() {
+            if !path.ends_with(".html") || (path.starts_with("claims/") && path.ends_with(".html"))
+            {
+                continue;
+            }
+            let html = std::str::from_utf8(bytes).unwrap();
+            assert!(
+                !html.contains("<tr id=\"CL-"),
+                "file `{path}` must not contain `<tr id=\"CL-` row"
+            );
+        }
+
+        let ids_bytes = site.files().get("ids.html").expect("ids.html exists");
+        let ids_html = std::str::from_utf8(ids_bytes).unwrap();
+        assert!(
+            ids_html.contains("href=\"claims/CMP-1.html#CL-CMP-0001\""),
+            "ids.html must contain link to claims/CMP-1.html#CL-CMP-0001"
+        );
+        assert!(
+            ids_html.contains("href=\"claims/CMP-2.html#CL-CMP-0501\""),
+            "ids.html must contain link to claims/CMP-2.html#CL-CMP-0501"
+        );
+        assert!(
+            ids_html.contains("href=\"claims/CMP-3.html#CL-CMP-1001\""),
+            "ids.html must contain link to claims/CMP-3.html#CL-CMP-1001"
+        );
+        assert!(
+            ids_html.contains("href=\"claims/CMP-4.html#CL-CMP-1501\""),
+            "ids.html must contain link to claims/CMP-4.html#CL-CMP-1501"
+        );
+
+        let claim_links_found = assert_claim_links_land_on_their_part(&site);
+        assert!(
+            claim_links_found >= 6,
+            "must find at least 6 claim links, found {claim_links_found}"
         );
     }
 
