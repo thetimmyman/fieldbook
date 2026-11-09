@@ -204,6 +204,12 @@ Exit: see [Gates](../decisions/0001-foundation.md#gates), Day 1: the home gate h
 - Tag `edition-001` and `v0.1.0`, and print the day-one binder, on Day 1 (owner)
 - Send [docs/intake/it-questions.md](../intake/it-questions.md) at the first IT contact (owner)
 
+## Hosted
+
+The edition as a static site behind the owner's login. It needs no phase exit and runs beside the phases; the site holds the public edition only.
+
+- hosted-deploy: the pinned deploy tool, the host configuration and response headers, and `cargo xtask hosted-limits`, the size check
+
 ## P4
 
 Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), ending Day 30: the E1 gate whenever IT-9 is answered, and the Day-30 gate; `v0.2.0`.
