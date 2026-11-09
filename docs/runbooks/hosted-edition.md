@@ -14,7 +14,7 @@ The hosted edition serves the public edition (the same static pages `just site` 
 | Login gate probe (before and after the upload) | [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) |
 | Pinned deploy tool and locks | [`deploy/package.json`](../../deploy/package.json), [`deploy/package-lock.json`](../../deploy/package-lock.json) |
 | Deploy workflow | [`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml) |
-| Asset limits check | `cargo xtask hosted-limits` |
+| Asset limits check | `cargo --locked xtask hosted-limits` |
 | Custom domain in the owner's zone | Cloudflare account only |
 | Access application and reader group | Cloudflare account only |
 | Edge-rewriting rule (a hostname-scoped Configuration Rule that turns off Email Obfuscation, Automatic HTTPS Rewrites and Rocket Loader for the site's host) | Cloudflare account only |
@@ -38,7 +38,7 @@ Workflow execution order:
 3. Search the tree for the values of the host and account id (prints nothing).
 4. Build the edition static pages with `just site`.
 5. Stage `out/hosted` (edition pages, `originals/` at root, [`deploy/_headers`](../../deploy/_headers) and [`deploy/robots.txt`](../../deploy/robots.txt)).
-6. Check limits: `cargo xtask hosted-limits out/hosted` (fails on any file over 25 MiB or total count over 20,000 files, and prints the five largest files; wrangler also refuses files over 25 MiB).
+6. Check limits: `cargo --locked xtask hosted-limits out/hosted` (fails on any file over 25 MiB or total count over 20,000 files, and prints the five largest files; wrangler also refuses files over 25 MiB).
 7. Check the build is unreleased: `FIELDBOOK_GIT_SHA` must be unset and `out/hosted/index.html` must say "unreleased build". The hosted edition is never a released build.
 8. Install the pinned deploy tool: `npm ci --ignore-scripts`.
 9. Probe the login before the upload: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
@@ -100,11 +100,12 @@ To restore a previous deployment:
 2. Set the exact version in [`deploy/package.json`](../../deploy/package.json).
 3. Regenerate [`deploy/package-lock.json`](../../deploy/package-lock.json) with npm's `--before` set to a date 14 days back, so that no dependency younger than the rule resolves: `npm install --package-lock-only --ignore-scripts --before <date 14 days ago>`.
 4. Check every locked package for the 14-day rule: `npm view <package>@<version> time`.
-5. Install from the new lock and run the dry-run deploy:
+5. Install from the new lock and run the dry-run deploy. The configuration points at `../out/hosted`, which does not exist until a site is staged, so name a small staged folder (as in section 8) with `--assets`:
    ```sh
    cd deploy && npm ci --ignore-scripts --no-audit --no-fund
-   WRANGLER_SEND_METRICS=false npx --no-install wrangler deploy --dry-run --outdir <scratch>
+   WRANGLER_SEND_METRICS=false npx --no-install wrangler deploy --dry-run --outdir <scratch-out> --assets <scratch-dir>
    ```
+   It needs no credentials and uploads nothing; it reads the staged files and exits after printing the upload size.
 6. Update the version in the workflow's version check (the version check file is [`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) and the dependencies row in [`docs/reference/dependencies.md`](../reference/dependencies.md) in the same pull request.
 
 ## 8. Check the headers locally
