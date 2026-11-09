@@ -1,0 +1,19 @@
+{
+  // Cloudflare Workers static assets configuration for the hosted edition.
+  // Static assets only (no worker script).
+  // The custom domain is attached to the Worker in the Cloudflare dashboard and
+  // must stay out of this configuration file. A deploy without domain or path bindings preserves it.
+  "name": "fieldbook",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "../out/hosted",
+    // Explicit .html links are used throughout the edition, directory URLs
+    // resolve to index.html, and no 404 page exists in the static site.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  // workers.dev and preview URLs are disabled and must stay disabled.
+  // Cloudflare Access protects the custom domain in the owner's zone.
+  "workers_dev": false,
+  "preview_urls": false
+}
