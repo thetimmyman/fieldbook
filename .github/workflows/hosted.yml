@@ -118,7 +118,7 @@ jobs:
             echo "missing out/hosted/assets/app.css" >&2
             exit 1
           fi
-          cargo xtask hosted-limits out/hosted
+          cargo --locked xtask hosted-limits out/hosted
       - name: Check the build is unreleased
         if: inputs.rollback_to == ''
         run: |

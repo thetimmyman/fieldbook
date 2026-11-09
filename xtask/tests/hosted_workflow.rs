@@ -93,9 +93,17 @@ fn is_valid_secret_env_line(trimmed: &str) -> bool {
 fn check_secret_use(files: &[(String, String)]) -> Result<(), String> {
     let mut hosted_content: Option<&str> = None;
     for (path, content) in files {
+        if content.contains("vars.") {
+            return Err(format!(
+                "{path}: reads a repository or environment variable (`vars.`)"
+            ));
+        }
         if path == ".github/workflows/hosted.yml" {
             hosted_content = Some(content);
         } else {
+            if content.contains("FIELDBOOK_HOST") {
+                return Err(format!("{path}: contains FIELDBOOK_HOST"));
+            }
             if content.contains("CLOUDFLARE_API_TOKEN") {
                 return Err(format!("{path}: contains CLOUDFLARE_API_TOKEN"));
             }
@@ -162,15 +170,23 @@ fn check_runner(yml: &str) -> Result<(), String> {
 }
 
 fn check_unreleased_gate(yml: &str) -> Result<(), String> {
-    let has_grep_line = yml.lines().any(|l| {
+    let is_grep_line = |l: &str| {
         l.contains("grep")
             && l.contains(fieldbook_core::strings::unreleased_build())
             && l.contains(" -i ")
             && l.contains("out/hosted/index.html")
-    });
-    if !has_grep_line {
+    };
+    let Some(grep_line) = yml.lines().find(|l| is_grep_line(l)) else {
         return Err("missing grep -i for `unreleased build` in out/hosted/index.html".to_string());
+    };
+    if !grep_line.contains("! grep") {
+        return Err(format!(
+            "the grep for `unreleased build` must be negated (`! grep`): `{grep_line}`"
+        ));
     }
+    let Some(grep_offset) = yml.find(grep_line) else {
+        return Err("grep line not found".to_string());
+    };
 
     let Some(sha_offset) = yml.find("FIELDBOOK_GIT_SHA+x") else {
         return Err("missing check for `FIELDBOOK_GIT_SHA+x`".to_string());
@@ -181,6 +197,9 @@ fn check_unreleased_gate(yml: &str) -> Result<(), String> {
     };
     if sha_offset >= deploy_offset {
         return Err("`FIELDBOOK_GIT_SHA+x` check must appear before `wrangler deploy`".to_string());
+    }
+    if grep_offset >= deploy_offset {
+        return Err("the `unreleased build` grep must appear before `wrangler deploy`".to_string());
     }
 
     for line in yml.lines() {
@@ -196,6 +215,90 @@ fn check_unreleased_gate(yml: &str) -> Result<(), String> {
         }
     }
 
+    Ok(())
+}
+
+/// The flags that would point a hosted-build step at a data root, store, overlay, policy file or state folder.
+const FORBIDDEN_FLAGS: [&str; 7] = [
+    "--data-root",
+    "--store",
+    "--overlay",
+    "--policy",
+    "--state",
+    "--program-data",
+    "--local-app-data",
+];
+
+fn check_job_hardening(yml: &str) -> Result<(), String> {
+    let lines: Vec<&str> = yml.lines().collect();
+    let code: Vec<(usize, &str)> = lines
+        .iter()
+        .enumerate()
+        .map(|(i, l)| (i, l.trim()))
+        .filter(|(_, t)| !t.starts_with('#'))
+        .collect();
+
+    // The checkout step is clean and keeps no credentials.
+    let mut checkouts = 0;
+    for (i, t) in &code {
+        if !t.contains("actions/checkout@") {
+            continue;
+        }
+        checkouts += 1;
+        let step: Vec<&str> = lines[i + 1..]
+            .iter()
+            .map(|l| l.trim())
+            .take_while(|l| !l.starts_with("- "))
+            .collect();
+        for needed in ["clean: true", "persist-credentials: false"] {
+            if !step.contains(&needed) {
+                return Err(format!("the checkout step lacks `{needed}`"));
+            }
+        }
+    }
+    if checkouts == 0 {
+        return Err("no actions/checkout step".to_string());
+    }
+
+    // out/ is rebuilt from nothing: removed before anything builds.
+    let Some(rm_line) = code
+        .iter()
+        .find(|(_, t)| *t == "rm -rf out")
+        .map(|(i, _)| *i)
+    else {
+        return Err("no `rm -rf out` step".to_string());
+    };
+    let is_build = |t: &str| t.starts_with("just ") || t.split_whitespace().any(|w| w == "cargo");
+    if let Some((first_build, _)) = code.iter().find(|(_, t)| is_build(t))
+        && *first_build < rm_line
+    {
+        return Err("`rm -rf out` must come before the first build call".to_string());
+    }
+
+    // Every cargo call is locked; the deploy tool installs from the lock without scripts.
+    let mut npm_ci = 0;
+    for (_, t) in &code {
+        if t.split_whitespace().any(|w| w == "cargo") && !t.contains("--locked") {
+            return Err(format!("a cargo call without `--locked`: `{t}`"));
+        }
+        if t.contains("npm install") || t.contains("npm i ") {
+            return Err(format!("npm must install with `npm ci`: `{t}`"));
+        }
+        if t.starts_with("npm ci") {
+            npm_ci += 1;
+            if !t.contains("--ignore-scripts") {
+                return Err(format!("`npm ci` without `--ignore-scripts`: `{t}`"));
+            }
+        }
+        for flag in FORBIDDEN_FLAGS {
+            if t.contains(flag) {
+                return Err(format!("a step passes the flag `{flag}`: `{t}`"));
+            }
+        }
+    }
+    if npm_ci == 0 {
+        return Err("no `npm ci --ignore-scripts` step".to_string());
+    }
     Ok(())
 }
 
@@ -374,7 +477,7 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
     );
 
     // Plant 3: remove environment: hosted from hosted.yml
-    let mut plant3 = real_files;
+    let mut plant3 = real_files.clone();
     let hosted = &mut plant3
         .iter_mut()
         .find(|(p, _)| p == ".github/workflows/hosted.yml")
@@ -386,6 +489,34 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
         .collect::<Vec<_>>()
         .join("\n");
     assert!(check_secret_use(&plant3).is_err());
+
+    // Plant 4: the host as a secret in another workflow
+    let mut plant4 = real_files.clone();
+    let ci4 = plant4
+        .iter_mut()
+        .find(|(p, _)| p == ".github/workflows/ci.yml")
+        .expect("ci.yml");
+    ci4.1
+        .push_str("\n      FIELDBOOK_HOST: ${{ secrets.FIELDBOOK_HOST }}\n");
+    assert!(
+        check_secret_use(&plant4)
+            .unwrap_err()
+            .contains(".github/workflows/ci.yml")
+    );
+
+    // Plant 5: the host as a variable, in another workflow and in hosted.yml
+    for file in [".github/workflows/ci.yml", ".github/workflows/hosted.yml"] {
+        let mut plant5 = real_files.clone();
+        let target = plant5
+            .iter_mut()
+            .find(|(p, _)| p == file)
+            .expect("workflow file");
+        target
+            .1
+            .push_str("\n      FIELDBOOK_HOST: ${{ vars.FIELDBOOK_HOST }}\n");
+        let err = check_secret_use(&plant5).unwrap_err();
+        assert!(err.contains(file), "expected {file} in {err}");
+    }
 }
 
 // control: HO-05
@@ -465,6 +596,68 @@ fn a_hosted_runner_label_or_a_partial_label_set_is_refused() {
         assert_eq!(
             val, target,
             "ci.yml runs-on `{val}` differs from hosted.yml `{target}`"
+        );
+    }
+}
+
+// control: HO-05
+#[test]
+fn the_deploy_job_is_hardened_on_the_persistent_runner() {
+    let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+    let res = check_job_hardening(&yml);
+    assert!(res.is_ok(), "check_job_hardening failed: {res:?}");
+}
+
+// control: HO-05
+#[test]
+fn a_planted_job_hardening_violation_is_refused() {
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+    let planted = |from: &str, to: &str| {
+        assert!(
+            real_yml.contains(from),
+            "the workflow no longer holds `{from}`"
+        );
+        real_yml.replace(from, to)
+    };
+    let refused = |text: String, what: &str| {
+        let err = check_job_hardening(&text).expect_err(what);
+        assert!(!err.is_empty(), "{what}: the error must say what failed");
+    };
+
+    refused(
+        planted("persist-credentials: false", "persist-credentials: true"),
+        "stored credentials",
+    );
+    refused(
+        planted("clean: true", "clean: false"),
+        "an unclean checkout",
+    );
+    refused(
+        planted("cargo --locked xtask", "cargo xtask"),
+        "a cargo call without --locked",
+    );
+    refused(
+        planted("npm ci --ignore-scripts", "npm ci"),
+        "npm ci without --ignore-scripts",
+    );
+    refused(
+        planted("npm ci --ignore-scripts", "npm install"),
+        "npm install in place of npm ci",
+    );
+    refused(
+        real_yml
+            .lines()
+            .filter(|l| l.trim() != "rm -rf out")
+            .collect::<Vec<_>>()
+            .join("\n"),
+        "no fresh out/ step",
+    );
+    for flag in FORBIDDEN_FLAGS {
+        refused(
+            planted("just site", &format!("just site {flag} /somewhere")),
+            flag,
         );
     }
 }
@@ -574,6 +767,25 @@ fn a_planted_release_stamp_or_a_removed_check_is_refused() {
     assert!(
         check_unreleased_gate(&plant3_text).is_err(),
         "removing FIELDBOOK_GIT_SHA+x check must fail"
+    );
+
+    // Plant (v): the grep moved after the deploy step -> Err
+    let mut plant5 = real_yml
+        .lines()
+        .filter(|l| !l.contains(fieldbook_core::strings::unreleased_build()))
+        .collect::<Vec<_>>();
+    plant5.push("          ! grep -q -i -F 'unreleased build' out/hosted/index.html");
+    assert!(
+        check_unreleased_gate(&plant5.join("\n")).is_err(),
+        "a grep after the deploy step must fail"
+    );
+
+    // Plant (vi): the grep not negated, so a missing text never fails the step -> Err
+    let plant6 = real_yml.replace("! grep -q -i -F", "grep -q -i -F");
+    assert_ne!(plant6, real_yml, "the real grep line must be negated");
+    assert!(
+        check_unreleased_gate(&plant6).is_err(),
+        "a grep that is not negated must fail"
     );
 
     // Plant (iv): a line `          export FIELDBOOK_GIT_SHA=abc` appended inside the Deploy run script (append at the end of the text with proper indentation is fine) -> Err
