@@ -4,12 +4,16 @@ The interface design for Fieldbook: the handoff spec, a clickable mockup of the 
 
 | File | What it is |
 |---|---|
-| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 19) |
+| `HANDOFF.md` | The spec: routes, layout, tokens, components, states, AI integration, search, edge cases, evidence and acceptance checklist (revision 20) |
 | `mockup/index.html` | A single self-contained HTML file. No network requests, synthetic data only |
 | `MAP.md` | Each mockup route and component, its AD-12 output path, its section in `HANDOFF.md` and the card that builds it, by slug |
 | `MANIFEST.txt` | SHA-256 of every file in this folder |
 
-## Current revision 19
+## Current revision 20
+
+Every page of an unreleased build states its honest status in the build status banner: a `Banner` in its warn variant, first in the frame's existing banner slot under the crumbs row (`HANDOFF.md` section 3, Unreleased build status). It reads "This is an unreleased build, not an edition.", then "A of M claims are AI-drafted; U of M are unchecked.", with the counts the build computes from the claims register it renders (`drafted_by` is `codex` or `ai`; `verification` is `unchecked`), adds "S of M have been checked and found supported." only once a claim has left `unchecked`, and links to the claims register. It is never dismissible, never calls anything verified, is a region named "Build status" and not a live region, follows the warn tokens in dark and forced-colours modes, wraps at phone width, reads the same with scripts blocked, and prints on the first page while the print footer says "unreleased build" on every page. A released edition never shows it. A small OpenUI study compared this slot with a window-wide strip and with the header chip alone; its files are not part of this package. No token, layout family, component geometry or mockup byte changes. The implementation card is `unreleased-status-strip`. No browser, Rust or Edge check is claimed.
+
+## Revision 19 (historical)
 
 The edition's search index holds page and section units only, with a 15 MB cap and no size target ([ADR 0006](../decisions/0006-edition-search-index.md)), and every other edition data file keeps its 3 MB cap. On the edition, search lists the page view of pages and sections and shows no filter; claims, sources, questions, conflicts and terms are reached through their register pages and `ids.html`, to which the Not established state also links. The overlay site and `fieldbook search` are not limited to pages and sections. The metadata line names only values the index carries, and the index load time is recorded as not yet measured. This is a contract correction: no layout family, token, component geometry or mockup byte changes, so no study is needed. The mockup's filter row, its claim, source, question, conflict and term rows, its search placeholder and its Not established panel illustrate the overlay site, not the edition; its Work and Processes chips and rows illustrate neither until those kinds are in the index. No browser, Rust or Edge check is claimed.
 
