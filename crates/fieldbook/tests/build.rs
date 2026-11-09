@@ -1275,17 +1275,38 @@ mod build {
             "the delivered ids.html equals the planned page"
         );
 
-        // Verify FB0603 checks every row anchor linked from pages (e.g. claims.html#CL-CMP-0001).
+        // Every claims part page is delivered, and equals the planned page.
+        let part_pages: Vec<&String> = plan_base
+            .site
+            .files()
+            .keys()
+            .filter(|k| k.starts_with("claims/"))
+            .collect();
+        assert!(
+            part_pages.iter().any(|k| k.as_str() == "claims/CMP-1.html"),
+            "claims part pages must be built, got {part_pages:?}"
+        );
+        for page in part_pages {
+            let delivered = std::fs::read(handler_out.join("edition").join(page))
+                .unwrap_or_else(|e| panic!("handler must deliver `{page}`: {e}"));
+            assert_eq!(
+                &delivered,
+                &plan_base.site.files()[page.as_str()],
+                "the delivered `{page}` equals the planned page"
+            );
+        }
+
+        // Verify FB0603 checks every row anchor linked from pages (e.g. claims/CMP-1.html#CL-CMP-0001).
         let names = source::original_names(&view_base);
         let diags = lint::lint(&plan_base.site, &names);
         assert!(diags.is_empty(), "edition site must pass FB0603: {diags:?}");
         let mut broken_site = plan_base.site.clone();
         let broken_claims =
-            String::from_utf8_lossy(broken_site.files().get("claims.html").unwrap())
+            String::from_utf8_lossy(broken_site.files().get("claims/CMP-1.html").unwrap())
                 .replace("id=\"CL-CMP-0001\"", "id=\"CL-CMP-MISSING\"");
         let mut rebuilt = Site::new();
         for (k, v) in broken_site.files() {
-            if k == "claims.html" {
+            if k == "claims/CMP-1.html" {
                 rebuilt.insert(k, broken_claims.as_bytes().to_vec());
             } else {
                 rebuilt.insert(k, v.clone());
@@ -1297,7 +1318,7 @@ mod build {
             broken_diags
                 .iter()
                 .any(|d| d.code == Code::Fb0603 && d.message.contains("CL-CMP-0001")),
-            "removing row anchor id=\"CL-CMP-0001\" from claims.html must trigger FB0603 from pages linking to it, got: {broken_diags:?}"
+            "removing row anchor id=\"CL-CMP-0001\" from claims/CMP-1.html must trigger FB0603 from pages linking to it, got: {broken_diags:?}"
         );
     }
 

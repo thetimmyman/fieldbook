@@ -681,6 +681,8 @@ fn run_edition_surface() {
     // Verify all 5 register pages and ids.html are delivered with permitted rows, IDs, and counts.
     let claims_disk = std::fs::read_to_string(plan.edition_dir.join("claims.html"))
         .unwrap_or_else(|e| panic!("{e}"));
+    let claims_part_disk = std::fs::read_to_string(plan.edition_dir.join("claims/CMP-1.html"))
+        .unwrap_or_else(|e| panic!("{e}"));
     let sources_disk = std::fs::read_to_string(plan.edition_dir.join("sources.html"))
         .unwrap_or_else(|e| panic!("{e}"));
     let questions_disk = std::fs::read_to_string(plan.edition_dir.join("questions.html"))
@@ -693,9 +695,9 @@ fn run_edition_surface() {
         .unwrap_or_else(|e| panic!("{e}"));
 
     assert!(
-        claims_disk.contains("<tr id=\"CL-CMP-0001\"")
+        claims_part_disk.contains("<tr id=\"CL-CMP-0001\"")
             && claims_disk.contains("<span class=\"chip mono\">5 rows</span>"),
-        "permitted claim rows and count must reach claims.html"
+        "permitted claim rows must reach claims/CMP-1.html and the count claims.html"
     );
     assert!(
         sources_disk.contains("<tr id=\"S-0002-v2\"")
