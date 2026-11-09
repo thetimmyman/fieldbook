@@ -133,7 +133,7 @@ pub struct ConflictBoxView {
 pub struct EvidenceCardView {
     /// Claim identifier (`CL-...`).
     pub claim_id: String,
-    /// Claim ID chip HTML (linked to `claims.html#<id>` if planned).
+    /// Claim ID chip HTML (linked to the claim's part page `claims/<AREA>-<part>.html#<id>` if planned).
     pub claim_chip_html: String,
     /// Verification `StatusChip` HTML.
     pub status_chip_html: String,

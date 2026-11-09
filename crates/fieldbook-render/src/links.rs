@@ -2,7 +2,7 @@
 //!
 //! **Responsibility.** Provide one gate function ([`href_if_planned`]) that turns an internal
 //! site target (`p/<page-id>.html`, `s/<version-id>.html`, `a/<area>.html`,
-//! `<register>.html#<id>`) into a relative `href` when the target file path is in
+//! the claim's part page `claims/<AREA>-<part>.html#<id>`, `<register>.html#<id>`) into a relative `href` when the target file path is in
 //! [`PlannedPaths`], and render plain text (`<span>`) otherwise so no emitted page can
 //! fail `FB0603` while sibling cards are not yet built.
 
@@ -94,10 +94,11 @@ pub fn page_href(
     href_if_planned(from_path, &target, planned)
 }
 
-/// Resolve a claim register row target (`claims.html#<id>`) if planned.
+/// Resolve a claim register row target (the claim's part page `claims/<AREA>-<part>.html#<id>`) if planned.
 #[must_use]
 pub fn claim_href(from_path: &str, claim_id: &ClaimId, planned: &PlannedPaths) -> Option<String> {
-    href_if_planned(from_path, &format!("claims.html#{claim_id}"), planned)
+    let target = fieldbook_core::ids::claim_href_target(claim_id.as_str())?;
+    href_if_planned(from_path, &target, planned)
 }
 
 /// Resolve a question register row target (`questions.html#<id>`) if planned.
@@ -302,8 +303,8 @@ pub fn render_term_link(
     }
 }
 
-/// Render a `ClaimMark` (`class="claim-mark {variant}"`), linked to `claims.html#<claim_id>`
-/// when `claims.html` is planned, and plain text `<span class="claim-mark ...">` otherwise.
+/// Render a `ClaimMark` (`class="claim-mark {variant}"`), linked to the claim's part page
+/// `claims/<AREA>-<part>.html#<claim_id>` when planned, and plain text `<span class="claim-mark ...">` otherwise.
 #[must_use]
 pub fn render_claim_mark(
     from_path: &str,
@@ -328,7 +329,8 @@ pub fn render_claim_mark(
     }
 }
 
-/// Render a mono claim reference chip (`CL-...`), linked to `claims.html#<claim_id>` if planned.
+/// Render a mono claim reference chip (`CL-...`), linked to the claim's part page
+/// `claims/<AREA>-<part>.html#<claim_id>` if planned.
 #[must_use]
 pub fn render_claim_chip(from_path: &str, claim_id: &ClaimId, planned: &PlannedPaths) -> String {
     let cid = escape_html(claim_id.as_str());

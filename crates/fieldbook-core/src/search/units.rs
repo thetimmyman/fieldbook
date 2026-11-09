@@ -61,7 +61,7 @@ pub const UNIT_KINDS: [UnitKind; 9] = [
     },
     UnitKind {
         kind: "claim",
-        link: Some("claims.html#CL-CMP-0011"),
+        link: Some("claims/CMP-1.html#CL-CMP-0011"),
         section_link: None,
     },
     UnitKind {
@@ -112,7 +112,7 @@ pub fn unit_href(kind: &str, id: &str) -> Option<String> {
             }
         }
         "source" => Some(format!("s/{id}.html")),
-        "claim" => Some(format!("claims.html#{id}")),
+        "claim" => crate::ids::claim_href_target(id),
         "question" => Some(format!("questions.html#{id}")),
         "conflict" => Some(format!("conflicts.html#{id}")),
         "term" => Some(format!("glossary.html#{id}")),
@@ -1622,6 +1622,24 @@ mod tests {
                 "xc-14",
             ]
         );
+    }
+
+    #[test]
+    fn unit_href_formats_claim_links_to_part_pages() {
+        for (id, expected) in [
+            ("CL-CMP-0001", "claims/CMP-1.html#CL-CMP-0001"),
+            ("CL-CMP-0011", "claims/CMP-1.html#CL-CMP-0011"),
+            ("CL-CMP-0500", "claims/CMP-1.html#CL-CMP-0500"),
+            ("CL-CMP-0501", "claims/CMP-2.html#CL-CMP-0501"),
+            ("CL-CMP-1000", "claims/CMP-2.html#CL-CMP-1000"),
+            ("CL-CMP-1001", "claims/CMP-3.html#CL-CMP-1001"),
+            ("CL-CMP-9485", "claims/CMP-19.html#CL-CMP-9485"),
+            ("CL-EST-0042", "claims/EST-1.html#CL-EST-0042"),
+            ("CL-CMP-10000", "claims/CMP-20.html#CL-CMP-10000"),
+        ] {
+            assert_eq!(unit_href("claim", id), Some(expected.to_owned()));
+        }
+        assert_eq!(unit_href("claim", "not-a-claim"), None);
     }
 
     fn display(

@@ -244,4 +244,57 @@ mod search_page {
         assert!(script.contains("SKELETON_DELAY_MS = 300"));
         assert!(script.contains("window.FB_SEARCH"));
     }
+
+    #[test]
+    fn search_js_claim_link_matches_the_rust_route() {
+        let script = include_str!("../assets/search.js");
+        let expected_per_part = format!(
+            "var CLAIMS_PER_PART = {}",
+            fieldbook_core::ids::CLAIMS_PER_PART
+        );
+        assert!(
+            script.contains(&expected_per_part),
+            "search.js must define CLAIMS_PER_PART matching fieldbook_core: {expected_per_part:?}"
+        );
+        for needle in [
+            "['claim', 'claims/']",
+            "id.slice(3, 6) + '-'",
+            "(Math.ceil(id.slice(7) / CLAIMS_PER_PART) || 1)",
+            "'.html#' + id",
+        ] {
+            assert!(script.contains(needle), "search.js must contain {needle:?}");
+        }
+
+        let ids = [
+            "CL-CMP-0001",
+            "CL-CMP-0500",
+            "CL-CMP-0501",
+            "CL-CMP-1000",
+            "CL-CMP-1001",
+            "CL-CMP-9485",
+            "CL-EST-0042",
+            "CL-CMP-10000",
+            "CL-CMP-0000",
+        ];
+        for id in ids {
+            let area = &id[3..6];
+            let number: u32 = id[7..].parse().expect("valid claim number");
+            // The script's expression: Math.ceil(number / CLAIMS_PER_PART) || 1.
+            let per_part = f64::from(fieldbook_core::ids::CLAIMS_PER_PART);
+            let ceil = (f64::from(number) / per_part).ceil();
+            let part = if ceil == 0.0 { 1.0 } else { ceil };
+            let part = part as u32;
+            let target = format!("claims/{area}-{part}.html#{id}");
+            assert_eq!(
+                fieldbook_core::ids::claim_href_target(id),
+                Some(target.clone()),
+                "claim_href_target mismatch for {id}"
+            );
+            assert_eq!(
+                unit_href("claim", id),
+                Some(target),
+                "unit_href mismatch for {id}"
+            );
+        }
+    }
 }
