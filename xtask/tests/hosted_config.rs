@@ -206,27 +206,101 @@ fn a_removed_header_is_refused() {
     }
 }
 
+fn check_wrangler(content: &str) -> Result<(), String> {
+    let stripped: String = content
+        .lines()
+        .filter(|line| !line.trim().starts_with("//"))
+        .collect::<Vec<_>>()
+        .join("\n");
+
+    if stripped.contains("\"workers_dev\": true") {
+        return Err("wrangler configuration must not contain `\"workers_dev\": true`".to_string());
+    }
+    if !stripped.contains("\"workers_dev\": false") {
+        return Err("wrangler configuration must contain `\"workers_dev\": false`".to_string());
+    }
+
+    if stripped.contains("\"preview_urls\": true") {
+        return Err("wrangler configuration must not contain `\"preview_urls\": true`".to_string());
+    }
+    if !stripped.contains("\"preview_urls\": false") {
+        return Err("wrangler configuration must contain `\"preview_urls\": false`".to_string());
+    }
+
+    for forbidden in ["\"routes\"", "\"route\"", "\"account_id\"", "\"main\""] {
+        if stripped.contains(forbidden) {
+            return Err(format!(
+                "wrangler configuration must not contain `{forbidden}`"
+            ));
+        }
+    }
+
+    Ok(())
+}
+
 #[test]
 fn wrangler_config_disables_workers_dev_and_previews_and_names_no_account() {
     let wrangler_path = repo_root().join("deploy/wrangler.jsonc");
-    let wrangler_content = std::fs::read_to_string(&wrangler_path)
+    let content = std::fs::read_to_string(&wrangler_path)
         .unwrap_or_else(|e| panic!("read {}: {e}", wrangler_path.display()));
+
+    let res = check_wrangler(&content);
     assert!(
-        wrangler_content.contains("\"workers_dev\": false"),
-        "wrangler.jsonc must contain `\"workers_dev\": false`"
+        res.is_ok(),
+        "deploy/wrangler.jsonc failed validation: {}",
+        res.as_ref().err().map_or("", String::as_str)
     );
-    assert!(
-        wrangler_content.contains("\"preview_urls\": false"),
-        "wrangler.jsonc must contain `\"preview_urls\": false`"
+}
+
+#[test]
+fn a_planted_wrangler_violation_is_refused() {
+    let wrangler_path = repo_root().join("deploy/wrangler.jsonc");
+    let content = std::fs::read_to_string(&wrangler_path)
+        .unwrap_or_else(|e| panic!("read {}: {e}", wrangler_path.display()));
+
+    let assert_plant = |planted: &str, expected_key: &str| {
+        assert_ne!(
+            planted, content,
+            "planted content for `{expected_key}` must differ from original"
+        );
+        let err = match check_wrangler(planted) {
+            Ok(()) => panic!("expected Err for plant `{expected_key}`, got Ok"),
+            Err(e) => e,
+        };
+        assert!(
+            err.contains(expected_key),
+            "expected err to contain `{expected_key}`, got: {err}"
+        );
+    };
+
+    // 1. "workers_dev": true (replace the false)
+    let plant_workers_dev = content.replace("\"workers_dev\": false", "\"workers_dev\": true");
+    assert_plant(&plant_workers_dev, "\"workers_dev\"");
+
+    // 2. "preview_urls": true (replace the false)
+    let plant_preview_urls = content.replace("\"preview_urls\": false", "\"preview_urls\": true");
+    assert_plant(&plant_preview_urls, "\"preview_urls\"");
+
+    // 3. a "routes": [{ "pattern": "x.example.invalid/*" }], entry inserted before the "compatibility_date" key
+    let plant_routes = content.replace(
+        "\"compatibility_date\"",
+        "\"routes\": [{ \"pattern\": \"x.example.invalid/*\" }],\n  \"compatibility_date\"",
     );
-    assert!(
-        !wrangler_content.contains("routes"),
-        "wrangler.jsonc must not contain `routes`"
+    assert_plant(&plant_routes, "\"routes\"");
+
+    // 4. a "account_id": "x", entry inserted likewise
+    let plant_account_id = content.replace(
+        "\"compatibility_date\"",
+        "\"account_id\": \"x\",\n  \"compatibility_date\"",
     );
-    assert!(
-        !wrangler_content.contains("account_id"),
-        "wrangler.jsonc must not contain `account_id`"
+    assert_plant(&plant_account_id, "\"account_id\"");
+
+    // 5. a "main": "src/index.js", entry inserted likewise
+    let plant_main = content.replace(
+        "\"compatibility_date\"",
+        "\"main\": \"src/index.js\",\n  \"compatibility_date\"",
     );
+    assert_plant(&plant_main, "\"main\"");
 }
 
 fn assert_no_workers_dev_subdomain(content: &str, rel: &str) {

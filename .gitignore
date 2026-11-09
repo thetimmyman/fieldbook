@@ -12,3 +12,6 @@ inbox/
 # Deploy-time tooling installs here; the lockfile beside it is committed.
 deploy/node_modules/
 deploy/.wrangler/
+# A local token file for the deploy tool is never committed.
+deploy/.env*
+deploy/.dev.vars*
