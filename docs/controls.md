@@ -51,6 +51,15 @@ A request leaves a store only through a destination that the company's policy na
 | IN-01 | An edition without its Tier-0 intake pack: a missing intake file, or a `{placeholder}` left unfilled in one | edition build | Edition tree; counts in TRANSFER-STATEMENT.txt computed from the tree | An edition built with one intake file removed, and another with one placeholder left in, both fail † | `edition-zips` |
 | RL-01 | A release that is not what CI built: tags only trigger `release.yml`; CI checks the tag against the workspace version; only the owner tags | release | Release run log; CHANGELOG.md entry | A tag that differs from the workspace version fails the check † | `release-workflow` |
 
+## Hosted edition
+
+The hosted edition is the built edition served as static files behind the owner's login ([ADR 0007](decisions/0007-hosted-edition.md)). It adds no listener, network call or model to the program. These rows are the files-and-limits controls of that record; its gate, environment and workflow controls are added by the cards that build them.
+
+| ID | Catches or prevents | Runs | Evidence | Negative control | Brought by |
+|---|---|---|---|---|---|
+| HO-01 | A hosted site the host would refuse or half publish: a file over 25 MiB, or more than 20,000 files, in the staged folder. `cargo xtask hosted-limits DIR` fails before any upload | deploy job; home | The step prints the number of files and the five largest | A file of 25 MiB plus one byte fails and is named; a file of exactly 25 MiB passes † | `hosted-deploy` |
+| HO-02 | A hosted response that lacks a header of the table of ADR 0007: the content security policy equal to the pages' plus `frame-ancestors`, `Strict-Transport-Security`, `X-Robots-Tag`, `Cache-Control`, `X-Content-Type-Options` and `Referrer-Policy`, and three further hardening headers. A test reads the committed header file; the owner reads the live headers once after the first deploy, signed in | PR CI | The test log | Removing any one header line from `deploy/_headers`, doubling one, or changing a value fails the test and names the header † | `hosted-deploy` |
+
 ## Network silence and code
 
 The silent build (the default, and the only build in an edition) opens no socket, starts no process, contains no model and makes no outbound connection. The AI build (feature `net`) adds outbound HTTPS to endpoints that the company's policy lists and the settings name, only on an explicit command and after the audit record is written. With the further feature `bridge` it also holds, only while `fieldbook chat` runs, one listener on 127.0.0.1 behind a per-session token. `fieldbook mcp` uses standard input and output and opens no socket in any build. Neither build starts a process; only the dev-only `xtask` crate does. First-party crates forbid unsafe code (a compile-time lint), except one file of the leaf crate `fieldbook-win` that makes the Windows system calls (a test fails on `unsafe` anywhere else). deny.toml bans the native crates it lists. Dependencies, the Rust standard library and the platform C runtime remain trusted components; these lints are not a sandbox. The dev-only `xtask` crate is never shipped.

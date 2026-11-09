@@ -312,6 +312,14 @@ Status is one of: **used now** (a dev aid in use at home), **candidate adapter**
 
 An adapter that comes from this table meets the conformance suite of its port, keeps the sources of what it returns, and has every model call in the audit journal. AGPL and GPL tools run as separate local services or processes and never as linked code.
 
+## Deployment tools
+
+Used only by the hosted-edition deploy step ([ADR 0007](../decisions/0007-hosted-edition.md)). They are never in the product, an edition, a Cargo graph or `.config/tools.toml`, and they are installed on the runner for the length of one job. The cooldown applies as for the other tools: the newest release at least 14 days old.
+
+| Tool | Version (released) | Joins | Note |
+|---|---|---|---|
+| `wrangler` | 4.153.0 (2026-10-26) | Card `hosted-deploy` | Deploys the staged edition as Worker static assets; deploy-time only. Pinned exactly in `deploy/package.json` with an integrity-hashed `deploy/package-lock.json` (lockfile version 3), installed with `npm ci --ignore-scripts`. 4.154.0 was younger than 14 days when pinned. Every one of the 91 locked packages was at least 14 days old when pinned (`npm view <package>@<version> time`); `overrides` hold `semver` at 7.8.5 and `tslib` at 2.8.1 because 7.8.6 (2026-11-02) and 2.9.1 (2026-10-30) were younger. Metrics are off (`WRANGLER_SEND_METRICS=false`). The deploy token can write Worker scripts and nothing else |
+
 ## CI actions
 
 Every action is pinned by commit SHA. The workflow line reads `uses: owner/name@<sha> # <version>`, and the SHA must be the commit the version tag points to. The workflow token is read-only.
