@@ -126,29 +126,76 @@ fn check_secret_use(files: &[(String, String)]) -> Result<(), String> {
     Ok(())
 }
 
+fn runs_on_values(yml: &str) -> Vec<String> {
+    yml.lines()
+        .filter_map(|l| {
+            l.trim()
+                .strip_prefix("runs-on:")
+                .map(|rest| rest.chars().filter(|c| !c.is_whitespace()).collect())
+        })
+        .collect()
+}
+
 fn check_runner(yml: &str) -> Result<(), String> {
     let mut count = 0;
+    let mut found_line = "";
+    let mut found_val = "";
     for line in yml.lines() {
         let trimmed = line.trim();
         if let Some(rest) = trimmed.strip_prefix("runs-on:") {
             count += 1;
-            if line.contains("self-hosted") {
-                return Err(format!("runs-on line contains self-hosted: `{line}`"));
-            }
-            let val = rest.trim();
-            let label = val
-                .strip_prefix('[')
-                .and_then(|s| s.strip_suffix(']'))
-                .unwrap_or(val)
-                .trim();
-            if label.trim_matches(['\'', '"']) != "ubuntu-24.04" {
-                return Err(format!("runs-on line does not name ubuntu-24.04: `{line}`"));
-            }
+            found_line = line;
+            found_val = rest.trim();
         }
     }
     if count == 0 {
         return Err("no runs-on: line found in workflow".to_string());
     }
+    if count != 1 {
+        return Err(format!("expected exactly one runs-on: line, found {count}"));
+    }
+    let compact: String = found_val.chars().filter(|c| !c.is_whitespace()).collect();
+    if compact != "[self-hosted,Linux,X64,fieldbook]" {
+        return Err(format!("unexpected runs-on value: `{found_line}`"));
+    }
+    Ok(())
+}
+
+fn check_unreleased_gate(yml: &str) -> Result<(), String> {
+    let has_grep_line = yml.lines().any(|l| {
+        l.contains("grep")
+            && l.contains(fieldbook_core::strings::unreleased_build())
+            && l.contains(" -i ")
+            && l.contains("out/hosted/index.html")
+    });
+    if !has_grep_line {
+        return Err("missing grep -i for `unreleased build` in out/hosted/index.html".to_string());
+    }
+
+    let Some(sha_offset) = yml.find("FIELDBOOK_GIT_SHA+x") else {
+        return Err("missing check for `FIELDBOOK_GIT_SHA+x`".to_string());
+    };
+
+    let Some(deploy_offset) = yml.find("wrangler deploy") else {
+        return Err("missing `wrangler deploy` in workflow".to_string());
+    };
+    if sha_offset >= deploy_offset {
+        return Err("`FIELDBOOK_GIT_SHA+x` check must appear before `wrangler deploy`".to_string());
+    }
+
+    for line in yml.lines() {
+        let trimmed = line.trim();
+        if trimmed.starts_with("FIELDBOOK_GIT_SHA:") {
+            return Err(format!("workflow sets FIELDBOOK_GIT_SHA as key: `{line}`"));
+        }
+        if line.contains("export FIELDBOOK_GIT_SHA") {
+            return Err(format!("workflow exports FIELDBOOK_GIT_SHA: `{line}`"));
+        }
+        if line.contains("FIELDBOOK_GIT_SHA=") {
+            return Err(format!("workflow assigns FIELDBOOK_GIT_SHA: `{line}`"));
+        }
+    }
+
     Ok(())
 }
 
@@ -343,41 +390,83 @@ fn a_planted_secret_or_environment_in_another_workflow_is_refused() {
 
 // control: HO-05
 #[test]
-fn the_deploy_job_runs_on_a_github_hosted_runner() {
+fn the_deploy_job_runs_on_the_self_hosted_runner_and_declares_the_environment() {
     let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
         .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
-    let count = yml
+    assert!(check_runner(&yml).is_ok());
+
+    let env_count = yml
         .lines()
-        .filter(|l| l.trim().starts_with("runs-on:"))
+        .filter(|l| l.trim() == "environment: hosted")
         .count();
     assert_eq!(
-        count, 1,
-        "hosted.yml must contain exactly one runs-on: line"
+        env_count, 1,
+        "hosted.yml must contain exactly one line `environment: hosted`"
     );
-    assert!(check_runner(&yml).is_ok());
+    assert!(
+        yml.lines()
+            .any(|l| l.trim() == "if: github.ref == 'refs/heads/main'"),
+        "missing `if: github.ref == 'refs/heads/main'`"
+    );
+    assert!(
+        yml.contains("persist-credentials: false"),
+        "missing `persist-credentials: false`"
+    );
+    assert!(yml.contains("clean: true"), "missing `clean: true`");
+    assert!(
+        yml.contains("secrets.FIELDBOOK_HOST"),
+        "missing `secrets.FIELDBOOK_HOST`"
+    );
+    assert!(
+        !yml.contains("vars."),
+        "hosted.yml must not contain `vars.`"
+    );
 }
 
 // control: HO-05
 #[test]
-fn the_self_hosted_labels_of_ci_are_refused() {
+fn a_hosted_runner_label_or_a_partial_label_set_is_refused() {
     let hosted_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
         .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
-    let planted = hosted_yml
-        .lines()
-        .map(|l| {
-            if l.trim().starts_with("runs-on:") {
-                "    runs-on: [self-hosted, Linux, X64, fieldbook]"
-            } else {
-                l
-            }
-        })
-        .collect::<Vec<_>>()
-        .join("\n");
-    assert!(check_runner(&planted).is_err());
+
+    let plant = |replacement: &str| {
+        hosted_yml
+            .lines()
+            .map(|l| {
+                if l.trim().starts_with("runs-on:") {
+                    replacement
+                } else {
+                    l
+                }
+            })
+            .collect::<Vec<_>>()
+            .join("\n")
+    };
+    assert!(check_runner(&plant("    runs-on: ubuntu-24.04")).is_err());
+    assert!(check_runner(&plant("    runs-on: [self-hosted]")).is_err());
+    assert!(check_runner(&plant("    runs-on: [self-hosted, Linux, X64]")).is_err());
+
+    let hosted_vals = runs_on_values(&hosted_yml);
+    assert_eq!(
+        hosted_vals.len(),
+        1,
+        "expected exactly one runs-on: line in hosted.yml"
+    );
+    let target = &hosted_vals[0];
 
     let ci_yml = std::fs::read_to_string(repo_root().join(".github/workflows/ci.yml"))
         .unwrap_or_else(|e| panic!("read ci.yml: {e}"));
-    assert!(check_runner(&ci_yml).is_err());
+    let ci_vals = runs_on_values(&ci_yml);
+    assert!(
+        !ci_vals.is_empty(),
+        "ci.yml must contain at least one runs-on: line"
+    );
+    for val in &ci_vals {
+        assert_eq!(
+            val, target,
+            "ci.yml runs-on `{val}` differs from hosted.yml `{target}`"
+        );
+    }
 }
 
 // control: HO-06
@@ -435,4 +524,63 @@ fn the_deploy_workflow_probes_the_gate_before_and_after_the_upload() {
     );
     assert!(text.contains("npm ci --ignore-scripts"));
     assert!(text.contains("--message \"$GITHUB_SHA\""));
+}
+
+// control: HO-07
+#[test]
+fn the_hosted_build_is_checked_to_be_unreleased_before_the_upload() {
+    let yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+    assert!(check_unreleased_gate(&yml).is_ok());
+}
+
+// control: HO-07
+#[test]
+fn a_planted_release_stamp_or_a_removed_check_is_refused() {
+    let real_yml = std::fs::read_to_string(repo_root().join(".github/workflows/hosted.yml"))
+        .unwrap_or_else(|e| panic!("read hosted.yml: {e}"));
+
+    // Plant (i): a line `      FIELDBOOK_GIT_SHA: ${{ github.sha }}` after the line `      CI: "true"` -> Err
+    let mut plant1 = Vec::new();
+    for line in real_yml.lines() {
+        plant1.push(line);
+        if line.contains("CI: \"true\"") {
+            plant1.push("      FIELDBOOK_GIT_SHA: ${{ github.sha }}");
+        }
+    }
+    let plant1_text = plant1.join("\n");
+    assert!(
+        check_unreleased_gate(&plant1_text).is_err(),
+        "planted FIELDBOOK_GIT_SHA in env must fail"
+    );
+
+    // Plant (ii): the grep line removed (filter out lines containing `unreleased build`) -> Err
+    let plant2_text = real_yml
+        .lines()
+        .filter(|l| !l.contains(fieldbook_core::strings::unreleased_build()))
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert!(
+        check_unreleased_gate(&plant2_text).is_err(),
+        "removing grep line for unreleased build must fail"
+    );
+
+    // Plant (iii): the lines containing `FIELDBOOK_GIT_SHA+x` removed -> Err
+    let plant3_text = real_yml
+        .lines()
+        .filter(|l| !l.contains("FIELDBOOK_GIT_SHA+x"))
+        .collect::<Vec<_>>()
+        .join("\n");
+    assert!(
+        check_unreleased_gate(&plant3_text).is_err(),
+        "removing FIELDBOOK_GIT_SHA+x check must fail"
+    );
+
+    // Plant (iv): a line `          export FIELDBOOK_GIT_SHA=abc` appended inside the Deploy run script (append at the end of the text with proper indentation is fine) -> Err
+    let mut plant4_text = real_yml;
+    plant4_text.push_str("\n          export FIELDBOOK_GIT_SHA=abc\n");
+    assert!(
+        check_unreleased_gate(&plant4_text).is_err(),
+        "exporting FIELDBOOK_GIT_SHA must fail"
+    );
 }
