@@ -215,6 +215,7 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - search-ranking-warnings: the regression set judges the page view, and the Corpus content fixes the cases that still miss, so `check` reports no `FB0127` (owner review)
 - home-area-placeholders: the home and area placeholders take the design's wording or omission, and the sections the design does not cover are listed for a design revision
 - search-palette-design-items: the palette placeholder, the quoted search row, the named shortcuts dialog, the six tokenless values and the 375px and role checks left by `search-palette`
+- unreleased-status-strip: a strip on every unreleased page saying the build is not an edition and its claims are AI-drafted and unchecked, with counts computed from the claims
 
 ## P4
 
