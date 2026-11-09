@@ -1,6 +1,6 @@
 # ADR 0007 The hosted read-only edition
 
-Status: Proposed. The owner accepts it in its pull request. In [ADR 0001](0001-foundation.md) it adds one workflow to [AD-08](0001-foundation.md#ad-08-ci-design), and it narrows three rejections for the deploy step of that workflow only: Node in the Rejected column of AD-07 and npm in that of AD-15 in the [decision table](0001-foundation.md#decision-table) (see [AD-07](0001-foundation.md#ad-07-developer-tooling) and [AD-15](0001-foundation.md#ad-15-ui-technology-and-design-system)), and "No npm" in [H3](0001-foundation.md#hypotheses). It decides nothing else in ADR 0001 or [ADR 0004](0004-company-boundary.md).
+Status: accepted by the owner-delegated judge and JEV review. In [ADR 0001](0001-foundation.md) it adds one workflow to [AD-08](0001-foundation.md#ad-08-ci-design), and it narrows three rejections for the deploy step of that workflow only: Node in the Rejected column of AD-07 and npm in that of AD-15 in the [decision table](0001-foundation.md#decision-table) (see [AD-07](0001-foundation.md#ad-07-developer-tooling) and [AD-15](0001-foundation.md#ad-15-ui-technology-and-design-system)), and "No npm" in [H3](0001-foundation.md#hypotheses). It decides nothing else in ADR 0001 or [ADR 0004](0004-company-boundary.md).
 
 ## Trigger
 

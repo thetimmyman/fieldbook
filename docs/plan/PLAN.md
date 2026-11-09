@@ -185,7 +185,7 @@ Exit: see [Phases and exits](../decisions/0001-foundation.md#phases-and-exits), 
 - scheduled-workflow: the weekly `scheduled.yml` with the `lint-controls` and `scale` jobs
 - search-js: `search.js` and `search.html`, held to Rust by the goldens
 - search-palette: the command palette, search trigger and shortcuts dialog
-- hosted-edition-adr: ADR 0007, the hosted read-only edition of the site behind sign-on; the owner accepts it
+- hosted-edition-adr: ADR 0007, the hosted read-only edition of the site behind sign-on; accepted by the owner-delegated judge and JEV review
 - backup-snapshot: `backup`, `backup list` (with `--json`) and `backup verify`, the `[backup]` settings, retention, and the `backup_age` reminder
 - restore-and-drill: `restore`, `restore --drill` and Drill 4 in CI on the disposable build-checkout Corpus
 - verify-status-fmt: `fieldbook verify` (Could)
