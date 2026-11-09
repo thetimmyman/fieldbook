@@ -4,6 +4,11 @@ Notes on tool releases (`vX.Y.Z`), newest first. Editions are noted in [corpus/c
 
 ## Unreleased
 
+- Added: a search trigger, a command palette (Ctrl K or /) and a shortcuts dialog (?) on every page; single-key shortcuts can be turned off.
+- Added: search from the keyboard in the edition.
+- Added: the edition's search index of pages and sections, assets/search-index.js; its display strings carry no `http://` or `https://`.
+- Added: `just browser`, which opens every page of the edition in headless Edge, or Chromium where Edge is not installed, and fails on any request a page makes outside `file:`.
+- Added: the about page, edition.toml and copyable command chips.
 - Added: the home page and the area pages.
 - Fixed: page popovers and stage lists no longer show raw citation markers.
 - Changed: the edition's search index holds page and section units only, with a 15 MB cap; the search command still searches every unit.

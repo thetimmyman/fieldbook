@@ -2,6 +2,7 @@
   <article class="prose">
     <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="{{ meta_row.review_by }}" hidden>
       <div class="body"><b>Review overdue.</b> Review date <time datetime="{{ meta_row.review_by }}">{{ meta_row.review_by }}</time> has passed; re-check cited sources before relying on this page.</div>
+      {{ meta_row.due_claims_html|safe }}
     </div>
     {% if is_synthetic_now %}
     <div class="banner" role="region" aria-label="Readiness notice">

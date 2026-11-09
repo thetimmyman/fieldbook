@@ -60,12 +60,13 @@ window.FB_GOLDEN = window.FB_GOLDEN || {};
 window.FB_GOLDEN["search/seed-tokenize.json"] = { "kind": "tokenize", "version": 1, "cases": [ ... ] };
 ```
 
-The key is the path of the file below `tests/golden/`, and the value is the file's JSON unchanged. Generated wrappers are never committed. For a ranked file the harness also writes the index that Rust built from the file's `units`, as `search-index.js` would; the JavaScript then answers each query from that index and the harness compares the lists.
+The key is the path of the file below `tests/golden/`, and the value is the file's JSON unchanged. Generated wrappers are never committed. For a file with `units` (each ranked file and the page-view file) the harness also writes `<path>.index.js`: the index that Rust built from those `units`, in the shape of `search-index.js`, assigned to `window.FB_GOLDEN_INDEX["<path>"]` so that it never replaces the site's `window.FB_INDEX`. The JavaScript then answers each query from that index and the harness compares the lists.
 
 | Kind | Rust asserts | The harness asserts |
 |---|---|---|
 | tokenize | Both sides | The query side only. The JavaScript has no index side |
 | ranked | Every case | Every case, over the index built by Rust |
+| page-view | Every case | Every case, over the index built by Rust: the hits, the exact, page and other rows, the absorbed count and the accounting against the unit total, and that `run` renders the first 50 of those rows in that order. The CLI's `shown_pages` and `shown_other` cut is Rust's alone |
 | citation | Every case, in the Rust lexer | Every case, in the JavaScript port (Day 30) |
 | context | Every case | Every case, in the JavaScript port, over an `assist-data.js` that Rust writes from `corpus-mini` |
 | marking | Every case, in `scan::marking` | Every case, in the JavaScript port |

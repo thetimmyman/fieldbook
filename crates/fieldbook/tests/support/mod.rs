@@ -14,6 +14,8 @@ pub mod faulty;
 pub mod state;
 pub mod world;
 
+use fieldbook_core::check::Severity;
+
 /// Recursively copy `fixture` into a new [`tempfile::TempDir`].
 #[must_use]
 pub fn temp_copy(fixture: &Path) -> tempfile::TempDir {
@@ -136,11 +138,19 @@ fn split_csv_line(line: &str) -> Vec<String> {
     out
 }
 
+/// Add the canary rows and the kept-row cells that name them: [`add_left_out_canary_rows`] then
+/// [`name_canaries_from_kept_rows`].
+pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
+    add_left_out_canary_rows(tree);
+    name_canaries_from_kept_rows(tree);
+}
+
 /// Add well-formed canary rows, one per register, whose source carries the label `np-0007`
 /// that the edition selection leaves out: the source `S-0099`, a claim on it, a conflict over that
 /// claim and a term citing it. Every canary text starts with `Forbidden` or is an id the canary
-/// owns, so a test can search every delivered file for it.
-pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
+/// owns, so a test can search every delivered file for it. The claim canary is superseded by the
+/// kept claim `CL-EST-0002`, the reciprocal of [`name_canaries_from_kept_rows`].
+pub fn add_left_out_canary_rows(tree: &mut fieldbook_core::check::Tree) {
     let read = |tree: &fieldbook_core::check::Tree, name: &str| {
         let bytes = tree
             .get_bytes(&format!("corpus/registers/{name}.csv"))
@@ -228,10 +238,6 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         ],
         Some("rate_window"),
     );
-    // Kept rows that name an omitted record. The permitted view keeps these rows, so the pages
-    // must not print or link the omitted ids. Each reference has its reciprocal where the format
-    // requires one, so the loader keeps the rows.
-    set_register_cell(tree, "claims", "CL-EST-0002", "supersedes", "CL-CMP-0099");
     set_register_cell(
         tree,
         "claims",
@@ -253,6 +259,15 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         "adoption",
         fieldbook_core::schema::Adoption::Superseded.as_str(),
     );
+}
+
+/// Write the three cells of kept rows that name a canary of [`add_left_out_canary_rows`]:
+/// `CL-EST-0002.supersedes`, `S-0001.supersedes` and `rate_window.superseded_by`. The permitted
+/// view keeps these rows verbatim, so the pages must not print or link the omitted ids. On a tree
+/// without the canary rows the references dangle (FB0207), and the view and every output must
+/// equal those of the tree with them.
+pub fn name_canaries_from_kept_rows(tree: &mut fieldbook_core::check::Tree) {
+    set_register_cell(tree, "claims", "CL-EST-0002", "supersedes", "CL-CMP-0099");
     set_register_cell(tree, "sources", "S-0001", "supersedes", "S-0099-v1");
     set_register_cell(
         tree,
@@ -261,4 +276,77 @@ pub fn add_canary_register_rows(tree: &mut fieldbook_core::check::Tree) {
         "superseded_by",
         "forbidden_term_canary",
     );
+}
+
+/// Assert that the site built from the plain tree equals the site built from the same tree with
+/// the cells of [`name_canaries_from_kept_rows`], file for file, except `edition.toml`, whose
+/// fingerprint covers the changed register bytes. A kept row's dangling reference to a record the
+/// edition leaves out must render exactly as no reference, so no page shows that something was
+/// left out.
+pub fn assert_plain_site_equals_cells_site(
+    plain: &std::collections::BTreeMap<String, Vec<u8>>,
+    cells: &std::collections::BTreeMap<String, Vec<u8>>,
+) {
+    let plain_names: Vec<&String> = plain.keys().collect();
+    let cells_names: Vec<&String> = cells.keys().collect();
+    assert_eq!(
+        plain_names, cells_names,
+        "the kept-row cells that name left-out records must not add or drop a site file"
+    );
+    for (rel, bytes) in plain {
+        if rel == "edition.toml" {
+            // The fingerprint covers the registers, so only that line may differ.
+            let lines = |b: &[u8]| -> Vec<String> {
+                String::from_utf8_lossy(b)
+                    .lines()
+                    .filter(|l| !l.starts_with("fingerprint"))
+                    .map(str::to_owned)
+                    .collect()
+            };
+            assert_eq!(
+                lines(bytes),
+                cells.get(rel).map(|b| lines(b)).unwrap_or_default(),
+                "a kept row's reference to a left-out record must change no line of edition.toml \
+                 but its fingerprint"
+            );
+            continue;
+        }
+        assert!(
+            cells.get(rel) == Some(bytes),
+            "a kept row's reference to a left-out record must change no byte of {rel}: the plain \
+             base and the base with those cells must render it identically"
+        );
+    }
+}
+
+/// Assert that `report` holds exactly the three dangling references (FB0207) that the cells of
+/// [`name_canaries_from_kept_rows`] make on a tree without the canary rows, and nothing else, of
+/// any severity.
+pub fn assert_only_dangling_references(report: &fieldbook_core::check::Report) {
+    assert_report_codes(
+        report,
+        &[
+            ("FB0207", Severity::Error),
+            ("FB0207", Severity::Error),
+            ("FB0207", Severity::Error),
+        ],
+    );
+}
+
+/// Assert that `report` holds exactly the findings `expected`, as (code, severity) pairs in any
+/// order, so no other finding of any severity is tolerated.
+pub fn assert_report_codes(report: &fieldbook_core::check::Report, expected: &[(&str, Severity)]) {
+    let mut found: Vec<(String, bool)> = report
+        .diagnostics
+        .iter()
+        .map(|d| (d.code.to_string(), d.severity == Severity::Error))
+        .collect();
+    let mut want: Vec<(String, bool)> = expected
+        .iter()
+        .map(|(code, severity)| ((*code).to_owned(), *severity == Severity::Error))
+        .collect();
+    found.sort();
+    want.sort();
+    let rendered: Vec<String> = report.diagnostics.iter().map(|d| d.render_text()).collect();
+    assert_eq!(found, want, "unexpected findings:\n{}", rendered.join("\n"));
 }

@@ -19,7 +19,7 @@
 ## Scope
 
 - Files: `crates/fieldbook/src/{cli.rs,verify.rs}`, `crates/fieldbook-core/src/verify.rs`, `crates/fieldbook/tests/verify.rs`, `crates/fieldbook/tests/chips.rs`.
-- Registration lines: `tests/support/chip_cases.rs` (the `fieldbook verify` case with its `Terminal` expectation, this card's entry only); `crates/fieldbook-core/src/lib.rs` (the verify module line); the quick start line of `README.md` (the owner verifies with `fieldbook verify`); `crates/fieldbook/tests/cli.rs` (remove `verify` from `NOT_BUILT`, this card's verb only); `crates/fieldbook/src/lib.rs` (the `mod verify;` line and the dispatch arm of `verify`, this card's entries only).
+- Registration lines: `tests/support/chip_cases.rs` (the `fieldbook verify` case with its `Terminal` expectation, this card's entry only); `crates/fieldbook-core/src/lib.rs` (the verify module line); the quick start line of `README.md` (the owner verifies with `fieldbook verify`); `crates/fieldbook/tests/cli.rs` (remove `verify` from `NOT_BUILT`, this card's verb only); `crates/fieldbook/src/lib.rs` (the `mod verify;` line and the dispatch arm of `verify`, this card's entries only); `crates/fieldbook-render/src/chip.rs` (the value `VERIFY_LANDED`, step 12) and the reader-page snapshots it changes.
 - Docs to update: `README.md` (one line: the owner verifies with `fieldbook verify`), `CHANGELOG.md` (`- Added: the verify command, for the owner at a terminal.`), `docs/reference/cli.md` (generated: run `cargo xtask docs`, never hand-edit).
 
 ## Out of scope
@@ -50,6 +50,8 @@
 10. For verify, OperationKey binds the claim reference and store. The request hash binds the requested status, role, explicit date option and hashes of the originally displayed evidence and confirmation; absent date is a fixed absent field, while planned_on preserves the first planning date. pending_intent is checked before eligibility/no-op branches, then recover verifies the full reconstructed claim-row plan. A rerun must obtain the same interactive confirmation; changed evidence or role refuses.
 
 11. `verify_refuses_unsupported_extension` calls `verify::plan` with a structurally valid unknown locator and requires refusal while the locator is unavailable, preserving its kind/payload for display.
+
+12. Set `VERIFY_LANDED` in `crates/fieldbook-render/src/chip.rs` to `true`. The overdue fold then shows the chip on each row in place of its landing line; the page code and both branches are already built and tested, so change nothing else there. `verify_landed_matches_the_command_line` in `crates/fieldbook/tests/chips.rs` fails until the verb and the value agree. Accept only the reader-page snapshots this changes, and read each changed line.
 
 ## Acceptance
 

@@ -24,7 +24,7 @@ use fieldbook::{Error, World};
 use fieldbook_core::CivilDate;
 use fieldbook_core::audit::{DestKind, Event, EventPayload, Kind, LabelId, LabelSet, Via, Word};
 use fieldbook_core::authz::ReadableStores;
-use fieldbook_core::check::{Code, Host, Options, load};
+use fieldbook_core::check::{Code, Host, Options, Severity, load};
 use fieldbook_core::egress::{Decision, Dest, LabelledView, Shipped, check};
 use fieldbook_core::labels::PUBLIC;
 use fieldbook_core::policy::EffectivePolicy;
@@ -867,7 +867,7 @@ mod build {
         let view = LabelledView::new(&model, &sel, &ReadableStores::corpus());
         let ctx =
             site::render_context(&view, &BuildInfo::default()).unwrap_or_else(|e| panic!("{e}"));
-        let mut site = site::render_with_context(&view, &ctx);
+        let mut site = site::render_with_context(&view, &ctx, BuildProfile::Silent);
         site.insert(
             "bad.html",
             format!(
@@ -1081,8 +1081,19 @@ mod build {
         };
         let view_base = LabelledView::new(&model_base, &sel, &ReadableStores::corpus());
 
+        // The base with the kept-row cells that name the canaries: the permitted view keeps those
+        // cells verbatim, so this tree, not the plain base, is what the mixed tree must equal.
+        // Its references dangle (FB0207), and nothing else may be reported.
+        let mut tree_cells = tree_base.clone();
+        support::name_canaries_from_kept_rows(&mut tree_cells);
+        let (model_cells, report_cells) =
+            load(&Host::new(tree_cells, world.today()), &Options::new(false));
+        support::assert_only_dangling_references(&report_cells);
+        let view_cells = LabelledView::new(&model_cells, &sel, &ReadableStores::corpus());
+        assert_eq!(view_cells.left_out(), 0);
+
         // Add forbidden (`np-0007`) register rows (source S-0099 and its dependent claim, conflict
-        // and glossary term) and a page to a mixed tree.
+        // and glossary term), the kept-row cells that name them, and a page to a mixed tree.
         let mut tree_mixed = tree_base;
         support::add_canary_register_rows(&mut tree_mixed);
         tree_mixed.insert_bytes(
@@ -1091,10 +1102,32 @@ mod build {
                 .to_vec(),
         );
 
-        // The loader reports the repository-Corpus handling errors of the canary rows (FB0410) but
-        // still builds the model, which is what the permitted view must filter.
-        let (model_mixed, _report_mixed) =
+        // The left-out source version's extracted text: the view must leave its folder out.
+        tree_mixed.insert_bytes(
+            "corpus/sources/text/S-0099-v1/p0001.txt",
+            b"Forbidden extracted text canary.\n".to_vec(),
+        );
+
+        // The loader reports the repository-Corpus handling errors of the canary source and page
+        // (FB0410) and the canary claim left on the version that the kept `S-0001` supersedes
+        // (FB0222), and nothing else, but still builds the model the permitted view must filter.
+        let (model_mixed, report_mixed) =
             load(&Host::new(tree_mixed, world.today()), &Options::new(false));
+        support::assert_report_codes(
+            &report_mixed,
+            &[
+                ("FB0410", Severity::Error),
+                ("FB0410", Severity::Error),
+                ("FB0222", Severity::Warning),
+            ],
+        );
+        assert!(
+            model_mixed
+                .tree()
+                .get_bytes("corpus/sources/text/S-0099-v1/p0001.txt")
+                .is_some(),
+            "the model holds the text folder the view must leave out"
+        );
         let view_mixed = LabelledView::new(&model_mixed, &sel, &ReadableStores::corpus());
         assert!(view_mixed.left_out() >= 5);
 
@@ -1103,6 +1136,18 @@ mod build {
             &view_base,
             &BuildInfo::default(),
             &out_base,
+            &eff,
+            &LabelSet::public(),
+            now,
+            shipped,
+        )
+        .unwrap_or_else(|e| panic!("{e:?}"))
+        .unwrap_or_else(|d| panic!("{d:?}"));
+
+        let plan_cells = plan_edition(
+            &view_cells,
+            &BuildInfo::default(),
+            &tmp.path().join("out-reg-cells"),
             &eff,
             &LabelSet::public(),
             now,
@@ -1174,8 +1219,18 @@ mod build {
         }
         assert_eq!(
             plan_mixed.site.files(),
+            plan_cells.site.files(),
+            "forbidden register rows and pages must not change any site byte, edition.toml and its fingerprint included"
+        );
+        // The cells base differs from the plain base only by the kept-row cells that name
+        // left-out records; every page but the manifest must match the plain base, as on main.
+        support::assert_plain_site_equals_cells_site(
             plan_base.site.files(),
-            "forbidden register rows and pages must not change any register page, ids.html, or sidebar/header count"
+            plan_cells.site.files(),
+        );
+        assert_eq!(
+            plan_mixed.originals, plan_cells.originals,
+            "forbidden register rows must not change the originals"
         );
 
         // The real build handler selects and views the records itself. Its delivered register
@@ -1974,10 +2029,213 @@ mod build {
         );
     }
 
-    #[test]
-    fn build_home_and_areas_counts_use_the_permitted_view() {
-        let tmp = temp_copy(&fixture_root());
-        let root = tmp.path();
+    /// Records whose own handling is public but which name a record the ledger leaves out, so the
+    /// view must leave them out through the dependency alone: one brief per page reference (a
+    /// term, a question, a conflict, a cited claim and a linked page), a claim whose `conflict_id`
+    /// is the left-out conflict, a claim superseded by the left-out claim, a term labelled
+    /// `np-0007` by the ledger that cites only kept records, and three conflicts whose `evidence`
+    /// names the left-out claim or the left-out source version `S-0098-v1`, or whose
+    /// `question_id` is the left-out question. Every id starts `est-dep-`, `CL-CMP-009`,
+    /// `XC-9`, `S-0098` or `forbidden_`, and every text starts `Forbidden` or `Dependent`.
+    fn plant_public_records_that_name_left_out_ones(root: &Path) {
+        let read = |rel: &str| {
+            std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
+        };
+        let write = |rel: &str, text: String| {
+            std::fs::write(root.join(rel), text).unwrap_or_else(|e| panic!("{rel}: {e}"));
+        };
+        let claims = read("corpus/registers/claims.csv");
+        let header: Vec<&str> = claims
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("claims header"))
+            .split(',')
+            .collect();
+        // CL-CMP-0002 has no quoted cell, so a plain split keeps its columns.
+        let template: Vec<&str> = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0002,"))
+            .unwrap_or_else(|| panic!("fixture claim"))
+            .split(',')
+            .collect();
+        assert_eq!(template.len(), header.len());
+        let claim_row = |cells: &[(&str, &str)]| {
+            header
+                .iter()
+                .zip(&template)
+                .map(|(col, cell)| {
+                    cells
+                        .iter()
+                        .find(|(name, _)| name == col)
+                        .map_or(*cell, |(_, v)| *v)
+                })
+                .collect::<Vec<_>>()
+                .join(",")
+        };
+        let superseded = claim_row(&[
+            ("claim_id", "CL-CMP-0096"),
+            ("statement", "Dependent superseded claim canary statement."),
+            ("applicability", "not_applicable"),
+            (
+                "adoption",
+                fieldbook_core::schema::Adoption::Superseded.as_str(),
+            ),
+            ("superseded_by", "CL-CMP-0098"),
+            ("question_id", ""),
+        ]);
+        let in_conflict = claim_row(&[
+            ("claim_id", "CL-CMP-0097"),
+            ("statement", "Dependent conflict claim canary statement."),
+            ("conflict_id", "XC-98"),
+            ("question_id", ""),
+        ]);
+        let left_out_claim = claims
+            .lines()
+            .find(|l| l.starts_with("CL-CMP-0098,"))
+            .unwrap_or_else(|| panic!("the left-out claim is planted first"));
+        let supersedes = header
+            .iter()
+            .position(|c| *c == "supersedes")
+            .unwrap_or_else(|| panic!("supersedes column"));
+        let mut cells: Vec<&str> = left_out_claim.split(',').collect();
+        cells[supersedes] = "CL-CMP-0096";
+        let claims = claims.replace(
+            &format!("\n{left_out_claim}\n"),
+            &format!("\n{superseded}\n{in_conflict}\n{}\n", cells.join(",")),
+        );
+        assert!(
+            claims.contains("\nCL-CMP-0096,"),
+            "the dependent claims are planted"
+        );
+        write("corpus/registers/claims.csv", claims);
+        // The conflict lists the claim that names it, as the format requires.
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let left_out_conflict = conflicts
+            .lines()
+            .find(|l| l.starts_with("XC-98,"))
+            .unwrap_or_else(|| panic!("the left-out conflict is planted first"));
+        write(
+            "corpus/registers/conflicts.csv",
+            conflicts.replace(
+                left_out_conflict,
+                &left_out_conflict.replace(
+                    ",CL-CMP-0001|CL-CMP-0002,",
+                    ",CL-CMP-0001|CL-CMP-0002|CL-CMP-0097,",
+                ),
+            ),
+        );
+        // A source version the ledger leaves out (`S-0098-v1`), so a conflict can name it as
+        // evidence. It is metadata-only, so it ships no original.
+        let sources = read("corpus/registers/sources.csv");
+        let sources_header = sources
+            .lines()
+            .next()
+            .unwrap_or_else(|| panic!("sources header"));
+        let left_out_version = support::register_row(
+            sources_header,
+            &[
+                ("source_id", "S-0098"),
+                ("version", "1"),
+                ("tag", "forbidden-dep-source"),
+                (
+                    "title",
+                    "Forbidden dependent source canary, made up for tests",
+                ),
+                ("publisher", "Synthetic Standards Board"),
+                ("source_kind", "trade_press"),
+                ("source_role", "accepted_interpretation"),
+                ("authority_tier", "D"),
+                ("licence", "Synthetic, no restrictions"),
+                ("location", "metadata-only: made up for tests"),
+                ("sha256", &"8".repeat(64)),
+                ("published", "2026-01-25"),
+                ("as_of", "2026-02-01"),
+                ("retrieved", "2026-02-01"),
+                ("lifecycle", "active"),
+                ("volatility", "V2"),
+                ("handling", "public"),
+                ("note", "Forbidden dependent source note."),
+                ("purpose", "Forbidden dependent source purpose"),
+            ],
+        );
+        write(
+            "corpus/registers/sources.csv",
+            support::splice_register_row(&sources, &left_out_version, None),
+        );
+        // Public conflicts that name a left-out record outside `claim_ids`: one resolved on the
+        // left-out claim, one resolved on the left-out source version, and one whose open question
+        // is the left-out question. Each sorts before the left-out conflict `XC-98`.
+        let conflicts = read("corpus/registers/conflicts.csv");
+        let dependent_conflicts = [
+            "XC-95,est,Dependent evidence claim conflict canary,Dependent first claim position|Dependent second claim position,Dependent claim resolution.,Dependent claim rationale.,CL-CMP-0098,2026-02-01,resolved,CL-CMP-0001|CL-CMP-0002,",
+            "XC-96,est,Dependent evidence version conflict canary,Dependent first version position|Dependent second version position,Dependent version resolution.,Dependent version rationale.,S-0098-v1,2026-02-01,resolved,CL-CMP-0001|CL-CMP-0002,",
+            "XC-97,est,Dependent question conflict canary,Dependent first question position|Dependent second question position,,,,,unresolved,CL-CMP-0001|CL-CMP-0002,Q-098",
+        ]
+        .join("\n");
+        assert!(
+            conflicts.contains("\nXC-98,"),
+            "the left-out conflict is planted first"
+        );
+        write(
+            "corpus/registers/conflicts.csv",
+            support::splice_register_row(&conflicts, &dependent_conflicts, Some("XC-98,")),
+        );
+        let glossary = read("corpus/registers/glossary.csv");
+        write(
+            "corpus/registers/glossary.csv",
+            glossary.replace(
+                "\nrate_window,",
+                "\nforbidden_window,forbidden window,Forbidden glossary canary definition.,Forbidden glossary canary boundary.,est,CL-EST-0003,public_reference,,\nrate_window,",
+            ),
+        );
+        let brief = read("corpus/pages/estimating/pricing/est-rate-window-brief.md");
+        let page = |slug: &str, from: &str, to: &str| {
+            let text = brief
+                .replace(
+                    "id = \"est-rate-window-brief\"",
+                    &format!("id = \"est-dep-{slug}\""),
+                )
+                .replace(
+                    "title = \"Synthetic decision brief on forward pricing rate review window\"",
+                    &format!("title = \"Dependent {slug} canary\""),
+                );
+            assert!(text.contains(from), "the brief holds `{from}`");
+            write(
+                &format!("corpus/pages/estimating/pricing/est-dep-{slug}.md"),
+                text.replace(from, to),
+            );
+        };
+        page(
+            "term",
+            "terms = [\"rate_window\", \"cost_baseline\"]",
+            "terms = [\"rate_window\", \"cost_baseline\", \"forbidden_window\"]",
+        );
+        page(
+            "question",
+            "questions = [\"Q-002\"]",
+            "questions = [\"Q-002\", \"Q-098\"]",
+        );
+        page(
+            "conflict",
+            "questions = [\"Q-002\"]",
+            "questions = [\"Q-002\"]\nconflicts = [\"XC-98\"]",
+        );
+        page(
+            "cite",
+            "3 percent per year [@CL-EST-0001].",
+            "3 percent per year [@CL-EST-0001] [@CL-CMP-0098].",
+        );
+        page(
+            "link",
+            "links = [\"cmp-system-review\"]",
+            "links = [\"cmp-system-review\", \"est-forbidden-brief\"]",
+        );
+    }
+
+    /// Plants a disallowed claim, question, conflict, brief and term in `root`, and the public
+    /// records that name them, runs the real build handler, and returns the delivered edition
+    /// folder.
+    fn deliver_with_disallowed_records(root: &Path) -> PathBuf {
         let read = |rel: &str| {
             std::fs::read_to_string(root.join(rel)).unwrap_or_else(|e| panic!("{rel}: {e}"))
         };
@@ -2037,12 +2295,13 @@ mod build {
                     "title = \"Forbidden brief canary\"",
                 ),
         );
+        plant_public_records_that_name_left_out_ones(root);
         // The regression set refuses to index a tree that holds a ledger (FB0126).
         std::fs::remove_file(root.join("corpus/eval/regression.toml"))
             .unwrap_or_else(|e| panic!("{e}"));
         let world = LedgerWorld {
             inner: TestWorld::new(root),
-            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n",
+            ledger: "seq,item_id,kind,labels,origin\n1,CL-CMP-0098,add,np-0007,person\n2,Q-098,add,np-0007,person\n3,XC-98,add,np-0007,person\n4,est-forbidden-brief,add,np-0007,person\n5,forbidden_window,add,np-0007,person\n6,S-0098-v1,add,np-0007,person\n",
         };
 
         let tree = world.read_tree().unwrap_or_else(|e| panic!("{e}"));
@@ -2059,17 +2318,162 @@ mod build {
                     .any(|p| p.id.as_str() == "est-forbidden-brief"),
             "the model holds the records the view must leave out"
         );
+        for page in [
+            "est-dep-term",
+            "est-dep-question",
+            "est-dep-conflict",
+            "est-dep-cite",
+            "est-dep-link",
+        ] {
+            assert!(
+                model.pages().iter().any(|p| p.id.as_str() == page),
+                "the model holds the dependent page `{page}`"
+            );
+        }
+        for claim in ["CL-CMP-0096", "CL-CMP-0097"] {
+            assert!(
+                model
+                    .claims()
+                    .iter()
+                    .any(|c| c.value.claim_id.as_str() == claim),
+                "the model holds the dependent claim `{claim}`"
+            );
+        }
+        for conflict in ["XC-95", "XC-96", "XC-97"] {
+            assert!(
+                model
+                    .conflicts()
+                    .iter()
+                    .any(|x| x.value.conflict_id.as_str() == conflict),
+                "the model holds the dependent conflict `{conflict}`"
+            );
+        }
+        assert!(
+            model
+                .sources()
+                .iter()
+                .any(|s| s.value.source_id.as_str() == "S-0098"),
+            "the model holds the left-out source version"
+        );
+        assert!(
+            model
+                .glossary()
+                .iter()
+                .any(|t| t.value.term_id.as_str() == "forbidden_window"),
+            "the model holds the left-out term"
+        );
 
-        let out_dir = root.join("out-home-areas");
+        deliver(&world, &root.join("out-home-areas")).join("edition")
+    }
+
+    /// Runs the real build handler of `world` into `out_dir` and returns `out_dir`.
+    fn deliver(world: &LedgerWorld, out_dir: &Path) -> PathBuf {
         let outcome = run_with_info(
             &BuildArgs {
-                out: out_dir.clone(),
+                out: out_dir.to_path_buf(),
             },
-            &world,
+            world,
             &BuildInfo::default(),
         );
         assert_eq!(outcome.code, 0, "stderr: {}", outcome.stderr);
-        let edition = out_dir.join("edition");
+        out_dir.to_path_buf()
+    }
+
+    /// Records the overlay ledger leaves out, a brief whose own handling is public among them,
+    /// change no delivered byte: every edition file, `edition.toml` and its fingerprint included,
+    /// and every original equal those of the same Corpus without the records.
+    #[test]
+    fn build_ledger_left_out_records_change_no_delivered_byte() {
+        let tmp_base = temp_copy(&fixture_root());
+        // The regression set refuses to index a tree that holds a ledger (FB0126).
+        std::fs::remove_file(tmp_base.path().join("corpus/eval/regression.toml"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let base_world = LedgerWorld {
+            inner: TestWorld::new(tmp_base.path()),
+            ledger: "seq,item_id,kind,labels,origin\n",
+        };
+        let tree = base_world.read_tree().unwrap_or_else(|e| panic!("{e}"));
+        let (_model, report) = load(&Host::new(tree, base_world.today()), &Options::new(false));
+        assert!(report.is_ok(), "the base preflight must pass: {report:?}");
+        let base_out = deliver(&base_world, &tmp_base.path().join("out-ledger"));
+
+        let tmp_mixed = temp_copy(&fixture_root());
+        let mixed_edition = deliver_with_disallowed_records(tmp_mixed.path());
+        assert!(
+            tmp_mixed
+                .path()
+                .join("corpus/pages/estimating/pricing/est-forbidden-brief.md")
+                .is_file(),
+            "the left-out brief is in the Corpus the build reads"
+        );
+        let mixed_out = mixed_edition
+            .parent()
+            .unwrap_or_else(|| panic!("the edition folder has a parent"));
+
+        let base_edition = collect_tree_bytes(&base_out.join("edition"));
+        assert!(base_edition.contains_key("edition.toml"));
+        assert_eq!(
+            collect_tree_bytes(&mixed_edition),
+            base_edition,
+            "left-out records must change no edition byte, edition.toml and its fingerprint included"
+        );
+        assert_eq!(
+            collect_tree_bytes(&mixed_out.join("originals")),
+            collect_tree_bytes(&base_out.join("originals")),
+            "left-out records must change no shipped original"
+        );
+    }
+
+    #[test]
+    fn build_about_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let edition = deliver_with_disallowed_records(tmp.path());
+        let about = std::fs::read_to_string(edition.join("about.html"))
+            .unwrap_or_else(|e| panic!("the handler must deliver about.html: {e}"));
+        for shown in [
+            "<dt>Pages</dt><dd class=\"mono\">9</dd>",
+            "<dt>Claims</dt><dd class=\"mono\">5</dd>",
+            "<dt>Pages draft</dt><dd class=\"mono\">9</dd>",
+            "<dt>Pages stable</dt><dd class=\"mono\">0</dd>",
+            "<dt>Originals</dt><dd class=\"mono\">1</dd>",
+            "<dt>Claims unchecked</dt><dd class=\"mono\">4</dd>",
+            "This edition holds public only.",
+            "silent build",
+            "CL-CMP-0002",
+        ] {
+            assert!(about.contains(shown), "about.html must show `{shown}`");
+        }
+        let toml = std::fs::read_to_string(edition.join("edition.toml"))
+            .unwrap_or_else(|e| panic!("the handler must deliver edition.toml: {e}"));
+        let parsed = fieldbook_core::edition::EditionInfo::parse(&toml)
+            .unwrap_or_else(|e| panic!("edition.toml must parse: {e}"));
+        assert_eq!(parsed.counts.pages, 9);
+        assert_eq!(parsed.counts.claims, 5);
+        assert_eq!(parsed.counts.originals, 1);
+        assert!(!parsed.ids.claims.iter().any(|id| id == "CL-CMP-0098"));
+        assert!(
+            !parsed
+                .ids
+                .pages
+                .iter()
+                .any(|id| id == "est-forbidden-brief")
+        );
+        for needle in [
+            "CL-CMP-0098",
+            "Forbidden claim canary statement.",
+            "Q-098",
+            "XC-98",
+            "est-forbidden-brief",
+        ] {
+            assert!(!about.contains(needle), "about.html holds `{needle}`");
+            assert!(!toml.contains(needle), "edition.toml holds `{needle}`");
+        }
+    }
+
+    #[test]
+    fn build_home_and_areas_counts_use_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        let edition = deliver_with_disallowed_records(tmp.path());
         assert_permitted_home_and_areas(&edition);
         for (rel, bytes) in collect_tree_bytes(&edition) {
             let text = String::from_utf8_lossy(&bytes);
@@ -2082,6 +2486,17 @@ mod build {
                 "Forbidden conflict canary topic",
                 "est-forbidden-brief",
                 "Forbidden brief canary",
+                "est-dep-",
+                "Dependent ",
+                "CL-CMP-0096",
+                "CL-CMP-0097",
+                "forbidden_window",
+                "Forbidden glossary canary",
+                "XC-95",
+                "XC-96",
+                "XC-97",
+                "S-0098",
+                "Forbidden dependent source",
             ] {
                 assert!(
                     !text.contains(needle),
@@ -2243,5 +2658,260 @@ mod build {
                 "S-0097",
             ],
         );
+    }
+
+    /// The delivered `assets/search-index.js` of `edition`, parsed: the JSON between
+    /// `window.FB_INDEX = ` and `;`, and the raw text.
+    fn delivered_search_index(edition: &Path) -> (serde_json::Value, String) {
+        let text = std::fs::read_to_string(edition.join("assets/search-index.js"))
+            .unwrap_or_else(|e| panic!("the handler must deliver assets/search-index.js: {e}"));
+        let json = text
+            .strip_prefix("window.FB_INDEX = ")
+            .and_then(|s| s.strip_suffix(';'))
+            .unwrap_or_else(|| panic!("the index must be `window.FB_INDEX = <json>;`"));
+        let value = serde_json::from_str(json).unwrap_or_else(|e| panic!("index JSON: {e}"));
+        (value, text)
+    }
+
+    /// The unit ids of the delivered index, in unit-number order.
+    fn index_doc_ids(index: &serde_json::Value) -> Vec<String> {
+        index["docs"]
+            .as_array()
+            .unwrap_or_else(|| panic!("docs"))
+            .iter()
+            .map(|d| d[0].as_str().unwrap_or_else(|| panic!("doc id")).to_owned())
+            .collect()
+    }
+
+    /// The ids of the units that `term`'s postings name, resolved through the delivered unit
+    /// table, or `None` when the index has no such term.
+    fn posting_ids(index: &serde_json::Value, term: &str) -> Option<Vec<String>> {
+        let ids = index_doc_ids(index);
+        let terms = index["terms"].as_array().unwrap_or_else(|| panic!("terms"));
+        let at = terms.iter().position(|t| t == term)?;
+        let post = index["post"][at]
+            .as_array()
+            .unwrap_or_else(|| panic!("post"));
+        Some(
+            post.chunks(2)
+                .map(|pair| {
+                    let unit = pair[0].as_u64().unwrap_or_else(|| panic!("unit number"));
+                    ids[usize::try_from(unit).unwrap_or(usize::MAX)].clone()
+                })
+                .collect(),
+        )
+    }
+
+    /// The delivered index holds the permitted page and section units, their snippets and
+    /// postings, and no record the view leaves out, no held version and no unit of another kind.
+    #[test]
+    fn build_search_index_uses_the_permitted_view() {
+        let tmp = temp_copy(&fixture_root());
+        add_version(
+            tmp.path(),
+            "0005",
+            1,
+            Some(("S-0005-v1.pdf", PDF_BYTES)),
+            "quarantined",
+            "Held for test heldsearchcanary.",
+        );
+        let edition = deliver_with_disallowed_records(tmp.path());
+        let (index, text) = delivered_search_index(&edition);
+        let ids = index_doc_ids(&index);
+
+        // Permitted presence stays required: page leads, sections, a clause card, a snippet and
+        // the postings of a permitted word.
+        for id in [
+            "cmp-system-review",
+            "cmp-system-review#purpose",
+            "cmp-system-review#the-rule",
+            "est-rate-window-brief",
+            "est-rate-window-brief#recommendation",
+            "cmp-clause-9900-101",
+        ] {
+            assert!(
+                ids.iter().any(|d| d == id),
+                "permitted unit {id} must be indexed"
+            );
+        }
+        let docs = index["docs"].as_array().unwrap_or_else(|| panic!("docs"));
+        let lead = docs
+            .iter()
+            .find(|d| d[0] == "cmp-system-review")
+            .unwrap_or_else(|| panic!("lead"));
+        assert_eq!(
+            lead[4],
+            "Explain how a synthetic system review interacts with a synthetic billing withhold.",
+            "the permitted lead snippet"
+        );
+        let clause = docs
+            .iter()
+            .find(|d| d[0] == "cmp-clause-9900-101")
+            .unwrap_or_else(|| panic!("clause"));
+        assert_eq!(clause[1], "clause");
+        let reviewers =
+            posting_ids(&index, "reviewers").unwrap_or_else(|| panic!("a permitted term"));
+        assert!(
+            reviewers
+                .iter()
+                .any(|id| id == "cmp-system-review#how-it-works"),
+            "the postings of `reviewers` must name the permitted section: {reviewers:?}"
+        );
+
+        // Forbidden: no record the view leaves out, no held version, no unit of another kind.
+        for id in &ids {
+            for forbidden in [
+                "est-forbidden-brief",
+                "est-dep-",
+                "CL-CMP-009",
+                "Q-098",
+                "XC-9",
+                "S-0098",
+                "S-0005",
+                "forbidden_window",
+            ] {
+                assert!(!id.starts_with(forbidden), "unit {id} must not be indexed");
+            }
+            for other_kind in [
+                "CL-CMP-0001",
+                "S-0002-v2",
+                "Q-001",
+                "XC-01",
+                "system_review",
+            ] {
+                assert_ne!(id, other_kind, "a {other_kind} unit must not be indexed");
+            }
+        }
+        for doc in docs {
+            assert!(doc[1] == "page" || doc[1] == "clause", "{doc}");
+        }
+        for needle in [
+            "Forbidden",
+            "Dependent ",
+            "est-forbidden-brief",
+            "est-dep-",
+            "CL-CMP-0098",
+            "Q-098",
+            "XC-98",
+            "S-0098",
+            "S-0005",
+            "heldsearchcanary",
+            "np-0007",
+        ] {
+            assert!(!text.contains(needle), "the index holds `{needle}`");
+        }
+        // The unique words of the left-out and held records are not terms.
+        for term in [
+            "forbidden",
+            "dependent",
+            "canary",
+            "heldsearchcanary",
+            "s-0005-v1",
+        ] {
+            assert_eq!(
+                posting_ids(&index, term),
+                None,
+                "`{term}` must not be a term of the index"
+            );
+        }
+    }
+
+    /// The `id` attributes of the `<h2>` and `<h3>` headings of `html`.
+    fn heading_ids(html: &str) -> Vec<String> {
+        let mut out = Vec::new();
+        for tag in ["<h2 ", "<h3 "] {
+            for chunk in html.split(tag).skip(1) {
+                let head = chunk.split('>').next().unwrap_or_default();
+                if let Some(rest) = head.split("id=\"").nth(1) {
+                    out.push(rest.split('"').next().unwrap_or_default().to_owned());
+                }
+            }
+        }
+        out
+    }
+
+    /// Every section fragment of the delivered index equals a heading id of the delivered page,
+    /// with a repeated heading and a non-ASCII heading on the page; and a two-sentence Purpose
+    /// gives the lead its first paragraph while summaries use its first sentence.
+    #[test]
+    fn search_section_links_resolve_to_rendered_headings() {
+        let tmp = temp_copy(&fixture_root());
+        let path = tmp
+            .path()
+            .join("corpus/pages/compliance/business-systems/cmp-system-review.md");
+        let page = std::fs::read_to_string(&path).unwrap_or_else(|e| panic!("{e}"));
+        let page = page.replace(
+            "## Purpose\n\nExplain how a synthetic system review interacts with a synthetic billing withhold.\n",
+            "## Purpose\n\nExplain how a synthetic system review interacts with a synthetic billing withhold. A second synthetic sentence names the review cycle.\n\n### The rule\n\nA synthetic subheading that repeats a part heading.\n\n### Résumé übersicht\n\nA synthetic subheading with non-ASCII letters.\n",
+        );
+        assert!(
+            page.contains("### Résumé übersicht"),
+            "the fixture edit applies"
+        );
+        std::fs::write(&path, page).unwrap_or_else(|e| panic!("{e}"));
+
+        let output = run_bin(tmp.path(), &[], &["build"]);
+        assert_eq!(
+            output.status.code(),
+            Some(0),
+            "stderr:\n{}",
+            stderr_of(&output)
+        );
+        let edition = tmp.path().join("out/edition");
+        let (index, _text) = delivered_search_index(&edition);
+        let ids = index_doc_ids(&index);
+
+        let mut sections = 0usize;
+        for id in &ids {
+            let Some((page_id, fragment)) = id.split_once('#') else {
+                continue;
+            };
+            sections += 1;
+            let html = std::fs::read_to_string(edition.join(format!("p/{page_id}.html")))
+                .unwrap_or_else(|e| panic!("p/{page_id}.html: {e}"));
+            let headings = heading_ids(&html);
+            assert!(
+                headings.iter().any(|h| h == fragment),
+                "section {id} must link to a rendered heading of p/{page_id}.html: {headings:?}"
+            );
+        }
+        assert!(sections > 0, "the index holds section units");
+
+        // The repeated heading moves the part's anchor on, in the index and on the page alike.
+        let review = std::fs::read_to_string(edition.join("p/cmp-system-review.html"))
+            .unwrap_or_else(|e| panic!("{e}"));
+        let review_headings = heading_ids(&review);
+        assert!(
+            ids.iter().any(|id| id == "cmp-system-review#the-rule-2"),
+            "{ids:?}"
+        );
+        assert!(
+            !ids.iter().any(|id| id == "cmp-system-review#the-rule"),
+            "{ids:?}"
+        );
+        for anchor in ["the-rule", "the-rule-2", "résumé-übersicht"] {
+            assert!(
+                review_headings.iter().any(|h| h == anchor),
+                "p/cmp-system-review.html must render the heading id `{anchor}`: {review_headings:?}"
+            );
+        }
+
+        // The lead snippet is Purpose's first paragraph, both sentences, under 160 code points.
+        let docs = index["docs"].as_array().unwrap_or_else(|| panic!("docs"));
+        let lead = docs
+            .iter()
+            .find(|d| d[0] == "cmp-system-review")
+            .unwrap_or_else(|| panic!("lead"));
+        assert_eq!(
+            lead[4],
+            "Explain how a synthetic system review interacts with a synthetic billing withhold. A second synthetic sentence names the review cycle."
+        );
+        // A summary uses the first sentence only.
+        let area =
+            std::fs::read_to_string(edition.join("a/cmp.html")).unwrap_or_else(|e| panic!("{e}"));
+        assert!(area.contains(
+            "Explain how a synthetic system review interacts with a synthetic billing withhold."
+        ));
+        assert!(!area.contains("A second synthetic sentence"));
     }
 }

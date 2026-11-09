@@ -11,6 +11,7 @@ expression: html
 <title>Synthetic compliance onboarding checklist across two windows</title>
 <link rel="stylesheet" href="../assets/app.css">
 <script src="../assets/strings.js" defer></script>
+<script src="../assets/search.js" defer></script>
 <script src="../assets/app.js" defer></script>
 </head>
 <body>
@@ -298,6 +299,7 @@ expression: html
       <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
       <span><b>Public data only.</b> Company data is not connected.</span>
     </div>
+    <button class="btn ghost sm keys-link" id="fb:keysBtn" type="button" hidden>Keyboard shortcuts <kbd>?</kbd></button>
     <div class="byline">
       <span>A personal working tool. Not an official company product.</span>
     </div>
@@ -336,7 +338,8 @@ expression: html
     
   </nav>
   <div class="topbar-end">
-    <span class="chip">unreleased build</span>
+    <a class="searchbox" id="fb:searchBtn" href="../ids.html"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.4 10.4L14 14"/></svg><span>Search the library</span></a>
+    <a class="build-date-link" href="../about.html"><span class="sr-only">About this edition: </span><span class="chip">unreleased build</span></a>
     <span class="build-chip" id="fb:frameChip" title="This build reads the public library only. Company data is not connected.">
       <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
       <span>Public data only</span>
@@ -373,6 +376,10 @@ expression: html
   <article class="prose">
     <div class="banner warn" id="fb:overdueBanner" role="region" aria-label="Review notice" data-review-by="2026-07-31" hidden>
       <div class="body"><b>Review overdue.</b> Review date <time datetime="2026-07-31">2026-07-31</time> has passed; re-check cited sources before relying on this page.</div>
+      <div class="due-claims" hidden><details class="fold"><summary><b>Claims due for a check</b> <span class="due-count mono"></span></summary><section class="unavailable" role="note">
+  <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
+  <p><b>The verify command is not available until Day 30.</b></p>
+</section><ul><li class="due-claim" data-claim-review-by="2026-08-09" hidden><span class="cite neutral" data-claim="CL-CMP-0001">CL-CMP-0001</span> <span class="meta">Review date <time datetime="2026-08-09">2026-08-09</time></span></li><li class="due-claim" data-claim-review-by="2026-07-31" hidden><span class="cite neutral" data-claim="CL-CMP-0002">CL-CMP-0002</span> <span class="meta">Review date <time datetime="2026-07-31">2026-07-31</time></span></li></ul></details></div>
     </div>
     
     <div class="banner" role="region" aria-label="Readiness notice">
@@ -695,6 +702,8 @@ expression: html
 </div>
 </div>
 <div class="scrim" id="fb:scrim" hidden></div>
+<dialog class="palette" id="fb:palette" aria-label="Search the library"></dialog>
+<dialog class="dlg" id="fb:keys" aria-label="Keyboard shortcuts"></dialog>
 <div class="toast" id="fb:toast" role="status" aria-live="polite" hidden></div>
 <div class="sr-only" id="fb:sr" aria-live="polite"></div>
 </body>
