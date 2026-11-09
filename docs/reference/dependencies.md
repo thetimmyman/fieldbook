@@ -319,6 +319,7 @@ Used only by the hosted-edition deploy step ([ADR 0007](../decisions/0007-hosted
 | Tool | Version (released) | Joins | Note |
 |---|---|---|---|
 | `wrangler` | 4.153.0 (2026-10-26) | Card `hosted-deploy` | Deploys the staged edition as Worker static assets; deploy-time only. Pinned exactly in `deploy/package.json` with an integrity-hashed `deploy/package-lock.json` (lockfile version 3), installed with `npm ci --ignore-scripts`. 4.154.0 was younger than 14 days when pinned. Every one of the 91 locked packages was at least 14 days old when pinned (`npm view <package>@<version> time`); `overrides` hold `semver` at 7.8.5 and `tslib` at 2.8.1 because 7.8.6 (2026-11-02) and 2.9.1 (2026-10-30) were younger. Metrics are off (`WRANGLER_SEND_METRICS=false`). The deploy token can write Worker scripts and nothing else |
+| Node.js | 22.23.4 (2026-10-20) | Card `hosted-workflow` | Runs `wrangler` (which needs 22 or later). The workflow installs this exact version with `actions/setup-node`; the record narrows the Node and npm rejections for this step only ([ADR 0007](../decisions/0007-hosted-edition.md)). It comes with `npm` |
 
 ## CI actions
 
@@ -329,6 +330,7 @@ Every action is pinned by commit SHA. The workflow line reads `uses: owner/name@
 | `actions/checkout` | v7.0.1 (2026-07-20) | `3d3c42e5aac5ba805825da76410c181273ba90b1` | |
 | `Swatinem/rust-cache` | v2.9.2 (2026-08-06) | `6323deb102c322ba6fcbdcafc7e3dddab59af2b6` | v2.9.3 was younger than 14 days when pinned. Saves the cache on `main` only |
 | `taiki-e/install-action` | v2.87.27 (2026-10-09) | `ab6895351a88b908e96a4697860d4ffea5e57dbe` | Later releases were younger than 14 days when pinned |
+| `actions/setup-node` | v7.1.0 (2026-10-08) | `949feb2413d6458794dcd2491c4babbbce0c15c1` | Installs the pinned Node for the hosted deploy workflow only, with the package-manager cache off |
 | `actions/upload-artifact` | v7.0.2 (2026-10-07) | `cf430e030ddbb5b0abf93d22962f4752f3646cd9` | |
 | `actions/download-artifact` | v8.0.2 (2026-10-07) | `9000827ccba6bdab643e8b6fd33ac0654aef8333` | v8 fails on a digest mismatch |
 
