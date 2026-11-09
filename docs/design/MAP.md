@@ -27,7 +27,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | `#claims`, `#questions`, `#glossary`, `#sources`: RegisterTable, StatusChip | `claims.html`, `questions.html`, `glossary.html`, `sources.html` | §2 Routes, §5, §7 | `build-registers`; `registers-xlsx` for the workbook and CSV copies |
 | `#conflicts`, `#conflicts-<id>` | `conflicts.html`, `conflicts.html#XC-14` | §2 Routes, §5 ConflictBox | `build-registers` |
 | `#templates`: TemplatesList | Briefs on `index.html`; `day-one.html`; `data/registers.xlsx`; `templates/<name>.xlsx` | §5 | `day-one-binder-and-registers-xlsx` and `registers-xlsx`; `e1-workbook-templates` for the template files |
-| Search: CommandPalette, SearchTrigger | `search.html#q=`; the palette on every page | §10, §5 | `search-core-and-cli`, `search-ranking-and-index`, `search-js`, `search-palette` |
+| Search: CommandPalette, SearchTrigger | `search.html#q=`; the palette on every page; `assets/search-index.js` (edition: page and section units, cap 15 MB, [ADR 0006](../decisions/0006-edition-search-index.md)) | §10, §5 | `search-core-and-cli`, `search-ranking-and-index`, `search-site-index`, `search-page-view`, `search-index-budget`, `search-js`, `search-palette` |
 | Id list (no mockup route) | `ids.html` | §2 Routes | `build-registers` |
 | `#frame/public`, `#frame/company`, `#frame/company-marked` | Shared frame preview only | §3 Frame; BuildChip, Sidebar and effective-label banner | `build-frame`; company context: `r2-overlay` |
 | About (no mockup route) | `about.html` | §2 Routes | `build-about` (compiled profile/posture, no live adapter probe); edition metadata from `edition-manifest` |
@@ -58,7 +58,7 @@ The Day 30 cards are `handoff-context`, `handoff-cite-check`, `handoff-new-note`
 | ShortcutsDialog | `app.js` on every page | §5, §6 | `search-palette` (`/`, Ctrl K); `assistant-page` adds the Ask shortcut |
 | DayChip and "Set your start date" | Header on every page and `index.html`, `app.js` | §5, §6, §11 | `views-and-day-n` |
 | CommandChip | Every write, as a command to copy | §5, §6 | `build-about` for the chip and its quoting; the verbs come from `add-new-and-edition`, `new-verbs`, `verify-status-fmt`, `status-command`, `fmt-command` and `search-cli-and-regression`; the Day 30 verbs (`context`, `cite-check`, `new note`) from `handoff-context`, `handoff-cite-check` and `handoff-new-note` |
-| CitationChip | Registers, search results, drawers | §5 | `build-page`, `check-citations`, `build-registers` |
+| CitationChip | Registers, drawers | §5 | `build-page`, `check-citations`, `build-registers` |
 | Design tokens | `:root`, dark, print, forced-colors and reduced-motion blocks in `assets/app.css` | §4 | `build-tokens` |
 | Frozen strings | `fieldbook-core::strings` and `strings.js` | §0 Frozen strings | `core-types-and-strings` |
 | Fixed template text | The templates; lines a page script shows are shared once (§0) | §0 Fixed template text | The card that builds each component; `core-types-and-strings` if the shared lines join the shared browser string table |
