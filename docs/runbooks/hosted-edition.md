@@ -35,14 +35,14 @@ A merge to `main` runs the deploy workflow ([`.github/workflows/hosted.yml`](../
 Workflow execution order:
 1. Check out clean, without stored credentials, and remove any `out/` left on the runner.
 2. Validate configuration.
-3. Search the tree for the values of the host and account id (prints nothing).
+3. Search the tree for the values of the host and account id: [`deploy/check-no-identifiers.sh`](../../deploy/check-no-identifiers.sh) searches case-insensitively, prints only the name of a variable that matched, and fails on an empty value or a search error.
 4. Build the edition static pages with `just site`.
 5. Stage `out/hosted` (edition pages, `originals/` at root, [`deploy/_headers`](../../deploy/_headers) and [`deploy/robots.txt`](../../deploy/robots.txt)).
 6. Check limits: `cargo --locked xtask hosted-limits out/hosted` (fails on any file over 25 MiB or total count over 20,000 files, and prints the five largest files; wrangler also refuses files over 25 MiB).
-7. Check the build is unreleased: `FIELDBOOK_GIT_SHA` must be unset and `out/hosted/index.html` must say "unreleased build". The hosted edition is never a released build.
+7. Check the build is unreleased: [`deploy/check-unreleased.sh`](../../deploy/check-unreleased.sh) fails if `FIELDBOOK_GIT_SHA` is set (even empty), if `out/hosted/index.html` is missing, or if it does not say "unreleased build". The hosted edition is never a released build.
 8. Install the pinned deploy tool: `npm ci --ignore-scripts`.
 9. Probe the login before the upload: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
-10. Deploy static assets: `wrangler deploy` using the commit SHA as the message.
+10. Deploy static assets: `wrangler deploy --env-file=/dev/null` using the commit SHA as the message. The flag stops wrangler loading a `.env` file from the persistent runner's checkout; the same flag is on `wrangler rollback`.
 11. Probe again after: run [`deploy/check-login-gate.sh`](../../deploy/check-login-gate.sh) against `FIELDBOOK_HOST`.
 
 Runner notes:
@@ -75,7 +75,7 @@ To restore a previous deployment:
    Read the deploy token from the owner's vault into the environment of the one command (`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`); never print it, never write it to a file.
 2. Apply rollback via either route:
    - Workflow: run the deploy workflow ([`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) from the Actions page with `rollback_to` set to that version id (skips the build, runs `wrangler rollback`, and runs a probe before and after). The concurrency group `deploy-hosted` keeps one waiting run: if a deploy is running when you dispatch, a push to `main` that arrives afterwards replaces your waiting rollback, and the Actions page shows it cancelled. Open the run after dispatching, confirm it started and was not replaced, and dispatch again if it was. Merge nothing to `main` until the rollback has run.
-   - Local: with the same environment as above, run `WRANGLER_SEND_METRICS=false npx --no-install wrangler rollback <version-id> --message "<reason>"`.
+   - Local: with the same environment as above, run `WRANGLER_SEND_METRICS=false npx --no-install wrangler rollback <version-id> --env-file=/dev/null --message "<reason>"`.
 3. Revert git history: a rollback changes what is served, not the repository. Follow it with a revert on `main`, or the next merge deploys the new code again.
 
 ## 5. Add a reader
@@ -103,7 +103,7 @@ To restore a previous deployment:
 5. Install from the new lock and run the dry-run deploy. The configuration points at `../out/hosted`, which does not exist until a site is staged, so name a small staged folder (as in section 8) with `--assets`:
    ```sh
    cd deploy && npm ci --ignore-scripts --no-audit --no-fund
-   WRANGLER_SEND_METRICS=false npx --no-install wrangler deploy --dry-run --outdir <scratch-out> --assets <scratch-dir>
+   WRANGLER_SEND_METRICS=false npx --no-install wrangler deploy --dry-run --env-file=/dev/null --outdir <scratch-out> --assets <scratch-dir>
    ```
    It needs no credentials and uploads nothing; it reads the staged files and exits after printing the upload size.
 6. Update the version in the workflow's version check (the version check file is [`.github/workflows/hosted.yml`](../../.github/workflows/hosted.yml)) and the dependencies row in [`docs/reference/dependencies.md`](../reference/dependencies.md) in the same pull request.
