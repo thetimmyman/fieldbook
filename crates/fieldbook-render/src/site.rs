@@ -14,7 +14,7 @@ use fieldbook_core::version::SCHEMA_VERSION_MAX;
 
 use crate::cite::OriginalAvailability;
 use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
-use crate::{about, area, edition, home, ids, nav, register, search_index, source};
+use crate::{about, area, edition, home, ids, nav, register, search_index, search_page, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
 const APP_JS: &str = include_str!("../assets/app.js");
@@ -132,7 +132,9 @@ pub fn planned_paths(view: &LabelledView) -> PlannedPaths {
         "assets/app.css".to_owned(),
         "assets/app.js".to_owned(),
         search_index::OUTPUT_PATH.to_owned(),
+        search_page::SCRIPT_PATH.to_owned(),
         "assets/strings.js".to_owned(),
+        search_page::OUTPUT_PATH.to_owned(),
         ids::OUTPUT_PATH.to_owned(),
         home::OUTPUT_PATH.to_owned(),
         about::OUTPUT_PATH.to_owned(),
@@ -192,9 +194,16 @@ pub fn render_with_context(
             site.insert(&source::page_path(vid.as_str()), html.into_bytes());
         }
     }
+    let search = search_index::build(view);
+    let search_html = search_page::render_page(&search, ctx, &navigation, &planned);
+    site.insert(search_page::OUTPUT_PATH, search_html.into_bytes());
     site.insert(
         search_index::OUTPUT_PATH,
-        search_index::render(view).into_bytes(),
+        search_index::write(&search).into_bytes(),
+    );
+    site.insert(
+        search_page::SCRIPT_PATH,
+        search_page::SCRIPT.as_bytes().to_vec(),
     );
     site.insert("assets/strings.js", strings::js().into_bytes());
     site.insert("assets/app.css", APP_CSS.as_bytes().to_vec());

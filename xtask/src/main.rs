@@ -80,6 +80,7 @@ mod docs;
 )]
 mod edition_release;
 mod errors;
+mod golden_wrap;
 #[cfg(test)]
 mod graph;
 mod guard;

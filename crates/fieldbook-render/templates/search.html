@@ -1,0 +1,29 @@
+<div class="search-view">
+  <header class="page-head">
+    <div class="eyebrow">
+      <span class="chip accent">Library</span>
+      <span class="chip mono">search.html</span>
+    </div>
+    <h1>{{ view.title }}</h1>
+  </header>
+
+  <p class="search-line" id="fb:search-blocked">Search needs scripts, which this browser blocks. <a href="{{ view.ids_href }}">{{ view.ids_label }}</a></p>
+  <input class="search-input" type="search" id="fb:search-q" aria-label="Search the library" aria-controls="fb:search-results" autocomplete="off" spellcheck="false" hidden>
+
+  <div class="search-out" id="fb:search-out">
+    <p class="search-line" id="fb:search-failed" hidden>The search index did not load. <a href="{{ view.ids_href }}">{{ view.ids_label }}</a></p>
+    <p class="search-line" id="fb:search-version" hidden>Search is unavailable for this index version. Use the <a href="{{ view.ids_href }}">ID list</a>.</p>
+    <p class="search-count" id="fb:search-more" hidden>Showing 50 of <span id="fb:search-total"></span></p>
+    <p class="panel search-none" id="fb:search-none" role="status" hidden></p>
+    <section class="search-latest" id="fb:search-latest" hidden>
+      <h2>Latest pages</h2>
+      <ul class="sr-list" role="listbox" aria-label="Latest pages">
+        {%- for row in view.latest %}
+        <li class="sr-row" role="option" data-id="{{ row.id }}" data-kind="{{ row.kind }}"><a class="sr-title" href="{{ row.href }}">{{ row.title }}</a>{% if !row.snippet.is_empty() %}<p class="sr-snip">{{ row.snippet }}</p>{% endif %}<div class="sr-meta">{{ row.meta }}</div></li>
+        {%- endfor %}
+      </ul>
+    </section>
+    <ul class="sr-list" id="fb:search-results" role="listbox" aria-label="Results"></ul>
+  </div>
+</div>
+<script src="{{ view.script_src }}" defer></script>
