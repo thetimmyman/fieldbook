@@ -1,6 +1,6 @@
 # Response headers for the hosted edition on Cloudflare Workers.
-# The first six are the header table of docs/decisions/0007-hosted-edition.md (Cache-Control adds no-cache so a deploy shows at once),
-# and the last three harden further. Content-Security-Policy equals CSP_STATIC in
+# All nine headers are the header table of docs/decisions/0007-hosted-edition.md, which matches this file exactly
+# (Cache-Control carries no-cache so a deploy shows at once). Content-Security-Policy equals CSP_STATIC in
 # crates/fieldbook-render/src/csp.rs plus frame-ancestors 'none'.
 # An integration test reads this file (xtask/tests/hosted_config.rs).
 
