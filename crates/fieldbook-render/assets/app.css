@@ -566,10 +566,18 @@ header.topbar > nav[aria-label="Sections"] [aria-current="true"],
 }
 
 .topbar-end {
+  flex: 1 1 auto;
+  min-width: 0;
   margin-left: auto;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: var(--space-2);
+}
+
+/* The search trigger shrinks first; the icon buttons keep their 32px. */
+.topbar .icon-btn {
+  flex: none;
 }
 
 .build-chip {
@@ -2525,6 +2533,326 @@ mark {
 
 @media (prefers-reduced-motion: reduce) {
   .skeleton {
+    animation: none;
+  }
+}
+
+/* SearchTrigger, CommandPalette and ShortcutsDialog (`search-palette`). Without scripts the
+   trigger is a link to ids.html and the dialogs stay closed and empty. */
+.searchbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 0 1 360px;
+  min-width: 0;
+  height: var(--control-h);
+  padding: 0 var(--space-2-5);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  color: var(--color-muted);
+  font: inherit;
+  font-size: var(--text-sm);
+  text-align: left;
+  text-decoration: none;
+  cursor: text;
+}
+
+.searchbox:hover {
+  border-color: var(--color-border-strong);
+}
+
+.searchbox span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.searchbox kbd {
+  white-space: nowrap;
+}
+
+dialog.palette,
+dialog.dlg {
+  top: 10vh;
+  bottom: auto;
+  margin: 0 auto;
+  padding: 0;
+  max-width: calc(100% - var(--space-4) - var(--space-4));
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  box-shadow: var(--shadow-pop);
+}
+
+dialog.palette {
+  width: 720px;
+  max-height: 76vh;
+  overflow: hidden;
+}
+
+dialog.palette[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+dialog.dlg {
+  top: 12vh;
+  width: 440px;
+}
+
+dialog.palette::backdrop,
+dialog.dlg::backdrop {
+  background-color: var(--color-scrim);
+}
+
+dialog.palette[open],
+dialog.dlg[open],
+dialog.palette[open]::backdrop,
+dialog.dlg[open]::backdrop {
+  animation: fb-appear var(--dur-med) var(--ease-out);
+}
+
+@keyframes fb-appear {
+  from { opacity: 0; }
+}
+
+.pal-in {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+  border-bottom: var(--border-w) solid var(--color-border);
+}
+
+.pal-in input {
+  flex: 1;
+  min-width: 0;
+  height: calc(var(--control-h) + var(--space-4));
+  border: 0;
+  background: transparent;
+  color: var(--color-fg);
+  font: inherit;
+  font-size: var(--text-lg);
+}
+
+.pal-note {
+  margin: 0;
+  padding: var(--space-2) var(--space-4) 0;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.pal-note:empty {
+  display: none;
+}
+
+/* The abstention sentence and the index lines: running text, not a group label. */
+.pal-msg {
+  margin: var(--space-3) var(--space-4) 0;
+  font-size: var(--text-sm);
+}
+
+.pal-msg:empty {
+  display: none;
+}
+
+/* Fills the panel, so that below 768px a tap under the rows is not a tap on the backdrop. */
+.pal-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--space-2) 0;
+}
+
+.pal-list .sr-row {
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 0;
+}
+
+/* A row with a link is one target: a click anywhere on it follows the link. */
+.pal-list .sr-row:has(a) {
+  cursor: pointer;
+}
+
+dialog.palette .skeleton {
+  margin: var(--space-2) var(--space-4);
+}
+
+/* Close is for pointer and touch on the full-screen palette, below 768px. */
+.pal-in .btn {
+  display: none;
+}
+
+.pal-list .sr-row[aria-selected="true"] {
+  background-color: var(--color-accent-soft);
+}
+
+.pal-list .sr-title {
+  font-size: var(--text-dense);
+}
+
+.pal-list .sr-snip {
+  color: var(--color-muted);
+}
+
+.pal-list mark {
+  color: var(--color-fg);
+}
+
+.pal-search {
+  border-top: var(--border-w) solid var(--color-border);
+}
+
+.dlg-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5) 0;
+}
+
+.dlg-h h2 {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+
+dialog.dlg .keys,
+dialog.dlg .switch,
+dialog.dlg .note {
+  margin: var(--space-3) var(--space-5);
+}
+
+dialog.dlg .note {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+dialog.dlg .note:empty {
+  display: none;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1-5) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.keys dt {
+  white-space: nowrap;
+}
+
+.keys dd {
+  margin: 0;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--control-h-sm);
+  padding: var(--space-0-5) var(--space-2-5) var(--space-0-5) var(--space-1);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  color: var(--color-muted);
+  font: inherit;
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+
+.switch i {
+  position: relative;
+  flex: none;
+  width: calc(var(--space-4) + var(--space-3));
+  height: var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-muted);
+}
+
+.switch i::after {
+  content: '';
+  position: absolute;
+  top: var(--space-0-5);
+  left: var(--space-0-5);
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  transition: left var(--dur-fast) var(--ease-out);
+}
+
+.switch[aria-pressed="true"] {
+  color: var(--color-fg);
+  border-color: var(--color-info);
+}
+
+.switch[aria-pressed="true"] i {
+  background-color: var(--color-info);
+}
+
+.switch[aria-pressed="true"] i::after {
+  left: calc(var(--space-3) + var(--space-0-5));
+}
+
+.keys-link {
+  align-self: flex-start;
+}
+
+@media (max-width: 1439px) {
+  .searchbox kbd {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1099px) {
+  .searchbox {
+    flex: none;
+    width: var(--control-h);
+    padding: 0;
+    justify-content: center;
+  }
+
+  .searchbox span,
+  .searchbox kbd {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .searchbox {
+    flex: 1 1 auto;
+  }
+
+  dialog.palette {
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .pal-in kbd {
+    display: none;
+  }
+
+  .pal-in .btn {
+    display: inline-flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.palette[open],
+  dialog.dlg[open],
+  dialog.palette[open]::backdrop,
+  dialog.dlg[open]::backdrop {
     animation: none;
   }
 }

@@ -17,7 +17,8 @@ use crate::meta::{BuildInfo, BuildProfile, MetadataError, RenderContext};
 use crate::{about, area, edition, home, ids, nav, register, search_index, search_page, source};
 
 const APP_CSS: &str = include_str!("../assets/app.css");
-const APP_JS: &str = include_str!("../assets/app.js");
+/// `assets/app.js`, which the harness also loads into its shortcut pages.
+pub const APP_JS: &str = include_str!("../assets/app.js");
 
 /// Deterministic set of relative output paths planned for a build (`build-frame`).
 #[derive(Debug, Clone, Default, PartialEq, Eq)]

@@ -1651,7 +1651,7 @@ const compareDecimal = function (x, y) {
         );
     }
 
-    /// The text of `name`'s `const name = function` body in app.js, up to its closing `    };`.
+    /// The text of `name`'s `const name = function` body in app.js, up to its closing `  };`.
     fn script_function(name: &str) -> &'static str {
         let head = format!("const {name} = function");
         let start = APP_JS
@@ -1659,7 +1659,7 @@ const compareDecimal = function (x, y) {
             .unwrap_or_else(|| panic!("app.js defines {name}"));
         let rest = &APP_JS[start..];
         let end = rest
-            .find("\n    };\n")
+            .find("\n  };\n")
             .unwrap_or_else(|| panic!("{name} ends"));
         &rest[..end]
     }

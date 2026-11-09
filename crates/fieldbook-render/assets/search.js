@@ -199,12 +199,12 @@ function usable(ix) {
   return ix && ix.v === 1 ? Promise.resolve(ix) : Promise.reject(ix ? 'version' : 'failed');
 }
 
-// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS.
+// Adds the index script once; a Skeleton only after SKELETON_DELAY_MS, in the results.
 function load() {
   if (pending) return pending;
   if (window.FB_INDEX) return (pending = usable(window.FB_INDEX));
   pending = new Promise(function (resolve) {
-    var box = document.getElementById('fb:search-out') || el('div', '', ''), bar = null;
+    var box = $('out') || el('div', '', ''), bar = null;
     var script = document.createElement('script');
     var timer = window.setTimeout(function () {
       bar = el('div', 'skeleton', '');
@@ -228,7 +228,7 @@ window.FB_SEARCH = { load: load, rank: rank, render: render, run: run, tokens: t
   view: view };
 
 // The search page, search.html#q=.
-var input = document.getElementById('fb:search-q');
+var input = $('q');
 if (!input) return;
 function $(id) { return document.getElementById('fb:search-' + id); }
 var list = $('results');

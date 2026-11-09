@@ -882,10 +882,41 @@ const SEARCH_PAGES: [(&str, &[&str]); 3] = [
 /// The ranked golden whose index, with `v` set to 2, the version page loads.
 const VERSION_GOLDEN: &str = "search/seed-ranked.json";
 
-/// One search page, ready to open.
+/// The template of the shortcut pages (`search-palette`): `@MODE@` is filled in.
+const SHORTCUT_TEMPLATE: &str = include_str!("../harness/shortcuts.html");
+/// The shortcut and palette cases the shortcut pages run.
+const SHORTCUT_CASES_JS: &str = include_str!("../harness/shortcuts.js");
+/// The shortcut pages, each with every case it must report as passing.
+const SHORTCUT_PAGES: [(&str, &[&str]); 2] = [
+    (
+        "shortcuts",
+        &[
+            "trigger_is_a_button_showing_ctrl_k",
+            "ctrl_k_opens",
+            "slash_opens",
+            "slash_in_a_text_field_types",
+            "esc_closes_and_returns_focus",
+            "question_mark_opens_the_shortcuts_dialog",
+            "modal_dialogs_contain_focus",
+            "switch_off_stops_single_keys_but_not_ctrl_k",
+            "palette_empty_input_lists_latest_pages",
+            "palette_one_character_prefix_first",
+            "palette_duplicates_appear_once",
+            "palette_caps_at_eight",
+            "palette_absent_link_enter_does_not_navigate",
+            "palette_linked_result_enter_navigates",
+            "palette_row_click_follows_its_link",
+            "palette_backdrop_and_close_button_close",
+            "palette_final_search_row",
+        ],
+    ),
+    ("storage-throws", &["storage_throwing_page_still_works"]),
+];
+
+/// One harness page that runs cases (a search page or a shortcut page), ready to open.
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub(crate) struct SearchPage {
-    /// `goldens`, `skeleton` or `version`.
+pub(crate) struct CasePage {
+    /// Search: `goldens`, `skeleton` or `version`; shortcuts: `shortcuts` or `storage-throws`.
     pub(crate) mode: &'static str,
     /// The generated page.
     pub(crate) path: PathBuf,
@@ -965,7 +996,7 @@ pub(crate) fn prepare_search_pages(
     root: &Path,
     harness: &Path,
     site_index: Option<&Path>,
-) -> Result<Vec<SearchPage>, String> {
+) -> Result<Vec<CasePage>, String> {
     let wrappers = golden_wrap::write(root)?;
     let golden_root = root.join(golden_wrap::GOLDEN_DIR);
     let mut files = Vec::new();
@@ -1036,7 +1067,7 @@ pub(crate) fn prepare_search_pages(
         let path = dir.join(format!("{mode}.html"));
         let html = inject_script(&html, &selftest_src(&path, &dir)?)?;
         write_file(&path, html.as_bytes())?;
-        pages.push(SearchPage {
+        pages.push(CasePage {
             mode,
             path,
             required,
@@ -1045,7 +1076,48 @@ pub(crate) fn prepare_search_pages(
     Ok(pages)
 }
 
-/// One case a search page reported.
+/// Writes the shortcut pages under `<harness>/shortcuts/<mode>/<mode>.html`, one per entry of
+/// [`SHORTCUT_PAGES`]: each loads `shortcuts.js` first (its synthetic index and, for
+/// `storage-throws`, storage that throws), then the site's `strings.js`, `search.js` and
+/// `app.js`, with the self-test and `hold.js` beside them.
+pub(crate) fn prepare_shortcut_pages(harness: &Path) -> Result<Vec<CasePage>, String> {
+    let base = harness.join("shortcuts");
+    if base.exists() {
+        fs::remove_dir_all(&base)
+            .map_err(|error| format!("cannot clear {}: {error}", base.display()))?;
+    }
+    let mut pages = Vec::new();
+    for (mode, named) in SHORTCUT_PAGES {
+        let dir = base.join(mode);
+        write_file(
+            &dir.join("assets/strings.js"),
+            fieldbook_core::strings::js().as_bytes(),
+        )?;
+        write_file(
+            &dir.join(fieldbook_render::search_page::SCRIPT_PATH),
+            fieldbook_render::search_page::SCRIPT.as_bytes(),
+        )?;
+        write_file(
+            &dir.join("assets/app.js"),
+            fieldbook_render::site::APP_JS.as_bytes(),
+        )?;
+        write_file(&dir.join("shortcuts.js"), SHORTCUT_CASES_JS.as_bytes())?;
+        write_file(&dir.join(SELFTEST_NAME), SELFTEST_JS.as_bytes())?;
+        write_file(&dir.join("hold.js"), SEARCH_HOLD_JS.as_bytes())?;
+        let path = dir.join(format!("{mode}.html"));
+        let html = SHORTCUT_TEMPLATE.replace("@MODE@", mode);
+        let html = inject_script(&html, &selftest_src(&path, &dir)?)?;
+        write_file(&path, html.as_bytes())?;
+        pages.push(CasePage {
+            mode,
+            path,
+            required: named.iter().map(|id| (*id).to_owned()).collect(),
+        });
+    }
+    Ok(pages)
+}
+
+/// One case a case page reported.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct SearchCase {
     pub(crate) id: String,
@@ -1053,7 +1125,7 @@ pub(crate) struct SearchCase {
     pub(crate) text: String,
 }
 
-/// What a finished search page reported: its cases in order and its summary line.
+/// What a finished case page reported: its cases in order and its summary line.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct SearchRun {
     pub(crate) cases: Vec<SearchCase>,
@@ -1068,11 +1140,12 @@ fn tag_attribute<'a>(tag: &'a str, name: &str) -> Option<&'a str> {
     Some(&tag[start..end])
 }
 
-/// Reads a search page's dumped DOM: every `<li data-case data-ok>` and `#harness-summary`.
-/// Fails, naming `page` and each case, when the page did not finish, a case failed, the failed
-/// count disagrees, or a `required` case did not run.
-pub(crate) fn judge_search_page(
+/// Reads a case page's dumped DOM: every `<li data-case data-ok>` and `#harness-summary`.
+/// Fails, naming `page`, its `group` (`search` or `shortcut`) and each case, when the page did
+/// not finish, a case failed, the failed count disagrees, or a `required` case did not run.
+pub(crate) fn judge_case_page(
     page: &str,
+    group: &str,
     dom: &str,
     required: &[String],
 ) -> Result<SearchRun, Vec<String>> {
@@ -1092,7 +1165,7 @@ pub(crate) fn judge_search_page(
         let ok = tag_attribute(tag, "data-ok") == Some("true");
         let text = unescape_html(&dom[tag_end + 1..close]);
         if !ok {
-            failures.push(format!("{page}: search case {id} failed: {text}"));
+            failures.push(format!("{page}: {group} case {id} failed: {text}"));
         }
         cases.push(SearchCase { id, ok, text });
         from = close;
@@ -1112,7 +1185,7 @@ pub(crate) fn judge_search_page(
     };
     if tag_attribute(tag, "data-done") != Some("true") {
         failures.push(format!(
-            "{page}: the search cases did not finish ({} reported)",
+            "{page}: the {group} cases did not finish ({} reported)",
             cases.len()
         ));
     }
@@ -1124,11 +1197,11 @@ pub(crate) fn judge_search_page(
     }
     for id in required {
         if !cases.iter().any(|c| &c.id == id) {
-            failures.push(format!("{page}: search case {id} did not run"));
+            failures.push(format!("{page}: {group} case {id} did not run"));
         }
     }
     if cases.is_empty() {
-        failures.push(format!("{page}: no search case ran"));
+        failures.push(format!("{page}: no {group} case ran"));
     }
     if failures.is_empty() {
         Ok(SearchRun { cases, summary })
@@ -1137,11 +1210,17 @@ pub(crate) fn judge_search_page(
     }
 }
 
-/// Opens each search page and prints each case; returns the failures.
-fn run_search_pages(browser: &Path, work: &Path, pages: &[SearchPage]) -> Vec<String> {
+/// Opens each case page of `group` (`search`, under `search/`, or `shortcut`, under
+/// `shortcuts/`) and prints each case; returns the failures.
+fn run_case_pages(browser: &Path, work: &Path, group: &str, pages: &[CasePage]) -> Vec<String> {
     let mut failures = Vec::new();
+    let folder = if group == "search" {
+        "search"
+    } else {
+        "shortcuts"
+    };
     for page in pages {
-        let name = format!("search/{}.html", page.mode);
+        let name = format!("{folder}/{}.html", page.mode);
         let loaded = match load(browser, &page.path, work, &name, PAGE_LIMIT) {
             Ok(loaded) => loaded,
             Err(error) => {
@@ -1153,12 +1232,12 @@ fn run_search_pages(browser: &Path, work: &Path, pages: &[SearchPage]) -> Vec<St
         if let Err(found) = judge_html_page(&name, &loaded.dom) {
             failures.extend(found);
         }
-        match judge_search_page(&name, &loaded.dom, &page.required) {
+        match judge_case_page(&name, group, &loaded.dom, &page.required) {
             Ok(run) => {
                 for case in &run.cases {
-                    println!("harness: search: {}: ok", case.id);
+                    println!("harness: {group}: {}: ok", case.id);
                 }
-                println!("harness: search: {name}: {}", run.summary);
+                println!("harness: {group}: {name}: {}", run.summary);
             }
             Err(found) => {
                 for failure in &found {
@@ -1268,7 +1347,22 @@ pub(crate) fn command(root: &Path, args: &[&str]) -> Result<bool, String> {
     let site_index = edition.join(fieldbook_render::search_index::OUTPUT_PATH);
     let search_pages =
         prepare_search_pages(root, &harness, site_index.is_file().then_some(&*site_index))?;
-    failures.extend(run_search_pages(&browser.path, &work, &search_pages));
+    failures.extend(run_case_pages(
+        &browser.path,
+        &work,
+        "search",
+        &search_pages,
+    ));
+
+    // The shortcut pages (`search-palette`): the trigger, the palette and the shortcuts dialog
+    // through the site's app.js, once with working storage and once with storage that throws.
+    let shortcut_pages = prepare_shortcut_pages(&harness)?;
+    failures.extend(run_case_pages(
+        &browser.path,
+        &work,
+        "shortcut",
+        &shortcut_pages,
+    ));
 
     let pages = prepare_copy(&edition, &copy)?;
     let texts = renderable_originals(&originals, originals_count(&edition_toml)?)?;
@@ -2109,7 +2203,7 @@ mod tests {
     #[test]
     fn search_page_with_every_case_passing_passes() {
         let dom = search_dom(&[("rk-01", true), ("skeleton_waits_300ms", true)], true, 0);
-        let run = judge_search_page("search/goldens.html", &dom, &ids(&["rk-01"])).unwrap();
+        let run = judge_case_page("search/goldens.html", "search", &dom, &ids(&["rk-01"])).unwrap();
         assert_eq!(run.cases.len(), 2);
         assert_eq!(run.summary, "2 cases, 0 failed");
     }
@@ -2117,7 +2211,7 @@ mod tests {
     #[test]
     fn a_failed_search_case_fails_and_is_named() {
         let dom = search_dom(&[("rk-01", true), ("rk-s-04", false)], true, 1);
-        let failures = judge_search_page("search/goldens.html", &dom, &[]).unwrap_err();
+        let failures = judge_case_page("search/goldens.html", "search", &dom, &[]).unwrap_err();
         assert_eq!(failures.len(), 1, "{failures:?}");
         assert!(
             failures[0].contains("search case rk-s-04 failed"),
@@ -2129,7 +2223,7 @@ mod tests {
     #[test]
     fn an_unfinished_search_page_fails() {
         let dom = search_dom(&[("rk-01", true)], false, 0);
-        let failures = judge_search_page("search/skeleton.html", &dom, &[]).unwrap_err();
+        let failures = judge_case_page("search/skeleton.html", "search", &dom, &[]).unwrap_err();
         assert!(
             failures.iter().any(|f| f.contains("did not finish")),
             "{failures:?}"
@@ -2139,8 +2233,9 @@ mod tests {
     #[test]
     fn a_required_search_case_that_did_not_run_fails() {
         let dom = search_dom(&[("rk-01", true)], true, 0);
-        let failures = judge_search_page(
+        let failures = judge_case_page(
             "search/skeleton.html",
+            "search",
             &dom,
             &ids(&["skeleton_waits_300ms"]),
         )
@@ -2149,8 +2244,148 @@ mod tests {
             failures,
             vec!["search/skeleton.html: search case skeleton_waits_300ms did not run".to_owned()]
         );
-        let failures = judge_search_page("search/x.html", "<html></html>", &[]).unwrap_err();
+        let failures =
+            judge_case_page("search/x.html", "search", "<html></html>", &[]).unwrap_err();
         assert!(failures[0].contains("no #harness-summary"), "{failures:?}");
+    }
+
+    #[test]
+    fn a_failed_shortcut_case_fails_and_is_named_in_words() {
+        let mut dom = search_dom(&[("ctrl_k_opens", true)], true, 1);
+        dom = dom.replace(
+            "</ol>",
+            "<li data-case=\"slash_in_a_text_field_types\" data-ok=\"false\">slash_in_a_text_field_types (slash in a text field types): the palette stays closed</li></ol>",
+        );
+        let failures = judge_case_page(
+            "shortcuts/shortcuts.html",
+            "shortcut",
+            &dom,
+            &ids(&["ctrl_k_opens", "slash_in_a_text_field_types"]),
+        )
+        .unwrap_err();
+        assert_eq!(failures.len(), 1, "{failures:?}");
+        assert!(
+            failures[0].starts_with(
+                "shortcuts/shortcuts.html: shortcut case slash_in_a_text_field_types failed"
+            ),
+            "{failures:?}"
+        );
+        assert!(
+            failures[0].contains("slash in a text field types"),
+            "{failures:?}"
+        );
+    }
+
+    #[test]
+    fn an_unfinished_shortcut_page_fails_even_with_no_failed_case() {
+        // The page --dump-dom wrote before its cases ran (the load event was not held).
+        let dom = search_dom(&[("ctrl_k_opens", true)], false, 0);
+        let failures = judge_case_page(
+            "shortcuts/storage-throws.html",
+            "shortcut",
+            &dom,
+            &ids(&["ctrl_k_opens", "storage_throwing_page_still_works"]),
+        )
+        .unwrap_err();
+        assert_eq!(
+            failures,
+            vec![
+                "shortcuts/storage-throws.html: the shortcut cases did not finish (1 reported)"
+                    .to_owned(),
+                "shortcuts/storage-throws.html: shortcut case storage_throwing_page_still_works did not run"
+                    .to_owned(),
+            ]
+        );
+        let empty = search_dom(&[], false, 0);
+        let failures =
+            judge_case_page("shortcuts/shortcuts.html", "shortcut", &empty, &[]).unwrap_err();
+        assert!(
+            failures.iter().any(|f| f.contains("no shortcut case ran")),
+            "{failures:?}"
+        );
+    }
+
+    #[test]
+    fn shortcut_pages_load_the_site_scripts_and_require_every_named_case() {
+        let dir = tempfile::tempdir().unwrap();
+        let harness = dir.path().join("out/harness");
+        let pages = prepare_shortcut_pages(&harness).unwrap();
+        let modes: Vec<&str> = pages.iter().map(|p| p.mode).collect();
+        assert_eq!(modes, ["shortcuts", "storage-throws"]);
+        for page in &pages {
+            let dir = page.path.parent().unwrap();
+            assert_eq!(
+                page.path,
+                harness.join(format!("shortcuts/{0}/{0}.html", page.mode))
+            );
+            let html = fs::read_to_string(&page.path).unwrap();
+            assert!(
+                html.contains(&format!("data-harness=\"{}\"", page.mode)),
+                "{html}"
+            );
+            let order: Vec<usize> = [
+                "<script src=\"selftest.js\"></script>",
+                "<script src=\"shortcuts.js\" defer></script>",
+                "<script src=\"assets/strings.js\" defer></script>",
+                "<script src=\"assets/search.js\" defer></script>",
+                "<script src=\"assets/app.js\" defer></script>",
+            ]
+            .iter()
+            .map(|tag| html.find(tag).unwrap_or_else(|| panic!("{tag} missing")))
+            .collect();
+            assert!(order.windows(2).all(|w| w[0] < w[1]), "{order:?}");
+            assert_eq!(
+                fs::read_to_string(dir.join("assets/app.js")).unwrap(),
+                fieldbook_render::site::APP_JS
+            );
+            assert_eq!(
+                fs::read_to_string(dir.join("assets/search.js")).unwrap(),
+                fieldbook_render::search_page::SCRIPT
+            );
+            assert_eq!(
+                fs::read_to_string(dir.join("assets/strings.js")).unwrap(),
+                fieldbook_core::strings::js()
+            );
+            assert_eq!(
+                fs::read_to_string(dir.join("shortcuts.js")).unwrap(),
+                SHORTCUT_CASES_JS
+            );
+            assert!(dir.join("hold.js").is_file());
+            assert!(dir.join(SELFTEST_NAME).is_file());
+        }
+        // The card's named cases are required, so a case that stops running fails by name.
+        for id in [
+            "ctrl_k_opens",
+            "slash_opens",
+            "slash_in_a_text_field_types",
+            "esc_closes_and_returns_focus",
+            "question_mark_opens_the_shortcuts_dialog",
+            "switch_off_stops_single_keys_but_not_ctrl_k",
+            "modal_dialogs_contain_focus",
+            "palette_one_character_prefix_first",
+            "palette_duplicates_appear_once",
+            "palette_caps_at_eight",
+            "palette_absent_link_enter_does_not_navigate",
+            "palette_linked_result_enter_navigates",
+            "palette_final_search_row",
+        ] {
+            assert!(
+                pages[0].required.iter().any(|r| r == id),
+                "{id} not required"
+            );
+            assert!(
+                SHORTCUT_CASES_JS.contains(&format!("guarded('{id}'")),
+                "{id} is not a case of shortcuts.js"
+            );
+        }
+        assert_eq!(
+            pages[1].required,
+            ids(&["storage_throwing_page_still_works"])
+        );
+        // The harness opens pages with no virtual time: cases that waited for the load event
+        // would run after --dump-dom had written the page.
+        assert!(SHORTCUT_CASES_JS.contains("document.addEventListener('DOMContentLoaded'"));
+        assert!(!SHORTCUT_CASES_JS.contains("window.addEventListener('load'"));
     }
 
     fn copy_dir(from: &Path, to: &Path) {

@@ -7,7 +7,8 @@
 //! scripts are blocked, with its link to `ids.html`. The script ranks in the browser; this module
 //! ranks nothing.
 //!
-//! **Rules.** Pure: no I/O. The script is compiled in. The latest pages come from the docs of the
+//! **Rules.** Pure: no I/O. The script is compiled in; every page loads it from `base.html`, for
+//! the command palette (`search-palette`). The latest pages come from the docs of the
 //! edition index, so the page shows the values `search.js` would show for the same units.
 
 use askama::Template;
@@ -60,8 +61,6 @@ pub struct SearchView {
     pub ids_href: &'static str,
     /// The text of that link.
     pub ids_label: &'static str,
-    /// The `src` of the search script.
-    pub script_src: &'static str,
     /// The page leads with the latest `as_of`, latest first.
     pub latest: Vec<LatestRow>,
 }
@@ -139,7 +138,6 @@ pub fn build_view(index: &Index) -> SearchView {
         title: PAGE_TITLE,
         ids_href: ids::OUTPUT_PATH,
         ids_label: ids::PAGE_TITLE,
-        script_src: SCRIPT_PATH,
         latest: latest_pages(index),
     }
 }
