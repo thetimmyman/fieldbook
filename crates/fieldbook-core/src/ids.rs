@@ -398,6 +398,36 @@ impl Ord for ClaimId {
 
 impl_id_common!(ClaimId);
 
+/// Claim numbers per claims-register part page (`claims/<AREA>-<part>.html`).
+pub const CLAIMS_PER_PART: u32 = 500;
+
+/// Splits a public claim id into its upper-case area code and 1-based part number.
+/// The part depends only on the id: part = (number - 1) / CLAIMS_PER_PART + 1, so
+/// CL-CMP-0001..0500 -> 1, 0501..1000 -> 2, 1001 -> 3, 9485 -> 19. A number of 0 (the grammar allows `0000`)
+/// is treated as part 1 (use saturating_sub). Returns None when `claim_id` is not a valid ClaimId.
+#[must_use]
+pub fn claim_part(claim_id: &str) -> Option<(String, u32)> {
+    let parsed = ClaimId::parse(claim_id).ok()?;
+    let area = parsed.area().as_str().to_ascii_uppercase();
+    let part = parsed.number().saturating_sub(1) / CLAIMS_PER_PART + 1;
+    Some((area, part))
+}
+
+/// Site-relative route of the part page holding `claim_id`: `claims/<AREA>-<part>.html`,
+/// e.g. `claims/CMP-1.html`. None when the id is malformed.
+#[must_use]
+pub fn claim_page_route(claim_id: &str) -> Option<String> {
+    let (area, part) = claim_part(claim_id)?;
+    Some(format!("claims/{area}-{part}.html"))
+}
+
+/// Site-relative href of a claim row: `<route>#<claim_id>`, e.g. `claims/CMP-1.html#CL-CMP-0011`.
+#[must_use]
+pub fn claim_href_target(claim_id: &str) -> Option<String> {
+    let route = claim_page_route(claim_id)?;
+    Some(format!("{route}#{claim_id}"))
+}
+
 /// A public question identifier (`Q-025`).
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct QuestionId {
@@ -1034,5 +1064,51 @@ mod tests {
             ToolRelease::parse(&release_patch).unwrap_err().kind(),
             IdErrorKind::Overflow
         );
+    }
+
+    #[test]
+    fn claim_part_and_page_routing() {
+        let cases = [
+            ("CL-CMP-0001", 1),
+            ("CL-CMP-0500", 1),
+            ("CL-CMP-0501", 2),
+            ("CL-CMP-1000", 2),
+            ("CL-CMP-1001", 3),
+            ("CL-CMP-9485", 19),
+            ("CL-CMP-10000", 20),
+            ("CL-CMP-99999", 200),
+            ("CL-CMP-0000", 1),
+        ];
+
+        for (id, expected_part) in cases {
+            let (area, part) = claim_part(id).expect("valid claim id");
+            assert_eq!(area, "CMP");
+            assert_eq!(part, expected_part);
+        }
+
+        assert_eq!(
+            claim_page_route("CL-CMP-0011"),
+            Some("claims/CMP-1.html".to_string())
+        );
+        assert_eq!(
+            claim_href_target("CL-CMP-9485"),
+            Some("claims/CMP-19.html#CL-CMP-9485".to_string())
+        );
+
+        let malformed = [
+            "",
+            "CL-CM-0011",
+            "cl-cmp-0011",
+            "CL-CMP-011",
+            "CL-CMP-0011x",
+            "S-0001",
+            "CL-CMP-100000",
+        ];
+
+        for bad in malformed {
+            assert_eq!(claim_part(bad), None, "expected None for {bad:?}");
+            assert_eq!(claim_page_route(bad), None, "expected None for {bad:?}");
+            assert_eq!(claim_href_target(bad), None, "expected None for {bad:?}");
+        }
     }
 }
