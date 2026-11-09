@@ -214,7 +214,8 @@ The edition as a static site behind the owner's login. It needs no phase exit an
 - hosted-runbook: the hosted-edition runbook (deploy, verify, roll back, add a reader, rotate the token), its `AGENTS.md` link and the changelog line
 - search-ranking-warnings: the regression set judges the page view, and the Corpus content fixes the cases that still miss, so `check` reports no `FB0127` (owner review)
 - home-area-placeholders: the home and area placeholders take the design's wording or omission, and the sections the design does not cover are listed for a design revision
-- search-palette-design-items: the palette placeholder, the quoted search row, the named shortcuts dialog, the six tokenless values and the 375px and role checks left by `search-palette`
+- search-palette-design-items: the palette placeholder, the quoted search row, the named shortcuts dialog, the six tokenless values and the role checks left by `search-palette`
+- narrow-width-check: `just browser` frames a built page at 375px and fails when it scrolls sideways or a top-bar button is under the control height
 - unreleased-status-strip: a strip on every unreleased page saying the build is not an edition and its claims are AI-drafted and unchecked, with counts computed from the claims
 
 ## P4
