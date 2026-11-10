@@ -12,7 +12,7 @@
 
 - The advisories. Five advisories name the locked `zip` 8.6.0: GHSA-m665-v7pm-7grj (critical, fixed in 9.0.5), GHSA-9hj8-73fh-9963, GHSA-hjqx-j4rw-g7xv and GHSA-q7v9-x93c-xqv3 (high, fixed in 9.0.0) and GHSA-8hxf-qr8p-62x4 (moderate, fixed in 9.0.0). `xtask/src/zipdet.rs` reads and writes zips, so the reader issues apply to it.
 - Why both move. The graph holds exactly one `zip` ([dependencies.md](../reference/dependencies.md#policy), Duplicate versions), and `rust_xlsxwriter` 0.99.1 needs `zip ^8.3`. Every `rust_xlsxwriter` from 0.100.0 needs `zip ^9.0` with `deflate` only. The newest that clears the 14-day cooldown ([The cooldown](../reference/dependencies.md#the-cooldown)) at the time of writing is 0.101.0; 0.102.0 is younger. `zip` 9.0.5 is older than 14 days, so no cooldown exception is needed and the card is `auto` under [Dependencies and the lock file](README.md#dependencies-and-the-lock-file).
-- This is the `rust_xlsxwriter` and `zip` half of the planned replacement row in [Planned replacements](../reference/dependencies.md#planned-replacements), brought forward by the advisories. `calamine` is not in the graph yet; `extract-xlsx-sheets` pins the `calamine` that is on `zip` 9 when it adds it, as its own BLOCKED section already says.
+- This is the `rust_xlsxwriter` and `zip` half of the planned replacement row in [Planned replacements](../reference/dependencies.md#planned-replacements), brought forward by the advisories. It takes over the `rust_xlsxwriter` and `zip` half of the former P4 line `rust-xlsxwriter-bump`, which this card's pull request removed from PLAN.md. `calamine` is not in the graph yet; `extract-xlsx-sheets` pins the `calamine` that is on `zip` 9 when it adds it, as its own BLOCKED section says.
 - Determinism. AD-12 and `edition-zips` require byte-identical zips for equal inputs. `rust_xlsxwriter` stamps the current time unless told otherwise ([AGENTS.md](../../AGENTS.md#traps)); no shipped code writes a workbook yet, so the card adds a test that pins the fixed creation time on the new release.
 - The recipe is [Adding a crate, a tool or an action](README.md#adding-a-crate-a-tool-or-an-action) and [Review evidence](../reference/dependencies.md#review-evidence).
 - Design: none.
@@ -26,8 +26,8 @@
 ## Out of scope
 
 - `calamine` and any reader of workbooks.
-- Any other crate's version, beyond what the lock resolves for `zip` 9's own dependencies.
-- The `zlib` feature of `rust_xlsxwriter` and any C code ([Named bans](../reference/dependencies.md#named-bans)).
+- A requirement or pin change for any other crate. `just lock` re-resolves the whole lock under the cooldown, so other lock entries may move; Step 2 names each one and the review covers it.
+- The `zlib` feature of `rust_xlsxwriter`, and any feature that brings C code into the build graph ([Named bans](../reference/dependencies.md#named-bans)).
 - A cooldown exception: if a fix needs a release younger than 14 days, that is the owner's (BLOCKED).
 
 ## Preconditions
@@ -37,11 +37,11 @@
 ## Steps
 
 1. Before any edit, record the SHA-256 of the zip that `deterministic_zip_is_byte_identical_across_insertion_orders_directories_and_timezones` in `zipdet.rs` writes, in the pull request (a scratch print, not committed).
-2. Set `rust_xlsxwriter = "0.101.0"` and `zip = { version = "9.0.5", default-features = false, features = ["deflate"] }` in `Cargo.toml`. Run `just lock` and read the diff: name every crate that enters or leaves, and confirm one `zip`.
+2. Set `rust_xlsxwriter = "0.101.0"` and `zip = { version = "9.0.5", default-features = false, features = ["deflate"] }` in `Cargo.toml`. Run `just lock` and read the whole `Cargo.lock` diff: list in the pull request every lock entry that enters, leaves or changes version, each with its old and new version and its release date ([Review evidence](../reference/dependencies.md#review-evidence) step 4), and confirm one `zip`.
 3. Fix any compile error that the `zip` 9 API causes in `zipdet.rs` or `edition_release.rs`. Keep the stored method refused, the entry order sorted and the timestamp from `SOURCE_DATE_EPOCH`.
 4. Add `crates/fieldbook-render/tests/xlsx_determinism.rs` with `a_workbook_with_a_fixed_creation_time_is_byte_identical`: write the same one-sheet synthetic workbook twice with a fixed creation time in its document properties and compare the bytes.
-5. Gather the evidence of [Review evidence](../reference/dependencies.md#review-evidence) steps 1 to 4: both locked and frozen builds, both cargo-deny shapes, metadata for both graph targets, the transitive counts against the caps of [Policy](../reference/dependencies.md#policy), and the release date of every changed lock entry. Update the rows and append the Measurements rows. Obtain the exact-source MAX/JEV review of step 5 and link it in the pull request.
-6. Record the SHA-256 of Step 1's zip again. If it differs, say so in the pull request with the reason (a change of the deflate output); the requirement is equal bytes for equal inputs on one version, which Step 7's tests check.
+5. Gather the evidence of [Review evidence](../reference/dependencies.md#review-evidence) steps 1 to 4: both locked and frozen builds, both cargo-deny shapes, metadata for both graph targets, the transitive counts against the caps of [Policy](../reference/dependencies.md#policy), and the release date of every changed lock entry. Update the rows and append the Measurements rows. In the note under Pins, the sentence that names `rust-xlsxwriter-bump` says instead that `zip-advisories` moved `zip` to 9 and that `calamine` 0.37.0 is the first release on it. Obtain the exact-source MAX/JEV review of step 5, covering `rust_xlsxwriter`, `zip` and every lock entry of Step 2's list, and link it in the pull request.
+6. Record the SHA-256 of Step 1's zip again. If it differs, say so in the pull request with the reason (a change of the deflate output); the requirement is equal bytes for equal inputs on one version, which Step 4's test and the Acceptance tests check.
 
 ## Acceptance
 
@@ -65,4 +65,4 @@ Revert the merge commit. The lock returns to `zip` 8.6.0 and `rust_xlsxwriter` 0
 
 ## BLOCKED
 
-The transitive count of a profile goes above its cap, `zip` 9 needs a feature that brings C code, `deny.toml` would need a change, or the fix needs a release younger than 14 days: comment `BLOCKED: <what>` on the work item with the count or the crate, push the branch and take the next card. The owner decides a cap or a cooldown exception.
+The transitive count of a profile goes above its cap, `zip` 9 needs a feature that brings C code into the build graph, `deny.toml` would need a change, or the fix needs a release younger than 14 days: comment `BLOCKED: <what>` on the work item with the count or the crate, push the branch and take the next card. The owner decides a cap or a cooldown exception.

@@ -6,7 +6,7 @@
 
 ## Outcome
 
-A reader can start from one concept hub per Cost Accounting Standard (CAS 401 to 418 and 420), one overview of the FAR 31.205 cost principles and one page per contract type, and each hub links every existing page about its subject.
+A reader can start from one overview of the FAR 31.205 cost principles, one page per contract type, and a concept hub for each Cost Accounting Standard this part writes, in number order from CAS 401 within about 600 changed lines; each page links every existing page about its subject, and `kb-hub-pages-2` carries the standards this part leaves.
 
 ## Why
 
@@ -18,7 +18,7 @@ A reader can start from one concept hub per Cost Accounting Standard (CAS 401 to
 
 ## Scope
 
-- Files: `corpus/pages/compliance/cas-allowability/` (new hubs, and `links` lines of existing CAS pages), `corpus/pages/contract-finance/billing-payment/` (new contract-type pages, and `links` of `ctf-contract-types`), `corpus/registers/claims.csv` (appended rows only).
+- Files: `corpus/pages/compliance/cas-allowability/` (new hubs, and the `links` line of `cmp-cas-overview`), `corpus/pages/contract-finance/billing-payment/` (new contract-type pages, and `links` of `ctf-contract-types`), `corpus/registers/claims.csv` (appended rows only).
 - Docs to update: none.
 
 ## Out of scope
@@ -36,7 +36,7 @@ A reader can start from one concept hub per Cost Accounting Standard (CAS 401 to
 1. Write `cmp-far-31-205-cost-principles` (concept) under `compliance/cas-allowability/`: what a cost principle decides, the factors of allowability in FAR 31.201-2, and a grouped list linking each cost-principle clause card.
 2. Write one page per contract type under `contract-finance/billing-payment/`: firm-fixed-price, fixed-price incentive (firm target), fixed-price with economic price adjustment, cost-plus-fixed-fee, cost-plus-incentive-fee, cost-plus-award-fee, time-and-materials and labour-hour. Each says who carries cost risk and how fee or profit is set, citing FAR 16 (`S-0041`), and is added to the `links` of `ctf-contract-types`.
 3. For each of the 19 standards, list the existing pages that cite it, from `rg` over `corpus/pages/`, in the pull request.
-4. Write `cmp-cas-<nnn>-hub` for each standard: Purpose, The rule (the standard's purpose and fundamental requirement, cited), How it works, a synthetic worked example, Never confuse (a real contrast with a neighbouring standard or FAR rule), Company calibration, and `links` to every page of Step 3. Add each hub to the `links` of `cmp-cas-overview`.
+4. Write `cmp-cas-<nnn>-hub` for each standard: Purpose, The rule (the standard's purpose and fundamental requirement, cited), How it works, a synthetic worked example, Never confuse (a real contrast with a neighbouring standard or FAR rule), Company calibration, and `links` to every page of Step 3. Add each hub to the `links` of `cmp-cas-overview`; this is the one existing CAS page the step edits, and the clause cards a hub links to stay as they are.
 5. Split when the pull request reaches about 600 lines: move the standards not yet written to `docs/cards/kb-hub-pages-2.md`, add its line to PLAN.md after this one, and say so in the pull request. Steps 1 and 2 stay in this part, because `search-glossary-aliases` needs their pages.
 6. Run `fieldbook check --strict`; fix every error and every warning on a consequential claim.
 
@@ -57,7 +57,7 @@ Cite a claim id that does not exist, `[@CL-CMP-9999]`, in one new page: `check -
 
 ## Rollback
 
-Revert the merge commit. The hubs and their claims go, and the existing pages lose the added `links` lines.
+Revert the merge commit. The hubs and their claims go, and `cmp-cas-overview` and `ctf-contract-types` lose the added `links` entries.
 
 ## BLOCKED
 

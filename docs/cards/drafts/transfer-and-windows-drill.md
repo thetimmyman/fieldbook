@@ -31,7 +31,7 @@ The `windows` job of AD-08 runs drill 2 of restore-drill.md on windows-2025, thr
 
 ## Preconditions
 
-- Cards merged: `windows-facts` (it created the `windows` job), `check-ci-and-docs` (the job `changes`), `edge-harness`, `search-palette` (the harness it runs on the extracted edition now holds the search and shortcut steps), `release-workflow`, `scheduled-workflow`, `day-one-binder-and-registers-xlsx` (the print check) and `narrow-width-check` (its narrow page is one more page of the harness the drill runs).
+- Cards merged: `windows-facts` (it created the `windows` job), `check-ci-and-docs` (the job `changes`), `edge-harness`, `search-palette` (the harness it runs on the extracted edition now holds the search and shortcut steps), `release-workflow`, `scheduled-workflow`, `day-one-binder-and-registers-xlsx` (the print check) `narrow-width-check` (its narrow page is one more page of the harness the drill runs) and `corpus-job-speed` (it changes how `harness.rs` opens pages).
 
 ## Steps
 

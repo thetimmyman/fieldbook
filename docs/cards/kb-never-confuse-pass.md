@@ -6,7 +6,7 @@
 
 ## Outcome
 
-Every Never confuse part of the Corpus states a contrast, a thing the subject is not or differs from, or says `Not established.`; none of them only restates a rule sentence of the page.
+Every Never confuse part in the areas this part covers, the first areas in order up to about 600 changed lines and listed in the pull request, states a contrast, a thing the subject is not or differs from, or says `Not established.`, and none of them only restates a rule sentence of the page; `kb-never-confuse-pass-2` and on carry the other areas.
 
 ## Why
 

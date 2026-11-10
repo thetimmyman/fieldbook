@@ -11,7 +11,8 @@ The `corpus` job of `ci.yml` finishes in at most half its measured time alone (3
 ## Why
 
 - The cost. Alone, the job takes 35 to 43 minutes: the site build about 12 and the browser harness about 23, over 1,894 pages, one browser process after another (`xtask/src/harness.rs`). With two self-hosted runners and one `corpus` job per pull request and per push to `main`, merging a queue of cards one after another takes hours.
-- Two places to win, neither dropping a check. The binary the job builds the site with is the debug build of the `rust` job (`cargo build --locked --package fieldbook`); a release build of the same commit renders the same bytes ([AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types), Determinism) in less time. The harness can open pages in several browser processes at once, each with its own profile folder and net-log, and judge each page as it does now.
+- Two places to win, neither dropping a check. The binary the job builds the site with is the debug build of the `rust` job (`cargo build --locked --package fieldbook`); a release build of the same commit renders the same bytes ([AD-12](../decisions/0001-foundation.md#ad-12-site-generation-and-page-types), Determinism) in less time. The harness can open pages in several browser processes at once, each with its own net-log, and judge each page as it does now.
+- The browser options do not change. `EDGE_FLAGS`, `browser_args()` and the test `browser_args_are_exactly_the_attested_options` stay as they are, including that test's ban on `--user-data-dir`: the options are the AD-08 set that `network-silence-summary.txt` reports and section 4 of `docs/intake/network-silence.md` fixes, which is IT-facing and the owner's gate. Each process uses the temporary profile that headless mode creates when no `--user-data-dir` is passed, plus its own `--log-net-log` path. Any further isolation between processes goes through the child process's environment (for example its own `TMPDIR`), never through a new option.
 - `Review: auto`: the card changes job steps and xtask code only. It changes no `permissions`, secret, runner label or action pin, and adds no job; any of those stops it (BLOCKED). [Adding a CI job](README.md#adding-a-ci-job) does not apply.
 - Decisions: [AD-08](../decisions/0001-foundation.md#ad-08-ci-design) (the CI design), CI-01 in [controls.md](../controls.md) (self-hosted runners only for trusted code).
 - Design: none.
@@ -24,6 +25,7 @@ The `corpus` job of `ci.yml` finishes in at most half its measured time alone (3
 
 ## Out of scope
 
+- Any new or changed browser option, any change to a line of `network-silence-summary.txt`, and any edit of `docs/intake/`.
 - Moving any job to a GitHub-hosted runner, or adding a runner.
 - Fewer pages, fewer originals, a sample of pages, or a weaker net-log judgement.
 - The deploy workflow `hosted.yml`.
@@ -35,7 +37,7 @@ The `corpus` job of `ci.yml` finishes in at most half its measured time alone (3
 ## Steps
 
 1. Measure on `main`, alone on one runner: each step of the `corpus` job from the job log, and in the harness the time per page and the time to start a browser. Record the table in the pull request.
-2. In `harness.rs`, open pages in `--jobs N` browser processes (default: half the available cores, at least 1), each with its own temporary profile and net-log. Collect the findings and print them in page order, so the output does not depend on N. Tests in `mod tests`: `findings_are_in_page_order_for_any_job_count` and `one_failing_page_fails_the_run_with_many_jobs`.
+2. In `harness.rs`, open pages in `--jobs N` browser processes (default: half the available cores, at least 1). Each process gets the unchanged `browser_args()` with its own net-log path; any other separation between processes is set in the child's environment, not as an option. Collect the findings and print them in page order, so the output does not depend on N. Tests in `mod tests`: `findings_are_in_page_order_for_any_job_count` and `one_failing_page_fails_the_run_with_many_jobs`.
 3. In `ci.yml`, build the binary of the `fieldbook-dev` artifact with `--release`, or add a release binary beside it if another job needs the debug build. Keep the `Check the Corpus` step first.
 4. Measure again as in Step 1, alone and beside another run. If the job is not at most half its measured time alone, say why in the pull request and stop (BLOCKED).
 
@@ -60,4 +62,4 @@ Revert the merge commit. The harness opens one page at a time and the job builds
 
 ## BLOCKED
 
-The change would need a `permissions` change, a secret, a new action, a new job or another runner, or the target is not met without dropping a check: comment `BLOCKED: <what>` on the work item with the Step 4 table, push the branch and take the next card.
+The change would need a `permissions` change, a secret, a new action, a new job or another runner; a new or changed browser option (an edit of `EDGE_FLAGS`, `browser_args()` or `browser_args_are_exactly_the_attested_options`, `--user-data-dir` among them); a change to any line of `network-silence-summary.txt`, its `options:` line included; or an edit of `docs/intake/`; or the target is not met without dropping a check: comment `BLOCKED: <what>` on the work item with the Step 4 table, push the branch and take the next card.

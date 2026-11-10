@@ -6,7 +6,7 @@
 
 ## Outcome
 
-The Edition date row of each clause card's rule table gives the clause's edition with a citation, or `Not established.` only where no source version in the register states it.
+In the areas this part covers, about 250 pages listed in the pull request, the Edition date row of each clause card's rule table gives the clause's edition with a citation, or `Not established.` only where no source version in the register states it; `kb-edition-dates-2` and on carry the other areas.
 
 ## Why
 
