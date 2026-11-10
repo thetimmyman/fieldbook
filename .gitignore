@@ -9,3 +9,9 @@ inbox/
 # A snapshot test writes its proposed value next to the snapshot; the author reads it and renames it by hand.
 *.snap.new
 .*.pending-snap
+# Deploy-time tooling installs here; the lockfile beside it is committed.
+deploy/node_modules/
+deploy/.wrangler/
+# A local token file for the deploy tool is never committed.
+deploy/.env*
+deploy/.dev.vars*
